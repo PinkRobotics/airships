@@ -210,8 +210,12 @@ and we would rather be shown one than not.
   suppression logistics, not against nothing.
 - **Sustainment.** Every class already runs a per-cycle deficit on these assumptions: solar at
   200 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and
-  `selftest()` asserts that this stays visibly true. If no plausible energy import chain closes the
-  gap at the cycle rates claimed, the throughput figures are fiction.
+  `selftest()` asserts that this stays visibly true. The intended answer is battery tender ships
+  swapping charged cells for discharged ones at mechanical speed — named, but deliberately not
+  modelled here. If no plausible energy import chain closes the gap at the cycle rates claimed,
+  the throughput figures are fiction. A related limit, which we would rather state than hide: a
+  hull that runs its storage down may be unable to descend until solar, nitrogen expansion or a
+  swap restores it.
 - **What arrives.** Tonnes delivered is not fire extinguished. Evidence that 10,000 t released from
   450 m over a convective column arrives as drift rather than as water on fuel would make the
   headline metric the wrong metric.

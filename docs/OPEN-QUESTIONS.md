@@ -172,7 +172,19 @@ class at every distance the fleet can fly, so the flag carries no information.
 Both are described in the prose as working parts of the vehicle. `passes` is likewise 3 in
 all 135 combinations, which makes it a constant wearing a formula.
 
-**DECISION: re-measure after #1 and #6, then make the code and the copy agree.** Both of
+**DECISION (revised 2026-08-09): KEEP both, and make them bind.**
+
+Retained descent ballast and the cryogenic plant stay in the design. If holding water back
+or carrying LN₂ costs longer cycles or more power, that is the honest price and the
+published throughput should carry it. What is not acceptable is a doctrine described in the
+prose that never changes an outcome in the code.
+
+Both changes above push on this: a hull sized for fail-safe float-up (#1) is more buoyant
+and needs more holding down, and bounding N₂ output by the ballast actually aboard (#6)
+couples the cryogenic plant to something that matters. Re-measure after both, and if
+retention still never binds, tighten until it does rather than deleting it.
+
+**Superseded first reading — re-measure, then make code and copy agree:** Both of
 those changes push the margins the other way, so retention and the cryogenic plant may
 become live on their own. Whatever is true afterwards is what the prose must say.
 
@@ -244,7 +256,30 @@ the vehicle is said to carry.
 | a. Dispatch the generators, with a fuel ledger | The honest version: generation is credited, fuel is consumed, fuel mass enters the mass ledger and eats into payload. The deficit probably becomes an endurance limit instead. |
 | b. Remove the generators | If the intent is a solar-and-storage vehicle, then `genMW` must also come out of rotor authority, and the class cards and prose must stop mentioning generators. The published thrust figures fall. |
 
-**DECISION: (b), remove the generators — the vehicle is battery-electric.**
+**DECISION (revised 2026-08-09, superseding the first reading below): KEEP the generators
+and credit them as energy — they are the nitrogen plant, not a fuel burner.**
+
+The onboard generation IS the N₂ expansion path: liquefy nitrogen when there is power to
+spare, expand it back through a generator when there is not. That is why it stays. But it
+also means this is **storage, not a source** — the round trip loses (`CFG.rtLN2` < 1), so
+crediting it honestly makes the per-cycle deficit *larger*, not smaller. The model must
+therefore bound expansion output by the LN₂ actually aboard, rather than treating `genMW`
+as free continuous power the way `rotorMaxT` currently does.
+
+Alongside it:
+
+  * **batteries grow on every class, most on the P-10000.** Their mass is bought at design
+    time with more vacuum cells, so the displacement sizing in #1 and the storage sizing
+    here are one calculation, not two.
+  * **more rotor authority comes from the battery**, particularly for getting down.
+  * **a hull that runs out of power may be unable to descend** until solar, N₂ expansion or
+    a cell swap restores it. That is a real operating limit and it should be modelled and
+    stated, not designed away.
+  * **the energy equation is best-effort by design.** Fleet throughput depends on battery
+    tender ships ferrying charged cells for discharged ones, swapped at mechanical speed.
+    Named as the mechanism, deliberately unmodelled beyond that.
+
+**Superseded first reading — (b), remove the generators:**
 
 The resupply story is battery-cell swap: tender airships exchange depleted cells for charged
 ones from a ground centre. That makes the vehicle battery-electric, and an onboard generator
