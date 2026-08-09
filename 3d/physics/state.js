@@ -9,7 +9,7 @@
  * mission arithmetic is a bug — that is how two pages start quoting different fill times.
  */
 
-import { clamp01, clamp, lerp } from '../core/math.js?v=40607c4a';
+import { clamp01, clamp, lerp } from '../core/math.js?v=979d7011';
 
 /**
  * The mission phases, in cycle order. A superset of the /airships page's six-phase PHASES list:

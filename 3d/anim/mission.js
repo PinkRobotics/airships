@@ -17,11 +17,11 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=40607c4a';
-import { massState } from '../physics/mass.js?v=40607c4a';
-import { derivePower } from '../physics/energy.js?v=40607c4a';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=40607c4a';
-import { ASSUMPTIONS } from '../model/config.js?v=40607c4a';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=979d7011';
+import { massState } from '../physics/mass.js?v=979d7011';
+import { derivePower } from '../physics/energy.js?v=979d7011';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=979d7011';
+import { ASSUMPTIONS } from '../model/config.js?v=979d7011';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
@@ -106,7 +106,12 @@ export function phaseAt(timeline, u) {
 export function anchorAt(cls, altitudeM, full = 1) {
   const cable = cls.anchorCableM || 0;
   if (cable <= 0) return { anchorProgress: 0, anchorFill: 0 };
-  const reachAlt = Math.max(0, cable - cls.maxRadiusM);      // hull altitude at first contact
+  // The PUBLISHED diameter, not the derived maxRadiusM: app/anchorview.js has to compute the
+  // same altitude from the monitor's class record, and the monitor publishes a diameter. The two
+  // differ by half a metre — enough to put the bag's fill a percent apart between the model and
+  // the avatar, which anchor-parity.cases.js caught. The driver still uses the real keel height
+  // for the geometry; this is the choreography, and it only has to agree with the other copy.
+  const reachAlt = Math.max(0, cable - cls.nominalDiameterM / 2);   // altitude at first contact
   // Start lowering a quarter of a cable before it can touch, so the bag is ready when the ship
   // reaches the band it cannot hold itself in rather than being thrown after it.
   if (altitudeM > reachAlt + cable * 0.25) return { anchorProgress: 0, anchorFill: 0 };

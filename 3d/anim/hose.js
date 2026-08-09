@@ -19,8 +19,8 @@
  * animation appear in a static exported figure.
  */
 
-import { clamp, clamp01, lerp, damp, add, sub, mul, len, norm } from '../core/math.js?v=40607c4a';
-import { tubeGeom } from '../model/geom.js?v=40607c4a';
+import { clamp, clamp01, lerp, damp, add, sub, mul, len, norm } from '../core/math.js?v=979d7011';
+import { tubeGeom } from '../model/geom.js?v=979d7011';
 
 /**
  * @param {object} cls   resolved class
@@ -57,6 +57,11 @@ export function createHose(cls, reel, opts = {}) {
  */
 export function updateHose(h, dt, cmd = {}) {
   const target = clamp01(cmd.progress === undefined ? h.deployed : cmd.progress);
+  // `snap` is for a CUT, not a frame: the viewer has been pointed at a different ship, and
+  // easing from the previous one's winch state would show this hull reeling in line it never
+  // had out. Everything else in this file is deliberately rate-limited; this is the one case
+  // where the previous state is not this vehicle's history at all.
+  if (cmd.snap) { h.deployed = target; h.podPos = null; }
   // The winch has a rate. Paying out is faster than hauling in, as it is on any winch.
   // These are CAPS against a jumping target (a phase skip, a ship swap) — in normal play the
   // commanded progress itself ramps in sim time (hoseDeployMin/hoseRetractMin through the
@@ -93,6 +98,9 @@ export function updateHose(h, dt, cmd = {}) {
     // Once released the pod is ballistic. Damping it toward a target derived from its own
     // position would cancel the velocity it is accumulating, and it would hang in the air.
     h.podPos = want;
+  } else if (cmd.snap || h.podPos === null) {
+    h.podPos = want;
+    h.podVel = [0, 0, 0];
   } else if (cmd.reduced) {
     h.podPos = want;
     h.podVel = [0, 0, 0];

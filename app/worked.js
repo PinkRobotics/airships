@@ -1,18 +1,19 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle } from '../sim/index.js';
-import { $, kvRows } from './dom.js';
-import { replanAll } from './fleet.js';
-import { S } from './store.js';
+import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle } from '../sim/index.js?v=32eb46d5';
+import { $, kvRows } from './dom.js?v=32eb46d5';
+import { replanAll } from './fleet.js?v=32eb46d5';
+import { S } from './store.js?v=32eb46d5';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
   { k: "speedMul", label: "Airspeed multiplier", unit: "×", min: 0.6, max: 1.4, step: 0.05, d: 2, note: "scales every class's cruise speed" },
   { k: "fillMul", label: "Fill-rate multiplier", unit: "×", min: 0.5, max: 2, step: 0.1, d: 1, note: "pump capacity is a demonstration assumption" },
   // Scales every class's hose at once. It is a multiplier rather than a length because the
-  // length is now a property of the class (300 m on a P-100, 1,350 m on a P-10000), and it is
-  // the most consequential slider on the page: shortening the hose brings the ship down into
-  // denser air, where it has to hold water back as ballast instead of delivering it.
+  // length is a property of the class (`CLASSES[*].hoseM`, 300 m on all three today). The hose
+  // sets the altitude the ship fills from, so lengthening it lifts the ship out of the densest
+  // air and shortening it pushes it further in — which is why the descent anchor, not this
+  // dial, is what makes the big hulls able to get down at all.
   { k: "hoseMul", label: "Hose length", unit: "x", min: 0.4, max: 1.6, step: 0.1, d: 1, note: "how far up water is pushed, and so how high the ship fills from" },
   { k: "pumpEta", label: "Pump system efficiency", unit: "", min: 0.5, max: 0.9, step: 0.05, d: 2, note: "pumps, hose losses and electrics, all-in" },
   { k: "Cd", label: "Hull drag coefficient", unit: "", min: 0.03, max: 0.12, step: 0.005, d: 3, note: "streamlined-body assumption; cube-law sensitive" },

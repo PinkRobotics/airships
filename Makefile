@@ -56,10 +56,15 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint golden test interaction  ## Everything CI checks that runs without node
+check: lint stampcheck golden test interaction  ## Everything CI checks that runs without node
 
-stamp:  ## Recompute the 3D library's version hash and stamp every import with it
+stampcheck:  ## Fail if any import is stamped at a version other than the current one
+	@$(PY) 3d/scripts/stamp-version.py --check
+	@$(PY) tools/stamp_site.py --check
+
+stamp:  ## Recompute both version hashes and stamp every import with them
 	$(PY) 3d/scripts/stamp-version.py
+	$(PY) tools/stamp_site.py
 
 # pipeline/figures.py draws the concept page's diagrams, but it imports `design`, a module
 # that stayed behind in the private site repository. It does not run here and is not wired

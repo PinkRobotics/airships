@@ -12,13 +12,13 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=40607c4a';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=40607c4a';
-import { byPrefix, walk } from '../core/nodes.js?v=40607c4a';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=40607c4a';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=40607c4a';
-import { hoseGeometry } from './hose.js?v=40607c4a';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=40607c4a';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=979d7011';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=979d7011';
+import { byPrefix, walk } from '../core/nodes.js?v=979d7011';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=979d7011';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=979d7011';
+import { hoseGeometry } from './hose.js?v=979d7011';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=979d7011';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];
@@ -684,6 +684,7 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
       const pod = N.podNodes[i];
       const podFailed = failed.has(h.id) || failed.has(pod ? pod.id : '');
       updateHose(h, dt, {
+        snap: d.snapNext,
         progress: out,
         waterFlow: flow,
         windMps: env.windMps || DEFAULT_WIND,
@@ -762,6 +763,7 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     const gapM = waterZ === undefined ? 0 : Math.max(0, h.reel.p[2] - waterZ);
     const wantDepthM = out * Math.max(0, gapM - lift);
     updateHose(h, dt, {
+      snap: d.snapNext,
       progress: h.headM > 0 ? clamp01(wantDepthM / h.headM) : 0,
       waterFlow: 0,
       windMps: env.windMps || DEFAULT_WIND,
@@ -837,8 +839,9 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
       pitch: (cls.maxPitchRateDegS * Math.PI) / 180,
       yaw: (cls.maxYawRateDegS * Math.PI) / 180,
     };
-    if (reduced) {
+    if (reduced || d.snapNext) {
       d.attitude = { ...want };
+      d.attitudeRate = { roll: 0, pitch: 0, yaw: 0 };
     } else {
       for (const [k, key] of [['roll', 'rollRad'], ['pitch', 'pitchRad'], ['yaw', 'yawRad']]) {
         const err = shortestAngle((want[key] || 0) - d.attitude[key]);
@@ -855,6 +858,11 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     b.root.r = [d.attitude.rollRad, d.attitude.pitchRad, d.attitude.yawRad];
     b.root._localDirty = true;
   }
+
+  // One frame only. Set `driver.snapNext = true` before a tick to cut rather than ease — the
+  // one legitimate use is that the viewer has been pointed at a DIFFERENT SHIP, and easing
+  // from the previous hull's attitude and winches is animating a history this one never had.
+  d.snapNext = false;
 
   return d;
 }

@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=40607c4a';
-import { anchorAt, phaseShape } from '../anim/mission.js?v=40607c4a';
-import { massState } from '../physics/mass.js?v=40607c4a';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=40607c4a';
-import { clamp01 } from '../core/math.js?v=40607c4a';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=979d7011';
+import { anchorAt, phaseShape } from '../anim/mission.js?v=979d7011';
+import { massState } from '../physics/mass.js?v=979d7011';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=979d7011';
+import { clamp01 } from '../core/math.js?v=979d7011';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -178,7 +178,7 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     anchorFill,
     overWater,
     waterReleaseProgress: shape.waterReleaseProgress || 0,
-    pumpPodDepthM: hoseProgress * (opts.headM || 250),
+    pumpPodDepthM: hoseProgress * (opts.headM || cls.hoseLengthM || 250),
 
     attitude: shape.attitude || { rollRad: 0, pitchRad: 0, yawRad: 0 },
     failedComponents: opts.failed || [],

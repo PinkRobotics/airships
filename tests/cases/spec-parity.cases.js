@@ -15,7 +15,7 @@
  * deliberate, the right move is to delete the field from one side, not to loosen this.
  */
 import { describe, it, eq } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=32eb46d5';
 import { resolveClass } from '../../3d/model/config.js';
 
 /** sim field -> 3D field, for every quantity both files claim to know. */
@@ -23,6 +23,9 @@ const SHARED = {
   payloadT: 'payloadTonnes',
   dispM3: 'displacementM3',
   lenM: 'lengthM',
+  // Both anchor rules compute first contact from the hull's radius, so the two files have to
+  // publish the same diameter — see anchor-parity.cases.js.
+  diaM: 'nominalDiameterM',
   diskM2: 'publishedDiscAreaM2',
   genMW: 'generatorContinuousPowerMW',
   battMWh: 'batteryEnergyMWh',

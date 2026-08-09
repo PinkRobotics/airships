@@ -3,11 +3,12 @@
  * It exists because a wireframe with labelled force arrows says things a rendered
  * vehicle cannot: which way the rotors are pushing, and how hard.
  */
-import { fmt } from '../../sim/index.js';
-import { $ } from '../dom.js';
-import { resize } from '../map/projection.js';
-import { draw } from '../map/render.js';
-import { S } from '../store.js';
+import { fmt } from '../../sim/index.js?v=32eb46d5';
+import { anchorView } from '../anchorview.js?v=32eb46d5';
+import { $ } from '../dom.js?v=32eb46d5';
+import { resize } from '../map/projection.js?v=32eb46d5';
+import { draw } from '../map/render.js?v=32eb46d5';
+import { S } from '../store.js?v=32eb46d5';
 
 /* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
    force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel
@@ -218,16 +219,10 @@ export const shipViz = (() => {
      * scaled by the cube root of its fill — it is a volume, and the eye reads the radius. */
     const bagCapT = m.cls.anchorBagT || 0;
     if (bagCapT > 0) {
-      let cableP = 0, fillF = 0;
       const fullF = Math.min(1, (m.plan ? m.plan.anchorT : 0) / bagCapT);
-      if (st.phase === "RETURN_TRANSIT") {
-        cableP = Math.max(0, Math.min(1, (st.prog - 0.62) / 0.18));
-        fillF = fullF * Math.max(0, Math.min(1, (st.prog - 0.78) / 0.14));
-      } else if (st.phase === "SOURCE_APPROACH") { cableP = 1; fillF = fullF; }
-      else if (st.phase === "WATER_FILL") {
-        fillF = fullF * (1 - Math.min(1, st.prog / 0.30));
-        cableP = 1 - Math.max(0, Math.min(1, (st.prog - 0.25) / 0.35));
-      }
+      // One rule, shared with the 3D model — see app/anchorview.js for why it is a copy and
+      // tests/cases/anchor-parity.cases.js for what stops the two drifting apart again.
+      const { cableP, fillF } = anchorView(m.cls, st.alt, st.phase, st.prog, fullF);
       if (cableP > 0.02) {
         // The bag hangs at the surface while it fills and just clear of it once it is full.
         const lift = 0.055 * Math.max(0, Math.min(1, (fillF / Math.max(0.01, fullF) - 0.8) / 0.2));

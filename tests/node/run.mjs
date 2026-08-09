@@ -23,6 +23,7 @@ await import('../cases/sim-determinism.cases.js');
 await import('../cases/sim-config.cases.js');
 await import('../cases/sim-geo.cases.js');
 await import('../cases/spec-parity.cases.js');
+await import('../cases/anchor-parity.cases.js');
 await import('../cases/sim-heat.cases.js');
 
 const suites = collect();

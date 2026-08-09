@@ -3,10 +3,10 @@
  * The 3D library knows nothing about this page. Everything page-specific — which view
  * suits which phase, how the camera follows a heading, how the model is framed — is here.
  */
-import { CFG, stateAt } from '../../sim/index.js';
-import { cockpitShip } from '../cockpit/panels.js';
-import { $ } from '../dom.js';
-import { S } from '../store.js';
+import { CFG, stateAt } from '../../sim/index.js?v=32eb46d5';
+import { cockpitShip } from '../cockpit/panels.js?v=32eb46d5';
+import { $ } from '../dom.js?v=32eb46d5';
+import { S } from '../store.js?v=32eb46d5';
 
 /* The parametric model from 3d/, mounted below the operation strip and driven by the SAME
    stateAt() that drives the map, the dials and the schematic. The library's own adapter
@@ -19,8 +19,9 @@ export let m3d = null, m3dMode = "shell", m3dBusy = false, m3dDead = false, m3dV
 export let m3dCamMode = "sync";          // camera follows the ship's heading, like the schematic
 
 export let m3dAz = null;                 // rate-limited camera azimuth (real seconds, not sim speed)
+export let m3dShipKey = "";              // which hull the panel is showing; a change is a hard cut
+export let m3dAnchorSpanM = 0;           // framed vertical span while the anchor is down, latched
 
-export let m3dSideSign = 0;              // which way the side-on swing goes; 0 = not side-on
 
 /* Auto per phase: [viewMode, systems isolation, camera]. "sync" keeps the heading-follow
    camera (the travelling shot); named presets glide there via the camera's own easing. */
@@ -80,8 +81,9 @@ export async function ensureM3D(m) {
       mission: m,
       stateAt: () => { const mm = cockpitShip(); return mm ? stateAt(mm, S.simTime) : null; },
       cfg: CFG,
-      adapt: { headM: 45 },   // displayed pod depth only — 250 m of true hose reads as
-                              // an infinite spike at panel scale and leaves the frame
+      // No headM override: the pod hangs the class's real hose (300 m), because the panel now
+      // draws the lake and a 45 m hose put the pumps 255 m above the water they are pumping.
+      adapt: {},
       props: { quality: "medium", showForces: false, showCells: true, interactive: true },
     });
   } catch (e) {
@@ -97,6 +99,27 @@ export let m3dWindKey = "";
 
 export function updateM3D(m, st) {
   if (!m3d || $("model3d").hidden) return;
+
+  /* SWITCHING SHIPS IS A CUT, NOT A MOVE.
+   *
+   * Everything in this panel eases: the camera azimuth is rate-limited to ~29 deg/s so a 60x
+   * simulation cannot whip the view around, the hull's attitude is rate-limited by the class's
+   * own envelope, and the winches run at winch speed. All of that is right for ONE ship being
+   * watched over time, and all of it is wrong the instant the reader picks a different hull —
+   * the panel then spends seconds rotating from the heading of a ship nobody is looking at any
+   * more, which reads as the new ship spinning for no reason.
+   *
+   * So a change of ship snaps: the camera adopts the new heading outright, the model adopts the
+   * new attitude, and the rates are zeroed so nothing eases in from the old one's state. */
+  const shipKey = m ? String(m.id || m.name || "") : "";
+  if (shipKey !== m3dShipKey) {
+    m3dShipKey = shipKey;
+    m3dAz = null;                       // null means "adopt the target this frame"
+    // The driver takes it from here: `snapNext` makes the next tick a cut rather than an ease,
+    // for the attitude and for both winches at once.
+    if (m3d.driver) m3d.driver.snapNext = true;
+    m3dAnchorSpanM = 0;                 // the next ship frames its own drop, not this one's
+  }
   m3d.sync(m, st);
   // Feed the mission's live wind into the model frame (+x = nose), so the wind lines, the
   // hose drift and the gust responses all answer the same air the plan flies in — plus the
@@ -135,28 +158,19 @@ export function updateM3D(m, st) {
       });
     }
   }
-  // The synced camera holds the model in the same on-map orientation as the schematic —
-  // rate-limited in real time, so a 20x simulation cannot whip the view around. While
-  // water is moving (fill or drop) it swings a quarter-turn to the SIDE, where the hose
-  // and the spray actually read.
+  /* The synced camera holds the model in the SAME on-map orientation as the schematic, and
+   * nothing else. It used to swing a quarter-turn to the side while water was moving, on the
+   * theory that the hose and the spray read better side-on; in practice sync that is sometimes
+   * not sync is worse than either, because the reader cannot tell a heading change from a
+   * staging decision. Removed 2026-08-09 — if a side-on view is wanted it belongs on a preset
+   * the user can choose, not on a phase the ship happens to be in.
+   *
+   * Still rate-limited in real seconds, so a 60x simulation cannot whip the view around. */
   if ((m3dCamMode === "sync" || m3dCamMode === "syncManual") && m3d.camera) {
     const cam = m3d.camera;
     cam.elevation = 0.35;
     const h = m.dispAng || 0;
-    const base = -Math.PI / 2 + Math.atan2(Math.sin(h) / Math.sin(cam.elevation), Math.cos(h));
-    // A quarter-turn to the side, taken the SHORT way. Which side is chosen once on entry —
-    // whichever is nearer where the camera already is — and held for the phase, so the view
-    // never swings three-quarters of the way round to reach a view a quarter-turn away.
-    const wantSide = st.phase === "WATER_FILL" || st.phase === "WATER_RELEASE";
-    if (!wantSide) m3dSideSign = 0;
-    else if (m3dSideSign === 0) {
-      const wrap = (x) => { let v = x % (2 * Math.PI); if (v > Math.PI) v -= 2 * Math.PI;
-        if (v < -Math.PI) v += 2 * Math.PI; return v; };
-      const az = m3dAz === null ? base : m3dAz;
-      m3dSideSign = Math.abs(wrap(base + Math.PI / 2 - az)) <=
-        Math.abs(wrap(base - Math.PI / 2 - az)) ? 1 : -1;
-    }
-    const tgt = base + m3dSideSign * Math.PI / 2;
+    const tgt = -Math.PI / 2 + Math.atan2(Math.sin(h) / Math.sin(cam.elevation), Math.cos(h));
     if (m3dAz === null) m3dAz = tgt;
     let d = tgt - m3dAz;
     while (d > Math.PI) d -= 2 * Math.PI;
@@ -186,8 +200,21 @@ export function updateM3D(m, st) {
       const anchorOut = cable > 0 && st.alt <= (cable - c3.maxRadiusM) + cable * 0.25
         && (st.phase === "SOURCE_APPROACH" || st.phase === "WATER_FILL"
           || (st.phase === "RETURN_TRANSIT" && st.prog > 0.94));
-      const anchorDropM = anchorOut ? Math.min(st.alt, cable, c3.lengthM * 0.7) : 0;
-      const dropM = Math.max(hoseOut ? 52 : 0, anchorDropM);
+      /* THE FRAMING IS LATCHED WHILE THE ANCHOR IS OUT, and that is the whole point.
+       *
+       * The model is ship-centred: the hull is the origin and cannot move, so a descent can only
+       * ever be shown as the WATER rising to meet it. Framing the drop continuously — fitting
+       * ship-to-bag every frame — zooms in by exactly as much as the gap closes and cancels that
+       * cue precisely. The ship then appears to hang at the end of a cable that never gets
+       * shorter, which is what it looked like: "it stops at anchor length and doesn't continue
+       * down". It was descending 790 m to 300 the whole time.
+       *
+       * So the span is taken once, when the cable goes out, and held until it comes back in. The
+       * water then visibly climbs the frame, the bag climbs with it, and the shrinking cable is
+       * legible because the frame it is drawn in stopped moving. */
+      if (!anchorOut) m3dAnchorSpanM = 0;
+      else if (m3dAnchorSpanM === 0) m3dAnchorSpanM = Math.min(st.alt, cable, c3.lengthM * 0.7);
+      const dropM = Math.max(hoseOut ? 52 : 0, m3dAnchorSpanM);
       const halfW = Math.max(c3.maxRadiusM * 1.8,
         (c3.lengthM / 2) * Math.abs(Math.sin(cam.azimuth)) * 1.1 + c3.maxRadiusM * 0.5);
       // The elevated camera also projects the hull's LENGTH onto the vertical axis.
