@@ -50,6 +50,12 @@ function report(name, ok, note = '') {
   if (ok === null) skip++; else if (ok) pass++; else fail++;
 }
 async function check(name, fn) {
+  // Announced before it runs, not after. --dump-dom prints nothing when the browser is killed
+  // mid-run, so on a machine where the suite hangs the console is the only record of how far it
+  // got; scripts/browser-tests.sh keeps chromium's stderr for exactly this. The 25 s race below
+  // guards a promise that never settles, but it cannot interrupt a synchronous call that never
+  // returns, which is the failure this line names.
+  console.log(`RUN ${name}`);
   try {
     const r = await Promise.race([
       fn(),

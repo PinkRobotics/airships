@@ -181,8 +181,11 @@ a test framework that can hang.
 - **The golden dumps need time.** `check.py` waits 16 s for the model dump and 18 s for the UI
   dump before evaluating. Twelve is not enough — the page has not finished building the fleet
   and the evaluation fails outright rather than returning something wrong.
-- **`tools/js_eval.py` binds a fixed debug port (9281).** Two golden runs at once will fight
-  over it.
+- **Two golden runs at once are fine now.** `tools/js_eval.py` used to bind a fixed debug port
+  (9281) and share the default browser profile, so a second run found the port taken, got no
+  debuggable page, and died pointing at the websocket library rather than at the collision. It
+  now takes a free port from the kernel and a profile of its own, as `tests/interaction/check.py`
+  always did.
 - **`CFG` is global.** It is the only mutable state in `sim/`, so any test that patches it
   must `resetConfig()` in a `finally`. `sim-config.cases.js` is both the test of that and the
   worked example of the pattern.
