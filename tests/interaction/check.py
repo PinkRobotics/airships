@@ -69,6 +69,23 @@ import time
 import urllib.error
 import urllib.request
 
+def chrome_flags():
+    """Extra Chromium flags this environment needs.
+
+    Ubuntu 24.04 restricts unprivileged user namespaces, which is what Chromium's sandbox
+    is built on, so on a CI runner the browser refuses to start at all. Dropping the
+    sandbox is safe for what these tools do — drive a page we just served from this
+    repository on loopback — but it is not something to do on a developer's machine by
+    default, so it is switched on by the CI environment variable rather than always.
+
+    /dev/shm on a runner is small enough that Chromium's shared-memory allocator falls over
+    on a page with several canvases, which presents as an unexplained tab crash.
+    """
+    if os.environ.get('CI'):
+        return ['--no-sandbox', '--disable-dev-shm-usage']
+    return []
+
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 QUERY = "?seed=7&data=snapshot"
@@ -373,6 +390,7 @@ async def drive(url: str, settle: int, verbose: bool) -> int:
         # empty localStorage means the first-visit overlay and the default map/model split.
         proc = subprocess.Popen([
             CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+            *chrome_flags(),
             f"--remote-debugging-port={port}", "--remote-allow-origins=*",
             f"--user-data-dir={tmp}/profile",
             "--use-angle=swiftshader", "--enable-unsafe-swiftshader",

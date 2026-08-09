@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """Load a page headless, collect console messages + page errors, report the <title>,
 optionally screenshot. Usage: cdp-check.py URL [OUT.png] [WIDTH] [WAIT_S]"""
+import os
 import asyncio, base64, json, subprocess, sys, time, urllib.request
+
+def chrome_flags():
+    """Chromium cannot use its namespace sandbox on an Ubuntu 24.04 CI runner, and the
+    small /dev/shm there crashes tabs with several canvases. Only on CI."""
+    return ['--no-sandbox', '--disable-dev-shm-usage'] if os.environ.get('CI') else []
+
 
 URL = sys.argv[1]
 OUT = sys.argv[2] if len(sys.argv) > 2 else None
@@ -11,6 +18,7 @@ PORT = 9272
 
 proc = subprocess.Popen([
     "chromium", "--headless=new", "--disable-gpu", "--hide-scrollbars",
+    *chrome_flags(),
     f"--remote-debugging-port={PORT}", "--remote-allow-origins=*", "--use-angle=swiftshader",
     f"--window-size={WIDTH},1600", "about:blank",
 ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

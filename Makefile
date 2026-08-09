@@ -39,8 +39,8 @@ test-node:  ## Run the node unit tests, or say plainly that node is missing
 	   echo 'test-node: SKIPPED — no node here. These tests are not optional: CI runs'; \
 	   echo '           them on every push, and `make check` does not cover them.'; \
 	 else set -x; \
-	   if [ -f tests/node/run.mjs ]; then node tests/node/run.mjs; else node --test tests/node/; fi; \
-	   node --test 3d/tests/; \
+	   if [ -f tests/node/run.mjs ]; then node tests/node/run.mjs; else node --test tests/node/*.mjs; fi; \
+	   node --test 3d/tests/*.test.mjs; \
 	 fi
 
 golden:  ## Re-run the model at seed=7 and diff every output against tests/golden/

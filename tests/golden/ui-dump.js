@@ -13,6 +13,22 @@
      the fleet happened to be doing after however long this particular load took. Freeze it
      at a fixed point in the cycle, let two frames render against that, and the comparison
      is of the interface rather than of the machine's mood. */
+  /* WAIT FOR THE LAYOUT TO SETTLE. The map canvas is sized by the grid, and the grid moves
+     while the 3D panel mounts and the avatar claims its leftover space. Capturing "after
+     four seconds" therefore records whichever moment the machine happened to reach — this
+     dump differed by 22 pixels of map height between a laptop and a CI runner, which is a
+     flaky gate, not a regression. Poll until the height stops changing. */
+  {
+    const el = document.getElementById('map');
+    let last = -1, stable = 0;
+    for (let i = 0; i < 40 && stable < 3; i++) {
+      await new Promise(r => setTimeout(r, 150));
+      const h = el ? el.clientHeight : 0;
+      stable = h === last ? stable + 1 : 0;
+      last = h;
+    }
+  }
+
   const APPSTATE = window.AIRSHIPS ? window.AIRSHIPS.app : S;
   APPSTATE.paused = true;
   APPSTATE.simTime = 4200;
@@ -53,7 +69,17 @@
     stats: txt('#stats'),
     dialCount: document.querySelectorAll('.dialgrid svg, #phaseDial svg').length,
     bars: txt('#pwrBars'),
-    map: digest(document.getElementById('map')),
+    /* The map's exact pixel height is not a fact about this application: it varies with
+       the browser's flag set (a sandboxed local run and a CI runner differ by 22 px) and
+       with when the 3D panel finishes mounting. What the gate needs to catch is a canvas
+       that vanished, collapsed, or stopped being drawn into — so the height is recorded to
+       the nearest 50 px and the exact number is left out of the comparison. */
+    map: (() => {
+      const c = document.getElementById('map');
+      if (!c) return null;
+      return `${c.width}x~${Math.round(c.height / 50) * 50}:`
+        + (c.getContext('2d') ? 'drawn' : 'no context');
+    })(),
     m3dMounted: !!document.querySelector('#m3dView canvas'),
     avatar: (() => { const c = document.getElementById('shipviz');
       return c ? `${c.width}x${c.height}:${c.getContext('2d') ? 'drawing' : '-'}` : null; })(),

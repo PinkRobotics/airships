@@ -1,7 +1,25 @@
 #!/usr/bin/env python3
 """Load a URL headless, evaluate a JS file, write the full result to disk.
 Usage: evaljs.py URL SCRIPT.js OUT [WAIT_S]"""
+import os
 import asyncio, json, subprocess, sys, time, urllib.request, pathlib
+
+def chrome_flags():
+    """Extra Chromium flags this environment needs.
+
+    Ubuntu 24.04 restricts unprivileged user namespaces, which is what Chromium's sandbox
+    is built on, so on a CI runner the browser refuses to start at all. Dropping the
+    sandbox is safe for what these tools do — drive a page we just served from this
+    repository on loopback — but it is not something to do on a developer's machine by
+    default, so it is switched on by the CI environment variable rather than always.
+
+    /dev/shm on a runner is small enough that Chromium's shared-memory allocator falls over
+    on a page with several canvases, which presents as an unexplained tab crash.
+    """
+    if os.environ.get('CI'):
+        return ['--no-sandbox', '--disable-dev-shm-usage']
+    return []
+
 
 URL, JSFILE, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 WAIT = float(sys.argv[4]) if len(sys.argv) > 4 else 14
@@ -10,6 +28,7 @@ JS = pathlib.Path(JSFILE).read_text()
 
 proc = subprocess.Popen([
     "chromium", "--headless=new", "--disable-gpu", "--hide-scrollbars",
+    *chrome_flags(),
     f"--remote-debugging-port={PORT}", "--remote-allow-origins=*",
     "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
     "--window-size=1600,1000", "about:blank",
