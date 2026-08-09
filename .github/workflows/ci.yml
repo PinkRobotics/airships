@@ -94,6 +94,12 @@ jobs:
 
       - name: make test
         run: make test
+        env:
+          # The 3D suite's hang guard, lowered from its 1200 s default for this runner only. The
+          # suite takes ~25 s on a workstation; 600 s is twenty-four times that, which is ample
+          # for SwiftShader on shared vCPUs and still returns the diagnostic in ten minutes
+          # instead of twenty. A run that legitimately needs more than this is a finding.
+          A3D_TEST_TIMEOUT: '600'
 
   golden:
     name: golden (behaviour regression)

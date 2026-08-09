@@ -79,4 +79,21 @@ if [ -z "$RESULT" ]; then
 fi
 echo "browser tests: $RESULT"
 [ -n "$FAILS" ] && echo "failures: $FAILS"
+
+# A SKIP IS NOT A PASS. Every GL check in the suite begins `if (!gl) return null`, so a browser
+# that cannot give the page a WebGL2 context skips all of them and still reports fail=0 — a green
+# run that tested nothing but the stylesheet. That is the worst result this script can produce,
+# because it is indistinguishable from success in a checks list. Skips therefore fail, and a
+# machine that genuinely has no GL has to say so out loud.
+case "$RESULT" in
+  *"skip=0"*) ;;
+  *) if [ -n "${A3D_ALLOW_SKIP:-}" ]; then
+       echo "warning: checks were skipped and A3D_ALLOW_SKIP is set — GL was NOT exercised" >&2
+     else
+       echo "browser tests: checks were SKIPPED ($RESULT) — this browser gave the page no" >&2
+       echo "WebGL2 context, so the GL suite did not run. Set A3D_ALLOW_SKIP=1 to accept that." >&2
+       exit 1
+     fi ;;
+esac
+
 case "$RESULT" in *"fail=0"*) exit 0 ;; *) exit 1 ;; esac
