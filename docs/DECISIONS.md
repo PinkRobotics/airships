@@ -85,6 +85,11 @@ mistake is a runtime `TypeError` in strict mode rather than anything a reader no
 State changes across module boundaries go through named functions: `setSeed`, `setConfig`,
 `resetConfig`, `setAssumptions`.
 
+Recorded as written on 2026-08-08 and left standing, because the correction is worth more
+than the tidy version: the first sentence of this entry was not true when it was written.
+The linter checked imports, not purity, so nothing would have failed if `sim/` had started
+reading a clock. See the 2026-08-09 entry below.
+
 Known consequence: `3d/` cannot import `sim/` either, so `3d/model/config.js` carries its
 own copy of the assumption set. Every field both files carry is pinned by
 `tests/cases/spec-parity.cases.js`, because keeping them in step by hand did not work:
@@ -194,3 +199,33 @@ claims none.
 Separate commits, because a physics correction and a documentation change should never
 arrive in the same diff. Each fix changes the golden files, and the diff of the golden files
 is the evidence that the fix did what it said.
+
+## 2026-08-09 — The linter is tested, and says only what it checks
+
+`tools/check_boundaries.py` is the mechanism behind every structural claim this project
+makes about itself, and until now nothing tested it. An audit found three ways that mattered.
+
+Its dependency rule resolved `import … from '…'` only, so `export … from '…'` re-exports and
+`import('…')` were invisible — and all forty re-exports in this repository are in
+`sim/index.js` and `3d/index.js`, the two files where "depends on nothing outside itself" is
+the claim being made. Its success message read "sim/ and 3d/ depend on nothing outside
+themselves", which is a broader statement than an import graph can support: a module that
+calls `fetch` imports nothing. And its argument rule matched calls with a regex that stopped
+at the first `)`, so `wrap(planTargets(m))` slipped past the check written specifically to
+stop that call losing its data.
+
+The fix was to widen the checks rather than narrow the message, on the grounds that the
+message is what the project asks to be believed. The purity promise in `sim/README.md` is now
+a fourth rule: a scan of `sim/` for `document`, `fetch`, `Date`, `Math.random` and the rest,
+with one allowance — the default seed in `sim/rng.js` — named in the source with its reason.
+
+The linter now carries twenty-nine self-tests, each a small tree and the exact violations it
+must produce. They run on every ordinary invocation, not only under `--selftest`, so `make
+lint` cannot report a clean tree using a checker that has stopped checking. That is the
+general lesson and the reason this is written down: a guard with no test does not fail
+loudly when it breaks, it starts passing everything, and the passing is indistinguishable
+from success.
+
+Cost: about 150 lines of test data inside the tool, and four rules to explain where the
+documentation had been describing two — it had never caught up with the third, added the same
+week. Both were cheaper than a reviewer discovering the gap.

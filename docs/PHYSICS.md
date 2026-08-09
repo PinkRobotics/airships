@@ -7,7 +7,7 @@ value, its provenance, and how much the headline figures move when it moves.
 
 No such aircraft exists. Nothing here is validated against a built vehicle, because there
 is no built vehicle. This is arithmetic on stated assumptions, published so that the
-assumptions can be attacked. Five defects are known and open; they have their own section
+assumptions can be attacked. Six defects are known and open; they have their own section
 and they are not hidden anywhere else in the document.
 
 Symbol-to-function references are in [`../sim/README.md`](../sim/README.md), which indexes
@@ -58,8 +58,9 @@ better than 0.4%), so their ledgers are the same ledger scaled:
 | P-1000 | 1,800,000 m³ | 2,205 t | 1,000 t | 1,000 t | 1,205 t | 205 t |
 | P-10000 | 18,000,000 m³ | 22,050 t | 10,000 t | 10,000 t | 12,050 t | 2,050 t |
 
-The loaded reserve is 9.3% of gross in all three cases. That margin is the whole basis of
-the site's claim that the rotors only ever push the hull *down*.
+The loaded reserve is 10.25% of gross weight in all three cases — equivalently 9.3% of the
+displacement lift. That margin is the whole basis of the site's claim that the rotors only
+ever push the hull *down*.
 
 **The break-even density is identical for all three classes**, because the ratio
 (m_dry + m_pay)/V is identical:
@@ -119,7 +120,7 @@ What the model does instead is assert an areal density and get on with the arith
 | P-10000 | 425,477 m² | 10,000 t | 23.50 kg/m² |
 
 σ rises with size because dry mass scales as V while area scales as V^(2/3). The lift
-budget allows at most σ_max = ρ_SL V / S_wet — 11.19, 24.13 and 51.83 kg/m² for the three
+budget allows at most σ_max = ρ_SL V / S_wet — 11.19, 24.13 and 51.82 kg/m² for the three
 classes — and the assumed values are 45.3% of that in every case, identically, because
 m_dry = m_pay = L/2.205 by construction. So the shell, the machinery, the batteries and the
 rotors together are given a little under half of what buoyancy would permit. That is a
@@ -150,10 +151,18 @@ generation. That is 1,430 Wh/kg for the storage alone before the generators are 
 The two halves of the project do not agree with each other here, and neither agrees with
 any cell chemistry.
 
-The rotors are the other awkward item. 160,000 m² of disk in 14 units is 120.6 m per
-rotor — the diameter of a large offshore wind turbine — carried by an 820 m hull, and each
-must absorb 111 MW. A 5 MW wind turbine of that diameter operates at about 0.4 kW/m² of
-disk. These run at 9.7 kW/m².
+The rotors are the other awkward item. 160,000 m² of disk in the 14 units `sim/config.js`
+counts is 120.6 m per unit — the diameter of a large offshore wind turbine — carried by an
+820 m hull, and each must absorb 111 MW of the 1,550 MW bus. A 5 MW wind turbine of that
+diameter operates at about 0.4 kW/m² of disk. These run at 9.7 kW/m².
+
+The two halves of the project do not agree on the disc count either. `3d/model/config.js`
+resolves the same published area as 14 *stations* of two 85 m rotors — 28 discs,
+158,886 m², 0.7% below the published 160,000 — so `rotors: 14` in `sim/config.js` has to be
+read as a station count, and the 120.6 m figure as the diameter a single disc per station
+would need. Nothing in the model depends on which reading is taken, because only the total
+area enters `diskMW`; the illustration and the arithmetic are nonetheless describing
+different hardware.
 
 ---
 
@@ -259,19 +268,20 @@ Two places where the formula is the wrong one:
 **In forward flight it overstates induced power badly.** Hover momentum theory assumes the
 disk draws still air. At airspeed v the induced velocity solves the Glauert relation
 v_i = T/(2ρA√(v² + v_i²)), and induced power falls towards T²/(2ρAv). On the P-10000's
-return leg at 36 m/s, holding the empty hull down, the model charges 92.0 MW where the
-forward-flight expression gives 14.5 MW — a factor of **6.4**. The P-100 and P-1000 are
+return leg at 36.1 m/s, holding the empty hull down, the model charges 91.9 MW where the
+Glauert expression gives 14.4 MW — a factor of **6.4**. The P-100 and P-1000 are
 overstated by 5.5× and 4.7× on the same comparison. This is the single largest reason the
 integrated power model (§9) exceeds the planned one.
 
 **In axial descent it understates.** When the vehicle is descending at rate v_c with the
 rotors pushing down, the correct ideal power is T(v_c + v_i) with
-v_i = −v_c/2 + √((v_c/2)² + v_h²). At v_c = 6 m/s, `VZ_MAX`:
+v_i = −v_c/2 + √((v_c/2)² + v_h²). At v_c = 6 m/s, `VZ_MAX`, with the thrust the descent
+actually asks for — the rotors' 0.6 share of the full empty surplus, 72.3 / 723 / 7,230 t:
 
 | | model, hover form | axial-descent form | bus |
 |---|---:|---:|---:|
 | P-100 | 11.5 MW | 14.9 MW (+30%) | 38 MW |
-| P-1000 | 166.1 MW | 197.5 MW (+20%) | 190 MW |
+| P-1000 | 166.1 MW | 199.2 MW (+20%) | 190 MW |
 | P-10000 | 1,438 MW | 1,774 MW (+23%) | 1,550 MW |
 
 Correcting this breaks the force-closure claim: at `VZ_MAX` both the P-1000 and the
@@ -300,8 +310,10 @@ with e_LN2 = 0.45 kWh/kg and rt_LN2 = 0.50.
 
 The arithmetic does not work. A P-10000 returning for 8.1 minutes on a 70 MW plant makes
 9.50 MWh of liquefaction work, which at 0.45 kWh/kg is **21.1 t of nitrogen** — against a
-5,000 t tank and a 12,050 t buoyancy surplus. The plant delivers 0.2% of the ballast the
-same function says it needs, and it does so for 11.5% of the cycle's published energy. The
+5,000 t tank and a 12,050 t buoyancy surplus. `ln2NeedT` is the smaller of 80% of that
+surplus and the tank, so the function asks for 5,000 t and gets 0.42% of it; measured
+against the 9,640 t the ballast target would be without the tank cap it is 0.22%. It costs
+11.5% of the cycle's published energy to do that. The
 recovered 4.75 MWh is real but arrives during the fill, where on the smaller two classes it
 exceeds the entire pumping bill and the excess is silently discarded by a `max(0, …)`.
 
@@ -327,8 +339,10 @@ air:
 | `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 4.332 | 5.3% |
 | **total** | | **82.498** | |
 
-Against that, generation. The only sources are the solar skin at a flat 200 W/m² and the
-nitrogen recovery:
+Against that, generation. The only sources the code credits are the solar skin at a flat
+200 W/m² and the nitrogen recovery. The generators each class advertises — 8, 40 and
+150 MW — supply thrust authority and no energy at all; that is Defect 6, and it is large
+enough to change the conclusion drawn from the next table.
 
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
@@ -336,9 +350,11 @@ nitrogen recovery:
 | P-1000 | 5.60 MW | 3.63 MWh | 11.89 MWh | 8.26 MWh |
 | P-10000 | 24.00 MW | 20.31 MWh | 82.50 MWh | 62.19 MWh |
 
-Every hull runs a deficit every cycle. That is deliberate, it is stated on the page, and it
-is the honest conclusion: without an energy import chain the fleet is a battery being
-spent. On the planned budget a P-10000 has about 29.5 hours of work in it.
+Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
+the project draws in public: without an energy import chain the fleet is a battery being
+spent. On the planned budget a P-10000 has 27.2 hours of work in it — 2,000 MWh of storage
+against a 62.19 MWh deficit per 0.846-hour cycle, so 32.2 cycles. Defect 6 is the reason
+that conclusion may be an artefact rather than a finding.
 
 **The budget does not close against the model's own second opinion.** `state.js → stateAt`
 reports an instantaneous draw for every system at every moment, and `app/loop.js`
@@ -353,7 +369,7 @@ integrates it to drive the storage gauge. Over the identical cycle:
 Broken down for the P-10000: rotors 160.94 MWh, propulsion 21.18, pumps 9.08, cryogenic
 plant 9.05, fans 8.07, hotel 2.54, winch 0.32. The rotor term is three quarters of it, and
 it is three quarters of it because hover momentum theory is being applied to a hull in
-36 m/s cruise (§7). Endurance on this basis is 9.1 hours, not 29.5.
+36 m/s cruise (§7). Endurance on this basis is 9.1 hours, not 27.2.
 
 Both numbers are visible on the page simultaneously: the worked example reads 82.5 MWh per
 cycle while the storage gauge beside it drains at 211 MWh per cycle. See Defect 2.
@@ -395,7 +411,7 @@ storage integration.
 
 The non-monotonic entries are cliff edges, not curves. At `propEta = 0.56` the P-10000's
 rotor authority drops enough that the retention clamp engages and it starts holding back
-1,109 t of water; at `rhoSL × 1.2` the surplus grows past what the rotors can push down and
+1,113 t of water; at `rhoSL × 1.2` the surplus grows past what the rotors can push down and
 throughput falls by a third. The model has discontinuities in its response surface and
 does not mark them.
 
@@ -404,7 +420,16 @@ does not mark them.
 ## 11. Known defects
 
 Each is quantified below and each has an entry in
-[OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) giving the options and a recommendation.
+[OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) giving the options and a recommendation. The
+numbering is not one-to-one: Defects 4 and 5 here are the two halves of open question 4,
+Defect 6 here is open question 6, and open question 5 — the Esri basemap — is a licensing
+and privacy problem rather than a physics one, so it has no entry here.
+
+Four of the six have a `knownFail` test in `tests/cases/` (Defects 1, 2 and 3, plus one
+unrelated flag bug). Defects 4, 5 and 6 are asserted by ordinary passing tests instead,
+because each of them is a statement about what the code *does* rather than a broken
+assertion: `selftest.js` requires `retainedT` to be zero, and no test can fail because a
+term is missing from a sum.
 
 Open, tracked, and being fixed in separate commits. They are stated here with numbers
 because the alternative — publishing the figures and letting a reader find these — would be
@@ -445,12 +470,12 @@ everything else, and even `rhoAir` would put the loaded hull marginally heavy.
 Both are live. The worked example, the "MWh per cycle" figure in the drawer and
 `kwhPerTonne` all come from `planCycle`. The storage gauge, the generation-versus-
 consumption dial and the power-exhaustion behaviour all come from the `stateAt` integration
-in `app/loop.js`. Predicted endurance differs by a factor of three: 29.5 hours against
+in `app/loop.js`. Predicted endurance differs by a factor of three: 27.2 hours against
 9.1 hours.
 
 The gap is mostly the rotor term, and mostly §7's forward-flight error: `stateAt` prices
-cruise trim with the hover formula and gets 92 MW where the correct expression gives
-14.5 MW, while `planCycle` never charges cruise rotor trim at all. Neither is right. The
+cruise trim with the hover formula and gets 91.9 MW where the correct expression gives
+14.4 MW, while `planCycle` never charges cruise rotor trim at all. Neither is right. The
 fix has to pick one representation of rotor power and make both surfaces read from it.
 
 ### Defect 3 — an unexplained window sets the largest energy term
@@ -501,7 +526,7 @@ it is tuned.
 ### Defect 5 — the cryogenic plant is numerically inert
 
 Covered in §8. 21.1 t of nitrogen against a 12,050 t surplus and a 5,000 t tank; 11.5% of
-the cycle's energy for 0.2% of the stated function. `cryoLimited` is true for every class
+the cycle's energy for 0.42% of the stated function. `cryoLimited` is true for every class
 at every distance the fleet can actually fly — a P-100 would need a 5.4-hour return leg to
 fill its 50 t tank, against a 25 km search radius — so the flag carries no information for
 any reachable mission. Copy on the concept page and in the
@@ -512,6 +537,32 @@ A related bookkeeping wrinkle: `ln2MakeT` is computed from the *pre-stretch*
 `dur.RETURN_TRANSIT`, before the `battLimited` 1.12 multiplier, while `E.letdown` is charged
 over the *post-stretch* leg. The plant is credited with 8.145 minutes and the letdown
 billed for 9.122.
+
+### Defect 6 — the generators supply thrust but no energy
+
+Each class advertises onboard generation — 8, 40 and 150 MW — and `plan.js` counts it in
+full when it sizes rotor authority: `rotorMaxT` is computed from `(battMW + genMW)`, and so
+is the `battLimited` bus ceiling. Nothing then credits that generation as energy.
+`stateAt` reports only `gen.solar` and `gen.regen`, and `app/loop.js` subtracts every
+remaining load from the battery. The vehicle is given the thrust its generators would allow
+and flown as though they were switched off.
+
+The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.846 h, so the
+generators at full output would make **126.9 MWh** against a published cycle spend of
+82.50 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+out, so the defensible figure is demand-following output capped at `genMW`; measured that
+way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
+than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per
+cycle. On those missions the P-100 stops draining its battery and starts charging, the
+P-1000's endurance goes from 4.7 hours to 15.4, and the P-10000's from 10.3 to 20.1.
+
+Either calculation is enough to show that the omitted term is the same order as the whole
+budget. That matters more than the arithmetic, because the per-cycle deficit in §9 is a
+conclusion the project states in public — that every hull runs at a loss and therefore
+needs a tanker chain to import energy. That conclusion may be an artefact of not modelling
+the generators the vehicle is said to carry. The fix is not free either way: fuel has mass,
+and mass is the problem the whole project is about, which is exactly why it should be
+modelled rather than assumed in either direction.
 
 ---
 

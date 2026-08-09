@@ -26,16 +26,31 @@ It prints the three page URLs and the deterministic replay URL on startup.
 ## `check_boundaries.py` — the structural linter
 
     python3 tools/check_boundaries.py
+    python3 tools/check_boundaries.py --selftest
     make lint
 
-**Run it before opening a pull request; CI runs it on every push.** It enforces two rules.
-First, the dependency direction: `sim/` imports nothing outside `sim/`, `3d/` nothing
-outside `3d/`, and nothing imports `app/`. The model is the part of this project that
-invites argument, so it has to be readable and runnable on its own. Second, no module
-assigns to a binding it imported — that is a runtime `TypeError` in a strict-mode ES
-module, not a compile error, so it is the kind of thing that ships.
+**Run it before opening a pull request; CI runs it on every push.** It enforces four rules.
 
-Both failures print the file and the line.
+1. **The dependency direction.** `sim/` imports nothing outside `sim/`, `3d/` nothing outside
+   `3d/`, and nothing imports `app/`. The model is the part of this project that invites
+   argument, so it has to be readable and runnable on its own. All three ways one module can
+   name another are resolved: `import … from`, `export … from` and `import(…)`.
+2. **No module assigns to a binding it imported** — that is a runtime `TypeError` in a
+   strict-mode ES module, not a compile error, so it is the kind of thing that ships.
+3. **Live data is passed, not defaulted away.** `planTargets()` must be called with its `heat`
+   argument inside `app/`; the `[]` default exists for `sim/` running with no feed, and as an
+   application call site it is a silent wrong answer.
+4. **`sim/` reaches for no environment** — no DOM, network, storage, wall clock or `location`,
+   which is what `sim/README.md` promises and what Rule 1 cannot see. The one allowance,
+   `Math.random` in `sim/rng.js` for the default seed, is listed in the checker with its reason.
+
+Every failure prints the file and the line.
+
+`--selftest` runs the checker against twenty-nine constructed trees and asserts the exact set of
+violations each produces. A plain run does the same before it reads the working tree, so `make
+lint` cannot pass with a checker that has stopped checking — which it silently had: until
+2026-08-09 Rule 1 resolved only the first of the three import forms, and the forty re-exports in
+`sim/index.js` and `3d/index.js` went unexamined.
 
 ## `golden_diff.py` — semantic diff of two model dumps
 
@@ -129,5 +144,6 @@ shape.
 
 `pipeline/` holds the Python that builds `data/`: `live.py` mirrors the wildfire feeds on a
 timer, `water.py` and `terrain.py` build the water extract and the hillshade. `figures.py`
-draws the concept page's diagrams and does **not** run in this repository — it imports
-`design`, a module that stayed behind in the private site repository it was extracted from.
+draws the concept page's diagrams; it imports nothing but `argparse` and `pathlib` and runs
+here. `python3 pipeline/figures.py --print` reports the four figure sizes without touching
+anything. See `pipeline/README.md`.

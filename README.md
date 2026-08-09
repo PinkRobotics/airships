@@ -151,6 +151,12 @@ tools/           headless JS eval, golden diff, the boundary checker, screenshot
 tests/golden/    the dump scripts and the baselines they are compared against
 ```
 
+The line about `sim/` is a checked claim rather than an aspiration. `make lint` fails if anything
+under `sim/` imports outside `sim/` — by `import`, by `export … from` or by `import()` — or names
+`document`, `fetch`, `Date`, `localStorage`, `console` or `Math.random`, the last with one
+documented exception for the default seed in `sim/rng.js`. The checker has its own test suite,
+because a guard nobody guards does not fail when it breaks; it starts passing everything.
+
 ## Checking a number without cloning anything
 
 Open <https://pinkrobotics.ca/airships/>, open devtools, and use the `AIRSHIPS` object the page

@@ -19,6 +19,47 @@ export function cockpitShip() {
   return S.sel && S.sel.type === "ship" && S.sel.m && !S.sel.m.idle ? S.sel.m : null;
 }
 
+/* ---------- the one live region ------------------------------------------------------------- */
+
+/* #liveNote in index.html is the only thing on this page that speaks unprompted.
+ *
+ * The operation strip used to be aria-live="polite" while being rebuilt whole on every
+ * selection and rewritten every 1.5 seconds. That is not an announcement, it is a broadcast
+ * nobody can stop, and it made the page unusable with a screen reader running. Instruments
+ * that move continuously — the dials, the power bars, the forces, the narration — now carry
+ * their readings on themselves, to be read when asked for. Only three things interrupt:
+ * a change of selection, a phase change on the selected ship, and a change of data source.
+ *
+ * Repeats are dropped. renderDrawer() runs again on every fifteen-minute feed rebuild with
+ * the same ship still selected, and hearing about that twice would teach a listener to
+ * ignore the region entirely. */
+let lastSaid = "";
+
+export function announce(msg) {
+  const el = $("liveNote");
+  if (!el || !msg || msg === lastSaid) return;
+  lastSaid = msg;
+  el.textContent = msg;
+}
+
+/* What the current selection is, in one sentence. Returned rather than announced so the
+   caller decides; renderDrawer is the only caller and it announces every time it runs. */
+function selectionLine() {
+  if (!S.sel || (!S.sel.m && !S.sel.f)) return "Selection cleared. Nothing is open.";
+  if (S.sel.type === "ship" && S.sel.m && !S.sel.m.idle) {
+    const m = S.sel.m;
+    return `${m.name || m.cls.name}, ${m.cls.name}, serving ` +
+      `${m.fire.name || m.fire.geo || m.fire.id}. Cockpit open.`;
+  }
+  if (S.sel.type === "fire") {
+    const f = S.sel.f || (S.sel.m && S.sel.m.fire);
+    return `Fire ${f.name || f.geo || f.id}: ${f.status}, ${fmtHa(f.sizeHa)}.`;
+  }
+  const w = S.sel.m && S.sel.m.water;
+  return w ? `Water source ${w[4] || (w[3] ? "unnamed reservoir" : "unnamed lake")}, ` +
+    `${fmt(w[2])} hectares, serving fire ${S.sel.m.fire.id}.` : "";
+}
+
 export function renderDrawer() {   // builds the cockpit skeleton for the current selection
   updateRoster();
   const ck = $("cockpit"), L = $("cpLeft"), R = $("cpRight"), O = $("cpOps");
@@ -29,6 +70,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   phaseDialObj = null;
   if (!S.sel || (!S.sel.m && !S.sel.f)) {
     O.innerHTML = '<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">Nothing selected. Click a <b style="color:var(--warm)">ship</b> to open the cockpit — the airship and its forces on the left, the helm dials on the right, the operation down here — or click a fire or water source for its record.</div>';
+    noteSelection();
     return;
   }
   const m3p = $("model3d");
@@ -79,7 +121,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       m.cls.cryoMW * CFG.cryoMul * m.mode.cryoShare + m.plan.dragMW * 0.55 + hotelMW,
       m.plan.downMW + m.plan.dragMW * 0.55 + hotelMW);
     gGen = makeDualGauge(sd, "generation", "consumption", dialPk,
-      v => fmt(v, v < 10 ? 1 : 0));
+      v => fmt(v, v < 10 ? 1 : 0), "MW");
     gStore = makeGauge(sd, "storage", m.cls.battMWh, v => fmt(v, v < 10 ? 1 : 0) + " MWh");
     const barRow = ([lab, id, col]) =>
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
@@ -171,7 +213,17 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ]) + `<p style="margin-top:var(--s3);font-size:var(--t-11);color:var(--faint)">${esc(mm.srcWhy)} Repeated withdrawal at this rate is not claimed to be sustainable.</p></div>
     </div>`;
   }
+  noteSelection();
   updateCockpitText();
+}
+
+/* Announce the selection, and swallow the phase announcement that would otherwise land on
+   top of it: the sentence just spoken already named the ship, and its phase is on the dial. */
+function noteSelection() {
+  const m = cockpitShip();
+  lastPhaseKey = m ? m.shipId + ":" + stateAt(m, S.simTime).phase : "";
+  lastPhaseAt = Date.now();
+  announce(selectionLine());
 }
 /* Per-frame instrument refresh: 3D ship, dial needles; throttled text. */
 
@@ -252,8 +304,40 @@ export function updateCockpitText() {
     if (el && el.textContent !== t) el.textContent = t;
   });
 }
+/* The two changes worth interrupting for, checked on the slow tick rather than per frame.
+   Both are guarded so that a tick on which nothing changed says nothing at all. */
+let lastPhaseKey = "", lastPhaseAt = 0, lastSrcKey = "";
+
+function noteChanges() {
+  const m = cockpitShip();
+  if (m) {
+    const st = stateAt(m, S.simTime);
+    const key = m.shipId + ":" + st.phase;
+    const now = Date.now();
+    // At 60× a phase can turn over every few seconds, and six phases per cycle of speech is
+    // the storm this replaced. A phase is announced at most once every five REAL seconds;
+    // when one is skipped the next tick announces whatever phase is current by then, and the
+    // dial holds the exact answer for anyone who asks.
+    if (key !== lastPhaseKey && now - lastPhaseAt > 5000) {
+      lastPhaseKey = key; lastPhaseAt = now;
+      announce(`${m.name || m.cls.name}: ${PHASES[st.idx][1]}.`);
+    }
+  }
+  // Which feed the fires came from. This flips at most once per fifteen-minute refetch, and
+  // usually never — but it changes what the whole page means, so it is worth saying.
+  const srcKey = S.fetchedAt ? (S.usingFallback ? "snapshot" : "live") : "";
+  if (srcKey && srcKey !== lastSrcKey) {
+    const first = lastSrcKey === "";
+    lastSrcKey = srcKey;
+    announce(S.usingFallback
+      ? `Fire data: bundled snapshot from ${(S.snapshotDate || "").slice(0, 10)} — the live BC Wildfire Service feed could not be reached.`
+      : `Fire data: live BC Wildfire Service feed, ${S.fires.length} fires${first ? "" : " — refreshed"}.`);
+  }
+}
+
 setInterval(() => {
   if (!S.paused && cockpitShip() && !document.hidden) updateCockpitText();
+  if (!document.hidden) noteChanges();
   // Late-arriving text (pwNet and friends) can nudge the right column past its box after
   // sizeAvatar already measured; the column must never scroll, so re-check on this cadence.
   const col = document.querySelector(".cp-rightcol");

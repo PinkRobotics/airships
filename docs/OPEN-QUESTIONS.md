@@ -1,17 +1,30 @@
 # Open questions
 
-Six things in this model are wrong, or unjustified, or dead. They are written up here
-rather than quietly fixed because each one changes a number the site publishes, and
-because two of them are not really bugs at all — they are decisions about the vehicle that
-have been made by accident and should be made on purpose.
+Six things are wrong, or unjustified, or dead: five of them in the model, and one — the
+Esri basemap, item 5 — in the page that displays it. They are written up here rather than
+quietly fixed because each one changes a number the site publishes or a decision it has to
+make before going public, and because two of them are not really bugs at all — they are
+decisions about the vehicle that have been made by accident and should be made on purpose.
 
 Each entry gives the defect, what it costs, the options, and a recommendation. The numbers
 were produced by re-running the model, and by an independent Python replication that
 reproduces `tests/golden/seed7-snapshot.json` exactly.
 
-Every one of these has a test in `tests/cases/` marked `knownFail`. Those tests run. They
+Items 1, 2 and 3 have a test in `tests/cases/` marked `knownFail`. Those tests run. They
 fail. If one starts passing without this document changing, the suite fails on that too —
-a defect should not be able to lose its excuse quietly.
+a defect should not be able to lose its excuse quietly. There are four `knownFail` markers
+in all; the fourth is an unrelated flag bug, `plan · windUsed is false when the wind was
+not applied`, which is too small to have an entry here.
+
+Items 4, 5 and 6 have no such marker, and cannot have one. `retainedT` being zero is
+*enforced* by `selftest.js`, so a test that failed on it would be asserting the opposite of
+the specification; the Esri problem is not a model behaviour; and no assertion can fail
+because a term is absent from a sum. Those three are held to ordinary passing tests that
+record what the code does, and to this page.
+
+`docs/PHYSICS.md` §11 quantifies the same set, but numbers them differently: its Defects 4
+and 5 are the two halves of item 4 below, its Defect 6 is item 6, and item 5 has no entry
+there because it is not physics.
 
 ---
 
@@ -37,11 +50,12 @@ force reverses **inside a single cycle**.
 | | Effect |
 |---|---|
 | a. Make `ledger` altitude-aware and accept the consequences | Honest, and cheap to implement — one ISA function and one argument. The ships become heavy at altitude, the "rotors only push down" story inverts, and the energy budget worsens because rotors must now hold weight up during cruise. |
-| b. Grow the hull | Displacement +12% restores buoyancy at 1500 m ASL. Every published size grows; the P-10000 goes from 820 m to about 850 m; the vacuum-shell areal density target gets harder, which is already the hardest number in the project. |
+| b. Grow the hull | Displacement +12.4% restores buoyancy at 2,180 m MSL — the ceiling a 15 km P-10000 mission actually reaches over a 1,000 m plateau. (+5.0% would do it at 1,500 m MSL, +16.1% at the nominal 1,500 m AGL.) Every published size grows; the P-10000 goes from 820 m to about 853 m; the vacuum-shell areal density target gets harder, which is already the hardest number in the project. |
 | c. Cut the structure allowance | The dry allowance is a bet, not a measurement. Reducing it makes the vehicle buoyant on paper by making the hardest unsolved problem harder. |
-| d. Fly lower | `ALT.cruise` = 900 m AGL keeps the hull buoyant. Cheapest change; costs terrain clearance in mountains, which is where the fires are. |
+| d. Fly lower | Does not work, and the arithmetic says so plainly: loaded break-even is 1,005 m MSL, so over a 1,000 m plateau the hull is buoyant only below about 5 m above ground. At 900 m AGL it is 1,700 t heavy. There is no cruise altitude that rescues this option. |
 
-**Recommendation: (a) plus (b).** Compute density honestly at the altitude flown, then size
+**Recommendation: (a) plus (b).** (d) is not available at all. Compute density honestly at
+the altitude flown, then size
 the hull so it is buoyant there, and publish the larger displacement. Anything else leaves
 the site claiming a sign the arithmetic does not support. (a) alone is defensible and
 honest but turns the vehicle into something that needs continuous rotor lift, which is a
@@ -62,7 +76,7 @@ batteries. They are separate implementations of the same quantity and they do no
 | P-10000 | 82.5 | 211.2 | 2.56× |
 
 Of the integrated 211 MWh for a P-10000, **161 MWh is rotors**. Endurance therefore reads
-9.1 hours on the page and 29.5 hours in the plan.
+9.1 hours on the page and 27.2 hours in the plan.
 
 The root cause is identified: the rotor power terms apply **hover momentum theory at
 36 m/s cruise**. Induced power falls with forward speed; using the hover expression at
@@ -114,8 +128,10 @@ every distance, every wind. The force balance always closes without holding wate
 a margin of +122% (P-100), +9% (P-1000) and +5% (P-10000). A 7.5% cut in bus power × prop
 efficiency, or a 14.3% cut in disk area, would start the P-10000 retaining.
 
-The cryogenic ballast plant is similarly inert: it is cryo-rate-limited to a few tonnes on
-a typical return leg, a fraction of a percent of capacity, and so never affects an outcome.
+The cryogenic ballast plant is similarly inert: it is cryo-rate-limited to 1.8 t, 7.5 t and
+21.1 t on a 15 km balanced return leg, against tanks of 50, 500 and 5,000 t. The P-10000
+makes 0.42% of the ballast the same function asks for, and `cryoLimited` is true for every
+class at every distance the fleet can fly, so the flag carries no information.
 
 Both are described in the prose as working parts of the vehicle. `passes` is likewise 3 in
 all 135 combinations, which makes it a constant wearing a formula.
@@ -124,6 +140,28 @@ all 135 combinations, which makes it a constant wearing a formula.
 it to bind, or it is not and the copy should stop describing it. The honest short-term
 move is the copy; the interesting one is to find out whether the margin survives fix #1,
 which makes the ships heavier and may bring retention back to life on its own.
+
+---
+
+## 5. Esri basemap tiles
+
+`app/map/basemap.js` fetches satellite tiles directly from `server.arcgisonline.com` with
+no API key, from the visitor's browser. This sends every viewer's IP address and precise
+viewport to a third party with no consent step, and it is very likely outside Esri's terms
+of use for that endpoint.
+
+It also sits oddly beside a stated principle of this project: the wildfire feeds are mirrored
+first-party precisely so that traffic to this page does not become traffic to someone
+else's service.
+
+This is the one item on this page that is not a defect in the model. It is here because it
+has to be decided before the repository is public, not because the arithmetic depends on it.
+
+**Options:** drop the imagery layer; obtain an Esri key and use it within terms; or switch
+to an openly-licensed basemap. See `DATA-SOURCES.md` §6.
+
+**Recommendation.** Decide before the repository is public, because publishing the
+technique is worse than using it.
 
 ---
 
@@ -143,8 +181,8 @@ of 82.5 MWh — the generators alone would cover the cycle before solar is count
 
 Generators do not run flat out, so the honest figure is demand-following output capped at
 `genMW`. Measured that way against the sampled missions in `tests/golden/seed7-snapshot.json`
-— which are longer legs than the 15 km case, so the numbers are not comparable with the
-paragraph above — generation would contribute roughly 0.98, 14.0 and 140.9 MWh per cycle
+— which fly different legs from the 15 km case, so the numbers are not comparable with the
+paragraph above — generation would contribute 0.74, 8.2 and 140.9 MWh per cycle
 for the three classes. On those same missions the P-100 stops draining its battery and
 begins charging, P-1000 endurance goes from 4.7 hours to 15.4, and P-10000 from 10.3 to 20.1.
 
@@ -169,25 +207,6 @@ Whichever is chosen, the two halves must agree: a generator that provides thrust
 provide the energy for it, or provide neither.
 
 *Found in review round 1 (codex), 2026-08-09.*
-
----
-
-## 5. Esri basemap tiles
-
-`app/map/basemap.js` fetches satellite tiles directly from `server.arcgisonline.com` with
-no API key, from the visitor's browser. This sends every viewer's IP address and precise
-viewport to a third party with no consent step, and it is very likely outside Esri's terms
-of use for that endpoint.
-
-It also sits oddly beside a stated principle of this project: the wildfire feeds are mirrored
-first-party precisely so that traffic to this page does not become traffic to someone
-else's service.
-
-**Options:** drop the imagery layer; obtain an Esri key and use it within terms; or switch
-to an openly-licensed basemap. See `DATA-SOURCES.md` §6.
-
-**Recommendation.** Decide before the repository is public, because publishing the
-technique is worse than using it.
 
 ---
 

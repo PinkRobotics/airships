@@ -9,12 +9,19 @@ from its sources by anyone, rather than taken on trust.
 | `live.py` | `data/live/*.json` (gitignored) | continuously, from a timer, if you host the page |
 | `water.py` | `data/water-bc.json` | the BC freshwater atlas is updated — rarely |
 | `terrain.py` | `data/terrain-bc.jpg` | never, in practice; the hillshade is static |
-| `figures.py` | the four inlined SVG diagrams in `concept/index.html` | after editing a diagram |
+| `figures.py` | the SVG diagrams inlined into `concept/index.html` | after editing a diagram |
 
 `live.py` and `water.py` need only the standard library. `terrain.py` needs `numpy` and
-`Pillow`. `figures.py` needs nothing and writes only into marker comments
-(`<!--CYCLE-->…<!--/CYCLE-->`) on the concept page, so running it on an unmodified checkout
-is a no-op you can verify with `git diff`.
+`Pillow`. `figures.py` needs nothing beyond `argparse` and `pathlib`, and writes only
+between marker comments (`<!--CYCLE-->…<!--/CYCLE-->`) on the concept page, so running it on
+an unmodified checkout is a no-op you can verify with `git diff`.
+
+`figures.py` builds four figures — `CYCLE`, `SCALE3`, `CUTAWAY`, `LADDER` — and the concept
+page carries markers for only three of them. `SCALE3` has no marker, so a run prints
+`SCALE3: no marker on the page — skipped` and inlines three. That is either a figure that
+was dropped from the page and not from the generator, or a marker that was never added;
+nobody has decided which. `python3 pipeline/figures.py --print` lists all four with their
+sizes and touches nothing.
 
 ## The live mirror, and why it exists
 

@@ -14,9 +14,9 @@
  * Runs in node (figure export) and in the browser (fallback) unchanged.
  */
 
-import { hullR, stationX, sectionScale, profileR } from '../model/config.js?v=f3cb948e';
-import { m4lookAt, m4perspective, m4mul, norm, sub, dot, len } from '../core/math.js?v=f3cb948e';
-import { TOKENS, MATERIALS, CATEGORY_TONE } from './palette.js?v=f3cb948e';
+import { hullR, stationX, sectionScale, profileR } from '../model/config.js?v=a364a52c';
+import { m4lookAt, m4perspective, m4mul, norm, sub, dot, len } from '../core/math.js?v=a364a52c';
+import { TOKENS, MATERIALS, CATEGORY_TONE } from './palette.js?v=a364a52c';
 
 /** Named still views. `ortho` keeps a silhouette a true silhouette. */
 export const FIGURE_VIEWS = {
@@ -131,7 +131,7 @@ export function staticFigureSVG(b, opts = {}) {
   const bg = opts.background === 'transparent' ? null : (opts.background || TOKENS.bg);
   const out = [];
 
-  out.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" height="auto" ` +
+  out.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" style="height:auto" ` +
     `xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(opts.alt ||
       `${cls.name} conceptual airship, ${(FIGURE_VIEWS[view] || {}).label || view}, ${mode} view`)}">`);
   if (bg) out.push(`<rect width="${width}" height="${height}" fill="${bg}"/>`);
@@ -308,7 +308,7 @@ export function scaleComparisonSVG(classes, opts = {}) {
   }
   const height = y + 24;
 
-  out.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" height="auto" ` +
+  out.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" style="height:auto" ` +
     `xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" ` +
     `role="img" aria-label="${esc(opts.alt || 'The three conceptual airship classes and four ' +
       'physical references drawn to one scale, largest first.')}">`);

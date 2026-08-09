@@ -6,12 +6,12 @@ import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, 
 import { renderDrawer } from './cockpit/panels.js';
 import { renderStats, renderTable } from './cockpit/tables.js';
 import { $, esc } from './dom.js';
-import { fetchHeat, fetchWind, loadLive } from './feeds.js';
+import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js';
 import { rebuildMissions, replanAll } from './fleet.js';
 import { frame } from './loop.js';
 import { fitFires, fitFleet, focusMission, select } from './map/interact.js';
 import { resize } from './map/projection.js';
-import { fetchJSON } from './net.js';
+import { fetchJSON, storeGet, storeSet } from './net.js';
 import { S } from './store.js';
 import { DIALS, renderWorked } from './worked.js';
 
@@ -53,7 +53,7 @@ export function wire() {
   // The split button flips the centre column between map-over-model and map-beside-model.
   // v2 key: vertical is THE default again for everyone; only a fresh explicit toggle
   // re-saves horizontal.
-  S.split = localStorage.getItem("airshipsSplit2") === "h" ? "h" : "v";
+  S.split = storeGet("airshipsSplit2") === "h" ? "h" : "v";
   const applySplit = () => {
     $("cpMap").classList.toggle("split-h", S.split === "h");
     $("btnSplit").textContent = S.split === "h" ? "Split ◨" : "Split ⬒";
@@ -61,7 +61,7 @@ export function wire() {
   applySplit();
   $("btnSplit").addEventListener("click", () => {
     S.split = S.split === "h" ? "v" : "h";
-    try { localStorage.setItem("airshipsSplit2", S.split); } catch (e) { /* private mode */ }
+    storeSet("airshipsSplit2", S.split);      // unremembered if storage is blocked; still applied
     applySplit();
   });
   $("btnLayers").addEventListener("click", () => {
@@ -154,29 +154,142 @@ window.APP = {
 
 /* ---------- status line ------------------------------------------------------------------------ */
 
+/* How old the data on screen is, in milliseconds, or null when there is none. Measured from
+ * the moment the data was FETCHED FROM THE AGENCY, not from the moment this page received
+ * it: a mirror hit at 10:31 that the server filled at 10:24 is seven minutes old, and saying
+ * "just now" would be a lie the visitor cannot check. */
+export function dataAgeMs() {
+  return S.fetchedAt ? Date.now() - S.fetchedAt.getTime() : null;
+}
+
+/* An age in the units a reader wants: minutes while minutes mean something, then hours,
+ * then days. A tab left open overnight should say "14 h", not "863 min". */
+function ageWords(ms) {
+  const min = Math.round(ms / 60000);
+  if (min < 1) return "under a minute";
+  if (min < 90) return min + " min";
+  const h = ms / 3600000;
+  if (h < 36) return Math.round(h) + " h";
+  return Math.round(h / 24) + " days";
+}
+
 export function renderStatus() {
-  const hl = $("hudLive");
-  if (S.usingFallback) {
-    hl.classList.add("warn");
-    hl.innerHTML = `<b>DATA SNAPSHOT</b> · ${esc((S.snapshotDate || "").slice(0, 10))} · live feed unreachable`;
-  } else {
-    hl.classList.remove("warn");
-    const t = S.fetchedAt.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit" });
-    hl.innerHTML = `<b>BC FIRE DATA</b> · ${S.fires.length} fires · fetched ${t}`;
-  }
-  const age = () => {
-    const mins = Math.round((Date.now() - S.fetchedAt.getTime()) / 60000);
-    $("dataline").textContent =
-      (S.usingFallback
-        ? `Showing the bundled data snapshot from ${(S.snapshotDate || "").replace("T", " ").slice(0, 16)} UTC — the live BC Wildfire Service feed could not be reached from your browser. `
-        : `Live fire points and perimeters fetched ${mins} min ago from the BC Wildfire Service public feed (refreshed from operational systems roughly every 15 minutes; individual incidents can lag). `) +
+  const paint = () => {
+    const hl = $("hudLive");
+    const age = dataAgeMs();
+    const note = S.dataNote || "";
+    // A tier of "none" and a missing fetch time are the same condition seen from two sides;
+    // either one means there is nothing on screen to describe, and neither may be allowed
+    // to reach the live branch, which would read a time off null.
+    const noData = S.tier === "none" || !S.fetchedAt;
+    // The chip and the paragraph name the same tier. The rule they both obey: say what is
+    // on screen and how old it is, and never let a fallback wear the live label.
+    if (noData) {
+      hl.classList.add("warn");
+      hl.innerHTML = `<b>NO FIRE DATA</b> · no feed and no snapshot answered`;
+    } else if (S.usingFallback) {
+      hl.classList.add("warn");
+      hl.innerHTML = `<b>DATA SNAPSHOT</b> · ${esc((S.snapshotDate || "").slice(0, 10))} · ` +
+        (S.tier === "replay" ? "replay mode" : "live feed unreachable");
+    } else {
+      // Past two refresh intervals the page has demonstrably stopped updating, and the chip
+      // stops looking healthy about it.
+      hl.classList.toggle("warn", age > REFRESH_MS * 2);
+      const t = S.fetchedAt.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit" });
+      hl.innerHTML = `<b>BC FIRE DATA</b> · ${S.fires.length} fires · ` +
+        `fetched ${t} (${ageWords(age)} ago)`;
+    }
+
+    const live = !noData && !S.usingFallback;
+    // What the fire layer is actually made of, since a live tier can answer with points and
+    // no outlines. Claiming "points and perimeters" over a map with no rings on it is a
+    // small lie, but it is the kind this page cannot afford.
+    const layers = S.perimsOk ? "Live fire points and perimeters" : "Live fire points";
+    let opener;
+    if (noData) {
+      opener = `No fire data is on screen: this browser could reach neither the live BC ` +
+        `Wildfire Service feed nor the snapshot bundled with this page${note ? " (" + note + ")" : ""}. `;
+    } else if (S.usingFallback) {
+      // The parenthesis carries WHY, which is the difference between a feed that hung and a
+      // feed that answered with rubbish; in replay mode nothing failed, there is no note,
+      // and the sentence is the one this page has always shown.
+      opener = `Showing the bundled data snapshot from ${(S.snapshotDate || "").replace("T", " ").slice(0, 16)} UTC — the live BC Wildfire Service feed could not be reached from your browser${note ? " (" + note + ")" : ""}. `;
+    } else if (S.tier === "direct") {
+      opener = `${layers} fetched ${ageWords(age)} ago from the BC Wildfire Service public ` +
+        `feed by your own browser, because this site's mirror of it did not answer ` +
+        `(refreshed from operational systems roughly every 15 minutes; individual incidents ` +
+        `can lag). `;
+    } else {
+      opener = `${layers} fetched ${ageWords(age)} ago from this site's mirror of the BC ` +
+        `Wildfire Service public feed (refreshed from operational systems roughly every 15 ` +
+        `minutes; individual incidents can lag). `;
+    }
+    // Only the live tiers get the failure clauses: on the snapshot the opener has already
+    // said what happened, and in replay mode nothing failed.
+    const noPerims = live && !S.perimsOk
+      ? `The perimeter layer did not answer, so fires are drawn as points only. ` : "";
+    const stale = live && age > REFRESH_MS
+      ? `Nothing newer has been reachable since, so this is ${ageWords(age)} old rather than the usual fifteen minutes or less${note ? " (" + note + ")" : ""}. `
+      : "";
+    $("dataline").textContent = opener +
       `This page refetches every 15 minutes, and every source is cached in your browser (5–30 min by source) so extra tabs and reloads add nothing to the emergency feeds' load. ` +
+      noPerims + stale +
       (S.windOk ? `Winds: live 850 hPa (≈ the cruise band) per route from Open-Meteo, applied to transit times; altitude profiles remain nominal. `
                 : `Winds: unavailable — still-air transit times; altitudes nominal. `) +
       `Simulation clock ${S.paused ? "paused" : "running at " + S.speed + "×"}${S.reduced ? " (reduced motion honoured: use the phase buttons in a ship's panel)" : ""}.`;
   };
-  age();
-  clearInterval(renderStatus._t); renderStatus._t = setInterval(age, 30000);
+  paint();
+  // The age has to keep counting up on its own: nothing else redraws this line between
+  // refreshes, and a frozen "3 min ago" on an hour-old page is exactly the lie to avoid.
+  clearInterval(renderStatus._t); renderStatus._t = setInterval(paint, 30000);
+}
+
+/* ---------- the refresh cycle --------------------------------------------------------------- */
+
+export const REFRESH_MS = 900000;              // 15 min: the rate the feeds themselves update at
+
+let refreshing = false;
+
+/* Re-read the feeds and rebuild the fleet around whatever the fires are now.
+ *
+ * Guarded against re-entry because it now has two callers — the timer and the tab coming
+ * back into view — and they can arrive together: a tab shown at the moment its interval
+ * fires would otherwise run two allocations over the same state and let the slower one win.
+ */
+export async function refresh() {
+  if (refreshing || !S.ready) return;
+  refreshing = true;
+  try {
+    S.fires = await loadLive();
+    const selFire = S.sel ? (S.sel.f || S.sel.m.fire).id : null;
+    const selType = S.sel ? S.sel.type : null;
+    // Which HULL was being watched, not just which fire. A rebuild re-runs the whole
+    // allocation, so the same fire is often served by a different ship afterwards —
+    // and following a ship that silently becomes another ship, with the camera snapping
+    // to its heading, is the kind of thing a viewer reads as a glitch rather than as
+    // news. Keep the hull if it is still flying; only then fall back to the fire.
+    const selHull = S.sel && S.sel.m ? S.sel.m.name : null;
+    for (const w of S.water) w.used = false;
+    rebuildMissions();
+    for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
+    if (selType === "fire") {
+      const ff = S.fires.find(x => x.id === selFire);
+      S.sel = ff ? { type: "fire", f: ff, m: ff.mission } : null;
+    } else if (selHull || selFire) {
+      const sameHull = selHull && S.missions.find(m => !m.idle && m.name === selHull);
+      const ff = selFire && S.fires.find(x => x.id === selFire);
+      const m = sameHull || (ff && ff.mission) || null;
+      S.sel = m ? { type: "ship", m } : null;
+      if (!S.sel) S.follow = false;
+    }
+    renderStats(); renderTable(); renderStatus(); renderDrawer();
+    fetchWind(); fetchHeat();
+  } catch (e) {
+    // Keep the current picture; the next tick retries. loadLive does not throw, so this is
+    // a failure of the rebuild rather than of the network, and the status line goes on
+    // reporting the age of what is actually on screen.
+    renderStatus();
+  } finally { refreshing = false; }
 }
 
 /* ---------- boot -------------------------------------------------------------------------------- */
@@ -239,54 +352,50 @@ export async function boot() {
   if (pick) { S.sel = { type: "ship", m: pick }; S.follow = true; renderDrawer(); focusMission(pick); }
   fetchWind(); fetchHeat();
   S.ready = true;   // resize() may now repaint synchronously
-  // First visit: one orientation screen, one tap to dismiss, remembered per browser.
-  try {
-    if (!localStorage.getItem("airshipsIntroSeen")) {
-      const ov = $("introOv");
-      ov.hidden = false;
-      ov.addEventListener("click", () => {
-        ov.hidden = true;
-        try { localStorage.setItem("airshipsIntroSeen", "1"); } catch (e) { /* fine */ }
-      }, { once: true });
-    }
-  } catch (e) { /* private mode: no overlay persistence, no overlay crash */ }
+  // First visit: one orientation screen, one tap to dismiss, remembered per browser. With
+  // storage blocked it is shown on every visit — mildly annoying, and the only honest
+  // alternative to either hiding it or breaking the page.
+  if (!storeGet("airshipsIntroSeen")) {
+    const ov = $("introOv");
+    ov.hidden = false;
+    ov.addEventListener("click", () => {
+      ov.hidden = true;
+      storeSet("airshipsIntroSeen", "1");
+    }, { once: true });
+  }
   requestAnimationFrame(frame);
-  setInterval(async () => {
-    if (document.hidden) return;
-    try {
-      S.fires = await loadLive();
-      const selFire = S.sel ? (S.sel.f || S.sel.m.fire).id : null;
-      const selType = S.sel ? S.sel.type : null;
-      // Which HULL was being watched, not just which fire. A rebuild re-runs the whole
-      // allocation, so the same fire is often served by a different ship afterwards —
-      // and following a ship that silently becomes another ship, with the camera snapping
-      // to its heading, is the kind of thing a viewer reads as a glitch rather than as
-      // news. Keep the hull if it is still flying; only then fall back to the fire.
-      const selHull = S.sel && S.sel.m ? S.sel.m.name : null;
-      for (const w of S.water) w.used = false;
-      rebuildMissions();
-      for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
-      if (selType === "fire") {
-        const ff = S.fires.find(x => x.id === selFire);
-        S.sel = ff ? { type: "fire", f: ff, m: ff.mission } : null;
-      } else if (selHull || selFire) {
-        const sameHull = selHull && S.missions.find(m => !m.idle && m.name === selHull);
-        const ff = selFire && S.fires.find(x => x.id === selFire);
-        const m = sameHull || (ff && ff.mission) || null;
-        S.sel = m ? { type: "ship", m } : null;
-        if (!S.sel) S.follow = false;
-      }
-      renderStats(); renderTable(); renderStatus(); renderDrawer();
-      fetchWind(); fetchHeat();
-    } catch (e) { /* keep the current picture; next tick retries */ }
-  }, 900000);
+  setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
   if (location.search.indexOf("selftest=1") >= 0) {
     try { const r = selftest(); console.log(r); document.title += " · " + r; }
     catch (e) { console.error(e.message); document.title += " · " + e.message; }
   }
 }
 
-document.addEventListener("visibilitychange", () => { S.lastFrame = null; });
+/* Coming back to a tab that has been sitting in the background.
+ *
+ * The frame clock is reset because the animation loop must not integrate the hours the tab
+ * spent hidden as one enormous step. The data is a separate problem: the interval above
+ * declines to fetch while hidden, so a tab left open all day arrives back with fire data
+ * hours old and up to another fifteen minutes to wait before anything asks for more. Catch
+ * up on sight if the data has outlived the interval, and repaint either way so the age in
+ * the status line is the real one rather than whatever it was when the tab went away. */
+let wasHidden = document.hidden;
+document.addEventListener("visibilitychange", () => {
+  S.lastFrame = null;
+  const hidden = document.hidden;
+  // Only a real hidden → visible transition counts. Browsers fire this event in other
+  // circumstances too, and a page that reallocates its fleet on a spurious one is a page
+  // whose output depends on how its tab was opened.
+  const returning = wasHidden && !hidden;
+  wasHidden = hidden;
+  if (!returning || !S.ready) return;
+  // Replay pins its inputs. There is nothing newer to fetch, and re-running the allocation
+  // would quietly change the run the link exists to reproduce.
+  if (REPLAY) { renderStatus(); return; }
+  const age = dataAgeMs();
+  if (age === null || age > REFRESH_MS) refresh();
+  else renderStatus();
+});
 /* The page is an ES module, so nothing it declares is global. These two are published
  * deliberately: `APP` because the markup binds to it, and `AIRSHIPS` so that anyone reading
  * the page can re-run the model in their own devtools console without cloning anything —

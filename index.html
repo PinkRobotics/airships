@@ -262,6 +262,12 @@ details.d details.d>summary:hover,details.d details.d[open]>summary{color:var(--
 
 .cool .figlabel b, .cool details.d>summary .fl{color:var(--cool)}
 
+/* Text that exists only for assistive technology: the map's keyboard instructions and the
+   one live region. Not display:none — that would remove it from the accessibility tree,
+   which is the opposite of the point. */
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
 /* The provenance strip: repeated near every live/simulated junction. */
 .prov{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s5)}
 .prov span{font:600 var(--t-11)/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
@@ -348,6 +354,10 @@ nav.estate .est-rb{margin-right:auto}
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:120px}
 .fleettab tr.r-ship{cursor:pointer}
 .fleettab tr.r-ship:hover td{color:var(--text)}
+/* Both lists are grids navigated with the arrow keys (app/cockpit/tables.js), so a row is a
+   focus target and needs a ring of its own — a row has no border to reuse. */
+.fleettab tr.r-ship:focus-visible,.fleettab .r-cls:focus-visible{
+  outline:2px solid var(--warm);outline-offset:-2px}
 .fleettab tr.r-ship.sel td{color:var(--text)}
 .fleettab tr.r-ship.sel td:first-child{color:var(--warm);font-weight:600}
 .fleettab td.ph{color:var(--faint);max-width:90px}
@@ -574,7 +584,7 @@ nav.estate .est-rb{margin-right:auto}
       <div class="cpanel" id="cpFires">
         <h4 class="cp-h">Top fires · <b>live</b> · served or waiting</h4>
         <div id="firesTop"></div>
-        <p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">
+        <p class="small" id="firesNote" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">
           Last drop and kL/hour are simulation; sizes are live. Unserved fires wait for a hull.</p>
       </div>
       </div>
@@ -600,7 +610,21 @@ nav.estate .est-rb{margin-right:auto}
       <div class="cp-map" id="cpMap">
         <div class="mapcol">
         <div class="mapbox">
-          <canvas id="map" tabindex="0" aria-label="Map of British Columbia showing current wildfires and simulated airship missions. The same information is available in the fleet table below the map."></canvas>
+          <!-- role="application" because this canvas handles the arrow keys, + / − and Escape
+               itself (app/map/interact.js). Without it a screen reader in browse mode keeps
+               those keys, and the documented panning cannot be reached at all. The old label
+               promised "the fleet table below the map"; that table now lives on no page, and
+               the description below says only what is actually here. -->
+          <canvas id="map" tabindex="0" role="application" aria-describedby="mapHere mapHelp"
+            aria-label="Map of British Columbia: today's wildfires and the simulated airships tasked to them"></canvas>
+          <p id="mapHere" class="vh"></p>
+          <p id="mapHelp" class="vh">Arrow keys pan, plus and minus zoom, Escape clears the
+            selection. Every simulated airship is also listed as text in the fleet roster panel,
+            and the largest fires waiting for or receiving one are listed in the top fires panel;
+            selecting a row in either selects the same thing here, and the selected ship's full
+            record is written out in the operation panel. The map additionally draws every fire
+            in the provincial feed, satellite hotspots, water bodies and routes, which are not
+            listed as text anywhere on this page.</p>
           <div class="hud">
             <span class="chip" id="hudLive"><b>BC FIRE DATA</b> · loading…</span>
             <span class="chip" id="hudSim"><span class="sim">SIMULATED FLEET</span> · <span id="hudClock">–</span></span>
@@ -700,7 +724,11 @@ nav.estate .est-rb{margin-right:auto}
 
       </div>
 
-      <div class="cpanel cp-ops" id="cpOps" aria-live="polite">
+      <!-- NOT a live region. This strip is rebuilt whole on every selection and its narration
+           is rewritten every 1.5 s; announcing that is an unusable stream of speech. What is
+           worth announcing — a selection, a phase change, the data source changing — goes to
+           #liveNote instead, one short line at a time. -->
+      <div class="cpanel cp-ops" id="cpOps">
         <div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">
           Nothing selected. Click a <b style="color:var(--warm)">ship</b> to open the cockpit —
           the fleet on the left, the airship and its dials on the right, the operation
@@ -741,6 +769,13 @@ nav.estate .est-rb{margin-right:auto}
         <p>tap anywhere to open the monitor</p>
       </div>
     </div>
+
+    <!-- The page's only live region, and deliberately outside .statusbar so it adds nothing
+         to the visible strip. app/cockpit/panels.js writes one short sentence here and only
+         when something a listener would want interrupting for actually changed: the selection,
+         the selected ship's phase, or which feed the fires came from. Continuously moving
+         numbers are readable on demand from the instruments; they are never announced. -->
+    <p id="liveNote" class="vh" role="status" aria-live="polite" aria-atomic="true"></p>
 
     <div class="statusbar">
       <p class="small" id="dataline">Waiting for the provincial feed…</p>

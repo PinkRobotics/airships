@@ -162,6 +162,10 @@ See `../docs/PHYSICS.md` §"Defect 4" and §"Defect 5".
 | `alt` | m AGL | `state.js` → `stateAt` | per-phase profiles between `ALT.source`, `ALT.drop`, `ALT_DROP_TOP` and `altTop` | — | `config.js` `ALT`, `ALT_DROP_TOP`, `VZ_MAX` |
 | `altTop` | m AGL | `state.js` → `stateAt` | `min(ALT.cruise, ALT.source + VZ_MAX × 0.30 × 60 × min(dur.OUTBOUND, dur.RETURN))` | a short leg cannot reach the nominal ceiling at a sane climb rate | `config.js` `ALT.cruise = 1500`, `VZ_MAX = 6` |
 
+**Known defect.** `gen` has two entries and `genMW` is not one of them. The generators sized
+`rotorMaxT` and `battLimited` in the table above and then contribute no energy anywhere. See
+`../docs/PHYSICS.md` §"Defect 6".
+
 `ALT.cruise = 1500` is a ceiling, not a cruise altitude. The achieved ceiling is
 `300 + 108 × (shorter leg in minutes)` metres and only reaches 1,500 m when the shorter
 transit leg exceeds 11.1 minutes. A P-10000 at 15 km tops out at 1,180 m above ground.
@@ -212,7 +216,7 @@ depletion behaviour. Over the same cycle it spends **211.18 MWh**, 2.56 times wh
 | drop line geometry | `targets.js` → `dropSeg` | a `dropKm` segment perpendicular to the intake→target bearing, shrunk until both ends are inside the fire | `config.js` `dropKm` |
 | which line, in what order | `targets.js` → `planTargets` | `2 cos(align to head fire) + min(2, Σheat/150) + min(3.5, 12 × risk) + jitter`, then a nearest-neighbour chain | `targets.js`; `communities.js` `CITIES` |
 | community risk | `targets.js` → `planTargets` | `(3 city / 2 town / 1 village) / max(2, d_km)`, tripled if the fire heads at it, ignored beyond 40 km | `communities.js` |
-| per-cycle jitter | `targets.js` → `segAt` | ±(0.30 heat / 0.15 geometric) × line length across, ±0.125 × length along | `targets.js`; `rng.js` `SEED` |
+| per-cycle jitter | `targets.js` → `segAt` | ±(0.15 heat / 0.075 geometric) × line length across, ±0.125 × length along; the code writes the across term as a full-width amplitude of 0.30 or 0.15 and takes a signed half of it | `targets.js`; `rng.js` `SEED` |
 | flown leg length | `targets.js` → `legKmFor` | mean of station→line-head and line-tail→next-station over the rotation | — |
 | fleet allocation | **`app/fleet.js`**, not `sim/` | sixteen fixed hulls, largest class first, scored on priority minus distance | `app/fleet.js` `FLEET` |
 
@@ -255,8 +259,14 @@ better than 0.4% for all three, at a fineness ratio of 4.
 | storage | 20 MWh | 120 MWh | 2,000 MWh |
 | bus peak | 30 MW | 150 MW | 1,400 MW |
 | cryogenic plant | 6 MW | 30 MW | 100 MW |
-| rotors / total disk | 4 / 2,500 m² | 6 / 12,000 m² | 14 / 160,000 m² |
-| per-rotor diameter (derived) | 28.2 m | 50.5 m | 120.6 m |
+| rotor units / total disk | 4 / 2,500 m² | 6 / 12,000 m² | 14 / 160,000 m² |
+| disc diameter if one per unit (derived) | 28.2 m | 50.5 m | 120.6 m |
+
+`rotors` is a count of thrust units, and the model never uses it: only `diskM2` enters
+`diskMW`. The derived diameter is therefore what one disc per unit would have to be, not a
+dimension anything asserts. `3d/model/config.js` resolves the same disc areas as two
+smaller rotors per station — 20 / 36 / 85 m across 4 / 6 / 14 stations — and the two files
+disagree about the disc count while agreeing about the area to within 1.8%.
 
 `config.js` `MODES` — three operating postures, applied as multipliers.
 
@@ -304,8 +314,14 @@ the page:
   and wind. `sim/` takes them as arguments; `planTargets(m, heat)` is passed its heat
   rather than reading it, so the model runs with no feed at all.
 - **A second copy of the assumptions.** `3d/model/config.js` exports its own `ASSUMPTIONS`
-  with the same values, because the boundary rule forbids `3d/` importing `sim/`. The two
-  agree today and are kept in step by hand.
+  with the same values, because the boundary rule forbids `3d/` importing `sim/`. They are
+  no longer kept in step by hand: `tests/cases/spec-parity.cases.js` compares every field
+  both files claim to know and fails on any difference. It exists because the copies did
+  drift once — a P-10000 respec reached `sim/` and only half-reached the 3D copy, leaving
+  the model lab computing descent authority from a 650 MW bus while the page used
+  1,550 MW — and the drift was found by review rather than by a test. Two fields are
+  deliberately excluded and the exclusions carry written reasons: `ln2CapT`, and the disc
+  count, which the two files resolve differently (see the class table above).
 
 ---
 
@@ -327,5 +343,10 @@ Found by audit, open, tracked, and written up with numbers in `../docs/PHYSICS.m
    power or propulsive efficiency, or a 14.3% cut in disk area, starts the P-10000
    retaining water.
 5. **The cryogenic plant is numerically inert.** 21.1 t of nitrogen against a 12,050 t
-   buoyancy surplus and a 5,000 t tank — 0.2% of the stated job — while costing 11.5% of
+   buoyancy surplus and a 5,000 t tank — 0.42% of the stated job — while costing 11.5% of
    the cycle's published energy.
+6. **The generators supply thrust but no energy.** `rotorMaxT` and `battLimited` are both
+   computed from `battMW + genMW`, and nothing ever credits `genMW` as energy: `stateAt`
+   reports only `gen.solar` and `gen.regen`. A P-10000's generators at full output would
+   make 126.9 MWh against a published 82.50 MWh cycle. The per-cycle deficit the project
+   publishes may be an artefact of the omission.

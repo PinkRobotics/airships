@@ -3,9 +3,10 @@
 
 Same algorithm, same regexes, same output: the version is sha256 over the STRIPPED contents
 of every module (sorted by absolute path), truncated to 8 hex chars; every relative .js/.mjs
-specifier in the modules and the HTML entry points is stamped `?v=<version>`; version.json is
-rewritten. Running either stamper after the other is a no-op — if it is not, one of them has
-drifted and THAT is the bug to fix. See stamp-version.mjs for the full rationale.
+specifier that resolves into this tree — in the modules and in every HTML page of the
+repository that imports it — is stamped `?v=<version>`; version.json is rewritten. Running
+either stamper after the other is a no-op — if it is not, one of them has drifted and THAT
+is the bug to fix. See stamp-version.mjs for the full rationale.
 
     python3 scripts/stamp-version.py            # stamp
     python3 scripts/stamp-version.py --check    # fail if the stamp is stale
@@ -13,6 +14,7 @@ drifted and THAT is the bug to fix. See stamp-version.mjs for the full rationale
 """
 import hashlib
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -24,7 +26,7 @@ SITE = ROOT.parent
 check = "--check" in sys.argv
 strip = "--strip" in sys.argv
 
-SKIP_DIRS = {"node_modules", "assets"}
+SKIP_DIRS = {"node_modules", "assets", ".git"}
 
 
 def walk(dir_, suffixes):
@@ -42,12 +44,34 @@ def walk(dir_, suffixes):
 # JS side: `walkFiles(ROOT).filter((p) => !p.includes('scripts/'))` on the absolute path.
 modules = [p for p in walk(ROOT, {".js", ".mjs"}) if "scripts/" not in str(p)]
 
-html_entries = walk(ROOT, {".html"}) + [
-    p for p in [SITE / "airships" / "model-lab" / "index.html"] if p.exists()
-]
-
 STAMP = re.compile(r"(\.m?js)\?v=[A-Za-z0-9_.-]+(['\"])")
 SPEC = re.compile(r"(from\s*|import\s*\(\s*)(['\"])(\.{1,2}/[^'\"?]+\.m?js)(?:\?[^'\"]*)?(['\"])")
+
+
+def targets_tree(page, spec):
+    """Does this relative specifier, resolved from `page`, land inside the module tree?
+
+    Only those get stamped. A page may import this tree and someone else's modules in the
+    same block — `model-lab/` may import `sim/` — and rewriting the other owner's URLs
+    would version files they have deliberately left unversioned.
+
+    normpath, not resolve: node's path.resolve does not follow symlinks either, and the two
+    stampers have to agree about which files they own."""
+    target = Path(os.path.normpath(page.parent / spec))
+    return target == ROOT or ROOT in target.parents
+
+
+def imports_tree(page):
+    return any(targets_tree(page, m.group(3)) for m in SPEC.finditer(page.read_text()))
+
+
+# HTML entry points are DISCOVERED by resolving their import specifiers, not listed by path.
+# The list was `walk(ROOT)` plus a literal <site>/airships/model-lab/index.html — the path the
+# lab page had inside the private website repository. Nothing is at that path here, so the lab
+# was neither stamped nor checked: it imported `?v=41bc1f51` while the tree hashed to
+# `f3cb948e`, and `--check` still exited 0. Resolving the specifier finds the page wherever it
+# is, which is the only form of this list that a later move cannot silently empty.
+html_entries = [p for p in walk(SITE, {".html"}) if imports_tree(p)]
 
 
 def strip_stamp(s):
@@ -60,17 +84,19 @@ for p in sorted(modules, key=lambda q: str(q)):
 VERSION = h.hexdigest()[:8]
 
 
-def stamp_source(src):
-    base = strip_stamp(src)
-    if strip:
-        return base
-    return SPEC.sub(lambda m: f"{m.group(1)}{m.group(2)}{m.group(3)}?v={VERSION}{m.group(4)}", base)
+def stamp_source(page, src):
+    def one(m):
+        if not targets_tree(page, m.group(3)):
+            return m.group(0)
+        q = "" if strip else f"?v={VERSION}"
+        return f"{m.group(1)}{m.group(2)}{m.group(3)}{q}{m.group(4)}"
+    return SPEC.sub(one, src)
 
 
 changed, stale = 0, []
 for p in modules + html_entries:
     src = p.read_text()
-    out = stamp_source(src)
+    out = stamp_source(p, src)
     if out == src:
         continue
     changed += 1

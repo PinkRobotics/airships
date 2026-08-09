@@ -17,8 +17,8 @@
  * structural run actually emits.
  */
 
-import { clamp01, dist, lerp, sub, len as vlen, dot } from '../core/math.js?v=f3cb948e';
-import { stationT, profileR } from './config.js?v=f3cb948e';
+import { clamp01, dist, lerp, sub, len as vlen, dot } from '../core/math.js?v=a364a52c';
+import { stationT, profileR } from './config.js?v=a364a52c';
 
 /**
  * @typedef {object} DensitySample

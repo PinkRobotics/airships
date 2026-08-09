@@ -5,6 +5,34 @@ import { H, W, canvas, mercY } from '../map/projection.js';
 import { hitFires, hitShips, hitWater } from '../map/render.js';
 import { S } from '../store.js';
 
+/* The map's text alternative, part two.
+ *
+ * The canvas used to promise "the same information is available in the fleet table below the
+ * map"; that table now lives on no page, and a label that describes something that does not
+ * exist is a false claim. #mapHelp in index.html says what IS there — the roster and the
+ * top-fires list name every ship and the biggest served fires — and what is only ever drawn:
+ * the rest of the provincial feed, the hotspots, the water, the routes.
+ *
+ * This fills in the one thing those panels cannot answer, which is how much of that is in the
+ * current frame. It is a plain description referenced by aria-describedby, NOT a live region:
+ * it is written once an interaction has settled and read when someone asks the map what it is
+ * showing. Panning would otherwise generate a sentence per frame. */
+let viewNoteT = null;
+
+export function noteMapView() {
+  if (viewNoteT) return;                     // one write per 400 ms, whatever the input rate
+  viewNoteT = setTimeout(() => {
+    viewNoteT = null;
+    const el = document.getElementById("mapHere");
+    if (!el) return;
+    const n = (c, one, many) => `${c} ${c === 1 ? one : many}`;
+    const txt = `Currently in frame: ${n(hitFires.length, "fire", "fires")}, ` +
+      `${n(hitShips.length, "simulated airship", "simulated airships")}, ` +
+      `${n(hitWater.length, "water source in use", "water sources in use")}.`;
+    if (el.textContent !== txt) el.textContent = txt;
+  }, 400);
+}
+
 export let drag = null, pinch = null;
 canvas.addEventListener("pointerdown", e => {
   canvas.setPointerCapture(e.pointerId);
@@ -26,6 +54,7 @@ canvas.addEventListener("pointermove", e => {
   if (drag.moved > 4) { canvas.classList.add("drag"); S.follow = false; }
   S.view.cx -= dx / S.view.k; S.view.cy -= dy / S.view.k;
   drag.x = e.clientX; drag.y = e.clientY;
+  noteMapView();
 });
 
 export function endPointer(e) {
@@ -45,6 +74,7 @@ canvas.addEventListener("wheel", e => {
   const wx = S.view.cx + (mx - W / 2) / S.view.k, wy = S.view.cy + (my - H / 2) / S.view.k;
   S.view.k = Math.max(6, Math.min(9000, S.view.k * f));
   S.view.cx = wx - (mx - W / 2) / S.view.k; S.view.cy = wy - (my - H / 2) / S.view.k;
+  noteMapView();
 }, { passive: false });
 canvas.addEventListener("keydown", e => {
   const step = 60 / S.view.k;
@@ -57,6 +87,7 @@ canvas.addEventListener("keydown", e => {
   else if (e.key === "Escape") { S.sel = null; renderDrawer(); }
   else return;
   e.preventDefault(); S.follow = false;
+  noteMapView();
 });
 
 export function clickAt(cx, cy) {
@@ -89,7 +120,12 @@ export function select(sel) {
   S.follow = sel.type === "ship" && !!sel.m && !sel.m.idle;
   if (sel.type === "ship" && sel.m && !sel.m.idle) focusMission(sel.m);
   renderDrawer();
+  noteMapView();          // selecting a ship reframes the map, so the frame description moves
 }
+
+// One description before anyone touches anything: the first frames have drawn by now, and a
+// describedby element that is empty until the user pans describes nothing on arrival.
+setTimeout(noteMapView, 2500);
 
 export function focusMission(m) {
   // frame the entire task: hose stations, the fire, and every drop target

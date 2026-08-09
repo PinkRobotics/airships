@@ -25,7 +25,7 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { join, dirname, relative, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
@@ -40,7 +40,7 @@ const strip = args.includes('--strip');
 /** Every .js in the module tree, plus the HTML entry points that import from it. */
 function walkFiles(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === 'assets') continue;
+    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) walkFiles(p, out);
@@ -58,21 +58,53 @@ const modules = walkFiles(ROOT).filter((p) => !p.includes(`${'scripts'}/`));
  * and the page died with "does not provide an export named AirshipHUD". Uniformity is the whole
  * safety property here, so the set of files it covers cannot be something a person must remember
  * to update.
+ *
+ * It was still half-listed, and the listed half was wrong. `walkHtml(ROOT)` plus a literal
+ * `<site>/airships/model-lab/index.html` — the path the lab page had inside the private website
+ * repository. Here the lab is at `model-lab/index.html`, so nothing was at the listed path, the
+ * lab was never stamped, and `--check` exited 0 while the lab imported `?v=41bc1f51` against a
+ * tree that hashed to `f3cb948e`. Discovery is now by RESOLVING each specifier: every HTML page
+ * in the repository whose imports land inside this tree is an entry point, wherever it moves.
  */
 function walkHtml(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === 'assets') continue;
+    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
     const q = join(dir, name);
-    const st = statSync(q);
+    let st;
+    try { st = statSync(q); } catch { continue; }
     if (st.isDirectory()) walkHtml(q, out);
     else if (name.endsWith('.html')) out.push(q);
   }
   return out;
 }
-const htmlEntries = [
-  ...walkHtml(ROOT),
-  join(SITE, 'airships', 'model-lab', 'index.html'),
-].filter((q) => { try { statSync(q); return true; } catch { return false; } });
+
+/**
+ * Add the query to relative specifiers only. Bare specifiers and absolute URLs are left alone —
+ * there are none today, and silently rewriting one later would be worse than skipping it.
+ *
+ * Declared here rather than beside `stampSource` because entry-point discovery reads it too:
+ * a page is an entry point exactly when one of these specifiers resolves into the tree.
+ */
+const SPEC = /(from\s*|import\s*\(\s*)(['"])(\.{1,2}\/[^'"?]+\.m?js)(?:\?[^'"]*)?(['"])/g;
+
+/**
+ * Does this relative specifier, resolved from `page`, land inside the module tree?
+ *
+ * Only those get stamped. A page may import this tree and someone else's modules in the same
+ * block — `model-lab/` may import `sim/` — and rewriting the other owner's URLs would version
+ * files they have deliberately left unversioned.
+ */
+function targetsTree(page, spec) {
+  const target = resolve(dirname(page), spec);
+  const rel = relative(ROOT, target);
+  return rel === '' || (!rel.startsWith('..') && !isAbsolute(rel));
+}
+const importsTree = (page) => {
+  const src = readFileSync(page, 'utf8');
+  for (const m of src.matchAll(SPEC)) if (targetsTree(page, m[3])) return true;
+  return false;
+};
+const htmlEntries = walkHtml(SITE).filter(importsTree);
 
 /* The version: a hash of the STRIPPED contents, so stamping is idempotent.
  *
@@ -88,21 +120,17 @@ const h = createHash('sha256');
 for (const p of modules.slice().sort()) h.update(stripStamp(readFileSync(p, 'utf8')));
 const VERSION = h.digest('hex').slice(0, 8);
 
-/**
- * Add the query to relative specifiers only. Bare specifiers and absolute URLs are left alone —
- * there are none today, and silently rewriting one later would be worse than skipping it.
- */
-const SPEC = /(from\s*|import\s*\(\s*)(['"])(\.{1,2}\/[^'"?]+\.m?js)(?:\?[^'"]*)?(['"])/g;
-function stampSource(src) {
-  const base = stripStamp(src);
-  if (strip) return base;
-  return base.replace(SPEC, (_, kw, q1, spec, q2) => `${kw}${q1}${spec}?v=${VERSION}${q2}`);
+/* One pass does both jobs: SPEC's third group excludes any existing query, so re-emitting the
+ * match without one IS the strip. Only the tree's own URLs are touched — see targetsTree. */
+function stampSource(page, src) {
+  return src.replace(SPEC, (whole, kw, q1, spec, q2) =>
+    (targetsTree(page, spec) ? `${kw}${q1}${spec}${strip ? '' : `?v=${VERSION}`}${q2}` : whole));
 }
 
 let changed = 0, stale = [];
 for (const p of [...modules, ...htmlEntries]) {
   const src = readFileSync(p, 'utf8');
-  const out = stampSource(src);
+  const out = stampSource(p, src);
   if (out === src) continue;
   changed++;
   if (check) stale.push(relative(SITE, p));

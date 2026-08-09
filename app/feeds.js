@@ -68,33 +68,116 @@ export function normalize(firesGJ, perimsGJ) {
   return fires;
 }
 
+/* Which tier is on screen. loadLive sets it, and the status line in main.js says it out
+ * loud; nothing else may write it. It is not declared in store.js because this module is
+ * the only thing that knows the answer.
+ *
+ *   "replay"    ?data=snapshot — the visitor asked for the bundled dataset
+ *   "mirror"    this site's server-side copy of the public feeds
+ *   "direct"    the public feeds, fetched by this browser (or its own cache of them)
+ *   "snapshot"  the dataset committed to the repository; the live tiers all failed
+ *   "none"      nothing answered and there is nothing to show
+ *
+ * A refresh that fails with a good picture already on screen changes none of this: the tier
+ * and the fetch time stay as they were, because they describe the data the visitor is
+ * looking at, and the growing age is what tells them the page has stopped updating.
+ *
+ * S.dataNote carries the reason in words — "mirror is 63 min old, past its 45 min gate",
+ * "timed out after 15 s" — so a visitor who wonders why is not left guessing, and so the
+ * two failures that look identical from outside (a feed that hangs and a feed that returns
+ * nothing) read differently on the page. S.perimsOk says whether the outlines came with the
+ * points, because a live tier can answer with one and not the other. */
+
+/* One short phrase for one failure, for the status line. */
+function why(e) {
+  return (e && e.message) || "unknown error";
+}
+
+/* A feed that parses but carries no fires is a failure of the SOURCE, not of the transport,
+ * and the next tier may well have the fires. BC has active fires every day of the season;
+ * an empty collection in August is a broken publisher, not a quiet province. It is treated
+ * as unusable rather than shown as "0 fires" — but only after every tier has been asked. */
+function usable(gj) {
+  return !!(gj && Array.isArray(gj.features) && gj.features.length);
+}
+
 export async function loadLive() {
   if (REPLAY) {
     const snap = await fetchJSON("data/snapshot.json", 20000);
     S.usingFallback = true; S.fetchedAt = new Date(snap.retrievedAt || Date.now());
     S.snapshotDate = snap.retrievedAt;
+    S.tier = "replay"; S.dataNote = ""; S.perimsOk = true;
     return normalize(snap.fires, snap.perimeters);
   }
+  // The tiers are tried in order and every failure is recorded, rather than being nested in
+  // catch blocks where an early success can still fall past a later tier. The specific hole
+  // that shape had: a mirror that answered with a valid timestamp and an empty feature
+  // collection satisfied the mirror tier, failed the emptiness test further down, and threw
+  // into the outermost catch — which is the SNAPSHOT. A working public feed was skipped.
+  const notes = [];
+  let got = null, tier = null, perims = null;
+
+  // Tier 1: our own mirror. 45 min covers a few missed refreshes of a job that runs every
+  // ten. Perimeters come from the same tier as the fires, so the two layers on screen are
+  // always the same vintage from the same publisher; a missing perimeter layer only costs
+  // the rings.
   try {
-    // Mirror first (45 min covers a few missed refreshes); direct feed only as fallback,
-    // still behind the courtesy localStorage cache.
-    let fr, pr = null;
+    const fr = await mirrorJSON("fires", 45);
+    if (usable(fr.data)) {
+      got = fr; tier = "mirror";
+      try { perims = await mirrorJSON("perims", 90); }
+      catch (e) { notes.push("no perimeters (" + why(e) + ")"); }
+    } else notes.push("mirror carried no fires");
+  } catch (e) { notes.push("mirror: " + why(e)); }
+
+  // Tier 2: the public feeds, direct from this browser, behind the courtesy cache.
+  if (!got) {
     try {
-      fr = await mirrorJSON("fires", 45);
-      try { pr = await mirrorJSON("perims", 90); } catch (e) { /* fires alone still draw */ }
-    } catch (e) {
-      fr = await cachedJSON("fires", FIRES_URL, 300000, 15000);
-      try { pr = await cachedJSON("perims", PERIMS_URL, 900000, 15000); } catch (e2) {}
-    }
-    if (!fr.data || !fr.data.features || !fr.data.features.length) throw new Error("empty feed");
-    S.usingFallback = false;
-    S.fetchedAt = new Date(Date.now() - fr.age);
-    return normalize(fr.data, pr && pr.data);
-  } catch (e) {
-    const snap = await fetchJSON("data/snapshot.json", 20000);
-    S.usingFallback = true; S.fetchedAt = new Date(); S.snapshotDate = snap.retrievedAt;
-    return normalize(snap.fires, snap.perimeters);
+      const fr = await cachedJSON("fires", FIRES_URL, 300000, 15000);
+      if (usable(fr.data)) {
+        got = fr; tier = "direct";
+        try { perims = await cachedJSON("perims", PERIMS_URL, 900000, 15000); }
+        catch (e) { notes.push("no perimeters (" + why(e) + ")"); }
+      } else notes.push("feed carried no fires");
+    } catch (e) { notes.push("feed: " + why(e)); }
   }
+
+  if (got) {
+    S.usingFallback = false; S.tier = tier;
+    S.fetchedAt = new Date(Date.now() - got.age);
+    S.dataNote = notes.join("; ");
+    // "Perimeters arrived" has to mean outlines are on the map, not merely that the layer
+    // answered: an empty collection draws nothing and must not be described as perimeters.
+    S.perimsOk = usable(perims && perims.data);
+    return normalize(got.data, perims && perims.data);
+  }
+
+  // Tier 3: the dataset committed to the repository. Dated on the page, never called live.
+  try {
+    const snap = await fetchJSON("data/snapshot.json", 20000);
+    S.usingFallback = true; S.tier = "snapshot"; S.fetchedAt = new Date();
+    S.snapshotDate = snap.retrievedAt;
+    S.dataNote = notes.join("; ");
+    S.perimsOk = true;                       // the committed snapshot always carries both
+    return normalize(snap.fires, snap.perimeters);
+  } catch (e) {
+    notes.push("snapshot: " + why(e));
+  }
+
+  // Nothing answered at all. The one thing this must not do is throw: an unhandled rejection
+  // here would stop boot() before the page had a status line to explain itself with.
+  if (S.fires.length) {
+    // A refresh failed with a good picture already on screen. Keep that picture AND its
+    // provenance — it really did come from the tier it says, at the time it says — and let
+    // the age in the status line go on growing, which is the honest signal that the page
+    // has stopped being able to update itself.
+    S.dataNote = notes.join("; ");
+    return S.fires;
+  }
+  S.usingFallback = true; S.tier = "none"; S.fetchedAt = null;
+  S.dataNote = notes.join("; ");
+  S.perimsOk = false;
+  return [];
 }
 
 export function needsShip(f) {

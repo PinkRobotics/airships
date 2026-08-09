@@ -1,7 +1,8 @@
 # `data/`
 
 Everything the page loads that is not code. Six committed files plus a `live/` directory
-that is deliberately empty in git.
+whose contents are gitignored on purpose — `/data/live/*` with `!/data/live/README.md`, so
+the directory and its explanation are committed and the mirrored feeds are not.
 
 The wildfire data here is real and comes from public agencies under open licences. The
 fleet that responds to it is imagined. Full licence text, required attribution wording and
@@ -18,7 +19,7 @@ machine-readable `<name>.prov.json` sidecar beside it. This page is the index.
 | `terrain-bc.jpg` | 621,849 | 2560 × 2304 dark hillshade of BC and its margins, zoom-7 mercator mosaic, longitude −140.625°…−112.5°. A rendering, not elevation data. | AWS Terrain Tiles (CDEM / SRTM / GMTED2010 / ETOPO1) | per-source; see DATA-SOURCES.md §4 | `python3 pipeline/terrain.py data/terrain-bc.jpg` |
 | `roads-bc.json` | 54,455 | 294 highway polylines, 3032 vertices, bare `[[lon,lat],…]` with no properties. Orientation only; the model never reads it. | Natural Earth 1:10m Roads | public domain | **No generator — see below.** |
 | `bc-outline.json` | 14,336 | The BC provincial boundary and its islands: 23 rings, 804 vertices, simplified. Orientation only. | Natural Earth 1:50m Admin-1, feature "British Columbia" | public domain | **No generator — see below.** |
-| `live/` | — | The server-side mirror of the live feeds. Gitignored on purpose. | see [`live/README.md`](live/README.md) | as upstream | `python3 pipeline/live.py` |
+| `live/` | — | The server-side mirror of the live feeds: `fires.json`, `perims.json`, `heat.json`. Gitignored on purpose. | see [`live/README.md`](live/README.md) | as upstream | `python3 pipeline/live.py` |
 
 Byte counts are as committed and will move if a file is regenerated.
 

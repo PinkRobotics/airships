@@ -17,7 +17,10 @@ hidden-line removal — is a depth prepass, not a scene graph library.
 
 So `render/gl.js` is a small raw-WebGL2 renderer with four paths: lit solids (instanced),
 translucent solids, screen-space-width lines (instanced quads, because `gl.LINES` cannot exceed 1 px
-on most platforms), and an on-demand id buffer for picking. `render/svg.js` projects the *same*
+on most platforms), and an on-demand id buffer for picking. Instances of a node that declared
+itself unselectable are never drawn into that buffer, so a click passes through spray, wash
+streaks and tank fill levels to the component behind them rather than selecting a puff of air.
+`render/svg.js` projects the *same*
 geometry through the *same* camera maths to produce vector figures, so a figure cannot drift from
 the viewer without the drift being detectable — `scripts/figures.mjs --check` is what detects it.
 (It is failing today; see *Assets and reproducibility*.)
@@ -73,7 +76,7 @@ ten viewers on a page share one `<style>`.
 type AirshipClassId = 'P100' | 'P1000' | 'P10000';
 
 type AirshipViewMode =
-  | 'exterior' | 'ghost' | 'cutaway-longitudinal' | 'cutaway-transverse'
+  | 'exterior' | 'ghost' | 'cutaway-longitudinal' | 'cutaway-transverse' | 'vacuum'
   | 'lattice' | 'wire' | 'systems' | 'load-paths' | 'energy' | 'mass' | 'failure';
 
 interface Airship3DProps {
@@ -154,6 +157,12 @@ problems. Both are asserted by the test suite.
 Everything the monitor has no reason to carry — hose payout, pod depth, release progress, attitude,
 airspeed, vertical speed — comes from `anim/mission.js` `phaseShape()`, the same function the
 standalone lab uses, so a scene looks identical either way.
+
+The hose is the one place the adapter has to do more than translate. The monitor's cycle is six
+phases with no stopped hose time: the pod pays out during the flown approach and winds up during
+the climb-out. The lab's eleven-phase cycle has separate deploy and retract phases, so replaying
+`phaseShape()` unmodified against a monitor phase deployed the hose twice — once on the approach
+and again at the fill. The overlap is applied in `adapter/fable.js`, not in `anim/mission.js`.
 
 ### The cockpit HUD — drop-in for a canvas
 
@@ -376,9 +385,13 @@ rate-limited by the class envelope (`maxYawRateDegS`: 2.2 °/s for a P-100, 1.4 
 gimbals slew at 18 °/s. The contrast is the point: the actuators are quick and the vehicle is not.
 
 `anim/mission.js` is a demonstration state machine **for the standalone lab only**. It computes
-durations from the class configuration — the same fill rate, cruise speed and altitude bands the
-monitor reads — so the two cannot drift even here. When the monitor drives the model, none of it
-runs.
+durations from the class configuration — the same fill rate and cruise speed the monitor reads —
+so those cannot drift even here. The altitude bands have drifted: `anim/mission.js` uses
+`{ cruise: 1500, source: 300, drop: 250 }` while `sim/config.js` uses `drop: 450`, and the
+comment above it claims they are the same three bands. The lab therefore flies its drop run
+200 m lower than the model prices. Nothing in the monitor reads this file, so the published
+numbers are unaffected; the lab's altitude readout is wrong by 200 m. When the monitor drives
+the model, none of it runs.
 
 ---
 
@@ -411,7 +424,7 @@ Rasterisation is a separate step because it needs a browser; `figures.mjs` runs 
 ## Tests
 
 ```bash
-node --test "tests/*.test.mjs"           # 101 unit/model/physics/adapter/geometry tests
+node --test "tests/*.test.mjs"           # 103 unit/model/physics/adapter/geometry tests
 node scripts/audit.mjs                   # containment + interference across all three classes
 node scripts/probe-ports.mjs             # 45 blower-port geometry checks
 node scripts/stamp-version.mjs --check   # every module URL carries the content version
@@ -420,10 +433,13 @@ node scripts/figures.mjs --check         # committed figures match the model
 ```
 
 Counts are the tests that exist, not a claim that they all pass. **Verified on 2026-08-09:**
-`audit.mjs` clean, `probe-ports.mjs` clean (45/45), `browser-tests.sh` `pass=28 fail=0 skip=0`,
-`stamp-version.mjs --check` clean. **`figures.mjs --check` fails** — see the note under *Assets*
-above; the committed SVGs predate a geometry fix. The node unit suite was not run for this pass
-because the machine used had no node; it is the CI gate, so treat CI as the authority on it.
+`probe-ports` clean (45/45, via `scripts/probe-ports.html`, the browser runner for machines
+without node), `browser-tests.sh` `pass=28 fail=0 skip=0`, `stamp-version.py --check` clean
+(the Python port; `stamp-version.mjs` is the same check and needs node).
+**`figures.mjs --check` is expected to fail** — see the note under *Assets* above; the committed
+SVGs predate a geometry fix. Three things were **not** run on that pass because the machine had
+no node: the 103-test node suite, `audit.mjs`, and `figures.mjs --check` itself. CI is the
+authority on all three; the 103 is a count of `test(` calls in the three files, not a pass count.
 
 The browser suite runs against software WebGL (`--use-angle=swiftshader`) rather than a real GPU,
 because it asserts geometry and DOM behaviour rather than pixels and has to give the same answer

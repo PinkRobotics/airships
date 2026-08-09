@@ -13,26 +13,26 @@
  * several-to-a-page on an explanatory article.
  */
 
-import { build, buildVacuumFill } from '../model/build.js?v=f3cb948e';
-import { hullR } from '../model/config.js?v=f3cb948e';
-import { createRenderer, isWebGL2Available } from '../render/gl.js?v=f3cb948e';
+import { build, buildVacuumFill } from '../model/build.js?v=a364a52c';
+import { hullR } from '../model/config.js?v=a364a52c';
+import { createRenderer, isWebGL2Available } from '../render/gl.js?v=a364a52c';
 import {
   createCamera, orbit, dolly, pan, goToPreset, updateCamera, frameAll, avoidInterior,
   PRESETS, PRESET_IDS, viewMatrix, projMatrix, cameraEye,
-} from '../render/camera.js?v=f3cb948e';
-import { viewStyle, VIEW_MODES, VIEW_LABELS } from '../render/views.js?v=f3cb948e';
-import { CATEGORY_TONE, CLAIM_TONE, TOKENS, STATE_TONE } from '../render/palette.js?v=f3cb948e';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=f3cb948e';
-import { buildActuators } from '../control/actuators.js?v=f3cb948e';
-import { allocate } from '../control/allocator.js?v=f3cb948e';
-import { defaultState, sanitizeState, describeState, PHASE_LABELS } from '../physics/state.js?v=f3cb948e';
-import { massState, forceSet, angularAccelDegS2 } from '../physics/mass.js?v=f3cb948e';
-import { energyFlows } from '../physics/energy.js?v=f3cb948e';
-import { node, addChild, walk } from '../core/nodes.js?v=f3cb948e';
-import { cylGeom, latheGeom, mergeSolids, lines, pathSegs } from '../model/geom.js?v=f3cb948e';
-import { m4compose, m4mul, clamp, clamp01, len, norm, mul, add, sub } from '../core/math.js?v=f3cb948e';
-import { staticFigureSVG } from '../render/svg.js?v=f3cb948e';
-import { injectStyles } from '../render/styles.js?v=f3cb948e';
+} from '../render/camera.js?v=a364a52c';
+import { viewStyle, VIEW_MODES, VIEW_LABELS } from '../render/views.js?v=a364a52c';
+import { CATEGORY_TONE, CLAIM_TONE, TOKENS, STATE_TONE } from '../render/palette.js?v=a364a52c';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=a364a52c';
+import { buildActuators } from '../control/actuators.js?v=a364a52c';
+import { allocate } from '../control/allocator.js?v=a364a52c';
+import { defaultState, sanitizeState, describeState, PHASE_LABELS } from '../physics/state.js?v=a364a52c';
+import { massState, forceSet, angularAccelDegS2 } from '../physics/mass.js?v=a364a52c';
+import { energyFlows } from '../physics/energy.js?v=a364a52c';
+import { node, addChild, walk } from '../core/nodes.js?v=a364a52c';
+import { cylGeom, latheGeom, mergeSolids, lines, pathSegs } from '../model/geom.js?v=a364a52c';
+import { m4compose, m4mul, clamp, clamp01, len, norm, mul, add, sub } from '../core/math.js?v=a364a52c';
+import { staticFigureSVG } from '../render/svg.js?v=a364a52c';
+import { injectStyles } from '../render/styles.js?v=a364a52c';
 
 const QUALITY_TIER = { low: 1, medium: 2, high: 3 };
 

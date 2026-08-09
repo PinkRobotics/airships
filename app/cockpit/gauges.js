@@ -18,12 +18,20 @@ export function polar(cx, cy, r, aDeg) {           // clockwise from 12 o'clock
   return { x: cx + r * Math.sin(a), y: cy - r * Math.cos(a) };
 }
 
-/* A 240-degree gauge. Needle plus a filled arc; max can be rebound per mission. */
+/* A 240-degree gauge. Needle plus a filled arc; max can be rebound per mission.
+ *
+ * role="meter", not role="img": one quantity against a scale is exactly what a meter is, and
+ * the reading has to be IN the accessibility tree or the dial says "ground speed" and never a
+ * speed. The value is written on the element, not into a live region — a listener asks the
+ * dial what it reads, the way a sighted user looks at it, and is not interrupted sixty times
+ * a second to be told. */
 
 export function makeGauge(mount, label, max, fmtFn, markFrac) {
   const w = 150, h = 116, cx = 75, cy = 62, r = 46;
-  const svg = svgEl("svg", { viewBox: `0 0 ${w} ${h}`, role: "img",
-    "font-family": "ui-monospace,SFMono-Regular,Menlo,monospace", "aria-label": label });
+  const svg = svgEl("svg", { viewBox: `0 0 ${w} ${h}`, role: "meter",
+    "font-family": "ui-monospace,SFMono-Regular,Menlo,monospace", "aria-label": label,
+    "aria-valuemin": "0", "aria-valuemax": String(max), "aria-valuenow": "0",
+    "aria-valuetext": fmtFn(0) });
   const p0 = polar(cx, cy, r, -120), p1 = polar(cx, cy, r, 120);
   svgEl("path", { d: `M${p0.x.toFixed(1)} ${p0.y.toFixed(1)} A${r} ${r} 0 1 1 ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`,
     fill: "none", stroke: "#232329", "stroke-width": 7, "stroke-linecap": "round" }, svg);
@@ -49,13 +57,17 @@ export function makeGauge(mount, label, max, fmtFn, markFrac) {
   lab.textContent = label.toUpperCase();
   const wrap = document.createElement("div");
   wrap.appendChild(svg); mount.appendChild(wrap);
-  let curMax = max, disp = null;
+  let curMax = max, disp = null, lastTxt = null;
   return {
     set(v, newMax) {
-      if (newMax !== undefined) curMax = Math.max(newMax, 1e-6);
-      // glide toward the target — phase boundaries move loads in steps, needles shouldn't
-      if (disp === null) disp = v;
-      disp += (v - disp) * Math.min(1, (S.frameDt || 0.016) * 4);
+      if (newMax !== undefined && Math.max(newMax, 1e-6) !== curMax) {
+        curMax = Math.max(newMax, 1e-6);
+        svg.setAttribute("aria-valuemax", String(curMax));
+      }
+      // glide toward the target — phase boundaries move loads in steps, needles shouldn't.
+      // Under prefers-reduced-motion there is no glide: the needle is where the number is.
+      if (disp === null || S.reduced) disp = v;
+      else disp += (v - disp) * Math.min(1, (S.frameDt || 0.016) * 4);
       const f = Math.max(0, Math.min(1, disp / curMax));
       // clamp the sweep away from its endpoints: a zero-length or full-circle arc is how
       // SVG renders the occasional degenerate bulge
@@ -66,15 +78,29 @@ export function makeGauge(mount, label, max, fmtFn, markFrac) {
         const pe = polar(cx, cy, r, a);
         fill.setAttribute("d", `M${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A${r} ${r} 0 ${a > 60.3 ? 1 : 0} 1 ${pe.x.toFixed(2)} ${pe.y.toFixed(2)}`);
       }
-      val.textContent = fmtFn(disp);
+      // The printed reading and the accessible reading are the same string, and both are
+      // written only when that string changes: a needle moving every frame must not churn
+      // the accessibility tree.
+      const txt = fmtFn(disp);
+      if (txt !== lastTxt) {
+        lastTxt = txt;
+        val.textContent = txt;
+        svg.setAttribute("aria-valuenow", String(Math.round(disp * 1000) / 1000));
+        svg.setAttribute("aria-valuetext", txt);
+      }
     },
   };
 }
 
 /* Two quantities on one face: generation (green) and consumption (red), same scale, so the
    gap between the needles IS the deficit. Same footprint as makeGauge — the second label
-   simply stacks under the first. */
-export function makeDualGauge(mount, labelA, labelB, max, fmtFn) {
+   simply stacks under the first.
+
+   This one stays role="img" where the single gauges became meters: a meter carries one value,
+   and splitting this face into two meters would report the two numbers and lose the only thing
+   the face exists to show, which is the distance between them. So the image's accessible NAME
+   is the whole reading, deficit included, and it is rewritten whenever the reading changes. */
+export function makeDualGauge(mount, labelA, labelB, max, fmtFn, unit = "") {
   const w = 150, h = 116, cx = 75, cy = 62, r = 46;
   const svg = svgEl("svg", { viewBox: `0 0 ${w} ${h}`, role: "img",
     "font-family": "ui-monospace,SFMono-Regular,Menlo,monospace", "aria-label": labelA + " and " + labelB });
@@ -104,7 +130,7 @@ export function makeDualGauge(mount, labelA, labelB, max, fmtFn) {
   const wrap = document.createElement("div");
   wrap.appendChild(svg); mount.appendChild(wrap);
   const curMax = Math.max(max, 1e-6);
-  let dA = null, dB = null;
+  let dA = null, dB = null, lastTxt = null;
   const setArc = (arc, needle, disp, rr) => {
     const f = Math.max(0, Math.min(1, disp / curMax));
     const a = Math.max(-119.7, Math.min(119.7, -120 + 240 * f));
@@ -115,12 +141,22 @@ export function makeDualGauge(mount, labelA, labelB, max, fmtFn) {
   };
   return {
     set(genV, useV) {
-      const k = Math.min(1, (S.frameDt || 0.016) * 4);
+      const k = S.reduced ? 1 : Math.min(1, (S.frameDt || 0.016) * 4);
       dA = dA === null ? genV : dA + (genV - dA) * k;
       dB = dB === null ? useV : dB + (useV - dB) * k;
       setArc(arcA, nA, dA, r + 2);
       setArc(arcB, nB, dB, r - 4);
-      val.textContent = fmtFn(dA) + " / " + fmtFn(dB);
+      const txt = fmtFn(dA) + " / " + fmtFn(dB);
+      if (txt !== lastTxt) {
+        lastTxt = txt;
+        val.textContent = txt;
+        // The face prints bare numbers because both labels are already on it; the accessible
+        // name has to carry the unit, which is why `unit` exists at all.
+        const net = dA - dB, u = unit ? " " + unit : "";
+        svg.setAttribute("aria-label",
+          `${labelA} ${fmtFn(dA)}${u}, ${labelB} ${fmtFn(dB)}${u} — ` +
+          (net < 0 ? `deficit ${fmtFn(-net)}${u}` : `surplus ${fmtFn(net)}${u}`));
+      }
     },
   };
 }
@@ -133,6 +169,9 @@ export function makePhaseDial(mount, m) {
   const w = 260, h = 240, cx = 130, cy = 126, r = 102;
   // viewBox starts at y=8: the needle tip reaches y=13, so everything above is dead air
   // the right column cannot afford.
+  // role="img" rather than meter: the reading is a state plus how far through it the ship is,
+  // which is two facts and a name, not a point on one scale. The name is rewritten as the
+  // needle moves — see set() — so asking the dial what it says returns the current answer.
   const svg = svgEl("svg", { viewBox: `0 8 ${w} ${h - 8}`, role: "img",
     "font-family": "ui-monospace,SFMono-Regular,Menlo,monospace",
     "aria-label": "Mission phase dial: the needle sweeps once per cycle through segments sized by phase duration" });
@@ -162,7 +201,7 @@ export function makePhaseDial(mount, m) {
     "font-size": 13, "font-weight": 600, fill: "#c9c3b6", "letter-spacing": "1.4" }, svg);
   tBot.textContent = (fmtMin(m.plan.cycleMin) + " / CYCLE").toUpperCase();
   mount.appendChild(svg);
-  let lastIdx = -1;
+  let lastIdx = -1, lastSub = null, lastCyc = null;
   return {
     set(st) {
       needle.setAttribute("transform", `rotate(${(360 * st.cyclePos / m.cycleSec).toFixed(2)} ${cx} ${cy})`);
@@ -172,8 +211,17 @@ export function makePhaseDial(mount, m) {
         tPhase.textContent = SHORT[st.phase];
         lastIdx = st.idx;
       }
-      tSub.textContent = Math.round(st.prog * 100) + "% · " + fmtMin((1 - st.prog) * m.plan.dur[st.phase]) + " left";
-      tCyc.textContent = st.sub ? "+ " + st.sub : "cycle #" + st.cycleN;
+      const sub = Math.round(st.prog * 100) + "% · " + fmtMin((1 - st.prog) * m.plan.dur[st.phase]) + " left";
+      const cyc = st.sub ? "+ " + st.sub : "cycle #" + st.cycleN;
+      if (sub === lastSub && cyc === lastCyc) return;
+      lastSub = sub; lastCyc = cyc;
+      tSub.textContent = sub;
+      tCyc.textContent = cyc;
+      svg.setAttribute("aria-label",
+        `Mission phase: ${SHORT[st.phase]}, ${Math.round(st.prog * 100)}% through it, ` +
+        `${fmtMin((1 - st.prog) * m.plan.dur[st.phase])} left, ` +
+        `${st.sub ? "sub-phase " + st.sub : "cycle " + st.cycleN}. ` +
+        `One sweep of the needle is one ${fmtMin(m.plan.cycleMin)} cycle.`);
     },
   };
 }

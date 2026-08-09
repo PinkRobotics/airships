@@ -77,9 +77,9 @@ node scripts/figures.mjs --check         # the committed figures still match the
 
 Read [3d/README.md](3d/README.md) before changing anything under `3d/`.
 
-## The two structural rules
+## The four structural rules
 
-`tools/check_boundaries.py` enforces exactly two things. It is short enough to read, and it is the
+`tools/check_boundaries.py` enforces exactly four things. It is short enough to read, and it is the
 whole linter.
 
 **Rule 1 — the dependency direction.** `sim/` imports nothing outside `sim/`. `3d/` imports nothing
@@ -93,6 +93,11 @@ the physics" becomes "read the whole site", and the invitation to check the numb
 real one. This is also what lets `sim/` run in node, in a test, and in a console on the live page
 with no adaptation.
 
+All three ways of naming another module count: `import … from '…'`, `export … from '…'` and
+`import('…')`. The re-export lines in `sim/index.js` and `3d/index.js` are the ones to watch — they
+are where a directory's public surface is assembled, and until 2026-08-09 the checker did not look
+at them at all.
+
 **Rule 2 — no module assigns to a binding it imported.** ES modules make imported bindings
 read-only, so a cross-module write is a runtime `TypeError` in strict mode — a failure you find
 when a user hits it, not when you compile. Where one module genuinely needs to change another's
@@ -101,7 +106,24 @@ example: it is one object for the lifetime of the module, never reassigned, and 
 through `setConfig` and `resetConfig` so that a typo throws instead of silently creating a tunable
 nobody reads.
 
-Both rules are mechanical. If the checker says you broke one, you broke one.
+**Rule 3 — live data must be passed, not defaulted away.** `planTargets(mission, heat)` defaults
+`heat` to `[]` so `sim/` runs with no feed. Inside `app/` the argument is required, because a call
+site that forgets it does not fail — it quietly scores drop lines on geometry alone, which is
+exactly what happened during the extraction and what no test caught.
+
+**Rule 4 — `sim/` reaches for no environment.** No `document`, `window`, `fetch`, `localStorage`,
+`Date`, `setTimeout`, `console`, `Math.random` or the rest of the list in `ENVIRONMENT` at the top
+of the checker. This is the promise `sim/README.md` makes, and Rule 1 cannot see it: calling `fetch`
+imports nothing. The single allowance is `Math.random` in `sim/rng.js`, which makes the default
+seed; it is listed in `ALLOWED_ENVIRONMENT` with the reason. If you need a clock or a random number
+in the model, take it as an argument.
+
+All four rules are mechanical. If the checker says you broke one, you broke one.
+
+The checker is also the only thing standing behind those claims, so it has its own tests:
+`python3 tools/check_boundaries.py --selftest` runs twenty-nine constructed trees and asserts the
+exact set of violations each one produces. A plain run does the same before it looks at your work.
+If you change a rule, add the case that would have caught the old behaviour.
 
 ## Comment and prose style
 

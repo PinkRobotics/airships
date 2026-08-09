@@ -9,8 +9,8 @@
  * air density. Everything else is the dry allowance plus what is currently aboard.
  */
 
-import { RHO_SL, RHO_AIR, G } from '../model/config.js?v=f3cb948e';
-import { clamp01 } from '../core/math.js?v=f3cb948e';
+import { RHO_SL, RHO_AIR, G } from '../model/config.js?v=a364a52c';
+import { clamp01 } from '../core/math.js?v=a364a52c';
 
 /** Density of liquid nitrogen at 1 atm, kg/m3. Known physics, not an assumption. */
 export const RHO_LN2 = 807;

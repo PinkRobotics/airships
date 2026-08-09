@@ -44,7 +44,7 @@ make serve       # or: python3 -m http.server 8875 --directory .
 
 ```sh
 $ tests/browser/run.py            # add -v to list the passing tests too
-115 passed, 0 failed, 4 known-failing — 119 tests in 33 suites, 95 ms
+150 passed, 0 failed, 4 known-failing — 154 tests in 35 suites, 81 ms
 ```
 
 That driver loads the same page and reads the record it leaves on `window.__tests` — per
@@ -53,7 +53,7 @@ puts a summary in `document.title`, and `tools/screenshot.py` prints titles:
 
 ```sh
 $ python3 tools/screenshot.py http://127.0.0.1:8875/tests/browser/
-TITLE: AIRSHIPS TESTS pass=115 fail=0 known=4 total=119
+TITLE: AIRSHIPS TESTS pass=150 fail=0 known=4 total=154
 ```
 
 **Under node** (this is what CI runs):
@@ -98,6 +98,10 @@ change belongs in `golden/`, not here.
 - `sim-determinism` — what `?seed=` pins, and when it is read.
 - `sim-config` — `setConfig` / `resetConfig`, the only mutable state in the model.
 - `sim-geo` — distance, béziers, easing, and short-way heading interpolation.
+- `sim-heat` — that the satellite heat layer actually reaches the drop planner, rather than
+  being fetched and dropped.
+- `spec-parity` — every field `sim/config.js` and `3d/model/config.js` both claim to know,
+  compared. Written after the two copies drifted and the drift was found by review.
 
 **`golden/` — characterisation.** `seed7-snapshot.json` is every model output, and
 `ui-seed7-snapshot.json` is what the page renders, both captured from
@@ -142,6 +146,14 @@ Four are currently marked:
 Everything else about those defects — including the numbers above — is asserted by ordinary
 passing tests alongside the markers, so the arithmetic is on the record either way.
 
+**Four markers, six open questions.** `docs/OPEN-QUESTIONS.md` tracks six items and only
+three of them appear above; the fourth marker, `windUsed`, has no entry there because it is
+too small. The three that cannot have a marker are dead descent ballast (`selftest.js`
+*requires* `retainedT` to be zero, so a failing test would assert the opposite of the
+specification), the Esri basemap (not a model behaviour), and the uncredited generators (no
+assertion can fail because a term is missing from a sum). Those three are held to ordinary
+passing tests that record what the code does. A count of markers is not a count of defects.
+
 ## Adding a test
 
 1. Put the assertion in the right `cases/*.cases.js` file, or a new one.
@@ -157,7 +169,7 @@ teeth, break the code on purpose and watch it go red.
 
 ## Notes on the harness
 
-`harness.js` is about 130 lines and has no dependencies. It collects test definitions at
+`harness.js` is 140 lines and has no dependencies. It collects test definitions at
 import time and runs them on demand, returning a record rather than printing, so both runners
 can format the same outcomes their own way. Assertions: `ok`, `eq` (`Object.is`), `close(a, b,
 tol)` (absolute tolerance, no default — state the one you mean), `throws`, `deepEq`.

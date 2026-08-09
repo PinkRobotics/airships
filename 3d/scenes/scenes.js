@@ -9,19 +9,19 @@
  * host page can always reach through to setProps/select/dispose.
  */
 
-import { createViewer, prefersReducedMotion } from './viewer.js?v=f3cb948e';
-import { resolveClass, CLASS_IDS } from '../model/config.js?v=f3cb948e';
-import { build } from '../model/build.js?v=f3cb948e';
-import { demoState, phaseTimeline, MODES, stepPhase } from '../anim/mission.js?v=f3cb948e';
-import { resolveClip, CLIPS, CLIP_BY_ID, MASTER_SEQUENCE } from '../anim/clips.js?v=f3cb948e';
-import { demoWrench, WRENCH_LABELS, allocate } from '../control/allocator.js?v=f3cb948e';
-import { buildActuators } from '../control/actuators.js?v=f3cb948e';
-import { staticFigureSVG, scaleComparisonSVG } from '../render/svg.js?v=f3cb948e';
-import { defaultState, PHASE_LABELS, describeState } from '../physics/state.js?v=f3cb948e';
-import { massState } from '../physics/mass.js?v=f3cb948e';
-import { CATEGORY_TONE } from '../render/palette.js?v=f3cb948e';
-import { CATEGORIES } from '../core/nodes.js?v=f3cb948e';
-import { clamp01 } from '../core/math.js?v=f3cb948e';
+import { createViewer, prefersReducedMotion } from './viewer.js?v=a364a52c';
+import { resolveClass, CLASS_IDS } from '../model/config.js?v=a364a52c';
+import { build } from '../model/build.js?v=a364a52c';
+import { demoState, phaseTimeline, MODES, stepPhase } from '../anim/mission.js?v=a364a52c';
+import { resolveClip, CLIPS, CLIP_BY_ID, MASTER_SEQUENCE } from '../anim/clips.js?v=a364a52c';
+import { demoWrench, WRENCH_LABELS, allocate } from '../control/allocator.js?v=a364a52c';
+import { buildActuators } from '../control/actuators.js?v=a364a52c';
+import { staticFigureSVG, scaleComparisonSVG } from '../render/svg.js?v=a364a52c';
+import { defaultState, PHASE_LABELS, describeState } from '../physics/state.js?v=a364a52c';
+import { massState } from '../physics/mass.js?v=a364a52c';
+import { CATEGORY_TONE } from '../render/palette.js?v=a364a52c';
+import { CATEGORIES } from '../core/nodes.js?v=a364a52c';
+import { clamp01 } from '../core/math.js?v=a364a52c';
 
 const el = (t, c, txt) => {
   const e = document.createElement(t);
@@ -502,7 +502,7 @@ export function AirshipTrajectoryExplorer(container, props = {}) {
   const selected = props.selected || 'mid';
 
   const y = (a) => H - 44 - (a / 3200) * (H - 90);
-  const parts = [`<svg viewBox="0 0 ${W} ${H}" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" ` +
+  const parts = [`<svg viewBox="0 0 ${W} ${H}" width="100%" style="height:auto" xmlns="http://www.w3.org/2000/svg" ` +
     `role="img" aria-label="Candidate routes between the water source and the fire across five ` +
     `altitude bands, with the selected route highlighted.">`];
   parts.push(`<rect width="${W}" height="${H}" fill="#0a0a0c"/>`);

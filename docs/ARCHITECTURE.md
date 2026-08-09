@@ -232,7 +232,7 @@ the stamp because it is thirty modules deep and visually obvious when it tears.
 
 ---
 
-## The two rules the boundary linter enforces
+## The four rules the boundary linter enforces
 
 `tools/check_boundaries.py`, run by CI. It exits non-zero with the file and line.
 
@@ -247,6 +247,23 @@ The rule protects the reason the model is separate. The moment `sim/` imports a 
 runnable headless. It is checked mechanically because it is exactly the kind of rule that
 erodes under one convenient exception.
 
+All three ways one module can name another are checked, because a rule that only sees one
+of them is a rule with two doors left open:
+
+| Form | Where it occurs here |
+|---|---|
+| `import … from '…'` | 240 references |
+| `export … from '…'` | 40 references, every one of them in `sim/index.js` (14) or `3d/index.js` (26) |
+| `import('…')` | 1, in `app/bridge/viz3d.js`, written as `import(new URL('../../3d/index.js?v=…', import.meta.url))` |
+
+The re-export form is the one that matters most: the index files are where a directory's
+public surface is assembled, so they are where a single added line would widen it. Until
+2026-08-09 the linter resolved only the first form, which meant the guarantee was
+unenforced in exactly the forty places it was most load-bearing. A dynamic import whose
+specifier is computed rather than written — no string literal in the call — is reported
+inside `sim/` and `3d/`, because a dependency that cannot be read off the source cannot be
+checked by anything.
+
 **Rule 2 — no module assigns to a binding it imported.** ES modules make imported bindings
 read-only, so `SEED = 7` in a module that imported `SEED` is a runtime `TypeError` in strict
 mode, not a compile error anybody notices. Where one module genuinely needs to change
@@ -254,7 +271,42 @@ another's state, the owning module exports a function that does it and the chang
 name: `setSeed`, `setConfig`, `resetConfig`, `setAssumptions`. The linter strips comments,
 strings and regex literals — keeping `${…}` interpolations, which are real code and
 routinely the only call site of a helper — and then flags any assignment to an imported
-name.
+name. Default and namespace imports (`import CFG from …`, `import * as sim from …`) bind
+just as read-only as named ones and are covered too; an aliased import `{ CSS as STYLES }`
+binds `STYLES` and not `CSS`, and only `STYLES` is flagged.
+
+**Rule 3 — live data must be passed, not defaulted away.** `planTargets(mission, heat)`
+takes the satellite hotspots as an argument so the model can run with no feed, and the
+argument defaults to `[]` so that `sim/` stays runnable alone. That default is a trap for
+the application: all three call sites lost the argument during the extraction, no test
+noticed — the golden files are recorded in replay mode, where the sampled fleet carries no
+heat-derived targets — and the page silently scored drop lines on geometry only. Inside
+`app/`, the argument is required. The rule reads calls by matching brackets rather than by
+regex, so `wrap(planTargets(m))` and a call split over three lines are both caught.
+
+**Rule 4 — `sim/` reaches for no environment.** `sim/README.md` and the header of
+`sim/index.js` promise "no DOM, no network, no wall clock, no `location`, no globals".
+Rule 1 cannot see that promise: a module that calls `fetch` or reads `Date.now()` imports
+nothing at all. So the linter also scans `sim/` for the bare identifiers `document`,
+`window`, `navigator`, `location`, `globalThis`, `self`, `process`, `require`, `fetch`,
+`XMLHttpRequest`, `WebSocket`, `EventSource`, `localStorage`, `sessionStorage`,
+`indexedDB`, `caches`, `Date`, `performance`, `setTimeout`, `setInterval`,
+`requestAnimationFrame`, `crypto`, `console`, `alert` and `Math.random`, after the same
+comment and string stripping. Names reached through a dot (`state.window`) are not matched.
+
+One allowance, listed in `ALLOWED_ENVIRONMENT` in the checker with its reason:
+`Math.random` in `sim/rng.js`, which produces the default seed when the page does not pass
+`?seed=`. `setSeed()` replaces it, and every published number is produced with a seed set.
+Anything else has to be argued for in that dict, in public, next to the reason.
+
+**The linter has its own tests.** Twenty-nine constructed trees, each with the exact set of
+violations it must produce — exact, so a rule that starts over-reporting fails as loudly as
+one that stops reporting. `python3 tools/check_boundaries.py --selftest` runs them alone;
+an ordinary run does them first, so `make lint` cannot pass with a broken checker. The
+reason is plain: this file is the mechanism behind the structural claims made above, and
+until 2026-08-09 nothing checked it. When tests were finally written, all three of the
+rules then in place turned out to have gaps between what they checked and what this
+document said they checked.
 
 ---
 

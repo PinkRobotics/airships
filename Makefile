@@ -9,13 +9,13 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden lint check stamp figures clean
+.PHONY: help serve test test-node golden interaction lint check stamp figures clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
 	@grep -hE '^[a-z][a-z0-9-]*:.*##' $(MAKEFILE_LIST) \
 	  | sed -E 's/^([a-z0-9-]+):.*## +/\1\t/' \
-	  | awk -F'\t' '{printf "  make %-10s %s\n", $$1, $$2}'
+	  | awk -F'\t' '{printf "  make %-12s %s\n", $$1, $$2}'
 
 serve:  ## Serve the repository on 127.0.0.1:8875 with caching off (override with PORT=)
 	$(PY) tools/serve.py --port $(PORT)
@@ -47,7 +47,16 @@ golden:  ## Re-run the model at seed=7 and diff every output against tests/golde
 	@test -f tests/golden/check.py || { echo "tests/golden/check.py is missing — see tests/README.md"; exit 1; }
 	$(PY) tests/golden/check.py
 
-check: lint golden test  ## Everything CI checks that runs without node
+# The other suites ask what the model computes and what the page renders. This one asks
+# whether the page is still running after someone has used it: a throw inside draw() kills
+# the animation frame that would have requested the next one, and the page then sits there
+# looking correct and frozen. It drives a browser, so it cannot run at the same time as the
+# golden gate — .NOTPARALLEL above is what keeps `make check` from trying.
+interaction:  ## Click through the page headless and check it survives every interaction
+	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
+	CHROME=$(CHROME) $(PY) tests/interaction/check.py
+
+check: lint golden test interaction  ## Everything CI checks that runs without node
 
 stamp:  ## Recompute the 3D library's version hash and stamp every import with it
 	$(PY) 3d/scripts/stamp-version.py

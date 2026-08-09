@@ -8,24 +8,101 @@ import { FLEET } from '../fleet.js';
 import { select } from '../map/interact.js';
 import { S } from '../store.js';
 
+/* ---------- the two lists are grids, and here is why ---------------------------------------- *
+ *
+ * Both were bare <tr> elements with click handlers: no role, no tab stop, no key that did
+ * what the mouse did. Three patterns were available.
+ *
+ *   A listbox reads best for a pure pick-one list, but it flattens a row to a single string —
+ *   these rows are columns that mean different things (hull, fire, phase; and fire, size,
+ *   time since last drop, delivery rate) and the columns are the point. A listbox also may
+ *   not own the roster's per-class highlight buttons, which are real controls sitting between
+ *   the groups, so the roster could not legally be one at all.
+ *
+ *   A focusable button in every row keeps the table but puts twenty-four tab stops between
+ *   the fleet panel and the map.
+ *
+ *   A grid with row-level focus keeps the columns, keeps the class buttons legal inside their
+ *   own cell, carries aria-selected on the row that is actually selected, and costs one tab
+ *   stop per list. That is what these are.
+ *
+ * Cell-level navigation is deliberately absent: no cell is separately actionable, so Up and
+ * Down walk the rows (and, in the roster, the class buttons), Home and End jump to the ends,
+ * and Enter or Space does exactly what a click does. */
+
+const GRID_ITEMS = "tr.r-ship, .r-cls";
+
+function gridItems(el) { return [...el.querySelectorAll(GRID_ITEMS)]; }
+
+/* Roving tabindex: exactly one item in a grid is reachable by Tab, and it is the selected row
+   when there is one, so returning to the list returns to where the user was. */
+function rove(el, to) {
+  for (const x of gridItems(el)) x.tabIndex = x === to ? 0 : -1;
+}
+
+function roveToSelection(el) {
+  if (el.contains(document.activeElement)) return;    // never steal a focus the user placed
+  const its = gridItems(el);
+  const want = its.find(x => x.getAttribute("aria-selected") === "true") || its[0];
+  if (!want || want.tabIndex === 0) return;           // this runs on a 2.5 s tick: no churn
+  rove(el, want);
+}
+
+/* The panels are rebuilt by innerHTML on every fifteen-minute feed refresh, but the container
+   they are rebuilt inside survives — so the delegated handlers are attached to it exactly
+   once. Attaching per render would stack a fresh copy of both every quarter of an hour. */
+function wireGrid(el, activate) {
+  if (el.dataset.gridWired) { roveToSelection(el); return; }
+  el.dataset.gridWired = "1";
+  el.addEventListener("keydown", e => {
+    const cur = e.target.closest(GRID_ITEMS);
+    if (!cur || !el.contains(cur)) return;
+    if ((e.key === "Enter" || e.key === " ") && cur.matches("tr.r-ship")) {
+      e.preventDefault();                             // Space would scroll the panel
+      activate(cur);
+      return;
+    }
+    const list = gridItems(el), i = list.indexOf(cur);
+    let n;
+    if (e.key === "ArrowDown") n = Math.min(list.length - 1, i + 1);
+    else if (e.key === "ArrowUp") n = Math.max(0, i - 1);
+    else if (e.key === "Home") n = 0;
+    else if (e.key === "End") n = list.length - 1;
+    else return;                                      // Enter/Space on a class button is the
+    e.preventDefault();                               // button's own business
+    rove(el, list[n]);
+    list[n].focus();
+  });
+  // A click or a Tab into the list moves the single tab stop to whatever was reached.
+  el.addEventListener("focusin", e => {
+    const cur = e.target.closest(GRID_ITEMS);
+    if (cur) rove(el, cur);
+  });
+  roveToSelection(el);
+}
+
 export function renderFires() {
   const el = $("firesTop");
   if (!el) return;
   const top = S.fires.filter(needsShip).slice().sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8);
-  el.innerHTML = `<table class="fleettab"><tbody>` + top.map(f => {
+  el.innerHTML = `<table class="fleettab" role="grid" aria-describedby="firesNote" ` +
+    `aria-label="Largest fires waiting for or receiving a hull: fire, mapped size, time since the last drop, delivery rate">` +
+    `<tbody>` + top.map(f => {
     const m = f.mission;
-    return `<tr class="r-ship" data-fid="${esc(f.id)}">` +
+    return `<tr class="r-ship" aria-selected="false" data-fid="${esc(f.id)}">` +
       `<td>${esc(f.name || f.geo || f.id)}</td>` +
       `<td style="text-align:right">${fmt(f.sizeHa)} ha</td>` +
       `<td class="dropt" style="text-align:right">…</td>` +
       `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h" : "waits"}</td></tr>`;
   }).join("") + "</tbody></table>";
-  el.querySelectorAll("tr.r-ship").forEach(tr => tr.addEventListener("click", () => {
+  const pick = tr => {
     const f = S.fires.find(x => x.id === tr.dataset.fid);
     if (!f) return;
     if (f.mission && !f.mission.idle) select({ type: "ship", m: f.mission });
     else select({ type: "fire", f, m: f.mission });
-  }));
+  };
+  el.querySelectorAll("tr.r-ship").forEach(tr => tr.addEventListener("click", () => pick(tr)));
+  wireGrid(el, pick);
   updateFires();
 }
 
@@ -36,11 +113,17 @@ export function updateFires() {
     const f = S.fires.find(x => x.id === tr.dataset.fid);
     const cell = tr.querySelector(".dropt");
     if (!f || !cell) return;
+    // Selection is shown the same way the roster shows it, and said the same way: a row
+    // that looks picked must also report itself picked.
+    const on = !!(S.sel && (S.sel.f === f || (S.sel.m && S.sel.m.fire === f)));
+    tr.classList.toggle("sel", on);
+    tr.setAttribute("aria-selected", String(on));
     const m = f.mission;
     if (!m || m.idle) { cell.textContent = "—"; return; }
     const since = timeSinceDrop(m);
     cell.textContent = since === null ? "inbound" : "-" + fmtMin(since / 60);
   });
+  roveToSelection(el);
 }
 
 export function renderRoster() {
@@ -51,13 +134,16 @@ export function renderRoster() {
     const head = `<tr class="r-clsrow"><td colspan="3"><button class="r-cls" data-hl="${clsId}" ` +
       `aria-pressed="${S.hlClass === clsId}">${CLASSES[clsId].name} ×${count}</button></td></tr>`;
     const rows = ships.map(({ m, i }) =>
-      `<tr class="r-ship${S.sel && S.sel.m === m ? " sel" : ""}" data-mi="${i}" title="${esc(m.why || "")}">` +
+      `<tr class="r-ship${S.sel && S.sel.m === m ? " sel" : ""}" data-mi="${i}" ` +
+      `aria-selected="${!!(S.sel && S.sel.m === m)}" title="${esc(m.why || "")}">` +
       `<td class="r-name">${esc(m.name || m.shipId || "?")}</td>` +
       `<td>${esc(m.fire.name || m.fire.geo || m.fire.id)}</td>` +
       `<td class="ph">…</td></tr>`).join("");
     return head + rows;
   }).join("");
-  el.innerHTML = `<table class="fleettab"><tbody>${body}</tbody></table>`;
+  el.innerHTML = `<table class="fleettab" role="grid" ` +
+    `aria-label="Fleet roster, grouped by class: hull, the fire it serves, and its current phase">` +
+    `<tbody>${body}</tbody></table>`;
   el.querySelectorAll("tr.r-ship").forEach(tr => tr.addEventListener("click", () => {
     APP.selRow(+tr.dataset.mi);
   }));
@@ -66,6 +152,7 @@ export function renderRoster() {
     S.hlClass = S.hlClass === b.dataset.hl ? null : b.dataset.hl;
     el.querySelectorAll(".r-cls").forEach(x => x.setAttribute("aria-pressed", String(S.hlClass === x.dataset.hl)));
   }));
+  wireGrid(el, tr => APP.selRow(+tr.dataset.mi));
   updateRoster();
 }
 
@@ -79,8 +166,11 @@ export function updateRoster() {
     const ph = tr.querySelector(".ph");
     const txt = st.stopped ? "no power" : SHORT[st.phase];
     if (ph && ph.textContent !== txt) ph.textContent = txt;
-    tr.classList.toggle("sel", !!(S.sel && S.sel.m === m));
+    const on = !!(S.sel && S.sel.m === m);
+    tr.classList.toggle("sel", on);
+    tr.setAttribute("aria-selected", String(on));
   });
+  roveToSelection(el);
 }
 
 /* ---------- fleet UI ------------------------------------------------------------------------ */

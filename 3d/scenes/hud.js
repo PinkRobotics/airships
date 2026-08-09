@@ -25,13 +25,13 @@
  * net force, aerodynamic force — drawn from the monitor's own buoyN/weightN.
  */
 
-import { createViewer, prefersReducedMotion } from './viewer.js?v=f3cb948e';
-import { adaptMission, adoptAssumptions } from '../adapter/fable.js?v=f3cb948e';
-import { staticFigureSVG } from '../render/svg.js?v=f3cb948e';
-import { build } from '../model/build.js?v=f3cb948e';
-import { orbit, dolly } from '../render/camera.js?v=f3cb948e';
-import { injectStyles } from '../render/styles.js?v=f3cb948e';
-import { describeState } from '../physics/state.js?v=f3cb948e';
+import { createViewer, prefersReducedMotion } from './viewer.js?v=a364a52c';
+import { adaptMission, adoptAssumptions } from '../adapter/fable.js?v=a364a52c';
+import { staticFigureSVG } from '../render/svg.js?v=a364a52c';
+import { build } from '../model/build.js?v=a364a52c';
+import { orbit, dolly } from '../render/camera.js?v=a364a52c';
+import { injectStyles } from '../render/styles.js?v=a364a52c';
+import { describeState } from '../physics/state.js?v=a364a52c';
 
 /** Seconds of no interaction before the slow turntable resumes after a drag. */
 const RESUME_AFTER = 4;
