@@ -7,18 +7,21 @@
  * What this does own is the mapping from a phase and a progress fraction to the CONTINUOUS
  * quantities a 3D scene needs and a mission planner does not bother to emit: hose payout, pod
  * depth, release progress, attitude, airspeed, vertical speed. Those are the model's business.
- * `adapter/fable.js` uses exactly the same mapping when it is given a host phase, so a scene looks
- * identical whether the state came from here or from the monitor.
+ * `adapter/fable.js` uses this same mapping when it is given a host phase, so a scene looks
+ * identical whether the state came from here or from the monitor. The one thing it adds is the
+ * hose: the monitor's cycle has six phases and no stopped hose time, so it overlaps the payout and
+ * the wind-up onto its flown phases, and this eleven-phase cycle cannot do the same without
+ * deploying the hose twice. That overlap is applied there, not here.
  *
  * Durations are computed from the class configuration — the same fill rate, cruise speed and
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=a1f05b86';
-import { massState } from '../physics/mass.js?v=a1f05b86';
-import { derivePower } from '../physics/energy.js?v=a1f05b86';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=a1f05b86';
-import { ASSUMPTIONS } from '../model/config.js?v=a1f05b86';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=f3cb948e';
+import { massState } from '../physics/mass.js?v=f3cb948e';
+import { derivePower } from '../physics/energy.js?v=f3cb948e';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=f3cb948e';
+import { ASSUMPTIONS } from '../model/config.js?v=f3cb948e';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
@@ -93,10 +96,11 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.airspeedMps = lerp(cruise * 0.35, 2, p);
       s.verticalSpeedMps = -2.0 * (1 - p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target * (1 - 0.3 * p);
-      // The monitor has no HOSE_DEPLOY phase: its pod pays out DURING the approach (the
-      // schematic HUD draws exactly this ramp), and the approach's duration is set from the
-      // class's hoseDeployMin — so riding p here is what makes the winch move at winch speed.
-      s.hoseProgress = p;
+      // The hose stays stowed through the approach. The monitor pays it out here because its
+      // six-phase cycle has no HOSE_DEPLOY; this cycle has one, lasting hoseDeployMin, and doing
+      // both paid the hose out over the 3-minute approach and then snapped it back to stowed to
+      // pay it out again. The monitor's overlap lives in adapter/fable.js, which is the only
+      // place that knows it is looking at a host cycle.
       s.attitude = { rollRad: 0, pitchRad: -0.012, yawRad: 0 };
       break;
     case 'HOSE_DEPLOY':
@@ -126,9 +130,10 @@ export function phaseShape(cls, phase, prog, opts = {}) {
     case 'OUTBOUND_TRANSIT':
       s.altitudeM = ALT.cruise; s.airspeedMps = cruise; s.verticalSpeedMps = 0;
       s.waterFraction = 1; s.ln2Fraction = 0;
-      // Monitor overlap doctrine: the hose winds up over the first stretch of the outbound
-      // leg (whose floor is hoseRetractMin), matching the schematic HUD's 18% ramp.
-      s.hoseProgress = Math.max(0, 1 - p / 0.18);
+      // No hose here either, for the same reason and with a worse symptom: HOSE_RETRACT has
+      // already wound it in and DEPARTURE_CLIMB has flown to 1,500 m, so re-running the
+      // monitor's wind-up ramp hung 250 m of hose and a pump pod under a ship at transit
+      // altitude for the first 1.8 minutes of the leg.
       break;
     case 'FIRE_APPROACH':
       s.altitudeM = lerp(ALT.cruise, ALT.drop, smoothstep(p));

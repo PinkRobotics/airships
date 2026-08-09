@@ -11,7 +11,9 @@
  *
  *   - EXTERIOR ONLY. A 300 px panel cannot show a lattice; at that size the cutaway is grey mush.
  *     The interior belongs in the explanatory viewers, which have room for it.
- *   - LOW DETAIL TIER. ~13k triangles, ~60 draw calls, no interior geometry built at all.
+ *   - LOW DETAIL TIER. 50 draw calls and 86,584 triangles a frame in a 300 x 150 panel, measured
+ *     on a P-100. The interior is BUILT and not drawn: tier 1 constructs 96,140 triangles and the
+ *     exterior view hides the ones it does not need. Nothing here skips geometry construction.
  *   - NO RENDER LOOP OF ITS OWN. The monitor already runs a frame loop for the map; this renders
  *     synchronously from `draw()`. Two loops on one page is two lots of scheduling for one screen.
  *   - PAUSES WHEN HIDDEN. The panel is `hidden` until a ship is selected, and a hidden element has
@@ -23,13 +25,13 @@
  * net force, aerodynamic force — drawn from the monitor's own buoyN/weightN.
  */
 
-import { createViewer, prefersReducedMotion } from './viewer.js?v=a1f05b86';
-import { adaptMission, adoptAssumptions } from '../adapter/fable.js?v=a1f05b86';
-import { staticFigureSVG } from '../render/svg.js?v=a1f05b86';
-import { build } from '../model/build.js?v=a1f05b86';
-import { orbit, dolly } from '../render/camera.js?v=a1f05b86';
-import { injectStyles } from '../render/styles.js?v=a1f05b86';
-import { describeState } from '../physics/state.js?v=a1f05b86';
+import { createViewer, prefersReducedMotion } from './viewer.js?v=f3cb948e';
+import { adaptMission, adoptAssumptions } from '../adapter/fable.js?v=f3cb948e';
+import { staticFigureSVG } from '../render/svg.js?v=f3cb948e';
+import { build } from '../model/build.js?v=f3cb948e';
+import { orbit, dolly } from '../render/camera.js?v=f3cb948e';
+import { injectStyles } from '../render/styles.js?v=f3cb948e';
+import { describeState } from '../physics/state.js?v=f3cb948e';
 
 /** Seconds of no interaction before the slow turntable resumes after a drag. */
 const RESUME_AFTER = 4;

@@ -9,9 +9,14 @@
  * mission arithmetic is a bug — that is how two pages start quoting different fill times.
  */
 
-import { clamp01, clamp, lerp } from '../core/math.js?v=a1f05b86';
+import { clamp01, clamp, lerp } from '../core/math.js?v=f3cb948e';
 
-/** The mission phases, in cycle order. Identical to the /airships page's PHASES list. */
+/**
+ * The mission phases, in cycle order. A superset of the /airships page's six-phase PHASES list:
+ * every name the monitor emits is here, plus the phases it folds into its flown ones — the hose
+ * work, the climb out, the run in and the letdown. The adapter passes host phase names through
+ * unchanged, so the two lists must never disagree about a name they share.
+ */
 export const MISSION_PHASES = [
   'SOURCE_APPROACH', 'HOSE_DEPLOY', 'WATER_FILL', 'HOSE_RETRACT', 'DEPARTURE_CLIMB',
   'OUTBOUND_TRANSIT', 'FIRE_APPROACH', 'WATER_RELEASE', 'BUOYANCY_ESCAPE', 'RETURN_TRANSIT',
@@ -173,8 +178,20 @@ export function lerpAngle(a, b, t) {
 export const isAtSource = (p) =>
   p === 'SOURCE_APPROACH' || p === 'HOSE_DEPLOY' || p === 'WATER_FILL' || p === 'HOSE_RETRACT';
 
-/** Is the hose deployed (or deploying) in this phase? */
-export const hoseIsOut = (p) => p === 'HOSE_DEPLOY' || p === 'WATER_FILL' || p === 'HOSE_RETRACT';
+/**
+ * Can the hose be out in this phase?
+ *
+ * Five phases, not three, because this phase space is shared with the monitor and the two cycles
+ * divide the hose work differently. The monitor has six phases and gives the hose no stopped time
+ * of its own (sim/config.js PHASES): the pod pays out during the flown SOURCE_APPROACH — labelled
+ * "final approach — hose paying out", and drawing winch power in sim/state.js — and winds up over
+ * the first stretch of OUTBOUND_TRANSIT. This model splits that work into HOSE_DEPLOY and
+ * HOSE_RETRACT and leaves the flown phases alone. `adapter/fable.js` maps monitor phases straight
+ * into these names, so a predicate that excluded SOURCE_APPROACH answered "no" while an adapted
+ * state had 250 m of hose in the water.
+ */
+export const hoseIsOut = (p) => p === 'SOURCE_APPROACH' || p === 'HOSE_DEPLOY' ||
+  p === 'WATER_FILL' || p === 'HOSE_RETRACT' || p === 'OUTBOUND_TRANSIT';
 
 /** A one-line text alternative for the current state — the accessible caption for any scene. */
 export function describeState(s, cls) {

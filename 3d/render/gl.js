@@ -22,10 +22,10 @@
  * stencil pass and no artefacts.
  */
 
-import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=a1f05b86';
-import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=a1f05b86';
-import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=a1f05b86';
-import { updateWorld, walk } from '../core/nodes.js?v=a1f05b86';
+import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=f3cb948e';
+import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=f3cb948e';
+import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=f3cb948e';
+import { updateWorld, walk } from '../core/nodes.js?v=f3cb948e';
 
 /* ---------- shaders --------------------------------------------------------------------------- */
 
@@ -653,6 +653,11 @@ export function createRenderer(canvas, opts = {}) {
       if (n.geom.kind !== 'solid') continue;
       gl.uniformMatrix4fv(P.u.uModel, false, n.world);
       if (n.inst) {
+        // Instances of a node that declared itself unselectable are decoration — spray, wash
+        // streaks, gust puffs, the water level inside a tank. They are not drawn into the id
+        // buffer at all, so a click passes through them to the component behind instead of
+        // selecting a puff of air. The non-instanced branch below has always done this.
+        if (!n.inst.pickable) continue;
         // One pick id per instance, uploaded as a per-instance attribute.
         const ib = instanceBuffers(n.inst);
         const ids = new Float32Array(n.inst.count);

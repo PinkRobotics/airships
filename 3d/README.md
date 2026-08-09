@@ -177,9 +177,9 @@ idle mission.
 
 | | |
 |---|---|
-| Cost | 50 draw calls, 114,988 triangles per frame in a 300 × 150 panel (measured, P-100, `quality: 'low'`) |
+| Cost | 50 draw calls, 86,584 triangles per frame in a 300 × 150 panel (measured, P-100, `quality: 'low'`) |
 | Loop | none of its own — renders synchronously from your `draw()` |
-| Detail | exterior view only. The model is still *built* at detail tier 1 — 130,520 triangles including interior structure — and the interior is simply not drawn. Nothing here skips geometry construction. |
+| Detail | exterior view only. The model is still *built* at detail tier 1 — 96,140 triangles including interior structure — and the interior is simply not drawn. Nothing here skips geometry construction. |
 | Motion | slow turntable, paused by any interaction, resumes after 4 s idle, off under `prefers-reduced-motion` |
 | Overlay | buoyancy, weight, net and aerodynamic force, from the monitor's own `buoyN`/`weightN` |
 | Fallback | static SVG silhouette if no WebGL context is available |
@@ -452,15 +452,18 @@ builds it.
 
 | Class · tier | Triangles | Segments | Draw calls | Instances | Lattice members |
 |---|---:|---:|---:|---:|---:|
-| P-100 · 0 (map) | 91 992 | 43 410 | 72 | 489 | 42 |
-| P-100 · 2 | 123 336 | 50 513 | 77 | 505 | 1 205 |
-| P-1000 · 2 | 249 184 | 94 395 | 96 | 954 | 2 574 |
-| P-10000 · 3 (max) | 590 668 | 202 280 | 145 | 1 933 | 14 002 |
+| P-100 · 0 (map) | 57 612 | 34 165 | 72 | 489 | 42 |
+| P-100 · 2 | 88 956 | 41 268 | 77 | 505 | 1 205 |
+| P-1000 · 2 | 184 816 | 77 091 | 96 | 954 | 2 574 |
+| P-10000 · 3 (max) | 466 612 | 168 905 | 145 | 1 933 | 13 965 |
 
 Tier does not monotonically reduce triangles: tier 1 builds *more* of them than tier 2 on every
-class (P-100: 130 520 against 123 336), because the tiers trade hull-grid resolution against
-lattice detail rather than scaling one dial. The lattice column is where the tiers actually
-diverge — 42 members at tier 0 against 2 606 at tier 3 on a P-100.
+class (P-100: 96 140 against 88 956; P-10000: 605 452 against 466 612), because the tiers trade
+hull-grid resolution against lattice detail rather than scaling one dial — and because the
+subdivision that cuts the blower ports targets an absolute edge length, so the coarser tier-1
+grid subdivides further around every aperture. The inline tier is therefore the heaviest build
+of the three, which is worth knowing before choosing one. The lattice column is where the tiers
+actually diverge — 42 members at tier 0 against 2 606 at tier 3 on a P-100.
 
 Loop behaviour: paused offscreen (IntersectionObserver), paused on hidden tab, and idle whenever
 nothing is animating and no camera move is running. Pixel ratio is capped. Quality auto-selects

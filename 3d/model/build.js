@@ -15,19 +15,19 @@
 import {
   resolveClass, stationX, stationT, hullR, sectionScale, profileR, CLASS_IDS,
   TRIM_FAN_DEPTH_RATIO, HULL_BAND_LIFT,
-} from './config.js?v=a1f05b86';
-import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=a1f05b86';
-import { proxyField } from './density.js?v=a1f05b86';
+} from './config.js?v=f3cb948e';
+import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=f3cb948e';
+import { proxyField } from './density.js?v=f3cb948e';
 import { buildLattice, buildMacroFrames, buildSectionJoints, buildCellModules, buildLoadPaths, TIERS }
-  from './structure.js?v=a1f05b86';
-import { buildMetadata } from './metadata.js?v=a1f05b86';
+  from './structure.js?v=f3cb948e';
+import { buildMetadata } from './metadata.js?v=f3cb948e';
 import {
   latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom,
   lines, pathSegs, mergeSolids, countOf, featureEdges, transformSegs, solid,
-} from './geom.js?v=a1f05b86';
-import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=a1f05b86';
-import { m4compose, segPointDist } from '../core/math.js?v=a1f05b86';
-import { streamFor } from '../core/prng.js?v=a1f05b86';
+} from './geom.js?v=f3cb948e';
+import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=f3cb948e';
+import { m4compose, segPointDist } from '../core/math.js?v=f3cb948e';
+import { streamFor } from '../core/prng.js?v=f3cb948e';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -60,11 +60,17 @@ export function instanceNode(spec, geom, records) {
   // A container of instances is never itself selectable — the instances are. Picking resolves
   // through the instance id, so leaving the container selectable would give every fan on the ship
   // the same identity.
+  //
+  // `pickable` carries the caller's own `selectable` down to the instances, because that flag was
+  // always about them and the container has to be false either way. Without it every instance was
+  // in the pick space and in `selectableIds`: a spray droplet, a wash streak or a gust puff could
+  // be clicked and selected, and 270 of them on the P-10000 had no metadata to show for it.
+  const pickable = spec.selectable !== false;
   const nd = node({
     ...spec, geom, selectable: false,
     draw: geom.kind === 'lines' ? 'instancedLines' : 'instanced',
   });
-  nd.inst = { xf, tint, ids, byId, count: n, dirty: true, records };
+  nd.inst = { xf, tint, ids, byId, count: n, dirty: true, records, pickable };
   return nd;
 }
 
@@ -443,6 +449,17 @@ function transformSolid(g, m) {
   return { ...g, pos, nor: normalsFor(pos, g.idx) };
 }
 
+/**
+ * A decorative particle: a spray droplet, a wash streak, a flow slug, a wind line.
+ *
+ * sphereGeom defaults to twelve rings, which nobody chose for these. They are specks a metre or
+ * two across on a hull hundreds of metres long, there are up to 1,122 of them in one class, and
+ * the driver stretches most of them into streaks where the ring count is invisible anyway. Three
+ * rings is 36 triangles instead of 144 — measured 124,056 triangles off the P-10000, a fifth of
+ * the whole model, for no visible difference at the size they are drawn.
+ */
+const particleGeom = (radius, seg = 6) => sphereGeom(radius, seg, 3);
+
 /* ---------- the build ------------------------------------------------------------------------- */
 
 /**
@@ -582,7 +599,7 @@ export function build(classId, opts = {}) {
       });
       addChild(water, instanceNode(
         { id: 'PipeFlow', category: 'water', material: 'water', lod: 2, selectable: false },
-        sphereGeom(Math.max(0.45, layout.waterPipes[0].radius * 1.6), 6), recs2));
+        particleGeom(Math.max(0.45, layout.waterPipes[0].radius * 1.6)), recs2));
     }
     // Flow made visible: bright slugs that march along each manifold while water is moving —
     // toward the tanks during a fill, toward the outlets during a release. Pure display;
@@ -598,7 +615,7 @@ export function build(classId, opts = {}) {
       }
       const slugs = addChild(water, instanceNode(
         { id: 'FlowSlugs', category: 'water', material: 'water', lod: 2, selectable: false },
-        sphereGeom(slugR, 8), recs,
+        particleGeom(slugR, 8), recs,
       ));
       slugs.slugsPerRun = perRun;
     }
@@ -623,7 +640,7 @@ export function build(classId, opts = {}) {
       }
       const spray = addChild(water, instanceNode(
         { id: 'DropSpray', category: 'water', material: 'spray', lod: 1, selectable: false },
-        sphereGeom(dropR, 6), recs));
+        particleGeom(dropR), recs));
       spray.sprayPer = PER;
       spray.spanM = spanM;
     }
@@ -646,7 +663,7 @@ export function build(classId, opts = {}) {
       }
       const hf = addChild(water, instanceNode(
         { id: 'HoseFlow', category: 'water', material: 'water', lod: 1, selectable: false },
-        sphereGeom(upR, 6), recs));
+        particleGeom(upR), recs));
       hf.flowPer = PER;
     }
     // Hose and pod are dynamic: real nodes, rebuilt by the hose driver.
@@ -787,8 +804,11 @@ export function build(classId, opts = {}) {
         { id: 'MediumThrusters', category: 'propulsion', material: 'machine', lod: 1 },
         ductHousingGeom(d, 0.62), recs,
       ));
+      // The rotor is not a component in its own right: the thruster is, and it is the housing
+      // that carries the identity and the metadata. Clicking a blade must not select a `_Fan`.
       addChild(prop, instanceNode(
-        { id: 'MediumThrusterFans', category: 'propulsion', material: 'fan', lod: 1 },
+        { id: 'MediumThrusterFans', category: 'propulsion', material: 'fan', lod: 1,
+          selectable: false },
         fanRotorGeom(d, 5, 0.62),
         recs.map((r) => ({ ...r, id: `${r.id}_Fan` })),
       ));
@@ -802,7 +822,8 @@ export function build(classId, opts = {}) {
         ductHousingGeom(d, TRIM_FAN_DEPTH_RATIO), frecs,
       ));
       addChild(prop, instanceNode(
-        { id: 'LocalTrimFanBlades', category: 'propulsion', material: 'fan', lod: 2 },
+        { id: 'LocalTrimFanBlades', category: 'propulsion', material: 'fan', lod: 2,
+          selectable: false },
         fanRotorGeom(d, 3, TRIM_FAN_DEPTH_RATIO),
         frecs.map((r) => ({ ...r, id: `${r.id}_Fan` })),
       ));
@@ -827,7 +848,7 @@ export function build(classId, opts = {}) {
       if (recs.length) {
         const streaks = addChild(prop, instanceNode(
           { id: 'AirStreaks', category: 'propulsion', material: 'airflow', lod: 1, selectable: false },
-          sphereGeom(Math.max(0.25, R * 0.014), 6), recs));
+          particleGeom(Math.max(0.25, R * 0.014)), recs));
         streaks.washPerRotor = PER_R;
         streaks.washPerThruster = PER_T;
       }
@@ -837,16 +858,16 @@ export function build(classId, opts = {}) {
       // work. All driver-positioned, all one instanced draw each.
       addChild(prop, instanceNode(
         { id: 'MotionLines', category: 'propulsion', material: 'motionline', lod: 1, selectable: false },
-        sphereGeom(Math.max(0.3, R * 0.016), 6),
+        particleGeom(Math.max(0.3, R * 0.016)),
         Array.from({ length: 12 }, (_, k) => ({ id: `Motion_${k}`, p: [0, 0, 0], s: [0.0001, 0.0001, 0.0001] }))));
       addChild(prop, instanceNode(
         { id: 'WindLines', category: 'propulsion', material: 'windline', lod: 1, selectable: false },
-        sphereGeom(Math.max(0.3, R * 0.016), 6),
+        particleGeom(Math.max(0.3, R * 0.016)),
         Array.from({ length: 10 }, (_, k) => ({ id: `Wind_${k}`, p: [0, 0, 0], s: [0.0001, 0.0001, 0.0001] }))));
       if (layout.trimFans.length) {
         addChild(prop, instanceNode(
           { id: 'GustPuffs', category: 'propulsion', material: 'airflow', lod: 1, selectable: false },
-          sphereGeom(Math.max(0.22, R * 0.012), 6),
+          particleGeom(Math.max(0.22, R * 0.012)),
           Array.from({ length: 18 }, (_, k) => ({ id: `Puff_${k}`, p: [0, 0, 0], s: [0.0001, 0.0001, 0.0001] }))));
       }
     }
@@ -987,15 +1008,16 @@ export function build(classId, opts = {}) {
 
   /* --- index, metadata, stats ------------------------------------------------------------------ */
   const index = buildIndex(root);
-  // Instance ids participate in selection and metadata too.
+  // Instance ids participate in selection and metadata too — but only where the node that owns
+  // them asked to be selectable. Instances of an unselectable node are decoration or the moving
+  // half of a unit that is identified by its housing: spray, wash streaks, flow slugs, the water
+  // level inside a tank, the rotor inside a duct. They are drawn and never named. This used to be
+  // an `endsWith('_Fill') || endsWith('_Fan')` test here, which caught the two suffixes someone
+  // had noticed and nothing else.
   const allIds = [];
   walk(root, (n) => {
     if (n.selectable) allIds.push(n.id);
-    if (n.inst) {
-      for (const id of n.inst.ids) {
-        if (!id.endsWith('_Fill') && !id.endsWith('_Fan')) allIds.push(id);
-      }
-    }
+    if (n.inst && n.inst.pickable) for (const id of n.inst.ids) allIds.push(id);
   });
   const metadata = buildMetadata(cls, layout, allIds);
 

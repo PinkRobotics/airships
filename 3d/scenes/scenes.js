@@ -9,19 +9,19 @@
  * host page can always reach through to setProps/select/dispose.
  */
 
-import { createViewer, prefersReducedMotion } from './viewer.js?v=a1f05b86';
-import { resolveClass, CLASS_IDS } from '../model/config.js?v=a1f05b86';
-import { build } from '../model/build.js?v=a1f05b86';
-import { demoState, phaseTimeline, MODES, stepPhase } from '../anim/mission.js?v=a1f05b86';
-import { resolveClip, CLIPS, CLIP_BY_ID, MASTER_SEQUENCE } from '../anim/clips.js?v=a1f05b86';
-import { demoWrench, WRENCH_LABELS, allocate } from '../control/allocator.js?v=a1f05b86';
-import { buildActuators } from '../control/actuators.js?v=a1f05b86';
-import { staticFigureSVG, scaleComparisonSVG } from '../render/svg.js?v=a1f05b86';
-import { defaultState, PHASE_LABELS, describeState } from '../physics/state.js?v=a1f05b86';
-import { massState } from '../physics/mass.js?v=a1f05b86';
-import { CATEGORY_TONE } from '../render/palette.js?v=a1f05b86';
-import { CATEGORIES } from '../core/nodes.js?v=a1f05b86';
-import { clamp01 } from '../core/math.js?v=a1f05b86';
+import { createViewer, prefersReducedMotion } from './viewer.js?v=f3cb948e';
+import { resolveClass, CLASS_IDS } from '../model/config.js?v=f3cb948e';
+import { build } from '../model/build.js?v=f3cb948e';
+import { demoState, phaseTimeline, MODES, stepPhase } from '../anim/mission.js?v=f3cb948e';
+import { resolveClip, CLIPS, CLIP_BY_ID, MASTER_SEQUENCE } from '../anim/clips.js?v=f3cb948e';
+import { demoWrench, WRENCH_LABELS, allocate } from '../control/allocator.js?v=f3cb948e';
+import { buildActuators } from '../control/actuators.js?v=f3cb948e';
+import { staticFigureSVG, scaleComparisonSVG } from '../render/svg.js?v=f3cb948e';
+import { defaultState, PHASE_LABELS, describeState } from '../physics/state.js?v=f3cb948e';
+import { massState } from '../physics/mass.js?v=f3cb948e';
+import { CATEGORY_TONE } from '../render/palette.js?v=f3cb948e';
+import { CATEGORIES } from '../core/nodes.js?v=f3cb948e';
+import { clamp01 } from '../core/math.js?v=f3cb948e';
 
 const el = (t, c, txt) => {
   const e = document.createElement(t);

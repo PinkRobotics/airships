@@ -4,7 +4,9 @@
  * it. It does not re-plan, re-time or re-derive anything the monitor has decided. Where the model
  * needs something the monitor has no reason to emit — hose payout, pod depth, release progress,
  * attitude, vertical speed — it uses the SAME phase-shape mapping the standalone lab uses
- * (anim/mission.js `phaseShape`), so a scene looks identical either way.
+ * (anim/mission.js `phaseShape`), so a scene looks identical either way. The exception is the
+ * hose, which the monitor's six-phase cycle overlaps onto phases the model's eleven-phase cycle
+ * keeps separate; that difference is resolved here, at the boundary, and nowhere else.
  *
  * WHAT IT READS. The monitor's `stateAt(mission, t)` returns:
  *
@@ -18,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=a1f05b86';
-import { phaseShape } from '../anim/mission.js?v=a1f05b86';
-import { massState } from '../physics/mass.js?v=a1f05b86';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=a1f05b86';
-import { clamp01 } from '../core/math.js?v=a1f05b86';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=f3cb948e';
+import { phaseShape } from '../anim/mission.js?v=f3cb948e';
+import { massState } from '../physics/mass.js?v=f3cb948e';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=f3cb948e';
+import { clamp01 } from '../core/math.js?v=f3cb948e';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -78,6 +80,17 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
   // The continuous quantities the monitor has no reason to carry.
   const shape = phaseShape(cls, phase, prog, { ln2Target: ln2Fraction });
 
+  // THE HOSE, WHERE THE TWO CYCLES DIFFER. The monitor's six phases give the hose no stopped time
+  // of its own (sim/config.js PHASES): the pod pays out through the flown SOURCE_APPROACH, whose
+  // duration is hoseDeployMin/2, and winds up over the first 18% of OUTBOUND_TRANSIT, whose floor
+  // is hoseRetractMin — both drawing winch power in sim/state.js, both labelled as such on the
+  // dial. The model's own cycle has HOSE_DEPLOY and HOSE_RETRACT instead, so phaseShape leaves the
+  // flown phases alone and the overlap is applied here, against a host phase we know came from a
+  // six-phase cycle. Riding `prog` is what makes the winch move at winch speed.
+  const hoseProgress = phase === 'SOURCE_APPROACH' ? prog
+    : phase === 'OUTBOUND_TRANSIT' ? Math.max(0, 1 - prog / 0.18)
+      : (shape.hoseProgress || 0);
+
   const draw = hostState.draw || {};
   const s = defaultState({
     phase,
@@ -111,9 +124,9 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     solarPowerMW: 0,
     ln2RecoveryPowerMW: 0,
 
-    hoseProgress: shape.hoseProgress || 0,
+    hoseProgress,
     waterReleaseProgress: shape.waterReleaseProgress || 0,
-    pumpPodDepthM: (shape.hoseProgress || 0) * (opts.headM || 250),
+    pumpPodDepthM: hoseProgress * (opts.headM || 250),
 
     attitude: shape.attitude || { rollRad: 0, pitchRad: 0, yawRad: 0 },
     failedComponents: opts.failed || [],
@@ -161,8 +174,11 @@ export function describeMapping() {
     ['stateAt().draw.prop+fans+rotors', 'propulsionPowerMW', 'MW, summed'],
     ['stateAt().draw.cryo', 'cryogenicPowerMW', 'megawatts, used verbatim'],
     ['stateAt().draw.pumps', 'pumpPowerMW', 'megawatts, used verbatim'],
-    ['(derived)', 'hoseProgress / pumpPodDepthM / waterReleaseProgress / attitude / speeds',
+    ['(derived)', 'waterReleaseProgress / attitude / speeds',
       'from anim/mission.js phaseShape — the monitor does not carry these'],
+    ['(derived)', 'hoseProgress / pumpPodDepthM',
+      'phaseShape, plus the overlap the monitor applies: paying out through SOURCE_APPROACH, ' +
+      'winding up over the first 18% of OUTBOUND_TRANSIT'],
     ['CLASSES[id]', 'classId', 'P100 / P1000 / P10000, identical ids'],
     ['CFG', 'ASSUMPTIONS', 'adoptAssumptions() copies eLN2, rtLN2, hoseHead, pumpEta, Cd, rho'],
   ];

@@ -3,31 +3,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=a1f05b86';
-import { build } from '../model/build.js?v=a1f05b86';
+import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=f3cb948e';
+import { build } from '../model/build.js?v=f3cb948e';
 import {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from '../physics/state.js?v=a1f05b86';
+} from '../physics/state.js?v=f3cb948e';
 import {
-  demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES,
-} from '../anim/mission.js?v=a1f05b86';
-import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=a1f05b86';
-import { buildActuators } from '../control/actuators.js?v=a1f05b86';
-import { allocate, demoWrench } from '../control/allocator.js?v=a1f05b86';
-import { massState } from '../physics/mass.js?v=a1f05b86';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=a1f05b86';
-import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=a1f05b86';
-import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=a1f05b86';
-import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=a1f05b86';
-import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=a1f05b86';
-import { CSS } from '../render/styles.js?v=a1f05b86';
+  demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES, ALT,
+} from '../anim/mission.js?v=f3cb948e';
+import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=f3cb948e';
+import { buildActuators } from '../control/actuators.js?v=f3cb948e';
+import { allocate, demoWrench } from '../control/allocator.js?v=f3cb948e';
+import { massState } from '../physics/mass.js?v=f3cb948e';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=f3cb948e';
+import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=f3cb948e';
+import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=f3cb948e';
+import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=f3cb948e';
+import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=f3cb948e';
+import { CSS } from '../render/styles.js?v=f3cb948e';
 import {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS,
-} from '../adapter/fable.js?v=a1f05b86';
-import { walk } from '../core/nodes.js?v=a1f05b86';
-import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=a1f05b86';
+} from '../adapter/fable.js?v=f3cb948e';
+import { walk } from '../core/nodes.js?v=f3cb948e';
+import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=f3cb948e';
 
 /* ---------- state -------------------------------------------------------------------------- */
 
@@ -142,6 +142,21 @@ test('the mission cycle obeys the physical consistency rules', () => {
     if (s.phase === 'OUTBOUND_TRANSIT') assert.ok(s.waterFraction > 0.99, 'outbound must be laden');
     if (s.phase === 'RETURN_TRANSIT') assert.ok(s.waterFraction < 0.01, 'return must be light');
     if (!hoseIsOut(s.phase)) assert.ok(s.hoseProgress < 0.02, `hose out during ${s.phase}`);
+    // `hoseIsOut` is permissive: it covers SOURCE_APPROACH and OUTBOUND_TRANSIT because the
+    // monitor's six-phase cycle overlaps the hose work onto them, which this eleven-phase cycle
+    // does not need to. Altitude is the check with no such licence — 250 m of hose and a pump pod
+    // can only be out over the water. This is what caught the outbound wind-up ramp that had been
+    // copied across from the monitor: it re-deployed the hose at 1,500 m.
+    if (s.hoseProgress > 0.02) {
+      assert.ok(s.altitudeM <= ALT.source + 1e-6,
+        `hose ${s.hoseProgress.toFixed(2)} out at ${s.altitudeM.toFixed(0)} m during ${s.phase}`);
+    }
+  }
+  // And it never jumps: one winch, running at winch speed. A phase boundary that resets the
+  // payout shows up here as a step no winch could make in the 8.5 s between samples.
+  for (let i = 1; i < samples.length; i++) {
+    const d = Math.abs(samples[i].state.hoseProgress - samples[i - 1].state.hoseProgress);
+    assert.ok(d < 0.2, `hose jumped ${d.toFixed(2)} entering ${samples[i].state.phase}`);
   }
   // Water release lowers weight and raises net buoyancy, monotonically.
   const drop = samples.filter((x) => x.state.phase === 'WATER_RELEASE');
@@ -508,6 +523,24 @@ test('the adapter supplies what the monitor has no reason to carry', () => {
     hostClass, cls, {});
   assert.ok(drop.waterReleaseProgress > 0.5);
   assert.ok(drop.verticalSpeedMps > 0, 'a dropping ship is already rising');
+});
+
+test('the adapter carries the monitor’s hose overlap, which the model’s own cycle does not', () => {
+  // The monitor has six phases and gives the hose no stopped time: the pod pays out through the
+  // flown approach and winds up over the first 18% of the outbound leg, drawing winch power in
+  // both (sim/config.js PHASES, sim/state.js). The model's cycle has HOSE_DEPLOY and HOSE_RETRACT
+  // for that work, so anim/mission.js leaves the flown phases alone — which means the overlap has
+  // to be applied here or a monitor-driven scene shows no hose while the dial says "hose paying
+  // out".
+  const cls = resolveClass('P100');
+  const at = (phase, prog) => fromMonitorState(hostState({ phase, prog, water: 0 }), hostClass, cls, {});
+  assert.ok(at('SOURCE_APPROACH', 0).hoseProgress < 0.01, 'stowed at the start of the approach');
+  assert.ok(Math.abs(at('SOURCE_APPROACH', 0.5).hoseProgress - 0.5) < 1e-9, 'paying out at winch speed');
+  assert.ok(at('SOURCE_APPROACH', 1).hoseProgress > 0.99, 'in the water by the end of the approach');
+  assert.ok(at('SOURCE_APPROACH', 0.5).pumpPodDepthM > 100, 'the pod depth follows the payout');
+  assert.ok(at('OUTBOUND_TRANSIT', 0.01).hoseProgress > 0.9, 'still out as the leg begins');
+  assert.ok(at('OUTBOUND_TRANSIT', 0.3).hoseProgress < 0.01, 'and stowed well before the fire');
+  assert.equal(at('RETURN_TRANSIT', 0.5).hoseProgress, 0);
 });
 
 test('the adapter never invents a mission for an idle aircraft', () => {
