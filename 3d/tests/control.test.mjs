@@ -3,15 +3,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS } from '../model/config.js?v=fab55af1';
-import { buildLayout } from '../model/layout.js?v=fab55af1';
-import { proxyField } from '../model/density.js?v=fab55af1';
-import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=fab55af1';
-import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=fab55af1';
-import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=fab55af1';
-import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=fab55af1';
-import { defaultState } from '../physics/state.js?v=fab55af1';
-import { dot, len, norm, cross } from '../core/math.js?v=fab55af1';
+import { resolveClass, CLASS_IDS } from '../model/config.js?v=40607c4a';
+import { buildLayout } from '../model/layout.js?v=40607c4a';
+import { proxyField } from '../model/density.js?v=40607c4a';
+import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=40607c4a';
+import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=40607c4a';
+import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=40607c4a';
+import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=40607c4a';
+import { defaultState } from '../physics/state.js?v=40607c4a';
+import { dot, len, norm, cross } from '../core/math.js?v=40607c4a';
 
 const rig = (id = 'P100') => {
   const cls = resolveClass(id);
@@ -289,10 +289,16 @@ test('the nitrogen store is lossy and says so', () => {
 });
 
 test('pump power matches the published arithmetic', () => {
-  // rho g Q H / eta: the /airships page quotes ~1.6 MW for the P-100.
+  // rho g Q H / eta = 1000 x 9.81 x 0.5 x 300 / 0.75 = 1.962 MW for the P-100.
+  //
+  // The head is 300 m, not 250: the monitor's hose stopped being one global figure on 2026-08-09
+  // and became a per-class length that IS the fill altitude (sim/config.js CLASSES[*].hoseM), and
+  // this library's ASSUMPTIONS.hoseHead follows it. All three classes are 300 m today, which is
+  // why one number still serves here; CLASSES[*].hoseLengthM is the checked copy and
+  // tests/cases/spec-parity.cases.js compares it with the monitor's.
   const cls = resolveClass('P100');
   const mw = pumpPowerMW(cls);
-  assert.ok(Math.abs(mw - 1.635) < 0.01, `pump power ${mw.toFixed(3)} MW`);
+  assert.ok(Math.abs(mw - 1.962) < 0.01, `pump power ${mw.toFixed(3)} MW`);
 });
 
 void cross;

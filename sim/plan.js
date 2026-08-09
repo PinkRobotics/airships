@@ -40,7 +40,8 @@ export function planCycle(cls, mode, oneWayKm, wind) {
    * Everything below that answers to descent — how much nitrogen to make, how much water to
    * keep as ballast, how hard the rotors work on the way down — reads ledLow. */
   const led = ledger(cls, WORK_ALT_MSL);
-  const ledLow = ledger(cls, TERRAIN_MSL + sourceAltM(cls));
+  const srcAltM = sourceAltM(cls);
+  const ledLow = ledger(cls, TERRAIN_MSL + srcAltM);
   const dur = {};                                   // minutes per phase
   // Overlap doctrine: the pod is already dropping during the approach, so HOSE_DEPLOY is
   // only the tail of that work; the hose winds up during the climb-out; climb and descent
@@ -88,6 +89,22 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   // the surplus leaves the hull neutral and it can lift no more than that. min() with holdT is
   // that physical ceiling, not a safety factor.
   const anchorT = Math.min(cls.anchorBagT || 0, holdT);
+  /* WHERE THE ANCHOR HAS TO START WORKING, in metres above the water.
+   *
+   * Descending is not uniformly hard. High up the air is thin, the surplus is small and the
+   * rotors manage alone; somewhere on the way down the surplus overtakes them and from there the
+   * ship cannot get lower without help. That crossing is a real altitude and it is computed here
+   * rather than guessed, because the flight profile has to respect it: a hull may not descend
+   * into the band it cannot climb out of — or hold itself in — while it is still travelling at
+   * cruise speed with the bag stowed.
+   *
+   * Scanned from the fill altitude upward in 10 m steps. Returns the fill altitude itself when
+   * the rotors can manage the whole descent, which is the P-100's case. */
+  let anchorFromAglM = srcAltM;
+  for (let a = srcAltM; a <= srcAltM + (cls.anchorM || 0); a += 10) {
+    const led = ledger(cls, TERRAIN_MSL + a);
+    if (led.surplusT - ln2MakeT > rotorCapT) anchorFromAglM = a;
+  }
   const shortfallT = Math.max(0, holdT - anchorT - rotorCapT);   // what neither can hold
   const retainedT = Math.min(cls.payloadT, shortfallT);
   const deliveredT = cls.payloadT - retainedT;
@@ -154,7 +171,7 @@ export function planCycle(cls, mode, oneWayKm, wind) {
     retainedT, deliveredT, rotorMaxT, passes,
     gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null),
     ln2MakeT, cryoLimited, battLimited, descentShort, downMW, bottleneck,
-    anchorT, shortfallT,
+    anchorT, shortfallT, anchorFromAglM,
     pumpMW: pumpMW(cls), dragMW: dragMW(cls, mode), led, ledLow,
     dropsPerHour: 60 / cycleMin,
   };

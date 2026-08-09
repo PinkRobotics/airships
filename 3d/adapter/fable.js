@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=fab55af1';
-import { phaseShape } from '../anim/mission.js?v=fab55af1';
-import { massState } from '../physics/mass.js?v=fab55af1';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=fab55af1';
-import { clamp01 } from '../core/math.js?v=fab55af1';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=40607c4a';
+import { anchorAt, phaseShape } from '../anim/mission.js?v=40607c4a';
+import { massState } from '../physics/mass.js?v=40607c4a';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=40607c4a';
+import { clamp01 } from '../core/math.js?v=40607c4a';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -113,14 +113,21 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
   const bagCapT = cls.anchorBagTonnes || 0;
   const anchorFull = bagCapT > 0
     ? clamp01((opts.anchorT === undefined ? bagCapT : opts.anchorT) / bagCapT) : 0;
-  let anchorProgress = 0, anchorFill = 0, overWater = false;
-  if (phase === 'RETURN_TRANSIT') {
-    // The last third of the leg is the letdown. Cable out, then the bag dips and fills.
-    overWater = prog > 0.62;
-    anchorProgress = clamp01((prog - 0.62) / 0.18);
-    anchorFill = anchorFull * clamp01((prog - 0.78) / 0.14);
-  } else if (phase === 'SOURCE_APPROACH') {
-    overWater = true; anchorProgress = 1; anchorFill = anchorFull;
+  // The cable and the bag come from the ALTITUDE, not from the phase — see anchorAt(). The
+  // monitor's own flight profile now levels the return leg off ABOVE the band where the rotors
+  // cannot hold the hull down (sim/plan.js anchorFromAglM, sim/state.js holdAgl) and flies the
+  // rest of the way down during the slow approach, which is the only part of the cycle where
+  // dipping a bag is a thing a ship could do.
+  const air = anchorAt(cls, Math.max(0, hostState.alt || 0), anchorFull);
+  let anchorProgress = air.anchorProgress, anchorFill = air.anchorFill, overWater = false;
+  if (phase === 'SOURCE_APPROACH') {
+    overWater = true;
+  } else if (phase === 'RETURN_TRANSIT') {
+    // Only the very tail of the leg is over the lake — at 0.94 the ship is a few hundred metres
+    // out, levelling off and braking. Before that it is over the valley and there is no water to
+    // draw, so the cable stays stowed whatever the altitude says.
+    overWater = prog > 0.94;
+    if (!overWater) { anchorProgress = 0; anchorFill = 0; }
   } else if (phase === 'WATER_FILL') {
     // Dumped as soon as the tanks hold more than the descent needed; the empty cable follows.
     overWater = true;
@@ -128,6 +135,9 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     anchorProgress = 1 - clamp01((prog - 0.25) / 0.35);
   } else if (phase === 'OUTBOUND_TRANSIT') {
     overWater = prog < 0.18;                      // still over the lake while the hose winds up
+    anchorProgress = 0; anchorFill = 0;
+  } else {
+    anchorProgress = 0; anchorFill = 0;
   }
 
   const draw = hostState.draw || {};

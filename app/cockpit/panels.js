@@ -127,12 +127,17 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
       `<span class="b-tr"><span class="b-fill" id="${id}" style="width:0%;background:${col}"></span></span>` +
       `<span class="b-val" id="${id}v">–</span></div>`;
-    const grpH = t => `<div style="font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;` +
-      `text-transform:uppercase;color:var(--faint);margin:2px 0 1px">${t}</div>`;
+    /* The two headings take the DIAL'S colours — green for generation, warm for consumption —
+     * because they label the same two quantities the dual gauge above them plots against each
+     * other (gauges.js: #46d06e and #d98b80). Both were `--faint` grey, which left the reader
+     * matching a heading to a needle by position alone. The bars beneath each heading are
+     * already coloured per system; this makes the group they belong to legible at a glance. */
+    const grpH = (t, col) => `<div style="font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;` +
+      `text-transform:uppercase;color:${col};margin:2px 0 1px">${t}</div>`;
     $("pwrBars").innerHTML = '<div class="bars">' +
-      grpH("generation") +
+      grpH("generation", "#46d06e") +
       [["solar", "pwSol", "#46d06e"], ["N₂ regen", "pwRgn", "#46d06e"]].map(barRow).join("") +
-      grpH("consumption") +
+      grpH("consumption", "#d98b80") +
       [["propulsion", "pwPrp", "#ff4fa3"], ["water sys", "pwPmp", "#7aa2c8"],
        ["ballast plant", "pwCry", "#b48ead"], ["baseline", "pwHot", "#74747f"]].map(barRow).join("") +
       '</div><div style="font:var(--t-11)/1.3 var(--mono);color:#3a3a42;margin-top:2px">each bar = share of that system\'s maximum</div>' +

@@ -225,7 +225,25 @@ describe('state · continuity across every phase seam', () => {
       close(at(m, 2, m.phaseEnds[0] + 1e-6).alt, sourceAltM(m.cls), 1e-3, `${id}: fill is not at the hose altitude`);
       close(at(m, 2, m.phaseEnds[2] + 1e-6).alt, ALT.drop, 1e-3, `${id}: the run does not start at the drop altitude`);
       close(at(m, 2, m.phaseEnds[3] + 1e-6).alt, ALT_DROP_TOP, 1e-3, `${id}: the escape does not start where the run ended`);
-      close(at(m, 2, m.phaseEnds[5] - 1e-6).alt, sourceAltM(m.cls) + 130, 1e-2, `${id}: the return does not end at hose range`);
+      /* THE RETURN LEG MAY NOT FLY INTO THE BAND IT CANNOT HOLD ITSELF IN.
+       *
+       * Below `plan.anchorFromAglM` the rotors cannot hold this hull down alone and the descent
+       * anchor has to be in the water — and a bag cannot be dipped at 130 km/h. So the transit
+       * levels off at or above that altitude and the approach, which is the slow phase, flies
+       * the rest of the way down. Asserted as the RULE rather than as a number, because the
+       * number is a consequence of the class's cable and its buoyancy.
+       *
+       * Before 2026-08-09 the return descended to hose range at cruise speed regardless, which
+       * is what had the animation paying a full cable out into open air 700 m above the lake. */
+      const endRet = at(m, 2, m.phaseEnds[5] - 1e-6).alt;
+      ok(endRet >= m.plan.anchorFromAglM - 1e-6,
+        `${id}: the return ends at ${endRet.toFixed(0)} m, inside the anchor band that starts at `
+        + `${m.plan.anchorFromAglM} m`);
+      close(endRet, Math.max(sourceAltM(m.cls) + 130, m.plan.anchorFromAglM + 60), 1e-2,
+        `${id}: the return does not level off where the profile says`);
+      // And the approach is what closes the remaining distance to the water.
+      close(at(m, 2, m.phaseEnds[0] - 1e-6).alt, sourceAltM(m.cls), 1.0,
+        `${id}: the approach does not finish at the fill altitude`);
     }
   });
 

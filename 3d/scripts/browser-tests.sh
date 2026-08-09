@@ -3,10 +3,10 @@
 #
 #   scripts/browser-tests.sh [port]
 #
-# Serves the repository root on a local port, drives Chromium with software WebGL, and greps the
-# machine-readable result attribute out of the dumped DOM. Software WebGL rather than the real
-# GPU because the suite asserts geometry and DOM behaviour, not pixels: it must give the same
-# answer on a headless CI runner with no display as it does on a workstation.
+# Serves the repository root on a local port, drives Chromium with software WebGL, and reads the
+# result the page prints to the console. Software WebGL rather than the real GPU because the suite
+# asserts geometry and DOM behaviour, not pixels: it must give the same answer on a headless CI
+# runner with no display as it does on a workstation.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> repository root
 PORT="${1:-8791}"
@@ -33,57 +33,62 @@ fi
 PROFILE="$A3D_CHROME_PROFILE"
 mkdir -p "$PROFILE"
 
-# --disk-cache-size=1 because the module graph is served from a plain static server: without it a
-# second run can silently test the previous run's code.
-# The timeout is a guard against a hang, not a performance budget, so it is generous: the suite
-# takes about 25 s on a workstation, and a CI runner rendering through SwiftShader on shared vCPUs
-# is entitled to take several minutes over that. It is deliberately NOT tuned any tighter, because
-# a limit that a slow machine trips reports a hang that is not there.
+# THE RESULT COMES FROM THE PAGE'S OWN CONSOLE, NOT FROM --dump-dom.
 #
-# Raising it does not fix a hang, though. A runner failing at 300 s went on to fail at 1200 s, and
-# a limit that scales with itself is measuring a page that never finishes rather than one that is
-# slow. Hence the log below: the useful thing on a timeout is WHERE it stopped, not more seconds.
+# --dump-dom prints the DOM when the VIRTUAL-TIME BUDGET is exhausted, not when the page finishes,
+# and virtual time PAUSES while any network fetch is outstanding. On a CI runner Chrome's own
+# background services keep fetching — GCM registration retried every few minutes in the log — so
+# the budget was never exhausted, the dump never came, and a suite that had printed
+# "DONE pass=28 fail=0 skip=0" sat there until the timeout killed it. Four CI runs died that way.
+#
+# So the page prints its own answer and this script reads that, then kills the browser the moment
+# it appears. The dump is no longer load-bearing, the run ends as soon as the work is done instead
+# of waiting out a budget, and the background-networking flags below stop Chrome making the
+# requests that caused it in the first place.
+#
+# --disk-cache-size=1 because the module graph comes off a plain static server: without it a second
+# run can silently test the previous run's code. The timeout below is a HANG GUARD, not a budget —
+# the suite is about 25 s on a workstation and several minutes on a runner through SwiftShader, and
+# a limit tight enough to trip on a slow machine reports a hang that is not there.
 : "${A3D_TEST_TIMEOUT:=1200}"
-
-# The virtual-time budget is what --dump-dom waits for: it prints the page when the budget is
-# exhausted, NOT when the page finishes. 120 s of virtual time only elapses quickly if the page
-# is idle, and this one is not idle for the ~4 minutes a CI runner spends grinding through the
-# GL checks. 20 s is the value the page's own header documents and is ample for a suite whose
-# longest single wait is 25 s of guard on a promise that never fires.
-#
-# Chromium's stderr, kept rather than discarded, and left in the profile directory so it can be
-# read after the fact. --dump-dom prints the page only if the browser lives long enough to finish,
-# so a killed run used to produce a bare exit 124 and nothing else at all. The page logs
-# "RUN <name>" on entering each check and --enable-logging=stderr forwards the console here, so
-# the last RUN line in this file is the check that hung.
 LOG="$PROFILE/last-run.log"
-STATUS=0
-DOM=$(timeout "$A3D_TEST_TIMEOUT" "$CHROME" --headless=new --no-sandbox --disable-dev-shm-usage \
+: > "$LOG"
+
+"$CHROME" --headless=new --no-sandbox --disable-dev-shm-usage \
   --disable-gpu --disk-cache-size=1 --media-cache-size=1 \
   --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
   --enable-logging=stderr --log-level=0 \
+  --disable-background-networking --disable-component-update --disable-sync \
+  --disable-default-apps --no-first-run --no-default-browser-check \
+  --disable-client-side-phishing-detection --disable-domain-reliability \
+  --metrics-recording-only \
   --user-data-dir="$PROFILE" --virtual-time-budget=20000 --dump-dom \
-  "http://127.0.0.1:$PORT/3d/tests/browser.html" 2>"$LOG") || STATUS=$?
+  "http://127.0.0.1:$PORT/3d/tests/browser.html" >/dev/null 2>"$LOG" &
+CHROME_PID=$!
+# Added to the existing trap, not replacing it: line 18 may have a dev server to kill, and a
+# second `trap ... EXIT` silently discards the first. That has been a bug here once already.
+trap 'kill "$CHROME_PID" 2>/dev/null || true; kill ${SERVER:-} 2>/dev/null || true' EXIT
 
-if [ "$STATUS" -ne 0 ]; then
-  if [ "$STATUS" -eq 124 ]; then
-    echo "browser tests: KILLED after ${A3D_TEST_TIMEOUT}s — the page never finished" >&2
-  else
-    echo "browser tests: chromium exited $STATUS" >&2
-  fi
-  echo "the last checks it entered, and chromium's own output ($LOG):" >&2
-  # DONE in this list means the suite finished and the DUMP is what failed to happen.
-  grep -aE 'RUN |DONE |ERROR|Fail' "$LOG" | tail -25 >&2 || true
-  exit 1
-fi
+DEADLINE=$(( $(date +%s) + A3D_TEST_TIMEOUT ))
+while :; do
+  grep -qa 'DONE pass=' "$LOG" && break
+  if ! kill -0 "$CHROME_PID" 2>/dev/null; then break; fi     # exited without ever reporting
+  if [ "$(date +%s)" -ge "$DEADLINE" ]; then break; fi
+  sleep 0.5
+done
+kill "$CHROME_PID" 2>/dev/null || true
+wait "$CHROME_PID" 2>/dev/null || true
 
-RESULT=$(printf '%s' "$DOM" | grep -oE 'data-a3d-result="[^"]*"' | head -1 | sed 's/.*="//;s/"$//')
-FAILS=$(printf '%s' "$DOM" | grep -oE 'data-a3d-failures="[^"]*"' | head -1 | sed 's/.*="//;s/"$//')
+RESULT=$(grep -oaE 'DONE pass=[0-9]+ fail=[0-9]+ skip=[0-9]+' "$LOG" | tail -1 | sed 's/^DONE //')
+FAILS=$(grep -oaE 'FAILURES .*' "$LOG" | tail -1 | sed 's/^FAILURES //;s/", source.*//')
 
 if [ -z "$RESULT" ]; then
-  echo "browser tests: NO RESULT (the page did not finish)" >&2
+  echo "browser tests: NO RESULT after ${A3D_TEST_TIMEOUT}s — the page never finished" >&2
+  echo "the last checks it entered, and chromium's own output ($LOG):" >&2
+  grep -aE 'RUN |ERROR|Fail' "$LOG" | tail -25 >&2 || true
   exit 1
 fi
+
 echo "browser tests: $RESULT"
 [ -n "$FAILS" ] && echo "failures: $FAILS"
 

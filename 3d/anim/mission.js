@@ -17,11 +17,11 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=fab55af1';
-import { massState } from '../physics/mass.js?v=fab55af1';
-import { derivePower } from '../physics/energy.js?v=fab55af1';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=fab55af1';
-import { ASSUMPTIONS } from '../model/config.js?v=fab55af1';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=40607c4a';
+import { massState } from '../physics/mass.js?v=40607c4a';
+import { derivePower } from '../physics/energy.js?v=40607c4a';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=40607c4a';
+import { ASSUMPTIONS } from '../model/config.js?v=40607c4a';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
@@ -84,6 +84,38 @@ export function phaseAt(timeline, u) {
  * The continuous quantities for a phase — the mapping the adapter shares.
  * Returns a partial state; the caller merges it into a full one.
  */
+/**
+ * The descent anchor's state at a given altitude — DERIVED, not drawn.
+ *
+ * The first version of this was a hand-authored curve against phase progress, and it was wrong in
+ * the way hand-authored curves are wrong: it asked for a full cable at 1,500 m and 130 km/h, where
+ * the water is 760 m past the end of the rope and the bag would be a sea anchor in the sky. What
+ * the anchor does is not a function of how far through a phase the ship is. It is a function of
+ * how far away the water is.
+ *
+ * So the cable pays out as the surface comes within reach of it, and the bag fills over the
+ * stretch of descent below first contact. Both fall out of the altitude the ship is actually at,
+ * which makes it impossible to ask for an anchor the ship could not have used. The winch sits on
+ * the keel, one hull radius below the point `altitudeM` refers to, which is why that radius
+ * appears here and is not a fudge factor.
+ *
+ * @param {object} cls        resolved class
+ * @param {number} altitudeM  the hull's height above the water
+ * @param {number} [full]     the fill this mission's descent needs, as a fraction of the bag
+ */
+export function anchorAt(cls, altitudeM, full = 1) {
+  const cable = cls.anchorCableM || 0;
+  if (cable <= 0) return { anchorProgress: 0, anchorFill: 0 };
+  const reachAlt = Math.max(0, cable - cls.maxRadiusM);      // hull altitude at first contact
+  // Start lowering a quarter of a cable before it can touch, so the bag is ready when the ship
+  // reaches the band it cannot hold itself in rather than being thrown after it.
+  if (altitudeM > reachAlt + cable * 0.25) return { anchorProgress: 0, anchorFill: 0 };
+  return {
+    anchorProgress: 1,
+    anchorFill: full * clamp01((reachAlt - altitudeM) / Math.max(1, cable * 0.14)),
+  };
+}
+
 export function phaseShape(cls, phase, prog, opts = {}) {
   const p = clamp01(prog);
   const s = {};
@@ -109,7 +141,7 @@ export function phaseShape(cls, phase, prog, opts = {}) {
     case 'SOURCE_APPROACH':
       s.altitudeM = lerp(ALT.source + 150, ALT.source, smoothstep(p));
       s.overWater = true;
-      s.anchorProgress = 1; s.anchorFill = 1;      // hanging full, holding the hull down
+      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
       s.airspeedMps = lerp(cruise * 0.35, 2, p);
       s.verticalSpeedMps = -2.0 * (1 - p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
@@ -123,7 +155,7 @@ export function phaseShape(cls, phase, prog, opts = {}) {
     case 'HOSE_DEPLOY':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
       s.overWater = true;
-      s.anchorProgress = 1; s.anchorFill = 1;
+      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
       s.hoseProgress = smoothstep(p);
       break;
@@ -190,12 +222,12 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       break;
     case 'CONTROLLED_DESCENT':
       s.altitudeM = lerp(ALT.cruise, ALT.source, smoothstep(p));
-      // THE ANCHOR'S PHASE. The hull comes down on rotors while the air is thin, and about two
-      // thirds of the way the cable goes out, the bag dips, fills, and is winched just clear.
-      // From there the lake is doing the holding and the rotors are only trimming.
+      // THE ANCHOR'S PHASE. The hull comes down on rotors while the air is thin; the cable goes
+      // out as the water comes within reach of it, the bag dips, fills, and is winched clear.
+      // From there the lake does the holding and the rotors only trim. Derived from the altitude
+      // the line above just set, so the rope can never be paid out into open air.
       s.overWater = true;
-      s.anchorProgress = clamp01((p - 0.30) / 0.25);
-      s.anchorFill = clamp01((p - 0.55) / 0.20);
+      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
       s.airspeedMps = lerp(cruise * 0.9, cruise * 0.35, p);
       s.verticalSpeedMps = -3.5 * Math.sin(Math.PI * p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target;

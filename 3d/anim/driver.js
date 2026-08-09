@@ -12,16 +12,36 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=fab55af1';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=fab55af1';
-import { byPrefix, walk } from '../core/nodes.js?v=fab55af1';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=fab55af1';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=fab55af1';
-import { hoseGeometry } from './hose.js?v=fab55af1';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=fab55af1';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=40607c4a';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=40607c4a';
+import { byPrefix, walk } from '../core/nodes.js?v=40607c4a';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=40607c4a';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=40607c4a';
+import { hoseGeometry } from './hose.js?v=40607c4a';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=40607c4a';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];
+
+/**
+ * The largest blade-phase step that still READS as rotation, in radians.
+ *
+ * A 4-bladed rotor repeats its own picture every 90 degrees, so a frame that advances it more
+ * than about half of that shows a rotor that has jumped somewhere ambiguous, and past the full
+ * period it shows one that has gone backwards. This is the wagon-wheel effect and no amount of
+ * physical correctness in the rate can defeat it — sampling is sampling.
+ *
+ * A P-10000 holding itself down at full duty asks for 67 rad/s, which at the viewer's 0.05 s
+ * frame cap is 3.4 rad: over two full blade periods in one frame, and the reason the rotors
+ * "glitch" precisely when they are working hardest. The rate is therefore capped at a third of
+ * a period per frame, which is a deliberate lie about angular velocity told to avoid a worse
+ * one about direction. THE ROTORS ARE NOT A TACHOMETER — how hard a station is working is
+ * carried by its disc opacity and its wash, both of which stay honest at any frame rate.
+ */
+function bladeStep(rateRadS, dt, blades) {
+  const period = (2 * Math.PI) / Math.max(1, blades || 4);
+  return Math.min(rateRadS * dt, period / 3);
+}
 
 /** Deterministic per-particle jitter in [0,1) — no Math.random, so frames stay reproducible. */
 const hash01 = (x) => { const s = Math.sin(x) * 43758.5453; return s - Math.floor(s); };
@@ -533,7 +553,11 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     for (const rn of N.rotors.get(st.id) || []) {
       if (!rn) continue;
       if (!reduced) {
-        rn.r[0] += spin * (rn.spin ? rn.spin.dir : 1) * dt;
+        rn.r[0] += bladeStep(spin, dt, rn.spin && rn.spin.blades)
+          * (rn.spin ? rn.spin.dir : 1);
+        // Wrapped, so a viewer left running for hours does not accumulate a phase large enough
+        // to lose precision in the euler.
+        rn.r[0] %= 2 * Math.PI;
         rn._localDirty = true;
       }
       rn.tint = isFailed ? STATE_TONE.failed : null;
@@ -862,7 +886,8 @@ function spinInstances(b, containerId, records, bySol, failed, d, dt, maxRate, b
     if (frac <= 0.002) continue;
     // A working unit turns at a rate set by how hard it is working, with a floor so a barely
     // commanded fan still reads as running rather than as stopped.
-    phases[i] = (phases[i] + (4.5 + maxRate * frac) * rateMul * dt) % (2 * Math.PI);
+    phases[i] = (phases[i]
+      + bladeStep((4.5 + maxRate * frac) * rateMul, dt, n.blades)) % (2 * Math.PI);
     const rec = records[i];
     if (!rec) continue;
     const aim = aimEuler(rec.outward);

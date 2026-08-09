@@ -36,7 +36,8 @@ import {
   AirshipScaleComparison, AirshipFailureExplorer, AirshipTrajectoryExplorer, AirshipMapModel,
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
-} from '../index.js?v=fab55af1';
+  anchorAt, resolveClass,
+} from '../index.js?v=40607c4a';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -612,11 +613,16 @@ await check('the descent anchor dips, fills, and is lifted clear — in that ord
   // this guards is the same one the hose tests guard: a thing that costs thousands of tonnes
   // hanging where it physically cannot be. It is also the test that caught the cable being paid
   // out from the ship's CENTRE rather than its keel, which left a full bag 110 m under the lake.
-  const v = mount(host, { classId: 'P10000', quality: 'low', reducedMotion: false });
+  // P-1000 and coarse steps, deliberately: this check was 80 s of a 112 s suite when it settled a
+  // P-10000 over 450 frames, and the runner is another seven times slower again. The winch caps
+  // its rate at `Math.min(dt, 0.1)` per tick, so 45 steps of 0.1 s is more than the ~34 it takes
+  // to pay a cable out in full, and the pod damper converges inside the same window. Nothing here
+  // is class-specific — the keel offset it guards is a hull radius on any of them.
+  const v = mount(host, { classId: 'P1000', quality: 'low', reducedMotion: false });
   const N = v.driver._nodes;
   const settle = (st) => {
     v.setProps({ visualState: st });
-    for (let i = 0; i < 150; i++) v.tick(1 / 30);
+    for (let i = 0; i < 45; i++) v.tick(0.1);
     return { bagZ: N.anchorBag.p[2], waterZ: -st.altitudeM, vis: N.anchorBag.visible };
   };
   const shape = (phase, p) => defaultState({ phase, phaseProgress: p, altitudeM: 300,
@@ -632,7 +638,7 @@ await check('the descent anchor dips, fills, and is lifted clear — in that ord
     `a full bag must be lifted clear, got ${lifted.bagZ.toFixed(0)} against ${lifted.waterZ}`);
   // Stowed: nothing hanging once the cable is in.
   v.setProps({ visualState: defaultState({ phase: 'OUTBOUND_TRANSIT', altitudeM: 1500 }) });
-  for (let i = 0; i < 150; i++) v.tick(1 / 30);
+  for (let i = 0; i < 45; i++) v.tick(0.1);
   assert(!N.anchorBag.visible, 'the bag must be stowed away from the source');
   assert(!N.waterSurface.visible, 'and there is no lake at cruise altitude');
   const r = v.driver.anchor;
@@ -642,19 +648,76 @@ await check('the descent anchor dips, fills, and is lifted clear — in that ord
   // invisible, because render/views.js gates the exterior view on an ALLOW-LIST of node ids and
   // nothing had added them to it. Positioned, scaled, animated, never rasterised. Asserting on
   // the node tree cannot see that; the triangle count can.
-  const w = mount(host, { classId: 'P10000', quality: 'low', viewMode: 'exterior' });
+  const w = mount(host, { classId: 'P1000', quality: 'low', viewMode: 'exterior' });
   w.setProps({ visualState: defaultState({ phase: 'OUTBOUND_TRANSIT', altitudeM: 1500 }) });
   w.tick(1 / 60);
   const stowed = w.stats.triangles;
   w.setProps({ visualState: defaultState({ phase: 'WATER_FILL', altitudeM: 300, overWater: true,
     anchorProgress: 1, anchorFill: 1 }) });
-  for (let i = 0; i < 90; i++) w.tick(1 / 30);
+  for (let i = 0; i < 30; i++) w.tick(0.1);
   const deployed = w.stats.triangles;
   w.dispose();
   assert(deployed > stowed, `deploying the anchor and the lake must add geometry to the `
     + `exterior view: ${stowed} triangles stowed, ${deployed} deployed`);
   return `bag at surface ${dip.bagZ.toFixed(0)} m, lifted to ${lifted.bagZ.toFixed(0)} m, `
     + `cable ${r.headM} m, +${deployed - stowed} triangles drawn`;
+});
+
+await check('the rotors never advance far enough in a frame to strobe', async () => {
+  if (!gl) return null;
+  // THE GLITCH THIS FIXES. At full downforce a P-10000 asks for 67 rad/s of blade rate, and the
+  // viewer clamps dt at 0.05 s — 3.4 rad in one frame against a 4-blade period of 1.57. The
+  // rotor was advancing more than two whole blade positions per frame, which reads as a judder
+  // or a reversal, and it did it exactly when the ship was working hardest: the empty return.
+  //
+  // The rate is capped at a third of a blade period per frame. That understates angular velocity
+  // on purpose; the alternative is a picture that gets the DIRECTION wrong.
+  const v = mount(host, { classId: 'P10000', quality: 'low', reducedMotion: false });
+  const N = v.driver._nodes;
+  const rn = (N.rotors.get(N.stations[0].id) || [])[0];
+  assert(rn && rn.spin, 'no rotor node to sample');
+  const period = (2 * Math.PI) / rn.spin.blades;
+  // Empty, at cruise, holding a full surplus down: the worst case in the whole cycle.
+  v.setProps({ visualState: defaultState({ phase: 'RETURN_TRANSIT', phaseProgress: 0.5,
+    waterFraction: 0, altitudeM: 1500, verticalDuty: -1 }),
+  env: { timeScale: 60 } });
+  let worst = 0;
+  for (let i = 0; i < 40; i++) {
+    const before = rn.r[0];
+    v.tick(0.05);                       // the viewer's own frame cap — the pathological case
+    let d = Math.abs(rn.r[0] - before);
+    if (d > Math.PI) d = Math.abs(d - 2 * Math.PI);    // the wrap at 2pi is not a step
+    worst = Math.max(worst, d);
+  }
+  v.dispose();
+  assert(worst <= period / 2, `blades moved ${worst.toFixed(2)} rad in one frame against a `
+    + `${period.toFixed(2)} rad blade period — that aliases`);
+  return `worst step ${worst.toFixed(3)} rad of a ${period.toFixed(3)} rad period`;
+});
+
+await check('the anchor is never asked for when the ship could not use it', async () => {
+  // THE BUG THIS EXISTS FOR. The choreography used to be a curve against phase progress, and it
+  // asked for a full cable at 62% of the return leg — where the ship is at 1,500 m doing
+  // 130 km/h and the water is 760 m past the end of the rope. The animation dutifully paid the
+  // whole cable out into open air, which is how it was noticed: a line, and no bucket.
+  //
+  // anchorAt() derives both numbers from the altitude instead, so the request cannot outrun the
+  // physics. Checked here across the whole envelope rather than at the two altitudes that
+  // happen to be interesting.
+  const cls = resolveClass('P10000');
+  const cable = cls.anchorCableM, reach = cable - cls.maxRadiusM;
+  for (let alt = 2000; alt >= 0; alt -= 25) {
+    const a = anchorAt(cls, alt, 1);
+    if (alt > reach + cable * 0.25) {
+      assert(a.anchorProgress === 0 && a.anchorFill === 0,
+        `cable out at ${alt} m with the water ${(alt - reach).toFixed(0)} m out of reach`);
+    }
+    // A bag can never be fuller than the surface is close.
+    if (alt > reach) assert(a.anchorFill === 0, `bag filling at ${alt} m, above first contact`);
+  }
+  assert(anchorAt(cls, 0, 1).anchorFill === 1, 'the bag must be full by the time it is at the water');
+  assert(anchorAt(resolveClass('P100'), 300, 1).anchorProgress === 1, 'the P-100 carries one too');
+  return `first contact at ${reach} m, cable ${cable} m`;
 });
 
 await check('the water surface is drawn level, at the lake, and only near it', async () => {
@@ -672,7 +735,7 @@ await check('the water surface is drawn level, at the lake, and only near it', a
   const pitched = defaultState({ phase: 'WATER_FILL', overWater: true, altitudeM: 300,
     attitude: { rollRad: 0, pitchRad: 0.04, yawRad: 0 } });
   v.setProps({ visualState: pitched });
-  for (let i = 0; i < 120; i++) v.tick(1 / 30);
+  for (let i = 0; i < 40; i++) v.tick(0.1);
   const wx = v.driver.attitude.pitchRad;
   assert(Math.abs(N.waterSurface.r[1] + wx) < 1e-9,
     'the surface must be counter-rotated out of the hull attitude');
@@ -701,6 +764,7 @@ document.body.setAttribute('data-a3d-failures',
 // page — so this line is what tells the two failures apart in the log: "DONE" present means
 // the tests ran and the dump is what hung.
 console.log(`DONE ${line}`);
+console.log(`FAILURES ${[...out.querySelectorAll('.fail')].map((d) => d.textContent).join(' | ')}`);
 </script>
 </body>
 </html>

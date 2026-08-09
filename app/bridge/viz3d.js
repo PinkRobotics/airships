@@ -174,7 +174,20 @@ export function updateM3D(m, st) {
       const aspect = Math.max(0.5, (el2.clientWidth || 16) / (el2.clientHeight || 9));
       const hoseOut = st.phase === "SOURCE_APPROACH" || st.phase === "WATER_FILL" ||
         (st.phase === "OUTBOUND_TRANSIT" && st.prog < 0.18);
-      const dropM = hoseOut ? 52 : 0;
+      /* WHAT HANGS BELOW THE SHIP HAS TO BE IN FRAME, or the reader sees a cable leaving the
+       * picture and concludes the bucket was never drawn. That was the first report back on the
+       * anchor: "only a line". The hose drops 52 m; the anchor drops as far as the water, which
+       * on a P-10000 is 640 m during the approach — more than half a hull length.
+       *
+       * Capped at 0.7 of the hull, because framing the full drop from 790 m would shrink an
+       * 876 m airship to a splinter. Past the cap the cable does leave frame, which is the
+       * honest reading of "the lake is a long way down" rather than a missing component. */
+      const cable = c3.anchorCableM || 0;
+      const anchorOut = cable > 0 && st.alt <= (cable - c3.maxRadiusM) + cable * 0.25
+        && (st.phase === "SOURCE_APPROACH" || st.phase === "WATER_FILL"
+          || (st.phase === "RETURN_TRANSIT" && st.prog > 0.94));
+      const anchorDropM = anchorOut ? Math.min(st.alt, cable, c3.lengthM * 0.7) : 0;
+      const dropM = Math.max(hoseOut ? 52 : 0, anchorDropM);
       const halfW = Math.max(c3.maxRadiusM * 1.8,
         (c3.lengthM / 2) * Math.abs(Math.sin(cam.azimuth)) * 1.1 + c3.maxRadiusM * 0.5);
       // The elevated camera also projects the hull's LENGTH onto the vertical axis.

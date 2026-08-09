@@ -15,19 +15,19 @@
 import {
   resolveClass, stationX, stationT, hullR, sectionScale, profileR, CLASS_IDS,
   TRIM_FAN_DEPTH_RATIO, HULL_BAND_LIFT,
-} from './config.js?v=fab55af1';
-import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=fab55af1';
-import { proxyField } from './density.js?v=fab55af1';
+} from './config.js?v=40607c4a';
+import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=40607c4a';
+import { proxyField } from './density.js?v=40607c4a';
 import { buildLattice, buildMacroFrames, buildSectionJoints, buildCellModules, buildLoadPaths, TIERS }
-  from './structure.js?v=fab55af1';
-import { buildMetadata } from './metadata.js?v=fab55af1';
+  from './structure.js?v=40607c4a';
+import { buildMetadata } from './metadata.js?v=40607c4a';
 import {
   latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom, circleSegs,
   lines, pathSegs, mergeSolids, countOf, featureEdges, transformSegs, solid,
-} from './geom.js?v=fab55af1';
-import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=fab55af1';
-import { m4compose, segPointDist } from '../core/math.js?v=fab55af1';
-import { streamFor } from '../core/prng.js?v=fab55af1';
+} from './geom.js?v=40607c4a';
+import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=40607c4a';
+import { m4compose, segPointDist } from '../core/math.js?v=40607c4a';
+import { streamFor } from '../core/prng.js?v=40607c4a';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -853,7 +853,11 @@ export function build(classId, opts = {}) {
           id: `PrimaryRotor${tag}_${pad(st.index)}`, category: 'propulsion',
           p: [off, 0, 0], material: 'rotor', geom: rotG,
         });
-        rn.spin = { rate: 0, dir: tag === 'A' ? 1 : -1 };
+        // `blades` travels with the node because the DRIVER needs it: a 4-bladed rotor repeats
+        // its own picture every 90 degrees, which sets how fast it can be spun on screen before
+        // the rotation aliases into a judder or a reversal. Geometry and animation must not be
+        // able to disagree about it.
+        rn.spin = { rate: 0, dir: tag === 'A' ? 1 : -1, blades: 4 };
         const d = child(gim, {
           id: `PrimaryRotorDisc${tag}_${pad(st.index)}`, category: 'propulsion',
           p: [off, 0, 0], material: 'thrustDisc', geom: discG,
@@ -878,12 +882,14 @@ export function build(classId, opts = {}) {
       ));
       // The rotor is not a component in its own right: the thruster is, and it is the housing
       // that carries the identity and the metadata. Clicking a blade must not select a `_Fan`.
+      // .blades for the same reason the primary rotors carry it: the driver has to know how
+      // often this geometry repeats itself to know how fast it may be turned on screen.
       addChild(prop, instanceNode(
         { id: 'MediumThrusterFans', category: 'propulsion', material: 'fan', lod: 1,
           selectable: false },
         fanRotorGeom(d, 5, 0.62),
         recs.map((r) => ({ ...r, id: `${r.id}_Fan` })),
-      ));
+      )).blades = 5;
     }
     const fans = layout.trimFans;
     if (fans.length) {
@@ -898,7 +904,7 @@ export function build(classId, opts = {}) {
           selectable: false },
         fanRotorGeom(d, 3, TRIM_FAN_DEPTH_RATIO),
         frecs.map((r) => ({ ...r, id: `${r.id}_Fan` })),
-      ));
+      )).blades = 3;
     }
     // WASH streaks: faint stretched particles that stream through the working units, because
     // a smoothly-spinning rotor at panel size reads as stationary and a working blower reads

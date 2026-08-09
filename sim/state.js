@@ -44,6 +44,17 @@ export function stateAt(m, tRaw) {
   // P-10000 1,350 m, and the difference is the whole reason the big hull can drop its load
   // instead of keeping ballast — see CLASSES[*].hoseM.
   const srcAlt = sourceAltM(cls);
+  /* WHERE THE TRANSIT STOPS DESCENDING, and the approach takes over.
+   *
+   * Below `plan.anchorFromAglM` the rotors cannot hold this hull down on their own and the
+   * descent anchor has to be in the water. A bag cannot be dipped at 130 km/h, so the ship may
+   * not enter that band until it is over the lake and slow — which means the transit levels off
+   * ABOVE it and the approach, which is the slow phase, flies the rest of the way down.
+   *
+   * This was wrong until 2026-08-09: the return leg descended straight through the band at cruise
+   * speed with the bag stowed, and the animation paid a full cable out into open air 700 m above
+   * the water because the choreography asked for an anchor the ship could not have used. */
+  const holdAgl = Math.max(srcAlt + 130, (plan.anchorFromAglM || srcAlt) + 60);
   // Distance the escape climb covers, as a fraction of the return leg: mean speed (the dial's
   // vEsc profile integrates to vEsc/2.5) times its duration, over the one-way distance. The
   // return picks up exactly where it leaves off, so map motion and needle never disagree.
@@ -65,7 +76,7 @@ export function stateAt(m, tRaw) {
       // manoeuvre when all that really happens here is the hose starting to pay out.
       if (m.segs && cycN > 1) B(...arrivalCurve(m, cycN), 0.96 + sm * 0.04);
       else ll = ikN.slice();
-      alt = srcAlt + 130 * (1 - sm);
+      alt = srcAlt + (holdAgl - srcAlt) * (1 - sm);
       ln2 = plan.ln2MakeT * (1 - prog * 0.3);
       sub = "hose paying out";
       water = plan.retainedT;
@@ -164,7 +175,7 @@ export function stateAt(m, tRaw) {
       B(sB, cR, ikX, escF + tz * (0.96 - escF));   // ends short: the approach flies the rest in
       const a0 = altTop * 0.55;
       alt = tz < 0.3 ? a0 + (altTop - a0) * easeSm(tz / 0.3)
-          : tz > 0.7 ? altTop - (altTop - srcAlt - 130) * easeSm((tz - 0.7) / 0.3)
+          : tz > 0.7 ? altTop - (altTop - holdAgl) * easeSm((tz - 0.7) / 0.3)
           : altTop;
       water = plan.retainedT;
       ln2 = plan.ln2MakeT * Math.min(1, prog / 0.85);
