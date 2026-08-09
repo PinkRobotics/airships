@@ -1,5 +1,12 @@
 # Open questions
 
+> **DECIDED 2026-08-09.** All six are to be fixed. The decisions are recorded at the top of
+> each entry as **DECISION**, and they change what "correct" means, so read them before
+> touching the arithmetic. Three of them interact: making the hull buoyant fully loaded
+> (#1) changes the force margins that make retention dead (#4), and removing the generators
+> (#6) changes them again in the other direction. Do #1 first, then #6, then re-measure #4
+> before deciding it is still dead.
+
 Six things are wrong, or unjustified, or dead: five of them in the model, and one — the
 Esri basemap, item 5 — in the page that displays it. They are written up here rather than
 quietly fixed because each one changes a number the site publishes or a decision it has to
@@ -54,7 +61,29 @@ force reverses **inside a single cycle**.
 | c. Cut the structure allowance | The dry allowance is a bet, not a measurement. Reducing it makes the vehicle buoyant on paper by making the hardest unsolved problem harder. |
 | d. Fly lower | Does not work, and the arithmetic says so plainly: loaded break-even is 1,005 m MSL, so over a 1,000 m plateau the hull is buoyant only below about 5 m above ground. At 900 m AGL it is 1,700 t heavy. There is no cruise altitude that rescues this option. |
 
-**Recommendation: (a) plus (b).** (d) is not available at all. Compute density honestly at
+**DECISION: (a) plus (b), to a stricter requirement than any option above, with (d)
+available as relief.**
+
+The requirement is FAIL-SAFE FLOAT-UP: the hull must be positively buoyant at its working
+altitude *while fully loaded with water and unable to drop it*. A ship that cannot shed its
+payload must still rise, not sink. That is a safety property, not a performance one, and it
+sets the displacement.
+
+So: compute density honestly at the altitude actually flown, then size each hull so that
+displacement lift exceeds dry mass plus a full payload plus ballast at that altitude, with a
+stated margin. Publish the resulting sizes.
+
+Two reliefs are permitted where the fail-safe sizing is unreachable:
+
+  * the P-10000 may rely on continual rotor lift, if the hull that would satisfy fail-safe
+    float-up is not credible. If so, say plainly on the page that the largest class is the
+    one that does not float when full, and what happens to it if the bus fails;
+  * cruise may be lowered. It must still clear terrain: the Okanagan floor is already near
+    350 m and the fires that matter are in mountains above that, so the constraint is
+    terrain clearance over the fire belt, not a round number of metres above ground. State
+    the assumed terrain envelope and check the chosen cruise against it.
+
+**Recommendation, superseded by the decision above: (a) plus (b).** (d) is not available at all. Compute density honestly at
 the altitude flown, then size
 the hull so it is buoyant there, and publish the larger displacement. Anything else leaves
 the site claiming a sign the arithmetic does not support. (a) alone is defensible and
@@ -91,6 +120,9 @@ budget avoids the error mostly by not modelling the same holds.
 | b. One model: delete the draw, publish the budget | Keeps the headline figures; loses the per-system instrument readings that make the page worth looking at. |
 | c. Fix the physics first, then unify | Add the forward-flight correction so induced power is right at cruise, then make `stateAt` report the same model `planCycle` sums. Both numbers move, and they move towards each other. |
 
+**DECISION: (c).** Fix the hover-at-cruise error first, then make the instruments and the
+budget the same code.
+
 **Recommendation: (c).** The disagreement is a symptom; the hover-at-cruise error is the
 disease, and it is a real physics error that a reader will find. Fix it, then make the
 instruments and the budget the same code — the project's own rule everywhere else.
@@ -114,6 +146,10 @@ Worse, the `battLimited` branch stretches `RETURN_TRANSIT` by 1.12 to model "a l
 shallower letdown" — and because the term is proportional to duration, it **raises**
 letdown energy from 38.95 to 43.62 MWh. The code does the opposite of what its comment says.
 
+**DECISION: fix it.** Replace the constant with a descent model derived from the disk
+theory already in the file. No free constants, and the `battLimited` branch must reduce
+letdown energy rather than raise it, as its comment claims.
+
 **Recommendation.** Replace it with a descent model: the energy needed to push a buoyant
 hull down through a known height at a chosen rate is computable from the same disk theory
 already in the file, and it has no free constants. Until then the largest single line in
@@ -135,6 +171,10 @@ class at every distance the fleet can fly, so the flag carries no information.
 
 Both are described in the prose as working parts of the vehicle. `passes` is likewise 3 in
 all 135 combinations, which makes it a constant wearing a formula.
+
+**DECISION: re-measure after #1 and #6, then make the code and the copy agree.** Both of
+those changes push the margins the other way, so retention and the cryogenic plant may
+become live on their own. Whatever is true afterwards is what the prose must say.
 
 **Recommendation.** Either the doctrine is real and the margins should be tight enough for
 it to bind, or it is not and the copy should stop describing it. The honest short-term
@@ -159,6 +199,9 @@ has to be decided before the repository is public, not because the arithmetic de
 
 **Options:** drop the imagery layer; obtain an Esri key and use it within terms; or switch
 to an openly-licensed basemap. See `DATA-SOURCES.md` §6.
+
+**DECISION: resolve before the repository is public.** Publishing the technique is worse
+than using it.
 
 **Recommendation.** Decide before the repository is public, because publishing the
 technique is worse than using it.
@@ -201,7 +244,25 @@ the vehicle is said to carry.
 | a. Dispatch the generators, with a fuel ledger | The honest version: generation is credited, fuel is consumed, fuel mass enters the mass ledger and eats into payload. The deficit probably becomes an endurance limit instead. |
 | b. Remove the generators | If the intent is a solar-and-storage vehicle, then `genMW` must also come out of rotor authority, and the class cards and prose must stop mentioning generators. The published thrust figures fall. |
 
-**Recommendation: (a).** Note that it is not free — fuel has mass, and mass is the entire
+**DECISION: (b), remove the generators — the vehicle is battery-electric.**
+
+The resupply story is battery-cell swap: tender airships exchange depleted cells for charged
+ones from a ground centre. That makes the vehicle battery-electric, and an onboard generator
+is then an anomaly that exists only to inflate rotor authority.
+
+So `genMW` comes out of the thrust budget and out of the class cards and prose. Solar stays.
+The energy deficit stays and gets larger, which is now honest rather than accidental: the
+deficit is the argument for resupply, and it should be stated as such.
+
+Note two consequences. Removing `genMW` from `rotorMaxT` cuts descent authority, which is
+what currently lets every class dump its whole payload with nothing retained — so #4 must be
+re-measured afterwards, and retention may come back to life. And this pairs with #1: a hull
+sized for fail-safe float-up is more buoyant, which needs *more* down-force, not less.
+
+Cell swap is to be mentioned as a future direction only. No mass, rate or fleet-count model
+for the tenders: the point of naming it is to close the story, not to open a second one.
+
+**Recommendation, superseded by the decision above: (a).** Note that it is not free — fuel has mass, and mass is the entire
 problem — which is exactly why it should be modelled rather than assumed either way.
 Whichever is chosen, the two halves must agree: a generator that provides thrust must also
 provide the energy for it, or provide neither.

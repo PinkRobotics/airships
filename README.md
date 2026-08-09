@@ -97,7 +97,8 @@ recorded from. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to reproduce and d
 
 ## Known defects
 
-Each has a test that fails on purpose, and a decision written up in
+All six are now DECIDED and awaiting implementation — each has a test that fails on
+purpose, and the decision, its reasoning and its interactions are written up in
 [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) — what it costs, the options, and a
 recommendation. They are open because fixing them means choosing what the vehicle is,
 not just correcting a line.
