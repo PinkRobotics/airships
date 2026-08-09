@@ -1,0 +1,13 @@
+# The live wildfire mirror is written on the server by pipeline/live.py every ten
+# minutes. It is deployment state, not source: committing it would ship stale fire
+# data over a fresh mirror on every deploy.
+/data/live/*
+!/data/live/README.md
+
+# Generated raster exports of the 3D figures (regenerate: make figures).
+/3d/assets/raster/*
+!/3d/assets/raster/.gitignore
+
+__pycache__/
+*.pyc
+.DS_Store
