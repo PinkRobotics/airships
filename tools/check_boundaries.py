@@ -50,7 +50,7 @@ ASSIGN = re.compile(r'(?<![.\w$])(?P<name>[A-Za-z_$][\w$]*)\s*(?:=(?!=)|\+\+|--|
 # Calls that must not rely on a default, and the area the rule applies to. The value is the
 # smallest number of arguments a correct call has.
 REQUIRED_ARGS = {'planTargets': ('app', 2)}
-CALL = re.compile(r'(?<![.\w$])(?P<fn>[A-Za-z_$][\w$]*)\s*\((?P<args>[^()]*)\)')
+CALL = re.compile(r'(?<![.\w$])(?P<fn>[A-Za-z_$][\w$]*)\s*\((?P<args>[^()]*)\)', re.S)
 
 
 def area_of(path: pathlib.Path) -> str:
@@ -217,8 +217,11 @@ def main() -> int:
         for fn, (only_area, need) in REQUIRED_ARGS.items():
             if area != only_area:
                 continue
-            for n, line in enumerate(code.split('\n'), 1):
-                for m in CALL.finditer(line):
+            # Scan the whole file, not line by line: a call split across lines would
+            # otherwise slip past the rule, and reformatting is not a code review.
+            for m in CALL.finditer(code):
+                n = code[:m.start()].count('\n') + 1
+                if True:
                     if m.group('fn') != fn:
                         continue
                     args = [a for a in m.group('args').split(',') if a.strip()]

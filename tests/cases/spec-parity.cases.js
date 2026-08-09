@@ -27,7 +27,7 @@ const SHARED = {
   genMW: 'generatorContinuousPowerMW',
   battMWh: 'batteryEnergyMWh',
   battMW: 'batteryPeakPowerMW',
-  cryoMW: 'cryogenicPlantPowerMW',
+  cryoMW: 'cryogenicPowerMW',
   // ln2CapT is deliberately NOT compared: the model's tank bank (30/150/700 t) is smaller
   // than the monitor's plan target (50/500/5000 t), and adapter/fable.js documents at
   // length why converting between them by capacity is the only choice that conserves
@@ -43,9 +43,15 @@ describe('the vehicle specification, in both copies', () => {
     for (const [simKey, vizKey] of Object.entries(SHARED)) {
       const a = sim[simKey];
       const b = viz[vizKey];
-      // A field one side does not carry is not a disagreement; a field both carry is.
-      if (a === undefined || b === undefined) continue;
       it(`${id}: ${simKey} matches 3d ${vizKey}`, () => {
+        // A MISSPELLED FIELD MUST FAIL, NOT SKIP. The first version of this file skipped
+        // any pair where either side was undefined, on the reasoning that a field only one
+        // side carries is not a disagreement. The effect was that `cryogenicPlantPowerMW`,
+        // which does not exist — the field is `cryogenicPowerMW` — quietly compared nothing
+        // at all. A guard with a typo in it is worse than no guard, because it reports
+        // green. Every name in SHARED must resolve on both sides.
+        eq(a !== undefined, true, `sim/config.js has no field "${simKey}"`);
+        eq(b !== undefined, true, `3d/model/config.js has no field "${vizKey}"`);
         eq(b, a, `sim says ${a}, the 3D model says ${b} — one of them is illustrating a `
           + 'vehicle the other is not computing');
       });

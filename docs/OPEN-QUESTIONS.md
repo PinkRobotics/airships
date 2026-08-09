@@ -137,11 +137,19 @@ generation as *energy*. `stateAt` reports only solar and nitrogen recovery under
 So the vehicle is described as having generators, is given the thrust they would allow, and
 is then flown as though they were not running.
 
-The size of it: 150 MW over the P-10000's 0.846-hour cycle is **126.9 MWh**, which is more
-than the entire published cycle spend of 82.5 MWh before solar is counted at all. Modelled
-as demand-following and capped at `genMW`, generation would contribute roughly 0.98, 14.0
-and 140.9 MWh per cycle for the three classes. The P-100 stops draining its battery and
-starts charging. P-1000 endurance goes from 4.7 hours to 15.4; P-10000 from 10.3 to 20.1.
+The size of it, for the documented 15 km balanced case: the P-10000's cycle is 0.846 h, so
+its generators running flat out would produce **126.9 MWh** against a published cycle spend
+of 82.5 MWh — the generators alone would cover the cycle before solar is counted.
+
+Generators do not run flat out, so the honest figure is demand-following output capped at
+`genMW`. Measured that way against the sampled missions in `tests/golden/seed7-snapshot.json`
+— which are longer legs than the 15 km case, so the numbers are not comparable with the
+paragraph above — generation would contribute roughly 0.98, 14.0 and 140.9 MWh per cycle
+for the three classes. On those same missions the P-100 stops draining its battery and
+begins charging, P-1000 endurance goes from 4.7 hours to 15.4, and P-10000 from 10.3 to 20.1.
+
+Both calculations are of the same thing at different distances. Either one is enough to
+show that the missing term is the same order as the entire budget.
 
 This is the most consequential item on this page, because the deficit is a *conclusion* the
 project draws in public: that every hull runs at a loss and therefore needs an energy-import

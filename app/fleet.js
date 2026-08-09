@@ -53,8 +53,12 @@ export function rebuildMissions() {
       if (bi < 0 || bs === -Infinity) continue;
       const f = open.splice(bi, 1)[0];
       const so = srcFor(f, clsId);
-      // S.heat is empty on the first build and populated on later rebuilds; passing it
-      // means a hull re-tasked mid-session aims at the hotspots rather than at geometry.
+      // Passing S.heat here is currently INERT, and deliberately kept: buildMission does
+      // not set m.heat, and planTargets only scores hotspots for a mission whose targets
+      // came from detections. Live hotspot aiming happens in applyHeat(), which runs right
+      // after every rebuild. The argument stays because the signature is honest and because
+      // rule 3 in the boundary linter requires it — a call that passes live data is the
+      // shape we want, even where the data does not yet change the answer.
       const m = buildMission(f, S.water, S.modeId, clsId, so, S.heat);
       m.hullNo = k;
       m.name = (HULL_NAMES[clsId] || [])[k - 1] || CLASSES[clsId].name + " #" + k;

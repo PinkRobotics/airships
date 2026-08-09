@@ -2,7 +2,7 @@
  */
 import * as SIM from '../sim/index.js';
 import { CFG, DEFAULTS, PHASES, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode } from './bridge/viz3d.js';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js';
 import { renderDrawer } from './cockpit/panels.js';
 import { renderStats, renderTable } from './cockpit/tables.js';
 import { $, esc } from './dom.js';
@@ -257,14 +257,24 @@ export async function boot() {
       S.fires = await loadLive();
       const selFire = S.sel ? (S.sel.f || S.sel.m.fire).id : null;
       const selType = S.sel ? S.sel.type : null;
+      // Which HULL was being watched, not just which fire. A rebuild re-runs the whole
+      // allocation, so the same fire is often served by a different ship afterwards —
+      // and following a ship that silently becomes another ship, with the camera snapping
+      // to its heading, is the kind of thing a viewer reads as a glitch rather than as
+      // news. Keep the hull if it is still flying; only then fall back to the fire.
+      const selHull = S.sel && S.sel.m ? S.sel.m.name : null;
       for (const w of S.water) w.used = false;
       rebuildMissions();
       for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
-      if (selFire) {
+      if (selType === "fire") {
         const ff = S.fires.find(x => x.id === selFire);
-        if (!ff) S.sel = null;
-        else if (selType === "fire") S.sel = { type: "fire", f: ff, m: ff.mission };
-        else S.sel = ff.mission ? { type: selType, m: ff.mission } : null;
+        S.sel = ff ? { type: "fire", f: ff, m: ff.mission } : null;
+      } else if (selHull || selFire) {
+        const sameHull = selHull && S.missions.find(m => !m.idle && m.name === selHull);
+        const ff = selFire && S.fires.find(x => x.id === selFire);
+        const m = sameHull || (ff && ff.mission) || null;
+        S.sel = m ? { type: "ship", m } : null;
+        if (!S.sel) S.follow = false;
       }
       renderStats(); renderTable(); renderStatus(); renderDrawer();
       fetchWind(); fetchHeat();
