@@ -1,6 +1,6 @@
 # Open questions
 
-Five things in this model are wrong, or unjustified, or dead. They are written up here
+Six things in this model are wrong, or unjustified, or dead. They are written up here
 rather than quietly fixed because each one changes a number the site publishes, and
 because two of them are not really bugs at all — they are decisions about the vehicle that
 have been made by accident and should be made on purpose.
@@ -124,6 +124,43 @@ all 135 combinations, which makes it a constant wearing a formula.
 it to bind, or it is not and the copy should stop describing it. The honest short-term
 move is the copy; the interesting one is to find out whether the margin survives fix #1,
 which makes the ships heavier and may bring retention back to life on its own.
+
+---
+
+## 6. The generators supply peak power but no energy
+
+Each class advertises onboard generation — 8, 40 and 150 MW — and `plan.js` counts it when
+sizing rotor authority (`rotorMaxT` uses `battMW + genMW`). But nothing ever credits that
+generation as *energy*. `stateAt` reports only solar and nitrogen recovery under
+`gen`, and `app/loop.js` subtracts every remaining load straight from the battery.
+
+So the vehicle is described as having generators, is given the thrust they would allow, and
+is then flown as though they were not running.
+
+The size of it: 150 MW over the P-10000's 0.846-hour cycle is **126.9 MWh**, which is more
+than the entire published cycle spend of 82.5 MWh before solar is counted at all. Modelled
+as demand-following and capped at `genMW`, generation would contribute roughly 0.98, 14.0
+and 140.9 MWh per cycle for the three classes. The P-100 stops draining its battery and
+starts charging. P-1000 endurance goes from 4.7 hours to 15.4; P-10000 from 10.3 to 20.1.
+
+This is the most consequential item on this page, because the deficit is a *conclusion* the
+project draws in public: that every hull runs at a loss and therefore needs an energy-import
+chain of tanker ships. That conclusion may be an artefact of not modelling the generators
+the vehicle is said to carry.
+
+**Options**
+
+| | Effect |
+|---|---|
+| a. Dispatch the generators, with a fuel ledger | The honest version: generation is credited, fuel is consumed, fuel mass enters the mass ledger and eats into payload. The deficit probably becomes an endurance limit instead. |
+| b. Remove the generators | If the intent is a solar-and-storage vehicle, then `genMW` must also come out of rotor authority, and the class cards and prose must stop mentioning generators. The published thrust figures fall. |
+
+**Recommendation: (a).** Note that it is not free — fuel has mass, and mass is the entire
+problem — which is exactly why it should be modelled rather than assumed either way.
+Whichever is chosen, the two halves must agree: a generator that provides thrust must also
+provide the energy for it, or provide neither.
+
+*Found in review round 1 (codex), 2026-08-09.*
 
 ---
 

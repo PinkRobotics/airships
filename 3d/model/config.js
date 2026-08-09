@@ -359,8 +359,12 @@ const CLASS_SPECS = {
     generators: 10,
     generatorContinuousPowerMW: 150,
     batteryModules: 60,
-    batteryEnergyMWh: 500,
-    batteryPeakPowerMW: 500,
+    // Respecced 2026-08-08 with the disc area above: a full 10,000 t dump leaves the hull
+    // ~12,000 t buoyant, and driving that back down to the water is what sizes the bus.
+    // These MUST equal sim/config.js CLASSES.P10000.battMWh/battMW — tests/cases/
+    // spec-parity.cases.js fails if they drift, which is how they drifted last time.
+    batteryEnergyMWh: 2000,
+    batteryPeakPowerMW: 1400,
     solarAreaM2: 120000,
     hvdcBuses: 6,
 

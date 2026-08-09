@@ -15,6 +15,14 @@ RULE 2 — no module assigns to a binding it imported.
     module genuinely needs to change another's state, the owner exports a function that
     does it, and the change has a name.
 
+RULE 3 — live data must be passed, not defaulted away.
+    `planTargets(mission, heat)` takes satellite hotspots as an argument so that the model
+    can run with no feed. The argument has a default of `[]`, which means an application
+    call site that forgets it does not fail — it silently reverts to geometry-only scoring.
+    That happened: all three call sites lost the argument during the extraction and no test
+    noticed, because the golden files are recorded in replay mode where the sampled fleet
+    carries no heat-derived targets. Inside app/, the argument is required.
+
 Exit status is non-zero on any violation, with the file and line.
 """
 from __future__ import annotations
@@ -38,6 +46,11 @@ ALLOWED = {
 IMPORT = re.compile(r"""^\s*import\s+(?:(?P<what>[\w${},\s*]+?)\s+from\s+)?['"](?P<spec>[^'"]+)['"]""",
                     re.M)
 ASSIGN = re.compile(r'(?<![.\w$])(?P<name>[A-Za-z_$][\w$]*)\s*(?:=(?!=)|\+\+|--|\+=|-=|\*=|/=)')
+
+# Calls that must not rely on a default, and the area the rule applies to. The value is the
+# smallest number of arguments a correct call has.
+REQUIRED_ARGS = {'planTargets': ('app', 2)}
+CALL = re.compile(r'(?<![.\w$])(?P<fn>[A-Za-z_$][\w$]*)\s*\((?P<args>[^()]*)\)')
 
 
 def area_of(path: pathlib.Path) -> str:
@@ -200,6 +213,20 @@ def main() -> int:
                         problems.append(
                             f"{rel}:{n}: assigns to `{name}`, which it imported from "
                             f"{imported[name]} — ask that module to change it instead")
+
+        for fn, (only_area, need) in REQUIRED_ARGS.items():
+            if area != only_area:
+                continue
+            for n, line in enumerate(code.split('\n'), 1):
+                for m in CALL.finditer(line):
+                    if m.group('fn') != fn:
+                        continue
+                    args = [a for a in m.group('args').split(',') if a.strip()]
+                    if len(args) < need:
+                        problems.append(
+                            f"{rel}:{n}: {fn}() called with {len(args)} argument(s); "
+                            f"{area}/ must pass all {need}. The default is a silent "
+                            "fallback, not a convenience.")
 
     if problems:
         print(f"{len(problems)} boundary violation(s):")

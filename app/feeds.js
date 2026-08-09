@@ -125,7 +125,10 @@ export async function fetchWind() {
     });
     S.windOk = true; S.windAt = new Date();
   } catch (e) { S.windOk = false; }
-  for (const mm of S.missions) if (!mm.idle) planTargets(mm);
+  // S.heat must be passed: planTargets scores candidate lines partly on how hot the
+  // satellite detections along them are, and it takes that data as an argument so the
+  // model can run with no feed. Omitting it silently reverts to geometry-only scoring.
+  for (const mm of S.missions) if (!mm.idle) planTargets(mm, S.heat);
   replanAll(); renderStatus();
 }
 
@@ -181,7 +184,7 @@ export function applyHeat() {
       m.targets = picks;
       m.segs = picks.map(t => dropSeg(m, t, true));
       m.heat = true;
-      planTargets(m);
+      planTargets(m, S.heat);
     }
   }
   renderDrawer();

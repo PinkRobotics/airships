@@ -53,7 +53,9 @@ export function rebuildMissions() {
       if (bi < 0 || bs === -Infinity) continue;
       const f = open.splice(bi, 1)[0];
       const so = srcFor(f, clsId);
-      const m = buildMission(f, S.water, S.modeId, clsId, so);
+      // S.heat is empty on the first build and populated on later rebuilds; passing it
+      // means a hull re-tasked mid-session aims at the hotspots rather than at geometry.
+      const m = buildMission(f, S.water, S.modeId, clsId, so, S.heat);
       m.hullNo = k;
       m.name = (HULL_NAMES[clsId] || [])[k - 1] || CLASSES[clsId].name + " #" + k;
       m.shipId = m.name;                              // unique across the fleet; keys the ledger

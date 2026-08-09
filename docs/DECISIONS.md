@@ -86,7 +86,11 @@ State changes across module boundaries go through named functions: `setSeed`, `s
 `resetConfig`, `setAssumptions`.
 
 Known consequence: `3d/` cannot import `sim/` either, so `3d/model/config.js` carries its
-own copy of the assumption set. The two agree today and are kept in step by hand. That
+own copy of the assumption set. Every field both files carry is pinned by
+`tests/cases/spec-parity.cases.js`, because keeping them in step by hand did not work:
+a P-10000 respec reached `sim/` and only half-reached the 3D copy, and the model lab
+spent a day computing that hull's descent authority from a 650 MW bus while the page
+used 1,550 MW. That
 duplication was preferred over making the vehicle renderer depend on the wildfire model,
 because the renderer is meant to be liftable.
 
