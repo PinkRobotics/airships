@@ -11,7 +11,7 @@ vehicle figures are a different pipeline entirely — see 3d/scripts/figures.mjs
 projects the parametric model.)
 
 Vehicle dimensions here are the project's own demonstration assumptions: 4:1 prolate
-spheroids sized to displace 180,000 / 1.8M / 18M cubic metres. References: LZ 129
+spheroids sized to displace 220,000 / 2.2M / 22M cubic metres. References: LZ 129
 Hindenburg 245 m (well documented); Boeing 747-400 70.7 m; Lions Gate Bridge main span
 472 m (City of Vancouver / span record).
 """
@@ -89,11 +89,11 @@ def fig_scale3():
     S = 0.62
     rows = [
         # (kind, name, length_m, dia_m, note, colour)
-        ("ship", "P-10000", 820, 205, "10,000 t of water · conceptual", WARM),
+        ("ship", "P-10000", 876, 219, "10,000 t of water · conceptual", WARM),
         ("bridge", "Lions Gate Bridge", 472, 111, "main span 472 m · Vancouver", FAINT),
-        ("ship", "P-1000", 380, 95, "1,000 t of water · conceptual", WARM),
+        ("ship", "P-1000", 404, 102, "1,000 t of water · conceptual", WARM),
         ("airship", "LZ 129 Hindenburg", 245, 41, "the largest airship ever flown", FAINT),
-        ("ship", "P-100", 177, 44, "100 t · the homepage ledger vehicle", WARM),
+        ("ship", "P-100", 190, 47, "100 t · the homepage ledger vehicle", WARM),
         ("jet", "Boeing 747-400", 71, 19, "70.7 m", MUTED),
         ("person", "a person", 1.8, 0, "1.1 px at this scale", BONE),
     ]
@@ -153,8 +153,8 @@ def fig_scale3():
             f'xmlns="http://www.w3.org/2000/svg" '
             f'font-family="ui-monospace,SFMono-Regular,Menlo,monospace" role="img" '
             f'aria-label="All three conceptual airships and four references drawn to one scale, '
-            f'one per row: the 820-metre P-10000, the 472-metre Lions Gate Bridge main span, the '
-            f'380-metre P-1000, the 245-metre Hindenburg, the 177-metre P-100, a Boeing 747, and '
+            f'one per row: the 876-metre P-10000, the 472-metre Lions Gate Bridge main span, the '
+            f'404-metre P-1000, the 245-metre Hindenburg, the 190-metre P-100, a Boeing 747, and '
             f'a person, who is about one pixel.">{"".join(out)}</svg>')
 
 
@@ -174,7 +174,7 @@ def fig_cutaway():
     row = 0
     while yy < cy + ry - 8:
         x0 = 70 + (17 if row % 2 else 0)
-        for xx in range(x0, 820, 34):
+        for xx in range(x0, 876, 34):
             lat.append(f'<circle cx="{xx}" cy="{yy:.0f}" r="10" fill="none" stroke="{FAINT}" '
                        f'stroke-opacity=".28"/>')
         yy += 26

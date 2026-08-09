@@ -88,8 +88,12 @@ great-circle distance — work it out in the comment, in SI, so a reader can che
 arithmetic without running anything. Anything that would need updating on every unrelated
 change belongs in `golden/`, not here.
 
+- `sim-atmosphere` — ISA density against altitude, checked against the ISO 2533 table rather
+  than against itself. The buoyancy ledger reads from it, so an error here is an error in
+  every published tonne.
 - `sim-physics` — `pumpMW`, `dragMW`, `diskMW`, `ledger`, and the `diskMW` ↔ `rotorMaxT`
-  round trip that the whole descent argument rests on.
+  round trip that the whole descent argument rests on. Also the two sizing requirements the
+  class table exists to satisfy: fail-safe float-up and unpowered recovery.
 - `sim-plan` — `planCycle`: the mass book, the durations, wind symmetry, the modes, the
   tunables, and the three mechanisms the site's copy describes.
 - `sim-state` — the phase machine: coverage, monotonic water, continuity across every seam,
@@ -124,24 +128,25 @@ hard failure**, because a defect that has quietly been fixed must not keep a per
 in the suite — the marker has to come off and the test has to start asserting the corrected
 behaviour.
 
-Four are currently marked:
+Three are currently marked:
 
-1. **`physics · lift at the working-band density covers dry mass plus payload`** — the
-   buoyancy ledger buys lift at sea-level density (1.225 kg/m³) while the ships cruise
-   1,500 m up. At the working-band density the model already uses for drag (1.10 kg/m³) all
-   three classes are net heavy: 198 t of lift against 200 t for the P-100, 19,800 against
-   20,000 for the P-10000. This contradicts the page's claim that the rotors only ever push
-   down.
-2. **`plan · windUsed is false when the wind was not applied`** — `windUsed` tests only
+1. **`plan · windUsed is false when the wind was not applied`** — `windUsed` tests only
    `wind.spd`, while the legs also require `wind.bearing`. The flag can report a wind the plan
    ignored. Harmless today, because `mission.js` always sets the bearing before planning.
-3. **`plan · the letdown term is a minor share of cycle energy`** — `min(6, RETURN_TRANSIT ×
-   0.2)` sets 53% of the P-10000's published 82.5 MWh cycle. Neither the 6 nor the 0.2 is
+2. **`plan · the letdown term is a minor share of cycle energy`** — `min(6, RETURN_TRANSIT ×
+   0.2)` sets 53% of the P-10000's published 88.2 MWh cycle. Neither the 6 nor the 0.2 is
    justified anywhere in the model.
-4. **`energy · the planned budget and the integrated draw agree within 25%`** — two power
-   models. On a 19 km leg `planCycle` budgets 99.3 MWh for the P-10000 while integrating
-   `stateAt`'s per-system draw over the same cycle gives 227.7 MWh, a factor of 2.29. The gap
-   widens with the size of the ship: 1.14× on the P-100, 1.58× on the P-1000.
+3. **`energy · the planned budget and the integrated draw agree within 25%`** — two power
+   models. On a 19 km leg `planCycle` budgets 90.2 MWh for the P-10000 while integrating
+   `stateAt`'s per-system draw over the same cycle gives 255.5 MWh, a factor of 2.83. The gap
+   widens with the size of the ship: 1.23× on the P-100, 1.81× on the P-1000.
+
+A fourth came off on 2026-08-09, which is what the mechanism above is for. **`physics · lift
+at the working-band density covers dry mass plus payload`** started passing when the hulls
+were resized for fail-safe float-up, so the suite failed on it, the marker was removed, and
+the test was replaced by two ordinary ones asserting the requirement the classes now meet:
+`physics · FAIL-SAFE FLOAT-UP` and `physics · UNPOWERED RECOVERY`. The old test was not
+deleted, it was rewritten to ask the stronger question.
 
 Everything else about those defects — including the numbers above — is asserted by ordinary
 passing tests alongside the markers, so the arithmetic is on the record either way.

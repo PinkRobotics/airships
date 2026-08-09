@@ -28,10 +28,13 @@ const SHARED = {
   battMWh: 'batteryEnergyMWh',
   battMW: 'batteryPeakPowerMW',
   cryoMW: 'cryogenicPowerMW',
-  // ln2CapT is deliberately NOT compared: the model's tank bank (30/150/700 t) is smaller
-  // than the monitor's plan target (50/500/5000 t), and adapter/fable.js documents at
-  // length why converting between them by capacity is the only choice that conserves
-  // tonnes end to end. A difference with a written reason is not drift.
+  // ln2CapT used to be excluded, because the two files disagreed for a written reason: the
+  // 3D bank held 30/150/700 t against the monitor's 50/500/5000 t plan target, and
+  // adapter/fable.js divides by the 3D figure so that tonnes conserve end to end. Both
+  // numbers were arbitrary. The 2026-08-09 resize gave the tank a REQUIREMENT — hold enough
+  // nitrogen to sink an empty hull at ground level with no rotors — so there is one right
+  // answer now and no reason for two. The exclusion is deleted rather than loosened.
+  ln2CapT: 'ln2TankCapacityTonnes',
   solarM2: 'solarAreaM2',
 };
 

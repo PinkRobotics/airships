@@ -26,9 +26,18 @@
   out.defaults = RO(Q.DEFAULTS);
   out.hullNames = Q.HULL_NAMES;
 
-  // 2. the mass/lift Q.ledger per class
+  // 2. the mass/lift Q.ledger per class, at every altitude the cycle visits. The ledger takes
+  // an altitude now, so one row per class would pin the sizing point and nothing else — and
+  // the whole point of the change is that lift varies across the cycle.
   out.ledger = {};
-  for (const id of Q.CLASS_ORDER) out.ledger[id] = RO(Q.ledger(Q.CLASSES[id]));
+  const LEDGER_ALTS = { ground: Q.TERRAIN_MSL, source: Q.TERRAIN_MSL + Q.ALT.source,
+    drop: Q.TERRAIN_MSL + Q.ALT.drop, work: Q.WORK_ALT_MSL };
+  for (const id of Q.CLASS_ORDER) {
+    out.ledger[id] = {};
+    for (const [where, alt] of Object.entries(LEDGER_ALTS)) {
+      out.ledger[id][where] = RO(Q.ledger(Q.CLASSES[id], alt));
+    }
+  }
 
   // 3. Q.planCycle over a grid — the numbers the site publishes
   out.plans = [];

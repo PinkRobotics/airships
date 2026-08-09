@@ -67,9 +67,16 @@ describe('energy · each model on its own terms', () => {
 describe('energy · the two models against each other', () => {
   it('they disagree, and the gap widens with the size of the ship', () => {
     // Measured, so the size of the disagreement is on the record rather than in a comment.
-    // On a 19 km leg: P-100 2.1 -> 2.4 MWh (1.14x), P-1000 14.8 -> 23.3 MWh (1.58x),
-    // P-10000 99.3 -> 227.7 MWh (2.29x). If a fix lands these numbers all move and this
+    // On a 19 km leg: P-100 2.1 -> 2.6 MWh (1.23x), P-1000 14.4 -> 26.2 MWh (1.81x),
+    // P-10000 90.2 -> 255.5 MWh (2.83x). If a fix lands these numbers all move and this
     // test fails, which is the intended way to find out.
+    //
+    // The 2026-08-09 resize made the disagreement WORSE on every class, and the mechanism is
+    // worth knowing: planCycle's budget shrank, because the letdown term it is dominated by
+    // fights a smaller surplus at honest density, while stateAt's rotor draw grew, because
+    // the hull is buoyant at the bottom of the cycle where the air is thick and the trim it
+    // holds against is 24% bigger than the plan's single ceiling figure. Two models moving
+    // in opposite directions is what defect 2 looks like from the outside.
     const ratios = {};
     for (const id of CLASS_ORDER) {
       const m = mission(id);

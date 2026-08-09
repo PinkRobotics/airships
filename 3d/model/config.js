@@ -5,10 +5,13 @@
  * this file is right and the other is a bug.
  *
  * PROVENANCE. Payload, displacement and the illustrative length/diameter are the same figures the
- * pinkrobotics.ca homepage ledger and the /airships page already publish (the P-100's ~180,000 m3
- * is the homepage's "220 tonnes of air at 1.225 kg/m3" premise, restated as an elongated body
- * instead of a 70 m sphere). Everything below that line — rotor counts, tank counts, cell sizes,
- * plant capacities, structural spacing — is CONCEPTUAL LAYOUT chosen to make the machine legible.
+ * pinkrobotics.ca homepage ledger and the /airships page already publish. The displacements grew
+ * 22% on 2026-08-09 when the page stopped buying lift at sea level and started buying it at the
+ * altitude the ships fly: the P-100's 220,000 m3 is now what it takes to float 200 t of loaded
+ * ship in the 0.957 kg/m3 air at 2,500 m, with a 5% margin, instead of the homepage's
+ * "220 tonnes of air at 1.225 kg/m3" at sea level. Everything below that line — rotor counts,
+ * tank counts, cell sizes, plant capacities, structural spacing — is CONCEPTUAL LAYOUT chosen to
+ * make the machine legible.
  * None of it is a completed engineering design and none of it is claimed as one. The claimLevel
  * field on each component's metadata says which is which, part by part.
  *
@@ -23,10 +26,21 @@
  *      gets more cells, not bigger ones.
  */
 
-/** Sea-level air density used for the buoyancy ledger. Matches the homepage figure. */
+/** Sea-level air density, ISA. Matches the homepage figure and the /airships page's CFG.rhoSL. */
 export const RHO_SL = 1.225;
-/** Working-band air density (~1000 m). Matches the /airships page's CFG.rhoAir default. */
+/** Working-band air density used for drag and rotors. Matches the page's CFG.rhoAir default. */
 export const RHO_AIR = 1.10;
+/**
+ * Air density at the altitude the hulls are SIZED at: 2,500 m MSL, which is the page's
+ * 1,500 m cruise ceiling over a 1,000 m interior plateau. ISA, from sim/atmosphere.js.
+ *
+ * This is why the displacements below are what they are. Each hull must be positively
+ * buoyant here while fully loaded with water it cannot drop, with a 5% margin, so it
+ * displaces 2,200 m3 per tonne of payload. The sea-level ledger this library still prints
+ * (`displacedAirTonnes`) is the homepage's premise, not the number the vehicle is designed
+ * against; the page evaluates lift at the altitude actually flown.
+ */
+export const RHO_WORK = 0.95686;
 export const G = 9.81;
 
 /**
@@ -205,9 +219,9 @@ const CLASS_SPECS = {
     id: 'P100',
     name: 'P-100',
     payloadTonnes: 100,
-    displacementM3: 180000,
-    lengthM: 177,
-    nominalDiameterM: 44,          // the published illustrative figure, for cross-checking
+    displacementM3: 220000,
+    lengthM: 190,
+    nominalDiameterM: 47,          // the published illustrative figure, for cross-checking
     use: 'Initial attack and small incidents close to water',
 
     // --- actuation -------------------------------------------------------------------------
@@ -232,8 +246,11 @@ const CLASS_SPECS = {
 
     // --- cryogenic -------------------------------------------------------------------------
     cryoTrains: 1,
+    // The bank is sized by unpowered recovery, not by the delivery cycle: it must hold enough
+    // nitrogen to sink an empty hull at ground level with no rotor authority at all. 1.55
+    // payloads. MUST equal sim/config.js CLASSES[*].ln2CapT — spec-parity.cases.js checks it.
     ln2Tanks: 4,
-    ln2TankCapacityTonnes: 30,
+    ln2TankCapacityTonnes: 155,
     cryogenicPowerMW: 6,
 
     // --- power -----------------------------------------------------------------------------
@@ -267,9 +284,9 @@ const CLASS_SPECS = {
     id: 'P1000',
     name: 'P-1000',
     payloadTonnes: 1000,
-    displacementM3: 1.8e6,
-    lengthM: 380,
-    nominalDiameterM: 95,
+    displacementM3: 2.2e6,
+    lengthM: 404,
+    nominalDiameterM: 102,
     use: 'Sustained delivery on project fires and fires of note',
 
     primaryRotorStations: 6,
@@ -292,7 +309,7 @@ const CLASS_SPECS = {
 
     cryoTrains: 2,
     ln2Tanks: 8,
-    ln2TankCapacityTonnes: 150,
+    ln2TankCapacityTonnes: 1550,
     cryogenicPowerMW: 30,
 
     generators: 4,
@@ -323,9 +340,9 @@ const CLASS_SPECS = {
     id: 'P10000',
     name: 'P-10000',
     payloadTonnes: 10000,
-    displacementM3: 1.8e7,
-    lengthM: 820,
-    nominalDiameterM: 205,
+    displacementM3: 2.2e7,
+    lengthM: 876,
+    nominalDiameterM: 219,
     use: 'Campaign fires, long hauls, and moving water between regions',
 
     // The four-rotor reading breaks down here on purpose: fourteen stations distributed over the
@@ -334,7 +351,7 @@ const CLASS_SPECS = {
     rotorsPerStation: 2,
     // 85 m discs: the page respecced this class (2026-08-08) so a full 10,000 t dump can be
     // pushed back down on rotors alone — no retained descent ballast. Adjacent stations sit
-    // ~90 m apart, so 85 m is as large as the discs can go without touching.
+    // ~96 m apart on the grown hull, so 85 m is as large as the discs can go without touching.
     primaryRotorDiameterM: 85,
     publishedDiscAreaM2: 160000,  // /airships page CLASSES.P10000.diskM2
     stationLayout: 'network',
@@ -353,14 +370,16 @@ const CLASS_SPECS = {
 
     cryoTrains: 5,
     ln2Tanks: 20,
-    ln2TankCapacityTonnes: 700,
+    ln2TankCapacityTonnes: 15500,
     cryogenicPowerMW: 100,
 
     generators: 10,
     generatorContinuousPowerMW: 150,
     batteryModules: 60,
     // Respecced 2026-08-08 with the disc area above: a full 10,000 t dump leaves the hull
-    // ~12,000 t buoyant, and driving that back down to the water is what sizes the bus.
+    // 11,051 t buoyant at 2,500 m, and driving that back down to the water is what sizes the
+    // bus. Honest density lowered that from the 12,050 t the sea-level ledger claimed, so the
+    // bus has MORE margin after the 2026-08-09 resize, not less.
     // These MUST equal sim/config.js CLASSES.P10000.battMWh/battMW — tests/cases/
     // spec-parity.cases.js fails if they drift, which is how they drifted last time.
     batteryEnergyMWh: 2000,

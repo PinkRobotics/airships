@@ -4,6 +4,7 @@
  * energy it takes to move water through the sky, it is wrong in one of these four
  * functions, so they are kept together, short, and separately testable.
  */
+import { airDensity } from './atmosphere.js';
 import { CFG } from './config.js';
 
 export function pumpMW(cls) {
@@ -21,10 +22,20 @@ export function diskMW(cls, thrustN) {
   return Math.pow(thrustN, 1.5) / Math.sqrt(2 * CFG.rhoAir * cls.diskM2) / CFG.propEta / 1e6;
 }
 
-export function ledger(cls) {
-  const liftT = cls.dispM3 * CFG.rhoSL / 1000;     // what the evacuated volume displaces
+/**
+ * The mass and lift ledger at one altitude.
+ *
+ * `altMslM` is metres above MEAN SEA LEVEL, not above ground: buoyancy answers to the air
+ * the hull is sitting in, and the terrain under it is 1,000 m of that. There is no default.
+ * A caller that does not know its altitude cannot know its lift either, and the version of
+ * this function that silently used sea level published a hull that was 2 / 20 / 200 t heavy
+ * everywhere it actually flew.
+ */
+export function ledger(cls, altMslM) {
+  const rho = airDensity(altMslM, CFG.rhoSL);
+  const liftT = cls.dispM3 * rho / 1000;           // what the evacuated volume displaces here
   const dryT = cls.payloadT;                       // structure allowance = payload (the ledger's bet)
-  return { liftT, dryT, reserveT: liftT - dryT - cls.payloadT, surplusT: liftT - dryT };
+  return { rho, altMslM, liftT, dryT, reserveT: liftT - dryT - cls.payloadT, surplusT: liftT - dryT };
 }
 
 /* The whole conceptual cycle for one class, mode and one-way distance. Pure arithmetic. */

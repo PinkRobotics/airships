@@ -23,7 +23,12 @@
 export {
   DEFAULTS, CFG, setConfig, resetConfig,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
+  TERRAIN_MSL, WORK_ALT_MSL,
 } from './config.js';
+
+export {
+  ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
+} from './atmosphere.js';
 
 export { SEED, setSeed, hashFrac } from './rng.js';
 

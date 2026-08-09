@@ -46,7 +46,11 @@ export function renderWorked() {
   ].map(([b, s]) => `<div class="stat"><b style="font-size:var(--t-22)">${b}</b><span>${s}</span></div>`).join("");
   $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +
     (p.retainedT > 1 ? `delivers ${fmt(p.deliveredT)} t per drop, retaining ${fmt(p.retainedT)} t as descent ballast · ` : "") +
-    `still air (the live map applies current winds per mission) · sea-level ledger: ` +
+    // The label said "sea-level ledger" for as long as the ledger bought its lift at sea
+    // level. It does not any more — it is evaluated in the air the ship is actually in — so
+    // the altitude is named rather than assumed, and the reader can see which one.
+    `still air (the live map applies current winds per mission) · ledger at ` +
+    `${fmt(p.led.altMslM)} m MSL: ` +
     `${fmt(p.led.liftT)} t displaced = ${fmt(p.led.dryT)} t structure + ${fmt(cls.payloadT)} t water + ${fmt(p.led.reserveT, 1)} t reserve. ` +
     `All values are demonstration assumptions; water delivered is not fire extinguished.`;
 }

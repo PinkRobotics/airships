@@ -1,6 +1,6 @@
 # `sim/` — the model, and an index to every number it publishes
 
-This directory is the entire simulation. Fifteen ES modules, no DOM, no network, no wall
+This directory is the entire simulation. Sixteen ES modules, no DOM, no network, no wall
 clock, no globals. Every figure the site prints — every tonne, minute, megawatt and
 megawatt-hour — is computed by a function in here, and this file says which one.
 
@@ -21,7 +21,8 @@ cloned or built:
 
 ```js
 AIRSHIPS.sim.selftest()                                       // every shipped assertion
-AIRSHIPS.sim.ledger(AIRSHIPS.sim.CLASSES.P10000)              // the mass ledger
+AIRSHIPS.sim.ledger(AIRSHIPS.sim.CLASSES.P10000,
+                    AIRSHIPS.sim.WORK_ALT_MSL)                // the mass ledger, at 2,500 m
 AIRSHIPS.sim.planCycle(AIRSHIPS.sim.CLASSES.P10000,
                        AIRSHIPS.sim.MODES.balanced, 15)       // a whole cycle
 ```
@@ -40,8 +41,9 @@ re-run.
 
 | File | Lines | What it owns |
 |---|---:|---|
-| `config.js` | 136 | Every tunable and every vehicle assumption. Nothing here is measured. |
-| `physics.js` | 30 | The four first-order relations: pump, drag, actuator disk, mass ledger. |
+| `config.js` | 208 | Every tunable and every vehicle assumption. Nothing here is measured. |
+| `atmosphere.js` | 99 | Air density against altitude. ISA troposphere, constants sourced. |
+| `physics.js` | 41 | The four first-order relations: pump, drag, actuator disk, mass ledger. |
 | `plan.js` | 104 | `planCycle` — phase durations, water delivered, energy per cycle. |
 | `state.js` | 254 | `stateAt` — where a ship is and what it is doing at one moment. |
 | `mission.js` | 83 | Assembling a fire, a source, a plan and a set of drop lines. |
@@ -53,8 +55,8 @@ re-run.
 | `rng.js` | 30 | The seed and the stable hash. |
 | `narrate.js` | 53 | The mission trace in prose. |
 | `format.js` | 17 | Number and unit formatting (en-CA). |
-| `selftest.js` | 84 | Seventeen assertions, shipped so a reader can run them. |
-| `index.js` | 49 | The single import surface. |
+| `selftest.js` | 103 | Nineteen assertions, shipped so a reader can run them. |
+| `index.js` | 54 | The single import surface. |
 
 Units are SI internally — kg, m, s, N, W — surfaced as tonnes, kilometres, minutes,
 megawatts and megawatt-hours. One tonne of water is one cubic metre.
@@ -65,7 +67,8 @@ megawatts and megawatt-hours. One tonne of water is one cubic metre.
 
 | Quantity | Units | Computed in | Equation | Rests on | Set in |
 |---|---|---|---|---|---|
-| `liftT` | t | `physics.js` → `ledger` | `dispM3 × rhoSL / 1000` | air displaced at **sea level**, at every altitude | `config.js` `CLASSES[*].dispM3`, `DEFAULTS.rhoSL = 1.225` |
+| `rho` | kg/m³ | `atmosphere.js` → `airDensity` | ISA troposphere, anchored at `CFG.rhoSL` | ISO 2533:1975 | `atmosphere.js` `ISA`, `DEFAULTS.rhoSL = 1.225` |
+| `liftT` | t | `physics.js` → `ledger` | `dispM3 × airDensity(altMslM, rhoSL) / 1000` | air displaced **at the altitude passed in**; there is no default | `config.js` `CLASSES[*].dispM3`, `TERRAIN_MSL`, `WORK_ALT_MSL` |
 | `dryT` | t | `physics.js` → `ledger` | `= payloadT` | structure, machinery, batteries and plant together weigh exactly one payload | `config.js` `CLASSES[*].payloadT` |
 | `surplusT` | t | `physics.js` → `ledger` | `liftT − dryT` | both of the above | as above |
 | `reserveT` (ledger) | t | `physics.js` → `ledger` | `liftT − dryT − payloadT` | both of the above | as above |
@@ -77,13 +80,22 @@ megawatts and megawatt-hours. One tonne of water is one cubic metre.
 | `vert` | — | `state.js` → `stateAt` | `−hold × netFrac`; `hold` is a per-phase curve | the ledger; the phase curves | `state.js`, the `hold`/`share` block |
 
 **Trap.** Two different quantities are called *reserve*. `ledger().reserveT` is
-`liftT − dryT − payloadT` (20.5 t on a P-100) and is what the concept page prints. The
-local `reserveT` inside `stateAt` is `liftT − dryT` (120.5 t on a P-100) and is the
-denominator of `netFrac` and the scale of every rotor thrust. They differ by one payload.
+`liftT − dryT − payloadT` (10.5 t on a P-100 at its working altitude) and is what the concept
+page prints. The local `reserveT` inside `stateAt` is `liftT − dryT` (110.5 t at the same
+altitude, 137.4 t over the lake) and is the denominator of `netFrac` and the scale of every
+rotor thrust. They differ by one payload, and both now depend on where the ship is.
 
-**Known defect.** `ledger` uses `rhoSL`, sea-level density, while the ships work between
-300 m and about 1,180 m above ground over terrain that is itself 500–1,500 m up. See
-`../docs/PHYSICS.md` §"Defect 1".
+**Where each caller evaluates it.** `planCycle` uses `WORK_ALT_MSL` = 2,500 m, the thinnest
+air of the cycle, and publishes that as `plan.led`. `stateAt` uses `TERRAIN_MSL + alt` at
+every instant, so `liftT`, `surplusT`, `netFrac`, `buoyN` and every rotor draw move through
+the cycle: a P-100 displaces 237 t over the lake and 211 t at its ceiling. The two differ on
+purpose and `plan.led` is the design point, not the instantaneous truth.
+
+**Fixed defect, 2026-08-09.** `ledger` used to evaluate at `rhoSL` and hand the answer to
+every altitude, which made all three classes net heavy wherever they actually flew. It now
+takes an altitude and throws without one, and the hulls were resized so that lift at the
+working altitude covers dry mass plus a full payload with 5.25% to spare. See
+`../docs/PHYSICS.md` §"Defect 1" and `../docs/OPEN-QUESTIONS.md` #0.
 
 ---
 
@@ -120,7 +132,7 @@ distance. The panels still display `oneWayKm`.
 | Quantity | Units | Computed in | Equation | Rests on | Set in |
 |---|---|---|---|---|---|
 | `rotorMaxT` | t | `plan.js` → `planCycle` | `((battMW + genMW) × 1e6 × propEta × √(2 ρ_air A_disk))^(2/3) / 9.81 / 1000` | the inverse of the actuator-disk relation at full bus power | `config.js` `battMW`, `genMW`, `diskM2`, `DEFAULTS.propEta`, `DEFAULTS.rhoAir` |
-| `ln2NeedT` | t | `plan.js` → `planCycle` | `min(surplusT × 0.8, ln2CapT)` | 80% of surplus buoyancy is the ballast target | `config.js` `ln2CapT`; the 0.8 is set in `plan.js` |
+| `ln2NeedT` | t | `plan.js` → `planCycle` | `min(surplusT × 0.8, ln2CapT)` | 80% of surplus buoyancy is the ballast target; `surplusT` is now the surplus at 2,500 m | `config.js` `ln2CapT`; the 0.8 is set in `plan.js` |
 | `ln2MakeT` | t | `plan.js` → `planCycle` | `min(ln2NeedT, cryoMW × cryoMul × cryoShare × (dur.RETURN_TRANSIT / 60) / eLN2)` | the plant runs only on the return leg | `config.js` `cryoMW`, `DEFAULTS.cryoMul`, `MODES[*].cryoShare`, `DEFAULTS.eLN2` |
 | `retainedT` | t | `plan.js` → `planCycle` | `max(0, surplusT − ln2MakeT − rotorMaxT / 0.6)` | rotors carry 60% of the residual, aerodynamic trim the rest | the 0.6 is set in `plan.js` |
 | `deliveredT` | t | `plan.js` → `planCycle` | `payloadT − retainedT` | — | — |
@@ -137,8 +149,11 @@ nitrogen from an 8.145-minute leg, not the 23.65 t the 9.122-minute leg would gi
 
 **Known defects.** `retainedT` is exactly zero for every class, every mode, every
 distance and every position of every dial the page exposes — the described descent
-ballast never exists. `ln2MakeT` is 21.1 t against a 12,050 t surplus and a 5,000 t tank.
-See `../docs/PHYSICS.md` §"Defect 4" and §"Defect 5".
+ballast never exists, and the 2026-08-09 resize widened the margin rather than closing it.
+`ln2MakeT` is 21.1 t against an 11,051 t surplus and a 15,500 t tank. See
+`../docs/PHYSICS.md` §"Defect 4" and §"Defect 5". The tank is no longer arbitrary: it is
+sized so an empty hull can be made heavy enough to LAND with no rotor authority, which is a
+job the plant does over days rather than over a cycle.
 
 ---
 
@@ -168,7 +183,9 @@ See `../docs/PHYSICS.md` §"Defect 4" and §"Defect 5".
 
 `ALT.cruise = 1500` is a ceiling, not a cruise altitude. The achieved ceiling is
 `300 + 108 × (shorter leg in minutes)` metres and only reaches 1,500 m when the shorter
-transit leg exceeds 11.1 minutes. A P-10000 at 15 km tops out at 1,180 m above ground.
+transit leg exceeds 11.1 minutes. A P-10000 at 15 km tops out at 1,180 m above ground. The
+hulls are nonetheless sized at the full 1,500 m, because a class must be safe at the highest
+altitude it is allowed to fly and not only at the one a particular mission reaches.
 
 ---
 
@@ -190,17 +207,18 @@ The P-10000 at 15 km, balanced, still air:
 
 | Term | MWh | share |
 |---|---:|---:|
-| `E.letdown` | 43.619 | 52.9% |
-| `E.RETURN_TRANSIT` | 14.608 | 17.7% |
-| `E.other` | 11.650 | 14.1% |
-| `E.OUTBOUND_TRANSIT` | 8.289 | 10.0% |
-| `E.WATER_FILL` | 4.332 | 5.3% |
-| **total** | **82.498** | |
+| `E.letdown` | 34.196 | 45.2% |
+| `E.RETURN_TRANSIT` | 14.705 | 19.5% |
+| `E.other` | 12.888 | 17.1% |
+| `E.OUTBOUND_TRANSIT` | 9.459 | 12.5% |
+| `E.WATER_FILL` | 4.332 | 5.7% |
+| **total** | **75.580** | |
 
 There is a second, disagreeing energy model. `app/loop.js` integrates
 `Σ stateAt().draw − Σ stateAt().gen` in simulated time to drive the storage gauge and the
-depletion behaviour. Over the same cycle it spends **211.18 MWh**, 2.56 times what
-`planCycle` publishes. Both numbers are on the page at once. See §"Defect 2".
+depletion behaviour. On the sampled 19 km missions it spends **255.45 MWh** against the
+90.18 MWh `planCycle` publishes for the same flight, a ratio of 2.83. Both numbers are on
+the page at once. See §"Defect 2".
 
 ---
 
@@ -235,8 +253,8 @@ restores them.
 | `pumpEta` | 0.75 | — | assumption, all-in: pump, hose friction, electrics. Dial spans 0.50–0.90. |
 | `propEta` | 0.70 | — | assumption. Applied to drag power *and* to disk power. **No dial.** |
 | `Cd` | 0.05 | — | assumption, referenced to frontal area. Equivalent to a volumetric `C_dv` of 0.024, which is a defensible bare-hull figure and charges nothing for rotor installations, fins or the hose pod. Dial spans 0.03–0.12. |
-| `rhoAir` | 1.10 | kg/m³ | assumption, labelled "the working band (~1000 m)". Used for drag and every rotor calculation. **No dial.** |
-| `rhoSL` | 1.225 | kg/m³ | ISA sea level. Correct as a number; wrong as the buoyancy reference. **No dial.** |
+| `rhoAir` | 1.10 | kg/m³ | assumption. Used for drag and every rotor calculation, and it is ISA at about 990 m against a 2,500 m working altitude, so drag is 15% high and induced power 7% low. Defect 2's to fix. **No dial.** |
+| `rhoSL` | 1.225 | kg/m³ | ISA sea level. The ANCHOR of the density column `atmosphere.js` scales, not the density anything is weighed in. **No dial.** |
 | `speedMul` | 1.0 | — | dial, 0.60–1.40 |
 | `fillMul` | 1.0 | — | dial, 0.50–2.00 |
 | `cryoMul` | 1.0 | — | dial, 0.50–2.00 |
@@ -249,18 +267,26 @@ better than 0.4% for all three, at a fineness ratio of 4.
 | | P-100 | P-1000 | P-10000 |
 |---|---:|---:|---:|
 | payload / dry allowance | 100 t | 1,000 t | 10,000 t |
-| displacement | 180,000 m³ | 1,800,000 m³ | 18,000,000 m³ |
-| length × diameter | 177 × 44 m | 380 × 95 m | 820 × 205 m |
-| wetted area (derived) | 19,707 m² | 91,372 m² | 425,477 m² |
-| implied areal density | 5.07 kg/m² | 10.94 kg/m² | 23.50 kg/m² |
+| displacement | 220,000 m³ | 2,200,000 m³ | 22,000,000 m³ |
+| length × diameter | 190 × 47 m | 404 × 102 m | 876 × 219 m |
+| wetted area (derived) | 22,592 m² | 104,349 m² | 485,575 m² |
+| implied areal density | 4.43 kg/m² | 9.58 kg/m² | 20.59 kg/m² |
+| lift at 2,500 m / loaded mass | 210.5 / 200 t | 2,105 / 2,000 t | 21,051 / 20,000 t |
 | cruise | 90 km/h | 110 km/h | 130 km/h |
 | fill rate | 0.5 m³/s | 3 m³/s | 15 m³/s |
 | generation | 8 MW | 40 MW | 150 MW |
 | storage | 20 MWh | 120 MWh | 2,000 MWh |
 | bus peak | 30 MW | 150 MW | 1,400 MW |
 | cryogenic plant | 6 MW | 30 MW | 100 MW |
+| nitrogen tank | 155 t | 1,550 t | 15,500 t |
 | rotor units / total disk | 4 / 2,500 m² | 6 / 12,000 m² | 14 / 160,000 m² |
 | disc diameter if one per unit (derived) | 28.2 m | 50.5 m | 120.6 m |
+
+Displacement, length and diameter grew 22.2% / 6.9% / 6.9% on 2026-08-09, and the nitrogen
+tanks by a factor of about three, when the ledger stopped buying its lift at sea level.
+Both are sizing requirements now rather than round numbers: the envelope must float a fully
+loaded hull at 2,500 m MSL with 5% to spare, and the tank must hold enough nitrogen to land
+an empty one with no rotor authority. `../docs/OPEN-QUESTIONS.md` #0 has the arithmetic.
 
 `rotors` is a count of thrust units, and the model never uses it: only `diskM2` enters
 `diskMW`. The derived diameter is therefore what one disc per unit would have to be, not a
@@ -279,7 +305,10 @@ disagree about the disc count while agreeing about the area to within 1.8%.
 `climb` is declared and never read. Nothing in `sim/` uses `MODES[*].climb`.
 
 `config.js` altitudes and rates: `ALT = { cruise: 1500, source: 300, drop: 450 }` metres
-above ground; `ALT_DROP_TOP = 580`; `VZ_MAX = 6` m/s.
+above ground; `ALT_DROP_TOP = 580`; `VZ_MAX = 6` m/s. And the two that turn those into
+altitudes buoyancy can be evaluated at: `TERRAIN_MSL = 1000` m, one reference elevation for
+the interior plateau the fleet works over, and `WORK_ALT_MSL = 2500` m, the cruise ceiling
+above it and the altitude every hull is sized at.
 
 Numbers that are assumptions but do not live in `DEFAULTS`, and so cannot be moved from
 the page:
@@ -320,8 +349,10 @@ the page:
   drift once — a P-10000 respec reached `sim/` and only half-reached the 3D copy, leaving
   the model lab computing descent authority from a 650 MW bus while the page used
   1,550 MW — and the drift was found by review rather than by a test. Two fields are
-  deliberately excluded and the exclusions carry written reasons: `ln2CapT`, and the disc
-  count, which the two files resolve differently (see the class table above).
+  deliberately excluded and the exclusion carries a written reason: the disc count, which
+  the two files resolve differently (see the class table above). `ln2CapT` used to be the
+  second exclusion and is compared now — the 2026-08-09 resize gave the tank a requirement
+  instead of a round number, so there is one right answer and no reason for two.
 
 ---
 
@@ -329,24 +360,31 @@ the page:
 
 Found by audit, open, tracked, and written up with numbers in `../docs/PHYSICS.md`:
 
-1. **Buoyancy is computed at sea level.** Loaded, at working altitude, all three classes
-   are net heavy, which contradicts the page's claim that the rotors only push down.
-2. **Two disagreeing power models.** `planCycle` says 82.5 MWh per P-10000 cycle;
-   integrating `stateAt` over the same cycle gives 211.2 MWh.
+1. ~~**Buoyancy is computed at sea level.**~~ **FIXED 2026-08-09.** `ledger` takes an
+   altitude and refuses to guess one; the hulls were resized so every class is 5.25%
+   buoyant fully loaded at 2,500 m MSL. Kept on this list because the numbers it moved are
+   published: displacement +22.2%, cruise drag +14%, and the P-10000's 15 km cycle from
+   82.50 to 75.58 MWh.
+2. **Two disagreeing power models.** `planCycle` says 90.2 MWh for the sampled P-10000
+   mission; integrating `stateAt` over the same cycle gives 255.5 MWh. The gap widened when
+   the ledger was fixed, because the two surfaces evaluate buoyancy at different altitudes.
 3. **An unexplained window sets the largest energy term.** `min(6, RETURN × 0.2)` in
-   `E.letdown` accounts for 52.9% of the P-10000's published cycle energy, and the 6-minute
+   `E.letdown` accounts for 45.2% of the P-10000's published cycle energy, and the 6-minute
    cap is inactive below about 55 km one-way, so the number is really the bare 0.2.
 4. **Retained descent ballast is always zero.** Deliberately so — the P-10000's disk area
    and bus were sized to make it so, and `selftest.js` enforces it. But the narration, the
    panel copy and one bottleneck label all describe retention as something that happens,
-   and none of those branches can be reached. The margin is also thin: a 7.5% cut in bus
-   power or propulsive efficiency, or a 14.3% cut in disk area, starts the P-10000
-   retaining water.
-5. **The cryogenic plant is numerically inert.** 21.1 t of nitrogen against a 12,050 t
-   buoyancy surplus and a 5,000 t tank — 0.42% of the stated job — while costing 11.5% of
-   the cycle's published energy.
+   and none of those branches can be reached. The 2026-08-09 resize widened the margin from
+   +5% to +15% on the P-10000 rather than closing it, because the surplus is measured in
+   thinner air now. Checking the force balance at the BOTTOM of the letdown instead of at
+   the ceiling would revive the mechanism on its own, at about 1,050 t retained.
+5. **The cryogenic plant is numerically inert in the cycle.** 21.1 t of nitrogen against an
+   11,051 t buoyancy surplus and a 15,500 t tank, while costing 12.6% of the cycle's
+   published energy. `cryoLimited` is now true for every one of the 135 golden combinations,
+   where one used to escape it. The tank itself is no longer arbitrary — it is sized so an
+   empty hull can land itself with no rotors, which takes days.
 6. **The generators supply thrust but no energy.** `rotorMaxT` and `battLimited` are both
    computed from `battMW + genMW`, and nothing ever credits `genMW` as energy: `stateAt`
    reports only `gen.solar` and `gen.regen`. A P-10000's generators at full output would
-   make 126.9 MWh against a published 82.50 MWh cycle. The per-cycle deficit the project
+   make 124.5 MWh against a published 75.58 MWh cycle. The per-cycle deficit the project
    publishes may be an artefact of the omission.

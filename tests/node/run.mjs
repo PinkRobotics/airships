@@ -14,6 +14,7 @@
 import { describe as nodeDescribe, it as nodeIt } from 'node:test';
 import { collect, runTest } from '../harness.js';
 
+await import('../cases/sim-atmosphere.cases.js');
 await import('../cases/sim-physics.cases.js');
 await import('../cases/sim-plan.cases.js');
 await import('../cases/sim-state.cases.js');

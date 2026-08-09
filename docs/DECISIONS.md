@@ -229,3 +229,34 @@ from success.
 Cost: about 150 lines of test data inside the tool, and four rules to explain where the
 documentation had been describing two — it had never caught up with the third, added the same
 week. Both were cheaper than a reviewer discovering the gap.
+
+## 2026-08-09 — Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it
+
+`ledger()` used to compute displacement lift at sea-level density and hand the answer to
+every altitude. It now takes an altitude in metres above mean sea level and has no default,
+so a caller that has not decided where the ship is gets an exception rather than a wrong
+number. Density comes from `sim/atmosphere.js`, the ISA troposphere, with its constants
+sourced to ISO 2533:1975 and tested against the published table rather than against itself.
+
+Two constants carry the decision and both are in `sim/config.js` where a reader meets the
+class table: `TERRAIN_MSL` = 1,000 m, one reference elevation for the interior plateau, and
+`WORK_ALT_MSL` = 2,500 m, the cruise ceiling above it. `planCycle` sizes at the second;
+`stateAt` uses the ship's own altitude at every instant.
+
+The hulls were then resized to a requirement rather than to the defect: FAIL-SAFE FLOAT-UP,
+positively buoyant at the working altitude while fully loaded with water it cannot drop, with
+a stated 5% margin. Nitrogen is excluded from that mass because it vents in seconds; water is
+the load a ship can be stuck with. Displacement is 2,200 m³ per tonne of payload, +22.2%, and
+the margin comes out at +5.25% identically on all three classes because dry mass is set equal
+to payload on all three. The `ln2CapT` tanks were resized on the same principle — enough
+nitrogen to LAND an empty hull with no rotor authority, checked at the ground where the air is
+densest rather than at the ceiling where the descent starts.
+
+Flying lower was available as relief and was not taken. The terrain envelope is stated in
+`sim/config.js`: the interior fire belt burns between valley floors at 300–500 m and treeline
+near 2,100 m, with local summits to about 2,320 m, and a 2,500 m ceiling clears all of it.
+
+Costs, accepted: every published size moved, the vacuum shell has 14% more area to cover
+within an unchanged mass allowance, and cruise drag rose 14% on every class. The first is the
+hardest number in the project and this made it harder. That is the price of a safety property
+and it is charged rather than netted off.

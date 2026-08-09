@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=a364a52c';
-import { phaseShape } from '../anim/mission.js?v=a364a52c';
-import { massState } from '../physics/mass.js?v=a364a52c';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=a364a52c';
-import { clamp01 } from '../core/math.js?v=a364a52c';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=037882c0';
+import { phaseShape } from '../anim/mission.js?v=037882c0';
+import { massState } from '../physics/mass.js?v=037882c0';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=037882c0';
+import { clamp01 } from '../core/math.js?v=037882c0';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -59,19 +59,26 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
   const phase = ALL_PHASES.includes(rawPhase) ? rawPhase : 'WEATHER_HOLD';
   const prog = clamp01(hostState.prog === undefined ? 0 : hostState.prog);
 
-  // Tonnes → fractions. The monitor's ln2 is against its own plan target, not a tank capacity, so
-  // the fraction is taken against the model's configured tank capacity and clamped.
+  // Tonnes → fractions. The monitor's ln2 is a mass; every consumer here wants a fill level.
   //
   // WHY THE MODEL'S CAPACITY AND NOT hostClass.ln2CapT. Every consumer of ln2Fraction multiplies
   // it back by cls.ln2TankCapacityTonnes (massState's tonnes, the drawn tank volumes in layout.js,
-  // the fill levels in anim/driver.js), so dividing by the model bank is the only choice that
-  // conserves the monitor's tonnes end to end. The numbers, for the record: the model bank is
-  // 30 / 150 / 700 t (P100/P1000/P10000) versus the monitor's ln2CapT of 50 / 500 / 5000 t —
-  // dividing by ln2CapT would shrink every fill a further 1.7-7x AND make massState report 0.6x
-  // of the tonnes the monitor said were aboard. The reason fills used to look empty was never
-  // this denominator: the monitor's ln2 peaks at plan.ln2MakeT, which is cryo-rate-limited to a
-  // few tonnes on a typical return leg (P-100: ~4.2 MW ÷ 0.45 kWh/kg ≈ 9.3 t/h for ~10 min), a
-  // few percent of any capacity — the display now concentrates it tank-by-tank (see driver.js).
+  // the fill levels in anim/driver.js), so dividing by the model bank is the only denominator that
+  // conserves the monitor's tonnes end to end. That was load-bearing while the two banks differed:
+  // 30 / 150 / 700 t here against the monitor's 50 / 500 / 5000 t, where dividing by ln2CapT would
+  // have made massState report 0.6x of the tonnes the monitor said were aboard.
+  //
+  // SINCE 2026-08-09 THE TWO BANKS ARE THE SAME NUMBER — 155 / 1,550 / 15,500 t — because the tank
+  // stopped being a round figure and became a requirement: hold enough nitrogen to sink an empty
+  // hull at ground level with no rotor authority (sim/config.js). Both were arbitrary before and
+  // only one of them can be right, so tests/cases/spec-parity.cases.js compares them now instead
+  // of excusing them. The line below is unchanged and still the correct one: it divides by the
+  // bank its own consumers multiply by, which is the invariant, not the literal.
+  //
+  // Fills still look sparse and the denominator was never the reason: the monitor's ln2 peaks at
+  // plan.ln2MakeT, which is cryo-rate-limited to a few tonnes on a typical return leg (P-100:
+  // ~4.2 MW ÷ 0.45 kWh/kg ≈ 9.3 t/h for ~10 min) — a fraction of a percent of a bank sized for
+  // unpowered recovery. The display concentrates it tank-by-tank instead (see driver.js).
   const payloadT = (hostClass && hostClass.payloadT) || cls.payloadTonnes;
   const ln2CapT = opts.ln2CapacityT || cls.ln2TankCapacityTonnes;
   const waterFraction = clamp01((hostState.water || 0) / Math.max(1e-6, payloadT));

@@ -7,8 +7,8 @@
  */
 import { close, describe, eq, it, knownFail, ok } from '../harness.js';
 import {
-  CFG, CLASSES, CLASS_ORDER, MODES,
-  planCycle, resetConfig, setConfig,
+  CFG, CLASSES, CLASS_ORDER, MODES, WORK_ALT_MSL,
+  ledger, planCycle, resetConfig, setConfig,
 } from '../../sim/index.js';
 
 const MODE_IDS = Object.keys(MODES);
@@ -217,15 +217,27 @@ describe('plan · modes', () => {
     }
   });
 
-  it('the total cycle energy is NOT monotonic in mode, because the cryogenic share is not', () => {
-    // Worth stating because it is the opposite of what the mode names suggest. Endurance
-    // runs the cryo plant at full share and a longer cycle, so on the P-10000 at 60 km the
-    // rapid cycle (249.2 MWh) costs more than the balanced one (245.8) and less than the
-    // endurance one (253.6). A reader comparing modes should compare per tonne, not per cycle.
+  it('the cheapest cycle is the middle mode, and that is not an accident', () => {
+    // Cycle energy is NOT monotonic in mode, and this test has now watched the order change
+    // twice, which is the useful part. Two terms pull opposite ways: drag rises with the
+    // square of airspeed, so rapid pays most for the legs, while the letdown rides the RETURN
+    // LEG's duration, so endurance pays most for the descent. Whichever term is larger at the
+    // time decides the order, and both have moved this week — the resize shrank the surplus
+    // the letdown fights, then moving the descent balance to the lake grew it back and added
+    // the authority-limited 12% to the return leg.
+    //
+    // So the assertion is the shape, not the ranking: balanced is cheapest on the P-10000 at
+    // 60 km, per cycle and per tonne both, because it is the mode that pays neither penalty
+    // in full. 272.8 / 269.6 / 274.7 MWh and 30.43 / 29.93 / 30.28 kWh per tonne.
     resetConfig();
-    const e = m => planCycle(CLASSES.P10000, m, 60).eCycleMWh;
-    ok(e(MODES.rapid) > e(MODES.balanced), 'rapid is no longer dearer than balanced on the P-10000');
-    ok(e(MODES.endurance) > e(MODES.rapid), 'endurance is no longer the dearest cycle on the P-10000');
+    const p = m => planCycle(CLASSES.P10000, m, 60);
+    const r = p(MODES.rapid), b = p(MODES.balanced), e = p(MODES.endurance);
+    ok(b.eCycleMWh < r.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
+      `balanced should be the cheapest cycle: ${r.eCycleMWh.toFixed(1)} / `
+      + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
+    ok(b.kwhPerTonne < r.kwhPerTonne && b.kwhPerTonne < e.kwhPerTonne,
+      `and the cheapest per tonne: ${r.kwhPerTonne.toFixed(2)} / `
+      + `${b.kwhPerTonne.toFixed(2)} / ${e.kwhPerTonne.toFixed(2)} kWh/t`);
   });
 });
 
@@ -248,21 +260,73 @@ describe('plan · the tunables reach the plan', () => {
     } finally { resetConfig(); }
   });
 
-  it('the fill is payload over flow: 1,000 t at 3 m3/s is 5.56 minutes', () => {
+  it('the fill is the DELIVERED load over flow, not the payload', () => {
+    // Retained ballast never leaves the tanks, so the pumps only replace what was dropped.
+    // This read `payloadT / flow` while retention was inert and the two were the same number;
+    // since the descent balance moved to the lake (2026-08-09) they differ, and the version
+    // that agrees with the mass book is the delivered one. The P-100 still retains nothing,
+    // so its fill is unchanged and pins the simple case.
     resetConfig();
-    close(planCycle(CLASSES.P1000, MODES.balanced, 15).dur.WATER_FILL, 1000 / 3 / 60, 1e-9, 'P-1000 fill');
-    close(planCycle(CLASSES.P100, MODES.balanced, 15).dur.WATER_FILL, 100 / 0.5 / 60, 1e-9, 'P-100 fill');
+    const p1k = planCycle(CLASSES.P1000, MODES.balanced, 15);
+    close(p1k.dur.WATER_FILL, p1k.deliveredT / 3 / 60, 1e-9, 'P-1000 fill');
+    const p100 = planCycle(CLASSES.P100, MODES.balanced, 15);
+    eq(p100.retainedT, 0, 'the P-100 should still retain nothing');
+    close(p100.dur.WATER_FILL, 100 / 0.5 / 60, 1e-9, 'P-100 fill');
   });
 });
 
 describe('plan · the mechanisms the copy describes', () => {
-  it('retained descent ballast is zero for every class, mode and distance', () => {
-    // The page describes retaining water as descent ballast. It never happens: rotorMaxT /
-    // 0.6 alone exceeds the buoyant surplus for all three classes, so the max() in plan.js
-    // always clamps to zero and "descent ballast" is inert. Pinned deliberately — if this
-    // test starts failing, either the class table or the ballast rule has moved and the
-    // copy on the site has to change with it.
-    grid((p, tag) => eq(p.retainedT, 0, `${tag}: retainedT`));
+  it('descent ballast is real on the two larger classes, and the copy is now true', () => {
+    // THE HISTORY MATTERS, because this test asserted the opposite twice.
+    //
+    // The page has always described retaining water as descent ballast. For most of this
+    // model's life it never happened: rotorMaxT/0.6 exceeded the surplus for all three
+    // classes, the max() in plan.js clamped to zero, and the mechanism was inert prose. The
+    // 2026-08-09 resize was expected to revive it and made it worse, because measuring lift
+    // in the thin air at the ceiling made the surplus SMALLER.
+    //
+    // The error was asking the question at the wrong altitude. Float-up is hardest at the
+    // ceiling; descent is hardest at the lake, 1,200 m lower, where the air is 16% denser and
+    // the hull is 24% more buoyant. Checking the balance where the letdown actually ends is
+    // what engaged it. The mechanism is now load-bearing, and so is the sentence about it.
+    resetConfig();
+    const want = { P100: 0, P1000: 49, P10000: 1056 };     // tonnes, balanced, 15 km
+    for (const id of CLASS_ORDER) {
+      const p = planCycle(CLASSES[id], MODES.balanced, 15);
+      close(p.retainedT, want[id], 1, `${id}: retained ballast`);
+    }
+  });
+
+  it('retention engages exactly where the descent does not close on rotors alone', () => {
+    // The rule, rather than the three numbers above: water is kept back if and only if
+    // nitrogen plus rotor authority cannot hold the hull down in the air at the source. A
+    // class with headroom retains nothing; a class without it retains precisely the shortfall,
+    // so the balance closes exactly rather than approximately.
+    resetConfig();
+    grid((p, tag, c) => {
+      const short = p.ledLow.surplusT - p.ln2MakeT - p.rotorMaxT / 0.6;
+      if (short <= 0) {
+        eq(p.retainedT, 0, `${tag}: retains water it does not need`);
+      } else {
+        close(p.retainedT, Math.min(c.payloadT, short), 1e-9, `${tag}: retention != shortfall`);
+      }
+      ok(p.retainedT <= c.payloadT, `${tag}: retains more than it carries`);
+    });
+  });
+
+  it('the descent balance is struck at the source, not at the ceiling', () => {
+    // The defect this replaced, kept as a measurement so it cannot come back quietly. The
+    // ratio is rotorMaxT/0.6 over the surplus that has to be pushed down: above 1 the rotors
+    // can do it alone. Evaluated at the ceiling every class looks comfortable; evaluated
+    // where the ship actually arrives, two of the three do not.
+    resetConfig();
+    const ceiling = { P100: 2.4182, P1000: 1.1928, P10000: 1.1462 };
+    const lake = { P100: 1.9444, P1000: 0.9591, P10000: 0.9216 };
+    for (const id of CLASS_ORDER) {
+      const p = planCycle(CLASSES[id], MODES.balanced, 15);
+      close((p.rotorMaxT / 0.6) / p.led.surplusT, ceiling[id], 1e-3, `${id}: headroom at the ceiling`);
+      close((p.rotorMaxT / 0.6) / p.ledLow.surplusT, lake[id], 1e-3, `${id}: headroom at the lake`);
+    }
   });
 
   it('at the worked example the cryogenic plant makes under 7% of the ballast asked of it', () => {
@@ -274,7 +338,7 @@ describe('plan · the mechanisms the copy describes', () => {
     for (const id of CLASS_ORDER) for (const mid of MODE_IDS) {
       const c = CLASSES[id];
       const p = planCycle(c, MODES[mid], CFG.exampleKm);
-      const needT = Math.min((c.dispM3 * CFG.rhoSL / 1000 - c.payloadT) * 0.8, c.ln2CapT);
+      const needT = Math.min(ledger(c, WORK_ALT_MSL).surplusT * 0.8, c.ln2CapT);
       ok(p.cryoLimited, `${id}/${mid}: cryoLimited is false at the worked example`);
       ok(p.ln2MakeT < needT * 0.07,
         `${id}/${mid}: made ${p.ln2MakeT.toFixed(1)} t of the ${needT.toFixed(0)} t asked for`);
@@ -282,14 +346,17 @@ describe('plan · the mechanisms the copy describes', () => {
     }
   });
 
-  it('only one combination anywhere on the grid ever fills its nitrogen tanks', () => {
-    // A P-100 in endurance mode on a 400 km leg: 313 minutes of return at full cryo share
-    // makes the whole 50 t the tanks hold. Every other class, mode and distance in the grid
-    // is cryo-limited. Stated exactly so that "the plant cannot keep up" stays a measured
-    // claim rather than a slogan.
+  it('no combination anywhere on the grid ever makes the nitrogen it is asked for', () => {
+    // One used to: a P-100 in endurance mode on a 400 km leg, 313 minutes of return at full
+    // cryo share, made the whole 50 t its tanks then held. The 2026-08-09 resize took that
+    // away from both ends. The tanks now hold 155 t, sized by unpowered recovery rather than
+    // picked, so the cap no longer binds before the plant does; and the target is 80% of the
+    // surplus, 88.4 t, against the 69.6 t that leg can make. Every class, mode and distance
+    // in the grid is now cryo-limited, so `cryoLimited` carries no information at all —
+    // defect 5, unchanged and if anything more complete.
     const unlimited = [];
     grid((p, tag) => { if (!p.cryoLimited) unlimited.push(tag); });
-    eq(unlimited.join(' | '), 'P100/endurance/400km', `cryo-satisfied combinations: ${unlimited.join(' | ')}`);
+    eq(unlimited.join(' | '), '', `cryo-satisfied combinations: ${unlimited.join(' | ')}`);
   });
 
   it('the letdown window uses min(6, return x 0.2), and both branches occur in the grid', () => {
@@ -306,20 +373,27 @@ describe('plan · the mechanisms the copy describes', () => {
     eq(win(far), 6, 'the long leg should be capped at six minutes');
   });
 
-  it('that window sets over half the P-10000 worked-example cycle energy', () => {
-    // 82.5 MWh per cycle at 15 km, of which 43.6 MWh is the letdown term. Change the 0.2
-    // and the headline number moves by tens of percent.
+  it('that window still sets the largest single share of the P-10000 worked-example cycle', () => {
+    // 88.2 MWh per cycle at 15 km, of which 47.1 MWh — 53.5% — is the letdown term. This
+    // number has now moved twice in one day and in opposite directions, which is the argument
+    // for defect 3 rather than against it: the 2026-08-09 resize cut it to 75.6 MWh (45.2%)
+    // because a smaller surplus needs less pushing down, and moving the descent balance to
+    // the lake put it back up past where it started, because the surplus DOWN THERE is larger
+    // and an authority-limited letdown runs 12% longer. A term that swings like that on
+    // changes elsewhere, and whose only two constants are unexplained, is the biggest single
+    // line in the published budget. Change the 0.2 and the headline moves by tens of percent.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 82.5, 0.1, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 88.17, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
-    ok(letdownMWh / p.eCycleMWh > 0.5,
-      `the letdown is only ${(100 * letdownMWh / p.eCycleMWh).toFixed(0)}% of the cycle`);
+    close(letdownMWh / p.eCycleMWh, 0.5346, 5e-4,
+      `the letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(1)}% of the cycle`);
+    ok(letdownMWh > p.eCycleMWh * 0.4, 'the letdown has stopped dominating the budget');
   });
 
   knownFail(
     'the letdown term is a minor share of cycle energy',
-    'defect 3 — an unexplained min(6, ...) window sets over half of the P-10000 cycle energy',
+    'defect 3 — an unexplained min(6, ...) window is the largest single term in the P-10000 cycle, 45% of it',
     () => {
       resetConfig();
       const c = CLASSES.P10000;

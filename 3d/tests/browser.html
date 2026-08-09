@@ -36,7 +36,7 @@ import {
   AirshipScaleComparison, AirshipFailureExplorer, AirshipTrajectoryExplorer, AirshipMapModel,
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
-} from '../index.js?v=a364a52c';
+} from '../index.js?v=037882c0';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -544,15 +544,20 @@ await check('the hose head prop reaches the driver and source-filling frames the
 
 await check('mountForMission forwards the monitor’s adapt.headM and keeps tonnes honest', async () => {
   if (!gl) return null;
-  const mission = { cls: { id: 'P100', name: 'P-100', payloadT: 100, ln2CapT: 50 } };
+  // The monitor's ln2CapT and the model's bank are the SAME number since 2026-08-09, when
+  // unpowered recovery gave the tank a requirement instead of a round figure. The adapter
+  // still divides by the model's own bank, because every consumer multiplies by that one;
+  // the test is here to catch it dividing by anything else.
+  const bank = 155;                     // resolveClass('P100').ln2TankCapacityTonnes
+  const mission = { cls: { id: 'P100', name: 'P-100', payloadT: 100, ln2CapT: bank } };
   const st = { idx: 5, phase: 'RETURN_TRANSIT', prog: 0.5, water: 0, ln2: 0.9, alt: 1500,
     bearing: 0, buoyN: 2.16e7, weightN: 9.9e6, draw: { prop: 2, cryo: 4.2, hotel: 0.2 } };
   const v = mountForMission(host, { mission, stateAt: () => st, adapt: { headM: 45 } });
   await frame();
   assert(v.driver.hoses[0].headM === 45, 'adapt.headM did not reach the hose driver');
   const f = v.getState().visualState.ln2Fraction;
-  assert(Math.abs(f - 0.9 / 30) < 1e-9,
-    `ln2Fraction ${f} should be tonnes over the model bank (0.9/30)`);
+  assert(Math.abs(f - 0.9 / bank) < 1e-9,
+    `ln2Fraction ${f} should be tonnes over the model bank (0.9/${bank})`);
   v.dispose();
 });
 

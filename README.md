@@ -63,11 +63,12 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 | | P-100 | P-1000 | P-10000 |
 |---|---|---|---|
 | Payload | 100 t | 1,000 t | 10,000 t |
-| Cycle | 36.2 min | 38.9 min | 50.8 min |
-| Delivered | 166 t/h | 1,543 t/h | 11,820 t/h |
-| Energy | 1.7 MWh/cycle | 11.9 MWh/cycle | 82.5 MWh/cycle |
-| Per tonne | 17 kWh/t | 12 kWh/t | 8 kWh/t |
-| Binding constraint | transit distance | transit distance | descent authority |
+| Cycle | 36.2 min | 39.8 min | 49.6 min |
+| Delivered | 166 t/h | 1,435 t/h | 10,821 t/h |
+| Retained as ballast | 0 t | 49 t | 1,056 t |
+| Energy | 1.85 MWh/cycle | 14.0 MWh/cycle | 88.2 MWh/cycle |
+| Per tonne | 18 kWh/t | 15 kWh/t | 10 kWh/t |
+| Binding constraint | transit distance | descent authority | descent authority |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
 code rather than as a claim we stand behind. The pass count is 3 for every one of the 135
@@ -97,45 +98,66 @@ recorded from. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to reproduce and d
 
 ## Known defects
 
-All six are now DECIDED and awaiting implementation — each has a test that fails on
-purpose, and the decision, its reasoning and its interactions are written up in
+All six are DECIDED. One is done: **#1, lift bought at sea level, was fixed on 2026-08-09**
+and its numbers are published below. The other five are awaiting implementation, each with a
+test that fails on purpose. The decision, its reasoning and its interactions are written up in
 [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) — what it costs, the options, and a
 recommendation. They are open because fixing them means choosing what the vehicle is,
 not just correcting a line.
 
-These were found by audit and are open and tracked. They are listed here rather than fixed
-quietly because a model that hides its faults is worth less than one that publishes them.
+These were found by audit. They are listed here rather than fixed quietly because a model that
+hides its faults is worth less than one that publishes them, and the one that is fixed stays on
+the list with its old and new numbers for the same reason.
 
-**1. Sea-level lift, 1,500 m cruise.** `ledger()` in `sim/physics.js` computes displacement lift at
-`CFG.rhoSL` = 1.225 kg/m³ while the ships cruise at `ALT.cruise` = 1,500 m above ground. Every
-class carries a structure allowance equal to its payload, so the all-up mass is exactly twice the
-payload and the break-even air density is 1.111 kg/m³ for all three — roughly ISA density at
-1,000 m above sea level. At the model's own working-band density (`CFG.rhoAir` = 1.10) the P-100 is
-2 t heavy, the P-1000 20 t and the P-10000 200 t, and over BC terrain at 1,500 m AGL the deficit is
-larger. That contradicts the page's claim that the rotors only ever push down. Fixing it means the
-rotors must hold the hull *up* for part of every cycle, which is a cost the energy figures do not
-currently carry.
+**1. Sea-level lift, 1,500 m cruise — FIXED 2026-08-09.** `ledger()` in `sim/physics.js` computed
+displacement lift at `CFG.rhoSL` = 1.225 kg/m³ and used it at every altitude, while the ships cruise
+1,500 m above a plateau that is itself around 1,000 m up. Loaded break-even was 1.111 kg/m³, ISA at
+1,005 m, so a full P-10000 was 860 t heavy on its drop run and 2,209 t heavy at its ceiling — the
+sign of the net force reversed inside one cycle, against a page that says the rotors only ever push
+down. `sim/atmosphere.js` now computes ISA density against altitude; `ledger()` takes an altitude in
+metres MSL and throws without one; and the hulls were resized to a stricter requirement than the
+defect asked for — FAIL-SAFE FLOAT-UP, buoyant at the working altitude while fully loaded with water
+it cannot drop. Displacement grew 22.2% to 220,000 / 2.2M / 22M m³, the P-10000 from 820 to 876 m,
+and the margin is +5.25% on all three classes. Cruise drag rose 14%.
 
-**2. Two power models that disagree by 2.6×.** `planCycle` builds an energy budget from five terms
-and reports 82.5 MWh for a P-10000 cycle at 15 km. Integrating `stateAt`'s per-system draw over the
-same cycle gives about 210 MWh. Both are shipped; the page shows the first as the headline energy
-figure and the second on the instruments. At least one is wrong and they cannot both be right.
+The same correction has a second half. Lift depends on where the ship IS, and a cycle crosses
+1,200 m of atmosphere, so float-up and descent do not share a worst case: float-up is hardest at the
+ceiling, descent is hardest down at the lake where the air is 16% denser and the hull is 24% more
+buoyant. `planCycle` was checking the descent balance at the ceiling — the easy end. Checking it at
+the source is what finally engaged the retained-water ballast the page had always described (see
+defect 4), and it costs throughput: the P-10000's 15 km cycle now delivers 8,944 t of its 10,000 t
+load at 10,821 t/h for 88.2 MWh, against 12,052 t/h and 75.6 MWh when the descent was checked in
+air the ship never lands in.
 
-**3. An unexplained window sets more than half the energy.** The letdown term is
+**2. Two power models that disagree by 2.8×.** `planCycle` builds an energy budget from five terms
+and reports 90.2 MWh for the sampled P-10000 mission. Integrating `stateAt`'s per-system draw over
+the same cycle gives 255.5 MWh. Both are shipped; the page shows the first as the headline energy
+figure and the second on the instruments. At least one is wrong and they cannot both be right, and
+fixing #1 widened the gap rather than closing it.
+
+**3. An unexplained window sets the largest energy term.** The letdown term is
 `E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60` in `sim/plan.js`. Neither the
 6-minute cap nor the 0.2 fraction has a stated justification, and that one line is 53% of the
-P-10000's published 82.5 MWh at 15 km, rising to 61% at 45 km. The cap starts to bind beyond about
-55 km one way, after which the descent costs essentially the same energy however far the ship flew.
+P-10000's published 88.2 MWh at 15 km. It has moved twice in a day, in both directions, on changes
+made elsewhere — which is the argument for the defect rather than against it. The cap starts to bind beyond about 55 km one way, after
+which the descent costs essentially the same energy however far the ship flew.
 
 Also, and in the same spirit:
 
-- **Retained descent ballast is zero by construction.** `retainedT` is 0 for every class, mode,
-  distance and wind in the golden grid, because `rotorMaxT / 0.6` exceeds the buoyant surplus in
-  all three classes. The copy, the `bottleneck` string and the narration all describe retained
-  ballast as a live constraint. It is not one.
-- **The cryogenic plant is numerically inert.** For the same reason, `ln2MakeT` never changes how
-  much water is delivered; it only moves energy between two terms, at the round-trip loss. The
-  copy describes it as load-bearing.
+- **Retained descent ballast — FIXED 2026-08-09, and the fix cost 10% of the throughput.**
+  `retainedT` used to be 0 for every class, mode, distance and wind in the grid, because
+  `rotorMaxT / 0.6` exceeded the buoyant surplus everywhere, while the copy, the `bottleneck`
+  string and the narration all described retained ballast as a live constraint. It was not one.
+  The cause was an altitude, not a coefficient: the balance was struck at the ceiling, where the
+  air is thinnest and the hull least buoyant, when the letdown ends 1,200 m lower over the lake
+  in air 16% denser. Struck where the descent actually happens, the P-1000 keeps 49 t back and the
+  P-10000 keeps 1,056 t — 10.6% of its load — and both are now descent-authority limited. The
+  mechanism is real, the sentence describing it is true, and the delivered figures fell to match.
+- **The cryogenic plant is numerically inert in the cycle.** For the same reason, `ln2MakeT` never
+  changes how much water is delivered; it only moves energy between two terms, at the round-trip
+  loss. The copy describes it as load-bearing. Its TANK is load-bearing as of 2026-08-09: at
+  155 / 1,550 / 15,500 t it holds enough nitrogen to bring a dead, empty hull down and land it
+  with no rotor authority, which takes 2.6 / 5.7 / 12.9 days on solar alone.
 - **The generators supply thrust but never energy.** Each class advertises 8/40/150 MW, and
   `rotorMaxT` in `sim/plan.js` spends it when sizing how hard the rotors can push down. Nothing
   credits it as energy: `stateAt` reports only solar and nitrogen recovery, and the loop drains
@@ -178,13 +200,14 @@ publishes deliberately for this purpose:
 
 ```js
 AIRSHIPS.sim.selftest()
-// "SELFTEST PASS (17 checks)" — or it throws, naming the assertion that failed
+// "SELFTEST PASS (19 checks)" — or it throws, naming the assertion that failed
 
 AIRSHIPS.sim.planCycle(AIRSHIPS.sim.CLASSES.P10000, AIRSHIPS.sim.MODES.balanced, 15)
 // the whole cycle: durations, energy, delivered tonnes, the binding constraint
 
-AIRSHIPS.sim.ledger(AIRSHIPS.sim.CLASSES.P100)
-// {liftT: 220.5, dryT: 100, reserveT: 20.5, surplusT: 120.5} — defect 1 lives here
+AIRSHIPS.sim.ledger(AIRSHIPS.sim.CLASSES.P100, AIRSHIPS.sim.WORK_ALT_MSL)
+// {rho: 0.9569, altMslM: 2500, liftT: 210.5, dryT: 100, reserveT: 10.5, surplusT: 110.5}
+// the altitude is required: call it without one and it throws rather than assume sea level
 
 AIRSHIPS.sim.CFG            // every tunable, as the page's sliders have left it
 AIRSHIPS.app.missions       // the fleet as currently allocated
@@ -232,7 +255,7 @@ and we would rather be shown one than not.
 - **What arrives.** Tonnes delivered is not fire extinguished. Evidence that 10,000 t released from
   450 m over a convective column arrives as drift rather than as water on fuel would make the
   headline metric the wrong metric.
-- **Downwash.** Nothing in this model accounts for what an 820 m hull trimming on rotors 450 m above
+- **Downwash.** Nothing in this model accounts for what an 876 m hull trimming on rotors 450 m above
   a fire does to the fire's own air. A credible estimate that the downwash spreads more fire than
   the water suppresses would invert the whole idea.
 - **Water.** Surface area is used as a proxy for a lake being drawable. Evidence that repeated

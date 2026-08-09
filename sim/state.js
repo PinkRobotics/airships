@@ -4,9 +4,9 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, VZ_MAX } from './config.js';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX } from './config.js';
 import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js';
-import { diskMW, pumpMW } from './physics.js';
+import { diskMW, ledger, pumpMW } from './physics.js';
 import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js';
 
 export function stateAt(m, tRaw) {
@@ -22,7 +22,7 @@ export function stateAt(m, tRaw) {
   const dur = Math.max(1e-6, m.phaseEnds[idx] - start);
   const prog = (t - start) / dur;
   const id = PHASES[idx][0];
-  const cls = m.cls, plan = m.plan, led = plan.led;
+  const cls = m.cls, plan = m.plan;
   // this cycle's drop line and the S-curve built on it: outbound flies to the line's start,
   // the run paints the line, escape and return leave from its end
   const cycN = Math.floor((tRaw + m.offset * m.cycleSec) / m.cycleSec) + 1;
@@ -178,12 +178,19 @@ export function stateAt(m, tRaw) {
     vf = Math.min(prog / aE, 1, (1 - prog) / aE);
     acc = prog < aE ? 1 : prog > 1 - aE ? -1 : 0;
   } else if (id === "WATER_RELEASE" || id === "BUOYANCY_ESCAPE") vf = 0.5;
+  /* Lift is a function of where the ship IS. Same envelope, different air: a P-100 displaces
+     237 t over the lake at 1,300 m MSL and 211 t at its 2,500 m ceiling, so the surplus the
+     rotors trim against moves by a quarter across one cycle. `plan.led` is the same ledger
+     frozen at the sizing altitude, and using it here was the sea-level error in miniature. */
+  const led = ledger(cls, TERRAIN_MSL + alt);
   const massT = led.dryT + water + ln2;
   /* THE VERTICAL DUTY — one number, read by the 3D model, the schematic avatar and the power
      ledger, so none of them can disagree about which way the rotors are pushing.
-     Never positive: the hull is buoyant at every point in the cycle, so the rotors only ever
-     hold it DOWN, and climbing means RELAXING that hold. Magnitude is the physics — surplus
-     lift now over the most there can be, empty — times a per-phase multiplier.
+     Never positive, and now never positive BY CONSTRUCTION rather than by a clamp: the hulls
+     are sized for fail-safe float-up at the worst altitude in the cycle, so the hull is
+     buoyant at every point of it, the rotors only ever hold it DOWN, and climbing means
+     RELAXING that hold. Magnitude is the physics — surplus lift now over the most there can
+     be, empty — times a per-phase multiplier.
      `share` is how much of that surplus the rotors carry rather than aero trim: 12% holding
      station or cruising level, up to 60% when they are actively driving the hull down. */
   const reserveT = Math.max(1, led.liftT - led.dryT);

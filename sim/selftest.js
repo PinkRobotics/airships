@@ -4,9 +4,9 @@
  * numbers can run the checks themselves in devtools on the page they are reading.
  */
 import { sizeTier } from './assign.js';
-import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig } from './config.js';
+import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js';
 import { buildMission } from './mission.js';
-import { pumpMW } from './physics.js';
+import { ledger, pumpMW } from './physics.js';
 import { planCycle } from './plan.js';
 import { stateAt } from './state.js';
 import { findSource } from './water.js';
@@ -49,11 +49,39 @@ export function selftest() {
     const pp = planCycle(CLASSES[cid], MODES.balanced, 25);
     if (pp.downMW > (CLASSES[cid].battMW + CLASSES[cid].genMW) * 1.01)
       throw new Error("SELFTEST FAIL: descent power exceeds the bus for " + cid);
-    // Every class dumps its entire payload — retained descent ballast is a spec failure.
-    if (pp.retainedT > 1)
-      throw new Error("SELFTEST FAIL: " + cid + " retains " + pp.retainedT.toFixed(0) + " t of water");
+    // Retained descent ballast is a MECHANISM, not a spec failure. This check used to demand
+    // that every class dump its entire payload, which was true only because the descent
+    // balance was struck at the ceiling instead of at the lake where the letdown ends. Now
+    // that it is struck in the right air, two classes keep water back — so the check is the
+    // rule rather than the outcome: keep back exactly the shortfall, never more than the load.
+    const short = pp.ledLow.surplusT - pp.ln2MakeT - pp.rotorMaxT / 0.6;
+    const want = Math.min(CLASSES[cid].payloadT, Math.max(0, short));
+    if (Math.abs(pp.retainedT - want) > 0.5)
+      throw new Error("SELFTEST FAIL: " + cid + " retains " + pp.retainedT.toFixed(0)
+        + " t against a descent shortfall of " + want.toFixed(0) + " t");
+    if (pp.retainedT > CLASSES[cid].payloadT)
+      throw new Error("SELFTEST FAIL: " + cid + " retains more water than it carries");
     if (pp.passes % 2 !== 1)
       throw new Error("SELFTEST FAIL: even drop-pass count for " + cid);
+  }
+  // FAIL-SAFE FLOAT-UP. The hull must lift itself, its structure and a full load of water it
+  // cannot drop, in the thinnest air it ever works in. This is the requirement that sizes the
+  // envelope, so it is checked on the shipped numbers rather than trusted to a comment.
+  for (const cid of CLASS_ORDER) {
+    const c = CLASSES[cid], l = ledger(c, WORK_ALT_MSL);
+    const loadedT = l.dryT + c.payloadT;
+    if (!(l.liftT >= loadedT * 1.05))
+      throw new Error(`SELFTEST FAIL: ${cid} is not 5% buoyant fully loaded at ${WORK_ALT_MSL} m: `
+        + `${l.liftT.toFixed(1)} t of lift against ${loadedT.toFixed(1)} t`);
+  }
+  // UNPOWERED RECOVERY. A dead ship floats up, so the nitrogen it can carry has to be able to
+  // bring it back down and land it with no rotors. The binding altitude is the GROUND, where
+  // the air is densest and the empty hull most buoyant — not the ceiling it starts from.
+  for (const cid of CLASS_ORDER) {
+    const c = CLASSES[cid], needT = ledger(c, TERRAIN_MSL).surplusT;
+    if (!(c.ln2CapT >= needT))
+      throw new Error(`SELFTEST FAIL: ${cid} holds ${c.ln2CapT} t of LN2 against the `
+        + `${needT.toFixed(1)} t needed to sink an empty hull at ${TERRAIN_MSL} m`);
   }
   // Out of Control bumps the 200 ha test fire one tier: it must fly a P-1000, not a P-100.
   if (mi.cls.id !== "P1000") throw new Error("SELFTEST FAIL: OOC tier bump, got " + mi.cls.id);
@@ -80,5 +108,5 @@ export function selftest() {
     if (!(pp.eBack >= 0 && pp.eBack < pp.eCycleMWh + pp.eBack))
       throw new Error("SELFTEST FAIL: N2 recovery bookkeeping for " + cid);
   }
-  return "SELFTEST PASS (17 checks)";
+  return "SELFTEST PASS (19 checks)";
 }

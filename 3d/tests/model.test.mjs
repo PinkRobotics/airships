@@ -7,17 +7,17 @@ import {
   resolveClass, classes, validateClass, CLASS_IDS, hullVolume, radiusForVolume,
   profileR, sectionScale, HULL_DEFAULT, stationX, stationT, hullR,
   capsuleRadiusForVolume, RHO_LN2,
-} from '../model/config.js?v=a364a52c';
-import { build } from '../model/build.js?v=a364a52c';
-import { buildLayout, insideHull } from '../model/layout.js?v=a364a52c';
-import { proxyField, dataField, anchorsFor } from '../model/density.js?v=a364a52c';
-import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=a364a52c';
-import { buildLattice, TIERS } from '../model/structure.js?v=a364a52c';
-import { auditBuild } from '../model/audit.js?v=a364a52c';
-import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=a364a52c';
-import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=a364a52c';
-import { m4transform, norm, cross } from '../core/math.js?v=a364a52c';
-import { prng, streamFor } from '../core/prng.js?v=a364a52c';
+} from '../model/config.js?v=037882c0';
+import { build } from '../model/build.js?v=037882c0';
+import { buildLayout, insideHull } from '../model/layout.js?v=037882c0';
+import { proxyField, dataField, anchorsFor } from '../model/density.js?v=037882c0';
+import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=037882c0';
+import { buildLattice, TIERS } from '../model/structure.js?v=037882c0';
+import { auditBuild } from '../model/audit.js?v=037882c0';
+import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=037882c0';
+import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=037882c0';
+import { m4transform, norm, cross } from '../core/math.js?v=037882c0';
+import { prng, streamFor } from '../core/prng.js?v=037882c0';
 
 test('the three classes resolve and validate', () => {
   for (const c of classes()) {
@@ -25,10 +25,12 @@ test('the three classes resolve and validate', () => {
   }
 });
 
-test('displacement premise is preserved exactly — the homepage ledger is the invariant', () => {
-  // The P-100's ~180,000 m3 is the site's published "220 tonnes of air" figure. If this test
-  // fails, the lift premise moved and every number downstream of it is wrong.
-  const want = { P100: 180000, P1000: 1.8e6, P10000: 1.8e7 };
+test('displacement premise is preserved exactly — the lift premise is the invariant', () => {
+  // 2,200 m3 per tonne of payload: what it takes to float a fully loaded hull at 2,500 m MSL
+  // with a 5% margin (sim/config.js, fail-safe float-up). Grown 22% from 180,000 m3 on
+  // 2026-08-09, when the ledger stopped buying its lift at sea level. If this test fails, the
+  // lift premise moved and every number downstream of it is wrong.
+  const want = { P100: 220000, P1000: 2.2e6, P10000: 2.2e7 };
   for (const id of CLASS_IDS) {
     const c = resolveClass(id);
     assert.ok(Math.abs(c.volumeM3 - want[id]) / want[id] < 1e-3,

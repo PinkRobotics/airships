@@ -45,14 +45,14 @@ import both. `concept/` may import `sim/` and `3d/`. Nothing imports `app/`.
 
 ## Why the model is separate and pure
 
-`sim/` is fifteen files, about 1,300 lines, and it computes every number the site
+`sim/` is sixteen files, about 1,550 lines, and it computes every number the site
 publishes. It touches no DOM node, opens no socket, reads no clock and reads no URL. Every
 function is a function of its arguments plus the shared `CFG` object.
 
 This is not tidiness. It buys four specific things.
 
 **It can be read.** The claim the project makes is "here is the arithmetic, check it". That
-claim is worthless if checking it means reading a renderer. `physics.js` is thirty lines
+claim is worthless if checking it means reading a renderer. `physics.js` is forty lines
 and contains the four relations everything else is built on. A reader who disagrees with
 the project can find the line they disagree with in a minute.
 
