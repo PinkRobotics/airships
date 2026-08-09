@@ -5,10 +5,10 @@
  * functions, so they are kept together, short, and separately testable.
  */
 import { airDensity } from './atmosphere.js';
-import { CFG } from './config.js';
+import { CFG, sourceAltM } from './config.js';
 
 export function pumpMW(cls) {
-  return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * CFG.hoseHead / CFG.pumpEta / 1e6;
+  return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * sourceAltM(cls) / CFG.pumpEta / 1e6;
 }
 
 export function dragMW(cls, mode) {

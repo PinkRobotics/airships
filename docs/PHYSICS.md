@@ -35,7 +35,7 @@ every published number to the line that computes it.
 | C_d | drag coefficient on frontal area | 0.05, `DEFAULTS.Cd` |
 | η_p | propulsive efficiency | 0.70, `DEFAULTS.propEta` |
 | η_pump | pump-system efficiency | 0.75, `DEFAULTS.pumpEta` |
-| h | pumping head | 250 m, `DEFAULTS.hoseHead` |
+| h | pumping head = hose length = fill altitude | 300 / 1,100 / 1,350 m, `CLASSES[*].hoseM` × `CFG.hoseMul` |
 | Q | fill rate | `CLASSES[*].fillM3s` |
 
 SI throughout, surfaced as tonnes, kilometres, minutes, megawatts and megawatt-hours. One
@@ -399,19 +399,25 @@ air:
 
 | Term | Equation | MWh | share | pre-resize | resize only |
 |---|---|---:|---:|---:|---:|
-| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 47.131 | 53.5% | 43.619 | 34.196 |
-| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 15.329 | 17.4% | 14.608 | 14.705 |
-| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.879 | 14.6% | 11.650 | 12.888 |
-| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 10.7% | 8.289 | 9.459 |
-| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 3.373 | 3.8% | 4.332 | 4.332 |
-| **total** | | **88.171** | | 82.498 | 75.580 |
+| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 44.299 | 37.8% | 4.332 | 4.332 |
+| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 35.709 | 30.5% | 43.619 | 34.196 |
+| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 12.6% | 14.608 | 14.705 |
+| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 11.0% | 11.650 | 12.888 |
+| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 8.1% | 8.289 | 9.459 |
+| **total** | | **117.061** | | 82.498 | 75.580 |
 
-The two right-hand columns are the same budget before either 2026-08-09 correction and after
-only the first, and the letdown term explains the whole journey. The resize cut it 22%: the
-surplus it fights is smaller in honest air, and the return leg stopped being stretched 12%
-for being authority-limited. Striking the descent balance at the lake instead of the ceiling
-put both back and more — the surplus down there is 24% larger — so the term is now above
-where it started. The fill term fell because only the delivered water is replaced.
+The two right-hand columns are the same budget before any of the 2026-08-09 corrections and
+after only the resize. The shape changed completely, and for the better: **the largest term is
+now the pump**, which lifts 10,000 t of water 1,350 m, and that is a term with a derivation. It
+displaced the letdown, whose only two constants are unexplained (defect 3) and which had been
+the biggest line in the budget for the life of the model.
+
+The journey there is worth following. The resize cut the letdown 22%, because a hull sized
+honestly fights a smaller surplus. Striking the descent balance at the lake put it back and
+more, since the surplus down there is 24% larger. Then the long hose stopped the ship going
+down to the lake at all, which cut the letdown to 30.5% — and bought that with pump work, at
+3.63 kWh per tonne-kilometre of lift. Trading an unexplained constant for a hydraulic one is
+the direction this model wants to move in.
 
 Against that, generation. The only sources the code credits are the solar skin at a flat
 200 W/m² and the nitrogen recovery. The generators each class advertises — 8, 40 and
@@ -421,8 +427,8 @@ enough to change the conclusion drawn from the next table.
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
 | P-100 | 1.20 MW | 0.72 MWh | 1.85 MWh | 1.12 MWh |
-| P-1000 | 5.60 MW | 3.71 MWh | 13.96 MWh | 10.25 MWh |
-| P-10000 | 24.00 MW | 19.84 MWh | 88.17 MWh | 68.34 MWh |
+| P-1000 | 5.60 MW | 3.63 MWh | 14.53 MWh | 10.90 MWh |
+| P-10000 | 24.00 MW | 19.91 MWh | 117.06 MWh | 97.15 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
@@ -471,11 +477,17 @@ flips.
 | `propEta` | +26.4% | −13.1% | −2.8% | 0% |
 | `Cd` | −6.6% | +6.6% | 0% | 0% |
 | `pumpEta` | +3.0% | −2.0% | 0% | 0% |
-| `hoseHead` | −2.4% | +2.4% | 0% | 0% |
+| `hoseMul` | −6.0% | +6.1% | 0% | 0% |
 | `rtLN2` | +1.3% | −1.3% | 0% | 0% |
 | `eLN2` | −0.0% | +0.0% | 0% | 0% |
 | `rhoAir` | −1.3% | +2.7% | 0% | 0% |
 | `rhoSL` | −23.2% | +14.7% | 0% | −22.8% |
+
+`hoseMul` looks mild in that table and is not. Within ±20% it only moves pump work, but the
+hose is what keeps the ship out of the dense air near the water: below about ×0.75 the P-10000
+can no longer hold itself down on rotors at the fill altitude and starts keeping water back as
+ballast, at which point throughput falls away sharply. A sensitivity table sampled at two points
+cannot show a cliff, and this one has one.
 
 | Class parameter | −20% → energy | +20% → energy | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
@@ -564,7 +576,7 @@ understated 7%. That belongs to Defect 2, and it is pinned by a test so it canno
 
 ### Defect 2 — two disagreeing power models
 
-`planCycle` publishes 88.171 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
+`planCycle` publishes 117.061 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
 the same function says 90.18 MWh while integrating the per-system draws that `stateAt`
 reports over that cycle gives 255.45 MWh — 2.83 times as much. The ratio is 1.23× for the
 P-100 and 1.81× for the P-1000. All three widened with the 2026-08-09 resize (from 1.14,
@@ -681,8 +693,8 @@ remaining load from the battery. The vehicle is given the thrust its generators 
 and flown as though they were switched off.
 
 The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.827 h, so the
-generators at full output would make **124.0 MWh** against a published cycle spend of
-88.17 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+generators at full output would make **124.5 MWh** against a published cycle spend of
+117.06 MWh. They would cover the cycle before solar was counted. Generators do not run flat
 out, so the defensible figure is demand-following output capped at `genMW`; measured that
 way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
 than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per

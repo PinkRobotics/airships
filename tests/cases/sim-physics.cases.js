@@ -14,29 +14,35 @@ import {
 const P100 = CLASSES.P100, P1000 = CLASSES.P1000, P10000 = CLASSES.P10000;
 
 describe('physics · pumpMW', () => {
-  it('P-100: rho g Q h / eta = 1.635 MW', () => {
-    // 1000 kg/m3 x 9.81 m/s2 x 0.5 m3/s x 250 m = 1,226,250 W of hydraulic power;
-    // divided by the all-in efficiency 0.75 that is 1,635,000 W = 1.635 MW.
+  it('P-100: rho g Q h / eta = 1.962 MW', () => {
+    // 1000 kg/m3 x 9.81 m/s2 x 0.5 m3/s x 300 m = 1,471,500 W of hydraulic power;
+    // divided by the all-in efficiency 0.75 that is 1,962,000 W = 1.962 MW.
+    // The head is the class's own hose length now, not one global 250 m — see hoseM.
     resetConfig();
-    close(pumpMW(P100), 1.635, 1e-9, 'pumpMW(P-100)');
+    close(pumpMW(P100), 1.962, 1e-9, 'pumpMW(P-100)');
   });
 
-  it('scales linearly with fill rate: 3 and 15 m3/s give 9.81 and 49.05 MW', () => {
+  it('the head is the hose, so the big ships pay for their altitude', () => {
+    // Pump power is linear in BOTH flow and head, and the classes differ in both: the
+    // P-1000 lifts 3 m3/s up 1,100 m and the P-10000 15 m3/s up 1,350 m. Those hoses are
+    // what keep the hulls out of the dense air near the water, and this is the bill for it.
     resetConfig();
-    close(pumpMW(P1000), 9.81, 1e-9, 'pumpMW(P-1000)');
-    close(pumpMW(P10000), 49.05, 1e-9, 'pumpMW(P-10000)');
+    close(pumpMW(P1000), 1000 * 9.81 * 3 * 1100 / 0.75 / 1e6, 1e-9, 'pumpMW(P-1000)');
+    close(pumpMW(P10000), 1000 * 9.81 * 15 * 1350 / 0.75 / 1e6, 1e-9, 'pumpMW(P-10000)');
+    close(pumpMW(P1000), 43.164, 1e-3, 'P-1000 in MW');
+    close(pumpMW(P10000), 264.87, 1e-3, 'P-10000 in MW');
   });
 
   it('reads the live tunables, not the defaults', () => {
     try {
       setConfig({ fillMul: 2 });
-      close(pumpMW(P100), 3.27, 1e-9, 'doubling the fill rate doubles pump power');
+      close(pumpMW(P100), 3.924, 1e-9, 'doubling the fill rate doubles pump power');
       resetConfig();
-      setConfig({ hoseHead: 500 });
-      close(pumpMW(P100), 3.27, 1e-9, 'doubling the head doubles pump power');
+      setConfig({ hoseMul: 2 });
+      close(pumpMW(P100), 3.924, 1e-9, 'doubling the hose doubles pump power');
       resetConfig();
       setConfig({ pumpEta: 0.375 });
-      close(pumpMW(P100), 3.27, 1e-9, 'halving efficiency doubles pump power');
+      close(pumpMW(P100), 3.924, 1e-9, 'halving efficiency doubles pump power');
     } finally { resetConfig(); }
   });
 });

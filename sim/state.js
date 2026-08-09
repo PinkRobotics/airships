@@ -4,7 +4,7 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX } from './config.js';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js';
 import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js';
 import { diskMW, ledger, pumpMW } from './physics.js';
 import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js';
@@ -40,6 +40,10 @@ export function stateAt(m, tRaw) {
   let ll, bearing = 0, alt = ALT.cruise, water = 0, ln2 = 0, sub = "", draw = { hotel: cls.genMW * 0.02 };
   const B = (p0, c, p2, tt) => { ll = bez(p0, c, p2, tt); bearing = bezBearing(p0, c, p2, tt, ll[1]); };
   const sm = easeSm(prog), tz = easeTrap(prog);
+  // How high this class works the water: its own hose length. The P-100 hangs 300 m up, the
+  // P-10000 1,350 m, and the difference is the whole reason the big hull can drop its load
+  // instead of keeping ballast — see CLASSES[*].hoseM.
+  const srcAlt = sourceAltM(cls);
   // Distance the escape climb covers, as a fraction of the return leg: mean speed (the dial's
   // vEsc profile integrates to vEsc/2.5) times its duration, over the one-way distance. The
   // return picks up exactly where it leaves off, so map motion and needle never disagree.
@@ -48,7 +52,7 @@ export function stateAt(m, tRaw) {
   // A ship does not climb to 1,500 m on a two-minute hop. The working ceiling is whatever the
   // shorter leg can actually reach at a sane climb rate — without this a P-1000 on a short run
   // was diving at 44 m/s to make the profile fit, which is a lie the altitude dial then tells.
-  const altTop = Math.min(ALT.cruise, ALT.source +
+  const altTop = Math.min(ALT.cruise, srcAlt +
     VZ_MAX * 0.30 * 60 * Math.min(plan.dur.OUTBOUND_TRANSIT, plan.dur.RETURN_TRANSIT));
   switch (id) {
     case "SOURCE_APPROACH": {
@@ -61,7 +65,7 @@ export function stateAt(m, tRaw) {
       // manoeuvre when all that really happens here is the hose starting to pay out.
       if (m.segs && cycN > 1) B(...arrivalCurve(m, cycN), 0.96 + sm * 0.04);
       else ll = ikN.slice();
-      alt = ALT.source + 130 * (1 - sm);
+      alt = srcAlt + 130 * (1 - sm);
       ln2 = plan.ln2MakeT * (1 - prog * 0.3);
       sub = "hose paying out";
       water = plan.retainedT;
@@ -69,7 +73,7 @@ export function stateAt(m, tRaw) {
       break;
     }
     case "WATER_FILL": {
-      ll = ikN.slice(); alt = ALT.source;
+      ll = ikN.slice(); alt = srcAlt;
       // HEADING THROUGH THE HOLD. A station-keeping ship has no track to take a bearing from,
       // and leaving it at the default sent the hull snapping to due north on the way into the
       // fill and snapping again on the way out — the worst seam on the page. It holds the
@@ -89,7 +93,7 @@ export function stateAt(m, tRaw) {
     }
     case "OUTBOUND_TRANSIT": {
       B(ikN, cO, sA, tz);
-      alt = tz < 0.3 ? ALT.source + (altTop - ALT.source) * easeSm(tz / 0.3)
+      alt = tz < 0.3 ? srcAlt + (altTop - srcAlt) * easeSm(tz / 0.3)
           : tz > 0.75 ? altTop - (altTop - ALT.drop) * easeSm((tz - 0.75) / 0.25)
           : altTop;
       // Turn onto the line before reaching it: the drop run starts already tracking the
@@ -160,7 +164,7 @@ export function stateAt(m, tRaw) {
       B(sB, cR, ikX, escF + tz * (0.96 - escF));   // ends short: the approach flies the rest in
       const a0 = altTop * 0.55;
       alt = tz < 0.3 ? a0 + (altTop - a0) * easeSm(tz / 0.3)
-          : tz > 0.7 ? altTop - (altTop - ALT.source - 130) * easeSm((tz - 0.7) / 0.3)
+          : tz > 0.7 ? altTop - (altTop - srcAlt - 130) * easeSm((tz - 0.7) / 0.3)
           : altTop;
       water = plan.retainedT;
       ln2 = plan.ln2MakeT * Math.min(1, prog / 0.85);

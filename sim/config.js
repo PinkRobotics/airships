@@ -17,7 +17,7 @@
 export const DEFAULTS = {
   eLN2: 0.45,      // kWh per kg to liquefy nitrogen from air (demonstration assumption)
   rtLN2: 0.50,     // electrical round-trip efficiency of the nitrogen store
-  hoseHead: 250,   // m of vertical pumping head at the source
+  hoseMul: 1,      // scales every class's hose; the LENGTH is per class, see CLASSES[*].hoseM
   pumpEta: 0.75,   // pump + hose + electrical efficiency, all-in
   propEta: 0.70,   // propulsive efficiency applied to drag and disk power
   Cd: 0.05,        // hull drag coefficient (streamlined body of revolution)
@@ -60,14 +60,27 @@ export function resetConfig() {
 
 /* Working altitudes, metres above ground.
  *
- * `source` is set by the HOSE, not by choice: the pump lifts water CFG.hoseHead (250 m), so the
- * ship hangs just above that over the lake. `drop` used to be lower than the pickup, which had
- * the ship flying its most dangerous minutes closer to the ground than its calmest ones. It is
- * a fire: the column is turbulent, the terrain is not flat, and an 876 m hull cannot manoeuvre
- * out of a surprise. 450 m puts the P-10000's keel ~350 m over the canopy, above the worst of
- * the fire's own air, and gives the drop the fall it needs to arrive as rain instead of a column.
+ * There is no `source` here any more. The altitude a ship fills from is set by the HOSE it
+ * carries, the hose length is a property of the class, and `sourceAltM()` below is the one
+ * place that answers the question. See CLASSES[*].hoseM for why the lengths are what they are.
+ *
+ * `drop` used to be lower than the pickup, which had the ship flying its most dangerous
+ * minutes closer to the ground than its calmest ones. It is a fire: the column is turbulent,
+ * the terrain is not flat, and an 876 m hull cannot manoeuvre out of a surprise. 450 m puts
+ * the P-10000's keel ~350 m over the canopy, above the worst of the fire's own air, and gives
+ * the drop the fall it needs to arrive as rain instead of a column.
  */
-export const ALT = { cruise: 1500, source: 300, drop: 450 };
+export const ALT = { cruise: 1500, drop: 450 };
+
+/* How high a class hovers while it fills, in metres above the water.
+ *
+ * The hose length IS the fill altitude and IS the pumping head — one number, because they are
+ * one distance, and keeping them as two invited them to disagree (they did: a 250 m head under
+ * a ship hovering at 300 m).
+ */
+export function sourceAltM(cls) {
+  return cls.hoseM * CFG.hoseMul;
+}
 
 /* THE GROUND UNDER ALL OF THAT, and the altitude the buoyancy ledger is evaluated at.
  *
@@ -137,23 +150,49 @@ export const VZ_MAX = 6;
  * ship at about 2,065 m and never lands it. The tanks hold 1.55 payloads, 7.2% over the
  * ground figure. A recovery onto a valley floor at 350 m would need 160.6 t per 100 t and is
  * outside what the tanks hold: a dead ship must be brought down over high ground.
+ *
+ * `hoseM` — HOW LONG A HOSE, WHICH IS REALLY HOW HIGH THE SHIP STAYS.
+ *
+ * A hose long enough to reach the lake from altitude is not primarily a way to fetch water
+ * from further away. It is a way to never descend into the thick air in the first place. The
+ * hull is buoyant by design, and buoyancy grows as the ship comes down: at 300 m over the
+ * water a P-10000 has 13,744 t of surplus to hold down, against 12,666 t the rotors can
+ * manage. Filling at 1,350 m instead, it has 11,543 t and the descent closes on rotors alone
+ * with authority to spare, so the whole load can be dropped instead of keeping 1,056 t back
+ * as ballast.
+ *
+ * The required ALTITUDE is a property of the atmosphere and of the 5.25% float-up margin, not
+ * of the ship's size — which is why the two larger classes need similar hoses despite a factor
+ * of ten in payload. The lengths are set so the rotors need no more than 90% of their
+ * authority during the letdown; sizing them to close exactly would put the routine descent at
+ * 100% of maximum, which is not a margin, it is a coincidence.
+ *
+ * The P-100 carries 300 m because that is what its fill needs. Its descent already closes
+ * with x1.94 headroom at the water — small hulls get disproportionately more rotor authority
+ * per tonne of surplus — so its hose is sized by the pump, not by the physics of getting down.
+ *
+ * NOT MODELLED, and material: the mass of the hose and of the water column standing in it. At
+ * 15 m3/s a P-10000's bore is about 2 m, so a full 1,350 m of it holds on the order of 4,000 t
+ * of water — four times the ballast this arrangement exists to avoid keeping. It is arguably a
+ * feature, since a primed hose IS ballast, but nothing here charges for it, and the pump is
+ * working against 130 bar of head rather than 25. See docs/OPEN-QUESTIONS.md.
  */
 export const CLASSES = {
   P100: {
     id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 190, diaM: 47,
-    cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3,
+    cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,
     genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarM2: 6000, diskM2: 2500, rotors: 4, ln2CapT: 155,
     minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: "Initial attack and small incidents close to water",
   },
   P1000: {
     id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 404, diaM: 102,
-    cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5,
+    cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 1100,
     genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarM2: 28000, diskM2: 12000, rotors: 6, ln2CapT: 1550,
     minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: "Sustained delivery on project fires and fires of note",
   },
   P10000: {
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 876, diaM: 219,
-    cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8,
+    cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 1350,
     // diskM2 and battMW are sized so the force balance closes with NOTHING held back:
     // after a full 10,000 t dump the hull is 11,051 t buoyant at its working altitude, and
     // 14 big discs on a battery-surge bus must push all of it back down to the water. Brute

@@ -19,8 +19,9 @@ export function selftest() {
   resetConfig();
   const p = planCycle(CLASSES.P100, MODES.balanced, 15);
   eq(p.dur.WATER_FILL, 100 / 0.5 / 60, 0.01, "P-100 fill time");
-  // Pump power: rho g Q h / eta = 1000*9.81*0.5*250/0.75 = 1.635 MW.
-  eq(pumpMW(CLASSES.P100), 1.635, 0.01, "pump power");
+  // Pump power: rho g Q h / eta, where h is the class's own hose — the P-100's 300 m, not a
+  // global head. 1000*9.81*0.5*300/0.75 = 1.962 MW.
+  eq(pumpMW(CLASSES.P100), 1.962, 0.01, "pump power");
   // Cycle grows with distance, throughput falls.
   const far = planCycle(CLASSES.P100, MODES.balanced, 60);
   if (far.cycleMin <= p.cycleMin || far.tph >= p.tph) throw new Error("SELFTEST FAIL: distance monotonicity");

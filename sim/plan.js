@@ -4,7 +4,7 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL } from './config.js';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js';
 import { diskMW, dragMW, ledger, pumpMW } from './physics.js';
 
 export function planCycle(cls, mode, oneWayKm, wind) {
@@ -40,7 +40,7 @@ export function planCycle(cls, mode, oneWayKm, wind) {
    * Everything below that answers to descent — how much nitrogen to make, how much water to
    * keep as ballast, how hard the rotors work on the way down — reads ledLow. */
   const led = ledger(cls, WORK_ALT_MSL);
-  const ledLow = ledger(cls, TERRAIN_MSL + ALT.source);
+  const ledLow = ledger(cls, TERRAIN_MSL + sourceAltM(cls));
   const dur = {};                                   // minutes per phase
   // Overlap doctrine: the pod is already dropping during the approach, so HOSE_DEPLOY is
   // only the tail of that work; the hose winds up during the climb-out; climb and descent

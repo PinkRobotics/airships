@@ -23,7 +23,7 @@
 export {
   DEFAULTS, CFG, setConfig, resetConfig,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
-  TERRAIN_MSL, WORK_ALT_MSL,
+  TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
 } from './config.js';
 
 export {

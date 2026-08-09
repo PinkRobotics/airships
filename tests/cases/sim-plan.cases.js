@@ -217,31 +217,31 @@ describe('plan · modes', () => {
     }
   });
 
-  it('the cheapest cycle is the middle mode, and that is not an accident', () => {
-    // Cycle energy is NOT monotonic in mode, and this test has now watched the order change
-    // twice, which is the useful part. Two terms pull opposite ways: drag rises with the
-    // square of airspeed, so rapid pays most for the legs, while the letdown rides the RETURN
-    // LEG's duration, so endurance pays most for the descent. Whichever term is larger at the
-    // time decides the order, and both have moved this week — the resize shrank the surplus
-    // the letdown fights, then moving the descent balance to the lake grew it back and added
-    // the authority-limited 12% to the return leg.
+  it('slower is cheaper again, and this ordering is not load-bearing', () => {
+    // This test has now watched the mode ordering change THREE times in one day, which is
+    // worth more than any of the three orderings. Two terms pull against each other: drag
+    // rises with the square of airspeed, so rapid pays most for the legs, while the letdown
+    // rides the return leg's duration, so endurance pays most for the descent. Whichever is
+    // bigger decides the order.
     //
-    // So the assertion is the shape, not the ranking: balanced is cheapest on the P-10000 at
-    // 60 km, per cycle and per tonne both, because it is the mode that pays neither penalty
-    // in full. 272.8 / 269.6 / 274.7 MWh and 30.43 / 29.93 / 30.28 kWh per tonne.
+    // It was drag (slower is cheaper), then the letdown (balanced cheapest, briefly, when the
+    // descent balance moved to the dense air at the lake), and now drag again, because the
+    // long hose keeps the ship high and cut the letdown from 53% of the cycle to 30%.
+    //
+    // So the ordering is pinned as an observation, not claimed as a property. It is a
+    // downstream symptom of defect 3's unexplained window, and when that is fixed this test
+    // should be expected to move again.
     resetConfig();
     const p = m => planCycle(CLASSES.P10000, m, 60);
     const r = p(MODES.rapid), b = p(MODES.balanced), e = p(MODES.endurance);
-    ok(b.eCycleMWh < r.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
-      `balanced should be the cheapest cycle: ${r.eCycleMWh.toFixed(1)} / `
+    ok(e.eCycleMWh < b.eCycleMWh && b.eCycleMWh < r.eCycleMWh,
+      `slower should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
-    ok(b.kwhPerTonne < r.kwhPerTonne && b.kwhPerTonne < e.kwhPerTonne,
-      `and the cheapest per tonne: ${r.kwhPerTonne.toFixed(2)} / `
-      + `${b.kwhPerTonne.toFixed(2)} / ${e.kwhPerTonne.toFixed(2)} kWh/t`);
+    close(r.eCycleMWh, 277.9, 0.2, 'rapid');
+    close(b.eCycleMWh, 272.5, 0.2, 'balanced');
+    close(e.eCycleMWh, 262.3, 0.2, 'endurance');
   });
-});
 
-describe('plan · the tunables reach the plan', () => {
   it('speedMul shortens the transit legs', () => {
     resetConfig();
     const before = planCycle(CLASSES.P1000, MODES.balanced, 100).dur.OUTBOUND_TRANSIT;
@@ -276,25 +276,42 @@ describe('plan · the tunables reach the plan', () => {
 });
 
 describe('plan · the mechanisms the copy describes', () => {
-  it('descent ballast is real on the two larger classes, and the copy is now true', () => {
-    // THE HISTORY MATTERS, because this test asserted the opposite twice.
+  it('no class needs descent ballast at the shipped hose lengths — and why', () => {
+    // THE HISTORY MATTERS, because this test has asserted three different things.
     //
     // The page has always described retaining water as descent ballast. For most of this
-    // model's life it never happened: rotorMaxT/0.6 exceeded the surplus for all three
-    // classes, the max() in plan.js clamped to zero, and the mechanism was inert prose. The
-    // 2026-08-09 resize was expected to revive it and made it worse, because measuring lift
-    // in the thin air at the ceiling made the surplus SMALLER.
+    // model's life it never happened: rotorMaxT/0.6 exceeded the surplus everywhere, the max()
+    // in plan.js clamped to zero, and the mechanism was inert prose. Then the descent balance
+    // moved to the altitude where the letdown actually ends, 1,200 m lower and 16% denser, and
+    // the two larger classes had to keep 49 t and 1,056 t back.
     //
-    // The error was asking the question at the wrong altitude. Float-up is hardest at the
-    // ceiling; descent is hardest at the lake, 1,200 m lower, where the air is 16% denser and
-    // the hull is 24% more buoyant. Checking the balance where the letdown actually ends is
-    // what engaged it. The mechanism is now load-bearing, and so is the sentence about it.
+    // Then the hose got longer. A ship that can reach the water from 1,350 m never goes down
+    // into that air at all, so the surplus it must hold is the one at 2,350 m, and the rotors
+    // manage it with authority to spare. Retention is zero again — but for the opposite reason
+    // to the first time. It is not that the question was asked in the wrong place; it is that
+    // the ship no longer goes to the place where the answer was no.
+    //
+    // The next test is the one that proves the mechanism is alive rather than dead code.
     resetConfig();
-    const want = { P100: 0, P1000: 49, P10000: 1056 };     // tonnes, balanced, 15 km
-    for (const id of CLASS_ORDER) {
-      const p = planCycle(CLASSES[id], MODES.balanced, 15);
-      close(p.retainedT, want[id], 1, `${id}: retained ballast`);
-    }
+    grid((p, tag) => eq(p.retainedT, 0, `${tag}: retainedT`));
+  });
+
+  it('shorten the hose and the ballast comes back — the mechanism is live', () => {
+    // The guard against the above being a tautology. Take the hose away and the ships have to
+    // descend into dense air again, exactly as they did before the long hose: the P-10000
+    // cannot hold itself down and keeps water back. This is the same code path the shipped
+    // configuration does not currently need, and it still works.
+    resetConfig();
+    try {
+      setConfig({ hoseMul: 0.4 });                  // 540 m on the P-10000, 120 m on the P-100
+      const big = planCycle(CLASSES.P10000, MODES.balanced, 15);
+      ok(big.retainedT > 400, `a short hose should force ballast, got ${big.retainedT.toFixed(0)} t`);
+      close(big.deliveredT + big.retainedT, CLASSES.P10000.payloadT, 1e-9, 'the mass book still balances');
+      ok(big.bottleneck === 'descent authority' || big.bottleneck.startsWith('descent'),
+        `the bottleneck should name the descent, got "${big.bottleneck}"`);
+      const small = planCycle(CLASSES.P100, MODES.balanced, 15);
+      eq(small.retainedT, 0, 'the P-100 has authority to spare even on a short hose');
+    } finally { resetConfig(); }
   });
 
   it('retention engages exactly where the descent does not close on rotors alone', () => {
@@ -317,11 +334,12 @@ describe('plan · the mechanisms the copy describes', () => {
   it('the descent balance is struck at the source, not at the ceiling', () => {
     // The defect this replaced, kept as a measurement so it cannot come back quietly. The
     // ratio is rotorMaxT/0.6 over the surplus that has to be pushed down: above 1 the rotors
-    // can do it alone. Evaluated at the ceiling every class looks comfortable; evaluated
-    // where the ship actually arrives, two of the three do not.
+    // can do it alone. Both columns clear 1.0 now, but they are still different numbers, and
+    // the gap is the whole argument for asking the question at the right altitude: with a
+    // 300 m hose the lake column read 1.94 / 0.96 / 0.92 and two classes could not close.
     resetConfig();
     const ceiling = { P100: 2.4182, P1000: 1.1928, P10000: 1.1462 };
-    const lake = { P100: 1.9444, P1000: 0.9591, P10000: 0.9216 };
+    const lake = { P100: 1.9444, P1000: 1.1057, P10000: 1.1136 };
     for (const id of CLASS_ORDER) {
       const p = planCycle(CLASSES[id], MODES.balanced, 15);
       close((p.rotorMaxT / 0.6) / p.led.surplusT, ceiling[id], 1e-3, `${id}: headroom at the ceiling`);
@@ -369,7 +387,7 @@ describe('plan · the mechanisms the copy describes', () => {
     const near = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
     const far = planCycle(CLASSES.P10000, MODES.balanced, 120);
     close(win(near), near.dur.RETURN_TRANSIT * 0.2, 1e-12, 'the short leg should use the 0.2 branch');
-    close(win(near), 1.824, 0.01, 'the worked example letdown window, minutes');
+    close(win(near), 1.629, 0.01, 'the worked example letdown window, minutes');
     eq(win(far), 6, 'the long leg should be capped at six minutes');
   });
 
@@ -384,11 +402,11 @@ describe('plan · the mechanisms the copy describes', () => {
     // line in the published budget. Change the 0.2 and the headline moves by tens of percent.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 88.17, 0.05, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 117.06, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
-    close(letdownMWh / p.eCycleMWh, 0.5346, 5e-4,
+    close(letdownMWh / p.eCycleMWh, 0.3050, 5e-4,
       `the letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(1)}% of the cycle`);
-    ok(letdownMWh > p.eCycleMWh * 0.4, 'the letdown has stopped dominating the budget');
+    ok(letdownMWh > p.eCycleMWh * 0.25, 'the letdown has stopped being a major term');
   });
 
   knownFail(

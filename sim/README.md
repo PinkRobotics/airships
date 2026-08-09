@@ -161,7 +161,7 @@ job the plant does over days rather than over a cycle.
 
 | Quantity | Units | Computed in | Equation | Rests on | Set in |
 |---|---|---|---|---|---|
-| `pumpMW` | MW | `physics.js` → `pumpMW` | `ρ_w g Q h / η_pump / 1e6`, `ρ_w = 1000` | one lumped efficiency covers pump, hose friction and electrics | `config.js` `DEFAULTS.hoseHead = 250`, `DEFAULTS.pumpEta = 0.75`, `CLASSES[*].fillM3s` |
+| `pumpMW` | MW | `physics.js` → `pumpMW` | `ρ_w g Q h / η_pump / 1e6`, `ρ_w = 1000` | one lumped efficiency covers pump, hose friction and electrics | `config.js` `CLASSES[*].hoseM` (300/1,100/1,350 m) × `DEFAULTS.hoseMul = 1`, `DEFAULTS.pumpEta = 0.75`, `CLASSES[*].fillM3s` |
 | `dragMW` | MW | `physics.js` → `dragMW` | `½ ρ_air C_d A v³ / η_prop / 1e6`, `A = π(diaM/2)²`, `v = kph/3.6` | drag referenced to frontal area; cube law in speed | `config.js` `DEFAULTS.Cd = 0.05`, `DEFAULTS.rhoAir = 1.10`, `DEFAULTS.propEta = 0.70` |
 | `diskMW` | MW | `physics.js` → `diskMW` | `T^{3/2} / √(2 ρ_air A_disk) / η_prop / 1e6` | ideal actuator-disk induced power **in hover** | `config.js` `CLASSES[*].diskM2`, `DEFAULTS.rhoAir`, `DEFAULTS.propEta` |
 | `hotelMW` | MW | `plan.js`, `state.js` | `genMW × 0.02` | baseline load is 2% of generation | `plan.js` and `state.js`, independently |
@@ -174,8 +174,8 @@ job the plant does over days rather than over a cycle.
 | `gen.solar` | MW | `state.js` → `stateAt` | `solarM2 × 200 / 1e6` | 200 W/m² of hull skin, constant, day and night | `config.js` `CLASSES[*].solarM2`; the 200 is set in `state.js` |
 | `gen.regen` | MW | `state.js` → `stateAt` | `eBack / (dur.WATER_FILL / 60)` during the fill | nitrogen returns its energy while water replaces it | — |
 | `gs` | km/h | `state.js` → `stateAt` | per-phase profiles; the release needle is the derivative of the eased shuttle | — | `state.js`, the `gs` block |
-| `alt` | m AGL | `state.js` → `stateAt` | per-phase profiles between `ALT.source`, `ALT.drop`, `ALT_DROP_TOP` and `altTop` | — | `config.js` `ALT`, `ALT_DROP_TOP`, `VZ_MAX` |
-| `altTop` | m AGL | `state.js` → `stateAt` | `min(ALT.cruise, ALT.source + VZ_MAX × 0.30 × 60 × min(dur.OUTBOUND, dur.RETURN))` | a short leg cannot reach the nominal ceiling at a sane climb rate | `config.js` `ALT.cruise = 1500`, `VZ_MAX = 6` |
+| `alt` | m AGL | `state.js` → `stateAt` | per-phase profiles between `sourceAltM(cls)`, `ALT.drop`, `ALT_DROP_TOP` and `altTop` | — | `config.js` `ALT`, `ALT_DROP_TOP`, `VZ_MAX` |
+| `altTop` | m AGL | `state.js` → `stateAt` | `min(ALT.cruise, sourceAltM(cls) + VZ_MAX × 0.30 × 60 × min(dur.OUTBOUND, dur.RETURN))` | a short leg cannot reach the nominal ceiling at a sane climb rate | `config.js` `ALT.cruise = 1500`, `VZ_MAX = 6`, `CLASSES[*].hoseM` |
 
 **Known defect.** `gen` has two entries and `genMW` is not one of them. The generators sized
 `rotorMaxT` and `battLimited` in the table above and then contribute no energy anywhere. See
@@ -249,7 +249,7 @@ restores them.
 |---|---:|---|---|
 | `eLN2` | 0.45 | kWh/kg | assumption. Real air-separation plants sit near 0.4–0.5 kWh/kg for gaseous N₂ and higher for liquid; the page's dial spans 0.30–0.80. |
 | `rtLN2` | 0.50 | — | assumption. Electrical round trip of the nitrogen store. Dial spans 0.35–0.60. |
-| `hoseHead` | 250 | m | assumption. Sets both the pumping work and the source hover altitude. Dial spans 100–500. |
+| `hoseMul` | 1 | × | scales every class's hose. The LENGTH is per class (`hoseM`), and it sets the pumping work, the fill altitude and therefore whether the ship must keep ballast. Dial spans 0.4–1.6. |
 | `pumpEta` | 0.75 | — | assumption, all-in: pump, hose friction, electrics. Dial spans 0.50–0.90. |
 | `propEta` | 0.70 | — | assumption. Applied to drag power *and* to disk power. **No dial.** |
 | `Cd` | 0.05 | — | assumption, referenced to frontal area. Equivalent to a volumetric `C_dv` of 0.024, which is a defensible bare-hull figure and charges nothing for rotor installations, fins or the hose pod. Dial spans 0.03–0.12. |

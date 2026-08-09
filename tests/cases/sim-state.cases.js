@@ -10,7 +10,7 @@
 import { close, describe, eq, it, ok } from '../harness.js';
 import {
   ALT, ALT_DROP_TOP, CLASSES, CLASS_ORDER, MODES, PHASES,
-  buildMission, findSource, havKm, resetConfig, setSeed, stateAt,
+  buildMission, findSource, havKm, resetConfig, setSeed, sourceAltM, stateAt,
 } from '../../sim/index.js';
 
 /* A fixture with no live data in it: two lakes big enough for any class, one fire between
@@ -222,10 +222,10 @@ describe('state · continuity across every phase seam', () => {
   it('the altitudes at the seams are the ones config.js names', () => {
     for (const id of CLASS_ORDER) {
       const m = mission(id);
-      close(at(m, 2, m.phaseEnds[0] + 1e-6).alt, ALT.source, 1e-3, `${id}: fill is not at the hose altitude`);
+      close(at(m, 2, m.phaseEnds[0] + 1e-6).alt, sourceAltM(m.cls), 1e-3, `${id}: fill is not at the hose altitude`);
       close(at(m, 2, m.phaseEnds[2] + 1e-6).alt, ALT.drop, 1e-3, `${id}: the run does not start at the drop altitude`);
       close(at(m, 2, m.phaseEnds[3] + 1e-6).alt, ALT_DROP_TOP, 1e-3, `${id}: the escape does not start where the run ended`);
-      close(at(m, 2, m.phaseEnds[5] - 1e-6).alt, ALT.source + 130, 1e-2, `${id}: the return does not end at hose range`);
+      close(at(m, 2, m.phaseEnds[5] - 1e-6).alt, sourceAltM(m.cls) + 130, 1e-2, `${id}: the return does not end at hose range`);
     }
   });
 

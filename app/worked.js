@@ -9,7 +9,11 @@ export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
   { k: "speedMul", label: "Airspeed multiplier", unit: "×", min: 0.6, max: 1.4, step: 0.05, d: 2, note: "scales every class's cruise speed" },
   { k: "fillMul", label: "Fill-rate multiplier", unit: "×", min: 0.5, max: 2, step: 0.1, d: 1, note: "pump capacity is a demonstration assumption" },
-  { k: "hoseHead", label: "Hose vertical head", unit: " m", min: 100, max: 500, step: 25, d: 0, note: "how far up water is pushed from the pod" },
+  // Scales every class's hose at once. It is a multiplier rather than a length because the
+  // length is now a property of the class (300 m on a P-100, 1,350 m on a P-10000), and it is
+  // the most consequential slider on the page: shortening the hose brings the ship down into
+  // denser air, where it has to hold water back as ballast instead of delivering it.
+  { k: "hoseMul", label: "Hose length", unit: "x", min: 0.4, max: 1.6, step: 0.1, d: 1, note: "how far up water is pushed, and so how high the ship fills from" },
   { k: "pumpEta", label: "Pump system efficiency", unit: "", min: 0.5, max: 0.9, step: 0.05, d: 2, note: "pumps, hose losses and electrics, all-in" },
   { k: "Cd", label: "Hull drag coefficient", unit: "", min: 0.03, max: 0.12, step: 0.005, d: 3, note: "streamlined-body assumption; cube-law sensitive" },
   { k: "eLN2", label: "LN₂ production energy", unit: " kWh/kg", min: 0.3, max: 0.8, step: 0.05, d: 2, note: "demonstration assumption, not a plant spec" },
@@ -67,6 +71,7 @@ export function renderClassCards() {
       ["displacement", fmt(c.dispM3) + " m³"],
       ["cruise", fmt(c.cruiseKph) + " km/h"],
       ["fill rate", c.fillM3s + " m³/s"],
+      ["hose", fmt(c.hoseM) + " m"],
       ["generation", fmt(c.genMW) + " MW"],
       ["battery", fmt(c.battMWh) + " MWh"],
       ["battery peak", fmt(c.battMW) + " MW"],
