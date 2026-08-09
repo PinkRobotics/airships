@@ -136,6 +136,19 @@ Also, and in the same spirit:
 - **The cryogenic plant is numerically inert.** For the same reason, `ln2MakeT` never changes how
   much water is delivered; it only moves energy between two terms, at the round-trip loss. The
   copy describes it as load-bearing.
+- **The generators supply thrust but never energy.** Each class advertises 8/40/150 MW, and
+  `rotorMaxT` in `sim/plan.js` spends it when sizing how hard the rotors can push down. Nothing
+  credits it as energy: `stateAt` reports only solar and nitrogen recovery, and the loop drains
+  the rest from the battery. That generation is the nitrogen plant — expansion of what was
+  liquefied earlier — so it is storage rather than a source, and modelling it honestly should
+  make the deficit *larger*, not close it. Today it is doing neither.
+
+All six are decided and none is implemented yet. The decisions matter as much as the defects,
+because two of them are choices about what the vehicle is rather than corrections to arithmetic —
+the hull is to be sized for fail-safe float-up when fully loaded, and the nitrogen plant, the
+ballast doctrine and the generators all stay and must be made to bind. The reasoning, the options
+that were rejected and the order the fixes have to happen in are in
+[docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md).
 
 ## Layout
 

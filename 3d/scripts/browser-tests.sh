@@ -35,7 +35,12 @@ mkdir -p "$PROFILE"
 
 # --disk-cache-size=1 because the module graph is served from a plain static server: without it a
 # second run can silently test the previous run's code.
-DOM=$(timeout 300 "$CHROME" --headless=new --no-sandbox \
+# The timeout is a guard against a hang, not a performance budget, so it has to be generous
+# enough for the slowest machine that legitimately runs this. A CI runner renders through
+# SwiftShader on shared vCPUs and takes minutes over what a desktop does in seconds: 300 s
+# was tight enough that the suite was killed mid-run and reported as a failure (exit 124).
+: "${A3D_TEST_TIMEOUT:=1200}"
+DOM=$(timeout "$A3D_TEST_TIMEOUT" "$CHROME" --headless=new --no-sandbox --disable-dev-shm-usage \
   --disk-cache-size=1 --media-cache-size=1 \
   --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
   --user-data-dir="$PROFILE" --virtual-time-budget=120000 --dump-dom \
