@@ -367,7 +367,8 @@ load — and both larger classes are descent-authority limited again. The doctri
 is now a mechanism in the code, and `retainedT`, `battLimited` and the bottleneck string all
 carry information.
 
-**It cost throughput until the anchor was added, and the anchor is the real answer.** Striking
+**It cost throughput until the anchor was added, and the anchor turned out to be worth more
+than the problem it solved.** Striking
 the balance honestly took the P-10000 from 12,052 t/h to 10,821, because 1,056 t of every load
 stayed in the tanks to make the descent possible. Then the obvious question: what actually holds
 a buoyant ship down? Not ballast it carries, makes, or keeps back — it borrows the lake. A bag on
@@ -375,11 +376,23 @@ a cable, filled at the surface and winched clear, is 2,323 t of downward force f
 lift needed to break the surface, and it is dumped back where it came from once the tanks hold
 more than the shortfall. A Bambi bucket at 240 times the commercial scale.
 
-Delivery returns to 12,052 t/h with the whole load dropped, and the cycle costs 79.24 MWh. The
-three ways of closing the same 1,056 t gap, priced: anchor **0.11 MWh**, a 1,350 m hose so the
-ship fills from altitude **44 MWh** (2 m bore, 140 bar), liquid nitrogen **475 MWh** (or 5.8× the
-plant to make it in one cycle). Retaining water costs no energy at all and 10% of the delivery,
-which is the one currency this fleet cannot spend.
+Delivery returns to 12,052 t/h with the whole load dropped. The three ways of closing the same
+1,056 t gap, priced: anchor **0.11 MWh**, a 1,350 m hose so the ship fills from altitude
+**44 MWh** (2 m bore, 140 bar), liquid nitrogen **475 MWh** (or 5.8× the plant to do it in one
+cycle). Retaining water costs no energy at all and 10% of the delivery, which is the one
+currency this fleet cannot spend.
+
+**And then the bag was sized for the job rather than for the gap.** Rotor power goes as
+thrust^1.5, so load moved onto the lake comes off the bus faster than linearly. A bag carrying
+90% of the hold instead of the 8% the shortfall required drops `downMW` from 1,748 MW to 52 and
+the P-10000's cycle from 79.24 to **45.22 MWh** — 4.52 kWh per delivered tonne against 7.56
+before any of this began. Every class carries one, including the P-100 whose descent closes on
+rotors alone: it saves 28% for the same delivered water, and a fleet that has built the
+technology should use it. Bags are 125 / 1,250 / 12,400 t; cables 350 / 600 / 850 m.
+
+That has a consequence for #3. The letdown window was 45% of the cycle and is now 3.1%, so its
+two unexplained constants no longer decide a published figure — its known-failure marker came
+off. The defect is not fixed, it is defused, and the test says so.
 
 A `descentShort` flag reports the wall: retention is clamped at the payload, because a hull
 cannot keep back more water than it went to fetch, and reaching that clamp means nitrogen,

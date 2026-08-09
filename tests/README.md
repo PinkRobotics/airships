@@ -128,25 +128,30 @@ hard failure**, because a defect that has quietly been fixed must not keep a per
 in the suite — the marker has to come off and the test has to start asserting the corrected
 behaviour.
 
-Three are currently marked:
+Two are currently marked:
 
 1. **`plan · windUsed is false when the wind was not applied`** — `windUsed` tests only
    `wind.spd`, while the legs also require `wind.bearing`. The flag can report a wind the plan
    ignored. Harmless today, because `mission.js` always sets the bearing before planning.
-2. **`plan · the letdown term is a minor share of cycle energy`** — `min(6, RETURN_TRANSIT ×
-   0.2)` sets 53% of the P-10000's published 88.2 MWh cycle. Neither the 6 nor the 0.2 is
-   justified anywhere in the model.
-3. **`energy · the planned budget and the integrated draw agree within 25%`** — two power
+2. **`energy · the planned budget and the integrated draw agree within 25%`** — two power
    models. On a 19 km leg `planCycle` budgets 90.2 MWh for the P-10000 while integrating
    `stateAt`'s per-system draw over the same cycle gives 255.5 MWh, a factor of 2.83. The gap
    widens with the size of the ship: 1.23× on the P-100, 1.81× on the P-1000.
 
-A fourth came off on 2026-08-09, which is what the mechanism above is for. **`physics · lift
-at the working-band density covers dry mass plus payload`** started passing when the hulls
-were resized for fail-safe float-up, so the suite failed on it, the marker was removed, and
-the test was replaced by two ordinary ones asserting the requirement the classes now meet:
-`physics · FAIL-SAFE FLOAT-UP` and `physics · UNPOWERED RECOVERY`. The old test was not
-deleted, it was rewritten to ask the stronger question.
+TWO came off on 2026-08-09, which is exactly what the mechanism above is for — in both cases
+the suite failed *because a test passed*, and the marker had to go.
+
+**`physics · lift at the working-band density covers dry mass plus payload`** started passing
+when the hulls were resized for fail-safe float-up. It was replaced by two ordinary tests
+asserting the requirement the classes now meet: `physics · FAIL-SAFE FLOAT-UP` and
+`physics · UNPOWERED RECOVERY`.
+
+**`plan · the letdown term is a minor share of cycle energy`** started passing when the descent
+anchor took the load off the rotors. `min(6, RETURN_TRANSIT × 0.2)` used to set 45% of the
+P-10000's cycle; it is 3.1% now, because rotor power goes as thrust^1.5 and the bag removed the
+thrust. Note what did NOT happen: the 6 and the 0.2 are still unjustified, and defect 3 is still
+open. The test came off because the defect stopped mattering, not because it was fixed, and the
+replacement says so in as many words. A marker is about impact, not about virtue.
 
 Everything else about those defects — including the numbers above — is asserted by ordinary
 passing tests alongside the markers, so the arithmetic is on the record either way.

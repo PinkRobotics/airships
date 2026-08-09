@@ -217,7 +217,7 @@ describe('plan · modes', () => {
     }
   });
 
-  it('the mode ordering has flipped four times and is not load-bearing', () => {
+  it('the mode ordering has flipped five times and is not load-bearing', () => {
     // This test has now watched the mode ordering change THREE times in one day, which is
     // worth more than any of the three orderings. Two terms pull against each other: drag
     // rises with the square of airspeed, so rapid pays most for the legs, while the letdown
@@ -234,12 +234,12 @@ describe('plan · modes', () => {
     resetConfig();
     const p = m => planCycle(CLASSES.P10000, m, 60);
     const r = p(MODES.rapid), b = p(MODES.balanced), e = p(MODES.endurance);
-    ok(r.eCycleMWh < b.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
-      `faster should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
+    ok(b.eCycleMWh < r.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
+      `balanced should be cheapest per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
-    close(r.eCycleMWh, 240.9, 0.2, 'rapid');
-    close(b.eCycleMWh, 244.4, 0.2, 'balanced');
-    close(e.eCycleMWh, 250.4, 0.2, 'endurance');
+    close(r.eCycleMWh, 121.3, 0.2, 'rapid');
+    close(b.eCycleMWh, 117.4, 0.2, 'balanced');
+    close(e.eCycleMWh, 123.0, 0.2, 'endurance');
   });
 
   it('speedMul shortens the transit legs', () => {
@@ -303,19 +303,24 @@ describe('plan · the mechanisms the copy describes', () => {
     eq(bare.bottleneck, 'descent authority', 'and the bottleneck says so');
   });
 
-  it('the anchor leads and the rotors finish, not the other way round', () => {
-    // Ordering matters and is a design decision, not an accident. Rotor thrust costs power and
-    // the lake does not, so the bag takes enough that the rotors work at 90% rather than 100%
-    // — 2,323 t of the P-10000's 13,723 t hold. Sizing the bag to cover only what the rotors
-    // cannot manage would leave the entire letdown running the bus flat out for nothing.
+  it('the anchor does the descent and the rotors only trim it', () => {
+    // Ordering matters and is a design decision, not an accident. The bag goes first and takes
+    // everything it holds — 12,400 t of the P-10000's 13,722 t — leaving the rotors 10% of
+    // their capability, which is trim rather than lift. Sizing the bag to cover only what the
+    // rotors could not manage would run the whole letdown at full bus power for nothing.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, 15);
-    close(p.anchorT, 2322.9, 0.5, 'anchor share');
+    close(p.anchorT, 12400, 0.5, 'the whole bag goes in');
     ok(!p.battLimited, 'the rotors should not be saturated with the anchor deployed');
     const holdT = p.ledLow.surplusT - p.ln2MakeT;
-    ok(holdT - p.anchorT <= p.rotorMaxT / 0.6 * 0.901,
-      'the rotors should be left at no more than 90% of capability');
-    eq(planCycle(CLASSES.P100, MODES.balanced, 15).anchorT, 0, 'the P-100 needs no anchor');
+    const rotorShare = (holdT - p.anchorT) / (p.rotorMaxT / 0.6);
+    ok(rotorShare < 0.15, `the rotors should be left doing trim, not lift — ${(rotorShare * 100).toFixed(1)}%`);
+    // The P-100 carries one too, though its descent closes on rotors alone (x1.94 headroom).
+    // Not because it needs holding down, but because a bucket is cheaper than thrust on every
+    // class: its cycle falls from 1.85 to 1.33 MWh for the same delivered water.
+    const small = planCycle(CLASSES.P100, MODES.balanced, 15);
+    close(small.anchorT, 125, 0.5, 'the P-100 uses its bag as well');
+    close(small.eCycleMWh, 1.328, 5e-3, 'and saves 28% of its cycle energy doing it');
   });
 
   it('the descent balance is struck at the source, not at the ceiling', () => {
@@ -377,33 +382,40 @@ describe('plan · the mechanisms the copy describes', () => {
     eq(win(far), 6, 'the long leg should be capped at six minutes');
   });
 
-  it('that window still sets the largest single share of the P-10000 worked-example cycle', () => {
-    // 88.2 MWh per cycle at 15 km, of which 47.1 MWh — 53.5% — is the letdown term. This
-    // number has now moved twice in one day and in opposite directions, which is the argument
-    // for defect 3 rather than against it: the 2026-08-09 resize cut it to 75.6 MWh (45.2%)
-    // because a smaller surplus needs less pushing down, and moving the descent balance to
-    // the lake put it back up past where it started, because the surplus DOWN THERE is larger
-    // and an authority-limited letdown runs 12% longer. A term that swings like that on
-    // changes elsewhere, and whose only two constants are unexplained, is the biggest single
-    // line in the published budget. Change the 0.2 and the headline moves by tens of percent.
+  it('the letdown is no longer the largest term, and the anchor is why', () => {
+    // For the life of this model the biggest line in the published energy budget was an
+    // unexplained window. It is now the fifth of six: fill 6.15, return 14.71, outbound 9.46,
+    // other 12.89, letdown 1.42, anchor 0.60, total 45.22 MWh. The anchor's own cost — lifting
+    // 12,400 t of lake water the 15 m it takes to break the surface — is 0.6 MWh, and it buys
+    // a 34.5 MWh reduction in rotor work. That ratio is the entire argument for the mechanism.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 79.24, 0.05, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 45.22, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
-    close(letdownMWh / p.eCycleMWh, 0.4534, 5e-4,
-      `the letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(1)}% of the cycle`);
-    ok(letdownMWh > p.eCycleMWh * 0.4, 'the letdown has stopped dominating the budget');
+    const returnMWh = p.dragMW * 0.55 * p.dur.RETURN_TRANSIT / 60;
+    ok(letdownMWh < returnMWh, `the letdown ${letdownMWh.toFixed(2)} should now be under the `
+      + `return leg ${returnMWh.toFixed(2)} MWh`);
+    close(p.anchorT * 1000 * 9.81 * 15 / 0.85 / 3.6e9, 0.596, 5e-3, 'the anchor lift energy');
   });
 
-  knownFail(
-    'the letdown term is a minor share of cycle energy',
-    'defect 3 — an unexplained min(6, ...) window is the largest single term in the P-10000 cycle, 45% of it',
-    () => {
-      resetConfig();
-      const c = CLASSES.P10000;
-      const p = planCycle(c, MODES.balanced, CFG.exampleKm);
-      const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
-      ok(letdownMWh / p.eCycleMWh < 0.15,
-        `letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(0)}% of the cycle energy`);
-    });
+  it('the letdown term is a minor share of cycle energy', () => {
+    // THIS WAS A KNOWN FAILURE UNTIL 2026-08-09, and it came off the way the mechanism is
+    // supposed to work: the defect stopped mattering, the test started passing, the suite
+    // reported that as a hard failure, and the marker had to go.
+    //
+    // Defect 3 is that `min(6, t_ret x 0.2)` has no stated justification, and it used to set
+    // 45% of the P-10000's cycle — an unexplained constant deciding the headline number. The
+    // descent anchor did not explain it. It made it small: rotor power goes as thrust^1.5, so
+    // moving 12,400 t of the hold onto a bag of lake water cut `downMW` from 1,748 to 52 MW
+    // and the term from 35.9 MWh to 1.4, which is 3.1% of the cycle.
+    //
+    // The 6 and the 0.2 are still unjustified and defect 3 is still open in
+    // docs/OPEN-QUESTIONS.md. What changed is that they no longer move a published figure by
+    // more than a few percent, so they are a wart rather than a load-bearing guess.
+    resetConfig();
+    const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
+    const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
+    ok(letdownMWh / p.eCycleMWh < 0.05,
+      `letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(1)}% of the cycle energy`);
+  });
 });

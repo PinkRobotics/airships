@@ -65,10 +65,10 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 | Payload | 100 t | 1,000 t | 10,000 t |
 | Cycle | 36.2 min | 38.9 min | 49.8 min |
 | Delivered | 166 t/h | 1,543 t/h | 12,052 t/h |
-| Descent anchor | not needed | 181 t | 2,323 t of lake water |
+| Descent anchor | 125 t | 1,250 t | 12,400 t of lake water |
 | Retained as ballast | 0 t | 0 t | 0 t |
-| Energy | 1.85 MWh/cycle | 12.2 MWh/cycle | 79.2 MWh/cycle |
-| Per tonne | 18 kWh/t | 12 kWh/t | 8 kWh/t |
+| Energy | 1.33 MWh/cycle | 7.2 MWh/cycle | 45.2 MWh/cycle |
+| Per tonne | 13 kWh/t | 7 kWh/t | 5 kWh/t |
 | Binding constraint | transit distance | transit distance | transit distance |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
@@ -136,11 +136,17 @@ When the tanks hold more than the shortfall, the bag is dumped back where it cam
 Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale nobody has built:
 commercial ones top out near 10 tonnes.
 
-Retention returns to zero and the whole load is delivered — 12,052 t/h — for 79.2 MWh. An earlier
-attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet the dense
-air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at the pod. A
-cable is a much better thing to hang than a pipe: 2,323 t is 22.8 MN, which is 195 mm of UHMWPE
-massing 25 t.
+Retention returns to zero and the whole load is delivered. Then the bag turned out to be worth far
+more than the shortfall it was built for. Rotor power goes as thrust^1.5, so moving load onto the
+lake pays superlinearly: sized to take 90% of the hold rather than the 8% the descent strictly
+needed, it cuts `downMW` from 1,748 to 52 MW and the P-10000's cycle from 79.2 to **45.2 MWh** —
+4.5 kWh per delivered tonne, against 7.6 before any of this. Every class carries one for that
+reason, including the P-100, whose descent closes on rotors alone and which still saves 28%.
+
+An earlier attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet
+the dense air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at
+the pod. A cable is a much better thing to hang than a pipe: 12,400 t is 122 MN, which is about
+440 mm of UHMWPE massing 125 t — and that rope is **not** charged as dry mass anywhere yet.
 
 **2. Two power models that disagree by 2.8×.** `planCycle` builds an energy budget from five terms
 and reports 90.2 MWh for the sampled P-10000 mission. Integrating `stateAt`'s per-system draw over
@@ -148,12 +154,13 @@ the same cycle gives 255.5 MWh. Both are shipped; the page shows the first as th
 figure and the second on the instruments. At least one is wrong and they cannot both be right, and
 fixing #1 widened the gap rather than closing it.
 
-**3. An unexplained window sets the largest energy term.** The letdown term is
-`E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60` in `sim/plan.js`. Neither the
-6-minute cap nor the 0.2 fraction has a stated justification, and that one line is 53% of the
-P-10000's published 88.2 MWh at 15 km. It has moved twice in a day, in both directions, on changes
-made elsewhere — which is the argument for the defect rather than against it. The cap starts to bind beyond about 55 km one way, after
-which the descent costs essentially the same energy however far the ship flew.
+**3. An unexplained window still has no derivation, but no longer decides anything.** The letdown
+term is `E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60` in `sim/plan.js`, and
+neither the 6-minute cap nor the 0.2 fraction has a stated justification. It used to be 45% of the
+P-10000's published cycle — an unexplained constant setting the headline number. The descent anchor
+did not explain it; it made it small, because rotor power goes as thrust^1.5 and the bag took the
+thrust away. It is now 1.4 MWh of 45.2, or 3.1%, and the test that tracked this defect has come off
+its known-failure marker. The constants are still unjustified and still worth deleting.
 
 Also, and in the same spirit:
 

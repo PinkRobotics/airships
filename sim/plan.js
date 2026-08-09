@@ -79,11 +79,15 @@ export function planCycle(cls, mode, oneWayKm, wind) {
    *    the shipped numbers and the code path is exercised by a test that removes the anchor. */
   const holdT = Math.max(0, ledLow.surplusT - ln2MakeT);      // total to hold down at the source
   const rotorCapT = rotorMaxT / 0.6;
-  // The anchor goes first and takes as much as its bag allows, leaving the rotors at 90% of
-  // their capability rather than at 100%. Ordering it the other way round — anchor picks up
-  // only what the rotors cannot — works too, and leaves the whole letdown running the bus flat
-  // out for no reason, because the lake is free and rotor thrust is not.
-  const anchorT = Math.min(cls.anchorBagT || 0, Math.max(0, holdT - 0.9 * rotorCapT));
+  // The anchor goes FIRST and takes everything its bag will hold. It is not a way of covering
+  // what the rotors cannot manage — it is the cheaper way of doing the job at all. Rotor power
+  // goes as thrust^1.5, so moving load onto the lake pays superlinearly, and the bags are sized
+  // to take about 90% of the hold. What is left is trim, not lift.
+  //
+  // The bag cannot exceed what the ship can pick up, which is its own surplus: a bag equal to
+  // the surplus leaves the hull neutral and it can lift no more than that. min() with holdT is
+  // that physical ceiling, not a safety factor.
+  const anchorT = Math.min(cls.anchorBagT || 0, holdT);
   const shortfallT = Math.max(0, holdT - anchorT - rotorCapT);   // what neither can hold
   const retainedT = Math.min(cls.payloadT, shortfallT);
   const deliveredT = cls.payloadT - retainedT;

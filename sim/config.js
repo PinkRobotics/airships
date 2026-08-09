@@ -181,11 +181,25 @@ export const VZ_MAX = 6;
  * P-10000 and 510 m for a P-1000, so the cable only has to reach the surface from there. 850
  * and 600 m with margin. The P-100 carries none — its descent closes with x1.94 headroom.
  *
- * `anchorBagT` is sized GENEROUSLY, and deliberately. The bare shortfall is 1,056 t on a
- * P-10000, and a bag that size leaves the rotors at 100% of their authority for the whole
- * letdown — which is not a margin, and costs power besides. Rotor thrust is expensive and the
- * lake is free, so the bag covers enough that the rotors work at no more than 90%: 2,400 t on
- * the P-10000, 200 t on the P-1000. The extra cable that buys is 195 mm and 25 t.
+ * `anchorBagT` IS SIZED TO DO THE WHOLE DESCENT, not to cover a shortfall, and that is where
+ * most of the value turned out to be. Rotor power goes as thrust^1.5, so taking load off the
+ * rotors pays superlinearly: the letdown is 45% of the P-10000's cycle energy, and a bag that
+ * carries 90% of the hold reduces it by 96%. Cycle energy falls 1.85 -> 1.20, 12.24 -> 7.20 and
+ * 79.24 -> 45.34 MWh. The bag is therefore 90% of what has to be held down at the source, with
+ * the rotors keeping the last 10% for control rather than for lift: 125 / 1,250 / 12,400 t.
+ *
+ * There is a natural ceiling on the bag and it is a pleasing one: the most water the ship can
+ * lift out of the lake is exactly its own surplus lift. A bag equal to the surplus leaves the
+ * hull neutral; anything more and it cannot pick it up. So the mechanism cannot be over-sized
+ * without the physics saying so.
+ *
+ * EVERY class carries one, including the P-100, whose descent closes on rotors alone. It is
+ * kept not because that class needs holding down but because a bucket is cheaper than thrust
+ * everywhere, and because a fleet that has built the technology should use it.
+ *
+ * The cable grows with the bag: 12,400 t is 122 MN, which is about 440 mm of UHMWPE massing
+ * 125 t. That is 1.25% of the P-10000's payload in rope, and it is NOT charged as dry mass
+ * anywhere in this model — one of the omissions listed in docs/OPEN-QUESTIONS.md.
  *
  * A cable is a far better thing to hang than a pipe. 1,056 t is 10.4 MN; in steel wire that is
  * a 163 mm rope massing 216 t, and in UHMWPE (Dyneema and kin) it is 128 mm and about 11 t.
@@ -198,21 +212,21 @@ export const VZ_MAX = 6;
 export const CLASSES = {  P100: {
     id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 190, diaM: 47,
     cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,
-    anchorM: 0, anchorBagT: 0,
+    anchorM: 350, anchorBagT: 125,
     genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarM2: 6000, diskM2: 2500, rotors: 4, ln2CapT: 155,
     minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: "Initial attack and small incidents close to water",
   },
   P1000: {
     id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 404, diaM: 102,
     cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,
-    anchorM: 600, anchorBagT: 200,
+    anchorM: 600, anchorBagT: 1250,
     genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarM2: 28000, diskM2: 12000, rotors: 6, ln2CapT: 1550,
     minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: "Sustained delivery on project fires and fires of note",
   },
   P10000: {
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 876, diaM: 219,
     cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
-    anchorM: 850, anchorBagT: 2400,
+    anchorM: 850, anchorBagT: 12400,
     // diskM2 and battMW are sized so the force balance closes with NOTHING held back:
     // after a full 10,000 t dump the hull is 11,051 t buoyant at its working altitude, and
     // 14 big discs on a battery-surge bus must push all of it back down to the water. Brute

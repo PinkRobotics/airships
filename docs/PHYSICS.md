@@ -399,18 +399,24 @@ air:
 
 | Term | Equation | MWh | share | pre-resize | resize only |
 |---|---|---:|---:|---:|---:|
-| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 35.930 | 45.3% | 43.619 |
-| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 18.6% | 14.608 |
-| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 16.3% | 11.650 |
-| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 11.9% | 8.289 |
-| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 6.149 | 7.8% | 4.332 |
-| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.112 | 0.1% | — |
-| **total** | | **79.243** | | 82.498 |
+| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 32.5% | 14.608 |
+| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 28.5% | 11.650 |
+| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 20.9% | 8.289 |
+| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 6.149 | 13.6% | 4.332 |
+| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 1.420 | 3.1% | 43.619 |
+| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.596 | 1.3% | — |
+| **total** | | **45.218** | | 82.498 |
 
-The right-hand column is the same budget before any of the 2026-08-09 corrections. The total
-fell 4%, and the interesting line is the one that costs almost nothing: `E.anchor`, 0.112 MWh,
-is the entire price of getting a 22,000 t buoyant hull back down to the water. It lifts 2,323 t
-of lake water the 15 m needed to break the surface and the lake does the rest.
+The right-hand column is the same budget before any of the 2026-08-09 corrections, and the
+total fell **45%**. The two bottom rows are the whole story: `E.anchor` spends 0.596 MWh lifting
+12,400 t of lake water the 15 m it takes to break the surface, and that purchase removes
+34.5 MWh of rotor work. Fifty-eight to one.
+
+The leverage is in the exponent. Rotor power goes as thrust^1.5 (§4), so load taken off the
+rotors comes off faster than linearly: moving 90% of the hold onto the bag drops `downMW` from
+1,748 MW to 52. This is why the bag is sized to do the whole descent rather than to cover the
+1,056 t the rotors could not manage — the shortfall was the problem that revealed the mechanism,
+not the limit of what it is worth.
 
 For contrast, the two alternatives that were costed and rejected. Making the same ballast as
 liquid nitrogen is 0.45 MWh per tonne — **475 MWh**, five times the whole cycle, or 5.8× the
@@ -426,9 +432,9 @@ enough to change the conclusion drawn from the next table.
 
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
-| P-100 | 1.20 MW | 0.72 MWh | 1.85 MWh | 1.12 MWh |
-| P-1000 | 5.60 MW | 3.63 MWh | 12.24 MWh | 8.61 MWh |
-| P-10000 | 24.00 MW | 19.91 MWh | 79.24 MWh | 59.33 MWh |
+| P-100 | 1.20 MW | 0.72 MWh | 1.33 MWh | 0.60 MWh |
+| P-1000 | 5.60 MW | 3.63 MWh | 7.25 MWh | 3.62 MWh |
+| P-10000 | 24.00 MW | 19.91 MWh | 45.22 MWh | 25.30 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
@@ -576,7 +582,7 @@ understated 7%. That belongs to Defect 2, and it is pinned by a test so it canno
 
 ### Defect 2 — two disagreeing power models
 
-`planCycle` publishes 79.243 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
+`planCycle` publishes 45.218 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
 the same function says 90.18 MWh while integrating the per-system draws that `stateAt`
 reports over that cycle gives 255.45 MWh — 2.83 times as much. The ratio is 1.23× for the
 P-100 and 1.81× for the P-1000. All three widened with the 2026-08-09 resize (from 1.14,
@@ -706,7 +712,7 @@ and flown as though they were switched off.
 
 The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.827 h, so the
 generators at full output would make **124.5 MWh** against a published cycle spend of
-79.24 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+45.22 MWh. They would cover the cycle before solar was counted. Generators do not run flat
 out, so the defensible figure is demand-following output capped at `genMW`; measured that
 way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
 than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per
