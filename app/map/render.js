@@ -183,7 +183,12 @@ export function draw() {
       ctx.strokeStyle = COL.newf; ctx.lineWidth = 1.4;   // live data never wears the fleet's pink
       ctx.beginPath(); ctx.arc(p[0], p[1], r + 3.5, 0, 7); ctx.stroke();
     }
-    if (S.sel && S.sel.type === "fire" && S.sel.m.fire === f) {
+    // A fire with no ship assigned is selectable — the top-eight table lists fires that
+    // are waiting for a hull — so `S.sel.m` is legitimately null here. Reading through
+    // it threw inside draw(), and because the next frame is requested after draw()
+    // returns, that one click stopped the map, the clock, the instruments and the
+    // energy ledger for the rest of the session.
+    if (S.sel && S.sel.type === "fire" && (S.sel.f || (S.sel.m && S.sel.m.fire)) === f) {
       ctx.strokeStyle = "#eceef2"; ctx.lineWidth = 1.2;
       ctx.beginPath(); ctx.arc(p[0], p[1], r + 6, 0, 7); ctx.stroke();
     }
