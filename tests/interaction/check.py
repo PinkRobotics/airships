@@ -384,7 +384,11 @@ async def drive(url: str, settle: int, verbose: bool) -> int:
     import websockets                       # imported late, as tools/js_eval.py does
 
     port = free_port()
-    with tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None) as tmp:
+    # ignore_cleanup_errors for the same reason tools/js_eval.py has it: Chromium's children
+    # outlive the process we kill and can still be writing into the profile when the directory
+    # is removed, which failed a CI run whose actual work had already succeeded.
+    with tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None,
+                                     ignore_cleanup_errors=True) as tmp:
         # A profile of its own: a browser sharing the default one with another headless run
         # refuses to start, and a fresh profile is also what makes the run reproducible —
         # empty localStorage means the first-visit overlay and the default map/model split.

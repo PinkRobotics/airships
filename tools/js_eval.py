@@ -2,7 +2,7 @@
 """Load a URL headless, evaluate a JS file, write the full result to disk.
 Usage: evaljs.py URL SCRIPT.js OUT [WAIT_S]"""
 import os
-import asyncio, json, socket, subprocess, sys, tempfile, time, urllib.request, pathlib
+import asyncio, json, signal, socket, subprocess, sys, tempfile, time, urllib.request, pathlib
 
 def chrome_flags():
     """Extra Chromium flags this environment needs.
@@ -38,7 +38,13 @@ WAIT = float(sys.argv[4]) if len(sys.argv) > 4 else 14
 JS = pathlib.Path(JSFILE).read_text()
 
 PORT = free_port()
-TMP = tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None)
+# ignore_cleanup_errors, because the profile is disposable and the run is already over by the
+# time it is removed. Chromium's zygote and renderer children outlive the browser process we
+# kill and keep writing into the profile for a moment afterwards, so a strict rmtree loses a
+# race — and lost it on CI, raising "Directory not empty" AFTER the dump had been written
+# successfully and turning a green run red. Cleanup must never be able to fail the work.
+TMP = tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None,
+                                  ignore_cleanup_errors=True)
 # Chromium's own stderr, kept rather than discarded. When the browser fails to start —
 # which is what a CI runner does, and what a developer's machine almost never does — the
 # reason is printed here and nowhere else.
@@ -56,7 +62,9 @@ proc = subprocess.Popen([
     f"--user-data-dir={TMP.name}/profile",
     "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
     "--window-size=1600,1000", "about:blank",
-], stdout=subprocess.DEVNULL, stderr=_log)
+# Its own session, so the browser and every process it forks can be killed as one group.
+# Killing the parent alone leaves the zygote and renderers running.
+], stdout=subprocess.DEVNULL, stderr=_log, start_new_session=True)
 
 async def main():
     ws_url = None
@@ -108,5 +116,7 @@ async def main():
 
 try: asyncio.run(main())
 finally:
-    proc.kill(); proc.wait()
+    try: os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+    except (ProcessLookupError, PermissionError): proc.kill()
+    proc.wait()
     _log.close(); TMP.cleanup()
