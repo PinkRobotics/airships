@@ -403,6 +403,9 @@ does not mark them.
 
 ## 11. Known defects
 
+Each is quantified below and each has an entry in
+[OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) giving the options and a recommendation.
+
 Open, tracked, and being fixed in separate commits. They are stated here with numbers
 because the alternative — publishing the figures and letting a reader find these — would be
 worse than useless.

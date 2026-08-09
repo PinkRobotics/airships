@@ -97,6 +97,11 @@ recorded from. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to reproduce and d
 
 ## Known defects
 
+Each has a test that fails on purpose, and a decision written up in
+[docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) — what it costs, the options, and a
+recommendation. They are open because fixing them means choosing what the vehicle is,
+not just correcting a line.
+
 These were found by audit and are open and tracked. They are listed here rather than fixed
 quietly because a model that hides its faults is worth less than one that publishes them.
 
