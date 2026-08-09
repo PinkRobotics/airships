@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=3342b874';
-import { anchorAt, phaseShape } from '../anim/mission.js?v=3342b874';
-import { massState } from '../physics/mass.js?v=3342b874';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=3342b874';
-import { clamp01 } from '../core/math.js?v=3342b874';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=0607294e';
+import { anchorAt, phaseShape } from '../anim/mission.js?v=0607294e';
+import { massState } from '../physics/mass.js?v=0607294e';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=0607294e';
+import { clamp01 } from '../core/math.js?v=0607294e';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -118,7 +118,8 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
   // cannot hold the hull down (sim/plan.js anchorFromAglM, sim/state.js holdAgl) and flies the
   // rest of the way down during the slow approach, which is the only part of the cycle where
   // dipping a bag is a thing a ship could do.
-  const air = anchorAt(cls, Math.max(0, hostState.alt || 0), anchorFull);
+  const air = anchorAt(cls, Math.max(0, hostState.alt || 0), anchorFull,
+    (hostState.gs || 0) / 3.6);          // the monitor's ground speed is km/h
   let anchorProgress = air.anchorProgress, anchorFill = air.anchorFill, overWater = false;
   if (phase === 'SOURCE_APPROACH') {
     overWater = true;

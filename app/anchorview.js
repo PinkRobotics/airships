@@ -24,7 +24,7 @@ const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
  * @param {number} fullF what a full bag means for this mission — plan.anchorT over the bag
  * @returns {{cableP: number, fillF: number}} cable payout and bag fill, both 0..1
  */
-export function anchorView(cls, altM, phase, prog, fullF) {
+export function anchorView(cls, altM, phase, prog, fullF, gsKph = 0) {
   const cable = cls.anchorM || 0;
   if (cable <= 0) return { cableP: 0, fillF: 0 };
 
@@ -49,6 +49,9 @@ export function anchorView(cls, altM, phase, prog, fullF) {
   const overLake = phase === "SOURCE_APPROACH"
     || (phase === "RETURN_TRANSIT" && prog > 0.94);
   if (!overLake) return { cableP: 0, fillF: 0 };
+  // NOT WHILE MOVING — the same 2 m/s gate the model applies. A bag dipped at speed is the
+  // objection that put the stop into the flight profile in the first place.
+  if (gsKph / 3.6 > 2) return { cableP: 0, fillF: 0 };
   const reachAlt = Math.max(0, cable - cls.diaM / 2);
   if (altM > reachAlt + cable * 0.25) return { cableP: 0, fillF: 0 };
   return {

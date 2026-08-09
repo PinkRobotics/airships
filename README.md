@@ -63,12 +63,12 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 | | P-100 | P-1000 | P-10000 |
 |---|---|---|---|
 | Payload | 100 t | 1,000 t | 10,000 t |
-| Cycle | 36.2 min | 38.9 min | 49.8 min |
-| Delivered | 166 t/h | 1,543 t/h | 12,052 t/h |
+| Cycle | 34.2 min | 35.4 min | 45.5 min |
+| Delivered | 175 t/h | 1,697 t/h | 13,183 t/h |
 | Descent anchor | 125 t | 1,250 t | 12,400 t of lake water |
 | Retained as ballast | 0 t | 0 t | 0 t |
-| Energy | 1.33 MWh/cycle | 7.2 MWh/cycle | 45.2 MWh/cycle |
-| Per tonne | 13 kWh/t | 7 kWh/t | 5 kWh/t |
+| Energy | 1.31 MWh/cycle | 7.0 MWh/cycle | 43.0 MWh/cycle |
+| Per tonne | 13 kWh/t | 7 kWh/t | 4 kWh/t |
 | Binding constraint | transit distance | transit distance | transit distance |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
@@ -141,8 +141,16 @@ Retention returns to zero and the whole load is delivered. Then the bag turned o
 more than the shortfall it was built for. Rotor power goes as thrust^1.5, so moving load onto the
 lake pays superlinearly: sized to take 90% of the hold rather than the 8% the descent strictly
 needed, it cuts `downMW` from 1,748 to 52 MW and the P-10000's cycle from 79.2 to **45.2 MWh** —
-4.5 kWh per delivered tonne, against 7.6 before any of this. Every class carries one for that
-reason, including the P-100, whose descent closes on rotors alone and which still saves 28%.
+4.3 kWh per delivered tonne, against 7.6 before any of this. Every class carries one for that
+reason, including the P-100, whose descent closes on rotors alone and which still saves 29%.
+
+Two changes to how the cycle is flown followed from looking at the animation. The drop is **one
+run, flown slowly** rather than three passes over the same line — every turn was an 876 m hull
+reversing over the fire it was dropping on, the water lands on the same line either way, and the
+turns were 4.3 minutes of pure overhead. And the approach now comes to a **dead stop before it
+descends**: a bag of several thousand tonnes cannot be dipped from a ship still making 30 km/h.
+Nothing yaws while there is line in the water, so the turn onto the outbound track waits until the
+pod is clear.
 
 An earlier attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet
 the dense air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at

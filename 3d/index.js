@@ -20,63 +20,63 @@ export const VERSION = '1.0.0';
 
 /* ---- the components ------------------------------------------------------------------------- */
 export { createViewer, createViewer as AirshipModelViewer, autoQuality, prefersReducedMotion }
-  from './scenes/viewer.js?v=3342b874';
+  from './scenes/viewer.js?v=0607294e';
 export {
   AirshipCutaway, AirshipMissionCycle, AirshipControlAuthority, AirshipScaleComparison,
   AirshipFailureExplorer, AirshipTrajectoryExplorer, AirshipMapModel, AirshipStaticFigure,
   componentPanel,
-} from './scenes/scenes.js?v=3342b874';
-export { AirshipHUD } from './scenes/hud.js?v=3342b874';
+} from './scenes/scenes.js?v=0607294e';
+export { AirshipHUD } from './scenes/hud.js?v=0607294e';
 
 /* ---- the model ------------------------------------------------------------------------------ */
 export {
   resolveClass, classes, validateClass, CLASS_IDS, ASSUMPTIONS, setAssumptions,
   HULL_DEFAULT, profileR, sectionScale, hullVolume, radiusForVolume,
-} from './model/config.js?v=3342b874';
-export { build, buildAll, buildVacuumFill, instanceById, setInstance } from './model/build.js?v=3342b874';
-export { buildMetadata, checkMetadata, MASS_SHARE } from './model/metadata.js?v=3342b874';
-export { proxyField, dataField, proxyDeflection } from './model/density.js?v=3342b874';
-export { buildLayout } from './model/layout.js?v=3342b874';
-export { TIERS } from './model/structure.js?v=3342b874';
+} from './model/config.js?v=0607294e';
+export { build, buildAll, buildVacuumFill, instanceById, setInstance } from './model/build.js?v=0607294e';
+export { buildMetadata, checkMetadata, MASS_SHARE } from './model/metadata.js?v=0607294e';
+export { proxyField, dataField, proxyDeflection } from './model/density.js?v=0607294e';
+export { buildLayout } from './model/layout.js?v=0607294e';
+export { TIERS } from './model/structure.js?v=0607294e';
 
 /* ---- state and physics ------------------------------------------------------------------------ */
 export {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, OFF_CYCLE_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from './physics/state.js?v=3342b874';
-export { massState, forceSet, aeroForce, inertia, angularAccelDegS2, RHO_LN2 } from './physics/mass.js?v=3342b874';
-export { energyFlows, derivePower, ln2Ledger, pumpPowerMW, CRYO_SEQUENCE } from './physics/energy.js?v=3342b874';
+} from './physics/state.js?v=0607294e';
+export { massState, forceSet, aeroForce, inertia, angularAccelDegS2, RHO_LN2 } from './physics/mass.js?v=0607294e';
+export { energyFlows, derivePower, ln2Ledger, pumpPowerMW, CRYO_SEQUENCE } from './physics/energy.js?v=0607294e';
 
 /* ---- control ------------------------------------------------------------------------------------ */
-export { buildActuators, idealDiscThrust, idealDiscPower, totalThrustN } from './control/actuators.js?v=3342b874';
-export { allocate, clampToEnvelope, demoWrench, WRENCH_LABELS, solve6 } from './control/allocator.js?v=3342b874';
+export { buildActuators, idealDiscThrust, idealDiscPower, totalThrustN } from './control/actuators.js?v=0607294e';
+export { allocate, clampToEnvelope, demoWrench, WRENCH_LABELS, solve6 } from './control/allocator.js?v=0607294e';
 
 /* ---- animation ------------------------------------------------------------------------------------ */
 export {
   demoState, phaseDurations, phaseTimeline, phaseAt, phaseShape, anchorAt, stepPhase, MODES, ALT,
-} from './anim/mission.js?v=3342b874';
-export { CLIPS, CLIP_BY_ID, CLIP_GROUPS, MASTER_SEQUENCE, resolveClip } from './anim/clips.js?v=3342b874';
-export { createDriver, updateDriver, clearFailures, verticalDuty } from './anim/driver.js?v=3342b874';
-export { createHose, updateHose, hoseCurve, podDepthM } from './anim/hose.js?v=3342b874';
+} from './anim/mission.js?v=0607294e';
+export { CLIPS, CLIP_BY_ID, CLIP_GROUPS, MASTER_SEQUENCE, resolveClip } from './anim/clips.js?v=0607294e';
+export { createDriver, updateDriver, clearFailures, verticalDuty } from './anim/driver.js?v=0607294e';
+export { createHose, updateHose, hoseCurve, podDepthM } from './anim/hose.js?v=0607294e';
 
 /* ---- rendering ------------------------------------------------------------------------------------- */
-export { VIEW_MODES, VIEW_LABELS, viewStyle, capGeom } from './render/views.js?v=3342b874';
-export { PRESETS, PRESET_IDS, createCamera, goToPreset } from './render/camera.js?v=3342b874';
-export { TOKENS, CATEGORY_TONE, CLAIM_TONE, MATERIALS, STATE_TONE } from './render/palette.js?v=3342b874';
-export { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from './render/svg.js?v=3342b874';
-export { isWebGL2Available } from './render/gl.js?v=3342b874';
-export { CSS as STYLES, injectStyles } from './render/styles.js?v=3342b874';
-export { CATEGORIES } from './core/nodes.js?v=3342b874';
+export { VIEW_MODES, VIEW_LABELS, viewStyle, capGeom } from './render/views.js?v=0607294e';
+export { PRESETS, PRESET_IDS, createCamera, goToPreset } from './render/camera.js?v=0607294e';
+export { TOKENS, CATEGORY_TONE, CLAIM_TONE, MATERIALS, STATE_TONE } from './render/palette.js?v=0607294e';
+export { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from './render/svg.js?v=0607294e';
+export { isWebGL2Available } from './render/gl.js?v=0607294e';
+export { CSS as STYLES, injectStyles } from './render/styles.js?v=0607294e';
+export { CATEGORIES } from './core/nodes.js?v=0607294e';
 
 /* ---- integration -------------------------------------------------------------------------------------- */
 export {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS, CLASS_MAP,
-} from './adapter/fable.js?v=3342b874';
+} from './adapter/fable.js?v=0607294e';
 
-import { createViewer } from './scenes/viewer.js?v=3342b874';
-import { adaptMission, adoptAssumptions } from './adapter/fable.js?v=3342b874';
-import { sanitizeState } from './physics/state.js?v=3342b874';
+import { createViewer } from './scenes/viewer.js?v=0607294e';
+import { adaptMission, adoptAssumptions } from './adapter/fable.js?v=0607294e';
+import { sanitizeState } from './physics/state.js?v=0607294e';
 
 /**
  * Mount a viewer. The one call most hosts need.

@@ -4,8 +4,8 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=0c6ff005';
-import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=0c6ff005';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=f3b90158';
+import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=f3b90158';
 
 export function planCycle(cls, mode, oneWayKm, wind) {
   // Airspeed is the vehicle's; ground speed belongs to the day. When a live 850 hPa wind is
@@ -119,10 +119,23 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   // fill that finishes before the winch does is not a fill waiting on a winch.
   const anchorMin = (cls.anchorM || 0) / 5 / 60;
   dur.SOURCE_APPROACH = Math.max(dur.SOURCE_APPROACH, anchorMin);
-  const lineMin = dur.WATER_RELEASE;
-  let passes = Math.max(1, Math.ceil(deliveredT / fill / 60 / lineMin));
-  if (passes % 2 === 0) passes += 1;
-  dur.WATER_RELEASE = lineMin * passes;
+  /* ONE RUN, FLOWN SLOWLY — not repeated passes over the same line.
+   *
+   * The dump is metered like the fill: sprayers lay water along a line, they do not blow the
+   * tanks. That takes `deliveredT / fill` however it is flown, and the question is only whether
+   * the ship covers the line once in that time or shuttles over it.
+   *
+   * It used to shuttle: three passes for a P-10000, an odd count so the run still ended at the
+   * far end. Every turn is an 876 m hull reversing over a fire it is dropping on, which is the
+   * least plausible manoeuvre in the cycle and buys nothing — the water lands on the same line
+   * either way. So the pass count is 1 and the ship simply flies slower: 10,000 t along a 4 km
+   * line takes 11 minutes, which is about 22 km/h. A crawl, and a crawl is what a machine laying
+   * water deliberately should look like.
+   *
+   * The line itself is unchanged, and it is not free to grow: dropSeg() shrinks it until both
+   * ends are inside the fire, so a longer run would have to be a bigger fire. */
+  const passes = 1;
+  dur.WATER_RELEASE = Math.max(dur.WATER_RELEASE, deliveredT / fill / 60);
   const resid = Math.max(0, holdT - anchorT - retainedT);   // what the rotors actually push
   const downMW = diskMW(cls, resid * 1000 * 9.81 * 0.6);   // ≤ bus by construction now
   const battLimited = downMW > (cls.battMW + cls.genMW) * 0.92;

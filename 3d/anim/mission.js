@@ -17,14 +17,17 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=3342b874';
-import { massState } from '../physics/mass.js?v=3342b874';
-import { derivePower } from '../physics/energy.js?v=3342b874';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=3342b874';
-import { ASSUMPTIONS } from '../model/config.js?v=3342b874';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=0607294e';
+import { massState } from '../physics/mass.js?v=0607294e';
+import { derivePower } from '../physics/energy.js?v=0607294e';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=0607294e';
+import { ASSUMPTIONS } from '../model/config.js?v=0607294e';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
+
+/** Fastest the hull may be moving with the bag in the water, m/s. 2 m/s is 7 km/h. */
+export const ANCHOR_MAX_DIP_MPS = 2;
 
 export const MODES = {
   rapid: { id: 'rapid', label: 'Rapid response', speed: 1.15, hose: 0.85, climb: 1.4, cryoShare: 0.4, fixed: 0.8 },
@@ -103,9 +106,15 @@ export function phaseAt(timeline, u) {
  * @param {number} altitudeM  the hull's height above the water
  * @param {number} [full]     the fill this mission's descent needs, as a fraction of the bag
  */
-export function anchorAt(cls, altitudeM, full = 1) {
+export function anchorAt(cls, altitudeM, full = 1, groundSpeedMps = 0) {
   const cable = cls.anchorCableM || 0;
   if (cable <= 0) return { anchorProgress: 0, anchorFill: 0 };
+  // NOT WHILE MOVING. A bag of several thousand tonnes dipped at 20 km/h is a bad time and at
+  // 40 it is an unsurvivable one, so the cable does not leave the winch until the ship is
+  // station-keeping. 2 m/s is 7 km/h — drift, not travel. The flight profile now brakes to a
+  // stop before it descends into the band that needs the anchor (sim/state.js), so this gate
+  // is a guard on the choreography rather than the thing that shapes it.
+  if (groundSpeedMps > ANCHOR_MAX_DIP_MPS) return { anchorProgress: 0, anchorFill: 0 };
   // The PUBLISHED diameter, not the derived maxRadiusM: app/anchorview.js has to compute the
   // same altitude from the monitor's class record, and the monitor publishes a diameter. The two
   // differ by half a metre — enough to put the bag's fill a percent apart between the model and
@@ -146,7 +155,8 @@ export function phaseShape(cls, phase, prog, opts = {}) {
     case 'SOURCE_APPROACH':
       s.altitudeM = lerp(ALT.source + 150, ALT.source, smoothstep(p));
       s.overWater = true;
-      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
+      Object.assign(s, anchorAt(cls, s.altitudeM,
+        opts.anchorFull === undefined ? 1 : opts.anchorFull, s.airspeedMps || 0));
       s.airspeedMps = lerp(cruise * 0.35, 2, p);
       s.verticalSpeedMps = -2.0 * (1 - p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
@@ -160,7 +170,8 @@ export function phaseShape(cls, phase, prog, opts = {}) {
     case 'HOSE_DEPLOY':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
       s.overWater = true;
-      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
+      Object.assign(s, anchorAt(cls, s.altitudeM,
+        opts.anchorFull === undefined ? 1 : opts.anchorFull, s.airspeedMps || 0));
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
       s.hoseProgress = smoothstep(p);
       break;
@@ -225,19 +236,26 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.altitudeM = ALT.cruise; s.airspeedMps = cruise * 0.9; s.verticalSpeedMps = 0;
       s.waterFraction = 0; s.ln2Fraction = lerp(ln2Low, ln2Target, p);   // the plant tops it back up
       break;
-    case 'CONTROLLED_DESCENT':
-      s.altitudeM = lerp(ALT.cruise, ALT.source, smoothstep(p));
+    case 'CONTROLLED_DESCENT': {
+      // Brake first, then come down — the same order the monitor's own profile flies, and for
+      // the same reason: the anchor cannot go in the water until the ship has stopped.
+      const brake = smoothstep(Math.min(1, p / 0.40));
+      const sink = smoothstep(Math.max(0, (p - 0.40) / 0.60));
+      s.altitudeM = lerp(ALT.cruise, ALT.source, sink);
+      s.airspeedMps = lerp(cruise * 0.9, 0, brake);
+      s.verticalSpeedMps = -3.5 * Math.sin(Math.PI * sink);
       // THE ANCHOR'S PHASE. The hull comes down on rotors while the air is thin; the cable goes
-      // out as the water comes within reach of it, the bag dips, fills, and is winched clear.
-      // From there the lake does the holding and the rotors only trim. Derived from the altitude
-      // the line above just set, so the rope can never be paid out into open air.
+      // out once the water is within reach AND the ship has stopped, the bag dips, fills, and is
+      // winched clear. From there the lake does the holding and the rotors only trim. Derived
+      // from the altitude and the speed the two lines above just set — in that order, because
+      // reading them before they are written asks the anchor about the previous frame.
       s.overWater = true;
-      Object.assign(s, anchorAt(cls, s.altitudeM, opts.anchorFull === undefined ? 1 : opts.anchorFull));
-      s.airspeedMps = lerp(cruise * 0.9, cruise * 0.35, p);
-      s.verticalSpeedMps = -3.5 * Math.sin(Math.PI * p);
+      Object.assign(s, anchorAt(cls, s.altitudeM,
+        opts.anchorFull === undefined ? 1 : opts.anchorFull, s.airspeedMps));
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
       s.attitude = { rollRad: 0, pitchRad: -0.020, yawRad: 0 };
       break;
+    }
 
     /* --- off-cycle states ------------------------------------------------------------------- */
     case 'SAFE_DRIFT':

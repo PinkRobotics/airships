@@ -13,8 +13,8 @@
  * comment that says they match.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=0c6ff005';
-import { anchorView } from '../../app/anchorview.js?v=0c6ff005';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=f3b90158';
+import { anchorView } from '../../app/anchorview.js?v=f3b90158';
 import { fromMonitorState } from '../../3d/adapter/fable.js';
 import { resolveClass } from '../../3d/model/config.js';
 
@@ -38,10 +38,11 @@ describe('the anchor reads the same in the model and in the avatar', () => {
       let checked = 0;
       for (const phase of PHASES) {
         for (const prog of [0.02, 0.1, 0.17, 0.3, 0.5, 0.8, 0.96, 0.99]) {
-          for (let alt = 1200; alt >= 0; alt -= 60) {
+          for (const gs of [0, 1.5, 8, 40]) for (let alt = 1200; alt >= 0; alt -= 120) {
             const model = fromMonitorState(
-              { phase, prog, alt, water: 0, ln2: 0, draw: {} }, host, viz, { anchorT: host.anchorBagT });
-            const avatar = anchorView(host, alt, phase, prog, 1);
+              { phase, prog, alt, gs, water: 0, ln2: 0, draw: {} }, host, viz,
+              { anchorT: host.anchorBagT });
+            const avatar = anchorView(host, alt, phase, prog, 1, gs);
             eq(avatar.cableP, model.anchorProgress,
               `${id} ${phase} @${prog} @${alt} m: cable out`);
             close(avatar.fillF, model.anchorFill, 1e-9,

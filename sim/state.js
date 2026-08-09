@@ -4,10 +4,10 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=0c6ff005';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=0c6ff005';
-import { diskMW, ledger, pumpMW } from './physics.js?v=0c6ff005';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=0c6ff005';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=f3b90158';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=f3b90158';
+import { diskMW, ledger, pumpMW } from './physics.js?v=f3b90158';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=f3b90158';
 
 export function stateAt(m, tRaw) {
   if (m.idle) return { phase: "NO_SUITABLE_SOURCE", label: "idle — no suitable mapped source", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1 };
@@ -74,9 +74,19 @@ export function stateAt(m, tRaw) {
       // THIS cycle's geometry gave the approach a different arc from the one the ship was on,
       // so the hull jumped and swung through the seam — a phase change that looked like a
       // manoeuvre when all that really happens here is the hose starting to pay out.
-      if (m.segs && cycN > 1) B(...arrivalCurve(m, cycN), 0.96 + sm * 0.04);
+      /* ARRIVE, STOP, THEN GO DOWN — in that order, and the order is the point.
+       *
+       * This used to fly the last of the arrival curve and the whole descent at the same time,
+       * so the ship was still making 30-odd km/h as it sank into the band where the anchor has
+       * to be in the water. Dipping several thousand tonnes of bag at that speed is a bad time
+       * at 20 km/h and an unsurvivable one at 40. The ship now closes the last of the track and
+       * comes to a dead stop in the first 30% of the approach, and only then lets itself down,
+       * hovering, onto the lake. */
+      const arrive = easeSm(Math.min(1, prog / 0.30));
+      const sink = easeSm(Math.max(0, (prog - 0.30) / 0.70));
+      if (m.segs && cycN > 1) B(...arrivalCurve(m, cycN), 0.96 + 0.04 * arrive);
       else ll = ikN.slice();
-      alt = srcAlt + (holdAgl - srcAlt) * (1 - sm);
+      alt = holdAgl - (holdAgl - srcAlt) * sink;
       ln2 = plan.ln2MakeT * (1 - prog * 0.3);
       sub = "hose paying out";
       water = plan.retainedT;
@@ -85,14 +95,19 @@ export function stateAt(m, tRaw) {
     }
     case "WATER_FILL": {
       ll = ikN.slice(); alt = srcAlt;
-      // HEADING THROUGH THE HOLD. A station-keeping ship has no track to take a bearing from,
-      // and leaving it at the default sent the hull snapping to due north on the way into the
-      // fill and snapping again on the way out — the worst seam on the page. It holds the
-      // heading it arrived on, then turns onto the departure heading over the last third of
-      // the fill, so the outbound leg begins already pointing where it is going.
-      const bIn = bezBearing(...arrivalCurve(m, cycN), 1, ll[1]);
-      const bOut = bezBearing(ikN, cO, sA, 0, ll[1]);
-      bearing = lerpAng(bIn, bOut, easeSm(Math.max(0, (prog - 0.65) / 0.35)));
+      /* HEADING THROUGH THE HOLD: IT DOES NOT TURN.
+       *
+       * A station-keeping ship has no track to take a bearing from, and leaving it at the
+       * default sent the hull snapping to due north going in and again coming out — the worst
+       * seam on the page. It used to fix that by turning onto the departure heading over the
+       * last third of the fill, which solved the seam and created something worse: an 876 m
+       * hull yawing with a hose, a pump pod and an anchor cable all hanging in the water under
+       * it. That is how you tangle lines.
+       *
+       * So it holds the heading it arrived on for the whole fill, and the turn onto the
+       * departure track happens at the start of the outbound leg, once the pod is clear of the
+       * surface. See OUTBOUND_TRANSIT. */
+      bearing = bezBearing(...arrivalCurve(m, cycN), 1, ll[1]);
       water = plan.retainedT + plan.deliveredT * prog;
       ln2 = plan.ln2MakeT * 0.7 * (1 - prog);
       draw.pumps = plan.pumpMW;
@@ -104,6 +119,14 @@ export function stateAt(m, tRaw) {
     }
     case "OUTBOUND_TRANSIT": {
       B(ikN, cO, sA, tz);
+      /* THE TURN LIVES HERE NOW, not in the fill. The ship leaves on the heading it filled on,
+       * holds it while the pod comes up through the last of the water — a few seconds of winch
+       * — and only then swings onto the outbound track. Nothing rotates while there is line in
+       * the lake. */
+      if (prog < 0.20) {
+        const bHold = bezBearing(...arrivalCurve(m, cycN), 1, ll[1]);
+        bearing = lerpAng(bHold, bearing, easeSm(Math.max(0, (prog - 0.04) / 0.16)));
+      }
       alt = tz < 0.3 ? srcAlt + (altTop - srcAlt) * easeSm(tz / 0.3)
           : tz > 0.75 ? altTop - (altTop - ALT.drop) * easeSm((tz - 0.75) / 0.25)
           : altTop;
@@ -236,8 +259,9 @@ export function stateAt(m, tRaw) {
   const weightN = massT * 1000 * 9.81;
   // Instantaneous ground speed, km/h — the dial's needle, not the plan's out/back averages.
   // Phase SEAMS carry speed across: the outbound ends at the drop-run speed, the return ends
-  // at the approach's entry speed, the escape hands off to the return — nothing except the
-  // fill (a true station-hold) passes through zero.
+  // at the approach's entry speed, the escape hands off to the return. Two phases pass through
+  // zero and both do it on purpose — the fill is a station-hold, and the approach stops before
+  // it lets itself down so the anchor can go in the water.
   let gs = 0;
   const vRun = cls.dropKm * (plan.passes || 1) / Math.max(0.05, plan.dur.WATER_RELEASE) * 60;
   const vApp = Math.max(6, plan.gsOut * 0.3);
@@ -261,7 +285,9 @@ export function stateAt(m, tRaw) {
     const pff = kk - Math.floor(kk);
     gs = vRun * 6 * pff * (1 - pff);
   } else if (id === "BUOYANCY_ESCAPE") gs = vEsc * Math.pow(prog, 1.5);
-  else if (id === "SOURCE_APPROACH") gs = Math.max(2, vApp * (1 - sm));
+  // The approach now brakes to a genuine stop in its first 30% and holds it: the descent onto
+  // the lake is flown hovering, because that is the only speed at which a bag can be dipped.
+  else if (id === "SOURCE_APPROACH") gs = vApp * (1 - easeSm(Math.min(1, prog / 0.30)));
   // Generation: the solar skin, plus the nitrogen store handing energy back while ballast
   // converts to water during the fill. That is ALL a hull generates — the bus otherwise
   // spends storage, and every cycle runs a deficit until an energy import chain exists.

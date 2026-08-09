@@ -234,10 +234,16 @@ ceiling from what the shorter leg can reach at 30% of `VZ_MAX`:
 so 1,500 m is only reached when the shorter transit leg exceeds 11.1 minutes. A P-10000
 working a fire 15 km from its lake tops out at 1,180 m above ground.
 
-For the P-10000 at 15 km, balanced, still air, the cycle is 49.59 minutes: 5.0 approach,
-9.9 fill, 8.1 out, 15.4 release (3 passes), 2.0 escape, 9.1 return. It delivers 8,944 of the
-10,000 t it lifts — the other 1,056 t stays aboard as descent ballast — which is 10,821 t/h
-to that fire, 1.21 drops per hour.
+For the P-10000 at 15 km, balanced, still air, the cycle is 45.51 minutes: 5.0 approach,
+11.1 fill, 8.1 out, 11.1 release, 2.0 escape, 8.1 return. It delivers the whole 10,000 t —
+the descent anchor means nothing is kept back as ballast — which is 13,183 t/h to that fire,
+1.32 drops per hour.
+
+The release is ONE pass, flown at about 27 km/h. It used to be three passes over the same
+line at drop speed, 15.4 minutes for 11.1 minutes of water: the extra 4.3 minutes were
+turnarounds, an 876 m hull reversing over the fire it was dropping on, and the water lands on
+the same line either way. The line itself cannot simply grow — `dropSeg()` shrinks it until
+both ends are inside the fire — so the run is long in TIME rather than in distance.
 
 Two corrections on 2026-08-09 moved this, in opposite directions. The resize took it from
 50.76 minutes and 11,820 t/h to 49.79 and 12,052: honest density cut the surplus the rotors
@@ -432,9 +438,9 @@ enough to change the conclusion drawn from the next table.
 
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
-| P-100 | 1.20 MW | 0.72 MWh | 1.33 MWh | 0.60 MWh |
-| P-1000 | 5.60 MW | 3.63 MWh | 7.25 MWh | 3.62 MWh |
-| P-10000 | 24.00 MW | 19.91 MWh | 45.22 MWh | 25.30 MWh |
+| P-100 | 1.20 MW | 0.68 MWh | 1.31 MWh | 0.63 MWh |
+| P-1000 | 5.60 MW | 3.30 MWh | 6.98 MWh | 3.68 MWh |
+| P-10000 | 24.00 MW | 18.20 MWh | 43.02 MWh | 24.82 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
@@ -582,7 +588,7 @@ understated 7%. That belongs to Defect 2, and it is pinned by a test so it canno
 
 ### Defect 2 — two disagreeing power models
 
-`planCycle` publishes 45.218 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
+`planCycle` publishes 43.019 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
 the same function says 90.18 MWh while integrating the per-system draws that `stateAt`
 reports over that cycle gives 255.45 MWh — 2.83 times as much. The ratio is 1.23× for the
 P-100 and 1.81× for the P-1000. All three widened with the 2026-08-09 resize (from 1.14,
@@ -675,7 +681,7 @@ it did for deep-tow oceanography.
 **Costs, against the alternatives.** Anchor 0.60 MWh a cycle. A 1,350 m hose so the ship fills
 from altitude and never meets the dense air: 44 MWh, 2 m bore, 140 bar. The same ballast as
 liquid nitrogen: 475 MWh, or 5.8× the cryogenic plant to make it inside one cycle. Delivery is
-unchanged at 12,052 t/h and the cycle costs 79.24 MWh.
+unchanged, and after the single-pass drop run it is 13,183 t/h for a 43.02 MWh cycle.
 
 **In the picture.** The 3D view draws the whole sequence — cable out, bag dipped, bag lifted
 clear, bag dumped — against a translucent lake with rings at one-hull-length intervals. The rings
@@ -719,8 +725,8 @@ remaining load from the battery. The vehicle is given the thrust its generators 
 and flown as though they were switched off.
 
 The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.827 h, so the
-generators at full output would make **124.5 MWh** against a published cycle spend of
-45.22 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+generators at full output would make **113.8 MWh** against a published cycle spend of
+43.02 MWh. They would cover the cycle before solar was counted. Generators do not run flat
 out, so the defensible figure is demand-following output capped at `genMW`; measured that
 way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
 than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per

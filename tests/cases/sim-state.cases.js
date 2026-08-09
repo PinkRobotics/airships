@@ -11,7 +11,7 @@ import { close, describe, eq, it, ok } from '../harness.js';
 import {
   ALT, ALT_DROP_TOP, CLASSES, CLASS_ORDER, MODES, PHASES,
   buildMission, findSource, havKm, resetConfig, setSeed, sourceAltM, stateAt,
-} from '../../sim/index.js?v=0c6ff005';
+} from '../../sim/index.js?v=f3b90158';
 
 /* A fixture with no live data in it: two lakes big enough for any class, one fire between
    them. `null` outlines mean intakePoint returns the centroid, so the geometry is exactly
@@ -216,6 +216,49 @@ describe('state · continuity across every phase seam', () => {
         ok(s.ang <= 4 * Math.max(before.ang, after.ang) + 0.01,
           `${tag}: heading jumped ${s.ang.toFixed(4)} rad against ${before.ang.toFixed(4)} / ${after.ang.toFixed(4)} rad`);
       }
+    }
+  });
+
+  it('the ship stops before it lets itself down onto the lake', () => {
+    /* A bag of several thousand tonnes cannot be dipped from a moving ship — 20 km/h is a bad
+     * time and 40 is worse — so the approach closes the last of its track and comes to a dead
+     * stop BEFORE it descends into the band where the anchor has to be in the water. It used to
+     * do both at once and was still making 30-odd km/h on the way down. */
+    for (const id of CLASS_ORDER) {
+      const m = mission(id);
+      const dur = m.plan.dur.SOURCE_APPROACH * 60;
+      const t0 = m.phaseEnds[5];                       // the approach begins where the return ends
+      const at2 = (f) => at(m, 2, t0 + dur * f);
+      ok(at2(0.35).gs < 1.0, `${id}: still making ${at2(0.35).gs.toFixed(1)} km/h a third in`);
+      ok(at2(0.9).gs < 1.0, `${id}: still moving near the water`);
+      // And the descent is on the far side of that stop: most of the height goes after 30%.
+      const top = at2(0.02).alt, mid = at2(0.30).alt, low = at2(0.98).alt;
+      ok(top - mid < (top - low) * 0.25,
+        `${id}: dropped ${(top - mid).toFixed(0)} m of ${(top - low).toFixed(0)} before stopping`);
+    }
+  });
+
+  it('nothing yaws while there is line in the water', () => {
+    /* The fill used to turn onto the departure heading over its last third, which fixed a seam
+     * and created something worse: an 876 m hull rotating with a hose, a pump pod and an anchor
+     * cable all hanging in the lake. That is how lines tangle. The turn lives in the climb-out
+     * now, after the pod is clear. */
+    for (const id of CLASS_ORDER) {
+      const m = mission(id);
+      const dur = m.plan.dur.WATER_FILL * 60;
+      const t0 = m.phaseEnds[0];
+      let yaw = 0, prev = null;
+      for (let k = 0; k <= 60; k++) {
+        const b = at(m, 2, t0 + dur * (k / 60)).bearing;
+        if (prev !== null) {
+          let d = Math.abs(b - prev);
+          if (d > Math.PI) d = 2 * Math.PI - d;
+          yaw += d;
+        }
+        prev = b;
+      }
+      ok(yaw * 180 / Math.PI < 5,
+        `${id}: turned ${(yaw * 180 / Math.PI).toFixed(1)} degrees with its lines down`);
     }
   });
 

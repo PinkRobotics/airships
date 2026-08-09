@@ -1,8 +1,8 @@
 /* Which class of ship a fire gets, and why.
  */
-import { CLASSES, CLASS_ORDER } from './config.js?v=0c6ff005';
-import { fmtHa } from './format.js?v=0c6ff005';
-import { findSource } from './water.js?v=0c6ff005';
+import { CLASSES, CLASS_ORDER } from './config.js?v=f3b90158';
+import { fmtHa } from './format.js?v=f3b90158';
+import { findSource } from './water.js?v=f3b90158';
 
 export function sizeTier(fire) {
   let t = 0;

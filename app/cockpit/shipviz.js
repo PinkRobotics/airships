@@ -3,12 +3,12 @@
  * It exists because a wireframe with labelled force arrows says things a rendered
  * vehicle cannot: which way the rotors are pushing, and how hard.
  */
-import { fmt } from '../../sim/index.js?v=0c6ff005';
-import { anchorView } from '../anchorview.js?v=0c6ff005';
-import { $ } from '../dom.js?v=0c6ff005';
-import { resize } from '../map/projection.js?v=0c6ff005';
-import { draw } from '../map/render.js?v=0c6ff005';
-import { S } from '../store.js?v=0c6ff005';
+import { fmt } from '../../sim/index.js?v=f3b90158';
+import { anchorView } from '../anchorview.js?v=f3b90158';
+import { $ } from '../dom.js?v=f3b90158';
+import { resize } from '../map/projection.js?v=f3b90158';
+import { draw } from '../map/render.js?v=f3b90158';
+import { S } from '../store.js?v=f3b90158';
 
 /* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
    force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel
@@ -222,7 +222,7 @@ export const shipViz = (() => {
       const fullF = Math.min(1, (m.plan ? m.plan.anchorT : 0) / bagCapT);
       // One rule, shared with the 3D model — see app/anchorview.js for why it is a copy and
       // tests/cases/anchor-parity.cases.js for what stops the two drifting apart again.
-      const { cableP, fillF } = anchorView(m.cls, st.alt, st.phase, st.prog, fullF);
+      const { cableP, fillF } = anchorView(m.cls, st.alt, st.phase, st.prog, fullF, st.gs);
       if (cableP > 0.02) {
         // The bag hangs at the surface while it fills and just clear of it once it is full.
         const lift = 0.055 * Math.max(0, Math.min(1, (fillF / Math.max(0.01, fullF) - 0.8) / 0.2));

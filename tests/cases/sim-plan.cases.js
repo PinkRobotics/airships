@@ -9,7 +9,7 @@ import { close, describe, eq, it, knownFail, ok } from '../harness.js';
 import {
   CFG, CLASSES, CLASS_ORDER, MODES, WORK_ALT_MSL,
   ledger, planCycle, resetConfig, setConfig,
-} from '../../sim/index.js?v=0c6ff005';
+} from '../../sim/index.js?v=f3b90158';
 
 const MODE_IDS = Object.keys(MODES);
 const KMS = [2, 5, 15, 30, 60, 120, 400];
@@ -237,9 +237,9 @@ describe('plan · modes', () => {
     ok(b.eCycleMWh < r.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
       `balanced should be cheapest per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
-    close(r.eCycleMWh, 121.3, 0.2, 'rapid');
-    close(b.eCycleMWh, 117.4, 0.2, 'balanced');
-    close(e.eCycleMWh, 123.0, 0.2, 'endurance');
+    close(r.eCycleMWh, 119.5, 0.2, 'rapid');
+    close(b.eCycleMWh, 115.2, 0.2, 'balanced');
+    close(e.eCycleMWh, 120.7, 0.2, 'endurance');
   });
 
   it('speedMul shortens the transit legs', () => {
@@ -276,6 +276,24 @@ describe('plan · modes', () => {
 });
 
 describe('plan · the mechanisms the copy describes', () => {
+  it('the drop is ONE run, flown slowly, not repeated passes', () => {
+    /* It used to shuttle: three passes for a P-10000, an odd count so the run still ended at
+     * the far end. Every turn is an 876 m hull reversing over the fire it is dropping on, and
+     * the water lands on the same line either way — the turns were pure overhead, 4.3 minutes
+     * of a 49.8 minute cycle. One pass, flown at the rate the sprayers meter: about 22 km/h. */
+    resetConfig();
+    grid((p, tag, c) => {
+      eq(p.passes, 1, `${tag}: passes`);
+      // The run lasts as long as it takes to lay the water, and never less than one line.
+      const dump = p.deliveredT / (c.fillM3s * CFG.fillMul) / 60;
+      ok(p.dur.WATER_RELEASE >= dump - 1e-9,
+        `${tag}: ${p.dur.WATER_RELEASE.toFixed(2)} min of run for ${dump.toFixed(2)} min of water`);
+      const runKph = c.dropKm / p.dur.WATER_RELEASE * 60;
+      ok(runKph < c.cruiseKph * 0.5,
+        `${tag}: laying water at ${runKph.toFixed(0)} km/h is not a crawl`);
+    });
+  });
+
   it('no class retains descent ballast, because the lake holds the ship down', () => {
     // THE HISTORY MATTERS, because this test has asserted three different things.
     //
@@ -320,7 +338,7 @@ describe('plan · the mechanisms the copy describes', () => {
     // class: its cycle falls from 1.85 to 1.33 MWh for the same delivered water.
     const small = planCycle(CLASSES.P100, MODES.balanced, 15);
     close(small.anchorT, 125, 0.5, 'the P-100 uses its bag as well');
-    close(small.eCycleMWh, 1.328, 5e-3, 'and saves 28% of its cycle energy doing it');
+    close(small.eCycleMWh, 1.308, 5e-3, 'and saves 29% of its cycle energy doing it');
   });
 
   it('the descent balance is struck at the source, not at the ceiling', () => {
@@ -384,13 +402,13 @@ describe('plan · the mechanisms the copy describes', () => {
 
   it('the letdown is no longer the largest term, and the anchor is why', () => {
     // For the life of this model the biggest line in the published energy budget was an
-    // unexplained window. It is now the fifth of six: fill 6.15, return 14.71, outbound 9.46,
-    // other 12.89, letdown 1.42, anchor 0.60, total 45.22 MWh. The anchor's own cost — lifting
-    // 12,400 t of lake water the 15 m it takes to break the surface — is 0.6 MWh, and it buys
-    // a 34.5 MWh reduction in rotor work. That ratio is the entire argument for the mechanism.
+    // unexplained window. It is a minor term now — 1.42 MWh of a 43.02 MWh cycle — while the
+    // anchor's own cost, lifting 12,400 t of lake water the 15 m it takes to break the surface,
+    // is 0.6 MWh and buys a 34.5 MWh reduction in rotor work. That ratio is the entire argument
+    // for the mechanism.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 45.22, 0.05, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 43.02, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
     const returnMWh = p.dragMW * 0.55 * p.dur.RETURN_TRANSIT / 60;
     ok(letdownMWh < returnMWh, `the letdown ${letdownMWh.toFixed(2)} should now be under the `
