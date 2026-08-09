@@ -365,12 +365,24 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
         const r1 = hash01(k * 7.13 + st.index * 3.7), r2 = hash01(k * 2.71 + st.index * 9.1);
         const u = ((d.clock.t * washSpeed * (0.8 + 0.4 * r1)) + r2) % 1;
         const o1 = (r1 - 0.5) * rr * 1.3, o2 = (r2 - 0.5) * rr * 1.3;
+        // A STREAK MUST NOT POP. Six per rotor cross the whole run in about half a second at
+        // fill duty, so one that vanishes at full size at the top and reappears at full size
+        // at the disc is a visible jump BACKWARDS, several times a second. The particles are
+        // travelling up — measured, in every phase — but at fill speed those resets are
+        // frequent enough to read as flow running down into the rotor, which is the opposite
+        // of what the rotor is doing. Through the drop run the wash is ~4x slower, the resets
+        // are rare, and the upward drift reads correctly: the picture disagreed with itself
+        // between two phases doing the same thing.
+        // Fading the cross-section in over the first tenth of the run and out over the last
+        // third makes the population continuous, and a slipstream that thins as it dissipates
+        // is what the air is doing anyway.
+        const fade = Math.min(1, u / 0.10) * Math.min(1, (1 - u) / 0.33);
         setInstance(N.airStreaks, id, {
           p: [st.p[0] + p1[0] * o1 + p2[0] * o2 + dn[0] * u * run,
               st.p[1] + p1[1] * o1 + p2[1] * o2 + dn[1] * u * run,
               st.p[2] + p1[2] * o1 + p2[2] * o2 + dn[2] * u * run],
           r: aimEuler(dn),
-          s: [rr * (0.5 + 0.5 * u) * 0.6, 0.6, 0.6],
+          s: [rr * (0.5 + 0.5 * u) * 0.6, 0.6 * fade, 0.6 * fade],
         });
       }
     }
