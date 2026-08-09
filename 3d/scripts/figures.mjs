@@ -78,7 +78,7 @@ for (const id of CLASS_IDS) {
 
 const t0 = Date.now();
 const manifest = {
-  generator: 'airship3d/scripts/figures.mjs',
+  generator: '3d/scripts/figures.mjs',
   note: 'Every figure is generated from model/ and render/svg.js. Do not edit by hand — ' +
     'regenerate. `node scripts/figures.mjs --check` proves these match the model.',
   figures: [],

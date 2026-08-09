@@ -11,7 +11,7 @@
 # so the work happens there and the results are copied back. It also cannot share a profile with a
 # running interactive Chromium, hence the dedicated profile directory.
 set -euo pipefail
-cd "$(dirname "${BASH_SOURCE[0]}")/.."             # -> airship3d/
+cd "$(dirname "${BASH_SOURCE[0]}")/.."             # -> 3d/
 SRC="assets/static"
 DST="assets/raster"
 WIDTH=1760

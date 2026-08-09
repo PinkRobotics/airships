@@ -81,14 +81,14 @@ for p in modules + html_entries:
 
 # Foreign pages that import the tree unversioned are REPORTED, never edited.
 foreign = []
-FOREIGN = re.compile(r"airship3d/airship3d\.js(?!\?v=)")
+FOREIGN = re.compile(r"3d/index\.js(?!\?v=)")
 for p in walk(SITE, {".html"}):
     if ROOT in p.parents or p in html_entries:
         continue
     if FOREIGN.search(p.read_text()):
         foreign.append(str(p.relative_to(SITE)))
 if foreign:
-    print(f"stamp: NOTE — unversioned airship3d imports (can be served a stale graph):\n  "
+    print(f"stamp: NOTE — unversioned 3d/ imports (can be served a stale graph):\n  "
           + "\n  ".join(foreign), file=sys.stderr)
 
 if not check and not strip:

@@ -78,6 +78,115 @@ def classify(lines):
     return kind
 
 
+
+_REGEX_PRECEDERS = set('=(,:[!&|?{};+-*%~^<>') | {''}
+
+
+def _regex_can_start(out: list) -> bool:
+    """True if a `/` here begins a regex literal rather than a division.
+
+    Decided by the previous meaningful character, which is the standard heuristic and
+    is unambiguous for every occurrence in this codebase.
+    """
+    for chunk in reversed(out):
+        s = chunk.rstrip()
+        if s:
+            return s[-1] in _REGEX_PRECEDERS
+    return True
+
+
+def strip_comments_and_strings(text: str) -> str:
+    """Blank out anything a reference could hide in, keeping line structure intact.
+
+    Comments and plain string literals become spaces. Template literals become spaces too —
+    EXCEPT for their `${...}` interpolations, which are ordinary expressions and routinely
+    the only place a helper is called from. Blanking those makes a real dependency
+    invisible, and the module then loads fine and throws on first use.
+    """
+    out: list[str] = []
+    i, n = 0, len(text)
+
+    def blank(s: str) -> str:
+        return ''.join(ch if ch == '\n' else ' ' for ch in s)
+
+    while i < n:
+        c = text[i]
+        two = text[i:i + 2]
+        if two == '//':
+            j = text.find('\n', i)
+            j = n if j < 0 else j
+            out.append(blank(text[i:j]))
+            i = j
+        elif two == '/*':
+            j = text.find('*/', i + 2)
+            j = n if j < 0 else j + 2
+            out.append(blank(text[i:j]))
+            i = j
+        elif c == '`':
+            out.append(' ')
+            i += 1
+            while i < n and text[i] != '`':
+                if text[i] == '\\':
+                    out.append('  ')
+                    i += 2
+                elif text[i:i + 2] == '${':
+                    depth, j = 1, i + 2
+                    while j < n and depth:
+                        if text[j] == '{':
+                            depth += 1
+                        elif text[j] == '}':
+                            depth -= 1
+                        elif text[j] in '"\'`':          # a string inside the interpolation
+                            q, j = text[j], j + 1
+                            while j < n and text[j] != q:
+                                j += 2 if text[j] == '\\' else 1
+                        j += 1
+                    out.append('  ' + text[i + 2:j - 1] + ' ')   # keep the expression
+                    i = j
+                else:
+                    out.append(text[i] if text[i] == '\n' else ' ')
+                    i += 1
+            out.append(' ')
+            i += 1
+        elif c == '/' and _regex_can_start(out):
+            # a regex literal, not division: `/[&<>"]/g` contains a quote that would
+            # otherwise open a phantom string and swallow the rest of the file
+            j = i + 1
+            in_class = False
+            while j < n:
+                if text[j] == '\\':
+                    j += 2
+                    continue
+                if text[j] == '[':
+                    in_class = True
+                elif text[j] == ']':
+                    in_class = False
+                elif text[j] == '/' and not in_class:
+                    j += 1
+                    break
+                elif text[j] == '\n':
+                    break                                    # not a regex after all
+                j += 1
+            out.append(blank(text[i:j]))
+            i = j
+        elif c in '"\'':
+            j, q = i + 1, c
+            while j < n:
+                if text[j] == '\\':
+                    j += 2
+                    continue
+                if text[j] == q:
+                    j += 1
+                    break
+                j += 1
+            out.append(blank(text[i:j]))
+            i = j
+        else:
+            out.append(c)
+            i += 1
+    return ''.join(out)
+
+
 def top_level_symbols(lines, a, b):
     """[(name, decl_index, block_start, block_end_exclusive)] for the region (a, b)."""
     kind = classify(lines)

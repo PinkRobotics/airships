@@ -9,7 +9,7 @@ only moves it can.
 from __future__ import annotations
 import pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from slice import read_region, top_level_symbols
+from slice import read_region, top_level_symbols, strip_comments_and_strings
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
@@ -50,6 +50,50 @@ HEADERS = {
 }
 
 
+
+def declared_names(block: str) -> list[str]:
+    """Every name a declaration introduces, including `let a = 1, b = 2;` forms.
+
+    The import scan resolves references by name, so a companion declarator that is never
+    seen here becomes a silently missing import — the module loads and then throws on the
+    first use. Walk the declaration at depth zero and collect each declarator.
+    """
+    import re as _re
+    m = _re.match(r'^(?:export\s+)?(?:async\s+)?(function|const|let|var|class)\s+', block)
+    if not m:
+        return []
+    kw = m.group(1)
+    if kw in ('function', 'class'):
+        return [_re.match(r'^(?:export\s+)?(?:async\s+)?(?:function|class)\s+([A-Za-z_$][\w$]*)',
+                          block).group(1)]
+    names, depth, i, n = [], 0, m.end(), len(block)
+    expect = True
+    while i < n:
+        c = block[i]
+        if c in '"\'`':
+            q = c
+            i += 1
+            while i < n and block[i] != q:
+                i += 2 if block[i] == '\\' else 1
+        elif c in '([{':
+            depth += 1
+        elif c in ')]}':
+            depth -= 1
+        elif depth == 0 and c == ';':
+            break
+        elif depth == 0 and c == ',':
+            expect = True
+        elif expect and (c.isalpha() or c in '_$'):
+            j = i
+            while j < n and (block[j].isalnum() or block[j] in '_$'):
+                j += 1
+            names.append(block[i:j])
+            expect = False
+            i = j
+            continue
+        i += 1
+    return names
+
 def main():
     src = ROOT / 'index.html'
     lines, a, b = read_region(str(src), '/*SIM*/', '/*/SIM*/')
@@ -78,13 +122,13 @@ def main():
     for mod, body in bodies.items():
         # `...spread(x)` puts a dot before an identifier that is NOT a property access,
         # so neutralise the operator before the reference scan or the import is missed.
-        scan = strip.sub(' ', body).replace('...', ' ')
+        scan = strip_comments_and_strings(body).replace('...', ' ')
         needs = {}
         for name, own in owners.items():
             if own == mod:
                 continue
             # not preceded by a dot: `Object.assign` is not a reference to our `assign`
-            if re.search(r'(?<![.\w$])' + re.escape(name) + r'\b', scan):
+            if re.search(r'(?<![.\w$])' + re.escape(name) + r'(?![\w$])', scan):
                 needs.setdefault(own, []).append(name)
         imports = ''.join(
             f"import {{ {', '.join(sorted(v))} }} from './{k}.js';\n"

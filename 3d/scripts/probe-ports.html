@@ -4,11 +4,11 @@
 <!-- Browser runner for probe-ports.mjs on machines without node (this box has none).
      Serve the site root and open this file; the verdict lands in the <title> and every
      PASS/FAIL line in the console — headless:
-       python3 tools/cdp-check.py http://127.0.0.1:8871/pinkrobotics/airship3d/scripts/probe-ports.html -->
+       python3 tools/cdp-check.py http://127.0.0.1:8871/3d/scripts/probe-ports.html -->
 <script>
   window.process = { exit(code) { document.title = code ? `PROBE FAIL(${code})` : "PROBE clean"; } };
 </script>
 <script type="module">
-  try { await import("./probe-ports.mjs?v=41bc1f51"); }
+  try { await import("./probe-ports.mjs?v=a1f05b86"); }
   catch (e) { console.error(e); document.title = "PROBE ERROR: " + e.message; }
 </script>

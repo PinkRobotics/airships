@@ -6,7 +6,7 @@
  *
  * WHY THIS EXISTS. pink-edge sits behind Cloudflare, which caches .js for four hours. A no-build
  * ES-module site cannot cache-bust from the entry point, because a relative specifier resolves
- * against the importing module's URL with the query string DROPPED — so `airship3d.js?v=2` still
+ * against the importing module's URL with the query string DROPPED — so `index.js?v=2` still
  * pulls a stale `model/build.js`. Requesting revalidation does not help either: Cloudflare answers
  * `cf-cache-status: HIT` to `Cache-Control: no-cache`.
  *
@@ -115,13 +115,13 @@ for (const p of [...modules, ...htmlEntries]) {
   const foreign = [];
   const scan = (dir) => {
     for (const name of readdirSync(dir)) {
-      if (name === 'node_modules' || name === 'assets' || name === 'airship3d') continue;
+      if (name === 'node_modules' || name === 'assets' || name === '3d') continue;
       const q = join(dir, name);
       let st;
       try { st = statSync(q); } catch { continue; }
       if (st.isDirectory()) scan(q);
       else if (name.endsWith('.html') && !htmlEntries.includes(q)) {
-        if (/airship3d\/airship3d\.js(?!\?v=)/.test(readFileSync(q, 'utf8'))) {
+        if (/3d\/index\.js(?!\?v=)/.test(readFileSync(q, 'utf8'))) {
           foreign.push(relative(SITE, q));
         }
       }
@@ -137,13 +137,13 @@ for (const p of [...modules, ...htmlEntries]) {
 
 /* Publish the version so a host that imports this module DYNAMICALLY can pin it.
  *
- * A static import inside the tree gets stamped by this script. A dynamic `import("…/airship3d.js")`
+ * A static import inside the tree gets stamped by this script. A dynamic `import("…/index.js")`
  * from someone else's page cannot be — it is their file — so that page rides the un-versioned URL
  * and gets whatever generation the CDN happens to hold. This file is how they pin it without
  * hand-editing a literal on every change:
  *
- *     const { version } = await (await fetch('/airship3d/version.json')).json();
- *     const mod = await import(`/airship3d/airship3d.js?v=${version}`);
+ *     const { version } = await (await fetch('/3d/version.json')).json();
+ *     const mod = await import(`/3d/index.js?v=${version}`);
  */
 if (!check && !strip) {
   writeFileSync(join(ROOT, 'version.json'),

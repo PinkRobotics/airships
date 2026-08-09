@@ -32,7 +32,7 @@ of truth, with several representations generated from it.
 | Route | What it is |
 |---|---|
 | `/airships/model-lab/` | The development and review surface. Every class, mode, camera preset, animation clip, wrench demand, failure toggle, mass/power control, plus live performance instrumentation and static-export buttons. `noindex`. |
-| `/airship3d/tests/browser.html` | Browser integration suite. `noindex`. |
+| `/3d/tests/browser.html` | Browser integration suite. `noindex`. |
 
 The lab takes URL parameters so a review screenshot is reproducible:
 
@@ -47,7 +47,7 @@ The lab takes URL parameters so a review screenshot is reproducible:
 
 ```html
 <script type="module">
-  import { mount, defaultState } from '/airship3d/airship3d.js';
+  import { mount, defaultState } from '/3d/index.js';
 
   const viewer = mount(document.querySelector('#viewer'), {
     classId: 'P100',
@@ -125,7 +125,7 @@ The monitor owns the mission. This system never re-plans, re-times or re-derives
 monitor has decided.
 
 ```js
-import { mountForMission } from '/airship3d/airship3d.js';
+import { mountForMission } from '/3d/index.js';
 
 const panel = mountForMission(document.querySelector('#selected-aircraft'), {
   mission,                       // the monitor's mission object (has .cls)
@@ -161,7 +161,7 @@ standalone lab uses, so a scene looks identical either way.
 it, keeping its id, class and CSS box, and exposing the same call the frame loop already makes:
 
 ```js
-import { AirshipHUD } from '/airship3d/airship3d.js';
+import { AirshipHUD } from '/3d/index.js';
 
 // was: const shipViz = (() => { …schematic… })();
 const shipViz = AirshipHUD(document.getElementById('shipviz'), { cfg: CFG });
@@ -184,7 +184,7 @@ idle mission.
 | Fallback | static SVG silhouette if no WebGL context is available |
 | Extras | `.setClass(id)`, `.spin = false`, `.describe()` for a live region, `.dispose()` |
 
-Preview at the real panel size: `/airship3d/tests/hud-demo.html`.
+Preview at the real panel size: `/3d/tests/hud-demo.html`.
 
 ### Three ways to embed
 

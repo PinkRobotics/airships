@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>airship3d — browser integration tests</title>
+<title>3d — browser integration tests</title>
 <meta name="robots" content="noindex,nofollow">
 <style>
   body{margin:0;background:#0a0a0c;color:#e8e8ea;
@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-<h1>airship3d — browser integration tests</h1>
+<h1>3d — browser integration tests</h1>
 <div id="summary">running…</div>
 <div id="out"></div>
 <!-- On screen, because the viewer deliberately stops rendering when it is not visible. -->
@@ -27,7 +27,7 @@
  * suite. Run headless:
  *
  *   chromium --headless=new --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
- *     --virtual-time-budget=20000 --dump-dom http://127.0.0.1:PORT/airship3d/tests/browser.html
+ *     --virtual-time-budget=20000 --dump-dom http://127.0.0.1:PORT/3d/tests/browser.html
  *
  * and grep the dumped DOM for "RESULT". `scripts/browser-tests.sh` does exactly that. */
 
@@ -36,7 +36,7 @@ import {
   AirshipScaleComparison, AirshipFailureExplorer, AirshipTrajectoryExplorer, AirshipMapModel,
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
-} from '../airship3d.js?v=41bc1f51';
+} from '../index.js?v=a1f05b86';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');

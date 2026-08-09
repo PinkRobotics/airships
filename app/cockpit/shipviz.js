@@ -1,0 +1,268 @@
+/* The 2D schematic avatar — the same state as the 3D model, drawn as a wire diagram.
+ *
+ * It exists because a wireframe with labelled force arrows says things a rendered
+ * vehicle cannot: which way the rotors are pushing, and how hard.
+ */
+import { fmt } from '../../sim/index.js';
+import { $ } from '../dom.js';
+import { resize } from '../map/projection.js';
+import { draw } from '../map/render.js';
+import { S } from '../store.js';
+
+/* A schematic placeholder — wireframe prolate hull, rotors, fins — that rotates continuously
+   and wears its live force vectors. The /airship3d/ module (separate session) is expected to
+   replace this panel when its adapter lands; everything it needs is in stateAt()'s output. */
+export const shipViz = (() => {
+  const cv = $("shipviz");
+  if (!cv) return { draw() {} };
+  const c2 = cv.getContext("2d");
+  let w = 0, h = 0, dpr = 1, theta = 0.7, pitch = 0, dragX = null, snapNext = false;
+  function resize() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    w = cv.clientWidth; h = cv.clientHeight;
+    cv.width = w * dpr; cv.height = h * dpr;
+  }
+  new ResizeObserver(resize).observe(cv);
+  cv.addEventListener("pointerdown", e => { dragX = e.clientX; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener("pointermove", e => {
+    if (dragX !== null) { theta += (e.clientX - dragX) * 0.012; dragX = e.clientX; }
+  });
+  cv.addEventListener("pointerup", () => { dragX = null; });
+  // unit hull: semi-axis 1 along X, 0.25 across (the 4:1 family proportion)
+  const B = 0.25, rings = [], longs = [];
+  for (let i = 1; i <= 7; i++) {
+    const v = Math.PI * i / 8, ring = [];
+    for (let j = 0; j <= 28; j++) {
+      const a = 2 * Math.PI * j / 28;
+      ring.push([Math.cos(v), B * Math.sin(v) * Math.cos(a), B * Math.sin(v) * Math.sin(a)]);
+    }
+    rings.push(ring);
+  }
+  for (let k = 0; k < 8; k++) {
+    const a = 2 * Math.PI * k / 8, ln = [];
+    for (let j = 0; j <= 24; j++) {
+      const v = Math.PI * j / 24;
+      ln.push([Math.cos(v), B * Math.sin(v) * Math.cos(a), B * Math.sin(v) * Math.sin(a)]);
+    }
+    longs.push(ln);
+  }
+  /* Rotors per class: 4 / 6 / 14, paired port and starboard along the hull. Discs shrink
+     as count grows — rotor diameter scales slower than hull, so the big ships carry a
+     distributed network, not four giants. Inner disc edge always clears the body: the
+     pylon reaches to hull half-width at that station plus disc radius plus margin. */
+  const rotorCache = {};
+  function rotorsFor(cls) {
+    if (rotorCache[cls.id]) return rotorCache[cls.id];
+    const spec = {
+      P100: { xs: [-0.35, 0.35], r: 0.16 },
+      P1000: { xs: [-0.5, 0, 0.5], r: 0.125 },
+      P10000: { xs: [-0.72, -0.48, -0.24, 0, 0.24, 0.48, 0.72], r: 0.104 },
+    }[cls.id] || { xs: [-0.35, 0.35], r: 0.16 };
+    const out = [];
+    for (const x0 of spec.xs) {
+      const yh = B * Math.sqrt(Math.max(0, 1 - x0 * x0));
+      const yc = yh + spec.r + 0.05;
+      for (const sgn of [1, -1]) {
+        const y0 = sgn * yc;
+        const disc = [];
+        for (let j = 0; j <= 18; j++) {
+          const a = 2 * Math.PI * j / 18;
+          disc.push([x0 + spec.r * Math.cos(a), y0 + spec.r * Math.sin(a), -0.03]);
+        }
+        out.push({ x0, y0, disc, pylon: [[x0, sgn * yh * 0.95, -0.02], [x0, y0, -0.03]] });
+      }
+    }
+    rotorCache[cls.id] = out;
+    return out;
+  }
+  const fins = [
+    [[-0.82, 0, 0.16], [-1.06, 0, 0.34], [-1.02, 0, 0.1]],
+    [[-0.82, 0, -0.16], [-1.06, 0, -0.34], [-1.02, 0, -0.1]],
+    [[-0.82, 0.16, 0], [-1.06, 0.34, 0], [-1.02, 0.1, 0]],
+    [[-0.82, -0.16, 0], [-1.06, -0.34, 0], [-1.02, -0.1, 0]],
+  ];
+  function proj(pt, sc, cx, cy) {
+    const cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const x1 = pt[0] * cp + pt[2] * sp, z1 = -pt[0] * sp + pt[2] * cp, y1 = pt[1];
+    const ct = Math.cos(theta), st2 = Math.sin(theta);
+    const X = x1 * ct - y1 * st2, Y = x1 * st2 + y1 * ct;
+    return { x: cx + sc * X, y: cy - sc * (z1 * 0.94 - Y * 0.34), d: Y };
+  }
+  function line3(a, b, sc, cx, cy, col, alpha) {
+    const p = proj(a, sc, cx, cy), q = proj(b, sc, cx, cy);
+    const dn = ((p.d + q.d) / 2 + 1) / 2;
+    c2.strokeStyle = col;
+    c2.globalAlpha = alpha * (0.3 + 0.7 * Math.max(0, Math.min(1, dn)));
+    c2.beginPath(); c2.moveTo(p.x, p.y); c2.lineTo(q.x, q.y); c2.stroke();
+    c2.globalAlpha = 1;
+  }
+  function poly3(pts, sc, cx, cy, col, alpha) {
+    for (let i = 0; i < pts.length - 1; i++) line3(pts[i], pts[i + 1], sc, cx, cy, col, alpha);
+  }
+  /* An arrow between two MODEL-SPACE points. The head is built from the PROJECTED direction
+     of the shaft, so it points where the shaft points at any view rotation — the old
+     fixed-wing head assumed a vertical shaft and came apart the moment the avatar was
+     dragged or an arrow tilted with its rotor. */
+  function arrow(p0, p1, sc, cx, cy, col, label) {
+    const a = proj(p0, sc, cx, cy), b = proj(p1, sc, cx, cy);
+    const dx = b.x - a.x, dy = b.y - a.y, L = Math.hypot(dx, dy);
+    if (L < 2) return;
+    const ux = dx / L, uy = dy / L;                 // shaft direction on screen
+    c2.strokeStyle = col; c2.fillStyle = col; c2.lineWidth = 1.8;
+    c2.beginPath(); c2.moveTo(a.x, a.y); c2.lineTo(b.x - ux * 5, b.y - uy * 5); c2.stroke();
+    c2.beginPath(); c2.moveTo(b.x, b.y);
+    c2.lineTo(b.x - 7 * ux - 4 * uy, b.y - 7 * uy + 4 * ux);
+    c2.lineTo(b.x - 7 * ux + 4 * uy, b.y - 7 * uy - 4 * ux);
+    c2.closePath(); c2.fill();
+    if (label) {
+      c2.font = "9.5px ui-monospace,monospace";
+      c2.fillText(label, b.x + 7, b.y + (uy > 0 ? 9 : -3));
+    }
+    c2.lineWidth = 1;
+  }
+  function draw(st, m) {
+    if (cv.clientWidth !== w || cv.clientHeight !== h) resize();
+    if (!w || !h) return;
+    c2.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c2.clearRect(0, 0, w, h);
+    if (dragX === null) {
+      // yaw follows the ship's real on-map heading (drag to inspect; it eases back)
+      const hdg = m && m.dispAng !== undefined ? m.dispAng : 0;
+      const tTh = Math.atan2(Math.sin(hdg) / 0.34, Math.cos(hdg));
+      let dd = tTh - theta;
+      while (dd > Math.PI) dd -= 2 * Math.PI;
+      while (dd < -Math.PI) dd += 2 * Math.PI;
+      // The turn-rate ease is for a SHIP turning; switching to a different ship snaps.
+      theta += (snapNext || S.reduced) ? dd : dd * Math.min(1, 2.2 * (S.frameDt || 0.016));
+      snapNext = false;
+    }
+    let pt = { BUOYANCY_ESCAPE: 0.18, WATER_RELEASE: -0.04, SOURCE_APPROACH: -0.06 }[st.phase] || 0;
+    if (st.phase === "OUTBOUND_TRANSIT" && st.prog < 0.25) pt = 0.12;
+    pitch += (pt - pitch) * Math.min(1, 2.5 * (S.frameDt || 0.016));
+    const sc = Math.min(w / 2.7, h / 1.85), cx = w / 2, cy = h * 0.5;
+    for (const r of rings) poly3(r, sc, cx, cy, "#47637d", 0.75);
+    for (const l of longs) poly3(l, sc, cx, cy, "#47637d", 0.55);
+    poly3(longs[2], sc, cx, cy, "#c9c3b6", 0.8);                       // solar spine
+    // rotor push: down while forcing descent or holding against surplus during the fill
+    /* Rotors do all of it: hold-down, climb assist, and forward thrust. Discs TILT for
+       cruise (more while spooling up, backward while braking), differentially when the
+       ship is steering — outer rotors work harder — and wear unlabelled push arrows;
+       the words live in the corner block where they can't cover the airframe. */
+    // SAME DUTY THE 3D MODEL USES (st.vert, <= 0). The rotors only ever hold this hull DOWN,
+    // and while that job dominates the discs stay level and the thrust is straight down —
+    // exactly what the model shows. Only when the hold goes quiet do they rake for cruise.
+    const rotF = Math.min(1, Math.abs(st.vert || 0));
+    const fwd = Math.min(1, (st.draw.prop || 0) / Math.max(0.1, m.plan.dragMW));
+    const vertical = rotF > 0.1;
+    const baseTilt = vertical ? 0 : fwd * 0.55 + (st.acc > 0 ? 0.22 : st.acc < 0 ? -0.34 : 0);
+    const turn = Math.max(-0.3, Math.min(0.3, (m.turnRate || 0) * 10));
+    const rts = rotorsFor(m.cls);
+    for (const rt of rts) {
+      const tilt = baseTilt + turn * Math.sign(rt.y0);
+      const ct = Math.cos(tilt), stt = Math.sin(tilt);
+      const disc = rt.disc.map(q => {
+        const dx2 = q[0] - rt.x0, dz2 = q[2] + 0.03;
+        return [rt.x0 + dx2 * ct + dz2 * stt, q[1], -0.03 - dx2 * stt + dz2 * ct];
+      });
+      poly3(rt.pylon, sc, cx, cy, "#ff4fa3", 0.9);
+      poly3(disc, sc, cx, cy, "#ff4fa3", rotF > 0.03 || fwd > 0.15 ? 1 : 0.55);
+      // Push arrows ride the DISC NORMAL, so they tilt with the rotor: straight down while
+      // holding, straight up on climb assist, raked forward in cruise. One rule — the arrow
+      // runs along the thrust axis into the disc.
+      const nv = [stt, 0, ct];                                    // tilted disc normal
+      const ctr = [rt.x0, rt.y0, -0.03];
+      const along = (m2) => [ctr[0] + nv[0] * m2, ctr[1], ctr[2] + nv[2] * m2];
+      if (rotF > 0.03)                                            // pushing the ship DOWN
+        arrow(along(0.13 + 0.28 * rotF), along(0.02), sc, cx, cy, "#ff4fa3", "");
+      else if (!vertical && fwd > 0.15) {                         // cruise thrust, along +normal
+        const mag = fwd * 0.8;
+        arrow(along(-(0.13 + 0.24 * mag)), along(-0.02), sc, cx, cy, "#ff4fa3", "");
+      }
+    }
+    for (const f of fins) poly3(f.concat([f[0]]), sc, cx, cy, "#74747f", 0.7);
+    // forces: buoyancy up, weight down, rotor downforce, net — lengths against buoyancy
+    const base = st.buoyN || 1;
+    arrow([-0.55, 0, 0.30], [-0.55, 0, 0.72], sc, cx, cy, "#7aa2c8", "");
+    arrow([-0.18, 0, -0.30], [-0.18, 0, -0.30 - 0.42 * st.weightN / base], sc, cx, cy, "#74747f", "");
+    const net = st.netN / base;
+    if (Math.abs(net) > 0.004)
+      arrow([0.2, 0, net > 0 ? 0.3 : -0.3], [0.2, 0, (net > 0 ? 0.3 : -0.3) + 0.42 * net], sc, cx, cy,
+        net > 0 ? "#46d06e" : "#d98b80", "");
+
+    // the hose: pays out on approach, stands taut while pumping, winds up on departure
+    let hoseP = 0, pumping = false;
+    if (st.phase === "SOURCE_APPROACH") hoseP = st.prog;
+    else if (st.phase === "WATER_FILL") { hoseP = 1; pumping = true; }
+    else if (st.phase === "OUTBOUND_TRANSIT" && st.prog < 0.18) hoseP = 1 - st.prog / 0.18;
+    if (hoseP > 0.02) {
+      const a = proj([0, 0, -B], sc, cx, cy);
+      const b = proj([0, 0, -B - 0.62 * hoseP], sc, cx, cy);
+      c2.strokeStyle = "#7aa2c8"; c2.lineWidth = 1.4;
+      c2.setLineDash([4, 4]);
+      c2.lineDashOffset = pumping && !S.reduced
+        ? -(((performance.now() / 55) * Math.max(1, S.speed * 0.6)) % 8) : 0;
+      c2.beginPath(); c2.moveTo(a.x, a.y); c2.lineTo(b.x, b.y); c2.stroke();
+      c2.setLineDash([]); c2.lineWidth = 1;
+      c2.fillStyle = "#7aa2c8";
+      c2.beginPath(); c2.ellipse(b.x, b.y, 4.5, 2.8, 0, 0, 7); c2.fill();
+      if (pumping) {
+        c2.strokeStyle = "rgba(122,162,200,.5)";
+        c2.beginPath(); c2.moveTo(b.x - 9, b.y + 5); c2.quadraticCurveTo(b.x, b.y + 8, b.x + 9, b.y + 5); c2.stroke();
+      }
+    }
+
+    // the drop: water falling from the keel outlets along the run, thinning as the last
+    // tonnes leave — the counterpart of the fill hose, flowing the other way
+    const relLeftT = st.water - (m.plan ? m.plan.retainedT : 0);   // retained ballast stays aboard
+    if (st.phase === "WATER_RELEASE" && relLeftT > 0.5) {
+      const tailF = Math.min(1, (relLeftT / Math.max(1, m.plan ? m.plan.deliveredT : 1)) * 6);
+      const off = -(((performance.now() / 42) * Math.max(1, S.speed * 0.6)) % 9);
+      c2.setLineDash([5, 4]);
+      c2.lineWidth = 2.2;
+      const jets = [[-0.26, -0.08], [0, 0.04], [0.26, 0.16]];   // [keel x, downwind drift]
+      for (let k = 0; k < jets.length; k++) {
+        const [jx, drift] = jets[k];
+        const a = proj([jx, 0, -B], sc, cx, cy);
+        const bpt = proj([jx + drift, 0, -B - (0.38 + 0.1 * (k % 2)) * tailF], sc, cx, cy);
+        c2.strokeStyle = `rgba(122,162,200,${0.75 * tailF})`;
+        c2.lineDashOffset = off + k * 3;
+        c2.beginPath(); c2.moveTo(a.x, a.y); c2.lineTo(bpt.x, bpt.y); c2.stroke();
+      }
+      c2.setLineDash([]); c2.lineWidth = 1;
+    }
+
+    // labels live in fixed corners — off the airframe, off each other
+    c2.font = "9.5px ui-monospace,monospace";
+    const tf2 = 1000 * 9.81;
+    c2.fillStyle = "#7aa2c8";
+    // Same sign convention as the panel: down positive, so lift is the negative number.
+    c2.fillText("buoyancy −" + fmt(st.buoyN / tf2) + " t", 8, 14);
+    c2.fillStyle = st.netN > 0 ? "#46d06e" : "#d98b80";
+    c2.fillText("net " + (st.netN > 0 ? "−" : "+") + fmt(Math.abs(st.netN) / tf2) + " t", 8, 27);
+    c2.fillStyle = "#74747f";
+    c2.fillText("mass " + fmt(st.weightN / tf2) + " t · " + fmt(st.water) + " t aboard", 8, h - 22);
+    // The word matches the picture: the arrow is down whenever there is a hold, so the label
+    // says what that hold is FOR, and only says "thrust" when the discs are actually raked.
+    let rlab;
+    if (rotF > 0.03) {
+      const mw = (st.draw.rotors || 0).toFixed(1) + " MW";
+      rlab = st.phase === "RETURN_TRANSIT" && st.prog > 0.72 ? "rotors · descent ↓ " + mw
+        : st.phase === "BUOYANCY_ESCAPE" && st.prog < 0.28 ? "rotors · feathering — buoyancy has it"
+        : "rotors · holding ↓ " + mw;
+    } else if (!vertical && fwd > 0.15) {
+      rlab = "rotors · cruise thrust →" + (st.acc > 0 ? " · spooling up" : st.acc < 0 ? " · braking" : "") +
+        (Math.abs(turn) > 0.06 ? " · steering" : "");
+    } else rlab = "rotors · feathered";
+    c2.fillStyle = "#ff4fa3";
+    const rw = c2.measureText(rlab).width;
+    // Its own line above the weight row: in the narrow side column the top row belongs to
+    // buoyancy alone, and the two labels collided mid-canvas. A long label pins to the left
+    // edge and loses its tail instead of losing its head.
+    c2.fillText(rlab, Math.max(8, w - rw - 8), h - 36);
+    c2.fillStyle = "#74747f";
+    c2.fillText(m.cls.name + " · " + fmt(m.cls.lenM) + " m · schematic, not the design", 8, h - 8);
+  }
+  return { draw, snap() { snapNext = true; } };
+})();
+
+/* ---------- the full model (airship3d) ------------------------------------------------------ */

@@ -11,7 +11,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> pinkrobotics/
 PORT="${1:-8791}"
 CHROME="${CHROME:-chromium}"
 
-if ! curl -sf -o /dev/null "http://127.0.0.1:$PORT/airship3d/airship3d.js"; then
+if ! curl -sf -o /dev/null "http://127.0.0.1:$PORT/3d/index.js"; then
   python3 -m http.server "$PORT" --bind 127.0.0.1 >/dev/null 2>&1 &
   SERVER=$!
   trap 'kill $SERVER 2>/dev/null || true' EXIT
@@ -28,7 +28,7 @@ DOM=$(timeout 300 "$CHROME" --headless=new --no-sandbox \
   --disk-cache-size=1 --media-cache-size=1 \
   --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
   --user-data-dir="$PROFILE" --virtual-time-budget=120000 --dump-dom \
-  "http://127.0.0.1:$PORT/airship3d/tests/browser.html" 2>/dev/null)
+  "http://127.0.0.1:$PORT/3d/tests/browser.html" 2>/dev/null)
 
 RESULT=$(printf '%s' "$DOM" | grep -oE 'data-a3d-result="[^"]*"' | head -1 | sed 's/.*="//;s/"$//')
 FAILS=$(printf '%s' "$DOM" | grep -oE 'data-a3d-failures="[^"]*"' | head -1 | sed 's/.*="//;s/"$//')
