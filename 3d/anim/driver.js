@@ -12,13 +12,13 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=283ee0df';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=283ee0df';
-import { byPrefix, walk } from '../core/nodes.js?v=283ee0df';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=283ee0df';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=283ee0df';
-import { hoseGeometry } from './hose.js?v=283ee0df';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=283ee0df';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=fab55af1';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=fab55af1';
+import { byPrefix, walk } from '../core/nodes.js?v=fab55af1';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=fab55af1';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=fab55af1';
+import { hoseGeometry } from './hose.js?v=fab55af1';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=fab55af1';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];
@@ -46,6 +46,11 @@ export function createDriver(b, opts = {}) {
   }
 
   const hoses = b.layout.hoseReels.map((r) => createHose(cls, r, { headM: opts.headM || 250 }));
+  // The anchor is a second winched line and reuses the hose solver outright: same catenary, same
+  // damped follower, same surface clamp. What hangs on it is a bag rather than a pump, and it is
+  // the ship it pulls on rather than the water.
+  const aw = b.layout.anchorWinch;
+  const anchor = aw ? createHose(cls, aw, { headM: aw.cableM, podLengthM: aw.bagRadius }) : null;
   const hoseNodes = hoses.map((h) => idx.get(h.id));
   const podNodes = b.layout.pumpPods.map((p) => idx.get(p.id));
   const reelInst = idx.get('HoseReels');
@@ -56,6 +61,11 @@ export function createDriver(b, opts = {}) {
   const flowSlugs = idx.get('FlowSlugs');
   const pipeFlow = idx.get('PipeFlow');
   const airStreaks = idx.get('AirStreaks');
+  const anchorCable = idx.get('AnchorCable');
+  const anchorBag = idx.get('AnchorBag');
+  const anchorWinchInst = idx.get('AnchorWinch');
+  const waterSurface = idx.get('WaterSurface');
+  const waterRings = idx.get('WaterSurfaceRings');
   const motionLines = idx.get('MotionLines');
   const windLines = idx.get('WindLines');
   const gustPuffs = idx.get('GustPuffs');
@@ -67,13 +77,15 @@ export function createDriver(b, opts = {}) {
   return {
     build: b,
     hoses,
+    anchor,
     /** Continuous phases, exposed so a figure export can pin them. */
     clock: { rotorPhase: 0, fanPhase: 0, t: 0 },
     attitude: { rollRad: 0, pitchRad: 0, yawRad: 0 },
     attitudeRate: { roll: 0, pitch: 0, yaw: 0 },
     _nodes: { stations, gimbals, rotors, discs, hoseNodes, podNodes, reelInst,
       waterTanks, waterFill, ln2Tanks, ln2Fill, tails, dropSpray, flowSlugs, pipeFlow,
-      airStreaks, motionLines, windLines, gustPuffs, hoseFlow },
+      airStreaks, motionLines, windLines, gustPuffs, hoseFlow,
+      anchorCable, anchorBag, anchorWinchInst, waterSurface, waterRings },
     reduced: !!opts.reduced,
   };
 }
@@ -598,6 +610,46 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     }
   }
 
+  /* ---- the water surface, and where it is ------------------------------------------------------
+   * In model space the ship is the origin, so the lake is at z = -altitude. Nothing ever supplied
+   * this before and the hose's surface clamp — written to stop the pod passing through the water —
+   * has therefore never fired once. It fires now. */
+  const waterZ = state.overWater ? -Math.max(0, state.altitudeM || 0)
+    : (env.waterSurfaceZ === undefined ? undefined : env.waterSurfaceZ);
+  if (N.waterSurface) {
+    const surf = N.waterSurface;
+    const alt = Math.max(0, state.altitudeM || 0);
+    // Drawn only when it means something: a lake a kilometre and a half below is a blue plate
+    // that tells the reader nothing, and at cruise it is just a floor under the whole scene.
+    const showM = Math.max(700, (b.layout.anchorWinch ? b.layout.anchorWinch.cableM : 300) * 1.35);
+    const near = state.overWater && alt <= showM;
+    surf.visible = near;
+    if (near) {
+      // Fade in over the last 45% of the approach rather than appearing at a threshold.
+      surf.opacity = clamp01((showM - alt) / (showM * 0.45));
+      // The hull rotates, the lake does not. root.r carries the ship's attitude, so this child
+      // has to be counter-rotated out of it, and its POSITION has to be un-rotated too or the
+      // surface swings by alt*sin(pitch) — 13 m at a 300 m hover, which reads as the water
+      // sloshing. The position is the exact transpose; the euler is the small-angle inverse,
+      // which is good to O(theta^2) and these attitudes never exceed 0.05 rad.
+      const rr = d.attitude.rollRad, pp = d.attitude.pitchRad, yy = d.attitude.yawRad;
+      surf.p = [alt * Math.sin(pp), -alt * Math.cos(pp) * Math.sin(rr),
+        -alt * Math.cos(pp) * Math.cos(rr)];
+      surf.r = [-rr, -pp, -yy];
+      surf._localDirty = true;
+    }
+    // The rings ride the surface exactly, one hull length apart, and carry the perspective.
+    if (N.waterRings) {
+      N.waterRings.visible = near;
+      if (near) {
+        N.waterRings.opacity = surf.opacity;
+        N.waterRings.p = surf.p.slice();
+        N.waterRings.r = surf.r.slice();
+        N.waterRings._localDirty = true;
+      }
+    }
+  }
+
   /* ---- hose and pump pods -------------------------------------------------------------------- */
   {
     const out = state.hoseProgress || 0;
@@ -612,7 +664,7 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
         waterFlow: flow,
         windMps: env.windMps || DEFAULT_WIND,
         shipVel: env.shipVel,
-        waterSurfaceZ: env.waterSurfaceZ,
+        waterSurfaceZ: waterZ,
         release: podFailed,
         reduced,
       });
@@ -655,6 +707,66 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
           });
         }
       }
+    }
+  }
+
+  /* ---- the descent anchor ----------------------------------------------------------------------
+   * The sequence is dip, FILL, lift clear — and the order is the whole mechanism, so it is worth
+   * being able to read it off the screen. An empty bag on a slack cable goes down to the water; it
+   * fills there, sitting at the surface; then the winch takes it up just clear, and from that
+   * moment the ship is carrying thousands of tonnes it did not have to lift from the lake bed.
+   *
+   * Depth is COMMANDED IN METRES and converted to the line's own 0..1, rather than the state
+   * carrying a fraction of the cable. That is what lets the bag stay at the surface while the ship
+   * descends 550 m on top of it: the target tracks the altitude every frame, and the cable pays in
+   * as the gap closes. A fraction-of-cable command would have driven the bag down through the lake.
+   */
+  if (d.anchor && N.anchorCable) {
+    const h = d.anchor;
+    const alt = Math.max(0, state.altitudeM || 0);
+    const fill = clamp01(state.anchorFill || 0);
+    const out = clamp01(state.anchorProgress || 0);
+    // A bag with water in it is held clear of the surface — that is what makes it ballast rather
+    // than a thing floating in a lake. The lift ramps in over the last of the fill so the moment
+    // it becomes heavy is the moment it comes out, with no step.
+    const clearM = h.podLengthM * 0.9 + 6;
+    const lift = clearM * clamp01((fill - 0.80) / 0.20);
+    // MEASURE THE DROP FROM THE WINCH, NOT FROM THE SHIP. altitudeM is the hull's, and the winch
+    // is on the keel — a hull radius below it, which is 110 m on a P-10000. Paying out `altitude`
+    // of cable therefore put the bag a hull radius UNDER the lake and left it there, full, while
+    // the whole point is that it comes out. The gap that matters is winch-to-surface.
+    const gapM = waterZ === undefined ? 0 : Math.max(0, h.reel.p[2] - waterZ);
+    const wantDepthM = out * Math.max(0, gapM - lift);
+    updateHose(h, dt, {
+      progress: h.headM > 0 ? clamp01(wantDepthM / h.headM) : 0,
+      waterFlow: 0,
+      windMps: env.windMps || DEFAULT_WIND,
+      shipVel: env.shipVel,
+      // Only clamp at the surface while the bag is still empty enough to be dipping. Once it is
+      // full it is meant to be ABOVE the water, and a clamp would fight the winch for it.
+      waterSurfaceZ: fill < 0.98 ? waterZ : undefined,
+      reduced,
+    });
+    const showing = h.deployed > 0.002;
+    N.anchorCable.visible = showing;
+    if (showing) {
+      const segs = env.lowDetail ? 10 : 20;
+      N.anchorCable.geom = hoseGeometry(h, Math.max(0.22, cls.maxRadiusM * 0.007), segs,
+        env.lowDetail ? 4 : 5);
+    }
+    if (N.anchorBag) {
+      N.anchorBag.visible = showing;
+      // Scale is the CUBE ROOT of the fill, because the bag is a volume and the eye reads the
+      // radius. A collapsed bag is not zero-sized — it is a bundle of fabric — so it floors at
+      // 22% of full, which is also what keeps it visible on the way down.
+      const r = 0.22 + 0.78 * Math.cbrt(fill);
+      N.anchorBag.visible = showing;
+      N.anchorBag.p = h.podPos.slice();
+      N.anchorBag.s = [r, r, r];
+      N.anchorBag._localDirty = true;
+    }
+    if (N.anchorWinchInst && !reduced) {
+      setInstance(N.anchorWinchInst, h.reel.id, { r: [reelAngleRad(h), 0, Math.PI / 2] });
     }
   }
 

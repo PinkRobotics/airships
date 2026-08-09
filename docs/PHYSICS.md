@@ -422,7 +422,7 @@ For contrast, the two alternatives that were costed and rejected. Making the sam
 liquid nitrogen is 0.45 MWh per tonne — **475 MWh**, five times the whole cycle, or 5.8× the
 cryogenic plant to do it inside one cycle. Filling from 1,350 m up a long hose so the ship never
 meets the dense air is **44 MWh**, and needs a 2 m bore at 140 bar. Borrowing mass from the lake
-and giving it back is 0.11 MWh. When a mechanism is three orders of magnitude cheaper than the
+and giving it back is 0.60 MWh. When a mechanism is nearly three orders of magnitude cheaper than the
 alternatives, that is usually the design telling you something.
 
 Against that, generation. The only sources the code credits are the solar skin at a flat
@@ -666,17 +666,25 @@ is unchanged and the engineering is not, which is the honest way to describe it.
 
 The bag is sized generously on purpose. The bare shortfall is 1,056 t, and a bag that size
 leaves the rotors at 100% of authority for the whole letdown, which is not a margin and costs
-power besides. At 2,400 t the anchor takes 2,323 t, the rotors work at 90%, `battLimited` stays
-false and the 12% letdown stretch never applies. Cable: 2,323 t is 22.8 MN, which is 195 mm of
-UHMWPE at about 25 t, against 216 t for the steel equivalent. Synthetic rope is what makes this
-cheap, as it did for deep-tow oceanography.
+power besides. The bag is sized to do the whole descent instead: at 12,400 t it takes 12,400 of
+the 13,722 t hold, the rotors are left doing 10% as trim, `battLimited` stays false and the 12%
+letdown stretch never applies. Cable: 12,400 t is 122 MN, which is about 440 mm of UHMWPE massing
+125 t, against roughly ten times that in steel wire. Synthetic rope is what makes this cheap, as
+it did for deep-tow oceanography.
 
-**Costs, against the alternatives.** Anchor 0.11 MWh a cycle. A 1,350 m hose so the ship fills
+**Costs, against the alternatives.** Anchor 0.60 MWh a cycle. A 1,350 m hose so the ship fills
 from altitude and never meets the dense air: 44 MWh, 2 m bore, 140 bar. The same ballast as
 liquid nitrogen: 475 MWh, or 5.8× the cryogenic plant to make it inside one cycle. Delivery is
 unchanged at 12,052 t/h and the cycle costs 79.24 MWh.
 
-**Not modelled, and material:** 2,323 t swinging on one cable under an 876 m hull is a pendulum
+**In the picture.** The 3D view draws the whole sequence — cable out, bag dipped, bag lifted
+clear, bag dumped — against a translucent lake with rings at one-hull-length intervals. The rings
+are there because a featureless plane has no perspective and the hull reads as floating IN the
+water rather than 300 m above it. The bag is drawn at its true size, which is smaller than a
+reader expects: 12,400 t of water is a sphere 28.7 m across beside an 876 m ship, and that
+contrast is worth seeing rather than correcting.
+
+**Not modelled, and material:** 12,400 t swinging on one cable under an 876 m hull is a pendulum
 nobody has analysed; the bag has to survive being filled and dumped every cycle; the winch is
 assumed to run at 5 m/s both ways; and the cable is paid out during the approach, which is the
 only place it can extend the cycle.

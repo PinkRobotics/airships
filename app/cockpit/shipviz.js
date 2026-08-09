@@ -190,6 +190,59 @@ export const shipViz = (() => {
       arrow([0.2, 0, net > 0 ? 0.3 : -0.3], [0.2, 0, (net > 0 ? 0.3 : -0.3) + 0.42 * net], sc, cx, cy,
         net > 0 ? "#46d06e" : "#d98b80", "");
 
+    /* THE WATER, so that "dips into it" is a thing the picture can show.
+     *
+     * One line, at the depth the fully-paid-out hose reaches, drawn only when something is
+     * actually reaching for it. The 3D view draws a translucent disc for the same reason: a pod
+     * and a several-thousand-tonne bag crossing a surface is the whole story of the source, and
+     * without the surface they are objects dangling in blank space. Not terrain — the map has
+     * terrain, and the map is the wrong instrument for this. */
+    const WATER_Z = 0.62;
+    const overWater = st.phase === "SOURCE_APPROACH" || st.phase === "WATER_FILL"
+      || (st.phase === "RETURN_TRANSIT" && st.prog > 0.62)
+      || (st.phase === "OUTBOUND_TRANSIT" && st.prog < 0.18);
+    if (overWater) {
+      const wl = proj([0, 0, -B - WATER_Z], sc, cx, cy);
+      const half = 1.05 * sc;
+      c2.strokeStyle = "rgba(122,162,200,.34)"; c2.lineWidth = 1.4;
+      c2.beginPath(); c2.moveTo(wl.x - half, wl.y); c2.lineTo(wl.x + half, wl.y); c2.stroke();
+      c2.lineWidth = 1;
+    }
+
+    /* THE DESCENT ANCHOR — drawn BEFORE the hose so the hose reads in front of it.
+     *
+     * Same sequence the 3D shows and driven off the same two numbers, because an avatar that
+     * disagrees with the model is worse than an avatar that shows nothing. The cable goes out
+     * late on the return leg, the bag dips, fills, is winched clear, and is dumped once the
+     * tanks hold more than the descent needed. The circle is drawn to the bag's real radius
+     * scaled by the cube root of its fill — it is a volume, and the eye reads the radius. */
+    const bagCapT = m.cls.anchorBagT || 0;
+    if (bagCapT > 0) {
+      let cableP = 0, fillF = 0;
+      const fullF = Math.min(1, (m.plan ? m.plan.anchorT : 0) / bagCapT);
+      if (st.phase === "RETURN_TRANSIT") {
+        cableP = Math.max(0, Math.min(1, (st.prog - 0.62) / 0.18));
+        fillF = fullF * Math.max(0, Math.min(1, (st.prog - 0.78) / 0.14));
+      } else if (st.phase === "SOURCE_APPROACH") { cableP = 1; fillF = fullF; }
+      else if (st.phase === "WATER_FILL") {
+        fillF = fullF * (1 - Math.min(1, st.prog / 0.30));
+        cableP = 1 - Math.max(0, Math.min(1, (st.prog - 0.25) / 0.35));
+      }
+      if (cableP > 0.02) {
+        // The bag hangs at the surface while it fills and just clear of it once it is full.
+        const lift = 0.055 * Math.max(0, Math.min(1, (fillF / Math.max(0.01, fullF) - 0.8) / 0.2));
+        const drop = WATER_Z * cableP - lift;
+        const a0 = proj([0.1, 0, -B], sc, cx, cy);
+        const b0 = proj([0.1, 0, -B - drop], sc, cx, cy);
+        c2.strokeStyle = "#b9bec8"; c2.lineWidth = 1.1;
+        c2.beginPath(); c2.moveTo(a0.x, a0.y); c2.lineTo(b0.x, b0.y); c2.stroke();
+        const rr = 3.5 + 9 * Math.cbrt(Math.max(0.02, fillF / Math.max(0.01, fullF)));
+        c2.fillStyle = "rgba(122,162,200,.55)";
+        c2.strokeStyle = "#7aa2c8"; c2.lineWidth = 1;
+        c2.beginPath(); c2.ellipse(b0.x, b0.y, rr, rr * 0.92, 0, 0, 7); c2.fill(); c2.stroke();
+      }
+    }
+
     // the hose: pays out on approach, stands taut while pumping, winds up on departure
     let hoseP = 0, pumping = false;
     if (st.phase === "SOURCE_APPROACH") hoseP = st.prog;
@@ -197,7 +250,7 @@ export const shipViz = (() => {
     else if (st.phase === "OUTBOUND_TRANSIT" && st.prog < 0.18) hoseP = 1 - st.prog / 0.18;
     if (hoseP > 0.02) {
       const a = proj([0, 0, -B], sc, cx, cy);
-      const b = proj([0, 0, -B - 0.62 * hoseP], sc, cx, cy);
+      const b = proj([0, 0, -B - WATER_Z * hoseP], sc, cx, cy);
       c2.strokeStyle = "#7aa2c8"; c2.lineWidth = 1.4;
       c2.setLineDash([4, 4]);
       c2.lineDashOffset = pumping && !S.reduced

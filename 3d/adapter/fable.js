@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=283ee0df';
-import { phaseShape } from '../anim/mission.js?v=283ee0df';
-import { massState } from '../physics/mass.js?v=283ee0df';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=283ee0df';
-import { clamp01 } from '../core/math.js?v=283ee0df';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=fab55af1';
+import { phaseShape } from '../anim/mission.js?v=fab55af1';
+import { massState } from '../physics/mass.js?v=fab55af1';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=fab55af1';
+import { clamp01 } from '../core/math.js?v=fab55af1';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -35,8 +35,12 @@ export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
  */
 export function adoptAssumptions(hostCfg) {
   if (!hostCfg) return null;
+  // hoseHead is deliberately absent: the monitor stopped carrying one global head on 2026-08-09,
+  // because the hose length is a property of the class (sim/config.js CLASSES[*].hoseM) and the
+  // multiplier that scales it has no meaning on this side. Passing hostCfg.hoseHead here copied
+  // `undefined` into the assumption block for one commit.
   return setAssumptions({
-    eLN2: hostCfg.eLN2, rtLN2: hostCfg.rtLN2, hoseHead: hostCfg.hoseHead,
+    eLN2: hostCfg.eLN2, rtLN2: hostCfg.rtLN2,
     pumpEta: hostCfg.pumpEta, propEta: hostCfg.propEta, Cd: hostCfg.Cd,
     rhoAir: hostCfg.rhoAir, rhoSL: hostCfg.rhoSL,
   });
@@ -98,6 +102,34 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     : phase === 'OUTBOUND_TRANSIT' ? Math.max(0, 1 - prog / 0.18)
       : (shape.hoseProgress || 0);
 
+  /* THE DESCENT ANCHOR, WHERE THE TWO CYCLES DIFFER AGAIN. The model's own cycle has a
+   * CONTROLLED_DESCENT phase and does the whole dip-fill-lift there. The monitor's six phases
+   * have no descent of their own — the letdown rides the tail of RETURN_TRANSIT (sim/state.js) —
+   * so the sequence is applied against the host phase here, exactly as the hose overlap is.
+   *
+   * The bag's FULL is the monitor's own number: plan.anchorT over the class's bag, so a hull
+   * whose descent needs less than the bag holds draws less than a full bag. Same rule as the
+   * nitrogen above — divide by the capacity the consumers multiply back. */
+  const bagCapT = cls.anchorBagTonnes || 0;
+  const anchorFull = bagCapT > 0
+    ? clamp01((opts.anchorT === undefined ? bagCapT : opts.anchorT) / bagCapT) : 0;
+  let anchorProgress = 0, anchorFill = 0, overWater = false;
+  if (phase === 'RETURN_TRANSIT') {
+    // The last third of the leg is the letdown. Cable out, then the bag dips and fills.
+    overWater = prog > 0.62;
+    anchorProgress = clamp01((prog - 0.62) / 0.18);
+    anchorFill = anchorFull * clamp01((prog - 0.78) / 0.14);
+  } else if (phase === 'SOURCE_APPROACH') {
+    overWater = true; anchorProgress = 1; anchorFill = anchorFull;
+  } else if (phase === 'WATER_FILL') {
+    // Dumped as soon as the tanks hold more than the descent needed; the empty cable follows.
+    overWater = true;
+    anchorFill = anchorFull * (1 - clamp01(prog / 0.30));
+    anchorProgress = 1 - clamp01((prog - 0.25) / 0.35);
+  } else if (phase === 'OUTBOUND_TRANSIT') {
+    overWater = prog < 0.18;                      // still over the lake while the hose winds up
+  }
+
   const draw = hostState.draw || {};
   const s = defaultState({
     phase,
@@ -132,6 +164,9 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     ln2RecoveryPowerMW: 0,
 
     hoseProgress,
+    anchorProgress,
+    anchorFill,
+    overWater,
     waterReleaseProgress: shape.waterReleaseProgress || 0,
     pumpPodDepthM: hoseProgress * (opts.headM || 250),
 
@@ -160,7 +195,12 @@ export function adaptMission(hostMission, hostState, opts = {}) {
   const hostCls = hostMission && hostMission.cls ? hostMission.cls : null;
   const classId = CLASS_MAP[hostCls ? hostCls.id : 'P100'] || 'P100';
   const cls = opts.resolved || resolveClass(classId);
-  const state = fromMonitorState(hostState, hostCls, cls, opts);
+  // How much of the bag this mission's descent actually needs is a PLAN figure, not a class one:
+  // a short hop and a long haul make different amounts of nitrogen and so leave the anchor a
+  // different job. Read it off the mission rather than making the caller thread it through.
+  const planAnchorT = hostMission && hostMission.plan ? hostMission.plan.anchorT : undefined;
+  const state = fromMonitorState(hostState, hostCls, cls,
+    { anchorT: planAnchorT, ...opts });
   return { classId, cls, state, mass: massState(cls, state, opts.layout || null) };
 }
 

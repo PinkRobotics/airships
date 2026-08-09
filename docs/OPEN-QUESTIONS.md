@@ -372,12 +372,13 @@ than the problem it solved.** Striking
 the balance honestly took the P-10000 from 12,052 t/h to 10,821, because 1,056 t of every load
 stayed in the tanks to make the descent possible. Then the obvious question: what actually holds
 a buoyant ship down? Not ballast it carries, makes, or keeps back — it borrows the lake. A bag on
-a cable, filled at the surface and winched clear, is 2,323 t of downward force for the 15 m of
+a cable, filled at the surface and winched clear, is 12,400 t of downward force for the 15 m of
 lift needed to break the surface, and it is dumped back where it came from once the tanks hold
 more than the shortfall. A Bambi bucket at 240 times the commercial scale.
 
 Delivery returns to 12,052 t/h with the whole load dropped. The three ways of closing the same
-1,056 t gap, priced: anchor **0.11 MWh**, a 1,350 m hose so the ship fills from altitude
+1,056 t gap, priced: anchor **0.11 MWh** at that size (0.60 once the bag is sized to do the whole
+descent), a 1,350 m hose so the ship fills from altitude
 **44 MWh** (2 m bore, 140 bar), liquid nitrogen **475 MWh** (or 5.8× the plant to do it in one
 cycle). Retaining water costs no energy at all and 10% of the delivery, which is the one
 currency this fleet cannot spend.

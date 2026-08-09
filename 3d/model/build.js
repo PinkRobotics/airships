@@ -15,19 +15,19 @@
 import {
   resolveClass, stationX, stationT, hullR, sectionScale, profileR, CLASS_IDS,
   TRIM_FAN_DEPTH_RATIO, HULL_BAND_LIFT,
-} from './config.js?v=283ee0df';
-import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=283ee0df';
-import { proxyField } from './density.js?v=283ee0df';
+} from './config.js?v=fab55af1';
+import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=fab55af1';
+import { proxyField } from './density.js?v=fab55af1';
 import { buildLattice, buildMacroFrames, buildSectionJoints, buildCellModules, buildLoadPaths, TIERS }
-  from './structure.js?v=283ee0df';
-import { buildMetadata } from './metadata.js?v=283ee0df';
+  from './structure.js?v=fab55af1';
+import { buildMetadata } from './metadata.js?v=fab55af1';
 import {
-  latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom,
+  latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom, circleSegs,
   lines, pathSegs, mergeSolids, countOf, featureEdges, transformSegs, solid,
-} from './geom.js?v=283ee0df';
-import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=283ee0df';
-import { m4compose, segPointDist } from '../core/math.js?v=283ee0df';
-import { streamFor } from '../core/prng.js?v=283ee0df';
+} from './geom.js?v=fab55af1';
+import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=fab55af1';
+import { m4compose, segPointDist } from '../core/math.js?v=fab55af1';
+import { streamFor } from '../core/prng.js?v=fab55af1';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -687,6 +687,78 @@ export function build(classId, opts = {}) {
       });
       podNode.visible = false;
     }
+
+    /* --- the descent anchor: winch, cable, bag -------------------------------------------------
+     * Same shape of object as the hose — a winched line with a mass on the end — so it reuses
+     * anim/hose.js rather than growing a second line solver. What differs is what the mass is
+     * for: the pod pushes water UP the hose, and the bag pulls the SHIP down. */
+    const aw = layout.anchorWinch;
+    if (aw) {
+      addChild(water, instanceNode(
+        { id: 'AnchorWinch', category: 'water', material: 'machine' },
+        cylGeom(Math.max(1.8, R * 0.11), aw.radius, 12),
+        [{ id: aw.id, p: aw.p, r: [0, 0, Math.PI / 2] }],
+      ));
+      const cable = child(water, {
+        id: 'AnchorCable', category: 'water', material: 'cable',
+        geom: tubeGeom([[aw.p[0], aw.p[1], aw.p[2]], [aw.p[0], aw.p[1], aw.p[2] - 1]],
+          Math.max(0.22, R * 0.007), 5),
+      });
+      cable.visible = false;
+      cable.dynamic = { kind: 'anchorCable', winch: aw.id, seg: 20,
+        radius: Math.max(0.22, R * 0.007) };
+      // The bag at unit scale is the FULL bag. The driver scales it down as it empties, so the
+      // thing on screen is always the true size of the water it is holding.
+      const bag = child(water, {
+        id: 'AnchorBag', category: 'water', material: 'bag',
+        p: [aw.p[0], aw.p[1], aw.p[2] - 2],
+        geom: sphereGeom(aw.bagRadius, 18, 10),
+      });
+      bag.visible = false;
+      bag.dynamic = { kind: 'anchorBag', radiusM: aw.bagRadius, tonnes: aw.bagTonnes };
+    }
+  }
+
+  /* --- the water surface ------------------------------------------------------------------------
+   * NOT terrain. A single translucent disc at the height of the lake, drawn only when the ship is
+   * low enough over water for it to mean something, and counter-rotated out of the hull's attitude
+   * so it stays level while the ship pitches.
+   *
+   * It exists because the two things this vehicle does at the source — dipping a pump pod and
+   * dipping a several-thousand-tonne bag — are both about crossing a surface, and without the
+   * surface drawn they read as objects dangling in empty space. The map shows terrain; the map
+   * cannot show a bucket breaking water.
+   */
+  {
+    const env = child(root, { id: 'Environment', category: 'water', selectable: false });
+    const surf = child(env, {
+      id: 'WaterSurface', category: 'water', material: 'lakeSurface', selectable: false,
+      lod: 1,
+      // discGeom faces along +x; rotate it once here so the disc is HORIZONTAL in the model and
+      // the driver only ever has to apply the counter-attitude, not compose two rotations.
+      // Wide enough that its rim leaves the frame at any sane camera: a disc whose edge you can
+      // see reads as a plate under the ship, and the thing being drawn is a lake.
+      geom: transformSolid(discGeom(cls.lengthM * 9, 56),
+        m4compose([0, 0, 0], [0, -Math.PI / 2, 0], 1)),
+    });
+    surf.visible = false;
+    surf.dynamic = { kind: 'waterSurface' };
+
+    // RINGS, because a featureless plane has no perspective. Without them the lake reads as a
+    // flat backdrop at the ship's own altitude and the hull looks like it is floating IN the
+    // water rather than hanging 300 m over it. Concentric circles at ship-length intervals give
+    // the eye the convergence it needs, and they double as a distance scale: each ring is one
+    // hull length further out.
+    const rings = [];
+    for (const k of [0.5, 1, 2, 3.5, 5.5, 8]) {
+      rings.push(...circleSegs(cls.lengthM * k, 72, 'z'));
+    }
+    const ringNode = child(env, {
+      id: 'WaterSurfaceRings', category: 'water', material: 'lakeRing', selectable: false,
+      geom: lines(rings),
+    });
+    ringNode.visible = false;
+    ringNode.dynamic = { kind: 'waterSurface' };
   }
 
   /* --- cryogenic --------------------------------------------------------------------------- */

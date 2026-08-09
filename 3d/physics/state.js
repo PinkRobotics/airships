@@ -9,7 +9,7 @@
  * mission arithmetic is a bug — that is how two pages start quoting different fill times.
  */
 
-import { clamp01, clamp, lerp } from '../core/math.js?v=283ee0df';
+import { clamp01, clamp, lerp } from '../core/math.js?v=fab55af1';
 
 /**
  * The mission phases, in cycle order. A superset of the /airships page's six-phase PHASES list:
@@ -81,6 +81,15 @@ export function defaultState(patch = {}) {
     pumpPodDepthM: 0,
     waterReleaseProgress: 0,
 
+    // The descent anchor. `anchorProgress` is how far the cable is paid out, 0 stowed to 1 at the
+    // water; `anchorFill` is how much water is in the bag. They are separate because the sequence
+    // that matters is dip, FILL, then lift clear — a single number could not express the middle.
+    // `overWater` says the surface below is a lake rather than a fire, which is what licenses
+    // drawing it and what lets the pod and the bag stop at it instead of passing through.
+    anchorProgress: 0,
+    anchorFill: 0,
+    overWater: false,
+
     structuralMargin: undefined,
     selectedWindLayerM: undefined,
 
@@ -115,7 +124,8 @@ export function sanitizeState(s) {
   const o = defaultState(s);
   o.phaseProgress = clamp01(o.phaseProgress);
   for (const k of ['waterFraction', 'ln2Fraction', 'fuelFraction', 'batteryStateOfCharge',
-    'hoseProgress', 'waterReleaseProgress']) o[k] = clamp01(o[k]);
+    'hoseProgress', 'waterReleaseProgress', 'anchorProgress', 'anchorFill']) o[k] = clamp01(o[k]);
+  o.overWater = !!o.overWater;
   o.altitudeM = Math.max(0, o.altitudeM || 0);
   o.pumpPodDepthM = Math.max(0, o.pumpPodDepthM || 0);
   if (!ALL_PHASES.includes(o.phase)) o.phase = 'SOURCE_APPROACH';
@@ -136,8 +146,12 @@ export function lerpState(a, b, t) {
   const num = ['phaseProgress', 'waterFraction', 'ln2Fraction', 'fuelFraction',
     'batteryStateOfCharge', 'altitudeM', 'airspeedMps', 'groundSpeedMps', 'verticalSpeedMps',
     'vacuumBuoyancyN', 'weightN',
-    'hoseProgress', 'pumpPodDepthM', 'waterReleaseProgress'];
+    'hoseProgress', 'pumpPodDepthM', 'waterReleaseProgress',
+    'anchorProgress', 'anchorFill'];
   for (const k of num) out[k] = lerp(a[k] || 0, b[k] || 0, u);
+  // Boolean, so it takes the destination's past halfway rather than blending: half over water
+  // is not a thing, and a consumer switching on it would draw half a lake.
+  out.overWater = u < 0.5 ? !!a.overWater : !!b.overWater;
   // Power fields keep their null-means-unsupplied semantics through an interpolation: blending
   // null with a number would invent a supply the host never claimed.
   for (const k of ['solarPowerMW', 'generatorPowerMW', 'batteryPowerMW', 'cryogenicPowerMW',

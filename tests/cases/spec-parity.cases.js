@@ -35,6 +35,12 @@ const SHARED = {
   // nitrogen to sink an empty hull at ground level with no rotors — so there is one right
   // answer now and no reason for two. The exclusion is deleted rather than loosened.
   ln2CapT: 'ln2TankCapacityTonnes',
+  // The descent anchor and the hose it works alongside. Both files draw and compute from these,
+  // so both files have to agree about them — this is the pair that would otherwise let the 3D
+  // show a bag of one size while the model sizes the descent around another.
+  hoseM: 'hoseLengthM',
+  anchorM: 'anchorCableM',
+  anchorBagT: 'anchorBagTonnes',
   solarM2: 'solarAreaM2',
 };
 

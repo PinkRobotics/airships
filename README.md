@@ -130,8 +130,9 @@ water back as ballast, costing about 10% of the delivered figure.
 
 Which raised the obvious question: what actually holds a buoyant ship down? Not ballast it has to
 carry, make, or keep back. **It borrows the lake.** The larger classes lower a cable with a bag on
-it, fill the bag, and winch it just clear of the surface — 2,323 t of water hanging on a line is
-2,323 t of downward force, and it costs the 15 m of lift needed to break the surface, or 0.11 MWh.
+it, fill the bag, and winch it just clear of the surface — 12,400 t of water hanging on a line is
+12,400 t of downward force, and it costs the 15 m of lift needed to break the surface, or
+0.60 MWh.
 When the tanks hold more than the shortfall, the bag is dumped back where it came from. It is a
 Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale nobody has built:
 commercial ones top out near 10 tonnes.

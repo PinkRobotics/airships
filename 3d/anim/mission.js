@@ -17,11 +17,11 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=283ee0df';
-import { massState } from '../physics/mass.js?v=283ee0df';
-import { derivePower } from '../physics/energy.js?v=283ee0df';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=283ee0df';
-import { ASSUMPTIONS } from '../model/config.js?v=283ee0df';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=fab55af1';
+import { massState } from '../physics/mass.js?v=fab55af1';
+import { derivePower } from '../physics/energy.js?v=fab55af1';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=fab55af1';
+import { ASSUMPTIONS } from '../model/config.js?v=fab55af1';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
@@ -108,6 +108,8 @@ export function phaseShape(cls, phase, prog, opts = {}) {
   switch (phase) {
     case 'SOURCE_APPROACH':
       s.altitudeM = lerp(ALT.source + 150, ALT.source, smoothstep(p));
+      s.overWater = true;
+      s.anchorProgress = 1; s.anchorFill = 1;      // hanging full, holding the hull down
       s.airspeedMps = lerp(cruise * 0.35, 2, p);
       s.verticalSpeedMps = -2.0 * (1 - p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
@@ -120,11 +122,19 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       break;
     case 'HOSE_DEPLOY':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
+      s.overWater = true;
+      s.anchorProgress = 1; s.anchorFill = 1;
       s.waterFraction = 0; s.ln2Fraction = ln2Target;
       s.hoseProgress = smoothstep(p);
       break;
     case 'WATER_FILL':
       s.altitudeM = ALT.source; s.airspeedMps = 1.5; s.verticalSpeedMps = 0;
+      // The bag is dumped as soon as the tanks hold more than the descent needed, and the empty
+      // cable follows it up. Both finish well before the fill does, which is why neither costs
+      // the cycle any time.
+      s.overWater = true;
+      s.anchorFill = 1 - clamp01(p / 0.30);
+      s.anchorProgress = 1 - clamp01((p - 0.25) / 0.35);
       s.waterFraction = p;
       // Ballast given back as water comes aboard — a few percent of the bank, not the bank.
       s.ln2Fraction = lerp(ln2Target, ln2Low, p);
@@ -132,6 +142,7 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       break;
     case 'HOSE_RETRACT':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
+      s.overWater = true;                          // still over the lake, anchor already stowed
       s.waterFraction = 1; s.ln2Fraction = ln2Low;
       // Drain first, then haul in. A hose full of water is tonnes hanging on the winch.
       s.hoseProgress = p < 0.35 ? 1 : 1 - smoothstep((p - 0.35) / 0.65);
@@ -179,6 +190,12 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       break;
     case 'CONTROLLED_DESCENT':
       s.altitudeM = lerp(ALT.cruise, ALT.source, smoothstep(p));
+      // THE ANCHOR'S PHASE. The hull comes down on rotors while the air is thin, and about two
+      // thirds of the way the cable goes out, the bag dips, fills, and is winched just clear.
+      // From there the lake is doing the holding and the rotors are only trimming.
+      s.overWater = true;
+      s.anchorProgress = clamp01((p - 0.30) / 0.25);
+      s.anchorFill = clamp01((p - 0.55) / 0.20);
       s.airspeedMps = lerp(cruise * 0.9, cruise * 0.35, p);
       s.verticalSpeedMps = -3.5 * Math.sin(Math.PI * p);
       s.waterFraction = 0; s.ln2Fraction = ln2Target;

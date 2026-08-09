@@ -53,7 +53,10 @@ export const ASSUMPTIONS = {
   eLN2Range: [0.30, 0.80],
   rtLN2: 0.50,       // electrical round-trip efficiency of the nitrogen store. Range 0.35-0.60.
   rtLN2Range: [0.35, 0.60],
-  hoseHead: 250,     // m of vertical pumping head at the source
+  // m of vertical pumping head at the source. The MONITOR holds this per class now
+  // (sim/config.js CLASSES[*].hoseM) and all three are 300; this flat figure is the standalone
+  // library's own default for energy.js, and CLASSES[*].hoseLengthM below is the checked copy.
+  hoseHead: 300,
   pumpEta: 0.75,
   propEta: 0.70,
   Cd: 0.05,
@@ -244,6 +247,16 @@ const CLASS_SPECS = {
     hoseReels: 1,
     fillRateM3s: 0.5,
 
+    // --- descent anchor --------------------------------------------------------------------
+    // A cable with a bag on the end. The ship lowers it into the lake, fills it, and winches it
+    // clear of the surface: water hanging on a line is downward force that costs only the few
+    // metres of lift needed to break the surface, and it is dumped back where it came from once
+    // the tanks hold more than the descent needs. A Bambi bucket at a scale nobody has built.
+    // MUST equal sim/config.js CLASSES[*].anchorM / .anchorBagT — spec-parity.cases.js checks.
+    hoseLengthM: 300,
+    anchorCableM: 350,
+    anchorBagTonnes: 125,
+
     // --- cryogenic -------------------------------------------------------------------------
     cryoTrains: 1,
     // The bank is sized by unpowered recovery, not by the delivery cycle: it must hold enough
@@ -306,6 +319,10 @@ const CLASS_SPECS = {
     pumpPods: 4,
     hoseReels: 4,
     fillRateM3s: 3,
+    // Descent anchor — see the P-100 block for what this is and why.
+    hoseLengthM: 300,
+    anchorCableM: 600,
+    anchorBagTonnes: 1250,
 
     cryoTrains: 2,
     ln2Tanks: 8,
@@ -367,6 +384,10 @@ const CLASS_SPECS = {
     pumpPods: 6,
     hoseReels: 6,
     fillRateM3s: 15,
+    // Descent anchor — see the P-100 block for what this is and why.
+    hoseLengthM: 300,
+    anchorCableM: 850,
+    anchorBagTonnes: 12400,
 
     cryoTrains: 5,
     ln2Tanks: 20,

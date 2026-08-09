@@ -36,7 +36,7 @@ import {
   AirshipScaleComparison, AirshipFailureExplorer, AirshipTrajectoryExplorer, AirshipMapModel,
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
-} from '../index.js?v=283ee0df';
+} from '../index.js?v=fab55af1';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -604,6 +604,86 @@ await check('the vacuum view packs the free volume and respects hull and machine
   assert(v.stats.drawCalls > 0, 'moving the cut killed the vacuum view');
   v.dispose();
   return `${count} cells, r=${radiusM.toFixed(2)} m`;
+});
+
+await check('the descent anchor dips, fills, and is lifted clear — in that order', async () => {
+  if (!gl) return null;
+  // The sequence IS the mechanism, so it is worth asserting rather than eyeballing. The failure
+  // this guards is the same one the hose tests guard: a thing that costs thousands of tonnes
+  // hanging where it physically cannot be. It is also the test that caught the cable being paid
+  // out from the ship's CENTRE rather than its keel, which left a full bag 110 m under the lake.
+  const v = mount(host, { classId: 'P10000', quality: 'low', reducedMotion: false });
+  const N = v.driver._nodes;
+  const settle = (st) => {
+    v.setProps({ visualState: st });
+    for (let i = 0; i < 150; i++) v.tick(1 / 30);
+    return { bagZ: N.anchorBag.p[2], waterZ: -st.altitudeM, vis: N.anchorBag.visible };
+  };
+  const shape = (phase, p) => defaultState({ phase, phaseProgress: p, altitudeM: 300,
+    overWater: true, anchorProgress: 1, anchorFill: p });
+  // Empty: the bag goes down to the water and no further.
+  const dip = settle(shape('WATER_FILL', 0));
+  assert(dip.vis, 'the bag should be visible when the cable is out');
+  assert(Math.abs(dip.bagZ - dip.waterZ) < 20,
+    `an empty bag should sit at the surface, got ${dip.bagZ.toFixed(0)} against ${dip.waterZ}`);
+  // Full: it must be ABOVE the surface, or it is not ballast, it is a thing floating in a lake.
+  const lifted = settle(shape('WATER_FILL', 1));
+  assert(lifted.bagZ > lifted.waterZ,
+    `a full bag must be lifted clear, got ${lifted.bagZ.toFixed(0)} against ${lifted.waterZ}`);
+  // Stowed: nothing hanging once the cable is in.
+  v.setProps({ visualState: defaultState({ phase: 'OUTBOUND_TRANSIT', altitudeM: 1500 }) });
+  for (let i = 0; i < 150; i++) v.tick(1 / 30);
+  assert(!N.anchorBag.visible, 'the bag must be stowed away from the source');
+  assert(!N.waterSurface.visible, 'and there is no lake at cruise altitude');
+  const r = v.driver.anchor;
+  v.dispose();
+
+  // AND IT MUST ACTUALLY BE DRAWN. Everything above passed while the anchor and the lake were
+  // invisible, because render/views.js gates the exterior view on an ALLOW-LIST of node ids and
+  // nothing had added them to it. Positioned, scaled, animated, never rasterised. Asserting on
+  // the node tree cannot see that; the triangle count can.
+  const w = mount(host, { classId: 'P10000', quality: 'low', viewMode: 'exterior' });
+  w.setProps({ visualState: defaultState({ phase: 'OUTBOUND_TRANSIT', altitudeM: 1500 }) });
+  w.tick(1 / 60);
+  const stowed = w.stats.triangles;
+  w.setProps({ visualState: defaultState({ phase: 'WATER_FILL', altitudeM: 300, overWater: true,
+    anchorProgress: 1, anchorFill: 1 }) });
+  for (let i = 0; i < 90; i++) w.tick(1 / 30);
+  const deployed = w.stats.triangles;
+  w.dispose();
+  assert(deployed > stowed, `deploying the anchor and the lake must add geometry to the `
+    + `exterior view: ${stowed} triangles stowed, ${deployed} deployed`);
+  return `bag at surface ${dip.bagZ.toFixed(0)} m, lifted to ${lifted.bagZ.toFixed(0)} m, `
+    + `cable ${r.headM} m, +${deployed - stowed} triangles drawn`;
+});
+
+await check('the water surface is drawn level, at the lake, and only near it', async () => {
+  if (!gl) return null;
+  const v = mount(host, { classId: 'P1000', quality: 'low', reducedMotion: true });
+  const N = v.driver._nodes;
+  const set = (patch) => {
+    v.setProps({ visualState: defaultState({ phase: 'WATER_FILL', overWater: true, ...patch }) });
+    v.tick(1 / 60);
+  };
+  set({ altitudeM: 300 });
+  assert(N.waterSurface.visible, 'the lake should be drawn from 300 m');
+  // The surface is a CHILD of the hull, and the hull rotates. Its own transform has to undo that
+  // or the lake tilts and swings with every pitch input.
+  const pitched = defaultState({ phase: 'WATER_FILL', overWater: true, altitudeM: 300,
+    attitude: { rollRad: 0, pitchRad: 0.04, yawRad: 0 } });
+  v.setProps({ visualState: pitched });
+  for (let i = 0; i < 120; i++) v.tick(1 / 30);
+  const wx = v.driver.attitude.pitchRad;
+  assert(Math.abs(N.waterSurface.r[1] + wx) < 1e-9,
+    'the surface must be counter-rotated out of the hull attitude');
+  assert(Math.abs(N.waterSurface.p[2] + 300 * Math.cos(wx)) < 1.0,
+    'and its depth must stay 300 m under the ship, not swing with the pitch');
+  set({ altitudeM: 1500 });
+  assert(!N.waterSurface.visible, 'and it is not drawn from cruise');
+  v.setProps({ visualState: defaultState({ phase: 'WATER_FILL', overWater: false, altitudeM: 300 }) });
+  v.tick(1 / 60);
+  assert(!N.waterSurface.visible, 'nor over a fire');
+  v.dispose();
 });
 
 const sum = document.getElementById('summary');

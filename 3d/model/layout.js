@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=283ee0df';
-import { segPointDist } from '../core/math.js?v=283ee0df';
-import { streamFor, jitter } from '../core/prng.js?v=283ee0df';
+} from './config.js?v=fab55af1';
+import { segPointDist } from '../core/math.js?v=fab55af1';
+import { streamFor, jitter } from '../core/prng.js?v=fab55af1';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -101,7 +101,7 @@ export function buildLayout(cls) {
     waterTanks: [], waterManifolds: [], dropOutlets: [],
     ln2Tanks: [], cryoModules: [], cryoTrains: [],
     generators: [], batteries: [], hvdcBuses: [],
-    hoseReels: [], pumpPods: [],
+    hoseReels: [], pumpPods: [], anchorWinch: null,
     tailSurfaces: [], sensors: [], corridors: [], sectionJoints: [],
     compute: [], tankerDock: null, solarZones: [],
     waterPipes: [], ln2Pipes: [],
@@ -389,6 +389,25 @@ export function buildLayout(cls) {
         length: Math.max(3.2, R * 0.14), radius: Math.max(0.9, R * 0.045),
       });
     }
+  }
+
+  /* --- the descent anchor winch -----------------------------------------------------------------
+   * ONE winch, on the keel at mid-length. Not spread like the hose reels, and not off-centre: it
+   * carries thousands of tonnes, so anywhere but the centre of buoyancy is a pitching moment the
+   * size of the load. The bag hangs from it on a cable and the ship flies with it stowed. */
+  if (cls.anchorCableM > 0) {
+    const p = inside(cls, 0.5, Math.PI * 1.5, 0.99);
+    // The bag's radius when full, from its own volume: 1 t of water is 1 m3, and a sphere of
+    // that volume has r = (3V/4pi)^(1/3). 12,400 t is 14.3 m of radius — the size is a fact
+    // about the payload, not a drawing decision, and it should read as enormous.
+    const bagR = Math.cbrt((3 * cls.anchorBagTonnes) / (4 * Math.PI));
+    layout.anchorWinch = {
+      id: 'AnchorWinch', index: 0, p,
+      radius: Math.max(2.2, R * 0.10),
+      cableM: cls.anchorCableM,
+      bagRadius: bagR,
+      bagTonnes: cls.anchorBagTonnes,
+    };
   }
 
   /* --- tail surfaces ---------------------------------------------------------------------------

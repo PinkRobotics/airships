@@ -85,6 +85,15 @@ export const MATERIALS = {
 
   tankShell: { kind: 'glass', color: TOKENS.coolDim, opacity: 0.30, edge: TOKENS.cool },
   water: { kind: 'flat', color: TOKENS.cool, opacity: 0.92 },
+  /** The descent anchor. The cable is a rope, not a pipe — thin, pale, and drawn taut; the bag
+   *  is fabric holding thousands of tonnes and reads as water because that is what it is. */
+  cable: { kind: 'surface', color: '#b9bec8', spec: 0.18, opacity: 1, ghost: 0.10 },
+  bag: { kind: 'glass', color: TOKENS.cool, opacity: 0.55, edge: TOKENS.cool },
+  /** The lake, when the ship is low enough over it to matter. Translucent so the submerged part
+   *  of a pod or a bag stays visible through it — the crossing is the whole point of drawing it. */
+  lakeSurface: { kind: 'glass', color: '#2b4a63', opacity: 0.34 },
+  /** Rings on the lake at one-hull-length intervals: the perspective cue, and a distance scale. */
+  lakeRing: { kind: 'line', color: '#6f93ad', weight: 1.0, opacity: 0.22 },
   spray: { kind: 'flat', color: TOKENS.cool, opacity: 0.55 },      // falling release droplets
   airflow: { kind: 'flat', color: '#cfe0ee', opacity: 0.16 },      // rotor / blower wash streaks
   motionline: { kind: 'flat', color: '#aebccb', opacity: 0.12 },   // relative-wind speed lines

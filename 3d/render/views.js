@@ -11,11 +11,11 @@
  * which is why this cutaway has no stencil pass and no z-fighting along the cut.
  */
 
-import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=283ee0df';
-import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=283ee0df';
-import { solid } from '../model/geom.js?v=283ee0df';
-import { node } from '../core/nodes.js?v=283ee0df';
-import { clamp01 } from '../core/math.js?v=283ee0df';
+import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=fab55af1';
+import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=fab55af1';
+import { solid } from '../model/geom.js?v=fab55af1';
+import { node } from '../core/nodes.js?v=fab55af1';
+import { clamp01 } from '../core/math.js?v=fab55af1';
 
 export const VIEW_MODES = [
   'exterior', 'ghost', 'cutaway-longitudinal', 'cutaway-transverse', 'vacuum', 'lattice',
@@ -42,6 +42,10 @@ const EXTERNAL = new Set([
   'OuterFairing', 'SolarSkin', 'HullUnderside', 'MediumThrusters', 'LocalTrimFans', 'SensorClusters',
   'DropOutlets', 'DropSpray', 'AirStreaks', 'MotionLines', 'WindLines', 'GustPuffs',
   'HoseFlow', 'HoseReels', 'TankerDock', 'HullWire',
+  // The descent anchor and the lake it works against. All four are outside the hull and all four
+  // are the point of the source phases, so leaving them off this list built them, positioned them
+  // every frame, and drew none of them — which is what an allow-list does when you forget it.
+  'AnchorWinch', 'AnchorCable', 'AnchorBag', 'WaterSurface', 'WaterSurfaceRings',
   // The rotating halves of the ducted units, and the panels that cover the ragged edge of each
   // aperture. All are part of the exterior; omitting them left the blowers with no blades and the
   // hole edges uncovered.

@@ -21,7 +21,7 @@
  * not weights.
  */
 
-import { CATEGORIES } from '../core/nodes.js?v=283ee0df';
+import { CATEGORIES } from '../core/nodes.js?v=fab55af1';
 
 /** Fraction of the dry mass allowance each system gets. Sums to 1. */
 export const MASS_SHARE = {
@@ -191,6 +191,40 @@ const TEMPLATES = [
       `it is, and the working head on this class is ${cls.hull ? 250 : 250} m. The pod can be ` +
       'released in an emergency.',
     state: 'pumpPodDepthM',
+  },
+  {
+    prefix: 'AnchorWinch', label: 'Descent anchor winch', category: 'water',
+    claim: CLAIM.layout, share: 'water', n: () => 1,
+    desc: (cls) =>
+      `One winch, on the keel at mid-length, carrying ${cls.anchorBagTonnes.toLocaleString('en-CA')} t on a ` +
+      `${cls.anchorCableM} m cable. It is at the centre because anywhere else makes a pitching ` +
+      'moment the size of the load.',
+    state: 'anchorProgress',
+    related: ['AnchorCable', 'AnchorBag'],
+  },
+  {
+    prefix: 'AnchorCable', label: 'Descent anchor cable', category: 'water',
+    claim: CLAIM.physics, share: 'water', n: () => 1,
+    desc: (cls) => {
+      const mn = Math.round(cls.anchorBagTonnes * 9.81 / 100) / 10;   // MN, one decimal
+      return `Synthetic rope, not wire. ${cls.anchorBagTonnes.toLocaleString('en-CA')} t is about ${mn} MN, which ` +
+        'in UHMWPE is a rope a few hundred millimetres across massing tens of tonnes, and in ' +
+        'steel would mass an order of magnitude more. Synthetic rope is what makes hanging this ' +
+        'much water from an aircraft cheap, as it did for deep-tow oceanography.';
+    },
+    state: 'anchorProgress',
+  },
+  {
+    prefix: 'AnchorBag', label: 'Descent anchor bag', category: 'water',
+    claim: CLAIM.research, share: 'water', n: () => 1,
+    desc: (cls) =>
+      `A collapsible bag holding ${cls.anchorBagTonnes.toLocaleString('en-CA')} t of lake water, lowered, filled ` +
+      'and winched clear of the surface so the hull has something to pull down against. It is ' +
+      'dumped back into the lake as soon as the tanks hold more than the descent needs, so ' +
+      'nothing is carried away and nothing is manufactured. This is a Bambi bucket — the ' +
+      'helicopter bucket in service since 1983 — at a scale nobody has built: commercial ones ' +
+      'top out near 10 tonnes. The principle is unchanged and the engineering is not.',
+    state: 'anchorFill',
   },
   {
     prefix: 'IntakeScreen', label: 'Intake screen', category: 'water',
