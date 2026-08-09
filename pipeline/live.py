@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""First-party mirror of the live wildfire feeds for pinkrobotics.ca/airships/.
+"""First-party mirror of the live wildfire feeds the fleet monitor reads.
 
-Visitors to the monitor read data/live/*.json from OUR server; this script is the only
-thing that talks to the upstream feeds. One fetch per interval total, instead of one per
-viewer — traffic to the site must never multiply load on emergency infrastructure.
+Visitors to the monitor read data/live/*.json from the server that hosts the page; this
+script is the only thing that talks to the upstream feeds. One fetch per interval total,
+instead of one per viewer — traffic to a demonstration page must never multiply load on
+emergency infrastructure.
 
-    python3 tools/airships_live.py           # fetch into pinkrobotics/airships/data/live/
-    python3 tools/airships_live.py --push    # ...then rsync ONLY that dir to the edge docroots
+    python3 pipeline/live.py           # fetch into data/live/
+    python3 pipeline/live.py --push    # ...then rsync ONLY that directory to the web host
 
 Cadence guidance (enforced here, not by the caller): fires/perimeters refresh when older
 than 8 minutes (upstream cadence is ~15), hotspots when older than 25 (satellites pass a
@@ -17,10 +18,16 @@ File format: {"fetchedAt": iso8601-utc, "source": url, "data": <upstream json>} 
 checks fetchedAt and falls back to the direct feed only if this mirror goes stale, so a
 dead timer degrades to exactly the old behaviour, never to a silent lie about data age.
 
-The URLs mirror the page's own (index.html FIRES_URL/PERIMS_URL/fetchHeat). If one changes,
-change both.
+The URLs mirror the page's own (app/net.js FIRES_URL/PERIMS_URL and app/feeds.js fetchHeat).
+If one changes, change both.
+
+Configuration, both optional, both read from the environment — see pipeline/README.md:
+
+    AIRSHIPS_CONTACT        a contact address or URL, sent in the User-Agent header
+    AIRSHIPS_PUBLISH_DEST   comma-separated rsync destinations for --push
 """
 import json
+import os
 import subprocess
 import sys
 import time
@@ -29,7 +36,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LIVE = ROOT / "pinkrobotics" / "airships" / "data" / "live"
+LIVE = ROOT / "data" / "live"
 
 ARC = "https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services"
 FEEDS = {
@@ -60,13 +67,23 @@ FEEDS = {
     },
 }
 
-# Where the served copies live. Production only since 2026-08-08 (the airships page shipped
-# to pinkrobotics.ca and guppi.ca went back to its placeholder — pushing there would just
-# recreate stray dirs via --mkpath). Re-add the guppi dest if the page is ever staged again:
-#   pink-edge:/srv/guppi-website/site/pinkrobotics/airships/data/live/
-PUSH_DESTS = [
-    "pink-edge:/srv/pinkrobotics-website/site/airships/data/live/",
-]
+# A contact address in the User-Agent is a courtesy to the people running a free public
+# feed: if this fetcher ever misbehaves, they can say so instead of blocking an anonymous
+# client. It is not required by any of these services and none of them authenticate on it.
+# Unset by default, because a published default would be somebody's real address.
+CONTACT = os.environ.get("AIRSHIPS_CONTACT", "").strip()
+USER_AGENT = ("airships-fleet-monitor mirror (single server-side fetcher; "
+              + (f"contact {CONTACT})" if CONTACT
+                 else "set AIRSHIPS_CONTACT to add a contact address)"))
+
+# Where the fetched copies get published. Empty by default: nothing is pushed anywhere
+# unless the operator names a destination, so cloning this repository cannot make it write
+# to somebody else's server. Each entry is an rsync destination — a local path, or any
+# host spec rsync understands.
+#   AIRSHIPS_PUBLISH_DEST="user@host:/var/www/airships/data/live/"
+#   AIRSHIPS_PUBLISH_DEST="/srv/site-a/live/,/srv/site-b/live/"   (comma-separated)
+PUSH_DESTS = [d.strip() for d in os.environ.get("AIRSHIPS_PUBLISH_DEST", "").split(",")
+              if d.strip()]
 
 
 def age_min(path):
@@ -85,7 +102,7 @@ def fetch(name, feed):
         print(f"{name}: fresh ({a:.0f} min), skipped")
         return False
     req = urllib.request.Request(feed["url"], headers={
-        "User-Agent": "pinkrobotics.ca airships mirror (single server-side fetcher; contact tyler@pinkai.ca)",
+        "User-Agent": USER_AGENT,
         "Accept": "application/json",
     })
     t0 = time.time()
@@ -114,8 +131,10 @@ def main():
         except Exception as e:
             failures += 1
             print(f"{name}: FAILED ({e}) — keeping the previous copy", file=sys.stderr)
-    del changed  # push unconditionally: the edge copy must never lag a skipped-fresh run
+    del changed  # push unconditionally: the served copy must never lag a skipped-fresh run
     if "--push" in sys.argv:
+        if not PUSH_DESTS:
+            print("push: AIRSHIPS_PUBLISH_DEST is not set, so nothing was pushed", file=sys.stderr)
         for dest in PUSH_DESTS:
             r = subprocess.run(
                 ["rsync", "-rltz", "--mkpath", "--chmod=D755,F644", f"{LIVE}/", dest],

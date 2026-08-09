@@ -9,9 +9,10 @@ import { resize } from '../map/projection.js';
 import { draw } from '../map/render.js';
 import { S } from '../store.js';
 
-/* A schematic placeholder — wireframe prolate hull, rotors, fins — that rotates continuously
-   and wears its live force vectors. The /airship3d/ module (separate session) is expected to
-   replace this panel when its adapter lands; everything it needs is in stateAt()'s output. */
+/* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
+   force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel
+   below it: both are driven from the same stateAt() output, and either can be removed without
+   touching the other. */
 export const shipViz = (() => {
   const cv = $("shipviz");
   if (!cv) return { draw() {} };

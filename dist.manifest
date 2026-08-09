@@ -1,0 +1,54 @@
+# What gets published to the web, and what does not.
+#
+# Every top-level entry in the repository must appear here. `tools/publish.py` refuses to
+# run if something is unclassified, so a new directory cannot be silently served — or
+# silently left out of the deploy, which is the failure that is harder to notice.
+#
+# The bias is towards serving source: the argument this project makes is that the code
+# computing the numbers is the code your browser ran, and that is only true if the modules
+# are actually there to fetch. What stays back is everything with no reason to be on a
+# public hostname — test harnesses, build tooling, the data pipeline, the docs GitHub
+# already renders.
+#
+#   served    copied into the deployed tree
+#   excluded  stays in the repository only
+
+served    index.html          the fleet monitor
+served    concept             the how-it-works page
+served    model-lab           the 3D development lab (noindex; linked from the 3D README)
+served    sim                 the model — the whole point of publishing source
+served    app                 the monitor application
+served    data                terrain, water, outline, offline snapshots
+served    media               vehicle renders used by the pages
+
+# 3d/ is served, but not all of it: see PARTIAL below.
+served    3d                  the WebGL vehicle library
+
+excluded  docs                prose; GitHub renders it, the web server need not
+excluded  tests               harnesses and golden files
+excluded  tools               development tooling, including the migration scripts
+excluded  pipeline            the Python data generators; they run on a server, not in a page
+excluded  .github             CI and templates
+excluded  .git                —
+excluded  .gitignore          —
+excluded  dist.manifest       —
+excluded  Makefile            —
+excluded  requirements.txt    —
+excluded  README.md           —
+excluded  CONTRIBUTING.md     —
+excluded  CODE_OF_CONDUCT.md  —
+excluded  SECURITY.md         —
+excluded  LICENSE             —
+excluded  NOTICE              —
+excluded  DATA-SOURCES.md     —
+excluded  CHANGELOG.md        —
+excluded  .editorconfig       —
+
+# Paths inside a served directory that stay behind anyway. A test page and a probe harness
+# on a production hostname are an invitation, and the raster exports are regenerable bulk.
+PARTIAL   3d/tests            test harness
+PARTIAL   3d/scripts          build and probe scripts
+PARTIAL   3d/assets/raster    regenerable exports
+PARTIAL   data/live           written on the server every ten minutes by pipeline/live.py;
+                              publishing the repository's copy would push stale fire data
+                              over a fresh mirror

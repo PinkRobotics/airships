@@ -1,0 +1,27 @@
+# Python dependencies. Three, and two of them are only for regenerating data.
+#
+# The pages themselves need none of this. They are static files: HTML, ES modules and the
+# JSON in data/. Python is here for the tooling — the headless drivers that run the tests,
+# and the pipeline that builds the data files that are already committed.
+#
+#     python3 -m pip install -r requirements.txt
+#
+# Everything else the tooling imports is in the standard library, deliberately: argparse,
+# asyncio, hashlib, http.server, json, pathlib, re, subprocess, urllib. A contributor should
+# be able to run the tests without a virtualenv.
+
+# --- needed to run the tests and the headless tools ---
+
+# Chrome DevTools Protocol over a websocket, for tools/js_eval.py and tools/screenshot.py.
+# These drive a real Chromium, which is the only way to test code whose output is a page.
+websockets>=12
+
+# --- needed only to REGENERATE the data in data/, which is committed ---
+#
+# data/terrain-bc.jpg is a hillshade mosaic built once from public elevation tiles. Nothing
+# in the test suite or CI touches these; skip them unless you are running pipeline/terrain.py.
+# pipeline/live.py and pipeline/water.py, which fetch the wildfire and water data, need
+# nothing beyond the standard library.
+
+numpy>=1.24            # pipeline/terrain.py: decodes terrarium-encoded elevation to a hillshade
+Pillow>=10             # pipeline/terrain.py: reads the tiles, writes the JPEG

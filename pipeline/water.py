@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Build a compact water-source extract for the airships fleet monitor.
 
+    python3 pipeline/water.py data/water-bc.json
+
 Downloads FWA lakes >= 10 ha (definite, GB15300000) and manmade reservoirs
 (definite, GB24300000) from BC's openmaps WFS, then writes a compact JSON:
 

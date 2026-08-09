@@ -155,8 +155,9 @@ await check('adjacent rotor discs never overlap each other', async () => {
 });
 
 await check('rotors never push a buoyant hull upward', async () => {
-  // Tyler caught wash blowing DOWNWARD off an empty hull that was 12,000 t light. The duty
-  // must be <= 0 in every phase, and strictly negative whenever there is surplus to hold.
+  // A previous build drew wash blowing DOWNWARD off an empty hull that was 12,000 t light —
+  // i.e. rotors adding lift to a vehicle already trying to leave. The duty must be <= 0 in
+  // every phase, and strictly negative whenever there is surplus to hold down.
   if (!gl) return null;
   const v = mount(host, { classId: 'P100', quality: 'low' });
   const worst = [];
@@ -188,7 +189,9 @@ await check('rotors never push a buoyant hull upward', async () => {
 
 await check('rotor wash blows UP off a buoyant hull, in every phase', async () => {
   // To push a vehicle DOWN a rotor must accelerate air UP, so a hull with surplus lift has
-  // its slipstream ABOVE the disc. Tyler has caught this backwards twice; measure it.
+  // its slipstream ABOVE the disc. This has shipped backwards twice, because a downward
+  // slipstream is what a helicopter does and it looks right until you check the sign. It is
+  // a visible claim about which way the air goes, so it gets measured rather than eyeballed.
   if (!gl) return null;
   const v = mount(host, { classId: 'P1000', quality: 'low', viewMode: 'exterior' });
   await frame();

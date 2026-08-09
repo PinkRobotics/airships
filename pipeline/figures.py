@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
-"""Figures for pinkrobotics.ca/airships/ — the fleet-monitor concept page.
+"""The four hand-built SVG figures on the concept page, generated and inlined.
 
-  tools/airships.py            # rewrite the figures inside pinkrobotics/airships/index.html
-  tools/airships.py --print
+  python3 pipeline/figures.py            # rewrite the figures inside concept/index.html
+  python3 pipeline/figures.py --print    # sizes only, touch nothing
 
-Same contract as tools/robotics.py: numbers are hard-coded WITH provenance, figures carry
-structure and constraint rather than measurement, and an annotation that would leave the
-viewBox is a build error. Vehicle dimensions are the page's own demonstration assumptions:
-4:1 prolate spheroids sized to displace 180,000 / 1.8M / 18M cubic metres (the P-100 volume
-is the homepage mass-ledger volume; the others are the same proportions scaled by payload).
-References: LZ 129 Hindenburg 245 m (well documented); Boeing 747-400 70.7 m (matches the
-homepage scale figure); Lions Gate Bridge main span 472 m (City of Vancouver / span record).
+These are diagrams, not renders: they carry structure and constraint rather than
+measurement, every number in them is hard-coded WITH its provenance, and an annotation that
+would leave the viewBox is a build error rather than a clipped label. (The photorealistic
+vehicle figures are a different pipeline entirely — see 3d/scripts/figures.mjs, which
+projects the parametric model.)
+
+Vehicle dimensions here are the project's own demonstration assumptions: 4:1 prolate
+spheroids sized to displace 180,000 / 1.8M / 18M cubic metres. References: LZ 129
+Hindenburg 245 m (well documented); Boeing 747-400 70.7 m; Lions Gate Bridge main span
+472 m (City of Vancouver / span record).
 """
 import argparse
 import pathlib
-import sys
-
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import design  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-WARM = design.SITES["pinkrobotics"]["warm"]
-WARM_DIM = design.SITES["pinkrobotics"]["warm_dim"]
+# The page's palette, as literals. These match the CSS custom properties the concept page
+# sets (--warm and its dimmed pair); an inlined figure has no stylesheet to inherit from.
+WARM, WARM_DIM = "#ff4fa3", "#8c2a58"
 COOL, COOL_DIM = "#7aa2c8", "#47637d"
 GREEN, RED, FAINT, MUTED, BONE = "#46d06e", "#d98b80", "#74747f", "#9a9aa5", "#c9c3b6"
 W = 880
@@ -310,7 +310,7 @@ def main():
         for k, fn in FIGS.items():
             print(f"{k}: {len(fn())} bytes")
         return
-    page = ROOT / "pinkrobotics" / "airships" / "index.html"
+    page = ROOT / "concept" / "index.html"
     doc = page.read_text()
     done = 0
     for name, fn in FIGS.items():

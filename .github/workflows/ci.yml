@@ -1,0 +1,134 @@
+name: CI
+
+# Four independent gates. They are separate jobs so that a failure names itself in the
+# checks list: "golden" failing means the model's outputs moved, which is a different
+# conversation from "lint" failing, and you should be able to tell which without opening
+# a log.
+#
+# NOTHING IS CACHED. There is nothing here worth caching — no build, no node_modules, a
+# three-line requirements.txt — and a cache that survives a broken commit is a cache that
+# can hide it. The claim this repository makes is that the numbers are checkable, so the
+# check starts from the repository every time.
+#
+# The two browser jobs each start the development server themselves and then call the same
+# make target a contributor would. A runner that needs a server must REUSE one already
+# listening on AIRSHIPS_PORT rather than binding its own; 3d/scripts/browser-tests.sh shows
+# the pattern (curl the port, start a server only if nothing answers).
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  AIRSHIPS_PORT: '8875'
+
+jobs:
+  lint:
+    name: import boundaries
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: sim/ and 3d/ depend on nothing outside themselves
+        run: python3 tools/check_boundaries.py
+
+  node-tests:
+    name: unit tests (node)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Through make, so CI and a contributor's terminal run the same command. The target's
+      # "no node here" branch is unreachable after setup-node, so a runner without node
+      # fails this job instead of passing it empty.
+      - name: make test-node
+        run: make test-node
+
+  browser-tests:
+    name: browser suites
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Put a binary named `chromium` on PATH
+        run: |
+          # Every headless driver in this repository spawns a binary called `chromium`.
+          # The runner image ships some Chromium-family browser but not always under that
+          # name, so give it the name rather than teaching each driver a new one.
+          bin="$(command -v chromium || command -v chromium-browser || command -v google-chrome || true)"
+          if [ -z "$bin" ]; then echo "no Chromium-family browser on this runner"; exit 1; fi
+          mkdir -p "$HOME/.local/bin"
+          ln -sf "$bin" "$HOME/.local/bin/chromium"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$bin" --version
+
+      - name: Serve the repository
+        run: |
+          # Backgrounded with its output redirected to a file: a background process holding
+          # the step's stdout pipe open makes the step hang instead of finishing.
+          nohup python3 tools/serve.py --port "$AIRSHIPS_PORT" --quiet \
+            > "$RUNNER_TEMP/serve.log" 2>&1 &
+          for _ in $(seq 40); do
+            if curl -sf -o /dev/null "http://127.0.0.1:$AIRSHIPS_PORT/sim/index.js"; then
+              echo "server up on $AIRSHIPS_PORT"; exit 0
+            fi
+            sleep 0.25
+          done
+          echo "the development server never came up:"; cat "$RUNNER_TEMP/serve.log"; exit 1
+
+      - name: make test
+        run: make test
+
+  golden:
+    name: golden (behaviour regression)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Put a binary named `chromium` on PATH
+        run: |
+          bin="$(command -v chromium || command -v chromium-browser || command -v google-chrome || true)"
+          if [ -z "$bin" ]; then echo "no Chromium-family browser on this runner"; exit 1; fi
+          mkdir -p "$HOME/.local/bin"
+          ln -sf "$bin" "$HOME/.local/bin/chromium"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$bin" --version
+
+      - name: Serve the repository
+        run: |
+          nohup python3 tools/serve.py --port "$AIRSHIPS_PORT" --quiet \
+            > "$RUNNER_TEMP/serve.log" 2>&1 &
+          for _ in $(seq 40); do
+            if curl -sf -o /dev/null "http://127.0.0.1:$AIRSHIPS_PORT/sim/index.js"; then
+              echo "server up on $AIRSHIPS_PORT"; exit 0
+            fi
+            sleep 0.25
+          done
+          echo "the development server never came up:"; cat "$RUNNER_TEMP/serve.log"; exit 1
+
+      # Replays the model at ?seed=7&data=snapshot and diffs every output against
+      # tests/golden/. Any difference fails the job. If the change was intended, the diff
+      # belongs in the pull request with each moved number explained.
+      - name: make golden
+        run: make golden

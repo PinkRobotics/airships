@@ -3,11 +3,12 @@
 #
 #   scripts/browser-tests.sh [port]
 #
-# Serves the pinkrobotics site root on a local port, drives Chromium with software WebGL (so it
-# runs on a box whose GPUs are busy — which this one always is), and greps the machine-readable
-# result attribute out of the dumped DOM.
+# Serves the repository root on a local port, drives Chromium with software WebGL, and greps the
+# machine-readable result attribute out of the dumped DOM. Software WebGL rather than the real
+# GPU because the suite asserts geometry and DOM behaviour, not pixels: it must give the same
+# answer on a headless CI runner with no display as it does on a workstation.
 set -euo pipefail
-cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> pinkrobotics/
+cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> repository root
 PORT="${1:-8791}"
 CHROME="${CHROME:-chromium}"
 
@@ -18,8 +19,18 @@ if ! curl -sf -o /dev/null "http://127.0.0.1:$PORT/3d/index.js"; then
   sleep 1
 fi
 
-# The snap-confined Chromium can only write a profile under ~/snap/chromium/common.
-PROFILE="${A3D_CHROME_PROFILE:-$HOME/snap/chromium/common/a3d-profile}"
+# A dedicated profile, because Chromium refuses to share one with a running interactive instance.
+# A sandboxed install can only write inside its own confinement, and a snap in particular cannot
+# see hidden directories in $HOME at all — a profile under ~/.cache silently produces an empty
+# DOM rather than an error. Prefer the confinement directory when one is present.
+if [ -z "${A3D_CHROME_PROFILE:-}" ]; then
+  if [ -d "$HOME/snap/chromium/common" ]; then
+    A3D_CHROME_PROFILE="$HOME/snap/chromium/common/a3d-profile"
+  else
+    A3D_CHROME_PROFILE="${XDG_CACHE_HOME:-$HOME/.cache}/airship3d/chrome-profile"
+  fi
+fi
+PROFILE="$A3D_CHROME_PROFILE"
 mkdir -p "$PROFILE"
 
 # --disk-cache-size=1 because the module graph is served from a plain static server: without it a

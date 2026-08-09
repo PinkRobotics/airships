@@ -4,12 +4,12 @@
 #   scripts/render-figures.sh [--width 1760] [--dark|--transparent]
 #
 # Two-step by design: scripts/figures.mjs produces the vectors anywhere node runs, and only this
-# step needs a browser. Chromium is used rather than ImageMagick because the local ImageMagick has
-# no SVG delegate — it silently misreads an SVG as MVG and fails.
+# step needs a browser. Chromium rather than ImageMagick because an ImageMagick built without an
+# SVG delegate does not fail loudly — it misreads the file as MVG and produces nonsense.
 #
-# NOTE ON THIS MACHINE: the snap-confined Chromium can only write inside ~/snap/chromium/common,
-# so the work happens there and the results are copied back. It also cannot share a profile with a
-# running interactive Chromium, hence the dedicated profile directory.
+# Chromium writes into a scratch directory and the results are copied back, because a sandboxed
+# install can only write inside its own confinement and cannot share a profile with a running
+# interactive browser. A3D_CHROME_WORK and A3D_CHROME_PROFILE override where those go.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."             # -> 3d/
 SRC="assets/static"
@@ -26,8 +26,16 @@ while [ $# -gt 0 ]; do
 done
 
 CHROME="${CHROME:-chromium}"
-WORK="${A3D_CHROME_WORK:-$HOME/snap/chromium/common/a3d-render}"
-PROFILE="${A3D_CHROME_PROFILE:-$HOME/snap/chromium/common/a3d-profile}"
+# A snap-confined Chromium cannot see hidden directories in $HOME, so a scratch or profile
+# directory under ~/.cache fails silently — no screenshot, no error. Prefer the confinement
+# directory when one is present; override either variable to put them elsewhere.
+if [ -d "$HOME/snap/chromium/common" ]; then
+  BASE="$HOME/snap/chromium/common"
+else
+  BASE="${XDG_CACHE_HOME:-$HOME/.cache}/airship3d"
+fi
+WORK="${A3D_CHROME_WORK:-$BASE/a3d-render}"
+PROFILE="${A3D_CHROME_PROFILE:-$BASE/a3d-profile}"
 mkdir -p "$WORK" "$PROFILE" "$DST"
 
 n=0

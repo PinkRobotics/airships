@@ -1,0 +1,89 @@
+Airships — a wildfire-fighting airship simulator
+Copyright 2026 Pink Robotics
+
+This product includes software developed by Pink Robotics.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+--------------------------------------------------------------------------------
+THIRD-PARTY DATA REDISTRIBUTED IN THIS REPOSITORY
+--------------------------------------------------------------------------------
+
+The Apache License above covers the source code. It does NOT cover the data
+files under data/, which are redistributed under their own terms. Full detail,
+including retrieval URLs and processing steps, is in DATA-SOURCES.md.
+
+1. BC Wildfire Service active fires and fire perimeters
+   Publisher: Province of British Columbia (BC Wildfire Service)
+   Licence:   Open Government Licence – British Columbia (version 2.0)
+   File:      data/snapshot.json
+   Attribution required by that licence:
+     Contains information licensed under the Open Government Licence – British
+     Columbia.
+
+2. BC Freshwater Atlas lakes and manmade waterbodies
+   Publisher: Province of British Columbia (GeoBC / Freshwater Atlas)
+   Licence:   Open Government Licence – British Columbia (version 2.0)
+   File:      data/water-bc.json
+   Attribution required by that licence:
+     Contains information licensed under the Open Government Licence – British
+     Columbia.
+
+3. Natural Resources Canada, CWFIS 24-hour satellite hotspots
+   Publisher: Natural Resources Canada, Canadian Forest Service
+   Licence:   Open Government Licence – Canada (version 2.0)
+   File:      data/snapshot-heat.json
+   Attribution required by that licence:
+     Contains information licensed under the Open Government Licence – Canada.
+
+4. Terrain elevation, from AWS Terrain Tiles (Mapzen/Tilezen terrarium tiles)
+   Publisher: AWS Open Data / Tilezen, compositing several national datasets
+   Licence:   per-source; see DATA-SOURCES.md
+   File:      data/terrain-bc.jpg (a derived hillshade image)
+   Attribution required by those sources, for the sources actually present in
+   this image:
+     Canada terrain data contains information licensed under the Open Government
+     Licence – Canada;
+     United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data
+     courtesy of the U.S. Geological Survey;
+     Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric
+     Administration.
+
+5. Natural Earth vector map data (roads; British Columbia provincial outline)
+   Publisher: Natural Earth (Tom Patterson, Nathaniel Vaughn Kelso, contributors)
+   Licence:   public domain; no attribution required, credit requested
+   Files:     data/roads-bc.json, data/bc-outline.json
+   Credit given as requested:
+     Made with Natural Earth. Free vector and raster map data @
+     naturalearthdata.com.
+
+--------------------------------------------------------------------------------
+THIRD-PARTY SERVICES CALLED AT RUNTIME
+--------------------------------------------------------------------------------
+
+These are not redistributed. They are network calls the page makes.
+
+6. Open-Meteo forecast API — 850 hPa wind, fetched by the visitor's browser.
+   Licence: CC BY 4.0 on the data; API free for non-commercial use.
+   Attribution: Weather data by Open-Meteo.com.
+
+7. Esri World Imagery basemap tiles, fetched by the visitor's browser from
+   server.arcgisonline.com with no API key and no signed agreement.
+   This use is very likely outside Esri's terms of use. It is an unresolved
+   licensing problem, not a licensed dependency. See DATA-SOURCES.md, section 6,
+   for what the page does and the options for fixing it.
+
+--------------------------------------------------------------------------------
+
+The Information used here was modified. None of the information providers named
+above endorse this project, its authors, or any use made of their data. Nothing
+here has any official status.

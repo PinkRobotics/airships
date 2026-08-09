@@ -1,8 +1,10 @@
-/* The live data: what we ask for, how we fall back, and how it becomes model input.
+/* The live data: what the page asks for, how it falls back, and how it becomes model input.
  *
- * Three tiers, in order: our own mirror of the public feeds, then the public feeds
- * directly, then the dated snapshot committed to this repository. The mirror exists so
- * that traffic to this page does not become traffic to an emergency service.
+ * Three tiers, in order: this site's own mirror of the public feeds (pipeline/live.py),
+ * then the public feeds directly, then the dated snapshot committed to this repository.
+ * The mirror exists so that traffic to this page does not become traffic to an emergency
+ * service. Whichever tier answers is named on the page — the status line never implies
+ * live data it does not have.
  */
 import { dropSeg, havKm, insideFire, planTargets } from '../sim/index.js';
 import { renderDrawer } from './cockpit/panels.js';

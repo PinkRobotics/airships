@@ -8,10 +8,10 @@ import { cockpitShip } from '../cockpit/panels.js';
 import { $ } from '../dom.js';
 import { S } from '../store.js';
 
-/* The other working session's parametric model, mounted below the operation strip and driven
-   by the SAME stateAt() that drives the map, the dials and the schematic. Its adapter owns
-   the unit translation; if its internals change, updates flow through this dynamic import
-   untouched. Auto mode picks the most useful view for the current phase. */
+/* The parametric model from 3d/, mounted below the operation strip and driven by the SAME
+   stateAt() that drives the map, the dials and the schematic. The library's own adapter
+   (3d/adapter/fable.js) owns the unit translation, so its internals can change without this
+   file changing. Auto mode picks the most useful view for the current phase. */
 // Opens in SHELL with the heading-synced camera: the quiet exterior first, Auto's cutaway
 // cinematics only when asked for.
 export let m3d = null, m3dMode = "shell", m3dBusy = false, m3dDead = false, m3dVm = "", m3dPhase = "";

@@ -1,10 +1,16 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>probe-ports (running…)</title>
-<!-- Browser runner for probe-ports.mjs on machines without node (this box has none).
-     Serve the site root and open this file; the verdict lands in the <title> and every
-     PASS/FAIL line in the console — headless:
-       python3 tools/cdp-check.py http://127.0.0.1:8871/3d/scripts/probe-ports.html -->
+<!-- Browser runner for probe-ports.mjs, for machines with a browser but no node. Serve the
+     repository root and open this file; the verdict lands in the page title and every
+     PASS/FAIL line in the console. Headless, from the repository root:
+
+       python3 -m http.server 8875 &
+       chromium --headless=new --virtual-time-budget=120000 --dump-dom \
+         http://127.0.0.1:8875/3d/scripts/probe-ports.html | grep -oE 'PROBE [A-Za-z]+'
+
+     A clean run prints "PROBE clean". Where node is available, prefer
+     `node scripts/probe-ports.mjs`, which exits non-zero on failure. -->
 <script>
   window.process = { exit(code) { document.title = code ? `PROBE FAIL(${code})` : "PROBE clean"; } };
 </script>

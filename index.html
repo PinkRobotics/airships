@@ -581,8 +581,9 @@ nav.estate .est-rb{margin-right:auto}
       <div class="cp-rightcol">
       <div class="cpanel cp-left" id="cpLeft" hidden>
         <h4 class="cp-h">Airship focus · <b id="cpShip">—</b></h4>
-        <!-- MODEL3D swap point: #shipviz is a schematic placeholder. When the /airship3d/
-             module (separate session) mounts into #model3d, it may also claim this panel. -->
+                <!-- The schematic avatar. It is not a placeholder for the 3D model: a wireframe
+             with labelled force arrows says which way the rotors are pushing and how hard,
+             which a rendered vehicle cannot. Both are driven by the same state. -->
         <canvas id="shipviz" aria-label="Rotating schematic of the selected airship with live force vectors: buoyancy up, weight down, rotor thrust and drag"></canvas>
         <div id="cpForces" style="margin-top:var(--s3)"></div>
         <!-- No follow/zoom buttons: selecting a ship follows it, dragging the map stops.

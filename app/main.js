@@ -139,12 +139,6 @@ export function wire() {
 }
 window.APP = {
   selRow(i) { select({ type: "ship", m: S.missions[i] }); $("monroot").scrollIntoView({ behavior: "smooth", block: "start" }); },
-  /* Demo/debug: cap every hull's remaining storage (MWh) so depletion can be watched
-     without waiting through sim-hours of deficit. */
-  drain(mwh) {
-    for (const m of S.missions) if (!m.idle)
-      m.battE = Math.min(m.battE === undefined ? m.cls.battMWh : m.battE, mwh);
-  },
   selShip() { if (S.sel && S.sel.m) select({ type: "ship", m: S.sel.m }); },
   step(dir) {
     if (!S.sel || !S.sel.m || S.sel.m.idle) return;
@@ -232,10 +226,16 @@ export async function boot() {
   for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
   renderStats(); renderTable(); renderWorked(); renderStatus();
   fitFires();
-  // Open on the fire people are asking about: K51490 above Okanagan Lake near Penticton,
-  // else the largest responding mission. The cockpit starts occupied, not empty.
-  const pick = S.missions.find(x => !x.idle && x.fire.id === "K51490") ||
-    S.missions.find(x => !x.idle && x.fire.note) || S.missions.find(x => !x.idle);
+  // Open on the largest fire the fleet is actually working, so the cockpit starts occupied
+  // rather than empty. A rule, not a named incident: every fire in the feed is out within
+  // weeks, and a hardcoded fire number would leave the page opening on nothing.
+  // Ties break on fire number so the same feed always selects the same ship.
+  let pick = null;
+  for (const m of S.missions) {
+    if (m.idle) continue;
+    if (!pick || m.fire.sizeHa > pick.fire.sizeHa ||
+        (m.fire.sizeHa === pick.fire.sizeHa && m.fire.id < pick.fire.id)) pick = m;
+  }
   if (pick) { S.sel = { type: "ship", m: pick }; S.follow = true; renderDrawer(); focusMission(pick); }
   fetchWind(); fetchHeat();
   S.ready = true;   // resize() may now repaint synchronously
@@ -278,18 +278,15 @@ export async function boot() {
 
 document.addEventListener("visibilitychange", () => { S.lastFrame = null; });
 /* The page is an ES module, so nothing it declares is global. These two are published
- * deliberately. `APP` because the markup binds to it. `AIRSHIPS` so that anyone reading
- * the page can run the model themselves without cloning anything: `AIRSHIPS.sim
- * .selftest()` re-runs every assertion in the browser they are already using, and
+ * deliberately: `APP` because the markup binds to it, and `AIRSHIPS` so that anyone reading
+ * the page can re-run the model in their own devtools console without cloning anything —
+ * `AIRSHIPS.sim.selftest()` runs every assertion, and
  * `AIRSHIPS.sim.planCycle(AIRSHIPS.sim.CLASSES.P100, AIRSHIPS.sim.MODES.balanced, 15)`
- * recomputes a published figure from scratch. Publishing arithmetic that cannot be
- * re-run is just a claim. */
-/* Published deliberately. `APP` because the markup binds to it; `AIRSHIPS` so that anyone
- * reading the page can re-run the model in their own devtools console without cloning
- * anything — `AIRSHIPS.sim.selftest()` runs every assertion, and
- * `AIRSHIPS.sim.planCycle(AIRSHIPS.sim.CLASSES.P100, AIRSHIPS.sim.MODES.balanced, 15)`
- * recomputes a published figure from scratch. Arithmetic nobody can re-run is just a
- * claim. */
+ * recomputes a published figure from scratch. Arithmetic nobody can re-run is just a claim.
+ *
+ * `APP` does only what the on-page controls do — select a ship, step its phase — and
+ * `AIRSHIPS` is a read handle. Neither can edit the model's state or its assumptions: a
+ * console visitor can inspect and recompute, not rewrite. */
 window.AIRSHIPS = { sim: SIM, app: S, stateAt };
 
 boot();

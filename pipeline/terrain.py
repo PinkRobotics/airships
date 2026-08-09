@@ -2,9 +2,13 @@
 """Build the fleet monitor's terrain backdrop: a dark-styled hillshade of BC and
 surroundings from AWS/Mapzen Terrain Tiles (terrarium encoding), web-mercator z7.
 
-Output: terrain-bc.jpg + the world-coordinate bounds the page needs to place it.
-World coords on the page: x = lon, y = -(180/pi)*asinh(tan(lat)) — i.e. mercator
+    python3 pipeline/terrain.py data/terrain-bc.jpg
+
+Output: the JPEG, plus the world-coordinate bounds the page needs to place it, printed on
+stdout. World coords on the page: x = lon, y = -(180/pi)*asinh(tan(lat)) — i.e. mercator
 degrees — so a mercator tile mosaic maps linearly onto the canvas.
+
+Downloads ~90 tiles. Requires numpy and Pillow, which nothing else in this repository does.
 """
 import io, sys, time, urllib.request
 import numpy as np
@@ -55,4 +59,4 @@ img.save(out, "JPEG", quality=84, optimize=True)
 lon = lambda x: x * 360 / 2 ** Z - 180
 mercdeg = lambda y: -180 * (1 - 2 * y / 2 ** Z)
 print(f"wrote {out} {W}x{H}")
-print(f"world bounds: x0={lon(X0)} x1={lon(X1 + 1)} y0={mercdeeg(Y0) if False else mercdeg(Y0)} y1={mercdeg(Y1 + 1)}")
+print(f"world bounds: x0={lon(X0)} x1={lon(X1 + 1)} y0={mercdeg(Y0)} y1={mercdeg(Y1 + 1)}")

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>tests — loading</title>
+<link rel="icon" href="data:,"><!-- no favicon request, so a headless console stays empty -->
+<!--
+  The browser runner.
+
+  This machine has no node, so this page is how the suite is run locally: serve the
+  repository and open /tests/browser/. It imports the same tests/cases/*.cases.js modules
+  that tests/node/run.mjs imports, which is the point — the assertions exist once.
+
+  document.title carries a machine-readable summary as soon as the run finishes, so a
+  headless driver can read one string instead of scraping the page:
+
+      AIRSHIPS TESTS pass=N fail=N known=N total=N
+
+  window.__tests holds the full record for anything that wants detail.
+-->
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 28px 32px 60px; background: #0d0f12; color: #d8dbe0;
+         font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  h1 { font-size: 15px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+       color: #8b93a1; margin: 0 0 4px; }
+  p.note { max-width: 74ch; color: #7d848f; margin: 0 0 22px; }
+  #summary { font-size: 22px; margin: 0 0 6px; font-weight: 600; }
+  #summary.ok { color: #4fd58a; }
+  #summary.bad { color: #ff5d7a; }
+  #timing { color: #6c737e; margin: 0 0 26px; }
+  section { margin: 0 0 18px; border-left: 2px solid #23272e; padding-left: 14px; }
+  h2 { font-size: 13px; font-weight: 600; color: #aeb5c0; margin: 0 0 6px; letter-spacing: .02em; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 1px 0; }
+  .pass { color: #5f6a76; }
+  .pass b { color: #4fd58a; font-weight: 600; }
+  .fail { color: #ffb3c0; }
+  .fail b { color: #ff5d7a; font-weight: 600; }
+  .known { color: #b99a5a; }
+  .known b { color: #e0b155; font-weight: 600; }
+  .msg { display: block; padding: 2px 0 6px 22px; color: #8d939d; white-space: pre-wrap; }
+  .reason { color: #7d7255; }
+</style>
+</head>
+<body>
+<h1>Airships — model test suite</h1>
+<p class="note">
+  The same assertions CI runs under <code>node --test</code>. A <span class="known"><b>known</b></span>
+  result is a test that is expected to fail against a defect that is open and tracked; if one of
+  those starts passing it is reported as a failure, because the marker has to come off.
+</p>
+<div id="summary">running…</div>
+<div id="timing"></div>
+<div id="out"></div>
+
+<script type="module">
+import { collect, runAll } from '../harness.js';
+
+const CASES = [
+  '../cases/sim-physics.cases.js',
+  '../cases/sim-plan.cases.js',
+  '../cases/sim-state.cases.js',
+  '../cases/sim-energy.cases.js',
+  '../cases/sim-determinism.cases.js',
+  '../cases/sim-config.cases.js',
+  '../cases/sim-geo.cases.js',
+];
+
+const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+const summary = document.getElementById('summary');
+const timing = document.getElementById('timing');
+const out = document.getElementById('out');
+
+try {
+  for (const c of CASES) await import(c);
+  if (!collect().length) throw new Error('no tests were collected — check the CASES list');
+
+  const r = runAll();
+  window.__tests = r;
+
+  document.title = `AIRSHIPS TESTS pass=${r.pass} fail=${r.fail} known=${r.known} total=${r.total}`;
+  summary.className = r.fail ? 'bad' : 'ok';
+  summary.textContent = r.fail
+    ? `${r.fail} FAILED · ${r.pass} passed · ${r.known} known-failing · ${r.total} total`
+    : `ALL ${r.pass} PASSED · ${r.known} known-failing · ${r.total} total`;
+  timing.textContent = `${r.suites.length} suites in ${r.ms.toFixed(0)} ms`;
+
+  out.innerHTML = r.suites.map(s => {
+    const rows = s.tests.map(t => {
+      const mark = t.status === 'pass' ? '✓' : t.status === 'known' ? '✗' : '✗';
+      const extra = t.status === 'pass' ? ''
+        : t.status === 'known'
+          ? `<span class="msg">known failure — <span class="reason">${esc(t.known)}</span>\n${esc(t.error)}</span>`
+          : `<span class="msg">${esc(t.error)}</span>`;
+      return `<li class="${t.status}"><b>${mark}</b> ${esc(t.name)}${extra}</li>`;
+    }).join('');
+    return `<section><h2>${esc(s.name)}</h2><ul>${rows}</ul></section>`;
+  }).join('');
+} catch (e) {
+  document.title = 'AIRSHIPS TESTS pass=0 fail=1 known=0 total=0';
+  summary.className = 'bad';
+  summary.textContent = 'THE SUITE DID NOT LOAD';
+  out.innerHTML = `<section><h2>load error</h2><pre class="msg">${esc(e && e.stack || e)}</pre></section>`;
+}
+</script>
+</body>
+</html>
