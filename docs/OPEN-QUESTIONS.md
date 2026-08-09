@@ -35,6 +35,60 @@ there because it is not physics.
 
 ---
 
+## 0. The sizing requirement that ties #1, #4 and #6 together
+
+**DECIDED 2026-08-09.** Added before the individual defects because it constrains three of
+them at once, and because it is the requirement that makes ballast a structural part of the
+vehicle rather than a doctrine the code ignores.
+
+**Total-failure recovery, unpowered.** Assume the rotors have failed entirely and the
+battery is flat. The ship must then:
+
+1. float up — it is buoyant by design (#1), so a dead ship rises rather than falls;
+2. recharge on solar alone;
+3. liquefy enough nitrogen to make itself heavy enough to descend **with no rotor
+   authority at all**; and
+4. land empty on ballast alone.
+
+Taking days to do it is acceptable. Being unable to do it is not.
+
+That fourth step is the demanding one, because it sizes the cryogenic plant and the nitrogen
+tankage: the LN₂ aboard must be able to exceed the *empty* hull's surplus buoyancy at
+altitude. With the hull already grown for fail-safe float-up when full, that is roughly a
+payload's worth of nitrogen.
+
+What it costs, at ρ = 0.96 kg/m³ (about 2,500 m MSL: 1,500 m over a 1,000 m plateau), a 5%
+float-up margin when fully loaded, and the model's own `eLN2` = 0.45 kWh/kg:
+
+| class | hull grows | LN₂ to sink an empty hull | capacity today | tankage | energy | on solar alone | at rated cryo power |
+|---|---|---|---|---|---|---|---|
+| P-100 | +21.5% | 110 t | 50 t | 136 m³ | 49 MWh | 1.7 days | 0.3 days |
+| P-1000 | +21.5% | 1,100 t | 500 t | 1,363 m³ | 495 MWh | 3.7 days | 0.7 days |
+| P-10000 | +21.5% | 11,000 t | 5,000 t | 13,631 m³ | 4,950 MWh | 8.6 days | 2.1 days |
+
+Three things fall out of that table.
+
+**The tankage is free and the energy is not.** 13,631 m³ of nitrogen is 0.076% of the
+P-10000's hull volume — volumetrically irrelevant. The constraint is entirely the time to
+liquefy it.
+
+**"A couple of days" is right only at rated plant power.** The cryogenic plants are sized
+well above what the solar skin can feed (100 MW against 24 MW on the P-10000), so an
+unpowered ship recovering on solar alone takes about nine days, not two. Both numbers should
+be published: two days is the assisted case, nine is the true unaided worst case, and the
+worst case is the one the fail-safe claim rests on.
+
+**This is what battery tenders are for.** Delivering charged cells collapses the recovery
+from days to hours and is the same mechanism that sets the normal cycle rate — the tender
+fleet is not only a throughput story, it is the rescue story.
+
+Consequences for the entries below: #4 stops being a question, because ballast that must be
+able to bring the ship down unaided cannot be inert; #6's nitrogen output must be bounded by
+the LN₂ actually aboard, which this sizing finally makes a real limit; and #1's hull growth
+and this tankage are one calculation.
+
+---
+
 ## 1. Lift is bought at sea level and spent at altitude
 
 `ledger()` in `sim/physics.js` computes displacement lift at `rhoSL` = 1.225 kg/m³. The
