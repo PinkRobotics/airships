@@ -1,7 +1,7 @@
 /* The mission trace in prose: last, now, next, plan.
  */
-import { CFG, PHASES } from './config.js?v=32eb46d5';
-import { fmt, fmtMin, fmtT } from './format.js?v=32eb46d5';
+import { CFG, PHASES } from './config.js?v=0c6ff005';
+import { fmt, fmtMin, fmtT } from './format.js?v=0c6ff005';
 
 export function narrate(m, st) {
   if (m.idle) return {

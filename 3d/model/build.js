@@ -15,19 +15,19 @@
 import {
   resolveClass, stationX, stationT, hullR, sectionScale, profileR, CLASS_IDS,
   TRIM_FAN_DEPTH_RATIO, HULL_BAND_LIFT,
-} from './config.js?v=979d7011';
-import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=979d7011';
-import { proxyField } from './density.js?v=979d7011';
+} from './config.js?v=3342b874';
+import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=3342b874';
+import { proxyField } from './density.js?v=3342b874';
 import { buildLattice, buildMacroFrames, buildSectionJoints, buildCellModules, buildLoadPaths, TIERS }
-  from './structure.js?v=979d7011';
-import { buildMetadata } from './metadata.js?v=979d7011';
+  from './structure.js?v=3342b874';
+import { buildMetadata } from './metadata.js?v=3342b874';
 import {
   latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom, circleSegs,
   lines, pathSegs, mergeSolids, countOf, featureEdges, transformSegs, solid,
-} from './geom.js?v=979d7011';
-import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=979d7011';
-import { m4compose, segPointDist } from '../core/math.js?v=979d7011';
-import { streamFor } from '../core/prng.js?v=979d7011';
+} from './geom.js?v=3342b874';
+import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=3342b874';
+import { m4compose, segPointDist } from '../core/math.js?v=3342b874';
+import { streamFor } from '../core/prng.js?v=3342b874';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -759,6 +759,24 @@ export function build(classId, opts = {}) {
     });
     ringNode.visible = false;
     ringNode.dynamic = { kind: 'waterSurface' };
+
+    /* WHERE THE BAG MEETS THE WATER. The bucket is honestly small — eight pixels at panel size —
+     * and no amount of contrast makes eight pixels say "this is IN the lake". A ring on the
+     * surface does, at any size, and it is not a decoration: several thousand tonnes entering a
+     * lake disturbs it. Drawn only while the bag is within a few of its own radii of the
+     * surface, so it marks the contact rather than following the bag around the sky. */
+    // `layout.anchorWinch`, not the `aw` of the water block above — that one is scoped to it,
+    // and reaching for it here threw on every build until the blank canvas said so.
+    const winch = layout.anchorWinch;
+    if (winch) {
+      const contact = child(env, {
+        id: 'AnchorContact', category: 'water', material: 'lakeContact', selectable: false,
+        geom: lines([...circleSegs(winch.bagRadius * 1.9, 40, 'z'),
+          ...circleSegs(winch.bagRadius * 3.2, 40, 'z')]),
+      });
+      contact.visible = false;
+      contact.dynamic = { kind: 'anchorContact' };
+    }
   }
 
   /* --- cryogenic --------------------------------------------------------------------------- */

@@ -13,6 +13,20 @@
      the fleet happened to be doing after however long this particular load took. Freeze it
      at a fixed point in the cycle, let two frames render against that, and the comparison
      is of the interface rather than of the machine's mood. */
+  /* PIN THE CLOCK FIRST, then settle, then pin again.
+     
+     Pinning only after the settle poll left a window — up to six seconds of it — in which the
+     page was running at whatever speed it booted with, and the roster and the fire list are
+     painted by a throttled 1.5 s tick. If that tick landed inside the window it recorded a
+     running clock and did not necessarily repaint afterwards, so the dump captured a fleet
+     several phases further round its cycle than the pinned time. It reproduced every run on
+     this machine and not at all when the same page was driven by hand, which is the signature
+     of a race rather than a change. Freeze it before anything is allowed to observe it. */
+  {
+    const A0 = window.AIRSHIPS ? window.AIRSHIPS.app : S;
+    A0.paused = true;
+    A0.simTime = 4200;
+  }
   /* WAIT FOR THE LAYOUT TO SETTLE. The map canvas is sized by the grid, and the grid moves
      while the 3D panel mounts and the avatar claims its leftover space. Capturing "after
      four seconds" therefore records whichever moment the machine happened to reach — this

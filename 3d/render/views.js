@@ -11,11 +11,11 @@
  * which is why this cutaway has no stencil pass and no z-fighting along the cut.
  */
 
-import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=979d7011';
-import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=979d7011';
-import { solid } from '../model/geom.js?v=979d7011';
-import { node } from '../core/nodes.js?v=979d7011';
-import { clamp01 } from '../core/math.js?v=979d7011';
+import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=3342b874';
+import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=3342b874';
+import { solid } from '../model/geom.js?v=3342b874';
+import { node } from '../core/nodes.js?v=3342b874';
+import { clamp01 } from '../core/math.js?v=3342b874';
 
 export const VIEW_MODES = [
   'exterior', 'ghost', 'cutaway-longitudinal', 'cutaway-transverse', 'vacuum', 'lattice',
@@ -46,6 +46,7 @@ const EXTERNAL = new Set([
   // are the point of the source phases, so leaving them off this list built them, positioned them
   // every frame, and drew none of them — which is what an allow-list does when you forget it.
   'AnchorWinch', 'AnchorCable', 'AnchorBag', 'WaterSurface', 'WaterSurfaceRings',
+  'AnchorContact',
   // The rotating halves of the ducted units, and the panels that cover the ragged edge of each
   // aperture. All are part of the exterior; omitting them left the blowers with no blades and the
   // hole edges uncovered.

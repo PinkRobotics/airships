@@ -37,7 +37,7 @@ import {
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
   anchorAt, resolveClass,
-} from '../index.js?v=979d7011';
+} from '../index.js?v=3342b874';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -741,6 +741,27 @@ await check('the water surface is drawn level, at the lake, and only near it', a
     'the surface must be counter-rotated out of the hull attitude');
   assert(Math.abs(N.waterSurface.p[2] + 300 * Math.cos(wx)) < 1.0,
     'and its depth must stay 300 m under the ship, not swing with the pitch');
+  // The contact rings mark where the bag breaks the surface. They are the cue that survives the
+  // bag being eight pixels wide, so they have to come and go with the contact rather than with
+  // the cable.
+  v.setProps({ visualState: defaultState({ phase: 'SOURCE_APPROACH', overWater: true,
+    altitudeM: 300, anchorProgress: 1, anchorFill: 1 }) });
+  for (let i = 0; i < 45; i++) v.tick(0.1);
+  assert(N.anchorContact.visible, 'no contact rings with the bag at the water');
+  // NOT at 560 m with an empty bag: the cable simply pays out until the bag reaches the water,
+  // so it is in contact there too — which is the behaviour, and this test asserted the opposite
+  // until it was run. The two cases that genuinely are not contact:
+  v.setProps({ visualState: defaultState({ phase: 'SOURCE_APPROACH', overWater: true,
+    altitudeM: 300, anchorProgress: 0, anchorFill: 0 }) });
+  for (let i = 0; i < 45; i++) v.tick(0.1);
+  assert(!N.anchorContact.visible, 'contact rings drawn with the cable stowed');
+  // And high enough that the whole cable cannot reach: 1,100 m against 850 m of rope leaves the
+  // bag 140 m short of the surface.
+  v.setProps({ visualState: defaultState({ phase: 'SOURCE_APPROACH', overWater: true,
+    altitudeM: 1100, anchorProgress: 1, anchorFill: 0 }) });
+  for (let i = 0; i < 60; i++) v.tick(0.1);
+  assert(!N.anchorContact.visible, 'contact rings drawn with the bag short of the water');
+
   set({ altitudeM: 1500 });
   assert(!N.waterSurface.visible, 'and it is not drawn from cruise');
   v.setProps({ visualState: defaultState({ phase: 'WATER_FILL', overWater: false, altitudeM: 300 }) });

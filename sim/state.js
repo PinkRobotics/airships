@@ -4,10 +4,10 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=32eb46d5';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=32eb46d5';
-import { diskMW, ledger, pumpMW } from './physics.js?v=32eb46d5';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=32eb46d5';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=0c6ff005';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=0c6ff005';
+import { diskMW, ledger, pumpMW } from './physics.js?v=0c6ff005';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=0c6ff005';
 
 export function stateAt(m, tRaw) {
   if (m.idle) return { phase: "NO_SUITABLE_SOURCE", label: "idle — no suitable mapped source", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1 };

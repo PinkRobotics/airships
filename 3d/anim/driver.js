@@ -12,13 +12,13 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=979d7011';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=979d7011';
-import { byPrefix, walk } from '../core/nodes.js?v=979d7011';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=979d7011';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=979d7011';
-import { hoseGeometry } from './hose.js?v=979d7011';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=979d7011';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=3342b874';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=3342b874';
+import { byPrefix, walk } from '../core/nodes.js?v=3342b874';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=3342b874';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=3342b874';
+import { hoseGeometry } from './hose.js?v=3342b874';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=3342b874';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];
@@ -86,6 +86,7 @@ export function createDriver(b, opts = {}) {
   const anchorWinchInst = idx.get('AnchorWinch');
   const waterSurface = idx.get('WaterSurface');
   const waterRings = idx.get('WaterSurfaceRings');
+  const anchorContact = idx.get('AnchorContact');
   const motionLines = idx.get('MotionLines');
   const windLines = idx.get('WindLines');
   const gustPuffs = idx.get('GustPuffs');
@@ -105,7 +106,7 @@ export function createDriver(b, opts = {}) {
     _nodes: { stations, gimbals, rotors, discs, hoseNodes, podNodes, reelInst,
       waterTanks, waterFill, ln2Tanks, ln2Fill, tails, dropSpray, flowSlugs, pipeFlow,
       airStreaks, motionLines, windLines, gustPuffs, hoseFlow,
-      anchorCable, anchorBag, anchorWinchInst, waterSurface, waterRings },
+      anchorCable, anchorBag, anchorWinchInst, waterSurface, waterRings, anchorContact },
     reduced: !!opts.reduced,
   };
 }
@@ -793,6 +794,21 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     }
     if (N.anchorWinchInst && !reduced) {
       setInstance(N.anchorWinchInst, h.reel.id, { r: [reelAngleRad(h), 0, Math.PI / 2] });
+    }
+    // The contact rings sit on the water under the cable and fade in as the bag comes down to
+    // it. They are what makes the moment legible when the bag itself is a handful of pixels.
+    if (N.anchorContact && N.waterSurface) {
+      const surf = N.waterSurface;
+      const near = showing && surf.visible && waterZ !== undefined
+        && h.podPos[2] - waterZ < h.podLengthM * 3.5;
+      N.anchorContact.visible = near;
+      if (near) {
+        N.anchorContact.opacity = clamp01(
+          1 - (h.podPos[2] - waterZ) / (h.podLengthM * 3.5)) * surf.opacity;
+        N.anchorContact.p = [h.podPos[0], h.podPos[1], surf.p[2]];
+        N.anchorContact.r = surf.r.slice();
+        N.anchorContact._localDirty = true;
+      }
     }
   }
 

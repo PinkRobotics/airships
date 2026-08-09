@@ -88,12 +88,19 @@ export const MATERIALS = {
   /** The descent anchor. The cable is a rope, not a pipe — thin, pale, and drawn taut; the bag
    *  is fabric holding thousands of tonnes and reads as water because that is what it is. */
   cable: { kind: 'surface', color: '#b9bec8', spec: 0.18, opacity: 1, ghost: 0.10 },
-  bag: { kind: 'glass', color: TOKENS.cool, opacity: 0.55, edge: TOKENS.cool },
+  /* OPAQUE and pale, against everything it is ever seen over. The bag is honestly tiny — 12,400 t
+   * of water is 28.7 m across beside an 876 m hull, about eight pixels at panel size — and it was
+   * drawn as translucent cool blue, which is the colour of the lake it hangs over. It read as
+   * nothing at all. The size stays true; the contrast does the work. */
+  bag: { kind: 'surface', color: '#a8ccea', spec: 0.34, opacity: 1, ghost: 0.30, edge: TOKENS.bone },
   /** The lake, when the ship is low enough over it to matter. Translucent so the submerged part
    *  of a pod or a bag stays visible through it — the crossing is the whole point of drawing it. */
   lakeSurface: { kind: 'glass', color: '#2b4a63', opacity: 0.34 },
   /** Rings on the lake at one-hull-length intervals: the perspective cue, and a distance scale. */
   lakeRing: { kind: 'line', color: '#6f93ad', weight: 1.0, opacity: 0.22 },
+  /** The disturbance where the bag breaks the surface — brighter than the distance rings, because
+   *  it is the event rather than the scale. */
+  lakeContact: { kind: 'line', color: '#bcd8ee', weight: 1.6, opacity: 0.75 },
   spray: { kind: 'flat', color: TOKENS.cool, opacity: 0.55 },      // falling release droplets
   airflow: { kind: 'flat', color: '#cfe0ee', opacity: 0.16 },      // rotor / blower wash streaks
   motionline: { kind: 'flat', color: '#aebccb', opacity: 0.12 },   // relative-wind speed lines

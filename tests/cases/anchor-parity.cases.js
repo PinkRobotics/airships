@@ -13,42 +13,58 @@
  * comment that says they match.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=32eb46d5';
-import { anchorView } from '../../app/anchorview.js?v=32eb46d5';
-import { anchorAt } from '../../3d/anim/mission.js';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=0c6ff005';
+import { anchorView } from '../../app/anchorview.js?v=0c6ff005';
+import { fromMonitorState } from '../../3d/adapter/fable.js';
 import { resolveClass } from '../../3d/model/config.js';
 
 describe('the anchor reads the same in the model and in the avatar', () => {
+  /* Compared END TO END: the avatar's rule against what the ADAPTER actually hands the 3D model,
+   * over every phase and the whole altitude envelope. An earlier version of this file compared
+   * only the approach, and missed that the avatar put a full bucket back on the cable through the
+   * first 18% of the outbound leg — the ship climbing away from the lake with a bag it had
+   * already dumped. Comparing one phase proves one phase. */
+  const PHASES = ['SOURCE_APPROACH', 'WATER_FILL', 'OUTBOUND_TRANSIT', 'RETURN_TRANSIT',
+    'WATER_RELEASE', 'BUOYANCY_ESCAPE'];
+
   for (const id of CLASS_ORDER) {
-    it(`${id}: cable and bag agree at every altitude`, () => {
+    it(`${id}: cable and bag agree in every phase, at every altitude`, () => {
       const host = CLASSES[id];              // the monitor's class record
       const viz = resolveClass(id);          // the 3D library's own copy
-      // Both rules read the PUBLISHED diameter, and spec-parity.cases.js pins the two copies of
-      // it to each other. They used to read different fields — a diameter here, a derived max
-      // radius there — which put the bag's fill a percent apart and is what this file caught.
+      // Both rules compute first contact from the PUBLISHED diameter, and spec-parity.cases.js
+      // pins the two copies of it. They used to read different fields — a diameter here, a
+      // derived max radius there — half a metre apart, which put the bag's fill a percent out.
       eq(viz.nominalDiameterM, host.diaM, 'the diameter the two files publish');
-      for (let alt = 1200; alt >= 0; alt -= 10) {
-        const a = anchorAt(viz, alt, 1);
-        const b = anchorView(host, alt, 'SOURCE_APPROACH', 0.5, 1);
-        eq(b.cableP, a.anchorProgress, `${id} @${alt} m: cable out`);
-        close(b.fillF, a.anchorFill, 1e-9, `${id} @${alt} m: bag fill`);
+      let checked = 0;
+      for (const phase of PHASES) {
+        for (const prog of [0.02, 0.1, 0.17, 0.3, 0.5, 0.8, 0.96, 0.99]) {
+          for (let alt = 1200; alt >= 0; alt -= 60) {
+            const model = fromMonitorState(
+              { phase, prog, alt, water: 0, ln2: 0, draw: {} }, host, viz, { anchorT: host.anchorBagT });
+            const avatar = anchorView(host, alt, phase, prog, 1);
+            eq(avatar.cableP, model.anchorProgress,
+              `${id} ${phase} @${prog} @${alt} m: cable out`);
+            close(avatar.fillF, model.anchorFill, 1e-9,
+              `${id} ${phase} @${prog} @${alt} m: bag fill`);
+            checked++;
+          }
+        }
       }
+      ok(checked > 500, `only ${checked} points compared`);
     });
   }
 
-  it('the cable is stowed everywhere the ship is not over water', () => {
-    // The avatar has phases the model's own eleven-phase cycle does not, so this half of the
-    // rule has no counterpart to compare against and is asserted directly.
+  it('the cable is stowed climbing away from the lake, load aboard', () => {
+    // The specific flash this file was extended for. The first 18% of the outbound leg is still
+    // over the water — the hose is winding up — but the bag went back into the lake during the
+    // fill and must not reappear on the cable as the ship leaves.
     for (const id of CLASS_ORDER) {
       const host = CLASSES[id];
-      for (const phase of ['OUTBOUND_TRANSIT', 'WATER_RELEASE', 'BUOYANCY_ESCAPE']) {
-        const v = anchorView(host, 300, phase, 0.5, 1);
-        eq(v.cableP, phase === 'OUTBOUND_TRANSIT' ? 0 : 0, `${id} ${phase}: cable out`);
-        eq(v.fillF, 0, `${id} ${phase}: bag holding water`);
+      for (const prog of [0.01, 0.05, 0.1, 0.17, 0.2]) {
+        const v = anchorView(host, 300, 'OUTBOUND_TRANSIT', prog, 1);
+        eq(v.cableP, 0, `${id}: cable out at outbound ${prog}`);
+        eq(v.fillF, 0, `${id}: bag holding water at outbound ${prog}`);
       }
-      // The return leg only counts as over-water in its last few per cent, where the ship is a
-      // few hundred metres out and braking.
-      eq(anchorView(host, 800, 'RETURN_TRANSIT', 0.5, 1).cableP, 0, `${id}: mid-leg`);
     }
   });
 

@@ -14,9 +14,9 @@
  * Runs in node (figure export) and in the browser (fallback) unchanged.
  */
 
-import { hullR, stationX, sectionScale, profileR } from '../model/config.js?v=979d7011';
-import { m4lookAt, m4perspective, m4mul, norm, sub, dot, len } from '../core/math.js?v=979d7011';
-import { TOKENS, MATERIALS, CATEGORY_TONE } from './palette.js?v=979d7011';
+import { hullR, stationX, sectionScale, profileR } from '../model/config.js?v=3342b874';
+import { m4lookAt, m4perspective, m4mul, norm, sub, dot, len } from '../core/math.js?v=3342b874';
+import { TOKENS, MATERIALS, CATEGORY_TONE } from './palette.js?v=3342b874';
 
 /** Named still views. `ortho` keeps a silhouette a true silhouette. */
 export const FIGURE_VIEWS = {

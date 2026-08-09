@@ -37,12 +37,18 @@ export function anchorView(cls, altM, phase, prog, fullF) {
     };
   }
 
-  // Everywhere else it is the water's distance that decides, exactly as in anchorAt(): the hull
-  // radius appears because the winch is on the keel, one radius below the point `alt` refers to.
-  const overWater = phase === "SOURCE_APPROACH"
-    || (phase === "RETURN_TRANSIT" && prog > 0.94)
-    || (phase === "OUTBOUND_TRANSIT" && prog < 0.18);
-  if (!overWater) return { cableP: 0, fillF: 0 };
+  /* Everywhere else it is the water's distance that decides, exactly as in anchorAt(): the hull
+   * radius appears because the winch is on the keel, one radius below the point `alt` refers to.
+   *
+   * OUTBOUND_TRANSIT is deliberately NOT in this list even though its first 18% is still over the
+   * lake — the hose is winding up there and the water line is drawn, but the anchor was stowed
+   * before the fill ended. Deriving it from altitude there put a full bucket back on the cable as
+   * the ship climbed away with its load, which is the flash that was reported "showing down when
+   * transitioning to outbound". Being over water is not the same question as needing the anchor.
+   */
+  const overLake = phase === "SOURCE_APPROACH"
+    || (phase === "RETURN_TRANSIT" && prog > 0.94);
+  if (!overLake) return { cableP: 0, fillF: 0 };
   const reachAlt = Math.max(0, cable - cls.diaM / 2);
   if (altM > reachAlt + cable * 0.25) return { cableP: 0, fillF: 0 };
   return {
