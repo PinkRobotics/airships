@@ -50,6 +50,7 @@ export function renderWorked() {
   ].map(([b, s]) => `<div class="stat"><b style="font-size:var(--t-22)">${b}</b><span>${s}</span></div>`).join("");
   $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +
     (p.retainedT > 1 ? `delivers ${fmt(p.deliveredT)} t per drop, retaining ${fmt(p.retainedT)} t as descent ballast · ` : "") +
+    (p.anchorT > 1 ? `descends on ${fmt(p.anchorT)} t of lake water in the anchor bag · ` : "") +
     // The label said "sea-level ledger" for as long as the ledger bought its lift at sea
     // level. It does not any more — it is evaluated in the air the ship is actually in — so
     // the altitude is named rather than assumed, and the reader can see which one.
@@ -72,6 +73,7 @@ export function renderClassCards() {
       ["cruise", fmt(c.cruiseKph) + " km/h"],
       ["fill rate", c.fillM3s + " m³/s"],
       ["hose", fmt(c.hoseM) + " m"],
+      ["descent anchor", c.anchorM ? fmt(c.anchorM) + " m cable · " + fmt(c.anchorBagT) + " t bag" : "not needed"],
       ["generation", fmt(c.genMW) + " MW"],
       ["battery", fmt(c.battMWh) + " MWh"],
       ["battery peak", fmt(c.battMW) + " MW"],

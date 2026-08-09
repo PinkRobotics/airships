@@ -22,15 +22,16 @@ describe('physics · pumpMW', () => {
     close(pumpMW(P100), 1.962, 1e-9, 'pumpMW(P-100)');
   });
 
-  it('the head is the hose, so the big ships pay for their altitude', () => {
-    // Pump power is linear in BOTH flow and head, and the classes differ in both: the
-    // P-1000 lifts 3 m3/s up 1,100 m and the P-10000 15 m3/s up 1,350 m. Those hoses are
-    // what keep the hulls out of the dense air near the water, and this is the bill for it.
+  it('scales linearly with fill rate: 3 and 15 m3/s at 300 m give 11.77 and 58.86 MW', () => {
+    // Every class hangs 300 m over the water, so at a common head the pump power is linear in
+    // flow alone. The hoses were briefly 1,100 and 1,350 m — an attempt to keep the big hulls
+    // out of the dense air near the surface — which worked and cost 29 MWh a cycle. The
+    // descent anchor does that job for 0.11 MWh, so the hoses went back to being hoses.
     resetConfig();
-    close(pumpMW(P1000), 1000 * 9.81 * 3 * 1100 / 0.75 / 1e6, 1e-9, 'pumpMW(P-1000)');
-    close(pumpMW(P10000), 1000 * 9.81 * 15 * 1350 / 0.75 / 1e6, 1e-9, 'pumpMW(P-10000)');
-    close(pumpMW(P1000), 43.164, 1e-3, 'P-1000 in MW');
-    close(pumpMW(P10000), 264.87, 1e-3, 'P-10000 in MW');
+    close(pumpMW(P1000), 1000 * 9.81 * 3 * 300 / 0.75 / 1e6, 1e-9, 'pumpMW(P-1000)');
+    close(pumpMW(P10000), 1000 * 9.81 * 15 * 300 / 0.75 / 1e6, 1e-9, 'pumpMW(P-10000)');
+    close(pumpMW(P1000), 11.772, 1e-3, 'P-1000 in MW');
+    close(pumpMW(P10000), 58.86, 1e-3, 'P-10000 in MW');
   });
 
   it('reads the live tunables, not the defaults', () => {

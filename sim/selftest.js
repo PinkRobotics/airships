@@ -50,13 +50,15 @@ export function selftest() {
     const pp = planCycle(CLASSES[cid], MODES.balanced, 25);
     if (pp.downMW > (CLASSES[cid].battMW + CLASSES[cid].genMW) * 1.01)
       throw new Error("SELFTEST FAIL: descent power exceeds the bus for " + cid);
-    // Retained descent ballast is a MECHANISM, not a spec failure. This check used to demand
-    // that every class dump its entire payload, which was true only because the descent
-    // balance was struck at the ceiling instead of at the lake where the letdown ends. Now
-    // that it is struck in the right air, two classes keep water back — so the check is the
-    // rule rather than the outcome: keep back exactly the shortfall, never more than the load.
-    const short = pp.ledLow.surplusT - pp.ln2MakeT - pp.rotorMaxT / 0.6;
-    const want = Math.min(CLASSES[cid].payloadT, Math.max(0, short));
+    // Retained descent ballast is the LAST resort, not a spec failure. This check used to
+    // demand that every class dump its entire payload, which held only because the descent
+    // balance was struck at the ceiling rather than at the lake where the letdown ends. The
+    // rule is now: rotors, then the anchor's bag of lake water, and only then water kept back.
+    // On the shipped numbers nothing is kept back — but the rule is what is checked, not the
+    // outcome, so a class that stops closing says so instead of silently delivering less.
+    const holdT = Math.max(0, pp.ledLow.surplusT - pp.ln2MakeT);
+    const want = Math.min(CLASSES[cid].payloadT,
+      Math.max(0, holdT - pp.anchorT - pp.rotorMaxT / 0.6));
     if (Math.abs(pp.retainedT - want) > 0.5)
       throw new Error("SELFTEST FAIL: " + cid + " retains " + pp.retainedT.toFixed(0)
         + " t against a descent shortfall of " + want.toFixed(0) + " t");

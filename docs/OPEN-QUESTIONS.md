@@ -367,10 +367,19 @@ load — and both larger classes are descent-authority limited again. The doctri
 is now a mechanism in the code, and `retainedT`, `battLimited` and the bottleneck string all
 carry information.
 
-**It costs throughput, and that is the point.** The P-10000's 15 km balanced cycle delivers
-8,943.7 t instead of 10,000, at 10,821 t/h instead of 12,052, for 88.17 MWh instead of 75.58.
-Roughly 10% of the headline figure was being claimed by checking the hardest manoeuvre in air
-the ship never lands in. The published numbers now carry the price of getting back down.
+**It cost throughput until the anchor was added, and the anchor is the real answer.** Striking
+the balance honestly took the P-10000 from 12,052 t/h to 10,821, because 1,056 t of every load
+stayed in the tanks to make the descent possible. Then the obvious question: what actually holds
+a buoyant ship down? Not ballast it carries, makes, or keeps back — it borrows the lake. A bag on
+a cable, filled at the surface and winched clear, is 2,323 t of downward force for the 15 m of
+lift needed to break the surface, and it is dumped back where it came from once the tanks hold
+more than the shortfall. A Bambi bucket at 240 times the commercial scale.
+
+Delivery returns to 12,052 t/h with the whole load dropped, and the cycle costs 79.24 MWh. The
+three ways of closing the same 1,056 t gap, priced: anchor **0.11 MWh**, a 1,350 m hose so the
+ship fills from altitude **44 MWh** (2 m bore, 140 bar), liquid nitrogen **475 MWh** (or 5.8× the
+plant to make it in one cycle). Retaining water costs no energy at all and 10% of the delivery,
+which is the one currency this fleet cannot spend.
 
 A `descentShort` flag reports the wall: retention is clamped at the payload, because a hull
 cannot keep back more water than it went to fetch, and reaching that clamp means nitrogen,

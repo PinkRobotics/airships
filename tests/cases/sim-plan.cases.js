@@ -217,7 +217,7 @@ describe('plan · modes', () => {
     }
   });
 
-  it('slower is cheaper again, and this ordering is not load-bearing', () => {
+  it('the mode ordering has flipped four times and is not load-bearing', () => {
     // This test has now watched the mode ordering change THREE times in one day, which is
     // worth more than any of the three orderings. Two terms pull against each other: drag
     // rises with the square of airspeed, so rapid pays most for the legs, while the letdown
@@ -234,12 +234,12 @@ describe('plan · modes', () => {
     resetConfig();
     const p = m => planCycle(CLASSES.P10000, m, 60);
     const r = p(MODES.rapid), b = p(MODES.balanced), e = p(MODES.endurance);
-    ok(e.eCycleMWh < b.eCycleMWh && b.eCycleMWh < r.eCycleMWh,
-      `slower should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
+    ok(r.eCycleMWh < b.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
+      `faster should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
-    close(r.eCycleMWh, 277.9, 0.2, 'rapid');
-    close(b.eCycleMWh, 272.5, 0.2, 'balanced');
-    close(e.eCycleMWh, 262.3, 0.2, 'endurance');
+    close(r.eCycleMWh, 240.9, 0.2, 'rapid');
+    close(b.eCycleMWh, 244.4, 0.2, 'balanced');
+    close(e.eCycleMWh, 250.4, 0.2, 'endurance');
   });
 
   it('speedMul shortens the transit legs', () => {
@@ -276,70 +276,56 @@ describe('plan · modes', () => {
 });
 
 describe('plan · the mechanisms the copy describes', () => {
-  it('no class needs descent ballast at the shipped hose lengths — and why', () => {
+  it('no class retains descent ballast, because the lake holds the ship down', () => {
     // THE HISTORY MATTERS, because this test has asserted three different things.
     //
     // The page has always described retaining water as descent ballast. For most of this
-    // model's life it never happened: rotorMaxT/0.6 exceeded the surplus everywhere, the max()
-    // in plan.js clamped to zero, and the mechanism was inert prose. Then the descent balance
-    // moved to the altitude where the letdown actually ends, 1,200 m lower and 16% denser, and
-    // the two larger classes had to keep 49 t and 1,056 t back.
+    // model's life it never happened: the balance was struck at the ceiling, where the air is
+    // thinnest, and the rotors always won. Struck where the letdown actually ends — 1,200 m
+    // lower, 16% denser, the hull 24% more buoyant — the two larger classes were 49 t and
+    // 1,056 t short and had to keep water back, at a tenth of the delivered figure.
     //
-    // Then the hose got longer. A ship that can reach the water from 1,350 m never goes down
-    // into that air at all, so the surplus it must hold is the one at 2,350 m, and the rotors
-    // manage it with authority to spare. Retention is zero again — but for the opposite reason
-    // to the first time. It is not that the question was asked in the wrong place; it is that
-    // the ship no longer goes to the place where the answer was no.
-    //
-    // The next test is the one that proves the mechanism is alive rather than dead code.
+    // The descent anchor pays that instead. A bag of lake water on a cable, winched clear of
+    // the surface, is ballast that costs 0.11 MWh and is given straight back. Retention is
+    // zero again, and this time the whole payload is still delivered.
     resetConfig();
     grid((p, tag) => eq(p.retainedT, 0, `${tag}: retainedT`));
   });
 
-  it('shorten the hose and the ballast comes back — the mechanism is live', () => {
-    // The guard against the above being a tautology. Take the hose away and the ships have to
-    // descend into dense air again, exactly as they did before the long hose: the P-10000
-    // cannot hold itself down and keeps water back. This is the same code path the shipped
-    // configuration does not currently need, and it still works.
+  it('take the anchor away and the water goes back in the tanks', () => {
+    // The guard against the above being a tautology, and the reason the retention code is not
+    // dead. Give the P-10000 no bag and it is 1,056 t short at the source again, exactly as it
+    // was before the anchor existed, and it pays in delivery.
     resetConfig();
-    try {
-      setConfig({ hoseMul: 0.4 });                  // 540 m on the P-10000, 120 m on the P-100
-      const big = planCycle(CLASSES.P10000, MODES.balanced, 15);
-      ok(big.retainedT > 400, `a short hose should force ballast, got ${big.retainedT.toFixed(0)} t`);
-      close(big.deliveredT + big.retainedT, CLASSES.P10000.payloadT, 1e-9, 'the mass book still balances');
-      ok(big.bottleneck === 'descent authority' || big.bottleneck.startsWith('descent'),
-        `the bottleneck should name the descent, got "${big.bottleneck}"`);
-      const small = planCycle(CLASSES.P100, MODES.balanced, 15);
-      eq(small.retainedT, 0, 'the P-100 has authority to spare even on a short hose');
-    } finally { resetConfig(); }
+    const bare = planCycle({ ...CLASSES.P10000, anchorBagT: 0 }, MODES.balanced, 15);
+    close(bare.retainedT, 1056, 1, 'the shortfall comes straight back');
+    close(bare.deliveredT + bare.retainedT, CLASSES.P10000.payloadT, 1e-9, 'the mass book balances');
+    eq(bare.bottleneck, 'descent authority', 'and the bottleneck says so');
   });
 
-  it('retention engages exactly where the descent does not close on rotors alone', () => {
-    // The rule, rather than the three numbers above: water is kept back if and only if
-    // nitrogen plus rotor authority cannot hold the hull down in the air at the source. A
-    // class with headroom retains nothing; a class without it retains precisely the shortfall,
-    // so the balance closes exactly rather than approximately.
+  it('the anchor leads and the rotors finish, not the other way round', () => {
+    // Ordering matters and is a design decision, not an accident. Rotor thrust costs power and
+    // the lake does not, so the bag takes enough that the rotors work at 90% rather than 100%
+    // — 2,323 t of the P-10000's 13,723 t hold. Sizing the bag to cover only what the rotors
+    // cannot manage would leave the entire letdown running the bus flat out for nothing.
     resetConfig();
-    grid((p, tag, c) => {
-      const short = p.ledLow.surplusT - p.ln2MakeT - p.rotorMaxT / 0.6;
-      if (short <= 0) {
-        eq(p.retainedT, 0, `${tag}: retains water it does not need`);
-      } else {
-        close(p.retainedT, Math.min(c.payloadT, short), 1e-9, `${tag}: retention != shortfall`);
-      }
-      ok(p.retainedT <= c.payloadT, `${tag}: retains more than it carries`);
-    });
+    const p = planCycle(CLASSES.P10000, MODES.balanced, 15);
+    close(p.anchorT, 2322.9, 0.5, 'anchor share');
+    ok(!p.battLimited, 'the rotors should not be saturated with the anchor deployed');
+    const holdT = p.ledLow.surplusT - p.ln2MakeT;
+    ok(holdT - p.anchorT <= p.rotorMaxT / 0.6 * 0.901,
+      'the rotors should be left at no more than 90% of capability');
+    eq(planCycle(CLASSES.P100, MODES.balanced, 15).anchorT, 0, 'the P-100 needs no anchor');
   });
 
   it('the descent balance is struck at the source, not at the ceiling', () => {
     // The defect this replaced, kept as a measurement so it cannot come back quietly. The
     // ratio is rotorMaxT/0.6 over the surplus that has to be pushed down: above 1 the rotors
-    // can do it alone. Both columns clear 1.0 now, but they are still different numbers, and
-    // the gap is the whole argument for asking the question at the right altitude: with a
-    // 300 m hose the lake column read 1.94 / 0.96 / 0.92 and two classes could not close.
+    // can do it alone. At the ceiling all three look comfortable; at the lake, where the
+    // letdown actually ends, two of them are below 1.0 and need the anchor.
     resetConfig();
     const ceiling = { P100: 2.4182, P1000: 1.1928, P10000: 1.1462 };
-    const lake = { P100: 1.9444, P1000: 1.1057, P10000: 1.1136 };
+    const lake = { P100: 1.9444, P1000: 0.9591, P10000: 0.9216 };
     for (const id of CLASS_ORDER) {
       const p = planCycle(CLASSES[id], MODES.balanced, 15);
       close((p.rotorMaxT / 0.6) / p.led.surplusT, ceiling[id], 1e-3, `${id}: headroom at the ceiling`);
@@ -402,11 +388,11 @@ describe('plan · the mechanisms the copy describes', () => {
     // line in the published budget. Change the 0.2 and the headline moves by tens of percent.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 117.06, 0.05, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 79.24, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
-    close(letdownMWh / p.eCycleMWh, 0.3050, 5e-4,
+    close(letdownMWh / p.eCycleMWh, 0.4534, 5e-4,
       `the letdown is ${(100 * letdownMWh / p.eCycleMWh).toFixed(1)}% of the cycle`);
-    ok(letdownMWh > p.eCycleMWh * 0.25, 'the letdown has stopped being a major term');
+    ok(letdownMWh > p.eCycleMWh * 0.4, 'the letdown has stopped dominating the budget');
   });
 
   knownFail(

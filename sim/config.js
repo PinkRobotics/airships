@@ -151,48 +151,68 @@ export const VZ_MAX = 6;
  * ground figure. A recovery onto a valley floor at 350 m would need 160.6 t per 100 t and is
  * outside what the tanks hold: a dead ship must be brought down over high ground.
  *
- * `hoseM` — HOW LONG A HOSE, WHICH IS REALLY HOW HIGH THE SHIP STAYS.
+ * `hoseM` — the hose that fetches the water, and the altitude the ship fills from. One number,
+ * because it is one distance: the pump lifts water exactly as far as the ship is hanging above
+ * it. 300 m on every class. It was briefly 1,100 and 1,350 m on the larger two, as a way of
+ * keeping them out of the dense air near the water — that worked and cost 29 MWh a cycle in
+ * pump work against a 2 m bore and 140 bar at the pod. The anchor below does the same job for
+ * 0.04 MWh, so the hoses went back to being hoses.
  *
- * A hose long enough to reach the lake from altitude is not primarily a way to fetch water
- * from further away. It is a way to never descend into the thick air in the first place. The
- * hull is buoyant by design, and buoyancy grows as the ship comes down: at 300 m over the
- * water a P-10000 has 13,744 t of surplus to hold down, against 12,666 t the rotors can
- * manage. Filling at 1,350 m instead, it has 11,543 t and the descent closes on rotors alone
- * with authority to spare, so the whole load can be dropped instead of keeping 1,056 t back
- * as ballast.
+ * `anchorM`, `anchorBagT` — THE DESCENT ANCHOR, which is how a buoyant ship gets down.
  *
- * The required ALTITUDE is a property of the atmosphere and of the 5.25% float-up margin, not
- * of the ship's size — which is why the two larger classes need similar hoses despite a factor
- * of ten in payload. The lengths are set so the rotors need no more than 90% of their
- * authority during the letdown; sizing them to close exactly would put the routine descent at
- * 100% of maximum, which is not a margin, it is a coincidence.
+ * The problem: a hull sized to float up while fully loaded is very hard to push down when
+ * empty, and hardest of all at the bottom, where the air is densest. At 300 m over the water a
+ * P-10000 has 13,744 t of surplus lift and its rotors can hold down 12,666 t. It is 1,056 t
+ * short of being able to arrive.
  *
- * The P-100 carries 300 m because that is what its fill needs. Its descent already closes
- * with x1.94 headroom at the water — small hulls get disproportionately more rotor authority
- * per tonne of surplus — so its hose is sized by the pump, not by the physics of getting down.
+ * The answer is not to carry ballast, make ballast, or keep water back. It is to borrow the
+ * lake. The ship lowers a cable with a bag on it, fills the bag, and winches it just clear of
+ * the surface: 1,056 m3 of water hanging on a line is 1,056 t of downward force that costs
+ * only the few metres of lift needed to break the surface. When the tanks have taken on more
+ * than the shortfall, the bag is dumped back where it came from. Nothing is carried away, and
+ * nothing is manufactured.
  *
- * NOT MODELLED, and material: the mass of the hose and of the water column standing in it. At
- * 15 m3/s a P-10000's bore is about 2 m, so a full 1,350 m of it holds on the order of 4,000 t
- * of water — four times the ballast this arrangement exists to avoid keeping. It is arguably a
- * feature, since a primed hose IS ballast, but nothing here charges for it, and the pump is
- * working against 130 bar of head rather than 25. See docs/OPEN-QUESTIONS.md.
+ * It is a Bambi bucket — the collapsible helicopter bucket the industry has used since 1983 —
+ * at a scale nobody has built. Commercial ones top out near 10 tonnes. This is 1,200. The
+ * principle is unchanged and the engineering is not, which is the honest way to describe it.
+ *
+ * `anchorM` is the cable, and it is shorter than it looks like it should be: the rotors can
+ * hold the hull down unaided until the air thickens, which is 760 m above the water for a
+ * P-10000 and 510 m for a P-1000, so the cable only has to reach the surface from there. 850
+ * and 600 m with margin. The P-100 carries none — its descent closes with x1.94 headroom.
+ *
+ * `anchorBagT` is sized GENEROUSLY, and deliberately. The bare shortfall is 1,056 t on a
+ * P-10000, and a bag that size leaves the rotors at 100% of their authority for the whole
+ * letdown — which is not a margin, and costs power besides. Rotor thrust is expensive and the
+ * lake is free, so the bag covers enough that the rotors work at no more than 90%: 2,400 t on
+ * the P-10000, 200 t on the P-1000. The extra cable that buys is 195 mm and 25 t.
+ *
+ * A cable is a far better thing to hang than a pipe. 1,056 t is 10.4 MN; in steel wire that is
+ * a 163 mm rope massing 216 t, and in UHMWPE (Dyneema and kin) it is 128 mm and about 11 t.
+ * Synthetic rope is what makes this idea cheap, exactly as it did for deep-tow oceanography.
+ *
+ * NOT MODELLED, and material: 1,056 t swinging on one cable under an 876 m hull is a pendulum
+ * nobody here has analysed, the bag has to survive being filled and dumped every cycle, and
+ * the winch is assumed to run at 5 m/s in both directions. See docs/OPEN-QUESTIONS.md.
  */
-export const CLASSES = {
-  P100: {
+export const CLASSES = {  P100: {
     id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 190, diaM: 47,
     cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,
+    anchorM: 0, anchorBagT: 0,
     genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarM2: 6000, diskM2: 2500, rotors: 4, ln2CapT: 155,
     minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: "Initial attack and small incidents close to water",
   },
   P1000: {
     id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 404, diaM: 102,
-    cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 1100,
+    cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,
+    anchorM: 600, anchorBagT: 200,
     genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarM2: 28000, diskM2: 12000, rotors: 6, ln2CapT: 1550,
     minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: "Sustained delivery on project fires and fires of note",
   },
   P10000: {
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 876, diaM: 219,
-    cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 1350,
+    cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
+    anchorM: 850, anchorBagT: 2400,
     // diskM2 and battMW are sized so the force balance closes with NOTHING held back:
     // after a full 10,000 t dump the hull is 11,051 t buoyant at its working altitude, and
     // 14 big discs on a battery-surge bus must push all of it back down to the water. Brute

@@ -65,20 +65,44 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   // The force balance must CLOSE. Rotors can only push down so hard on this bus:
   const rotorMaxT = Math.pow((cls.battMW + cls.genMW) * 1e6 * CFG.propEta *
     Math.sqrt(2 * CFG.rhoAir * cls.diskM2), 2 / 3) / 9.81 / 1000;
-  // Whatever ballast and rotors (with aero assist) cannot cover, the Mind never drops in
-  // the first place: retained water is descent ballast, and only the rest is delivered.
-  const retainedT = Math.min(cls.payloadT,
-    Math.max(0, ledLow.surplusT - ln2MakeT - rotorMaxT / 0.6));
+  /* THE DESCENT, IN THE ORDER THE SHIP TRIES THINGS.
+   *
+   * A hull sized to float up fully loaded is hard to push down empty, and hardest at the
+   * bottom where the air is thickest. Three things can make up the difference, and they are
+   * not equal: rotors cost power, the anchor costs almost nothing, and retaining water costs
+   * DELIVERY, which is the thing the fleet exists to do. So they are used in that order.
+   *
+   * 1. Rotors, up to rotorMaxT/0.6 (the 0.6 is the share aero trim cannot take).
+   * 2. The anchor — a bag of lake water on a cable, winched clear of the surface. It borrows
+   *    mass from the lake and gives it straight back, so it is bounded only by the bag.
+   * 3. Retained water, last, because every tonne kept is a tonne not delivered. It is zero on
+   *    the shipped numbers and the code path is exercised by a test that removes the anchor. */
+  const holdT = Math.max(0, ledLow.surplusT - ln2MakeT);      // total to hold down at the source
+  const rotorCapT = rotorMaxT / 0.6;
+  // The anchor goes first and takes as much as its bag allows, leaving the rotors at 90% of
+  // their capability rather than at 100%. Ordering it the other way round — anchor picks up
+  // only what the rotors cannot — works too, and leaves the whole letdown running the bus flat
+  // out for no reason, because the lake is free and rotor thrust is not.
+  const anchorT = Math.min(cls.anchorBagT || 0, Math.max(0, holdT - 0.9 * rotorCapT));
+  const shortfallT = Math.max(0, holdT - anchorT - rotorCapT);   // what neither can hold
+  const retainedT = Math.min(cls.payloadT, shortfallT);
   const deliveredT = cls.payloadT - retainedT;
   dur.WATER_FILL = deliveredT / fill / 60;          // only the delivered water needs replacing
   // The dump is metered like the fill: sprayers lay water on a line, they do not blow the
   // tanks. A payload bigger than one line's worth re-treats the line — whole passes, and an
   // odd count so the run still ends at the far end, where the escape climb begins.
+  // The winch runs at 5 m/s, so the cable is paid out during the approach — it has to be in
+  // the water before the ship needs holding down, so this one can extend the phase. Recovery
+  // does not: the bag is dumped the moment the tanks hold more than the shortfall, and an
+  // empty bag on a rope comes up during the climb-out, which is already overlapped work. A
+  // fill that finishes before the winch does is not a fill waiting on a winch.
+  const anchorMin = (cls.anchorM || 0) / 5 / 60;
+  dur.SOURCE_APPROACH = Math.max(dur.SOURCE_APPROACH, anchorMin);
   const lineMin = dur.WATER_RELEASE;
   let passes = Math.max(1, Math.ceil(deliveredT / fill / 60 / lineMin));
   if (passes % 2 === 0) passes += 1;
   dur.WATER_RELEASE = lineMin * passes;
-  const resid = Math.max(0, ledLow.surplusT - ln2MakeT - retainedT);
+  const resid = Math.max(0, holdT - anchorT - retainedT);   // what the rotors actually push
   const downMW = diskMW(cls, resid * 1000 * 9.81 * 0.6);   // ≤ bus by construction now
   const battLimited = downMW > (cls.battMW + cls.genMW) * 0.92;
   if (battLimited) dur.RETURN_TRANSIT *= 1.12;      // authority-limited: a longer, shallower letdown
@@ -96,6 +120,11 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   E.OUTBOUND_TRANSIT = dragMW(cls, mode) * dur.OUTBOUND_TRANSIT / 60;
   E.RETURN_TRANSIT = dragMW(cls, mode) * 0.55 * dur.RETURN_TRANSIT / 60 + eCryo; // lighter ship, cheaper leg
   E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60;
+  // The anchor's entire energy cost: lifting the full bag the 15 m it takes to break the
+  // surface, at a winch efficiency of 0.85. Everything after that is the lake holding the
+  // ship down for free. For the P-10000 this is 0.04 MWh against a 75 MWh cycle — the reason
+  // this mechanism beats both making nitrogen (475 MWh) and pumping from altitude (44 MWh).
+  E.anchor = anchorT * 1000 * 9.81 * 15 / 0.85 / 3.6e9;
   E.other = hotelMW * cycleMin / 60 +
     dragMW(cls, mode) * 0.4 * (dur.SOURCE_APPROACH + dur.BUOYANCY_ESCAPE + dur.WATER_RELEASE) / 60;
   const eCycle = Object.values(E).reduce((a, b) => a + b, 0);
@@ -112,7 +141,7 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   // than it went to fetch. Reaching it means nitrogen, rotors and the entire payload together
   // still do not close the descent, and the honest report is that the trip does not work —
   // not a quietly smaller delivery.
-  const descentShort = ledLow.surplusT - ln2MakeT - rotorMaxT / 0.6 > cls.payloadT;
+  const descentShort = shortfallT > cls.payloadT;
   if (descentShort) bottleneck = "descent does not close at the source";
 
   return {
@@ -121,6 +150,7 @@ export function planCycle(cls, mode, oneWayKm, wind) {
     retainedT, deliveredT, rotorMaxT, passes,
     gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null),
     ln2MakeT, cryoLimited, battLimited, descentShort, downMW, bottleneck,
+    anchorT, shortfallT,
     pumpMW: pumpMW(cls), dragMW: dragMW(cls, mode), led, ledLow,
     dropsPerHour: 60 / cycleMin,
   };

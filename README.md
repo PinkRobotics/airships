@@ -64,11 +64,11 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 |---|---|---|---|
 | Payload | 100 t | 1,000 t | 10,000 t |
 | Cycle | 36.2 min | 38.9 min | 49.8 min |
-| Hose | 300 m | 1,100 m | 1,350 m |
 | Delivered | 166 t/h | 1,543 t/h | 12,052 t/h |
+| Descent anchor | not needed | 181 t | 2,323 t of lake water |
 | Retained as ballast | 0 t | 0 t | 0 t |
-| Energy | 1.85 MWh/cycle | 14.5 MWh/cycle | 117.1 MWh/cycle |
-| Per tonne | 18 kWh/t | 15 kWh/t | 12 kWh/t |
+| Energy | 1.85 MWh/cycle | 12.2 MWh/cycle | 79.2 MWh/cycle |
+| Per tonne | 18 kWh/t | 12 kWh/t | 8 kWh/t |
 | Binding constraint | transit distance | transit distance | transit distance |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
@@ -128,13 +128,19 @@ buoyant. `planCycle` was checking the descent balance at the ceiling — the eas
 source instead, the two larger classes could not hold themselves down on rotors and had to keep
 water back as ballast, costing about 10% of the delivered figure.
 
-Which raised the obvious question: why go down there at all? The hose length became a class
-property — 300 m, 1,100 m and 1,350 m — and a ship that can reach the lake from 1,350 m fills at
-2,350 m MSL, where it is 16% less buoyant than at the water and the rotors hold it comfortably.
-Retention returns to zero, the whole load is delivered, and the price is paid in pump work instead:
-lifting water 1,350 m costs the P-10000 44.3 MWh a cycle, which makes pumping the largest single
-term in its budget at 37.8%. That is a better place for the largest term to be than an unexplained
-constant — see defect 3.
+Which raised the obvious question: what actually holds a buoyant ship down? Not ballast it has to
+carry, make, or keep back. **It borrows the lake.** The larger classes lower a cable with a bag on
+it, fill the bag, and winch it just clear of the surface — 2,323 t of water hanging on a line is
+2,323 t of downward force, and it costs the 15 m of lift needed to break the surface, or 0.11 MWh.
+When the tanks hold more than the shortfall, the bag is dumped back where it came from. It is a
+Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale nobody has built:
+commercial ones top out near 10 tonnes.
+
+Retention returns to zero and the whole load is delivered — 12,052 t/h — for 79.2 MWh. An earlier
+attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet the dense
+air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at the pod. A
+cable is a much better thing to hang than a pipe: 2,323 t is 22.8 MN, which is 195 mm of UHMWPE
+massing 25 t.
 
 **2. Two power models that disagree by 2.8×.** `planCycle` builds an energy budget from five terms
 and reports 90.2 MWh for the sampled P-10000 mission. Integrating `stateAt`'s per-system draw over
@@ -151,16 +157,14 @@ which the descent costs essentially the same energy however far the ship flew.
 
 Also, and in the same spirit:
 
-- **Retained descent ballast — FIXED 2026-08-09, twice, in opposite directions.** `retainedT`
-  used to be 0 for every class, mode, distance and wind in the grid, because `rotorMaxT / 0.6`
-  exceeded the buoyant surplus everywhere, while the copy, the `bottleneck` string and the
-  narration all described retained ballast as a live constraint. It was not one. The cause was an
-  altitude: the balance was struck at the ceiling, where the air is thinnest, when the letdown
-  ends 1,200 m lower in air 16% denser. Struck where the descent happens, the P-1000 kept 49 t
-  back and the P-10000 1,056 t. Then the hose became long enough that the ships stop descending
-  into that air at all, and retention went back to zero — the opposite outcome, for the opposite
-  reason. The mechanism is no longer dead code: shorten the hose in the assumption dials and the
-  ballast comes back, which a test now asserts.
+- **Retained descent ballast — FIXED 2026-08-09, and the fix is a bucket.** `retainedT` used to
+  be 0 for every class, mode, distance and wind in the grid, while the copy, the `bottleneck`
+  string and the narration all described retained ballast as a live constraint. It was not one.
+  The cause was an altitude: the balance was struck at the ceiling, where the air is thinnest,
+  when the letdown ends 1,200 m lower in air 16% denser. Struck where the descent happens, the
+  P-1000 was 49 t short and the P-10000 1,056 t. The descent anchor pays that with lake water on
+  a cable instead of with delivered payload, so retention is back to zero — but the mechanism is
+  no longer dead code, and a test removes the anchor and watches the water go back in the tanks.
 - **The cryogenic plant is numerically inert in the cycle.** For the same reason, `ln2MakeT` never
   changes how much water is delivered; it only moves energy between two terms, at the round-trip
   loss. The copy describes it as load-bearing. Its TANK is load-bearing as of 2026-08-09: at

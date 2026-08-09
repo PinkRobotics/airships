@@ -35,7 +35,7 @@ every published number to the line that computes it.
 | C_d | drag coefficient on frontal area | 0.05, `DEFAULTS.Cd` |
 | η_p | propulsive efficiency | 0.70, `DEFAULTS.propEta` |
 | η_pump | pump-system efficiency | 0.75, `DEFAULTS.pumpEta` |
-| h | pumping head = hose length = fill altitude | 300 / 1,100 / 1,350 m, `CLASSES[*].hoseM` × `CFG.hoseMul` |
+| h | pumping head = hose length = fill altitude | 300 m on every class, `CLASSES[*].hoseM` × `CFG.hoseMul` |
 | Q | fill rate | `CLASSES[*].fillM3s` |
 
 SI throughout, surfaced as tonnes, kilometres, minutes, megawatts and megawatt-hours. One
@@ -399,25 +399,25 @@ air:
 
 | Term | Equation | MWh | share | pre-resize | resize only |
 |---|---|---:|---:|---:|---:|
-| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 44.299 | 37.8% | 4.332 | 4.332 |
-| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 35.709 | 30.5% | 43.619 | 34.196 |
-| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 12.6% | 14.608 | 14.705 |
-| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 11.0% | 11.650 | 12.888 |
-| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 8.1% | 8.289 | 9.459 |
-| **total** | | **117.061** | | 82.498 | 75.580 |
+| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 35.930 | 45.3% | 43.619 |
+| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 18.6% | 14.608 |
+| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 16.3% | 11.650 |
+| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 11.9% | 8.289 |
+| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 6.149 | 7.8% | 4.332 |
+| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.112 | 0.1% | — |
+| **total** | | **79.243** | | 82.498 |
 
-The two right-hand columns are the same budget before any of the 2026-08-09 corrections and
-after only the resize. The shape changed completely, and for the better: **the largest term is
-now the pump**, which lifts 10,000 t of water 1,350 m, and that is a term with a derivation. It
-displaced the letdown, whose only two constants are unexplained (defect 3) and which had been
-the biggest line in the budget for the life of the model.
+The right-hand column is the same budget before any of the 2026-08-09 corrections. The total
+fell 4%, and the interesting line is the one that costs almost nothing: `E.anchor`, 0.112 MWh,
+is the entire price of getting a 22,000 t buoyant hull back down to the water. It lifts 2,323 t
+of lake water the 15 m needed to break the surface and the lake does the rest.
 
-The journey there is worth following. The resize cut the letdown 22%, because a hull sized
-honestly fights a smaller surplus. Striking the descent balance at the lake put it back and
-more, since the surplus down there is 24% larger. Then the long hose stopped the ship going
-down to the lake at all, which cut the letdown to 30.5% — and bought that with pump work, at
-3.63 kWh per tonne-kilometre of lift. Trading an unexplained constant for a hydraulic one is
-the direction this model wants to move in.
+For contrast, the two alternatives that were costed and rejected. Making the same ballast as
+liquid nitrogen is 0.45 MWh per tonne — **475 MWh**, five times the whole cycle, or 5.8× the
+cryogenic plant to do it inside one cycle. Filling from 1,350 m up a long hose so the ship never
+meets the dense air is **44 MWh**, and needs a 2 m bore at 140 bar. Borrowing mass from the lake
+and giving it back is 0.11 MWh. When a mechanism is three orders of magnitude cheaper than the
+alternatives, that is usually the design telling you something.
 
 Against that, generation. The only sources the code credits are the solar skin at a flat
 200 W/m² and the nitrogen recovery. The generators each class advertises — 8, 40 and
@@ -427,8 +427,8 @@ enough to change the conclusion drawn from the next table.
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
 | P-100 | 1.20 MW | 0.72 MWh | 1.85 MWh | 1.12 MWh |
-| P-1000 | 5.60 MW | 3.63 MWh | 14.53 MWh | 10.90 MWh |
-| P-10000 | 24.00 MW | 19.91 MWh | 117.06 MWh | 97.15 MWh |
+| P-1000 | 5.60 MW | 3.63 MWh | 12.24 MWh | 8.61 MWh |
+| P-10000 | 24.00 MW | 19.91 MWh | 79.24 MWh | 59.33 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
@@ -477,17 +477,17 @@ flips.
 | `propEta` | +26.4% | −13.1% | −2.8% | 0% |
 | `Cd` | −6.6% | +6.6% | 0% | 0% |
 | `pumpEta` | +3.0% | −2.0% | 0% | 0% |
-| `hoseMul` | −6.0% | +6.1% | 0% | 0% |
+| `hoseMul` | −1.4% | +1.4% | 0% | 0% |
 | `rtLN2` | +1.3% | −1.3% | 0% | 0% |
 | `eLN2` | −0.0% | +0.0% | 0% | 0% |
 | `rhoAir` | −1.3% | +2.7% | 0% | 0% |
 | `rhoSL` | −23.2% | +14.7% | 0% | −22.8% |
 
-`hoseMul` looks mild in that table and is not. Within ±20% it only moves pump work, but the
-hose is what keeps the ship out of the dense air near the water: below about ×0.75 the P-10000
-can no longer hold itself down on rotors at the fill altitude and starts keeping water back as
-ballast, at which point throughput falls away sharply. A sensitivity table sampled at two points
-cannot show a cliff, and this one has one.
+`hoseMul` is mild now and was not always: while the larger classes carried 1,350 m hoses to keep
+themselves out of the dense air, shortening the hose pushed them into keeping water back and
+throughput fell off a cliff the table could not show. With the descent anchor doing that job the
+hose only moves pump work again. The cliff moved to the anchor bag, which is not a tunable —
+remove it and the P-10000 keeps 1,056 t back, which a test asserts.
 
 | Class parameter | −20% → energy | +20% → energy | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
@@ -576,7 +576,7 @@ understated 7%. That belongs to Defect 2, and it is pinned by a test so it canno
 
 ### Defect 2 — two disagreeing power models
 
-`planCycle` publishes 117.061 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
+`planCycle` publishes 79.243 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
 the same function says 90.18 MWh while integrating the per-system draws that `stateAt`
 reports over that cycle gives 255.45 MWh — 2.83 times as much. The ratio is 1.23× for the
 P-100 and 1.81× for the P-1000. All three widened with the 2026-08-09 resize (from 1.14,
@@ -621,47 +621,59 @@ will come back the moment anything tightens the descent budget again.
 ### Defect 4 — retained descent ballast was zero, everywhere, always — FIXED 2026-08-09
 
 ```js
-// before: one ledger, struck at the ceiling
+// before: one ledger, struck at the ceiling, and nothing but rotors and kept water
 retainedT = Math.max(0, led.surplusT - ln2MakeT - rotorMaxT / 0.6);
-// after: struck where the letdown ends
-retainedT = Math.min(cls.payloadT, Math.max(0, ledLow.surplusT - ln2MakeT - rotorMaxT / 0.6));
+// after: struck where the letdown ends, and the lake holds the ship down
+const holdT    = Math.max(0, ledLow.surplusT - ln2MakeT);
+const anchorT  = Math.min(cls.anchorBagT, Math.max(0, holdT - 0.9 * rotorMaxT / 0.6));
+const retained = Math.min(cls.payloadT, Math.max(0, holdT - anchorT - rotorMaxT / 0.6));
 ```
 
 `rotorMaxT / 0.6` exceeded the surplus for every class, so `retainedT` was identically zero,
-while `narrate()` had branches for "retaining N t as descent ballast", the worked-example
-note had one, and `bottleneck` could return "descent ballast — cryogenic capacity". None of
-that code could execute. The mechanism was prose.
+while `narrate()` had branches for "retaining N t as descent ballast", the worked-example note
+had one, and `bottleneck` could return "descent ballast — cryogenic capacity". None of that
+code could execute. The mechanism was prose.
 
-Two things were wrong, and only one of them was the hull. The resize was expected to revive
-retention and did the opposite — a hull sized for fail-safe float-up is more buoyant at sea
-level, where it never is, and at the altitude the surplus is now measured at it is *less*
-buoyant than the sea-level ledger claimed, so the headroom widened from +122/+9/+5% to
-+142/+19/+15%.
+**The altitude was the fault.** Float-up and descent do not share a worst case: float-up is
+hardest at the ceiling in the thinnest air, descent is hardest at the lake 1,200 m lower where
+the air is 16% denser and the hull correspondingly more buoyant. Both were answered with the
+ceiling ledger. `planCycle` now carries two — `led` at `WORK_ALT_MSL` for sizing and float-up,
+`ledLow` at `TERRAIN_MSL + sourceAltM(cls)` for everything that answers to descent:
 
-The real fault was the altitude of the check. Float-up and descent do not share a worst case:
-float-up is hardest at the ceiling, in the thinnest air, and descent is hardest at the lake,
-1,200 m lower, where the air is 16% denser and the hull correspondingly more buoyant. Both
-were being answered with the ceiling ledger. `planCycle` now carries two — `led` at
-`WORK_ALT_MSL` for sizing and float-up, `ledLow` at `TERRAIN_MSL + ALT.source` for everything
-that answers to descent:
+| | rotorMaxT/0.6 | surplus, ceiling | surplus, lake | headroom, ceiling | headroom, lake |
+|---|---:|---:|---:|---:|---:|
+| P-100 | 267.2 t | 110.5 t | 137.4 t | ×2.42 | ×1.94 |
+| P-1000 | 1,318.1 t | 1,105.1 t | 1,374.4 t | ×1.19 | **×0.96** |
+| P-10000 | 12,666.2 t | 11,050.9 t | 13,743.6 t | ×1.15 | **×0.92** |
 
-| | rotorMaxT/0.6 | surplus, ceiling | surplus, lake | headroom, ceiling | headroom, lake | retained |
-|---|---:|---:|---:|---:|---:|---:|
-| P-100 | 267.2 t | 110.5 t | 137.4 t | ×2.42 | ×1.94 | 0 t |
-| P-1000 | 1,318.1 t | 1,105.1 t | 1,374.4 t | ×1.19 | **×0.96** | 48.8 t |
-| P-10000 | 12,666.2 t | 11,050.9 t | 13,743.6 t | ×1.15 | **×0.92** | 1,056.3 t |
+Below ×1.0 the rotors cannot hold the hull down alone. That left 49 t and 1,056 t to find.
 
-Below ×1.0 the rotors cannot hold the hull down alone and the shortfall stays in the tanks.
-Retention is the shortfall exactly, so the balance closes rather than approximately closing,
-and it is clamped at the payload — a hull cannot keep back more water than it went to fetch.
-Hitting that clamp raises `descentShort` and the bottleneck says the descent does not close,
-rather than quietly delivering less. It is false everywhere in the grid.
+**The answer is a bucket.** Three things can make up a descent shortfall and they are not
+equal: rotors cost power, retained water costs DELIVERY, and a bag of lake water on a cable
+costs the 15 m of lift needed to break the surface. So the order is rotors, then anchor, then —
+never, on the shipped numbers — retention. The bag is dumped back into the lake as soon as the
+tanks hold more than the shortfall, so nothing is carried away and nothing is manufactured.
 
-The cost is real and is charged: the P-10000 delivers 8,943.7 t of its 10,000, at 10,821 t/h
-against 12,052, and 88.17 MWh against 75.58 — `downMW` returns to the full 1,550 MW bus,
-`battLimited` is true again, and the return leg carries its 12% authority-limited stretch.
-Roughly 10% of the published throughput had been bought by checking the hardest manoeuvre in
-air the ship never lands in.
+It is a Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale
+nobody has built: commercial ones top out near 10 t and the P-10000's is 2,400. The principle
+is unchanged and the engineering is not, which is the honest way to describe it.
+
+The bag is sized generously on purpose. The bare shortfall is 1,056 t, and a bag that size
+leaves the rotors at 100% of authority for the whole letdown, which is not a margin and costs
+power besides. At 2,400 t the anchor takes 2,323 t, the rotors work at 90%, `battLimited` stays
+false and the 12% letdown stretch never applies. Cable: 2,323 t is 22.8 MN, which is 195 mm of
+UHMWPE at about 25 t, against 216 t for the steel equivalent. Synthetic rope is what makes this
+cheap, as it did for deep-tow oceanography.
+
+**Costs, against the alternatives.** Anchor 0.11 MWh a cycle. A 1,350 m hose so the ship fills
+from altitude and never meets the dense air: 44 MWh, 2 m bore, 140 bar. The same ballast as
+liquid nitrogen: 475 MWh, or 5.8× the cryogenic plant to make it inside one cycle. Delivery is
+unchanged at 12,052 t/h and the cycle costs 79.24 MWh.
+
+**Not modelled, and material:** 2,323 t swinging on one cable under an 876 m hull is a pendulum
+nobody has analysed; the bag has to survive being filled and dumped every cycle; the winch is
+assumed to run at 5 m/s both ways; and the cable is paid out during the approach, which is the
+only place it can extend the cycle.
 
 ### Defect 5 — the cryogenic plant is numerically inert in the cycle
 
@@ -694,7 +706,7 @@ and flown as though they were switched off.
 
 The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.827 h, so the
 generators at full output would make **124.5 MWh** against a published cycle spend of
-117.06 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+79.24 MWh. They would cover the cycle before solar was counted. Generators do not run flat
 out, so the defensible figure is demand-following output capped at `genMW`; measured that
 way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
 than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per
