@@ -45,6 +45,12 @@ mkdir -p "$PROFILE"
 # slow. Hence the log below: the useful thing on a timeout is WHERE it stopped, not more seconds.
 : "${A3D_TEST_TIMEOUT:=1200}"
 
+# The virtual-time budget is what --dump-dom waits for: it prints the page when the budget is
+# exhausted, NOT when the page finishes. 120 s of virtual time only elapses quickly if the page
+# is idle, and this one is not idle for the ~4 minutes a CI runner spends grinding through the
+# GL checks. 20 s is the value the page's own header documents and is ample for a suite whose
+# longest single wait is 25 s of guard on a promise that never fires.
+#
 # Chromium's stderr, kept rather than discarded, and left in the profile directory so it can be
 # read after the fact. --dump-dom prints the page only if the browser lives long enough to finish,
 # so a killed run used to produce a bare exit 124 and nothing else at all. The page logs
@@ -56,7 +62,7 @@ DOM=$(timeout "$A3D_TEST_TIMEOUT" "$CHROME" --headless=new --no-sandbox --disabl
   --disable-gpu --disk-cache-size=1 --media-cache-size=1 \
   --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
   --enable-logging=stderr --log-level=0 \
-  --user-data-dir="$PROFILE" --virtual-time-budget=120000 --dump-dom \
+  --user-data-dir="$PROFILE" --virtual-time-budget=20000 --dump-dom \
   "http://127.0.0.1:$PORT/3d/tests/browser.html" 2>"$LOG") || STATUS=$?
 
 if [ "$STATUS" -ne 0 ]; then
@@ -66,7 +72,8 @@ if [ "$STATUS" -ne 0 ]; then
     echo "browser tests: chromium exited $STATUS" >&2
   fi
   echo "the last checks it entered, and chromium's own output ($LOG):" >&2
-  grep -aE 'RUN |ERROR|Fail' "$LOG" | tail -25 >&2 || true
+  # DONE in this list means the suite finished and the DUMP is what failed to happen.
+  grep -aE 'RUN |DONE |ERROR|Fail' "$LOG" | tail -25 >&2 || true
   exit 1
 fi
 

@@ -88,14 +88,29 @@ export function phaseShape(cls, phase, prog, opts = {}) {
   const p = clamp01(prog);
   const s = {};
   const cruise = (cls.cruiseKph || 90) / 3.6;
+  /* THE NITROGEN BANK IS A RESERVE, NOT A CONSUMABLE.
+   *
+   * `ln2Target` is the standing level the tanks sit at. `ln2Swing` is how much of that a
+   * routine cycle actually moves — a few percent — because the tanks are sized by UNPOWERED
+   * RECOVERY (1.55 payloads: enough nitrogen to sink a dead hull at ground level with no
+   * rotors) and not by anything the delivery cycle does. A P-100 makes about 1.8 t on a return
+   * leg against a 155 t bank.
+   *
+   * This used to drain 0.7 of the whole bank into the fill and refill it on the way home, which
+   * was survivable while the tanks held 30 t and became nonsense when they were sized properly
+   * on 2026-08-09: a filling P-100 took on 100 t of water while shedding 124 t of nitrogen, so
+   * the ship got LIGHTER as it filled. The node suite caught it, which is what it is for.
+   */
   const ln2Target = opts.ln2Target === undefined ? 0.8 : opts.ln2Target;
+  const ln2Swing = opts.ln2Swing === undefined ? 0.05 : opts.ln2Swing;
+  const ln2Low = Math.max(0, ln2Target - ln2Swing);
 
   switch (phase) {
     case 'SOURCE_APPROACH':
       s.altitudeM = lerp(ALT.source + 150, ALT.source, smoothstep(p));
       s.airspeedMps = lerp(cruise * 0.35, 2, p);
       s.verticalSpeedMps = -2.0 * (1 - p);
-      s.waterFraction = 0; s.ln2Fraction = ln2Target * (1 - 0.3 * p);
+      s.waterFraction = 0; s.ln2Fraction = ln2Target;
       // The hose stays stowed through the approach. The monitor pays it out here because its
       // six-phase cycle has no HOSE_DEPLOY; this cycle has one, lasting hoseDeployMin, and doing
       // both paid the hose out over the 3-minute approach and then snapped it back to stowed to
@@ -105,18 +120,19 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       break;
     case 'HOSE_DEPLOY':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
-      s.waterFraction = 0; s.ln2Fraction = ln2Target * 0.7;
+      s.waterFraction = 0; s.ln2Fraction = ln2Target;
       s.hoseProgress = smoothstep(p);
       break;
     case 'WATER_FILL':
       s.altitudeM = ALT.source; s.airspeedMps = 1.5; s.verticalSpeedMps = 0;
       s.waterFraction = p;
-      s.ln2Fraction = ln2Target * 0.7 * (1 - p);      // ballast given back as water comes aboard
+      // Ballast given back as water comes aboard — a few percent of the bank, not the bank.
+      s.ln2Fraction = lerp(ln2Target, ln2Low, p);
       s.hoseProgress = 1;
       break;
     case 'HOSE_RETRACT':
       s.altitudeM = ALT.source; s.airspeedMps = 2; s.verticalSpeedMps = 0;
-      s.waterFraction = 1; s.ln2Fraction = 0;
+      s.waterFraction = 1; s.ln2Fraction = ln2Low;
       // Drain first, then haul in. A hose full of water is tonnes hanging on the winch.
       s.hoseProgress = p < 0.35 ? 1 : 1 - smoothstep((p - 0.35) / 0.65);
       break;
@@ -124,12 +140,12 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.altitudeM = lerp(ALT.source, ALT.cruise, smoothstep(p));
       s.airspeedMps = lerp(3, cruise * 0.7, p);
       s.verticalSpeedMps = 2.5 * Math.sin(Math.PI * p);
-      s.waterFraction = 1; s.ln2Fraction = 0;
+      s.waterFraction = 1; s.ln2Fraction = ln2Low;
       s.attitude = { rollRad: 0, pitchRad: 0.030 * Math.sin(Math.PI * p), yawRad: 0 };
       break;
     case 'OUTBOUND_TRANSIT':
       s.altitudeM = ALT.cruise; s.airspeedMps = cruise; s.verticalSpeedMps = 0;
-      s.waterFraction = 1; s.ln2Fraction = 0;
+      s.waterFraction = 1; s.ln2Fraction = ln2Low;
       // No hose here either, for the same reason and with a worse symptom: HOSE_RETRACT has
       // already wound it in and DEPARTURE_CLIMB has flown to 1,500 m, so re-running the
       // monitor's wind-up ramp hung 250 m of hose and a pump pod under a ship at transit
@@ -139,12 +155,13 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.altitudeM = lerp(ALT.cruise, ALT.drop, smoothstep(p));
       s.airspeedMps = lerp(cruise, cruise * 0.35, p);
       s.verticalSpeedMps = -3.0 * Math.sin(Math.PI * p);
-      s.waterFraction = 1; s.ln2Fraction = 0;
+      s.waterFraction = 1; s.ln2Fraction = ln2Low;
       s.attitude = { rollRad: 0, pitchRad: -0.025 * Math.sin(Math.PI * p), yawRad: 0 };
       break;
     case 'WATER_RELEASE':
       s.altitudeM = ALT.drop; s.airspeedMps = cruise * 0.3;
       s.waterFraction = 1 - p;
+      s.ln2Fraction = ln2Low;                         // the reserve rides along; only water leaves
       s.waterReleaseProgress = p;
       // The ship starts rising during the drop, not after it: mass is leaving continuously.
       s.verticalSpeedMps = 4.5 * p * p;
@@ -153,12 +170,12 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.altitudeM = lerp(ALT.drop, ALT.cruise, smoothstep(p));
       s.airspeedMps = lerp(cruise * 0.3, cruise * 0.8, p);
       s.verticalSpeedMps = lerp(5.5, 1.5, p);
-      s.waterFraction = 0; s.ln2Fraction = 0;
+      s.waterFraction = 0; s.ln2Fraction = ln2Low;
       s.attitude = { rollRad: 0, pitchRad: 0.045 * (1 - p), yawRad: 0 };
       break;
     case 'RETURN_TRANSIT':
       s.altitudeM = ALT.cruise; s.airspeedMps = cruise * 0.9; s.verticalSpeedMps = 0;
-      s.waterFraction = 0; s.ln2Fraction = ln2Target * p;
+      s.waterFraction = 0; s.ln2Fraction = lerp(ln2Low, ln2Target, p);   // the plant tops it back up
       break;
     case 'CONTROLLED_DESCENT':
       s.altitudeM = lerp(ALT.cruise, ALT.source, smoothstep(p));

@@ -616,6 +616,11 @@ document.title = line;
 document.body.setAttribute('data-a3d-result', line);
 document.body.setAttribute('data-a3d-failures',
   [...out.querySelectorAll('.fail')].map((d) => d.textContent).join(' | '));
+// The suite is finished at this point and the answer is in the DOM. Whether --dump-dom ever
+// PRINTS that DOM is a separate question — it waits for the virtual-time budget, not for the
+// page — so this line is what tells the two failures apart in the log: "DONE" present means
+// the tests ran and the dump is what hung.
+console.log(`DONE ${line}`);
 </script>
 </body>
 </html>
