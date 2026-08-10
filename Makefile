@@ -56,11 +56,20 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck golden test interaction  ## Everything CI checks that runs without node
+check: lint stampcheck figcheck golden test interaction  ## Everything CI checks that runs without node
+
+figcheck:  ## Every model figure quoted in a report must be the figure the model produces
+	@$(PY) tools/check_figures.py
 
 stampcheck:  ## Fail if any import is stamped at a version other than the current one
 	@$(PY) 3d/scripts/stamp-version.py --check
 	@$(PY) tools/stamp_site.py --check
+
+factsheet:  ## Regenerate research/figures.json from the live model
+	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \
+	 $(PY) tools/js_eval.py "http://127.0.0.1:8899/index.html?seed=7&data=snapshot" \
+	   tools/figures_dump.js research/figures.json 16; \
+	 kill %1 2>/dev/null || true
 
 stamp:  ## Recompute both version hashes and stamp every import with them
 	$(PY) 3d/scripts/stamp-version.py

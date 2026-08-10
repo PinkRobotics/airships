@@ -1,0 +1,237 @@
+{
+  "generated": {
+    "by": "tools/figures_dump.js via make factsheet",
+    "seed": "model defaults"
+  },
+  "assumptions": {
+    "eLN2": 0.45,
+    "rtLN2": 0.5,
+    "hoseMul": 1,
+    "pumpEta": 0.75,
+    "propEta": 0.7,
+    "Cd": 0.05,
+    "rhoAir": 1.1,
+    "rhoSL": 1.225,
+    "speedMul": 1,
+    "fillMul": 1,
+    "cryoMul": 1,
+    "exampleKm": 15
+  },
+  "atmosphere": {
+    "terrainMslM": 1000,
+    "workAltMslM": 2500,
+    "rhoAtWorkAlt": 0.956859,
+    "rhoAtGround": 1.111643,
+    "rhoSeaLevel": 1.225
+  },
+  "classes": {
+    "P100": {
+      "spec": {
+        "payloadT": 100,
+        "dispM3": 220000,
+        "lenM": 190,
+        "diaM": 47,
+        "cruiseKph": 90,
+        "fillM3s": 0.5,
+        "hoseM": 300,
+        "anchorCableM": 350,
+        "anchorBagT": 125,
+        "genMW": 8,
+        "battMWh": 20,
+        "battMW": 30,
+        "cryoMW": 6,
+        "ln2CapT": 155,
+        "solarM2": 6000,
+        "diskM2": 2500,
+        "dropKm": 1.2
+      },
+      "lift": {
+        "atWorkAltT": 210.5,
+        "atSourceT": 237.4,
+        "atGroundT": 244.6,
+        "loadedMassT": 200,
+        "floatUpMarginPct": 5.25,
+        "surplusAtWorkAltT": 110.5,
+        "surplusAtSourceT": 137.4,
+        "ln2ToSinkEmptyAtGroundT": 144.6
+      },
+      "descent": {
+        "rotorCapT": 267.2,
+        "holdAtSourceT": 135.6,
+        "anchorT": 125,
+        "retainedT": 0,
+        "anchorFromAglM": 300,
+        "anchorPullMN": 1.2,
+        "battLimited": false
+      },
+      "cycle": {
+        "cycleMin": 34.2,
+        "deliveredT": 100,
+        "tph": 175,
+        "dropsPerHour": 1.75,
+        "passes": 1,
+        "eCycleMWh": 1.308,
+        "kwhPerTonne": 13.08,
+        "bottleneck": "transit distance",
+        "durations": {
+          "SOURCE_APPROACH": 2,
+          "WATER_FILL": 3.33,
+          "OUTBOUND_TRANSIT": 11.76,
+          "WATER_RELEASE": 3.33,
+          "BUOYANCY_ESCAPE": 2,
+          "RETURN_TRANSIT": 11.76
+        }
+      },
+      "energy": {
+        "pumpMW": 1.96,
+        "dragMW": 1.06,
+        "downMW": 0.3,
+        "solarMW": 1.2,
+        "solarPerCycleMWh": 0.68,
+        "deficitPerCycleMWh": 0.62,
+        "ln2MakeT": 1.83,
+        "eBackMWh": 0.412
+      }
+    },
+    "P1000": {
+      "spec": {
+        "payloadT": 1000,
+        "dispM3": 2200000,
+        "lenM": 404,
+        "diaM": 102,
+        "cruiseKph": 110,
+        "fillM3s": 3,
+        "hoseM": 300,
+        "anchorCableM": 600,
+        "anchorBagT": 1250,
+        "genMW": 40,
+        "battMWh": 120,
+        "battMW": 150,
+        "cryoMW": 30,
+        "ln2CapT": 1550,
+        "solarM2": 28000,
+        "diskM2": 12000,
+        "dropKm": 2.5
+      },
+      "lift": {
+        "atWorkAltT": 2105.1,
+        "atSourceT": 2374.4,
+        "atGroundT": 2445.6,
+        "loadedMassT": 2000,
+        "floatUpMarginPct": 5.25,
+        "surplusAtWorkAltT": 1105.1,
+        "surplusAtSourceT": 1374.4,
+        "ln2ToSinkEmptyAtGroundT": 1445.6
+      },
+      "descent": {
+        "rotorCapT": 1318.1,
+        "holdAtSourceT": 1366.9,
+        "anchorT": 1250,
+        "retainedT": 0,
+        "anchorFromAglM": 500,
+        "anchorPullMN": 12.3,
+        "battLimited": false
+      },
+      "cycle": {
+        "cycleMin": 35.36,
+        "deliveredT": 1000,
+        "tph": 1697,
+        "dropsPerHour": 1.7,
+        "passes": 1,
+        "eCycleMWh": 6.983,
+        "kwhPerTonne": 6.98,
+        "bottleneck": "transit distance",
+        "durations": {
+          "SOURCE_APPROACH": 3,
+          "WATER_FILL": 5.56,
+          "OUTBOUND_TRANSIT": 9.63,
+          "WATER_RELEASE": 5.56,
+          "BUOYANCY_ESCAPE": 2,
+          "RETURN_TRANSIT": 9.63
+        }
+      },
+      "energy": {
+        "pumpMW": 11.77,
+        "dragMW": 9.16,
+        "downMW": 5,
+        "solarMW": 5.6,
+        "solarPerCycleMWh": 3.3,
+        "deficitPerCycleMWh": 3.68,
+        "ln2MakeT": 7.49,
+        "eBackMWh": 1.684
+      }
+    },
+    "P10000": {
+      "spec": {
+        "payloadT": 10000,
+        "dispM3": 22000000,
+        "lenM": 876,
+        "diaM": 219,
+        "cruiseKph": 130,
+        "fillM3s": 15,
+        "hoseM": 300,
+        "anchorCableM": 850,
+        "anchorBagT": 12400,
+        "genMW": 150,
+        "battMWh": 2000,
+        "battMW": 1400,
+        "cryoMW": 100,
+        "ln2CapT": 15500,
+        "solarM2": 120000,
+        "diskM2": 160000,
+        "dropKm": 5
+      },
+      "lift": {
+        "atWorkAltT": 21050.9,
+        "atSourceT": 23743.6,
+        "atGroundT": 24456.1,
+        "loadedMassT": 20000,
+        "floatUpMarginPct": 5.25,
+        "surplusAtWorkAltT": 11050.9,
+        "surplusAtSourceT": 13743.6,
+        "ln2ToSinkEmptyAtGroundT": 14456.1
+      },
+      "descent": {
+        "rotorCapT": 12666.2,
+        "holdAtSourceT": 13722.5,
+        "anchorT": 12400,
+        "retainedT": 0,
+        "anchorFromAglM": 750,
+        "anchorPullMN": 121.6,
+        "battLimited": false
+      },
+      "cycle": {
+        "cycleMin": 45.51,
+        "deliveredT": 10000,
+        "tph": 13183,
+        "dropsPerHour": 1.32,
+        "passes": 1,
+        "eCycleMWh": 43.019,
+        "kwhPerTonne": 4.3,
+        "bottleneck": "transit distance",
+        "durations": {
+          "SOURCE_APPROACH": 5,
+          "WATER_FILL": 11.11,
+          "OUTBOUND_TRANSIT": 8.14,
+          "WATER_RELEASE": 11.11,
+          "BUOYANCY_ESCAPE": 2,
+          "RETURN_TRANSIT": 8.14
+        }
+      },
+      "energy": {
+        "pumpMW": 58.86,
+        "dragMW": 69.68,
+        "downMW": 52.3,
+        "solarMW": 24,
+        "solarPerCycleMWh": 18.2,
+        "deficitPerCycleMWh": 24.81,
+        "ln2MakeT": 21.12,
+        "eBackMWh": 4.751
+      }
+    }
+  },
+  "worked": {
+    "oneWayKm": 15,
+    "mode": "balanced"
+  }
+}
