@@ -21,7 +21,8 @@
  * not weights.
  */
 
-import { CATEGORIES } from '../core/nodes.js?v=9e6eb515';
+import { CATEGORIES } from '../core/nodes.js?v=154a8232';
+import { ASSUMPTIONS } from './config.js?v=154a8232';
 
 /** Fraction of the dry mass allowance each system gets. Sums to 1. */
 export const MASS_SHARE = {
@@ -58,7 +59,7 @@ const TEMPLATES = [
   {
     prefix: 'SolarSkin', label: 'Solar collection skin', category: 'power',
     claim: CLAIM.ref, share: 'solar', n: () => 1,
-    power: (cls) => (cls.solarAreaM2 * 200) / 1e6,   // 200 W/m2 delivered, illustrative
+    power: (cls) => (cls.solarAreaM2 * ASSUMPTIONS.solarWPerM2) / 1e6,
     desc: (cls) =>
       `The upper surface as a collection area — about ${cls.solarAreaM2.toLocaleString()} m² on ` +
       'this class. Sized from the published assumption, not from a panel layout. It is a ' +

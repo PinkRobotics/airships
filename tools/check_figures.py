@@ -20,6 +20,13 @@ are accounted for.
 
     python3 tools/check_figures.py            # check every report
     python3 tools/check_figures.py --list     # print every key figures.json offers
+    python3 tools/check_figures.py --fix      # rewrite every cited number to match the model
+
+`--fix` exists because the alternative is retyping forty numbers by hand every time the model
+moves, which is how numbers get typed wrong. It rewrites ONLY the digits in front of a marker,
+at the precision the author chose, and it deliberately does not touch a word of prose — so after
+running it you still have to read the diff and fix the sentences that discuss the OLD value.
+It reports how many it changed so you know how much prose to go and check.
 """
 import decimal
 import json
@@ -50,6 +57,46 @@ def flatten(obj, prefix=""):
     return out
 
 
+def fmt_like(value, raw, dp):
+    """Render `value` the way the author rendered `raw`: same decimals, same separators."""
+    q = decimal.Decimal(str(float(value))).quantize(
+        decimal.Decimal(1).scaleb(-dp), rounding=decimal.ROUND_HALF_UP)
+    out = f"{q:,.{dp}f}" if "," in raw else f"{q:.{dp}f}"
+    # A minus sign written as U+2212 stays U+2212; the author picked the typography.
+    if "−" in raw:
+        out = out.replace("-", "−")
+    return out
+
+
+def fix(flat):
+    """Rewrite every cited number to the model's value, in place. Returns the count changed."""
+    total = 0
+    for rp in REPORTS:
+        src = rp.read_text()
+        out, last, n = [], 0, 0
+        for m in CITE.finditer(src):
+            raw, key = m.group(1), m.group(2)
+            full = key if key in flat else f"classes.{key}"
+            want = flat.get(full)
+            if not isinstance(want, (int, float)) or isinstance(want, bool):
+                continue
+            dp = len(raw.split(".")[1]) if "." in raw else 0
+            new = fmt_like(want, raw, dp)
+            if new == raw:
+                continue
+            # m.start(1)/end(1) is the number itself — the unit and the marker are untouched.
+            out.append(src[last:m.start(1)])
+            out.append(new)
+            last = m.end(1)
+            n += 1
+        if n:
+            out.append(src[last:])
+            rp.write_text("".join(out))
+            print(f"check_figures: {rp.name}: rewrote {n} figure(s)")
+            total += n
+    return total
+
+
 def main():
     if not FIGURES.exists():
         print("check_figures: research/figures.json is missing — run `make factsheet`", file=sys.stderr)
@@ -63,6 +110,16 @@ def main():
 
     if not REPORTS:
         print("check_figures: no reports yet — nothing to check")
+        return 0
+
+    if "--fix" in sys.argv:
+        n = fix(flat)
+        if n:
+            print(f"\ncheck_figures: {n} figure(s) rewritten. READ THE DIFF — only the numbers "
+                  "moved.\nAny sentence that discusses the old value is now wrong and this tool "
+                  "cannot tell.")
+        else:
+            print("check_figures: nothing to fix")
         return 0
 
     bad, checked = [], 0

@@ -5,7 +5,8 @@
   },
   "assumptions": {
     "eLN2": 0.45,
-    "rtLN2": 0.5,
+    "rtLN2": 0.2,
+    "solarWPerM2": 45,
     "hoseMul": 1,
     "pumpEta": 0.75,
     "propEta": 0.7,
@@ -71,8 +72,8 @@
         "tph": 175,
         "dropsPerHour": 1.75,
         "passes": 1,
-        "eCycleMWh": 1.005,
-        "kwhPerTonne": 10.05,
+        "eCycleMWh": 1.253,
+        "kwhPerTonne": 12.53,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 2,
@@ -87,22 +88,22 @@
         "pumpMW": 1.96,
         "dragMW": 1.06,
         "downMW": 0.3,
-        "solarMW": 1.2,
-        "solarPerCycleMWh": 0.68,
-        "deficitPerCycleMWh": 0.32,
+        "solarMW": 0.27,
+        "solarPerCycleMWh": 0.15,
+        "deficitPerCycleMWh": 1.1,
         "ln2MakeT": 1.83,
-        "eBackMWh": 0.412,
+        "eBackMWh": 0.165,
         "ledgerMWh": {
           "WATER_FILL": 0.109,
-          "recovery": -0.412,
+          "recovery": -0.165,
           "OUTBOUND_TRANSIT": 0.209,
           "RETURN_TRANSIT": 0.938,
           "letdown": 0.012,
           "anchor": 0.006,
           "other": 0.143
         },
-        "cyclesOnBattery": 62.2,
-        "hoursOnBattery": 35.4
+        "cyclesOnBattery": 18.2,
+        "hoursOnBattery": 10.4
       }
     },
     "P1000": {
@@ -151,8 +152,8 @@
         "tph": 1697,
         "dropsPerHour": 1.7,
         "passes": 1,
-        "eCycleMWh": 6.389,
-        "kwhPerTonne": 6.39,
+        "eCycleMWh": 7.399,
+        "kwhPerTonne": 7.4,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 3,
@@ -167,22 +168,22 @@
         "pumpMW": 11.77,
         "dragMW": 9.16,
         "downMW": 5,
-        "solarMW": 5.6,
-        "solarPerCycleMWh": 3.3,
-        "deficitPerCycleMWh": 3.09,
+        "solarMW": 1.26,
+        "solarPerCycleMWh": 0.74,
+        "deficitPerCycleMWh": 6.66,
         "ln2MakeT": 7.49,
-        "eBackMWh": 1.684,
+        "eBackMWh": 0.674,
         "ledgerMWh": {
           "WATER_FILL": 1.09,
-          "recovery": -1.684,
+          "recovery": -0.674,
           "OUTBOUND_TRANSIT": 1.469,
           "RETURN_TRANSIT": 4.177,
           "letdown": 0.161,
           "anchor": 0.06,
           "other": 1.116
         },
-        "cyclesOnBattery": 38.9,
-        "hoursOnBattery": 22.9
+        "cyclesOnBattery": 18,
+        "hoursOnBattery": 10.6
       }
     },
     "P10000": {
@@ -231,8 +232,8 @@
         "tph": 13183,
         "dropsPerHour": 1.32,
         "passes": 1,
-        "eCycleMWh": 43.019,
-        "kwhPerTonne": 4.3,
+        "eCycleMWh": 45.869,
+        "kwhPerTonne": 4.59,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 5,
@@ -247,22 +248,22 @@
         "pumpMW": 58.86,
         "dragMW": 69.68,
         "downMW": 52.3,
-        "solarMW": 24,
-        "solarPerCycleMWh": 18.2,
-        "deficitPerCycleMWh": 24.81,
+        "solarMW": 5.4,
+        "solarPerCycleMWh": 4.1,
+        "deficitPerCycleMWh": 41.77,
         "ln2MakeT": 21.12,
-        "eBackMWh": 4.751,
+        "eBackMWh": 1.9,
         "ledgerMWh": {
           "WATER_FILL": 10.9,
-          "recovery": -4.751,
+          "recovery": -1.9,
           "OUTBOUND_TRANSIT": 9.459,
           "RETURN_TRANSIT": 14.705,
           "letdown": 1.42,
           "anchor": 0.596,
           "other": 10.689
         },
-        "cyclesOnBattery": 80.6,
-        "hoursOnBattery": 61.1
+        "cyclesOnBattery": 47.9,
+        "hoursOnBattery": 36.3
       }
     }
   },

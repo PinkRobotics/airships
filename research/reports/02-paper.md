@@ -178,7 +178,7 @@ that revealed the problem. The shortfall was the symptom; the exponent was the f
 Three consequences worth stating plainly:
 
 - **Every class carries one, including the P-100 whose descent closes without it.** Removing its
-  bag costs 1.526 MWh a cycle against 1.005<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
+  bag costs 1.526 MWh a cycle against 1.253<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
   that does not need the mechanism. A bucket is cheaper than thrust everywhere.
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
@@ -209,11 +209,11 @@ transcribed:
 | `OUTBOUND_TRANSIT` (drag, loaded) | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> | 22.0% |
 | `letdown` (rotor work, with the anchor deployed) | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> | 3.3% |
 | `anchor` (lifting the bag 15 m) | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> | 1.4% |
-| `recovery` (nitrogen store, credited back) | −4.751<!--f:P10000.energy.ledgerMWh.recovery--> | −11.0% |
-| **total** | **43.019**<!--f:P10000.cycle.eCycleMWh--> | |
+| `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> | −11.0% |
+| **total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> | |
 
-4.30 kWh/t<!--f:P10000.cycle.kwhPerTonne--> delivered, against
-6.39<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 10.05<!--f:P100.cycle.kwhPerTonne--> for the
+4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne--> delivered, against
+7.40<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 12.53<!--f:P100.cycle.kwhPerTonne--> for the
 P-100. Larger is cheaper per tonne, as the square-cube law demands.
 
 The bottom two rows were one row until 2026-08-09, and merging them was hiding an error: the
@@ -239,9 +239,9 @@ confused with a cycle that takes an hour.
 
 | | solar | per cycle | spend | deficit | endurance |
 |---|---:|---:|---:|---:|---:|
-| P-100 | 1.20 MW<!--f:P100.energy.solarMW--> | 0.68 MWh<!--f:P100.energy.solarPerCycleMWh--> | 1.005<!--f:P100.cycle.eCycleMWh--> | 0.32<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 h<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 5.60 MW<!--f:P1000.energy.solarMW--> | 3.30 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 6.389<!--f:P1000.cycle.eCycleMWh--> | 3.09<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 h<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 24.00 MW<!--f:P10000.energy.solarMW--> | 18.20 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 43.019<!--f:P10000.cycle.eCycleMWh--> | 24.81<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 1.253<!--f:P100.cycle.eCycleMWh--> | 1.10<!--f:P100.energy.deficitPerCycleMWh--> | 10.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 7.399<!--f:P1000.cycle.eCycleMWh--> | 6.66<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 45.869<!--f:P10000.cycle.eCycleMWh--> | 41.77<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
 
 **Every hull runs a deficit every cycle, and this is the project's central public conclusion:
 without an energy import chain the fleet is a battery being spent.** It is not a perpetual machine
@@ -290,11 +290,11 @@ figure is **53 W/m²**, and a fixed horizontal-equivalent ignores that most of a
 faces the wrong way at any moment.
 
 Consequence: the P-10000's solar falls 24.0 → 6.4 MW, generation 18.20 → 4.83 MWh per cycle,
-deficit 24.81 → 38.19 MWh, endurance 61.1 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
+deficit 24.81 → 38.19 MWh, endurance 36.3 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
 
 ### 8.3 `rtLN2` returns more work than the nitrogen contains
 
-`rtLN2 = 0.50`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
+`rtLN2 = 0.20`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
 recovers **225 kWh per tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a
 288 K ambient is **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; corroborated at 205–214 kWh/t under
 more favourable assumptions). The recovery term returns 1.3× the work available in the liquid,

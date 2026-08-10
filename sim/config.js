@@ -16,7 +16,37 @@
 
 export const DEFAULTS = {
   eLN2: 0.45,      // kWh per kg to liquefy nitrogen from air (demonstration assumption)
-  rtLN2: 0.50,     // electrical round-trip efficiency of the nitrogen store
+  /* THE NITROGEN STORE CANNOT RETURN MORE WORK THAN THE LIQUID HOLDS, and until 2026-08-09 this
+   * said it did. At 0.50 against eLN2 = 0.45 the model recovered 225 kWh from a tonne of LN2
+   * whose physical exergy at 1 bar against a 288 K ambient is 173.4 kWh/t (Arnaiz-del-Pozo et
+   * al. 2020; corroborated at 205-214 kWh/t under more favourable assumptions). That is 1.3x
+   * the available work before any turbine, and it was a perpetual-motion line item on a public
+   * page.
+   *
+   * 0.20 recovers 90 kWh/t, which is 52% of the exergy — about what a cryogenic expander gets
+   * without an external heat source, and consistent with liquid-air storage plant that reaches
+   * 50-60% round trip only by recycling waste heat this vehicle does not have. The hard ceiling
+   * is 173.4/450 = 0.385 and nothing may exceed it. See research/notes/, OPEN-QUESTIONS #10. */
+  rtLN2: 0.20,     // electrical round-trip efficiency of the nitrogen store
+  /* WHAT THE SKIN ACTUALLY MAKES, day-averaged, and it used to be a magic 200 in five files.
+   *
+   * NRCan's dataset gives 6.34 kWh/m2/day mean July horizontal insolation across eight BC
+   * interior fire-belt towns. Over 24 hours that is 264 W/m2 INCIDENT. The old 200 W/m2 of
+   * electrical output therefore demanded 76% conversion — three and a half times the best cell
+   * ever made in a laboratory.
+   *
+   * 264 x 0.21 (flexible module) x 0.81 (curvature, cell temperature, soiling, MPPT) = 45.
+   *
+   * `solarM2` is a PROJECTED area — 80-87% of each hull's plan ellipse — so horizontal
+   * insolation applies to it directly and the curvature is already paid for once in the area.
+   * The 0.81 covers what is left: incidence varying across a curved skin, hot cells on a dark
+   * hull, dust from a fire, and conversion losses.
+   *
+   * IT IS A 24-HOUR AVERAGE, which makes it honest for energy over a cycle and wrong for power
+   * at an instant: there is no sun at 03:00 and this number says there is 45 W/m2 of it. The
+   * ledger only ever integrates, so the error does not reach any published figure, but the
+   * storage gauge draws it and a night shift is flattered. See OPEN-QUESTIONS #9. */
+  solarWPerM2: 45, // W/m2 of ELECTRICAL output per m2 of projected skin, 24 h averaged
   hoseMul: 1,      // scales every class's hose; the LENGTH is per class, see CLASSES[*].hoseM
   pumpEta: 0.75,   // pump + hose + electrical efficiency, all-in
   propEta: 0.70,   // propulsive efficiency applied to drag and disk power
@@ -156,7 +186,7 @@ export const VZ_MAX = 6;
  * it. 300 m on every class. It was briefly 1,100 and 1,350 m on the larger two, as a way of
  * keeping them out of the dense air near the water — that worked and cost 29 MWh a cycle in
  * pump work against a 2 m bore and 140 bar at the pod. The anchor below does the same job for
- * 0.60 MWh against a 43.02 MWh cycle, so the hoses went back to being hoses.
+ * 0.60 MWh against a 45.87 MWh cycle, so the hoses went back to being hoses.
  *
  * `anchorM`, `anchorBagT` — THE DESCENT ANCHOR, which is how a buoyant ship gets down.
  *
@@ -185,7 +215,7 @@ export const VZ_MAX = 6;
  * `anchorBagT` IS SIZED TO DO THE WHOLE DESCENT, not to cover a shortfall, and that is where
  * most of the value turned out to be. Rotor power goes as thrust^1.5, so taking load off the
  * rotors pays superlinearly: the letdown WAS 45% of the P-10000's cycle energy, and a bag that
- * carries 90% of the hold reduces it by 96% — to 3.3%. Cycle energy falls 88.62 -> 43.02 MWh on
+ * carries 90% of the hold reduces it by 96% — to 3.1%. Cycle energy falls 91.47 -> 45.87 MWh on
  * the largest class with throughput unchanged.
  *
  * This is the second most powerful number in the whole model — ±20% moves cycle energy +12.5% /

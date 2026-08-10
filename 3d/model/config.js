@@ -51,8 +51,16 @@ export const G = 9.81;
 export const ASSUMPTIONS = {
   eLN2: 0.45,        // kWh per kg to liquefy nitrogen from air. Exploratory range 0.30-0.80.
   eLN2Range: [0.30, 0.80],
-  rtLN2: 0.50,       // electrical round-trip efficiency of the nitrogen store. Range 0.35-0.60.
-  rtLN2Range: [0.35, 0.60],
+  // 0.20 recovers 90 kWh per tonne of LN2, 52% of its 173.4 kWh/t exergy against a 288 K
+  // ambient. The HARD CEILING is 173.4/450 = 0.385 and the range stops there: above it the
+  // store returns more work than the liquid contains. It was 0.50 until 2026-08-09.
+  rtLN2: 0.20,       // electrical round-trip efficiency of the nitrogen store. Range 0.10-0.385.
+  rtLN2Range: [0.10, 0.385],
+  // W/m2 of ELECTRICAL output per m2 of PROJECTED skin, 24 h averaged. 264 W/m2 incident
+  // (NRCan, BC interior July) x 0.21 module x 0.81 for curvature, temperature, soiling and
+  // conversion. It was an illustrative 200 in five separate files until 2026-08-09, which
+  // required 76% conversion. sim/config.js CFG.solarWPerM2 is the checked copy.
+  solarWPerM2: 45,
   // m of vertical pumping head at the source. The MONITOR holds this per class now
   // (sim/config.js CLASSES[*].hoseM) and all three are 300; this flat figure is the standalone
   // library's own default for energy.js, and CLASSES[*].hoseLengthM below is the checked copy.

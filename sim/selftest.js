@@ -3,13 +3,13 @@
  * These are shipped, not just tested in CI, so that a reader who does not trust the
  * numbers can run the checks themselves in devtools on the page they are reading.
  */
-import { sizeTier } from './assign.js?v=ae7eff05';
-import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=ae7eff05';
-import { buildMission } from './mission.js?v=ae7eff05';
-import { ledger, pumpMW } from './physics.js?v=ae7eff05';
-import { planCycle } from './plan.js?v=ae7eff05';
-import { stateAt } from './state.js?v=ae7eff05';
-import { findSource } from './water.js?v=ae7eff05';
+import { sizeTier } from './assign.js?v=4bb155b5';
+import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=4bb155b5';
+import { buildMission } from './mission.js?v=4bb155b5';
+import { ledger, pumpMW } from './physics.js?v=4bb155b5';
+import { planCycle } from './plan.js?v=4bb155b5';
+import { stateAt } from './state.js?v=4bb155b5';
+import { findSource } from './water.js?v=4bb155b5';
 
 export function selftest() {
   const eq = (a, b, tol, msg) => { if (Math.abs(a - b) > tol) throw new Error("SELFTEST FAIL: " + msg + ` (${a} vs ${b})`); };
@@ -105,7 +105,7 @@ export function selftest() {
   // (solar + N2 recovery < consumption) — the monitor depends on that being visibly true.
   for (const cid of CLASS_ORDER) {
     const c = CLASSES[cid], pp = planCycle(c, MODES.balanced, 15);
-    const genMWh = (c.solarM2 * 200 / 1e6) * pp.cycleMin / 60;   // eBack already nets in eCycle
+    const genMWh = (c.solarM2 * CFG.solarWPerM2 / 1e6) * pp.cycleMin / 60;  // eBack already nets in eCycle
     if (!(pp.eCycleMWh > genMWh))
       throw new Error("SELFTEST FAIL: expected an energy deficit for " + cid);
     if (!(pp.eBack >= 0 && pp.eBack < pp.eCycleMWh + pp.eBack))

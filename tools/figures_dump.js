@@ -31,7 +31,7 @@
     const ledWork = ledger(c, WORK_ALT_MSL);
     const ledSrc = ledger(c, TERRAIN_MSL + sourceAltM(c));
     const ledGround = ledger(c, TERRAIN_MSL);
-    const solarMW = c.solarM2 * 200 / 1e6;
+    const solarMW = c.solarM2 * CFG.solarWPerM2 / 1e6;
     out.classes[id] = {
       spec: {
         payloadT: c.payloadT, dispM3: c.dispM3, lenM: c.lenM, diaM: c.diaM,

@@ -11,9 +11,9 @@
 
 import {
   clamp, lerp, easeInOut, m4lookAt, m4perspective, m4ortho, lerp3, add, sub, mul, norm, dist,
-} from '../core/math.js?v=9e6eb515';
-import { lerpAngle } from '../physics/state.js?v=9e6eb515';
-import { stationX } from '../model/config.js?v=9e6eb515';
+} from '../core/math.js?v=154a8232';
+import { lerpAngle } from '../physics/state.js?v=154a8232';
+import { stationX } from '../model/config.js?v=154a8232';
 
 /**
  * @param {object} opts

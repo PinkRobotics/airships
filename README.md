@@ -67,8 +67,8 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 | Delivered | 175 t/h | 1,697 t/h | 13,183 t/h |
 | Descent anchor | 125 t | 1,250 t | 12,400 t of lake water |
 | Retained as ballast | 0 t | 0 t | 0 t |
-| Energy | 1.01 MWh/cycle | 6.4 MWh/cycle | 43.0 MWh/cycle |
-| Per tonne | 10.1 kWh/t | 6.4 kWh/t | 4.3 kWh/t |
+| Energy | 1.25 MWh/cycle | 7.4 MWh/cycle | 45.9 MWh/cycle |
+| Per tonne | 12.5 kWh/t | 7.4 kWh/t | 4.6 kWh/t |
 | Binding constraint | transit distance | transit distance | transit distance |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
@@ -269,10 +269,10 @@ and we would rather be shown one than not.
   balloon attached, and the energy argument goes with it.
 - **Energy per tonne.** If the honest per-cycle energy — once defects 2 and 3 are resolved — puts
   kWh per delivered tonne above what conventional air tankers and ground crews achieve, there is no
-  case. The current 4.3–10.1 kWh/t is the number to attack; the comparison should be against real
+  case. The current 4.6–12.5 kWh/t is the number to attack; the comparison should be against real
   suppression logistics, not against nothing.
 - **Sustainment.** Every class already runs a per-cycle deficit on these assumptions: solar at
-  200 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and
+  45 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and
   `selftest()` asserts that this stays visibly true. The intended answer is battery tender ships
   swapping charged cells for discharged ones at mechanical speed — named, but deliberately not
   modelled here. If no plausible energy import chain closes the gap at the cycle rates claimed,

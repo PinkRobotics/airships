@@ -407,14 +407,14 @@ air:
 
 | Term | Equation | MWh | share |
 |---|---|---:|---:|
-| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 34.2% |
-| `E.WATER_FILL` | `P_pump × t_fill/60` | 10.900 | 25.3% |
-| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 10.689 | 24.8% |
-| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 22.0% |
-| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 1.420 | 3.3% |
-| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.596 | 1.4% |
-| `E.recovery` | `−E_cryo × rt_LN2`, credited where it arrives | −4.751 | −11.0% |
-| **total** | | **43.019** | |
+| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 32.1% |
+| `E.WATER_FILL` | `P_pump × t_fill/60` | 10.900 | 23.8% |
+| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 10.689 | 23.3% |
+| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 20.6% |
+| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 1.420 | 3.1% |
+| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.596 | 1.3% |
+| `E.recovery` | `−E_cryo × rt_LN2`, credited where it arrives | −1.900 | −4.1% |
+| **total** | | **45.869** | |
 
 Before the 2026-08-09 corrections this budget totalled 82.5 MWh; it fell **48%**. The table is
 now printed straight out of `planCycle`'s returned `E` — it used to be transcribed by hand, which
@@ -425,7 +425,13 @@ bill and the nitrogen credit were being netted inside `E.WATER_FILL` under a `ma
 both smaller classes the recovery exceeded the pumping and the excess was *deleted* — 0.303 MWh
 on a P-100, 0.594 on a P-1000 — taking the entire pump bill off the ledger with it. They are two
 different physical events and they are two lines now. This alone moved the P-100's cycle from
-1.308 to 1.005 MWh and its intensity from 13.08 to 10.05 kWh/t. `E.anchor` is the whole story: it spends 0.596 MWh lifting
+1.308 to 1.005 MWh and its intensity from 13.08 to 10.05 kWh/t.
+
+**`E.recovery` then shrank again, later the same day, and for a better reason.** `rtLN2` was 0.50
+— a store returning 225 kWh from a tonne of liquid nitrogen holding 173.4 kWh of exergy. It is
+0.20 now, 90 kWh/t, 52% of what is actually there. The credit fell from 4.751 to 1.900 MWh and the
+cycle rose to 45.869. A test enforces the ceiling: `rtLN2 × eLN2 × 1000 ≤ 173.4`, and it is in
+`spec-parity.cases.js` because both copies of the constant have to obey it. `E.anchor` is the whole story: it spends 0.596 MWh lifting
 12,400 t of lake water the 15 m it takes to break the surface, and that purchase removes
 34.5 MWh of rotor work. Fifty-eight to one.
 
@@ -443,25 +449,32 @@ and giving it back is 0.60 MWh. When a mechanism is nearly three orders of magni
 alternatives, that is usually the design telling you something.
 
 Against that, generation. The only sources the code credits are the solar skin at a flat
-200 W/m² and the nitrogen recovery. The generators each class advertises — 8, 40 and
+45 W/m² and the nitrogen recovery. **That was 200 W/m² until 2026-08-09, in five separate files,
+and it required 76% conversion of the 264 W/m² day-averaged incident that NRCan's dataset actually
+gives for the BC interior in July.** At 45 — 264 × 0.21 module × 0.81 for curvature, cell
+temperature, soiling and conversion — the generation column falls by a factor of 4.4 and the
+deficit roughly doubles on the largest class. The generators each class advertises — 8, 40 and
 150 MW — supply thrust authority and no energy at all; that is Defect 6, and it is large
 enough to change the conclusion drawn from the next table.
 
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
-| P-100 | 1.20 MW | 0.68 MWh | 1.01 MWh | 0.32 MWh |
-| P-1000 | 5.60 MW | 3.30 MWh | 6.39 MWh | 3.09 MWh |
-| P-10000 | 24.00 MW | 18.20 MWh | 43.02 MWh | 24.81 MWh |
+| P-100 | 0.27 MW | 0.15 MWh | 1.25 MWh | 1.10 MWh |
+| P-1000 | 1.26 MW | 0.74 MWh | 7.40 MWh | 6.66 MWh |
+| P-10000 | 5.40 MW | 4.10 MWh | 45.87 MWh | 41.77 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
-spent. On the planned budget a P-10000 has **61.1 hours** of work in it — 2,000 MWh of storage
-against a 24.81 MWh deficit per 0.759-hour cycle, so **80.6 cycles**. It was 27.2 hours before
-the 2026-08-09 corrections; the deficit fell faster than the cycle shortened. The smaller two are
-much worse off, at 35.4 and 22.9 hours, because their batteries scale with dry mass while their
-solar scales with skin area. Defect 6 is the reason all of this may be an artefact rather than a
-finding — and `research/sources.json` now supplies a second reason, which is that the 200 W/m²
-solar figure the middle column rests on is not achievable (see `docs/OPEN-QUESTIONS.md` #9).
+spent. On the planned budget a P-10000 has **36.3 hours** of work in it — 2,000 MWh of storage
+against a 41.77 MWh deficit per 0.765-hour cycle, so **47.9 cycles**. The smaller two are far worse
+off, at **10.4 and 10.6 hours**, because their batteries scale with dry mass while their solar
+scales with projected area, and honest solar hurts the small hulls hardest.
+
+Those numbers halved on 2026-08-09 when the solar figure was corrected, and **the project's public
+conclusion got stronger, not weaker**: a fleet with ten hours in it is unambiguously a battery
+being spent. Defect 6 is the remaining reason this may still be an artefact — 150 MW of generators
+that supply thrust authority and no energy at all are still uncounted, and correcting that would
+push in the other direction.
 
 **The budget does not close against the model's own second opinion.** `state.js → stateAt`
 reports an instantaneous draw for every system at every moment, and `app/loop.js`
@@ -500,30 +513,35 @@ flips.
 
 | Constant | −20% → energy per cycle | +20% → energy per cycle | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
-| `propEta` | +14.2% | −9.5% | 0% | 0% |
-| `Cd` | −10.7% | +10.7% | 0% | 0% |
-| `rhoAir` | −10.3% | +10.4% | 0% | 0% |
-| `pumpEta` | +6.3% | −4.2% | 0% | 0% |
-| `hoseMul` | −4.5% | +4.6% | 0% | 0% |
-| `rhoSL` | −3.7% | +29.2% | 0% | 0% |
-| `rtLN2` | +2.2% | −2.2% | 0% | 0% |
+| `propEta` | +13.4% | −8.9% | 0% | 0% |
+| `Cd` | −10.1% | +10.1% | 0% | 0% |
+| `rhoAir` | −9.7% | +9.8% | 0% | 0% |
+| `pumpEta` | +5.9% | −4.0% | 0% | 0% |
+| `hoseMul` | −4.2% | +4.3% | 0% | 0% |
+| `rhoSL` | −3.5% | +27.3% | 0% | 0% |
+| `rtLN2` | +0.8% | −0.8% | 0% | 0% |
 | `eLN2` | 0.0% | 0.0% | 0% | 0% |
+| `solarWPerM2` | 0.0% | 0.0% | 0% | 0% |
 
 | Class parameter | −20% → energy | +20% → energy | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
-| `cruiseKph` | −17.8% | +26.5% | −8.2% | +6.3% |
-| `anchorBagT` | +12.5% | −3.2% | 0% | 0% |
-| `dropKm` | −10.1% | +10.0% | +7.7% | −6.7% |
-| `fillM3s` | +3.6% | −2.4% | −10.9% | +8.9% |
-| `dispM3` | −3.7% | +29.2% | 0% | 0% |
+| `cruiseKph` | −15.1% | +23.9% | −8.2% | +6.3% |
+| `anchorBagT` | +11.7% | −3.0% | 0% | 0% |
+| `dropKm` | −10.7% | +10.7% | +7.7% | −6.7% |
+| `fillM3s` | +3.4% | −2.3% | −10.9% | +8.9% |
+| `dispM3` | −3.5% | +27.3% | 0% | 0% |
 | `diskM2` | +0.4% | −0.3% | 0% | 0% |
 | `battMW` | 0% | 0% | 0% | 0% |
 | `anchorM` | 0% | 0% | 0% | 0% |
 | `solarM2` | 0% | 0% | 0% | 0% |
 
-Read five things off this. First, `eLN2` — the assumption with the widest published
-uncertainty band and its own slider — changes the headline by nothing, because the plant makes
-21 t of nitrogen per cycle against a tank sized for a rescue. Second, **the top of both tables is
+Read five things off this. First, **the two constants corrected on 2026-08-09 now move nothing**:
+`rtLN2` is down to ±0.8% because the credit it scales is four times smaller, and `solarWPerM2`
+moves the headline by exactly 0.0% because generation is not in `planCycle`'s ledger at all. The
+second of those is Defect 6 wearing a different hat: the model spent a day being wrong by 4.4×
+about its own generation and **no published figure noticed**, which is the sharpest available
+statement of why a term missing from a sum cannot be caught by a test. `eLN2` is inert for the
+older reason — the plant makes 21 t of nitrogen per cycle against a tank sized for a rescue. Second, **the top of both tables is
 now aerodynamics and speed, not lift**: `cruiseKph`, `propEta`, `Cd` and `rhoAir` are four of the
 top five, and three of them are the crude drag model that is Defect 2. The model's uncertainty
 has migrated into the part of it that is weakest. Third, `solarM2` changes nothing at all, because
@@ -606,7 +624,7 @@ understated 7%. (Three documents said "about 990 m"; ISA at 990 m is 1.1127 kg/m
 
 ### Defect 2 — two disagreeing power models
 
-`planCycle` publishes 43.019 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
+`planCycle` publishes 45.869 MWh per P-10000 cycle at 15 km. On the sampled 19 km missions
 the same function says 90.18 MWh while integrating the per-system draws that `stateAt`
 reports over that cycle gives 255.45 MWh — 2.83 times as much. The ratio is 1.23× for the
 P-100 and 1.81× for the P-1000. All three widened with the 2026-08-09 resize (from 1.14,
@@ -617,8 +635,8 @@ which for most of the cycle is lower and thicker. §9 has the numbers.
 Both are live. The worked example, the "MWh per cycle" figure in the drawer and
 `kwhPerTonne` all come from `planCycle`. The storage gauge, the generation-versus-
 consumption dial and the power-exhaustion behaviour all come from the `stateAt` integration
-in `app/loop.js`. Predicted endurance differs by a factor of three: 61.1 hours against
-roughly 20.
+in `app/loop.js`. Predicted endurance differs by a factor of three: 36.3 hours against
+roughly 13.
 
 The gap is mostly the rotor term, and mostly §7's forward-flight error: `stateAt` prices
 cruise trim with the hover formula and gets 91.9 MW where the correct expression gives
@@ -631,7 +649,7 @@ fix has to pick one representation of rotor power and make both surfaces read fr
 E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60;
 ```
 
-For the P-10000 at 15 km this is 52.3 MW × 1.628 min / 60 = 1.420 MWh, or **3.3%** of the
+For the P-10000 at 15 km this is 52.3 MW × 1.628 min / 60 = 1.420 MWh, or **3.1%** of the
 published cycle energy. It was 34.20 MWh and 45.2% of the cycle before the descent anchor —
 the anchor took 96% of the rotor work out of the letdown, which is what turned this from the
 largest line in the budget into one of the smallest.
@@ -706,7 +724,7 @@ it did for deep-tow oceanography.
 **Costs, against the alternatives.** Anchor 0.60 MWh a cycle. A 1,350 m hose so the ship fills
 from altitude and never meets the dense air: 44 MWh, 2 m bore, 140 bar. The same ballast as
 liquid nitrogen: 475 MWh, or 5.8× the cryogenic plant to make it inside one cycle. Delivery is
-unchanged, and after the single-pass drop run it is 13,183 t/h for a 43.02 MWh cycle.
+unchanged, and after the single-pass drop run it is 13,183 t/h for a 45.87 MWh cycle.
 
 **In the picture.** The 3D view draws the whole sequence — cable out, bag dipped, bag lifted
 clear, bag dumped — against a translucent lake with rings at one-hull-length intervals. The rings
@@ -751,7 +769,7 @@ and flown as though they were switched off.
 
 The size of the missing term, for the 15 km balanced P-10000: the cycle is 0.827 h, so the
 generators at full output would make **113.8 MWh** against a published cycle spend of
-43.02 MWh. They would cover the cycle before solar was counted. Generators do not run flat
+45.87 MWh. They would cover the cycle before solar was counted. Generators do not run flat
 out, so the defensible figure is demand-following output capped at `genMW`; measured that
 way over the three sampled missions in `tests/golden/seed7-snapshot.json` — longer legs
 than 15 km, so not comparable with the figure above — it is 0.74, 8.2 and 140.9 MWh per

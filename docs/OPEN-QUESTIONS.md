@@ -18,6 +18,11 @@ fixed because each one changes a number the site publishes or a decision it has 
 going public, and because several are not really bugs at all — they are decisions about the
 vehicle that have been made by accident and should be made on purpose.
 
+**Two are already fixed.** #9 (the solar skin) and #10 (the nitrogen store) were corrected the same
+day they were found, because neither had a defensible reading: one required 76% conversion of
+sunlight and the other returned more work than the liquid it drew on contained. Both fixes made the
+model's numbers worse and its conclusions stronger.
+
 **The list grew from six to thirteen on 2026-08-09, and where the new ones came from matters.**
 Items 0–6 were found by the people who wrote the model, looking at it. Items 7 and 8 came from an
 adversarial audit of all 89 published claims (`research/evidence-map.md`), which found that the
@@ -399,9 +404,9 @@ currency this fleet cannot spend.
 **And then the bag was sized for the job rather than for the gap.** Rotor power goes as
 thrust^1.5, so load moved onto the lake comes off the bus faster than linearly. A bag carrying
 90% of the hold instead of the 8% the shortfall required drops `downMW` from 1,748 MW to 52 and
-the P-10000's cycle from 79.24 to **45.22 MWh** — 4.52 kWh per delivered tonne against 7.56
+the P-10000's cycle from 91.47 to **45.87 MWh** — 4.59 kWh per delivered tonne against 9.15
 before any of this began. Every class carries one, including the P-100 whose descent closes on
-rotors alone: it saves 28% for the same delivered water, and a fleet that has built the
+rotors alone: it saves 29% for the same delivered water, and a fleet that has built the
 technology should use it. Bags are 125 / 1,250 / 12,400 t; cables 350 / 600 / 850 m.
 
 That has a consequence for #3. The letdown window was 45% of the cycle and is now 3.1%, so its
@@ -565,12 +570,12 @@ The three that matter most, measured:
 
 | constant | where | what it does | moving it |
 |---|---|---|---|
-| `0.55` and `0.4` drag multipliers | `plan.js` E.RETURN_TRANSIT, E.other | charge the return leg and the manoeuvring phases a fraction of cruise drag | charging full drag everywhere: **43.02 → 59.90 MWh, +39%** |
-| anchor bag at 90% of the hold | `config.js` anchorBagT | how much of the descent the lake does | the minimum bag that still delivers the full payload is 1,099 t against the shipped 12,400 t; between them the cycle runs **88.62 → 43.02 MWh** with throughput unchanged |
+| `0.55` and `0.4` drag multipliers | `plan.js` E.RETURN_TRANSIT, E.other | charge the return leg and the manoeuvring phases a fraction of cruise drag | charging full drag everywhere: **45.87 → 62.74 MWh, +37%** |
+| anchor bag at 90% of the hold | `config.js` anchorBagT | how much of the descent the lake does | the minimum bag that still delivers the full payload is 1,099 t against the shipped 12,400 t; between them the cycle runs **91.47 → 45.87 MWh** with throughput unchanged |
 | `fillM3s` 0.5 / 3 / 15 m³/s | `config.js` | sets the fill AND, since the single-pass drop, the release — 22.2 of 45.5 cycle minutes | halved: cycle **45.5 → 67.7 min**, delivery −33%, bottleneck flips to water handling |
 
 For comparison, defect 3 — the unexplained letdown window this project has flagged in its README
-since the first commit — is worth 1.42 MWh. The two drag multipliers are worth 16.88.
+since the first commit — is worth 1.42 MWh. The two drag multipliers are worth 16.87.
 
 **DECISION: none yet.** This is the entry that says the audit found something the project's own
 self-assessment did not. Each of these needs the same treatment the six original defects got:
@@ -605,55 +610,79 @@ with the dedicated-propulsor question.
 
 ---
 
-## 9. The solar skin needs 76% conversion efficiency
+## 9. The solar skin needed 76% conversion efficiency — FIXED 2026-08-09
 
-`sim/state.js` credits the skin a flat **200 W/m² of electrical output**, continuously, and every
-sustainment number in this project rests on it: the generation side of §9's deficit table, the
-endurance figures, the storage gauge, and the public conclusion that the fleet is a battery being
-spent rather than a perpetual machine.
+`sim/state.js` credited the skin a flat **200 W/m² of electrical output**, continuously, and every
+sustainment number in this project rested on it: the generation side of PHYSICS §9's deficit table,
+the endurance figures, the storage gauge, and the public conclusion that the fleet is a battery
+being spent rather than a perpetual machine.
 
-NRCan's insolation dataset gives **6.34 kWh/m²/day** mean July horizontal insolation averaged
-across eight BC interior fire-belt towns. That is 264 W/m² *incident*, day-averaged. Getting
-200 W/m² of electricity out of it requires **76% conversion**. The best cells ever made in a
-laboratory are under half that. At 20% modules — generous for a flexible skin on a curved hull —
-the honest figure is **53 W/m²**, and a fixed horizontal-equivalent number ignores that most of an
-airship's skin faces the wrong way at any moment.
+NRCan's dataset gives **6.34 kWh/m²/day** mean July horizontal insolation averaged across eight BC
+interior fire-belt towns. That is 264 W/m² *incident*, day-averaged. Getting 200 W/m² of
+electricity out of it required **76% conversion** — three and a half times the best cell ever made
+in a laboratory.
 
-Nothing in the model checks this, because generation never enters `planCycle` — that is Defect 6,
-and this is the second half of it. Together they mean the generation column is wrong in both
-directions at once: it omits 150 MW of generators that exist, and it credits about 3.8× the solar
-that does.
+**DECISION: taken. `CFG.solarWPerM2 = 45`.**
 
-**DECISION: none yet.** The fix is arithmetically trivial and its consequence is not. At 53 W/m²
-the P-10000's solar falls from 24.0 MW to 6.4 MW, its per-cycle generation from 18.20 to 4.83 MWh,
-and its deficit rises from 24.81 to **38.19 MWh** — endurance drops from 61.1 hours to about 40.
-The direction is the point: **this makes the project's own headline conclusion stronger, not
-weaker.** Correcting it costs nothing but honesty and buys a number a reviewer cannot take apart.
-Source: `research/sources.json`, NRCan photovoltaic potential dataset.
+    264 W/m² incident × 0.21 flexible module × 0.81 (curvature, cell temperature, soiling,
+    conversion) = 45 W/m² electrical, 24-hour averaged, on a PROJECTED area.
+
+`solarM2` is 80–87% of each hull's plan ellipse, so it is a projected area and horizontal
+insolation applies to it directly — the curvature is paid for once, in the area, and the 0.81
+covers what is left. What moved:
+
+| | solar | per cycle | deficit | endurance |
+|---|---|---|---|---|
+| P-100 | 1.20 → **0.27 MW** | 0.68 → **0.15 MWh** | 0.32 → **1.10** | 35.4 → **10.4 h** |
+| P-1000 | 5.60 → **1.26 MW** | 3.30 → **0.74 MWh** | 3.09 → **6.66** | 22.9 → **10.6 h** |
+| P-10000 | 24.00 → **5.40 MW** | 18.20 → **4.10 MWh** | 24.81 → **41.77** | 61.1 → **36.3 h** |
+
+**Three things this exposed that are worth more than the correction.**
+
+First, the constant was written out in **five separate files** — `sim/state.js`, `sim/selftest.js`,
+`app/cockpit/panels.js`, `tools/figures_dump.js` and `3d/model/metadata.js` — and wrong in every
+one. A duplicated constant is wrong everywhere or nowhere. There is now one `CFG.solarWPerM2`, one
+`ASSUMPTIONS.solarWPerM2` on the far side of the `3d/` boundary, and a parity test that reads both.
+
+Second, **no published figure moved.** Generation is not in `planCycle`'s ledger, so cycle energy,
+throughput and kWh/t are all bit-identical across a 4.4× correction to the vehicle's power supply.
+That is Defect 6 stated as sharply as it can be: a term missing from a sum cannot be caught by a
+test, and this one went a day being wrong by a factor of four without a single assertion noticing.
+
+Third, **it makes the project's conclusion stronger.** A P-100 with ten hours in it is
+unambiguously a battery being spent. The honest number was the more useful one.
+
+*Still open:* the figure is a 24-hour average, which is right for energy over a cycle and wrong for
+power at an instant — there is no sun at 03:00 and the storage gauge draws 45 W/m² of it anyway.
+Fixing that needs a diurnal term the model does not have.
 
 ---
 
-## 10. `rtLN2` recovers more work from nitrogen than the nitrogen contains
+## 10. `rtLN2` recovered more work than the nitrogen contained — FIXED 2026-08-09
 
-`rtLN2 = 0.50` says half the 0.45 kWh/kg spent liquefying nitrogen comes back as electricity —
+`rtLN2 = 0.50` said half the 0.45 kWh/kg spent liquefying nitrogen came back as electricity —
 **225 kWh per tonne**. The physical exergy of liquid nitrogen at 1 bar against a 288 K ambient is
 **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020, corroborated independently at 205–214 kWh/t under
 more favourable assumptions).
 
-So the recovery term returns 1.3× the work thermodynamically available in the liquid, before any
-turbine, heat exchanger or generator efficiency. It is not an optimistic efficiency; it is a
-violation. `eBack` is a perpetual-motion line item and it is on the page.
+So the recovery term returned 1.3× the work thermodynamically available in the liquid, before any
+turbine, heat exchanger or generator efficiency. Not an optimistic efficiency — a violation, and
+it was on the page.
 
-It is also, embarrassingly, the line that this project's own accounting bug was hiding: until
-2026-08-09 the recovery was netted against the pump bill inside a `max(0, …)`, so on the two
-smaller classes it silently deleted the entire pumping cost. Splitting the lines exposed the
-credit, and exposing it is what made it checkable.
+It was also the line this project's own accounting bug had been hiding: until earlier the same day
+the recovery was netted against the pump bill inside a `max(0, …)`, so on the two smaller classes
+it silently deleted the entire pumping cost. Splitting the lines exposed the credit, and exposing
+it is what made it checkable.
 
-Measured: `rtLN2` ±20% moves the P-10000's cycle energy ∓2.2%. Capping the recovery at the true
-exergy — `rtLN2 ≤ 173.4/450 = 0.385` — costs about 1.0 MWh a cycle, 2.4%.
+**DECISION: taken. `rtLN2 = 0.20`** — 90 kWh/t, 52% of the exergy. That is about what a cryogenic
+expander returns with no external heat source, and consistent with liquid-air storage plant that
+reaches 50–60% round trip only by recycling waste heat this vehicle does not have. The hard ceiling
+is 173.4/450 = **0.385**, and `spec-parity.cases.js` now fails the build if `rtLN2 × eLN2 × 1000`
+ever exceeds 173.4 in either copy of the constant. A second law is not a tuning bound.
 
-**DECISION: none yet**, but unlike most entries here this one has no defensible reading. The
-number should be 0.385 at the absolute ceiling and something like 0.25 for a plant that exists.
+Cost: `E.recovery` fell from −4.751 to −1.900 MWh and the P-10000's cycle rose 43.019 → **45.869**.
+The nitrogen store is now worth 4.1% of a cycle rather than 11.0%, and `rtLN2` ±20% moves the
+headline by ±0.8% instead of ±2.2%.
 
 ---
 

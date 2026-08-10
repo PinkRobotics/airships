@@ -39,7 +39,7 @@ across — longer than the Hindenburg by a factor of three — and carries
 | Length | 190 m<!--f:P100.spec.lenM--> | 404 m<!--f:P1000.spec.lenM--> | 876 m<!--f:P10000.spec.lenM--> |
 | Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> | 35.4 min<!--f:P1000.cycle.cycleMin--> | 45.5 min<!--f:P10000.cycle.cycleMin--> |
 | Water delivered per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
-| Energy per tonne delivered | 10.1 kWh<!--f:P100.cycle.kwhPerTonne--> | 6.4 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.3 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+| Energy per tonne delivered | 12.5 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.4 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.6 kWh<!--f:P10000.cycle.kwhPerTonne--> |
 
 For scale: a Boeing 747 supertanker drops about 70 t and then flies to an airbase to reload. The
 model's largest ship delivers 13,183 t<!--f:P10000.cycle.tph--> in an hour and never lands.

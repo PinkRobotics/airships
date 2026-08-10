@@ -4,10 +4,10 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=ae7eff05';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=ae7eff05';
-import { diskMW, ledger, pumpMW } from './physics.js?v=ae7eff05';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=ae7eff05';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=4bb155b5';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=4bb155b5';
+import { diskMW, ledger, pumpMW } from './physics.js?v=4bb155b5';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=4bb155b5';
 
 /**
  * The descent anchor, as the MODEL sees it: how much cable is out and how much lake water is
@@ -348,7 +348,7 @@ export function stateAt(m, tRaw) {
   // Generation: the solar skin, plus the nitrogen store handing energy back while ballast
   // converts to water during the fill. That is ALL a hull generates — the bus otherwise
   // spends storage, and every cycle runs a deficit until an energy import chain exists.
-  const gen = { solar: cls.solarM2 * 200 / 1e6 };
+  const gen = { solar: cls.solarM2 * CFG.solarWPerM2 / 1e6 };
   if (id === "WATER_FILL") gen.regen = plan.eBack / Math.max(0.02, plan.dur.WATER_FILL / 60);
   if (stopped) { draw = {}; sub = "power exhausted — safe shutdown"; gs = 0; vf = 0; acc = 0; }
   // AFTER the speed is known: the anchor may not be in the water above 2 m/s, so asking for it

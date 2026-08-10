@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=ae7eff05';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=ae7eff05';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=ae7eff05';
-import { shipViz } from '../cockpit/shipviz.js?v=ae7eff05';
-import { updateRoster } from '../cockpit/tables.js?v=ae7eff05';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=ae7eff05';
-import { needsShip } from '../feeds.js?v=ae7eff05';
-import { S } from '../store.js?v=ae7eff05';
+import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=4bb155b5';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=4bb155b5';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=4bb155b5';
+import { shipViz } from '../cockpit/shipviz.js?v=4bb155b5';
+import { updateRoster } from '../cockpit/tables.js?v=4bb155b5';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=4bb155b5';
+import { needsShip } from '../feeds.js?v=4bb155b5';
+import { S } from '../store.js?v=4bb155b5';
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
@@ -104,7 +104,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     // close to filling the tanks on a short leg, and the dial should say so.
     gLN2 = makeGauge(sd, "LN₂ ballast", Math.max(1, m.cls.ln2CapT), v => fmtT(v),
       m.plan.ln2MakeT / Math.max(1, m.cls.ln2CapT));
-    const solMW = m.cls.solarM2 * 200 / 1e6;
+    const solMW = m.cls.solarM2 * CFG.solarWPerM2 / 1e6;
     const regenPk = m.plan.eBack / Math.max(0.02, m.plan.dur.WATER_FILL / 60);
     const hotelMW = m.cls.genMW * 0.02;
     // Per-system CEILINGS: each bar reads utilization against what that system can give,

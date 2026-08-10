@@ -15,8 +15,8 @@
  * deliberate, the right move is to delete the field from one side, not to loosen this.
  */
 import { describe, it, eq } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=ae7eff05';
-import { resolveClass } from '../../3d/model/config.js';
+import { CLASSES, CLASS_ORDER, DEFAULTS } from '../../sim/index.js?v=4bb155b5';
+import { ASSUMPTIONS, resolveClass } from '../../3d/model/config.js';
 
 /** sim field -> 3D field, for every quantity both files claim to know. */
 const SHARED = {
@@ -46,6 +46,51 @@ const SHARED = {
   anchorBagT: 'anchorBagTonnes',
   solarM2: 'solarAreaM2',
 };
+
+/* Tunables both files carry, sim CFG key -> 3D ASSUMPTIONS key. Same rule as the specs above:
+ * a number in both files must be identical. These two were added on 2026-08-09 because the old
+ * 200 W/m2 solar figure existed in FIVE places and the nitrogen round trip in two, and both were
+ * wrong in every copy — a duplicated constant is wrong everywhere or nowhere, and the only
+ * defence is a test that reads both. */
+const SHARED_ASSUMPTIONS = {
+  eLN2: 'eLN2',
+  rtLN2: 'rtLN2',
+  pumpEta: 'pumpEta',
+  propEta: 'propEta',
+  Cd: 'Cd',
+  rhoAir: 'rhoAir',
+  rhoSL: 'rhoSL',
+  solarWPerM2: 'solarWPerM2',
+};
+
+describe('the shared assumptions, in both copies', () => {
+  for (const [simKey, vizKey] of Object.entries(SHARED_ASSUMPTIONS)) {
+    it(`${simKey} matches 3d ASSUMPTIONS.${vizKey}`, () => {
+      const a = DEFAULTS[simKey], b = ASSUMPTIONS[vizKey];
+      if (typeof a !== 'number') throw new Error(`sim DEFAULTS.${simKey} is ${a}`);
+      if (typeof b !== 'number') throw new Error(`3d ASSUMPTIONS.${vizKey} is ${b}`);
+      eq(b, a, `${simKey}: sim says ${a}, 3d says ${b}`);
+    });
+  }
+
+  it('the nitrogen store cannot return more work than the liquid holds', () => {
+    // LN2 exergy at 1 bar against a 288 K ambient is 173.4 kWh/t (Arnaiz-del-Pozo 2020), so
+    // rtLN2 * eLN2 * 1000 must stay under it. This is not a tuning bound, it is the second law,
+    // and the model published rtLN2 = 0.50 (225 kWh/t) until 2026-08-09.
+    const recoveredKWhPerT = DEFAULTS.rtLN2 * DEFAULTS.eLN2 * 1000;
+    if (recoveredKWhPerT > 173.4) {
+      throw new Error(`recovers ${recoveredKWhPerT.toFixed(1)} kWh/t from a liquid holding 173.4`);
+    }
+  });
+
+  it('the solar skin does not out-convert the sun', () => {
+    // 264 W/m2 day-averaged incident (NRCan, BC interior July). Anything above about a quarter
+    // of that is claiming a conversion efficiency nobody has ever demonstrated.
+    if (DEFAULTS.solarWPerM2 > 264 * 0.30) {
+      throw new Error(`${DEFAULTS.solarWPerM2} W/m2 needs ${(DEFAULTS.solarWPerM2 / 264 * 100).toFixed(0)}% conversion`);
+    }
+  });
+});
 
 describe('the vehicle specification, in both copies', () => {
   for (const id of CLASS_ORDER) {

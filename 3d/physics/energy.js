@@ -10,8 +10,8 @@
  * mass. Nothing here should let it look free.
  */
 
-import { ASSUMPTIONS } from '../model/config.js?v=9e6eb515';
-import { clamp01 } from '../core/math.js?v=9e6eb515';
+import { ASSUMPTIONS } from '../model/config.js?v=154a8232';
+import { clamp01 } from '../core/math.js?v=154a8232';
 
 /** Source nodes and sink nodes of the electrical graph. */
 export const SOURCES = ['solar', 'generator', 'battery', 'ln2Recovery'];
@@ -69,9 +69,9 @@ export function derivePower(cls, s, a = ASSUMPTIONS) {
   const pumps = pick(s.pumpPowerMW, shape[2] * pumpPowerMW(cls, a));
   const winch = shape[3] * cls.generatorContinuousPowerMW * 0.05;
 
-  // Solar: the installed area at an illustrative 200 W/m2 delivered, faded by phase altitude.
-  const solar = pick(s.solarPowerMW, dead ? (cls.solarAreaM2 * 200) / 1e6 * 0.25
-    : (cls.solarAreaM2 * 200) / 1e6);
+  // Solar: the projected area at ASSUMPTIONS.solarWPerM2 electrical, faded by phase altitude.
+  const solarMW = (cls.solarAreaM2 * ASSUMPTIONS.solarWPerM2) / 1e6;
+  const solar = pick(s.solarPowerMW, dead ? solarMW * 0.25 : solarMW);
 
   // Expansion recovery only happens while the store is being drawn down.
   const drawingLN2 = s.phase === 'CONTROLLED_DESCENT' || s.phase === 'WEATHER_HOLD';

@@ -35,7 +35,7 @@ made light enough, which modern discrete-lattice construction may finally allow.
 **What the model says.** Three classes, from 100 t<!--f:P100.spec.payloadT--> to
 10,000 t<!--f:P10000.spec.payloadT--> of water. The largest is 876 m<!--f:P10000.spec.lenM--> long,
 flies a 45.5-minute<!--f:P10000.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way,
-and delivers 13,183 t/h<!--f:P10000.cycle.tph--> at 4.30 kWh/t<!--f:P10000.cycle.kwhPerTonne-->.
+and delivers 13,183 t/h<!--f:P10000.cycle.tph--> at 4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->.
 
 **What the model does not say.** That the vehicle can be built. The model takes hull mass as an
 assumption and computes forward from it; §2.1 is about that assumption and it does not survive
@@ -94,10 +94,10 @@ gives 6.34 kWh/m²/day mean July horizontal insolation across eight BC interior 
 for flexible cells on a curved hull, most of which faces the wrong way at any moment — the honest
 figure is **53 W/m²**.
 
-Consequence for the P-10000: solar 24.0<!--f:P10000.energy.solarMW--> → 6.4 MW; per-cycle
-generation 18.20<!--f:P10000.energy.solarPerCycleMWh--> → 4.83 MWh; deficit
-24.81<!--f:P10000.energy.deficitPerCycleMWh--> → 38.19 MWh; endurance
-61.1 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
+Consequence for the P-10000: solar 5.4<!--f:P10000.energy.solarMW--> → 6.4 MW; per-cycle
+generation 4.10<!--f:P10000.energy.solarPerCycleMWh--> → 4.83 MWh; deficit
+41.77<!--f:P10000.energy.deficitPerCycleMWh--> → 38.19 MWh; endurance
+36.3 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
 
 *Diligence status:* arithmetically trivial to fix, and **it moves the project's stated conclusion in
 the direction that conclusion already points** — the fleet is more dependent on imported energy, not
@@ -105,7 +105,7 @@ less. No commercial claim rests on the 200 W/m² figure.
 
 ### 2.3 The nitrogen recovery is thermodynamically impossible — narrow but absolute
 
-`rtLN2 = 0.50`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
+`rtLN2 = 0.20`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
 recovers **225 kWh per tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a
 288 K ambient is **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; independently corroborated at
 205–214 kWh/t under more favourable assumptions). The term returns 1.3× the work the liquid
@@ -181,8 +181,8 @@ the value of a big pump if the fire is not near water.
 | | P-100 | P-1000 | P-10000 |
 |---|---:|---:|---:|
 | Delivered per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
-| Energy per tonne | 10.05 kWh<!--f:P100.cycle.kwhPerTonne--> | 6.39 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.30 kWh<!--f:P10000.cycle.kwhPerTonne--> |
-| Energy per cycle | 1.005 MWh<!--f:P100.cycle.eCycleMWh--> | 6.389 MWh<!--f:P1000.cycle.eCycleMWh--> | 43.019 MWh<!--f:P10000.cycle.eCycleMWh--> |
+| Energy per tonne | 12.53 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.40 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.59 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+| Energy per cycle | 1.253 MWh<!--f:P100.cycle.eCycleMWh--> | 7.399 MWh<!--f:P1000.cycle.eCycleMWh--> | 45.869 MWh<!--f:P10000.cycle.eCycleMWh--> |
 
 A 747 supertanker drops about 70 t and then flies to a base. Scale is the entire argument, and the
 square-cube law means only the largest class is interesting: it is 2.3× cheaper per tonne than the
@@ -249,8 +249,8 @@ P-10000, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 | Outbound transit | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
 | Letdown | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> |
 | Anchor | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> |
-| Nitrogen recovery (credit) | −4.751<!--f:P10000.energy.ledgerMWh.recovery--> |
-| **Total** | **43.019**<!--f:P10000.cycle.eCycleMWh--> |
+| Nitrogen recovery (credit) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
+| **Total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> |
 
 ### 5.2 The fleet is a battery being spent
 
@@ -259,9 +259,9 @@ stated on the site rather than hidden:
 
 | | deficit/cycle | endurance |
 |---|---:|---:|
-| P-100 | 0.32 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 h<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 3.09 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 h<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 24.81 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 1.10 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 10.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 6.66 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 41.77 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
 
 Correcting §2.2 takes the P-10000 to about 40 hours. There is no configuration in which this fleet
 sustains itself; it requires an energy import chain, and that chain is the business.
@@ -272,11 +272,11 @@ sustains itself; it requires an energy import chain, and that chain is the busin
 energy figures and the published BC Hydro Transmission Service Rate Schedule 1830 (effective
 1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). Assumptions stated inline.
 
-- **Continuous draw per P-10000 in sustained operation:** 43.019 MWh<!--f:P10000.cycle.eCycleMWh-->
+- **Continuous draw per P-10000 in sustained operation:** 45.869 MWh<!--f:P10000.cycle.eCycleMWh-->
   per 45.51-minute<!--f:P10000.cycle.cycleMin--> cycle = **56.7 MW average**. Net of solar at the
   model's optimistic 200 W/m² that is ~32.7 MW imported; at the honest 53 W/m² (§2.2), **~50.3 MW**.
 - **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.21/t** for the P-10000
-  (4.30 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), $0.49/t for the P-100. Per 10,000 t drop: **~$2,100**.
+  (4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), $0.49/t for the P-100. Per 10,000 t drop: **~$2,100**.
 - **A ten-ship P-10000 fleet** in continuous operation imports roughly **500 MW**. At Schedule 1830
   that is on the order of **US$20–25M per month** in energy and demand charges combined, assuming
   unity power factor and continuous operation — figures given to one significant digit because the
