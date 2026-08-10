@@ -373,7 +373,7 @@ while incoming water replaces its mass.
 > produced: **m_N2 = min(m_N2,need, P_cryo · t_return / e_LN2)**
 > cost: **E_cryo = m_N2 · e_LN2**, recovered: **E_back = E_cryo · rt_LN2**
 
-with e_LN2 = 0.45 kWh/kg and rt_LN2 = 0.50.
+with e_LN2 = 0.45 kWh/kg and rt_LN2 = 0.20 (0.50 until 2026-08-09; see §9 and OPEN-QUESTIONS #10).
 
 The arithmetic does not work. A P-10000 returning for 8.1 minutes on a 70 MW plant makes
 9.50 MWh of liquefaction work, which at 0.45 kWh/kg is **21.1 t of nitrogen** — against a

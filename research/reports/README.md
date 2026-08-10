@@ -33,5 +33,13 @@ regenerate, and `../sources.json` is where they are accounted for.
 ## What all three are required to carry
 
 The defect list. Not a softened version of it, and not only in the long one. `01-brief.md` names
-four findings that contradict the project in its second half, because a two-page summary that
+all four findings that contradict the project in its second half, because a two-page summary that
 drops them is the exact artefact this repository exists to not produce.
+
+**And what happened to them.** Two of the four were corrected on 2026-08-09 — the solar skin and
+the nitrogen round trip — and all three reports keep them in place, marked as closed, rather than
+quietly deleting them. What a project fixed, how fast, and in which direction the numbers moved is
+evidence about the project. Both of these made the published figures worse.
+
+A public version of the same material, written for a reader who has not cloned the repository,
+is at <https://pinkrobotics.ca/research/>.

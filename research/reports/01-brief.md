@@ -75,28 +75,40 @@ two-metre bore at 140 bar.
 
 This is the part most concept announcements leave out, and it is the reason this one exists.
 
-`docs/OPEN-QUESTIONS.md` in the repository lists **thirteen** open defects and unjustified
-assumptions. Six were found by the people who wrote the model. The other seven were found by
-auditing every published claim against the code, and then by reading the sources — and four of
-those came back saying the project is wrong:
+`docs/OPEN-QUESTIONS.md` in the repository lists **thirteen** defects and unjustified
+assumptions, eleven of them still open. Six were found by the people who wrote the model. The
+other seven were found by auditing every published claim against the code, and then by going and
+reading the sources — and four of those came back saying the project is wrong.
 
-- **The structure may not be achievable.** The model assumes the ship's entire dry mass equals
-  its water payload. NASA's own lattice paper, which this project cites as its precedent, gives a
+**Two of the four are fixed, and fixing them made our numbers worse:**
+
+- **The solar skin was credited with 200 W/m² of electricity.** Against the actual solar resource
+  in the BC interior, getting that out of the sun would need 76% conversion efficiency — three
+  and a half times the best cell
+  ever made in a laboratory. It is **45 W/m²** now. Every endurance figure on the site fell by
+  about two thirds: the smallest ship went from 35 hours of work in it to
+  **10.4**<!--f:P100.energy.hoursOnBattery-->.
+- **The nitrogen store recovered more work than the nitrogen contains** — 225 kWh from a tonne of
+  liquid holding 173. Not an optimistic efficiency, an impossible one. It is
+  **0.20**<!--f:assumptions.rtLN2--> now, and a test fails the build if anyone raises it past the
+  physical ceiling again.
+
+**Two are open, and the first of them is the one that could end the project:**
+
+- **The structure may not be achievable.** The model assumes the ship's entire dry mass equals its
+  water payload. NASA's own lattice paper, which this project cites as its precedent, gives a
   *bare shell* 12% heavier than that whole allowance — before skin, joints, rotors, tanks or
-  batteries. This is the largest unresolved question in the project.
-- **The solar skin is credited with 200 W/m² of electricity**, which against the actual solar
-  resource in the BC interior would require 76% conversion efficiency. The honest figure is about
-  53 W/m².
-- **The nitrogen energy store recovers more work than the nitrogen contains** — 225 kWh per tonne
-  from a liquid that holds 173 kWh per tonne. That is not an optimistic efficiency; it is
-  impossible, and it is on the page.
+  batteries. Separately, at the battery density NASA has actually flown, the battery alone is 34%
+  over the same budget. This is the largest unresolved question here and no amount of simulation
+  settles it.
 - **The water may not reach the ground.** The US Forest Service states that a drop released
   1,000 ft up "would completely dissipate". Our ships release from 1,476 ft. And the Forest
   Service's own effectiveness study measures whether fire behaviour changed — not tonnes, which is
   what this project has optimised.
 
-The first three make the concept harder. The fourth suggests the headline metric may be measuring
-the wrong thing entirely.
+Notice which direction the two fixes went. Both made the vehicle look worse and both made the
+project's stated conclusion — that this fleet is a battery being spent, not a perpetual machine —
+harder to argue with. That is the whole reason to do it this way.
 
 ## Why publish something with thirteen holes in it
 
@@ -106,10 +118,17 @@ generates, and a script fails the build if the prose and the model disagree. The
 grew from six to thirteen the day we started checking properly, and *it is the same model* —
 nothing was introduced, it was all already true and unnoticed.
 
+One finding from that day is worth more than any of the numbers. Correcting the solar skin changed
+the vehicle's power supply by a factor of 4.4 — and **not one published figure moved**, because
+generation is not in the ledger that computes them. A model can be badly wrong about something
+central and have no test anywhere able to notice. That is now defect 6 on the list, and it is the
+reason this project believes in publishing the arithmetic rather than the conclusion.
+
 If the idea is wrong, this is the fastest way to find out. If it is not wrong, this is the only
 kind of evidence worth anything.
 
 **Repository:** github.com/pinkrobotics/airships · **Live model:** pinkrobotics.ca/airships
+**The evidence, in public:** pinkrobotics.ca/research
 **The defect list:** `docs/OPEN-QUESTIONS.md` · **The sources:** `research/sources.json` (73 of
 them, 12 with written notes, 9 that contradict us)
 

@@ -281,25 +281,46 @@ everything-that-is-not-water inside 22,000,000 m³<!--f:P10000.spec.dispM3-->.
 Four sources, four different objections, one conclusion: **the mass premise is not supported by
 the literature this project itself cites.** Everything in §§5–7 is conditional on it.
 
-### 8.2 The solar skin needs 76% conversion efficiency
+### 8.2 The solar skin needed 76% conversion efficiency — FIXED 2026-08-09
 
-`state.js` credits 200 W/m² of *electrical output*, continuously. NRCan's dataset gives
-6.34 kWh/m²/day mean July horizontal insolation across eight BC interior fire-belt towns —
-264 W/m² incident, day-averaged. 200 out of 264 is **76% conversion**. At 20% modules the honest
-figure is **53 W/m²**, and a fixed horizontal-equivalent ignores that most of an airship's skin
-faces the wrong way at any moment.
+`state.js` credited 200 W/m² of *electrical output*, continuously, in **five separate files**.
+NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across eight BC interior
+fire-belt towns — 264 W/m² incident, day-averaged. 200 out of 264 is **76% conversion**, three and
+a half times the best cell ever made in a laboratory.
 
-Consequence: the P-10000's solar falls 24.0 → 6.4 MW, generation 18.20 → 4.83 MWh per cycle,
-deficit 24.81 → 38.19 MWh, endurance 36.3 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
+It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 flexible module ×
+0.81 for curvature, cell temperature, soiling and conversion, applied to a *projected* area —
+`solarM2` is 80–87% of each hull's plan ellipse, so the curvature is paid for once, in the area.
 
-### 8.3 `rtLN2` returns more work than the nitrogen contains
+| | solar | per cycle | deficit | endurance |
+|---|---|---|---|---|
+| P-100 | 1.20 → **0.27 MW**<!--f:P100.energy.solarMW--> | 0.68 → **0.15 MWh**<!--f:P100.energy.solarPerCycleMWh--> | 0.32 → **1.10**<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 → **10.4 h**<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 5.60 → **1.26 MW**<!--f:P1000.energy.solarMW--> | 3.30 → **0.74 MWh**<!--f:P1000.energy.solarPerCycleMWh--> | 3.09 → **6.66**<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 → **10.6 h**<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 24.00 → **5.40 MW**<!--f:P10000.energy.solarMW--> | 18.20 → **4.10 MWh**<!--f:P10000.energy.solarPerCycleMWh--> | 24.81 → **41.77**<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 → **36.3 h**<!--f:P10000.energy.hoursOnBattery--> |
 
-`rtLN2 = 0.20`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
-recovers **225 kWh per tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a
-288 K ambient is **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; corroborated at 205–214 kWh/t under
-more favourable assumptions). The recovery term returns 1.3× the work available in the liquid,
-before any turbine or generator efficiency. The ceiling is `rtLN2 ≤ 0.385`; a real plant would be
-nearer 0.25.
+**Three things this exposed are worth more than the correction.** The constant was duplicated five
+times and wrong in every copy — there is one now, plus one on the far side of the `3d/` boundary
+and a parity test that reads both. **No published figure moved**, because generation is not in
+`planCycle`'s ledger: cycle energy, throughput and kWh/t came out bit-identical across a 4.4×
+change to the vehicle's power supply, which is defect 6 in §8.5 stated as sharply as it can be.
+And the honest number strengthens the project's conclusion rather than weakening it.
+
+*Still open:* 45 W/m² is a 24-hour average — right for energy over a cycle, wrong for power at an
+instant. There is no sun at 03:00 and the storage gauge draws it anyway.
+
+### 8.3 `rtLN2` returned more work than the nitrogen contains — FIXED 2026-08-09
+
+`rtLN2 = 0.50` against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg recovered **225 kWh per
+tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K ambient is
+**173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; corroborated at 205–214 kWh/t under more favourable
+assumptions). The term returned 1.3× the work available in the liquid, before any turbine or
+generator efficiency. Not an optimistic efficiency — a violation, and it was on the page.
+
+It is **0.20**<!--f:assumptions.rtLN2--> now: 90 kWh/t, 52% of the exergy, about what a cryogenic
+expander returns with no external heat source. `E.recovery` fell from −4.751 to
+−1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
+45.869<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
+copy of the constant, because a second law is not a tuning bound.
 
 ### 8.4 The drop may not arrive, and tonnes may be the wrong metric
 
@@ -321,7 +342,7 @@ counts tonnes. This project's headline metric is tonnes per hour.
 | 3 | An unexplained `0.2` sets the letdown window | 1.42 MWh today; was 34.20 before the anchor |
 | 4 | Retained ballast is dead code; the plant is inert in-cycle | ballast **fixed**; plant restated (§7.2) |
 | 5 | Esri basemap tiles used outside their terms | not physics; blocking for publication |
-| 6 | Generators supply peak power but no energy | 150 MW uncounted on the P-10000 |
+| 6 | Generators supply peak power but no energy | 150 MW uncounted on the P-10000 — and §8.2 showed the other half: a 4.4× error in generation moved **no published figure** |
 | 7 | 32 of 89 published figures rest on unjustified constants | two inline drag multipliers are worth **16.9 MWh** |
 | 8 | `diskM2`/`battMW` answer a superseded constraint | `battMW` ±20% now moves every figure by **0.0%** |
 | 12 | Rotor wash over a water surface is unmodelled | Suter (2005); a 121.6 MN anchor hangs in it |
@@ -339,8 +360,12 @@ git clone … && cd airships && make check
 
 - `make golden` re-runs 151 class/mode/distance/wind combinations and diffs every output against
   `tests/golden/seed7-snapshot.json`.
-- `make test` runs 196 tests. Two are marked `knownFail` and **fail on purpose** — a defect is not
-  allowed to lose its excuse quietly.
+- `make test` runs 206 tests in 39 suites. Two are marked `knownFail` and **fail on purpose** — a
+  defect is not allowed to lose its excuse quietly.
+- `make test-node` runs a further 103. Until 2026-08-09 it printed "SKIPPED — no node here" on the
+  machine this is developed on, so those 103 were only ever executed by CI and two breaks were
+  found by a red badge after a push. They run in a browser now, against the same files, and
+  `make check` covers them.
 - `make factsheet` regenerates `research/figures.json` from the live model in a real browser;
   `tools/check_figures.py` then fails the build if any number in this paper disagrees with it.
   Every figure marked above passed that check at the commit that carries this file.
@@ -361,15 +386,26 @@ In descending order of how likely it is to kill the concept:
    ever built (9,800 L) — the principle is 43 years old and the engineering is not. Pendulum dynamics under an 876 m hull are not modelled.
 4. **A drop from 450 m that arrives as water rather than as mist.** Currently contradicted by the
    USFS's own guidance.
-5. **An energy import chain.** The fleet is a battery being spent; nothing here changes that.
+5. **An energy import chain.** The fleet is a battery being spent, and the 2026-08-09 solar
+   correction made that sharper rather than softer: the smallest class now has
+   10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
+   36.3<!--f:P10000.energy.hoursOnBattery-->. Nothing here changes that; §7.3 is where it is
+   costed.
 
 If (1) fails, the rest is a well-tested model of a vehicle that cannot exist. That is why it is
 first on the list and why §8.1 is written the way it is.
 
+**What the two corrections of 2026-08-09 say about the other eleven.** Both were found by reading
+a source rather than by running the model, both had been on the page for the life of the project,
+and neither was catchable by any test that existed — one because generation is absent from the
+ledger, the other because a test was asserting the violation as correct behaviour. The eleven
+still open should be read in that light: the list is what has been checked, not what is wrong.
+
 ## 11. Availability
 
 Model, tests, sources and defect list: `github.com/pinkrobotics/airships`. Live simulation:
-`pinkrobotics.ca/airships`. Source catalogue: `research/sources.json` — 73 entries, 29
+`pinkrobotics.ca/airships`. The literature and the nine sources against us, written for a reader
+who has not cloned anything: `pinkrobotics.ca/research`. Source catalogue: `research/sources.json` — 73 entries, 29
 redistributable PDFs with provenance, 12 written notes, 9 sources that contradict us. Claim audit:
 `research/evidence-map.md`.
 

@@ -56,6 +56,14 @@ project's previous concept papers unedited, including the parts later work contr
 dated and superseded, not corrected in place: the record of what was believed and when is part of
 what makes the current numbers checkable.
 
+## Where this is published
+
+`research/sources.json`, `research/notes/` and the three reports are the internal record. A page
+written from the same material for a reader who has not cloned anything is live at
+<https://pinkrobotics.ca/research/> — it leads with the nine sources that contradict the project,
+and it carries the descent anchor in enough detail to be built from, deliberately: we are not
+patenting the mechanism, and a dated public description is what stops someone else doing so.
+
 ## What is deliberately not here
 
 Nothing in this folder is a claim that the vehicle works. The strongest honest statement the

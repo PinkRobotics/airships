@@ -512,8 +512,10 @@ as free continuous power the way `rotorMaxT` currently does.
 
 *Updated 2026-08-09:* that bound is now a real number. `ln2CapT` is 155 / 1,550 / 15,500 t,
 sized by unpowered recovery rather than picked, and at `eLN2` = 0.45 kWh/kg and
-`rtLN2` = 0.50 a full tank is worth 34.9 / 349 / 3,489 MWh of expansion energy — 1.7 times a
-P-100's battery, 2.9 times a P-1000's, 1.7 times a P-10000's. So the store is the same order
+`rtLN2` = 0.20 a full tank is worth 13.95 / 139.5 / 1,395 MWh of expansion energy — 0.70 times a
+P-100's battery, 1.16 times a P-1000's, 0.70 times a P-10000's. (At the old `rtLN2` = 0.50 those
+read 34.9 / 349 / 3,489 MWh, which was the arithmetic of a store returning more work than the
+liquid holds — see #10.) So the store is the same order
 as the battery and the generators have something definite to run on. The plant still cannot
 fill the tank inside a cycle, which is #5.
 

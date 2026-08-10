@@ -9,9 +9,9 @@
 This is a diligence report on a **concept**, not on a company, a product, or a prototype. Nothing
 has been built. There is no revenue, no letter of intent, no flight article, and no test rig.
 
-What exists is a simulation and its supporting apparatus: a physics model, 196 tests, a 151-case
+What exists is a simulation and its supporting apparatus: a physics model, 309 tests, a 151-case
 deterministic golden baseline, a 73-source catalogue with 12 written notes, an audit of all 89
-published claims, and a defect list of thirteen items. That apparatus is the asset under
+published claims, and a defect list of thirteen items, two of them closed. That apparatus is the asset under
 examination. **The correct question for a reader is not "do these numbers work" but "is this the
 kind of work that would find out if they didn't".**
 
@@ -53,8 +53,15 @@ and the number is currently missing (§8).
 
 ## 2. Disqualifying findings
 
-Four findings from the source catalogue contradict the model. Two are severe enough to be
-disqualifying on their own. They are stated here first, in full, with their arithmetic.
+Four findings from the source catalogue contradict the model. They are stated here first, in full,
+with their arithmetic.
+
+**Two of the four were corrected on 2026-08-09**, within hours of being found, because neither had
+a defensible reading. Both corrections made the model's numbers worse. They are kept in this
+section rather than moved to an appendix, because a diligence reader is entitled to see what the
+project did when its own evidence went against it — and because the *manner* of the two fixes is
+better evidence about the team than the fixes themselves. **The two that remain open are §2.1 and
+§2.4, and §2.1 is the one that could end this.**
 
 ### 2.1 The mass budget fails against four independent sources — SEVERE
 
@@ -86,36 +93,47 @@ severity of the worst one. **The scale invariance both our structural sources as
 *Diligence status:* unresolved, and not resolvable by more modelling. Requires a mass breakdown
 from a builder of lattice structures. This is the project's single point of failure.
 
-### 2.2 The solar skin requires 76% conversion efficiency — SEVERE for sustainment
+### 2.2 The solar skin required 76% conversion efficiency — CORRECTED 2026-08-09
 
-The model credits the skin a flat **200 W/m² of electrical output**, continuously. NRCan's dataset
-gives 6.34 kWh/m²/day mean July horizontal insolation across eight BC interior fire-belt towns:
-**264 W/m² incident**, day-averaged. 200 out of 264 is 76% conversion. At 20% modules — generous
-for flexible cells on a curved hull, most of which faces the wrong way at any moment — the honest
-figure is **53 W/m²**.
+The model credited the skin a flat **200 W/m² of electrical output**, continuously, in five
+separate source files. NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across
+eight BC interior fire-belt towns: **264 W/m² incident**, day-averaged. 200 out of 264 is 76%
+conversion — three and a half times the best cell ever made in a laboratory.
 
-Consequence for the P-10000: solar 5.4<!--f:P10000.energy.solarMW--> → 6.4 MW; per-cycle
-generation 4.10<!--f:P10000.energy.solarPerCycleMWh--> → 4.83 MWh; deficit
-41.77<!--f:P10000.energy.deficitPerCycleMWh--> → 38.19 MWh; endurance
-36.3 h<!--f:P10000.energy.hoursOnBattery--> → about 40.
+It is **45 W/m²**<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 flexible module × 0.81 for
+curvature, cell temperature, soiling and conversion, on a projected area.
 
-*Diligence status:* arithmetically trivial to fix, and **it moves the project's stated conclusion in
-the direction that conclusion already points** — the fleet is more dependent on imported energy, not
-less. No commercial claim rests on the 200 W/m² figure.
+| | solar | deficit/cycle | endurance |
+|---|---|---|---|
+| P-100 | 1.20 → **0.27 MW**<!--f:P100.energy.solarMW--> | 0.32 → **1.10**<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 → **10.4 h**<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 5.60 → **1.26 MW**<!--f:P1000.energy.solarMW--> | 3.09 → **6.66**<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 → **10.6 h**<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 24.00 → **5.40 MW**<!--f:P10000.energy.solarMW--> | 24.81 → **41.77**<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 → **36.3 h**<!--f:P10000.energy.hoursOnBattery--> |
 
-### 2.3 The nitrogen recovery is thermodynamically impossible — narrow but absolute
+*Diligence status:* **closed, and the finding underneath it is not.** Two things a reader should
+take from this. First, the correction cut published endurance by roughly two thirds and the project
+shipped it the same day — that is the behaviour the rest of this report is asking you to price.
+Second, **no published throughput or energy-per-tonne figure moved at all**, because generation is
+not in the ledger that computes them. A 4.4× error in the vehicle's power supply was invisible to
+every test in the repository. That is §8's defect 6, it is still open, and it is the more
+important half of this entry.
 
-`rtLN2 = 0.20`<!--f:assumptions.rtLN2--> against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg
-recovers **225 kWh per tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a
-288 K ambient is **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; independently corroborated at
-205–214 kWh/t under more favourable assumptions). The term returns 1.3× the work the liquid
-contains, before any turbine or generator efficiency.
+### 2.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09
 
-The absolute ceiling is `rtLN2 ≤ 0.385`; a plant that exists would be nearer 0.25. Cost of the
-correction: about 1.0 MWh a cycle, 2.4%.
+`rtLN2 = 0.50` against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg recovered **225 kWh per
+tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K ambient is
+**173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; independently corroborated at 205–214 kWh/t under
+more favourable assumptions). The term returned 1.3× the work the liquid contains, before any
+turbine or generator efficiency.
 
-*Diligence status:* small in magnitude, absolute in kind. A reviewer who finds this before you do
-will discount everything else in the model, and they would be right to.
+It is **0.20**<!--f:assumptions.rtLN2--> now — 90 kWh/t, 52% of the exergy, about what a cryogenic
+expander returns with no external heat source. The P-10000's cycle rose 43.019 →
+**45.869 MWh**<!--f:P10000.cycle.eCycleMWh-->, 6.6%. Two tests, one on each copy of the constant,
+now fail the build if `rtLN2 × eLN2 × 1000` exceeds 173.4.
+
+*Diligence status:* **closed.** Small in magnitude, absolute in kind, and worth reading for what it
+says about how the model was being checked before: a unit test existed for this line and it was
+asserting the violation as correct behaviour. The test now checks the physical ceiling as well as
+the value, because the first is a choice and the second is not.
 
 ### 2.4 The headline metric may be measuring the wrong thing — strategic
 
@@ -263,8 +281,9 @@ stated on the site rather than hidden:
 | P-1000 | 6.66 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 | 41.77 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
 
-Correcting §2.2 takes the P-10000 to about 40 hours. There is no configuration in which this fleet
-sustains itself; it requires an energy import chain, and that chain is the business.
+Those figures are post-correction and roughly a third of what this report would have carried a day
+earlier. There is no configuration in which this fleet sustains itself; it requires an energy
+import chain, and that chain is the business.
 
 ### 5.3 Grid implications — the number that should govern the conversation
 
@@ -273,19 +292,22 @@ energy figures and the published BC Hydro Transmission Service Rate Schedule 183
 1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). Assumptions stated inline.
 
 - **Continuous draw per P-10000 in sustained operation:** 45.869 MWh<!--f:P10000.cycle.eCycleMWh-->
-  per 45.51-minute<!--f:P10000.cycle.cycleMin--> cycle = **56.7 MW average**. Net of solar at the
-  model's optimistic 200 W/m² that is ~32.7 MW imported; at the honest 53 W/m² (§2.2), **~50.3 MW**.
-- **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.21/t** for the P-10000
-  (4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), $0.49/t for the P-100. Per 10,000 t drop: **~$2,100**.
-- **A ten-ship P-10000 fleet** in continuous operation imports roughly **500 MW**. At Schedule 1830
-  that is on the order of **US$20–25M per month** in energy and demand charges combined, assuming
-  unity power factor and continuous operation — figures given to one significant digit because the
-  duty cycle assumption dominates them.
+  per 45.51-minute<!--f:P10000.cycle.cycleMin--> cycle = **60.5 MW average**. Net of the corrected
+  solar (5.40 MW<!--f:P10000.energy.solarMW-->), **55.1 MW imported**. That is 9% worse than this
+  report said before the 2026-08-09 corrections, and the earlier figure was the optimistic one.
+- **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.23/t** for the P-10000
+  (4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), **$0.62/t** for the P-100
+  (12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->). Per 10,000 t drop: **~$2,250**.
+- **A ten-ship P-10000 fleet** in continuous operation imports roughly **550 MW**. At Schedule 1830
+  that is on the order of **US$26M per month** — about $20M energy and $7M demand — assuming unity
+  power factor and continuous operation. Given to one significant digit because the duty-cycle
+  assumption dominates it.
 
 **The governing comparison:** BC Hydro's total generating capacity is **13.4 GW** (Site C fully
 operational). A single P-10000's 1,400 MW<!--f:P10000.spec.battMW--> battery discharge peak is
 **over 10% of the province's entire generating capacity.** A ten-ship fleet's sustained import is
-~4% of provincial capacity, continuously, during fire season — which is also peak demand season.
+**4.1% of provincial capacity**, continuously, during fire season — which is also peak demand
+season.
 
 That is not a tariff problem, it is an interconnection and generation-planning problem, and it has
 a lead time measured in years. BC Hydro's 2025 capacity call drew 106 submissions totalling 19 GW,
@@ -319,13 +341,13 @@ This is where the project is genuinely strong, and it is the reason the §2 find
 | Artefact | What it is |
 |---|---|
 | `sim/` | The model. No DOM, network, storage, wall clock or location — enforced by a boundary linter across 80 modules. |
-| `tests/` | 196 tests, 38 suites. **Two fail on purpose**, marked `knownFail`, so a documented defect cannot quietly lose its excuse. |
+| `tests/` | 206 tests in 39 suites, plus 103 more that need node. **Two fail on purpose**, marked `knownFail`, so a documented defect cannot quietly lose its excuse. |
 | `tests/golden/` | 151 class/mode/distance/wind combinations, diffed on every run. Independently reproduced by a separate Python implementation. |
 | `research/sources.json` | 73 sources: 3 load-bearing, **9 that contradict us**, 20 supporting, 41 context. 29 redistributable PDFs with provenance records; everything paywalled catalogued and refused by name. |
 | `research/notes/` | 12 notes, each written from the source PDF rather than its abstract, each stating where the source does *not* support what we would like it to. |
 | `research/evidence-map.md` | Audit of all 89 published claims. |
 | `research/figures.json` | Every published figure, regenerated from the live model. `tools/check_figures.py` fails the build if any report disagrees. |
-| `docs/OPEN-QUESTIONS.md` | Thirteen defects, each with cost, options and a recommendation. |
+| `docs/OPEN-QUESTIONS.md` | Thirteen defects, each with cost, options and a recommendation. Two closed, eleven open. |
 
 **The signal to weigh.** The defect list went from six to thirteen the day the project audited
 itself properly — and it is the same model. Nothing was introduced; it was all already true and
@@ -343,13 +365,23 @@ justification, against 15 genuine documented assumptions. Two undocumented inlin
 are worth 16.9 MWh a cycle, while the defect flagged in the README since the first commit is worth
 1.4. The project has been auditing the things it knew to doubt.
 
+**And the test suite had a hole in it that is worth understanding.** 103 of the tests need node,
+which is not installed on the machine this is developed on, so `make test-node` printed "SKIPPED"
+and those tests were only ever executed by CI. Two breaks reached the remote that way — including
+a unit test asserting the impossible nitrogen recovery in §2.3 as correct behaviour. They run in a
+browser now, against the same files, and `make check` covers them. A reader should weigh both
+halves: a gap that let a wrong assertion sit unchallenged, and a project that closed it with a
+tool rather than a resolution.
+
 ---
 
 ## 8. What would have to be proven, in order
 
 1. **A lattice vacuum shell at ≤0.455 kg/m³ including everything.** Nothing in the literature is
    there. Not resolvable by modelling. Requires a gram-level mass breakdown from someone who builds
-   these structures, plus an answer to the Derveni scale-invariance objection (§2.1).
+   these structures, plus an answer to the Derveni scale-invariance objection (§2.1). **This is the
+   only §2 finding that both remains open and is capable of ending the concept** — §2.2 and §2.3
+   are closed, and §2.4 changes what the product is rather than whether it can exist.
 2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; NASA
    has flown 149 and sees no clear path past 500.
 3. **A drop from a height an 876 m hull can safely use that still arrives as water.** Currently
@@ -382,7 +414,10 @@ and therefore unprotected.
 **On the work.** The apparatus is better than the concept. A model that fails its own audit in
 public, keeps two tests failing on purpose, catalogues nine sources that contradict it, and grows
 its defect list from six to thirteen by checking properly is doing the thing most concept work
-avoids. If the question is "will this team find out whether the idea works", the evidence is
+avoids. The clearest evidence is what happened on 2026-08-09: two of the four findings in §2 were
+corrected within hours of being found, both corrections made the published numbers worse — cycle
+energy up 6.6%, endurance down by roughly two thirds — and both shipped to the live site the same
+day. If the question is "will this team find out whether the idea works", the evidence is
 strongly yes. If the question is "does the idea work", the evidence today is **no, on the mass
 budget**, and the project says so itself in `docs/OPEN-QUESTIONS.md` #11.
 
@@ -400,14 +435,15 @@ costs two reviews rather than a programme.
 git clone github.com/pinkrobotics/airships && cd airships && make check
 ```
 
-`make golden` diffs 151 cases; `make test` runs 196 tests including two deliberate failures;
+`make golden` diffs 151 cases; `make test` runs 206 tests including two deliberate failures and
+`make test-node` a further 103;
 `make factsheet` regenerates every published figure from the live model; `tools/check_figures.py`
 fails the build if this document disagrees with it. `?seed=7&data=snapshot` reproduces any run on
 the live site exactly.
 
 Full catalogue: `research/sources.json`. Notes: `research/notes/`. Claim audit:
 `research/evidence-map.md`. Defect list: `docs/OPEN-QUESTIONS.md`. Physics derivations:
-`docs/PHYSICS.md`.
+`docs/PHYSICS.md`. Public summary of the evidence base: `pinkrobotics.ca/research`.
 
 **Load-bearing sources:** Jenett et al. 2019 (NASA NTRS, redistributable — verified by hash against
 the NTRS original); Akhmeteli & Gavrilin 2021 (CC BY); NOAA/NASA/USAF *U.S. Standard Atmosphere
