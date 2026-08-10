@@ -105,6 +105,8 @@ operational ranges the binding constraint is transit distance only because trans
 scales with distance. That has a commercial consequence: the value of the concept collapses toward
 the value of a big pump if the fire is not near water.
 
+<!--tex:fig charts/render-release.png | Mid-release, rendered from the model. Ten thousand tonnes leaves along the length of the keel in one pass; the hull rises off the line as it goes, which is why the escape climb costs no propulsion.-->
+
 ### 2.3 Throughput, if the vehicle exists
 
 | | P-100 | P-1000 | P-10000 |

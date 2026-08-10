@@ -151,6 +151,8 @@ The two larger classes cannot reach their own water source under power. This was
 moving the force balance from the ceiling — where it had always been struck, and where it closed —
 to the place where the descent actually ends.
 
+<!--tex:fig charts/render-anchor.png | The vehicle at the source, rendered from the same model: six pump pods on hoses to the surface, and the anchor cable running down to a bag in the water with its contact rings. The bag is to scale. The wash blows upward because the rotors are pushing the hull down against its own buoyancy.-->
+
 <!--tex:fig charts/descent.pdf | What has to be held down at the water, and what holds it. The bar is the job; the tick is how far the rotors reach unaided. | 0.95-->
 
 ### 6.2 Three ways out, costed

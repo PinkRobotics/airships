@@ -81,6 +81,8 @@ line is 12,400 tonnes<!--f:P10000.descent.anchorT--> of downward force**, bought
 metres of lift it takes to break the surface — then tipped back where it came from.
 
 
+<!--tex:fig charts/render-anchor.png | The mechanism, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag sitting in the water. The bag is to scale — 12,400 tonnes is 28.7 m across beside an 876 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows up.-->
+
 It costs 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> and removes 34.5 MWh of rotor work.
 **Fifty-eight to one.** Rotor power goes as thrust to the 1.5, so load moved onto the lake comes
 off faster than linearly — which is why the bag does the *whole* descent rather than covering the
@@ -131,10 +133,7 @@ be right in private.
 
 <!--tex:headline WHERE THIS GOES | A vehicle that moves ten thousand tonnes of water to wherever it is needed, for four and a half kilowatt-hours a tonne, is not only a firefighting machine --- it is water logistics at a scale that does not currently exist. Fire is where it starts because that is where the need is loudest and the round trip is shortest.-->
 
-**Repository** github.com/pinkrobotics/airships<br>**Live model** pinkrobotics.ca/airships<br>**The evidence, in public** pinkrobotics.ca/research<br>**The defect list** `docs/OPEN-QUESTIONS.md`<br>**The sources** `research/sources.json` — 73 of them, 12 with written notes, 9 that contradict us
+**Live model** pinkrobotics.ca/airships<br>**The evidence** pinkrobotics.ca/research<br>**Repository, defect list and 73 catalogued sources** github.com/pinkrobotics/airships
 
----
-
-*Figures marked in this document are generated from the model at defaults — balanced mode,
-15 km<!--f:worked.oneWayKm--> one way — and verified against it automatically. Where a number here
-disagrees with the model, the build fails.*
+*Figures here are generated from the model at defaults — balanced mode,
+15 km<!--f:worked.oneWayKm--> one way — and checked against it on every build.*

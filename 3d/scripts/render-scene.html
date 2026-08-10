@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>scene render</title>
+<meta name="robots" content="noindex,nofollow">
+<style>html,body{margin:0;background:#0a0a0c}#stage{position:relative}</style>
+</head><body><div id="stage"></div>
+<script type="module">
+/* Render one scene to a PNG at an exact size, for the renders used on the site and in the
+ * reports. Driven entirely by the query string so a build script can ask for a shot without
+ * touching this file:
+ *
+ *   ?class=P10000&clip=mission_cycle&t=0.22&preset=mission&w=2200&h=1240&labels=1
+ *
+ * The lab could be screenshotted instead, but that captures its chrome and its layout, and a
+ * figure whose size depends on a panel width is a figure that changes when the panel does.
+ */
+import { createViewer, resolveClip, resolveClass, PRESETS, goToPreset, injectStyles }
+  from '../index.js?v=77459a4c';
+
+const Q = new URLSearchParams(location.search);
+const num = (k, d) => (Q.has(k) ? Number(Q.get(k)) : d);
+const W = num('w', 1800), H = num('h', 1000);
+const stage = document.getElementById('stage');
+stage.style.width = W + 'px';
+stage.style.height = H + 'px';
+injectStyles();
+
+const classId = Q.get('class') || 'P10000';
+const cls = resolveClass(classId);
+const clip = resolveClip(Q.get('clip') || 'mission_cycle', num('t', 0.22), cls, {});
+
+const viewer = createViewer(stage, {
+  classId,
+  viewMode: Q.get('mode') || 'exterior',
+  quality: Q.get('quality') || 'high',
+  visualState: clip ? clip.state : undefined,
+  hoseDepthM: cls.hoseLengthM,
+  interactive: false,
+  reducedMotion: true,
+  showLabels: Q.get('labels') === '1',
+  showForces: Q.get('forces') === '1',
+  showScale: Q.get('scale') === '1',
+});
+window.viewer = viewer;
+
+const preset = Q.get('preset');
+if (preset && PRESETS[preset] && viewer.camera) goToPreset(viewer.camera, PRESETS[preset], cls);
+if (Q.has('az') && viewer.camera) viewer.camera.azimuth = num('az', 0);
+if (Q.has('el') && viewer.camera) viewer.camera.elevation = num('el', 0);
+if (Q.has('dist') && viewer.camera) viewer.camera.distance *= num('dist', 1);
+
+// Let the animation settle so the hose has paid out and the bag is where the clip says.
+let t = 0;
+const settle = num('settle', 4.0);
+while (t < settle) { viewer.tick(1 / 30); t += 1 / 30; }
+window.__ready = true;
+</script></body></html>

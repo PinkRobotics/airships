@@ -51,17 +51,27 @@ TMP = tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None,
 LOG = pathlib.Path(TMP.name) / "chromium.log"
 _log = LOG.open("w")
 
+# SOFTWARE BY DEFAULT, HARDWARE ON REQUEST. swiftshader is deterministic, needs no display
+# server and is the right thing for a probe that only reads numbers out of a page. It is also
+# software: a full-quality WebGL render of the vehicle through it takes minutes and comes out
+# without multisampling. Set A3D_GPU=1 for the ANGLE/Vulkan path, which on this machine gives
+# a real WebGL 2 context. Anything that captures an image should ask for it; nothing that
+# reads a number should.
+GPU = os.environ.get("A3D_GPU") == "1"
+GL_FLAGS = (["--use-gl=angle", "--use-angle=vulkan", "--enable-gpu"] if GPU
+            else ["--disable-gpu", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"])
+WIN = os.environ.get("A3D_WINDOW", "1600,1000")
+
 proc = subprocess.Popen([
-    "chromium", "--headless=new", "--disable-gpu", "--hide-scrollbars",
-    *chrome_flags(),
+    "chromium", "--headless=new", "--hide-scrollbars",
+    *chrome_flags(), *GL_FLAGS,
     f"--remote-debugging-port={PORT}", "--remote-allow-origins=*",
     # A profile of its own, in a directory we know is writable. Without this the browser
     # takes the default profile, which a second headless run cannot share and a confined
     # (snap/flatpak) install may not be able to write at all — both of which present as a
     # browser that starts and then never answers on the debug port.
     f"--user-data-dir={TMP.name}/profile",
-    "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
-    "--window-size=1600,1000", "about:blank",
+    f"--window-size={WIN}", "about:blank",
 # Its own session, so the browser and every process it forks can be killed as one group.
 # Killing the parent alone leaves the zygote and renderers running.
 ], stdout=subprocess.DEVNULL, stderr=_log, start_new_session=True)
