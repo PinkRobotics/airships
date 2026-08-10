@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=4b290e1e';
-import { CFG, DEFAULTS, PHASES, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=4b290e1e';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=4b290e1e';
-import { renderDrawer } from './cockpit/panels.js?v=4b290e1e';
-import { renderStats, renderTable } from './cockpit/tables.js?v=4b290e1e';
-import { $, esc } from './dom.js?v=4b290e1e';
-import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=4b290e1e';
-import { rebuildMissions, replanAll } from './fleet.js?v=4b290e1e';
-import { frame } from './loop.js?v=4b290e1e';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=4b290e1e';
-import { resize } from './map/projection.js?v=4b290e1e';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=4b290e1e';
-import { S } from './store.js?v=4b290e1e';
-import { DIALS, renderWorked } from './worked.js?v=4b290e1e';
+import * as SIM from '../sim/index.js?v=747e156a';
+import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=747e156a';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=747e156a';
+import { renderDrawer } from './cockpit/panels.js?v=747e156a';
+import { renderStats, renderTable } from './cockpit/tables.js?v=747e156a';
+import { $, esc } from './dom.js?v=747e156a';
+import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=747e156a';
+import { rebuildMissions, replanAll } from './fleet.js?v=747e156a';
+import { frame } from './loop.js?v=747e156a';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=747e156a';
+import { resize } from './map/projection.js?v=747e156a';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=747e156a';
+import { S } from './store.js?v=747e156a';
+import { DIALS, renderWorked } from './worked.js?v=747e156a';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {
@@ -316,16 +316,29 @@ export async function boot() {
   for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
   renderStats(); renderTable(); renderWorked(); renderStatus();
   fitFires();
-  // Open on the largest fire the fleet is actually working, so the cockpit starts occupied
-  // rather than empty. A rule, not a named incident: every fire in the feed is out within
-  // weeks, and a hardcoded fire number would leave the page opening on nothing.
+  // Open on a REFERENCE-CLASS ship, working the largest fire that class has been given.
+  //
+  // Two rules, and the order matters. The cockpit should start occupied rather than empty, so
+  // it opens on a fire the fleet is actually working — a rule and not a named incident, because
+  // every fire in the feed is out within weeks and a hardcoded fire number would leave the page
+  // opening on nothing.
+  //
+  // But "largest fire" alone always opened on the P-10000: the allocator runs the biggest hull
+  // first and gives it the highest-priority fire. That is the class this project explicitly does
+  // not propose building, and it was the first thing every visitor saw. The P-100 is the
+  // reference ship and it is what the page should open on. If no P-100 is flying — the feed is
+  // quiet, or every one of them is idle — fall back to any ship rather than to an empty cockpit.
+  //
   // Ties break on fire number so the same feed always selects the same ship.
-  let pick = null;
+  const larger = (m, best) => !best || m.fire.sizeHa > best.fire.sizeHa ||
+    (m.fire.sizeHa === best.fire.sizeHa && m.fire.id < best.fire.id);
+  let pick = null, anyShip = null;
   for (const m of S.missions) {
     if (m.idle) continue;
-    if (!pick || m.fire.sizeHa > pick.fire.sizeHa ||
-        (m.fire.sizeHa === pick.fire.sizeHa && m.fire.id < pick.fire.id)) pick = m;
+    if (larger(m, anyShip)) anyShip = m;
+    if (m.cls.id === REFERENCE_CLASS && larger(m, pick)) pick = m;
   }
+  pick = pick || anyShip;
   if (pick) { S.sel = { type: "ship", m: pick }; S.follow = true; renderDrawer(); focusMission(pick); }
   fetchWind(); fetchHeat();
   S.ready = true;   // resize() may now repaint synchronously

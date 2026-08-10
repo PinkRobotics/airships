@@ -246,6 +246,16 @@ export const VZ_MAX = 6;
  * nobody here has analysed, the bag has to survive being filled and dumped every cycle, and
  * the winch is assumed to run at 5 m/s in both directions. See docs/OPEN-QUESTIONS.md.
  */
+/* THE REFERENCE VEHICLE, named once so nothing has to guess.
+ *
+ * The P-100 is the class the documents work through, the class the monitor opens on, and the
+ * only one of the three smaller than something that has already flown — 190 m against the
+ * Hindenburg's 245. The other two exist because energy per tonne falls with size and because we
+ * wanted to know what stops you; the answer is the descent, and it is in docs/PHYSICS.md §7.
+ * Neither is a proposal, and a page that opens on the largest of them says otherwise before a
+ * word is read. */
+export const REFERENCE_CLASS = 'P100';
+
 export const CLASSES = {  P100: {
     id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 190, diaM: 47,
     cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,

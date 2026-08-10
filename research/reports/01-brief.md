@@ -71,22 +71,19 @@ something anyone is proposing to build first.
 
 A conventional airship floats because it is full of helium. This one floats because it is full of
 *nothing* — a rigid shell holding a vacuum, about 14% more buoyant than helium, and impossible to
-embargo, to corner, or to leak.
-
-The idea is 356 years old. Francesco Lana de Terzi published it in 1670 and was right about
-everything except the metal: thin the shell enough to float and the atmosphere crushes it. That
-was never fixable by waiting for better materials. Akhmeteli and Gavrilin put a number on it in
-2021 — floating and surviving together demand a stiffness-to-density ratio **no solid substance
-possesses**, diamond included.
+embargo, to corner, or to leak. Francesco Lana de Terzi published the idea in 1670 and was right
+about everything except the metal: thin the shell enough to float and the atmosphere crushes it.
+Akhmeteli and Gavrilin put a number on that in 2021 — floating and surviving together demand a
+stiffness-to-density ratio **no solid substance possesses**, diamond included.
 
 What changed is not a better material but a better *arrangement* of ordinary ones. Discrete
-lattice structures — ultralight frameworks assembled from many identical mass-produced parts —
-hold their stiffness as they lose density, where foams and honeycombs do not. Jenett, Gregg and
-Cheung, at NASA Ames and MIT, applied that to the vacuum balloon and found the binding constraint
-moves from **buckling to strength**. Buckling is a geometry failure: sudden, total, unfixable by a
-better material. Strength is a number you can look up, test on a bench, and buy more of. The
-question stopped being *is this impossible* and became *how light can we build it* — and that is
-an engineering question, which is the kind that gets answered.
+lattice structures hold their stiffness as they lose density, where foams and honeycombs do not,
+and applying that to the vacuum balloon moves the binding constraint **from buckling to strength**
+(Jenett, Gregg and Cheung, NASA Ames and MIT). Buckling is a geometry failure: sudden, total,
+unfixable by a better material. Strength is a number you can look up, test on a bench, and buy
+more of. The question stopped being *is this impossible* and became *how light can we build it* —
+which is an engineering question, and those get answered.
+
 
 ## What stops you getting bigger: borrowing the lake
 
@@ -123,10 +120,9 @@ possible at all: 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> against 34.5 M
 **Fifty-eight to one.** Rotors get disproportionately expensive as you load them, so every tonne
 handed to the lake is worth more than a tonne taken off the rotors. That is why the bag does the
 *whole* descent rather than just covering the shortfall that revealed it, and why every class
-carries one — including the class whose rotors could manage without. The alternatives were costed in the open and rejected: the same ballast as liquid
-nitrogen is 475 MWh, and filling from high up a 1,350 m hose is 44 MWh at two-metre bore and
-140 bar. When one mechanism is that much cheaper than every alternative, that is usually the
-design telling you something.
+carries one — including the class whose rotors could manage without. The alternatives were costed and rejected in the open: the same ballast as liquid nitrogen is
+475 MWh, and filling from high up a 1,350 m hose is 44 MWh. When one mechanism is three orders of
+magnitude cheaper than another, that is usually the design telling you something.
 
 ## What would have to be true
 
@@ -138,12 +134,10 @@ evidence *against*. Four are load-bearing:
   whole allowance, and at the battery density NASA has flown, the battery alone is 34% over.
   **This is what the concept lives or dies on.** It looks like a manufacturing question rather
   than a physics one — which is the good news — and it is unanswered.
-- **A drop that arrives.** The US Forest Service says a release 1,000 ft above the canopy "would
-  completely dissipate". Ours release from 1,476 ft, raised for hull clearance and never costed
-  against delivery.
-- **Ground crews.** The Forest Service measures whether fire behaviour changed, not tonnes, and
-  finds success turns on crews being engaged with the drop. Tonnage is our metric; it may be the
-  wrong one.
+- **A drop that arrives, and the right metric.** The US Forest Service says a release 1,000 ft
+  above the canopy "would completely dissipate"; ours release from 1,476 ft. The same agency
+  measures whether fire behaviour changed, not tonnes delivered, and finds success turns on ground
+  crews being engaged with the drop. Tonnage is our metric and it may be the wrong one.
 - **An energy chain.** Every class runs a deficit every cycle. A P-100 has
   10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
   fleet is a battery being spent, and the chain that recharges it is part of the design.
@@ -155,9 +149,8 @@ Seventeen such issues are tracked at `docs/OPEN-QUESTIONS.md`, fifteen still ope
 
 Because a concept nobody can check is not a concept, it is a picture. Every number here is
 produced by code you can run; every claim cites a figure the model generates, and the build fails
-if the prose and the model disagree. Two tests fail on purpose, so a known defect cannot quietly
-lose its excuse. We catalogue the sources that contradict us beside the ones that support us —
-nine against, at last count.
+if the prose and the model disagree. We catalogue the nine sources that contradict us beside the
+ones that support us.
 
 One finding from that discipline is worth more than any single number. When we corrected the solar
 skin, the vehicle's power supply changed by a factor of 4.4 and **not one published figure moved**,

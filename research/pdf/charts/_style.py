@@ -27,10 +27,17 @@ INK = '#16161A'
 MUTED = '#55555F'
 FAINT = '#8A8A94'
 RULE = '#D8D8DE'
-ACCENT = '#C4185C'
-ACCENT_L = '#F0A9C4'
-COOL = '#2C5B87'
-COOL_L = '#A8C2D9'
+# CATEGORICAL PAIRS MUST DIFFER IN LIGHTNESS, not only in hue. ACCENT and COOL sat at almost
+# the same luminance, so descent.pdf collapsed to one solid dark block in greyscale and the
+# whole point of the figure went with it. People print these.
+#
+# The pairing rule: when two series sit side by side, take one from the dark end and one from
+# the light end. Saturated accent is for single-series emphasis, where nothing has to be told
+# apart from it.
+ACCENT = '#C4185C'        # L* ~40
+ACCENT_L = '#F2B8CE'      # L* ~80
+COOL = '#2C5B87'          # L* ~38
+COOL_L = '#BFD4E6'        # L* ~83
 WARN = '#D9A441'
 GREEN = '#3F7D52'
 PALE = '#F4F4F6'

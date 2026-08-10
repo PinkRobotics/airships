@@ -13,7 +13,7 @@ rows = sorted(S.items(), key=lambda kv: max(abs(kv[1]['lo']), abs(kv[1]['hi'])))
 fig, ax = plt.subplots(figsize=(6.4, 3.4))
 for i, (name, v) in enumerate(rows):
     lo, hi = v['lo'], v['hi']
-    ax.barh(i, lo, height=0.62, color=COOL, edgecolor='none')
+    ax.barh(i, lo, height=0.62, color=COOL_L, edgecolor='none')
     ax.barh(i, hi, height=0.62, color=ACCENT, edgecolor='none')
     if max(abs(lo), abs(hi)) < 0.05:
         # A measured zero is a finding — four of these constants move the headline by nothing
@@ -23,7 +23,8 @@ for i, (name, v) in enumerate(rows):
                 fontstyle='italic')
     for val in (lo, hi):
         if abs(val) >= 0.35:
-            ax.text(val + (0.55 if val > 0 else -0.55), i, f'{val:+.1f}%', va='center',
+            ax.text(val + (0.55 if val > 0 else -0.55), i,
+                    f'{val:+.1f}%'.replace('-', '\u2212'), va='center',
                     ha='left' if val > 0 else 'right', fontsize=7.2, color=MUTED)
 ax.axvline(0, color=MUTED, lw=0.9)
 ax.set_yticks(range(len(rows)))
@@ -31,7 +32,7 @@ ax.set_yticklabels([f'$\\mathtt{{{n}}}$'.replace('_', r'\_') for n, _ in rows], 
 ax.set_xlabel('change in energy per cycle when the constant moves $\\pm$20%')
 ax.set_xlim(-24, 34)
 bare(ax, left=False)
-handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (COOL, ACCENT)]
+handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (COOL_L, ACCENT)]
 ax.legend(handles, ['constant $-$20%', 'constant $+$20%'], loc='lower right', fontsize=7.6,
           handlelength=0.9, handleheight=0.9)
 save(fig, 'sensitivity')
