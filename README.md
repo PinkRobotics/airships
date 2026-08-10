@@ -212,6 +212,19 @@ data/            terrain raster, water extract, roads, BC outline, and the pinne
 pipeline/        the Python that generates data/: live.py water.py terrain.py figures.py
 tools/           headless JS eval, golden diff, the boundary checker, screenshots
 tests/golden/    the dump scripts and the baselines they are compared against
+research/        the evidence store: 73 catalogued sources, the notes, and three reports
+research/pdf/    the LaTeX build that turns those reports into PDFs — one source, two outputs
+```
+
+Two of those deserve a sentence. `research/` holds the sources this project rests on *and* the
+nine that contradict it, each with a written note saying what it takes away. `research/pdf/`
+builds the reports into print without duplicating a word of them: `tools/md2tex.py` converts the
+same Markdown, so a PDF cannot disagree with the report it came from.
+
+```
+make check      everything CI checks: boundaries, stamps, figures, goldens, tests, interactions
+make pdf        the three report PDFs, into research/pdf/out/
+make factsheet  regenerate research/figures.json from the live model
 ```
 
 The line about `sim/` is a checked claim rather than an aspiration. `make lint` fails if anything

@@ -31,7 +31,7 @@ env:
 
 jobs:
   lint:
-    name: import boundaries
+    name: boundaries and published figures
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
@@ -40,6 +40,14 @@ jobs:
           python-version: '3.12'
       - name: sim/ and 3d/ depend on nothing outside themselves
         run: python3 tools/check_boundaries.py
+      # Both of these are pure Python against committed files — no browser, no node, a second
+      # each. They were only running locally, which meant the one gate this project actually
+      # advertises (a report may not quote a number the model does not produce) was not enforced
+      # on the remote. A stale report is the artefact most likely to be forwarded to someone.
+      - name: every figure cited in a report matches the model
+        run: python3 tools/check_figures.py
+      - name: the reports still convert to LaTeX
+        run: python3 tools/md2tex.py
 
   node-tests:
     name: unit tests (node)

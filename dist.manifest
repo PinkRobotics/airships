@@ -50,6 +50,10 @@ excluded  .editorconfig       —
 PARTIAL   3d/tests            test harness
 PARTIAL   3d/scripts          build and probe scripts
 PARTIAL   3d/assets/raster    regenerable exports
+PARTIAL   3d/assets/renders   GPU captures of the vehicle. Nothing in the served tree imports
+                              them: they are the source for the website's own media/ and for the
+                              report PDFs, and both take a resized copy. Serving the originals
+                              would put a megabyte of unreferenced PNG on the CDN.
 PARTIAL   data/live           written on the server every ten minutes by pipeline/live.py;
                               publishing the repository's copy would push stale fire data
                               over a fresh mirror
