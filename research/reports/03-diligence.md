@@ -41,10 +41,17 @@ only way to build a firefighting aircraft that never has to land. Helium is expe
 vacuum is free and does not, if the shell can be made light enough — which is what discrete-lattice
 construction may finally allow, and what §4.1 says has not been shown yet.
 
-**What the model says.** Three classes, from 100 t<!--f:P100.spec.payloadT--> to
-10,000 t<!--f:P10000.spec.payloadT--> of water. The largest is 876 m<!--f:P10000.spec.lenM--> long,
-flies a 45.5-minute<!--f:P10000.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way,
-and delivers 13,183 t/h<!--f:P10000.cycle.tph--> at 4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->.
+**What the model says.** The reference vehicle is the **P-100**: 100 t<!--f:P100.spec.payloadT-->
+of water, 190 m<!--f:P100.spec.lenM--> long — smaller than the Hindenburg — flying a
+34.2-minute<!--f:P100.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way and
+delivering 175 t/h<!--f:P100.cycle.tph--> indefinitely, at
+12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
+against roughly 560 for a very large airtanker flying eight sorties, and the airtanker stops at
+dusk.
+
+Two larger classes are modelled — 1,000 t and 10,000 t — because energy per tonne *falls* with
+size. **They are not a proposal and no part of this report assumes one gets built.** They are how
+we found where the arithmetic stops working, which is §3.
 
 **What the model does not say.** That the vehicle can be built. The model takes hull mass as an
 assumption and computes forward from it; §4.1 is about that assumption and it does not survive
@@ -54,11 +61,15 @@ contact with the sources.
 that emerged mid-project, it is 58× cheaper than the rotor work it replaces, and it is the only
 part of this concept that is not a scaling exercise on prior art.
 
-**Why the scale is the point.** Energy per tonne *falls* as the ships get bigger —
-12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the smallest against
-4.59<!--f:P10000.cycle.kwhPerTonne--> on the largest — because buoyancy scales with volume and drag
-with area. The square-cube law works against nearly every other vehicle and for this one. It is
-the reason to be interested in the largest class rather than to start with the smallest.
+**Why scale is interesting, and why it is not the plan.** Energy per tonne falls as the ships get
+bigger — 12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the reference ship against
+4.59<!--f:P10000.cycle.kwhPerTonne--> at ten thousand tonnes — because buoyancy scales with volume
+and drag with area. The square-cube law works against nearly every other vehicle and for this one.
+
+That is an argument for the concept having room to grow, not an argument for starting large.
+Everything that makes a reader wince in this document is a property of the largest class: a 876 m
+hull, a 1,400 MW bus, a suspended bag 1,265 times the largest ever built. The reference ship is
+190 m, 30 MW, and a bag thirteen times a Bambi bucket.
 
 **What would make this investable.** Not a better simulation. A gram-level mass breakdown of a
 lattice shell at scale, from someone who builds them. Everything else is downstream of that number
@@ -91,20 +102,20 @@ over people.
 
 ### 2.2 The cycle is timed, not asserted
 
-| Phase | P-10000, min | What happens |
+| Phase | P-100, min | What happens |
 |---|---:|---|
-| Source approach | 5.00<!--f:P10000.cycle.durations.SOURCE_APPROACH--> | dead stop, lower anchor and pumps |
-| Fill | 11.11<!--f:P10000.cycle.durations.WATER_FILL--> | 15 m³/s<!--f:P10000.spec.fillM3s-->, no yaw |
-| Outbound | 8.14<!--f:P10000.cycle.durations.OUTBOUND_TRANSIT--> | 130 km/h<!--f:P10000.spec.cruiseKph--> |
-| Release | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one pass |
-| Escape | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | buoyancy only, no propulsion |
-| Return | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | |
-| **Total** | **45.51<!--f:P10000.cycle.cycleMin-->** | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
+| Source approach | 2.00<!--f:P100.cycle.durations.SOURCE_APPROACH--> | dead stop, lower anchor and pumps |
+| Fill | 3.33<!--f:P100.cycle.durations.WATER_FILL--> | 0.5 m³/s<!--f:P100.spec.fillM3s-->, no yaw |
+| Outbound | 11.76<!--f:P100.cycle.durations.OUTBOUND_TRANSIT--> | 90 km/h<!--f:P100.spec.cruiseKph--> |
+| Release | 3.33<!--f:P100.cycle.durations.WATER_RELEASE--> | one pass |
+| Escape | 2.00<!--f:P100.cycle.durations.BUOYANCY_ESCAPE--> | buoyancy only, no propulsion |
+| Return | 11.76<!--f:P100.cycle.durations.RETURN_TRANSIT--> | |
+| **Total** | **34.20<!--f:P100.cycle.cycleMin-->** | 100 t<!--f:P100.cycle.deliveredT--> delivered |
 
-Water handling is 22.2 of 45.5 minutes. **The vehicle is a pump with a hull attached**, and at
-operational ranges the binding constraint is transit distance only because transit is the term that
-scales with distance. That has a commercial consequence: the value of the concept collapses toward
-the value of a big pump if the fire is not near water.
+On the reference ship transit is 23.5 of 34.2 minutes and is the binding constraint, because it is
+the only term that grows with distance. That has a commercial consequence, and it is the one a
+buyer should press on: **the value of the concept collapses toward the value of a big pump if the
+fire is not near water.** How often that is true is the open question §8 now lists as item 13.
 
 <!--tex:fig charts/render-release.png | Mid-release, rendered from the model. Ten thousand tonnes leaves along the length of the keel in one pass; the hull rises off the line as it goes, which is why the escape climb costs no propulsion.-->
 
@@ -116,9 +127,11 @@ the value of a big pump if the fire is not near water.
 | Energy per tonne | 12.53 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.40 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.59 kWh<!--f:P10000.cycle.kwhPerTonne--> |
 | Energy per cycle | 1.253 MWh<!--f:P100.cycle.eCycleMWh--> | 7.399 MWh<!--f:P1000.cycle.eCycleMWh--> | 45.869 MWh<!--f:P10000.cycle.eCycleMWh--> |
 
-A 747 supertanker drops about 70 t and then flies to a base. Scale is the entire argument, and the
-square-cube law means only the largest class is interesting: it is 2.3× cheaper per tonne than the
-smallest.
+A 747 supertanker drops about 70 t and then flies to a base. **The comparison that matters is per
+day, not per drop**: twelve hours of a P-100 is about 2,100 t against roughly 560 t for eight
+airtanker sorties, and the airship works at night. The square-cube law then says a larger hull
+delivers a tonne for less — 2.7× less at the top of the table — which is why the concept has room
+to grow and not a reason to start there.
 
 ---
 
@@ -185,9 +198,15 @@ whether it can exist.
 ### 4.1 The mass budget fails against four independent sources — SEVERE
 
 The model's foundational assumption is `dryT = payloadT`: the ship's entire dry mass — shell, skin,
-joints, rotors, tanks, batteries, pumps, cable — equals the water it carries. For the P-10000 that
-is 10,000 t inside 22,000,000 m³<!--f:P10000.spec.dispM3-->, a hull-average density of
-**0.455 kg/m³**.
+joints, rotors, tanks, batteries, pumps, cable — equals the water it carries. That is a
+hull-average density of **0.455 kg/m³**, and it is the same number on every class: 100 t inside
+220,000 m³<!--f:P100.spec.dispM3--> and 10,000 t inside
+22,000,000<!--f:P10000.spec.dispM3--> both come out there, because displacement is sized per tonne
+of payload.
+
+**So choosing the smaller reference ship does not make this go away.** Every other objection in
+this report is milder on a P-100 — the bag, the bus, the grid connection, the hull length. This
+one is identical, and it is the one that decides whether any of them get built.
 
 | Source | What it gives | Against our 0.455 kg/m³ |
 |---|---|---|
@@ -310,20 +329,20 @@ not obviously keep the never-lands property.
 
 ### 5.1 The ledger
 
-P-10000, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
+P-100, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 
 | Term | MWh |
 |---|---:|
-| Return transit (drag + cryogenic plant) | 14.705<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
-| Pumping | 10.900<!--f:P10000.energy.ledgerMWh.WATER_FILL--> |
-| Hotel + manoeuvring | 10.689<!--f:P10000.energy.ledgerMWh.other--> |
-| Outbound transit | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
-| Letdown | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> |
-| Anchor | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> |
-| Nitrogen recovery (credit) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
-| **Total** | **45.869<!--f:P10000.cycle.eCycleMWh-->** |
+| Return transit (drag + cryogenic plant) | 0.938<!--f:P100.energy.ledgerMWh.RETURN_TRANSIT--> |
+| Outbound transit | 0.209<!--f:P100.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
+| Hotel + manoeuvring | 0.143<!--f:P100.energy.ledgerMWh.other--> |
+| Pumping | 0.109<!--f:P100.energy.ledgerMWh.WATER_FILL--> |
+| Letdown | 0.012<!--f:P100.energy.ledgerMWh.letdown--> |
+| Anchor | 0.006<!--f:P100.energy.ledgerMWh.anchor--> |
+| Nitrogen recovery (credit) | −0.165<!--f:P100.energy.ledgerMWh.recovery--> |
+| **Total** | **1.253<!--f:P100.cycle.eCycleMWh-->** |
 
-<!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model. Seventy-six per cent of it is transit and pumping; the mechanism that closes the descent costs 1.3%.-->
+<!--tex:fig charts/ledger.pdf | The reference ship's cycle ledger, printed from the model. Three quarters of it is the return leg; the mechanism that closes the descent costs half a per cent.-->
 
 ### 5.2 The fleet is a battery being spent
 
@@ -349,29 +368,32 @@ energy figures and the published BC Hydro Transmission Service Rate Schedule 183
 1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). **All currency is Canadian**, because the
 tariff is. Assumptions stated inline.
 
-- **Continuous draw per P-10000 in sustained operation:** 45.869 MWh<!--f:P10000.cycle.eCycleMWh-->
-  per 45.51-minute<!--f:P10000.cycle.cycleMin--> cycle = **60.5 MW average**. Net of the corrected
-  solar (5.40 MW<!--f:P10000.energy.solarMW-->), **55.1 MW imported**. That is 9% worse than this
-  report said before the 2026-08-09 corrections, and the earlier figure was the optimistic one.
-- **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.23/t** for the P-10000
-  (4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), **$0.62/t** for the P-100
-  (12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->). Per 10,000 t drop: **~$2,250**.
-- **A ten-ship P-10000 fleet** in continuous operation imports roughly **550 MW**. At Schedule 1830
-  that is on the order of **CA$26M per month** — about $20M energy and $7M demand — assuming unity
-  power factor and continuous operation. Given to one significant digit because the duty-cycle
-  assumption dominates it.
+- **Continuous draw, reference ship:** 1.253 MWh<!--f:P100.cycle.eCycleMWh--> per
+  34.2-minute<!--f:P100.cycle.cycleMin--> cycle = **2.20 MW average**, or **1.93 MW imported** net
+  of the corrected solar (0.27 MW<!--f:P100.energy.solarMW-->).
+- **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.62/t**
+  (12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->). A full 100-tonne drop costs about **$62** of
+  electricity.
+- **A ten-ship P-100 fleet** — 1,750 t/h between them, day and night — imports about **19 MW**.
+  At Schedule 1830 that is on the order of **CA$0.9M per month**. Forty ships, delivering
+  7,000 t/h, would import about 77 MW.
 
-**The governing comparison:** BC Hydro's total generating capacity is **13.4 GW** (Site C fully
-operational). A ten-ship fleet's sustained import is **4.1% of provincial capacity**,
-continuously, during fire season — which is also peak demand season. The instantaneous figure
-looks worse still — a single P-10000's battery is rated at
-1,400 MW<!--f:P10000.spec.battMW--> of discharge, over 10% of the province — but that rating is
-one of the reverse-engineered constants §7 flags, it answers a constraint the model has since
-superseded, and nobody should plan against it.
+**And this is where the choice of reference ship changes the answer.** BC Hydro's total generating
+capacity is 13.4 GW. A ten-ship P-100 fleet is **0.14% of it** — a large industrial connection,
+the kind a sawmill has, not a generation-planning problem.
 
-That is not a tariff problem, it is an interconnection and generation-planning problem, and it has
-a lead time measured in years. BC Hydro's 2025 capacity call drew 106 submissions totalling 19 GW,
-which indicates the queue this would join.
+Run the same arithmetic at the limit and it becomes one. A single P-10000 draws
+60.5 MW continuously and imports 55.1 net of solar; ten of them is **551 MW, 4.1% of provincial
+capacity**, continuously, through a fire season that is also peak demand season — on the order of
+**CA$26M a month**. The instantaneous figure looks worse still, since that class's battery is rated
+at 1,400 MW<!--f:P10000.spec.battMW--> of discharge, but that rating is one of the
+reverse-engineered constants §7 flags and nobody should plan against it.
+
+So: **the grid is not an obstacle to this concept. It is an obstacle to the largest version of
+it**, and it arrives long before anyone is asked to believe in an 876-metre hull. A programme that
+starts at the reference scale can be connected to the existing grid today; one that starts at the
+top cannot, and would carry an interconnection queue measured in years. BC Hydro's 2025 capacity
+call drew 106 submissions totalling 19 GW, which indicates what that queue looks like.
 
 **Not costed anywhere, and material:** capital cost of a hull (no basis exists), the megawatt-scale
 charging infrastructure at each operating base, battery replacement cycles, and the cost of the

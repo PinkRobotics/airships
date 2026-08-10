@@ -10,9 +10,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from _style import *          # noqa
 import matplotlib.pyplot as plt
 
-CLS = 'P100'
-NAME = 'P-100'
-OUT = 'ledger'
+CLS = 'P10000'
+NAME = 'P-10000'
+OUT = 'ledger-limit'
 
 F = figures()['classes'][CLS]
 L = F['energy']['ledgerMWh']

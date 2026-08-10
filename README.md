@@ -60,7 +60,13 @@ that depends on the live fire list rather than on physics.
 
 On the shipped defaults, balanced mode, 15 km one way, that machinery currently says:
 
-| | P-100 | P-1000 | P-10000 |
+**The P-100 is the reference vehicle** — the smallest of the three, 190 m long, which is smaller
+than the Hindenburg. The other two are the same arithmetic extrapolated, kept because energy per
+tonne falls with size and because we wanted to know what stops you. It is the descent: a large
+enough hull cannot push itself back down into the dense air over a lake. Nobody is proposing to
+build a P-10000.
+
+| | **P-100** *(reference)* | P-1000 | P-10000 *(limit)* |
 |---|---|---|---|
 | Payload | 100 t | 1,000 t | 10,000 t |
 | Cycle | 34.2 min | 35.4 min | 45.5 min |
@@ -73,7 +79,11 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
 code rather than as a claim we stand behind. A drop is a single pass now — the ship flies one long
-release rather than three circuits — so `passes` is 1 in all 151 combinations of the golden grid.
+release rather than three circuits — so `passes` is 1 in every combination of the golden grid.
+
+175 t/h reads modestly beside a very large airtanker's seventy-tonne drop, and it is not the same
+quantity: the airtanker's number is one sortie, this one is every hour, through the night. A
+twelve-hour day is about 2,100 t against roughly 560 t for eight sorties.
 
 ## Deterministic replay
 

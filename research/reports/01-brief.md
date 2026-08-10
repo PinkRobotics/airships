@@ -29,26 +29,43 @@ where the fires and the lakes are usually within tens of kilometres of each othe
 
 <!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle that produces it. Nothing here lands: on every class the longest phases are moving water, not flying.-->
 
-| | P-100 | P-1000 | P-10000 |
-|---|---:|---:|---:|
-| Water per drop | 100 t<!--f:P100.spec.payloadT--> | 1,000 t<!--f:P1000.spec.payloadT--> | 10,000 t<!--f:P10000.spec.payloadT--> |
-| Length | 190 m<!--f:P100.spec.lenM--> | 404 m<!--f:P1000.spec.lenM--> | 876 m<!--f:P10000.spec.lenM--> |
-| Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> | 35.4 min<!--f:P1000.cycle.cycleMin--> | 45.5 min<!--f:P10000.cycle.cycleMin--> |
-| **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** | **1,697 t<!--f:P1000.cycle.tph-->** | **13,183 t<!--f:P10000.cycle.tph-->** |
-| Energy per tonne delivered | 12.5 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.4 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.6 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+**The reference ship is the smallest one.** The P-100 carries
+100 tonnes<!--f:P100.spec.payloadT--> of water, is 190 m<!--f:P100.spec.lenM--> long and
+47 m<!--f:P100.spec.diaM--> across — **smaller than the Hindenburg**, which flew in 1936 at 245 m.
+Everything below is that ship unless it says otherwise.
 
-Thirteen thousand tonnes an hour is thirteen million litres an hour, from one aircraft, without
-landing, through the night. **Nothing in that table has been built** — no hull, no rotor, no
-cable. It is what the model says a fleet would do, which is why the model is published and why
-the last third of this page is the four things that would have to be true. At industrial
-electricity prices, the energy in a full 10,000-tonne<!--f:P10000.spec.payloadT--> drop costs on
-the order of two thousand dollars.
-**It also gets cheaper as it gets bigger**: buoyancy scales with volume and drag with area, so the
-largest class delivers a tonne for 4.6 kWh<!--f:P10000.cycle.kwhPerTonne--> against the smallest
-class's 12.5<!--f:P100.cycle.kwhPerTonne-->. The square-cube law, which punishes almost every
-other kind of vehicle, is on this one's side.
+| P-100, the reference ship | |
+|---|---:|
+| Water per drop | 100 t<!--f:P100.spec.payloadT--> |
+| Length × diameter | 190<!--f:P100.spec.lenM--> × 47 m<!--f:P100.spec.diaM--> |
+| Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> |
+| **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** |
+| Energy per tonne delivered | 12.5 kWh<!--f:P100.cycle.kwhPerTonne--> |
 
-<!--tex:fig charts/scale.pdf | The three classes at true relative scale, against the two largest aircraft most readers can picture. The volume is the lift. | 0.92-->
+175 tonnes an hour sounds modest beside a very large airtanker's seventy-tonne drop. It is not the
+same quantity. **The airtanker's number is one drop; this one is every hour, indefinitely, through
+the night.** Over a twelve-hour operational day one P-100 puts down about 2,100 tonnes against
+roughly 560 for an airtanker flying eight sorties — and the airtanker then stops, while this does
+not. In energy terms a full drop costs about seventy dollars of electricity.
+
+**Nothing in that table has been built** — no hull, no rotor, no cable. It is what the model says,
+which is why the model is published and why the last third of this page is the four things that
+would have to be true.
+
+### And then the question of how much bigger
+
+Buoyancy scales with volume and drag with area, so a bigger ship is a *cheaper* ship per tonne
+delivered: 12.5 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
+7.4<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 4.6<!--f:P10000.cycle.kwhPerTonne--> on
+a 10,000-tonne one delivering 13,183 t/h<!--f:P10000.cycle.tph-->. The square-cube law, which
+punishes almost every other kind of vehicle, is on this one's side.
+
+So the interesting question is what stops you. We modelled it to find out, and **the answer is not
+the structure or the power — it is getting back down.** That is the next section, and it is why
+the largest class exists in this project at all: as the place the arithmetic breaks, not as
+something anyone is proposing to build first.
+
+<!--tex:fig charts/scale.pdf | True relative scale. \textbf{The reference ship is smaller than the Hindenburg} --- 190 m against 245 --- and the two larger classes are the same arithmetic extrapolated, not a plan. | 0.92-->
 
 ## Why it is possible now, and was not before
 
@@ -71,23 +88,38 @@ better material. Strength is a number you can look up, test on a bench, and buy 
 question stopped being *is this impossible* and became *how light can we build it* — and that is
 an engineering question, which is the kind that gets answered.
 
-## Borrowing the lake
+## What stops you getting bigger: borrowing the lake
 
-One part of this is not a scaling exercise, and it is our favourite thing in the project. A hull
-big enough to float when it is full of water is very hard to push *down* when it is empty
-— hardest of all at the bottom, over the lake, where the air is thickest. Our largest class has
-to hold down 13,723 t<!--f:P10000.descent.holdAtSourceT--> of surplus lift there and its rotors
-can manage 12,666<!--f:P10000.descent.rotorCapT-->. It cannot reach its own water under power.
+A hull big enough to float when it is full of water is very hard to push *down* when it is empty,
+and hardest of all at the bottom, over the lake, where the air is thickest. The P-100 manages: it
+has to hold down 136 t<!--f:P100.descent.holdAtSourceT--> of surplus lift at the water and its
+rotors can produce 267<!--f:P100.descent.rotorCapT-->, comfortably.
+
+**Scale it up and that margin closes, then inverts.** A 10,000-tonne hull has to hold down
+13,723 t<!--f:P10000.descent.holdAtSourceT--> and its rotors can manage
+12,666<!--f:P10000.descent.rotorCapT-->. It cannot reach its own water under power. Not because
+the structure fails or the power runs out — because the air near a lake is 16% denser than the air
+it was sized in, and buoyancy that guarantees the ship rises when loaded has to be overcome when
+it is empty. **That is the physics that stops the idea getting arbitrarily large**, and it arrived
+uninvited, out of a correction to something else.
 The answer is to borrow the lake. The ship lowers a cable with a collapsible bag, fills it at the
-surface, and winches it just clear: **12,400 tonnes<!--f:P10000.descent.anchorT--> hanging on a
-line is 12,400 tonnes<!--f:P10000.descent.anchorT--> of downward force**, and the whole price of
-it is the fifteen metres of lift needed to break the surface. When the ship has what it came for,
-the bag is tipped back into the lake it came from.
+surface, and winches it just clear: **water hanging on a line is downward force**, and the whole
+price of it is the fifteen metres of lift needed to break the surface. When the ship has what it
+came for, the bag is tipped back into the lake it came from.
+
+On the P-100 the bag is 125 tonnes<!--f:P100.descent.anchorT--> — **thirteen times** the largest
+helicopter bucket ever built, which is an engineering programme. On the 10,000-tonne hull it is
+12,400<!--f:P10000.descent.anchorT-->, which is **1,265 times** the same bucket, and that number is
+a fair measure of how far past the reference ship the limit case sits.
 
 
-<!--tex:fig charts/render-anchor.png | The mechanism, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag sitting in the water. The bag is to scale — 12,400 tonnes is 28.7 m across beside an 876 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows up.-->
+<!--tex:fig charts/render-anchor.png | The mechanism at the limit case, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag in the water. The bag is to scale --- 12,400 tonnes is 28.7 m across beside an 876 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows upward.-->
 
-It costs 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> and removes 34.5 MWh of rotor work.
+The P-100 does not need it — its descent closes on rotors alone with 1.97× headroom — and it
+carries one anyway, because a bucket is cheaper than thrust even when thrust would do: the bag
+costs 0.006 MWh<!--f:P100.energy.ledgerMWh.anchor--> a cycle and saves 29% of the cycle's energy.
+On the largest class it stops being an efficiency and becomes the thing that makes the descent
+possible at all: 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> against 34.5 MWh of rotor work.
 **Fifty-eight to one.** Rotors get disproportionately expensive as you load them, so every tonne
 handed to the lake is worth more than a tonne taken off the rotors. That is why the bag does the
 *whole* descent rather than just covering the shortfall that revealed it, and why every class
@@ -112,9 +144,9 @@ evidence *against*. Four are load-bearing:
 - **Ground crews.** The Forest Service measures whether fire behaviour changed, not tonnes, and
   finds success turns on crews being engaged with the drop. Tonnage is our metric; it may be the
   wrong one.
-- **An energy chain.** Every class runs a deficit every cycle — a P-100 has
-  10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it, a P-10000
-  36.3<!--f:P10000.energy.hoursOnBattery-->. This fleet is a battery being spent.
+- **An energy chain.** Every class runs a deficit every cycle. A P-100 has
+  10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
+  fleet is a battery being spent, and the chain that recharges it is part of the design.
 
 Seventeen such issues are tracked at `docs/OPEN-QUESTIONS.md`, fifteen still open. Two closed on
 2026-08-09, and both closed by making our own numbers *worse*.

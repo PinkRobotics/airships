@@ -3,7 +3,7 @@
 <!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1**
 
-<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. Modelled at three scales, the largest class delivers \textbf{13,183 tonnes of water an hour}, continuously, for 4.6 kWh a tonne --- and gets cheaper per tonne the larger it is, because buoyancy scales with volume and drag with area. This paper is the arithmetic behind that sentence, and the list of what would have to be true for it to survive contact with hardware.-->
+<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. The reference vehicle here is the \textbf{P-100}: 190 m long, smaller than the Hindenburg, delivering \textbf{175 tonnes an hour indefinitely} --- about 2,100 tonnes in a twelve-hour day against roughly 560 for a very large airtanker, and it does not stop at dusk. Two larger classes are modelled to find where the arithmetic breaks; it breaks on the descent, not on the structure or the power. This paper is that arithmetic and the list of what would have to be true.-->
 
 > **Status.** Every headline quantity below is an output of the simulation in this repository,
 > cited by key and verified automatically against `research/figures.json`; figures from catalogued
@@ -69,7 +69,11 @@ downstream inherits that assumption.
 
 ## 3. The vehicle
 
-Three classes, geometrically similar, sized by a single safety requirement (§4).
+Three classes, geometrically similar, sized by a single safety requirement (§4). **The P-100 is
+the reference vehicle and everything below is worked through on it unless it says otherwise.** It
+is the smallest of the three and the only one smaller than something that has already flown: 190 m
+against the Hindenburg's 245. The P-1000 and P-10000 are the same arithmetic extrapolated, and §6
+is about what that extrapolation runs into.
 
 <!--tex:fig charts/scale.pdf | The three hulls at true relative scale, against the largest aircraft and the largest airship ever flown. Drawn from the same lengths and diameters as the table below. | 0.92-->
 
@@ -120,35 +124,46 @@ Nothing else in this model changes conclusions as often as remembering which of 
 
 ## 5. The cycle
 
-Six phases, timed rather than asserted. For the P-10000 at 15 km<!--f:worked.oneWayKm--> one way:
+Six phases, timed rather than asserted. For the reference P-100 at
+15 km<!--f:worked.oneWayKm--> one way:
 
 | Phase | Minutes | What happens |
 |---|---:|---|
-| `SOURCE_APPROACH` | 5.00<!--f:P10000.cycle.durations.SOURCE_APPROACH--> | arrive over the lake, come to a **dead stop**, lower the anchor and pumps |
-| `WATER_FILL` | 11.11<!--f:P10000.cycle.durations.WATER_FILL--> | pump at 15 m³/s<!--f:P10000.spec.fillM3s-->, no yaw (the lines would tangle) |
-| `OUTBOUND_TRANSIT` | 8.14<!--f:P10000.cycle.durations.OUTBOUND_TRANSIT--> | climb and run to the fire at 130 km/h<!--f:P10000.spec.cruiseKph--> |
-| `WATER_RELEASE` | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one long pass, 450 m AGL |
-| `BUOYANCY_ESCAPE` | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | rise off the line on buoyancy alone, no propulsion |
-| `RETURN_TRANSIT` | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | run back, make nitrogen, let down onto the lake |
-| **total** | **45.51<!--f:P10000.cycle.cycleMin-->** | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
+| `SOURCE_APPROACH` | 2.00<!--f:P100.cycle.durations.SOURCE_APPROACH--> | arrive over the lake, come to a **dead stop**, lower the anchor and pumps |
+| `WATER_FILL` | 3.33<!--f:P100.cycle.durations.WATER_FILL--> | pump at 0.5 m³/s<!--f:P100.spec.fillM3s-->, no yaw (the lines would tangle) |
+| `OUTBOUND_TRANSIT` | 11.76<!--f:P100.cycle.durations.OUTBOUND_TRANSIT--> | climb and run to the fire at 90 km/h<!--f:P100.spec.cruiseKph--> |
+| `WATER_RELEASE` | 3.33<!--f:P100.cycle.durations.WATER_RELEASE--> | one long pass, 450 m AGL |
+| `BUOYANCY_ESCAPE` | 2.00<!--f:P100.cycle.durations.BUOYANCY_ESCAPE--> | rise off the line on buoyancy alone, no propulsion |
+| `RETURN_TRANSIT` | 11.76<!--f:P100.cycle.durations.RETURN_TRANSIT--> | run back, make nitrogen, let down onto the lake |
+| **total** | **34.20<!--f:P100.cycle.cycleMin-->** | 100 t<!--f:P100.cycle.deliveredT--> delivered |
 
 <!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle behind it. Water handling is the longest part of every cycle, which is the signature of a vehicle that never lands.-->
 
-That is 13,183 t/h<!--f:P10000.cycle.tph--> and 1.32<!--f:P10000.cycle.dropsPerHour--> drops per
-hour. Water handling — fill plus release — is 22.2 of the 45.5 minutes, the largest single
-slice of the cycle. The model nonetheless names transit as the bottleneck, because water handling
-is fixed by the pumps while transit grows with every kilometre: transit is the term that decides
-how the cycle changes, not the one that dominates it at this range.
+That is 175 t/h<!--f:P100.cycle.tph--> sustained, and 1.75<!--f:P100.cycle.dropsPerHour--> drops
+an hour. Transit is 23.5 of the 34.2 minutes on this class and the model names it as the
+bottleneck: water handling is fixed by the pumps while transit grows with every kilometre.
 
-**The drop is one pass**, not three. Three circuits meant two turns of an 876 m hull over a fire,
+**Compare it to the right quantity.** 175 t/h is not a rival to an airtanker's seventy-tonne drop;
+it is a rival to that airtanker's *day*. Twelve hours of a P-100 is about 2,100 tonnes against
+roughly 560 for eight sorties, and the airtanker then stops while the airship does not.
+
+**The drop is one pass**, not three. Three circuits meant two turns of a large hull over a fire,
 which is a manoeuvre the model had no business assuming. A single long release removes them.
 
-## 6. The descent problem, and the lake as its solution
+Scaled up, the same cycle gives 1,697 t/h<!--f:P1000.cycle.tph--> and
+13,183<!--f:P10000.cycle.tph-->, on cycles of 35.4<!--f:P1000.cycle.cycleMin--> and
+45.5 minutes<!--f:P10000.cycle.cycleMin--> — the cycle barely lengthens because only the transit
+term scales with distance and none of these scale with payload.
+
+## 6. What limits the size: the descent, and the lake as its solution
 
 ### 6.1 The problem
 
-Buoyancy that guarantees the ship rises when loaded must be overcome when it is empty. Worst at
-the bottom of the letdown, over the water:
+Buoyancy that guarantees the ship rises when loaded must be overcome when it is empty, and it is
+worst at the bottom of the letdown where the air is 16% denser than the air the hull was sized in.
+**This is the term that decides how large one of these can usefully be**, which is why the two
+larger classes are in this paper at all: not as a proposal, but as the arithmetic finding its own
+ceiling.
 
 | | P-100 | P-1000 | P-10000 |
 |---|---:|---:|---:|
@@ -156,9 +171,13 @@ the bottom of the letdown, over the water:
 | Rotor capability | 267.2 t<!--f:P100.descent.rotorCapT--> | 1,318.1 t<!--f:P1000.descent.rotorCapT--> | 12,666.2 t<!--f:P10000.descent.rotorCapT--> |
 | Closes on rotors alone? | yes, ×1.97 | **no** | **no** |
 
-The two larger classes cannot reach their own water source under power. This was discovered by
-moving the force balance from the ceiling — where it had always been struck, and where it closed —
-to the place where the descent actually ends.
+**The reference ship is comfortable and the extrapolations are not.** The P-100 closes with 1.97×
+headroom. The P-1000 is 4% short and the P-10000 is 8% short: neither can reach its own water
+under power. This was discovered by moving the force balance from the ceiling — where it had
+always been struck, and where it closed — to the place where the descent actually ends.
+
+Nothing here is a structural or a power limit. It is geometry and air density, and it is the first
+thing that bites as the hull grows.
 
 <!--tex:fig charts/render-anchor.png | The vehicle at the source, rendered from the same model: six pump pods on hoses to the surface, and the anchor cable running down to a bag in the water with its contact rings. The bag is to scale. The wash blows upward because the rotors are pushing the hull down against its own buoyancy.-->
 
@@ -236,11 +255,18 @@ still dividing by the pre-correction 43.0 MWh cycle — so the same seven number
 of percentages on one page. A share is derived and has no figure key, which means the citation
 gate cannot see it; the chart computes it from the ledger, so the chart is where it belongs.
 
-<!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model rather than transcribed. The anchor is the smallest positive line, and it is the reason the letdown is the second smallest.-->
+<!--tex:fig charts/ledger.pdf | The reference ship's cycle ledger, printed from the model rather than transcribed. Three quarters of it is the return leg; the anchor is the smallest positive line and it is the reason the letdown is the second smallest.-->
 
-4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne--> delivered, against
-7.40<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 12.53<!--f:P100.cycle.kwhPerTonne--> for the
-P-100. Larger is cheaper per tonne, as the square-cube law demands.
+<!--tex:fig charts/ledger-limit.pdf | The same ledger at the limit case. The proportions invert: pumping and water handling dominate where flying did, which is the square-cube law seen from the other side.-->
+
+12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
+7.40<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 4.59<!--f:P10000.cycle.kwhPerTonne--> for
+the largest. Larger is cheaper per tonne, as the square-cube law demands — which is the reason to
+model the larger classes at all, and §6 is the reason not to assume you can build them.
+
+Note what dominates on the reference ship and does not at the limit: **the return leg is 75% of a
+P-100's cycle** and 32% of a P-10000's. The small ship spends its energy flying; the large one
+spends it moving water. That is the same square-cube law seen from the other side.
 
 The bottom two rows were one row until 2026-08-09, and merging them was hiding an error: the
 recovery was netted against the pump bill under a `max(0, …)`, so on the smaller classes the
@@ -295,8 +321,12 @@ the sources are the serious ones and they are given here in full.
 
 ### 8.1 The dry-mass budget fails twice, independently — the largest open question
 
-`dryT = payloadT` implies a hull-average density of **0.455 kg/m³**: 10,000 t of
-everything-that-is-not-water inside 22,000,000 m³<!--f:P10000.spec.dispM3-->.
+`dryT = payloadT` implies a hull-average density of **0.455 kg/m³** — and it is the same figure on
+every class, because displacement is sized per tonne of payload. 100 t inside
+220,000 m³<!--f:P100.spec.dispM3--> and 10,000 t inside
+22,000,000<!--f:P10000.spec.dispM3--> both come out there. **Choosing the smaller reference ship
+does not soften this one**, which is what makes it the concept's single point of failure rather
+than a scaling limit.
 
 - **Jenett et al. 2019** (NASA NTRS) — the structural precedent this project cites — gives a bare
   discrete-lattice shell at **0.508 kg/m³** in its own Table 2, at every radius. That is 12% over
