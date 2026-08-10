@@ -1123,6 +1123,7 @@ nav.estate .wrap{display:block}
             hotspots: NRCan CWFIS last-24-h detections, drawn as a live overlay. Winds: Open-Meteo
             850 hPa per route midpoint, applied to simulated transit times only. Each fire links
             to its official BC Wildfire Service page, which remains the authoritative source.
+            <b>For a real emergency use the BC Wildfire Service, not this page.</b>
             <span class="when">Open Government Licence – British Columbia</span></dd>
         </div>
         <div class="row">
@@ -1303,8 +1304,8 @@ nav.estate .wrap{display:block}
 import {
   CFG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
   ledger, planCycle, fmt, fmtHa, fmtMin, fmtT,
-} from '../sim/index.js?v=dedba765';
-import * as SIM from '../sim/index.js?v=dedba765';
+} from '../sim/index.js?v=0ad7811e';
+import * as SIM from '../sim/index.js?v=0ad7811e';
 
 /* ============================================================================================
  * Concept-page shim. The SIM block above is byte-shared with the monitor page; this page

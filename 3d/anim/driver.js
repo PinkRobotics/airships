@@ -12,13 +12,13 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=0ea2fed7';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=0ea2fed7';
-import { byPrefix, walk } from '../core/nodes.js?v=0ea2fed7';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=0ea2fed7';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=0ea2fed7';
-import { hoseGeometry } from './hose.js?v=0ea2fed7';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=0ea2fed7';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=24d5112f';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=24d5112f';
+import { byPrefix, walk } from '../core/nodes.js?v=24d5112f';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=24d5112f';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=24d5112f';
+import { hoseGeometry } from './hose.js?v=24d5112f';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=24d5112f';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];
@@ -100,7 +100,7 @@ export function createDriver(b, opts = {}) {
     hoses,
     anchor,
     /** Continuous phases, exposed so a figure export can pin them. */
-    clock: { rotorPhase: 0, fanPhase: 0, t: 0 },
+    clock: { rotorPhase: 0, fanPhase: 0, washPhase: 0, t: 0 },
     attitude: { rollRad: 0, pitchRad: 0, yawRad: 0 },
     attitudeRate: { roll: 0, pitch: 0, yaw: 0 },
     _nodes: { stations, gimbals, rotors, discs, hoseNodes, podNodes, reelInst,
@@ -209,9 +209,20 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
   if (ph === 'WATER_FILL') hostFwd = 0;
   else if (ph === 'BUOYANCY_ESCAPE') hostFwd = hostAf * (0.25 + 0.75 * pr);
   const hostFwdEff = hostFwd * (1 - Math.abs(hostVert) * 0.7);
+  /* THE TILT IS AFT, NOT FORWARD, and it was the wrong way round.
+   *
+   * `hostWant` is the axis the disc POINTS along, and with a buoyant hull the wash blows along
+   * +axis (the rotors hold the ship down, so they accelerate air upward). Air pushed up and
+   * FORWARD thrusts the ship down and BACKWARD — which is exactly what the return leg showed.
+   * For thrust that is down and forward the wash has to go up and AFT, so the disc tilts toward
+   * the tail: −x, since the nose is at +x.
+   *
+   * The magnitude is the honest coupling, not a fudge: these are the same discs doing the
+   * vertical hold, so `hostFwdEff` already fades the forward component out as the vertical duty
+   * rises. A hull holding itself down hard has little tilt left to spend on going anywhere. */
   const hostWant = Math.abs(hostVert) > 0.1 || hostFwdEff < 0.05
     ? [0, 0, 1]
-    : norm([0.85 * hostFwdEff, 0, 1 - 0.5 * hostFwdEff]);
+    : norm([-0.85 * hostFwdEff, 0, 1 - 0.5 * hostFwdEff]);
   const hostFrac = Math.min(1, Math.abs(hostVert) * 0.85 + hostFwdEff * 0.7);
   // Blades must READ as turning at 20x and 60x sim speed: a floor plus a time-scale boost.
   const tScale = env.timeScale || 1;
@@ -373,7 +384,20 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     // drops read as a loop playing rather than a machine easing off. Speed therefore tracks
     // hostFrac almost from zero, and the streaks shorten with it instead of cutting out.
     const washOn = hostFrac > 0.015;
+    /* THE WASH ALIASES TOO, and for the same reason the blades did: `perR` streaks share one
+     * run, so the picture repeats every 1/perR of it and the sampling limit is half that per
+     * frame. At full duty the old rate advanced 0.10 of a run per frame against a 1/6 spacing —
+     * past Nyquist — and the streaks appeared to slide BACKWARDS through a band of speeds
+     * before reading forward again higher up. That is the "goes backwards then comes out of it"
+     * behaviour, and there is no sine anywhere: it is the strobe.
+     *
+     * So the phase is accumulated with a capped step instead of being read off the clock, and
+     * the cap is a third of the inter-streak spacing. Above that the wash stops getting visibly
+     * faster — which is the same bargain the rotor blades take, and for the same reason. */
     const washSpeed = 0.15 + 1.9 * hostFrac;
+    const perRSafe = Math.max(1, N.airStreaks.washPerRotor || 6);
+    d.clock.washPhase = (d.clock.washPhase
+      + Math.min(washSpeed * dt, 1 / (perRSafe * 3))) % 1;
     const washLen = 0.35 + 0.65 * Math.min(1, hostFrac * 2.2);
     for (const st of b.layout.rotorStations) {
       const gim = N.gimbals.get(st.id);
@@ -396,7 +420,9 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
         const id = `${st.id}_Wash${k}`;
         if (!washOn) { hide(id); continue; }
         const r1 = hash01(k * 7.13 + st.index * 3.7), r2 = hash01(k * 2.71 + st.index * 9.1);
-        const u = ((d.clock.t * washSpeed * (0.8 + 0.4 * r1)) + r2) % 1;
+        // Each streak keeps its own slight speed offset, applied to the CAPPED phase so the
+        // spread never reintroduces the aliasing the cap exists to remove.
+        const u = ((d.clock.washPhase * (0.8 + 0.4 * r1)) + r2) % 1;
         const o1 = (r1 - 0.5) * rr * 1.3, o2 = (r2 - 0.5) * rr * 1.3;
         // A STREAK MUST NOT POP. Six per rotor cross the whole run in about half a second at
         // fill duty, so one that vanishes at full size at the top and reappears at full size

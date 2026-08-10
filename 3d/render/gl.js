@@ -22,10 +22,10 @@
  * stencil pass and no artefacts.
  */
 
-import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=0ea2fed7';
-import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=0ea2fed7';
-import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=0ea2fed7';
-import { updateWorld, walk } from '../core/nodes.js?v=0ea2fed7';
+import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=24d5112f';
+import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=24d5112f';
+import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=24d5112f';
+import { updateWorld, walk } from '../core/nodes.js?v=24d5112f';
 
 /* ---------- shaders --------------------------------------------------------------------------- */
 

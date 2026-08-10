@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=dedba765';
-import { CFG, DEFAULTS, PHASES, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=dedba765';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=dedba765';
-import { renderDrawer } from './cockpit/panels.js?v=dedba765';
-import { renderStats, renderTable } from './cockpit/tables.js?v=dedba765';
-import { $, esc } from './dom.js?v=dedba765';
-import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=dedba765';
-import { rebuildMissions, replanAll } from './fleet.js?v=dedba765';
-import { frame } from './loop.js?v=dedba765';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=dedba765';
-import { resize } from './map/projection.js?v=dedba765';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=dedba765';
-import { S } from './store.js?v=dedba765';
-import { DIALS, renderWorked } from './worked.js?v=dedba765';
+import * as SIM from '../sim/index.js?v=0ad7811e';
+import { CFG, DEFAULTS, PHASES, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=0ad7811e';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=0ad7811e';
+import { renderDrawer } from './cockpit/panels.js?v=0ad7811e';
+import { renderStats, renderTable } from './cockpit/tables.js?v=0ad7811e';
+import { $, esc } from './dom.js?v=0ad7811e';
+import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=0ad7811e';
+import { rebuildMissions, replanAll } from './fleet.js?v=0ad7811e';
+import { frame } from './loop.js?v=0ad7811e';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=0ad7811e';
+import { resize } from './map/projection.js?v=0ad7811e';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=0ad7811e';
+import { S } from './store.js?v=0ad7811e';
+import { DIALS, renderWorked } from './worked.js?v=0ad7811e';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {
@@ -200,43 +200,18 @@ export function renderStatus() {
         `fetched ${t} (${ageWords(age)} ago)`;
     }
 
-    const live = !noData && !S.usingFallback;
-    // What the fire layer is actually made of, since a live tier can answer with points and
-    // no outlines. Claiming "points and perimeters" over a map with no rings on it is a
-    // small lie, but it is the kind this page cannot afford.
-    const layers = S.perimsOk ? "Live fire points and perimeters" : "Live fire points";
-    let opener;
-    if (noData) {
-      opener = `No fire data is on screen: this browser could reach neither the live BC ` +
-        `Wildfire Service feed nor the snapshot bundled with this page${note ? " (" + note + ")" : ""}. `;
-    } else if (S.usingFallback) {
-      // The parenthesis carries WHY, which is the difference between a feed that hung and a
-      // feed that answered with rubbish; in replay mode nothing failed, there is no note,
-      // and the sentence is the one this page has always shown.
-      opener = `Showing the bundled data snapshot from ${(S.snapshotDate || "").replace("T", " ").slice(0, 16)} UTC — the live BC Wildfire Service feed could not be reached from your browser${note ? " (" + note + ")" : ""}. `;
-    } else if (S.tier === "direct") {
-      opener = `${layers} fetched ${ageWords(age)} ago from the BC Wildfire Service public ` +
-        `feed by your own browser, because this site's mirror of it did not answer ` +
-        `(refreshed from operational systems roughly every 15 minutes; individual incidents ` +
-        `can lag). `;
-    } else {
-      opener = `${layers} fetched ${ageWords(age)} ago from this site's mirror of the BC ` +
-        `Wildfire Service public feed (refreshed from operational systems roughly every 15 ` +
-        `minutes; individual incidents can lag). `;
-    }
-    // Only the live tiers get the failure clauses: on the snapshot the opener has already
-    // said what happened, and in replay mode nothing failed.
-    const noPerims = live && !S.perimsOk
-      ? `The perimeter layer did not answer, so fires are drawn as points only. ` : "";
-    const stale = live && age > REFRESH_MS
-      ? `Nothing newer has been reachable since, so this is ${ageWords(age)} old rather than the usual fifteen minutes or less${note ? " (" + note + ")" : ""}. `
-      : "";
-    $("dataline").textContent = opener +
-      `This page refetches every 15 minutes, and every source is cached in your browser (5–30 min by source) so extra tabs and reloads add nothing to the emergency feeds' load. ` +
-      noPerims + stale +
-      (S.windOk ? `Winds: live 850 hPa (≈ the cruise band) per route from Open-Meteo, applied to transit times; altitude profiles remain nominal. `
-                : `Winds: unavailable — still-air transit times; altitudes nominal. `) +
-      `Simulation clock ${S.paused ? "paused" : "running at " + S.speed + "×"}${S.reduced ? " (reduced motion honoured: use the phase buttons in a ship's panel)" : ""}.`;
+    /* THE PROVENANCE PARAGRAPH IS GONE FROM THE PAGE, not from the project.
+     *
+     * It ran to four sentences across the bottom of the screen, most of it behind an ellipsis
+     * where nobody could read it anyway, and it repeated what the chip above already says in
+     * six words. The chip carries the tier, the count and the age — which is the part a reader
+     * acts on — and `concept/` carries the method, the sources and their licences in full.
+     *
+     * What is NOT dropped: the same conditions still reach the screen. `#hudLive` turns warn
+     * and says NO FIRE DATA or DATA SNAPSHOT, the map draws points-only when the perimeter
+     * layer fails, and `liveNote` announces a tier change to a screen reader. The paragraph was
+     * the least-read copy of that news, not the only one.
+     */
   };
   paint();
   // The age has to keep counting up on its own: nothing else redraws this line between
@@ -331,7 +306,9 @@ export async function boot() {
     S.waterMeta = waterDoc;
     const wd = $("waterDate"); if (wd && waterDoc.generated) wd.textContent = waterDoc.generated.slice(0, 10);
   } catch (e) {
-    $("dataline").textContent = "Could not load the page's bundled map data (" + e.message + ").";
+    // No dataline any more; the chip is the channel for this.
+    const hl0 = $("hudLive");
+    if (hl0) { hl0.classList.add("warn"); hl0.innerHTML = "<b>NO MAP DATA</b> · " + esc(e.message); }
     return;
   }
   S.fires = await loadLive();

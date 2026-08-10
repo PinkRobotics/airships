@@ -335,10 +335,6 @@ nav.estate .est-rb{margin-right:auto}
   text-align:center;border:0;background:none;max-width:none}
 #introOv .io-tap b{font-size:var(--t-16);letter-spacing:.18em;color:var(--text)}
 #introOv .io-tap p{color:var(--faint);margin-top:6px}
-.statusbar{flex:none;display:flex;gap:var(--s4);justify-content:space-between;
-  align-items:baseline;margin-top:var(--s2)}
-.statusbar p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.statusbar .attr{flex:1;min-width:0;text-align:right}
 .cpanel{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);
   padding:var(--s4)}
 .cpanel[hidden]{display:none}
@@ -389,8 +385,6 @@ nav.estate .est-rb{margin-right:auto}
   .mapbox canvas{height:58vh}
   #m3dView{height:52vh}
   .cp-ops{max-height:none}
-  .statusbar{flex-wrap:wrap}
-  .statusbar p{white-space:normal}
 }
 /* 4K: wider side panels, larger instruments. */
 @media (min-width:2200px){
@@ -573,7 +567,7 @@ nav.estate .est-rb{margin-right:auto}
         <span style="color:#c9c3b6">live BC fires</span> ·
         <span style="color:var(--warm)">simulated fleet</span> ·
         <span style="color:#d98b80">not for emergency use</span></span>
-      <a href="concept/" style="margin-left:auto;color:var(--warm)">How it works →</a></p>
+      <a href="concept/" style="margin-left:auto;color:var(--warm)">How it works · sources →</a></p>
     <div class="monbody has-ship" id="cockpit">
       <div class="cp-leftcol">
       <div class="cpanel" id="cpFleet">
@@ -771,21 +765,19 @@ nav.estate .est-rb{margin-right:auto}
       </div>
     </div>
 
-    <!-- The page's only live region, and deliberately outside .statusbar so it adds nothing
+    <!-- The page's only live region, and deliberately its own element so it adds nothing
          to the visible strip. app/cockpit/panels.js writes one short sentence here and only
          when something a listener would want interrupting for actually changed: the selection,
          the selected ship's phase, or which feed the fires came from. Continuously moving
          numbers are readable on demand from the instruments; they are never announced. -->
     <p id="liveNote" class="vh" role="status" aria-live="polite" aria-atomic="true"></p>
 
-    <div class="statusbar">
-      <p class="small" id="dataline">Waiting for the provincial feed…</p>
-      <p class="small attr">Symbols enlarged. Simulation figures are a demonstration and may
-        contain errors. Fire data
-        <a href="https://wildfiresituation.nrs.gov.bc.ca/">BC Wildfire Service</a> (OGL-BC) ·
-        hotspots NRCan CWFIS · winds Open-Meteo · imagery Esri · terrain Mapzen/AWS ·
-        water BC Freshwater Atlas · <a href="concept/">full method &amp; sources</a> ·
-        for real emergencies use the BCWS, not this page.</p>
+    <!-- The status bar is gone. It carried a four-sentence provenance paragraph and an
+         attribution line, both mostly hidden behind an ellipsis, and both said less than the
+         chip in the header does in six words. The sources and their licences — BC Wildfire
+         Service under the Open Government Licence – British Columbia, NRCan CWFIS, Open-Meteo,
+         Esri, Mapzen/AWS, BC Freshwater Atlas — are stated in full on the method page, which
+         the header links to, and in docs/DATA-SOURCES.md. Attribution moved; it did not go. -->
 <script>
 /*DESIGNJS*/
 /* One handler for every selector on the page. Roving tabindex so a keyboard user gets one stop
@@ -861,6 +853,6 @@ nav.estate .est-rb{margin-right:auto}
 <!-- The whole application is app/main.js. This page is markup: everything it does,
      it does from there, and there is no build step between the two — the browser
      loads the same modules you read on GitHub. -->
-<script type="module" src="./app/main.js?v=dedba765"></script>
+<script type="module" src="./app/main.js?v=0ad7811e"></script>
 </body>
 </html>
