@@ -21,6 +21,7 @@ are accounted for.
     python3 tools/check_figures.py            # check every report
     python3 tools/check_figures.py --list     # print every key figures.json offers
 """
+import decimal
 import json
 import re
 import sys
@@ -94,7 +95,12 @@ def main():
             # Compare at the precision the author WROTE. Quoting 13,183 against 13,183.4 is
             # correct rounding; quoting 13,200 is not, and neither is quoting last week's 12,052.
             dp = len(raw.split(".")[1]) if "." in raw else 0
-            if abs(round(float(want), dp) - got) > 10 ** (-dp) / 2 + 1e-9:
+            # ROUND HALF UP, not Python's round(), which is banker's: round(13722.5) is 13722,
+            # so a report writing the correct 13,723 was being failed by the gate meant to
+            # protect it. Authors round the way everyone was taught; the checker must agree.
+            q = decimal.Decimal(str(float(want))).quantize(
+                decimal.Decimal(1).scaleb(-dp), rounding=decimal.ROUND_HALF_UP)
+            if abs(float(q) - got) > 10 ** (-dp) / 2 + 1e-9:
                 bad.append(f"{rp.name}:{line}: f:{key} — report says {raw}, "
                            f"the model says {want}")
 

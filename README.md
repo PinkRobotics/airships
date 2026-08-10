@@ -134,7 +134,7 @@ it, fill the bag, and winch it just clear of the surface — 12,400 t of water h
 0.60 MWh.
 When the tanks hold more than the shortfall, the bag is dumped back where it came from. It is a
 Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale nobody has built:
-commercial ones top out near 10 tonnes.
+the largest ever made is 9,800 litres, so ours is 1,265 times that.
 
 Retention returns to zero and the whole load is delivered. Then the bag turned out to be worth far
 more than the shortfall it was built for. Rotor power goes as thrust^1.5, so moving load onto the

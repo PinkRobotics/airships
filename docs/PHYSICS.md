@@ -691,7 +691,7 @@ never, on the shipped numbers — retention. The bag is dumped back into the lak
 tanks hold more than the shortfall, so nothing is carried away and nothing is manufactured.
 
 It is a Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale
-nobody has built: commercial ones top out near 10 t and the P-10000's is **1,240 times** that.
+nobody has built: the largest ever made is 9,800 L and the P-10000's is **1,265 times** that.
 The principle
 is unchanged and the engineering is not, which is the honest way to describe it.
 

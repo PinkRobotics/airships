@@ -38,7 +38,7 @@
         cruiseKph: c.cruiseKph, fillM3s: c.fillM3s, hoseM: c.hoseM,
         anchorCableM: c.anchorM, anchorBagT: c.anchorBagT,
         genMW: c.genMW, battMWh: c.battMWh, battMW: c.battMW, cryoMW: c.cryoMW,
-        ln2CapT: c.ln2CapT, solarM2: c.solarM2, diskM2: c.diskM2, dropKm: c.dropKm,
+        ln2CapT: c.ln2CapT, solarM2: c.solarM2, diskM2: c.diskM2, rotors: c.rotors, dropKm: c.dropKm,
       },
       lift: {
         atWorkAltT: r(ledWork.liftT, 1), atSourceT: r(ledSrc.liftT, 1),

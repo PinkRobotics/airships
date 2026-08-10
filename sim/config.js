@@ -173,8 +173,8 @@ export const VZ_MAX = 6;
  * nothing is manufactured.
  *
  * It is a Bambi bucket — the collapsible helicopter bucket the industry has used since 1983 —
- * at a scale nobody has built. Commercial ones top out near 10 tonnes. This is 1,240 times that.
- * The
+ * at a scale nobody has built. The largest ever made is 9,800 litres, for heavy-lift helicopters
+ * like the CH-47 (Arney, in production since 1983). This is 1,265 times that. The
  * principle is unchanged and the engineering is not, which is the honest way to describe it.
  *
  * `anchorM` is the cable, and it is shorter than it looks like it should be: the rotors can

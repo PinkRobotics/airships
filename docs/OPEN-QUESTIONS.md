@@ -387,7 +387,7 @@ stayed in the tanks to make the descent possible. Then the obvious question: wha
 a buoyant ship down? Not ballast it carries, makes, or keeps back — it borrows the lake. A bag on
 a cable, filled at the surface and winched clear, is 12,400 t of downward force for the 15 m of
 lift needed to break the surface, and it is dumped back where it came from once the tanks hold
-more than the shortfall. A Bambi bucket at roughly 1,240 times the commercial scale.
+more than the shortfall. A Bambi bucket at 1,265 times the largest ever built (9,800 L).
 
 Delivery returns to 12,052 t/h with the whole load dropped. The three ways of closing the same
 1,056 t gap, priced: anchor **0.11 MWh** at that size (0.60 once the bag is sized to do the whole
