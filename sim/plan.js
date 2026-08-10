@@ -4,8 +4,8 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=0ad7811e';
-import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=0ad7811e';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=2fdd0b52';
+import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=2fdd0b52';
 
 export function planCycle(cls, mode, oneWayKm, wind) {
   // Airspeed is the vehicle's; ground speed belongs to the day. When a live 850 hPa wind is
@@ -148,9 +148,20 @@ export function planCycle(cls, mode, oneWayKm, wind) {
   const eCryo = ln2MakeT * 1000 * CFG.eLN2 / 1000;  // MWh spent liquefying
   const eBack = eCryo * CFG.rtLN2;                  // partially recovered on discharge
   const E = {};
-  // Recovery lands where the mass leaves: nitrogen expands back to electricity while the
-  // fill replaces it with water, so it offsets pump work, not descent work.
-  E.WATER_FILL = Math.max(0, pumpMW(cls) * dur.WATER_FILL / 60 - eBack);
+  /* THE PUMP BILL AND THE NITROGEN CREDIT ARE SEPARATE LINES, and they have to be.
+   *
+   * This was `max(0, pumpWork - eBack)`: the nitrogen recovery was netted against the pump work
+   * of the same phase and the clamp threw away whatever was left over. On the two smaller
+   * classes there is a lot left over — the recovery exceeds the pumping — so the clamp deleted
+   * 0.303 MWh of a P-100's 1.308 MWh cycle and, worse, made the PUMP BILL VANISH ENTIRELY from
+   * both of them. A budget that reports zero for the one system whose job is moving the water
+   * is not a rounding problem, it is the wrong answer.
+   *
+   * The recovery is a credit against the cycle, not against one phase of it: the nitrogen
+   * expands while the fill runs, but the electricity it returns goes to the same bus everything
+   * else draws from. So the pump is charged in full and the credit is its own negative term. */
+  E.WATER_FILL = pumpMW(cls) * dur.WATER_FILL / 60;
+  E.recovery = -eBack;
   E.OUTBOUND_TRANSIT = dragMW(cls, mode) * dur.OUTBOUND_TRANSIT / 60;
   E.RETURN_TRANSIT = dragMW(cls, mode) * 0.55 * dur.RETURN_TRANSIT / 60 + eCryo; // lighter ship, cheaper leg
   E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60;
@@ -180,6 +191,10 @@ export function planCycle(cls, mode, oneWayKm, wind) {
 
   return {
     dur, cycleMin, tph, eCycleMWh: eCycle, kwhPerTonne: eCycle * 1000 / Math.max(1, deliveredT),
+    // The ledger itself, not just its total. docs/PHYSICS.md §9 publishes this table and the
+    // reports cite it; before this was returned the only way to get it was to re-derive it in
+    // prose, which is precisely how it went stale by 45% without anything failing.
+    E,
     eBack,
     retainedT, deliveredT, rotorMaxT, passes,
     gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null),

@@ -28,10 +28,10 @@
  * WHAT IT IS NOT. Illustrative stress-informed topology. No solver was run. See density.js.
  */
 
-import { stationX, hullR, sectionScale, profileR } from './config.js?v=24d5112f';
-import { lines, loopSegs, pathSegs, mergeLines } from './geom.js?v=24d5112f';
-import { streamFor, jitter } from '../core/prng.js?v=24d5112f';
-import { clamp01, dist, lerp, segPointDist } from '../core/math.js?v=24d5112f';
+import { stationX, hullR, sectionScale, profileR } from './config.js?v=9e6eb515';
+import { lines, loopSegs, pathSegs, mergeLines } from './geom.js?v=9e6eb515';
+import { streamFor, jitter } from '../core/prng.js?v=9e6eb515';
+import { clamp01, dist, lerp, segPointDist } from '../core/math.js?v=9e6eb515';
 
 /** Detail tiers. 0 map · 1 distant/inline · 2 medium · 3 close cutaway. */
 export const TIERS = [

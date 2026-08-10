@@ -9,7 +9,7 @@ import { close, describe, eq, it, knownFail, ok } from '../harness.js';
 import {
   CFG, CLASSES, CLASS_ORDER, MODES, WORK_ALT_MSL,
   ledger, planCycle, resetConfig, setConfig,
-} from '../../sim/index.js?v=0ad7811e';
+} from '../../sim/index.js?v=2fdd0b52';
 
 const MODE_IDS = Object.keys(MODES);
 const KMS = [2, 5, 15, 30, 60, 120, 400];
@@ -218,28 +218,38 @@ describe('plan · modes', () => {
   });
 
   it('the mode ordering has flipped five times and is not load-bearing', () => {
-    // This test has now watched the mode ordering change THREE times in one day, which is
-    // worth more than any of the three orderings. Two terms pull against each other: drag
-    // rises with the square of airspeed, so rapid pays most for the legs, while the letdown
-    // rides the return leg's duration, so endurance pays most for the descent. Whichever is
-    // bigger decides the order.
+    // SIX flips now. Every one of them has been a side effect of a change made for some other
+    // reason, and not one has been a decision about how the ship should be flown — which is
+    // the finding this test exists to carry.
+    //
+    // Two terms pull against each other. Drag rises with the square of airspeed, so rapid pays
+    // most for the legs; the letdown rides the return leg's duration, so endurance pays most
+    // for the descent. Whichever is bigger decides the order.
     //
     // It was drag (slower is cheaper), then the letdown (balanced cheapest, briefly, when the
-    // descent balance moved to the dense air at the lake), and now drag again, because the
-    // long hose keeps the ship high and cut the letdown from 53% of the cycle to 30%.
+    // descent balance moved to the dense air at the lake), then drag again when the long hose
+    // cut the letdown, then balanced again when the hoses came off. The anchor has now taken
+    // the letdown down to 3% of the cycle, so drag wins outright and by a wide margin:
+    // endurance is 18% cheaper per cycle than rapid, the widest spread this test has recorded.
     //
-    // So the ordering is pinned as an observation, not claimed as a property. It is a
-    // downstream symptom of defect 3's unexplained window, and when that is fixed this test
-    // should be expected to move again.
+    // The flip that produced these numbers is worth naming, because it was an ACCOUNTING fix
+    // and not a physics one. The nitrogen recovery used to be netted against the pump bill
+    // under a max(0, ...); the longer a mode's return leg, the more nitrogen it made, and the
+    // more of its own recovery it therefore threw away. Endurance was being charged for the
+    // thing it was best at. Splitting the two lines moved it from dearest to cheapest.
+    //
+    // So the ordering is pinned as an observation, not claimed as a property. It remains a
+    // downstream symptom of defect 3's unexplained window and should be expected to move
+    // again when that is fixed.
     resetConfig();
     const p = m => planCycle(CLASSES.P10000, m, 60);
     const r = p(MODES.rapid), b = p(MODES.balanced), e = p(MODES.endurance);
-    ok(b.eCycleMWh < r.eCycleMWh && b.eCycleMWh < e.eCycleMWh,
-      `balanced should be cheapest per cycle now: ${r.eCycleMWh.toFixed(1)} / `
+    ok(e.eCycleMWh < b.eCycleMWh && b.eCycleMWh < r.eCycleMWh,
+      `slower should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
     close(r.eCycleMWh, 119.5, 0.2, 'rapid');
-    close(b.eCycleMWh, 115.2, 0.2, 'balanced');
-    close(e.eCycleMWh, 120.7, 0.2, 'endurance');
+    close(b.eCycleMWh, 107.1, 0.2, 'balanced');
+    close(e.eCycleMWh, 97.6, 0.2, 'endurance');
   });
 
   it('speedMul shortens the transit legs', () => {
@@ -335,10 +345,12 @@ describe('plan · the mechanisms the copy describes', () => {
     ok(rotorShare < 0.15, `the rotors should be left doing trim, not lift — ${(rotorShare * 100).toFixed(1)}%`);
     // The P-100 carries one too, though its descent closes on rotors alone (x1.94 headroom).
     // Not because it needs holding down, but because a bucket is cheaper than thrust on every
-    // class: its cycle falls from 1.85 to 1.33 MWh for the same delivered water.
+    // class: 1.526 -> 1.005 MWh for the same delivered water, a 34% saving on a class that
+    // does not need the mechanism at all. The largest class saves 51% AND delivers 1,056 t
+    // more, because without the bag it cannot get all of its water down to the fire.
     const small = planCycle(CLASSES.P100, MODES.balanced, 15);
     close(small.anchorT, 125, 0.5, 'the P-100 uses its bag as well');
-    close(small.eCycleMWh, 1.308, 5e-3, 'and saves 29% of its cycle energy doing it');
+    close(small.eCycleMWh, 1.005, 5e-3, 'and saves 34% of its cycle energy doing it');
   });
 
   it('the descent balance is struck at the source, not at the ceiling', () => {

@@ -10,8 +10,8 @@
  * mass. Nothing here should let it look free.
  */
 
-import { ASSUMPTIONS } from '../model/config.js?v=24d5112f';
-import { clamp01 } from '../core/math.js?v=24d5112f';
+import { ASSUMPTIONS } from '../model/config.js?v=9e6eb515';
+import { clamp01 } from '../core/math.js?v=9e6eb515';
 
 /** Source nodes and sink nodes of the electrical graph. */
 export const SOURCES = ['solar', 'generator', 'battery', 'ln2Recovery'];

@@ -68,6 +68,14 @@
         solarMW: r(solarMW, 2), solarPerCycleMWh: r(solarMW * p.cycleMin / 60, 2),
         deficitPerCycleMWh: r(p.eCycleMWh - solarMW * p.cycleMin / 60, 2),
         ln2MakeT: r(p.ln2MakeT, 2), eBackMWh: r(p.eBack, 3),
+        // The per-phase ledger, so a report can cite the budget table line by line instead of
+        // transcribing it. docs/PHYSICS.md §9 went 5% stale in its total and 24x adrift from
+        // its own §11 precisely because it was transcribed.
+        ledgerMWh: Object.fromEntries(Object.entries(p.E).map(([k, v]) => [k, r(v, 3)])),
+        // Endurance, which the deficit implies but nobody was computing in one place.
+        cyclesOnBattery: r(c.battMWh / Math.max(1e-9, p.eCycleMWh - solarMW * p.cycleMin / 60), 1),
+        hoursOnBattery: r(c.battMWh / Math.max(1e-9, p.eCycleMWh - solarMW * p.cycleMin / 60)
+                          * p.cycleMin / 60, 1),
       },
     };
   }

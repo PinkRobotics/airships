@@ -261,12 +261,12 @@ this page carried an hour earlier, and that 10% is the cost of being able to get
 
 ## 5. Pumping energy
 
-Water is lifted 250 m from the surface to the tanks through a deployed hose, at the class's
+Water is lifted 300 m from the surface to the tanks through a deployed hose, at the class's
 fill rate:
 
 > **P_pump = ρ_w g Q h / η_pump**
 
-P-100: 1000 × 9.81 × 0.5 × 250 / 0.75 = **1.635 MW**. P-1000: 9.81 MW. P-10000: 49.05 MW.
+P-100: 1000 × 9.81 × 0.5 × 300 / 0.75 = **1.962 MW**. P-1000: 11.772 MW. P-10000: 58.86 MW.
 
 The energy is the potential energy of the payload divided by one lumped efficiency:
 0.068 MWh ideal for a P-100 load, 0.091 MWh delivered, 9.08 MWh for a P-10000 load. That
@@ -276,7 +276,7 @@ number in the model.
 The lumped η_pump = 0.75 covers pump, motor, drive, hose friction and the kinetic energy
 left in the stream. Hose friction is not separately modelled, which matters more than it
 looks: 15 m³/s at a plausible 6 m/s in-hose velocity needs a 1.78 m bore, and the standing
-column in a 250 m hose of that bore weighs 625 t. The model neither carries that mass nor
+column in a 300 m hose of that bore weighs 750 t. The model neither carries that mass nor
 charges for the friction of moving water through it.
 
 ---
@@ -346,13 +346,15 @@ actually asks for — the rotors' 0.6 share of the full empty surplus at the wor
 | P-1000 | 145.9 MW | 176.4 MW (+21%) | 190 MW |
 | P-10000 | 1,263 MW | 1,572 MW (+24%) | 1,550 MW |
 
-Correcting this still breaks the force-closure claim, though by less than it did: the
-P-1000 now fits its bus and the P-10000 is 1.4% over rather than 14% over. The 2026-08-09
-resize is why — the surplus to be pushed down is measured at altitude now and is 8% smaller
-than the sea-level ledger claimed. The model's central structural boast, that the disk area
-and battery peak were chosen so the hull can be driven back down to the water with nothing
-held back, still survives only under the hover formula, but it is one class and one and a
-half percent away from surviving properly.
+**That boast has since been withdrawn, and this section is kept as the record of it.** The
+disk area and battery peak were chosen so the hull could be driven back down to the water on
+rotors alone with nothing held back, and the check that justified them was made at the
+CEILING. Moving it to the source — where the letdown ends and the air is 16% denser, and where
+it belongs — breaks it outright: 12,666 t of rotor capability against a 13,723 t hold. The
+descent is closed by the anchor now, not by the discs, and `diskM2` and `battMW` are numbers
+left over from a constraint that no longer binds. Measured today, `diskM2` ±20% moves cycle
+energy by ∓0.4% and `battMW` ±20% moves every published figure by 0.0%. See
+docs/OPEN-QUESTIONS.md #8.
 
 Momentum theory also says nothing about blade loading, tip Mach number, solidity, or the
 structural problem of hanging a 120 m rotor off a pressure vessel. Those are outside the
@@ -403,18 +405,27 @@ cycle that takes an hour, and the two should stop being confused for each other.
 `planCycle` builds a per-phase energy ledger. For the P-10000 at 15 km, balanced, still
 air:
 
-| Term | Equation | MWh | share | pre-resize | resize only |
-|---|---|---:|---:|---:|---:|
-| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 32.5% | 14.608 |
-| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 12.888 | 28.5% | 11.650 |
-| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 20.9% | 8.289 |
-| `E.WATER_FILL` | `max(0, P_pump × t_fill/60 − E_back)` | 6.149 | 13.6% | 4.332 |
-| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 1.420 | 3.1% | 43.619 |
-| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.596 | 1.3% | — |
-| **total** | | **45.218** | | 82.498 |
+| Term | Equation | MWh | share |
+|---|---|---:|---:|
+| `E.RETURN_TRANSIT` | `P_drag × 0.55 × t_ret/60 + E_cryo` | 14.705 | 34.2% |
+| `E.WATER_FILL` | `P_pump × t_fill/60` | 10.900 | 25.3% |
+| `E.other` | `P_hotel × t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60` | 10.689 | 24.8% |
+| `E.OUTBOUND_TRANSIT` | `P_drag × t_out/60` | 9.459 | 22.0% |
+| `E.letdown` | `downMW × min(6, t_ret × 0.2)/60` | 1.420 | 3.3% |
+| `E.anchor` | `m_bag g × 15 m / 0.85` | 0.596 | 1.4% |
+| `E.recovery` | `−E_cryo × rt_LN2`, credited where it arrives | −4.751 | −11.0% |
+| **total** | | **43.019** | |
 
-The right-hand column is the same budget before any of the 2026-08-09 corrections, and the
-total fell **45%**. The two bottom rows are the whole story: `E.anchor` spends 0.596 MWh lifting
+Before the 2026-08-09 corrections this budget totalled 82.5 MWh; it fell **48%**. The table is
+now printed straight out of `planCycle`'s returned `E` — it used to be transcribed by hand, which
+is how it came to be 5% wrong in its total and to disagree with §11 of this document by 24×.
+
+The bottom two rows were one row until 2026-08-09, and the merge was hiding an error. The pump
+bill and the nitrogen credit were being netted inside `E.WATER_FILL` under a `max(0, …)`, so on
+both smaller classes the recovery exceeded the pumping and the excess was *deleted* — 0.303 MWh
+on a P-100, 0.594 on a P-1000 — taking the entire pump bill off the ledger with it. They are two
+different physical events and they are two lines now. This alone moved the P-100's cycle from
+1.308 to 1.005 MWh and its intensity from 13.08 to 10.05 kWh/t. `E.anchor` is the whole story: it spends 0.596 MWh lifting
 12,400 t of lake water the 15 m it takes to break the surface, and that purchase removes
 34.5 MWh of rotor work. Fifty-eight to one.
 
@@ -438,16 +449,19 @@ enough to change the conclusion drawn from the next table.
 
 | | solar | per cycle | cycle spend (planned) | deficit |
 |---|---:|---:|---:|---:|
-| P-100 | 1.20 MW | 0.68 MWh | 1.31 MWh | 0.63 MWh |
-| P-1000 | 5.60 MW | 3.30 MWh | 6.98 MWh | 3.68 MWh |
-| P-10000 | 24.00 MW | 18.20 MWh | 43.02 MWh | 24.82 MWh |
+| P-100 | 1.20 MW | 0.68 MWh | 1.01 MWh | 0.32 MWh |
+| P-1000 | 5.60 MW | 3.30 MWh | 6.39 MWh | 3.09 MWh |
+| P-10000 | 24.00 MW | 18.20 MWh | 43.02 MWh | 24.81 MWh |
 
 Every hull runs a deficit every cycle. That is stated on the page, and it is the conclusion
 the project draws in public: without an energy import chain the fleet is a battery being
-spent. On the planned budget a P-10000 has 29.8 hours of work in it — 2,000 MWh of storage
-against a 55.67 MWh deficit per 0.830-hour cycle, so 35.9 cycles. It was 27.2 hours before
-the resize; the deficit fell faster than the cycle shortened. Defect 6 is the reason that
-conclusion may be an artefact rather than a finding.
+spent. On the planned budget a P-10000 has **61.1 hours** of work in it — 2,000 MWh of storage
+against a 24.81 MWh deficit per 0.759-hour cycle, so **80.6 cycles**. It was 27.2 hours before
+the 2026-08-09 corrections; the deficit fell faster than the cycle shortened. The smaller two are
+much worse off, at 35.4 and 22.9 hours, because their batteries scale with dry mass while their
+solar scales with skin area. Defect 6 is the reason all of this may be an artefact rather than a
+finding — and `research/sources.json` now supplies a second reason, which is that the 200 W/m²
+solar figure the middle column rests on is not achievable (see `docs/OPEN-QUESTIONS.md` #9).
 
 **The budget does not close against the model's own second opinion.** `state.js → stateAt`
 reports an instantaneous draw for every system at every moment, and `app/loop.js`
@@ -486,47 +500,50 @@ flips.
 
 | Constant | −20% → energy per cycle | +20% → energy per cycle | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
-| `propEta` | +26.4% | −13.1% | −2.8% | 0% |
-| `Cd` | −6.6% | +6.6% | 0% | 0% |
-| `pumpEta` | +3.0% | −2.0% | 0% | 0% |
-| `hoseMul` | −1.4% | +1.4% | 0% | 0% |
-| `rtLN2` | +1.3% | −1.3% | 0% | 0% |
-| `eLN2` | −0.0% | +0.0% | 0% | 0% |
-| `rhoAir` | −1.3% | +2.7% | 0% | 0% |
-| `rhoSL` | −23.2% | +14.7% | 0% | −22.8% |
-
-`hoseMul` is mild now and was not always: while the larger classes carried 1,350 m hoses to keep
-themselves out of the dense air, shortening the hose pushed them into keeping water back and
-throughput fell off a cliff the table could not show. With the descent anchor doing that job the
-hose only moves pump work again. The cliff moved to the anchor bag, which is not a tunable —
-remove it and the P-10000 keeps 1,056 t back, which a test asserts.
+| `propEta` | +14.2% | −9.5% | 0% | 0% |
+| `Cd` | −10.7% | +10.7% | 0% | 0% |
+| `rhoAir` | −10.3% | +10.4% | 0% | 0% |
+| `pumpEta` | +6.3% | −4.2% | 0% | 0% |
+| `hoseMul` | −4.5% | +4.6% | 0% | 0% |
+| `rhoSL` | −3.7% | +29.2% | 0% | 0% |
+| `rtLN2` | +2.2% | −2.2% | 0% | 0% |
+| `eLN2` | 0.0% | 0.0% | 0% | 0% |
 
 | Class parameter | −20% → energy | +20% → energy | −20% → t/h | +20% → t/h |
 |---|---:|---:|---:|---:|
-| `cruiseKph` | +0.9% | +6.9% | −13.7% | +11.9% |
-| `diskM2` | +5.3% | −3.9% | 0% | 0% |
-| `battMW` | +6.3% | 0% | −1.9% | 0% |
-| `fillM3s` | +0.2% | −0.1% | −5.3% | +3.9% |
-| `dropKm` | −2.1% | +2.1% | +6.6% | −5.8% |
-| `dispM3` | −23.2% | +14.7% | 0% | −22.8% |
+| `cruiseKph` | −17.8% | +26.5% | −8.2% | +6.3% |
+| `anchorBagT` | +12.5% | −3.2% | 0% | 0% |
+| `dropKm` | −10.1% | +10.0% | +7.7% | −6.7% |
+| `fillM3s` | +3.6% | −2.4% | −10.9% | +8.9% |
+| `dispM3` | −3.7% | +29.2% | 0% | 0% |
+| `diskM2` | +0.4% | −0.3% | 0% | 0% |
+| `battMW` | 0% | 0% | 0% | 0% |
+| `anchorM` | 0% | 0% | 0% | 0% |
 | `solarM2` | 0% | 0% | 0% | 0% |
 
-Read four things off this. First, `eLN2` — the assumption with the widest published
-uncertainty band and its own slider — changes the headline by nothing, because the plant
-makes 21 t of nitrogen per cycle against a tank sized for a rescue. Second, `rhoSL` is still
-the most sensitive constant in the model, and it now moves the headline for a defensible
-reason: it is the anchor of the whole density column, so it scales lift at every altitude,
-and `dispM3` moves the same figures identically because the two enter the ledger as a
-product. Third, `solarM2` changes nothing at all, because generation is not part of
-`planCycle`'s ledger — it only appears in the storage integration. Fourth, `diskM2` and
-`battMW` have got tamer: the +20% `diskM2` response fell from −10.5% to −3.9% and the
-`battMW` cliff at −20% is gone, because the 2026-08-09 resize took the P-10000 off the
-`battLimited` threshold it used to sit on.
+Read five things off this. First, `eLN2` — the assumption with the widest published
+uncertainty band and its own slider — changes the headline by nothing, because the plant makes
+21 t of nitrogen per cycle against a tank sized for a rescue. Second, **the top of both tables is
+now aerodynamics and speed, not lift**: `cruiseKph`, `propEta`, `Cd` and `rhoAir` are four of the
+top five, and three of them are the crude drag model that is Defect 2. The model's uncertainty
+has migrated into the part of it that is weakest. Third, `solarM2` changes nothing at all, because
+generation is not part of `planCycle`'s ledger — it only appears in the storage integration.
+Fourth, `diskM2` and `battMW` have gone quiet — ±20% of the battery peak moves **nothing at all**,
+and the disc area moves 0.4% — because the anchor took the descent off the rotors. Both numbers
+were sized by a descent balance that no longer binds; that is `docs/OPEN-QUESTIONS.md` #8. Fifth,
+`anchorBagT` is now the second most powerful lever in the model and it is not on the page, has no
+slider, and appears in no sensitivity discussion before this line: shrinking the bag 20% costs
+12.5% more energy per cycle.
 
-The non-monotonic entries are cliff edges, not curves. At `propEta = 0.56` the P-10000's
-rotor authority drops enough that the retention clamp engages and it starts holding back
-water; at `rhoSL × 1.2` the surplus grows past what the rotors can push down and throughput
-falls by nearly a quarter. The model has discontinuities in its response surface and does
+`hoseMul` is a different number than it was: while the larger classes carried 1,350 m hoses to
+keep out of the dense air, shortening the hose pushed them into retaining water and throughput
+fell off a cliff the table could not show. With the anchor doing that job the hose only moves pump
+work, and it moves it symmetrically.
+
+The non-monotonic entries are cliff edges, not curves. `rhoSL` is the sharpest: −20% costs 3.7%
+and +20% costs **29.2%**, because a denser column means more surplus to push down and the anchor
+starts running out of authority. `dispM3` moves identically, since the two enter the ledger as a
+product. The model has discontinuities in its response surface and does
 not mark them.
 
 ---
@@ -583,8 +600,9 @@ whole seed-7 cycle the minimum net force on the three classes is +10.5 t, +105.1
 +1,231.1 t, so the rotors only ever push down, as computed rather than as asserted.
 
 **What is left.** `rhoAir` is still a flat 1.10 kg/m³ for drag and rotors, which is ISA at
-about 990 m against a 2,500 m working altitude: drag overstated 15%, induced power
-understated 7%. That belongs to Defect 2, and it is pinned by a test so it cannot be lost.
+about **1,107 m** against a 2,500 m working altitude: drag overstated 15%, induced power
+understated 7%. (Three documents said "about 990 m"; ISA at 990 m is 1.1127 kg/m³. Run
+`altitudeForDensity(1.10)`.) That belongs to Defect 2, and it is pinned by a test so it cannot be lost.
 
 ### Defect 2 — two disagreeing power models
 
@@ -599,8 +617,8 @@ which for most of the cycle is lower and thicker. §9 has the numbers.
 Both are live. The worked example, the "MWh per cycle" figure in the drawer and
 `kwhPerTonne` all come from `planCycle`. The storage gauge, the generation-versus-
 consumption dial and the power-exhaustion behaviour all come from the `stateAt` integration
-in `app/loop.js`. Predicted endurance differs by a factor of three: 27.2 hours against
-9.1 hours.
+in `app/loop.js`. Predicted endurance differs by a factor of three: 61.1 hours against
+roughly 20.
 
 The gap is mostly the rotor term, and mostly §7's forward-flight error: `stateAt` prices
 cruise trim with the hover formula and gets 91.9 MW where the correct expression gives
@@ -613,9 +631,15 @@ fix has to pick one representation of rotor power and make both surfaces read fr
 E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60;
 ```
 
-For the P-10000 at 15 km this is 1,259.5 MW × 1.629 min / 60 = 34.20 MWh, or **45.2%** of
-the published cycle energy — down from 52.9% before the 2026-08-09 resize, and still the
-largest single line in the budget by a factor of two.
+For the P-10000 at 15 km this is 52.3 MW × 1.628 min / 60 = 1.420 MWh, or **3.3%** of the
+published cycle energy. It was 34.20 MWh and 45.2% of the cycle before the descent anchor —
+the anchor took 96% of the rotor work out of the letdown, which is what turned this from the
+largest line in the budget into one of the smallest.
+
+**The defect survives the shrinkage, and this is why it is still here.** The window is still
+undefined, and a term that nobody can justify is a term that will be wrong again the moment the
+number in front of it grows. It is 1.4 MWh today because the anchor is doing the work; take the
+anchor away and the same unexplained `0.2` is back in front of 1,748 MW.
 
 Nothing states what the window is. It is not the duration of the letdown as drawn — the
 descent in `stateAt` occupies the last 30% of the return leg, which is 2.44 minutes here,
@@ -667,7 +691,8 @@ never, on the shipped numbers — retention. The bag is dumped back into the lak
 tanks hold more than the shortfall, so nothing is carried away and nothing is manufactured.
 
 It is a Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale
-nobody has built: commercial ones top out near 10 t and the P-10000's is 2,400. The principle
+nobody has built: commercial ones top out near 10 t and the P-10000's is **1,240 times** that.
+The principle
 is unchanged and the engineering is not, which is the honest way to describe it.
 
 The bag is sized generously on purpose. The bare shortfall is 1,056 t, and a bag that size

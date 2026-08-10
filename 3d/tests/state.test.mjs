@@ -3,31 +3,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=24d5112f';
-import { build } from '../model/build.js?v=24d5112f';
+import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=9e6eb515';
+import { build } from '../model/build.js?v=9e6eb515';
 import {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from '../physics/state.js?v=24d5112f';
+} from '../physics/state.js?v=9e6eb515';
 import {
   demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES, ALT,
-} from '../anim/mission.js?v=24d5112f';
-import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=24d5112f';
-import { buildActuators } from '../control/actuators.js?v=24d5112f';
-import { allocate, demoWrench } from '../control/allocator.js?v=24d5112f';
-import { massState } from '../physics/mass.js?v=24d5112f';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=24d5112f';
-import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=24d5112f';
-import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=24d5112f';
-import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=24d5112f';
-import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=24d5112f';
-import { CSS } from '../render/styles.js?v=24d5112f';
+} from '../anim/mission.js?v=9e6eb515';
+import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=9e6eb515';
+import { buildActuators } from '../control/actuators.js?v=9e6eb515';
+import { allocate, demoWrench } from '../control/allocator.js?v=9e6eb515';
+import { massState } from '../physics/mass.js?v=9e6eb515';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=9e6eb515';
+import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=9e6eb515';
+import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=9e6eb515';
+import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=9e6eb515';
+import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=9e6eb515';
+import { CSS } from '../render/styles.js?v=9e6eb515';
 import {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS,
-} from '../adapter/fable.js?v=24d5112f';
-import { walk } from '../core/nodes.js?v=24d5112f';
-import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=24d5112f';
+} from '../adapter/fable.js?v=9e6eb515';
+import { walk } from '../core/nodes.js?v=9e6eb515';
+import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=9e6eb515';
 
 /* ---------- state -------------------------------------------------------------------------- */
 
@@ -495,7 +495,7 @@ const hostState = (over = {}) => ({
   idx: 2, phase: 'WATER_FILL', label: 'pump water aboard', prog: 0.5,
   ll: [-120, 50], bearing: 90, alt: 300,
   water: 50, ln2: 12,
-  draw: { hotel: 0.16, pumps: 1.635, prop: 0.2, fans: 0, cryo: 0, winch: 0, rotors: 0 },
+  draw: { hotel: 0.16, pumps: 1.962, prop: 0.2, fans: 0, cryo: 0, winch: 0, rotors: 0 },
   massT: 162, buoyN: 2.16e6, weightN: 1.59e6, netN: 5.7e5, cycleN: 3,
   ...over,
 });
@@ -509,7 +509,7 @@ test('the adapter translates units the monitor and the model disagree about', ()
   assert.ok(Math.abs(s.ln2Fraction - 12 / cls.ln2TankCapacityTonnes) < 1e-9);
   assert.equal(s.altitudeM, 300);
   assert.equal(s.phase, 'WATER_FILL');
-  assert.ok(Math.abs(s.pumpPowerMW - 1.635) < 1e-9);
+  assert.ok(Math.abs(s.pumpPowerMW - 1.962) < 1e-9);
   assert.ok(Math.abs(s.propulsionPowerMW - 0.2) < 1e-9);
   assert.deepEqual(validateState(s), []);
 });

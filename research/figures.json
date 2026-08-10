@@ -70,8 +70,8 @@
         "tph": 175,
         "dropsPerHour": 1.75,
         "passes": 1,
-        "eCycleMWh": 1.308,
-        "kwhPerTonne": 13.08,
+        "eCycleMWh": 1.005,
+        "kwhPerTonne": 10.05,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 2,
@@ -88,9 +88,20 @@
         "downMW": 0.3,
         "solarMW": 1.2,
         "solarPerCycleMWh": 0.68,
-        "deficitPerCycleMWh": 0.62,
+        "deficitPerCycleMWh": 0.32,
         "ln2MakeT": 1.83,
-        "eBackMWh": 0.412
+        "eBackMWh": 0.412,
+        "ledgerMWh": {
+          "WATER_FILL": 0.109,
+          "recovery": -0.412,
+          "OUTBOUND_TRANSIT": 0.209,
+          "RETURN_TRANSIT": 0.938,
+          "letdown": 0.012,
+          "anchor": 0.006,
+          "other": 0.143
+        },
+        "cyclesOnBattery": 62.2,
+        "hoursOnBattery": 35.4
       }
     },
     "P1000": {
@@ -138,8 +149,8 @@
         "tph": 1697,
         "dropsPerHour": 1.7,
         "passes": 1,
-        "eCycleMWh": 6.983,
-        "kwhPerTonne": 6.98,
+        "eCycleMWh": 6.389,
+        "kwhPerTonne": 6.39,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 3,
@@ -156,9 +167,20 @@
         "downMW": 5,
         "solarMW": 5.6,
         "solarPerCycleMWh": 3.3,
-        "deficitPerCycleMWh": 3.68,
+        "deficitPerCycleMWh": 3.09,
         "ln2MakeT": 7.49,
-        "eBackMWh": 1.684
+        "eBackMWh": 1.684,
+        "ledgerMWh": {
+          "WATER_FILL": 1.09,
+          "recovery": -1.684,
+          "OUTBOUND_TRANSIT": 1.469,
+          "RETURN_TRANSIT": 4.177,
+          "letdown": 0.161,
+          "anchor": 0.06,
+          "other": 1.116
+        },
+        "cyclesOnBattery": 38.9,
+        "hoursOnBattery": 22.9
       }
     },
     "P10000": {
@@ -226,7 +248,18 @@
         "solarPerCycleMWh": 18.2,
         "deficitPerCycleMWh": 24.81,
         "ln2MakeT": 21.12,
-        "eBackMWh": 4.751
+        "eBackMWh": 4.751,
+        "ledgerMWh": {
+          "WATER_FILL": 10.9,
+          "recovery": -4.751,
+          "OUTBOUND_TRANSIT": 9.459,
+          "RETURN_TRANSIT": 14.705,
+          "letdown": 1.42,
+          "anchor": 0.596,
+          "other": 10.689
+        },
+        "cyclesOnBattery": 80.6,
+        "hoursOnBattery": 61.1
       }
     }
   },

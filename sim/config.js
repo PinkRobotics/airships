@@ -22,7 +22,7 @@ export const DEFAULTS = {
   propEta: 0.70,   // propulsive efficiency applied to drag and disk power
   Cd: 0.05,        // hull drag coefficient (streamlined body of revolution)
   // Drag and every rotor calculation still use one fixed density. 1.10 kg/m3 is ISA at
-  // about 990 m MSL, and the working altitude is 2,500 m (below), where the air is
+  // about 1,107 m MSL, and the working altitude is 2,500 m (below), where the air is
   // 0.957 kg/m3. So drag is overstated by 15% and induced power understated by 7%. Both
   // are the power model's to fix, not the ledger's: see docs/PHYSICS.md Defect 2.
   rhoAir: 1.10,    // kg/m3, a fixed working-band density for drag and disk power
@@ -156,7 +156,7 @@ export const VZ_MAX = 6;
  * it. 300 m on every class. It was briefly 1,100 and 1,350 m on the larger two, as a way of
  * keeping them out of the dense air near the water — that worked and cost 29 MWh a cycle in
  * pump work against a 2 m bore and 140 bar at the pod. The anchor below does the same job for
- * 0.04 MWh, so the hoses went back to being hoses.
+ * 0.60 MWh against a 43.02 MWh cycle, so the hoses went back to being hoses.
  *
  * `anchorM`, `anchorBagT` — THE DESCENT ANCHOR, which is how a buoyant ship gets down.
  *
@@ -173,7 +173,8 @@ export const VZ_MAX = 6;
  * nothing is manufactured.
  *
  * It is a Bambi bucket — the collapsible helicopter bucket the industry has used since 1983 —
- * at a scale nobody has built. Commercial ones top out near 10 tonnes. This is 1,200. The
+ * at a scale nobody has built. Commercial ones top out near 10 tonnes. This is 1,240 times that.
+ * The
  * principle is unchanged and the engineering is not, which is the honest way to describe it.
  *
  * `anchorM` is the cable, and it is shorter than it looks like it should be: the rotors can
@@ -183,9 +184,15 @@ export const VZ_MAX = 6;
  *
  * `anchorBagT` IS SIZED TO DO THE WHOLE DESCENT, not to cover a shortfall, and that is where
  * most of the value turned out to be. Rotor power goes as thrust^1.5, so taking load off the
- * rotors pays superlinearly: the letdown is 45% of the P-10000's cycle energy, and a bag that
- * carries 90% of the hold reduces it by 96%. Cycle energy falls 1.85 -> 1.20, 12.24 -> 7.20 and
- * 79.24 -> 45.34 MWh. The bag is therefore 90% of what has to be held down at the source, with
+ * rotors pays superlinearly: the letdown WAS 45% of the P-10000's cycle energy, and a bag that
+ * carries 90% of the hold reduces it by 96% — to 3.3%. Cycle energy falls 88.62 -> 43.02 MWh on
+ * the largest class with throughput unchanged.
+ *
+ * This is the second most powerful number in the whole model — ±20% moves cycle energy +12.5% /
+ * -3.2%, more than any tunable except cruise speed — and it has no slider and no derivation.
+ * The 90% is a choice, not a result: the smallest bag that still delivers a full payload is
+ * 1,099 t, and everything between there and 12,400 t buys energy rather than capability.
+ * docs/OPEN-QUESTIONS.md #7. The bag is therefore 90% of what has to be held down at the source, with
  * the rotors keeping the last 10% for control rather than for lift: 125 / 1,250 / 12,400 t.
  *
  * There is a natural ceiling on the bag and it is a pleasing one: the most water the ship can
@@ -227,14 +234,21 @@ export const CLASSES = {  P100: {
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 876, diaM: 219,
     cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
     anchorM: 850, anchorBagT: 12400,
-    // diskM2 and battMW are sized so the force balance closes with NOTHING held back:
-    // after a full 10,000 t dump the hull is 11,051 t buoyant at its working altitude, and
-    // 14 big discs on a battery-surge bus must push all of it back down to the water. Brute
-    // force, chosen deliberately over retaining water as descent ballast — every drop empties
-    // the tanks. Honest density made this EASIER, not harder: the surplus to be pushed down
-    // fell from the 12,050 t the sea-level ledger claimed, so the headroom over rotorMaxT/0.6
-    // widened from 5% to 15%. The descent check is still made at the ceiling; see
-    // docs/OPEN-QUESTIONS.md #4 for why the bottom of the letdown is the harder case.
+    /* diskM2 AND battMW ARE LEFT OVER FROM A CONSTRAINT THAT NO LONGER BINDS. Read this before
+     * quoting either of them.
+     *
+     * They were reverse-engineered so the force balance would close with nothing held back:
+     * 14 big discs on a battery-surge bus pushing an emptied hull back down under its own
+     * buoyancy, sized against the surplus AT THE CEILING. That check moved on 2026-08-09, to
+     * the source where the letdown actually ends and the air is 16% denser — and there it does
+     * not close. rotorMaxT/0.6 is 12,666 t against a 13,723 t hold. What closes the descent now
+     * is the anchor: a bag of lake water doing 12,400 t of the work for 0.6 MWh.
+     *
+     * So these two numbers satisfy a superseded constraint and no longer earn their place by
+     * the argument that produced them. Measured today, diskM2 ±20% moves cycle energy by
+     * ∓0.4% and battMW ±20% moves every published figure by 0.0% — the bus is not binding on
+     * anything. They are kept because re-deriving them needs a decision about what the rotors
+     * are actually for now, which is docs/OPEN-QUESTIONS.md #8, not a quiet re-tune. */
     genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarM2: 120000, diskM2: 160000, rotors: 14, ln2CapT: 15500,
     minSourceHa: 1000, searchKm: 600, dropKm: 5, use: "Campaign fires, long hauls, and moving water between regions",
   },

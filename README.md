@@ -67,14 +67,13 @@ On the shipped defaults, balanced mode, 15 km one way, that machinery currently 
 | Delivered | 175 t/h | 1,697 t/h | 13,183 t/h |
 | Descent anchor | 125 t | 1,250 t | 12,400 t of lake water |
 | Retained as ballast | 0 t | 0 t | 0 t |
-| Energy | 1.31 MWh/cycle | 7.0 MWh/cycle | 43.0 MWh/cycle |
-| Per tonne | 13 kWh/t | 7 kWh/t | 4 kWh/t |
+| Energy | 1.01 MWh/cycle | 6.4 MWh/cycle | 43.0 MWh/cycle |
+| Per tonne | 10.1 kWh/t | 6.4 kWh/t | 4.3 kWh/t |
 | Binding constraint | transit distance | transit distance | transit distance |
 
 Both energy rows are affected by defects 2 and 3 below, so treat them as the current output of the
-code rather than as a claim we stand behind. The pass count is 3 for every one of the 135
-class/mode/distance/wind combinations in the golden grid, which means it is not currently doing any
-work either.
+code rather than as a claim we stand behind. A drop is a single pass now — the ship flies one long
+release rather than three circuits — so `passes` is 1 in all 151 combinations of the golden grid.
 
 ## Deterministic replay
 
@@ -270,7 +269,7 @@ and we would rather be shown one than not.
   balloon attached, and the energy argument goes with it.
 - **Energy per tonne.** If the honest per-cycle energy — once defects 2 and 3 are resolved — puts
   kWh per delivered tonne above what conventional air tankers and ground crews achieve, there is no
-  case. The current 8–17 kWh/t is the number to attack; the comparison should be against real
+  case. The current 4.3–10.1 kWh/t is the number to attack; the comparison should be against real
   suppression logistics, not against nothing.
 - **Sustainment.** Every class already runs a per-cycle deficit on these assumptions: solar at
   200 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and

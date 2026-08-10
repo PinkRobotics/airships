@@ -13,11 +13,24 @@
 > *further* from binding rather than closer, and the cryogenic plant is no less inert in the
 > delivery cycle than it was. #2, #3, #5 and #6 are still open.
 
-Six things are wrong, or unjustified, or dead: five of them in the model, and one — the
-Esri basemap, item 5 — in the page that displays it. They are written up here rather than
-quietly fixed because each one changes a number the site publishes or a decision it has to
-make before going public, and because two of them are not really bugs at all — they are
-decisions about the vehicle that have been made by accident and should be made on purpose.
+Thirteen things are wrong, or unjustified, or dead. They are written up here rather than quietly
+fixed because each one changes a number the site publishes or a decision it has to make before
+going public, and because several are not really bugs at all — they are decisions about the
+vehicle that have been made by accident and should be made on purpose.
+
+**The list grew from six to thirteen on 2026-08-09, and where the new ones came from matters.**
+Items 0–6 were found by the people who wrote the model, looking at it. Items 7 and 8 came from an
+adversarial audit of all 89 published claims (`research/evidence-map.md`), which found that the
+constants nobody had thought to question moved the headline more than the defects everyone had.
+Items 9–12 came from reading the sources — the catalogue in `research/sources.json` was built by
+going and checking, and four of the things it checked came back negative. Two of those, #10 and
+#11, are the most serious entries on this page: one is thermodynamically impossible and the other
+questions whether the vehicle's mass premise is reachable at all.
+
+That is the argument for the exercise. A model that is only reviewed by its authors grows a list
+of six. The same model, checked against its own claims and then against the literature, has
+thirteen — and it is the same model. Nothing here was introduced by the audit; it was all already
+true and unnoticed.
 
 Each entry gives the defect, what it costs, the options, and a recommendation. The numbers
 were produced by re-running the model, and by an independent Python replication that
@@ -38,9 +51,9 @@ the specification; the Esri problem is not a model behaviour; and no assertion c
 because a term is absent from a sum. Those three are held to ordinary passing tests that
 record what the code does, and to this page.
 
-`docs/PHYSICS.md` §11 quantifies the same set, but numbers them differently: its Defects 4
-and 5 are the two halves of item 4 below, its Defect 6 is item 6, and item 5 has no entry
-there because it is not physics.
+`docs/PHYSICS.md` §11 quantifies items 0–6, but numbers them differently: its Defects 4 and 5 are
+the two halves of item 4 below, its Defect 6 is item 6, and item 5 has no entry there because it
+is not physics. Items 7–12 are documented here only; §11 predates them.
 
 ---
 
@@ -168,7 +181,7 @@ P-10000 delivers 8,944 of 10,000 t at 10,821 t/h for 88.17 MWh and 9.86 kWh/t, b
 "descent authority" as its bottleneck. Both steps are in `docs/PHYSICS.md` §9 and §10.
 
 **What did not move, and should have.** `CFG.rhoAir` is still a flat 1.10 kg/m³ for drag and
-every rotor calculation — ISA at about 990 m, against a working altitude of 2,500 m. Drag is
+every rotor calculation — ISA at about 1,107 m, against a working altitude of 2,500 m. Drag is
 therefore overstated by 15% and induced power understated by 7%. That is deliberately left
 to #2, whose whole subject is the power model, because fixing it here would have confounded
 a ledger change with a power change; it is pinned by a test so it cannot be forgotten. The
@@ -374,7 +387,7 @@ stayed in the tanks to make the descent possible. Then the obvious question: wha
 a buoyant ship down? Not ballast it carries, makes, or keeps back — it borrows the lake. A bag on
 a cable, filled at the surface and winched clear, is 12,400 t of downward force for the 15 m of
 lift needed to break the surface, and it is dumped back where it came from once the tanks hold
-more than the shortfall. A Bambi bucket at 240 times the commercial scale.
+more than the shortfall. A Bambi bucket at roughly 1,240 times the commercial scale.
 
 Delivery returns to 12,052 t/h with the whole load dropped. The three ways of closing the same
 1,056 t gap, priced: anchor **0.11 MWh** at that size (0.60 once the bag is sized to do the whole
@@ -536,6 +549,155 @@ Whichever is chosen, the two halves must agree: a generator that provides thrust
 provide the energy for it, or provide neither.
 
 *Found in review round 1 (codex), 2026-08-09.*
+
+---
+
+## 7. Thirty-two unjustified constants, and only fifteen of them are dialled
+
+An audit of every published figure (`research/evidence-map.md`, 89 claims) put 32 of them on
+constants with no stated justification anywhere — against 15 genuine stated assumptions. **The
+expected result was the opposite.** `sim/config.js` does what it advertises: every number in it is
+visible, dialled and captioned. The problem is everything that is NOT in it — coefficients written
+inline in `plan.js` and `state.js`, never surfaced, never argued for, and in several cases moving
+the published output by more than the defect this project has spent a week naming.
+
+The three that matter most, measured:
+
+| constant | where | what it does | moving it |
+|---|---|---|---|
+| `0.55` and `0.4` drag multipliers | `plan.js` E.RETURN_TRANSIT, E.other | charge the return leg and the manoeuvring phases a fraction of cruise drag | charging full drag everywhere: **43.02 → 59.90 MWh, +39%** |
+| anchor bag at 90% of the hold | `config.js` anchorBagT | how much of the descent the lake does | the minimum bag that still delivers the full payload is 1,099 t against the shipped 12,400 t; between them the cycle runs **88.62 → 43.02 MWh** with throughput unchanged |
+| `fillM3s` 0.5 / 3 / 15 m³/s | `config.js` | sets the fill AND, since the single-pass drop, the release — 22.2 of 45.5 cycle minutes | halved: cycle **45.5 → 67.7 min**, delivery −33%, bottleneck flips to water handling |
+
+For comparison, defect 3 — the unexplained letdown window this project has flagged in its README
+since the first commit — is worth 1.42 MWh. The two drag multipliers are worth 16.88.
+
+**DECISION: none yet.** This is the entry that says the audit found something the project's own
+self-assessment did not. Each of these needs the same treatment the six original defects got:
+a stated reason, or a derivation, or an admission that it is a guess — and `research/evidence-map.md`
+is the list to work through.
+
+---
+
+## 8. The disc area and the battery peak answer a question that is no longer asked
+
+`diskM2` (160,000 m²) and `battMW` (1,400 MW) on the P-10000 were reverse-engineered so the force
+balance would close with nothing held back: the rotors alone pushing an emptied hull back down
+under its own buoyancy. That check was made at the CEILING. On 2026-08-09 it moved to the source,
+where the letdown actually ends and the air is 16% denser, and there it does not close —
+`rotorMaxT/0.6` is 12,666 t against a 13,723 t hold.
+
+The descent is closed by the anchor now. These two numbers satisfy a superseded constraint.
+
+What makes it a defect rather than a tidy-up is that they were still being published as evidence
+for a property the model does not have: `sim/config.js` asserted closure in a comment, and
+`docs/PHYSICS.md` §7 called it "the model's central structural boast" while computing its
+supporting table against the superseded ceiling ledger. Both are corrected as of this entry.
+
+And they are no longer load-bearing on anything. Measured: `diskM2` ±20% moves cycle energy by
+∓0.4%; `battMW` ±20% moves **every published figure by 0.0%**. Two of the most striking numbers on
+the class cards are inert.
+
+**DECISION: none yet.** Re-deriving them needs a decision about what the primary rotors are
+actually for now that the anchor does the descent — trim and cruise, or descent authority in
+reserve for a bag that fails to fill. That is a design question, not a re-tune, and it is entangled
+with the dedicated-propulsor question.
+
+---
+
+## 9. The solar skin needs 76% conversion efficiency
+
+`sim/state.js` credits the skin a flat **200 W/m² of electrical output**, continuously, and every
+sustainment number in this project rests on it: the generation side of §9's deficit table, the
+endurance figures, the storage gauge, and the public conclusion that the fleet is a battery being
+spent rather than a perpetual machine.
+
+NRCan's insolation dataset gives **6.34 kWh/m²/day** mean July horizontal insolation averaged
+across eight BC interior fire-belt towns. That is 264 W/m² *incident*, day-averaged. Getting
+200 W/m² of electricity out of it requires **76% conversion**. The best cells ever made in a
+laboratory are under half that. At 20% modules — generous for a flexible skin on a curved hull —
+the honest figure is **53 W/m²**, and a fixed horizontal-equivalent number ignores that most of an
+airship's skin faces the wrong way at any moment.
+
+Nothing in the model checks this, because generation never enters `planCycle` — that is Defect 6,
+and this is the second half of it. Together they mean the generation column is wrong in both
+directions at once: it omits 150 MW of generators that exist, and it credits about 3.8× the solar
+that does.
+
+**DECISION: none yet.** The fix is arithmetically trivial and its consequence is not. At 53 W/m²
+the P-10000's solar falls from 24.0 MW to 6.4 MW, its per-cycle generation from 18.20 to 4.83 MWh,
+and its deficit rises from 24.81 to **38.19 MWh** — endurance drops from 61.1 hours to about 40.
+The direction is the point: **this makes the project's own headline conclusion stronger, not
+weaker.** Correcting it costs nothing but honesty and buys a number a reviewer cannot take apart.
+Source: `research/sources.json`, NRCan photovoltaic potential dataset.
+
+---
+
+## 10. `rtLN2` recovers more work from nitrogen than the nitrogen contains
+
+`rtLN2 = 0.50` says half the 0.45 kWh/kg spent liquefying nitrogen comes back as electricity —
+**225 kWh per tonne**. The physical exergy of liquid nitrogen at 1 bar against a 288 K ambient is
+**173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020, corroborated independently at 205–214 kWh/t under
+more favourable assumptions).
+
+So the recovery term returns 1.3× the work thermodynamically available in the liquid, before any
+turbine, heat exchanger or generator efficiency. It is not an optimistic efficiency; it is a
+violation. `eBack` is a perpetual-motion line item and it is on the page.
+
+It is also, embarrassingly, the line that this project's own accounting bug was hiding: until
+2026-08-09 the recovery was netted against the pump bill inside a `max(0, …)`, so on the two
+smaller classes it silently deleted the entire pumping cost. Splitting the lines exposed the
+credit, and exposing it is what made it checkable.
+
+Measured: `rtLN2` ±20% moves the P-10000's cycle energy ∓2.2%. Capping the recovery at the true
+exergy — `rtLN2 ≤ 173.4/450 = 0.385` — costs about 1.0 MWh a cycle, 2.4%.
+
+**DECISION: none yet**, but unlike most entries here this one has no defensible reading. The
+number should be 0.385 at the absolute ceiling and something like 0.25 for a plant that exists.
+
+---
+
+## 11. The dry-mass budget fails twice, against two independent sources
+
+`dryT = payloadT` is the assumption the whole ledger stands on: 10,000 t of everything-that-is-not-
+water inside 22 million m³, or **0.455 kg/m³** of hull-average density. Two sources contradict it
+independently, and neither was cited when the assumption was made:
+
+- **Jenett et al. 2019** (NASA NTRS, in `research/papers/`) — the discrete cellular lattice this
+  project cites as its structural precedent — gives a bare shell of **0.508 kg/m³** in its own
+  Table 2, at every radius. That is 12% over our *entire* dry allowance before skin, joints,
+  rotors, tanks, batteries or the 125 t of anchor cable this model also does not charge.
+- **Metlen & Palazotto 2013**'s only real-materials vacuum-lift design has a
+  structure-to-buoyancy ratio of **0.94** — structure alone consuming what we allocate to
+  structure *and* payload.
+- Separately: every class carries **0.2 MWh of battery per tonne of dry mass**, which demands
+  200 Wh/kg at pack level with nothing left over for anything else. NASA flew 149 Wh/kg on X-57.
+
+**DECISION: none yet**, and this is the largest open question in the project — larger than any of
+#1–#8, because those are errors inside a model and this is a question about whether the model's
+premise is reachable. It is stated here rather than resolved because resolving it honestly means
+either a mass breakdown this project has not done, or saying plainly that the vehicle is
+conditional on a structural technology that has been demonstrated at the scale of a metre.
+
+---
+
+## 12. The drop may not reach the ground, and tonnes may be the wrong metric
+
+Two findings from the wildfire-aviation literature, both aimed at the top of the funnel:
+
+- The **US Forest Service's 2022 assessment** states that a drop released 1,000 ft above
+  ground/vegetation level "would completely dissipate". `ALT.drop` is **450 m — 1,476 ft**, three
+  to five times a very large airtanker's release height. The model has no droplet physics at all;
+  it moves tonnes from a tank to a coordinate. The altitude was raised for hull-clearance reasons
+  that are sound, and the delivery consequence was never costed.
+- **AFUE** (Aerial Firefighting Use and Effectiveness, 27,611 observed drops) reports probability
+  of success **0.56 without ground engagement against 0.72 with it**, the modal outcome without
+  ground crews being *not effective*. AFUE never counts tonnes. This project's headline metric is
+  tonnes per hour.
+
+**DECISION: none yet.** Neither is a modelling error — the model is honest about being a delivery
+simulator — but both bear on whether delivered tonnage is the right thing to have optimised, and a
+reader from the fire community will raise them in the first five minutes. They belong on the list.
 
 ---
 
