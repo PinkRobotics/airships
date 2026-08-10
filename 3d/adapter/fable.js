@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=77459a4c';
-import { anchorAt, phaseShape } from '../anim/mission.js?v=77459a4c';
-import { massState } from '../physics/mass.js?v=77459a4c';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=77459a4c';
-import { clamp01 } from '../core/math.js?v=77459a4c';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=06a314a3';
+import { anchorAt, phaseShape } from '../anim/mission.js?v=06a314a3';
+import { massState } from '../physics/mass.js?v=06a314a3';
+import { ASSUMPTIONS, setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=06a314a3';
+import { clamp01 } from '../core/math.js?v=06a314a3';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -198,7 +198,10 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
   const genCap = cls.generatorContinuousPowerMW;
   s.generatorPowerMW = Math.min(genCap, demand);
   s.batteryPowerMW = demand - s.generatorPowerMW;
-  s.solarPowerMW = (cls.solarAreaM2 * 200) / 1e6;
+  // ASSUMPTIONS, not a literal. This was the SIXTH copy of the 200 W/m2 figure and the one that
+  // survived the 2026-08-09 unification — which had been written up as "five files, now one".
+  // A parity test compares two named constants and cannot see a number typed into a third file.
+  s.solarPowerMW = (cls.solarAreaM2 * ASSUMPTIONS.solarWPerM2) / 1e6;
 
   return sanitizeState(s);
 }

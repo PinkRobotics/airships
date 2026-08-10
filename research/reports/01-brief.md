@@ -3,11 +3,11 @@
 <!--tex:skip-->
 **A briefing · 2026-08-09 · Pink Robotics**
 
-<!--tex:headline THE IDEA | Fire loses to water. It always has. The only question has ever been how much you can put on it, how fast, and for how long --- and the answer today is \emph{not enough, not fast enough, and not for long}. This is a design for a machine that changes all three at once.-->
+<!--tex:headline THE IDEA | Water is how fires are stopped. The only questions have ever been how much of it you can put on one, how fast, and for how long --- and the answers today are \emph{not enough, not fast enough, and not for long}. This is a design for a machine that changes all three at once.-->
 
-## Why aerial firefighting is a duty-cycle problem
+## The problem is the round trip
 
-A very large airtanker carries perhaps seventy tonnes. It arrives, releases in seconds, and then
+A very large airtanker carries about seventy tonnes. It arrives, releases in seconds, and then
 spends the next half hour to hour-and-a-half flying to a base, loading, and flying back. Its
 instantaneous delivery is spectacular; its *sustained* delivery — the number that decides whether
 a fire line holds — is set almost entirely by the turnaround.
@@ -15,13 +15,15 @@ a fire line holds — is set almost entirely by the turnaround.
 Helicopters with buckets shorten the turnaround by dipping from a lake nearby, and pay for it in
 payload: a heavy-lift helicopter carries about ten tonnes.
 
-Nothing occupies the middle, because for a rotorcraft every kilogram of lift is bought
-continuously with power, so payload and endurance trade directly against each other.
+Nothing occupies the gap between them — a machine that dips like a helicopter and carries like a
+tanker — because for a rotorcraft every kilogram of lift is bought continuously with power, so
+payload and endurance trade directly against each other.
 
 **Buoyant flight does not have that trade.** A hull that displaces its own weight in air holds
 altitude at zero power. Carrying more costs the price of a bigger hull, once. Put a buoyant
-vehicle over a lake and the turnaround stops existing: it never lands, so there is nothing to
-turn around.
+vehicle over a lake and the turnaround stops existing: it never lands, so there is nothing to turn
+around. Nobody is aboard — these are uncrewed ships, sized for the British Columbia interior,
+where the fires and the lakes are usually within tens of kilometres of each other.
 
 ## What the model says a fleet would do
 
@@ -32,12 +34,15 @@ turn around.
 | Water per drop | 100 t<!--f:P100.spec.payloadT--> | 1,000 t<!--f:P1000.spec.payloadT--> | 10,000 t<!--f:P10000.spec.payloadT--> |
 | Length | 190 m<!--f:P100.spec.lenM--> | 404 m<!--f:P1000.spec.lenM--> | 876 m<!--f:P10000.spec.lenM--> |
 | Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> | 35.4 min<!--f:P1000.cycle.cycleMin--> | 45.5 min<!--f:P10000.cycle.cycleMin--> |
-| **Water delivered per hour** | **175 t**<!--f:P100.cycle.tph--> | **1,697 t**<!--f:P1000.cycle.tph--> | **13,183 t**<!--f:P10000.cycle.tph--> |
+| **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** | **1,697 t<!--f:P1000.cycle.tph-->** | **13,183 t<!--f:P10000.cycle.tph-->** |
 | Energy per tonne delivered | 12.5 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.4 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.6 kWh<!--f:P10000.cycle.kwhPerTonne--> |
 
 Thirteen thousand tonnes an hour is thirteen million litres an hour, from one aircraft, without
-landing, through the night — and at industrial electricity prices the energy in a full
-10,000-tonne<!--f:P10000.spec.payloadT--> drop costs on the order of two thousand dollars.
+landing, through the night. **Nothing in that table has been built** — no hull, no rotor, no
+cable. It is what the model says a fleet would do, which is why the model is published and why
+the last third of this page is the four things that would have to be true. At industrial
+electricity prices, the energy in a full 10,000-tonne<!--f:P10000.spec.payloadT--> drop costs on
+the order of two thousand dollars.
 **It also gets cheaper as it gets bigger**: buoyancy scales with volume and drag with area, so the
 largest class delivers a tonne for 4.6 kWh<!--f:P10000.cycle.kwhPerTonne--> against the smallest
 class's 12.5<!--f:P100.cycle.kwhPerTonne-->. The square-cube law, which punishes almost every
@@ -49,7 +54,7 @@ other kind of vehicle, is on this one's side.
 
 A conventional airship floats because it is full of helium. This one floats because it is full of
 *nothing* — a rigid shell holding a vacuum, about 14% more buoyant than helium, and impossible to
-embargo, to price, or to leak.
+embargo, to corner, or to leak.
 
 The idea is 356 years old. Francesco Lana de Terzi published it in 1670 and was right about
 everything except the metal: thin the shell enough to float and the atmosphere crushes it. That
@@ -73,24 +78,23 @@ big enough to float when it is full of water is very hard to push *down* when it
 — hardest of all at the bottom, over the lake, where the air is thickest. Our largest class has
 to hold down 13,723 t<!--f:P10000.descent.holdAtSourceT--> of surplus lift there and its rotors
 can manage 12,666<!--f:P10000.descent.rotorCapT-->. It cannot reach its own water under power.
-The problem arrived uninvited, out of a correction to something else.
-
 The answer is to borrow the lake. The ship lowers a cable with a collapsible bag, fills it at the
 surface, and winches it just clear: **12,400 tonnes<!--f:P10000.descent.anchorT--> hanging on a
-line is 12,400 tonnes<!--f:P10000.descent.anchorT--> of downward force**, bought for the fifteen
-metres of lift it takes to break the surface — then tipped back where it came from.
+line is 12,400 tonnes<!--f:P10000.descent.anchorT--> of downward force**, and the whole price of
+it is the fifteen metres of lift needed to break the surface. When the ship has what it came for,
+the bag is tipped back into the lake it came from.
 
 
 <!--tex:fig charts/render-anchor.png | The mechanism, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag sitting in the water. The bag is to scale — 12,400 tonnes is 28.7 m across beside an 876 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows up.-->
 
 It costs 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> and removes 34.5 MWh of rotor work.
-**Fifty-eight to one.** Rotor power goes as thrust to the 1.5, so load moved onto the lake comes
-off faster than linearly — which is why the bag does the *whole* descent rather than covering the
-shortfall that revealed it, and why every class carries one including the class that does not
-need it. The alternatives were costed in the open and rejected: the same ballast as liquid
+**Fifty-eight to one.** Rotors get disproportionately expensive as you load them, so every tonne
+handed to the lake is worth more than a tonne taken off the rotors. That is why the bag does the
+*whole* descent rather than just covering the shortfall that revealed it, and why every class
+carries one — including the class whose rotors could manage without. The alternatives were costed in the open and rejected: the same ballast as liquid
 nitrogen is 475 MWh, and filling from high up a 1,350 m hose is 44 MWh at two-metre bore and
-140 bar. When a mechanism is three orders of magnitude cheaper than everything else, that is
-usually the design telling you something.
+140 bar. When one mechanism is that much cheaper than every alternative, that is usually the
+design telling you something.
 
 ## What would have to be true
 
@@ -100,8 +104,8 @@ evidence *against*. Four are load-bearing:
 - **A structure light enough.** The model assumes a ship's dry mass equals its water payload.
   NASA's own lattice paper — the one this rests on — gives a bare shell 12% heavier than that
   whole allowance, and at the battery density NASA has flown, the battery alone is 34% over.
-  **This is what the concept lives or dies on**, and it is a manufacturing question rather than a
-  physics one, which is both the good news and the reason to keep going.
+  **This is what the concept lives or dies on.** It looks like a manufacturing question rather
+  than a physics one — which is the good news — and it is unanswered.
 - **A drop that arrives.** The US Forest Service says a release 1,000 ft above the canopy "would
   completely dissipate". Ours release from 1,476 ft, raised for hull clearance and never costed
   against delivery.
@@ -112,10 +116,8 @@ evidence *against*. Four are load-bearing:
   10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it, a P-10000
   36.3<!--f:P10000.energy.hoursOnBattery-->. This fleet is a battery being spent.
 
-Thirteen such issues are tracked at `docs/OPEN-QUESTIONS.md`, eleven still open. Two closed on
-2026-08-09 by making our own numbers *worse*: the solar skin had needed an impossible 76%
-conversion efficiency, and the nitrogen store had been returning more work than the nitrogen
-contained.
+Seventeen such issues are tracked at `docs/OPEN-QUESTIONS.md`, fifteen still open. Two closed on
+2026-08-09, and both closed by making our own numbers *worse*.
 
 ## Why we publish the arithmetic
 
@@ -131,7 +133,7 @@ because generation was not in the ledger those figures come from. A model can be
 something central with nothing able to notice. We would rather be corrected early and loudly than
 be right in private.
 
-<!--tex:headline WHERE THIS GOES | A vehicle that moves ten thousand tonnes of water to wherever it is needed, for four and a half kilowatt-hours a tonne, is not only a firefighting machine --- it is water logistics at a scale that does not currently exist. Fire is where it starts because that is where the need is loudest and the round trip is shortest.-->
+<!--tex:headline WHERE THIS GOES | If a shell this light can be built, what falls out of it is not only a firefighting machine. Moving ten thousand tonnes of water for four and a half kilowatt-hours a tonne is a capability nothing currently has, at any price. Fire is where it would start: the need is loudest there, and the round trip is shortest.-->
 
 **Live model** pinkrobotics.ca/airships<br>**The evidence** pinkrobotics.ca/research<br>**Repository, defect list and 73 catalogued sources** github.com/pinkrobotics/airships
 

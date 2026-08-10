@@ -18,7 +18,7 @@
  * compares the two, the same treatment the two copies of the vehicle specification get.
  */
 
-import { anchorHang } from '../sim/index.js?v=4bb155b5';
+import { anchorHang } from '../sim/index.js?v=4b290e1e';
 
 /**
  * @param {object} cls   the monitor's class record (CLASSES[id])

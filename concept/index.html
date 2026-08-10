@@ -1306,8 +1306,8 @@ nav.estate .wrap{display:block}
 import {
   CFG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
   ledger, planCycle, fmt, fmtHa, fmtMin, fmtT,
-} from '../sim/index.js?v=4bb155b5';
-import * as SIM from '../sim/index.js?v=4bb155b5';
+} from '../sim/index.js?v=4b290e1e';
+import * as SIM from '../sim/index.js?v=4b290e1e';
 
 /* ============================================================================================
  * Concept-page shim. The SIM block above is byte-shared with the monitor page; this page
@@ -1326,11 +1326,11 @@ const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
   { k: "speedMul", label: "Airspeed multiplier", unit: "×", min: 0.6, max: 1.4, step: 0.05, d: 2, note: "scales every class's cruise speed" },
   { k: "fillMul", label: "Fill-rate multiplier", unit: "×", min: 0.5, max: 2, step: 0.1, d: 1, note: "pump capacity is a demonstration assumption" },
-  { k: "hoseHead", label: "Hose vertical head", unit: " m", min: 100, max: 500, step: 25, d: 0, note: "how far up water is pushed from the pod" },
+  { k: "hoseMul", label: "Hose length multiplier", unit: "×", min: 0.4, max: 1.6, step: 0.1, d: 1, note: "scales every class's hose; the length IS the fill altitude and the pumping head" },
   { k: "pumpEta", label: "Pump system efficiency", unit: "", min: 0.5, max: 0.9, step: 0.05, d: 2, note: "pumps, hose losses and electrics, all-in" },
   { k: "Cd", label: "Hull drag coefficient", unit: "", min: 0.03, max: 0.12, step: 0.005, d: 3, note: "streamlined-body assumption; cube-law sensitive" },
   { k: "eLN2", label: "LN₂ production energy", unit: " kWh/kg", min: 0.3, max: 0.8, step: 0.05, d: 2, note: "demonstration assumption, not a plant spec" },
-  { k: "rtLN2", label: "LN₂ round-trip efficiency", unit: "", min: 0.35, max: 0.6, step: 0.05, d: 2, note: "fraction of liquefaction energy recovered" },
+  { k: "rtLN2", label: "LN₂ round-trip efficiency", unit: "", min: 0.10, max: 0.38, step: 0.02, d: 2, note: "fraction of liquefaction energy recovered — capped at the exergy of the liquid, 173.4 kWh/t" },
   { k: "cryoMul", label: "Cryogenic capacity multiplier", unit: "×", min: 0.5, max: 2, step: 0.1, d: 1, note: "scales the onboard liquefaction plant" },
 ];
 function renderAsm() {

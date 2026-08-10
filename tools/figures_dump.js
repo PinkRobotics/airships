@@ -109,11 +109,25 @@
     }
     sens[k] = row;
   }
+  // The one-way TRANSIT distance, which is planCycle's third argument. This was labelled
+  // `dropKm` and published in two PDFs under a caption reading "every constant moved ±20%" —
+  // but dropKm is the length of the release line (sim/plan.js), a different quantity that this
+  // sweep never touched. Nothing checks a label, so a generated chart carried a wrong one.
   {
     const row = {};
     for (const [side, mul] of [['lo', 0.8], ['hi', 1.2]]) {
       row[side] = pct(planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm * mul).eCycleMWh,
                       base.eCycleMWh);
+    }
+    sens.oneWayKm = row;
+  }
+  // And dropKm itself, which had never been measured.
+  {
+    const row = {};
+    for (const [side, mul] of [['lo', 0.8], ['hi', 1.2]]) {
+      const mod = Object.assign({}, CLASSES.P10000);
+      mod.dropKm = CLASSES.P10000.dropKm * mul;
+      row[side] = pct(planCycle(mod, MODES.balanced, CFG.exampleKm).eCycleMWh, base.eCycleMWh);
     }
     sens.dropKm = row;
   }

@@ -1,15 +1,17 @@
-# Continuous aerial water delivery by vacuum-lift airship
+# Continuous aerial water delivery by vacuum-lift airship: a first-order model
 
 <!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1**
 
 <!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. Modelled at three scales, the largest class delivers \textbf{13,183 tonnes of water an hour}, continuously, for 4.6 kWh a tonne --- and gets cheaper per tonne the larger it is, because buoyancy scales with volume and drag with area. This paper is the arithmetic behind that sentence, and the list of what would have to be true for it to survive contact with hardware.-->
 
-> **Status.** Every quantitative statement below is either an output of the simulation in this
-> repository, cited by key and verified automatically against `research/figures.json`, or a figure
-> from a catalogued source, cited plainly. Nothing has been built. The model is first-order
-> throughout, and §8 lists the thirteen assumptions known to be wrong or unjustified — eleven
-> open, two corrected on 2026-08-09 and kept in place with what they cost.
+> **Status.** Every headline quantity below is an output of the simulation in this repository,
+> cited by key and verified automatically against `research/figures.json`; figures from catalogued
+> sources are cited plainly. Superseded values, historical comparisons and one-off derivations are
+> written unmarked and sit outside that gate — they are identified as such where they appear.
+> Nothing has been built. The model is first-order throughout, and §8 lists the seventeen defects
+> and unjustified assumptions the project has found in itself — fifteen open, two corrected on
+> 2026-08-09 and kept in place with what they cost.
 
 ---
 
@@ -49,7 +51,13 @@ means it must be stiff, which historically means it must be heavy. Lana de Terzi
 1670 and the arithmetic has failed ever since.
 
 The modern case rests on discrete lattice construction — ultralight periodic cellular structures
-assembled from discrete parts, which reach very low densities at usable stiffness. Jenett et al.
+assembled from many identical mass-produced parts, which hold their stiffness as they lose density
+where foams and honeycombs do not. Applied to the vacuum balloon that moves the binding constraint
+**from buckling to strength**, and the distinction is the whole reopening of the question.
+Buckling is a geometry failure: sudden, total, and not fixable by a better material. Strength is a
+number you can look up, test on a bench, and buy more of. The question stops being *is this
+impossible* and becomes *how light can we build it*, which is an engineering question, and those
+get answered. Jenett et al.
 (NASA, 2019) is this project's structural precedent, and the honest summary of it appears in §8.1:
 **their own numbers do not close our mass budget.** Akhmeteli & Gavrilin (2021) reach a positive
 result for a vacuum balloon by a different route, and their published payload fraction is 0.1
@@ -122,14 +130,15 @@ Six phases, timed rather than asserted. For the P-10000 at 15 km<!--f:worked.one
 | `WATER_RELEASE` | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one long pass, 450 m AGL |
 | `BUOYANCY_ESCAPE` | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | rise off the line on buoyancy alone, no propulsion |
 | `RETURN_TRANSIT` | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | run back, make nitrogen, let down onto the lake |
-| **total** | **45.51**<!--f:P10000.cycle.cycleMin--> | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
+| **total** | **45.51<!--f:P10000.cycle.cycleMin-->** | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
 
 <!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle behind it. Water handling is the longest part of every cycle, which is the signature of a vehicle that never lands.-->
 
 That is 13,183 t/h<!--f:P10000.cycle.tph--> and 1.32<!--f:P10000.cycle.dropsPerHour--> drops per
-hour. Water handling — fill plus release — is 22.2 of the 45.5 minutes, and the model reports the
-bottleneck as transit distance at this range because both scale but
-only transit scales with distance.
+hour. Water handling — fill plus release — is 22.2 of the 45.5 minutes, the largest single
+slice of the cycle. The model nonetheless names transit as the bottleneck, because water handling
+is fixed by the pumps while transit grows with every kilometre: transit is the term that decides
+how the cycle changes, not the one that dominates it at this range.
 
 **The drop is one pass**, not three. Three circuits meant two turns of an 876 m hull over a fire,
 which is a manoeuvre the model had no business assuming. A single long release removes them.
@@ -158,7 +167,7 @@ to the place where the descent actually ends.
 ### 6.2 Three ways out, costed
 
 1. **Retain water as ballast.** Directly reduces delivery, which is the metric.
-2. **Make ballast from air.** Liquefy nitrogen on the return leg. The plant is real and it is
+2. **Make ballast from air.** Liquefy nitrogen on the return leg. The plant is in the model and it is
    sized for something else (§7.2): at cycle rate it makes 21.12 t<!--f:P10000.energy.ln2MakeT-->
    against a need of thousands. Making the whole 12,400 t as LN2 costs about **475 MWh**, eleven
    times the entire cycle.
@@ -211,16 +220,21 @@ buys the mechanism.
 P-10000, 15 km<!--f:worked.oneWayKm--> one way, balanced, still air. Printed from the model, not
 transcribed:
 
-| Term | MWh | share |
-|---|---:|---:|
-| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) | 14.705<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> | 34.2% |
-| `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) | 10.900<!--f:P10000.energy.ledgerMWh.WATER_FILL--> | 25.3% |
-| `other` (hotel + manoeuvring drag) | 10.689<!--f:P10000.energy.ledgerMWh.other--> | 24.8% |
-| `OUTBOUND_TRANSIT` (drag, loaded) | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> | 22.0% |
-| `letdown` (rotor work, with the anchor deployed) | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> | 3.3% |
-| `anchor` (lifting the bag 15 m) | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> | 1.4% |
-| `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> | −11.0% |
-| **total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> | |
+| Term | MWh |
+|---|---:|
+| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) | 14.705<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
+| `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) | 10.900<!--f:P10000.energy.ledgerMWh.WATER_FILL--> |
+| `other` (hotel + manoeuvring drag) | 10.689<!--f:P10000.energy.ledgerMWh.other--> |
+| `OUTBOUND_TRANSIT` (drag, loaded) | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
+| `letdown` (rotor work, with the anchor deployed) | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> |
+| `anchor` (lifting the bag 15 m) | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> |
+| `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
+| **total** | **45.869<!--f:P10000.cycle.eCycleMWh-->** |
+
+Shares are on the figure rather than in the table. They were in both, and the table's column was
+still dividing by the pre-correction 43.0 MWh cycle — so the same seven numbers carried two sets
+of percentages on one page. A share is derived and has no figure key, which means the citation
+gate cannot see it; the chart computes it from the ledger, so the chart is where it belongs.
 
 <!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model rather than transcribed. The anchor is the smallest positive line, and it is the reason the letdown is the second smallest.-->
 
@@ -236,9 +250,10 @@ consequential errors found in this model were both accounting, not physics.**
 
 ### 7.2 What the cryogenic plant is actually for
 
-The nitrogen plant makes 21.12 t<!--f:P10000.energy.ln2MakeT--> per cycle against a
-15,500 t<!--f:P10000.spec.ln2CapT--> tank. As cycle ballast it is three orders of magnitude short,
-and saying so is more useful than defending it.
+The cryogenic plant is not cycle ballast. It is a rescue system, and the two get confused because
+they share a tank. As cycle ballast it makes 21.12 t<!--f:P10000.energy.ln2MakeT--> against a
+15,500 t<!--f:P10000.spec.ln2CapT--> tank — three orders of magnitude short, and saying so is more
+useful than defending it.
 
 Its real job is unpowered recovery. The tank is sized so that an empty hull can be made heavy
 enough to **land with no rotor authority at all**, at ground level rather than at the ceiling —
@@ -261,16 +276,21 @@ confused with a cycle that takes an hour.
 without an energy import chain the fleet is a battery being spent.** It is not a perpetual machine
 and does not claim to be.
 
-Two defects attack this table from opposite directions. The generators each class advertises —
-8<!--f:P100.spec.genMW-->, 40<!--f:P1000.spec.genMW--> and 150 MW<!--f:P10000.spec.genMW--> —
-supply thrust authority and no energy at all, which understates generation. And the solar figure
-is credited at 200 W/m², which overstates it by about 3.8× (§8.2). Correcting both moves the
-conclusion in the same direction it already points.
+One open defect still attacks this table. The generation each class advertises —
+8<!--f:P100.spec.genMW-->, 40<!--f:P1000.spec.genMW--> and 150 MW<!--f:P10000.spec.genMW--> — is
+counted for thrust authority and never as energy. Crediting it would not shrink the deficit: that
+generation runs on the nitrogen store, which is storage rather than a source, and its round trip
+loses. Modelling it honestly moves the conclusion further in the direction it already points, not
+back. The solar half of the table was corrected on 2026-08-09 and the figures above are
+post-correction; §8.2 has what moved.
 
 ## 8. What is wrong with this model
 
-Thirteen entries are documented in `docs/OPEN-QUESTIONS.md`. Six were found by inspection, two by
-auditing all 89 published claims against the code, and four by reading the sources. The four from
+Seventeen entries are documented in `docs/OPEN-QUESTIONS.md`. Seven were found by inspection,
+two by auditing all 89 published claims against the code, four by reading the sources, one by an
+outside reader asking a question none of them had, and three by an adversarial review of the
+model on 2026-08-10 — including one that says the two power models in §8.5 disagree by 5.05×
+rather than the 2.83× recorded there. The four from
 the sources are the serious ones and they are given here in full.
 
 ### 8.1 The dry-mass budget fails twice, independently — the largest open question
@@ -308,9 +328,9 @@ It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 fl
 
 | | solar | per cycle | deficit | endurance |
 |---|---|---|---|---|
-| P-100 | 1.20 → **0.27 MW**<!--f:P100.energy.solarMW--> | 0.68 → **0.15 MWh**<!--f:P100.energy.solarPerCycleMWh--> | 0.32 → **1.10**<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 → **10.4 h**<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 5.60 → **1.26 MW**<!--f:P1000.energy.solarMW--> | 3.30 → **0.74 MWh**<!--f:P1000.energy.solarPerCycleMWh--> | 3.09 → **6.66**<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 → **10.6 h**<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 24.00 → **5.40 MW**<!--f:P10000.energy.solarMW--> | 18.20 → **4.10 MWh**<!--f:P10000.energy.solarPerCycleMWh--> | 24.81 → **41.77**<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 → **36.3 h**<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.68 → **0.15 MWh<!--f:P100.energy.solarPerCycleMWh-->** | 0.32 → **1.10<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **10.4 h<!--f:P100.energy.hoursOnBattery-->** |
+| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.30 → **0.74 MWh<!--f:P1000.energy.solarPerCycleMWh-->** | 3.09 → **6.66<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **10.6 h<!--f:P1000.energy.hoursOnBattery-->** |
+| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 18.20 → **4.10 MWh<!--f:P10000.energy.solarPerCycleMWh-->** | 24.81 → **41.77<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **36.3 h<!--f:P10000.energy.hoursOnBattery-->** |
 
 **Three things this exposed are worth more than the correction.** The constant was duplicated five
 times and wrong in every copy — there is one now, plus one on the far side of the `3d/` boundary
@@ -330,7 +350,7 @@ tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K 
 assumptions). The term returned 1.3× the work available in the liquid, before any turbine or
 generator efficiency. Not an optimistic efficiency — a violation, and it was on the page.
 
-It is **0.20**<!--f:assumptions.rtLN2--> now: 90 kWh/t, 52% of the exergy, about what a cryogenic
+It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
 45.869<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
@@ -358,10 +378,11 @@ counts tonnes. This project's headline metric is tonnes per hour.
 | 3 | An unexplained `0.2` sets the letdown window | 1.42 MWh today; was 34.20 before the anchor |
 | 4 | Retained ballast is dead code; the plant is inert in-cycle | ballast **fixed**; plant restated (§7.2) |
 | 5 | Esri basemap tiles used outside their terms | not physics; blocking for publication |
-| 6 | Generators supply peak power but no energy | 150 MW uncounted on the P-10000 — and §8.2 showed the other half: a 4.4× error in generation moved **no published figure** |
+| 6 | Generators supply peak power but no energy | 150 MW uncounted on the P-10000; §8.2 shows what that concealed |
 | 7 | 32 of 89 published figures rest on unjustified constants | two inline drag multipliers are worth **16.9 MWh** |
 | 8 | `diskM2`/`battMW` answer a superseded constraint | `battMW` ±20% now moves every figure by **0.0%** |
-| 12 | Rotor wash over a water surface is unmodelled | Suter (2005); a 121.6 MN anchor hangs in it |
+| 0 | The sizing requirement that ties #1, #4 and #6 together | the tank is sized to land a dead hull, not to ballast a cycle |
+| — | Rotor wash over a water surface is unmodelled — not a numbered entry | Suter (2005); a 121.6 MN anchor hangs in it |
 
 Defect 7 deserves a sentence of its own. The audit found that the constants nobody had questioned
 move the headline more than the defects everyone had: the two undocumented drag multipliers on the

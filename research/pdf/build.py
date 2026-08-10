@@ -46,6 +46,8 @@ def run(cmd, **kw):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--fast', action='store_true')
+    ap.add_argument('--strict', action='store_true',
+                    help='fail on an overfull box wide enough to leave the page')
     ap.add_argument('which', nargs='*')
     a = ap.parse_args()
 
@@ -85,7 +87,20 @@ def main():
                               errors='replace')
         mm = re.search(r'^Pages:\s+(\d+)', info.stdout, re.M)
         pages = int(mm.group(1)) if mm else 0
-        print(f'  {stem}.pdf — {pages} pages, {pdf.stat().st_size // 1024} KB')
+
+        # READ THE LOG. Return code and page count both said fine while four tables in the
+        # diligence report were printing one character per line and running off the paper —
+        # 73 overfull boxes, the worst 1247 pt, about seventeen inches past the margin.
+        log = (HERE / 'out' / f'{stem}.log').read_text(errors='replace')
+        over = [float(x) for x in re.findall(r'Overfull \\hbox \(([\d.]+)pt too wide\)', log)]
+        bad = [x for x in over if x > 5.0]
+        note = f', {len(over)} overfull' if over else ''
+        print(f'  {stem}.pdf — {pages} pages, {pdf.stat().st_size // 1024} KB{note}')
+        if bad and a.strict:
+            worst = max(bad)
+            print(f'  {stem}: {len(bad)} box(es) over 5pt, worst {worst:.0f}pt — a table or a '
+                  'line is leaving the page.', file=sys.stderr)
+            ok = False
     return 0 if ok else 1
 
 

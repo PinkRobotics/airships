@@ -12,15 +12,16 @@ has been built. There is no revenue, no letter of intent, no flight article, and
 
 What exists is a simulation and its supporting apparatus: a physics model, 309 tests, a 151-case
 deterministic golden baseline, a 73-source catalogue with 12 written notes, an audit of all 89
-published claims, and a defect list of thirteen items, two of them closed. That apparatus is the asset under
+published claims, and a defect list of seventeen items, two of them closed. That apparatus is the asset under
 examination. **The correct question for a reader is not "do these numbers work" but "is this the
 kind of work that would find out if they didn't".**
 
 The report is organised as an argument rather than as a defence: what the idea is worth if it
 works (§§1–3), then what would have to be true for it to work (§4), then the economics, the
 regulatory path, and the quality of the evidence behind all of it. **§4.1 is the entry that could
-end the conversation**, and if you read one section, read that one — but read it after §3, because
-the size of the prize is what decides whether the obstacle is worth attacking.
+end the conversation, and if you read one section, read that one.** It is placed fourth rather than
+first because an obstacle is only worth arguing about if what it blocks is worth having, and
+§§1–3 are what it blocks.
 
 Every model figure is cited by key and verified automatically against the model
 (`tools/check_figures.py`; the build fails on a mismatch). Every external figure names its source.
@@ -98,7 +99,7 @@ over people.
 | Release | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one pass |
 | Escape | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | buoyancy only, no propulsion |
 | Return | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | |
-| **Total** | **45.51**<!--f:P10000.cycle.cycleMin--> | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
+| **Total** | **45.51<!--f:P10000.cycle.cycleMin-->** | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
 
 Water handling is 22.2 of 45.5 minutes. **The vehicle is a pump with a hull attached**, and at
 operational ranges the binding constraint is transit distance only because transit is the term that
@@ -218,14 +219,14 @@ separate source files. NRCan's dataset gives 6.34 kWh/m²/day mean July horizont
 eight BC interior fire-belt towns: **264 W/m² incident**, day-averaged. 200 out of 264 is 76%
 conversion — three and a half times the best cell ever made in a laboratory.
 
-It is **45 W/m²**<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 flexible module × 0.81 for
+It is **45 W/m²<!--f:assumptions.solarWPerM2-->** now: 264 × 0.21 flexible module × 0.81 for
 curvature, cell temperature, soiling and conversion, on a projected area.
 
 | | solar | deficit/cycle | endurance |
 |---|---|---|---|
-| P-100 | 1.20 → **0.27 MW**<!--f:P100.energy.solarMW--> | 0.32 → **1.10**<!--f:P100.energy.deficitPerCycleMWh--> | 35.4 → **10.4 h**<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 5.60 → **1.26 MW**<!--f:P1000.energy.solarMW--> | 3.09 → **6.66**<!--f:P1000.energy.deficitPerCycleMWh--> | 22.9 → **10.6 h**<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 24.00 → **5.40 MW**<!--f:P10000.energy.solarMW--> | 24.81 → **41.77**<!--f:P10000.energy.deficitPerCycleMWh--> | 61.1 → **36.3 h**<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.32 → **1.10<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **10.4 h<!--f:P100.energy.hoursOnBattery-->** |
+| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.09 → **6.66<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **10.6 h<!--f:P1000.energy.hoursOnBattery-->** |
+| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 24.81 → **41.77<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **36.3 h<!--f:P10000.energy.hoursOnBattery-->** |
 
 *Diligence status:* **closed, and the finding underneath it is not.** Two things a reader should
 take from this. First, the correction cut published endurance by roughly two thirds and the project
@@ -243,9 +244,9 @@ tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K 
 more favourable assumptions). The term returned 1.3× the work the liquid contains, before any
 turbine or generator efficiency.
 
-It is **0.20**<!--f:assumptions.rtLN2--> now — 90 kWh/t, 52% of the exergy, about what a cryogenic
+It is **0.20<!--f:assumptions.rtLN2-->** now — 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. The P-10000's cycle rose 43.019 →
-**45.869 MWh**<!--f:P10000.cycle.eCycleMWh-->, 6.6%. Two tests, one on each copy of the constant,
+**45.869 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
 now fail the build if `rtLN2 × eLN2 × 1000` exceeds 173.4.
 
 *Diligence status:* **closed.** Small in magnitude, absolute in kind, and worth reading for what it
@@ -277,6 +278,34 @@ the first five minutes, and there is currently no answer.
 
 ---
 
+### 4.5 If the shell cannot be built, what survives?
+
+An investor finishing §4.1 asks one question immediately, and no document in this set has asked
+it: **if the vacuum shell is the thing that fails, why not helium?**
+
+The honest answer is that most of this concept survives that substitution. The duty-cycle argument
+in §1 is about buoyant flight, not about what provides the buoyancy. A vehicle that never lands
+still has no turnaround. The descent anchor still works — it solves *surplus buoyancy*, which a
+helium hull has too. The cycle, the pumping, the flight profile and most of the energy ledger carry
+over unchanged.
+
+What changes is the lift budget and the economics. Helium is about 14% less buoyant per cubic
+metre than vacuum, so the hull grows for the same payload. It leaks, so it is a consumable with a
+supply chain that has few producers of consequence — a recurring cost and a strategic exposure
+that vacuum does not have. Those are commercial objections rather than physical ones, and they
+look very different once the vacuum shell is what fails.
+
+**This has not been modelled and it should be.** The model is parameterised on displacement and
+lift, so a helium variant is a small change to `sim/config.js` and an afternoon of re-running, not
+a new project. Until it is done, this report cannot say how much of the throughput survives, and
+that is a gap a reader is entitled to hold against it.
+
+The same applies, less favourably, to hybrid-lift designs that make up the difference
+aerodynamically: they reintroduce the payload/endurance trade §1 is built on avoiding, and they do
+not obviously keep the never-lands property.
+
+---
+
 ## 5. Energy, and the only economics the model supports
 
 ### 5.1 The ledger
@@ -292,7 +321,7 @@ P-10000, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 | Letdown | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> |
 | Anchor | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> |
 | Nitrogen recovery (credit) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
-| **Total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> |
+| **Total** | **45.869<!--f:P10000.cycle.eCycleMWh-->** |
 
 <!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model. Seventy-six per cent of it is transit and pumping; the mechanism that closes the descent costs 1.3%.-->
 
@@ -317,7 +346,8 @@ import chain, and that chain is the business.
 
 **The model publishes no cost, and nothing below is a model output.** These are derived from model
 energy figures and the published BC Hydro Transmission Service Rate Schedule 1830 (effective
-1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). Assumptions stated inline.
+1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). **All currency is Canadian**, because the
+tariff is. Assumptions stated inline.
 
 - **Continuous draw per P-10000 in sustained operation:** 45.869 MWh<!--f:P10000.cycle.eCycleMWh-->
   per 45.51-minute<!--f:P10000.cycle.cycleMin--> cycle = **60.5 MW average**. Net of the corrected
@@ -327,15 +357,17 @@ energy figures and the published BC Hydro Transmission Service Rate Schedule 183
   (4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->), **$0.62/t** for the P-100
   (12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->). Per 10,000 t drop: **~$2,250**.
 - **A ten-ship P-10000 fleet** in continuous operation imports roughly **550 MW**. At Schedule 1830
-  that is on the order of **US$26M per month** — about $20M energy and $7M demand — assuming unity
+  that is on the order of **CA$26M per month** — about $20M energy and $7M demand — assuming unity
   power factor and continuous operation. Given to one significant digit because the duty-cycle
   assumption dominates it.
 
 **The governing comparison:** BC Hydro's total generating capacity is **13.4 GW** (Site C fully
-operational). A single P-10000's 1,400 MW<!--f:P10000.spec.battMW--> battery discharge peak is
-**over 10% of the province's entire generating capacity.** A ten-ship fleet's sustained import is
-**4.1% of provincial capacity**, continuously, during fire season — which is also peak demand
-season.
+operational). A ten-ship fleet's sustained import is **4.1% of provincial capacity**,
+continuously, during fire season — which is also peak demand season. The instantaneous figure
+looks worse still — a single P-10000's battery is rated at
+1,400 MW<!--f:P10000.spec.battMW--> of discharge, over 10% of the province — but that rating is
+one of the reverse-engineered constants §7 flags, it answers a constraint the model has since
+superseded, and nobody should plan against it.
 
 That is not a tariff problem, it is an interconnection and generation-planning problem, and it has
 a lead time measured in years. BC Hydro's 2025 capacity call drew 106 submissions totalling 19 GW,
@@ -344,6 +376,29 @@ which indicates the queue this would join.
 **Not costed anywhere, and material:** capital cost of a hull (no basis exists), the megawatt-scale
 charging infrastructure at each operating base, battery replacement cycles, and the cost of the
 fire-season duty factor — a fleet sized for August is idle in February.
+
+### 5.4 The commercial side is absent, and that is a gap in this report
+
+This section prices what the fleet *consumes*. It says nothing about what the capability is
+*worth*, and a diligence reader should not have to infer that from silence. Four things are
+missing:
+
+- **What agencies pay today** per delivered tonne and per aircraft-hour for very large airtankers
+  and Type 1 helicopters, and the annual aerial-suppression spend in the target jurisdictions.
+  None of it is in `research/sources.json`, so this report will not quote it.
+- **Who signs.** Aerial suppression is bought by provincial and federal agencies on multi-year
+  standing contracts with call-when-needed extensions. The procurement route for an uncrewed
+  aircraft of this size does not exist.
+- **Capital cost**, even to an order of magnitude. It is derivable — hull mass against a $/kg for
+  lattice structure, plus battery at published $/kWh — and it has not been done.
+- **How often the mission exists.** §2.2 notes that the concept's value collapses toward the value
+  of a big pump if the fire is not near water, and then drops it. That is answerable this week
+  from data this project already mirrors, and it bounds the market more tightly than any of the
+  above. It is now item 13 on the defect list.
+
+**The honest position** is that this document is a technical diligence report with a commercial
+section that has not been written. It is presented that way rather than filled with estimates,
+because an invented market size next to a generated throughput figure would devalue both.
 
 ---
 
@@ -355,6 +410,8 @@ fire-season duty factor — a fleet sized for August is idle in February.
 | **The lake's capacity** | The Act says nothing about whether a lake can stand repeated 10,000 t draws. A P-10000 removes 13,183 t/h<!--f:P10000.cycle.tph--> from one body of water. | **Open.** Hydrological, not legal, and unaddressed. |
 | **Flying it** | ICAO Chicago Convention Art. 1 (sovereignty) and Art. 8 (pilotless aircraft need special authorisation over another state). FAA/EASA routes for large uncrewed aircraft exist but nothing of this scale has been certificated. | **Open, long lead.** No certification basis exists for an 876 m uncrewed vehicle. |
 | **Autonomy assurance** | FAA 2024 AI safety-assurance roadmap, EASA AI roadmap 2.0, NIST AI RMF, runtime-assurance literature all catalogued as context. | **Open.** No work done. |
+| **Airspace deconfliction** | An 876 m uncrewed hull working the same incident as crewed airtankers and Type 1 helicopters. Appears in `docs/PHYSICS.md` only as out of scope. | **Open. No work done**, and an operational blocker rather than a certification detail. |
+| **Liability and insurability** | A 10,000 t release over ground, and a 12,400 t bag on a cable over a lake. | **Open. No work done.** |
 | **Weather modification law** | ENMOD catalogued. Not obviously engaged by water delivery. | Low. |
 
 The regulatory path is the second-longest pole after the structure, and unlike the structure it
@@ -364,7 +421,8 @@ cannot be shortened by a good result in a lab.
 
 ## 7. Quality of the evidence base
 
-This is where the project is genuinely strong, and it is the reason the §4 findings exist at all.
+The §4 findings exist because of what is in this table — and it is the part of the project a
+reader can verify in an afternoon.
 
 | Artefact | What it is |
 |---|---|
@@ -375,14 +433,15 @@ This is where the project is genuinely strong, and it is the reason the §4 find
 | `research/notes/` | 12 notes, each written from the source PDF rather than its abstract, each stating where the source does *not* support what we would like it to. |
 | `research/evidence-map.md` | Audit of all 89 published claims. |
 | `research/figures.json` | Every published figure, regenerated from the live model. `tools/check_figures.py` fails the build if any report disagrees. |
-| `docs/OPEN-QUESTIONS.md` | Thirteen defects, each with cost, options and a recommendation. Two closed, eleven open. |
+| `docs/OPEN-QUESTIONS.md` | Seventeen defects, each with cost, options and a recommendation. Two closed, fifteen open. |
 
 <!--tex:fig charts/sensitivity.pdf | Every constant moved ±20%, generated rather than transcribed. Where the model's uncertainty actually lives: aerodynamics and speed, not lift.-->
 
-**The signal to weigh.** The defect list went from six to thirteen the day the project audited
+**The signal to weigh.** The defect list went from six to seventeen once the project audited
 itself properly — and it is the same model. Nothing was introduced; it was all already true and
-unnoticed. Six were found by the authors, two by auditing claims against code, four by reading the
-sources. That ratio is the argument for the process and the warning about the numbers.
+unnoticed. Seven were found by the authors, two by auditing claims against code, four by reading
+the sources, one by an outside reader asking a question none of them had, and three by an
+adversarial review of the model itself. That ratio is the argument for the process and the warning about the numbers.
 
 **The two largest errors ever found in this model were both accounting, not physics.** The
 nitrogen recovery was netted against the pump bill under a `max(0, …)` and silently deleted the
@@ -395,7 +454,7 @@ justification, against 15 genuine documented assumptions. Two undocumented inlin
 are worth 16.9 MWh a cycle, while the defect flagged in the README since the first commit is worth
 1.4. The project has been auditing the things it knew to doubt.
 
-**And the test suite had a hole in it that is worth understanding.** 103 of the tests need node,
+**The suite had a hole in it, and it is worth understanding.** 103 of the tests need node,
 which is not installed on the machine this is developed on, so `make test-node` printed "SKIPPED"
 and those tests were only ever executed by CI. Two breaks reached the remote that way — including
 a unit test asserting the impossible nitrogen recovery in §4.3 as correct behaviour. They run in a
@@ -410,7 +469,7 @@ tool rather than a resolution.
 1. **A lattice vacuum shell at ≤0.455 kg/m³ including everything.** Nothing in the literature is
    there. Not resolvable by modelling. Requires a gram-level mass breakdown from someone who builds
    these structures, plus an answer to the Derveni scale-invariance objection (§4.1). **This is the
-   only §2 finding that both remains open and is capable of ending the concept** — §4.2 and §4.3
+   only §4 finding that both remains open and is capable of ending the concept** — §4.2 and §4.3
    are closed, and §4.4 changes what the product is rather than whether it can exist.
 2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; NASA
    has flown 149 and sees no clear path past 500.
@@ -436,19 +495,20 @@ against the project's own cited precedent by 12% before anything is fitted, and 
 exceeds the whole dry allowance at demonstrated pack densities. Neither is a detail; both are the
 first line of the ledger. A reader looking for a reason to stop has one, in §4.1, sourced.
 
-**On the invention.** The descent anchor is real, is not obvious, solves a problem the project
+**On the invention.** The descent anchor is genuinely novel, is not obvious, solves a problem the project
 discovered rather than invented, and is 58× cheaper than the alternative. It is worth attention on
 its own terms — including, possibly, on vehicles other than this one. It is also published openly
 and therefore unprotected.
 
 **On the work.** The apparatus is better than the concept. A model that fails its own audit in
 public, keeps two tests failing on purpose, catalogues nine sources that contradict it, and grows
-its defect list from six to thirteen by checking properly is doing the thing most concept work
+its defect list from six to seventeen by checking properly is doing the thing most concept work
 avoids. The clearest evidence is what happened on 2026-08-09: two of the four findings in §4 were
 corrected within hours of being found, both corrections made the published numbers worse — cycle
 energy up 6.6%, endurance down by roughly two thirds — and both shipped to the live site the same
-day. If the question is "will this team find out whether the idea works", the evidence is
-strongly yes. If the question is "does the idea work", the evidence today is **no, on the mass
+day. If the question is "will this team find out whether the idea works", the record above is the
+evidence, and it points one way: every check this project has run on itself has cost it something
+and been published anyway. If the question is "does the idea work", the evidence today is **no, on the mass
 budget**, and the project says so itself in `docs/OPEN-QUESTIONS.md` #11.
 
 **Recommended next step, at minimal cost:** commission a lattice-structure mass breakdown at

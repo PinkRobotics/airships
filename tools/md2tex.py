@@ -82,13 +82,20 @@ UNI = (('—', '---'), ('–', '--'), ('−', '--'), ('…', r'\ldots{}'),
        ('“', '``'), ('”', "''"), ('‘', '`'), ('’', "'"))
 
 
+def uni(s: str) -> str:
+    """The one place a Unicode character becomes LaTeX. Prose, marker tails and directive text
+    all go through it, because when they did not the same glyph was set three ways."""
+    for a, b in UNI:
+        s = s.replace(a, b)
+    return s
+
+
 def texify(s: str) -> str:
     """Directive text is passed through to LaTeX so a caption can carry \textbf{}, but a bare
     % still comments out the rest of the line and takes the closing brace with it — which is
     how a caption reading "moved ±20%" killed a build. Escape the characters that are never
     markup here, leave the backslash alone."""
-    for a, b in UNI:
-        s = s.replace(a, b)
+    s = uni(s)
     out, i = [], 0
     while i < len(s):
         ch = s[i]
@@ -125,8 +132,13 @@ def inline(s: str, keys: set[str], src: str) -> str:
         txt = f'{q:,.{dp}f}' if ',' in raw else f'{q:.{dp}f}'
         # The tail carries the unit ("%", "MWh"). It must be STASHED as well: returning it
         # escaped but unprotected let the final esc() pass over the whole string escape it a
-        # second time, and "+5.25%" printed as "+5.25\%".
-        return stash(r'\lining{' + txt.replace('-', '--') + '}') + stash(esc(tail))
+        # second time, and "+5.25%" printed as "+5.25\%". The UNI map has to run HERE too — the
+        # tail is stashed, so the later pass cannot reach it, which is how m³ ended up set two
+        # different ways on one page. The tie keeps "130 km/h" off a line break.
+        unit = uni(esc(tail))
+        if unit.strip() and not unit.lstrip().startswith(('.', ',', ')', ';', ':')):
+            unit = '~' + unit.lstrip()
+        return stash(r'\lining{' + txt.replace('-', '--') + '}') + stash(unit)
 
     s = CITE.sub(cite, s)
     # Any marker left over had no number in front of it — check_figures says the same thing.
@@ -134,19 +146,40 @@ def inline(s: str, keys: set[str], src: str) -> str:
         leftover = re.search(r'<!--.*?-->', s, re.S)
         raise SystemExit(f'{src}: stray comment in prose — {leftover.group(0)[:60]}')
 
-    s = re.sub(r'`([^`]+)`', lambda m: stash(r'\texttt{' + esc(m.group(1)) + '}'), s)
+    def code(m):
+        # A path or a command in \texttt is one unbreakable word, so `research/evidence-map.md`
+        # and `git clone ... && make check` ran off the right margin. Allow a break after every
+        # separator; \allowbreak adds no hyphen, so a broken path is still copy-pasteable.
+        raw = m.group(1)
+        t = uni(esc(raw))
+        for ch in ('/', '.', '-', '\\_'):
+            t = t.replace(ch, ch + r'\allowbreak{}')
+        tex = r'\texttt{' + t + '}'
+        # A code span that IS a URL should still be clickable — the diligence report's only
+        # pointers to the live site were set as code and were therefore dead.
+        if re.fullmatch(r'(?:https?://)?(?:www\.)?[\w.-]+\.(?:ca|com|org|net)(?:/[\w./#-]*)?', raw):
+            href = raw if raw.startswith('http') else 'https://' + raw
+            tex = r'\href{' + href + '}{' + tex + '}'
+        return stash(tex)
+
+    s = re.sub(r'`([^`]+)`', code, s)
     s = re.sub(r'\[([^\]]+)\]\(([^)]+)\)',
                lambda m: stash(r'\href{' + m.group(2).replace('%', r'\%').replace('#', r'\#')
                                + '}{' + esc(m.group(1)) + '}'), s)
-    s = re.sub(r'\*\*([^*]+)\*\*', lambda m: stash(r'\textbf{' + esc(m.group(1)) + '}'), s)
-    s = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', lambda m: stash(r'\emph{' + esc(m.group(1)) + '}'), s)
-    s = re.sub(r'<sup>([^<]+)</sup>', lambda m: stash(r'\textsuperscript{' + esc(m.group(1)) + '}'), s)
+    s = re.sub(r'\*\*([^*]+)\*\*', lambda m: stash(r'\textbf{' + uni(esc(m.group(1))) + '}'), s)
+    s = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', lambda m: stash(r'\emph{' + uni(esc(m.group(1))) + '}'), s)
+    s = re.sub(r'<sup>([^<]+)</sup>', lambda m: stash(r'\textsuperscript{' + uni(esc(m.group(1))) + '}'), s)
     s = re.sub(r'<br\s*/?>', lambda m: stash(r'\\'), s)
+    # Bare URLs, of which these documents are full, and not one was clickable.
+    # \x00 must be excluded or the match runs straight through a stashed span: the URL ate the
+    # <br> placeholder after it and TeX blew its input stack.
+    s = re.sub(r'(?<![\w/@.])((?:https?://|www\.)[^\s,;)\x00]+|(?:github\.com|pinkrobotics\.ca)/[^\s,;)\x00]*)',
+               lambda m: stash(r'\href{' + ('' if m.group(1).startswith('http') else 'https://')
+                               + m.group(1) + '}{' + esc(m.group(1)) + '}'), s)
 
     s = esc(s)
     # Typographic repairs the source writes as plain characters.
-    for src_ch, tex in UNI:
-        s = s.replace(src_ch, tex)
+    s = uni(s)
     # Placeholders NEST: a figure marker inside a bold span is stashed first, so the bold
     # slot contains the marker's placeholder. re.sub does not rescan its replacements, so a
     # single pass leaves a raw NUL in the output and pdflatex says "invalid character".
@@ -156,6 +189,13 @@ def inline(s: str, keys: set[str], src: str) -> str:
             break
     else:
         raise SystemExit(f'{src}: inline markup nested more than 12 deep')
+    # GUARDS. Every one of these failures printed silently into a PDF and was found by a reader
+    # looking at the page, not by the build. An unconverted construct is an error now.
+    if '**' in s:
+        raise SystemExit(f'{src}: literal ** survived conversion — {s[max(0, s.find("**") - 50):s.find("**") + 30]!r}')
+    stray = [c for c in s if ord(c) > 127]
+    if stray:
+        raise SystemExit(f'{src}: unmapped character {stray[0]!r} (U+{ord(stray[0]):04X}) — add it to UNI')
     return s
 
 
@@ -167,9 +207,36 @@ def table(block: list[str], keys: set[str], src: str) -> str:
                     else ('r' if c.strip().endswith(':') else 'l') for c in spec_row)
     body = [rows[0]] + rows[2:]
     ncol = len(spec_row)
-    # The first column is the label column and wraps; numeric columns should not.
-    colspec = ('@{}' + ('>{\\raggedright\\arraybackslash}X' if align[0] == 'l' else align[0])
-               + ''.join(align[1:]) + '@{}')
+
+    # WIDTH IS DECIDED PER COLUMN, from the content. The first version made only column one an
+    # X column and left the rest at natural width, so a table with a long prose cell in column
+    # two solved for a NEGATIVE X width: the label column collapsed to one character per line
+    # and the prose ran off the page. Four tables were destroyed that way and the log carried
+    # 73 overfull boxes, one of them seventeen inches wide.
+    #
+    # So: measure the longest cell in each column, make every column that needs to wrap an X
+    # column weighted by that length, and leave short and numeric columns at natural width.
+    cells = [[c for c in (r + [''] * ncol)[:ncol]] for r in body]
+    longest = [max(len(row[i]) for row in cells) for i in range(ncol)]
+    # A column only wraps if its longest cell is genuinely prose. At 18 a column of one-word
+    # labels ("Scale", "Cable", "Station-keeping") became a narrow X column that its own widest
+    # word could not fit, and bled 23 pt into the margin.
+    WRAPS_ABOVE = 34
+    wrapping = [i for i in range(ncol) if longest[i] > WRAPS_ABOVE and align[i] != 'r']
+    if wrapping:
+        total = sum(longest[i] for i in wrapping)
+        parts = []
+        for i in range(ncol):
+            if i in wrapping:
+                # Weights sum to len(wrapping) so the X columns together fill the free space in
+                # the proportion their content actually needs.
+                w = round(longest[i] / total * len(wrapping), 3)
+                parts.append('>{\\hsize=%s\\hsize\\raggedright\\arraybackslash}X' % w)
+            else:
+                parts.append(align[i])
+        colspec = '@{}' + ''.join(parts) + '@{}'
+    else:
+        colspec = '@{}' + ''.join(align) + '@{}'
     out = [r'\begin{tabularx}{\linewidth}{' + colspec + '}', r'\toprule']
     head = ' & '.join(r'{\sffamily\bfseries\small ' + inline(c, keys, src) + '}'
                       for c in body[0][:ncol])
@@ -242,6 +309,9 @@ def convert(md: str, keys: set[str], src: str) -> str:
                 out.append(r'\reporttitle{' + text + '}')
             else:
                 cmd = {2: 'section', 3: 'subsection', 4: 'subsubsection'}.get(level, 'subsubsection')
+                # \phantomsection first, or hyperref hangs the bookmark on the last stepped
+                # counter — every bookmark in the paper pointed at a figure or a list item.
+                out.append('\\phantomsection')
                 out.append('\\' + cmd + '*{' + text + '}')
                 out.append('\\addcontentsline{toc}{' + ('section' if level == 2 else 'subsection')
                            + '}{' + text + '}')

@@ -13,7 +13,7 @@
 > *further* from binding rather than closer, and the cryogenic plant is no less inert in the
 > delivery cycle than it was. #2, #3, #5 and #6 are still open.
 
-Thirteen things are wrong, or unjustified, or dead. They are written up here rather than quietly
+Seventeen things are wrong, or unjustified, or dead. They are written up here rather than quietly
 fixed because each one changes a number the site publishes or a decision it has to make before
 going public, and because several are not really bugs at all — they are decisions about the
 vehicle that have been made by accident and should be made on purpose.
@@ -23,7 +23,7 @@ day they were found, because neither had a defensible reading: one required 76% 
 sunlight and the other returned more work than the liquid it drew on contained. Both fixes made the
 model's numbers worse and its conclusions stronger.
 
-**The list grew from six to thirteen on 2026-08-09, and where the new ones came from matters.**
+**The list grew from six to seventeen over 2026-08-09 and 08-10, and where the new ones came from matters.**
 Items 0–6 were found by the people who wrote the model, looking at it. Items 7 and 8 came from an
 adversarial audit of all 89 published claims (`research/evidence-map.md`), which found that the
 constants nobody had thought to question moved the headline more than the defects everyone had.
@@ -729,6 +729,109 @@ Two findings from the wildfire-aviation literature, both aimed at the top of the
 **DECISION: none yet.** Neither is a modelling error — the model is honest about being a delivery
 simulator — but both bear on whether delivered tonnage is the right thing to have optimised, and a
 reader from the fire community will raise them in the first five minutes. They belong on the list.
+
+---
+
+## 13. Nobody has asked how often the mission exists
+
+The whole concept is a duty cycle between a fire and a lake. `sim/plan.js` takes the one-way
+distance as an input and `sim/water.js` picks the nearest adequate source, but **no figure anywhere
+in this project says what fraction of real fires have an adequate source within range.**
+
+Adequate means more than nearby. A P-10000 draws 10,000 t a cycle at
+13,183 t/h and hovers over the surface while it does it, so the body has to be large enough and
+deep enough to stand repeated full-payload draws, and open enough to hold station over. A pond at
+4 km is not a source.
+
+This matters more than most entries on this list because it bounds the market rather than the
+vehicle. If the answer is "most fires in the interior", the concept has a customer. If it is "a
+quarter of them", the fleet is a niche tool and the P-100 is the interesting class rather than the
+P-10000.
+
+**DECISION: none yet, and this one is cheap.** The data is already mirrored in `data/`: BC fire
+perimeters and a water extract. Joining them is an afternoon. It has not been done because the
+project has been auditing its physics, which is a reasonable order of work and not an excuse for
+leaving the question unasked.
+
+
+---
+
+## 14. The rotor power model cannot see the anchor
+
+`sim/plan.js` credits the bag: the residual the rotors must hold is `holdT − anchorT`, and
+`downMW` comes out at **52.3 MW**. `sim/state.js` does not. `draw.rotors` is built from
+`led.liftT − massT` with no anchor term at all, and `plan.anchorT` enters the function only
+*after* the rotors are computed — because `anchorHang` needs the ground speed, which is settled
+later. The ordering is the evidence it was never considered.
+
+Measured on the seed-7 P-10000 mission, `SOURCE_APPROACH`:
+
+| prog | altitude AGL | anchor | `draw.rotors` | with the bag credited |
+|---|---|---|---|---|
+| 0.00 | 820 m | 0 t | **1,472.5 MW** (clamped at the bus) | — |
+| 0.90 | 329 m | 12,400 t | 155.3 MW | ~4.7 MW |
+
+At prog 0.90 the same returned object reports 121.6 MN of lake water pulling the hull down *and*
+155 MW of rotor thrust also pushing it down, computed against the full 13,722 t surplus. **The
+instrument over-reads by about 33× at the moment the mechanism is doing its job**, and the
+`Math.min(bus × 0.95, …)` clamp then hides the overflow behind a bus pinned at its limit.
+
+This is not #2's hover-formula error — the ship is at 0–39 km/h here, where momentum theory is
+the right model. It makes #2 worse than #2 says: that entry reports the P-10000 diverging 2.56×,
+and measured today it is **5.05×** (192.1 MWh integrated against 38.0 planned).
+
+**DECISION: none yet.** The fix is to compute the anchor before the rotors, which means
+restructuring how ground speed is settled in `stateAt`. It should be done with #2 rather than
+before it.
+
+---
+
+## 15. The letdown is priced at the anchor-assisted residual for the whole descent
+
+`E.letdown = downMW × window`, and `downMW` is the *bagged* residual — 52.3 MW. But the plan's own
+`anchorFromAglM` says the bag is not available above 750 m AGL, and the cable cannot reach the
+water above about 950 m. Priced with the model's own `ledger` and `diskMW`:
+
+| altitude AGL | hold | rotors alone | with the bag |
+|---|---|---|---|
+| 1,500 m | 11,030 t | 1,260 MW | 0 MW |
+| 1,000 m | 12,122 t | 1,451 MW | 0 MW |
+| 750 m | 12,684 t | **1,553 MW** — over the 1,550 MW bus | 5.2 MW |
+
+`E.letdown` for the whole cycle is 1.42 MWh, which is 1,451 MW for 3.5 seconds. `stateAt` agrees
+with the table rather than the ledger: its peak rotor draw in the return leg is 1,472.5 MW.
+
+Distinct from #3, which is about the undefined `6` and `0.2` constants: **even with a perfect
+window, `downMW` is the wrong power for most of the descent.** #14 and #15 are two halves of one
+fact — neither model prices the descent, and they disagree by 20–30× in the phase the anchor was
+invented for.
+
+**DECISION: none yet.**
+
+---
+
+## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong
+
+`spec-parity.cases.js` compares the fields both files *declare*. It cannot see a field only one
+file has, and it cannot see a derived quantity. Found by audit:
+
+- **`ALT.drop` is already divergent** — 450 m in `sim/config.js`, 250 m in `3d/anim/mission.js`,
+  whose comment claims "the same three bands the /airships page uses".
+- **`cruiseKph` is absent from the 3D class specs entirely**, so five call sites read
+  `cls.cruiseKph || 90` and the lab flies every class at 90 km/h. A `||` default made a missing
+  field silently authoritative, and a parity test comparing declared fields can never see it.
+- Also unchecked: `hoseDeployMin`/`hoseRetractMin`, `fillM3s` ↔ `fillRateM3s`, `MODES` (a
+  byte-identical duplicate), `RHO_WORK` (a hard-coded copy of a derived value), `RHO_LN2` and
+  `RHO_WATER` (duplicated *inside* `3d/`), and rotor counts that differ 4/6/14 against 8/12/28.
+- **`Cd` is pinned identical in both files and applied to two different reference areas** — sim
+  uses frontal area, `3d/physics/mass.js` uses `displacementM3^(2/3)`. The drag differs by a
+  factor of **2.08** on every class. The constant matches and the physics does not, which is
+  what makes it invisible.
+
+**DECISION: none yet**, but the test should be inverted: enumerate the keys on *both* sides, fail
+on any name that resolves to a number and has no declared partner or explicit exemption, and ban
+`||` defaults for spec fields.
+
 
 ---
 

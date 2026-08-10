@@ -9,8 +9,8 @@
  * air density. Everything else is the dry allowance plus what is currently aboard.
  */
 
-import { RHO_SL, RHO_AIR, G } from '../model/config.js?v=77459a4c';
-import { clamp01 } from '../core/math.js?v=77459a4c';
+import { RHO_WORK, RHO_SL, RHO_AIR, G } from '../model/config.js?v=06a314a3';
+import { clamp01 } from '../core/math.js?v=06a314a3';
 
 /** Density of liquid nitrogen at 1 atm, kg/m3. Known physics, not an assumption. */
 export const RHO_LN2 = 807;
@@ -33,7 +33,13 @@ export function massState(cls, s, layout) {
   const fuelNominalT = dryT * 0.06;
 
   const totalT = dryT - fuelNominalT + fuelT + waterT + ln2T;
-  const liftT = (cls.displacementM3 * RHO_SL) / 1000;
+  // WORKING-ALTITUDE DENSITY, not sea level. This was the last copy of the defect
+  // docs/OPEN-QUESTIONS.md #1 records as FIXED: the sim ledger moved to the density the hull
+  // actually flies in and the 3D library kept buying its lift at 1.225, which overstated the
+  // P-10000's net by 7,070 t against 1,051 — 6.7x on the surplus, printed as a scene caption.
+  // A parity test that compares dispM3 and rhoSL cannot see it: both inputs agreed and the
+  // derived quantity did not.
+  const liftT = (cls.displacementM3 * RHO_WORK) / 1000;
 
   const com = centreOfMass(cls, layout, { waterT, ln2T, dryT: dryT - fuelNominalT + fuelT });
 

@@ -65,6 +65,12 @@
 \titleformat{\subsubsection}{\sffamily\bfseries\small\color{muted}}{}{0em}{}
 \titlespacing*{\section}{0pt}{1.7\baselineskip}{0.6\baselineskip}
 \titlespacing*{\subsection}{0pt}{1.2\baselineskip}{0.4\baselineskip}
+% Four lines of the section must fit under its heading, or the heading moves with them.
+% titlesec's optional <before-code> argument, not \pretitlecommand (which is memoir's).
+\titleformat{\section}[hang]{\needspace{4\baselineskip}\sffamily\bfseries\large\color{ink}}%
+  {\thesection}{0.7em}{}
+\titleformat{\subsection}[hang]{\needspace{3.5\baselineskip}\sffamily\bfseries\normalsize\color{ink}}%
+  {\thesubsection}{0.6em}{}
 \titlespacing*{\subsubsection}{0pt}{1.0\baselineskip}{0.25\baselineskip}
 
 \setlist[itemize]{leftmargin=1.2em, itemsep=0.25em, topsep=0.4em, parsep=0pt}
@@ -106,18 +112,36 @@
 \newcommand{\keypoint}[2]{\slab{coolpale}{cool}{#1}{#2}}
 \newcommand{\limitbox}[2]{\slab{warnpale}{warnrule}{#1}{#2}}
 
+\usepackage{needspace}
+% A heading must never be the last thing on a page, a line must never be alone at the top or
+% bottom of one, and the paragraph breaker gets a little slack so a long path does not push a
+% line into the margin.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\emergencystretch=1.6em
+\hyphenpenalty=200
+\tolerance=1200
+
 % ---- figures, placed rather than floated ------------------------------------------------
 % LaTeX floats are for papers where the figure may go anywhere. In a designed report the
 % figure belongs beside the sentence that introduces it, and letting it drift left half-empty
 % pages and pushed a five-page brief off the end. So a figure is an ordinary block: it appears
 % exactly where it was written, numbered by hand.
 \newcounter{plainfig}
+% The image and its caption are ONE unbreakable block. Without that, Figure 4 ended page 5 and
+% its caption opened page 6. A hairline keeps a raster figure from floating on the white page.
 \newcommand{\placedfig}[3]{% {path}{caption}{width fraction}
   \par\addvspace{0.9\baselineskip}\noindent
-  \begin{center}\includegraphics[width=#3\linewidth]{#1}\end{center}
-  \vspace{-0.2\baselineskip}
-  \refstepcounter{plainfig}%
-  {\sffamily\small\color{muted}\textbf{\color{ink}Figure \theplainfig.} #2\par}
+  \begin{minipage}{\linewidth}
+    \centering
+    \setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.4pt}%
+    {\color{rule}\fbox{\includegraphics[width=#3\linewidth]{#1}}}\par
+    \vspace{0.35\baselineskip}
+    \refstepcounter{plainfig}%
+    \raggedright
+    {\sffamily\small\color{muted}\textbf{\color{ink}Figure \theplainfig.} #2\par}
+  \end{minipage}
   \addvspace{0.9\baselineskip}}
 
 % Big number, for the statistic slabs.

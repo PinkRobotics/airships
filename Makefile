@@ -9,7 +9,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck clean
+.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -57,7 +57,7 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figcheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figfresh figcheck pdfcheck golden test test-node interaction  ## Everything CI checks
 
 figcheck:  ## Every model figure quoted in a report must be the figure the model produces
 	@$(PY) tools/check_figures.py
@@ -69,8 +69,17 @@ stampcheck:  ## Fail if any import is stamped at a version other than the curren
 pdf:  ## Build the three report PDFs from research/reports/ into research/pdf/out/
 	$(PY) research/pdf/build.py
 
-pdfcheck:  ## Fail if the reports no longer convert to LaTeX cleanly
+pdfcheck:  ## Fail if the reports no longer convert, or the PDFs no longer set cleanly
 	$(PY) tools/md2tex.py >/dev/null
+	$(PY) research/pdf/build.py --fast --strict
+
+# THE MOST IMPORTANT CHECK HERE. `figcheck` compares the reports against
+# research/figures.json and prints "N cited figures match the model" — but figures.json is a
+# committed cache that only `factsheet` refreshes, and `factsheet` was in neither `check` nor
+# CI. Change a constant in sim/, update the goldens the way the docs say to, and the whole gate
+# goes green while six published figures are wrong. See the script's header.
+figfresh:  ## Fail if research/figures.json has drifted from the live model
+	$(PY) tools/check_figures_fresh.py
 
 factsheet:  ## Regenerate research/figures.json from the live model
 	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \

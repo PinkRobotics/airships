@@ -14,7 +14,7 @@
  * triangles, are the budget that actually binds on this content.
  */
 
-import { cross, norm, sub, add, mul } from '../core/math.js?v=77459a4c';
+import { cross, norm, sub, add, mul } from '../core/math.js?v=06a314a3';
 
 /* ---------- solid --------------------------------------------------------------------------- */
 
