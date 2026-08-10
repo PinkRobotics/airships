@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=f3b90158';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=f3b90158';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=f3b90158';
-import { shipViz } from '../cockpit/shipviz.js?v=f3b90158';
-import { updateRoster } from '../cockpit/tables.js?v=f3b90158';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=f3b90158';
-import { needsShip } from '../feeds.js?v=f3b90158';
-import { S } from '../store.js?v=f3b90158';
+import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=dedba765';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=dedba765';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=dedba765';
+import { shipViz } from '../cockpit/shipviz.js?v=dedba765';
+import { updateRoster } from '../cockpit/tables.js?v=dedba765';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=dedba765';
+import { needsShip } from '../feeds.js?v=dedba765';
+import { S } from '../store.js?v=dedba765';
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
@@ -92,8 +92,10 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     phaseDialObj = makePhaseDial($("phaseDial"), m);
     const sd = $("sysDials");
     sd.innerHTML = "";
-    // Row 1: motion. Row 2: mass aboard. Row 3: the bus — generation vs consumption on one
-    // face (the gap between the needles IS the deficit) and what storage remains.
+    // Row 1: motion. Row 2: mass aboard. Row 3: what is over the side — the two lines the ship
+    // lowers into a lake, in metres — and what storage remains. The generation-against-
+    // consumption face that used to sit here said nothing the bars beneath it do not say
+    // better, while the anchor and the hose had no instrument at all.
     gGs = makeGauge(sd, "ground speed", Math.max(60, Math.round(m.cls.cruiseKph * 1.9)),
       v => fmt(v) + " km/h");
     gAlt = makeGauge(sd, "altitude", 1800, v => fmt(v) + " m");
@@ -120,8 +122,16 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       m.plan.dragMW + hotelMW,
       m.cls.cryoMW * CFG.cryoMul * m.mode.cryoShare + m.plan.dragMW * 0.55 + hotelMW,
       m.plan.downMW + m.plan.dragMW * 0.55 + hotelMW);
-    gGen = makeDualGauge(sd, "generation", "consumption", dialPk,
-      v => fmt(v, v < 10 ? 1 : 0), "MW");
+    /* WHAT IS HANGING UNDER THE SHIP, in metres, on one face.
+     *
+     * This was generation against consumption — a dial whose whole content is repeated
+     * immediately below it as bars, with the gap between the needles saying "deficit" and the
+     * bars saying it better. The two lines the ship lowers into a lake had no instrument at all,
+     * which for a vehicle that gets down by putting a bucket in the water is the wrong way
+     * round. Both against the longer of the two, so the cable and the hose read at one scale
+     * and the reader can see the anchor go out long before the pumps do. */
+    gGen = makeDualGauge(sd, "anchor cable", "intake hose",
+      Math.max(1, m.cls.anchorM || 0, m.cls.hoseM), v => fmt(v), "m");
     gStore = makeGauge(sd, "storage", m.cls.battMWh, v => fmt(v, v < 10 ? 1 : 0) + " MWh");
     const barRow = ([lab, id, col]) =>
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
@@ -171,6 +181,10 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
       ["buoyancy", "fvB", "live"], ["ship overhead", "fvO", ""], ["payload", "fvP", "sim"],
+      // The bucket sits with the forces because that is what it is — the largest single one on
+      // the hull whenever it is in the water — and it is listed immediately above the net so a
+      // reader can see the net change as it fills.
+      ["descent anchor", "fvK", "sim"],
       ["net", "fvN", "sim"], ["altitude", "fvA", ""],
       ["wind @ 850 hPa", "fvWd", m.wind ? "live" : ""], ["ground speed", "fvG", "sim"],
       ["heading work", "fvH", ""],
@@ -246,7 +260,14 @@ export function updateCockpit() {
   const sol = g.solar || 0, rgn = g.regen || 0;
   if (gWater) gWater.set(st.water, m.cls.payloadT);
   if (gLN2) gLN2.set(st.ln2, Math.max(1, m.cls.ln2CapT));
-  if (gGen) gGen.set(sol + rgn, prp + pmp + cry + hot);
+  // Metres of line out: the anchor's from the model, the hose's from the phase the monitor's
+  // own six-phase cycle pays it out over (adapter/fable.js does the same sum for the 3D).
+  if (gGen) {
+    const hoseOut = st.phase === "SOURCE_APPROACH" ? st.prog
+      : st.phase === "WATER_FILL" ? 1
+        : st.phase === "OUTBOUND_TRANSIT" ? Math.max(0, 1 - st.prog / 0.18) : 0;
+    gGen.set((st.anchorCableOut || 0) * (m.cls.anchorM || 0), hoseOut * m.cls.hoseM);
+  }
   if (gStore) gStore.set(m.battE === undefined ? m.cls.battMWh : m.battE, m.cls.battMWh);
   if (gGs) gGs.set(st.gs || 0);
   if (gAlt) gAlt.set(st.alt);
@@ -281,10 +302,21 @@ export function updateCockpit() {
     put("fvO", fmt(overheadT) + " t <small>dry + LN₂</small>");
     put("fvP", fmt(st.water) + " t <small>" + (payFrac * 100).toFixed(0) + "% of " +
       fmt(m.cls.payloadT) + " t</small>");
+    // WEIGHT AND PULL. Tonnes of lake water in the bag, and what that is as a force on the
+    // cable — 12,400 t is 122 MN, which is the number that sizes the rope.
+    const anchorMN = (st.anchorN || 0) / 1e6;
+    put("fvK", st.anchorT > 0.5
+      ? fmt(st.anchorT) + " t <small>pulling " + anchorMN.toFixed(0) + " MN on "
+        + fmt(Math.round((st.anchorCableOut || 0) * m.cls.anchorM)) + " m of cable</small>"
+      : (m.cls.anchorM ? "stowed <small>" + fmt(m.cls.anchorBagT) + " t bag · "
+        + fmt(m.cls.anchorM) + " m cable</small>" : "not fitted"));
     const nEl = $("fvN");
     if (nEl) {
+      // The caption names WHAT is holding it down, because since the anchor exists that is no
+      // longer always the rotors — and while the bag is in the water it is mostly not.
+      const holder = st.anchorT > 0.5 ? "anchor + rotors hold it down" : "rotors hold it down";
       nEl.innerHTML = (st.netN > 0 ? "−" : "+") + fmt(Math.abs(st.netN) / tf) + " t <small>" +
-        (st.netN > 0 ? "net lift — rotors hold it down" : "net weight") + "</small>";
+        (st.netN > 0 ? "net lift — " + holder : "net weight") + "</small>";
       nEl.className = "sim";
     }
     put("fvA", fmt(st.alt) + " m <small>nominal</small>");

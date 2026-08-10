@@ -4,10 +4,46 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=f3b90158';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=f3b90158';
-import { diskMW, ledger, pumpMW } from './physics.js?v=f3b90158';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=f3b90158';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=dedba765';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=dedba765';
+import { diskMW, ledger, pumpMW } from './physics.js?v=dedba765';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=dedba765';
+
+/**
+ * The descent anchor, as the MODEL sees it: how much cable is out and how much lake water is
+ * hanging on it at a given point in the cycle.
+ *
+ * This lives in `sim/` because the bag is a FORCE — thousands of tonnes pulling down on the hull
+ * — and the force ledger has to know about it. It was first written in `app/` as a drawing rule,
+ * which is how the net-force line came to report a ship as buoyant while it was in fact being
+ * held down by a bucket. `app/anchorview.js` delegates here now so the picture and the ledger
+ * cannot disagree; `3d/anim/mission.js` keeps its own copy because that library imports nothing
+ * outside itself, and `tests/cases/anchor-parity.cases.js` compares the two.
+ *
+ * @returns {{cableP: number, fillF: number, tonnes: number}}
+ */
+export function anchorHang(cls, fullT, phaseId, prog, altAgl, gsKph) {
+  const cable = cls.anchorM || 0;
+  if (cable <= 0 || !(fullT > 0)) return { cableP: 0, fillF: 0, tonnes: 0 };
+  const done = (cableP, fillF) => ({ cableP, fillF, tonnes: fullT * fillF });
+
+  // The fill dumps on a schedule, not on an altitude: the ship is stationary and the trigger is
+  // the tanks passing what the descent needed.
+  if (phaseId === "WATER_FILL") {
+    return done(1 - Math.min(1, Math.max(0, (prog - 0.25) / 0.35)),
+      1 - Math.min(1, Math.max(0, prog / 0.30)));
+  }
+  // Everywhere else the water's distance decides — and the ship has to be stopped. A bag dipped
+  // at 20 km/h is a bad time; 2 m/s is drift, not travel.
+  // The approach, and the last few per cent of the return leg where the ship is already over
+  // the lake and braking. Everywhere else there is no water under it to dip into.
+  const overLake = phaseId === "SOURCE_APPROACH"
+    || (phaseId === "RETURN_TRANSIT" && prog > 0.94);
+  if (!overLake || gsKph / 3.6 > 2) return done(0, 0);
+  const reachAlt = Math.max(0, cable - cls.diaM / 2);
+  if (altAgl > reachAlt + cable * 0.25) return done(0, 0);
+  return done(1, Math.min(1, Math.max(0, (reachAlt - altAgl) / Math.max(1, cable * 0.14))));
+}
 
 export function stateAt(m, tRaw) {
   if (m.idle) return { phase: "NO_SUITABLE_SOURCE", label: "idle — no suitable mapped source", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1 };
@@ -65,6 +101,18 @@ export function stateAt(m, tRaw) {
   // was diving at 44 m/s to make the profile fit, which is a lie the altitude dial then tells.
   const altTop = Math.min(ALT.cruise, srcAlt +
     VZ_MAX * 0.30 * 60 * Math.min(plan.dur.OUTBOUND_TRANSIT, plan.dur.RETURN_TRANSIT));
+  /* WHERE THE CORK STOPS.
+   *
+   * The escape is the ship shedding its whole load and being thrown upward by the buoyancy it
+   * has been holding down all through the drop run. It was climbing to `altTop * 0.55`, which
+   * for a P-10000 at 15 km is 66 metres of climb — and on a short leg, where altTop is small,
+   * that expression is BELOW the altitude the drop run ended at, so the phase called "buoyancy
+   * escape" descended. A cork does not sink.
+   *
+   * It climbs to three quarters of the working ceiling now, with a floor of 180 m above the
+   * line so the shortest leg still visibly pops, and it is allowed to OVERSHOOT altTop: that is
+   * what a cork does, and the return leg eases back down to cruise afterwards. */
+  const altEsc = Math.max(ALT_DROP_TOP + 180, altTop * 0.75);
   switch (id) {
     case "SOURCE_APPROACH": {
       const wMW = pumpMW(cls) * 0.06;              // winch scales with the class, not a constant
@@ -189,14 +237,18 @@ export function stateAt(m, tRaw) {
           Math.PI * ((plan.passes || 1) - 1);
         bearing = lerpAng(lineB, bearing, easeSm(prog / 0.35));
       }
-      alt = ALT_DROP_TOP + (altTop * 0.55 - ALT_DROP_TOP) * sm;
+      alt = ALT_DROP_TOP + (altEsc - ALT_DROP_TOP) * sm;
       water = plan.retainedT;
-      draw.fans = plan.dragMW * 0.12;
-      sub = prog < 0.28 ? "rotors feathering — buoyancy has it" : "arresting the climb";
+      // Trim only. The climb is bought with buoyancy the ship has been holding down since the
+      // fill, and the ground it covers is carried off the drop line plus what the nose-up
+      // attitude converts — neither is a thrust bill. Showing a fifth of cruise drag here read
+      // as a powered climb, which is the one thing this phase is not.
+      draw.fans = plan.dragMW * 0.05;
+      sub = prog < 0.55 ? "rotors feathered — buoyancy has it" : "arresting the climb";
       break;
     case "RETURN_TRANSIT": {
       B(sB, cR, ikX, escF + tz * (0.96 - escF));   // ends short: the approach flies the rest in
-      const a0 = altTop * 0.55;
+      const a0 = altEsc;              // the seam: the return starts where the cork stopped
       alt = tz < 0.3 ? a0 + (altTop - a0) * easeSm(tz / 0.3)
           : tz > 0.7 ? altTop - (altTop - holdAgl) * easeSm((tz - 0.7) / 0.3)
           : altTop;
@@ -240,8 +292,13 @@ export function stateAt(m, tRaw) {
   } else if (id === "WATER_RELEASE") {
     share = 0.12 + 0.33 * (1 - water / Math.max(1, cls.payloadT));
   } else if (id === "BUOYANCY_ESCAPE") {
-    hold = prog < 0.28 ? 1 - 0.94 * (prog / 0.28)
-      : 0.06 + 0.94 * Math.pow((prog - 0.28) / 0.72, 1.5);
+    /* LET GO, AND MEAN IT. This used to spend the first quarter of the escape at high rotor
+       duty, which is the opposite of what the phase is: the hull has just dropped 10,000 t and
+       the whole point is that buoyancy takes it up for nothing. The feather is now inside the
+       first tenth, the rotors sit at 3% through the body of the climb, and they come back only
+       to arrest it at the top. */
+    hold = prog < 0.10 ? 1 - 0.97 * (prog / 0.10)
+      : 0.03 + 0.97 * Math.pow(Math.max(0, prog - 0.55) / 0.45, 1.6);
     share = 0.12 + 0.33 * Math.max(0, (prog - 0.28) / 0.72);
   } else if (id === "RETURN_TRANSIT") {
     hold = prog < 0.30 ? 1 - 0.2 * (prog / 0.30)
@@ -294,8 +351,19 @@ export function stateAt(m, tRaw) {
   const gen = { solar: cls.solarM2 * 200 / 1e6 };
   if (id === "WATER_FILL") gen.regen = plan.eBack / Math.max(0.02, plan.dur.WATER_FILL / 60);
   if (stopped) { draw = {}; sub = "power exhausted — safe shutdown"; gs = 0; vf = 0; acc = 0; }
+  // AFTER the speed is known: the anchor may not be in the water above 2 m/s, so asking for it
+  // before `gs` is settled asks about a ship that has not stopped yet.
+  const anchor = anchorHang(cls, plan.anchorT, id, prog, alt, gs);
+  const anchorN = anchor.tonnes * 1000 * 9.81;
   return { idx, phase: id, label: PHASES[idx][1], prog, ll, bearing, alt, water, ln2, sub,
-    draw, gen, gs, stopped, massT, buoyN, weightN, netN: buoyN - weightN, vf, acc, vert,
+    draw, gen, gs, stopped, massT, buoyN, weightN,
+    // THE NET INCLUDES THE BUCKET. It is the largest single force on the hull whenever it is in
+    // use — 12,400 t on a P-10000 against a 21,000 t hull — and leaving it out of the net line
+    // reported a ship straining upward at the exact moment it was being held down by a bag of
+    // lake water. anchorT/anchorN are published alongside so the panel can show the mechanism
+    // rather than only its effect.
+    anchorT: anchor.tonnes, anchorCableOut: anchor.cableP, anchorN,
+    netN: buoyN - weightN - anchorN, vf, acc, vert,
     cyclePos: t, cycleN: cycN };
 }
 

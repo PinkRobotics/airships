@@ -17,11 +17,11 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=0607294e';
-import { massState } from '../physics/mass.js?v=0607294e';
-import { derivePower } from '../physics/energy.js?v=0607294e';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=0607294e';
-import { ASSUMPTIONS } from '../model/config.js?v=0607294e';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=0ea2fed7';
+import { massState } from '../physics/mass.js?v=0ea2fed7';
+import { derivePower } from '../physics/energy.js?v=0ea2fed7';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=0ea2fed7';
+import { ASSUMPTIONS } from '../model/config.js?v=0ea2fed7';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
@@ -230,7 +230,11 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.airspeedMps = lerp(cruise * 0.3, cruise * 0.8, p);
       s.verticalSpeedMps = lerp(5.5, 1.5, p);
       s.waterFraction = 0; s.ln2Fraction = ln2Low;
-      s.attitude = { rollRad: 0, pitchRad: 0.045 * (1 - p), yawRad: 0 };
+      // NOSE UP, VISIBLY. This is the one moment in the cycle the hull is being thrown rather
+      // than flown, and 2.6 degrees of pitch did not read as anything at all against an 876 m
+      // body. 6 degrees at the moment of release, easing off as the climb is arrested — still
+      // inside what a hull this size would do, and now legible.
+      s.attitude = { rollRad: 0, pitchRad: 0.105 * Math.pow(1 - p, 0.7), yawRad: 0 };
       break;
     case 'RETURN_TRANSIT':
       s.altitudeM = ALT.cruise; s.airspeedMps = cruise * 0.9; s.verticalSpeedMps = 0;

@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=0607294e';
-import { segPointDist } from '../core/math.js?v=0607294e';
-import { streamFor, jitter } from '../core/prng.js?v=0607294e';
+} from './config.js?v=0ea2fed7';
+import { segPointDist } from '../core/math.js?v=0ea2fed7';
+import { streamFor, jitter } from '../core/prng.js?v=0ea2fed7';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 

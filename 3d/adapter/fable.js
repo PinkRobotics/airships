@@ -20,11 +20,11 @@
  * prints the field-by-field correspondence so a mismatch is findable rather than mysterious.
  */
 
-import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=0607294e';
-import { anchorAt, phaseShape } from '../anim/mission.js?v=0607294e';
-import { massState } from '../physics/mass.js?v=0607294e';
-import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=0607294e';
-import { clamp01 } from '../core/math.js?v=0607294e';
+import { defaultState, sanitizeState, MISSION_PHASES, ALL_PHASES } from '../physics/state.js?v=0ea2fed7';
+import { anchorAt, phaseShape } from '../anim/mission.js?v=0ea2fed7';
+import { massState } from '../physics/mass.js?v=0ea2fed7';
+import { setAssumptions, resolveClass, CLASS_IDS } from '../model/config.js?v=0ea2fed7';
+import { clamp01 } from '../core/math.js?v=0ea2fed7';
 
 /** Monitor class id → model class id. They already agree; the map makes that checkable. */
 export const CLASS_MAP = { P100: 'P100', P1000: 'P1000', P10000: 'P10000' };
@@ -152,10 +152,15 @@ export function fromMonitorState(hostState, hostClass, cls, opts = {}) {
     batteryStateOfCharge: clamp01(opts.batteryStateOfCharge === undefined ? 0.72
       : opts.batteryStateOfCharge),
 
-    // Altitude is the monitor's; speeds are the model's phase shape unless the monitor gave them.
+    // Altitude AND SPEED are the monitor's when it has them; the phase shape is the fallback for
+    // standalone figures with no host. Taking speed from the shape regardless was why the escape
+    // climb looked like a sprint: the shape ramps 0.3 to 0.8 of cruise from the first frame,
+    // while the monitor's own ground speed starts at zero — the ship comes off the drop line
+    // barely moving and accelerates as it rises. Motion lines that disagree with the speed dial
+    // beside them are worse than no motion lines.
     altitudeM: hostState.alt === undefined ? shape.altitudeM : hostState.alt,
-    airspeedMps: shape.airspeedMps || 0,
-    groundSpeedMps: shape.airspeedMps || 0,
+    airspeedMps: Number.isFinite(hostState.gs) ? hostState.gs / 3.6 : (shape.airspeedMps || 0),
+    groundSpeedMps: Number.isFinite(hostState.gs) ? hostState.gs / 3.6 : (shape.airspeedMps || 0),
     verticalSpeedMps: shape.verticalSpeedMps || 0,
 
     vacuumBuoyancyN: hostState.buoyN || 0,

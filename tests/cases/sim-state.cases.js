@@ -11,7 +11,7 @@ import { close, describe, eq, it, ok } from '../harness.js';
 import {
   ALT, ALT_DROP_TOP, CLASSES, CLASS_ORDER, MODES, PHASES,
   buildMission, findSource, havKm, resetConfig, setSeed, sourceAltM, stateAt,
-} from '../../sim/index.js?v=f3b90158';
+} from '../../sim/index.js?v=dedba765';
 
 /* A fixture with no live data in it: two lakes big enough for any class, one fire between
    them. `null` outlines mean intakePoint returns the centroid, so the geometry is exactly
@@ -340,7 +340,13 @@ describe('state · the vertical duty', () => {
       for (let i = 0; i < 300; i++) {
         const st = at(m, 2, m.cycleSec * i / 300);
         close(st.massT, m.plan.led.dryT + st.water + st.ln2, 1e-9, `${id}: massT`);
-        close(st.netN, st.buoyN - st.weightN, 1e-6, `${id}: netN`);
+        /* THE NET INCLUDES THE ANCHOR, and that is the point of the field. The bag is the
+         * largest single force on the hull whenever it is in use — 12,400 t against a
+         * 21,000 t P-10000 — and a net line of buoyancy minus weight reported a ship
+         * straining upward at the exact moment a bucket of lake water was holding it down. */
+        close(st.netN, st.buoyN - st.weightN - st.anchorN, 1e-6, `${id}: netN`);
+        ok(st.anchorN >= 0, `${id}: the anchor pulls down, never up`);
+        ok(st.anchorT <= m.plan.anchorT + 1e-9, `${id}: more water in the bag than it holds`);
         close(st.weightN, st.massT * 1000 * 9.81, 1e-6, `${id}: weightN`);
       }
     }

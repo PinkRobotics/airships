@@ -217,8 +217,8 @@ neither gets stopped time of its own.
 | `SOURCE_APPROACH` | `max(1.5·fixed, hoseDeployMin·0.5·hose)` | 430 → 300 m AGL | retained only |
 | `WATER_FILL` | `deliveredT / Q / 60` | 300 m, station-keeping | 0 → payload |
 | `OUTBOUND_TRANSIT` | `max(legKm/gs_out · 60/0.85, hoseRetractMin·0.4·hose + 0.8)` | 300 → altTop → 450 m | payload |
-| `WATER_RELEASE` | `max(0.8, dropKm/(0.45·v)·60) × passes` | 450 → 580 m | payload → retained |
-| `BUOYANCY_ESCAPE` | `2 × fixed` | 580 → 0.55·altTop | retained |
+| `WATER_RELEASE` | `max(dropKm/(0.45·v)·60, delivered/fill/60)` — one pass | 450 → 580 m | payload → retained |
+| `BUOYANCY_ESCAPE` | `2 × fixed` | 580 → max(760, 0.75·altTop) | retained |
 | `RETURN_TRANSIT` | `max(1.2, legKm/gs_ret · 60/0.85)`, ×1.12 if authority-limited | 0.55·altTop → altTop → 430 m | retained |
 
 Transit legs are trapezoids, not steps: 15% of the distance accelerating and 15% braking,
