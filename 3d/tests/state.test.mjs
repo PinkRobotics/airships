@@ -3,31 +3,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=154a8232';
-import { build } from '../model/build.js?v=154a8232';
+import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=77459a4c';
+import { build } from '../model/build.js?v=77459a4c';
 import {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from '../physics/state.js?v=154a8232';
+} from '../physics/state.js?v=77459a4c';
 import {
   demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES, ALT,
-} from '../anim/mission.js?v=154a8232';
-import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=154a8232';
-import { buildActuators } from '../control/actuators.js?v=154a8232';
-import { allocate, demoWrench } from '../control/allocator.js?v=154a8232';
-import { massState } from '../physics/mass.js?v=154a8232';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=154a8232';
-import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=154a8232';
-import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=154a8232';
-import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=154a8232';
-import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=154a8232';
-import { CSS } from '../render/styles.js?v=154a8232';
+} from '../anim/mission.js?v=77459a4c';
+import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=77459a4c';
+import { buildActuators } from '../control/actuators.js?v=77459a4c';
+import { allocate, demoWrench } from '../control/allocator.js?v=77459a4c';
+import { massState } from '../physics/mass.js?v=77459a4c';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=77459a4c';
+import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=77459a4c';
+import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=77459a4c';
+import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=77459a4c';
+import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=77459a4c';
+import { CSS } from '../render/styles.js?v=77459a4c';
 import {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS,
-} from '../adapter/fable.js?v=154a8232';
-import { walk } from '../core/nodes.js?v=154a8232';
-import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=154a8232';
+} from '../adapter/fable.js?v=77459a4c';
+import { walk } from '../core/nodes.js?v=77459a4c';
+import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=77459a4c';
 
 /* ---------- state -------------------------------------------------------------------------- */
 

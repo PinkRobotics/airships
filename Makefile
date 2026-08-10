@@ -34,10 +34,11 @@ test:  ## Run the browser suites headless: the page's own, then the 3D library's
 
 # CI reaches this target with node already installed, so the skip branch is unreachable
 # there and a missing node fails the build. Locally, skipping is the honest outcome.
-test-node:  ## Run the node unit tests, or say plainly that node is missing
+test-node:  ## Run the node unit tests — falls back to a browser shim when node is absent
 	@if ! command -v node >/dev/null 2>&1; then \
-	   echo 'test-node: SKIPPED — no node here. These tests are not optional: CI runs'; \
-	   echo '           them on every push, and `make check` does not cover them.'; \
+	   echo 'test-node: no node here — running the same files in a browser instead.'; \
+	   echo '           `node --test` in CI stays the authority; see tools/node_tests_in_browser.py.'; \
+	   $(PY) tools/node_tests_in_browser.py; \
 	 else set -x; \
 	   if [ -f tests/node/run.mjs ]; then node tests/node/run.mjs; else node --test tests/node/*.mjs; fi; \
 	   node --test 3d/tests/*.test.mjs; \
@@ -56,7 +57,7 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figcheck golden test interaction  ## Everything CI checks that runs without node
+check: lint stampcheck figcheck golden test test-node interaction  ## Everything CI checks
 
 figcheck:  ## Every model figure quoted in a report must be the figure the model produces
 	@$(PY) tools/check_figures.py

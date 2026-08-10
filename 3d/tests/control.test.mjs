@@ -3,15 +3,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS } from '../model/config.js?v=154a8232';
-import { buildLayout } from '../model/layout.js?v=154a8232';
-import { proxyField } from '../model/density.js?v=154a8232';
-import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=154a8232';
-import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=154a8232';
-import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=154a8232';
-import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=154a8232';
-import { defaultState } from '../physics/state.js?v=154a8232';
-import { dot, len, norm, cross } from '../core/math.js?v=154a8232';
+import { ASSUMPTIONS, resolveClass, CLASS_IDS } from '../model/config.js?v=77459a4c';
+import { buildLayout } from '../model/layout.js?v=77459a4c';
+import { proxyField } from '../model/density.js?v=77459a4c';
+import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=77459a4c';
+import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=77459a4c';
+import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=77459a4c';
+import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=77459a4c';
+import { defaultState } from '../physics/state.js?v=77459a4c';
+import { dot, len, norm, cross } from '../core/math.js?v=77459a4c';
 
 const rig = (id = 'P100') => {
   const cls = resolveClass(id);
@@ -279,11 +279,21 @@ test('total power loss really is off', () => {
   assert.equal(p.hotelPowerMW, 0);
 });
 
-test('the nitrogen store is lossy and says so', () => {
+test('the nitrogen store cannot return more work than the liquid holds', () => {
+  // It used to, and this test used to enshrine it: the round trip was 0.50, which recovers
+  // 225 kWh from a tonne of LN2 whose exergy against a 288 K ambient is 173.4 kWh/t
+  // (Arnaiz-del-Pozo et al. 2020). That is not an efficiency, it is a violation, and it was
+  // being asserted as correct behaviour. 0.20 returns 90 kWh/t, 52% of what is there.
+  //
+  // The ratio is pinned AND the physical ceiling is checked, because the first is a choice and
+  // the second is not. Nothing may raise rtLN2 past 173.4/450 = 0.385 without this failing.
   const cls = resolveClass('P1000');
   const l = ln2Ledger(cls);
   assert.ok(l.returnMWh < l.chargeMWh, 'the store must not return more than it took');
-  assert.ok(Math.abs(l.returnMWh / l.chargeMWh - 0.5) < 1e-9, 'default round trip is 50%');
+  assert.ok(Math.abs(l.returnMWh / l.chargeMWh - 0.2) < 1e-9, 'default round trip is 20%');
+  const recoveredKWhPerT = ASSUMPTIONS.rtLN2 * ASSUMPTIONS.eLN2 * 1000;
+  assert.ok(recoveredKWhPerT <= 173.4,
+    `recovers ${recoveredKWhPerT.toFixed(1)} kWh/t from a liquid holding 173.4`);
   assert.ok(l.lostMWh > 0);
   assert.match(l.note, /not an airborne plant specification/);
 });
