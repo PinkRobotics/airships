@@ -1,5 +1,6 @@
 # Vacuum-lift wildfire airships: a diligence report
 
+<!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1 · prepared for readers doing technical and commercial diligence**
 
 ---
@@ -15,8 +16,11 @@ published claims, and a defect list of thirteen items, two of them closed. That 
 examination. **The correct question for a reader is not "do these numbers work" but "is this the
 kind of work that would find out if they didn't".**
 
-The report is organised so that the disqualifying findings come first. §2 could end the
-conversation and is placed where it can. If you read one section, read §2.
+The report is organised as an argument rather than as a defence: what the idea is worth if it
+works (§§1–3), then what would have to be true for it to work (§4), then the economics, the
+regulatory path, and the quality of the evidence behind all of it. **§4.1 is the entry that could
+end the conversation**, and if you read one section, read that one — but read it after §3, because
+the size of the prize is what decides whether the obstacle is worth attacking.
 
 Every model figure is cited by key and verified automatically against the model
 (`tools/check_figures.py`; the build fails on a mismatch). Every external figure names its source.
@@ -26,11 +30,15 @@ Where nothing is known, the section says so rather than estimating.
 
 ## 1. The thesis in one page
 
-**Claim.** Aerial firefighting is limited by turnaround, not by drop size. A vehicle that dips from
-a lake like a helicopter but carries like a tanker would change the sustained delivery rate by
-orders of magnitude. Buoyant flight is the only way to get payload without paying for lift
-continuously. Helium is expensive and leaks; vacuum is free and does not — if the shell can be
-made light enough, which modern discrete-lattice construction may finally allow.
+**Claim.** Aerial firefighting is limited by turnaround, not by drop size. A very large airtanker
+delivers seventy tonnes in seconds and then spends most of an hour not delivering anything. A
+vehicle that dips from a lake like a helicopter but carries like a tanker would change the
+*sustained* rate — the one that decides whether a line holds — by orders of magnitude.
+
+Buoyant flight is the only way to get payload without paying for lift continuously, and it is the
+only way to build a firefighting aircraft that never has to land. Helium is expensive and leaks;
+vacuum is free and does not, if the shell can be made light enough — which is what discrete-lattice
+construction may finally allow, and what §4.1 says has not been shown yet.
 
 **What the model says.** Three classes, from 100 t<!--f:P100.spec.payloadT--> to
 10,000 t<!--f:P10000.spec.payloadT--> of water. The largest is 876 m<!--f:P10000.spec.lenM--> long,
@@ -38,32 +46,140 @@ flies a 45.5-minute<!--f:P10000.cycle.cycleMin--> cycle at 15 km<!--f:worked.one
 and delivers 13,183 t/h<!--f:P10000.cycle.tph--> at 4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne-->.
 
 **What the model does not say.** That the vehicle can be built. The model takes hull mass as an
-assumption and computes forward from it; §2.1 is about that assumption and it does not survive
+assumption and computes forward from it; §4.1 is about that assumption and it does not survive
 contact with the sources.
 
-**Where the genuine invention is.** One place: the descent anchor (§4). It solves a real problem
+**Where the genuine invention is.** One place: the descent anchor (§3). It solves a real problem
 that emerged mid-project, it is 58× cheaper than the rotor work it replaces, and it is the only
 part of this concept that is not a scaling exercise on prior art.
 
+**Why the scale is the point.** Energy per tonne *falls* as the ships get bigger —
+12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the smallest against
+4.59<!--f:P10000.cycle.kwhPerTonne--> on the largest — because buoyancy scales with volume and drag
+with area. The square-cube law works against nearly every other vehicle and for this one. It is
+the reason to be interested in the largest class rather than to start with the smallest.
+
 **What would make this investable.** Not a better simulation. A gram-level mass breakdown of a
 lattice shell at scale, from someone who builds them. Everything else is downstream of that number
-and the number is currently missing (§8).
+and the number is currently missing (§8). It is also cheap to obtain relative to everything it
+gates: two expert reviews, not a programme.
 
 ---
 
-## 2. Disqualifying findings
+## 2. What the model shows
 
-Four findings from the source catalogue contradict the model. They are stated here first, in full,
-with their arithmetic.
+Everything below is conditional on §4.1 — read it as "if a shell can be built, then —". What
+makes it worth reading anyway is that the operational arithmetic is where the concept is
+*strongest*, and it is the part a reader can check line by line today.
+
+<!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle behind it. The vehicle never lands, so the longest phases are moving water rather than flying.-->
+
+### 2.1 The sizing logic is sound and safety-led
+
+Displacement is not chosen to make the numbers work. It is set by a fail-safe requirement:
+
+> A hull must be positively buoyant at its working altitude while **fully loaded with water and
+> unable to release it.**
+
+A ship whose outlets jam rises. For an uncrewed vehicle over a fire, that turns a stuck valve from
+a crash into an inconvenience. It costs displacement — 2,200 m³ per tonne of payload, giving
++5.25%<!--f:P10000.lift.floatUpMarginPct--> margin, 21,050.9 t<!--f:P10000.lift.atWorkAltT--> of
+lift against 20,000 t<!--f:P10000.lift.loadedMassT--> loaded — and the project pays it rather than
+trading it away. That is the correct instinct for a vehicle of this size operating autonomously
+over people.
+
+### 2.2 The cycle is timed, not asserted
+
+| Phase | P-10000, min | What happens |
+|---|---:|---|
+| Source approach | 5.00<!--f:P10000.cycle.durations.SOURCE_APPROACH--> | dead stop, lower anchor and pumps |
+| Fill | 11.11<!--f:P10000.cycle.durations.WATER_FILL--> | 15 m³/s<!--f:P10000.spec.fillM3s-->, no yaw |
+| Outbound | 8.14<!--f:P10000.cycle.durations.OUTBOUND_TRANSIT--> | 130 km/h<!--f:P10000.spec.cruiseKph--> |
+| Release | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one pass |
+| Escape | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | buoyancy only, no propulsion |
+| Return | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | |
+| **Total** | **45.51**<!--f:P10000.cycle.cycleMin--> | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
+
+Water handling is 22.2 of 45.5 minutes. **The vehicle is a pump with a hull attached**, and at
+operational ranges the binding constraint is transit distance only because transit is the term that
+scales with distance. That has a commercial consequence: the value of the concept collapses toward
+the value of a big pump if the fire is not near water.
+
+### 2.3 Throughput, if the vehicle exists
+
+| | P-100 | P-1000 | P-10000 |
+|---|---:|---:|---:|
+| Delivered per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
+| Energy per tonne | 12.53 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.40 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.59 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+| Energy per cycle | 1.253 MWh<!--f:P100.cycle.eCycleMWh--> | 7.399 MWh<!--f:P1000.cycle.eCycleMWh--> | 45.869 MWh<!--f:P10000.cycle.eCycleMWh--> |
+
+A 747 supertanker drops about 70 t and then flies to a base. Scale is the entire argument, and the
+square-cube law means only the largest class is interesting: it is 2.3× cheaper per tonne than the
+smallest.
+
+---
+
+## 3. The one genuine invention, and its exposure
+
+### 3.1 What it is
+
+The buoyancy that guarantees float-up must be overcome to descend, and it is worst at the bottom,
+over the water, where the air is densest.
+
+| | P-100 | P-1000 | P-10000 |
+|---|---:|---:|---:|
+| Surplus to hold down at the lake | 135.6 t<!--f:P100.descent.holdAtSourceT--> | 1,366.9 t<!--f:P1000.descent.holdAtSourceT--> | 13,722.5 t<!--f:P10000.descent.holdAtSourceT--> |
+| Rotor capability | 267.2 t<!--f:P100.descent.rotorCapT--> | 1,318.1 t<!--f:P1000.descent.rotorCapT--> | 12,666.2 t<!--f:P10000.descent.rotorCapT--> |
+
+<!--tex:fig charts/descent.pdf | The problem the anchor solves. The bar is what has to be held down at the water; the tick is how far the rotors reach unaided. | 0.95-->
+
+The two larger classes **cannot reach their own water source under power.** The solution is to
+borrow the lake: lower a cable with a collapsible bag, fill it, winch it clear of the surface.
+12,400 t<!--f:P10000.descent.anchorT--> of hanging water is
+121.6 MN<!--f:P10000.descent.anchorPullMN--> of downward force for the 15 m of lift needed to break
+the surface — **0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor-->** against the 34.5 MWh of rotor
+work it replaces.
+
+The leverage is in the exponent: induced rotor power goes as thrust^1.5, so the letdown term falls
+from 34.20 MWh to 1.420 MWh<!--f:P10000.energy.ledgerMWh.letdown--> — 96%. Alternatives, costed and
+rejected in the open: nitrogen ballast **475 MWh**, a 1,350 m hose **44 MWh** at 2 m bore and
+140 bar, retention **directly reduces the product**.
+
+The mechanism cannot be over-sized: the most water a ship can lift is its own surplus lift, so the
+physics supplies its own ceiling. And it pays on every class — removing the P-100's bag, which it
+does not need, costs 34% more energy per cycle.
+
+### 3.2 Its exposure
+
+| Risk | Status |
+|---|---|
+| **Scale** | 12,400 t against the largest bucket ever built, 9,800 L. **1,265×.** The principle is 43 years old; the engineering is not. |
+| **Cable** | 121.6 MN needs ~440 mm of UHMWPE massing 125 t — **not charged as dry mass anywhere in the model**, on a budget already over (§4.1). |
+| **Pendulum** | 12,400 t swinging on one cable under an 876 m hull. Not modelled at all. |
+| **Rotor wash on water** | The P-10000 has ~79 kg/m² disc loading against a Black Hawk's ~47, across 14 rotors whose combined disc area equals a single 451 m disc. A hovering Black Hawk must be over 160 ft up before surface wash falls below 30 mph (Suter 2005). The model has no wash physics, and the anchor requires a stationary hover over the surface it is disturbing. |
+| **Station-keeping** | The mechanism requires a dead stop, no yaw while lines are down, and departure only when pumps clear the water. The model enforces these; nothing validates that a hull this size can hold station in the wind over a lake. |
+
+**Positive IP note:** this is the one part of the concept that is not obvious from prior art, and
+it is currently published openly. If there is defensible IP here, it is being given away. That is a
+deliberate consequence of the open-source strategy and should be a conscious decision rather than a
+side effect.
+
+---
+
+## 4. What would have to be true
+
+Everything in §§2–3 is arithmetic on assumptions. Four of those assumptions were checked against
+the literature and came back contradicted, and they are stated here in full, with their
+arithmetic, because a diligence reader should not have to find them.
 
 **Two of the four were corrected on 2026-08-09**, within hours of being found, because neither had
-a defensible reading. Both corrections made the model's numbers worse. They are kept in this
-section rather than moved to an appendix, because a diligence reader is entitled to see what the
-project did when its own evidence went against it — and because the *manner* of the two fixes is
-better evidence about the team than the fixes themselves. **The two that remain open are §2.1 and
-§2.4, and §2.1 is the one that could end this.**
+a defensible reading, and both corrections made the model's numbers worse. They are kept here
+rather than moved to an appendix: what a project did when its own evidence went against it is
+worth more to a reader than the corrections themselves. **The two that remain open are §4.1 and
+§4.4. §4.1 is the one that could end this**, and §4.4 changes what the product is rather than
+whether it can exist.
 
-### 2.1 The mass budget fails against four independent sources — SEVERE
+### 4.1 The mass budget fails against four independent sources — SEVERE
 
 The model's foundational assumption is `dryT = payloadT`: the ship's entire dry mass — shell, skin,
 joints, rotors, tanks, batteries, pumps, cable — equals the water it carries. For the P-10000 that
@@ -93,7 +209,7 @@ severity of the worst one. **The scale invariance both our structural sources as
 *Diligence status:* unresolved, and not resolvable by more modelling. Requires a mass breakdown
 from a builder of lattice structures. This is the project's single point of failure.
 
-### 2.2 The solar skin required 76% conversion efficiency — CORRECTED 2026-08-09
+### 4.2 The solar skin required 76% conversion efficiency — CORRECTED 2026-08-09
 
 The model credited the skin a flat **200 W/m² of electrical output**, continuously, in five
 separate source files. NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across
@@ -117,7 +233,7 @@ not in the ledger that computes them. A 4.4× error in the vehicle's power suppl
 every test in the repository. That is §8's defect 6, it is still open, and it is the more
 important half of this entry.
 
-### 2.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09
+### 4.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09
 
 `rtLN2 = 0.50` against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg recovered **225 kWh per
 tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K ambient is
@@ -135,7 +251,7 @@ says about how the model was being checked before: a unit test existed for this 
 asserting the violation as correct behaviour. The test now checks the physical ceiling as well as
 the value, because the first is a choice and the second is not.
 
-### 2.4 The headline metric may be measuring the wrong thing — strategic
+### 4.4 The headline metric may be measuring the wrong thing — strategic
 
 Two findings from the wildfire-aviation literature, both aimed at the top of the funnel.
 
@@ -159,100 +275,6 @@ the first five minutes, and there is currently no answer.
 
 ---
 
-## 3. What survives §2
-
-Everything below is conditional on §2.1. Read it as "if a shell can be built, then —".
-
-### 3.1 The sizing logic is sound and safety-led
-
-Displacement is not chosen to make the numbers work. It is set by a fail-safe requirement:
-
-> A hull must be positively buoyant at its working altitude while **fully loaded with water and
-> unable to release it.**
-
-A ship whose outlets jam rises. For an uncrewed vehicle over a fire, that turns a stuck valve from
-a crash into an inconvenience. It costs displacement — 2,200 m³ per tonne of payload, giving
-+5.25%<!--f:P10000.lift.floatUpMarginPct--> margin, 21,050.9 t<!--f:P10000.lift.atWorkAltT--> of
-lift against 20,000 t<!--f:P10000.lift.loadedMassT--> loaded — and the project pays it rather than
-trading it away. That is the correct instinct for a vehicle of this size operating autonomously
-over people.
-
-### 3.2 The cycle is timed, not asserted
-
-| Phase | P-10000, min | |
-|---|---:|---|
-| Source approach | 5.00<!--f:P10000.cycle.durations.SOURCE_APPROACH--> | dead stop, lower anchor and pumps |
-| Fill | 11.11<!--f:P10000.cycle.durations.WATER_FILL--> | 15 m³/s<!--f:P10000.spec.fillM3s-->, no yaw |
-| Outbound | 8.14<!--f:P10000.cycle.durations.OUTBOUND_TRANSIT--> | 130 km/h<!--f:P10000.spec.cruiseKph--> |
-| Release | 11.11<!--f:P10000.cycle.durations.WATER_RELEASE--> | one pass |
-| Escape | 2.00<!--f:P10000.cycle.durations.BUOYANCY_ESCAPE--> | buoyancy only, no propulsion |
-| Return | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | |
-| **Total** | **45.51**<!--f:P10000.cycle.cycleMin--> | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
-
-Water handling is 22.2 of 45.5 minutes. **The vehicle is a pump with a hull attached**, and at
-operational ranges the binding constraint is transit distance only because transit is the term that
-scales with distance. That has a commercial consequence: the value of the concept collapses toward
-the value of a big pump if the fire is not near water.
-
-### 3.3 Throughput, if the vehicle exists
-
-| | P-100 | P-1000 | P-10000 |
-|---|---:|---:|---:|
-| Delivered per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
-| Energy per tonne | 12.53 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.40 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.59 kWh<!--f:P10000.cycle.kwhPerTonne--> |
-| Energy per cycle | 1.253 MWh<!--f:P100.cycle.eCycleMWh--> | 7.399 MWh<!--f:P1000.cycle.eCycleMWh--> | 45.869 MWh<!--f:P10000.cycle.eCycleMWh--> |
-
-A 747 supertanker drops about 70 t and then flies to a base. Scale is the entire argument, and the
-square-cube law means only the largest class is interesting: it is 2.3× cheaper per tonne than the
-smallest.
-
----
-
-## 4. The one genuine invention, and its exposure
-
-### 4.1 What it is
-
-The buoyancy that guarantees float-up must be overcome to descend, and it is worst at the bottom,
-over the water, where the air is densest.
-
-| | P-100 | P-1000 | P-10000 |
-|---|---:|---:|---:|
-| Surplus to hold down at the lake | 135.6 t<!--f:P100.descent.holdAtSourceT--> | 1,366.9 t<!--f:P1000.descent.holdAtSourceT--> | 13,722.5 t<!--f:P10000.descent.holdAtSourceT--> |
-| Rotor capability | 267.2 t<!--f:P100.descent.rotorCapT--> | 1,318.1 t<!--f:P1000.descent.rotorCapT--> | 12,666.2 t<!--f:P10000.descent.rotorCapT--> |
-
-The two larger classes **cannot reach their own water source under power.** The solution is to
-borrow the lake: lower a cable with a collapsible bag, fill it, winch it clear of the surface.
-12,400 t<!--f:P10000.descent.anchorT--> of hanging water is
-121.6 MN<!--f:P10000.descent.anchorPullMN--> of downward force for the 15 m of lift needed to break
-the surface — **0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor-->** against the 34.5 MWh of rotor
-work it replaces.
-
-The leverage is in the exponent: induced rotor power goes as thrust^1.5, so the letdown term falls
-from 34.20 MWh to 1.420 MWh<!--f:P10000.energy.ledgerMWh.letdown--> — 96%. Alternatives, costed and
-rejected in the open: nitrogen ballast **475 MWh**, a 1,350 m hose **44 MWh** at 2 m bore and
-140 bar, retention **directly reduces the product**.
-
-The mechanism cannot be over-sized: the most water a ship can lift is its own surplus lift, so the
-physics supplies its own ceiling. And it pays on every class — removing the P-100's bag, which it
-does not need, costs 34% more energy per cycle.
-
-### 4.2 Its exposure
-
-| Risk | Status |
-|---|---|
-| **Scale** | 12,400 t against the largest bucket ever built, 9,800 L. **1,265×.** The principle is 43 years old; the engineering is not. |
-| **Cable** | 121.6 MN needs ~440 mm of UHMWPE massing 125 t — **not charged as dry mass anywhere in the model**, on a budget already over (§2.1). |
-| **Pendulum** | 12,400 t swinging on one cable under an 876 m hull. Not modelled at all. |
-| **Rotor wash on water** | The P-10000 has ~79 kg/m² disc loading against a Black Hawk's ~47, across 14 rotors whose combined disc area equals a single 451 m disc. A hovering Black Hawk must be over 160 ft up before surface wash falls below 30 mph (Suter 2005). The model has no wash physics, and the anchor requires a stationary hover over the surface it is disturbing. |
-| **Station-keeping** | The mechanism requires a dead stop, no yaw while lines are down, and departure only when pumps clear the water. The model enforces these; nothing validates that a hull this size can hold station in the wind over a lake. |
-
-**Positive IP note:** this is the one part of the concept that is not obvious from prior art, and
-it is currently published openly. If there is defensible IP here, it is being given away. That is a
-deliberate consequence of the open-source strategy and should be a conscious decision rather than a
-side effect.
-
----
-
 ## 5. Energy, and the only economics the model supports
 
 ### 5.1 The ledger
@@ -270,6 +292,8 @@ P-10000, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 | Nitrogen recovery (credit) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
 | **Total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> |
 
+<!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model. Seventy-six per cent of it is transit and pumping; the mechanism that closes the descent costs 1.3%.-->
+
 ### 5.2 The fleet is a battery being spent
 
 Every class runs a deficit every cycle. This is the project's central public conclusion and it is
@@ -284,6 +308,8 @@ stated on the site rather than hidden:
 Those figures are post-correction and roughly a third of what this report would have carried a day
 earlier. There is no configuration in which this fleet sustains itself; it requires an energy
 import chain, and that chain is the business.
+
+<!--tex:fig charts/deficit.pdf | Spend against generation, and endurance on a full battery. This is the project's central public conclusion and it is not a favourable one.-->
 
 ### 5.3 Grid implications — the number that should govern the conversation
 
@@ -336,7 +362,7 @@ cannot be shortened by a good result in a lab.
 
 ## 7. Quality of the evidence base
 
-This is where the project is genuinely strong, and it is the reason the §2 findings exist at all.
+This is where the project is genuinely strong, and it is the reason the §4 findings exist at all.
 
 | Artefact | What it is |
 |---|---|
@@ -348,6 +374,8 @@ This is where the project is genuinely strong, and it is the reason the §2 find
 | `research/evidence-map.md` | Audit of all 89 published claims. |
 | `research/figures.json` | Every published figure, regenerated from the live model. `tools/check_figures.py` fails the build if any report disagrees. |
 | `docs/OPEN-QUESTIONS.md` | Thirteen defects, each with cost, options and a recommendation. Two closed, eleven open. |
+
+<!--tex:fig charts/sensitivity.pdf | Every constant moved ±20%, generated rather than transcribed. Where the model's uncertainty actually lives: aerodynamics and speed, not lift.-->
 
 **The signal to weigh.** The defect list went from six to thirteen the day the project audited
 itself properly — and it is the same model. Nothing was introduced; it was all already true and
@@ -368,7 +396,7 @@ are worth 16.9 MWh a cycle, while the defect flagged in the README since the fir
 **And the test suite had a hole in it that is worth understanding.** 103 of the tests need node,
 which is not installed on the machine this is developed on, so `make test-node` printed "SKIPPED"
 and those tests were only ever executed by CI. Two breaks reached the remote that way — including
-a unit test asserting the impossible nitrogen recovery in §2.3 as correct behaviour. They run in a
+a unit test asserting the impossible nitrogen recovery in §4.3 as correct behaviour. They run in a
 browser now, against the same files, and `make check` covers them. A reader should weigh both
 halves: a gap that let a wrong assertion sit unchallenged, and a project that closed it with a
 tool rather than a resolution.
@@ -379,9 +407,9 @@ tool rather than a resolution.
 
 1. **A lattice vacuum shell at ≤0.455 kg/m³ including everything.** Nothing in the literature is
    there. Not resolvable by modelling. Requires a gram-level mass breakdown from someone who builds
-   these structures, plus an answer to the Derveni scale-invariance objection (§2.1). **This is the
-   only §2 finding that both remains open and is capable of ending the concept** — §2.2 and §2.3
-   are closed, and §2.4 changes what the product is rather than whether it can exist.
+   these structures, plus an answer to the Derveni scale-invariance objection (§4.1). **This is the
+   only §2 finding that both remains open and is capable of ending the concept** — §4.2 and §4.3
+   are closed, and §4.4 changes what the product is rather than whether it can exist.
 2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; NASA
    has flown 149 and sees no clear path past 500.
 3. **A drop from a height an 876 m hull can safely use that still arrives as water.** Currently
@@ -404,7 +432,7 @@ to resolve relative to everything downstream: they are literature and expert rev
 **On the concept.** Unproven and currently contradicted at its foundation. The mass premise fails
 against the project's own cited precedent by 12% before anything is fitted, and the battery alone
 exceeds the whole dry allowance at demonstrated pack densities. Neither is a detail; both are the
-first line of the ledger. A reader looking for a reason to stop has one, in §2.1, sourced.
+first line of the ledger. A reader looking for a reason to stop has one, in §4.1, sourced.
 
 **On the invention.** The descent anchor is real, is not obvious, solves a problem the project
 discovered rather than invented, and is 58× cheaper than the alternative. It is worth attention on
@@ -414,7 +442,7 @@ and therefore unprotected.
 **On the work.** The apparatus is better than the concept. A model that fails its own audit in
 public, keeps two tests failing on purpose, catalogues nine sources that contradict it, and grows
 its defect list from six to thirteen by checking properly is doing the thing most concept work
-avoids. The clearest evidence is what happened on 2026-08-09: two of the four findings in §2 were
+avoids. The clearest evidence is what happened on 2026-08-09: two of the four findings in §4 were
 corrected within hours of being found, both corrections made the published numbers worse — cycle
 energy up 6.6%, endurance down by roughly two thirds — and both shipped to the live site the same
 day. If the question is "will this team find out whether the idea works", the evidence is

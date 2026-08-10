@@ -11,3 +11,11 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# LaTeX intermediates. The PDFs themselves ARE committed — they are the artefact people are
+# sent — but the .aux/.log/.fls churn on every build and nobody reads them.
+/research/pdf/out/*
+!/research/pdf/out/*.pdf
+/research/pdf/*.body.tex
+/research/pdf/0*.tex
+/research/pdf/figures.tex

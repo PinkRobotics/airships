@@ -9,7 +9,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction lint check stamp figures clean
+.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -57,7 +57,7 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figcheck pdfcheck golden test test-node interaction  ## Everything CI checks
 
 figcheck:  ## Every model figure quoted in a report must be the figure the model produces
 	@$(PY) tools/check_figures.py
@@ -65,6 +65,12 @@ figcheck:  ## Every model figure quoted in a report must be the figure the model
 stampcheck:  ## Fail if any import is stamped at a version other than the current one
 	@$(PY) 3d/scripts/stamp-version.py --check
 	@$(PY) tools/stamp_site.py --check
+
+pdf:  ## Build the three report PDFs from research/reports/ into research/pdf/out/
+	$(PY) research/pdf/build.py
+
+pdfcheck:  ## Fail if the reports no longer convert to LaTeX cleanly
+	$(PY) tools/md2tex.py >/dev/null
 
 factsheet:  ## Regenerate research/figures.json from the live model
 	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \

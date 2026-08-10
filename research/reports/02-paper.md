@@ -1,13 +1,15 @@
-# Continuous aerial water delivery by vacuum-lift airship: a checkable first-order model, and the four places it fails
+# Continuous aerial water delivery by vacuum-lift airship
 
+<!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1**
+
+<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. Modelled at three scales, the largest class delivers \textbf{13,183 tonnes of water an hour}, continuously, for 4.6 kWh a tonne --- and gets cheaper per tonne the larger it is, because buoyancy scales with volume and drag with area. This paper is the arithmetic behind that sentence, and the list of what would have to be true for it to survive contact with hardware.-->
 
 > **Status.** Every quantitative statement below is either an output of the simulation in this
 > repository, cited by key and verified automatically against `research/figures.json`, or a figure
 > from a catalogued source, cited plainly. Nothing has been built. The model is first-order
-> throughout and thirteen of its assumptions are known to be wrong or unjustified; §8 lists them
-> and four of them are severe. This paper is written to be attacked, and the fastest attacks are
-> the ones it makes on itself.
+> throughout, and §8 lists the thirteen assumptions known to be wrong or unjustified — eleven
+> open, two corrected on 2026-08-09 and kept in place with what they cost.
 
 ---
 
@@ -60,6 +62,8 @@ downstream inherits that assumption.
 ## 3. The vehicle
 
 Three classes, geometrically similar, sized by a single safety requirement (§4).
+
+<!--tex:fig charts/scale.pdf | The three hulls at true relative scale, against the largest aircraft and the largest airship ever flown. Drawn from the same lengths and diameters as the table below. | 0.92-->
 
 | | P-100 | P-1000 | P-10000 |
 |---|---:|---:|---:|
@@ -120,6 +124,8 @@ Six phases, timed rather than asserted. For the P-10000 at 15 km<!--f:worked.one
 | `RETURN_TRANSIT` | 8.14<!--f:P10000.cycle.durations.RETURN_TRANSIT--> | run back, make nitrogen, let down onto the lake |
 | **total** | **45.51**<!--f:P10000.cycle.cycleMin--> | 10,000 t<!--f:P10000.cycle.deliveredT--> delivered |
 
+<!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle behind it. Water handling is the longest part of every cycle, which is the signature of a vehicle that never lands.-->
+
 That is 13,183 t/h<!--f:P10000.cycle.tph--> and 1.32<!--f:P10000.cycle.dropsPerHour--> drops per
 hour. Water handling — fill plus release — is 22.2 of the 45.5 minutes, and the model reports the
 bottleneck as transit distance at this range because both scale but
@@ -144,6 +150,8 @@ the bottom of the letdown, over the water:
 The two larger classes cannot reach their own water source under power. This was discovered by
 moving the force balance from the ceiling — where it had always been struck, and where it closed —
 to the place where the descent actually ends.
+
+<!--tex:fig charts/descent.pdf | What has to be held down at the water, and what holds it. The bar is the job; the tick is how far the rotors reach unaided. | 0.95-->
 
 ### 6.2 Three ways out, costed
 
@@ -212,6 +220,8 @@ transcribed:
 | `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> | −11.0% |
 | **total** | **45.869**<!--f:P10000.cycle.eCycleMWh--> | |
 
+<!--tex:fig charts/ledger.pdf | The cycle ledger, printed from the model rather than transcribed. The anchor is the smallest positive line, and it is the reason the letdown is the second smallest.-->
+
 4.59 kWh/t<!--f:P10000.cycle.kwhPerTonne--> delivered, against
 7.40<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 12.53<!--f:P100.cycle.kwhPerTonne--> for the
 P-100. Larger is cheaper per tonne, as the square-cube law demands.
@@ -242,6 +252,8 @@ confused with a cycle that takes an hour.
 | P-100 | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 1.253<!--f:P100.cycle.eCycleMWh--> | 1.10<!--f:P100.energy.deficitPerCycleMWh--> | 10.4 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 7.399<!--f:P1000.cycle.eCycleMWh--> | 6.66<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 45.869<!--f:P10000.cycle.eCycleMWh--> | 41.77<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
+
+<!--tex:fig charts/deficit.pdf | What each hull spends against what its skin makes, and how long a full battery lasts.-->
 
 **Every hull runs a deficit every cycle, and this is the project's central public conclusion:
 without an energy import chain the fleet is a battery being spent.** It is not a perpetual machine
@@ -332,6 +344,8 @@ no droplet physics: it moves tonnes from a tank to a coordinate.
 And AFUE — 27,611 observed drops — reports probability of success **0.56 without ground engagement
 against 0.72 with it**, the modal outcome without ground crews being *not effective*. AFUE never
 counts tonnes. This project's headline metric is tonnes per hour.
+
+<!--tex:fig charts/sensitivity.pdf | Every constant moved ±20%, measured rather than asserted. The top of the table is aerodynamics and speed; the two constants corrected on 2026-08-09 now move the headline by 0.8% and 0.0%.-->
 
 ### 8.5 The other nine, in one line each
 

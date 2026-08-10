@@ -1,0 +1,131 @@
+% The shared design of the three PDFs. One file, because three drifting copies of a
+% typographic system is the same failure as three copies of a constant.
+%
+% lualatex, for fontspec. TeX Gyre Pagella (Palatino) for text, Heros (Helvetica) for
+% headings and figure labels, Cursor for code. The charts are matplotlib PDFs set in the
+% same two faces, so a figure and the paragraph under it are the same typeface.
+% pdflatex, not lualatex: texlive-luatex is not installed here, so fontspec has no font
+% loader — and a document that only builds after someone installs a package is a document
+% that does not build. The TeX Gyre Type1 faces ship with texlive-fonts-recommended and give
+% the same typefaces: Pagella (Palatino) for text, Heros (Helvetica) for headings and figure
+% labels, Cursor for code. The matplotlib charts are set in the same two, so a figure and the
+% paragraph under it share a typeface.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage{tgheros}
+\usepackage{tgcursor}
+\renewcommand{\sfdefault}{qhv}
+\renewcommand{\ttdefault}{qcr}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+% Old-style figures are Pagella's default in text; \lining forces lining figures where a
+% column of numbers has to align.
+\newcommand{\lining}[1]{{\fontfamily{qpl}\selectfont #1}}
+
+% Characters the sources use that T1 does not carry.
+\DeclareUnicodeCharacter{2212}{--}
+\DeclareUnicodeCharacter{2264}{$\leq$}
+\DeclareUnicodeCharacter{2265}{$\geq$}
+\DeclareUnicodeCharacter{2192}{$\rightarrow$}
+\DeclareUnicodeCharacter{00B7}{\textperiodcentered}
+\DeclareUnicodeCharacter{00A2}{\textcent}
+
+\definecolor{ink}{HTML}{16161A}
+\definecolor{muted}{HTML}{55555F}
+\definecolor{faint}{HTML}{8A8A94}
+\definecolor{rule}{HTML}{D8D8DE}
+\definecolor{accent}{HTML}{C4185C}      % the estate pink, darkened for paper
+\definecolor{accentpale}{HTML}{FBEEF3}
+\definecolor{cool}{HTML}{2C5B87}
+\definecolor{coolpale}{HTML}{EEF3F8}
+\definecolor{warnpale}{HTML}{FFF6E8}
+\definecolor{warnrule}{HTML}{D9A441}
+
+\color{ink}
+\hypersetup{colorlinks=true, linkcolor=cool, urlcolor=cool, citecolor=cool}
+
+\titleformat{\section}{\sffamily\bfseries\large\color{ink}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\sffamily\bfseries\small\color{muted}}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.7\baselineskip}{0.6\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.2\baselineskip}{0.4\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{1.0\baselineskip}{0.25\baselineskip}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.25em, topsep=0.4em, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.4em, itemsep=0.25em, topsep=0.4em, parsep=0pt}
+
+\captionsetup{font={sf,small,color=muted}, labelfont={sf,bf,color=ink},
+              labelsep=period, justification=raggedright, singlelinecheck=false,
+              skip=6pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.46\baselineskip}
+\renewcommand{\arraystretch}{1.16}
+\setlength{\tabcolsep}{7pt}
+\arrayrulecolor{rule}   % needs [table]{xcolor}, above
+
+% A rule the width of the text, used to close a section quietly.
+\newcommand{\thinrule}{\par\vspace{0.3\baselineskip}%
+  {\color{rule}\hrule height 0.4pt}\par\vspace{0.3\baselineskip}}
+
+% ---- callouts -------------------------------------------------------------------------
+% Three registers, and the colour says which: accent for the claim a page is making, cool
+% for a fact worth pausing on, amber for a limit the reader must carry forward. A slab is a
+% tinted minipage under a coloured rule — no tcolorbox on this machine, and a plain
+% construction is one less thing that can break a build on someone else's.
+\newcommand{\slab}[4]{% {bg}{rulecolour}{TITLE}{body}
+  \par\medskip\noindent
+  {\color{#2}\hrule height 1.2pt}%
+  \colorbox{#1}{\begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}
+    \vspace{2pt}
+    {\sffamily\bfseries\footnotesize\color{#2}\MakeUppercase{#3}}\par
+    \vspace{0.15\baselineskip}
+    #4
+    \vspace{2pt}
+  \end{minipage}}%
+  \par\medskip}
+\newcommand{\headline}[2]{\slab{accentpale}{accent}{#1}{#2}}
+\newcommand{\keypoint}[2]{\slab{coolpale}{cool}{#1}{#2}}
+\newcommand{\limitbox}[2]{\slab{warnpale}{warnrule}{#1}{#2}}
+
+% ---- the figure store -----------------------------------------------------------------
+% \F{P10000.cycle.tph} resolves a key from research/figures.json, which is regenerated from
+% the live model. A key that does not exist is a build error, not a blank.
+\makeatletter
+\newcommand{\F}[1]{%
+  \ifcsname fig@#1\endcsname\csname fig@#1\endcsname
+  \else\GenericError{}{Figure key '#1' is not in figures.tex}{}{}\fi}
+\makeatother
+
+% ---- figures, placed rather than floated ------------------------------------------------
+% LaTeX floats are for papers where the figure may go anywhere. In a designed report the
+% figure belongs beside the sentence that introduces it, and letting it drift left half-empty
+% pages and pushed a five-page brief off the end. So a figure is an ordinary block: it appears
+% exactly where it was written, numbered by hand.
+\newcounter{plainfig}
+\newcommand{\placedfig}[3]{% {path}{caption}{width fraction}
+  \par\addvspace{0.9\baselineskip}\noindent
+  \begin{center}\includegraphics[width=#3\linewidth]{#1}\end{center}
+  \vspace{-0.2\baselineskip}
+  \refstepcounter{plainfig}%
+  {\sffamily\small\color{muted}\textbf{\color{ink}Figure \theplainfig.} #2\par}
+  \addvspace{0.9\baselineskip}}
+
+% Big number, for the statistic slabs.
+\newcommand{\bignum}[2]{{\sffamily\bfseries\Large\color{accent}#1}\,{\sffamily\small\color{muted}#2}}

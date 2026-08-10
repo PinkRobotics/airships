@@ -79,5 +79,45 @@
       },
     };
   }
+  /* SENSITIVITY, generated rather than transcribed. docs/PHYSICS.md §10 published this table
+   * by hand and it went stale twice — once when the descent moved to the source and once when
+   * the anchor took the letdown out. Each constant is moved ±20% from its default and the
+   * P-10000's cycle energy is re-measured at the worked distance. `resetConfig()` after every
+   * probe, or the next one measures the last one's mistake. */
+  const base = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
+  const pct = (a, b) => (b === 0 ? 0 : r(((a - b) / b) * 100, 1));
+  const sens = {};
+  for (const k of ['propEta', 'Cd', 'rhoAir', 'pumpEta', 'hoseMul', 'rhoSL', 'rtLN2', 'eLN2',
+                   'solarWPerM2']) {
+    const row = {};
+    for (const [side, mul] of [['lo', 0.8], ['hi', 1.2]]) {
+      S.resetConfig();
+      S.setConfig({ [k]: S.DEFAULTS[k] * mul });
+      row[side] = pct(planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm).eCycleMWh,
+                      base.eCycleMWh);
+    }
+    S.resetConfig();
+    sens[k] = row;
+  }
+  // Class parameters are not in CFG, so they move on a copy of the class rather than a dial.
+  for (const k of ['cruiseKph', 'anchorBagT', 'fillM3s', 'dispM3', 'diskM2', 'battMW', 'solarM2']) {
+    const row = {};
+    for (const [side, mul] of [['lo', 0.8], ['hi', 1.2]]) {
+      const mod = Object.assign({}, CLASSES.P10000);
+      mod[k] = CLASSES.P10000[k] * mul;
+      row[side] = pct(planCycle(mod, MODES.balanced, CFG.exampleKm).eCycleMWh, base.eCycleMWh);
+    }
+    sens[k] = row;
+  }
+  {
+    const row = {};
+    for (const [side, mul] of [['lo', 0.8], ['hi', 1.2]]) {
+      row[side] = pct(planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm * mul).eCycleMWh,
+                      base.eCycleMWh);
+    }
+    sens.dropKm = row;
+  }
+  out.sensitivity = sens;
+
   return JSON.stringify(out, null, 2);
 })()
