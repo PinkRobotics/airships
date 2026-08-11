@@ -146,11 +146,11 @@
   #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.10em;text-transform:uppercase;
        color:var(--faint);padding-bottom:3px;border-bottom:1px solid var(--line)}
   #controls .row{display:flex;gap:5px;flex-wrap:wrap}
-  #clearBreach,#toggleSkin,#toggleParts,#tourNext,.gbtn{background:rgba(13,13,16,.82);
+  #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold,.gbtn{background:rgba(13,13,16,.82);
        border:1px solid var(--line-strong);backdrop-filter:blur(6px);
        color:var(--muted);border-radius:var(--r-sm);padding:4px 9px;cursor:pointer;
        font:var(--t-12) var(--sans);text-align:left}
-  #clearBreach,#toggleSkin,#toggleParts,#tourNext{display:none}
+  #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold{display:none}
   #clearBreach:hover,#toggleSkin:hover,#toggleParts:hover,#tourNext:hover,.gbtn:hover{
        color:var(--text)}
   #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap}
@@ -1220,6 +1220,7 @@
     </div>
     <div class="row">
       <button id="clearBreach">reseal cells</button>
+      <button id="toggleUnfold">unfold flat</button>
     </div>
   </div>
   <!-- One button per stop, built from the tour itself so the set is always the parts that
@@ -1277,8 +1278,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=2d8ae1c4';
-import * as CELL from './model.js?v=2d8ae1c4';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=0313ec84';
+import * as CELL from './model.js?v=0313ec84';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1456,6 +1457,9 @@ api = mountExplorer({
     // The whole labelled group goes with the button. A section heading reading "walk the
     // parts" over an empty row on a level that has no tour is worse than no heading.
     document.getElementById('tourgrp').style.display = stop ? 'flex' : 'none';
+    // Unfolding is the skin level's own control — there is nothing to unfold anywhere else.
+    document.getElementById('toggleUnfold').style.display =
+      LEVELS_ID() === 'track' ? 'block' : 'none';
     // Rebuild the stop buttons for whatever tour this level has: five joint families, six
     // cut groups, four faces. Pressed state is read back off the state, never assumed.
     // onPart fires once during mount, before `api` is assigned — guard it, or the whole
@@ -1548,6 +1552,9 @@ if (!api) {
   const gbtns = [...document.querySelectorAll('.gbtn')];
   const syncGroups = () => gbtns.forEach(b =>
     b.classList.toggle('on', b.dataset.group === api.group));
+  const uf = document.getElementById('toggleUnfold');
+  uf.textContent = api.unfoldLabel;
+  uf.addEventListener('click', () => { uf.textContent = api.toggleUnfold(); });
   gbtns.forEach(b => b.addEventListener('click', () => {
     api.setGroup(b.dataset.group === api.group ? 'all' : b.dataset.group);
     syncGroups();

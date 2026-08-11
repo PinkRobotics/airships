@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=2d8ae1c4';
-import * as G from './explorer-geom.js?v=2d8ae1c4';
+import * as CELL from './model.js?v=0313ec84';
+import * as G from './explorer-geom.js?v=0313ec84';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=2d8ae1c4';
+} from './nodes.generated.js?v=0313ec84';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -440,58 +440,114 @@ function buildStageShell(id, ctx) {
   return { root, labels: [] };
 }
 
-/** THE SKIN, UNWRAPPED. The same fourteen faces the cell carries, cut apart and laid in one
- *  plane at true scale, so the area you are buying is a thing you can look at rather than a
- *  number in the panel. Each face is projected onto its own plane through a local basis and
- *  then placed on the sheet — no scaling anywhere, so a hexagon here is exactly the hexagon
- *  on the cell.
+/** THE SKIN, UNFOLDED — a real net, not a layout.
  *
- *  This is a LAYOUT, not a foldable net: the faces are packed for reading, not hinged along
- *  shared edges. The cut pattern proper — one continuous seam, folds where they earn their
- *  place, nesting on real roll width — is a different job and is not pretended at here. */
-function flatSkin(root, ctx) {
-  const span = ctx.demo.spanM;
+ *  The designer will laser-cut from this, fold it around the tube frame and tape it closed,
+ *  so it has to fold back into a cell. It does: the fourteen faces are hinged along a
+ *  spanning tree of the face-adjacency graph — 13 folds, 23 cuts of the 36 edges — and each
+ *  face's pose at animation parameter u is
+ *      T_child(u) = T_parent(u) · R(hinge, theta*u)
+ *  with the hinge taken in the ORIGINAL cell frame and theta the signed angle about it that
+ *  carries the child's normal onto the parent's. Both faces live in the same frame, so the
+ *  local rotation composes on the right. At u = 0 it is the cell; at u = 1 every face is
+ *  coplanar with the root; and every frame between is a rigid motion of each panel, which is
+ *  what makes it read as folding rather than morphing.
+ *
+ *  VERIFIED OFFLINE BEFORE THIS WAS WRITTEN, because a net that self-overlaps cannot be cut
+ *  and the animation looks perfect either way: all fourteen roots give ZERO overlapping face
+ *  pairs and coplanarity to 4e-16. A truncated octahedron unfolds cleanly from any face.
+ */
+function buildNet(span) {
   const { verts, squares, hexes } = G.kelvinFaces(span);
-  const a = span / (2 * Math.SQRT2);           // the cell's edge: every face is built on it
-  const across = 2 * a;                        // hexagon, corner to corner
-  const pos = [], idx = [], outline = [];
-  // Four hexagons to a row, two rows, then the six squares beneath. Gaps of a/3 read as cuts.
-  const gap = a / 6;
-  const place = (f, ox, oy) => {
-    const loop = f.loop.map(i => verts[i]);
-    const c = loop.reduce((s, v) => [s[0] + v[0] / loop.length, s[1] + v[1] / loop.length,
-      s[2] + v[2] / loop.length], [0, 0, 0]);
-    // A local orthonormal basis IN the face's own plane: first edge, then the normal's cross.
-    const e1 = norm(sub(loop[0], c));
-    const n = norm(cross(sub(loop[1], c), sub(loop[0], c)));
-    const e2 = cross(n, e1);
-    const flat = loop.map(v => {
-      const d = sub(v, c);
-      return [ox + dot(d, e1), oy + dot(d, e2)];
-    });
-    const base = pos.length / 3;
-    pos.push(ox, oy, 0);                                   // fan centre
-    for (const [x, y] of flat) pos.push(x, y, 0);
-    for (let i = 0; i < flat.length; i++) {
-      idx.push(base, base + 1 + i, base + 1 + (i + 1) % flat.length);
-      outline.push([[flat[i][0], flat[i][1], 0.001],
-        [flat[(i + 1) % flat.length][0], flat[(i + 1) % flat.length][1], 0.001]]);
+  const faces = [...squares, ...hexes];
+  const adj = faces.map(() => []);
+  for (let i = 0; i < faces.length; i++) {
+    for (let k = i + 1; k < faces.length; k++) {
+      const sh = faces[i].loop.filter(v => faces[k].loop.includes(v));
+      if (sh.length === 2) { adj[i].push([k, sh]); adj[k].push([i, sh]); }
     }
-  };
-  const hexPitch = across + gap, sqPitch = a + gap;
-  hexes.forEach((f, i) => place(f, (i % 4 - 1.5) * hexPitch,
-    (i < 4 ? 0.5 : -0.5) * (across * 0.87 + gap)));
-  squares.forEach((f, i) => place(f, (i - 2.5) * sqPitch,
-    -(across * 0.87 + gap) - sqPitch));
-  const sheet = solidNode(root, 'FlatSkin',
-    G.solid(new Float32Array(pos), new Uint32Array(idx)),
-    { kind: 'surface', color: '#8fb6dc', spec: 0.10, opacity: 1 });
-  sheet.p = [0, -span * 0.05, -span * 0.95];
-  sheet.skinPart = 'surface';
-  const ln = lineNode(root, 'FlatSkinCuts', outline, XM.kelvinEdge);
-  ln.p = sheet.p.slice();
+  }
+  const ROOT = 0;                     // any face works; a square keeps the net compact
+  const parent = faces.map(() => -1), hinge = faces.map(() => null), order = [ROOT];
+  const seen = new Set([ROOT]);
+  for (let q = 0; q < order.length; q++) {
+    for (const [k, e] of adj[order[q]]) {
+      if (seen.has(k)) continue;
+      seen.add(k); parent[k] = order[q]; hinge[k] = e; order.push(k);
+    }
+  }
+  return { verts, faces, parent, hinge, order, root: ROOT,
+           folds: faces.length - 1, cuts: 36 - (faces.length - 1) };
 }
 
+/** Each face's (rotation, translation) at u, plus the net's own in-plane basis. */
+function netPose(net, u) {
+  const { verts, faces, parent, hinge, order, root } = net;
+  const M = [];
+  M[root] = [[1, 0, 0, 0, 1, 0, 0, 0, 1], [0, 0, 0]];
+  for (const f of order.slice(1)) {
+    const [ia, ib] = hinge[f], A = verts[ia];
+    const ax = norm(sub(verts[ib], A));
+    const nf = faces[f].normal, np2 = faces[parent[f]].normal;
+    const ang = Math.atan2(dot(cross(nf, np2), ax), dot(nf, np2)) * u;
+    const R = rotAxis(ax, ang);
+    const [Rp, Tp] = M[parent[f]];
+    // rotate about the LINE through A, then carry by the parent's accumulated pose
+    const t0 = sub(A, mat3(R, A));
+    M[f] = [mat3mul(Rp, R), add(mat3(Rp, t0), Tp)];
+  }
+  return M;
+}
+
+function flatSkin(root, ctx) {
+  const span = ctx.demo.spanM;
+  const net = buildNet(span);
+  const g = { net, span, u: 0, sheet: null, cuts: null, folds: null };
+  const sheet = solidNode(root, 'FlatSkin', netGeom(net, 0).solid,
+    { kind: 'surface', color: '#8fb6dc', spec: 0.10, opacity: 1 });
+  sheet.skinPart = 'surface';
+  const cuts = lineNode(root, 'FlatSkinCuts', netGeom(net, 0).cutSegs, XM.kelvinEdge);
+  g.sheet = sheet; g.cuts = cuts;
+  root.net = g;
+  return g;
+}
+
+/** The net's geometry at u: one solid for the panels, one line set for the cut edges. */
+function netGeom(net, u) {
+  const M = netPose(net, u);
+  const { verts, faces } = net;
+  const pos = [], idx = [], cutSegs = [];
+  faces.forEach((f, fi) => {
+    const [R, T] = M[fi];
+    const P = f.loop.map(i => add(mat3(R, verts[i]), T));
+    const c = P.reduce((s2, p) => add(s2, [p[0] / P.length, p[1] / P.length, p[2] / P.length]),
+      [0, 0, 0]);
+    const base = pos.length / 3;
+    pos.push(c[0], c[1], c[2]);
+    for (const p of P) pos.push(p[0], p[1], p[2]);
+    for (let i = 0; i < P.length; i++) {
+      idx.push(base, base + 1 + i, base + 1 + (i + 1) % P.length);
+      cutSegs.push([P[i], P[(i + 1) % P.length]]);
+    }
+  });
+  return { solid: G.solid(new Float32Array(pos), new Uint32Array(idx)), cutSegs };
+}
+
+const rotAxis = (a, ang) => {
+  const [x, y, z] = a, c = Math.cos(ang), s2 = Math.sin(ang), C = 1 - c;
+  return [c + x * x * C, x * y * C - z * s2, x * z * C + y * s2,
+    y * x * C + z * s2, c + y * y * C, y * z * C - x * s2,
+    z * x * C - y * s2, z * y * C + x * s2, c + z * z * C];
+};
+const mat3 = (R, v) => [R[0] * v[0] + R[1] * v[1] + R[2] * v[2],
+  R[3] * v[0] + R[4] * v[1] + R[5] * v[2], R[6] * v[0] + R[7] * v[1] + R[8] * v[2]];
+const mat3mul = (A, B) => {
+  const O = new Array(9);
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++)
+    O[r * 3 + c] = A[r * 3] * B[c] + A[r * 3 + 1] * B[3 + c] + A[r * 3 + 2] * B[6 + c];
+  return O;
+};
+const add = (p, q) => [p[0] + q[0], p[1] + q[1], p[2] + q[2]];
 const sub = (p, q) => [p[0] - q[0], p[1] - q[1], p[2] - q[2]];
 const dot = (p, q) => p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
 const cross = (p, q) => [p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2],
@@ -1495,6 +1551,8 @@ export function mountExplorer(opts) {
     // and the article is the point — the structure inside was invisible until you found
     // the button. Glass first, solid on request.
     skinMode: 'transparent',     // 'solid' | 'transparent' | 'off'
+    unfold: 0,                   // 0 = the cell, 1 = the flat net
+    unfoldTo: 0,                 // what it is easing toward
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     tourIdx: 0,                  // which stop of the current level's tour
     tourStop: null,              // its key, so a probe and a label can read it back
@@ -1876,6 +1934,22 @@ export function mountExplorer(opts) {
     cell.fade = f;
   }
 
+  /** Ease the net open or shut, rebuilding its geometry only while it actually moves.
+   *  Fourteen faces is nothing to rebuild; doing it every frame regardless is still waste. */
+  function stepUnfold(dt) {
+    const lv = built[LEVELS.findIndex(l => l.id === 'track')];
+    const g = lv && lv.root && lv.root.net;
+    if (!g) return;
+    const d = state.unfoldTo - state.unfold;
+    if (Math.abs(d) < 1e-4) return;
+    state.unfold += Math.sign(d) * Math.min(Math.abs(d), dt / 1.6);
+    state.unfold = clamp(state.unfold, 0, 1);
+    const ng = netGeom(g.net, easeInOut(state.unfold));
+    g.sheet.geom = ng.solid;
+    g.cuts.geom = G.lines(ng.cutSegs);
+    dirty = true;
+  }
+
   function renderBody() {
     syncStage();
     const roots = node({ id: 'World', category: 'vacuum', selectable: false });
@@ -2162,6 +2236,65 @@ export function mountExplorer(opts) {
       return name;
     },
     get group() { return state.group || 'all'; },
+    /** Open the net, or fold it back. Returns the label the button must now show. */
+    toggleUnfold() {
+      state.unfoldTo = state.unfoldTo > 0.5 ? 0 : 1;
+      dirty = true;
+      return state.unfoldTo > 0.5 ? 'fold up' : 'unfold flat';
+    },
+    get unfoldLabel() { return state.unfoldTo > 0.5 ? 'fold up' : 'unfold flat'; },
+    /** Everything the gate needs to decide whether the net could actually be cut, measured
+     *  on the geometry that is on screen rather than recomputed beside it. */
+    netStats() {
+      const lv = built[LEVELS.findIndex(l => l.id === 'track')];
+      const g = lv && lv.root && lv.root.net;
+      if (!g) return null;
+      const M = netPose(g.net, easeInOut(state.unfold));
+      const { verts, faces } = g.net;
+      const n0 = faces[g.net.root].normal;
+      const polys = [], e1 = norm(sub(verts[faces[g.net.root].loop[0]],
+        verts[faces[g.net.root].loop[1]]));
+      const e2 = cross(n0, e1);
+      let lo = 1e9, hi = -1e9, area = 0;
+      faces.forEach((f, fi) => {
+        const [R, T] = M[fi];
+        const P = f.loop.map(i => add(mat3(R, verts[i]), T));
+        for (const p of P) { const d = dot(p, n0); if (d < lo) lo = d; if (d > hi) hi = d; }
+        const q = P.map(p => [dot(p, e1), dot(p, e2)]);
+        let a2 = 0;
+        for (let i = 0; i < q.length; i++) {
+          const r = q[(i + 1) % q.length];
+          a2 += q[i][0] * r[1] - r[0] * q[i][1];
+        }
+        area += Math.abs(a2) / 2;
+        polys.push(q);
+      });
+      // Separating-axis overlap on the shrunk polygons, so shared fold edges do not count.
+      const shrink = (q) => {
+        const c = q.reduce((s2, p) => [s2[0] + p[0] / q.length, s2[1] + p[1] / q.length],
+          [0, 0]);
+        return q.map(p => [c[0] + (p[0] - c[0]) * 0.94, c[1] + (p[1] - c[1]) * 0.94]);
+      };
+      const S = polys.map(shrink);
+      let overlaps = 0;
+      for (let i = 0; i < S.length; i++) for (let k = i + 1; k < S.length; k++) {
+        let sep = false;
+        for (const P of [S[i], S[k]]) {
+          for (let e = 0; e < P.length && !sep; e++) {
+            const a2 = P[e], b2 = P[(e + 1) % P.length];
+            const nx = -(b2[1] - a2[1]), ny = b2[0] - a2[0];
+            const pa = S[i].map(p => nx * p[0] + ny * p[1]);
+            const pb = S[k].map(p => nx * p[0] + ny * p[1]);
+            if (Math.max(...pa) <= Math.min(...pb) + 1e-12 ||
+                Math.max(...pb) <= Math.min(...pa) + 1e-12) sep = true;
+          }
+          if (sep) break;
+        }
+        if (!sep) overlaps++;
+      }
+      return { u: state.unfold, thicknessMm: (hi - lo) * 1000, areaM2: area,
+               overlaps, folds: g.net.folds, cuts: g.net.cuts };
+    },
     cycleParts() {
       const order = ['all', 'joinery', 'pipes'];
       state.partsMode = order[(order.indexOf(state.partsMode) + 1) % order.length];
@@ -2179,6 +2312,7 @@ export function mountExplorer(opts) {
     /** Advance and draw exactly one frame, synchronously — for tests and stills. */
     tick(dt = 1 / 60) {
       advance(dt);
+      stepUnfold(dt);
       renderBody();
     },
     levels: LEVELS,

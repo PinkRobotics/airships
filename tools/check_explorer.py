@@ -158,6 +158,18 @@ PROBE = r"""(() => {
   // counted connector geometry. A member family that loses its joints must fail the build.
   // Counted through the page's OWN accessor, not a second tree walk: a probe that walks the
   // scene differently from the renderer can agree with itself and disagree with the screen.
+  // THE NET MUST BE CUTTABLE. The designer laser-cuts this pattern, folds it around the
+  // tube frame and tapes it closed, so "it animated nicely" is not the property that matters.
+  // Drive the real button, run it to the end, and assert on the geometry that results: every
+  // face coplanar with the root (a FOLD, not a projection), total flat area equal to the
+  // model's own surface, and NO TWO FACES OVERLAPPING — an overlapping net cannot be cut and
+  // looks perfectly fine on screen.
+  E.setLevel(E.levels.findIndex(l => l.id === 'track'), true);
+  document.getElementById('toggleUnfold').click();
+  for (let i = 0; i < 300 && E.state.unfold < 0.999; i++) E.tick(0.05);
+  out.net = E.netStats();
+  out.netModelAreaM2 = C.kelvinFaces(E.ctx.demo.spanM).areaM2;
+  document.getElementById('toggleUnfold').click();
   out.socketsDrawn = E.instanceKeys()
     .filter(k => /^(NodeSockets|TieSockets|RimSockets)#/.test(k)).length;
   out.socketsExpected = 2 * out.ghostExpected;   // both ends of every member
@@ -521,6 +533,21 @@ def main() -> None:
     if res.get("ghostLines") != res.get("ghostExpected"):
         bad.append(f"joinery view ghosts {res.get('ghostLines')} pipe centrelines, but the "
                    f"model counts {res.get('ghostExpected')} members in the pipe family")
+    net = res.get("net") or {}
+    if (net.get("u") or 0) < 0.999:
+        bad.append(f"the net only reached u={net.get('u')} — it never opened")
+    if (net.get("thicknessMm") or 99) > 0.01:
+        bad.append(f"the unfolded net stands {net.get('thicknessMm'):.4f} mm out of plane — "
+                   "it is a projection, not a fold")
+    if abs((net.get("areaM2") or 0) - (res.get("netModelAreaM2") or 1)) > 1e-6:
+        bad.append(f"net area {net.get('areaM2')} m2 against the model's "
+                   f"{res.get('netModelAreaM2')} m2 — the pattern is not the cell's surface")
+    if net.get("overlaps"):
+        bad.append(f"{net.get('overlaps')} pairs of faces OVERLAP in the flat net — this "
+                   "pattern cannot be cut, and nothing on screen would show it")
+    if (net.get("folds"), net.get("cuts")) != (13, 23):
+        bad.append(f"net has {net.get('folds')} folds and {net.get('cuts')} cuts, "
+                   "expected 13 and 23 across the 36 edges")
     if res.get("socketsDrawn") != res.get("socketsExpected"):
         bad.append(
             f"the cell draws {res.get('socketsDrawn')} connector receivers for "
@@ -728,6 +755,13 @@ def main() -> None:
     print(f"explorer: {n} levels render, {len(res['checks'])} displayed figures match "
           f"the model, {res.get('socketsDrawn')} connector receivers drawn for "
           f"{res.get('socketsExpected')} member-ends, no page errors.")
+    # The net's figures are printed for the same reason the receiver count is: both sides of
+    # those comparisons come off the page, and two absent values compare equal.
+    _n = res.get("net") or {}
+    print(f"          the skin unfolds to a flat net: {_n.get('folds')} folds / "
+          f"{_n.get('cuts')} cuts, {_n.get('areaM2', 0):.4f} m2, "
+          f"{_n.get('thicknessMm', 0):.5f} mm out of plane, "
+          f"{_n.get('overlaps')} overlapping face pairs — it can be cut.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
           f"#tourNext: camera, panel and dim agree.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "

@@ -1,7 +1,7 @@
 /* The terrain image and the satellite tiles underneath everything else.
  */
-import { H, W, ctx } from '../map/projection.js?v=2d8ae1c4';
-import { S } from '../store.js?v=2d8ae1c4';
+import { H, W, ctx } from '../map/projection.js?v=0313ec84';
+import { S } from '../store.js?v=0313ec84';
 
 /* Terrain backdrop: dark hillshade built offline from AWS/Mapzen Terrain Tiles (z7 mercator
    mosaic, tools/airships_terrain.py). Its bounds are linear in the page's world coordinates. */
