@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=f9ad63ba';
-import * as G from './explorer-geom.js?v=f9ad63ba';
+import * as CELL from './model.js?v=cae4b374';
+import * as G from './explorer-geom.js?v=cae4b374';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=f9ad63ba';
+} from './nodes.generated.js?v=cae4b374';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -871,7 +871,12 @@ function buildCell(ctx) {
   // The skin, with THREE modes (a viewer asked): solid — the sealed article as an object;
   // transparent — structure visible through it; off. styleFor supplies the material per
   // mode; the cutaway slider cuts through all of them.
-  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span), XM.kelvinGhost);
+  // The membrane is drawn 3% proud of the nominal span. Boundary joints sit exactly ON
+  // their face plane and their collars stand about 1.5 pipe-radii off it, so a skin at
+  // the true span slices through every one of them. This is a drawing offset only —
+  // skin.areaM2 and the film mass come from the model, not from this geometry — and it
+  // is the honest direction to err: the real film drapes over the joints, not through.
+  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span * 1.03), XM.kelvinGhost);
   skin.skinPart = 'surface';
   const seams = lineNode(cg, 'CellSkinSeams', G.kelvinEdges(span),
     { kind: 'line', color: TOKENS.bone, weight: 1.2, opacity: 0.7 });

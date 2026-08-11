@@ -395,18 +395,27 @@
   than budgeted. Solid because these parts sit <em>inside</em> the vacuum, where sparse infill
   is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
 
-  <p class="sowhat"><b>This cell does not float, and the reason is its size.</b> It encloses
-  <span data-n="demo.enclosedL" data-f="0"></span> litres and displaces
-  <span data-n="demo.displacedAirKg" data-mul="1000" data-f="0"></span> g of air, against
-  <span data-n="stock.totalKg" data-f="2"></span> kg of tube and joints. A cell that floats is
-  the same architecture one size up in a stiffer tube: the boundary apparatus you see here —
-  rim, spokes, ties — exists because at this size a hexagon face contains no lattice point of
-  its own. One step larger and the face is full of them, and that apparatus is not needed.
-  In M60J-class tube the same geometry reaches
-  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ and is buoyant at sea level as a
-  single cell; printed continuous fibre needs
-  <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of structure inside structure to
-  get there. This is the bench article, and the order it is built in is the</p>
+  <p class="sowhat"><b>This cell does not float, and printing is not what decides it.</b> To
+  float it would have to weigh under
+  <span data-n="demo.displacedAirKg" data-mul="1000" data-f="0"></span> g — the air it
+  displaces. It weighs <span data-n="stock.totalKg" data-f="2"></span> kg, and that mass is
+  <span data-n="stock.pipeKg" data-f="2"></span> kg of bought tube against
+  <span data-n="stock.nodesKg" data-f="2"></span> kg of printed joints. The tube is five
+  sixths of it. Even with joints of zero mass this cell is an order of magnitude over.</p>
+
+  <p class="sowhat"><b>What decides it is size, and then the tube's grade.</b> The budget is
+  mass per cubic metre <em>enclosed</em>, so volume grows as the cube of the span while the
+  frame inside it grows far more slowly — a bigger cell of the same architecture is lighter
+  per litre, not heavier. Two things follow. A hexagon face at this span contains no lattice
+  point of its own, which is why it needs the rim, spokes and ties you can see; one size up
+  the face is full of them and that apparatus goes away. And in M60J-class tube rather than
+  the T700-class this cell is cut from, the same geometry reaches
+  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ — buoyant in sea-level air as a
+  single cell, where T700 needs
+  <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of frame inside frame to get
+  there.</p>
+
+  <p class="sowhat">This is the bench article, and the order it is built in is the</p>
   <p class="sowhat">test: baked out under vacuum, the barrier bonded hot while the cell is
   already in the chamber, and the seal closed as the last operation before it cools. The
   chamber does the evacuating — there is no valve and no pump aboard, so nothing is
@@ -1268,8 +1277,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f9ad63ba';
-import * as CELL from './model.js?v=f9ad63ba';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=cae4b374';
+import * as CELL from './model.js?v=cae4b374';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
