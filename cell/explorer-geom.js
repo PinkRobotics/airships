@@ -52,8 +52,16 @@ export function octetStruts(a) {
  * Instance transforms for the octet's struts: one unit-length x-aligned cylinder, aimed and
  * placed per strut. Returns { xf: Float32Array(n*16), count, mids } for a renderer inst record.
  * `geomLen` is the length the instanced cylinder was BUILT at (so xf carries no scale).
+ *
+ * UNLESS `stretchTo` is given: then each instance's x-axis is scaled by its own
+ * pair-distance over that nominal length, so the cylinder's ENDS land exactly on the pair's
+ * points. The cell draws its pipes seat to seat with geometry cut to the schedule's own
+ * length, but the drawn endpoints are not always the model's — boundary joints are inset,
+ * so a tie's drawn span differs from its cut by up to a few percent. The socket cones used
+ * to swallow that slack; a real joint mesh does not, and a pipe end hanging short of its
+ * cup reads as "not connected". Radius is untouched — only the length gives.
  */
-export function strutInstances(pts, pairs, jitter = 0) {
+export function strutInstances(pts, pairs, jitter = 0, stretchTo = 0) {
   const n = pairs.length;
   const xf = new Float32Array(n * 16);
   const mids = [];
@@ -67,6 +75,10 @@ export function strutInstances(pts, pairs, jitter = 0) {
     const mid = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2];
     if (jitter) for (let q = 0; q < 3; q++) mid[q] += (Math.sin(k * 12.9898 + q) * 0.5) * jitter;
     m4aimX(norm(sub(B, A)), rot);
+    if (stretchTo) {
+      const s = len(sub(B, A)) / stretchTo;
+      for (let q = 0; q < 3; q++) rot[q] *= s;      // column 0: the aimed x-axis
+    }
     m4translate(mid, tr);
     const m = m4mul(tr, rot);
     xf.set(m, k * 16);

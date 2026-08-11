@@ -489,7 +489,11 @@
 
   <p style="color:var(--faint);font-size:var(--t-11)">Use <strong>part</strong> in the controls
   below to walk the five families. The camera flies to the joint whose STL is named; the
-  rest of the article dims, and its whole family stays lit.</p>
+  rest of the article dims, and its whole family stays lit. Every joint on screen is grown
+  by the generator's own rule — the article draws each one's outer form, with the seating
+  slots and bores that sit under the pipes left out of the mesh, and the joint the camera
+  is framing is its family's representative at print resolution: open sockets, bores,
+  crush ribs, exactly the STL the printer receives.</p>
 
   <!-- STOP 1 -->
   <div class="stop" data-stop="lattice-12">
@@ -1280,8 +1284,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=d4db8d0a';
-import * as CELL from './model.js?v=d4db8d0a';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=9cfb21bf';
+import * as CELL from './model.js?v=9cfb21bf';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

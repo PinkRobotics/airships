@@ -24,14 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=d4db8d0a';
-import * as G from './explorer-geom.js?v=d4db8d0a';
+import * as CELL from './model.js?v=9cfb21bf';
+import * as G from './explorer-geom.js?v=9cfb21bf';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=d4db8d0a';
+} from './nodes.generated.js?v=9cfb21bf';
+// The 51 joints as real meshes — the display field for the article, plus the five family
+// representatives at print resolution for the connector tour. Generated, never modelled:
+// `python3 tools/gen_display_meshes.py`.
+import { NODEMESHES } from './nodemeshes.generated.js?v=9cfb21bf';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -379,43 +383,30 @@ function solidNode(parent, id, geom, xmat, extra = {}) {
   return n;
 }
 
-/** A printed socket: truncated cone from the node core out to the tube diameter,
- * instanced per strut end. FDM loves cones; primitives colliding raw do not print. */
-function socketConeGeom(rBase, rTip, len, rPipe) {
-  // THE MOUTH IS CLOSED, and it is closed onto the pipe. Two rings lathe an OPEN cone: the
-  // tip is a bare circular hole, the tip radius stands about a quarter of a pipe-radius
-  // proud of the tube entering it, and the eye looks straight down that gap into the
-  // collar's own backfaces. On the article that reads as a row of dark intakes bored into
-  // every joint — "on the exterior surface of the connectors it isn't smooth and shows pipe
-  // intakes", exactly. A third ring at the same x closes the gap as a flat annulus, which is
-  // also what the real part has there: the cup's end face, closing around the pipe's cut end.
-  // 24 segments rather than 14 because the pipes it wraps are drawn at 20-22, and a collar
-  // faceted more coarsely than its own tube is the other half of what looks wrong.
-  const prof = [[-len / 2, rBase], [len / 2, rTip]];
-  if (rPipe !== undefined && rPipe < rTip) prof.push([len / 2, rPipe]);
-  return latheLocal(prof, 24);
-}
-
-// A tiny local lathe (explorer-geom re-exports the ship's for everything else; the socket
-// cone is the one shape simpler to build here than to thread through another export).
-function latheLocal(profile, seg) {
-  const rings = profile.length;
-  const pos = [], idx = [];
-  for (let i = 0; i < rings; i++) {
-    const [x, r] = profile[i];
-    for (let j = 0; j < seg; j++) {
-      const th = 2 * Math.PI * j / seg;
-      pos.push(x, -r * Math.cos(th), r * Math.sin(th));
-    }
-  }
-  for (let i = 0; i < rings - 1; i++) {
-    for (let j = 0; j < seg; j++) {
-      const a = i * seg + j, b = i * seg + (j + 1) % seg;
-      const c = (i + 1) * seg + j, d = (i + 1) * seg + (j + 1) % seg;
-      idx.push(a, c, d, a, d, b);
-    }
-  }
-  return G.solid(new Float32Array(pos), new Uint32Array(idx));
+/** THE JOINTS ARE THE GENERATOR'S OWN MESHES now, not stand-ins. Every "printed" thing in
+ * the cell used to be a sphere plus twelve lathed socket cones, and three separate defects
+ * the designer found by eye — a hub resized four times, a rim with no receivers,
+ * interference inside the sockets — were all artifacts of those stand-ins. The meshes come
+ * out of cell/nodemeshes.generated.js, grown by the same SDF rule as the print STLs
+ * (`python3 tools/gen_display_meshes.py`), quantized to 0.05 mm about each joint's centre.
+ *
+ * Decoded here in millimetres and scaled straight into drawn metres. The meshes are LOCAL
+ * — article orientation, origin at the joint's own centre — and are placed at the page's
+ * own drawn points, insets and all: the render's half-pitch is 0.14% off the generator's,
+ * and a mesh placed at generator coordinates would open a seam against every pipe. */
+function meshGeom(rec) {
+  const meta = NODEMESHES.meta;
+  const bytes = (b64) => {
+    const s = atob(b64);
+    const a = new Uint8Array(s.length);
+    for (let i = 0; i < s.length; i++) a[i] = s.charCodeAt(i);
+    return a;
+  };
+  const q = new Uint16Array(bytes(rec.v).buffer);
+  const pos = new Float32Array(q.length);
+  const k = meta.quantStepMm / 1000, o = meta.quantOriginMm / 1000;
+  for (let i = 0; i < q.length; i++) pos[i] = q[i] * k + o;
+  return G.solid(pos, new Uint32Array(new Uint16Array(bytes(rec.i).buffer)));
 }
 
 /* A STAGE level: one that shows the cell instead of building a scene of its own.
@@ -573,28 +564,15 @@ function buildCell(ctx) {
   // tubes only stopped 17 mm short, so the render showed pipes passing through pipes: an
   // article that could not be built, drawn from the wrong bill of materials.
   const r = ctx.stock.odM / 2;
-  const RIM_R = ctx.stock.rimOdM / 2;
-  // THE FITTING, sized so nothing crosses inside it. Two collars on arms 60 degrees apart
-  // interpenetrate out to R_collar/tan(30) = 1.73*R_collar from the node, so the hub has
-  // to be at least that big or the crossing shows through the joint — 6.7 mm of it was,
-  // which is what the designer kept seeing. Collar 1.27r, hub 2.2r: 1.73 x 1.27 = 2.2. The
-  // real printed node solves this by blending the arms into one body; this is the closest
-  // an instanced render gets until the generated meshes themselves are shipped.
-  const COLLAR_R = r * 1.27;
-  // BACK TO THE REAL PART'S PROPORTIONS. I inflated this hub three times — 1.28r, 2.2r,
-  // 3.2r — each time to hide collars crossing at a tighter arm angle the designer spotted,
-  // and each time it drifted further from the joint gen_nodes actually prints, whose core
-  // is 8 mm = 1.6r. He called it: "a significant ball that offsets from the external
-  // boundary and is now odd." It was.
-  //
-  // The crossings were never the problem the ball was solving. In the printed part the
-  // arms MERGE into one body — solid meeting solid, which reads as a blend. What looked
-  // broken was collar TIPS, with their visible bores, poking through their neighbours. So
-  // the hub goes back to 1.6r and each arm is one taper running from it out to where the
-  // pipe starts: the tapers still intersect near the hub, and that is correct, because in
-  // the real joint they are the same lump of plastic.
-  const coreR = r * 1.6;
-  const socketLen = r * 3.4;           // the pipe starts here, just past the real slot base
+  // THE JOINTS ARE THE GENERATED MESHES — the ball-and-cone era is over. A sphere plus
+  // twelve lathed cones stood in for every printed part, and the whole history of that
+  // stand-in was the designer catching its artifacts one by one: a hub inflated three
+  // times to hide collar crossings that the real blended body never has, receivers missing
+  // at the rim, bores looking through their neighbours. Each joint now draws
+  // gen_nodes' own field (cell/nodemeshes.generated.js), so what the eye inspects and what
+  // the printer receives are the same rule. The pipes are drawn to the CUT SCHEDULE:
+  // each end stops at its own joint's slot base — the seat the pipe really butts on —
+  // rather than at a uniform socket length that existed to meet the cones.
   const span = ctx.demo.spanM;                      // the Kelvin article, across its squares
   // THE DEMONSTRATOR IS THE DESIGN'S OWN SHAPE — a Kelvin cell, not a cube. (The first
   // build printed one cubic octet cell; the designer asked "why is it a cube" within a
@@ -658,11 +636,14 @@ function buildCell(ctx) {
   // a count. Recorded where each one is drawn, so the schedule can never describe members
   // the page did not put on the screen.
   const memberRecs = [];
-  const addMember = (kind, keyA, keyB, A, B, id, i) => {
+  const addMember = (kind, keyA, keyB, A, B) => {
     const rec = {
-      kind, keys: [keyA, keyB],
+      kind, keys: [keyA, keyB], ends: [A, B],
       mid: [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2],
-      inst: [[id, i]],
+      // Filled when the pipes are drawn: a member's pipe instance lives in its CUT GROUP's
+      // node, and which group that is depends on both ends' seat depths — which are not
+      // known until every joint's arm count is.
+      inst: [],
     };
     memberRecs.push(rec);
     return rec;
@@ -678,81 +659,11 @@ function buildCell(ctx) {
       const isHero = (uKey(u) === HERO[0] && uKey(v) === HERO[1]) ||
                      (uKey(u) === HERO[1] && uKey(v) === HERO[0]);
       if (isHero) heroPair = pair; else pairs.push(pair);
-      addMember('octet', uKey(u), uKey(v), pts[pair[0]], pts[pair[1]],
-        isHero ? 'HeroStrut' : 'CellStruts', isHero ? 0 : pairs.length - 1);
+      addMember('octet', uKey(u), uKey(v), pts[pair[0]],
+        pts[pair[1]]).hero = isHero;
     }
   }
-  const si = G.strutInstances(pts, pairs);
-  const struts = inst(cg, { id: 'CellStruts' }, si.xf, si.count);
-  struts.geom = G.tubeArcGeom(r, (ctx.stock.odM - ctx.stock.idM) / 2, L - 2 * socketLen, 360, 20);
-  struts.xmat = XM.pipe;
-  struts.partFamily = 'pipe';
-  // THE JOINTS, as a printer would want them (the designer asked for coned transitions
-  // rather than colliding primitives): every strut end flares through a truncated cone
-  // into a small solid core at the node. Cones are instanced per strut end, aimed along
-  // the strut; the sphere shrinks to a core the cones bury themselves in. The flight
-  // version is a computed smooth blend, generatively grown — this is its printable
-  // ancestor, and the node-mass budget (15%) is what that design retires.
 
-  const socketPts = [], socketPairs = [];
-  let sp = 0;
-  const addSocket = (from, to, owner) => {
-    const d = [to[0] - from[0], to[1] - from[1], to[2] - from[2]];
-    const dl = Math.hypot(d[0], d[1], d[2]);
-    socketPts.push(from,
-      [from[0] + d[0] / dl * socketLen, from[1] + d[1] / dl * socketLen,
-       from[2] + d[2] / dl * socketLen]);
-    socketPairs.push([sp, sp + 1]);
-    sp += 2;
-    own(owner, 'NodeSockets', socketPairs.length - 1);
-  };
-  for (const [ia, ib] of pairs) {
-    addSocket(pts[ia], pts[ib], uKey(uNodes[ia]));
-    addSocket(pts[ib], pts[ia], uKey(uNodes[ib]));
-  }
-  // THE RIM'S OWN SOCKETS, on their own SKU. The 36 rim members are the six pipes bounding
-  // every hexagon, and for a long time they arrived at their corner and simply stopped: the
-  // builder drew the tube and never drew a receiver, so 72 member-ends butted into a bare
-  // ball. The designer found it twice by eye — "all square corners are missing some
-  // connections to pipes", then "the primary pipes around the hex on each side do not have
-  // receiver holes in their associated connectors" — and no gate could contradict him,
-  // because nothing counted drawn connector geometry against the model's member count.
-  // Their collar is sized off RIM_R, not the main pipe: the rim carries the 14 mm tube the
-  // film's dihedral edge demanded, and a socket drawn at the main SKU would be the render
-  // repeating the exact defect gen_nodes was fixed for this morning.
-  const rimSockPts = [], rimSockPairs = [];
-  let rsp = 0;
-  const addRimSocket = (from, to, owner) => {
-    const d = [to[0] - from[0], to[1] - from[1], to[2] - from[2]];
-    const dl = Math.hypot(d[0], d[1], d[2]);
-    rimSockPts.push(from,
-      [from[0] + d[0] / dl * socketLen, from[1] + d[1] / dl * socketLen,
-       from[2] + d[2] / dl * socketLen]);
-    rimSockPairs.push([rsp, rsp + 1]);
-    rsp += 2;
-    own(owner, 'RimSockets', rimSockPairs.length - 1);
-  };
-  // Node cores: small solid spheres at the joints; boundary nodes are already interior to
-  // the faces they centre (square-face centres), inset by construction.
-  const interiorPts2 = uNodes.map((u, i) => pts[i]);
-  // The hero itself, held through the dive.
-  const hi = G.strutInstances(pts, [heroPair]);
-  const hero = inst(cg, { id: 'HeroStrut' }, hi.xf, 1);
-  hero.geom = G.tubeArcGeom(r, (ctx.stock.odM - ctx.stock.idM) / 2, L - 2 * socketLen, 360, 28);
-  hero.xmat = XM.pipe;
-  hero.partFamily = 'pipe';
-  const hb = G.pointInstances([pts[heroPair[0]], pts[heroPair[1]]]);
-  const heroBalls = inst(cg, { id: 'HeroNodes' }, hb.xf, hb.count);
-  heroBalls.geom = G.sphereGeom(coreR, 24, 16);
-  heroBalls.xmat = XM.printed;
-  heroBalls.partFamily = 'printed';
-  // HeroNodes redraws two of the cores CellNodes already draws, at a finer segment count.
-  // They belong to their joints or a tour leaves them at full brightness in the middle of
-  // an otherwise dimmed article — the exact thing a hand-written id list would miss.
-  own(uKey(uNodes[heroPair[0]]), 'HeroNodes', 0);
-  own(uKey(uNodes[heroPair[1]]), 'HeroNodes', 1);
-  addSocket(pts[heroPair[0]], pts[heroPair[1]], uKey(uNodes[heroPair[0]]));
-  addSocket(pts[heroPair[1]], pts[heroPair[0]], uKey(uNodes[heroPair[1]]));
   // THE RIM FRAME: the hexagons have no lattice nodes (their centres belong to the dual
   // lattice), so the article frames its skin along its own 36 edges — each edge exactly
   // one strut long. Tubes INSET along the edge bisector so the mating faces stay flat:
@@ -791,15 +702,8 @@ function buildCell(ctx) {
       bump(rvKey(k2));
       ends.push(rvKey(k2));
     }
-    addMember('rim', ends[0], ends[1], A2, B2, 'RimFrame', rimPairs.length - 1);
-    addRimSocket(A2, B2, ends[0]);
-    addRimSocket(B2, A2, ends[1]);
+    addMember('rim', ends[0], ends[1], A2, B2);
   }
-  const ri = G.strutInstances(rimPts, rimPairs);
-  const rim = inst(cg, { id: 'RimFrame' }, ri.xf, ri.count);
-  rim.geom = G.tubeArcGeom(RIM_R, (ctx.stock.odM - ctx.stock.idM) / 2, L - 2 * socketLen, 360, 22);
-  rim.xmat = XM.pipeRim;
-  rim.partFamily = 'pipe';
   // Rim vertex cores: average the inset copies of each Kelvin vertex.
   const rimCorePts = [];
   const rimIdxOf = new Map();
@@ -816,18 +720,7 @@ function buildCell(ctx) {
   // vertex bind it to its nearest even-parity nodes: zero the +-1 coordinate (the
   // square-centre node) and step the +-2 coordinate inward (a cuboctahedron node).
   const tiePts = [], tiePairs = [];
-  const tieSockPts = [], tieSockPairs = [];
-  let tp = 0, tsp = 0;
-  const addTieSocket = (from, to, owner) => {
-    const d = [to[0] - from[0], to[1] - from[1], to[2] - from[2]];
-    const dl = Math.hypot(d[0], d[1], d[2]);
-    tieSockPts.push(from,
-      [from[0] + d[0] / dl * socketLen, from[1] + d[1] / dl * socketLen,
-       from[2] + d[2] / dl * socketLen]);
-    tieSockPairs.push([tsp, tsp + 1]);
-    tsp += 2;
-    own(owner, 'TieSockets', tieSockPairs.length - 1);
-  };
+  let tp = 0;
   const rimU = new Map();                   // rim vertex key -> its half-pitch integer u
   [...rimVertMap.keys()].forEach((k2, idx) => {
     const world = k2.split(',').map(Number);
@@ -847,10 +740,7 @@ function buildCell(ctx) {
       tiePairs.push([tp, tp + 1]);
       tp += 2;
       bump(rvKey(k2)); bump(uKey(uNodes[ti]));
-      addTieSocket(core, pts[ti], rvKey(k2));
-      addTieSocket(pts[ti], core, uKey(uNodes[ti]));
-      addMember('tie', rvKey(k2), uKey(uNodes[ti]), core, pts[ti],
-        'VertexTies', tiePairs.length - 1).inPlane = inPlane;
+      addMember('tie', rvKey(k2), uKey(uNodes[ti]), core, pts[ti]).inPlane = inPlane;
     }
   });
   // HEX-CENTRE TRIPODS — the designer's second catch: after the vertex ties, the eight
@@ -884,10 +774,7 @@ function buildCell(ctx) {
       tiePairs.push([tp, tp + 1]);
       tp += 2;
       bump(hubKey); bump(uKey(uNodes[ti]));
-      addTieSocket(core, pts[ti], hubKey);
-      addTieSocket(pts[ti], core, uKey(uNodes[ti]));
-      addMember('tie', hubKey, uKey(uNodes[ti]), core, pts[ti],
-        'VertexTies', tiePairs.length - 1);
+      addMember('tie', hubKey, uKey(uNodes[ti]), core, pts[ti]);
     }
     // HEXAGON SPOKES — the designer's third catch, and the sharpest: "the main faces are
     // actually still unsupported (the smaller faces are supported by secondary structures
@@ -905,10 +792,7 @@ function buildCell(ctx) {
       spokePairs.push([kp, kp + 1]);
       kp += 2;
       bump(hubKey); bump(rvKey(key));
-      addSocket(core, rimCorePts[vi], hubKey);
-      addSocket(rimCorePts[vi], core, rvKey(key));
-      addMember('spoke', hubKey, rvKey(key), core, rimCorePts[vi],
-        'HexSpokes', spokePairs.length - 1);
+      addMember('spoke', hubKey, rvKey(key), core, rimCorePts[vi]);
     }
   }
   // The six squares, the other half of the surface. Their centres ARE lattice sites — the
@@ -922,70 +806,8 @@ function buildCell(ctx) {
     faceRecs.push({ kind: 'square', centre: [u[0] * half, u[1] * half, u[2] * half],
                     normal: n3 });
   }
-  const spi = G.strutInstances(spokePts, spokePairs);
-  const spokes = inst(cg, { id: 'HexSpokes' }, spi.xf, spi.count);
-  spokes.geom = G.tubeArcGeom(r, (ctx.stock.odM - ctx.stock.idM) / 2, L - 2 * socketLen, 360, 20);
-  spokes.xmat = XM.pipe;
-  spokes.partFamily = 'pipe';
-  const hxi = G.pointInstances(hexCorePts);
-  const hexNodes = inst(cg, { id: 'HexNodes' }, hxi.xf, hxi.count);
-  hexNodes.geom = G.sphereGeom(coreR0, 24, 16);
-  hexNodes.xmat = XM.printed;
-  hexNodes.partFamily = 'printed';
-  // THE PAD IS GONE, and the designer is the one who spotted why: it sliced straight
-  // through the spokes. It was there so the membrane bore on an area rather than a point,
-  // but six spokes meeting at the hub already carry the film on six radial LINES — the
-  // very failure the pad existed to prevent. It only ever collected 15% of the hub's
-  // share anyway; it would have needed to be wider than the hexagon to carry the rest.
-  // The hub is now simply a connector, truncated flat where it meets the face.
-  const tii = G.strutInstances(tiePts, tiePairs);
-  const ties = inst(cg, { id: 'VertexTies' }, tii.xf, tii.count);
-  // THE TIES ARE CARBON TOO, and the same 10 x 8 SKU as every primary — drawn bone and
-  // slim here for a day after the model had already made them purchased pipe, which is
-  // exactly the drift the designer spotted ("a lot of secondary white pipes"). Sized
-  // against the film load they react, they are the MOST loaded members in the article:
-  // a tripod leg takes 3,183 N against a primary's 3,372 N crush demand.
-  ties.geom = G.tubeArcGeom(r, (ctx.stock.odM - ctx.stock.idM) / 2,
-    half - 2 * socketLen * 0.8, 360, 18);
-  ties.xmat = XM.pipe;
-  ties.partFamily = 'pipe';
-  // Tie sockets are SLIMMER than pipe sockets: the boundary insets (1.365r face nodes,
-  // 1.45r vertex cores) were sized before ties existed, and a full 1.5-coreR cone base
-  // on an in-plane tie pokes through the mating face — screenshots caught it doing
-  // exactly that. Base capped under the smallest inset keeps every face truly flat.
-  const tci = G.strutInstances(tieSockPts, tieSockPairs);
-  const tieSockets = inst(cg, { id: 'TieSockets' }, tci.xf, tci.count);
-  tieSockets.geom = socketConeGeom(COLLAR_R * 1.12, COLLAR_R * 0.94, socketLen * 0.8, r);
-  tieSockets.xmat = XM.printed;
-  tieSockets.partFamily = 'printed';
-  const allCores = interiorPts2.concat(rimCorePts);
-  const ni = G.pointInstances(allCores);
-  const nodes = inst(cg, { id: 'CellNodes' }, ni.xf, ni.count);
-  nodes.geom = G.sphereGeom(coreR, 24, 16);
-  nodes.xmat = XM.printed;
-  nodes.partFamily = 'printed';
-  uNodes.forEach((u, i) => own(uKey(u), 'CellNodes', i));
-  [...rimVertMap.keys()].forEach((k2, i) => own(rvKey(k2), 'CellNodes',
-    interiorPts2.length + i));
-  hexCorePts.forEach((c3, i) => own(`hh:${i}`, 'HexNodes', i));
-  const ci = G.strutInstances(socketPts, socketPairs);
-  const sockets = inst(cg, { id: 'NodeSockets' }, ci.xf, ci.count);
-  // The OUTER CAPTURE, drawn: a collar over the pipe end. Inside it (hidden, and the
-  // reason the collar can be short) a spigot grips the bore, and both bottom out on a
-  // shoulder — capture from inside, outside and the end at once, which is what lets a
-  // 0.3 mm co-critical wall take an interference fit without splitting.
-  sockets.geom = socketConeGeom(COLLAR_R * 1.18, COLLAR_R * 0.99, socketLen, r);
-  sockets.xmat = XM.printed;
-  sockets.partFamily = 'printed';
-  // The rim's receivers, on the rim's own collar radius. Same cone, bigger tube.
-  const RIM_COLLAR_R = RIM_R * 1.27;      // the ratio COLLAR_R takes off the main pipe
-  const rsi = G.strutInstances(rimSockPts, rimSockPairs);
-  const rimSockets = inst(cg, { id: 'RimSockets' }, rsi.xf, rsi.count);
-  rimSockets.geom = socketConeGeom(RIM_COLLAR_R * 1.18, RIM_COLLAR_R * 0.99, socketLen, RIM_R);
-  rimSockets.xmat = XM.printed;
-  rimSockets.partFamily = 'printed';
   // GHOST AXES — drawn only when the parts view hides the pipes. Without them the joints
-  // read as a scatter, and the rim carries no socket cones to leave behind.
+  // read as a scatter.
   const ghostSegs = pairs.concat([heroPair]).map(([ia, ib]) => [pts[ia], pts[ib]])
     .concat(rimPairs.map(([ia, ib]) => [rimPts[ia], rimPts[ib]]))
     .concat(spokePairs.map(([ia, ib]) => [spokePts[ia], spokePts[ib]]))
@@ -1011,16 +833,112 @@ function buildCell(ctx) {
   // face, that over sqrt(3) at a hexagon hub), and never a second copy of cg.r / cg.p.
   const cgM = m4compose(cg.p, cg.r, 1);
   const parts = [];
-  const addPart = (key, role, u, local) => parts.push({
-    key, role, u,
-    arms: armCount.get(key) || 0,
-    pos: m4transform(cgM, local),
-    inst: instOf.get(key) || [],
-  });
+  // EACH JOINT IS ITS GENERATED MESH, matched on (role, integer u) — the one identity the
+  // render and the generator agree on exactly (their pitches differ by 0.14%, so nothing
+  // else would). One scene node per joint, instanced with count 1: every mesh is unique,
+  // which rules out shared-geometry instancing, and the per-instance TINT is what lets a
+  // tour dim one joint against the rest at all — dimOf returns 1 for instanced nodes.
+  // The five family representatives get a SECOND node each, the print-resolution mesh
+  // with its open sockets, bores and ribs; styleFor swaps it in for the display mesh
+  // only while the connector tour is framing that family, so the joint under the camera
+  // is the printed part and the other fifty stay light.
+  const meshOf = new Map(NODEMESHES.nodes.map((m2) => [`${m2.role}|${m2.u.join(',')}`, m2]));
+  const repFamOf = new Map(FAMILY_ORDER.map((k) => [NODE_FAMILIES[k].repFile, k]));
+  const addPart = (key, role, u, local) => {
+    const rec = meshOf.get(`${role}|${u.join(',')}`);
+    if (rec) {                 // the gate counts drawn joints; a miss must not kill the page
+      const xf2 = new Float32Array(16);
+      m4compose(local, [0, 0, 0], 1, xf2);
+      const jm = inst(cg, { id: `Joint_${rec.file.slice(5, 7)}` }, xf2.slice(), 1);
+      jm.geom = meshGeom(rec);
+      jm.xmat = XM.printed;
+      jm.partFamily = 'printed';
+      own(key, jm.id, 0);
+      const famKey = repFamOf.get(rec.file);
+      if (famKey) {
+        jm.dispRepOf = famKey;
+        const rep = inst(cg, { id: `RepJoint_${famKey}` }, xf2.slice(), 1);
+        rep.geom = meshGeom(NODEMESHES.reps[famKey]);
+        rep.xmat = XM.printed;
+        rep.partFamily = 'printed';
+        rep.repFam = famKey;
+        own(key, rep.id, 0);
+      }
+    }
+    parts.push({
+      key, role, u,
+      arms: armCount.get(key) || 0,
+      pos: m4transform(cgM, local),
+      inst: instOf.get(key) || [],
+    });
+  };
   uNodes.forEach((u, i) => addPart(uKey(u), 'lattice', u, pts[i]));
   [...rimVertMap.keys()].forEach((k2, i) =>
     addPart(rvKey(k2), 'rimVertex', rimU.get(k2), rimCorePts[i]));
   hexCorePts.forEach((c3, i) => addPart(`hh:${i}`, 'hexHub', hexU[i], c3));
+  // THE PIPES, drawn to the cut schedule. Every member's tube runs SEAT TO SEAT: each end
+  // stops where its own joint's slot base puts the seat the pipe butts on, so the tube on
+  // screen is the sawn cut, not a centre-to-centre line with its ends hidden inside the
+  // old cones. Members group by (SKU, length class, both ends' seat depth) — the same
+  // signature the generated schedule carries — one instanced node per group, geometry cut
+  // to the group's own length. Instances stretch axially onto their drawn span: boundary
+  // insets bend the drawn lattice by a few percent, and a pipe end hanging short of its
+  // cup would read as "not connected". The ties are the same purchased 10 x 8 SKU as
+  // every primary and the MOST loaded members in the article — a tripod leg takes
+  // 3,183 N against a primary's 3,372 N crush demand.
+  const famOf2 = new Map(parts.map((p2) => [p2.key, NODE_FAMILIES[`${p2.role}-${p2.arms}`]]));
+  const wallM = (ctx.stock.odM - ctx.stock.idM) / 2;
+  const sigOf = new Map(CUT_GROUPS.order.map((k) => {
+    const g = CUT_GROUPS.groups[k];
+    return [`${g.sku}|${g.lengthKey}|${g.deductMm.toFixed(2)}`, k];
+  }));
+  const pipeGroups = new Map(CUT_GROUPS.order.map((k) => [k, []]));
+  for (const rec of memberRecs) {
+    const a = famOf2.get(rec.keys[0]), b = famOf2.get(rec.keys[1]);
+    if (!a || !b) continue;
+    const sku = rec.kind === 'rim' ? 'rim' : 'main';
+    const lengthKey = rec.kind === 'tie' ? 'short' : 'long';
+    const gk = sigOf.get(`${sku}|${lengthKey}|${(a.slotBaseMm + b.slotBaseMm).toFixed(2)}`);
+    if (gk === undefined) continue;      // the gate counts group membership; see below
+    rec.group = gk;
+    rec.seats = [a.slotBaseMm / 1000, b.slotBaseMm / 1000];
+    pipeGroups.get(gk).push(rec);
+  }
+  const seatSpan = (rec) => {
+    const [A, B] = rec.ends;
+    const d = norm(sub(B, A));
+    return [add(A, [d[0] * rec.seats[0], d[1] * rec.seats[0], d[2] * rec.seats[0]]),
+            sub(B, [d[0] * rec.seats[1], d[1] * rec.seats[1], d[2] * rec.seats[1]])];
+  };
+  for (const [gk, recs] of pipeGroups) {
+    if (!recs.length) continue;
+    const g = ctx.cuts.groups[gk];
+    const gp = [], gpairs = [];
+    for (const rec of recs) {
+      if (rec.hero) continue;            // the hero keeps its own finer node, same schedule
+      const [sA, sB] = seatSpan(rec);
+      gp.push(sA, sB);
+      gpairs.push([gp.length - 2, gp.length - 1]);
+      rec.inst.push([`Pipes_${gk}`, gpairs.length - 1]);
+    }
+    const cutM = g.cutMm / 1000;
+    if (gpairs.length) {
+      const gi = G.strutInstances(gp, gpairs, 0, cutM);
+      const pn = inst(cg, { id: `Pipes_${gk}` }, gi.xf, gi.count);
+      pn.geom = G.tubeArcGeom(g.odMm / 2000, wallM, cutM, 360, g.sku === 'rim' ? 22 : 20);
+      pn.xmat = g.sku === 'rim' ? XM.pipeRim : XM.pipe;
+      pn.partFamily = 'pipe';
+    }
+    const heroRec = recs.find((rec) => rec.hero);
+    if (heroRec) {
+      const hi = G.strutInstances(seatSpan(heroRec), [[0, 1]], 0, cutM);
+      const hero = inst(cg, { id: 'HeroStrut' }, hi.xf, 1);
+      hero.geom = G.tubeArcGeom(g.odMm / 2000, wallM, cutM, 360, 28);
+      hero.xmat = XM.pipe;
+      hero.partFamily = 'pipe';
+      heroRec.inst.push(['HeroStrut', 0]);
+    }
+  }
   // The members and the faces get the same treatment as the joints: their positions are
   // the DRAWN ones, pushed through the group's own matrix, so a tour aims at what is on
   // the screen rather than at a second computation of where it ought to be.
@@ -1032,10 +950,10 @@ function buildCell(ctx) {
   return {
     root,
     parts, members: memberRecs, faces: faceRecs, cgM, cellGroup: cg,
-    // What a single joint and its two collars occupy, from the same two numbers the joint
-    // is drawn with. The manifest's slot base (13.96 mm) says the real fitting reaches
-    // about 14 mm from the node centre, so this frames one joint whole.
-    partRadius: socketLen + coreR,
+    // What a single joint occupies, measured on the meshes actually drawn: the farthest
+    // vertex any joint carries (a tree stub's tip, ~39 mm out), so the connector tour
+    // frames the whole part — arms and all — rather than the old cone-length guess.
+    partRadius: Math.max(...NODEMESHES.nodes.map((m2) => m2.reachMm)) / 1000,
     // What ONE MEMBER occupies, and what ONE FACE does: the tube level frames a 251 mm cut
     // whole, the skin level frames a hexagon across its corners (its circumradius is the
     // edge, which is the same 251 mm — the one coincidence this cell is built on).
@@ -1879,6 +1797,15 @@ export function mountExplorer(opts) {
       }
       if (fr.unfoldGone) return { hidden: true };
     }
+    // THE PRINT-RESOLUTION SWAP, scoped to the level that owns it (a leaked flag has
+    // blanked two tours before). While the connector tour is framing a family, that
+    // family's representative joint is drawn as the printed part — open sockets, bores,
+    // ribs — and its display mesh steps aside. Everywhere else the five rep nodes are
+    // hidden and the fifty-one display meshes carry the article. Never mid-dive: the
+    // swap under a moving camera reads as the joint popping.
+    const repShowing = LEVELS[state.levelIdx].id === 'strut' && !diving();
+    if (n.repFam && !(repShowing && state.tourStop === n.repFam)) return { hidden: true };
+    if (n.dispRepOf && repShowing && state.tourStop === n.dispRepOf) return { hidden: true };
     if (n.skinPart) {
       if (state.skinMode === 'off') return { hidden: true };
       if (n.skinPart === 'surface') {

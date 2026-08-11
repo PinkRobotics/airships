@@ -3,13 +3,13 @@
  * These are shipped, not just tested in CI, so that a reader who does not trust the
  * numbers can run the checks themselves in devtools on the page they are reading.
  */
-import { sizeTier } from './assign.js?v=d4db8d0a';
-import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=d4db8d0a';
-import { buildMission } from './mission.js?v=d4db8d0a';
-import { ledger, pumpMW } from './physics.js?v=d4db8d0a';
-import { planCycle } from './plan.js?v=d4db8d0a';
-import { stateAt } from './state.js?v=d4db8d0a';
-import { findSource } from './water.js?v=d4db8d0a';
+import { sizeTier } from './assign.js?v=9cfb21bf';
+import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=9cfb21bf';
+import { buildMission } from './mission.js?v=9cfb21bf';
+import { ledger, pumpMW } from './physics.js?v=9cfb21bf';
+import { planCycle } from './plan.js?v=9cfb21bf';
+import { stateAt } from './state.js?v=9cfb21bf';
+import { findSource } from './water.js?v=9cfb21bf';
 
 export function selftest() {
   const eq = (a, b, tol, msg) => { if (Math.abs(a - b) > tol) throw new Error("SELFTEST FAIL: " + msg + ` (${a} vs ${b})`); };

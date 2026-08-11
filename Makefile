@@ -75,10 +75,18 @@ nodes:  ## Regrow every computed joint STL from the SDF rule (research/geometry/
 	@# The explorer's connector tour reads its five families out of the manifest through a
 	@# generated ES module. Regrow the joints and it must follow, or explorercheck fails.
 	$(PY) tools/gen_node_families.py
-	@echo 'nodes: run `make stamp` — cell/nodes.generated.js changed.'
+	@# The joints the explorer DRAWS: the display field over all 51, plus the five family
+	@# representatives at print resolution. Same SDF rule; regrow one, regrow the other.
+	$(PY) tools/gen_display_meshes.py
+	@echo 'nodes: run `make stamp` — cell/nodes.generated.js and nodemeshes.generated.js changed.'
 
 nodescheck:  ## The computed-node manifest must be closed and match the article graph
 	$(PY) tools/check_nodes.py
+	@# The display-mesh module is a pure function of gen_nodes.py, its own generator and
+	@# the manifest's parameters; --check re-hashes those sources without an SDF run, so a
+	@# regenerate-forgotten module goes red here in milliseconds. This repository has twice
+	@# shipped a gate that lied by comparing a stale file.
+	$(PY) tools/gen_display_meshes.py --check
 
 # THE CAP, and it is deliberately two targets. `contractcheck` asks whether the cap on disk
 # FITS THIS ARTICLE — that contract.json exists at all, is the schema this prover writes, names

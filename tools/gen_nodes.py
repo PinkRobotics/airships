@@ -428,7 +428,8 @@ def smin(a, b, k):
     return b + (a - b) * h - k * h * (1.0 - h)
 
 
-def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kinds=None):
+def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kinds=None,
+             display=False):
     """One field, every joint. Spigots and collars blended into a core, then the slots and
     bores subtracted, then the mating lands truncated last.
 
@@ -437,6 +438,16 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
     the spigot's reach, the slot's length, the cup's depth, the bore's end — follows from that
     one number rather than from a global. `bores` is each arm's own bore start. Both default
     to the uniform V2 values so a caller that does not know the graph still gets a field.
+
+    `display=True` is the SAME rule with the sub-millimetre interior left out: no crush
+    ribs, no seating slots, no bores. Those features are 0.25-1.3 mm against the 2 mm grid
+    a browser mesh can afford, and a field that carries them coarsened does not show them
+    smaller — it shows them ALIASED, rim collars randomly losing a third of their volume to
+    grid luck (measured; see tools/gen_display_meshes.py). Everything the eye inspects — the
+    per-SKU collars and cups, the blend body, the flat mating lands, the tree-stub versus
+    closing-pilot engagement per arm — is in the additive half and stays exact. Fit stays
+    where it always was: check_assembly measures the FULL field analytically; no mesh at any
+    resolution certifies a 0.15 mm clearance (the A6 blocker says even the print STL cannot).
     """
     if base is None:
         base = prm["core_r"] + prm["shoulder"]
@@ -459,7 +470,7 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
         ta = P @ dirv                                   # signed distance along the arm
         t = np.clip(ta, 0.0, base + stub)
         rad = np.linalg.norm(P - t[:, None] * dirv[None, :], axis=1)
-        if prm["ribs"]:
+        if prm["ribs"] and not display:
             # three shallow axial ridges around the spigot: the fit lands on the ribs, not
             # on FDM's idea of a circle. Phase is arbitrary but must be per-arm, so it is
             # taken about the arm's own axis. The seating slot below is cut to THIS profile,
@@ -495,31 +506,33 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
         disc = np.maximum(np.linalg.norm(P - h[:, None] * n[None, :], axis=1) - prm["pad_r"],
                           np.maximum(h, -prm["pad_t"] - h))
         d = smin(d, disc, prm["pad_blend"])
-    for dirv, stub, t_bore, spig_r, ro_slot in zip(arms, stubs, bores, spig_rs, ro_slots):
-        # bores and slots, AFTER the blend
-        t = P @ dirv
-        rad = np.linalg.norm(P - t[:, None] * dirv[None, :], axis=1)
-        if prm["ribs"]:
-            ref = np.array([0.0, 0.0, 1.0]) if abs(dirv[2]) < 0.9 else np.array([1.0, 0, 0])
-            e1 = np.cross(dirv, ref)
-            e1 /= np.linalg.norm(e1)
-            e2 = np.cross(dirv, e1)
-            ang = np.arctan2(P @ e2, P @ e1)
-            crest = spig_r + prm["rib_h"] * np.clip(np.cos(prm["ribs"] * ang), 0, 1)
-        else:
-            crest = spig_r
-        t_end = base + stub + prm["blend"]
-        slot = np.maximum(
-            np.maximum(crest - rad, rad - ro_slot),
-            np.maximum(base - t, t - t_end))
-        d = np.maximum(d, -slot)
-        hollow_r = spig_r - prm["spigot_wall"]
-        if hollow_r > 0.8:
-            # rad - hollow_r, NOT hollow_r - rad: a solid cylinder is negative INSIDE, and
-            # the inverted sign had every arm subtracting its own exterior instead.
-            bore = np.maximum(rad - hollow_r,
-                              np.maximum(t_bore - t, t - t_end))
-            d = np.maximum(d, -bore)
+    if not display:
+        for dirv, stub, t_bore, spig_r, ro_slot in zip(arms, stubs, bores, spig_rs, ro_slots):
+            # bores and slots, AFTER the blend
+            t = P @ dirv
+            rad = np.linalg.norm(P - t[:, None] * dirv[None, :], axis=1)
+            if prm["ribs"]:
+                ref = (np.array([0.0, 0.0, 1.0]) if abs(dirv[2]) < 0.9
+                       else np.array([1.0, 0, 0]))
+                e1 = np.cross(dirv, ref)
+                e1 /= np.linalg.norm(e1)
+                e2 = np.cross(dirv, e1)
+                ang = np.arctan2(P @ e2, P @ e1)
+                crest = spig_r + prm["rib_h"] * np.clip(np.cos(prm["ribs"] * ang), 0, 1)
+            else:
+                crest = spig_r
+            t_end = base + stub + prm["blend"]
+            slot = np.maximum(
+                np.maximum(crest - rad, rad - ro_slot),
+                np.maximum(base - t, t - t_end))
+            d = np.maximum(d, -slot)
+            hollow_r = spig_r - prm["spigot_wall"]
+            if hollow_r > 0.8:
+                # rad - hollow_r, NOT hollow_r - rad: a solid cylinder is negative INSIDE,
+                # and the inverted sign had every arm subtracting its own exterior instead.
+                bore = np.maximum(rad - hollow_r,
+                                  np.maximum(t_bore - t, t - t_end))
+                d = np.maximum(d, -bore)
     for n in lands:                  # THE LANDS, hard and last
         d = np.maximum(d, P @ n)
     return d

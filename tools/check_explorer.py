@@ -41,6 +41,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 import gen_node_families as GNF  # noqa: E402  (path set above)
+import gen_display_meshes as GDM  # noqa: E402
 
 # RAW string. The probe is full of regex escapes — \s, \d, \b — and in a cooked Python
 # string \b is a BACKSPACE, which silently turned /\\bE\\d\\b/ into a regex that matched
@@ -150,6 +151,10 @@ PROBE = r"""(() => {
   out.ghostExpected = kc.struts + kc.rimStrutEquivalents + kc.hexSpokeStruts +
     kc.tieStruts + kc.hexTieStruts;
   out.partsLabel = btn.textContent;
+  // The frame with everything back on, at the cell level: the baseline the connector
+  // tour's print-resolution swap is measured against, stop by stop, below.
+  E.tick(0.016);
+  out.cellBaseTris = E.renderer.stats.triangles;
   // EVERY MEMBER-END MUST BE DRAWN WITH A RECEIVER. This gate did not exist, and its
   // absence let the 36 rim members render as pipes butting into a bare ball for weeks —
   // the builder even carried a comment saying "a rim arm, even though it draws no socket
@@ -182,9 +187,23 @@ PROBE = r"""(() => {
   // Tick it fully shut. The ease takes 1.6 s of animation time and the tour walk below shares
   // this cell — leaving it half-open blanked every stop on the skin level.
   for (let i = 0; i < 300 && E.state.unfold > 0.001; i++) E.tick(0.05);
-  out.socketsDrawn = E.instanceKeys()
-    .filter(k => /^(NodeSockets|TieSockets|RimSockets)#/.test(k)).length;
-  out.socketsExpected = 2 * out.ghostExpected;   // both ends of every member
+  // EVERY JOINT MUST BE DRAWN AS ITS GENERATED MESH — the successor to the receiver count.
+  // The receivers used to be lathed cones, and a member family losing its joints was the
+  // defect the count existed for; the joints are now the generator's own meshes, one scene
+  // node per joint, so the honest count is joints against the manifest and pipe instances
+  // against the cut schedule. Counted through the page's OWN accessor, as ever.
+  const ik = E.instanceKeys();
+  out.jointsDrawn = ik.filter(k => /^Joint_/.test(k)).length;
+  out.repsDrawn = ik.filter(k => /^RepJoint_/.test(k)).length;
+  out.pipesDrawn = ik.filter(k => /^Pipes_/.test(k) || k === 'HeroStrut#0').length;
+  // Which cut group every drawn member landed in — the Python holds this to the generated
+  // schedule's own counts, so a member that matches no group (and silently drew nothing)
+  // is a failure with a name.
+  out.memberGroups = {};
+  for (const m of E.members) {
+    const g = m.group || 'UNGROUPED';
+    out.memberGroups[g] = (out.memberGroups[g] || 0) + 1;
+  }
   // The breach table must not contradict the sentence above it: at the level-2 target,
   // every contingency row through L=3 floats.
   out.breachAllFloat =
@@ -397,7 +416,7 @@ PROBE = r"""(() => {
   }
   E.setGroup('all');
   E.tick(0.016);
-  out.clearedTint = E.tintAt('CellStruts', 0);
+  out.clearedTint = E.tintAt('Joint_00', 0);
   out.clearedFrame = [E.renderer.stats.drawCalls, E.renderer.stats.triangles];
   return out;
 })()"""
@@ -516,6 +535,14 @@ def main() -> None:
     fresh = GNF.payload()
     generated = {"fam": fresh["families"], "nodes": fresh["totals"], "joint": fresh["joint"]}
     manifest = json.loads(GNF.MANIFEST.read_text())
+    # The display-mesh module: what the page draws its joints from. Its own gate
+    # (gen_display_meshes --check, in `make nodescheck`) holds it to its sources; here it
+    # is the expectation the drawn frame is measured against, so a stale module must stop
+    # the comparison rather than agree with the page about the wrong thing.
+    if not GDM.OUT.exists() or GDM.parse_module()["meta"]["sourceHash"] != GDM.source_hash():
+        sys.exit("check_explorer: cell/nodemeshes.generated.js is missing or stale — run "
+                 "`python3 tools/gen_display_meshes.py`, then `make stamp`.")
+    meshes = GDM.parse_module()
 
     with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
         probe = pathlib.Path(td) / "probe.js"
@@ -584,12 +611,43 @@ def main() -> None:
     if (net.get("folds"), net.get("cuts")) != (13, 23):
         bad.append(f"net has {net.get('folds')} folds and {net.get('cuts')} cuts, "
                    "expected 13 and 23 across the 36 edges")
-    if res.get("socketsDrawn") != res.get("socketsExpected"):
-        bad.append(
-            f"the cell draws {res.get('socketsDrawn')} connector receivers for "
-            f"{res.get('socketsExpected')} member-ends — a member family is being drawn with "
-            "no joint on it. The rim went that way for weeks: 72 ends of pipe butting into a "
-            "bare ball, found by eye twice because no gate counted connector geometry")
+    # THE JOINTS ARE MESHES NOW, so the receiver count's job — a member family drawn with
+    # no joint on it, the way the rim went for weeks — is done by counting drawn joint
+    # meshes against the manifest and drawn pipe instances against the cut schedule. Both
+    # counted through the page's own accessors, both against generated authorities.
+    if res.get("jointsDrawn") != len(manifest["nodes"]):
+        bad.append(f"the cell draws {res.get('jointsDrawn')} joint meshes for the "
+                   f"manifest's {len(manifest['nodes'])} printed joints")
+    if res.get("repsDrawn") != len(meshes["reps"]):
+        bad.append(f"{res.get('repsDrawn')} print-resolution representatives drawn, the "
+                   f"display module carries {len(meshes['reps'])}")
+    want_groups = {k: g["count"] for k, g in fresh["cuts"]["groups"].items()}
+    if res.get("memberGroups") != want_groups:
+        bad.append(f"drawn members land in cut groups {res.get('memberGroups')}, the "
+                   f"schedule cuts {want_groups} — an UNGROUPED member drew no pipe at all")
+    if res.get("pipesDrawn") != sum(want_groups.values()):
+        bad.append(f"{res.get('pipesDrawn')} pipe instances drawn for "
+                   f"{sum(want_groups.values())} members in the schedule")
+    # THE PRINT-RESOLUTION SWAP MUST REACH THE FRAME. Each connector stop must draw
+    # exactly its family's print mesh in place of the display mesh — asserted as triangle
+    # arithmetic on the rendered frame, because this page has now shipped three visual
+    # features that were verified by their state and invisible on screen.
+    disp_by_file = {r["file"]: r for r in meshes["nodes"]}
+    strut_walk = next((t for t in res.get("tours", []) if t["id"] == "strut"), None)
+    base_tris = res.get("cellBaseTris") or 0
+    if strut_walk:
+        for w in strut_walk["walk"]:
+            rep = meshes["reps"].get(w["stop"])
+            if rep is None:
+                bad.append(f"connector stop {w['stop']!r} has no print-resolution mesh")
+                continue
+            want = rep["tris"] - disp_by_file[rep["file"]]["tris"]
+            got = w["tris"] - base_tris
+            if got != want:
+                bad.append(
+                    f"connector stop {w['stop']}: frame moved {got:+d} triangles against "
+                    f"the cell baseline, the swap to {rep['file']} should move {want:+d} — "
+                    "the print-resolution mesh is not what is on screen")
     if res.get("partsLabel") != "parts: all":
         bad.append(f"parts button label {res.get('partsLabel')!r} after a full cycle — "
                    "the label must be read back from the state, not assumed")
@@ -802,13 +860,15 @@ def main() -> None:
     figs = sum(len(t["figs"]["num"]) + len(t["figs"]["str"]) for t in res["tours"])
     stops = sum(len(t["keys"]) for t in res["tours"])
     ids = ", ".join(t["id"] for t in res["tours"])
-    # The receiver count goes in the success line ON PURPOSE. Both sides of that comparison
-    # are read off the page, and two absent values compare equal — a check that can pass by
-    # measuring nothing is the failure this whole file exists to prevent. Printed, a zero is
-    # visible; silent, it is a green build over an article drawn with no joints on it.
+    # The joint and pipe counts go in the success line ON PURPOSE. Both sides of those
+    # comparisons are read off the page, and two absent values compare equal — a check that
+    # can pass by measuring nothing is the failure this whole file exists to prevent.
+    # Printed, a zero is visible; silent, it is a green build over an article drawn with no
+    # joints on it.
     print(f"explorer: {n} levels render, {len(res['checks'])} displayed figures match "
-          f"the model, {res.get('socketsDrawn')} connector receivers drawn for "
-          f"{res.get('socketsExpected')} member-ends, no page errors.")
+          f"the model, {res.get('jointsDrawn')} joint meshes + "
+          f"{res.get('repsDrawn')} print-res reps + {res.get('pipesDrawn')} pipes drawn, "
+          "no page errors.")
     # The net's figures are printed for the same reason the receiver count is: both sides of
     # those comparisons come off the page, and two absent values compare equal.
     _n = res.get("net") or {}

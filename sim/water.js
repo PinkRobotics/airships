@@ -1,6 +1,6 @@
 /* Choosing where to draw water, and where over that water to hover.
  */
-import { havKm } from './geo.js?v=d4db8d0a';
+import { havKm } from './geo.js?v=9cfb21bf';
 
 export function findSource(fireLL, cls, water, minHaOv, maxKmOv) {
   // Nearest is not best: a fleet drawing a full payload every few minutes from a pond

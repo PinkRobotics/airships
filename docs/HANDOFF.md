@@ -74,31 +74,42 @@ tube), **P16** (2,296 of 3,888 margins fail).
 - **Strong: nothing is proven strong.** Node equilibrium does not close either — max residual
   8,080 N, only 9 of 51 nodes balance — and no proof fails on that.
 
-## The one thing that keeps costing time
+## The explorer draws the parts now (#67, closed 2026-08-11)
 
-**The explorer does not draw the parts.** Every joint on screen is `sphereGeom` plus twelve
-`socketConeGeom`. `cell/nodes.generated.js` carries data only; `explorer.js` loads no STL.
+Every joint on screen is the generator's own mesh — `cell/nodemeshes.generated.js`, written
+by `tools/gen_display_meshes.py`, regrown by `make nodes`, held fresh by a source-hash check
+in `make nodescheck`. The ball-and-cone stand-ins are gone, and with them the whole class of
+"bug" the designer kept finding that was never in the geometry.
 
-Three separate "bugs" the designer found by eye all traced to this and none were real geometry
-faults: the hub resized four times, the rim drawn with no receivers, and interference inside
-the sockets. Measured fix: re-run the same SDF coarser rather than decimating — node 09 gives
-**3,716 triangles against 33,280 at 0.1% mass error**; all 51 ≈ 190k triangles, ~1 MB gzipped.
-**Task #67, and the highest-value work left on the page.**
+What the measurement changed about the plan, because the next person will be tempted to
+"just extract coarser": the handoff's old "node 09 at 3,716 tris, 0.1% error" was ONE LUCKY
+NODE. The full field coarsened to res 40 loses a **median 23% of volume, and 30% on every rim
+vertex** — the 1.05 mm slot annuli and 1.6 mm collar walls alias below a 2.5 mm cell, in no
+monotone way. So the article draws a **display field** (`node_sdf(display=True)`: the
+additive half, no slots/bores/ribs — those sit under the drawn pipes) at res 48, and the
+five family REPRESENTATIVES ship at print resolution with everything in, swapped in when the
+connector tour frames them. The module is 3.6 MB raw / 2.1 MB gzipped; if that ever hurts,
+the bounded fix is a lazily-fetched binary sidecar for the reps.
+
+Pipes are now drawn seat to seat — each end stops at its joint's own slot base, so the drawn
+article IS the cut schedule (instances stretch axially onto the drawn span; boundary insets
+bend the lattice a few percent and a short pipe read as "not connected"). The gate asserts
+joints, reps and pipes by count AND asserts the rep swap as triangle arithmetic on the
+rendered frame, stop by stop.
 
 ## Open work, in priority order
 
-1. **#67 draw the real node meshes** — above. Retires a whole recurring class of complaint.
-2. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
+1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
    cuttable, but panels bulge at h/R = 0.25 needing 4.12% membrane strain — **cut it flat and
    the film comes up drum-tight with any barrier coating crazed on first pump-down.** This is
    the gap between a diagram and a cutting file.
-3. **#65 clear the five frozen proofs.**
-4. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
+2. **#65 clear the five frozen proofs.**
+3. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
    drafts are complete at `~/tmp/skin-barrier/`. Harmonise the budget first — 2.90 cm³/(m²·day)
    is right for the 178 L article; `seams.md` deliberately used the stricter 1.6 and says so.
-5. **#60 remaining**: export the net as SVG/DXF from a `tools/gen_skin.py`, with the seam
+4. **#60 remaining**: export the net as SVG/DXF from a `tools/gen_skin.py`, with the seam
    schedule (23 cuts = 5.766 m) and fold list (13).
-6. **#68 make `make check` skip unchanged work** — read the safety constraints in the task
+5. **#68 make `make check` skip unchanged work** — read the safety constraints in the task
    first. This repo has twice shipped a gate that lied by comparing a stale file.
 
 ## Decided, do not re-litigate
