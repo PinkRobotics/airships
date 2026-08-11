@@ -361,10 +361,10 @@
       <div class="k">purchased carbon tube</div></div>
     <div><div class="v"><span data-n="stock.nodesKg" data-f="2"></span> <span class="u">kg</span></div>
       <div class="k">printed joints, weighed</div></div>
-    <div><div class="v warm"><span data-n="edge.rows.0.failsAtAtm" data-f="2"></span> <span class="u">atm</span></div>
-      <div class="k">where the bare rim tore off</div></div>
+    <div><div class="v warm"><span data-n="edge.rows.2.failsAtAtm" data-f="2"></span> <span class="u">atm</span></div>
+      <div class="k">what the braced boundary holds — it is asked for 1</div></div>
     <div><div class="v"><span data-n="demo.hexSpokeStruts" data-f="0"></span> <span class="u">spokes</span></div>
-      <div class="k">added to stop it</div></div>
+      <div class="k">six per hexagon face, at the primary cut length</div></div>
   </div>
 
   <p class="sowhat"><b>The shape.</b> A truncated octahedron fills space with the least wall
@@ -1208,11 +1208,16 @@
     <div class="row">
       <button id="toggleSkin">skin: solid</button>
       <button id="toggleParts">parts: all</button>
+    </div>
+    <div class="row">
       <button id="clearBreach">reseal cells</button>
     </div>
   </div>
+  <!-- One button per stop, built from the tour itself so the set is always the parts that
+       exist. #tourNext stays as the step-through and is what the gate drives. -->
   <div class="grp" id="tourgrp">
-    <div class="glab">walk the parts</div>
+    <div class="glab" id="tourlab">walk the parts</div>
+    <div class="row" id="tourstops"></div>
     <div class="row"><button id="tourNext">…</button></div>
   </div>
 </div>
@@ -1263,11 +1268,12 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3eed134a';
-import * as CELL from './model.js?v=3eed134a';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f9ad63ba';
+import * as CELL from './model.js?v=f9ad63ba';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
+const LEVELS_ID = () => (api ? api.levels[api.state.levelIdx].id : '');
 const qs = new URLSearchParams(location.search);
 /* ?motion=1 forces the dives on — for a viewer whose OS asks for reduced motion but who
  * wants them anyway, and for the headless tests, where Chromium always reports
@@ -1441,6 +1447,26 @@ api = mountExplorer({
     // The whole labelled group goes with the button. A section heading reading "walk the
     // parts" over an empty row on a level that has no tour is worse than no heading.
     document.getElementById('tourgrp').style.display = stop ? 'flex' : 'none';
+    // Rebuild the stop buttons for whatever tour this level has: five joint families, six
+    // cut groups, four faces. Pressed state is read back off the state, never assumed.
+    // onPart fires once during mount, before `api` is assigned — guard it, or the whole
+    // page dies on a null read and every level loses its tour.
+    const tr = api && api.tourFor();
+    const box = document.getElementById('tourstops');
+    if (tr && box.dataset.level !== LEVELS_ID()) {
+      box.dataset.level = LEVELS_ID();
+      box.innerHTML = '';
+      tr.stops.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.className = 'gbtn';
+        b.textContent = s.name;
+        b.addEventListener('click', () => api.goPart(i));
+        box.appendChild(b);
+      });
+      document.getElementById('tourlab').textContent = 'walk the ' + tr.noun + 's';
+    }
+    if (tr) [...box.children].forEach((b, i) =>
+      b.classList.toggle('on', tr.stops[i] && tr.stops[i].key === (stop && stop.key)));
     // Read back from the state, not from the argument: if the two ever disagree, the
     // button is the thing a person looks at and the thing the gate asserts on. The NOUN
     // comes back with it — a stop on the tube level is a cut and a stop on the skin level

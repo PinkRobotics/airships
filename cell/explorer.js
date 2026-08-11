@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=3eed134a';
-import * as G from './explorer-geom.js?v=3eed134a';
+import * as CELL from './model.js?v=f9ad63ba';
+import * as G from './explorer-geom.js?v=f9ad63ba';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=3eed134a';
+} from './nodes.generated.js?v=f9ad63ba';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1517,7 +1517,12 @@ export function mountExplorer(opts) {
     const c = LEVELS[STAGE_LEVEL].target || [0, 0, 0];
     const off = Math.hypot(stop.target[0] - c[0], stop.target[1] - c[1], stop.target[2] - c[2]);
     const r = cellR + off;
-    return { r, depthR, d: r * (stop.dist || 2.05),
+    // Never closer than the cell level frames the cell from. A stop's own dist is a hint;
+    // r * 2.05 put the camera at roughly half the cell level's 0.42 x 3.9, which reads as a
+    // zoom into the part and loses exactly the context this framing exists to keep.
+    const cellLv = LEVELS[STAGE_LEVEL];
+    const dFloor = cellLv.radius * (cellLv.dist || 2.05);
+    return { r, depthR, d: Math.max(r * (stop.dist || 2.05), dFloor),
              tg: stop.target.slice(), az: stop.az, el: stop.el };
   }
 
@@ -1985,6 +1990,13 @@ export function mountExplorer(opts) {
      * the call site out of what the click was assumed to do. */
     nextPart() {
       const s = setPart(state.tourIdx + 1);
+      return s ? s.name : '';
+    },
+    /** Jump straight to a stop. The step-through remains, but a tour of five joint families
+     *  is a set of choices, not a queue, and making someone click past four to reach one is
+     *  a worse control than the buttons it replaced. */
+    goPart(i) {
+      const s = setPart(i);
       return s ? s.name : '';
     },
     prevPart() {

@@ -1,8 +1,8 @@
 /* Web Mercator, the canvas, and the one function that turns a coordinate into a pixel.
  */
-import { $ } from '../dom.js?v=3eed134a';
-import { draw } from '../map/render.js?v=3eed134a';
-import { S } from '../store.js?v=3eed134a';
+import { $ } from '../dom.js?v=f9ad63ba';
+import { draw } from '../map/render.js?v=f9ad63ba';
+import { S } from '../store.js?v=f9ad63ba';
 
 export function mercY(lat) { return -Math.asinh(Math.tan(lat * Math.PI / 180)) * 180 / Math.PI; }
 
