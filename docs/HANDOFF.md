@@ -139,6 +139,38 @@ the sockets. Measured fix: re-run the same SDF coarser rather than decimating �
 - **State that is shared between levels leaks.** The unfold blanked the connector and tube tours
   because they share the stage cell. Scope any new mode to the level that owns it.
 
+## Working on the explorer specifically — read this before touching cell/explorer.js
+
+These each cost a round trip with the designer on 2026-08-11, and every one was invisible to a
+green `make check`.
+
+- **`api.tick()` is NOT the render loop.** The page runs
+  `requestAnimationFrame` -> `frame()` -> `advance()` -> `renderBody()`. The headless gate calls
+  `api.tick()`. Put per-frame work in `advance()` or it runs under test and never in a browser —
+  which is exactly how an animation shipped "verified" and did nothing when clicked.
+- **Instanced nodes cannot be dimmed by `dimOf`**, which returns 1 for them; their shading is the
+  per-instance TINT buffer. And write tint to **RGB, never alpha** — cell families are opaque
+  surfaces, the shader discards `vTint.a`, so an alpha fade renders nothing while a probe reading
+  the array reports a perfectly dimmed scene.
+- **`cam.radius` is the bounding radius and only sets the clamps. `cam.distance` is where the
+  camera actually sits.** And raise `cam.maxDistance` BEFORE writing distance or the clamp
+  silently caps it and the move looks like no change at all.
+- **Ease camera moves from the LIVE camera, not the level's defaults** — otherwise a user who has
+  zoomed somewhere gets a snap to the default on the first frame.
+- **Scope any new mode to the level that owns it.** The stage cell is shared by the connector,
+  tube and skin levels; a leaked flag blanked two whole tours.
+- **A flat sheet edge-on is invisible.** Anything planar needs its facing decided deliberately.
+- **Labels are pushed clear of the article** by a keep-out disc at 46% of the smaller viewport
+  dimension (30% was still inside the silhouette). Direction is preserved, only distance changes.
+
+**THE META-LESSON, and it is the most useful line in this file.** The gates hold every number on
+the page to the model and cannot see whether anything is *visible*. Six consecutive faults in one
+feature — rotation, frame loop, camera axis, camera field, clamp, tint — all passed a green check
+and were each found by the designer looking at the screen. **Screenshot after every visual
+change**; `tools/screenshot.py` with `A3D_GPU=1`, and add a `?param` if the state needs a click
+to reach. A frame-content assertion now guards the unfold, but assertions on *properties of the
+data* will keep missing faults in *what is drawn*.
+
 ## Deploy path
 
 ```
