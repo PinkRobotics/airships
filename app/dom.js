@@ -1,6 +1,6 @@
 /* The three DOM conveniences the whole application uses, and nothing else.
  */
-import { PHASES, PHASE_TINT, fmt, fmtMin } from '../sim/index.js?v=c8598b73';
+import { PHASES, PHASE_TINT, fmt, fmtMin } from '../sim/index.js?v=cd208841';
 
 export const $ = id => document.getElementById(id);
 

@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=c8598b73';
-import * as G from './explorer-geom.js?v=c8598b73';
+import * as CELL from './model.js?v=cd208841';
+import * as G from './explorer-geom.js?v=cd208841';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=c8598b73';
+} from './nodes.generated.js?v=cd208841';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -575,6 +575,28 @@ function buildCell(ctx) {
     addSocket(pts[ia], pts[ib], uKey(uNodes[ia]));
     addSocket(pts[ib], pts[ia], uKey(uNodes[ib]));
   }
+  // THE RIM'S OWN SOCKETS, on their own SKU. The 36 rim members are the six pipes bounding
+  // every hexagon, and for a long time they arrived at their corner and simply stopped: the
+  // builder drew the tube and never drew a receiver, so 72 member-ends butted into a bare
+  // ball. The designer found it twice by eye — "all square corners are missing some
+  // connections to pipes", then "the primary pipes around the hex on each side do not have
+  // receiver holes in their associated connectors" — and no gate could contradict him,
+  // because nothing counted drawn connector geometry against the model's member count.
+  // Their collar is sized off RIM_R, not the main pipe: the rim carries the 14 mm tube the
+  // film's dihedral edge demanded, and a socket drawn at the main SKU would be the render
+  // repeating the exact defect gen_nodes was fixed for this morning.
+  const rimSockPts = [], rimSockPairs = [];
+  let rsp = 0;
+  const addRimSocket = (from, to, owner) => {
+    const d = [to[0] - from[0], to[1] - from[1], to[2] - from[2]];
+    const dl = Math.hypot(d[0], d[1], d[2]);
+    rimSockPts.push(from,
+      [from[0] + d[0] / dl * socketLen, from[1] + d[1] / dl * socketLen,
+       from[2] + d[2] / dl * socketLen]);
+    rimSockPairs.push([rsp, rsp + 1]);
+    rsp += 2;
+    own(owner, 'RimSockets', rimSockPairs.length - 1);
+  };
   // Node cores: small solid spheres at the joints; boundary nodes are already interior to
   // the faces they centre (square-face centres), inset by construction.
   const interiorPts2 = uNodes.map((u, i) => pts[i]);
@@ -631,10 +653,12 @@ function buildCell(ctx) {
       const k2 = v.map(x => x.toFixed(6)).join(',');
       if (!rimVertMap.has(k2)) rimVertMap.set(k2, []);
       rimVertMap.get(k2).push(v2);
-      bump(rvKey(k2));                    // a rim arm, even though it draws no socket cone
+      bump(rvKey(k2));
       ends.push(rvKey(k2));
     }
     addMember('rim', ends[0], ends[1], A2, B2, 'RimFrame', rimPairs.length - 1);
+    addRimSocket(A2, B2, ends[0]);
+    addRimSocket(B2, A2, ends[1]);
   }
   const ri = G.strutInstances(rimPts, rimPairs);
   const rim = inst(cg, { id: 'RimFrame' }, ri.xf, ri.count);
@@ -818,6 +842,13 @@ function buildCell(ctx) {
   sockets.geom = socketConeGeom(COLLAR_R * 1.18, COLLAR_R * 0.99, socketLen);
   sockets.xmat = XM.printed;
   sockets.partFamily = 'printed';
+  // The rim's receivers, on the rim's own collar radius. Same cone, bigger tube.
+  const RIM_COLLAR_R = RIM_R * 1.27;      // the ratio COLLAR_R takes off the main pipe
+  const rsi = G.strutInstances(rimSockPts, rimSockPairs);
+  const rimSockets = inst(cg, { id: 'RimSockets' }, rsi.xf, rsi.count);
+  rimSockets.geom = socketConeGeom(RIM_COLLAR_R * 1.18, RIM_COLLAR_R * 0.99, socketLen);
+  rimSockets.xmat = XM.printed;
+  rimSockets.partFamily = 'printed';
   // GHOST AXES — drawn only when the parts view hides the pipes. Without them the joints
   // read as a scatter, and the rim carries no socket cones to leave behind.
   const ghostSegs = pairs.concat([heroPair]).map(([ia, ib]) => [pts[ia], pts[ib]])

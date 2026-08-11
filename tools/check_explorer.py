@@ -150,6 +150,17 @@ PROBE = r"""(() => {
   out.ghostExpected = kc.struts + kc.rimStrutEquivalents + kc.hexSpokeStruts +
     kc.tieStruts + kc.hexTieStruts;
   out.partsLabel = btn.textContent;
+  // EVERY MEMBER-END MUST BE DRAWN WITH A RECEIVER. This gate did not exist, and its
+  // absence let the 36 rim members render as pipes butting into a bare ball for weeks —
+  // the builder even carried a comment saying "a rim arm, even though it draws no socket
+  // cone". The designer caught it twice by eye and nothing here could confirm or deny him:
+  // ghost centrelines counted MEMBERS, DOM figures counted NUMBERS, and no check ever
+  // counted connector geometry. A member family that loses its joints must fail the build.
+  // Counted through the page's OWN accessor, not a second tree walk: a probe that walks the
+  // scene differently from the renderer can agree with itself and disagree with the screen.
+  out.socketsDrawn = E.instanceKeys()
+    .filter(k => /^(NodeSockets|TieSockets|RimSockets)#/.test(k)).length;
+  out.socketsExpected = 2 * out.ghostExpected;   // both ends of every member
   // The breach table must not contradict the sentence above it: at the level-2 target,
   // every contingency row through L=3 floats.
   out.breachAllFloat =
@@ -510,6 +521,12 @@ def main() -> None:
     if res.get("ghostLines") != res.get("ghostExpected"):
         bad.append(f"joinery view ghosts {res.get('ghostLines')} pipe centrelines, but the "
                    f"model counts {res.get('ghostExpected')} members in the pipe family")
+    if res.get("socketsDrawn") != res.get("socketsExpected"):
+        bad.append(
+            f"the cell draws {res.get('socketsDrawn')} connector receivers for "
+            f"{res.get('socketsExpected')} member-ends — a member family is being drawn with "
+            "no joint on it. The rim went that way for weeks: 72 ends of pipe butting into a "
+            "bare ball, found by eye twice because no gate counted connector geometry")
     if res.get("partsLabel") != "parts: all":
         bad.append(f"parts button label {res.get('partsLabel')!r} after a full cycle — "
                    "the label must be read back from the state, not assumed")
@@ -704,8 +721,13 @@ def main() -> None:
     figs = sum(len(t["figs"]["num"]) + len(t["figs"]["str"]) for t in res["tours"])
     stops = sum(len(t["keys"]) for t in res["tours"])
     ids = ", ".join(t["id"] for t in res["tours"])
+    # The receiver count goes in the success line ON PURPOSE. Both sides of that comparison
+    # are read off the page, and two absent values compare equal — a check that can pass by
+    # measuring nothing is the failure this whole file exists to prevent. Printed, a zero is
+    # visible; silent, it is a green build over an article drawn with no joints on it.
     print(f"explorer: {n} levels render, {len(res['checks'])} displayed figures match "
-          f"the model, no page errors.")
+          f"the model, {res.get('socketsDrawn')} connector receivers drawn for "
+          f"{res.get('socketsExpected')} member-ends, no page errors.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
           f"#tourNext: camera, panel and dim agree.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "
