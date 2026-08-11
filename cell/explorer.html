@@ -110,6 +110,24 @@
        border:1px solid var(--line-strong);color:var(--muted);margin:0 6px var(--s2) 0}
   .tag.warm{color:var(--warm);border-color:var(--warm-dim)}
   .tag.cool{color:var(--cool);border-color:var(--cool-dim)}
+  /* ---- the headline metrics ----
+     Each level opens with the four or five numbers that decide it, then says what they
+     mean. The panels had grown into paragraphs with the figures buried mid-sentence, which
+     is unreadable at a glance and buries exactly the thing a reader came for. Same
+     bindings, same formats — only the order changed, so every gated figure still resolves. */
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin:var(--s4) 0;
+       background:var(--line);border:1px solid var(--line);border-radius:var(--r-sm);
+       overflow:hidden}
+  .metrics div{background:var(--bg);padding:8px 10px}
+  .metrics .v{font:var(--t-16) var(--mono);color:var(--bone);line-height:1.25}
+  .metrics .v .u{font-size:var(--t-11);color:var(--muted)}
+  .metrics .k{font:var(--t-11) var(--mono);letter-spacing:.06em;text-transform:uppercase;
+       color:var(--faint);margin-top:2px}
+  .metrics div.wide{grid-column:1 / -1}
+  .metrics .v.warm{color:var(--warm)}
+  /* The one-line consequence under a metric block: what the numbers above force. */
+  .sowhat{font-size:var(--t-13);color:var(--text);margin:var(--s3) 0}
+  .sowhat b{color:var(--bone)}
   .note{border-left:2px solid var(--warm-dim);padding:var(--s3);color:var(--bone);
         background:var(--warm-glow);border-radius:0 var(--r-sm) var(--r-sm) 0;
         font-size:var(--t-12);margin:var(--s3) 0}
@@ -191,15 +209,26 @@
   <h2>The hull</h2>
   <div class="big"><span data-n="wallWork" data-f="4"></span> <span class="unit">kg/m³ — the wall</span></div>
   <p class="bigsub">air density at the 2,500 m working altitude</p>
-  <p>A vacuum shell heavier than this, per cubic metre it encloses, has <strong>no net lift at
-  any size, ever</strong>. Lighter, and the hull can be grown until lift covers the whole
-  ledger. Every level below this one exists to get under that number — the hull itself is
-  just the array, continued until it is a vehicle. Machinery lives in <strong>ambient
-  bays</strong> inside it, bolted to structure the cells pull up on; nothing operates in
-  vacuum.</p>
-  <p>The ladder of structure-inside-structure is what closes the gap. Each level improves the
-  strength-to-density <em>exponent</em> — (n+2)/(n+1), tending to linear (Lakes, <em>Nature</em>
-  361, 1993) — and it converges fast:</p>
+  <div class="metrics">
+    <div class="wide"><div class="v warm"><span data-n="wallWork" data-f="4"></span> <span class="u">kg/m³</span></div>
+      <div class="k">the wall — mass per m³ enclosed, above which nothing floats at any size</div></div>
+    <div><div class="v"><span data-n="hull.lengthM" data-f="0"></span> <span class="u">m</span></div>
+      <div class="k">reference ship — shorter than the Hindenburg</div></div>
+    <div><div class="v">2,500 <span class="u">m</span></div>
+      <div class="k">working altitude the wall is set at</div></div>
+  </div>
+
+  <p class="sowhat"><b>One number decides the whole project.</b> A vacuum shell heavier than
+  the wall has no net lift at any size, ever. Lighter, and the hull can simply be grown until
+  lift covers the ledger. Every level below this one exists to get under it.</p>
+
+  <p class="sowhat"><b>The hull is just the array, continued until it is a vehicle.</b>
+  Machinery sits in ambient bays bolted to structure the cells pull up on. Nothing operates
+  in vacuum.</p>
+
+  <p class="sowhat"><b>Structure inside structure is what closes the gap.</b> Each level of
+  hierarchy improves the strength-to-density <em>exponent</em> — (n+2)/(n+1), tending to
+  linear (Lakes, <em>Nature</em> 361, 1993) — and it converges fast:</p>
   <table>
     <thead><tr><th>levels</th><th class="num">exponent</th><th class="num">kg/m³</th>
       <th class="num">margin</th><th></th></tr></thead>
@@ -222,31 +251,30 @@
   <div class="big"><span data-n="graded.band.outerSurfaceDifferentialAtm" data-f="1"></span>
     <span class="unit">atm on the outer envelope</span></div>
   <p class="bigsub">behind a graded band, instead of a full atmosphere</p>
-  <p><strong>Sealed at every scale</strong> is the organising rule: sub-cells inside cells,
-  cells inside sections, each level evacuated and sealed so no partition ever faces more
-  than its own level's differential — and a breach is bounded by the smallest enclosure
-  that contains it. A section is a cell of cells.</p>
-  <p><strong>The pumped plenum is the same doctrine made active</strong>, and it is what
-  this picture is really showing: a soft shell across the whole ship holding as much vacuum
-  as its pumps can — lossy, never sealed — so that <em>no interior cell operates against a
-  full atmosphere</em>. Statics still delivers one atmosphere to the array through the
-  shell's mounts, so the plenum buys no lattice mass; what it buys is margin. A cell proven
-  at a full atmosphere and operated at half of one runs at
-  <strong>×<span data-n="plenumHalf.cellOperatingMarginX" data-f="1"></span> crush
-  margin</strong>, its permeation drive halves, a breach floods to half an atmosphere —
-  and a pump failure is a slow drift back to the design case the cells were built for.
-  Redundancy, not rescue.</p>
-  <p>The <strong>graded band</strong> is the boundary's version of the same idea. Stage the
-  outermost <span data-n="graded.band.bandVolumeFraction" data-f="0" data-mul="100"></span>%
-  of volume across <span data-n="graded.band.levels" data-f="0"></span> pressure steps and
-  the envelope — the only surface that ever sees a full atmosphere — sees a tenth of it,
-  and its film gets ten times lighter with it. That saving covers the band's gas: the whole
-  arrangement nets <strong><span data-n="graded.band.costPctOfNetLift" data-f="1"></span>%
-  of net lift — roughly free in mass</strong>, paid for operationally by tying the band's
-  trim to gas temperature. In bulk, the same idea fails: the gas costs lift everywhere while
-  the deep lattice still carries its cumulative load — the vacuum core sees the full
-  atmosphere no matter how many steps stand above it:</p>
-  <table>
+  <div class="metrics">
+    <div><div class="v"><span data-n="graded.band.outerSurfaceDifferentialAtm" data-f="1"></span> <span class="u">atm</span></div>
+      <div class="k">on the outer envelope, not a full one</div></div>
+    <div><div class="v"><span data-n="graded.band.levels" data-f="0"></span></div>
+      <div class="k">graded levels across the band</div></div>
+    <div><div class="v"><span data-n="graded.band.bandVolumeFraction" data-mul="100" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">of hull volume spent on the band</div></div>
+    <div><div class="v"><span data-n="graded.band.costPctOfNetLift" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">of net lift it costs</div></div>
+  </div>
+
+  <p class="sowhat"><b>Sealed at every scale.</b> Sub-cells inside cells, cells inside
+  sections — each level evacuated and sealed, so no partition ever faces more than its own
+  level's differential and a breach is bounded by the smallest enclosure containing it. A
+  section is a cell of cells.</p>
+
+  <p class="sowhat"><b>The pumped plenum is that doctrine made active.</b> A soft shell across
+  the whole ship holds as much vacuum as its pumps can — lossy, never sealed — so no interior
+  cell works against a full atmosphere. It buys no lattice mass, because statics still
+  delivers one atmosphere to the array through the shell's mounts. What it buys is margin:
+  a cell proven to ×<span data-n="plenumHalf.cellOperatingMarginX" data-f="2"></span> of its
+  operating load instead of scraping past it.</p>
+
+<table>
     <thead><tr><th class="num">levels</th><th class="num">structure</th><th class="num">gas</th>
       <th class="num">films</th><th class="num">net lift</th></tr></thead>
     <tbody data-t="graded"></tbody>
@@ -267,17 +295,25 @@
   <h2>The array</h2>
   <div class="big"><span data-n="sw.sharedFractionPct" data-f="1"></span><span class="unit">% of wall area carries nothing</span></div>
   <p class="bigsub">interior walls have vacuum on both sides — Δp = 0</p>
-  <p>A monolithic vacuum balloon dies by shell buckling — a scale-free result no material
-  escapes. Fill the volume with sealed cells instead and the atmosphere is held only at the
-  boundary: the array is a cellular solid in hydrostatic compression, and its crushing
-  strength is a well-posed engineering problem. Two honest caveats the analysis itself
-  carries: it is the <em>hollow-strut</em> step that does most of the numerical work, and
-  what cells specifically buy is the removal of the hull's shape penalty plus
-  <strong>failure containment</strong> — which is the claim this level demonstrates.</p>
-  <p><strong>Click a cell to flood it.</strong> A breach is a local load: the flooded cell's
-  neighbours see one atmosphere across their shared walls, a factor-L concentration that
-  costs L^⅔ in local density where it happens — not a redesign of the ship. At the level-2
-  flight target:</p>
+  <div class="metrics">
+    <div><div class="v warm"><span data-n="sw.sharedFractionPct" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">of wall area carries nothing — vacuum both sides</div></div>
+    <div><div class="v"><span data-n="level2.total" data-f="3"></span> <span class="u">kg/m³</span></div>
+      <div class="k">the level-2 flight target</div></div>
+    <div class="wide"><div class="v"><span data-n="shapes.truncatedOctahedron.filmSavingVsCubePct" data-f="1"></span><span class="u">% less film</span></div>
+      <div class="k">Kelvin cells against cubes at equal volume — and the analysis still charges the cube figure</div></div>
+  </div>
+
+  <p class="sowhat"><b>Why cells at all.</b> A monolithic vacuum balloon dies by shell
+  buckling — a scale-free result no material escapes. Fill the volume with sealed cells and
+  the atmosphere is held only at the boundary: a cellular solid in hydrostatic compression,
+  which is a well-posed engineering problem. Honest caveat carried by the analysis itself —
+  it is the <em>hollow-strut</em> step doing most of the numerical work; what cells
+  specifically buy is the removal of the shape penalty plus failure containment.</p>
+
+  <p class="sowhat"><b>Click a cell to flood it.</b> A breach is a local load. The flooded
+  cell's neighbours see one atmosphere across their shared walls — a factor-L concentration
+  costing L^⅔ in local density right there, not a redesign of the ship:</p>
   <table>
     <thead><tr><th>case</th><th class="num">×L^⅔</th><th class="num">kg/m³ local</th>
       <th class="num">margin</th></tr></thead>
@@ -316,54 +352,57 @@
     <span data-n="demo.printedNodes" data-f="0"></span> printed joints ·
     <span data-n="stock.totalKg" data-f="2"></span> kg</p>
 
-  <p><strong>A truncated octahedron: the shape that fills space with the least wall per
-  unit volume.</strong> Eight hexagons, six squares, thirty-six edges — near-spherical, so
-  the buckling radius is the cell's own, and space-filling, so cells seat face-to-face on
-  flat mating lands and the array becomes the airframe rather than cargo inside one. Every
-  face holds the sky out: <strong><span data-n="edge.hexFaceLoadN" data-mul="0.000102" data-f="1"></span>
-  tonnes-force on each of the eight hexagons</strong> and
-  <span data-n="edge.squareFaceLoadN" data-mul="0.000102" data-f="2"></span> on each of the
-  six squares — <strong><span data-n="edge.totalSurfaceLoadTf" data-f="1"></span> tonnes-force
-  squeezing inward over the whole surface</strong>, forever, carried by tubes you can buy
-  and joints you can print.</p>
+  <div class="metrics">
+    <div><div class="v"><span data-n="edge.totalSurfaceLoadTf" data-f="1"></span> <span class="u">tf</span></div>
+      <div class="k">squeezing the whole surface</div></div>
+    <div><div class="v"><span data-n="edge.hexFaceLoadN" data-mul="0.000102" data-f="1"></span> <span class="u">tf</span></div>
+      <div class="k">on each of 8 hexagons</div></div>
+    <div><div class="v"><span data-n="stock.pipeKg" data-f="2"></span> <span class="u">kg</span></div>
+      <div class="k">purchased carbon tube</div></div>
+    <div><div class="v"><span data-n="stock.nodesKg" data-f="2"></span> <span class="u">kg</span></div>
+      <div class="k">printed joints, weighed</div></div>
+    <div><div class="v warm"><span data-n="edge.rows.0.failsAtAtm" data-f="2"></span> <span class="u">atm</span></div>
+      <div class="k">where the bare rim tore off</div></div>
+    <div><div class="v"><span data-n="demo.hexSpokeStruts" data-f="0"></span> <span class="u">spokes</span></div>
+      <div class="k">added to stop it</div></div>
+  </div>
 
-  <p><strong>Two different jobs, and they nearly got confused.</strong> The interior octet
-  is in pure compression — that is the easy part, and one 251 mm cut repeated 144 times
-  does it. The boundary is not: the film does not push on the lattice, it <em>pulls the
-  edge frame sideways</em>, and at a dihedral the two panels' tensions add instead of
-  cancelling. Unbraced, that tore the rim off at
-  <strong><span data-n="edge.rows.0.failsAtAtm" data-f="2"></span> atmospheres</strong> —
-  less than half the load the cell exists to hold. The squares were already saved by their
-  own in-plane ties; the hexagons had nothing, so each now carries
-  <span data-n="demo.hexSpokeStruts" data-f="0"></span> radial spokes, six per face, at the
-  same cut length as every primary.</p>
+  <p class="sowhat"><b>The shape.</b> A truncated octahedron fills space with the least wall
+  per unit volume — eight hexagons, six squares, thirty-six edges. Near-spherical, so the
+  buckling radius is the cell's own; space-filling, so cells seat face to face and the array
+  becomes the airframe rather than cargo inside one.</p>
 
-  <p><strong>Bracing pays twice, and the second time is bigger.</strong> Bending falls as
-  the cube of the bracing pitch, so the spokes buy strength cheaply. They also buy back
-  volume: every panel bulges inward and that dimple is open to the sky, so an unbraced cell
-  quietly forfeits <strong><span data-n="edge.bulgeVolumeLostUnbracedPct" data-f="1"></span>%
-  of its own displacement</strong> — a fifth of the lift on anything meant to float. Spoked,
-  <span data-n="edge.bulgeVolumeLostPct" data-f="1"></span>%.</p>
+  <p class="sowhat"><b>Two different jobs, and they nearly got confused.</b> The interior is
+  pure compression — one <span data-n="design.strutM" data-mm="0"></span> mm cut, 144 times.
+  The boundary is not: the film does not push on the lattice, it <em>pulls the edge frame
+  sideways</em>, and at a dihedral the two panels' tensions add instead of cancelling.
+  Unbraced that tore the rim off at
+  <span data-n="edge.rows.0.failsAtAtm" data-f="2"></span> atm — less than half what the cell
+  exists to hold. The squares had in-plane ties already; the hexagons had nothing, so each
+  took six radial spokes.</p>
 
-  <p><strong>Every member is purchased carbon; every joint is printed and solid.</strong>
-  <span data-n="stock.pipeKg" data-f="2"></span> kg of tube at
+  <p class="sowhat"><b>Bracing pays twice.</b> Bending falls as the <em>cube</em> of the
+  bracing pitch, so spokes buy strength cheaply — and they buy back volume. Every panel
+  dimples inward and that dent is open to the sky, so an unbraced cell forfeits
+  <span data-n="edge.bulgeVolumeLostUnbracedPct" data-f="1"></span>% of its own displacement.
+  Spoked, <span data-n="edge.bulgeVolumeLostPct" data-f="1"></span>%. On anything meant to
+  float, that is a fifth of the lift.</p>
+
+  <p class="sowhat"><b>Every member is bought; every joint is printed solid.</b> Tube at
   ×<span data-n="stock.eulerMarginPinned" data-f="1"></span> Euler margin even pinned, and
-  <span data-n="stock.nodesKg" data-f="2"></span> kg of joints in
-  <strong>Bambu PAHT-CF</strong> (the chopped-carbon nylon, <span data-n="pahtRho"
-  data-f="0"></span> kg/m³) — weighed from their own geometry, not budgeted. Each joint grips its tube three ways at once: a spigot inside the
-  bore, a collar outside, both bottomed on a shoulder. Solid, because these parts live
-  <em>inside</em> the vacuum and sparse infill is a virtual leak. Use the <strong>parts</strong>
-  button to take the tubes away and look at the joinery alone.</p>
+  joints in Bambu PAHT-CF (chopped-carbon nylon,
+  <span data-n="pahtRho" data-f="0"></span> kg/m³) weighed from their own geometry rather
+  than budgeted. Solid because these parts sit <em>inside</em> the vacuum, where sparse infill
+  is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
 
-  <p><strong>Does this one float? No — and the reason is size, not material.</strong> In
-  wound M60J-class this geometry is
-  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ as a single article, buoyant at
-  sea level; printed continuous fibre needs
-  N=<span data-n="wCFF.minNSeaLevel" data-f="0"></span>. The deeper rule is parity: at odd
-  N a hexagon face contains no lattice site at all and must carry this whole rim-and-spoke
-  apparatus, while at even N the face is full of them and the boundary structure simply
-  disappears. <strong>The floater wants to be the N=2 article.</strong> This one is the
-  bench article: it exists to be crushed, sealed, and pumped down.</p>
+  <p class="sowhat"><b>Does this one float? No — and size is the reason, not material.</b>
+  Built from filament-wound M60J carbon rather than printed, the same geometry comes to
+  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ and would be buoyant at sea level;
+  printed continuous fibre needs <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of
+  structure inside structure. The rule underneath is parity — make the cell one step bigger
+  and each hexagon face gains lattice points of its own, so this entire rim-and-spoke
+  apparatus stops being necessary. <b>The floater wants to be the bigger article.</b> This
+  one is the bench piece: it exists to be crushed, sealed and pumped down.</p>
 
   <p style="color:var(--faint);font-size:var(--t-11)">The same geometry printed end to end
   in nylon — the variant that proves the printer chain rather than the physics — comes to
@@ -390,41 +429,46 @@
   <p class="lv-kicker"><span data-n="nodes.nodes" data-f="0"></span> printed
     joints · <span data-n="nodes.families" data-f="0"></span> families · one cell</p>
   <h2>The connectors</h2>
-  <p><strong><span data-n="nodes.nodes" data-f="0"></span> printed joints,
-  <span data-n="nodes.families" data-f="0"></span> families, and nothing else in the
-  article is printed.</strong> Every one grows from the same signed distance field: spigots
-  smooth-min-blended into a core, the bores and an annular seating slot cut afterwards, the
-  flat mating lands truncated <em>last</em> so no blend can round one back off. Change a
-  diameter and all <span data-n="nodes.nodes" data-f="0"></span> regrow. Together they weigh
-  <strong><span data-n="nodes.massG" data-f="2"></span> g</strong> — integrated from each
-  mesh that was written, not budgeted at a fraction of strut mass.</p>
-  <p><strong>Capture is internal.</strong> The pipe slides <em>over</em> a hollow spigot and
-  butts on a shoulder; the bore is the mandrel-formed surface on a roll-wrapped tube, which
-  is why the spigot indexes there and the compliance lives outside it.
-  <span data-n="joint.stubMm" data-f="0"></span> mm of engagement gives
-  <span data-n="joint.glueAreaMm2" data-f="0"></span> mm² of glue line —
-  <span data-n="joint.glueShearMPa" data-f="2"></span> MPa at the
-  <span data-n="joint.perStrutDemandN" data-f="0"></span> N a strut is asked for, ×<span
-  data-n="joint.glueMarginAt10MPa" data-f="1"></span> against a 10 MPa adhesive — and the
-  spigot's own section carries <span data-n="joint.spigotStressMPa" data-f="1"></span> MPa.
-  E5 crushes one joint dry and one glued, because a uniformly evacuated shell is all
-  compression and the dry result decides whether adhesive is needed at all.</p>
-  <p><strong>The nozzle no longer sets the size of the article — it sets the size of
-  these.</strong> When the members were printed too, a
-  <span data-n="design.nozzleMm" data-f="1"></span> mm bead forced every dimension above
-  it: wall, strut, cell. Buying the tube broke that chain and the article is now free to be
-  whatever the structure wants; what the bead still governs is the joinery — minimum wall,
-  the fit a printed spigot can hold, whether a feature needs support.
-  <span data-n="design.perimeters" data-f="0"></span> perimeters of it make the
-  <span data-n="design.wallMm" data-f="1"></span> mm wall these parts are built out of.
-  They print <em>solid</em>, and not for strength: they live inside the vacuum, and sparse
-  infill is a virtual leak that would bleed for weeks into the one measurement this article
-  exists to take. <strong>Z is the governing direction</strong> —
-  <span data-n="paht.zSigmaMPa" data-f="0"></span> MPa and
-  <span data-n="paht.zEGPa" data-f="2"></span> GPa between layers against
-  <span data-n="paht.xySigmaMPa" data-f="0"></span> MPa and
-  <span data-n="paht.xyEGPa" data-f="2"></span> GPa in plane — so every figure on this page
-  uses the interlayer numbers, not the datasheet's lead line.</p>
+  <div class="metrics">
+    <div><div class="v"><span data-n="nodes.nodes" data-f="0"></span></div>
+      <div class="k">printed joints, in <span data-n="nodes.families" data-f="0"></span> families</div></div>
+    <div><div class="v"><span data-n="nodes.massG" data-f="2"></span> <span class="u">g</span></div>
+      <div class="k">all of them together, weighed not budgeted</div></div>
+    <div><div class="v"><span data-n="joint.stubMm" data-f="0"></span> <span class="u">mm</span></div>
+      <div class="k">engagement — <span data-n="joint.glueAreaMm2" data-f="0"></span> mm² of glue line</div></div>
+    <div><div class="v warm">×<span data-n="joint.glueMarginAt10MPa" data-f="1"></span></div>
+      <div class="k">on a 10 MPa adhesive at <span data-n="joint.perStrutDemandN" data-f="0"></span> N</div></div>
+  </div>
+
+  <p class="sowhat"><b>These are the only designed parts in the airship.</b> Everything else
+  is bought: stock tube, stock film. Every joint grows from one signed distance field —
+  spigots blended into a core, bores and an annular seating slot cut afterwards, the flat
+  mating lands truncated <em>last</em> so no blend can round one off. Change a diameter and
+  all <span data-n="nodes.nodes" data-f="0"></span> regrow.</p>
+
+  <p class="sowhat"><b>Capture is internal, and it grips three ways at once.</b> The pipe
+  slides <em>over</em> a hollow spigot, a collar closes outside it, and both bottom on a
+  shoulder. The bore is the mandrel-formed face of the tube — the roundest surface it has —
+  which is why the spigot indexes there and the compliance lives outside.
+  <span data-n="joint.glueShearMPa" data-f="2"></span> MPa on the glue line, and the spigot's
+  own section carries <span data-n="joint.spigotStressMPa" data-f="1"></span> MPa.</p>
+
+  <p class="sowhat"><b>The nozzle no longer sets the size of the article — it sets the size
+  of these.</b> When the members were printed too, a
+  <span data-n="design.nozzleMm" data-f="1"></span> mm bead forced every dimension above it:
+  wall, strut, cell. Buying the tube broke that chain. What the bead still governs is the
+  joinery — <span data-n="design.perimeters" data-f="0"></span> perimeters of it make the
+  <span data-n="design.wallMm" data-f="1"></span> mm wall these parts are built from. They
+  print <em>solid</em>, and not for strength: they live inside the vacuum, where sparse
+  infill is a virtual leak.</p>
+
+  <p class="sowhat"><b>Z is the governing direction, so every figure here uses the weak
+  one.</b> A printed part is far weaker between its layers than along them —
+  <span data-n="paht.zSigmaMPa" data-f="0"></span> MPa interlayer against
+  <span data-n="paht.xySigmaMPa" data-f="0"></span> MPa in plane. A pressure vessel is loaded
+  in every direction at once, so this page quotes the interlayer number throughout, never the
+  datasheet's lead line.</p>
+
   <p style="color:var(--faint);font-size:var(--t-11)">Use <strong>part</strong> in the controls
   below to walk the five families. The camera flies to the joint whose STL is named; the
   rest of the article dims, and its whole family stays lit.</p>
@@ -631,18 +675,28 @@
     <span data-n="cuts.lengths" data-f="0"></span> lengths ·
     <span data-n="cuts.sticks" data-f="0"></span> sticks of stock</p>
   <h2>The tube</h2>
-  <p><strong>Two SKUs, not one.</strong>
-  <span data-n="cuts.skus.main.cuts" data-f="0"></span> members are
-  Ø<span data-n="cuts.skus.main.odMm" data-f="0"></span> ×
-  <span data-n="cuts.skus.main.idMm" data-f="0"></span> mm roll-wrapped carbon tube; the
-  <span data-n="cuts.skus.rim.cuts" data-f="0"></span> cell edges are
-  Ø<span data-n="cuts.skus.rim.odMm" data-f="0"></span> ×
-  <span data-n="cuts.skus.rim.idMm" data-f="0"></span>, because the film's pull at a
-  dihedral edge is twice what it is along a spoke inside a flat face and the thinner tube
-  is only good to <span data-n="edge.rows.1.failsAtAtm" data-f="2"></span> atmospheres
-  there. Both walls are <span data-n="cuts.skus.main.wallMm" data-f="1"></span> mm.
-  <span data-n="cuts.skus.main.sectionMm2" data-f="2"></span> mm² of section on the one,
-  <span data-n="cuts.skus.rim.sectionMm2" data-f="2"></span> mm² on the other.</p>
+  <div class="metrics">
+    <div><div class="v"><span data-n="cuts.members" data-f="0"></span></div>
+      <div class="k">members, in <span data-n="cuts.lengths" data-f="0"></span> cut lengths</div></div>
+    <div><div class="v"><span data-n="cuts.sticks" data-f="0"></span> <span class="u">sticks</span></div>
+      <div class="k">of stock to buy, <span data-n="cuts.purchasedM" data-f="1"></span> m</div></div>
+    <div><div class="v">Ø<span data-n="cuts.skus.main.odMm" data-f="0"></span>×<span data-n="cuts.skus.main.idMm" data-f="0"></span></div>
+      <div class="k"><span data-n="cuts.skus.main.cuts" data-f="0"></span> members on the main SKU</div></div>
+    <div><div class="v warm">Ø<span data-n="cuts.skus.rim.odMm" data-f="0"></span>×<span data-n="cuts.skus.rim.idMm" data-f="0"></span></div>
+      <div class="k"><span data-n="cuts.skus.rim.cuts" data-f="0"></span> cell edges, the film's dihedral</div></div>
+    <div><div class="v"><span data-n="cuts.cutKg" data-f="2"></span> <span class="u">kg</span></div>
+      <div class="k">of tube in the finished cell</div></div>
+    <div><div class="v"><span data-n="cuts.offcutPct" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">offcut at this nesting</div></div>
+  </div>
+
+  <p class="sowhat"><b>Two SKUs, and the second one is the film's fault.</b> The pull at a
+  dihedral edge is twice what it is along a spoke inside a flat face, and the thinner tube is
+  only good to <span data-n="edge.rows.1.failsAtAtm" data-f="2"></span> atm there. So the
+  <span data-n="cuts.skus.rim.cuts" data-f="0"></span> cell edges get their own heavier tube:
+  <span data-n="cuts.skus.rim.sectionMm2" data-f="2"></span> mm² of section against
+  <span data-n="cuts.skus.main.sectionMm2" data-f="2"></span>. Both walls are
+  <span data-n="cuts.skus.main.wallMm" data-f="1"></span> mm.</p>
 
   <p><strong>A member's length is centre to centre between two joints. A cut is
   shorter.</strong> Each end disappears into a socket, and the sockets differ — the seat
@@ -907,32 +961,41 @@
   <p class="lv-kicker"><span data-n="skin.areaM2" data-f="2"></span> m² of fabric ·
     <span data-n="skin.filmG" data-f="0"></span> g · the last piece that is not solved</p>
   <h2>The skin</h2>
-  <p><strong><span data-n="skin.areaM2" data-f="2"></span> square metres of fabric,
-  <span data-n="skin.filmG" data-f="0"></span> grams, and the last thing in this article
-  that is not solved.</strong> <span data-n="edge.hexFaces" data-f="0"></span> hexagons at
-  <span data-n="skin.hexM2" data-f="5"></span> m² each —
-  <span data-n="skin.hexTotalM2" data-f="2"></span> m²,
-  <span data-n="skin.hexSharePct" data-f="1"></span>% of the surface — and
-  <span data-n="edge.squareFaces" data-f="0"></span> squares at
-  <span data-n="skin.sqM2" data-f="5"></span> m²,
-  <span data-n="skin.sqTotalM2" data-f="2"></span> m². The material is Dyneema composite
-  fabric: a UHMWPE fibre grid laminated between films, the same stock as ultralight tents,
-  bought by the metre.</p>
+  <div class="metrics">
+    <div><div class="v"><span data-n="skin.areaM2" data-f="2"></span> <span class="u">m²</span></div>
+      <div class="k">of fabric — <span data-n="skin.filmG" data-f="0"></span> g all in</div></div>
+    <div><div class="v warm"><span data-n="edge.totalSurfaceLoadTf" data-f="1"></span> <span class="u">tf</span></div>
+      <div class="k">standing on it, permanently</div></div>
+    <div><div class="v"><span data-n="skin.hexSharePct" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">of the surface is the <span data-n="edge.hexFaces" data-f="0"></span> hexagons</div></div>
+    <div><div class="v"><span data-n="skin.hexArealGM2" data-f="2"></span> <span class="u">g/m²</span></div>
+      <div class="k">what a hexagon panel needs to hold an atmosphere</div></div>
+    <div><div class="v"><span data-n="edge.bulgeVolumeLostPct" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">of displacement lost to dimpling, braced</div></div>
+    <div><div class="v"><span data-n="edge.bulgeVolumeLostUnbracedPct" data-f="1"></span><span class="u">%</span></div>
+      <div class="k">unbraced — the better argument for spokes</div></div>
+  </div>
 
-  <p><strong>What it is sized for.</strong>
-  <span data-n="skin.hexArealGM2" data-f="2"></span> g/m² on the hexagons,
-  <span data-n="skin.sqArealGM2" data-f="2"></span> on the squares — about
-  <span data-n="skin.hexThicknessUm" data-f="1"></span> and
-  <span data-n="skin.sqThicknessUm" data-f="1"></span> microns of fibre and film. Neither
-  is off a datasheet. They are what a membrane needs to hold an atmosphere across the
-  panel it actually spans, worked at
-  <span data-n="skin.allowMPa" data-f="0"></span> MPa — a fraction of a UHMWPE fibre's
-  headline strength, taken down for the safety factor and again for what a real laminate
-  realises. <strong>Film mass scales with the span it bulges across</strong>, which is the
-  whole reason the spokes exist: spoked, a hexagon's panel is
-  <span data-n="skin.hexPanelMm" data-f="2"></span> mm across and a square's is
-  <span data-n="skin.sqPanelMm" data-f="2"></span> mm; bare, a hexagon is
-  <span data-n="skin.barePanelMm" data-f="2"></span>.</p>
+  <p class="sowhat"><b>The material is bought by the metre.</b> Dyneema composite fabric —
+  a UHMWPE fibre grid laminated between films, the same stock as ultralight tents.</p>
+
+  <p class="sowhat"><b>A panel does not push on the lattice — it pulls on the frame.</b> Each
+  one bulges inward until its membrane tension balances the atmosphere, then stands at that
+  angle to the face plane. That is the load the rim and the spokes were sized against, and
+  the reason the boundary needed a heavier tube than the interior.</p>
+
+  <p class="sowhat"><b>Film mass scales with the span it bulges across</b>, which is the whole
+  reason the spokes exist: cut a hexagon into six triangles and each panel spans a fraction of
+  what the bare face did. It is also why no cell size makes the film term go away — the areal
+  mass falls exactly as fast as area-per-volume does.</p>
+
+  <p class="sowhat"><b>And this is the piece that is not solved.</b> The figures above size
+  the fabric for <em>strength</em>. Holding a vacuum for years is a different requirement:
+  the film is a membrane, not a barrier, and a real barrier laminate of the measured class is
+  several times heavier. Two things are open and neither is softened here — how the barrier
+  gets applied without cracking on first pump-down, and how the seams close. See the panels
+  below.</p>
+
   <p style="color:var(--faint);font-size:var(--t-11)">Use <strong>face</strong> in the controls
   below to walk the surface. Each stop lights the frame that panel pulls on — the film is
   one continuous surface and cannot be highlighted a face at a time, which is itself part
