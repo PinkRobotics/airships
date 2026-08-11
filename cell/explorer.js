@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=d92cc6f3';
-import * as G from './explorer-geom.js?v=d92cc6f3';
+import * as CELL from './model.js?v=4d2c62a9';
+import * as G from './explorer-geom.js?v=4d2c62a9';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=d92cc6f3';
+} from './nodes.generated.js?v=4d2c62a9';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1985,21 +1985,22 @@ export function mountExplorer(opts) {
     g.sheet.r = R0.map(v => v * (1 - u));
     g.cuts.r = g.sheet.r.slice();
     if (u > 0.001) {
-      const lv0 = LEVELS[state.levelIdx];
+      const from = state.unfoldFrom || { d: cam.distance, az: cam.azimuth, el: cam.elevation };
       // The sheet's plane is the root face's — normal along -X — so the camera must sit ON the
       // X axis to see it square. With the camera at (cos e sin a, sin e, cos e cos a) that is
       // a = -PI/2, e = 0. PI put it back in the plane and the net rendered as slivers.
-      cam.azimuth = lerp(lv0.az, -Math.PI / 2, u);
-      cam.elevation = lerp(lv0.el, 0, u);
+      cam.azimuth = lerp(from.az, -Math.PI / 2, u);
+      cam.elevation = lerp(from.el, 0, u);
       // the net is about four hexagon-widths across against a cell radius of one
       // cam.RADIUS is the model's bounding radius and only sets the clamps; cam.DISTANCE is
       // what the camera actually sits at. Writing radius alone changed nothing on screen.
       // The net is about 2 m across against a 0.42 m cell, so it needs roughly 3x the reach.
+      const lv0 = LEVELS[state.levelIdx];
       const dCell = lv0.radius * (lv0.dist || 2.05);
       // The clamp has to move FIRST or it silently caps the distance below the target and the
       // pull-back does nothing — which is what 3x looked like.
       cam.maxDistance = Math.max(cam.maxDistance, dCell * 12);
-      cam.distance = lerp(dCell, dCell * 6.0, u);
+      cam.distance = lerp(from.d, dCell * 6.0, u);
     }
     // Fade the frame across the WHOLE motion rather than the first third — at 3x it was
     // gone before the panels had visibly moved, so the fold read as a cut to another scene.
@@ -2077,8 +2078,22 @@ export function mountExplorer(opts) {
         labelLayer.appendChild(el);
         labelEls.set(key, el);
       }
-      const p = projectPoint(view, proj, lb.p);
+      let p = projectPoint(view, proj, lb.p);
       if (!p) { el.style.display = 'none'; continue; }
+      // NEVER OVER THE ARTICLE. A caption sitting on the thing it describes hides it, and the
+      // designer asked for them to float nearby instead. Push each label radially away from
+      // the model's own screen centre until it clears a keep-out disc sized to the level's
+      // framing — the direction it already wanted to sit in is preserved, only the distance
+      // changes, so a label attached to the left of something stays on the left.
+      const c = projectPoint(view, proj, cam.target);
+      if (c) {
+        const dx = p[0] - c[0], dy = p[1] - c[1];
+        const r = Math.hypot(dx, dy) || 1;
+        // 0.30 was still inside the silhouette — the article fills most of the frame at
+        // these framings, so clearing it means going most of the way to the edge.
+        const keepOut = Math.min(sceneBox.w, sceneBox.h) * 0.46;
+        if (r < keepOut) p = [c[0] + dx / r * keepOut, c[1] + dy / r * keepOut];
+      }
       el.style.display = '';
       el.style.opacity = (Math.max(0, fade * 1.15 - 0.15)).toFixed(2);
       el.style.transform = `translate(${p[0].toFixed(1)}px, ${p[1].toFixed(1)}px)`;
@@ -2300,6 +2315,10 @@ export function mountExplorer(opts) {
     get group() { return state.group || 'all'; },
     /** Open the net, or fold it back. Returns the label the button must now show. */
     toggleUnfold() {
+      // Capture the camera as it stands. Easing from the LEVEL'S default distance meant that
+      // if you had zoomed in or out yourself, the first frame snapped to that default and the
+      // pull-back started from somewhere you were never looking.
+      state.unfoldFrom = { d: cam.distance, az: cam.azimuth, el: cam.elevation };
       state.unfoldTo = state.unfoldTo > 0.5 ? 0 : 1;
       dirty = true;
       return state.unfoldTo > 0.5 ? 'fold up' : 'unfold flat';
