@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=7f49ce2b';
-import * as G from './explorer-geom.js?v=7f49ce2b';
+import * as CELL from './model.js?v=72073b16';
+import * as G from './explorer-geom.js?v=72073b16';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=7f49ce2b';
+} from './nodes.generated.js?v=72073b16';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1137,7 +1137,7 @@ function buildArray(ctx) {
   })(), XM.eulerGhost);
   return {
     root,
-    centres, cellsNode: cells, span, openIdx,
+    centres, cellsNode: cells, span, openIdx, farIdx,
     labels: [
       { p: [0, 2.4 * span, 1.1 * span], t: 'one atmosphere, boundary only', s: 'the array holds pressure at its skin, nowhere else' },
       { p: [-1.3 * span, -1.2 * span, 0.9 * span], t: 'interior wall: Δp = 0', s: `${ctx.sw.sharedFractionPct.toFixed(1)}% of all wall area — vacuum on both sides` },
@@ -1934,6 +1934,32 @@ export function mountExplorer(opts) {
       built[transition.from].fade = fOut;
       built[transition.to].fade = fIn;
       for (const b of built) b.claim = b.fade;
+      // DIVING BETWEEN THE ARRAY AND THE CELL, the array clears down to its hero cell first.
+      // The level below is a DIFFERENT article — a 0.709 m demonstrator against 2 m flight
+      // cells — so this can never be a literal continuous zoom, and pretending otherwise would
+      // be a lie about what the two levels are. What it can honestly do is single out the one
+      // cell being flown into: every other cell fades ahead of the level cross-fade, so the
+      // article arrives where a cell was rather than cutting to a fresh scene.
+      const arrIdx = LEVELS.findIndex(l => l.id === 'array');
+      const cellIdx = STAGE_LEVEL;
+      const pair = (transition.from === arrIdx && transition.to === cellIdx)
+        || (transition.from === cellIdx && transition.to === arrIdx);
+      const arr = built[arrIdx];
+      if (pair && arr.cellsNode && arr.cellsNode.inst) {
+        // ahead of the cross-fade going down, behind it coming back up
+        const clear = transition.from === arrIdx
+          ? smoothstep(Math.min(1, transition.t * 2.2))
+          : 1 - smoothstep(clamp((transition.t - 0.3) / 0.7, 0, 1));
+        const tn = arr.cellsNode.inst.tint;
+        for (let i = 0; i < arr.cellsNode.inst.count; i++) {
+          const hero = i === arr.openIdx || i === arr.farIdx;
+          const v = hero ? 1 : 1 - clear;
+          tn[i * 4] = v; tn[i * 4 + 1] = v; tn[i * 4 + 2] = v;
+          tn[i * 4 + 3] = hero ? 5.0 : (1 - clear) * 5.0;
+        }
+        arr.cellsNode.inst.dirty = true;
+        arr.heroOnly = clear;
+      }
     } else {
       // A hop between two parts of one level. NO fade rewrite: from === to, so the second
       // assignment would win and drive the whole article 0 -> 1 on every click. The
@@ -1942,8 +1968,25 @@ export function mountExplorer(opts) {
     }
     if (transition.t >= 1) {
       const wasTour = transition.kind === 'tour';
+      const landed = transition.to;
       transition = null;
       if (wasTour) { tourFrom = tourTo; applyTour(1); }
+      // Put the array back if we came to rest on it by any route. The clear-down above only
+      // reverses itself on the return dive from the cell; arriving from the rail or from the
+      // bay above would otherwise show a field of cells that had been faded out and never
+      // restored.
+      if (landed === LEVELS.findIndex(l => l.id === 'array')) {
+        const arr = built[landed];
+        if (arr.cellsNode && arr.cellsNode.inst) {
+          const tn = arr.cellsNode.inst.tint;
+          for (let i = 0; i < arr.cellsNode.inst.count; i++) {
+            tn[i * 4] = 1; tn[i * 4 + 1] = 1; tn[i * 4 + 2] = 1;
+            tn[i * 4 + 3] = (i === arr.openIdx || i === arr.farIdx) ? 5.0 : 1;
+          }
+          arr.cellsNode.inst.dirty = true;
+          arr.heroOnly = 0;
+        }
+      }
     }
     return true;
   }
