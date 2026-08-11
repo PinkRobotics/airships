@@ -930,7 +930,7 @@ def weightless_article(wall: float) -> dict:
     than the 2,500 m wall — and the demo is a bench, not a ship.
     """
     net_per_n3 = 96.0                    # net strut-equivalents per article at N=1 is 96*N^3
-    rungs = [("PAHT_Z", 4, "printed nylon (this article)"),
+    rungs = [("PAHT_Z", 4, "all-printed nylon"),
              ("CFF", 3, "continuous fibre, printed"),
              ("T700_LAM", 2, "T700, wound"),
              ("M60J_LAM", 2, "M60J-class, wound")]

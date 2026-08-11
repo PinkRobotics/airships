@@ -681,7 +681,7 @@ export function articleFilmKgPerM3(n, pitch = 0.3545) {
 
 export function weightlessArticle(wall) {
   const NET_PER_N3 = 96;
-  const rungs = [['PAHT_Z', 4, 'printed nylon (this article)'],
+  const rungs = [['PAHT_Z', 4, 'all-printed nylon'],
     ['CFF', 3, 'continuous fibre, printed'],
     ['T700_LAM', 2, 'T700, wound'],
     ['M60J_LAM', 2, 'M60J-class, wound']];

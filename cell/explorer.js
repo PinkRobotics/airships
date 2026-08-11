@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=71337736';
-import * as G from './explorer-geom.js?v=71337736';
+import * as CELL from './model.js?v=f28c2a93';
+import * as G from './explorer-geom.js?v=f28c2a93';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=71337736';
+} from './nodes.generated.js?v=f28c2a93';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -915,14 +915,18 @@ function buildCell(ctx) {
     span,
     labels: [
       { p: [0, 0, span * 0.62], t: `${(span * 1000).toFixed(0)} mm — ${ctx.demo.enclosedL.toFixed(0)} L of nothing`, s: `dark: every member is purchased carbon, ${ctx.stock.pipeCount} cuts of one SKU — light: the ${ctx.demo.printedNodes} printed joints, and nothing else` },
-      { p: [span * 0.42, 0, -span * 0.30], t: 'no face is unsupported now', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; all inset, mating faces stay flat' },
+      { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; all inset, mating faces stay flat' },
       { p: [-span * 0.45, -span * 0.28, span * 0.12], t: 'evacuate, then SEAL', s: 'no valve, no pump aboard — permanence is the design' },
-      { p: [span * 0.30, span * 0.40, span * 0.34], t: 'article one of the ladder', s: 'same geometry, iterated in material and hierarchy until one floats — printed continuous fibre reaches it at level 3' },
+      { p: [span * 0.30, span * 0.40, span * 0.34], t: 'the bench article', s: 'this cell is built to be crushed, sealed and pumped down; a floating cell is the same geometry in a stiffer tube, one size up' },
     ],
   };
 }
 
 /* L4 — the array: shared walls, the boundary, and what a breach costs. */
+// The hero cell's own membrane: read as a surface, not as the barely-there glass the rest
+// of the array uses, because it is the one cell the viewer is about to fly into.
+const SKIN_ARRAY = { kind: 'glass', color: '#8fb6dc', opacity: 0.34 };
+
 function buildArray(ctx) {
   const root = node({ id: 'L_array', category: 'vacuum', selectable: false });
   const span = 2.0;                                  // the reference cell size
@@ -965,30 +969,23 @@ function buildArray(ctx) {
   const openC = [0, -span, span / 2];
   const openIdx = 7;                     // the corner-sublattice cell at exactly openC
   const sEff = span * 0.985;             // match the drawn membrane geometry
-  // Boundary balls INSET by their own radius along the face normal: the skin drapes over
-  // the nodes, so nothing may poke through it.
-  const skinBallR = span * 0.024;
-  const bpts = G.kelvinBoundaryNodes(sEff).map(q => {
-    const ax = Math.abs(q[0]), ay = Math.abs(q[1]), az = Math.abs(q[2]);
-    const tol = sEff * 1e-4;
-    let n = [0, 0, 0];
-    if (Math.abs(ax + ay + az - 0.75 * sEff) < tol) {
-      n = [Math.sign(q[0]), Math.sign(q[1]), Math.sign(q[2])];
-    }
-    for (let i = 0; i < 3; i++) {
-      if (Math.abs(Math.abs(q[i]) - sEff / 2) < tol) n[i] += Math.sign(q[i]);
-    }
-    const nl = Math.hypot(n[0], n[1], n[2]) || 1;
-    const inset = skinBallR * 1.35;
-    return [q[0] - n[0] / nl * inset + openC[0],
-      q[1] - n[1] / nl * inset + openC[1],
-      q[2] - n[2] / nl * inset + openC[2]];
-  });
-  const bi = G.pointInstances(bpts);
-  const bballs = inst(root, { id: 'SkinNodes' }, bi.xf, bi.count);
-  bballs.geom = G.sphereGeom(skinBallR, 10, 7);
-  bballs.xmat = { ...XM.nodeBall, color: '#8d8f9c' };
-  // Darken that one cell's membrane so the skin visibly wears its structure.
+  // THE HERO CELL. One cell in the array is drawn the way the level below draws it — a
+  // solid skin over its own lattice — so the dive into it is a dive into something already
+  // on screen rather than a cut to a new model. Its membrane goes opaque and its lattice
+  // shows through the open faces as the camera closes.
+  //
+  // The loose balls that used to sit inside it are gone. They were the boundary nodes of a
+  // 2 m flight cell, drawn as spheres at a scale where they read as scribble inside a bag,
+  // and the lattice lines already say everything they said.
+  // Its lattice shows through the skin, so the dive arrives at structure that was already
+  // visible rather than appearing on contact.
+  lineNode(root, 'ArrayHeroLattice', G.kelvinLatticeSegs(sEff).map(([A, B]) => [
+    [A[0] + openC[0], A[1] + openC[1], A[2] + openC[2]],
+    [B[0] + openC[0], B[1] + openC[1], B[2] + openC[2]],
+  ]), XM.latticeLine);
+  const heroSkin = solidNode(root, 'ArrayHeroSkin', G.kelvinGeom(sEff), SKIN_ARRAY);
+  heroSkin.p = openC.slice();
+  heroSkin.skinPart = 'surface';
   tint.set([1, 1, 1, 5.0], openIdx * 4);
   // The loaded boundary: a faint warm plane off the +y face, with a few pressure arrows.
   const bx = 3 * span, bz = 2 * span;
@@ -1011,7 +1008,7 @@ function buildArray(ctx) {
     labels: [
       { p: [0, 2.4 * span, 1.1 * span], t: 'one atmosphere, boundary only', s: 'the array holds pressure at its skin, nowhere else' },
       { p: [-1.3 * span, -1.2 * span, 0.9 * span], t: 'interior wall: Δp = 0', s: `${ctx.sw.sharedFractionPct.toFixed(1)}% of all wall area — vacuum on both sides` },
-      { p: [openC[0], openC[1] - 0.62 * span, openC[2] + 0.55 * span], t: 'the skin wears its lattice', s: 'every ball is a lattice node lying exactly IN the Kelvin surface — at half pitch they land there; the film is bonded on that grid and bulges between' },
+      { p: [openC[0], openC[1] - 0.62 * span, openC[2] + 0.55 * span], t: 'the skin wears its lattice', s: 'the lattice nodes lie exactly in the cell surface, and the film is bonded to that grid and bulges between them' },
       { p: [1.4 * span, 0, -1.15 * span], t: 'click a cell to flood it', s: 'a breach is a local load, bounded by its own walls' },
     ],
   };
@@ -1132,8 +1129,8 @@ function buildHull(ctx) {
     labels: [
       { p: [cls.xNose - 0.12 * cls.lengthM, 0, cls.maxRadiusM * 1.15], t: `P-100 — ${cls.lengthM.toFixed(0)} m`, s: 'a solid of cells; grown until lift covers the ledger' },
       { p: [cls.xNose - 0.44 * cls.lengthM, -cls.maxRadiusM * 1.05, 0], t: 'one section', s: 'a sealed cell of cells — the hierarchy, one level up' },
-      { p: [px, 0, -cls.maxRadiusM * 0.98 + 3], t: 'a person', s: 'two pixels tall at this level — the ladder below ends at a printed joint you can hold' },
-      { p: [cls.xNose - 0.85 * cls.lengthM, 0, cls.maxRadiusM * 0.9], t: `the wall: ${ctx.wallWork.toFixed(4)} kg/m³`, s: 'under it, everything floats; the ladder is how the array gets there' },
+      { p: [px, 0, -cls.maxRadiusM * 0.98 + 3], t: 'a person', s: 'two pixels tall here; the same cell you can hold at the bottom of the ladder' },
+      { p: [cls.xNose - 0.85 * cls.lengthM, 0, cls.maxRadiusM * 0.9], t: `the wall: ${ctx.wallWork.toFixed(4)} kg/m³`, s: 'mass per cubic metre enclosed; under this line a hull can be grown until it lifts' },
     ],
   };
 }
@@ -1182,7 +1179,11 @@ export const LEVELS = [
   { id: 'wall', name: 'The tube', scaleM: 0.25, radius: 0.16, az: -0.9, el: 0.20, dist: 2.4, target: CELL_CENTRE, stage: true, build: () => buildStageShell('wall'), instance: 'demonstrator' },
   { id: 'track', name: 'The skin', scaleM: 0.50, radius: 0.30, az: -0.95, el: 0.30, dist: 2.1, target: CELL_CENTRE, stage: true, build: () => buildStageShell('track'), instance: 'demonstrator' },
   { id: 'cell', name: 'The cell', scaleM: 0.709, radius: 0.42, az: -0.9, el: 0.27, dist: 3.9, target: CELL_CENTRE, stage: true, build: buildCell, instance: 'demonstrator' },
-  { id: 'array', name: 'The array', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8, build: buildArray, instance: 'flight' },
+  // The array is framed on its HERO CELL — the one drawn with a skin at [0, -2, 1] — so
+  // the descent to the level below goes into a cell already on screen instead of cutting
+  // to a new model. openC in buildArray is the same point; one constant, both places.
+  { id: 'array', name: 'The array', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
+    target: [0, -2, 1], build: buildArray, instance: 'flight' },
   { id: 'bay', name: 'Section & bay', scaleM: 20, radius: 14, az: -1.05, el: 0.5, dist: 2.5, target: [0, 0, 0.5], build: buildBay, instance: 'flight' },
   { id: 'hull', name: 'The hull', scaleM: 190, radius: 105, az: -1.2, el: 0.16, dist: 2.2, build: buildHull, instance: 'flight' },
 ];
@@ -1349,19 +1350,19 @@ function faceStops(cell, lv) {
   const plan = [
     { key: 'hexagon', name: 'the hexagon', at: hex[0],
       subject: union(instKeys(byKind('spoke')), instKeys(hubs)),
-      t: `${hex.length} hexagons`, s: 'six spokes and a hub apiece — the face that had ' +
+      t: `${hex.length} hexagons`, s: 'six radial spokes to a central hub — the largest panel, and the one the film pulls hardest on' +
          'nothing in plane until it did' },
     { key: 'square', name: 'the square', at: sq[0],
       subject: union(instKeys(byKind('tie').filter(m => m.inPlane)), instKeys(sqCentres)),
-      t: `${sq.length} squares`, s: 'quartered by the vertex ties that lie in their own ' +
+      t: `${sq.length} squares`, s: 'quartered in plane by the vertex ties, which lie in the face itself' +
          'plane — braced before anyone noticed' },
     { key: 'edge', name: 'the dihedral edge', at: null,
       subject: union(instKeys(byKind('rim')), instKeys(rimVerts)),
-      t: `${byKind('rim').length} edges`, s: 'where two hexagons meet and their film ' +
+      t: `${byKind('rim').length} edges`, s: 'a dihedral: two panels pull the same edge, and their tensions add rather than cancel' +
          'tensions add instead of cancelling' },
     { key: 'land', name: 'the mating land', at: sq[1] || sq[0],
       subject: instKeys(landed),
-      t: `${landed.length} joints carry a land`, s: 'flat, truncated last, and nothing ' +
+      t: `${landed.length} joints carry a land`, s: 'flat mating faces, so cells seat against each other rather than on their pipes' +
          'has been chosen to go on them' },
   ];
   // The edge stop aims at a rim member rather than a face centre — it is the one stop
@@ -1424,7 +1425,10 @@ export function mountExplorer(opts) {
     altM: opts.altM !== undefined ? opts.altM : 2500,
     cut: 0,                      // 0 = off; -1..1 across the level radius
     breached: new Set(),
-    skinMode: 'solid',           // 'solid' | 'transparent' | 'off'
+    // TRANSPARENT BY DEFAULT. A solid skin is an opaque box around the entire article,
+    // and the article is the point — the structure inside was invisible until you found
+    // the button. Glass first, solid on request.
+    skinMode: 'transparent',     // 'solid' | 'transparent' | 'off'
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     tourIdx: 0,                  // which stop of the current level's tour
     tourStop: null,              // its key, so a probe and a label can read it back

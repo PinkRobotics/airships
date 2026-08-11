@@ -50,7 +50,7 @@
   #head a{pointer-events:auto}
 
   /* ---- the scale rail ---- */
-  #rail{position:fixed;left:var(--s5);top:50%;transform:translateY(-50%);z-index:5;
+  #rail{position:fixed;left:var(--s5);top:62%;transform:translateY(-50%);z-index:5;
         display:flex;flex-direction:column;gap:2px}
   #rail::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:1px;
         background:var(--line-strong)}
@@ -72,7 +72,7 @@
   #panel{position:fixed;top:0;right:0;bottom:0;width:min(430px,92vw);z-index:4;
         overflow-y:auto;overscroll-behavior:contain;
         /* top padding clears the fixed control cluster above it */
-        padding:124px var(--s5) var(--s6);
+        padding:var(--s5) var(--s5) var(--s6);
         background:linear-gradient(to left,rgba(10,10,12,.94) 55%,rgba(10,10,12,.72) 85%,transparent);
         scrollbar-width:thin}
   #panel section{display:none}
@@ -140,15 +140,16 @@
      altitude slider were removed outright — they drove ctx and nothing on screen visibly
      answered them, so they read as broken rather than as controls. ?mat= and ?alt= still
      set both, which is what the checks and the deep links use. */
-  #controls{position:fixed;top:var(--s4);right:var(--s5);z-index:7;width:min(400px,88vw);
-       display:flex;flex-direction:column;gap:6px;align-items:flex-end}
-  #controls .row{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-  #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
-       color:var(--faint);align-self:center;margin-right:2px}
+  #controls{position:fixed;top:104px;left:var(--s5);z-index:7;width:min(300px,44vw);
+       display:flex;flex-direction:column;gap:var(--s3)}
+  #controls .grp{display:flex;flex-direction:column;gap:5px}
+  #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.10em;text-transform:uppercase;
+       color:var(--faint);padding-bottom:3px;border-bottom:1px solid var(--line)}
+  #controls .row{display:flex;gap:5px;flex-wrap:wrap}
   #clearBreach,#toggleSkin,#toggleParts,#tourNext,.gbtn{background:rgba(13,13,16,.82);
        border:1px solid var(--line-strong);backdrop-filter:blur(6px);
        color:var(--muted);border-radius:var(--r-sm);padding:4px 9px;cursor:pointer;
-       font:var(--t-12) var(--sans)}
+       font:var(--t-12) var(--sans);text-align:left}
   #clearBreach,#toggleSkin,#toggleParts,#tourNext{display:none}
   #clearBreach:hover,#toggleSkin:hover,#toggleParts:hover,#tourNext:hover,.gbtn:hover{
        color:var(--text)}
@@ -307,9 +308,9 @@
   <p class="sowhat"><b>Why cells at all.</b> A monolithic vacuum balloon dies by shell
   buckling — a scale-free result no material escapes. Fill the volume with sealed cells and
   the atmosphere is held only at the boundary: a cellular solid in hydrostatic compression,
-  which is a well-posed engineering problem. Honest caveat carried by the analysis itself —
-  it is the <em>hollow-strut</em> step doing most of the numerical work; what cells
-  specifically buy is the removal of the shape penalty plus failure containment.</p>
+  which is a well-posed engineering problem. What cells buy is the removal of the shape
+  penalty and the containment of a breach: the atmosphere is held at the boundary, and a
+  puncture floods one cell rather than the ship.</p>
 
   <p class="sowhat"><b>Click a cell to flood it.</b> A breach is a local load. The flooded
   cell's neighbours see one atmosphere across their shared walls — a factor-L concentration
@@ -326,16 +327,15 @@
   <p>The partition shape is the <strong>Kelvin cell</strong> — the truncated octahedron,
   BCC's Voronoi cell, the interlocking near-sphere. It carries
   <span data-n="shapes.truncatedOctahedron.filmSavingVsCubePct" data-f="1"></span>% less
-  film area than cubes at equal volume, and the analysis still charges the cube figure —
-  conservative on purpose:</p>
+  film area than cubes at equal volume, and the analysis charges the cube figure regardless:</p>
   <p><strong>The skin wears its lattice</strong> — the brightened cell shows it. At half
   the cell pitch, the sub-lattice's nodes land <em>exactly in</em> the Kelvin surface:
   corner nodes in the hexagons, axis nodes in the squares (Kelvin is BCC's Voronoi cell,
   and the half-pitch octet grid contains the BCC points). The membrane is bonded at that
-  regular grid of boundary nodes and its films bulge between them. A printed cube's corner
-  nodes can never lie on a Kelvin surface — which is why the demonstrator's skin is a cube,
-  and why the flight cell's lattice is generated to conform to its partition rather than
-  tiled from the printed article.</p>
+  regular grid of boundary nodes and its films bulge between them — which is why the
+  partition shape and the lattice inside it are the same geometry, not two that have to be
+  made to agree.
+  </p>
   <table>
     <thead><tr><th>partition</th><th class="num">area coeff.</th><th class="num">vs cube</th></tr></thead>
     <tbody data-t="shapes"></tbody>
@@ -372,14 +372,14 @@
   buckling radius is the cell's own; space-filling, so cells seat face to face and the array
   becomes the airframe rather than cargo inside one.</p>
 
-  <p class="sowhat"><b>Two different jobs, and they nearly got confused.</b> The interior is
+  <p class="sowhat"><b>The interior and the boundary do different jobs.</b> The interior is
   pure compression — one <span data-n="design.strutM" data-mm="0"></span> mm cut, 144 times.
   The boundary is not: the film does not push on the lattice, it <em>pulls the edge frame
   sideways</em>, and at a dihedral the two panels' tensions add instead of cancelling.
-  Unbraced that tore the rim off at
+  An unbraced rim of this section carries only
   <span data-n="edge.rows.0.failsAtAtm" data-f="2"></span> atm — less than half what the cell
-  exists to hold. The squares had in-plane ties already; the hexagons had nothing, so each
-  took six radial spokes.</p>
+  holds — so every face is braced in its own plane: the squares by vertex ties, the hexagons
+  by six radial spokes each.</p>
 
   <p class="sowhat"><b>Bracing pays twice.</b> Bending falls as the <em>cube</em> of the
   bracing pitch, so spokes buy strength cheaply — and they buy back volume. Every panel
@@ -395,14 +395,18 @@
   than budgeted. Solid because these parts sit <em>inside</em> the vacuum, where sparse infill
   is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
 
-  <p class="sowhat"><b>Does this one float? No — and size is the reason, not material.</b>
-  Built from filament-wound M60J carbon rather than printed, the same geometry comes to
-  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ and would be buoyant at sea level;
-  printed continuous fibre needs <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of
-  structure inside structure. The rule underneath is parity — make the cell one step bigger
-  and each hexagon face gains lattice points of its own, so this entire rim-and-spoke
-  apparatus stops being necessary. <b>The floater wants to be the bigger article.</b> This
-  one is the bench piece: it exists to be crushed, sealed and pumped down.</p>
+  <p class="sowhat"><b>This cell does not float, and the reason is its size.</b> It encloses
+  <span data-n="demo.enclosedL" data-f="0"></span> litres and displaces
+  <span data-n="demo.displacedAirKg" data-mul="1000" data-f="0"></span> g of air, against
+  <span data-n="stock.totalKg" data-f="2"></span> kg of tube and joints. A cell that floats is
+  the same architecture one size up in a stiffer tube: the boundary apparatus you see here —
+  rim, spokes, ties — exists because at this size a hexagon face contains no lattice point of
+  its own. One step larger and the face is full of them, and that apparatus is not needed.
+  In M60J-class tube the same geometry reaches
+  <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ and is buoyant at sea level as a
+  single cell; printed continuous fibre needs
+  <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of structure inside structure to
+  get there. This is the bench article: it exists to be crushed, sealed and pumped down.</p>
 
   <p style="color:var(--faint);font-size:var(--t-11)">The same geometry printed end to end
   in nylon — the variant that proves the printer chain rather than the physics — comes to
@@ -690,9 +694,10 @@
       <div class="k">offcut at this nesting</div></div>
   </div>
 
-  <p class="sowhat"><b>Two SKUs, and the second one is the film's fault.</b> The pull at a
-  dihedral edge is twice what it is along a spoke inside a flat face, and the thinner tube is
-  only good to <span data-n="edge.rows.1.failsAtAtm" data-f="2"></span> atm there. So the
+  <p class="sowhat"><b>Two tube sizes, because the boundary is loaded twice as hard.</b> At a
+  dihedral edge two panels pull the same member and their tensions add; inside a flat face a
+  spoke takes one panel. The thinner tube carries only
+  <span data-n="edge.rows.1.failsAtAtm" data-f="2"></span> atm at an edge, so the
   <span data-n="cuts.skus.rim.cuts" data-f="0"></span> cell edges get their own heavier tube:
   <span data-n="cuts.skus.rim.sectionMm2" data-f="2"></span> mm² of section against
   <span data-n="cuts.skus.main.sectionMm2" data-f="2"></span>. Both walls are
@@ -989,12 +994,11 @@
   what the bare face did. It is also why no cell size makes the film term go away — the areal
   mass falls exactly as fast as area-per-volume does.</p>
 
-  <p class="sowhat"><b>And this is the piece that is not solved.</b> The figures above size
-  the fabric for <em>strength</em>. Holding a vacuum for years is a different requirement:
+  <p class="sowhat"><b>The fabric is sized for strength, not for holding vacuum.</b> Those are
+  different requirements. Holding a vacuum for years is a different requirement:
   the film is a membrane, not a barrier, and a real barrier laminate of the measured class is
-  several times heavier. Two things are open and neither is softened here — how the barrier
-  gets applied without cracking on first pump-down, and how the seams close. See the panels
-  below.</p>
+  several times heavier. Two things remain open: how the barrier is applied without
+  cracking on first pump-down, and how the seams close. See the panels below.</p>
 
   <p style="color:var(--faint);font-size:var(--t-11)">Use <strong>face</strong> in the controls
   below to walk the surface. Each stop lights the frame that panel pulls on — the film is
@@ -1177,23 +1181,36 @@
      structural reading of the same article and dims the rest, so the question "which of these
      216 members is the primary path" is answered by looking rather than by reading a count. -->
 <div id="controls">
-  <div class="row" id="groups">
-    <span class="glab">show</span>
-    <button class="gbtn on" data-group="all">all</button>
-    <button class="gbtn" data-group="internal">internal</button>
-    <button class="gbtn" data-group="boundary">external</button>
-    <button class="gbtn" data-group="primary">primary</button>
-    <button class="gbtn" data-group="secondary">secondary</button>
-    <button class="gbtn" data-group="long">long pipes</button>
-    <button class="gbtn" data-group="short">short pipes</button>
-    <button class="gbtn" data-group="centre">centre forces</button>
+  <div class="grp">
+    <div class="glab">structure — light one, dim the rest</div>
+    <div class="row">
+      <button class="gbtn on" data-group="all">everything</button>
+      <button class="gbtn" data-group="internal">internal</button>
+      <button class="gbtn" data-group="external">boundary</button>
+    </div>
+    <div class="row">
+      <button class="gbtn" data-group="primary">primary load path</button>
+      <button class="gbtn" data-group="secondary">bracing</button>
+    </div>
+    <div class="row">
+      <button class="gbtn" data-group="long">long cuts</button>
+      <button class="gbtn" data-group="short">short cuts</button>
+      <button class="gbtn" data-group="centre">into the centre</button>
+    </div>
   </div>
-  <div class="row">
-    <button id="clearBreach">reseal cells</button>
-    <button id="toggleSkin">skin: solid</button>
-    <button id="toggleParts">parts: all</button>
-    <button id="tourNext">…</button>
+  <div class="grp">
+    <div class="glab">view</div>
+    <div class="row">
+      <button id="toggleSkin">skin: solid</button>
+      <button id="toggleParts">parts: all</button>
+      <button id="clearBreach">reseal cells</button>
+    </div>
   </div>
+  <div class="grp" id="tourgrp">
+    <div class="glab">walk the parts</div>
+    <div class="row"><button id="tourNext">…</button></div>
+  </div>
+</div>
 </div>
 
 <!-- CUTAWAY — bottom left, clear of both the reading and the controls. -->
@@ -1241,8 +1258,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=71337736';
-import * as CELL from './model.js?v=71337736';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f28c2a93';
+import * as CELL from './model.js?v=f28c2a93';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1416,6 +1433,9 @@ api = mountExplorer({
     }
     const btn = document.getElementById('tourNext');
     btn.style.display = stop ? 'block' : 'none';
+    // The whole labelled group goes with the button. A section heading reading "walk the
+    // parts" over an empty row on a level that has no tour is worse than no heading.
+    document.getElementById('tourgrp').style.display = stop ? 'flex' : 'none';
     // Read back from the state, not from the argument: if the two ever disagree, the
     // button is the thing a person looks at and the thing the gate asserts on. The NOUN
     // comes back with it — a stop on the tube level is a cut and a stop on the skin level
