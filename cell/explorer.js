@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=4d2c62a9';
-import * as G from './explorer-geom.js?v=4d2c62a9';
+import * as CELL from './model.js?v=7f49ce2b';
+import * as G from './explorer-geom.js?v=7f49ce2b';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=4d2c62a9';
+} from './nodes.generated.js?v=7f49ce2b';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1807,7 +1807,12 @@ export function mountExplorer(opts) {
     const onTrack = LEVELS[state.levelIdx].id === 'track';
     if (onTrack && fr && fr.unfoldHideSkin
         && n.id !== 'FlatSkin' && n.id !== 'FlatSkinCuts') {
-      if (n.skinPart) return { hidden: true };
+      if (n.skinPart) {
+        // Glass genuinely blends, so the cell's own membrane can fade out properly instead of
+        // disappearing the instant the net starts opening.
+        if (fr.unfoldDim <= 0.004) return { hidden: true };
+        return { material: { ...SKIN_GLASS, opacity: SKIN_GLASS.opacity * fr.unfoldDim } };
+      }
       if (fr.unfoldGone) return { hidden: true };
     }
     if (n.skinPart) {
@@ -2006,7 +2011,22 @@ export function mountExplorer(opts) {
     // gone before the panels had visibly moved, so the fold read as a cut to another scene.
     cell.unfoldDim = clamp(1 - u, 0, 1);
     cell.unfoldHideSkin = state.unfold > 0.005;
-    cell.unfoldGone = u > 0.97;
+    cell.unfoldGone = u > 0.995;
+    // THE FRAME HAS TO FADE THROUGH ITS TINT, not through dimOf. Every tube and joint is
+    // INSTANCED, and dimOf returns 1 for instanced nodes because per-instance shading lives in
+    // the tint buffer — so unfoldDim never reached them and they held full brightness until
+    // the hide flicked them out at the end. Same RGB-not-alpha rule as the tour: these are
+    // opaque surfaces, the shader discards vTint.a, so a fade written to alpha does nothing.
+    walk(cell.root, (n) => {
+      if (!n.inst) return true;
+      const v = 1 - u;
+      const tn = n.inst.tint;
+      for (let i = 0; i < n.inst.count; i++) {
+        tn[i * 4] = v; tn[i * 4 + 1] = v; tn[i * 4 + 2] = v;
+      }
+      n.inst.dirty = true;
+      return true;
+    });
     const ng = netGeom(g.net, u);
     g.sheet.geom = ng.solid;
     g.cuts.geom = G.lines(ng.cutSegs);

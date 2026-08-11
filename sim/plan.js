@@ -4,8 +4,8 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=4d2c62a9';
-import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=4d2c62a9';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=7f49ce2b';
+import { diskMW, dragMW, ledger, pumpMW } from './physics.js?v=7f49ce2b';
 
 export function planCycle(cls, mode, oneWayKm, wind) {
   // Airspeed is the vehicle's; ground speed belongs to the day. When a live 850 hPa wind is
