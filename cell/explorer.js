@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=cd208841';
-import * as G from './explorer-geom.js?v=cd208841';
+import * as CELL from './model.js?v=1ee78c65';
+import * as G from './explorer-geom.js?v=1ee78c65';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=cd208841';
+} from './nodes.generated.js?v=1ee78c65';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -381,8 +381,19 @@ function solidNode(parent, id, geom, xmat, extra = {}) {
 
 /** A printed socket: truncated cone from the node core out to the tube diameter,
  * instanced per strut end. FDM loves cones; primitives colliding raw do not print. */
-function socketConeGeom(rBase, rTip, len) {
-  return latheLocal([[-len / 2, rBase], [len / 2, rTip]], 14);
+function socketConeGeom(rBase, rTip, len, rPipe) {
+  // THE MOUTH IS CLOSED, and it is closed onto the pipe. Two rings lathe an OPEN cone: the
+  // tip is a bare circular hole, the tip radius stands about a quarter of a pipe-radius
+  // proud of the tube entering it, and the eye looks straight down that gap into the
+  // collar's own backfaces. On the article that reads as a row of dark intakes bored into
+  // every joint — "on the exterior surface of the connectors it isn't smooth and shows pipe
+  // intakes", exactly. A third ring at the same x closes the gap as a flat annulus, which is
+  // also what the real part has there: the cup's end face, closing around the pipe's cut end.
+  // 24 segments rather than 14 because the pipes it wraps are drawn at 20-22, and a collar
+  // faceted more coarsely than its own tube is the other half of what looks wrong.
+  const prof = [[-len / 2, rBase], [len / 2, rTip]];
+  if (rPipe !== undefined && rPipe < rTip) prof.push([len / 2, rPipe]);
+  return latheLocal(prof, 24);
 }
 
 // A tiny local lathe (explorer-geom re-exports the ship's for everything else; the socket
@@ -608,7 +619,7 @@ function buildCell(ctx) {
   hero.partFamily = 'pipe';
   const hb = G.pointInstances([pts[heroPair[0]], pts[heroPair[1]]]);
   const heroBalls = inst(cg, { id: 'HeroNodes' }, hb.xf, hb.count);
-  heroBalls.geom = G.sphereGeom(r * 1.35, 20, 12);
+  heroBalls.geom = G.sphereGeom(coreR, 24, 16);
   heroBalls.xmat = XM.printed;
   heroBalls.partFamily = 'printed';
   // HeroNodes redraws two of the cores CellNodes already draws, at a finer segment count.
@@ -794,7 +805,7 @@ function buildCell(ctx) {
   spokes.partFamily = 'pipe';
   const hxi = G.pointInstances(hexCorePts);
   const hexNodes = inst(cg, { id: 'HexNodes' }, hxi.xf, hxi.count);
-  hexNodes.geom = G.sphereGeom(coreR0, 16, 10);
+  hexNodes.geom = G.sphereGeom(coreR0, 24, 16);
   hexNodes.xmat = XM.printed;
   hexNodes.partFamily = 'printed';
   // THE PAD IS GONE, and the designer is the one who spotted why: it sliced straight
@@ -820,13 +831,13 @@ function buildCell(ctx) {
   // exactly that. Base capped under the smallest inset keeps every face truly flat.
   const tci = G.strutInstances(tieSockPts, tieSockPairs);
   const tieSockets = inst(cg, { id: 'TieSockets' }, tci.xf, tci.count);
-  tieSockets.geom = socketConeGeom(COLLAR_R * 1.12, COLLAR_R * 0.94, socketLen * 0.8);
+  tieSockets.geom = socketConeGeom(COLLAR_R * 1.12, COLLAR_R * 0.94, socketLen * 0.8, r);
   tieSockets.xmat = XM.printed;
   tieSockets.partFamily = 'printed';
   const allCores = interiorPts2.concat(rimCorePts);
   const ni = G.pointInstances(allCores);
   const nodes = inst(cg, { id: 'CellNodes' }, ni.xf, ni.count);
-  nodes.geom = G.sphereGeom(coreR, 16, 10);
+  nodes.geom = G.sphereGeom(coreR, 24, 16);
   nodes.xmat = XM.printed;
   nodes.partFamily = 'printed';
   uNodes.forEach((u, i) => own(uKey(u), 'CellNodes', i));
@@ -839,14 +850,14 @@ function buildCell(ctx) {
   // reason the collar can be short) a spigot grips the bore, and both bottom out on a
   // shoulder — capture from inside, outside and the end at once, which is what lets a
   // 0.3 mm co-critical wall take an interference fit without splitting.
-  sockets.geom = socketConeGeom(COLLAR_R * 1.18, COLLAR_R * 0.99, socketLen);
+  sockets.geom = socketConeGeom(COLLAR_R * 1.18, COLLAR_R * 0.99, socketLen, r);
   sockets.xmat = XM.printed;
   sockets.partFamily = 'printed';
   // The rim's receivers, on the rim's own collar radius. Same cone, bigger tube.
   const RIM_COLLAR_R = RIM_R * 1.27;      // the ratio COLLAR_R takes off the main pipe
   const rsi = G.strutInstances(rimSockPts, rimSockPairs);
   const rimSockets = inst(cg, { id: 'RimSockets' }, rsi.xf, rsi.count);
-  rimSockets.geom = socketConeGeom(RIM_COLLAR_R * 1.18, RIM_COLLAR_R * 0.99, socketLen);
+  rimSockets.geom = socketConeGeom(RIM_COLLAR_R * 1.18, RIM_COLLAR_R * 0.99, socketLen, RIM_R);
   rimSockets.xmat = XM.printed;
   rimSockets.partFamily = 'printed';
   // GHOST AXES — drawn only when the parts view hides the pipes. Without them the joints
