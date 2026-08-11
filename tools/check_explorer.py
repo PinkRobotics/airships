@@ -377,9 +377,25 @@ PROBE = r"""(() => {
     out.memberEnds += p.arms;
   }
   out.partCount = E.parts.length;
-  // Back on the level that OWNS the cell, every tint must be 1 again — a tour that dims
-  // and never undims leaves the cell level grey.
+  // Back on the level that OWNS the cell. Two separate things are proven here, and they
+  // were one before the page started opening on a structural reading:
+  //   1. the DEFAULT GROUP survives the walk through the tours — a tour owns the dim on its
+  //      own level, and must hand it back rather than leave the cell showing everything;
+  //   2. clearing the group puts every tint back to 1 — a dim that never undims leaves the
+  //      cell level grey, which is the original bug this assertion was written for.
   E.setLevel(E.levels.findIndex(l => l.id === 'cell'), true);
+  E.tick(0.016);
+  out.defaultGroup = E.group;
+  // A member that reaches the centre joint against one that does not — read off the page's
+  // own records, because which instance index is lit depends on the build order.
+  {
+    const lit = E.members.find(m => m.keys.includes('0,0,0'));
+    const dim = E.members.find(m => !m.keys.includes('0,0,0'));
+    out.groupLit = lit ? E.tintAt(lit.inst[0][0], lit.inst[0][1]) : null;
+    out.groupDim = dim ? E.tintAt(dim.inst[0][0], dim.inst[0][1]) : null;
+    out.groupLitCount = E.members.filter(m => m.keys.includes('0,0,0')).length;
+  }
+  E.setGroup('all');
   E.tick(0.016);
   out.clearedTint = E.tintAt('CellStruts', 0);
   out.clearedFrame = [E.renderer.stats.drawCalls, E.renderer.stats.triangles];
@@ -738,11 +754,29 @@ def main() -> None:
                        f"({draws} draws, {tris} tris)")
     if not res.get("stageDive"):
         bad.append("the cell->connectors dive was never driven")
-    # Leaving a tour must put the article back.
+    # THE READING THE PAGE OPENS ON. The cell level lights the twelve members that reach the
+    # centre joint and dims the other 204; a tour on a neighbouring level borrows the same
+    # tint buffer, so coming back must restore the group rather than leave the cell showing
+    # everything. Held to the graph: the centre node is 12-armed, so 12 members reach it.
+    if res.get("defaultGroup") != "centre":
+        bad.append(f"the cell level came back from the tours on group "
+                   f"{res.get('defaultGroup')!r} — the page opens on 'centre' and a tour "
+                   "must hand the dim back, not keep it")
+    if res.get("groupLitCount") != 12:
+        bad.append(f"{res.get('groupLitCount')} members reach the centre joint, not 12 — "
+                   "the reading the page opens on is lighting the wrong set")
+    lit, dim = res.get("groupLit"), res.get("groupDim")
+    if not lit or min(lit[:3]) < 0.999:
+        bad.append(f"a member that reaches the centre joint is drawn at tint {lit} — the "
+                   "group's own subject must be fully lit")
+    if not dim or max(dim[:3]) > 0.9:
+        bad.append(f"a member that does not reach the centre joint is drawn at tint {dim} "
+                   "— the group dims nothing, so the reading is invisible")
+    # And clearing it must put the article back.
     cleared = res.get("clearedTint")
     if cleared and min(cleared) < 0.999:
-        bad.append(f"the cell level is still dimmed after the tour ({cleared}) — leaving a "
-                   "tour level must clear every tint")
+        bad.append(f"the cell level is still dimmed after group 'all' ({cleared}) — "
+                   "clearing the group must clear every tint")
     cf = res.get("clearedFrame") or [0, 0]
     if cf[0] < 3 or cf[1] <= 0:
         bad.append(f"the cell level draws a nearly empty frame after the tour ({cf})")
@@ -779,7 +813,8 @@ def main() -> None:
     # those comparisons come off the page, and two absent values compare equal.
     _n = res.get("net") or {}
     print(f"          the skin unfolds to a flat net: {_n.get('folds')} folds / "
-          f"{_n.get('cuts')} cuts, {_n.get('areaM2', 0):.4f} m2, "
+          f"{_n.get('cuts')} cuts, {_n.get('areaM2', 0):.4f} m2 inside "
+          f"{_n.get('widthM', 0):.3f} x {_n.get('heightM', 0):.3f} m, "
           f"{_n.get('thicknessMm', 0):.5f} mm out of plane, "
           f"{_n.get('overlaps')} overlapping face pairs — it can be cut.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "

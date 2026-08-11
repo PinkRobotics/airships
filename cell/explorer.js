@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=72073b16';
-import * as G from './explorer-geom.js?v=72073b16';
+import * as CELL from './model.js?v=d4db8d0a';
+import * as G from './explorer-geom.js?v=d4db8d0a';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=72073b16';
+} from './nodes.generated.js?v=d4db8d0a';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1566,6 +1566,11 @@ export function mountExplorer(opts) {
     unfold: 0,                   // 0 = the cell, 1 = the flat net
     unfoldTo: 0,                 // what it is easing toward
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
+    // THE CELL OPENS ON ITS CENTRE JOINT. "Everything" is 216 identical-looking sticks and
+    // says nothing about how the cell carries load; lighting the twelve members that reach
+    // u = (0,0,0) shows the one interior node the whole octet hangs off, first frame, with
+    // no click. Any group button (including "everything") replaces it.
+    group: 'centre',             // which structural reading is lit; see applyGroup
     tourIdx: 0,                  // which stop of the current level's tour
     tourStop: null,              // its key, so a probe and a label can read it back
     turntable: !reducedMotion,
@@ -1697,7 +1702,13 @@ export function mountExplorer(opts) {
     // The dim follows the level, not the hop: entering a tour level dims at once, leaving
     // one puts every tint back to 1 or the cell stays grey on the level that owns it.
     tourFrom = tourTo = tr ? tr.stops[0].subject : null;
-    if (tr) applyTour(1); else clearTour();
+    // A tour owns the dim on the levels that have one. On the levels that do not — the cell
+    // itself, and the two outside the stage — the GROUP owns it, so re-apply it rather than
+    // clearing: the reading you were looking at has to survive a walk up to the array and
+    // back. Off the stage there is nothing of the cell on screen, so it costs a no-op walk.
+    if (tr) applyTour(1);
+    else if (isStage(idx) && state.group && state.group !== 'all') applyGroup(state.group);
+    else clearTour();
     if (onLevelChange) onLevelChange(idx, LEVELS[idx]);
     if (opts.onPart) opts.onPart(lv.id, tr ? tr.stops[0] : null, 0);
     dirty = true;
@@ -1782,6 +1793,59 @@ export function mountExplorer(opts) {
     cell.tourDim = 1;
     cell.tourSkinDim = 1;
     dirty = true;
+  }
+
+  /** Light one structural reading of the article and dim the rest.
+   *
+   * The same per-instance tint the tour uses, driven by a question instead of a stop.
+   * Every one of these is a real partition of the 216 members, and two of them are the
+   * project's own history: the SPOKES and the TIES were both added after a load path was
+   * found missing, so "secondary" is not a grade, it is what the first cut forgot.
+   *   internal / external  interior lattice + its binding, against everything lying in a face
+   *   primary / secondary  sized against a real load, against added to brace what that missed
+   *   long / short         the two cut lengths, 251 mm and 177 mm
+   *   centre               the twelve that reach u = (0,0,0), the only 60-degree joint
+   *
+   * A local function rather than only an api method because setLevel re-applies it: the
+   * group is a property of the article, not of the click, so walking up to the array and
+   * back must not silently drop the reading you were looking at.
+   */
+  function applyGroup(name) {
+    const KINDS = {
+      internal: ['octet', 'tie'], external: ['rim', 'spoke'],
+      primary: ['octet', 'rim'], secondary: ['spoke', 'tie'],
+      long: ['octet', 'rim', 'spoke'], short: ['tie'],
+    };
+    state.group = name;
+    if (name === 'all' || (!KINDS[name] && name !== 'centre')) {
+      state.group = 'all';
+      clearTour();
+      return 'all';
+    }
+    const recs = built[STAGE_LEVEL].members || [];
+    // The centre node's key is uKey([0,0,0]) — the same string the builder files members
+    // under, so this asks the record rather than re-deriving a position.
+    const CENTRE = '0,0,0';
+    const keys = new Set();
+    for (const m of recs) {
+      const hit = name === 'centre'
+        ? m.keys.includes(CENTRE)
+        : KINDS[name].includes(m.kind);
+      if (hit) for (const [id, i] of m.inst) keys.add(`${id}#${i}`);
+    }
+    // "Into the centre" is about a JOINT, so light the joint as well as the twelve members
+    // that reach it — twelve lit tubes converging on a dimmed hub reads as a gap, which is
+    // the opposite of the point. The kind-based readings have no joint of their own: every
+    // node touches several kinds, so lighting their endpoints would light nearly all 51.
+    if (name === 'centre') {
+      for (const p of (built[STAGE_LEVEL].parts || [])) {
+        if (p.key === CENTRE) for (const [id, i] of p.inst) keys.add(`${id}#${i}`);
+      }
+    }
+    tourFrom = keys;
+    tourTo = keys;
+    applyTour(1);
+    return name;
   }
 
   /* -- style resolution: fades, cuts, custom materials -- */
@@ -2336,45 +2400,8 @@ export function mountExplorer(opts) {
       dirty = true;
       return state.skinMode;
     },
-    /** Light one structural reading of the article and dim the rest.
-     *
-     * The same per-instance tint the tour uses, driven by a question instead of a stop.
-     * Every one of these is a real partition of the 216 members, and two of them are the
-     * project's own history: the SPOKES and the TIES were both added after a load path was
-     * found missing, so "secondary" is not a grade, it is what the first cut forgot.
-     *   internal / external  interior lattice + its binding, against everything lying in a face
-     *   primary / secondary  sized against a real load, against added to brace what that missed
-     *   long / short         the two cut lengths, 251 mm and 177 mm
-     *   centre               the twelve that reach u = (0,0,0), the only 60-degree joint
-     */
-    setGroup(name) {
-      const KINDS = {
-        internal: ['octet', 'tie'], external: ['rim', 'spoke'],
-        primary: ['octet', 'rim'], secondary: ['spoke', 'tie'],
-        long: ['octet', 'rim', 'spoke'], short: ['tie'],
-      };
-      state.group = name;
-      if (name === 'all' || (!KINDS[name] && name !== 'centre')) {
-        state.group = 'all';
-        clearTour();
-        return 'all';
-      }
-      const recs = built[STAGE_LEVEL].members || [];
-      // The centre node's key is uKey([0,0,0]) — the same string the builder files members
-      // under, so this asks the record rather than re-deriving a position.
-      const CENTRE = '0,0,0';
-      const keys = new Set();
-      for (const m of recs) {
-        const hit = name === 'centre'
-          ? m.keys.includes(CENTRE)
-          : KINDS[name].includes(m.kind);
-        if (hit) for (const [id, i] of m.inst) keys.add(`${id}#${i}`);
-      }
-      tourFrom = keys;
-      tourTo = keys;
-      applyTour(1);
-      return name;
-    },
+    /** Light one structural reading of the article and dim the rest — see applyGroup. */
+    setGroup(name) { return applyGroup(name); },
     get group() { return state.group || 'all'; },
     /** Open the net, or fold it back. Returns the label the button must now show. */
     toggleUnfold() {
@@ -2436,7 +2463,16 @@ export function mountExplorer(opts) {
         }
         if (!sep) overlaps++;
       }
+      // The flat pattern's own bounding box, in the plane it lies in. Area alone does not
+      // say whether the net can be CUT: film comes on a roll of finite width and a laser
+      // has a finite bed, and both are answered by the extent, not the square metres.
+      let bx0 = 1e9, bx1 = -1e9, by0 = 1e9, by1 = -1e9;
+      for (const q of polys) for (const p of q) {
+        if (p[0] < bx0) bx0 = p[0]; if (p[0] > bx1) bx1 = p[0];
+        if (p[1] < by0) by0 = p[1]; if (p[1] > by1) by1 = p[1];
+      }
       return { u: state.unfold, thicknessMm: (hi - lo) * 1000, areaM2: area,
+               widthM: bx1 - bx0, heightM: by1 - by0,
                overlaps, folds: g.net.folds, cuts: g.net.cuts };
     },
     cycleParts() {

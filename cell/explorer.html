@@ -1198,7 +1198,7 @@
   <div class="grp">
     <div class="glab">structure — light one, dim the rest</div>
     <div class="row">
-      <button class="gbtn on" data-group="all">everything</button>
+      <button class="gbtn" data-group="all">everything</button>
       <button class="gbtn" data-group="internal">internal</button>
       <button class="gbtn" data-group="external">boundary</button>
     </div>
@@ -1209,7 +1209,9 @@
     <div class="row">
       <button class="gbtn" data-group="long">long cuts</button>
       <button class="gbtn" data-group="short">short cuts</button>
-      <button class="gbtn" data-group="centre">into the centre</button>
+      <!-- Pressed on load: the cell opens on its centre joint. api.group is the authority
+           and syncGroups re-reads it, but the markup must agree or the first paint lies. -->
+      <button class="gbtn on" data-group="centre">into the centre</button>
     </div>
   </div>
   <div class="grp">
@@ -1278,8 +1280,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=72073b16';
-import * as CELL from './model.js?v=72073b16';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=d4db8d0a';
+import * as CELL from './model.js?v=d4db8d0a';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1564,6 +1566,10 @@ if (!api) {
     api.setGroup(b.dataset.group === api.group ? 'all' : b.dataset.group);
     syncGroups();
   }));
+  // ?group=all|internal|…  overrides the default reading, the same way ?unfold=1 opens the
+  // net: a still harness loads a URL and cannot click, so without this the only group any
+  // screenshot can ever show is the one the page opens on.
+  if (qs.has('group')) api.setGroup(qs.get('group'));
   syncGroups();
   // THE TOUR. One real button, because a control the probe cannot drive is a control no
   // gate covers — the parts view was invisible to check_explorer's level loop until
