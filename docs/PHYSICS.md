@@ -112,6 +112,59 @@ A gas envelope trades lift for the mass of the lifting gas. A vacuum envelope ke
 the lift and must instead survive one atmosphere of external pressure without collapsing.
 That is a stability problem, not a strength problem, and it does not scale kindly.
 
+Be honest about the size of that trade: the gas tax is small — hydrogen costs 7% of the
+displaced-air mass and helium 14% — while the structure that survives the atmosphere costs
+this project's *target* design 47% of it. **Vacuum does not win on lift**; the break-even
+structure against hydrogen is 0.067 kg/m³, six times below even the deepest hierarchy
+level. The decision to build vacuum anyway is the mission's — no feedstock, no gas
+logistics tail, crush-safe fixed displacement, the array as airframe — and it is worked,
+with the market numbers, in `research/analysis/helium.md`. That is the challenge this
+document exists to map.
+
+**THE HULL IS NOT ONE ENVELOPE. It is many permanently sealed vacuum cells**, and this
+document did not say so until 2026-08-10, which is long enough for it to have caused a
+mistake — an analysis proposed ballasting by admitting air, which a sealed-cell hull cannot
+do, and the retraction is at `research/analysis/air-ballast.md`. The model has no geometry
+below `dispM3`, so nothing in the code implies it either.
+
+**Nothing lives inside a cell.** Machinery sits in ambient-pressure bays *within the hull*,
+surrounded by cells, bolted to a structure the cells are themselves part of. The cells pull
+up on that structure; they are the lift elements and the airframe at the same time. The
+intended cell is a space-filling near-spherical solid whose walls are printed to interlock and
+to carry services between neighbours — lighter-than-air building blocks that are stronger
+assembled than alone, so the array is the substructure and much of the superstructure too.
+
+Four consequences, and they are not small:
+
+- **There is no valve, and cracking a cell open is irreversible in the field.** Nothing aboard
+  can expel an atmosphere once it is admitted. Ballast therefore has to be *made* — which is
+  what the cryogenic plant is for, and why it cannot be deleted.
+- **The buckling radius is the cell's, not the hull's.** Every vacuum design in the literature
+  is a sphere because a sphere is optimal against external pressure, and these hulls are
+  fineness-4 bodies of revolution. On a monocoque that penalty is severe enough to be fatal
+  (see `research/analysis/mass-budget.md`). With small cells the outer body becomes a fairing
+  and the penalty largely goes away. **This is the reason the shape of the ship and the shape
+  of its pressure vessels are allowed to differ.**
+- **It costs packing.** Space that is not cell — machinery bays, structure, and any gap between
+  cells — sits at ambient and lifts nothing, so effective lift scales by the packing fraction.
+  A space-filling cell drives the geometric part of that to 1; the bays are a real deduction.
+  The number has never been chosen.
+- **MOST WALL AREA CARRIES NO PRESSURE AT ALL.** An interior wall has vacuum on both sides. At
+  2 m cells a P-100 has ~330,000 m² of interior wall against 22,592 m² of array boundary —
+  **93.6% of the wall area sits at zero differential** in normal operation, and the atmosphere
+  is carried only at the boundary. That is a fundamentally different problem from N independent
+  pressure vessels, which is what the entire literature models and what
+  `research/analysis/mass-budget.md` costed. **The whole internal structure is therefore sized
+  by the BREACH case** — one flooded cell puts an atmosphere into its own walls in tension
+  (0.162 kg/m³, scale-free, clears the wall with 5.9× margin) and against its neighbours' walls
+  in compression (3.59 kg/m³ monolithic, which fails by 3.7× and is exactly why a lattice or
+  sandwich is needed rather than a skin). Breach stops being a safety test and becomes the
+  sizing load case for the ship.
+
+Everything below treats the shell as a single sphere, because that is what the sources do and
+because it is the conservative reading for stability. The cellular case is better, and nobody
+has worked it.
+
 Take a spherical shell of radius R, wall thickness t, material density ρ_m, Young's modulus
 E and Poisson's ratio ν. Net lift is positive when
 

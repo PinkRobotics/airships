@@ -31,6 +31,7 @@ Two blanket statements, required by the Open Government Licences and true of all
 | 5 | Natural Earth roads and BC outline | `data/roads-bc.json`, `data/bc-outline.json` | public domain |
 | 6 | Esri World Imagery basemap tiles | none — fetched by the visitor's browser | **unresolved; see below** |
 | 7 | Open-Meteo 850 hPa wind forecast | none — fetched by the visitor's browser | CC BY 4.0 |
+| 8 | BC historical fire perimeters, 2006-2025 | `data/fire-history-bc.json` (+ `.prov.json`) | Open Government Licence – British Columbia |
 
 ---
 
@@ -382,6 +383,35 @@ on a company domain is at least arguably commercial use. If this project attract
 traffic, move the wind fetch behind the same server-side mirror that already fronts the
 fire feeds (`pipeline/live.py`), which fixes the rate limit, the privacy leak and the
 commercial-use question at once.
+
+---
+
+## 8. BC historical fire perimeters — twenty seasons
+
+**What it is.** Every mapped BC fire perimeter of 10 hectares or more from 2006 onward:
+3,286 polygons, 10,928,804 hectares. Fetched once by `pipeline/firehistory.py` from the
+province's WFS and stored as `data/fire-history-bc.json`, with the full record in
+`data/fire-history-bc.prov.json`.
+
+**Where it came from.** `WHSE_LAND_AND_NATURAL_RESOURCE.PROT_HISTORICAL_FIRE_POLYS_SP` on
+openmaps.gov.bc.ca, filtered `FIRE_YEAR>=2006 AND FIRE_SIZE_HECTARES>=10`, geometry requested
+at `maxAllowableOffset` 0.001 degrees.
+
+**Licence.** Open Government Licence – British Columbia 2.0, the same as the Freshwater Atlas
+and the live fire feed. *Contains information licensed under the Open Government Licence –
+British Columbia.* The Information was modified: filtered, simplified, reduced to centroids
+and rounded to four decimal places. The Province does not endorse this project and nothing
+here has official status.
+
+**What it is used for.** `research/analysis/water-availability.js` and `delivery.py`, which
+ask what fraction of real fires have an adequate water source in range and how a day's
+delivery compares with a real fire's perimeter. It is not read by the page.
+
+**Two things to be honest about.** The 10 ha floor excludes the thousands of small starts
+BCWS records each year that are out before anything flies, so this is the population that
+gets an aviation response and not the population of fires. And **perimeter lengths computed
+from these rings are lower bounds** — Douglas-Peucker simplification shortens a convoluted
+edge, and a fire's final mapped footprint is not the line anyone built.
 
 ---
 

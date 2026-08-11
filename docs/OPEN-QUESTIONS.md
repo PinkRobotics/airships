@@ -1,5 +1,22 @@
 # Open questions
 
+> **2026-08-10: SIX OF THESE NOW HAVE ANSWERS, and they are in `research/analysis/`.**
+>
+> This page says what is wrong. `docs/VERIFICATION-PLAN.md` says what would settle it, and
+> sorts every question into settled-by-analysis, needs-an-experiment, needs-an-expert or
+> needs-data. Read that first if you want to know what to *do*.
+>
+> | entry | what the analysis found | where |
+> |---|---|---|
+> | #11 | **The go/no-go is one number nobody had written down: a vacuum shell must mass less than 0.957 kg/m³ of enclosed volume.** Jenett's published 0.508 clears it with 47% margin and the hull is free to grow — 353,975 m³, a 223 m ship. What decides it is the shell density of one *sealed cell* and the *packing fraction*. | `mass-budget.md` |
+> | #13 | **Water is not a constraint.** 3,286 BC fires over 20 seasons; all have an adequate source in range; median 4.71 km. The binding unknown is lake *depth*, which the Freshwater Atlas does not carry. | `water-availability.md` |
+> | #0, #4 | **The cryogenic plant CANNOT be deleted** — a sealed-cell hull has no way to ballast with air, and an earlier claim that it could is retracted. But the ship makes nitrogen on every cycle it does not need, at **52.5%** of the P-100's cycle energy. | `air-ballast.md` |
+> | #3, #14, #15 | **The letdown is understated by 30–54×.** Corrected, cycle energy rises 50–92%. The anchor saves 4.7–49.2%, not the 96% claimed, because the cable is in the water for only 4–46% of the fall. | `descent.md` |
+> | #8 | **Re-opened with a purpose.** `diskM2` was retired as inert on a measurement taken against a letdown 53× too small. Doubling the disc saves 9.9% of the cycle. | `descent.md` |
+> | #12 | **`ALT.drop` = 450 m does not deliver water** — and the ship's own rotors push air *upward* at 86× the mass flow of the water. The answer is sprayer leads. Measured in line rather than tonnes, one P-100 could wet the perimeter of 91.4% of BC campaign fires daily. | `delivery.md` |
+>
+> Regenerate all of it with `make analysis`.
+
 > **DECIDED 2026-08-09.** All six are to be fixed. The decisions are recorded at the top of
 > each entry as **DECISION**, and they change what "correct" means, so read them before
 > touching the arithmetic. Three of them interact: making the hull buoyant fully loaded

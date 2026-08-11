@@ -1,0 +1,3530 @@
+{
+ "generated": {
+  "by": "research/analysis/mass-budget.py",
+  "figures": {
+   "by": "tools/figures_dump.js via make factsheet",
+   "seed": "model defaults"
+  }
+ },
+ "evidence": {
+  "shell_kg_per_m3": {
+   "floor": {
+    "value": 0.508,
+    "source": "Jenett et al. 2019 Table 2 \u2014 2,126 t shell on a 4.19e6 m3 lattice sphere. Bare lattice: no skin, joints, valves or plant."
+   },
+   "credible": {
+    "value": 0.75,
+    "source": "Jenett's lattice plus a 50% allowance for the joints, panel attachments and non-spherical geometry the paper excludes and names as later work."
+   },
+   "demonstrated": {
+    "value": 1.16,
+    "source": "Akhmeteli & Gavrilin 2021 \u2014 the only vacuum shell design checked against a buckling FEA, at 0.9 x 1.29 kg/m3."
+   }
+  },
+  "barrier_kg_per_m2": {
+   "floor": {
+    "value": null,
+    "source": "Derived by barrier_floor() from the hull's lattice pitch: a Zylon film bulging into one cell at h/a = 0.25, safety factor 4, 50% fibre efficiency."
+   },
+   "credible": {
+    "value": null,
+    "source": "Ten times the derived film floor, for seams, adhesive, handling plies and repair patches. Nobody has made one."
+   },
+   "demonstrated": {
+    "value": 3.45,
+    "source": "Metlen 2013 \u2014 Zylon-reinforced Mylar, the only real membrane in the literature, at W/B += 0.37."
+   }
+  },
+  "solar_kg_per_m2": {
+   "floor": {
+    "value": 0.36,
+    "source": "MicroLink flexible solar sheet, 250 W/m2 at >700 W/kg \u2014 flight hardware on Zephyr and PHASA-35."
+   },
+   "credible": {
+    "value": 0.65,
+    "source": "X Development HALE patent US 10,407,153 budgets ~500 g/m2 of cells plus ~150 g/m2 of structure, installed."
+   },
+   "demonstrated": {
+    "value": 1.2,
+    "source": "A conservative installed figure with encapsulation and attachment for a hull that flies through smoke and hail."
+   }
+  },
+  "battery_wh_per_kg": {
+   "floor": {
+    "value": 500.0,
+    "source": "Lvovich 2020 (NASA GRC) \u2014 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+   },
+   "credible": {
+    "value": 300.0,
+    "source": "Lvovich 2020 \u2014 'achievable within reasonable timeframe'."
+   },
+   "demonstrated": {
+    "value": 149.0,
+    "source": "Chin et al. 2021 \u2014 the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+   }
+  },
+  "motor_kw_per_kg": {
+   "floor": {
+    "value": 16.0,
+    "source": "NASA HEMM target, 1.4 MW class. A target, not a delivery."
+   },
+   "credible": {
+    "value": 13.2,
+    "source": "NASA electrified-aircraft metric goal for MW-class machines."
+   },
+   "demonstrated": {
+    "value": 5.0,
+    "source": "Representative of MW-class machines actually run on a bench."
+   }
+  },
+  "drive_frac_of_motor": {
+   "floor": {
+    "value": 1.0,
+    "source": "n/a"
+   },
+   "credible": {
+    "value": 1.2,
+    "source": "n/a"
+   },
+   "demonstrated": {
+    "value": 1.5,
+    "source": "n/a"
+   }
+  },
+  "rotor_kg_per_m2_disc": {
+   "floor": {
+    "value": 5.3,
+    "source": "A CH-47 blade set plus hub is about 1.4 t on an 18.3 m rotor \u2014 5.3 kg per m2 of disc, and radius-independent under the mass-goes-as-diameter-squared scaling this line assumes. An earlier version used 1.5, which is the blades-only figure and contradicted this string."
+   },
+   "credible": {
+    "value": 7.0,
+    "source": "The same, with a hub and pylon for a body of revolution."
+   },
+   "demonstrated": {
+    "value": 9.0,
+    "source": "Heavy-lift rotorcraft practice."
+   }
+  },
+  "cryo_t_per_mw": {
+   "floor": {
+    "value": 2.0,
+    "source": "NO SOURCE, and 34x better than NASA's best published flight-optimised liquefier. Recorded as a stated gift to the budget, not an estimate."
+   },
+   "credible": {
+    "value": 20.0,
+    "source": "NO SOURCE. A three-fold improvement on ground practice."
+   },
+   "demonstrated": {
+    "value": 65.0,
+    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; corroborated by NASA GRC's 68.6 t/MW reverse turbo-Brayton flight concept."
+   }
+  },
+  "ln2_tank_frac": {
+   "floor": {
+    "value": 0.05,
+    "source": "Vacuum-jacketed cryogenic tank at large scale, LN2 (denser and warmer than LH2, so lighter per tonne stored)."
+   },
+   "credible": {
+    "value": 0.08,
+    "source": "The same with structure to react flight loads."
+   },
+   "demonstrated": {
+    "value": 0.15,
+    "source": "Aerospace cryotank practice."
+   }
+  },
+  "fabric_kg_per_m2": {
+   "floor": {
+    "value": 1.0,
+    "source": "Coated fabric for water bladders and the anchor bag."
+   },
+   "credible": {
+    "value": 1.5,
+    "source": "The same, with wear plies at the fill and dump interfaces."
+   },
+   "demonstrated": {
+    "value": 2.5,
+    "source": "Bambi-bucket-class reinforced fabric."
+   }
+  },
+  "rope_n_per_kg_per_m": {
+   "floor": {
+    "value": 2000000.0,
+    "source": "UHMWPE at 2.0 N/tex \u2014 the optimistic end of realised rope tenacity."
+   },
+   "credible": {
+    "value": 1500000.0,
+    "source": "Commercial 12-strand UHMWPE data sheets realise 1.4-1.6 N/tex, well under the 3.5-4.0 N/tex of the bare fibre."
+   },
+   "demonstrated": {
+    "value": 1400000.0,
+    "source": "The pessimistic end of the same data sheets."
+   }
+  },
+  "rope_safety_factor": {
+   "floor": {
+    "value": 3.0,
+    "source": "n/a"
+   },
+   "credible": {
+    "value": 5.0,
+    "source": "n/a"
+   },
+   "demonstrated": {
+    "value": 7.0,
+    "source": "n/a"
+   }
+  },
+  "hose_kg_per_m_per_m_bore": {
+   "floor": {
+    "value": 10.0,
+    "source": "Reinforced layflat discharge hose, mass per metre per metre of bore, at the 30 bar this head needs."
+   },
+   "credible": {
+    "value": 17.0,
+    "source": "The same in a wire-reinforced construction that survives repeated deployment."
+   },
+   "demonstrated": {
+    "value": 25.0,
+    "source": "Heavy suction hose."
+   }
+  },
+  "sundries_frac": {
+   "floor": {
+    "value": 0.1,
+    "source": "Sentinel 1000 actuals: electrics, instruments and miscellaneous are 9.9% of empty weight on a flown airship."
+   },
+   "credible": {
+    "value": 0.15,
+    "source": "The same, counting flight controls (14.3%)."
+   },
+   "demonstrated": {
+    "value": 0.2,
+    "source": "With an ANSI/AIAA S-120 mass growth allowance on top."
+   }
+  }
+ },
+ "classes": {
+  "P100": {
+   "allowanceT": 100,
+   "hullAreaM2": 22592,
+   "displacementM3": 220000,
+   "requiredKgPerM3": 0.4545,
+   "requiredKgPerM2": 4.426,
+   "liftAtWorkAltT": 210.5,
+   "cases": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 111.76,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 0.98,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 2.16,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 40.0,
+       "driver": "20.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 1.88,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 1.88,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 13.25,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 12.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 7.75,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.1,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.24,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 1.07,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 0.64,
+       "driver": "1.2 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.12,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 0.77,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 19.66,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 216.3,
+     "overBy": 2.16,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 104.5,
+     "baseExShellExSundriesT": 84.84
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 165.0,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 9.8,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 3.9,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 66.67,
+       "driver": "20.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 2.27,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 2.73,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 17.5,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 120.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 12.4,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.16,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.3,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 1.82,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 1.43,
+       "driver": "1.2 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.18,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 0.93,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 61.06,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 468.1,
+     "overBy": 4.68,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 303.1,
+     "baseExShellExSundriesT": 242.09
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 255.2,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 77.94,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 7.2,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 134.23,
+       "driver": "20.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 6.0,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 9.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 22.5,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 390.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 23.25,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.26,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.78,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 2.68,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 2.15,
+       "driver": "1.2 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.3,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 2.45,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 187.19,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 1123.1,
+     "overBy": 11.23,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 867.9,
+     "baseExShellExSundriesT": 680.74
+    }
+   },
+   "rightSized": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 111.76,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 0.98,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 2.16,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 7.52,
+       "driver": "3.76 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 1.88,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 1.88,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 13.25,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 12.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 7.75,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.1,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.24,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 1.07,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 0.64,
+       "driver": "1.2 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.12,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 0.77,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 16.41,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 180.5,
+     "overBy": 1.81,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 68.8,
+     "baseExShellExSundriesT": 52.36,
+     "shellBudgetLeftT": 38.5,
+     "requiredShellKgPerM3": 0.1752,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 227571,
+       "timesBaseline": 1.03,
+       "lenM": 192,
+       "diaM": 48
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 260368,
+       "timesBaseline": 1.18,
+       "lenM": 201,
+       "diaM": 50
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 353975,
+       "timesBaseline": 1.61,
+       "lenM": 223,
+       "diaM": 55
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 447479,
+       "timesBaseline": 2.03,
+       "lenM": 241,
+       "diaM": 60
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 784115,
+       "timesBaseline": 3.56,
+       "lenM": 290,
+       "diaM": 72
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 3062477,
+       "timesBaseline": 13.92,
+       "lenM": 457,
+       "diaM": 113
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 357865,
+        "timesBaseline": 1.63,
+        "lenM": 223,
+        "diaM": 55
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 811637,
+        "timesBaseline": 3.69,
+        "lenM": 294,
+        "diaM": 73
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 288126,
+        "timesBaseline": 1.31,
+        "lenM": 208,
+        "diaM": 51
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 525039,
+        "timesBaseline": 2.39,
+        "lenM": 254,
+        "diaM": 63
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 2725986,
+        "timesBaseline": 12.39,
+        "lenM": 440,
+        "diaM": 109
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 227571,
+        "timesBaseline": 1.03,
+        "lenM": 192,
+        "diaM": 48
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 353975,
+        "timesBaseline": 1.61,
+        "lenM": 223,
+        "diaM": 55
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 784115,
+        "timesBaseline": 3.56,
+        "lenM": 290,
+        "diaM": 72
+       }
+      }
+     }
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 165.0,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 9.8,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 3.9,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 12.53,
+       "driver": "3.76 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 2.27,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 2.73,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 17.5,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 120.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 12.4,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.16,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.3,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 1.82,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 1.43,
+       "driver": "1.2 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.18,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 0.93,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 52.94,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 405.9,
+     "overBy": 4.06,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 240.9,
+     "baseExShellExSundriesT": 187.95,
+     "shellBudgetLeftT": -101.0,
+     "requiredShellKgPerM3": 0.0,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 471338,
+       "timesBaseline": 2.14,
+       "lenM": 245,
+       "diaM": 61
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 542365,
+       "timesBaseline": 2.47,
+       "lenM": 257,
+       "diaM": 63
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 748634,
+       "timesBaseline": 3.4,
+       "lenM": 286,
+       "diaM": 71
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 959615,
+       "timesBaseline": 4.36,
+       "lenM": 310,
+       "diaM": 77
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 1756369,
+       "timesBaseline": 7.98,
+       "lenM": 380,
+       "diaM": 94
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 8433177,
+       "timesBaseline": 38.33,
+       "lenM": 641,
+       "diaM": 158
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 757318,
+        "timesBaseline": 3.44,
+        "lenM": 287,
+        "diaM": 71
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 1823933,
+        "timesBaseline": 8.29,
+        "lenM": 385,
+        "diaM": 95
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 602996,
+        "timesBaseline": 2.74,
+        "lenM": 266,
+        "diaM": 66
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 1138161,
+        "timesBaseline": 5.17,
+        "lenM": 329,
+        "diaM": 81
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 7315760,
+        "timesBaseline": 33.25,
+        "lenM": 611,
+        "diaM": 151
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 471338,
+        "timesBaseline": 2.14,
+        "lenM": 245,
+        "diaM": 61
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 748634,
+        "timesBaseline": 3.4,
+        "lenM": 286,
+        "diaM": 71
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 1756369,
+        "timesBaseline": 7.98,
+        "lenM": 380,
+        "diaM": 94
+       }
+      }
+     }
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 255.2,
+       "driver": "220,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 77.94,
+       "driver": "22,592 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 7.2,
+       "driver": "6,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 25.23,
+       "driver": "3.76 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 6.0,
+       "driver": "30 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 9.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 22.5,
+       "driver": "2,500 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 390.0,
+       "driver": "6 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 23.25,
+       "driver": "155 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 2.26,
+       "driver": "100 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 0.78,
+       "driver": "1.96 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 2.68,
+       "driver": "300 m x 357 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 2.15,
+       "driver": "1.2 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.3,
+       "driver": "125 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 2.45,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 165.39,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 992.3,
+     "overBy": 9.92,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 737.1,
+     "baseExShellExSundriesT": 571.74,
+     "shellBudgetLeftT": -488.4,
+     "requiredShellKgPerM3": 0.0,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 1522629,
+       "timesBaseline": 6.92,
+       "lenM": 362,
+       "diaM": 90
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 1814147,
+       "timesBaseline": 8.25,
+       "lenM": 384,
+       "diaM": 95
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 2749504,
+       "timesBaseline": 12.5,
+       "lenM": 441,
+       "diaM": 109
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 3844427,
+       "timesBaseline": 17.47,
+       "lenM": 493,
+       "diaM": 122
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 9299500,
+       "timesBaseline": 42.27,
+       "lenM": 662,
+       "diaM": 164
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 153193461,
+       "timesBaseline": 696.33,
+       "lenM": 1684,
+       "diaM": 417
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 2791792,
+        "timesBaseline": 12.69,
+        "lenM": 443,
+        "diaM": 110
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 9862367,
+        "timesBaseline": 44.83,
+        "lenM": 675,
+        "diaM": 167
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 2075358,
+        "timesBaseline": 9.43,
+        "lenM": 401,
+        "diaM": 99
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 4882494,
+        "timesBaseline": 22.19,
+        "lenM": 534,
+        "diaM": 132
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 116230555,
+        "timesBaseline": 528.32,
+        "lenM": 1536,
+        "diaM": 380
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 1522629,
+        "timesBaseline": 6.92,
+        "lenM": 362,
+        "diaM": 90
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 2749504,
+        "timesBaseline": 12.5,
+        "lenM": 441,
+        "diaM": 109
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 9299500,
+        "timesBaseline": 42.27,
+        "lenM": 662,
+        "diaM": 164
+       }
+      }
+     }
+    }
+   },
+   "airBallast": {
+    "floodedM3": 130057,
+    "floodedPctOfHull": 59.1,
+    "ballastNeededT": 144.6,
+    "energyToDescendMWh": 0.0,
+    "idealWorkMWh": 3.25,
+    "electricalMWhToReEvacuate": 10.82,
+    "clearHours": 6.0,
+    "pumpMW": 1.8,
+    "pumpT": 1.8,
+    "valveAreaM2For60s": 11.13,
+    "valveAreaM2For300s": 2.23,
+    "ln2RouteMWhToFillTanks": 69.8,
+    "ln2RouteDaysOnSolar": 10.8,
+    "airRouteDaysOnSolarToReEvacuate": 1.7,
+    "energyRatioLn2OverAir": 6.4,
+    "cycleCryoMWh": 0.824,
+    "cycleRecoveryMWh": 0.165,
+    "cycleNetCryoMWh": 0.658
+   },
+   "descentWithoutNitrogen": {
+    "surplusAtSourceT": 137.4,
+    "anchorT": 125,
+    "residualForRotorsT": 12.4,
+    "rotorCapT": 267.2,
+    "marginX": 21.5,
+    "cycleMWhAsBuilt": 1.253,
+    "cycleMWhWithoutCryo": 0.595,
+    "cycleSavingPct": 52.5
+   },
+   "batterySensitivity": {
+    "floor": {
+     "2 cycles": {
+      "batteryMWh": 2.51,
+      "batteryT": 5.0,
+      "totalT": 54.8,
+      "leftForShellT": 41.1,
+      "requiredShellKgPerM3": 0.1866
+     },
+     "4 cycles": {
+      "batteryMWh": 5.01,
+      "batteryT": 10.0,
+      "totalT": 60.4,
+      "leftForShellT": 36.0,
+      "requiredShellKgPerM3": 0.1638
+     },
+     "8 cycles": {
+      "batteryMWh": 10.02,
+      "batteryT": 20.0,
+      "totalT": 71.4,
+      "leftForShellT": 26.0,
+      "requiredShellKgPerM3": 0.1183
+     },
+     "16 cycles": {
+      "batteryMWh": 20.05,
+      "batteryT": 40.1,
+      "totalT": 93.4,
+      "leftForShellT": 6.0,
+      "requiredShellKgPerM3": 0.0272
+     }
+    },
+    "credible": {
+     "2 cycles": {
+      "batteryMWh": 2.51,
+      "batteryT": 8.4,
+      "totalT": 211.3,
+      "leftForShellT": -96.8,
+      "requiredShellKgPerM3": 0.0
+     },
+     "4 cycles": {
+      "batteryMWh": 5.01,
+      "batteryT": 16.7,
+      "totalT": 220.9,
+      "leftForShellT": -105.2,
+      "requiredShellKgPerM3": 0.0
+     },
+     "8 cycles": {
+      "batteryMWh": 10.02,
+      "batteryT": 33.4,
+      "totalT": 240.2,
+      "leftForShellT": -121.9,
+      "requiredShellKgPerM3": 0.0
+     },
+     "16 cycles": {
+      "batteryMWh": 20.05,
+      "batteryT": 66.8,
+      "totalT": 278.6,
+      "leftForShellT": -155.3,
+      "requiredShellKgPerM3": 0.0
+     }
+    },
+    "demonstrated": {
+     "2 cycles": {
+      "batteryMWh": 2.51,
+      "batteryT": 16.8,
+      "totalT": 676.0,
+      "leftForShellT": -480.0,
+      "requiredShellKgPerM3": 0.0
+     },
+     "4 cycles": {
+      "batteryMWh": 5.01,
+      "batteryT": 33.6,
+      "totalT": 696.2,
+      "leftForShellT": -496.8,
+      "requiredShellKgPerM3": 0.0
+     },
+     "8 cycles": {
+      "batteryMWh": 10.02,
+      "batteryT": 67.3,
+      "totalT": 736.5,
+      "leftForShellT": -530.5,
+      "requiredShellKgPerM3": 0.0
+     },
+     "16 cycles": {
+      "batteryMWh": 20.05,
+      "batteryT": 134.6,
+      "totalT": 817.3,
+      "leftForShellT": -597.7,
+      "requiredShellKgPerM3": 0.0
+     }
+    }
+   },
+   "shellDensityWallKgPerM3": 0.956859
+  },
+  "P1000": {
+   "allowanceT": 1000,
+   "hullAreaM2": 104349,
+   "displacementM3": 2200000,
+   "requiredKgPerM3": 0.4545,
+   "requiredKgPerM2": 9.583,
+   "liftAtWorkAltT": 2105.1,
+   "cases": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 1117.6,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 9.75,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 10.08,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 240.0,
+       "driver": "120.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 9.38,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 9.38,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 63.6,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 60.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 77.5,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 20.48,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 1.47,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 2.62,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 11.04,
+       "driver": "12.3 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.56,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 7.66,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 164.11,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 1805.2,
+     "overBy": 1.81,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 687.6,
+     "baseExShellExSundriesT": 523.52
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 1650.0,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 97.51,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 18.2,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 400.0,
+       "driver": "120.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 11.36,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 13.64,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 84.0,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 600.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 124.0,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 20.73,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 1.78,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 4.46,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 24.52,
+       "driver": "12.3 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.84,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 9.29,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 459.05,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 3519.4,
+     "overBy": 3.52,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 1869.4,
+     "baseExShellExSundriesT": 1410.33
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 2552.0,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 360.0,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 33.6,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 805.37,
+       "driver": "120.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 30.0,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 45.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 108.0,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 1950.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 232.5,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 21.21,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 4.71,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 6.56,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 36.79,
+       "driver": "12.3 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 1.4,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 24.52,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 1242.33,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 7454.0,
+     "overBy": 7.45,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 4902.0,
+     "baseExShellExSundriesT": 3659.66
+    }
+   },
+   "rightSized": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 1117.6,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 9.75,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 10.08,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 44.39,
+       "driver": "22.20 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 9.38,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 9.38,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 63.6,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 60.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 77.5,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 20.48,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 1.47,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 2.62,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 11.04,
+       "driver": "12.3 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.56,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 7.66,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 144.55,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 1590.1,
+     "overBy": 1.59,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 472.5,
+     "baseExShellExSundriesT": 327.91,
+     "shellBudgetLeftT": 581.2,
+     "requiredShellKgPerM3": 0.2642,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 1961575,
+       "timesBaseline": 0.89,
+       "lenM": 389,
+       "diaM": 98
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 2242666,
+       "timesBaseline": 1.02,
+       "lenM": 407,
+       "diaM": 103
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 3043201,
+       "timesBaseline": 1.38,
+       "lenM": 450,
+       "diaM": 114
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 3840488,
+       "timesBaseline": 1.75,
+       "lenM": 486,
+       "diaM": 123
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 6693884,
+       "timesBaseline": 3.04,
+       "lenM": 585,
+       "diaM": 148
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 25513024,
+       "timesBaseline": 11.6,
+       "lenM": 914,
+       "diaM": 231
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 3076424,
+        "timesBaseline": 1.4,
+        "lenM": 452,
+        "diaM": 114
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 6926097,
+        "timesBaseline": 3.15,
+        "lenM": 592,
+        "diaM": 149
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 2480324,
+        "timesBaseline": 1.13,
+        "lenM": 420,
+        "diaM": 106
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 4500170,
+        "timesBaseline": 2.05,
+        "lenM": 513,
+        "diaM": 129
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 22777568,
+        "timesBaseline": 10.35,
+        "lenM": 881,
+        "diaM": 222
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 1961575,
+        "timesBaseline": 0.89,
+        "lenM": 389,
+        "diaM": 98
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 3043201,
+        "timesBaseline": 1.38,
+        "lenM": 450,
+        "diaM": 114
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 6693884,
+        "timesBaseline": 3.04,
+        "lenM": 585,
+        "diaM": 148
+       }
+      }
+     }
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 1650.0,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 97.51,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 18.2,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 73.99,
+       "driver": "22.20 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 11.36,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 13.64,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 84.0,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 600.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 124.0,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 20.73,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 1.78,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 4.46,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 24.52,
+       "driver": "12.3 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 0.84,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 9.29,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 410.15,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 3144.5,
+     "overBy": 3.14,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 1494.5,
+     "baseExShellExSundriesT": 1084.32,
+     "shellBudgetLeftT": -214.8,
+     "requiredShellKgPerM3": 0.0,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 3302788,
+       "timesBaseline": 1.5,
+       "lenM": 463,
+       "diaM": 117
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 3798952,
+       "timesBaseline": 1.73,
+       "lenM": 485,
+       "diaM": 122
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 5238099,
+       "timesBaseline": 2.38,
+       "lenM": 539,
+       "diaM": 136
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 6707672,
+       "timesBaseline": 3.05,
+       "lenM": 586,
+       "diaM": 148
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 12238660,
+       "timesBaseline": 5.56,
+       "lenM": 716,
+       "diaM": 181
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 57879596,
+       "timesBaseline": 26.31,
+       "lenM": 1202,
+       "diaM": 303
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 5298629,
+        "timesBaseline": 2.41,
+        "lenM": 542,
+        "diaM": 137
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 12706475,
+        "timesBaseline": 5.78,
+        "lenM": 725,
+        "diaM": 183
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 4222239,
+        "timesBaseline": 1.92,
+        "lenM": 502,
+        "diaM": 127
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 7949564,
+        "timesBaseline": 3.61,
+        "lenM": 620,
+        "diaM": 157
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 50306574,
+        "timesBaseline": 22.87,
+        "lenM": 1147,
+        "diaM": 290
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 3302788,
+        "timesBaseline": 1.5,
+        "lenM": 463,
+        "diaM": 117
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 5238099,
+        "timesBaseline": 2.38,
+        "lenM": 539,
+        "diaM": 136
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 12238660,
+        "timesBaseline": 5.56,
+        "lenM": 716,
+        "diaM": 181
+       }
+      }
+     }
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 2552.0,
+       "driver": "2,200,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 360.0,
+       "driver": "104,349 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 33.6,
+       "driver": "28,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 148.97,
+       "driver": "22.20 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 30.0,
+       "driver": "150 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 45.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 108.0,
+       "driver": "12,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 1950.0,
+       "driver": "30 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 232.5,
+       "driver": "1550 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 21.21,
+       "driver": "1000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 4.71,
+       "driver": "11.77 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 6.56,
+       "driver": "300 m x 874 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 36.79,
+       "driver": "12.3 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 1.4,
+       "driver": "1250 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 24.52,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 1111.05,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 6666.3,
+     "overBy": 6.67,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 4114.3,
+     "baseExShellExSundriesT": 3003.26,
+     "shellBudgetLeftT": -2169.9,
+     "requiredShellKgPerM3": 0.0,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 7508387,
+       "timesBaseline": 3.41,
+       "lenM": 608,
+       "diaM": 154
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 8764007,
+       "timesBaseline": 3.98,
+       "lenM": 640,
+       "diaM": 162
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 12567220,
+       "timesBaseline": 5.71,
+       "lenM": 722,
+       "diaM": 182
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 16687176,
+       "timesBaseline": 7.59,
+       "lenM": 794,
+       "diaM": 200
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 34193223,
+       "timesBaseline": 15.54,
+       "lenM": 1008,
+       "diaM": 255
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 285676058,
+       "timesBaseline": 129.85,
+       "lenM": 2046,
+       "diaM": 517
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 12732283,
+        "timesBaseline": 5.79,
+        "lenM": 725,
+        "diaM": 183
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 35813317,
+        "timesBaseline": 16.28,
+        "lenM": 1024,
+        "diaM": 259
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 9858098,
+        "timesBaseline": 4.48,
+        "lenM": 666,
+        "diaM": 168
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 20347491,
+        "timesBaseline": 9.25,
+        "lenM": 848,
+        "diaM": 214
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 231441856,
+        "timesBaseline": 105.2,
+        "lenM": 1907,
+        "diaM": 482
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 7508387,
+        "timesBaseline": 3.41,
+        "lenM": 608,
+        "diaM": 154
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 12567220,
+        "timesBaseline": 5.71,
+        "lenM": 722,
+        "diaM": 182
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 34193223,
+        "timesBaseline": 15.54,
+        "lenM": 1008,
+        "diaM": 255
+       }
+      }
+     }
+    }
+   },
+   "airBallast": {
+    "floodedM3": 1300425,
+    "floodedPctOfHull": 59.1,
+    "ballastNeededT": 1445.6,
+    "energyToDescendMWh": 0.0,
+    "idealWorkMWh": 32.46,
+    "electricalMWhToReEvacuate": 108.22,
+    "clearHours": 6.0,
+    "pumpMW": 18.04,
+    "pumpT": 18.04,
+    "valveAreaM2For60s": 111.32,
+    "valveAreaM2For300s": 22.26,
+    "ln2RouteMWhToFillTanks": 697.5,
+    "ln2RouteDaysOnSolar": 23.1,
+    "airRouteDaysOnSolarToReEvacuate": 3.6,
+    "energyRatioLn2OverAir": 6.4,
+    "cycleCryoMWh": 3.37,
+    "cycleRecoveryMWh": 0.674,
+    "cycleNetCryoMWh": 2.696
+   },
+   "descentWithoutNitrogen": {
+    "surplusAtSourceT": 1374.4,
+    "anchorT": 1250,
+    "residualForRotorsT": 124.4,
+    "rotorCapT": 1318.1,
+    "marginX": 10.6,
+    "cycleMWhAsBuilt": 7.399,
+    "cycleMWhWithoutCryo": 4.703,
+    "cycleSavingPct": 36.4
+   },
+   "batterySensitivity": {
+    "floor": {
+     "2 cycles": {
+      "batteryMWh": 14.8,
+      "batteryT": 29.6,
+      "totalT": 344.4,
+      "leftForShellT": 596.0,
+      "requiredShellKgPerM3": 0.2709
+     },
+     "4 cycles": {
+      "batteryMWh": 29.6,
+      "batteryT": 59.2,
+      "totalT": 377.0,
+      "leftForShellT": 566.4,
+      "requiredShellKgPerM3": 0.2574
+     },
+     "8 cycles": {
+      "batteryMWh": 59.19,
+      "batteryT": 118.4,
+      "totalT": 442.1,
+      "leftForShellT": 507.2,
+      "requiredShellKgPerM3": 0.2305
+     },
+     "16 cycles": {
+      "batteryMWh": 118.38,
+      "batteryT": 236.8,
+      "totalT": 572.3,
+      "leftForShellT": 388.8,
+      "requiredShellKgPerM3": 0.1767
+     }
+    },
+    "credible": {
+     "2 cycles": {
+      "batteryMWh": 14.8,
+      "batteryT": 49.3,
+      "totalT": 1218.6,
+      "leftForShellT": -190.1,
+      "requiredShellKgPerM3": 0.0
+     },
+     "4 cycles": {
+      "batteryMWh": 29.6,
+      "batteryT": 98.7,
+      "totalT": 1275.3,
+      "leftForShellT": -239.4,
+      "requiredShellKgPerM3": 0.0
+     },
+     "8 cycles": {
+      "batteryMWh": 59.19,
+      "batteryT": 197.3,
+      "totalT": 1388.8,
+      "leftForShellT": -338.1,
+      "requiredShellKgPerM3": 0.0
+     },
+     "16 cycles": {
+      "batteryMWh": 118.38,
+      "batteryT": 394.6,
+      "totalT": 1615.7,
+      "leftForShellT": -535.4,
+      "requiredShellKgPerM3": 0.0
+     }
+    },
+    "demonstrated": {
+     "2 cycles": {
+      "batteryMWh": 14.8,
+      "batteryT": 99.3,
+      "totalT": 3544.3,
+      "leftForShellT": -2120.3,
+      "requiredShellKgPerM3": 0.0
+     },
+     "4 cycles": {
+      "batteryMWh": 29.6,
+      "batteryT": 198.6,
+      "totalT": 3663.5,
+      "leftForShellT": -2219.6,
+      "requiredShellKgPerM3": 0.0
+     },
+     "8 cycles": {
+      "batteryMWh": 59.19,
+      "batteryT": 397.3,
+      "totalT": 3901.9,
+      "leftForShellT": -2418.2,
+      "requiredShellKgPerM3": 0.0
+     },
+     "16 cycles": {
+      "batteryMWh": 118.38,
+      "batteryT": 794.5,
+      "totalT": 4378.6,
+      "leftForShellT": -2815.5,
+      "requiredShellKgPerM3": 0.0
+     }
+    }
+   },
+   "shellDensityWallKgPerM3": 0.956859
+  },
+  "P10000": {
+   "allowanceT": 10000,
+   "hullAreaM2": 485575,
+   "displacementM3": 22000000,
+   "requiredKgPerM3": 0.4545,
+   "requiredKgPerM2": 20.594,
+   "liftAtWorkAltT": 21050.9,
+   "cases": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 11176.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 97.76,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 43.2,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 4000.0,
+       "driver": "2,000.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 87.5,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 87.5,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 848.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 200.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 775.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 202.25,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 7.36,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 5.86,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 155.1,
+       "driver": "121.6 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 2.59,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 76.03,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 1776.42,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 19540.6,
+     "overBy": 1.95,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 8364.6,
+     "baseExShellExSundriesT": 6588.15
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 16500.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 977.62,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 78.0,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 6666.67,
+       "driver": "2,000.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 106.06,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 127.27,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 1120.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 2000.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 1240.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 203.37,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 8.92,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 9.97,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 344.66,
+       "driver": "121.6 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 3.89,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 92.15,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 4421.79,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 33900.4,
+     "overBy": 3.39,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 17400.4,
+     "baseExShellExSundriesT": 12978.58
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 25520.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 1675.23,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 144.0,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 13422.82,
+       "driver": "2,000.00 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 280.0,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 420.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 1440.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 6500.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 2325.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 205.62,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 23.54,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 14.66,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 516.99,
+       "driver": "121.6 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 6.48,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 243.29,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 10547.53,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 63285.2,
+     "overBy": 6.33,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 37765.2,
+     "baseExShellExSundriesT": 27217.63
+    }
+   },
+   "rightSized": {
+    "floor": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 11176.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 97.76,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 43.2,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 275.21,
+       "driver": "137.61 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 87.5,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 87.5,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 848.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 200.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 775.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 202.25,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 7.36,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 5.86,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 155.1,
+       "driver": "121.6 MN at SF 3",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 2.59,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 76.03,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 1403.94,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 15443.3,
+     "overBy": 1.54,
+     "shellAloneOverBy": 1.12,
+     "everythingButShellT": 4267.3,
+     "baseExShellExSundriesT": 2863.36,
+     "shellBudgetLeftT": 6227.5,
+     "requiredShellKgPerM3": 0.2831,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 18957753,
+       "timesBaseline": 0.86,
+       "lenM": 834,
+       "diaM": 208
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 21665860,
+       "timesBaseline": 0.98,
+       "lenM": 872,
+       "diaM": 218
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 29369201,
+       "timesBaseline": 1.33,
+       "lenM": 965,
+       "diaM": 241
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 37028737,
+       "timesBaseline": 1.68,
+       "lenM": 1042,
+       "diaM": 261
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 64351939,
+       "timesBaseline": 2.93,
+       "lenM": 1253,
+       "diaM": 313
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 242030733,
+       "timesBaseline": 11.0,
+       "lenM": 1948,
+       "diaM": 487
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 29688613,
+        "timesBaseline": 1.35,
+        "lenM": 968,
+        "diaM": 242
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 66569935,
+        "timesBaseline": 3.03,
+        "lenM": 1267,
+        "diaM": 317
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 23954169,
+        "timesBaseline": 1.09,
+        "lenM": 901,
+        "diaM": 225
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 43357573,
+        "timesBaseline": 1.97,
+        "lenM": 1098,
+        "diaM": 275
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 216429913,
+        "timesBaseline": 9.84,
+        "lenM": 1877,
+        "diaM": 469
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 18957753,
+        "timesBaseline": 0.86,
+        "lenM": 834,
+        "diaM": 208
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 29369201,
+        "timesBaseline": 1.33,
+        "lenM": 965,
+        "diaM": 241
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 64351939,
+        "timesBaseline": 2.93,
+        "lenM": 1253,
+        "diaM": 313
+       }
+      }
+     }
+    },
+    "credible": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 16500.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 977.62,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 78.0,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 458.69,
+       "driver": "137.61 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 106.06,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 127.27,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 1120.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 2000.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 1240.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 203.37,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 8.92,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 9.97,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 344.66,
+       "driver": "121.6 MN at SF 5",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 3.89,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 92.15,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 3490.59,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 26761.2,
+     "overBy": 2.68,
+     "shellAloneOverBy": 1.65,
+     "everythingButShellT": 10261.2,
+     "baseExShellExSundriesT": 6770.6,
+     "shellBudgetLeftT": 1925.1,
+     "requiredShellKgPerM3": 0.0875,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 25870630,
+       "timesBaseline": 1.18,
+       "lenM": 925,
+       "diaM": 231
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 29754666,
+       "timesBaseline": 1.35,
+       "lenM": 969,
+       "diaM": 242
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 41017744,
+       "timesBaseline": 1.86,
+       "lenM": 1078,
+       "diaM": 270
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 52515130,
+       "timesBaseline": 2.39,
+       "lenM": 1171,
+       "diaM": 293
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 95758327,
+       "timesBaseline": 4.35,
+       "lenM": 1430,
+       "diaM": 358
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 451502886,
+       "timesBaseline": 20.52,
+       "lenM": 2398,
+       "diaM": 600
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 41491383,
+        "timesBaseline": 1.89,
+        "lenM": 1082,
+        "diaM": 271
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 99413997,
+        "timesBaseline": 4.52,
+        "lenM": 1448,
+        "diaM": 362
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 33067814,
+        "timesBaseline": 1.5,
+        "lenM": 1003,
+        "diaM": 251
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 62228487,
+        "timesBaseline": 2.83,
+        "lenM": 1239,
+        "diaM": 310
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 392576873,
+        "timesBaseline": 17.84,
+        "lenM": 2289,
+        "diaM": 572
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 25870630,
+        "timesBaseline": 1.18,
+        "lenM": 925,
+        "diaM": 231
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 41017744,
+        "timesBaseline": 1.86,
+        "lenM": 1078,
+        "diaM": 270
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 95758327,
+        "timesBaseline": 4.35,
+        "lenM": 1430,
+        "diaM": 358
+       }
+      }
+     }
+    },
+    "demonstrated": {
+     "lines": [
+      {
+       "item": "Vacuum shell (lattice)",
+       "tonnes": 25520.0,
+       "driver": "22,000,000 m3 enclosed",
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+      },
+      {
+       "item": "Gas barrier skin",
+       "tonnes": 1675.23,
+       "driver": "485,575 m2 hull surface",
+       "note": ""
+      },
+      {
+       "item": "Solar skin",
+       "tonnes": 144.0,
+       "driver": "120,000 m2 projected",
+       "note": ""
+      },
+      {
+       "item": "Battery pack",
+       "tonnes": 923.54,
+       "driver": "137.61 MWh",
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+      },
+      {
+       "item": "Propulsion motors",
+       "tonnes": 280.0,
+       "driver": "1400 MW peak bus",
+       "note": ""
+      },
+      {
+       "item": "Drives, cabling, thermal",
+       "tonnes": 420.0,
+       "driver": "fraction of motor mass",
+       "note": ""
+      },
+      {
+       "item": "Rotors and hubs",
+       "tonnes": 1440.0,
+       "driver": "160,000 m2 disc area",
+       "note": ""
+      },
+      {
+       "item": "Cryogenic plant",
+       "tonnes": 6500.0,
+       "driver": "100 MW rated",
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+      },
+      {
+       "item": "LN2 tankage",
+       "tonnes": 2325.0,
+       "driver": "15500 t capacity",
+       "note": ""
+      },
+      {
+       "item": "Water tanks and plumbing",
+       "tonnes": 205.62,
+       "driver": "10000 m3 payload",
+       "note": ""
+      },
+      {
+       "item": "Pump",
+       "tonnes": 23.54,
+       "driver": "58.86 MW hydraulic set",
+       "note": "Twice the motor mass, for the wet end."
+      },
+      {
+       "item": "Hose",
+       "tonnes": 14.66,
+       "driver": "300 m x 1954 mm bore",
+       "note": ""
+      },
+      {
+       "item": "Anchor cable",
+       "tonnes": 516.99,
+       "driver": "121.6 MN at SF 7",
+       "note": ""
+      },
+      {
+       "item": "Anchor bag",
+       "tonnes": 6.48,
+       "driver": "12400 m3 bag",
+       "note": ""
+      },
+      {
+       "item": "Winch",
+       "tonnes": 243.29,
+       "driver": "haul at 5 m/s",
+       "note": ""
+      },
+      {
+       "item": "Sundries and margin",
+       "tonnes": 8047.67,
+       "driver": "avionics, control, mooring, fasteners",
+       "note": ""
+      }
+     ],
+     "totalT": 48286.0,
+     "overBy": 4.83,
+     "shellAloneOverBy": 2.55,
+     "everythingButShellT": 22766.0,
+     "baseExShellExSundriesT": 14718.35,
+     "shellBudgetLeftT": -6385.0,
+     "requiredShellKgPerM3": 0.0,
+     "hullThatCloses": {
+      "0.264": {
+       "closes": true,
+       "volumeM3": 41590987,
+       "timesBaseline": 1.89,
+       "lenM": 1083,
+       "diaM": 271
+      },
+      "0.350": {
+       "closes": true,
+       "volumeM3": 48039748,
+       "timesBaseline": 2.18,
+       "lenM": 1136,
+       "diaM": 284
+      },
+      "0.508": {
+       "closes": true,
+       "volumeM3": 66980471,
+       "timesBaseline": 3.04,
+       "lenM": 1270,
+       "diaM": 317
+      },
+      "0.600": {
+       "closes": true,
+       "volumeM3": 86655440,
+       "timesBaseline": 3.94,
+       "lenM": 1383,
+       "diaM": 346
+      },
+      "0.750": {
+       "closes": true,
+       "volumeM3": 163333972,
+       "timesBaseline": 7.42,
+       "lenM": 1709,
+       "diaM": 427
+      },
+      "0.900": {
+       "closes": true,
+       "volumeM3": 905962550,
+       "timesBaseline": 41.18,
+       "lenM": 3025,
+       "diaM": 756
+      }
+     },
+     "cellular": {
+      "phi=0.74": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 67784415,
+        "timesBaseline": 3.08,
+        "lenM": 1275,
+        "diaM": 319
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 169992673,
+        "timesBaseline": 7.73,
+        "lenM": 1732,
+        "diaM": 433
+       },
+       "0.750": {
+        "closes": false,
+        "why": "shell is denser than the air it displaces"
+       }
+      },
+      "phi=0.85": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 53575160,
+        "timesBaseline": 2.44,
+        "lenM": 1179,
+        "diaM": 295
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 103524890,
+        "timesBaseline": 4.71,
+        "lenM": 1468,
+        "diaM": 367
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 771701743,
+        "timesBaseline": 35.08,
+        "lenM": 2868,
+        "diaM": 717
+       }
+      },
+      "phi=1.0": {
+       "0.264": {
+        "closes": true,
+        "volumeM3": 41590987,
+        "timesBaseline": 1.89,
+        "lenM": 1083,
+        "diaM": 271
+       },
+       "0.508": {
+        "closes": true,
+        "volumeM3": 66980471,
+        "timesBaseline": 3.04,
+        "lenM": 1270,
+        "diaM": 317
+       },
+       "0.750": {
+        "closes": true,
+        "volumeM3": 163333972,
+        "timesBaseline": 7.42,
+        "lenM": 1709,
+        "diaM": 427
+       }
+      }
+     }
+    }
+   },
+   "airBallast": {
+    "floodedM3": 13004289,
+    "floodedPctOfHull": 59.1,
+    "ballastNeededT": 14456.1,
+    "energyToDescendMWh": 0.0,
+    "idealWorkMWh": 324.65,
+    "electricalMWhToReEvacuate": 1082.17,
+    "clearHours": 6.0,
+    "pumpMW": 180.36,
+    "pumpT": 180.36,
+    "valveAreaM2For60s": 1113.22,
+    "valveAreaM2For300s": 222.64,
+    "ln2RouteMWhToFillTanks": 6975.0,
+    "ln2RouteDaysOnSolar": 53.8,
+    "airRouteDaysOnSolarToReEvacuate": 8.4,
+    "energyRatioLn2OverAir": 6.4,
+    "cycleCryoMWh": 9.504,
+    "cycleRecoveryMWh": 1.9,
+    "cycleNetCryoMWh": 7.604
+   },
+   "descentWithoutNitrogen": {
+    "surplusAtSourceT": 13743.6,
+    "anchorT": 12400,
+    "residualForRotorsT": 1343.6,
+    "rotorCapT": 12666.2,
+    "marginX": 9.4,
+    "cycleMWhAsBuilt": 45.869,
+    "cycleMWhWithoutCryo": 38.265,
+    "cycleSavingPct": 16.6
+   },
+   "batterySensitivity": {
+    "floor": {
+     "2 cycles": {
+      "batteryMWh": 91.74,
+      "batteryT": 183.5,
+      "totalT": 3048.8,
+      "leftForShellT": 6319.3,
+      "requiredShellKgPerM3": 0.2872
+     },
+     "4 cycles": {
+      "batteryMWh": 183.48,
+      "batteryT": 367.0,
+      "totalT": 3250.6,
+      "leftForShellT": 6135.8,
+      "requiredShellKgPerM3": 0.2789
+     },
+     "8 cycles": {
+      "batteryMWh": 366.95,
+      "batteryT": 733.9,
+      "totalT": 3654.3,
+      "leftForShellT": 5768.9,
+      "requiredShellKgPerM3": 0.2622
+     },
+     "16 cycles": {
+      "batteryMWh": 733.9,
+      "batteryT": 1467.8,
+      "totalT": 4461.6,
+      "leftForShellT": 5035.0,
+      "requiredShellKgPerM3": 0.2289
+     }
+    },
+    "credible": {
+     "2 cycles": {
+      "batteryMWh": 91.74,
+      "batteryT": 305.8,
+      "totalT": 7610.4,
+      "leftForShellT": 2077.9,
+      "requiredShellKgPerM3": 0.0945
+     },
+     "4 cycles": {
+      "batteryMWh": 183.48,
+      "batteryT": 611.6,
+      "totalT": 7962.0,
+      "leftForShellT": 1772.2,
+      "requiredShellKgPerM3": 0.0806
+     },
+     "8 cycles": {
+      "batteryMWh": 366.95,
+      "batteryT": 1223.2,
+      "totalT": 8665.3,
+      "leftForShellT": 1160.6,
+      "requiredShellKgPerM3": 0.0528
+     },
+     "16 cycles": {
+      "batteryMWh": 733.9,
+      "batteryT": 2446.3,
+      "totalT": 10072.0,
+      "leftForShellT": -62.6,
+      "requiredShellKgPerM3": 0.0
+     }
+    },
+    "demonstrated": {
+     "2 cycles": {
+      "batteryMWh": 91.74,
+      "batteryT": 615.7,
+      "totalT": 17292.6,
+      "leftForShellT": -6077.2,
+      "requiredShellKgPerM3": 0.0
+     },
+     "4 cycles": {
+      "batteryMWh": 183.48,
+      "batteryT": 1231.4,
+      "totalT": 18031.4,
+      "leftForShellT": -6692.9,
+      "requiredShellKgPerM3": 0.0
+     },
+     "8 cycles": {
+      "batteryMWh": 366.95,
+      "batteryT": 2462.8,
+      "totalT": 19509.1,
+      "leftForShellT": -7924.2,
+      "requiredShellKgPerM3": 0.0
+     },
+     "16 cycles": {
+      "batteryMWh": 733.9,
+      "batteryT": 4925.5,
+      "totalT": 22464.4,
+      "leftForShellT": -10387.0,
+      "requiredShellKgPerM3": 0.0
+     }
+    }
+   },
+   "shellDensityWallKgPerM3": 0.956859
+  }
+ }
+}

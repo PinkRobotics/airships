@@ -1,0 +1,593 @@
+{
+ "generated": {
+  "by": "research/analysis/delivery.py",
+  "figures": {
+   "by": "tools/figures_dump.js via make factsheet",
+   "seed": "model defaults"
+  }
+ },
+ "fall": {
+  "single-engine airtanker": {
+   "0.5 mm": {
+    "fallSeconds": 8.6,
+    "driftM": {
+     "3 m/s": 26,
+     "5 m/s": 43,
+     "10 m/s": 86,
+     "15 m/s": 129
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 4.5,
+    "driftM": {
+     "3 m/s": 14,
+     "5 m/s": 22,
+     "10 m/s": 45,
+     "15 m/s": 68
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 2.8,
+    "driftM": {
+     "3 m/s": 8,
+     "5 m/s": 14,
+     "10 m/s": 28,
+     "15 m/s": 42
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 2.2,
+    "driftM": {
+     "3 m/s": 7,
+     "5 m/s": 11,
+     "10 m/s": 22,
+     "15 m/s": 33
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 2.0,
+    "driftM": {
+     "3 m/s": 6,
+     "5 m/s": 10,
+     "10 m/s": 20,
+     "15 m/s": 30
+    }
+   }
+  },
+  "large airtanker": {
+   "0.5 mm": {
+    "fallSeconds": 25.2,
+    "driftM": {
+     "3 m/s": 76,
+     "5 m/s": 126,
+     "10 m/s": 252,
+     "15 m/s": 379
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 13.2,
+    "driftM": {
+     "3 m/s": 40,
+     "5 m/s": 66,
+     "10 m/s": 132,
+     "15 m/s": 199
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 8.2,
+    "driftM": {
+     "3 m/s": 24,
+     "5 m/s": 41,
+     "10 m/s": 82,
+     "15 m/s": 122
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 6.5,
+    "driftM": {
+     "3 m/s": 20,
+     "5 m/s": 33,
+     "10 m/s": 65,
+     "15 m/s": 98
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 5.8,
+    "driftM": {
+     "3 m/s": 17,
+     "5 m/s": 29,
+     "10 m/s": 58,
+     "15 m/s": 87
+    }
+   }
+  },
+  "very large airtanker": {
+   "0.5 mm": {
+    "fallSeconds": 58.1,
+    "driftM": {
+     "3 m/s": 174,
+     "5 m/s": 290,
+     "10 m/s": 581,
+     "15 m/s": 871
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 30.5,
+    "driftM": {
+     "3 m/s": 92,
+     "5 m/s": 152,
+     "10 m/s": 305,
+     "15 m/s": 458
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 18.8,
+    "driftM": {
+     "3 m/s": 56,
+     "5 m/s": 94,
+     "10 m/s": 188,
+     "15 m/s": 282
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 15.1,
+    "driftM": {
+     "3 m/s": 45,
+     "5 m/s": 75,
+     "10 m/s": 151,
+     "15 m/s": 226
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 13.4,
+    "driftM": {
+     "3 m/s": 40,
+     "5 m/s": 67,
+     "10 m/s": 134,
+     "15 m/s": 201
+    }
+   }
+  },
+  "USFS 'completely dissipates'": {
+   "0.5 mm": {
+    "fallSeconds": 145.2,
+    "driftM": {
+     "3 m/s": 436,
+     "5 m/s": 726,
+     "10 m/s": 1452,
+     "15 m/s": 2179
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 76.2,
+    "driftM": {
+     "3 m/s": 229,
+     "5 m/s": 381,
+     "10 m/s": 762,
+     "15 m/s": 1144
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 46.9,
+    "driftM": {
+     "3 m/s": 141,
+     "5 m/s": 235,
+     "10 m/s": 469,
+     "15 m/s": 704
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 37.7,
+    "driftM": {
+     "3 m/s": 113,
+     "5 m/s": 188,
+     "10 m/s": 377,
+     "15 m/s": 565
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 33.5,
+    "driftM": {
+     "3 m/s": 101,
+     "5 m/s": 168,
+     "10 m/s": 335,
+     "15 m/s": 503
+    }
+   }
+  },
+  "P-series ALT.drop": {
+   "0.5 mm": {
+    "fallSeconds": 214.3,
+    "driftM": {
+     "3 m/s": 643,
+     "5 m/s": 1071,
+     "10 m/s": 2143,
+     "15 m/s": 3214
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 112.5,
+    "driftM": {
+     "3 m/s": 338,
+     "5 m/s": 562,
+     "10 m/s": 1125,
+     "15 m/s": 1688
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 69.2,
+    "driftM": {
+     "3 m/s": 208,
+     "5 m/s": 346,
+     "10 m/s": 692,
+     "15 m/s": 1038
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 55.6,
+    "driftM": {
+     "3 m/s": 167,
+     "5 m/s": 278,
+     "10 m/s": 556,
+     "15 m/s": 833
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 49.5,
+    "driftM": {
+     "3 m/s": 148,
+     "5 m/s": 247,
+     "10 m/s": 495,
+     "15 m/s": 742
+    }
+   }
+  },
+  "sprayer lead, hull 450 m - 300 m lead": {
+   "0.5 mm": {
+    "fallSeconds": 71.4,
+    "driftM": {
+     "3 m/s": 214,
+     "5 m/s": 357,
+     "10 m/s": 714,
+     "15 m/s": 1071
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 37.5,
+    "driftM": {
+     "3 m/s": 112,
+     "5 m/s": 188,
+     "10 m/s": 375,
+     "15 m/s": 562
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 23.1,
+    "driftM": {
+     "3 m/s": 69,
+     "5 m/s": 115,
+     "10 m/s": 231,
+     "15 m/s": 346
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 18.5,
+    "driftM": {
+     "3 m/s": 56,
+     "5 m/s": 93,
+     "10 m/s": 185,
+     "15 m/s": 278
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 16.5,
+    "driftM": {
+     "3 m/s": 49,
+     "5 m/s": 82,
+     "10 m/s": 165,
+     "15 m/s": 247
+    }
+   }
+  },
+  "sprayer lead, hull 450 m - 400 m lead": {
+   "0.5 mm": {
+    "fallSeconds": 23.8,
+    "driftM": {
+     "3 m/s": 71,
+     "5 m/s": 119,
+     "10 m/s": 238,
+     "15 m/s": 357
+    }
+   },
+   "1.0 mm": {
+    "fallSeconds": 12.5,
+    "driftM": {
+     "3 m/s": 38,
+     "5 m/s": 62,
+     "10 m/s": 125,
+     "15 m/s": 188
+    }
+   },
+   "2.0 mm": {
+    "fallSeconds": 7.7,
+    "driftM": {
+     "3 m/s": 23,
+     "5 m/s": 38,
+     "10 m/s": 77,
+     "15 m/s": 115
+    }
+   },
+   "3.0 mm": {
+    "fallSeconds": 6.2,
+    "driftM": {
+     "3 m/s": 19,
+     "5 m/s": 31,
+     "10 m/s": 62,
+     "15 m/s": 93
+    }
+   },
+   "5.0 mm": {
+    "fallSeconds": 5.5,
+    "driftM": {
+     "3 m/s": 16,
+     "5 m/s": 27,
+     "10 m/s": 55,
+     "15 m/s": 82
+    }
+   }
+  }
+ },
+ "classes": {
+  "P100": {
+   "payloadT": 100,
+   "runKm": 1.2,
+   "releaseSeconds": 200.0,
+   "releaseRateM3s": 0.5,
+   "coverageLevelBySwath": {
+    "20 m": 10.2,
+    "30 m": 6.8,
+    "50 m": 4.1,
+    "80 m": 2.6
+   },
+   "equivalentLoads": {
+    "SEAT": 33.0,
+    "LAT (BAe-146)": 8.8,
+    "VLAT (DC-10)": 2.2
+   },
+   "lineKmAtCL": {
+    "CL2, 30 m swath": 4.09,
+    "CL4, 30 m swath": 2.05,
+    "CL8, 30 m swath": 1.02
+   },
+   "_lineKmAtCL4": {
+    "20 m swath": 3.07,
+    "30 m swath": 2.05,
+    "50 m swath": 1.23,
+    "80 m swath": 0.77
+   },
+   "atRealMedianLeg": {
+    "legKm": 4.71,
+    "tph": 332.3,
+    "tonnesPer24h": 7975,
+    "latLoadsPer24h": 703,
+    "lineKmPer24hAtCL2_30mSwath": 326.2,
+    "lineKmPer24hAtCL4_30mSwath": 163.1,
+    "lineKmPer24hAtCL6_30mSwath": 108.7,
+    "lineKmPer24hAtCL8_30mSwath": 81.6,
+    "pctOfPerimetersLinedDailyAtCL2": 97.9,
+    "pctOfPerimetersLinedDailyAtCL4": 91.4,
+    "pctOfPerimetersLinedDailyAtCL6": 84.9,
+    "pctOfPerimetersLinedDailyAtCL8": 76.6
+   },
+   "ownUpwash": {
+    "start of release": {
+     "heldT": 34.4,
+     "inducedUpwashAtDiscMs": 7.8,
+     "wakeMs": 15.7,
+     "airMassFlowKgS": 21525
+    },
+    "end of release": {
+     "heldT": 137.4,
+     "inducedUpwashAtDiscMs": 15.7,
+     "wakeMs": 31.3,
+     "airMassFlowKgS": 43051
+    },
+    "inflowBelowHullMs": {
+     "25 m below": 9.97,
+     "50 m below": 2.49,
+     "100 m below": 0.62,
+     "200 m below": 0.16,
+     "300 m below": 0.07,
+     "400 m below": 0.04
+    },
+    "waterReleaseKgS": 500.0,
+    "airToWaterMassRatio": 86
+   }
+  },
+  "P1000": {
+   "payloadT": 1000,
+   "runKm": 2.5,
+   "releaseSeconds": 334.0,
+   "releaseRateM3s": 3,
+   "coverageLevelBySwath": {
+    "20 m": 49.1,
+    "30 m": 32.7,
+    "50 m": 19.6,
+    "80 m": 12.3
+   },
+   "equivalentLoads": {
+    "SEAT": 330.3,
+    "LAT (BAe-146)": 88.1,
+    "VLAT (DC-10)": 22.0
+   },
+   "lineKmAtCL": {
+    "CL2, 30 m swath": 40.9,
+    "CL4, 30 m swath": 20.45,
+    "CL8, 30 m swath": 10.23
+   },
+   "_lineKmAtCL4": {
+    "20 m swath": 30.68,
+    "30 m swath": 20.45,
+    "50 m swath": 12.27,
+    "80 m swath": 7.67
+   },
+   "atRealMedianLeg": {
+    "legKm": 11.04,
+    "tph": 1981.5,
+    "tonnesPer24h": 47556,
+    "latLoadsPer24h": 4190,
+    "lineKmPer24hAtCL2_30mSwath": 1945.2,
+    "lineKmPer24hAtCL4_30mSwath": 972.6,
+    "lineKmPer24hAtCL6_30mSwath": 648.4,
+    "lineKmPer24hAtCL8_30mSwath": 486.3,
+    "pctOfPerimetersLinedDailyAtCL2": 100.0,
+    "pctOfPerimetersLinedDailyAtCL4": 99.5,
+    "pctOfPerimetersLinedDailyAtCL6": 99.0,
+    "pctOfPerimetersLinedDailyAtCL8": 98.5
+   },
+   "ownUpwash": {
+    "start of release": {
+     "heldT": 343.6,
+     "inducedUpwashAtDiscMs": 11.3,
+     "wakeMs": 22.6,
+     "airMassFlowKgS": 149153
+    },
+    "end of release": {
+     "heldT": 1374.4,
+     "inducedUpwashAtDiscMs": 22.6,
+     "wakeMs": 45.2,
+     "airMassFlowKgS": 298307
+    },
+    "inflowBelowHullMs": {
+     "25 m below": 69.06,
+     "50 m below": 17.26,
+     "100 m below": 4.32,
+     "200 m below": 1.08,
+     "300 m below": 0.48,
+     "400 m below": 0.27
+    },
+    "waterReleaseKgS": 3000.0,
+    "airToWaterMassRatio": 99
+   }
+  },
+  "P10000": {
+   "payloadT": 10000,
+   "runKm": 5,
+   "releaseSeconds": 667.0,
+   "releaseRateM3s": 15,
+   "coverageLevelBySwath": {
+    "20 m": 245.4,
+    "30 m": 163.6,
+    "50 m": 98.2,
+    "80 m": 61.4
+   },
+   "equivalentLoads": {
+    "SEAT": 3302.5,
+    "LAT (BAe-146)": 881.1,
+    "VLAT (DC-10)": 220.3
+   },
+   "lineKmAtCL": {
+    "CL2, 30 m swath": 409.04,
+    "CL4, 30 m swath": 204.52,
+    "CL8, 30 m swath": 102.26
+   },
+   "_lineKmAtCL4": {
+    "20 m swath": 306.78,
+    "30 m swath": 204.52,
+    "50 m swath": 122.71,
+    "80 m swath": 76.69
+   },
+   "atRealMedianLeg": {
+    "legKm": 23.95,
+    "tph": 10863.4,
+    "tonnesPer24h": 260722,
+    "latLoadsPer24h": 22971,
+    "lineKmPer24hAtCL2_30mSwath": 10664.6,
+    "lineKmPer24hAtCL4_30mSwath": 5332.3,
+    "lineKmPer24hAtCL6_30mSwath": 3554.9,
+    "lineKmPer24hAtCL8_30mSwath": 2666.1,
+    "pctOfPerimetersLinedDailyAtCL2": 100.0,
+    "pctOfPerimetersLinedDailyAtCL4": 100.0,
+    "pctOfPerimetersLinedDailyAtCL6": 100.0,
+    "pctOfPerimetersLinedDailyAtCL8": 100.0
+   },
+   "ownUpwash": {
+    "start of release": {
+     "heldT": 3435.9,
+     "inducedUpwashAtDiscMs": 9.8,
+     "wakeMs": 19.6,
+     "airMassFlowKgS": 1722250
+    },
+    "end of release": {
+     "heldT": 13743.6,
+     "inducedUpwashAtDiscMs": 19.6,
+     "wakeMs": 39.1,
+     "airMassFlowKgS": 3444499
+    },
+    "inflowBelowHullMs": {
+     "25 m below": 797.4,
+     "50 m below": 199.35,
+     "100 m below": 49.84,
+     "200 m below": 12.46,
+     "300 m below": 5.54,
+     "400 m below": 3.11
+    },
+    "waterReleaseKgS": 15000.0,
+    "airToWaterMassRatio": 230
+   }
+  }
+ },
+ "references": {
+  "dropHeightsM": {
+   "single-engine airtanker": 18,
+   "large airtanker": 53,
+   "very large airtanker": 122,
+   "USFS 'completely dissipates'": 305,
+   "P-series ALT.drop": 450,
+   "sprayer lead, hull 450 m - 300 m lead": 150,
+   "sprayer lead, hull 450 m - 400 m lead": 50
+  },
+  "updraftMs": {
+   "quiet flank": 5,
+   "active flank": 10,
+   "crown fire column": 25
+  },
+  "maxStableDropMm": 5.5,
+  "terminalMs": {
+   "0.5": 2.1,
+   "1.0": 4.0,
+   "2.0": 6.5,
+   "3.0": 8.1,
+   "5.0": 9.1
+  }
+ },
+ "updraftVerdict": {
+  "quiet flank": {
+   "updraftMs": 5,
+   "dropsThatStillDescendMm": [
+    2.0,
+    3.0,
+    5.0
+   ]
+  },
+  "active flank": {
+   "updraftMs": 10,
+   "dropsThatStillDescendMm": "none"
+  },
+  "crown fire column": {
+   "updraftMs": 25,
+   "dropsThatStillDescendMm": "none"
+  }
+ },
+ "perimeters": {
+  "firesWithRings": 615,
+  "note": "Rings are Douglas-Peucker simplified at ~200 m, so these perimeters are LOWER bounds; a convoluted fire edge is longer than its outline.",
+  "km": {
+   "p10": 19.7,
+   "p50": 40.6,
+   "p90": 146.3,
+   "p99": 610.3
+  },
+  "maxKm": 1210.7
+ }
+}

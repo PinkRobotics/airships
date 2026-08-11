@@ -1,0 +1,223 @@
+{
+ "generated": {
+  "by": "research/analysis/descent.js"
+ },
+ "classes": {
+  "P100": {
+   "cableM": 350,
+   "bagT": 125,
+   "busMW": 38,
+   "descentFromAglM": 1500,
+   "toAglM": 300,
+   "descentMinutes": 3.33,
+   "anchorAvailableBelowAglM": 350,
+   "anchorAvailableForPctOfDescent": 4.2,
+   "rotorsAloneFailBelowAglM": null,
+   "anchorReachesBeforeRotorsFail": true,
+   "peakRotorAloneMW": 14,
+   "peakWithAnchorMW": 13.8,
+   "integratedMWh": {
+    "rotorsAlone": 0.665,
+    "withAnchorWhereItReaches": 0.634,
+    "anchorSavingPct": 4.7
+   },
+   "ledgerSays": {
+    "letdownMWh": 0.012,
+    "downMW": 0.3,
+    "windowMinutes": 2.35,
+    "understatementVsIntegral": 53.8,
+    "windowVsActualDescent": 0.71
+   },
+   "cycleContext": {
+    "eCycleMWh": 1.253,
+    "honestLetdownPctOfCycle": 33.8
+   },
+   "profile": [
+    {
+     "aglM": 1500,
+     "surplusT": 110.5,
+     "bagT": 0,
+     "residT": 110.5,
+     "rotorAloneMW": 10.1,
+     "withAnchorMW": 10.11
+    },
+    {
+     "aglM": 1250,
+     "surplusT": 115.9,
+     "bagT": 0,
+     "residT": 115.9,
+     "rotorAloneMW": 10.9,
+     "withAnchorMW": 10.86
+    },
+    {
+     "aglM": 1000,
+     "surplusT": 121.4,
+     "bagT": 0,
+     "residT": 121.4,
+     "rotorAloneMW": 11.6,
+     "withAnchorMW": 11.64
+    },
+    {
+     "aglM": 750,
+     "surplusT": 127,
+     "bagT": 0,
+     "residT": 127,
+     "rotorAloneMW": 12.5,
+     "withAnchorMW": 12.46
+    },
+    {
+     "aglM": 500,
+     "surplusT": 132.8,
+     "bagT": 0,
+     "residT": 132.8,
+     "rotorAloneMW": 13.3,
+     "withAnchorMW": 13.31
+    }
+   ]
+  },
+  "P1000": {
+   "cableM": 600,
+   "bagT": 1250,
+   "busMW": 190,
+   "descentFromAglM": 1500,
+   "toAglM": 300,
+   "descentMinutes": 3.33,
+   "anchorAvailableBelowAglM": 600,
+   "anchorAvailableForPctOfDescent": 25,
+   "rotorsAloneFailBelowAglM": 540,
+   "anchorReachesBeforeRotorsFail": true,
+   "peakRotorAloneMW": 201.8,
+   "peakWithAnchorMW": 186.62,
+   "integratedMWh": {
+    "rotorsAlone": 9.605,
+    "withAnchorWhereItReaches": 6.952,
+    "anchorSavingPct": 27.6
+   },
+   "ledgerSays": {
+    "letdownMWh": 0.161,
+    "downMW": 5.02,
+    "windowMinutes": 1.93,
+    "understatementVsIntegral": 43.2,
+    "windowVsActualDescent": 0.58
+   },
+   "cycleContext": {
+    "eCycleMWh": 7.399,
+    "honestLetdownPctOfCycle": 49
+   },
+   "profile": [
+    {
+     "aglM": 1500,
+     "surplusT": 1105.1,
+     "bagT": 0,
+     "residT": 1105.1,
+     "rotorAloneMW": 145.9,
+     "withAnchorMW": 145.86
+    },
+    {
+     "aglM": 1250,
+     "surplusT": 1159.2,
+     "bagT": 0,
+     "residT": 1159.2,
+     "rotorAloneMW": 156.7,
+     "withAnchorMW": 156.69
+    },
+    {
+     "aglM": 1000,
+     "surplusT": 1214.3,
+     "bagT": 0,
+     "residT": 1214.3,
+     "rotorAloneMW": 168,
+     "withAnchorMW": 168
+    },
+    {
+     "aglM": 750,
+     "surplusT": 1270.5,
+     "bagT": 0,
+     "residT": 1270.5,
+     "rotorAloneMW": 179.8,
+     "withAnchorMW": 179.79
+    },
+    {
+     "aglM": 500,
+     "surplusT": 1327.7,
+     "bagT": 1250,
+     "residT": 77.7,
+     "rotorAloneMW": 192.1,
+     "withAnchorMW": 2.72
+    }
+   ]
+  },
+  "P10000": {
+   "cableM": 850,
+   "bagT": 12400,
+   "busMW": 1550,
+   "descentFromAglM": 1500,
+   "toAglM": 300,
+   "descentMinutes": 3.33,
+   "anchorAvailableBelowAglM": 850,
+   "anchorAvailableForPctOfDescent": 45.8,
+   "rotorsAloneFailBelowAglM": 760,
+   "anchorReachesBeforeRotorsFail": true,
+   "peakRotorAloneMW": 1747.4,
+   "peakWithAnchorMW": 1511.6,
+   "integratedMWh": {
+    "rotorsAlone": 83.184,
+    "withAnchorWhereItReaches": 42.245,
+    "anchorSavingPct": 49.2
+   },
+   "ledgerSays": {
+    "letdownMWh": 1.42,
+    "downMW": 52.29,
+    "windowMinutes": 1.63,
+    "understatementVsIntegral": 29.8,
+    "windowVsActualDescent": 0.49
+   },
+   "cycleContext": {
+    "eCycleMWh": 45.869,
+    "honestLetdownPctOfCycle": 48.7
+   },
+   "profile": [
+    {
+     "aglM": 1500,
+     "surplusT": 11050.9,
+     "bagT": 0,
+     "residT": 11050.9,
+     "rotorAloneMW": 1263.2,
+     "withAnchorMW": 1263.16
+    },
+    {
+     "aglM": 1250,
+     "surplusT": 11591.6,
+     "bagT": 0,
+     "residT": 11591.6,
+     "rotorAloneMW": 1357,
+     "withAnchorMW": 1356.98
+    },
+    {
+     "aglM": 1000,
+     "surplusT": 12142.8,
+     "bagT": 0,
+     "residT": 12142.8,
+     "rotorAloneMW": 1454.9,
+     "withAnchorMW": 1454.92
+    },
+    {
+     "aglM": 750,
+     "surplusT": 12704.7,
+     "bagT": 12400,
+     "residT": 304.7,
+     "rotorAloneMW": 1557.1,
+     "withAnchorMW": 5.78
+    },
+    {
+     "aglM": 500,
+     "surplusT": 13277.5,
+     "bagT": 12400,
+     "residT": 877.5,
+     "rotorAloneMW": 1663.5,
+     "withAnchorMW": 28.26
+    }
+   ]
+  }
+ }
+}

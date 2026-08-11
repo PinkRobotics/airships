@@ -1,0 +1,97 @@
+{
+ "generated": {
+  "by": "research/analysis/helium.py",
+  "structureFrom": "research/analysis/vacuum-cell.json"
+ },
+ "atmosphere": {
+  "altM": 2500,
+  "tK": 271.9,
+  "pPa": 74682,
+  "rhoAirKgPerM3": 0.9569
+ },
+ "ledger": {
+  "vacuumIdeal": {
+   "gas": 0.0,
+   "structure": 0.0,
+   "net": 0.9569
+  },
+  "vacuumLevel1": {
+   "gas": 0.0,
+   "structure": 1.1082,
+   "net": -0.1513
+  },
+  "vacuumLevel2": {
+   "gas": 0.0,
+   "structure": 0.4499,
+   "net": 0.507
+  },
+  "vacuumLevel3": {
+   "gas": 0.0,
+   "structure": 0.4034,
+   "net": 0.5535
+  },
+  "hydrogen": {
+   "gas": 0.0666,
+   "structure": null,
+   "net": 0.8903,
+   "note": "before envelope and frame"
+  },
+  "helium": {
+   "gas": 0.1322,
+   "structure": null,
+   "net": 0.8246,
+   "note": "before envelope and frame"
+  },
+  "helium97": {
+   "gas": 0.157,
+   "structure": null,
+   "net": 0.7999,
+   "note": "97% purity, the practical operating point"
+  }
+ },
+ "breakeven": {
+  "structureToTieHydrogenKgPerM3": 0.0666,
+  "structureToTieHeliumKgPerM3": 0.1322,
+  "verdict": "Vacuum never wins on lift: the break-even structure against hydrogen is ~6x below even the fourth hierarchy level. The case for vacuum is operational and strategic, not aerostatic."
+ },
+ "heliumMarket": {
+  "price2021UsdPerM3": 7.57,
+  "price2024UsdPerM3": 14.0,
+  "priceRisePct": 85,
+  "federalReserve": "sold 2024-01-25, transferred to a single private buyer 2024-06-27; the 90-year public buffer no longer exists (USGS MCS 2025)",
+  "usConsumptionM3": 56000000.0,
+  "worldProductionM3": 180000000.0,
+  "usLiftingSharePct": 18
+ },
+ "perShip": {
+  "fillStdM3": 171844,
+  "fillUsdM": 2.4,
+  "makeupPctPerYr": 3.7,
+  "makeupUsdPerYr": 90000,
+  "honest": "Helium logistics do not hurt one ship: the fill is a rounding error against the airframe and make-up is ~$115k/yr. The argument only becomes real at fleet scale and in the logistics tail."
+ },
+ "fleet": {
+  "ships": 100,
+  "inventoryStdM3": 17184350,
+  "pctOfUsAnnualConsumption": 31,
+  "pctOfWorldAnnualProduction": 10
+ },
+ "hydrogen": {
+  "fillT": 14.7,
+  "fillUsdRange": [
+   14652,
+   102563
+  ],
+  "cheaperThanHeliumX": [
+   23,
+   164
+  ],
+  "flank": "An uncrewed compartmentalised hydrogen ship shares most of the vacuum ship's strategic advantages at fabric-ship TRL. The project must cost it explicitly; a wildfire is the hardest place to argue flammability away, and that argument is currently made from memory, not from a read regulation."
+ },
+ "usefulFraction": {
+  "vacuumLevel2Pct": 53.0,
+  "hindenburgH2Pct": 49.0,
+  "hindenburgDeadKgPerM3": 0.59,
+  "zr3HeliumPct": 41.0
+ }
+}

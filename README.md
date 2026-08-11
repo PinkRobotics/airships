@@ -7,8 +7,10 @@ first-order arithmetic on stated assumptions, published in full so the arithmeti
 and, where it is wrong, corrected.
 
 Live: **<https://pinkrobotics.ca/airships/>** — the monitor. Also
-[how it works](https://pinkrobotics.ca/airships/concept/) and the
-[3D model lab](https://pinkrobotics.ca/airships/model-lab/).
+[how it works](https://pinkrobotics.ca/airships/concept/), the
+[vacuum cell explainer](https://pinkrobotics.ca/airships/cell/) with its
+[3D walk from the print nozzle to the hull](https://pinkrobotics.ca/airships/cell/explorer.html),
+and the [3D model lab](https://pinkrobotics.ca/airships/model-lab/).
 
 ## Run it yourself
 
@@ -214,6 +216,8 @@ that were rejected and the order the fixes have to happen in are in
 ```
 index.html       the live fleet monitor — markup only; the application is app/main.js
 concept/         how it works: class cards, assumption dials, the worked example
+cell/            the vacuum cell: the flat explainer, the live model, and the 3D explorer
+                 that walks the structure from the 0.6 mm print track to the hull
 model-lab/       the 3D development lab, where every class, camera and clip can be driven
 sim/             THE MODEL. 15 pure ES modules: no DOM, no network, no globals
 3d/              the WebGL vehicle library — its own README, tests and scripts

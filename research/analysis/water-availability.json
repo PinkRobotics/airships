@@ -1,0 +1,404 @@
+{
+ "generated": {
+  "by": "research/analysis/water-availability.js",
+  "fireData": "2026-08-10T18:09:37Z"
+ },
+ "input": {
+  "fires": 3286,
+  "totalHa": 10928804,
+  "years": "2006-2025",
+  "firesWithPerimeter": 615,
+  "waterBodies": 13646,
+  "farKm": 300,
+  "note": "Distance is to the closest approach of the water body, not its centroid."
+ },
+ "classes": {
+  "P100": {
+   "minSourceHa": 10,
+   "searchKm": 25,
+   "servedWithinFarKm": {
+    "fires": 3286,
+    "pctFires": 100,
+    "pctHa": 100
+   },
+   "servedWithinClassSearchKm": {
+    "fires": 3252,
+    "pctFires": 98.97,
+    "pctHa": 99.21
+   },
+   "distanceKm": {
+    "byFire": {
+     "p10": 1.37,
+     "p25": 2.51,
+     "p50": 4.71,
+     "p75": 8.47,
+     "p90": 12.92
+    },
+    "byHectare": {
+     "p10": 1.18,
+     "p25": 2.6,
+     "p50": 5.38,
+     "p75": 7.34,
+     "p90": 14.36
+    }
+   },
+   "throughputTph": {
+    "atWorkedExample15km": 175.5,
+    "atMedianByFire": 332.3,
+    "atMedianByHectare": 314,
+    "meanOverFires": 322,
+    "meanOverHectares": 321.9
+   }
+  },
+  "P1000": {
+   "minSourceHa": 100,
+   "searchKm": 100,
+   "servedWithinFarKm": {
+    "fires": 3286,
+    "pctFires": 100,
+    "pctHa": 100
+   },
+   "servedWithinClassSearchKm": {
+    "fires": 3286,
+    "pctFires": 100,
+    "pctHa": 100
+   },
+   "distanceKm": {
+    "byFire": {
+     "p10": 2.21,
+     "p25": 5.08,
+     "p50": 11.04,
+     "p75": 20.43,
+     "p90": 32.19
+    },
+    "byHectare": {
+     "p10": 3.16,
+     "p25": 7.31,
+     "p50": 13.68,
+     "p75": 24.42,
+     "p90": 35.56
+    }
+   },
+   "throughputTph": {
+    "atWorkedExample15km": 1696.7,
+    "atMedianByFire": 1981.5,
+    "atMedianByHectare": 1782.1,
+    "meanOverFires": 1996.2,
+    "meanOverHectares": 1859.9
+   }
+  },
+  "P10000": {
+   "minSourceHa": 1000,
+   "searchKm": 600,
+   "servedWithinFarKm": {
+    "fires": 3286,
+    "pctFires": 100,
+    "pctHa": 100
+   },
+   "servedWithinClassSearchKm": {
+    "fires": 3286,
+    "pctFires": 100,
+    "pctHa": 100
+   },
+   "distanceKm": {
+    "byFire": {
+     "p10": 3.8,
+     "p25": 10.2,
+     "p50": 23.95,
+     "p75": 46.57,
+     "p90": 68.3
+    },
+    "byHectare": {
+     "p10": 7.31,
+     "p25": 18.89,
+     "p50": 33.84,
+     "p75": 67.05,
+     "p90": 97.3
+    }
+   },
+   "throughputTph": {
+    "atWorkedExample15km": 13183.4,
+    "atMedianByFire": 10863.4,
+    "atMedianByHectare": 9094.8,
+    "meanOverFires": 11134.8,
+    "meanOverHectares": 9353.4
+   }
+  }
+ },
+ "thresholdSweep": {
+  "10": {
+   "qualifyingBodies": 13646,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 1.37,
+    "p25": 2.51,
+    "p50": 4.71,
+    "p75": 8.47,
+    "p90": 12.92
+   },
+   "byHectare": {
+    "p10": 1.18,
+    "p25": 2.6,
+    "p50": 5.38,
+    "p75": 7.34,
+    "p90": 14.36
+   },
+   "worstPerimeterEdge": {
+    "p10": 3.67,
+    "p25": 5.27,
+    "p50": 7.51,
+    "p75": 12.7,
+    "p90": 17.72
+   }
+  },
+  "50": {
+   "qualifyingBodies": 3126,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 1.97,
+    "p25": 4.04,
+    "p50": 8.93,
+    "p75": 15.89,
+    "p90": 25.5
+   },
+   "byHectare": {
+    "p10": 2.27,
+    "p25": 4.18,
+    "p50": 7.41,
+    "p75": 19.6,
+    "p90": 28.95
+   },
+   "worstPerimeterEdge": {
+    "p10": 4.9,
+    "p25": 7.42,
+    "p50": 12.95,
+    "p75": 21.37,
+    "p90": 31.1
+   }
+  },
+  "100": {
+   "qualifyingBodies": 1623,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 2.21,
+    "p25": 5.08,
+    "p50": 11.04,
+    "p75": 20.43,
+    "p90": 32.19
+   },
+   "byHectare": {
+    "p10": 3.16,
+    "p25": 7.31,
+    "p50": 13.68,
+    "p75": 24.42,
+    "p90": 35.56
+   },
+   "worstPerimeterEdge": {
+    "p10": 5.36,
+    "p25": 8.49,
+    "p50": 15.61,
+    "p75": 25.09,
+    "p90": 38.42
+   }
+  },
+  "500": {
+   "qualifyingBodies": 380,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 3.14,
+    "p25": 8.26,
+    "p50": 19.01,
+    "p75": 34.01,
+    "p90": 52.5
+   },
+   "byHectare": {
+    "p10": 4.91,
+    "p25": 12.84,
+    "p50": 26.85,
+    "p75": 52.21,
+    "p90": 69.81
+   },
+   "worstPerimeterEdge": {
+    "p10": 7.03,
+    "p25": 13.52,
+    "p50": 26.97,
+    "p75": 45.88,
+    "p90": 63.73
+   }
+  },
+  "1000": {
+   "qualifyingBodies": 202,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 3.8,
+    "p25": 10.2,
+    "p50": 23.95,
+    "p75": 46.57,
+    "p90": 68.3
+   },
+   "byHectare": {
+    "p10": 7.31,
+    "p25": 18.89,
+    "p50": 33.84,
+    "p75": 67.05,
+    "p90": 97.3
+   },
+   "worstPerimeterEdge": {
+    "p10": 7.96,
+    "p25": 16.46,
+    "p50": 36.9,
+    "p75": 60.35,
+    "p90": 86.81
+   }
+  },
+  "5000": {
+   "qualifyingBodies": 56,
+   "firesServed": 3286,
+   "pctFiresServed": 100,
+   "pctHaServed": 100,
+   "unservedFires": 0,
+   "byFire": {
+    "p10": 6.26,
+    "p25": 18.37,
+    "p50": 48.65,
+    "p75": 92.03,
+    "p90": 156.98
+   },
+   "byHectare": {
+    "p10": 7.98,
+    "p25": 30.45,
+    "p50": 80.17,
+    "p75": 114.29,
+    "p90": 171.61
+   },
+   "worstPerimeterEdge": {
+    "p10": 10.62,
+    "p25": 25.67,
+    "p50": 61.87,
+    "p75": 105.08,
+    "p90": 162.95
+   }
+  }
+ },
+ "geometry": {
+  "P100": {
+   "hullLenM": 190,
+   "hullStationDiscHa": 2.84,
+   "configMinSourceHa": 10,
+   "conservatismVsHullDisc": 3.53,
+   "anchorBagT": 125,
+   "anchorBagDiameterM": 5.42,
+   "depthToSubmergeBagM": 8.13,
+   "drawTonnesPer12h": 2106,
+   "drawdownMetresPer12hOnMinBody": 0.0211,
+   "qualifyingBodiesInBC": 13646
+  },
+  "P1000": {
+   "hullLenM": 404,
+   "hullStationDiscHa": 12.82,
+   "configMinSourceHa": 100,
+   "conservatismVsHullDisc": 7.8,
+   "anchorBagT": 1250,
+   "anchorBagDiameterM": 11.68,
+   "depthToSubmergeBagM": 17.51,
+   "drawTonnesPer12h": 20361,
+   "drawdownMetresPer12hOnMinBody": 0.0204,
+   "qualifyingBodiesInBC": 1623
+  },
+  "P10000": {
+   "hullLenM": 876,
+   "hullStationDiscHa": 60.27,
+   "configMinSourceHa": 1000,
+   "conservatismVsHullDisc": 16.59,
+   "anchorBagT": 12400,
+   "anchorBagDiameterM": 25.09,
+   "depthToSubmergeBagM": 37.63,
+   "drawTonnesPer12h": 158201,
+   "drawdownMetresPer12hOnMinBody": 0.0158,
+   "qualifyingBodiesInBC": 202
+  }
+ },
+ "crossCheck": {
+  "P100": {
+   "bothFound": 3252,
+   "sameBodyChosen": 1775,
+   "kmMismatchWhenSameBody": 0,
+   "existenceGap": 0,
+   "modelFlewFurtherThanNearest": 1477,
+   "pctModelFlewFurther": 45.42,
+   "detourKm": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 3.44,
+    "p90": 9.25
+   },
+   "detourKmByHectare": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 1.94,
+    "p90": 6.25
+   }
+  },
+  "P1000": {
+   "bothFound": 3286,
+   "sameBodyChosen": 1872,
+   "kmMismatchWhenSameBody": 0,
+   "existenceGap": 0,
+   "modelFlewFurtherThanNearest": 1414,
+   "pctModelFlewFurther": 43.03,
+   "detourKm": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 7.02,
+    "p90": 24.16
+   },
+   "detourKmByHectare": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 5.82,
+    "p90": 33.61
+   }
+  },
+  "P10000": {
+   "bothFound": 3286,
+   "sameBodyChosen": 2252,
+   "kmMismatchWhenSameBody": 0,
+   "existenceGap": 0,
+   "modelFlewFurtherThanNearest": 1034,
+   "pctModelFlewFurther": 31.47,
+   "detourKm": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 4.84,
+    "p90": 29.07
+   },
+   "detourKmByHectare": {
+    "p10": 0,
+    "p25": 0,
+    "p50": 0,
+    "p75": 11.93,
+    "p90": 48.96
+   }
+  }
+ }
+}

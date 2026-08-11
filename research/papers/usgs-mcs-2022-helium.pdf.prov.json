@@ -1,0 +1,13 @@
+{
+  "file": "usgs-mcs-2022-helium.pdf",
+  "description": "Helium chapter (2 pp.) of the USGS Mineral Commodity Summaries 2022: 2021 salient statistics for the US helium market, including the estimated Grade-A private-industry price of $7.57 per cubic meter ($210 per thousand cubic feet), import sources 2017-2020 (Qatar 65%, Algeria 12%, Canada 11%, Portugal 7%), and the Federal Helium Program still operating under BLM with 85.7 million cubic meters of conservation helium remaining.",
+  "source": "https://pubs.usgs.gov/periodicals/mcs2022/mcs2022-helium.pdf",
+  "catalogue": "https://doi.org/10.3133/mcs2022",
+  "publisher": "U.S. Geological Survey, U.S. Department of the Interior",
+  "licence": "Public domain in the United States. Works of the United States Government are not subject to copyright protection under 17 USC 105.",
+  "licenceUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+  "attribution": "U.S. Geological Survey, 'Mineral Commodity Summaries 2022' (January 2022), Helium chapter, prepared by Joseph B. Peterson (BLM Amarillo Field Office, Helium Operations).",
+  "retrievedAt": "2026-08-10T22:07:49Z",
+  "generator": null,
+  "notes": "One chapter of a larger annual publication; the DOI 10.3133/mcs2022 identifies the whole Mineral Commodity Summaries 2022, and pubs.usgs.gov serves the helium chapter as this standalone PDF. The 2021 figures are marked estimated ('e') in the chapter itself, and the chapter's own footnote warns that Census Bureau export data for 2018-2021 'may be incorrect', with apparent consumption estimated at 40 Mm3/yr as a result. This is the baseline of the price series this project cites: $7.57/m3 is HE_PRICE_2021_USD_M3 in research/analysis/helium.py, the denominator of the +85%-in-two-years repricing. Note the wording: 'with some producers posting surcharges to this price' - the base price understates what buyers paid. Retrieved with curl this session and re-downloaded 2026-08-10 to confirm byte-identity with what pubs.usgs.gov serves; 134619 bytes, sha256 7d9182565e655edb0d354068e27b28eec22169dfab6b3df3cb3338bf95bab854. generator is null because no script in this repository produces this file."
+}
