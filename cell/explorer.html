@@ -406,7 +406,12 @@
   <span data-n="wM60.densityAtN1" data-f="3"></span> kg/m³ and is buoyant at sea level as a
   single cell; printed continuous fibre needs
   <span data-n="wCFF.minNSeaLevel" data-f="0"></span> levels of structure inside structure to
-  get there. This is the bench article: it exists to be crushed, sealed and pumped down.</p>
+  get there. This is the bench article, and the order it is built in is the</p>
+  <p class="sowhat">test: baked out under vacuum, the barrier bonded hot while the cell is
+  already in the chamber, and the seal closed as the last operation before it cools. The
+  chamber does the evacuating — there is no valve and no pump aboard, so nothing is
+  pumped down afterwards. The crush comes last and it is not a step anyone performs: the
+  cell comes out of the chamber and one atmosphere stands on it.</p>
 
   <p style="color:var(--faint);font-size:var(--t-11)">The same geometry printed end to end
   in nylon — the variant that proves the printer chain rather than the physics — comes to
@@ -1258,8 +1263,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f28c2a93';
-import * as CELL from './model.js?v=f28c2a93';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3eed134a';
+import * as CELL from './model.js?v=3eed134a';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
