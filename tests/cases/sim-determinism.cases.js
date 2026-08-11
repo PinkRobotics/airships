@@ -8,7 +8,7 @@ import { close, deepEq, describe, eq, it, ok } from '../harness.js';
 import {
   CLASSES, SEED, buildMission, findSource, hashFrac, havKm,
   resetConfig, segAt, setSeed, stateAt,
-} from '../../sim/index.js?v=1ee78c65';
+} from '../../sim/index.js?v=71337736';
 
 const WATER = [
   [-120.30, 50.00, 40000, 0, 'Big Lake', null],

@@ -13,8 +13,8 @@
  * comment that says they match.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=1ee78c65';
-import { anchorView } from '../../app/anchorview.js?v=1ee78c65';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=71337736';
+import { anchorView } from '../../app/anchorview.js?v=71337736';
 import { fromMonitorState } from '../../3d/adapter/fable.js?v=7439a398';
 import { resolveClass } from '../../3d/model/config.js?v=7439a398';
 

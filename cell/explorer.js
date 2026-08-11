@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=1ee78c65';
-import * as G from './explorer-geom.js?v=1ee78c65';
+import * as CELL from './model.js?v=71337736';
+import * as G from './explorer-geom.js?v=71337736';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=1ee78c65';
+} from './nodes.generated.js?v=71337736';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -53,10 +53,10 @@ const XM = {
   // The hybrid article's two material families, told apart at a glance (the designer
   // asked): purchased roll-wrapped carbon pipe — dark, glossy — and the printed polymer
   // joints and their sockets in printed bone.
-  pipe: { kind: 'surface', color: '#3a3f47', spec: 0.60, opacity: 1 },
+  pipe: { kind: 'surface', color: '#606874', spec: 0.52, opacity: 1 },
   // The rim is a different part doing a different job — bigger section, tougher fibre,
   // because the film loads the cell's own edges in bending rather than compression.
-  pipeRim: { kind: 'surface', color: '#4d5460', spec: 0.52, opacity: 1 },
+  pipeRim: { kind: 'surface', color: '#7d8796', spec: 0.46, opacity: 1 },
   printed: { kind: 'surface', color: TOKENS.bone, spec: 0.22, opacity: 1 },
   // The centreline of a pipe the parts view is hiding: annotation, not hardware, so it
   // sits at the faint end of the palette, below the lattice lines it stands in for.
@@ -1501,7 +1501,19 @@ export function mountExplorer(opts) {
       return { r: lv.radius, depthR, d: lv.radius * (lv.dist || 2.05),
                tg: (lv.target || [0, 0, 0]).slice(), az: lv.az, el: lv.el };
     }
-    return { r: stop.radius, depthR, d: stop.radius * (stop.dist || 2.05),
+    // THE WHOLE ARTICLE STAYS IN FRAME while the subject is centred. A stop used to supply
+    // its own small radius and the camera flew right down onto the part, which answers "what
+    // does this look like" and destroys "where does it sit". The designer asked for both at
+    // once — "keep the entire cell in screen but center the thing in focus and rotate around
+    // it and fade out the other stuff" — so the orbit TARGET is the subject and the orbit
+    // RADIUS is whatever it takes to still contain the cell from there: its own radius plus
+    // however far off-centre the subject is. The focusing is then done entirely by the dim,
+    // which is the one mechanism that can single a part out without hiding its context.
+    const cellR = LEVELS[STAGE_LEVEL].radius;
+    const c = LEVELS[STAGE_LEVEL].target || [0, 0, 0];
+    const off = Math.hypot(stop.target[0] - c[0], stop.target[1] - c[1], stop.target[2] - c[2]);
+    const r = cellR + off;
+    return { r, depthR, d: r * (stop.dist || 2.05),
              tg: stop.target.slice(), az: stop.az, el: stop.el };
   }
 
@@ -1589,7 +1601,7 @@ export function mountExplorer(opts) {
   // reading the tint array back would report a perfectly dimmed scene that never dimmed.
   // (The array level gets away with alpha 5.0 only because its cells are glass at 0.035.)
   const TOUR_DIM = 0.28;          // how far a non-subject instance is pulled toward black
-  const TOUR_SKIN_DIM = 0.30;     // lines and glass: those DO blend, so scale their opacity
+  const TOUR_SKIN_DIM = 0.42;     // lines and glass: those DO blend, so scale their opacity
   let tourFrom = null, tourTo = null;   // subject key sets, so the highlight can travel
   function applyTour(blend) {
     const cell = built[STAGE_LEVEL];
@@ -1628,7 +1640,7 @@ export function mountExplorer(opts) {
 
   /* -- style resolution: fades, cuts, custom materials -- */
   const SKIN_SOLID = { kind: 'surface', color: '#5f6878', spec: 0.26, opacity: 1 };
-  const SKIN_GLASS = { kind: 'glass', color: '#7aa2c8', opacity: 0.24 };
+  const SKIN_GLASS = { kind: 'glass', color: '#8fb6dc', opacity: 0.46 };
   // Lines and glass are what per-instance tint cannot reach, and they are exactly the
   // non-instanced nodes in the cell: the skin, its seams, the pipe ghosts. Opacity
   // genuinely blends there, so the tour dims those by scaling it instead — and the film
@@ -2028,6 +2040,46 @@ export function mountExplorer(opts) {
       dirty = true;
       return state.skinMode;
     },
+    /** Light one structural reading of the article and dim the rest.
+     *
+     * The same per-instance tint the tour uses, driven by a question instead of a stop.
+     * Every one of these is a real partition of the 216 members, and two of them are the
+     * project's own history: the SPOKES and the TIES were both added after a load path was
+     * found missing, so "secondary" is not a grade, it is what the first cut forgot.
+     *   internal / external  interior lattice + its binding, against everything lying in a face
+     *   primary / secondary  sized against a real load, against added to brace what that missed
+     *   long / short         the two cut lengths, 251 mm and 177 mm
+     *   centre               the twelve that reach u = (0,0,0), the only 60-degree joint
+     */
+    setGroup(name) {
+      const KINDS = {
+        internal: ['octet', 'tie'], external: ['rim', 'spoke'],
+        primary: ['octet', 'rim'], secondary: ['spoke', 'tie'],
+        long: ['octet', 'rim', 'spoke'], short: ['tie'],
+      };
+      state.group = name;
+      if (name === 'all' || (!KINDS[name] && name !== 'centre')) {
+        state.group = 'all';
+        clearTour();
+        return 'all';
+      }
+      const recs = built[STAGE_LEVEL].members || [];
+      // The centre node's key is uKey([0,0,0]) — the same string the builder files members
+      // under, so this asks the record rather than re-deriving a position.
+      const CENTRE = '0,0,0';
+      const keys = new Set();
+      for (const m of recs) {
+        const hit = name === 'centre'
+          ? m.keys.includes(CENTRE)
+          : KINDS[name].includes(m.kind);
+        if (hit) for (const [id, i] of m.inst) keys.add(`${id}#${i}`);
+      }
+      tourFrom = keys;
+      tourTo = keys;
+      applyTour(1);
+      return name;
+    },
+    get group() { return state.group || 'all'; },
     cycleParts() {
       const order = ['all', 'joinery', 'pipes'];
       state.partsMode = order[(order.indexOf(state.partsMode) + 1) % order.length];
