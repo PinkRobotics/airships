@@ -1278,8 +1278,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=64d55a6f';
-import * as CELL from './model.js?v=64d55a6f';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=d92cc6f3';
+import * as CELL from './model.js?v=d92cc6f3';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1555,6 +1555,11 @@ if (!api) {
   const uf = document.getElementById('toggleUnfold');
   uf.textContent = api.unfoldLabel;
   uf.addEventListener('click', () => { uf.textContent = api.toggleUnfold(); });
+  // ?unfold=1 opens the net on load — a deep link, and the only way a screenshot can capture
+  // the open state, since the harness loads a URL and cannot click. AFTER the listener is
+  // attached: firing it before did nothing at all, which is how the first attempt at this
+  // "verified" a screenshot of the folded cell.
+  if (qs.has('unfold')) uf.click();
   gbtns.forEach(b => b.addEventListener('click', () => {
     api.setGroup(b.dataset.group === api.group ? 'all' : b.dataset.group);
     syncGroups();

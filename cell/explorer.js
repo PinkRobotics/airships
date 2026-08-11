@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=64d55a6f';
-import * as G from './explorer-geom.js?v=64d55a6f';
+import * as CELL from './model.js?v=d92cc6f3';
+import * as G from './explorer-geom.js?v=d92cc6f3';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=64d55a6f';
+} from './nodes.generated.js?v=d92cc6f3';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1808,7 +1808,7 @@ export function mountExplorer(opts) {
     if (onTrack && fr && fr.unfoldHideSkin
         && n.id !== 'FlatSkin' && n.id !== 'FlatSkinCuts') {
       if (n.skinPart) return { hidden: true };
-      if (fr.unfoldDim <= 0.004) return { hidden: true };
+      if (fr.unfoldGone) return { hidden: true };
     }
     if (n.skinPart) {
       if (state.skinMode === 'off') return { hidden: true };
@@ -1977,11 +1977,35 @@ export function mountExplorer(opts) {
     // TURN THE SHEET TO FACE THE VIEWER as it opens. The net lands in the root face's plane,
     // which the cell group's rotation leaves nearly edge-on — a flat sheet seen edge-on is
     // invisible, so the animation ran correctly and looked like nothing was happening.
+    // The sheet ends unrotated, so its plane is the root face's — normal along -X. Rather
+    // than guess euler angles to point that at the camera, TURN THE CAMERA to look square down
+    // it, and pull back far enough to hold the whole pattern. Eased on the same u, so folding
+    // back returns the view to the cell.
     const R0 = [-Math.PI / 4, 0, -Math.PI / 2];
     g.sheet.r = R0.map(v => v * (1 - u));
     g.cuts.r = g.sheet.r.slice();
-    cell.unfoldDim = clamp(1 - state.unfold * 3, 0, 1);
+    if (u > 0.001) {
+      const lv0 = LEVELS[state.levelIdx];
+      // The sheet's plane is the root face's — normal along -X — so the camera must sit ON the
+      // X axis to see it square. With the camera at (cos e sin a, sin e, cos e cos a) that is
+      // a = -PI/2, e = 0. PI put it back in the plane and the net rendered as slivers.
+      cam.azimuth = lerp(lv0.az, -Math.PI / 2, u);
+      cam.elevation = lerp(lv0.el, 0, u);
+      // the net is about four hexagon-widths across against a cell radius of one
+      // cam.RADIUS is the model's bounding radius and only sets the clamps; cam.DISTANCE is
+      // what the camera actually sits at. Writing radius alone changed nothing on screen.
+      // The net is about 2 m across against a 0.42 m cell, so it needs roughly 3x the reach.
+      const dCell = lv0.radius * (lv0.dist || 2.05);
+      // The clamp has to move FIRST or it silently caps the distance below the target and the
+      // pull-back does nothing — which is what 3x looked like.
+      cam.maxDistance = Math.max(cam.maxDistance, dCell * 12);
+      cam.distance = lerp(dCell, dCell * 6.0, u);
+    }
+    // Fade the frame across the WHOLE motion rather than the first third — at 3x it was
+    // gone before the panels had visibly moved, so the fold read as a cut to another scene.
+    cell.unfoldDim = clamp(1 - u, 0, 1);
     cell.unfoldHideSkin = state.unfold > 0.005;
+    cell.unfoldGone = u > 0.97;
     const ng = netGeom(g.net, u);
     g.sheet.geom = ng.solid;
     g.cuts.geom = G.lines(ng.cutSegs);
