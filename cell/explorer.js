@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=36486b75';
-import * as G from './explorer-geom.js?v=36486b75';
+import * as CELL from './model.js?v=09b4bff2';
+import * as G from './explorer-geom.js?v=09b4bff2';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=36486b75';
+} from './nodes.generated.js?v=09b4bff2';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -506,9 +506,14 @@ function flatSkin(root, ctx) {
   const sheet = solidNode(root, 'FlatSkin', netGeom(net, 0).solid,
     { kind: 'surface', color: '#8fb6dc', spec: 0.10, opacity: 1 });
   sheet.skinPart = 'surface';
+  // MATCH THE CELL GROUP'S POSE. buildCell rotates its whole group so one strut lands on the
+  // strut level's tube for the dive (cg.r below); the net has to carry the same rotation or it
+  // sits beside the cell as a second, misaligned copy — which is exactly how it shipped once.
   sheet.p = CELL_CENTRE.slice();
+  sheet.r = [-Math.PI / 4, 0, -Math.PI / 2];
   const cuts = lineNode(root, 'FlatSkinCuts', netGeom(net, 0).cutSegs, XM.kelvinEdge);
   cuts.p = CELL_CENTRE.slice();
+  cuts.r = [-Math.PI / 4, 0, -Math.PI / 2];
   g.sheet = sheet; g.cuts = cuts;
   root.net = g;
   return g;
@@ -1968,6 +1973,12 @@ export function mountExplorer(opts) {
     // The net replaces the cell's own skin rather than sitting beside it, and the frame
     // inside fades over the first third so the film is alone before it opens.
     const cell = built[STAGE_LEVEL];
+    // TURN THE SHEET TO FACE THE VIEWER as it opens. The net lands in the root face's plane,
+    // which the cell group's rotation leaves nearly edge-on — a flat sheet seen edge-on is
+    // invisible, so the animation ran correctly and looked like nothing was happening.
+    const R0 = [-Math.PI / 4, 0, -Math.PI / 2];
+    g.sheet.r = R0.map(v => v * (1 - u));
+    g.cuts.r = g.sheet.r.slice();
     cell.unfoldDim = clamp(1 - state.unfold * 3, 0, 1);
     cell.unfoldHideSkin = state.unfold > 0.005;
     const ng = netGeom(g.net, u);

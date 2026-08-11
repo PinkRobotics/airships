@@ -9,7 +9,7 @@ import { close, deepEq, describe, eq, it, ok, throws } from '../harness.js';
 import {
   CFG, CLASSES, DEFAULTS, MODES,
   planCycle, resetConfig, setConfig,
-} from '../../sim/index.js?v=36486b75';
+} from '../../sim/index.js?v=09b4bff2';
 
 const KEYS = Object.keys(DEFAULTS);
 
