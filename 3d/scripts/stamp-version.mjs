@@ -106,6 +106,30 @@ const importsTree = (page) => {
 };
 const htmlEntries = walkHtml(SITE).filter(importsTree);
 
+/**
+ * JS entry points OUTSIDE the tree that import into it — cell/explorer.js was the first.
+ * Without this, a module in another owner's tree holds unversioned ../3d/ specifiers, and a
+ * CDN serves it a stale graph for exactly as long as its cache pleases: the renderer fix of
+ * 2026-08-11 would have been invisible behind Cloudflare. Discovery is by resolving
+ * specifiers, same as the HTML entries and for the same reason.
+ */
+function walkJs(dir, out = []) {
+  for (const name of readdirSync(dir)) {
+    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
+    const q = join(dir, name);
+    let st;
+    try { st = statSync(q); } catch { continue; }
+    if (st.isDirectory()) walkJs(q, out);
+    else if ((name.endsWith('.js') || name.endsWith('.mjs'))) out.push(q);
+  }
+  return out;
+}
+const insideTree = (p) => {
+  const rel = relative(ROOT, p);
+  return rel === '' || (!rel.startsWith('..') && !isAbsolute(rel));
+};
+const jsEntries = walkJs(SITE).filter((p) => !insideTree(p) && importsTree(p));
+
 /* The version: a hash of the STRIPPED contents, so stamping is idempotent.
  *
  * The token pattern is deliberately PERMISSIVE. It used to require exactly eight hex characters,
@@ -128,7 +152,7 @@ function stampSource(page, src) {
 }
 
 let changed = 0, stale = [];
-for (const p of [...modules, ...htmlEntries]) {
+for (const p of [...modules, ...htmlEntries, ...jsEntries]) {
   const src = readFileSync(p, 'utf8');
   const out = stampSource(p, src);
   if (out === src) continue;

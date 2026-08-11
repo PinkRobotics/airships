@@ -11,9 +11,9 @@
 
 import {
   clamp, lerp, easeInOut, m4lookAt, m4perspective, m4ortho, lerp3, add, sub, mul, norm, dist,
-} from '../core/math.js?v=06a314a3';
-import { lerpAngle } from '../physics/state.js?v=06a314a3';
-import { stationX } from '../model/config.js?v=06a314a3';
+} from '../core/math.js?v=7439a398';
+import { lerpAngle } from '../physics/state.js?v=7439a398';
+import { stationX } from '../model/config.js?v=7439a398';
 
 /**
  * @param {object} opts
@@ -87,7 +87,16 @@ export function dolly(cam, factor) {
   cam.orthoHalfHeight = clamp(cam.orthoHalfHeight * factor, cam.radius * 0.1, cam.radius * 8);
 }
 
-export function pan(cam, dxScreen, dyScreen, viewportHeight) {
+/**
+ * Drag the orbit target across the view plane.
+ *
+ * `centre` is the point the clamp box is built around, and it defaults to the world origin
+ * because that is where the ship is. It stops defaulting the moment a viewer is looking at
+ * something that is NOT at the origin: the cell explorer's part tours target a 25 mm joint
+ * 0.29 m out, where a box of +-radius*1.6 about the origin snaps the target on the first
+ * drag and throws the subject out of frame.
+ */
+export function pan(cam, dxScreen, dyScreen, viewportHeight, centre = [0, 0, 0]) {
   grab(cam);
   const eye = cameraEye(cam);
   const fwd = norm(sub(cam.target, eye));
@@ -102,9 +111,11 @@ export function pan(cam, dxScreen, dyScreen, viewportHeight) {
     : (2 * cam.distance * Math.tan((cam.fovDeg * Math.PI) / 360)) / viewportHeight;
   const move = add(mul(right, -dxScreen * scale), mul(up, dyScreen * scale));
   const t = add(cam.target, move);
-  // Clamp the target into the model's neighbourhood so the ship cannot be panned off the world.
+  // Clamp the target into the subject's neighbourhood so it cannot be panned off the world.
   const lim = cam.radius * 1.6;
-  cam.target = [clamp(t[0], -lim, lim), clamp(t[1], -lim, lim), clamp(t[2], -lim, lim)];
+  cam.target = [clamp(t[0], centre[0] - lim, centre[0] + lim),
+    clamp(t[1], centre[1] - lim, centre[1] + lim),
+    clamp(t[2], centre[2] - lim, centre[2] + lim)];
 }
 
 /* ---------- presets ---------------------------------------------------------------------------- */

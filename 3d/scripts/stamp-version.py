@@ -73,6 +73,19 @@ def imports_tree(page):
 # is, which is the only form of this list that a later move cannot silently empty.
 html_entries = [p for p in walk(SITE, {".html"}) if imports_tree(p)]
 
+# JS entry points OUTSIDE the tree that import into it — cell/explorer.js was the first.
+# Without this, a module in another owner's tree holds unversioned ../3d/ specifiers, and a
+# CDN serves it a stale graph for exactly as long as its cache pleases: the renderer fix of
+# 2026-08-11 would have been invisible behind Cloudflare. Discovery is by resolving
+# specifiers, same as the HTML entries and for the same reason. (Mirrored in the .mjs.)
+def inside_tree(p: Path) -> bool:
+    q = Path(os.path.normpath(p))
+    return q == ROOT or ROOT in q.parents
+
+
+js_entries = [p for p in walk(SITE, {".js", ".mjs"})
+              if not inside_tree(p) and imports_tree(p)]
+
 
 def strip_stamp(s):
     return STAMP.sub(r"\1\2", s)
@@ -94,7 +107,7 @@ def stamp_source(page, src):
 
 
 changed, stale = 0, []
-for p in modules + html_entries:
+for p in modules + html_entries + js_entries:
     src = p.read_text()
     out = stamp_source(p, src)
     if out == src:

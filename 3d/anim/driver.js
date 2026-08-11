@@ -12,13 +12,13 @@
  * An 800 m machine that pirouettes is the single most common way this kind of visualisation lies.
  */
 
-import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=06a314a3';
-import { setInstance, aimEuler, instanceById } from '../model/build.js?v=06a314a3';
-import { byPrefix, walk } from '../core/nodes.js?v=06a314a3';
-import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=06a314a3';
-import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=06a314a3';
-import { hoseGeometry } from './hose.js?v=06a314a3';
-import { STATE_TONE, TOKENS } from '../render/palette.js?v=06a314a3';
+import { clamp, clamp01, lerp, damp, norm, mul, add, sub, len, easeInOut } from '../core/math.js?v=7439a398';
+import { setInstance, aimEuler, instanceById } from '../model/build.js?v=7439a398';
+import { byPrefix, walk } from '../core/nodes.js?v=7439a398';
+import { massState, waterVolumeM3, ln2VolumeM3, ln2TankLevels, inertia } from '../physics/mass.js?v=7439a398';
+import { createHose, updateHose, hoseCurve, podDepthM, reelAngleRad } from './hose.js?v=7439a398';
+import { hoseGeometry } from './hose.js?v=7439a398';
+import { STATE_TONE, TOKENS } from '../render/palette.js?v=7439a398';
 
 /** Wind used by the hose and the drift behaviour when the host has not supplied a field. */
 const DEFAULT_WIND = [0, 0, 0];

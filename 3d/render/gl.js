@@ -22,10 +22,10 @@
  * stencil pass and no artefacts.
  */
 
-import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=06a314a3';
-import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=06a314a3';
-import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=06a314a3';
-import { updateWorld, walk } from '../core/nodes.js?v=06a314a3';
+import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=7439a398';
+import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=7439a398';
+import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=7439a398';
+import { updateWorld, walk } from '../core/nodes.js?v=7439a398';
 
 /* ---------- shaders --------------------------------------------------------------------------- */
 
@@ -609,9 +609,20 @@ export function createRenderer(canvas, opts = {}) {
       gl.vertexAttribDivisor(loc, 1);
     }
     gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, b.count);
-    for (const attr of ['aA', 'aB', 'aWeight']) {
+    // DISABLE the line attributes, not just reset their divisors. Attribute locations are
+    // assigned per driver, and an array left enabled here can land on the SOLID program's
+    // aInst/aTint slots — which then read this pass's stale, too-short buffers instead of
+    // their constant values. Robust-access drivers return zeros, so every non-instanced
+    // solid draws with tint alpha 0: invisible geometry, lines still showing — a scene
+    // reduced to its wireframe, on exactly and only the drivers whose location assignment
+    // collides. Found because the explorer's tube-wall level did precisely that on
+    // hardware GL while SwiftShader and RADV rendered it perfectly.
+    for (const attr of ['aCorner', 'aA', 'aB', 'aWeight']) {
       const loc = P.a[attr];
-      if (loc !== undefined && loc >= 0) gl.vertexAttribDivisor(loc, 0);
+      if (loc !== undefined && loc >= 0) {
+        gl.vertexAttribDivisor(loc, 0);
+        gl.disableVertexAttribArray(loc);
+      }
     }
     stats.lines += b.count;
     stats.drawCalls++;
