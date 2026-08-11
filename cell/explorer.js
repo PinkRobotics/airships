@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=0313ec84';
-import * as G from './explorer-geom.js?v=0313ec84';
+import * as CELL from './model.js?v=36486b75';
+import * as G from './explorer-geom.js?v=36486b75';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=0313ec84';
+} from './nodes.generated.js?v=36486b75';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -506,7 +506,9 @@ function flatSkin(root, ctx) {
   const sheet = solidNode(root, 'FlatSkin', netGeom(net, 0).solid,
     { kind: 'surface', color: '#8fb6dc', spec: 0.10, opacity: 1 });
   sheet.skinPart = 'surface';
+  sheet.p = CELL_CENTRE.slice();
   const cuts = lineNode(root, 'FlatSkinCuts', netGeom(net, 0).cutSegs, XM.kelvinEdge);
+  cuts.p = CELL_CENTRE.slice();
   g.sheet = sheet; g.cuts = cuts;
   root.net = g;
   return g;
@@ -1096,9 +1098,14 @@ function buildArray(ctx) {
   // TWO SKINNED CELLS, on opposite corners of the block. One alone reads as a special case;
   // a pair reads as what every cell in the array is, with the wireframe between them showing
   // how they pack. The near one is what the level below opens on.
-  const farC = [0, span, -span / 2];
+  // The pair is ADJACENT and interior, not on opposite corners. Two cells that touch show the
+  // thing worth showing — how they pack, and that the wall between them has vacuum on both
+  // sides and carries nothing. On opposite edges of the block they were two isolated objects
+  // and hard to pick out at all. Nearest neighbour to the first, chosen by distance rather
+  // than by an index that would go stale the moment the array's shape changes.
   const farIdx = centres.reduce((best, c, i) => {
-    const d = Math.hypot(c.p[0] - farC[0], c.p[1] - farC[1], c.p[2] - farC[2]);
+    if (i === openIdx) return best;
+    const d = Math.hypot(c.p[0] - openC[0], c.p[1] - openC[1], c.p[2] - openC[2]);
     return d < best.d ? { i, d } : best;
   }, { i: 0, d: Infinity }).i;
   for (const [id, c, idx] of [['ArrayHeroSkin', openC, openIdx],
@@ -1657,6 +1664,7 @@ export function mountExplorer(opts) {
     state.levelIdx = idx;
     const lv = LEVELS[idx];
     state.cut = lv.defaultCut || 0;
+    if (lv.id !== 'track') { state.unfoldTo = 0; }
     // Every level with a tour is entered at stop 0, with THAT stop's framing — the level's
     // own radius and target are only the fallback for a level that has no stops.
     const tr = tourOf(idx);
@@ -1782,9 +1790,21 @@ export function mountExplorer(opts) {
     if (nn.inst) return 1;
     const b = nn._fadeRoot;
     if (!b) return 1;
-    return (nn.skinPart ? b.tourSkinDim : b.tourDim) || 1;
+    const uf = b.unfoldDim === undefined ? 1 : b.unfoldDim;
+    return ((nn.skinPart ? b.tourSkinDim : b.tourDim) || 1) * uf;
   };
   const styleFor = (n) => {
+    // Once the skin is unfolding, the cell it came off is not the subject any more.
+    // Its own membrane is replaced by the net; the rest goes with it.
+    const fr = n._fadeRoot;
+    // ...but only on the level that owns the net. The stage cell is shared with the
+    // connector and tube tours, and a leaked unfold state blanked both of them.
+    const onTrack = LEVELS[state.levelIdx].id === 'track';
+    if (onTrack && fr && fr.unfoldHideSkin
+        && n.id !== 'FlatSkin' && n.id !== 'FlatSkinCuts') {
+      if (n.skinPart) return { hidden: true };
+      if (fr.unfoldDim <= 0.004) return { hidden: true };
+    }
     if (n.skinPart) {
       if (state.skinMode === 'off') return { hidden: true };
       if (n.skinPart === 'surface') {
@@ -1944,7 +1964,13 @@ export function mountExplorer(opts) {
     if (Math.abs(d) < 1e-4) return;
     state.unfold += Math.sign(d) * Math.min(Math.abs(d), dt / 1.6);
     state.unfold = clamp(state.unfold, 0, 1);
-    const ng = netGeom(g.net, easeInOut(state.unfold));
+    const u = easeInOut(state.unfold);
+    // The net replaces the cell's own skin rather than sitting beside it, and the frame
+    // inside fades over the first third so the film is alone before it opens.
+    const cell = built[STAGE_LEVEL];
+    cell.unfoldDim = clamp(1 - state.unfold * 3, 0, 1);
+    cell.unfoldHideSkin = state.unfold > 0.005;
+    const ng = netGeom(g.net, u);
     g.sheet.geom = ng.solid;
     g.cuts.geom = G.lines(ng.cutSegs);
     dirty = true;

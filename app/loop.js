@@ -1,11 +1,11 @@
 /* The frame loop: advance the clock, integrate the energy ledger, redraw.
  */
-import { stateAt } from '../sim/index.js?v=0313ec84';
-import { updateCockpit } from './cockpit/panels.js?v=0313ec84';
-import { $ } from './dom.js?v=0313ec84';
-import { mercY } from './map/projection.js?v=0313ec84';
-import { draw } from './map/render.js?v=0313ec84';
-import { S } from './store.js?v=0313ec84';
+import { stateAt } from '../sim/index.js?v=36486b75';
+import { updateCockpit } from './cockpit/panels.js?v=36486b75';
+import { $ } from './dom.js?v=36486b75';
+import { mercY } from './map/projection.js?v=36486b75';
+import { draw } from './map/render.js?v=36486b75';
+import { S } from './store.js?v=36486b75';
 
 export function frame(ts) {
   if (S.lastFrame === null) S.lastFrame = ts;

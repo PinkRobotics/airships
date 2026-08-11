@@ -170,6 +170,9 @@ PROBE = r"""(() => {
   out.net = E.netStats();
   out.netModelAreaM2 = C.kelvinFaces(E.ctx.demo.spanM).areaM2;
   document.getElementById('toggleUnfold').click();
+  // Tick it fully shut. The ease takes 1.6 s of animation time and the tour walk below shares
+  // this cell — leaving it half-open blanked every stop on the skin level.
+  for (let i = 0; i < 300 && E.state.unfold > 0.001; i++) E.tick(0.05);
   out.socketsDrawn = E.instanceKeys()
     .filter(k => /^(NodeSockets|TieSockets|RimSockets)#/.test(k)).length;
   out.socketsExpected = 2 * out.ghostExpected;   // both ends of every member
