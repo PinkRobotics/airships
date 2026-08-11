@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=09b4bff2';
-import * as G from './explorer-geom.js?v=09b4bff2';
+import * as CELL from './model.js?v=64d55a6f';
+import * as G from './explorer-geom.js?v=64d55a6f';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=09b4bff2';
+} from './nodes.generated.js?v=64d55a6f';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1912,6 +1912,7 @@ export function mountExplorer(opts) {
 
   /** Advance any running move; returns true if the camera or fades changed. */
   function advance(dt) {
+    stepUnfold(dt);
     if (!transition) return false;
     transition.t = Math.min(1, transition.t + dt / transition.seconds);
     const k = easeInOut(transition.t);
@@ -2349,7 +2350,6 @@ export function mountExplorer(opts) {
     /** Advance and draw exactly one frame, synchronously — for tests and stills. */
     tick(dt = 1 / 60) {
       advance(dt);
-      stepUnfold(dt);
       renderBody();
     },
     levels: LEVELS,

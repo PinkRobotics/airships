@@ -165,9 +165,18 @@ PROBE = r"""(() => {
   // model's own surface, and NO TWO FACES OVERLAPPING — an overlapping net cannot be cut and
   // looks perfectly fine on screen.
   E.setLevel(E.levels.findIndex(l => l.id === 'track'), true);
+  E.tick(0.016);
+  out.unfoldTrisShut = E.renderer.stats.triangles;
   document.getElementById('toggleUnfold').click();
   for (let i = 0; i < 300 && E.state.unfold < 0.999; i++) E.tick(0.05);
   out.net = E.netStats();
+  // AND THE FRAME MUST ACTUALLY CHANGE. The gate asserted every property of the pattern —
+  // flat, right area, no overlaps — and nothing about whether it could be SEEN, so it passed
+  // with full confidence while the feature was invisible in a browser twice running: once
+  // because the sheet sat edge-on, and once because stepUnfold lived only in api.tick(), which
+  // the gate calls and the page's requestAnimationFrame loop does not. Measure the drawn frame
+  // before and after, and drive it through the same advance() the real loop uses.
+  out.unfoldTrisOpen = E.renderer.stats.triangles;
   out.netModelAreaM2 = C.kelvinFaces(E.ctx.demo.spanM).areaM2;
   document.getElementById('toggleUnfold').click();
   // Tick it fully shut. The ease takes 1.6 s of animation time and the tour walk below shares
@@ -545,6 +554,14 @@ def main() -> None:
     if abs((net.get("areaM2") or 0) - (res.get("netModelAreaM2") or 1)) > 1e-6:
         bad.append(f"net area {net.get('areaM2')} m2 against the model's "
                    f"{res.get('netModelAreaM2')} m2 — the pattern is not the cell's surface")
+    if (res.get("unfoldTrisOpen") or 0) >= (res.get("unfoldTrisShut") or 0):
+        bad.append(
+            f"unfolding did not change the frame — {res.get('unfoldTrisShut')} triangles shut, "
+            f"{res.get('unfoldTrisOpen')} open. The cell should hide and leave the net, so a "
+            "frame that does not move means the animation is not reaching the renderer")
+    if (res.get("unfoldTrisOpen") or 0) < 24:
+        bad.append(f"only {res.get('unfoldTrisOpen')} triangles with the net open — the sheet "
+                   "is not being drawn at all")
     if net.get("overlaps"):
         bad.append(f"{net.get('overlaps')} pairs of faces OVERLAP in the flat net — this "
                    "pattern cannot be cut, and nothing on screen would show it")
