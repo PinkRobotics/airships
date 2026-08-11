@@ -3,12 +3,12 @@
  * It exists because a wireframe with labelled force arrows says things a rendered
  * vehicle cannot: which way the rotors are pushing, and how hard.
  */
-import { fmt } from '../../sim/index.js?v=cae4b374';
-import { anchorView } from '../anchorview.js?v=cae4b374';
-import { $ } from '../dom.js?v=cae4b374';
-import { resize } from '../map/projection.js?v=cae4b374';
-import { draw } from '../map/render.js?v=cae4b374';
-import { S } from '../store.js?v=cae4b374';
+import { fmt } from '../../sim/index.js?v=2d8ae1c4';
+import { anchorView } from '../anchorview.js?v=2d8ae1c4';
+import { $ } from '../dom.js?v=2d8ae1c4';
+import { resize } from '../map/projection.js?v=2d8ae1c4';
+import { draw } from '../map/render.js?v=2d8ae1c4';
+import { S } from '../store.js?v=2d8ae1c4';
 
 /* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
    force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel

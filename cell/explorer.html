@@ -1024,8 +1024,8 @@
     <p class="of"><span data-n="edge.hexFaces" data-f="0"></span> faces ·
       <span data-n="skin.hexSharePct" data-f="1"></span>% of the surface</p>
     <h3>The hexagon</h3>
-    <p>Most of the surface, and the face that had nothing in plane until the spokes were
-    added. A panel does not push on the lattice — <strong>it pulls on the
+    <p>Most of the surface, and the only face braced out of plane rather than within it —
+    six spokes to a hub. A panel does not push on the lattice — <strong>it pulls on the
     frame</strong>. Each one bulges inward until its membrane tension balances the
     atmosphere, and stands at <span data-n="skin.tensionHex" data-f="0"></span> N/m along
     its own surface tangent, leaving the face plane at
@@ -1277,8 +1277,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=cae4b374';
-import * as CELL from './model.js?v=cae4b374';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=2d8ae1c4';
+import * as CELL from './model.js?v=2d8ae1c4';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

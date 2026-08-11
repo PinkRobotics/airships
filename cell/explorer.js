@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=cae4b374';
-import * as G from './explorer-geom.js?v=cae4b374';
+import * as CELL from './model.js?v=2d8ae1c4';
+import * as G from './explorer-geom.js?v=2d8ae1c4';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=cae4b374';
+} from './nodes.generated.js?v=2d8ae1c4';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -434,9 +434,70 @@ function latheLocal(profile, seg) {
  * article twice, and `walk(b.root, n => n._fadeRoot = b)` would have stamped only one of
  * them — the fade would then track the wrong level's number.
  */
-function buildStageShell(id) {
-  return { root: node({ id: `L_${id}`, category: 'vacuum', selectable: false }), labels: [] };
+function buildStageShell(id, ctx) {
+  const root = node({ id: `L_${id}`, category: 'vacuum', selectable: false });
+  if (id === 'track' && ctx) flatSkin(root, ctx);
+  return { root, labels: [] };
 }
+
+/** THE SKIN, UNWRAPPED. The same fourteen faces the cell carries, cut apart and laid in one
+ *  plane at true scale, so the area you are buying is a thing you can look at rather than a
+ *  number in the panel. Each face is projected onto its own plane through a local basis and
+ *  then placed on the sheet — no scaling anywhere, so a hexagon here is exactly the hexagon
+ *  on the cell.
+ *
+ *  This is a LAYOUT, not a foldable net: the faces are packed for reading, not hinged along
+ *  shared edges. The cut pattern proper — one continuous seam, folds where they earn their
+ *  place, nesting on real roll width — is a different job and is not pretended at here. */
+function flatSkin(root, ctx) {
+  const span = ctx.demo.spanM;
+  const { verts, squares, hexes } = G.kelvinFaces(span);
+  const a = span / (2 * Math.SQRT2);           // the cell's edge: every face is built on it
+  const across = 2 * a;                        // hexagon, corner to corner
+  const pos = [], idx = [], outline = [];
+  // Four hexagons to a row, two rows, then the six squares beneath. Gaps of a/3 read as cuts.
+  const gap = a / 6;
+  const place = (f, ox, oy) => {
+    const loop = f.loop.map(i => verts[i]);
+    const c = loop.reduce((s, v) => [s[0] + v[0] / loop.length, s[1] + v[1] / loop.length,
+      s[2] + v[2] / loop.length], [0, 0, 0]);
+    // A local orthonormal basis IN the face's own plane: first edge, then the normal's cross.
+    const e1 = norm(sub(loop[0], c));
+    const n = norm(cross(sub(loop[1], c), sub(loop[0], c)));
+    const e2 = cross(n, e1);
+    const flat = loop.map(v => {
+      const d = sub(v, c);
+      return [ox + dot(d, e1), oy + dot(d, e2)];
+    });
+    const base = pos.length / 3;
+    pos.push(ox, oy, 0);                                   // fan centre
+    for (const [x, y] of flat) pos.push(x, y, 0);
+    for (let i = 0; i < flat.length; i++) {
+      idx.push(base, base + 1 + i, base + 1 + (i + 1) % flat.length);
+      outline.push([[flat[i][0], flat[i][1], 0.001],
+        [flat[(i + 1) % flat.length][0], flat[(i + 1) % flat.length][1], 0.001]]);
+    }
+  };
+  const hexPitch = across + gap, sqPitch = a + gap;
+  hexes.forEach((f, i) => place(f, (i % 4 - 1.5) * hexPitch,
+    (i < 4 ? 0.5 : -0.5) * (across * 0.87 + gap)));
+  squares.forEach((f, i) => place(f, (i - 2.5) * sqPitch,
+    -(across * 0.87 + gap) - sqPitch));
+  const sheet = solidNode(root, 'FlatSkin',
+    G.solid(new Float32Array(pos), new Uint32Array(idx)),
+    { kind: 'surface', color: '#8fb6dc', spec: 0.10, opacity: 1 });
+  sheet.p = [0, -span * 0.05, -span * 0.95];
+  sheet.skinPart = 'surface';
+  const ln = lineNode(root, 'FlatSkinCuts', outline, XM.kelvinEdge);
+  ln.p = sheet.p.slice();
+}
+
+const sub = (p, q) => [p[0] - q[0], p[1] - q[1], p[2] - q[2]];
+const dot = (p, q) => p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
+const cross = (p, q) => [p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2],
+  p[0] * q[1] - p[1] * q[0]];
+const norm = (p) => { const l = Math.hypot(p[0], p[1], p[2]) || 1;
+  return [p[0] / l, p[1] / l, p[2] / l]; };
 
 /* L3 — the cell: the printable demonstrator, 354 mm, 44 litres of nothing. */
 function buildCell(ctx) {
@@ -876,7 +937,7 @@ function buildCell(ctx) {
   // the true span slices through every one of them. This is a drawing offset only —
   // skin.areaM2 and the film mass come from the model, not from this geometry — and it
   // is the honest direction to err: the real film drapes over the joints, not through.
-  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span * 1.03), XM.kelvinGhost);
+  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span * 1.012), XM.kelvinGhost);
   skin.skinPart = 'surface';
   const seams = lineNode(cg, 'CellSkinSeams', G.kelvinEdges(span),
     { kind: 'line', color: TOKENS.bone, weight: 1.2, opacity: 0.7 });
@@ -957,20 +1018,14 @@ function buildArray(ctx) {
     const mm = m4compose(c.p, [0, 0, 0], 1);
     allEdges = allEdges.concat(transformSegs(edgeTpl, mm));
   }
-  lineNode(root, 'KelvinEdges', allEdges, XM.kelvinEdge);
+  // The array is a field, not a drawing of every cell: 27 cells of full-strength wireframe
+  // is a thicket you cannot find a cell in. The edges fall back to a ground tone and the
+  // two skinned cells carry the reading.
+  lineNode(root, 'KelvinEdges', allEdges,
+    { ...XM.kelvinEdge, opacity: (XM.kelvinEdge.opacity || 1) * 0.28 });
   // THE WRAPPED CELL, and it now shows ONE thing. At half pitch the sub-cell octet grid
   // meshes with the Kelvin surface exactly — corner nodes land in the hexagons, axis nodes
   // in the squares (Kelvin is BCC's Voronoi cell and the half-pitch grid contains the BCC
-  // points) — so the membrane is bonded at a regular grid of boundary nodes and the films
-  // bulge between them. That grid IS the claim, and it is what these balls are.
-  //
-  // The interior lattice that used to be drawn with them is gone (the designer: "remove the
-  // internal structure stuff for one of the cells"). It was a generic octet fill of a
-  // 2 m FLIGHT cell — not the article three levels down, which has its own hub, rim and
-  // spokes and is not this — drawn at a scale where it read as a ball of scribble through
-  // a translucent membrane and hid the very nodes the label points at. The nodes stay
-  // because without them the label is false; the fill goes because it was never the point,
-  // and every level below this one draws the real structure properly.
   const openC = [0, -span, span / 2];
   const openIdx = 7;                     // the corner-sublattice cell at exactly openC
   const sEff = span * 0.985;             // match the drawn membrane geometry
@@ -982,16 +1037,21 @@ function buildArray(ctx) {
   // The loose balls that used to sit inside it are gone. They were the boundary nodes of a
   // 2 m flight cell, drawn as spheres at a scale where they read as scribble inside a bag,
   // and the lattice lines already say everything they said.
-  // Its lattice shows through the skin, so the dive arrives at structure that was already
-  // visible rather than appearing on contact.
-  lineNode(root, 'ArrayHeroLattice', G.kelvinLatticeSegs(sEff).map(([A, B]) => [
-    [A[0] + openC[0], A[1] + openC[1], A[2] + openC[2]],
-    [B[0] + openC[0], B[1] + openC[1], B[2] + openC[2]],
-  ]), XM.latticeLine);
-  const heroSkin = solidNode(root, 'ArrayHeroSkin', G.kelvinGeom(sEff), SKIN_ARRAY);
-  heroSkin.p = openC.slice();
-  heroSkin.skinPart = 'surface';
-  tint.set([1, 1, 1, 5.0], openIdx * 4);
+  // TWO SKINNED CELLS, on opposite corners of the block. One alone reads as a special case;
+  // a pair reads as what every cell in the array is, with the wireframe between them showing
+  // how they pack. The near one is what the level below opens on.
+  const farC = [0, span, -span / 2];
+  const farIdx = centres.reduce((best, c, i) => {
+    const d = Math.hypot(c.p[0] - farC[0], c.p[1] - farC[1], c.p[2] - farC[2]);
+    return d < best.d ? { i, d } : best;
+  }, { i: 0, d: Infinity }).i;
+  for (const [id, c, idx] of [['ArrayHeroSkin', openC, openIdx],
+    ['ArrayHeroSkinFar', centres[farIdx].p, farIdx]]) {
+    const s = solidNode(root, id, G.kelvinGeom(sEff), SKIN_ARRAY);
+    s.p = c.slice();
+    s.skinPart = 'surface';
+    tint.set([1, 1, 1, 5.0], idx * 4);
+  }
   // The loaded boundary: a faint warm plane off the +y face, with a few pressure arrows.
   const bx = 3 * span, bz = 2 * span;
   const face = solidNode(root, 'BoundaryFace', G.boxGeom(bx * 1.05, 0.015, bz * 1.05),
@@ -1181,8 +1241,8 @@ const CELL_CENTRE = [-CELL_SHIFT, 0, 0];   // cg.p shifts NEGATIVE; follow it
 // only the fallback: the camera is framed by the stop it enters at.
 export const LEVELS = [
   { id: 'strut', name: 'The connectors', scaleM: 0.05, radius: 0.030, az: -1.05, el: 0.24, dist: 2.6, target: CELL_CENTRE, stage: true, build: () => buildStageShell('strut'), instance: 'demonstrator' },
-  { id: 'wall', name: 'The tube', scaleM: 0.25, radius: 0.16, az: -0.9, el: 0.20, dist: 2.4, target: CELL_CENTRE, stage: true, build: () => buildStageShell('wall'), instance: 'demonstrator' },
-  { id: 'track', name: 'The skin', scaleM: 0.50, radius: 0.30, az: -0.95, el: 0.30, dist: 2.1, target: CELL_CENTRE, stage: true, build: () => buildStageShell('track'), instance: 'demonstrator' },
+  { id: 'wall', name: 'The tubes', scaleM: 0.25, radius: 0.16, az: -0.9, el: 0.20, dist: 2.4, target: CELL_CENTRE, stage: true, build: () => buildStageShell('wall'), instance: 'demonstrator' },
+  { id: 'track', name: 'The skin', scaleM: 0.50, radius: 0.30, az: -0.95, el: 0.30, dist: 2.1, target: CELL_CENTRE, stage: true, build: (c) => buildStageShell('track', c), instance: 'demonstrator' },
   { id: 'cell', name: 'The cell', scaleM: 0.709, radius: 0.42, az: -0.9, el: 0.27, dist: 3.9, target: CELL_CENTRE, stage: true, build: buildCell, instance: 'demonstrator' },
   // The array is framed on its HERO CELL — the one drawn with a skin at [0, -2, 1] — so
   // the descent to the level below goes into a cell already on screen instead of cutting
@@ -1355,8 +1415,9 @@ function faceStops(cell, lv) {
   const plan = [
     { key: 'hexagon', name: 'the hexagon', at: hex[0],
       subject: union(instKeys(byKind('spoke')), instKeys(hubs)),
-      t: `${hex.length} hexagons`, s: 'six radial spokes to a central hub — the largest panel, and the one the film pulls hardest on' +
-         'nothing in plane until it did' },
+      t: `${hex.length} hexagons`,
+      s: 'six radial spokes to a central hub — the largest panel, and the one the film '
+         + 'pulls hardest on' },
     { key: 'square', name: 'the square', at: sq[0],
       subject: union(instKeys(byKind('tie').filter(m => m.inPlane)), instKeys(sqCentres)),
       t: `${sq.length} squares`, s: 'quartered in plane by the vertex ties, which lie in the face itself' +
