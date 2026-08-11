@@ -28,7 +28,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OWNED = ("sim", "app")
+# cell/ joined sim/ and app/ on 2026-08-11: its pages go through the same CDN, and its
+# hand-typed ?v=1 / ?v=3 stamps were exactly the manual versioning this tool exists to end.
+OWNED = ("sim", "app", "cell")
 SKIP_DIRS = {"node_modules", "assets", ".git", "3d", "data", "pipeline", "tools", "docs"}
 
 check = "--check" in sys.argv
@@ -78,11 +80,18 @@ def strip_stamp(s):
     return STAMP.sub(r"\1\2", s)
 
 
-modules = [p for p in walk(ROOT / "sim", {".js"}) + walk(ROOT / "app", {".js"})]
+modules = [p for d in OWNED for p in walk(ROOT / d, {".js"})]
 
 h = hashlib.sha256()
 for p in sorted(modules, key=str):
     h.update(strip_stamp(p.read_text()).encode())
+# The 3D library's version folds into ours. Hashing STRIPPED contents makes stamping
+# idempotent, but it also blinds this hash to a 3d/ restamp — and cell/explorer.js imports
+# ../3d/ modules, so a 3d-only fix must bump the cell URLs too or the CDN serves the old
+# graph until cell/ itself happens to change. Coupling the hashes is what propagates it.
+tdv = ROOT / "3d" / "version.json"
+if tdv.exists():
+    h.update(tdv.read_bytes())
 VERSION = h.hexdigest()[:8]
 
 

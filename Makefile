@@ -9,13 +9,15 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh clean
+.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
+        analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
+        assemblycheck contractfreeze clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
 	@grep -hE '^[a-z][a-z0-9-]*:.*##' $(MAKEFILE_LIST) \
 	  | sed -E 's/^([a-z0-9-]+):.*## +/\1\t/' \
-	  | awk -F'\t' '{printf "  make %-12s %s\n", $$1, $$2}'
+	  | awk -F'\t' '{printf "  make %-15s %s\n", $$1, $$2}'
 
 serve:  ## Serve the repository on 127.0.0.1:8875 with caching off (override with PORT=)
 	$(PY) tools/serve.py --port $(PORT)
@@ -57,7 +59,64 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figfresh figcheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figfresh figcheck analysischeck cellparity explorercheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+
+analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
+	$(PY) tools/check_analysis.py
+
+cellparity:  ## cell/model.js must agree with research/analysis/vacuum-cell.py exactly
+	$(PY) tools/check_cell_parity.py
+
+explorercheck:  ## The 3D explorer must render every level and display only the model's numbers
+	$(PY) tools/check_explorer.py
+
+nodes:  ## Regrow every computed joint STL from the SDF rule (research/geometry/nodes)
+	$(PY) tools/gen_nodes.py
+	@# The explorer's connector tour reads its five families out of the manifest through a
+	@# generated ES module. Regrow the joints and it must follow, or explorercheck fails.
+	$(PY) tools/gen_node_families.py
+	@echo 'nodes: run `make stamp` — cell/nodes.generated.js changed.'
+
+nodescheck:  ## The computed-node manifest must be closed and match the article graph
+	$(PY) tools/check_nodes.py
+
+# THE CAP, and it is deliberately two targets. `contractcheck` asks whether the cap on disk
+# FITS THIS ARTICLE — that contract.json exists at all, is the schema this prover writes, names
+# the same 432 member-ends and 51 nodes, and was frozen at the parameters the STLs beside it
+# were cut for. That is the one failure a property diff cannot report, because a diff against a
+# contract that was never frozen has nothing to say and would pass in silence. It evaluates no
+# field, so it costs about a second and belongs here, immediately after the manifest it reads.
+# `assemblycheck` below then asks the opposite question — whether the article still MATCHES the
+# cap — because that answer needs the full measurement and is free once the measurement is
+# running. Splitting them this way is what keeps `make check` from paying for the same two
+# minutes twice.
+contractcheck:  ## The frozen connection contract must exist and cover this article
+	$(PY) tools/check_assembly.py --contract-only
+
+# `nodescheck` asks whether 51 meshes are closed and whether the manifest counts match the
+# analysis. Both can be true of an article that cannot be built, and were: a socket drawn for
+# the wrong tube, a shoulder the pipe never reaches, 166 members with 0.00 mm of insertion
+# travel where 20 mm is needed. This measures each of the 432 member-ends out of the SDF and
+# holds it to a frozen contract. It regenerates nothing and drives no browser, so it costs a
+# minute rather than the minutes `make nodes` costs. CI runs it plain; the nightly runs
+# --exhaustive, which adds the void-topology fill, the STL cross-check and the full insertion
+# sweep for about three minutes.
+#
+# It also DIFFS every proven property of every member-end against research/geometry/nodes/
+# contract.json and fails naming the member-end, the property and both values. That is what
+# makes the coming weight optimisation safe: shrink a node, lose 3 mm of engagement on nine
+# arms, and this goes red with those nine arms named rather than passing on an unchanged
+# triangle count. Nothing in this file re-freezes it — see `contractfreeze`.
+assemblycheck:  ## Measure all 432 member-ends from the joint SDF against the frozen contract
+	$(PY) tools/check_assembly.py
+
+# NOT IN `check`, AND IT NEVER WILL BE. Re-freezing is a decision, not a build step: it says
+# "these connections are different now and I have read how". The script prints every property
+# it is about to cap before it writes one byte, and it leaves the run's own exit code alone, so
+# freezing a red article records a red article rather than greening it. A target exists only so
+# that the command is written down in the same place as the gate it answers to.
+contractfreeze:  ## Cap today's measured connection state as the new contract — read the diff first
+	$(PY) tools/check_assembly.py --freeze
 
 figcheck:  ## Every model figure quoted in a report must be the figure the model produces
 	@$(PY) tools/check_figures.py
@@ -98,6 +157,27 @@ figures:  ## Rasterise the 3D figures to PNG, regenerating the SVGs first if nod
 	@if command -v node >/dev/null 2>&1; then cd 3d && node scripts/figures.mjs; \
 	 else echo "figures: no node — rasterising the committed SVGs unchanged"; fi
 	CHROME=$(CHROME) 3d/scripts/render-figures.sh
+
+# The concept analyses in research/analysis/. These answer questions about the VEHICLE rather
+# than about the code, so they are not in `check`: two of them take minutes and one needs a
+# fire-history extract that is fetched, not generated. But they must stay reproducible, and
+# the browser-run ones must read the live model rather than a cached figure, for the same
+# reason `figfresh` exists.
+analysis:  ## Regenerate the concept analyses in research/analysis/
+	$(PY) research/analysis/mass-budget.py --json research/analysis/mass-budget.json
+	$(PY) research/analysis/delivery.py --json research/analysis/delivery.json
+	$(PY) research/analysis/vacuum-cell.py --json research/analysis/vacuum-cell.json
+	$(PY) research/analysis/helium.py --json research/analysis/helium.json
+	@test -f data/fire-history-bc.json || { \
+	   echo 'analysis: data/fire-history-bc.json is missing.'; \
+	   echo '          Fetch it with: $(PY) pipeline/firehistory.py data/fire-history-bc.json'; \
+	   exit 1; }
+	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \
+	 for a in water-availability descent; do \
+	   $(PY) tools/js_eval.py "http://127.0.0.1:8899/index.html?seed=7&data=snapshot" \
+	     research/analysis/$$a.js research/analysis/$$a.json 20 || exit 1; \
+	 done; \
+	 kill %1 2>/dev/null || true
 
 clean:  ## Delete generated output: rasterised figures and __pycache__
 	rm -f 3d/assets/raster/*.png 3d/assets/raster/*.webp
