@@ -187,6 +187,23 @@ PROBE = r"""(() => {
   // Tick it fully shut. The ease takes 1.6 s of animation time and the tour walk below shares
   // this cell — leaving it half-open blanked every stop on the skin level.
   for (let i = 0; i < 300 && E.state.unfold > 0.001; i++) E.tick(0.05);
+  // THE PUMP MUST DISH THE FILM AND PUT IT BACK. #63: the loaded skin is a second
+  // surface node lerped between two generated buffers; drive the real button, assert the
+  // drawn frame gains exactly the loaded node's triangles while the flat film steps
+  // aside, read back the numbers the page draws (held to loaded-skin.json in python),
+  // and demand the slack frame returns exactly.
+  out.skinStatsSlack = E.skinStats();
+  out.skinTrisSlack = E.renderer.stats.triangles;
+  document.getElementById('toggleLoaded').click();
+  for (let i = 0; i < 300 && E.state.skinLoad < 0.999; i++) E.tick(0.05);
+  E.tick(0.016);
+  out.skinStatsLoaded = E.skinStats();
+  out.skinTrisLoaded = E.renderer.stats.triangles;
+  out.skinLabelLoaded = document.getElementById('toggleLoaded').textContent;
+  document.getElementById('toggleLoaded').click();
+  for (let i = 0; i < 300 && E.state.skinLoad > 0.001; i++) E.tick(0.05);
+  E.tick(0.016);
+  out.skinTrisSlackAgain = E.renderer.stats.triangles;
   // THE ASSEMBLY MUST MOVE THE FRAME AND PUT IT BACK EXACTLY. Same lesson as the unfold:
   // assert on the drawn state through the page's own probe, drive it through the same
   // advance() the real loop uses, and demand byte-exact restoration — a part parked a
@@ -619,6 +636,45 @@ def main() -> None:
     if res.get("ghostLines") != res.get("ghostExpected"):
         bad.append(f"joinery view ghosts {res.get('ghostLines')} pipe centrelines, but the "
                    f"model counts {res.get('ghostExpected')} members in the pipe family")
+    # THE PUMP (#63): the page must draw the loaded skin from the generated module, its
+    # numbers must be the record's (loaded-skin.json — the same tool wrote both, and
+    # skincheck holds them fresh), the drawn frame must gain exactly the loaded node's
+    # triangles while the flat film steps aside (kelvinGeom fans 4 per square, 6 per
+    # hexagon: 72), and the slack frame must come back exactly. Explicit None checks:
+    # measured zeros are real values in this house.
+    skin_rec = json.loads((ROOT / "research" / "geometry" / "skin"
+                           / "loaded-skin.json").read_text())["numbers"]
+    skin_js = json.loads((ROOT / "cell" / "skin.generated.js").read_text()
+                         .split("export const SKIN = ", 1)[1].rstrip().rstrip(";"))
+    exp_loaded_tris = sum(len(skin_js["classes"][pl[0]]["tris"]) // 3
+                          for pl in skin_js["placements"])
+    st_loaded = res.get("skinStatsLoaded") or {}
+    st_slack = res.get("skinStatsSlack") or {}
+    if st_slack.get("load") is None or st_slack["load"] != 0:
+        bad.append(f"pump: slack film reads load={st_slack.get('load')}, expected 0")
+    if st_loaded.get("load") is None or st_loaded["load"] < 0.999:
+        bad.append(f"pump: the film only reached load={st_loaded.get('load')}")
+    for key in ("sagHexMm", "sagSqMm", "dishM3", "dishPct", "dispLoadedM3",
+                "tHexSLNpm", "tSqSLNpm", "clearanceMm", "goredPiecesAtK12"):
+        if st_loaded.get(key) != skin_rec.get(key):
+            bad.append(f"pump: page draws {key}={st_loaded.get(key)!r}, the record says "
+                       f"{skin_rec.get(key)!r}")
+    sum_w = sum(w for c in skin_js["classes"].values() for w in c["w"])
+    if st_loaded.get("sumWMm") is None or abs(st_loaded["sumWMm"] - sum_w * 1000) > 1e-3:
+        bad.append(f"pump: page's dome-field checksum {st_loaded.get('sumWMm')} differs "
+                   f"from the generated module's {sum_w * 1000:.4f} mm")
+    if res.get("skinLabelLoaded") != "film: loaded":
+        bad.append(f"pump button says {res.get('skinLabelLoaded')!r} while loaded")
+    tris_slack, tris_loaded = res.get("skinTrisSlack"), res.get("skinTrisLoaded")
+    if tris_slack is None or tris_loaded is None or (
+            tris_loaded - tris_slack != exp_loaded_tris - 72):
+        bad.append(f"pump: drawn frame moved {tris_slack} -> {tris_loaded} triangles; "
+                   f"expected +{exp_loaded_tris - 72} (the {exp_loaded_tris}-triangle "
+                   f"dome field replacing the 72-triangle flat film)")
+    if res.get("skinTrisSlackAgain") != tris_slack:
+        bad.append(f"pump: venting left {res.get('skinTrisSlackAgain')} triangles, "
+                   f"expected the slack frame's {tris_slack} back exactly")
+
     net = res.get("net") or {}
     if (net.get("u") or 0) < 0.999:
         bad.append(f"the net only reached u={net.get('u')} — it never opened")
@@ -759,6 +815,28 @@ def main() -> None:
     model = res.get("model") or {}
     expected = dict(generated)
     expected.update(model)
+    # THE LOADED SKIN'S figures (#63) answer to the record, research/geometry/skin/
+    # loaded-skin.json — not to the page's own import of skin.generated.js, which would
+    # let one stale module agree with itself. skincheck holds record and module to one
+    # regeneration; this holds the page to the record. The name mapping mirrors the
+    # Object.assign in computeCtx.
+    ln = json.loads((ROOT / "research" / "geometry" / "skin"
+                     / "loaded-skin.json").read_text())["numbers"]
+    expected.setdefault("skin", {})
+    expected["skin"] = dict(expected["skin"])
+    expected["skin"].update({
+        "loadedSagHexMm": ln["sagHexMm"], "loadedSagSqMm": ln["sagSqMm"],
+        "loadedTHexSL": ln["tHexSLNpm"], "loadedTSqSL": ln["tSqSLNpm"],
+        "loadedTHex2500": ln["tHex2500Npm"], "loadedTSq2500": ln["tSq2500Npm"],
+        "loadedDishPct": ln["dishPct"], "loadedDispL": ln["dispLoadedM3"] * 1000,
+        "loadedDishL": ln["dishM3"] * 1000, "loadedClearanceMm": ln["clearanceMm"],
+        "loadedDomeAreaM2": ln["domeAreaM2"],
+        "goredPieces": ln["goredPiecesAtK12"], "goredSeamM": ln["goredSeamAtK12M"],
+        "goreResHexPct": ln["goreStudyPctHex"]["12"],
+        "goreResSqPct": ln["goreStudyPctSq"]["12"],
+        "strainNeedPct": ln["strainFlatPct"], "strainHavePct": ln["strainBudgetPct"],
+        "formedDies": ln["formedDies"], "formedPressings": ln["formedPressings"],
+    })
     if model.get("stock"):
         expected["cuts"] = cut_schedule(fresh["cuts"], model["stock"], model["tubeRho"])
         # The one dimension the page DERIVES rather than reads: the rim SKU's bore, taken
@@ -974,6 +1052,12 @@ def main() -> None:
           f"{_s.get('settleWorstMm')} mm of the proven lines' clearance spent.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
           f"#tourNext: camera, panel and dim agree.")
+    st = res.get("skinStatsLoaded") or {}
+    print(f"          the pump dishes the film onto the solved membrane field: "
+          f"{st.get('sagHexMm')} / {st.get('sagSqMm')} mm sag, "
+          f"{st.get('dishPct')}% displacement debit, clearance "
+          f"{st.get('clearanceMm')} mm — numbers held to loaded-skin.json, "
+          f"frame restored exactly.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "
           f"{res['partCount']} printed joints ({res['memberEnds']} member-ends), the "
           f"{res['memberKinds'] and sum(res['memberKinds'].values())}-member cut schedule, "

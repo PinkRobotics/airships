@@ -24,18 +24,21 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=0286418c';
-import * as G from './explorer-geom.js?v=0286418c';
+import * as CELL from './model.js?v=1869c772';
+import * as G from './explorer-geom.js?v=1869c772';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=0286418c';
+} from './nodes.generated.js?v=1869c772';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=0286418c';
+import { NODEMESHES } from './nodemeshes.generated.js?v=1869c772';
+// The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
+// membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
+import { SKIN } from './skin.generated.js?v=1869c772';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -279,11 +282,12 @@ function skinBlock(span, stock, edge) {
  * the pascal, which is the check that it is the same atmosphere. */
 function weighBlock(demo, stock, cuts, skin, altM) {
   const V = demo.enclosedL / 1000;
+  const VL = SKIN.numbers.dispLoadedM3;   // the article once the film dishes in (#63)
   const A = skin.areaM2;
   const at = (h) => {
     const rho = CELL.rhoAir(h);
     const p = rho * 287.05 * (288.15 - 0.0065 * h);
-    return { airKg: rho * V, forceTf: p * A / 9806.65, pKPa: p / 1000 };
+    return { airKg: rho * V, airLoadedKg: rho * VL, forceTf: p * A / 9806.65, pKPa: p / 1000 };
   };
   const sl = at(0), up = at(altM);
   let tubePriKg = 0, tubeSecKg = 0;
@@ -306,12 +310,25 @@ function weighBlock(demo, stock, cuts, skin, altM) {
     shedSLKg: totalKg - sl.airKg, shedUpKg: totalKg - up.airKg,
     forceSLTf: sl.forceTf, forceUpTf: up.forceTf,
     pSLKPa: sl.pKPa, pUpKPa: up.pKPa,
+    // The pumped-down article: every panel's bowl is open to the sky, so the displaced
+    // volume — and with it the float target — belongs to the LOADED shape.
+    // Both numbers in this row are the skin tool's, at the span the article is CUT to
+    // (709.00) — the air rows above keep the model's printer-chain span. Mixing the two
+    // inside one row made 159.8-of-177.9 read as an 10.2% dish when the solve says 10.35.
+    dispL: SKIN.numbers.dispNominalM3 * 1000, dispLoadedL: VL * 1000,
+    dishPct: SKIN.numbers.dishPct,
+    airSLLoadedG: sl.airLoadedKg * 1000, airUpLoadedG: up.airLoadedKg * 1000,
+    overSLLoadedx: totalKg / sl.airLoadedKg, overUpLoadedx: totalKg / up.airLoadedKg,
   };
 }
 
 /* ---------- everything the page displays, computed in one place ------------------------------- */
 
 const P100 = resolveClass('P100');
+
+// The loaded-skin morph handle — set once when the stage cell is built (buildCell runs
+// once; the four stage levels share its scene graph).
+let LOADED_SKIN = null;
 
 export function computeCtx(matKey = 'PAHT_Z', altM = 2500) {
   const M = CELL.MATERIALS;
@@ -334,6 +351,24 @@ export function computeCtx(matKey = 'PAHT_Z', altM = 2500) {
   const edge = CELL.filmEdgeLoads(demo.spanM);
   const cuts = cutSchedule(stock, M.T700_LAM);
   const skin = skinBlock(demo.spanM, stock, edge);
+  // The loaded skin (#63), straight off the generated module: the solved sag per
+  // panel class, tensions at both altitudes, the displacement debit, the clearance
+  // to the frame, and the gore study's verdict numbers.
+  Object.assign(skin, {
+    loadedSagHexMm: SKIN.numbers.sagHexMm, loadedSagSqMm: SKIN.numbers.sagSqMm,
+    loadedTHexSL: SKIN.numbers.tHexSLNpm, loadedTSqSL: SKIN.numbers.tSqSLNpm,
+    loadedTHex2500: SKIN.numbers.tHex2500Npm, loadedTSq2500: SKIN.numbers.tSq2500Npm,
+    loadedDishPct: SKIN.numbers.dishPct, loadedDispL: SKIN.numbers.dispLoadedM3 * 1000,
+    loadedDishL: SKIN.numbers.dishM3 * 1000,
+    loadedClearanceMm: SKIN.numbers.clearanceMm,
+    loadedDomeAreaM2: SKIN.numbers.domeAreaM2,
+    goredPieces: SKIN.numbers.goredPiecesAtK12,
+    goredSeamM: SKIN.numbers.goredSeamAtK12M,
+    goreResHexPct: SKIN.numbers.goreStudyPctHex['12'],
+    goreResSqPct: SKIN.numbers.goreStudyPctSq['12'],
+    strainNeedPct: SKIN.numbers.strainFlatPct, strainHavePct: SKIN.numbers.strainBudgetPct,
+    formedDies: SKIN.numbers.formedDies, formedPressings: SKIN.numbers.formedPressings,
+  });
   const totals = {};
   for (const [k, mm] of Object.entries(M)) {
     const ts = CELL.totalShell(mm, 2.0);
@@ -879,6 +914,35 @@ function buildCell(ctx) {
   // depth buffer.
   const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span * 1.0015), XM.kelvinGhost);
   skin.skinPart = 'surface';
+  // THE LOADED SKIN (#63): the same film pumped down, every panel dished to the membrane
+  // shape tools/gen_skin.py solved (T = pR/2 at the analysis' own R = 2.125 r). Two fixed
+  // position buffers — slack (every panel in its face plane) and formed (offset w along
+  // the inward normal) — and the pump-down lerps between them into a fresh geometry
+  // record, which is the unfold's own update pattern. Held half a millimetre proud of
+  // the nominal planes for the same z-fighting reason CellSkin is.
+  LOADED_SKIN = (() => {
+    const OUT = 0.0005;
+    const pos0 = [], pos1 = [], idx = [];
+    for (const pl of SKIN.placements) {
+      const c = SKIN.classes[pl[0]];
+      const [ox, oy, oz, e1x, e1y, e1z, e2x, e2y, e2z, nx, ny, nz] = pl.slice(1);
+      const base = pos0.length / 3;
+      for (let i = 0; i < c.w.length; i++) {
+        const x = c.pos[2 * i], y = c.pos[2 * i + 1], w = c.w[i];
+        const px = ox + x * e1x + y * e2x + OUT * nx;
+        const py = oy + x * e1y + y * e2y + OUT * ny;
+        const pz = oz + x * e1z + y * e2z + OUT * nz;
+        pos0.push(px, py, pz);
+        pos1.push(px - w * nx, py - w * ny, pz - w * nz);
+      }
+      for (const t of c.tris) idx.push(base + t);
+    }
+    const flat = new Float32Array(pos0), full = new Float32Array(pos1);
+    const index = new Uint32Array(idx);
+    const nodeRef = solidNode(cg, 'CellSkinLoaded', G.solid(flat.slice(), index), XM.kelvinGhost);
+    nodeRef.skinPart = 'surface';
+    return { nodeRef, flat, full, index, at: -1 };
+  })();
   const seams = lineNode(cg, 'CellSkinSeams', G.kelvinEdges(span),
     { kind: 'line', color: TOKENS.bone, weight: 1.2, opacity: 0.7 });
   seams.skinPart = 'seams';
@@ -2078,6 +2142,8 @@ export function mountExplorer(opts) {
     // and the article is the point — the structure inside was invisible until you found
     // the button. Glass first, solid on request.
     skinMode: 'transparent',     // 'solid' | 'transparent' | 'off'
+    skinLoad: 0,                 // 0 = slack film, 1 = pumped onto the solved domes (#63)
+    skinLoadTo: 0,               // what it is easing toward
     unfold: 0,                   // 0 = the cell, 1 = the flat net
     unfoldTo: 0,                 // what it is easing toward
     assemble: 1,                 // 0 = a pile of parts, 1 = the finished article (default)
@@ -2417,6 +2483,11 @@ export function mountExplorer(opts) {
     if (n.dispRepOf && repShowing && state.tourStop === n.dispRepOf) return { hidden: true };
     if (n.skinPart) {
       if (state.skinMode === 'off') return { hidden: true };
+      // The slack film and the loaded film are two nodes over one article; the pump-down
+      // state picks which one is on stage. Keyed by id: other levels have their own
+      // skinPart surfaces (the flat net, the array cells) the pump must not touch.
+      if (n.id === 'CellSkinLoaded' && state.skinLoad <= 0.004) return { hidden: true };
+      if (n.id === 'CellSkin' && state.skinLoad > 0.004) return { hidden: true };
       if (n.skinPart === 'surface') {
         const b0 = n._fadeRoot;
         let f0 = b0 ? b0.fade : 1;
@@ -2518,6 +2589,7 @@ export function mountExplorer(opts) {
   /** Advance any running move; returns true if the camera or fades changed. */
   function advance(dt) {
     stepUnfold(dt);
+    stepSkinLoad(dt);
     stepAssemble(dt);
     if (!transition) return false;
     transition.t = Math.min(1, transition.t + dt / transition.seconds);
@@ -2675,6 +2747,27 @@ export function mountExplorer(opts) {
     }
     if (state.assemble >= 1 && !state.assembleLoop) applyGroup(state.group);
     dirty = true;
+  }
+
+  /** Ease the film between slack and its solved loaded shape, rebuilding geometry only
+   *  while the pump actually moves — the unfold's own pattern. */
+  function stepSkinLoad(dt) {
+    if (!LOADED_SKIN) return;
+    const d = state.skinLoadTo - state.skinLoad;
+    if (!d && LOADED_SKIN.at === state.skinLoad) return;
+    if (d) {
+      state.skinLoad += Math.sign(d) * Math.min(Math.abs(d), dt / 1.2);
+      state.skinLoad = clamp(state.skinLoad, 0, 1);
+    }
+    if (LOADED_SKIN.at !== state.skinLoad) {
+      const f = easeInOut(state.skinLoad);
+      const { flat, full, index, nodeRef } = LOADED_SKIN;
+      const cur = new Float32Array(flat.length);
+      for (let i = 0; i < flat.length; i++) cur[i] = flat[i] + f * (full[i] - flat[i]);
+      nodeRef.geom = G.solid(cur, index);
+      LOADED_SKIN.at = state.skinLoad;
+      dirty = true;
+    }
   }
 
   /** Ease the net open or shut, rebuilding its geometry only while it actually moves.
@@ -3158,6 +3251,23 @@ export function mountExplorer(opts) {
       state.skinMode = order[(order.indexOf(state.skinMode) + 1) % order.length];
       dirty = true;
       return state.skinMode;
+    },
+    /** Pump the article down (1) or vent it (0): the film eases between slack and the
+     *  membrane shape gen_skin solved. Returns what the button should now claim. */
+    setSkinLoad(v) { state.skinLoadTo = v ? 1 : 0; dirty = true; return state.skinLoadTo; },
+    toggleSkinLoad() { return api.setSkinLoad(state.skinLoadTo ? 0 : 1); },
+    /** The loaded-skin numbers the page draws plus the live morph state — one readback
+     *  for check_explorer, which holds them to research/geometry/skin/loaded-skin.json. */
+    skinStats() {
+      const n = SKIN.numbers;
+      let sumW = 0;
+      for (const c of Object.values(SKIN.classes)) for (const w of c.w) sumW += w;
+      return { load: state.skinLoad, to: state.skinLoadTo,
+               sagHexMm: n.sagHexMm, sagSqMm: n.sagSqMm,
+               dishM3: n.dishM3, dishPct: n.dishPct, dispLoadedM3: n.dispLoadedM3,
+               tHexSLNpm: n.tHexSLNpm, tSqSLNpm: n.tSqSLNpm,
+               clearanceMm: n.clearanceMm, goredPiecesAtK12: n.goredPiecesAtK12,
+               sumWMm: Math.round(sumW * 1e7) / 1e4 };
     },
     /** Light one structural reading of the article and dim the rest — see applyGroup. */
     setGroup(name) { return applyGroup(name); },

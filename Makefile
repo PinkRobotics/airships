@@ -11,7 +11,7 @@ PORT   ?= 8875
 .DEFAULT_GOAL := help
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze clean
+        assemblycheck contractfreeze skin skincheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -59,7 +59,7 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figfresh figcheck analysischeck cellparity explorercheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figfresh figcheck analysischeck cellparity skincheck explorercheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
 
 analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
 	$(PY) tools/check_analysis.py
@@ -69,6 +69,15 @@ cellparity:  ## cell/model.js must agree with research/analysis/vacuum-cell.py e
 
 explorercheck:  ## The 3D explorer must render every level and display only the model's numbers
 	$(PY) tools/check_explorer.py
+
+skin:  ## Re-solve the loaded skin (#63): membrane FEM, gore study, generated outputs
+	$(PY) tools/gen_skin.py
+	@echo 'skin: run `make stamp` — cell/skin.generated.js changed.'
+
+# A full re-solve and byte comparison, not a hash shortcut: the solve is nine seconds,
+# and this repository has twice shipped a gate that lied by comparing a stale file.
+skincheck:  ## The committed loaded-skin outputs must match a full re-solve, every gate green
+	$(PY) tools/gen_skin.py --check
 
 nodes:  ## Regrow every computed joint STL from the SDF rule (research/geometry/nodes)
 	$(PY) tools/gen_nodes.py

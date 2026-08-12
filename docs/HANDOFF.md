@@ -263,23 +263,84 @@ settle is pure rotation in place (P8's pose sequence literally); tree pairs stag
 real engagement out (stubMm + 8, off the manifest) and slide that far home. Window split
 FLY_END = 0.75. Sweep re-verified: 217 trajectories, 0/0/0.
 
+## The loaded skin — solved, formed, drawn, gated (#63, closed 2026-08-12)
+
+The film cannot be installed flat: reaching its loaded shape needs 4.12% membrane strain
+and the fibre gives 0.27–0.40% at working stress — the analysis said so, the independent
+physics audit reproduced it, and the page carried it as an unresolved item. Resolved now,
+and the answer changed the manufacturing story.
+
+**`tools/gen_skin.py` solves the loaded surface.** The 72 real film panels — 48 equilateral
+spoked-hexagon triangles (inradius 72.36 mm) and 24 quarter-square right isosceles
+triangles (inradius 51.92 mm; NOT the analysis' half-square, see the discrepancy below) —
+each get the true uniform-tension membrane `div(∇w/√(1+|∇w|²)) = −2/R` at the model's own
+operating law (R = 2.125·r_panel, so T = pR/2), P1 FEM with Picard on the slope weight,
+pure numpy (scipy is deliberately not a dependency of this repo). Reproductions gate the
+solver before its answer is used: on the incircle disc it returns the analysis' own
+0.25·r cap (0.24981 measured); in the linear limit it lands on the exact Saint-Venant
+closed form w = 2·d₁d₂d₃/(3rR) at second-order convergence; symmetry holds to 4e-16. The
+film is pinned on the 5 mm land-post tops (the sunken frame's own boundary condition),
+and the free film is proven to clear every bare tube it is not bonded to by 14.5 mm at
+the worst pass (members clipped 40 mm at the ends for the joint body — the first firing
+of that gate reported 2.6 mm, all of it from inside a printed joint, which is what the
+clip is for).
+
+**The solved numbers** (`research/geometry/skin/loaded-skin.json`; page copy
+`cell/skin.generated.js`; `make skin` regenerates, `skincheck` re-solves and
+byte-compares inside `make check`):
+- sag 25.217 mm at a hex-panel centre, 18.811 mm at a square — 0.35·r, deeper than the
+  0.25·r cap idealization, because a triangle is not its incircle; the cap law still
+  sets the tension;
+- tension 7,790 / 5,589 N/m at sea level, 5,742 / 4,120 N/m at 2,500 m;
+- **displacement debit 10.35% (18.44 L): the pumped-down article displaces 159.76 L**,
+  not its 178.2 L outline. The analysis' smeared 8.57% is reproduced as a check, then
+  superseded. The page ledger carries the loaded rows (float target at the loaded shape:
+  ×16.0 sea level, ×20.5 at 2,500 m).
+
+**The gore study — measured, and it killed flat cutting.** Radial gores at k = 3/6/12
+leave 0.68/0.32/0.20% (hex) and 0.77/0.48/0.46% (square) worst residual strain, measured
+by least-squares flattening of every mesh edge. Even twelve gores per panel fails the
+square's 0.27% budget — and would mean 864 film slivers and 84.8 m of seam lying on no
+structure. **The net is therefore FORMED, not gored: its outline, 23 cuts and 13 folds
+are unchanged from the proven flat net, and each face's panel field is pressed to the
+solved surface before assembly** — two dies (one per face shape), 14 pressings, every
+dimple edge ending on a member line where w = 0. `formingJustified` gates the verdict:
+if a future flattening clears k ≤ 6, it goes red and the decision reopens. What remains
+open is the forming PROCESS — pressing a Dyneema-class laminate to a permanent crown
+without crazing the barrier stack — a coupon question that joins E6.
+
+**The page pumps down.** `film: slack/loaded` in the view controls eases the film between
+the flat net and the solved dome field: a second surface node (`CellSkinLoaded`) lerped
+between two generated buffers, the unfold's own geometry-swap pattern, scoped by node id
+so the flat net and the array skins are untouched. check_explorer drives the real button:
+the drawn frame must gain exactly the dome field's triangles while the flat film steps
+aside, the numbers read back must equal loaded-skin.json's (the page's import and the
+gate's record are separate artifacts of one generator), and the slack frame must return
+exactly. The gate is mutation-tested — a corrupted record fails by name.
+
+**Found while cutting the panels; recorded for the audit round; deliberately NOT fixed
+here:** `PANEL["squareSpoked"] = 1/(2+√2)` of the EDGE (73.42 mm) is the inradius of a
+HALF-square — one diagonal — but the article's four in-plane ties quarter each square
+(both diagonals: gen_nodes line ~153, vertex→face-centre), so the real square panel
+inradius is `S(2−√2)/2` = 51.92 mm. The published square-panel tension, film mass and
+smeared volume rows are computed on the wrong (larger — conservative for mass, wrong for
+loads) panel. Analysis-layer correction with prose-gate consequences; it belongs with
+the ~/data/airships-reviews audit integration, not in this commit.
+
 ## Open work, in priority order
 
-1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
-   cuttable, but panels bulge at h/R = 0.25 needing 4.12% membrane strain — **cut it flat and
-   the film comes up drum-tight with any barrier coating crazed on first pump-down.** This is
-   the gap between a diagram and a cutting file. Context now set: the film is dyneema draped
-   over the sunken frame, pinned at the land posts on the nominal planes.
-2. **#65 clear the remaining frozen proofs** — P5 is dead; the bill is now P14 (stock_build
+1. **#65 clear the remaining frozen proofs** — P5 is dead; the bill is now P14 (stock_build
    must bill the nine cuts, not centre-to-centre — 0.44 kg of phantom tube, its own reviewed
    commit), P8 (cup-mouth chamfer or 2D-corridor sweep), P16 (bench tests named per row),
    P11 (printer threshold decision), P13 (pinned-row licensing — memo at ~/tmp/p65/MEMO.md).
-3. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
+2. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
    drafts are complete at `~/tmp/skin-barrier/`. Harmonise the budget first — 2.90 cm³/(m²·day)
    is right for the 178 L article; `seams.md` deliberately used the stricter 1.6 and says so.
-4. **#60 remaining**: export the net as SVG/DXF from a `tools/gen_skin.py`, with the seam
-   schedule (23 cuts = 5.766 m) and fold list (13).
-5. **#68 make `make check` skip unchanged work** — read the safety constraints in the task
+3. **#60 remaining**: export the net as SVG/DXF — `tools/gen_skin.py` now exists and holds
+   the solved surfaces and outlines, so this is a reader of loaded-skin.json plus the seam
+   schedule (23 cuts = 5.766 m) and fold list (13). The formed net's outline is the flat
+   net's, unchanged; the export should carry the per-face dimple fields as die references.
+4. **#68 make `make check` skip unchanged work** — read the safety constraints in the task
    first. This repo has twice shipped a gate that lied by comparing a stale file.
 
 ## Decided, do not re-litigate
