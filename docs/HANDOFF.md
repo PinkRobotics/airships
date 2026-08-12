@@ -55,6 +55,23 @@ Retargeting is a parameter change rather than a redesign — `span` flows throug
 every gated figure moves and `check_assembly` re-proves all 432 member-ends. Bounded, and worth
 its own session.
 
+## The mass question has its own brief now — `docs/FLOAT.md`
+
+Everything about whether this article can float, and what would make it, lives there: the goal
+state (0.9569 kg/m3, everything counted, gated), where the mass actually is, and four priced
+routes to closing the gap. Two self-checking tools back it, `tools/scale_study.py` and
+`tools/subdivision_study.py`. The three findings that change how you should read the rest of
+this document:
+
+- **Size is not a lever.** kg/m3 and every margin are invariant under geometric scaling. The
+  1 m retarget is still costed (Appendix A of FLOAT.md) but it is not a route to floating.
+- **69% of the tube by length holds the film, not the vacuum** — only 60 of the 216 members
+  are octet. Subdividing to even n deletes the whole boundary apparatus: ~9.3 -> ~4.2 kg/m3.
+- **State which article a number belongs to.** The bench article is 16.21 kg/m3 and is a
+  process coupon; the reports' "design point" is a closed-form sizing law with no geometry at
+  1.4319. They differ by one ratio — tube R/t 5 against 75.5 — and confusing them has cost
+  real time.
+
 ## What is proven, and what the gate's words mean
 
 `tools/check_assembly.py` (~3,300 lines, 16 proofs, ~120 s) proves all 432 member-ends against
