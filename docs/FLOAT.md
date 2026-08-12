@@ -16,13 +16,14 @@ published article before it evaluates anything else. If a self-check line fails,
 moved and the numbers below are stale — re-run before trusting them:
 
     python3 tools/scale_study.py         # spans and SKUs, self-checks 14 published figures
-    python3 tools/subdivision_study.py   # finer lattices, self-checks 6 model identities
+    python3 tools/subdivision_study.py   # finer lattices; reproduces n=1 film loads first
 
 Figures marked MEASURED came from running the real generator or the real page. Figures
 marked TO VERIFY are supplier or shop-floor questions no calculation here can settle.
 
 > **CORRECTION 2026-08-11, evening — the joints got heavier and every figure below that
-> contains them is stale by the same factor.** The sunken boundary frame landed: boundary
+> contains them is stale by the same factor, except the refreshed R1 table and result dated
+> 2026-08-12.** The sunken boundary frame landed: boundary
 > nodes sink beneath the mating planes so every socket wraps its pipe whole (P5 is dead),
 > and each carries a printed land post back up to the true face. Full sockets, posts and
 > full seats are printed material: measured joint mass moved **0.465 → 0.715 kg** (an
@@ -45,8 +46,8 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 |---|---|
 | the target: air at 2,500 m | **0.9569** |
 | (at sea level, if you prefer the easier bar) | 1.2250 |
-| the article as built, optimally tubed | **~9.3 — that is 9.7×** |
-| best configuration found so far (§3) | **3.89 — 4.06×** |
+| the measured article as built | **~17.6 — that is 18.4×** |
+| best checked R1 configuration (§3) | **10.76 — 11.24×** |
 
 **Definition of done.** A bill of materials, computed by this repository's own model and
 held by a gate, that comes in under 0.9569 kg/m³ *including* tube, joints, film, barrier and
@@ -111,18 +112,19 @@ leak problem, which is a different document (#63).
 
 ## 3. The routes, ranked by what they are worth
 
-Each was priced with the tools above. The percentages are of the current 9.3 kg/m³.
+R1 has been re-priced from the corrected article and finite cut list. The other route values
+predate that correction and must be recomputed before they are combined with it.
 
 | # | route | takes it to | status |
 |---|---|---|---|
-| **R1** | subdivide the lattice so the film needs no separate frame | **~4.1× the wall** | priced, not designed |
+| **R1** | subdivide the lattice so the film needs no separate frame | **11.24× the wall** | film bending priced; not designed |
 | **R2** | lighten the joints | up to ~2× on the total | not started |
-| **R3** | source the right tube | 2–3× on tube alone, already inside R1's numbers | not started |
-| **R4** | put the right material in the right member | tube floor 2.1× → ~1.0× | not started |
+| **R3** | source the right tube | catalogue-dependent; R1 still uses an invented sweep | not started |
+| **R4** | put the right material in the right member | must be repriced against R1 bending | not started |
 
-**All four together are roughly the 9×.** That is the honest headline: floating is
-arguably reachable, but only by changing what the cell is braced with, what the joints are,
-and what the tube is made of — not by any one of them.
+The old claim that the four routes together closed the whole gap no longer follows: film
+bending makes R1's tube line much heavier. Floating, if reachable, still requires changes to
+the bracing, joints, tube supply and material, but their combined price is open again.
 
 ### R1 — subdivide the lattice (the biggest single win)
 
@@ -133,41 +135,67 @@ struts — 948 members and 201 joints instead of 216 and 51.
 
 `tools/subdivision_study.py`:
 
-| span | n | joints | strut | tube OD × wall | tube | joints | film | kg/m³ | × wall |
-|---|---|---|---|---|---|---|---|---|---|
-| 1.0 | 2 | 201 | 177 mm | 9.0 × 0.15 mm | 1.81 | 2.67 | 0.08 | 4.56 | 4.77 |
-| 2.0 | 2 | 201 | 354 mm | 16.5 × 0.40 mm | 2.20 | 2.06 | 0.08 | 4.33 | 4.53 |
-| **4.0** | **2** | **201** | **707 mm** | **30.5 × 1.00 mm** | 2.52 | 1.62 | 0.08 | **4.22** | **4.41** |
-| 3.0 | 4 | 1289 | 265 mm | 13.0 × 0.25 mm | 1.93 | 1.91 | 0.04 | 3.89 | 4.06 |
-| 6.0 | 4 | 1289 | 530 mm | 26.0 × 0.50 mm | 1.93 | 1.91 | 0.04 | 3.89 | 4.06 |
+| span | n | joints | strut | tube OD × wall | tube | joints | film | kg/m³ | × wall | Euler | local | yield | film @ SF 1.5 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1.0 | 2 | 201 | 177 mm | 9.5 × 0.50 mm | 7.58 | 4.83 | 0.09 | 12.51 | 13.07 | 3.65 | 12.37 | 21.05 | 1.03 |
+| 2.0 | 2 | 201 | 354 mm | 19.0 × 1.00 mm | 7.58 | 4.83 | 0.09 | 12.51 | 13.07 | 3.65 | 12.37 | 21.05 | 1.03 |
+| 4.0 | 2 | 201 | 707 mm | 38.0 × 2.00 mm | 7.58 | 4.83 | 0.09 | 12.51 | 13.07 | 3.65 | 12.37 | 21.05 | 1.03 |
+| 3.0 | 4 | 1289 | 265 mm | 13.0 × 1.00 mm | 8.10 | 2.94 | 0.05 | 11.09 | 11.59 | 3.43 | 21.43 | 24.94 | 1.06 |
+| **6.0** | **4** | **1289** | **530 mm** | **25.5 × 2.00 mm** | **7.93** | **2.77** | **0.05** | **10.76** | **11.24** | **3.22** | **21.40** | **24.42** | **1.01** |
 
-**From 9.3 to ~4.2. More than half the mass, gone, in the same cell.** And the joints fall
-with it — not because there are fewer (there are four times as many) but because joint mass
-goes as the *cube* of the bore, and a finer lattice needs a much smaller bore.
+**Result — 2026-08-12. The old R1 figures do not survive.** Every axial-only tube fails
+film bending. The governing members are the subdivided struts along the 24
+hexagon-square cell edges: the adjacent triangular and square panels have unequal membrane
+tensions, and their dihedral resultant is worse than the hexagon-hexagon and coplanar cases.
+`subdivision_study.py` sizes the single even-n octet SKU up until those members hold the
+unchanged 1.5 factor, then re-prices both the physical tube cuts and the OD-cubed joints.
 
-**And this is where size finally earns something.** A fine lattice in a small cell needs a
-wall nobody sells: n = 2 at 1 m wants 0.15 mm. The same lattice at 4 m wants **30.5 × 1.0
-mm, which is an ordinary drone-boom tube.** The rule to hold onto: *subdivision decides the
-mass; span decides whether you can buy the tube.*
+The five published transitions are:
 
-**What R1 does not yet check, and it is the first task:** the film's bending load on the
-members lying in the faces. At n = 1 that load governs the entire boundary. The moment falls
-as the **cube** of the bracing pitch, so it should be 1/8 at n = 2 and 1/64 at n = 4 — which
-is a reason to expect the numbers to survive, not a reason to skip the check.
+| article A span | n | axial-only tube | film margin @ SF 1.5 | ultimate pressure | film-sized tube | repriced kg/m³ |
+|---|---|---|---|---|---|---|
+| 1.0 m | 2 | 7.5 × 0.30 mm | 0.40 | 0.60 atm | 9.5 × 0.50 mm | 12.51 |
+| 2.0 m | 2 | 15.5 × 0.50 mm | 0.36 | 0.54 atm | 19.0 × 1.00 mm | 12.51 |
+| 4.0 m | 2 | 30.5 × 1.00 mm | 0.35 | 0.53 atm | 38.0 × 2.00 mm | 12.51 |
+| 3.0 m | 4 | 11.5 × 0.40 mm | 0.38 | 0.56 atm | 13.0 × 1.00 mm | 11.09 |
+| 6.0 m | 4 | 23.0 × 0.75 mm | 0.36 | 0.53 atm | 25.5 × 2.00 mm | 10.76 |
 
-**First tasks**
-1. Add film bending at general n to `subdivision_study.py`. Reuse `film_edge_loads`' own
-   line loads; the panel is now the lattice pitch. **Until this lands, every R1 figure is a
-   floor.** If it fails, the answer is not to abandon R1 — it is to find which members need
-   a bigger section and re-price.
-2. Extend `kelvinLatticeCounts` usage into `cell/model.js` so an n = 2 article can be
+Every transition is printed by the tool, not computed in this note. All rows use the model's
+T700 laminate properties and full-vacuum, one-atmosphere film loading. Sections come from the
+tool's stated wall/OD catalogue sweep; face members are pinned over one lattice pitch and
+sized at the unchanged safety factor of 1.5.
+
+The check reuses `panel_tension` and the n=1 `film_edge_loads` construction, which it first
+reproduces for the published rim and spoke rows. At even n, hexagon panels are equilateral
+triangles and square-face panels are pitch-sided squares. The tool checks all four member
+geometries (hexagon-hexagon edge, unequal-tension hexagon-square edge, coplanar hexagon,
+coplanar square), pinned over one lattice pitch. It proves `M(n)/M(2n) = 8`, so the predicted
+cube law is present; section modulus falls with subdivision too, which is why the old tubes
+still fail. Euler, local, yield, and film bending are independent checks; combined
+axial-bending interaction is not claimed.
+
+The mass ledger now states one object consistently: standalone article A. The affine crush
+demand retains the periodic lattice's `96 n³` measure, while purchased tube mass uses all
+physical struts reported by `kelvin_lattice_counts` (948 at n = 2; 6,840 at n = 4). Joint
+mass starts from the corrected measured 0.715 kg n=1 set and remains an OD-cubed estimate.
+Film mass is re-priced at the actual even-n triangular/square panel spans.
+
+R1 tube sizing is therefore no longer an axial-only floor: film bending is included at SF
+1.5. The total is still a lower bound because positive mass remains **not yet counted**:
+bond adhesive, seam tape, aluminium barrier coating, fasteners, and jig-induced overlength.
+Estimate/source uncertainties, not zero-mass lines: even-n joint valence and geometry have
+not been validated, and the tube catalogue remains invented rather than supplier-backed.
+
+**Next tasks**
+1. Extend `kelvinLatticeCounts` usage into `cell/model.js` so an n = 2 article can be
    costed by the real model, not a study script, and gated like everything else.
-3. Then the joint problem changes shape: 201 joints with more arms each, at ~16 mm bore.
-   Count the arm valences at n = 2 before designing anything (`gen_nodes` can enumerate).
+2. Then the joint problem changes shape: 201 joints with more arms each. The film-sized bore
+   is larger than the old axial-only estimate, so count the actual arm valences before pricing.
+   `gen_nodes` can enumerate them.
 
 ### R2 — lighten the joints
 
-At n = 2 the joints are still **38–46% of the article**. They carry no load in the model's
+At n = 2 the joints remain a large fraction of the article. They carry no load in the model's
 own accounting (`NODE_MASS_FRAC` comment: *"nodes carry no load but weigh"*), so every gram
 is overhead. Options, roughly in order of expected value:
 
@@ -185,8 +213,8 @@ is overhead. Options, roughly in order of expected value:
   whether n = 2 concentrates or spreads the arm count before assuming either.
 
 **Target to aim at:** the model's own design point allows joints at **15% of lattice mass**.
-The real measured article came in at **19.5%**. At n = 2 today's law gives roughly **80%**.
-Getting to 15% is worth ~1.6 kg/m³ — the single largest identified saving after R1.
+The real measured article came in at **19.5%**. The even-n valence-specific joint has not yet
+been generated, so the OD-cubed R1 price is an estimate rather than a measured fraction.
 
 ### R3 — source the tube (and this is a standing, incremental job)
 
@@ -233,10 +261,10 @@ Not one material for the article. The families fail differently:
   M60J is *worse* here: 2,290 MPa against T700's 2,500, at higher density. A naive swap to
   M60J makes the current article **heavier** — verified, 21.5 kg/m³ against 16.2.
 
-The model's own design-point lattice in M60J is **0.943 kg/m³ — under the wall on its own.**
-So the tube is not the thing that ultimately stops this; R4 plus R1 puts the tube line
-essentially at the target and leaves the joints as the entire remaining problem. That is the
-clearest statement of where this project's difficulty actually lives.
+The model's own axial-only design-point lattice in M60J is **0.943 kg/m³ — under the wall on
+its own.** R1 now shows that a face member's transverse film load can instead govern section
+modulus. R4 must therefore be re-priced against bending strength before combining that bound
+with R1; the old claim that their tube lines could simply be added is withdrawn.
 
 ---
 
@@ -295,7 +323,11 @@ by a person and a pass written by the loop are the same shape.
 
 1. **Is a vented, shelled joint acceptable in vacuum?** Decides R2's biggest lever.
 2. **What is the real minimum wall** at each diameter band, per process? Decides R3.
-3. **Does the film bending check survive n = 2**, or does it re-introduce a heavy member?
+3. **What is the combined axial-bending interaction margin** on the film-governing edge
+   members? R1 now checks both demands independently at SF 1.5; interaction is not yet modelled.
+   A validated local-shell-buckling/ovalization limit under transverse bending is also still
+   needed; the existing local check is for uniform axial compression and must not be reused as
+   a bending formula without validation.
 4. **What is the lightest joint that transfers 3–7 kN between two tube ends?** Ask it as a
    general question first — there may be a standard answer from mast, kite or truss
    engineering that beats anything printed.

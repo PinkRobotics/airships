@@ -69,7 +69,10 @@ this document:
 - **Size is not a lever.** kg/m3 and every margin are invariant under geometric scaling. The
   1 m retarget is still costed (Appendix A of FLOAT.md) but it is not a route to floating.
 - **69% of the tube by length holds the film, not the vacuum** — only 60 of the 216 members
-  are octet. Subdividing to even n deletes the whole boundary apparatus: ~9.3 -> ~4.2 kg/m3.
+  are octet. Subdividing to even n deletes the whole boundary apparatus, but the old
+  axial-only ~4.2 kg/m3 estimate did not survive the film check: sizing the face members for
+  the hexagon-square edge load at SF 1.5 gives **10.76–12.51 kg/m3** across the five checked
+  article-A rows. See `docs/FLOAT.md` §3.
 - **State which article a number belongs to.** The bench article is 16.21 kg/m3 and is a
   process coupon; the reports' "design point" is a closed-form sizing law with no geometry at
   1.4319. They differ by one ratio — tube R/t 5 against 75.5 — and confusing them has cost
