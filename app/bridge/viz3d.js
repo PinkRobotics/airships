@@ -3,10 +3,10 @@
  * The 3D library knows nothing about this page. Everything page-specific — which view
  * suits which phase, how the camera follows a heading, how the model is framed — is here.
  */
-import { CFG, stateAt } from '../../sim/index.js?v=a0f31dac';
-import { cockpitShip } from '../cockpit/panels.js?v=a0f31dac';
-import { $ } from '../dom.js?v=a0f31dac';
-import { S } from '../store.js?v=a0f31dac';
+import { CFG, stateAt } from '../../sim/index.js?v=d6ac9e93';
+import { cockpitShip } from '../cockpit/panels.js?v=d6ac9e93';
+import { $ } from '../dom.js?v=d6ac9e93';
+import { S } from '../store.js?v=d6ac9e93';
 
 /* The parametric model from 3d/, mounted below the operation strip and driven by the SAME
    stateAt() that drives the map, the dials and the schematic. The library's own adapter

@@ -4,10 +4,10 @@
  * model animates comes from this one function, so that no two surfaces can disagree
  * about what the ship is doing.
  */
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=a0f31dac';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=a0f31dac';
-import { diskMW, ledger, pumpMW } from './physics.js?v=a0f31dac';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=a0f31dac';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, VZ_MAX, sourceAltM } from './config.js?v=d6ac9e93';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=d6ac9e93';
+import { diskMW, ledger, pumpMW } from './physics.js?v=d6ac9e93';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=d6ac9e93';
 
 /**
  * The descent anchor, as the MODEL sees it: how much cable is out and how much lake water is

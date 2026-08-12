@@ -206,9 +206,17 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    proof), and factory one-block economics. License: 865 tool at band span + U4.
    Sequence AFTER #6. Expected win: a trim, not a transformation (the through-path
    octet — most of the tube mass — survives any asymmetry).
-8. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
+8. **Tie material + interface** (operator question, same evening) — rope-class ties
+   (Dyneema/UHMWPE vs Zylon-class braid: sustained-load creep vs UV/moisture — open
+   trade, [TO VERIFY]; ties live in the atmospheric gap under the jacket) ending in
+   spliced soft eyes over printed Ti horns on rim-joint clamp sleeves. CONCENTRATION
+   FINDING: two ties/cell ⇒ ~35 kN into single joints whose members are article-class
+   (5–7 kN) — 3–7× over; keeping the frame at proven loads wants ≥~6 pickup points per
+   cell around the rim ring, or a spreader cradle. Couples #6 (pitch) and #7 (retune);
+   same license (865 tool + U4). Catalog carries the part as `conn-tie`, scoping.
+9. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
    (#10) at the head, then #65's remaining proofs, #64, #60, #68.
-9. **Helm governed Caddyfile re-sync** — small chore, helm session.
+10. **Helm governed Caddyfile re-sync** — small chore, helm session.
 
 The operator's standing style notes: decisive recommendations over menus; verify
 before claiming; numbers carry provenance or flags; bias toward shipping behind the

@@ -24,21 +24,21 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=a0f31dac';
-import * as G from './explorer-geom.js?v=a0f31dac';
+import * as CELL from './model.js?v=d6ac9e93';
+import * as G from './explorer-geom.js?v=d6ac9e93';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=a0f31dac';
+} from './nodes.generated.js?v=d6ac9e93';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=a0f31dac';
+import { NODEMESHES } from './nodemeshes.generated.js?v=d6ac9e93';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=a0f31dac';
+import { SKIN } from './skin.generated.js?v=d6ac9e93';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {

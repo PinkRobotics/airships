@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=a0f31dac';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=d6ac9e93';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -120,7 +120,30 @@ function drawFilm({ layers }) {
   return svgEl(out);
 }
 
-const DRAW = { tube: drawTube, sleeve: drawSleeve, node: drawNode, lap: drawLap, film: drawFilm };
+/* The hanger tie: rope from the face, soft eye over a printed horn on the clamp. */
+function drawTie() {
+  const cx = 180;
+  return svgEl(`
+    <line x1="60" y1="30" x2="300" y2="30" stroke="${C.cool}" stroke-width="2"/>
+    <circle cx="${cx}" cy="30" r="9" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.6"/>
+    <text x="296" y="20" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">outer chord face</text>
+    <line x1="${cx - 1.5}" y1="40" x2="${cx - 1.5}" y2="112" stroke="${C.bone}" stroke-width="1.6"/>
+    <line x1="${cx + 1.5}" y1="40" x2="${cx + 1.5}" y2="112" stroke="${C.bone}" stroke-width="1.6"/>
+    <ellipse cx="${cx}" cy="126" rx="11" ry="15" fill="none" stroke="${C.bone}" stroke-width="2.4"/>
+    <path d="M ${cx - 5} 132 h 10 a 5 5 0 0 1 5 5 v 14 h -20 v -14 a 5 5 0 0 1 5 -5 z"
+          fill="${C.warm}" fill-opacity="0.18" stroke="${C.warm}" stroke-width="1.5"/>
+    <rect x="${cx - 46}" y="151" width="92" height="20" rx="9"
+          fill="${C.warm}" fill-opacity="0.10" stroke="${C.warm}" stroke-width="1.6"/>
+    <rect x="${cx - 70}" y="156" width="140" height="10" rx="4"
+          fill="${C.cool}" fill-opacity="0.12" stroke="${C.cool}" stroke-width="1.2"/>
+    <text x="${cx + 24}" y="120" fill="${C.bone}" font-size="10" font-family="monospace">spliced soft eye</text>
+    <text x="${cx + 24}" y="146" fill="${C.warm}" font-size="10" font-family="monospace">printed horn</text>
+    <text x="${cx}" y="188" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">…on the clamp sleeve at a rim joint — no pins, no threads</text>
+    <text x="60" y="78" fill="${C.faint}" font-size="10" font-family="monospace">pure</text>
+    <text x="60" y="91" fill="${C.faint}" font-size="10" font-family="monospace">tension</text>`);
+}
+
+const DRAW = { tube: drawTube, sleeve: drawSleeve, node: drawNode, lap: drawLap, film: drawFilm, tie: drawTie };
 
 /* True-relative-size strip: every tube on one scale — click a bore to select it. */
 function tubeStrip(activeId) {
@@ -444,7 +467,7 @@ function drawWebDetail() {
   out += arrowTo2(150, 108, 190, 218, C.bone) + arrowTo2(290, 108, 250, 218, C.bone);
   out += `
     <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — how the band hangs</text>
-    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">ties: one pair per cell — tension, cannot buckle</text>
+    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">ties at every cell — tension, cannot buckle</text>
     <text x="416" y="${faceY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">outer face · chords</text>
     <text x="60" y="230" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
     <text x="60" y="243" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
@@ -518,7 +541,8 @@ function drawShipEquip() {
 /* ------------------------------------------------ boot --------------------------------- */
 
 bindNumbers();
-makePane($('#pane-a'), 'tubes');
+const q = new URLSearchParams(location.search);
+makePane($('#pane-a'), CATS.some(c => c.id === q.get('cat')) ? q.get('cat') : 'tubes', +(q.get('i') || 0) || 0);
 
 const put = (sel, svg) => { const el = $(sel); if (el) el.innerHTML = svg; };
 put('#fig-cell', drawKelvinCell());

@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=a0f31dac';
+         stockBuild, barrierKgPerM2 } from './model.js?v=d6ac9e93';
 
 const sb = stockBuild();
 
@@ -243,6 +243,27 @@ export const CATALOG = [
     ],
     prov: 'metal-joint report (lap sizing) · joint-load report (mechanism)',
     flags: ['τ = 20 MPa unsourced — qualification campaign line'],
+  },
+  {
+    id: 'conn-tie', cat: 'connectors',
+    name: 'The hanger tie',
+    status: 'scoping',
+    role: 'The suspension: a soft rope from the cell’s rim joints up to the outer chord '
+        + 'face — pure tension, the one duty where a string beats a strut, because a '
+        + 'string cannot buckle.',
+    story: 'Dyneema is the famous name; months of sustained load favour the creep-proof '
+        + 'fibres — and the cell film is already Zylon-class. Either way the tie ends in '
+        + 'a loop, not a thread.',
+    draw: { kind: 'tie' },
+    specs: [
+      { k: 'Material', v: 'UHMWPE or Zylon-class braid', u: 'creep vs UV — open trade' },
+      { k: 'Termination', v: 'spliced soft eye', u: 'over a printed Ti horn' },
+      { k: 'Duty', v: 'pure tension', u: 'sustained, months' },
+      { k: 'Per-tie load', v: 'tens of kN', u: 'set by ties-per-cell' },
+      { k: 'Ship set', v: 'order 10⁵', u: 'ties' },
+    ],
+    prov: 'hang doctrine (analysis v2 §4) · tie trade opened 08-12 — SHIP-2/3',
+    flags: ['material + ties-per-cell [TO VERIFY] — creep governs UHMWPE; joint concentration governs count'],
   },
   {
     id: 'conn-printed-node', cat: 'connectors',
