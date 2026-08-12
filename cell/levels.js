@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=68343a7a';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=593c814d';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -476,6 +476,69 @@ function drawWebDetail() {
   return svgEl(out, '0 0 440 310');
 }
 
+/* Level 4 — the ring in section: two skeletons, the band riding in the gap. */
+function drawRingSection() {
+  const cx = 195, cy = 235;
+  let o = '';
+  const ring = (r, style) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" ${style}/>`;
+  const dots = (r, n, rad, col) => {
+    let t = '';
+    for (let k = 0; k < n; k++) {
+      const a = (k / n) * 2 * Math.PI;
+      t += `<circle cx="${(cx + r * Math.cos(a)).toFixed(1)}" cy="${(cy + r * Math.sin(a)).toFixed(1)}" r="${rad}"
+             fill="${col}" fill-opacity="0.15" stroke="${col}" stroke-width="1.1"/>`;
+    }
+    return t;
+  };
+  o += `<circle cx="${cx}" cy="${cy}" r="80" fill="#0d0d10"/>`;
+  for (let k = 0; k < 8; k++) {
+    const a = k * Math.PI / 4 + Math.PI / 8;
+    const x1 = cx + 190 * Math.cos(a), y1 = cy + 190 * Math.sin(a);
+    const x2 = cx + 168 * Math.cos(a), y2 = cy + 168 * Math.sin(a);
+    const ux = (x2 - x1) / 22, uy = (y2 - y1) / 22;
+    o += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x2 - 4 * ux).toFixed(1)}" y2="${(y2 - 4 * uy).toFixed(1)}" stroke="${C.warm}" stroke-width="1.4"/>
+          <path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(x2 - 7 * ux - 3 * uy).toFixed(1)} ${(y2 - 7 * uy + 3 * ux).toFixed(1)} L ${(x2 - 7 * ux + 3 * uy).toFixed(1)} ${(y2 - 7 * uy - 3 * ux).toFixed(1)} Z" fill="${C.warm}"/>`;
+  }
+  o += ring(160, `stroke="${C.bone}" stroke-width="1"`);
+  o += dots(149, 30, 4.5, C.cool);
+  for (let k = 0; k < 50; k++) {
+    const a = (k / 50) * 2 * Math.PI;
+    o += `<line x1="${(cx + 139 * Math.cos(a)).toFixed(1)}" y1="${(cy + 139 * Math.sin(a)).toFixed(1)}"
+                x2="${(cx + 146 * Math.cos(a)).toFixed(1)}" y2="${(cy + 146 * Math.sin(a)).toFixed(1)}"
+                stroke="${C.warm}" stroke-width="1"/>`;
+  }
+  o += dots(133, 50, 5, C.warm);
+  for (let k = 0; k < 30; k++) {
+    const a1 = (k / 30) * 2 * Math.PI, a2 = a1 + Math.PI / 30, a3 = a1 + 2 * Math.PI / 30;
+    o += `<line x1="${(cx + 127 * Math.cos(a1)).toFixed(1)}" y1="${(cy + 127 * Math.sin(a1)).toFixed(1)}"
+                x2="${(cx + 97 * Math.cos(a2)).toFixed(1)}" y2="${(cy + 97 * Math.sin(a2)).toFixed(1)}"
+                stroke="${C.cool}" stroke-opacity="0.45" stroke-width="1"/>
+          <line x1="${(cx + 97 * Math.cos(a2)).toFixed(1)}" y1="${(cy + 97 * Math.sin(a2)).toFixed(1)}"
+                x2="${(cx + 127 * Math.cos(a3)).toFixed(1)}" y2="${(cy + 127 * Math.sin(a3)).toFixed(1)}"
+                stroke="${C.cool}" stroke-opacity="0.45" stroke-width="1"/>`;
+  }
+  o += dots(91, 30, 4.5, C.cool);
+  o += ring(84, `stroke="${C.bone}" stroke-width="1" stroke-dasharray="5 4"`);
+  o += `<text x="${cx}" y="${cy - 4}" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">the void</text>
+        <text x="${cx}" y="${cy + 12}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">pure vacuum · pure lift</text>`;
+  const lab = (r, ly, col, text) => {
+    const a = Math.atan2(ly - cy, 372 - cx);
+    const px = cx + r * Math.cos(a), py = cy + r * Math.sin(a);
+    return `<line x1="${px.toFixed(1)}" y1="${py.toFixed(1)}" x2="374" y2="${ly}" stroke="${C.faint}" stroke-opacity="0.6" stroke-width="0.8"/>
+            <text x="380" y="${ly + 3}" fill="${col}" font-size="9.5" font-family="monospace">${text}</text>`;
+  };
+  o += lab(160, 62, C.bone, 'weather jacket — unloaded');
+  o += lab(149, 120, C.cool, 'outer wall · chords — exoskeleton');
+  o += lab(140, 178, C.warm, 'ties, then the band — evacuated');
+  o += lab(133, 196, C.warm, 'cells, hanging in the gap');
+  o += lab(112, 254, C.cool, 'webs — lacing the two walls');
+  o += lab(91, 312, C.cool, 'inner wall · chords — exoskeleton');
+  o += lab(84, 370, C.bone, 'void skin — gossamer');
+  o += `<text x="12" y="452" fill="${C.faint}" font-size="10" font-family="monospace">wall exaggerated ≈4× — at true scale the annulus is a tenth of the radius.</text>
+        <text x="12" y="466" fill="${C.faint}" font-size="10" font-family="monospace">everything inboard of the band is vacuum: the truss depth itself is lift.</text>`;
+  return svgEl(o, '0 0 580 476');
+}
+
 /* Level 5 — the closed hull under its atmosphere. */
 function drawShipClosure() {
   const cy = 104, r = 52, xl = 118, xr = 302;
@@ -551,6 +614,7 @@ put('#fig-band', drawBandSection());
 put('#fig-wall', drawWallSection());
 put('#fig-support', drawCellSupport());
 put('#fig-webs', drawWebDetail());
+put('#fig-ring', drawRingSection());
 put('#fig-closure', drawShipClosure());
 put('#fig-ledger', drawLedger());
 put('#fig-equip', drawShipEquip());
