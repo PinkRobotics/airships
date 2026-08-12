@@ -378,9 +378,10 @@
     <tbody data-t="breach"></tbody>
   </table>
   <p style="color:var(--faint);font-size:var(--t-11)">Margins at the level-2 target
-  (<span data-n="level2.total" data-f="3"></span> kg/m³ with the envelope film). The
-  demonstrable single-level design is under the wall before any breach — these margins are
-  what the ladder buys.</p>
+  (<span data-n="level2.total" data-f="3"></span> kg/m³ with the envelope film), at the
+  corrected classical buckling coefficient. Local contingencies hold through a full
+  atmosphere added locally; the two-adjacent-cells case no longer clears — the honest
+  price of the correction, and the next thing hierarchy has to buy back.</p>
   <p>The partition shape is the <strong>Kelvin cell</strong> — the truncated octahedron,
   BCC's Voronoi cell, the interlocking near-sphere. It carries
   <span data-n="shapes.truncatedOctahedron.filmSavingVsCubePct" data-f="1"></span>% less
@@ -1562,8 +1563,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=bdd21b7d';
-import * as CELL from './model.js?v=bdd21b7d';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=bdd5b410';
+import * as CELL from './model.js?v=bdd5b410';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

@@ -20,7 +20,9 @@ PUB = json.load(open(ROOT / "research/analysis/vacuum-cell.json"))
 # The TRUE span, not the published 0.709: span = 2 * the printer chain's design-point
 # pitch. Every published figure is computed from this and then rounded, so the self-check
 # below has to work from the same unrounded number or it fails on the rounding.
-S0 = 2 * vc.printer_chain(vc.MATERIALS["PAHT_Z"])["rows"]["0.6 mm x 2"]["cellMRaw"]
+# The BUILT article's span, pinned in the model — not the live chain's design point,
+# which the corrected 0.605 physics is free to move (it now optimises near 0.55 m).
+S0 = 2 * vc.DEMO_PITCH_PINNED_M
 RHO = vc.MATERIALS["T700_LAM"]["rho"]
 E = vc.MATERIALS["T700_LAM"]["E"]
 SIG = vc.MATERIALS["T700_LAM"]["sigma"]

@@ -2470,10 +2470,11 @@ def main() -> None:
 
         sa = e["spigotAreaMm2"]
         sig = e["sigmaAllowMPa"]
-        # Local buckling of the spigot wall as a short tube: K_LOCAL E t/r, the same relation
+        # Local buckling of the spigot wall as a short tube: K_CLASSICAL K_LOCAL E t/r,
+        # the full classical-times-knockdown capacity (the 0.605 landed 2026-08-12), same relation
         # arch_tube_strut uses, with the modulus interpolated the way sigma is.
         t_w, r_w = prm["spigot_wall"], e["socketSpigotOuterRadiusMm"] - prm["spigot_wall"] / 2.0
-        sig_cr = vc.K_LOCAL * (e["EAllowPa"] / 1e6) * t_w / max(r_w, 1e-6)
+        sig_cr = vc.K_CLASSICAL * vc.K_LOCAL * (e["EAllowPa"] / 1e6) * t_w / max(r_w, 1e-6)
         # WHAT HOLDS THE PIPE'S CUT END, and what holds it dry. Both used to be UNSOURCED and
         # neither has to be. The seat substitutes the tensile allowable the TDS does give for
         # the bearing allowable it does not, which is the same substitution spigotDirect four
@@ -2545,7 +2546,7 @@ def main() -> None:
                 "measured outermost solid radius in the engaged length", "measured-geometry"),
             "localBuckling": margin(
                 ax, "N", ax_src, sig_cr * sa, "N",
-                "vacuum-cell K_LOCAL x E_allow x t/r on the measured section",
+                "vacuum-cell K_CLASSICAL x K_LOCAL x E_allow x t/r on the measured section",
                 "repo-constant"),
             "printability": margin(
                 perims * nozzle_mm, "mm",

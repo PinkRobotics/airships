@@ -101,10 +101,14 @@ commercial floor with the 0.605 fix first, ending in an unhedged floats/doesn't 
    the live manifest; P14 passes and the contract is re-frozen on exactly that flip.
 2. **The square-panel correction** (above) — analysis + model parity + contract re-freeze.
 3. **Probe-SKU field rerun** (with #65) — then the corrected P16 census the audit asks for.
-4. **0.605 — NOT mine to do:** 871's brief explicitly fixes it first and restates R4's
-   headlines. Review its branch when it lands rather than racing it. (If 871 comes back
-   without it, adopt audit O1 directly: `tubeStrut`, `ladder`, and the P16 spigot screen
-   omit the classical coefficient; `subdivision_study` already has it.)
+4. **0.605 — DONE (morning of 08-12, under the operator's ruling):** 871 stopped at the
+   immutable study gates because the correction moves the co-critical design point
+   (0.709 → 0.551 m). Ruling: pin the built article as a measurement, correct the physics
+   everywhere. Landed with the article pinned, all consequences published (R4's 0.943 is
+   1.115 and over the wall; level-2 clears at 1.78× not 2.13×; breach resilience is
+   through L=2 now, stated and gated), contract re-frozen on exactly the 0.605 value
+   scaling, full chain green. 871 relaunches with the anchor question resolved — floor
+   at the 1 m flight-reference article.
 
 **Standing corrections to how results are read (no code change):**
 - §3's route table is directional hypotheses, not article configurations (audit verdict —

@@ -335,6 +335,35 @@ smeared volume rows are computed on the wrong (larger — conservative for mass,
 loads) panel. Analysis-layer correction with prose-gate consequences; it belongs with
 the ~/data/airships-reviews audit integration, not in this commit.
 
+## The 0.605 landed, and the article is pinned (operator ruling, 2026-08-12 morning)
+
+The classical cylinder coefficient (sigma_cr = 0.605*E*t/R) was missing from four
+closed-form local-buckling routes (audit O1; the floor order 871 measured every
+consequence and STOPPED, correctly, at the studies' immutable gates). The operator ruled:
+**pin the built article, correct the physics.**
+
+- `K_CLASSICAL = 0.605` now multiplies `K_LOCAL` in tube_strut/tubeStrut,
+  hierarchy_ladder/ladder, P16's spigot screen, and aerogelCore — mirrored py/js.
+- **The built article is pinned**: `DEMO_STRUT/PITCH/TUBE_R_PINNED_M` are measured
+  constants (the pre-correction design-point outputs it was sawn and printed from). The
+  corrected chain's optimum (~0.55 m span) is a finding about future articles. Every
+  article consumer — model, page (buildCell, CELL_SHIFT), parity collector, both studies —
+  reads the pins. Commit `fa7954a` proved the pin a numeric no-op before the physics moved.
+- **What the correction changed** (all published, all gated): the M60J design-point
+  lattice 0.943 → 1.115 kg/m³ — **no longer under the wall on its own**; level-1 closed
+  form 1.108 → 1.306; level-2 hierarchy 0.450 → 0.538, margin 2.13× → 1.78× (levels 3-4
+  yield-capped, unchanged); the printer chain's per-nozzle cells shrink (0.6 mm x 2:
+  251 → 195 mm strut); graded-pressure and weightless-article rows follow; the breach
+  table's L=3 two-adjacent-cells contingency NO LONGER clears at level 2 (0.87×) — the
+  page claim and its gate now state resilience through L=2 and the L=3 miss explicitly.
+- **What it did not change**: the article (pinned: 2.69 kg, 15.13 kg/m³), its demands,
+  Euler margins, the sunken-frame geometry, P16's verdict census — the restored full
+  wraps keep all 432 spigot local-buckling rows PASSING even at the corrected capacity
+  (the audit's 24→72 prediction was against pre-sunken-frame wraps). Contract re-frozen;
+  the bill was exactly the 864 localBuckling capacity/margin values scaling by 0.605
+  with zero verdict flips.
+- scale_study reads the P14 field names again (871's repair, landed from its branch).
+
 ## Open work, in priority order
 
 1. **#65 clear the remaining frozen proofs** — P5 and P14 are both closed (P14

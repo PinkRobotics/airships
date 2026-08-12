@@ -264,10 +264,15 @@ Not one material for the article. The families fail differently:
   M60J is *worse* here: 2,290 MPa against T700's 2,500, at higher density. A naive swap to
   M60J makes the current article **heavier** — verified, 21.5 kg/m³ against 16.2.
 
-The model's own axial-only design-point lattice in M60J is **0.943 kg/m³ — under the wall on
-its own.** R1 now shows that a face member's transverse film load can instead govern section
-modulus. R4 must therefore be re-priced against bending strength before combining that bound
-with R1; the old claim that their tube lines could simply be added is withdrawn.
+The model's own axial-only design-point lattice in M60J is **1.115 kg/m³ — OVER the wall on
+its own** since the classical 0.605 local-buckling coefficient landed (2026-08-12, audit O1;
+the floor order measured it first: the old 0.943 claim was computed with the coefficient
+missing, crediting walls with 1.65× their stated capacity). With film and nodes the level-1
+closed form is 1.306 kg/m³, and the level-2 hierarchy that clears the wall does so at 1.78×,
+not 2.13×. R1 separately shows that a face member's transverse film load can govern section
+modulus. R4 must therefore be re-priced against bending strength before combining any bound
+with R1; the old claim that their tube lines could simply be added is withdrawn, and so is
+"under the wall on its own".
 
 ---
 

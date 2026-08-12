@@ -24,21 +24,21 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=bdd21b7d';
-import * as G from './explorer-geom.js?v=bdd21b7d';
+import * as CELL from './model.js?v=bdd5b410';
+import * as G from './explorer-geom.js?v=bdd5b410';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=bdd21b7d';
+} from './nodes.generated.js?v=bdd5b410';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=bdd21b7d';
+import { NODEMESHES } from './nodemeshes.generated.js?v=bdd5b410';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=bdd21b7d';
+import { SKIN } from './skin.generated.js?v=bdd5b410';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -635,8 +635,8 @@ const norm = (p) => { const l = Math.hypot(p[0], p[1], p[2]) || 1;
 /* L3 — the cell: the printable demonstrator, 354 mm, 44 litres of nothing. */
 function buildCell(ctx) {
   const root = node({ id: 'L_cell', category: 'vacuum', selectable: false });
-  const p = ctx.design.cellM;                       // the printer-chain sub-cell pitch
-  const L = ctx.design.strutM;
+  const p = CELL.DEMO_PITCH_PINNED_M;         // the BUILT article's pitch, pinned
+  const L = CELL.DEMO_STRUT_PINNED_M;         // (the chain's live optimum may move)
   // DRAW THE ARTICLE WE ARE ACTUALLY SPECIFYING. Radii come from the cut schedule's own
   // SKUs per group below — this level once took a single radius from the printer chain's
   // O33 tube and drew pipes passing through pipes, an article that could not be built.
@@ -1861,11 +1861,11 @@ function latheWithScale(prof, seg, sScale) {
 
 // The cell group is shifted so the hero strut lands at the world origin; the orbit target
 // has to undo that shift, or the article spins about a point off to one side of itself.
-// DERIVED, not typed: the same design point buildCell reads its pitch from. The typed
-// 0.3545 was 0.18 mm off the model's 0.354 today, and a live drift the next time the
-// design point moves.
-const CELL_SHIFT = CELL.printerChain(CELL.MATERIALS.PAHT_Z)
-  .find(r => r.designPoint).cellM * Math.SQRT2 / 4;
+// DERIVED from the PINNED article pitch, not typed and not read off the live chain: the
+// built article's size is a measurement (see model.js DEMO_PITCH_PINNED_M), and the
+// chain's design point is free to move under corrected physics without dragging the
+// drawn article with it.
+const CELL_SHIFT = CELL.DEMO_PITCH_PINNED_M * Math.SQRT2 / 4;
 const CELL_CENTRE = [-CELL_SHIFT, 0, 0];   // cg.p shifts NEGATIVE; follow it
 
 // `stage: true` — this level does not build a scene, it displays built[3]'s. All four of

@@ -21,7 +21,12 @@ export const C_PHI = 6 * Math.SQRT2 * Math.PI;   // octet truss: phi = C_PHI (r/
 /* EXACT under hydrostatic load, and topology-independent: every strut in any
  * stretch-dominated truss takes the same affine strain, so solid stress is 3p/phi. */
 export const ALIGN = 1 / 3;
-export const K_LOCAL = 0.3;                       // local buckling of a thin tube wall
+// sigma_cr = 0.605*E*t/R classically, times the SP-8007-style knockdown. K_CLASSICAL is
+// physics (part of the formula, like Euler's pi^2); K_LOCAL is the knockdown ON it. Four
+// closed-form routes dropped the classical coefficient until 2026-08-12 (audit O1); the
+// product is the capacity everywhere now. Mirrored in the Python.
+export const K_CLASSICAL = 0.605;
+export const K_LOCAL = 0.3;                       // knockdown on the classical cylinder
 export const K_SHELL = 0.2;                       // imperfection knockdown, monolithic shell
 /* Local buckling of an ORTHOTROPIC tube depends on sqrt(Ex*Etheta), not Ex — so the governing
  * modulus is Ex^(3/4)*Etheta^(1/4), and the best [0/90] split (3/4 axial) costs this factor. */
@@ -90,9 +95,10 @@ export const DEMO_PITCH_PINNED_M = 0.35426976406201705;
 export const DEMO_TUBE_R_PINNED_M = 0.016604417467399196;
 
 export function tubeStrut(m, p = P_ATM) {
-  const a = 2 * K_LOCAL / (Math.PI * Math.PI);
+  const kl = K_CLASSICAL * K_LOCAL;
+  const a = 2 * kl / (Math.PI * Math.PI);
   const c = 2 * C_PHI * a;
-  const k = ALIGN * K_LOCAL / Math.sqrt(c);
+  const k = ALIGN * kl / Math.sqrt(c);
   const pd = p * LATTICE_SF;
   const phiB = Math.pow(pd / (k * eEff(m)), 2 / 3);
   const phiY = pd / (ALIGN * m.sigma);
@@ -155,7 +161,7 @@ export function breach(matKey, altM) {
  * far too soft. There is no window. */
 export function aerogelCore(matKey = 'M60J') {
   const mm = MATERIALS[matKey], t = tubeStrut(mm);
-  const bare = 0.3 * mm.E * t.psi;
+  const bare = K_CLASSICAL * K_LOCAL * mm.E * t.psi;
   return {
     bare,
     rows: [1, 3, 10, 30, 60, 120, 300].map(rc => {
@@ -204,9 +210,10 @@ export function envelopeFilmKgPerM3(spanM = 2.0, datm = 1.0) {
  * below the yield floor. Levels 3 and 4 hit it for every material here. */
 export function ladder(m, levels = 5, film = null, nodes = NODE_MASS_FRAC) {
   const ee = eEff(m);
-  const a = 2 * K_LOCAL / (Math.PI * Math.PI);
+  const kl = K_CLASSICAL * K_LOCAL;
+  const a = 2 * kl / (Math.PI * Math.PI);
   const c = 2 * C_PHI * a;
-  const k = ALIGN * K_LOCAL / Math.sqrt(c);
+  const k = ALIGN * kl / Math.sqrt(c);
   const pd = P_ATM * LATTICE_SF;
   const x = pd / (k * ee);
   const phiYield = pd / (ALIGN * m.sigma);

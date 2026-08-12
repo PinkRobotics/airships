@@ -54,9 +54,15 @@ C_PHI = 6.0 * math.sqrt(2.0) * math.pi
 # the solid is 3p/phi. An earlier version apologised for it as an approximation.
 ALIGN = 1.0 / 3.0
 
-# Local buckling of a thin cylinder in axial compression, as a fraction of the classical
-# 0.605*E*t/R. NASA SP-8007 at these proportions gives about 0.33, so 0.3 is mildly
-# conservative for an ISOTROPIC wall. See ORTHO_PENALTY for what a composite wall does.
+# Local buckling of a thin cylinder in axial compression: sigma_cr = 0.605*E*t/R
+# classically, times a knockdown. K_CLASSICAL is the physics (part of the formula, like
+# Euler's pi^2); K_LOCAL is the SP-8007-style knockdown ON it (about 0.33 at these
+# proportions, so 0.3 is mildly conservative for an ISOTROPIC wall — see ORTHO_PENALTY
+# for what a composite wall does). Until 2026-08-12 four closed-form routes applied the
+# knockdown but dropped the classical coefficient itself — crediting walls with 1/0.605 =
+# 1.65x their stated capacity (audit O1; the floor order measured every consequence
+# before this landed). The product K_CLASSICAL * K_LOCAL is the capacity everywhere now.
+K_CLASSICAL = 0.605
 K_LOCAL = 0.3
 
 # Imperfection knockdown for a monolithic shell under external pressure.
@@ -182,9 +188,10 @@ DEMO_TUBE_R_PINNED_M = 0.016604417467399196  # the printed tube radius it was dr
 def arch_tube_strut(m: dict, p: float = P_ATM) -> dict:
     """Hollow struts, each tube proportioned so Euler and local wall buckling coincide."""
     ee = e_eff(m)
-    a = 2.0 * K_LOCAL / math.pi ** 2
+    kl = K_CLASSICAL * K_LOCAL
+    a = 2.0 * kl / math.pi ** 2
     c = 2.0 * C_PHI * a
-    k = ALIGN * K_LOCAL / math.sqrt(c)
+    k = ALIGN * kl / math.sqrt(c)
     pd = p * LATTICE_SF
     phi_b = (pd / (k * ee)) ** (2.0 / 3.0)
     phi_y = pd / (ALIGN * m["sigma"])
@@ -596,9 +603,10 @@ def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
     it takes the reference design from under the wall to comfortably over it.
     """
     ee = e_eff(m)
-    a = 2.0 * K_LOCAL / math.pi ** 2
+    kl = K_CLASSICAL * K_LOCAL
+    a = 2.0 * kl / math.pi ** 2
     c = 2.0 * C_PHI * a
-    k = ALIGN * K_LOCAL / math.sqrt(c)
+    k = ALIGN * kl / math.sqrt(c)
     pd = P_ATM * LATTICE_SF
     x = pd / (k * ee)
     # The yield cap a review caught this ladder omitting: whatever buckling permits, the
@@ -1280,6 +1288,7 @@ def main() -> None:
     out = {
         "generated": {"by": "research/analysis/vacuum-cell.py", "figures": fig["generated"]},
         "constants": {"octetPhiCoeff": round(C_PHI, 3), "alignFraction": ALIGN,
+                      "kClassicalCylinder": K_CLASSICAL,
                       "kLocalTubeBuckling": K_LOCAL, "kShellKnockdown": K_SHELL,
                       "orthotropicPenalty": round(ORTHO_PENALTY, 4),
                       "nodeMassFraction": NODE_MASS_FRAC, "latticeSafetyFactor": LATTICE_SF,

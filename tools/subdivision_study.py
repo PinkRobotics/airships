@@ -181,7 +181,9 @@ def face_edge_topology():
 
 def self_check():
     """Reproduce published crush and bending before trusting any subdivided result."""
-    span = 2 * vc.printer_chain(vc.MATERIALS["PAHT_Z"])["rows"]["0.6 mm x 2"]["cellMRaw"]
+    # The BUILT article's span, pinned in the model — the live chain's optimum moved
+    # when the 0.605 landed, the built article did not.
+    span = 2 * vc.DEMO_PITCH_PINNED_M
     ro, ri = 0.005, 0.004
     area = math.pi * (ro ** 2 - ri ** 2)
     force = strut_force(span, 1)
@@ -298,7 +300,7 @@ def best_article(span, n):
                 continue
             sec = section(od, w)
             euler = math.pi ** 2 * MAT["E"] * sec["inertia"] / length ** 2
-            local = (vc.K_LOCAL * vc.ORTHO_PENALTY * 0.605 * MAT["E"]
+            local = (vc.K_CLASSICAL * vc.K_LOCAL * vc.ORTHO_PENALTY * MAT["E"]
                      * (w / 1000) / sec["ro"]) * sec["area"]
             axial = MAT["sigma"] * sec["area"]
             if min(euler, local, axial) < force:

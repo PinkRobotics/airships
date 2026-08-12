@@ -246,11 +246,12 @@ PROBE = r"""(() => {
     const g = m.group || 'UNGROUPED';
     out.memberGroups[g] = (out.memberGroups[g] || 0) + 1;
   }
-  // The breach table must not contradict the sentence above it: at the level-2 target,
-  // every contingency row through L=3 floats.
-  out.breachAllFloat =
-    document.querySelectorAll('[data-t="breach"] tr').length >= 4 &&
-    document.querySelectorAll('[data-t="breach"] .fail').length === 0;
+  // The breach table must not contradict the sentence above it. At the CORRECTED level-2
+  // target (0.605 landed 2026-08-12) the claim is: rows float through L=2, and the L=3
+  // two-adjacent-cells case does not. The gate holds the table to exactly that shape, so
+  // a physics change in either direction forces the copy to move with it.
+  out.breachRows = Array.from(document.querySelectorAll('[data-t="breach"] tr')).map(
+    (tr) => tr.querySelector('.fail') ? 'fail' : 'pass');
   out.rail = document.querySelectorAll('#rail button').length;
   out.sections = document.querySelectorAll('#panel section').length;
 
@@ -623,9 +624,10 @@ def main() -> None:
     if res.get("staleHullLength"):
         bad.append("the page still says '177' somewhere — the hull length must come from "
                    "the model")
-    if res.get("breachAllFloat") is False:
-        bad.append("breach table shows a failing row at the level-2 target — the table "
-                   "contradicts the resilience claim above it")
+    if res.get("breachRows") != ["pass", "pass", "pass", "fail"]:
+        bad.append(f"breach table rows read {res.get('breachRows')} — the claim above it "
+                   "says float through L=2 and fail at L=3 (corrected coefficient); the "
+                   "copy and the physics have diverged")
     # The parts view must actually cycle, keep drawing, and tell the truth on its label.
     if res.get("partsCycle") != "joinery,pipes,all":
         bad.append(f"parts button cycled {res.get('partsCycle')!r}, expected "

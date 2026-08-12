@@ -9,6 +9,7 @@
  "constants": {
   "octetPhiCoeff": 26.657,
   "alignFraction": 0.3333333333333333,
+  "kClassicalCylinder": 0.605,
   "kLocalTubeBuckling": 0.3,
   "kShellKnockdown": 0.2,
   "orthotropicPenalty": 0.5699,
@@ -30,13 +31,13 @@
    "specificStrengthMNmPerKg": 1.3812,
    "monolithicKgPerM3": 5.408,
    "solidStrutKgPerM3": 6.185,
-   "tubeLatticeKgPerM3": 0.943,
-   "nodesKgPerM3": 0.1414,
+   "tubeLatticeKgPerM3": 1.1149,
+   "nodesKgPerM3": 0.1672,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 1.4319,
-   "marginX": 0.668,
+   "totalKgPerM3": 1.6296,
+   "marginX": 0.587,
    "floats": false,
-   "tubeROverT": 75.5,
+   "tubeROverT": 54.0,
    "governs": "strut buckling"
   },
   "T700_LAM": {
@@ -48,13 +49,13 @@
    "specificStrengthMNmPerKg": 1.5625,
    "monolithicKgPerM3": 8.452,
    "solidStrutKgPerM3": 9.665,
-   "tubeLatticeKgPerM3": 1.7304,
-   "nodesKgPerM3": 0.2596,
+   "tubeLatticeKgPerM3": 2.046,
+   "nodesKgPerM3": 0.3069,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 2.3374,
-   "marginX": 0.409,
+   "totalKgPerM3": 2.7003,
+   "marginX": 0.354,
    "floats": false,
-   "tubeROverT": 54.7,
+   "tubeROverT": 39.2,
    "governs": "strut buckling"
   },
   "CFF": {
@@ -66,13 +67,13 @@
    "specificStrengthMNmPerKg": 0.5714,
    "monolithicKgPerM3": 11.093,
    "solidStrutKgPerM3": 12.685,
-   "tubeLatticeKgPerM3": 2.5998,
-   "nodesKgPerM3": 0.39,
+   "tubeLatticeKgPerM3": 3.0739,
+   "nodesKgPerM3": 0.4611,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 3.3373,
-   "marginX": 0.287,
+   "totalKgPerM3": 3.8825,
+   "marginX": 0.246,
    "floats": false,
-   "tubeROverT": 41.8,
+   "tubeROverT": 29.9,
    "governs": "strut buckling"
   },
   "PAHT_XY": {
@@ -84,13 +85,13 @@
    "specificStrengthMNmPerKg": 0.0868,
    "monolithicKgPerM3": 33.113,
    "solidStrutKgPerM3": 37.867,
-   "tubeLatticeKgPerM3": 12.2602,
-   "nodesKgPerM3": 1.839,
+   "tubeLatticeKgPerM3": 14.4959,
+   "nodesKgPerM3": 2.1744,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 14.4467,
-   "marginX": 0.066,
+   "totalKgPerM3": 17.0178,
+   "marginX": 0.056,
    "floats": false,
-   "tubeROverT": 16.7,
+   "tubeROverT": 12.0,
    "governs": "strut buckling"
   },
   "PAHT_Z": {
@@ -102,13 +103,13 @@
    "specificStrengthMNmPerKg": 0.0443,
    "monolithicKgPerM3": 44.062,
    "solidStrutKgPerM3": 50.388,
-   "tubeLatticeKgPerM3": 17.944,
-   "nodesKgPerM3": 2.6916,
+   "tubeLatticeKgPerM3": 21.2162,
+   "nodesKgPerM3": 3.1824,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 20.983,
-   "marginX": 0.046,
+   "totalKgPerM3": 24.7461,
+   "marginX": 0.039,
    "floats": false,
-   "tubeROverT": 13.8,
+   "tubeROverT": 9.9,
    "governs": "strut buckling"
   },
   "TI64": {
@@ -120,13 +121,13 @@
    "specificStrengthMNmPerKg": 0.2483,
    "monolithicKgPerM3": 25.465,
    "solidStrutKgPerM3": 29.121,
-   "tubeLatticeKgPerM3": 3.6861,
-   "nodesKgPerM3": 0.5529,
+   "tubeLatticeKgPerM3": 4.3583,
+   "nodesKgPerM3": 0.6537,
    "filmKgPerM3": 0.3475,
-   "totalKgPerM3": 4.5865,
-   "marginX": 0.209,
+   "totalKgPerM3": 5.3596,
+   "marginX": 0.179,
    "floats": false,
-   "tubeROverT": 62.4,
+   "tubeROverT": 44.6,
    "governs": "strut buckling"
   },
   "AEROGEL": {
@@ -144,29 +145,29 @@
    "totalKgPerM3": 126.1931,
    "marginX": 0.008,
    "floats": false,
-   "tubeROverT": 1.9,
+   "tubeROverT": 1.5,
    "governs": "material yield"
   }
  },
  "designPoint": {
   "material": "M60J UD laminate, Vf 0.6",
-  "phi": 0.0005687415802540721,
-  "tubeROverT": 75.5,
+  "phi": 0.0006724549406792618,
+  "tubeROverT": 54.0,
   "jenettFixedROverT": 10,
-  "wallThicknessPerStrutLength": 0.0003759142348522721,
+  "wallThicknessPerStrutLength": 0.00048329364474289827,
   "minimumStrutLengthM": {
-   "0.03 mm wall": 0.08,
-   "0.125 mm wall": 0.333,
-   "0.2 mm wall": 0.532,
-   "0.4 mm wall": 1.064
+   "0.03 mm wall": 0.062,
+   "0.125 mm wall": 0.259,
+   "0.2 mm wall": 0.414,
+   "0.4 mm wall": 0.828
   },
   "buildUp": {
-   "lattice": 0.943,
-   "nodes": 0.1414,
+   "lattice": 1.1149,
+   "nodes": 0.1672,
    "interiorFilm": 0.3475,
-   "total": 1.4319,
+   "total": 1.6296,
    "wall": 0.956859,
-   "netLiftKgPerM3": -0.475,
+   "netLiftKgPerM3": -0.6728,
    "floats": false
   },
   "floodableFractionOfHull": 0.0,
@@ -175,7 +176,7 @@
    "permeationNote": "An interior partition has vacuum on BOTH sides, so there is no partial-pressure gradient and no permeation driving force at all. A permeation barrier is only needed where vacuum meets atmosphere \u2014 the outer envelope, which is 22,592 m2 against 660,000 m2 of interior wall at 1 m cells, a factor of 29.",
    "outerEnvelopeOnlyKgPerM3": 0.02379,
    "containingPartitionsKgPerM3": 0.3475,
-   "totalIfOuterEnvelopeOnly": 1.1082,
+   "totalIfOuterEnvelopeOnly": 1.306,
    "bulgeStrainProblem": {
     "assumedBulgeHOverA": 0.25,
     "membraneStrainRequiredPct": 4.12,
@@ -210,26 +211,26 @@
     "1.00": {
      "deltaPFraction": 1.0,
      "grossLiftKgPerM3": 0.9569,
-     "shellKgPerM3": 1.0844,
-     "shellPerLift": 1.1333
+     "shellKgPerM3": 1.2822,
+     "shellPerLift": 1.34
     },
     "0.75": {
      "deltaPFraction": 0.75,
      "grossLiftKgPerM3": 0.7176,
-     "shellKgPerM3": 0.8952,
-     "shellPerLift": 1.2474
+     "shellKgPerM3": 1.0584,
+     "shellPerLift": 1.4748
     },
     "0.50": {
      "deltaPFraction": 0.5,
      "grossLiftKgPerM3": 0.4784,
-     "shellKgPerM3": 0.6831,
-     "shellPerLift": 1.4279
+     "shellKgPerM3": 0.8077,
+     "shellPerLift": 1.6883
     },
     "0.25": {
      "deltaPFraction": 0.25,
      "grossLiftKgPerM3": 0.2392,
-     "shellKgPerM3": 0.4304,
-     "shellPerLift": 1.799
+     "shellKgPerM3": 0.5088,
+     "shellPerLift": 2.1271
     }
    }
   },
@@ -239,23 +240,23 @@
     "0 m": {
      "pressurePa": 101325,
      "rhoAirKgPerM3": 1.225,
-     "shellSizedLocallyKgPerM3": 1.0844,
-     "marginIfSizedLocally": 1.13,
-     "marginIfSizedAtSeaLevel": 1.13
+     "shellSizedLocallyKgPerM3": 1.2822,
+     "marginIfSizedLocally": 0.955,
+     "marginIfSizedAtSeaLevel": 0.955
     },
     "2500 m": {
      "pressurePa": 74682,
      "rhoAirKgPerM3": 0.9569,
-     "shellSizedLocallyKgPerM3": 0.8848,
-     "marginIfSizedLocally": 1.081,
-     "marginIfSizedAtSeaLevel": 0.882
+     "shellSizedLocallyKgPerM3": 1.0462,
+     "marginIfSizedLocally": 0.915,
+     "marginIfSizedAtSeaLevel": 0.746
     },
     "5000 m": {
      "pressurePa": 54020,
      "rhoAirKgPerM3": 0.7361,
-     "shellSizedLocallyKgPerM3": 0.713,
-     "marginIfSizedLocally": 1.032,
-     "marginIfSizedAtSeaLevel": 0.679
+     "shellSizedLocallyKgPerM3": 0.843,
+     "marginIfSizedLocally": 0.873,
+     "marginIfSizedAtSeaLevel": 0.574
     }
    }
   },
@@ -263,7 +264,7 @@
  },
  "verdict": {
   "floatingMaterials": [],
-  "referenceTotalKgPerM3": 1.4319,
+  "referenceTotalKgPerM3": 1.6296,
   "wall": 0.956859,
   "summary": "Corrected for laminate rather than fibre properties, the orthotropic tube wall, node mass, a lattice safety factor and the interior sealing film, the reference design sits AT the wall rather than inside it. Which side it falls on is decided by choices not yet made: cell size, whether interior films are sized to contain a breach, and packing fraction."
  },
@@ -273,33 +274,33 @@
    "0": {
     "levels": 0,
     "exponent": 2.0,
-    "phi": 0.0036828686949235538,
-    "latticeKgPerM3": 6.1062,
-    "totalKgPerM3": 7.0459,
+    "phi": 0.004175874052993635,
+    "latticeKgPerM3": 6.9236,
+    "totalKgPerM3": 7.9859,
     "yieldCapped": false,
-    "solidStressOverStrength": 0.054,
+    "solidStressOverStrength": 0.048,
     "name": "solid rod",
     "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
    },
    "1": {
     "levels": 1,
     "exponent": 1.5,
-    "phi": 0.0005687415802540721,
-    "latticeKgPerM3": 0.943,
-    "totalKgPerM3": 1.1082,
+    "phi": 0.0006724549406792618,
+    "latticeKgPerM3": 1.1149,
+    "totalKgPerM3": 1.306,
     "yieldCapped": false,
-    "solidStressOverStrength": 0.35,
+    "solidStressOverStrength": 0.296,
     "name": "hollow tube",
     "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
    },
    "2": {
     "levels": 2,
     "exponent": 1.3333,
-    "phi": 0.00022350093941345863,
-    "latticeKgPerM3": 0.3706,
-    "totalKgPerM3": 0.4499,
+    "phi": 0.00026984917049022297,
+    "latticeKgPerM3": 0.4474,
+    "totalKgPerM3": 0.5383,
     "yieldCapped": false,
-    "solidStressOverStrength": 0.891,
+    "solidStressOverStrength": 0.738,
     "name": "tube of tubes",
     "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
    },
@@ -327,39 +328,39 @@
    }
   },
   "floatsFromLevel": 2,
-  "headline": "One more level of hierarchy than the current design carries takes it from 1.1082 to 0.4499 kg/m3 \u2014 from under the wall to 2.13x over it.",
+  "headline": "One more level of hierarchy than the current design carries takes it from 1.306 to 0.5383 kg/m3 \u2014 from under the wall to 1.78x over it.",
   "ladders": {
    "M60J_LAM": {
     "0": {
      "levels": 0,
      "exponent": 2.0,
-     "phi": 0.0036828686949235538,
-     "latticeKgPerM3": 6.1062,
-     "totalKgPerM3": 7.0459,
+     "phi": 0.004175874052993635,
+     "latticeKgPerM3": 6.9236,
+     "totalKgPerM3": 7.9859,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.054,
+     "solidStressOverStrength": 0.048,
      "name": "solid rod",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "1": {
      "levels": 1,
      "exponent": 1.5,
-     "phi": 0.0005687415802540721,
-     "latticeKgPerM3": 0.943,
-     "totalKgPerM3": 1.1082,
+     "phi": 0.0006724549406792618,
+     "latticeKgPerM3": 1.1149,
+     "totalKgPerM3": 1.306,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.35,
+     "solidStressOverStrength": 0.296,
      "name": "hollow tube",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "2": {
      "levels": 2,
      "exponent": 1.3333,
-     "phi": 0.00022350093941345863,
-     "latticeKgPerM3": 0.3706,
-     "totalKgPerM3": 0.4499,
+     "phi": 0.00026984917049022297,
+     "latticeKgPerM3": 0.4474,
+     "totalKgPerM3": 0.5383,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.891,
+     "solidStressOverStrength": 0.738,
      "name": "tube of tubes",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
@@ -390,55 +391,55 @@
     "0": {
      "levels": 0,
      "exponent": 2.0,
-     "phi": 0.005963771318437232,
-     "latticeKgPerM3": 9.542,
-     "totalKgPerM3": 10.9971,
+     "phi": 0.006762108554393252,
+     "latticeKgPerM3": 10.8194,
+     "totalKgPerM3": 12.4661,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.031,
+     "solidStressOverStrength": 0.027,
      "name": "solid rod",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "1": {
      "levels": 1,
      "exponent": 1.5,
-     "phi": 0.0010815036164812807,
-     "latticeKgPerM3": 1.7304,
-     "totalKgPerM3": 2.0138,
+     "phi": 0.0012787221393949057,
+     "latticeKgPerM3": 2.046,
+     "totalKgPerM3": 2.3766,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.169,
+     "solidStressOverStrength": 0.143,
      "name": "hollow tube",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "2": {
      "levels": 2,
      "exponent": 1.3333,
-     "phi": 0.00046055496974092814,
-     "latticeKgPerM3": 0.7369,
-     "totalKgPerM3": 0.8712,
+     "phi": 0.0005560619873719214,
+     "latticeKgPerM3": 0.8897,
+     "totalKgPerM3": 1.0469,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.396,
+     "solidStressOverStrength": 0.328,
      "name": "tube of tubes",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "3": {
      "levels": 3,
      "exponent": 1.25,
-     "phi": 0.000275952016022439,
-     "latticeKgPerM3": 0.4415,
-     "totalKgPerM3": 0.5315,
+     "phi": 0.0003373893902459666,
+     "latticeKgPerM3": 0.5398,
+     "totalKgPerM3": 0.6446,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.661,
+     "solidStressOverStrength": 0.541,
      "name": "third order",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "4": {
      "levels": 4,
      "exponent": 1.2,
-     "phi": 0.00019612590926249446,
-     "latticeKgPerM3": 0.3138,
-     "totalKgPerM3": 0.3847,
+     "phi": 0.00024180775813135394,
+     "latticeKgPerM3": 0.3869,
+     "totalKgPerM3": 0.4687,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.93,
+     "solidStressOverStrength": 0.754,
      "name": "fourth order",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     }
@@ -447,44 +448,44 @@
     "0": {
      "levels": 0,
      "exponent": 2.0,
-     "phi": 0.008945656977655847,
-     "latticeKgPerM3": 12.5239,
-     "totalKgPerM3": 14.4263,
+     "phi": 0.010143162831589876,
+     "latticeKgPerM3": 14.2004,
+     "totalKgPerM3": 16.3543,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.064,
+     "solidStressOverStrength": 0.056,
      "name": "solid rod",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "1": {
      "levels": 1,
      "exponent": 1.5,
-     "phi": 0.001857018889738587,
-     "latticeKgPerM3": 2.5998,
-     "totalKgPerM3": 3.0136,
+     "phi": 0.002195657167850423,
+     "latticeKgPerM3": 3.0739,
+     "totalKgPerM3": 3.5588,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.307,
+     "solidStressOverStrength": 0.26,
      "name": "hollow tube",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "2": {
      "levels": 2,
      "exponent": 1.3333,
-     "phi": 0.0008460935057761652,
-     "latticeKgPerM3": 1.1845,
-     "totalKgPerM3": 1.386,
+     "phi": 0.0010215511008143628,
+     "latticeKgPerM3": 1.4302,
+     "totalKgPerM3": 1.6685,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.674,
+     "solidStressOverStrength": 0.558,
      "name": "tube of tubes",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "3": {
      "levels": 3,
      "exponent": 1.25,
-     "phi": 0.000569953125,
-     "latticeKgPerM3": 0.7979,
-     "totalKgPerM3": 0.9414,
-     "yieldCapped": true,
-     "solidStressOverStrength": 1.0,
+     "phi": 0.000645472041856353,
+     "latticeKgPerM3": 0.9037,
+     "totalKgPerM3": 1.063,
+     "yieldCapped": false,
+     "solidStressOverStrength": 0.883,
      "name": "third order",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
@@ -504,33 +505,33 @@
     "0": {
      "levels": 0,
      "exponent": 2.0,
-     "phi": 0.04693097960470592,
-     "latticeKgPerM3": 49.7468,
-     "totalKgPerM3": 57.2327,
+     "phi": 0.053213371490273255,
+     "latticeKgPerM3": 56.4062,
+     "totalKgPerM3": 64.8909,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.207,
+     "solidStressOverStrength": 0.182,
      "name": "solid rod",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "1": {
      "levels": 1,
      "exponent": 1.5,
-     "phi": 0.01692827969412733,
-     "latticeKgPerM3": 17.944,
-     "totalKgPerM3": 20.6594,
+     "phi": 0.020015250709172747,
+     "latticeKgPerM3": 21.2162,
+     "totalKgPerM3": 24.4224,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.573,
+     "solidStressOverStrength": 0.485,
      "name": "hollow tube",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
     "2": {
      "levels": 2,
      "exponent": 1.3333,
-     "phi": 0.010166920537188043,
-     "latticeKgPerM3": 10.7769,
-     "totalKgPerM3": 12.4173,
+     "phi": 0.012275273117867698,
+     "latticeKgPerM3": 13.0118,
+     "totalKgPerM3": 14.9873,
      "yieldCapped": false,
-     "solidStressOverStrength": 0.954,
+     "solidStressOverStrength": 0.79,
      "name": "tube of tubes",
      "note": "each level costs joints, tolerance and inspection; the coefficient degrades even as the exponent improves"
     },
@@ -618,54 +619,54 @@
     "nozzleMm": 0.4,
     "perimeters": 2,
     "wallMm": 0.8,
-    "strutM": 0.167,
-    "cellM": 0.236,
-    "cellMRaw": 0.2361798427080114,
-    "strutMRaw": 0.167004368358407,
-    "tubeRadiusMRaw": 0.011069611644932798,
-    "enclosedL": 13,
-    "tubeRadiusMm": 11.1
+    "strutM": 0.13,
+    "cellM": 0.184,
+    "cellMRaw": 0.1837048051942477,
+    "strutMRaw": 0.12989891348940624,
+    "tubeRadiusMRaw": 0.00791837322395136,
+    "enclosedL": 6,
+    "tubeRadiusMm": 7.9
    },
    "0.6 mm x 2": {
     "nozzleMm": 0.6,
     "perimeters": 2,
     "wallMm": 1.2,
-    "strutM": 0.251,
-    "cellM": 0.354,
-    "cellMRaw": 0.35426976406201705,
-    "strutMRaw": 0.2505065525376105,
-    "tubeRadiusMRaw": 0.016604417467399196,
-    "enclosedL": 44,
-    "tubeRadiusMm": 16.6
+    "strutM": 0.195,
+    "cellM": 0.276,
+    "cellMRaw": 0.27555720779137155,
+    "strutMRaw": 0.19484837023410936,
+    "tubeRadiusMRaw": 0.011877559835927039,
+    "enclosedL": 21,
+    "tubeRadiusMm": 11.9
    },
    "0.6 mm x 3": {
     "nozzleMm": 0.6,
     "perimeters": 3,
     "wallMm": 1.8,
-    "strutM": 0.376,
-    "cellM": 0.531,
-    "cellMRaw": 0.5314046460930255,
-    "strutMRaw": 0.37575982880641573,
-    "tubeRadiusMRaw": 0.02490662620109879,
-    "enclosedL": 150,
-    "tubeRadiusMm": 24.9
+    "strutM": 0.292,
+    "cellM": 0.413,
+    "cellMRaw": 0.4133358116870573,
+    "strutMRaw": 0.29227255535116403,
+    "tubeRadiusMRaw": 0.017816339753890558,
+    "enclosedL": 71,
+    "tubeRadiusMm": 17.8
    },
    "1.0 mm x 2": {
     "nozzleMm": 1.0,
     "perimeters": 2,
     "wallMm": 2.0,
-    "strutM": 0.418,
-    "cellM": 0.59,
-    "cellMRaw": 0.5904496067700286,
-    "strutMRaw": 0.41751092089601755,
-    "tubeRadiusMRaw": 0.027674029112331994,
-    "enclosedL": 206,
-    "tubeRadiusMm": 27.7
+    "strutM": 0.325,
+    "cellM": 0.459,
+    "cellMRaw": 0.4592620129856193,
+    "strutMRaw": 0.32474728372351563,
+    "tubeRadiusMRaw": 0.0197959330598784,
+    "enclosedL": 97,
+    "tubeRadiusMm": 19.8
    }
   },
   "designPoint": "0.6 mm x 2",
   "bedFitNote": "251 mm struts fit a 256 mm consumer bed with no splicing.",
-  "tubeROverT": 13.8
+  "tubeROverT": 9.9
  },
  "demonstrator": {
   "material": "Bambu PAHT-CF, interlayer (Z)",
@@ -684,7 +685,7 @@
   "hexTieStruts": 24,
   "hexNodes": 8,
   "boundaryNodes": 6,
-  "inArrayShareKg": 3.698,
+  "inArrayShareKg": 4.368,
   "latticeKg": 6.48,
   "nodesKg": 0.972,
   "filmKg": 0.028,
@@ -949,31 +950,31 @@
   "bulk": {
    "1": {
     "levels": 1,
-    "structureKgPerM3": 0.4261,
+    "structureKgPerM3": 0.5145,
     "gasKgPerM3": 0.0,
     "filmsKgPerM3": 0.0238,
-    "netLiftKgPerM3": 0.5069
+    "netLiftKgPerM3": 0.4185
    },
    "2": {
     "levels": 2,
-    "structureKgPerM3": 0.3398,
+    "structureKgPerM3": 0.4102,
     "gasKgPerM3": 0.2392,
     "filmsKgPerM3": 0.1856,
-    "netLiftKgPerM3": 0.1922
+    "netLiftKgPerM3": 0.1218
    },
    "5": {
     "levels": 5,
-    "structureKgPerM3": 0.2838,
+    "structureKgPerM3": 0.3426,
     "gasKgPerM3": 0.3827,
     "filmsKgPerM3": 0.0743,
-    "netLiftKgPerM3": 0.2161
+    "netLiftKgPerM3": 0.1572
    },
    "10": {
     "levels": 10,
-    "structureKgPerM3": 0.2641,
+    "structureKgPerM3": 0.3188,
     "gasKgPerM3": 0.4306,
     "filmsKgPerM3": 0.0371,
-    "netLiftKgPerM3": 0.2251
+    "netLiftKgPerM3": 0.1703
    }
   },
   "band": {
@@ -981,11 +982,11 @@
    "levels": 10,
    "outerSurfaceDifferentialAtm": 0.1,
    "gasCostKgPerM3": 0.0215,
-   "structureDeltaKgPerM3": -0.0081,
+   "structureDeltaKgPerM3": -0.0098,
    "filmsDeltaKgPerM3": 0.0017,
    "envelopeDeltaKgPerM3": -0.0214,
-   "netCostKgPerM3": -0.0062,
-   "costPctOfNetLift": -1.2,
+   "netCostKgPerM3": -0.0079,
+   "costPctOfNetLift": -1.9,
    "geometryNote": "5% of this hull behind 22,592 m2 of envelope is a band about half a metre deep, so its ten steps are sub-cell-scale layers \u2014 which is the seal-at-every-scale doctrine anyway, and film mass is span-proportional so thinner layers cost no more.",
    "note": "The corrected envelope price is what turns the band from cheap to roughly free: dropping the outer film's differential tenfold saves about as much as the band's gas weighs. The band's own lattice still carries its cumulative load \u2014 a third more than the vacuum it replaces would need at the same depth \u2014 and the trapped gas ties trim to temperature, which is a real operational price even when the mass is a wash."
   }
@@ -1035,23 +1036,23 @@
    "CFF": {
     "label": "continuous fibre, printed",
     "level": 3,
-    "densityAtN1": 2.022,
-    "minNSeaLevel": 2,
+    "densityAtN1": 2.269,
+    "minNSeaLevel": 3,
     "minNAt2500m": null,
     "note": "N is sub-cells of half-span per side; the article spans 2N pitches across its squares. Pitch depends on the material's thinnest wall, so size in metres is set by that wall, not by this table."
    },
    "T700_LAM": {
     "label": "T700, wound",
     "level": 2,
-    "densityAtN1": 1.879,
-    "minNSeaLevel": 2,
-    "minNAt2500m": 6,
+    "densityAtN1": 2.236,
+    "minNSeaLevel": 3,
+    "minNAt2500m": null,
     "note": "N is sub-cells of half-span per side; the article spans 2N pitches across its squares. Pitch depends on the material's thinnest wall, so size in metres is set by that wall, not by this table."
    },
    "M60J_LAM": {
     "label": "M60J-class, wound",
     "level": 2,
-    "densityAtN1": 1.024,
+    "densityAtN1": 1.203,
     "minNSeaLevel": 1,
     "minNAt2500m": 2,
     "note": "N is sub-cells of half-span per side; the article spans 2N pitches across its squares. Pitch depends on the material's thinnest wall, so size in metres is set by that wall, not by this table."

@@ -8,15 +8,15 @@ Computed by `research/analysis/vacuum-cell.py`; the same physics runs live on `/
 two are held identical by `tools/check_cell_parity.py`.
 
 > ## Where this landed, and where it goes
-> **A single-level tubular lattice comes up short — 1.108 kg/m³ against a wall of 0.957, with
-> the barrier priced only where it is needed but priced honestly.** Close, and on the wrong
-> side.
+> **A single-level tubular lattice comes up short — 1.306 kg/m³ against a wall of 0.957, with
+> the barrier priced only where it is needed and the classical 0.605 buckling coefficient
+> applied at last (audit O1, landed 2026-08-12).** Not close, and on the wrong side.
 >
-> **One more level of hierarchy clears it: 0.450 kg/m³, 2.13× over the wall.** Structure inside
+> **One more level of hierarchy clears it: 0.538 kg/m³, 1.78× over the wall.** Structure inside
 > structure improves the strength-density *exponent*, and the exponent is the only thing this
 > problem turns on. That is not a rescue bolted on afterwards — it is the same answer the
 > literature reaches, and it is what makes Jenett's linear-scaling assumption true rather than
-> assumed. **The 0.450 is a prediction of this project's model** — supported by Lakes' exponent
+> assumed. **The 0.538 is a prediction of this project's model** — supported by Lakes' exponent
 > argument and by no published measurement of a structure like this one; the A/B crush coupon
 > in `docs/VERIFICATION-PLAN.md` (E5) is the cheapest test that would move it.
 >
@@ -99,8 +99,8 @@ for one while its own notes said it did the other:
 
 | architecture | film cost | total | margin | what you get |
 |---|---|---|---|---|
-| partitions sized to hold an atmosphere | 0.347 | 1.432 | 0.67× | a breach stays in one cell |
-| barrier on the outer envelope only | 0.024 | **1.108** | **0.86×** | one breach floods the hull |
+| partitions sized to hold an atmosphere | 0.347 | 1.630 | 0.59× | a breach stays in one cell |
+| barrier on the outer envelope only | 0.024 | **1.306** | **0.73×** | one breach floods the hull |
 
 The envelope-only figure was 0.002 in an earlier version — an unsourced 17 g/m² film assigned
 to a surface that must hold a full atmosphere over 2 m spans. A review priced it with the
@@ -127,12 +127,12 @@ Lattice + nodes + film, at 2 m cells, against a wall of 0.957 kg/m³:
 
 | material | index E^⅔/ρ | lattice | +nodes | +film | **total** | margin |
 |---|---|---|---|---|---|---|
-| M60J UD laminate | 20,746 | 0.943 | 0.141 | 0.347 | **1.432** | 0.67× |
-| T700 UD laminate | 11,306 | 1.730 | 0.260 | 0.347 | **2.337** | 0.41× |
-| Continuous CF, printed | 7,525 | 2.600 | 0.390 | 0.347 | **3.337** | 0.29× |
-| Ti-6Al-4V, sintered | 5,307 | 3.686 | 0.553 | 0.347 | **4.587** | 0.21× |
-| Bambu PAHT-CF (X-Y) | 1,596 | 12.260 | 1.839 | 0.347 | **14.447** | 0.07× |
-| Bambu PAHT-CF (Z) | 1,090 | 17.944 | 2.692 | 0.347 | **20.983** | 0.05× |
+| M60J UD laminate | 20,746 | 1.115 | 0.167 | 0.347 | **1.630** | 0.59× |
+| T700 UD laminate | 11,306 | 2.046 | 0.307 | 0.347 | **2.700** | 0.35× |
+| Continuous CF, printed | 7,525 | 3.074 | 0.461 | 0.347 | **3.883** | 0.25× |
+| Ti-6Al-4V, sintered | 5,307 | 4.358 | 0.654 | 0.347 | **5.360** | 0.18× |
+| Bambu PAHT-CF (X-Y) | 1,596 | 14.496 | 2.174 | 0.347 | **17.018** | 0.06× |
+| Bambu PAHT-CF (Z) | 1,090 | 21.216 | 3.182 | 0.347 | **24.746** | 0.04× |
 
 **The index is E_eff^⅔/ρ, not specific strength.** Everything here is buckling-governed, so
 strength is not a lever at all — an earlier version of this page said the opposite in three
@@ -195,9 +195,9 @@ tending to linear. Lakes, *Materials with structural hierarchy*, Nature 361 (199
 
 | levels | exponent | total | margin | |
 |---|---|---|---|---|
-| 0 — solid rod | 2.000 | 7.046 | 0.14× | |
-| 1 — hollow tube | 1.500 | 1.108 | 0.86× | where this design is |
-| **2 — tube of tubes** | **1.333** | **0.450** | **2.13×** | **floats** |
+| 0 — solid rod | 2.000 | 7.986 | 0.12× | |
+| 1 — hollow tube | 1.500 | 1.306 | 0.73× | where this design is |
+| **2 — tube of tubes** | **1.333** | **0.538** | **1.78×** | **floats** |
 | 3 — third order | 1.250 | 0.403 | 2.37× | floats — **yield-capped** |
 | 4 — fourth order | 1.200 | 0.403 | 2.37× | floats — **yield-capped** |
 
@@ -259,9 +259,9 @@ envelope film priced for the differential it actually sees:
 
 | N levels | structure | gas held | films | net lift |
 |---|---|---|---|---|
-| 1 — hard vacuum | 0.426 | 0.000 | 0.024 | **+0.507** |
-| 2 | 0.340 | 0.239 | 0.186 | +0.192 |
-| 10 | 0.264 | 0.431 | 0.037 | +0.225 |
+| 1 — hard vacuum | 0.515 | 0.000 | 0.024 | **+0.418** |
+| 2 | 0.410 | 0.239 | 0.186 | +0.122 |
+| 10 | 0.319 | 0.431 | 0.037 | +0.170 |
 
 **In bulk, grading surrenders over half the net lift** — the gas costs lift everywhere while
 the deep lattice still carries nearly the full atmosphere — and it hands the array's
@@ -271,7 +271,7 @@ sealed-vacuum architecture exists to avoid.
 **At the boundary, the honest envelope price changes the verdict for the better.** Stage the
 outermost 5% of the volume in ten steps and the envelope film's differential — and so its
 mass — falls tenfold, a saving of about the same size as the band's gas: the whole
-arrangement nets **-1.2% of net lift, a small saving**, while the outer surface sees
+arrangement nets **-1.9% of net lift, a small saving**, while the outer surface sees
 **0.1 atm** instead of one. Membrane strain, barrier-crazing risk and the consequence of an
 outer-face breach all fall tenfold with it. The band is half a metre deep on this hull, so
 its steps are sub-cell-scale layers — which is the seal-at-every-scale doctrine anyway, and
@@ -350,10 +350,17 @@ interlayer direction (the one that governs a pressure vessel):
 
 | nozzle | perimeters | wall | strut | cell | enclosed |
 |---|---|---|---|---|---|
-| 0.4 mm | 2 | 0.80 mm | 0.167 m | 0.236 m | 13 L |
-| **0.6 mm** | **2** | **1.20 mm** | **0.251 m** | **0.354 m** | **44 L** |
-| 0.6 mm | 3 | 1.80 mm | 0.376 m | 0.531 m | 150 L |
-| 1.0 mm | 2 | 2.00 mm | 0.418 m | 0.590 m | 206 L |
+| 0.4 mm | 2 | 0.80 mm | 0.130 m | 0.184 m | 6 L |
+| **0.6 mm** | **2** | **1.20 mm** | **0.195 m** | **0.276 m** | **21 L** |
+| 0.6 mm | 3 | 1.80 mm | 0.292 m | 0.413 m | 71 L |
+| 1.0 mm | 2 | 2.00 mm | 0.325 m | 0.459 m | 97 L |
+
+These are the chain at the CORRECTED physics — the classical 0.605 cylinder coefficient
+landed on 2026-08-12 (audit O1), and the co-critical wall fraction grew with it, so every
+nozzle's natural cell shrank. **The built article predates the correction and is pinned at
+the pre-correction design point — 251 mm struts, 354 mm pitch, 44 L — as a measurement**
+(the size it was sawn and printed at is a fact about the object, not about the optimiser).
+The row above is what the same nozzle would produce if the chain were walked today.
 
 **0.6 mm hardened, two perimeters, is the design point.** Chopped fibre abrades brass and
 bridges a 0.4 mm orifice, so 0.6 hardened steel is the reliable choice for a shop running many
@@ -546,9 +553,10 @@ variant, which exists to prove the printer chain rather than to fly, is
 7.48 kg, ~34x its displaced air.
 
 **Could the article weigh zero? Only in the right rod, and parity decides the size.** At
-sea level, single article: **M60J-class at level 2 is 1.024 kg/m3**,
-buoyant with room to spare; T700 1.879; printed
-continuous fibre 2.022. The useful discovery is structural,
+sea level, single article: **M60J-class at level 2 is 1.203 kg/m3**,
+still under the 1.225 sea-level wall but by less than two percent now that the classical
+0.605 buckling coefficient is applied; T700 2.236; printed
+continuous fibre 2.269. The useful discovery is structural,
 not material: **at ODD n the hexagon planes contain no lattice sites at all**, so the
 article must carry its own rim, hub, spokes and ties — while at EVEN n those planes are
 full of sites, the film bonds straight to the octet, and the entire boundary apparatus

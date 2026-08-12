@@ -69,8 +69,9 @@ PROBE = """(() => {
                 kgPerM3: s.kgPerM3,
                 massOverDisplaced: s.massOverDisplaced };
   // The per-family demands, at the SAME raw span the Python published them at — the
-  // rounded display span would land this table on a different article.
-  const spanRaw = 2 * C.printerChain(C.MATERIALS.PAHT_Z).find(r => r.designPoint).cellM;
+  // PINNED article span: the live chain's design point is free to move under corrected
+  // physics, the built article is not.
+  const spanRaw = 2 * C.DEMO_PITCH_PINNED_M;
   const md = C.memberDemands(spanRaw);
   out.demands = { families: md.families, scalars: {
     crushPerOctetStrutN: md.crushPerOctetStrutN,
