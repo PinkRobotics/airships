@@ -1,9 +1,9 @@
 /* Pointer, wheel and keyboard on the map; selection; framing.
  */
-import { renderDrawer } from '../cockpit/panels.js?v=68fb2638';
-import { H, W, canvas, mercY } from '../map/projection.js?v=68fb2638';
-import { hitFires, hitShips, hitWater } from '../map/render.js?v=68fb2638';
-import { S } from '../store.js?v=68fb2638';
+import { renderDrawer } from '../cockpit/panels.js?v=1a816e47';
+import { H, W, canvas, mercY } from '../map/projection.js?v=1a816e47';
+import { hitFires, hitShips, hitWater } from '../map/render.js?v=1a816e47';
+import { S } from '../store.js?v=1a816e47';
 
 /* The map's text alternative, part two.
  *

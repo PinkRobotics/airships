@@ -12,9 +12,14 @@
  *   decided     an operator decision on record — geometry known, some numbers [TO VERIFY]
  *   scoping     ship-scale analysis line — real physics, pre-coupon, pre-catalogue
  *   superseded  carried the article but ruled out for flight; kept because it happened
+ *
+ * The design of record for joints (operator, 2026-08-12): titanium, CLAMPED — split
+ * clamshell sleeves that close radially around placed members and bond over the full
+ * lap. The connectors tab leads with that design; the printed polymer node sits last,
+ * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=68fb2638';
+         stockBuild, barrierKgPerM2 } from './model.js?v=1a816e47';
 
 const sb = stockBuild();
 
@@ -45,7 +50,20 @@ export const SHIP = {
   volumeM3: 184055, hullM2: 16990,
   liftT: 225.5, massT: 221.7, residualT: 3.8, ratio: 1.017,
   massSF15T: 257.7, ratioSF15: 0.875, ratioSF15Sigma1450: 1.043,
+  tempPctPerK: 0.34, windowK: 5,
   prov: 'ship-scale analysis v2 §7 — scoping, pending the gated ship.js port',
+};
+
+/* Band and grid scoping lines the level sections visualise. Same provenance rule. */
+export const BAND = {
+  arealKgM2Lo: 5.0, arealKgM2Hi: 10.7,     // by tube/joint basis (E' retuned … committed article)
+  prov: 'ship-scale analysis v2 §3 — one cell-span band absorbs the full atmosphere',
+};
+export const GRID = {
+  depthM: 3, bayM: 2,
+  hoopKPaM: 2634,                           // P·R at the ship-0 barrel radius (R = 26 m)
+  bandCapKPaM: 67,                          // the band's own in-plane ceiling (upper bound)
+  prov: 'ship-scale analysis v2 §3/§4 — the shell carries the global load; the band hangs on it',
 };
 
 /* The committed article, read live from the model so this page can never disagree
@@ -59,6 +77,8 @@ export const ARTICLE = {
   printedNodes: sb.printedNodes,
   nodesKg: sb.nodesKg,
   skinKg: sb.skinKg,
+  tubeKg: sb.totalKg - sb.nodesKg - sb.skinKg,
+  displacedAirG: sb.displacedAirKg * 1000,
 };
 
 export const CATS = [
@@ -80,7 +100,7 @@ export const CATALOG = [
     draw: { kind: 'tube', odMm: sb.odM * 1000, wallMm: (sb.odM - sb.idM) * 500, cutMm: cutMax },
     specs: [
       { k: 'Bore', v: `${(sb.odM * 1000).toFixed(0)} × ${(sb.idM * 1000).toFixed(0)}`, u: 'mm od × id' },
-      { k: 'Construction', v: 'roll-wrapped carbon', u: '' },
+      { k: 'Construction', v: 'roll-wrapped T700 carbon', u: '' },
       { k: 'Linear mass', v: (linKgPerM(sb.odM * 1000, (sb.odM - sb.idM) * 500, T700.rho) * 1000).toFixed(1), u: 'g/m' },
       { k: 'Cuts in one cell', v: `${mainCuts}`, u: `pieces, ${cutMin.toFixed(0)}–${cutMax.toFixed(0)} mm` },
       { k: 'Sawn per cell', v: mainM.toFixed(1), u: 'm' },
@@ -99,7 +119,7 @@ export const CATALOG = [
     draw: { kind: 'tube', odMm: sb.rimOdM * 1000, wallMm: 1, cutMm: fam('rim')[0][1] },
     specs: [
       { k: 'Bore', v: `${(sb.rimOdM * 1000).toFixed(0)} × ${(sb.rimOdM * 1000 - 2).toFixed(0)}`, u: 'mm od × id' },
-      { k: 'Construction', v: 'roll-wrapped carbon', u: '' },
+      { k: 'Construction', v: 'roll-wrapped T700 carbon', u: '' },
       { k: 'Linear mass', v: (linKgPerM(sb.rimOdM * 1000, 1, T700.rho) * 1000).toFixed(1), u: 'g/m' },
       { k: 'Cuts in one cell', v: `${famCuts('rim')}`, u: 'pieces' },
       { k: 'Sawn per cell', v: famM('rim').toFixed(1), u: 'm' },
@@ -162,40 +182,24 @@ export const CATALOG = [
   },
 
   /* ---------------------------------------------- connectors --------------------------- */
-  {
-    id: 'conn-printed-node', cat: 'connectors',
-    name: 'Printed polymer node',
-    status: 'superseded',
-    role: 'The many-arm printed hub that holds the built article together today — '
-        + 'measured, weighed, and photographed from every side.',
-    story: 'It carried the pump-down, and it is ruled out for flight: the polymer fails '
-        + 'its own strength screen and drinks water into a months-hold vacuum.',
-    draw: { kind: 'node', arms: 7, hubMm: 46 },
-    specs: [
-      { k: 'Set per cell', v: `${sb.printedNodes}`, u: 'joints' },
-      { k: 'Set mass', v: NODE_MASS_MEASURED_KG.toFixed(3), u: 'kg, measured' },
-      { k: 'Share of tube mass', v: '≈30', u: '% — target is 15' },
-      { k: 'Material', v: 'PAHT-CF, printed', u: '' },
-    ],
-    prov: 'cell/model.js NODE_MASS_MEASURED_KG (weighed set) · metal-joint report (the ruling)',
-    flags: ['dead for flight — strength screen + hygroscopic reservoir'],
-  },
+  /* Design of record first; history last. */
   {
     id: 'conn-ti-sleeve', cat: 'connectors',
-    name: 'Ti split sleeve',
+    name: 'Ti clamp sleeve',
     status: 'decided',
-    role: 'The flight joint: a sintered titanium clamshell that closes around tube and '
-        + 'stub after placement, bonds over the full lap, and never asks the last member '
-        + 'of a loop to slide where it cannot.',
+    role: 'The flight joint: a sintered titanium clamshell, split along its length, that '
+        + 'clamps radially around tube and stub after placement and bonds over the full '
+        + 'lap — the last member of a loop never has to slide where it cannot.',
     story: 'The main load path never crosses the seam — each half carries its half-'
-        + 'circumference of glue. The seam only keeps the halves from opening.',
+        + 'circumference of glue. The seam only keeps the clamp closed: dovetail, pin, '
+        + 'or a wrap of tow.',
     draw: { kind: 'sleeve', odMm: 12, wallMm: 1, lapMm: 10 },
     specs: [
-      { k: 'Wall', v: '1.0', u: 'mm Ti-6Al-4V, sintered' },
+      { k: 'Material', v: 'Ti-6Al-4V, sintered', u: `${TI64.rho} kg/m³` },
+      { k: 'Wall', v: '1.0', u: 'mm' },
+      { k: 'Closure', v: 'clamped', u: 'split clamshell, radial' },
       { k: 'Bonded lap', v: '8–11', u: 'mm per end' },
       { k: 'Set per cell', v: '0.42–0.60', u: 'kg' },
-      { k: 'Density', v: `${TI64.rho}`, u: 'kg/m³' },
-      { k: 'Assembly', v: 'split / post-assembly', u: 'the 2 mm pilot rule' },
     ],
     prov: 'operator decision 08-12 · metal-joint report §5 (set-mass lower bounds)',
     flags: ['set mass [TO VERIFY] — central body + adhesive unpriced', 'seam capture detail undesigned'],
@@ -204,12 +208,14 @@ export const CATALOG = [
     id: 'conn-ti-gridnode', cat: 'connectors',
     name: 'Ti grid node',
     status: 'scoping',
-    role: 'Where chord pipes meet: the ship-scale sleeve cluster swallowing '
-        + 'meganewton loads at the ring-longeron-diagonal crossings.',
+    role: 'Where chord pipes meet: a cluster of the same clamped titanium sleeves, '
+        + 'scaled to swallow meganewton loads at the ring-longeron-diagonal crossings.',
     story: 'Chunky enough that sintering stops being the process — at thousands of '
         + 'these, investment casting takes over and the printed part becomes the pattern.',
     draw: { kind: 'node', arms: 6, hubMm: 160 },
     specs: [
+      { k: 'Material', v: 'Ti-6Al-4V, cast or sintered', u: '' },
+      { k: 'Closure', v: 'clamped', u: 'split sleeves at every arm' },
       { k: 'Ship set', v: '≈7,000', u: 'nodes' },
       { k: 'Unit mass', v: '≈2.5', u: 'kg' },
       { k: 'Loads', v: '0.5–6', u: 'MN member class' },
@@ -221,10 +227,11 @@ export const CATALOG = [
     id: 'conn-bond', cat: 'connectors',
     name: 'The bonded lap',
     status: 'decided',
-    role: 'The glue line itself, promoted to a part: it carries the member load in '
-        + 'shear and it is also the gas seal that lets a cell hold vacuum for months.',
-    story: 'Cured under vacuum bagging — the atmosphere is the clamp. In service every '
-        + 'joint cavity reads on the cell’s own gauge, so a failing bond announces itself.',
+    role: 'The glue line inside every clamp, promoted to a part: it carries the member '
+        + 'load in shear and it is also the gas seal that lets a cell hold vacuum for months.',
+    story: 'Cured under vacuum bagging — the atmosphere is the clamp while the clamp '
+        + 'cures. In service every joint cavity reads on the cell’s own gauge, so a '
+        + 'failing bond announces itself.',
     draw: { kind: 'lap', odMm: 10, lapMm: 10 },
     specs: [
       { k: 'Working shear', v: '20', u: 'MPa, aged allowable' },
@@ -235,17 +242,37 @@ export const CATALOG = [
     prov: 'metal-joint report (lap sizing) · joint-load report (mechanism)',
     flags: ['τ = 20 MPa unsourced — qualification campaign line'],
   },
+  {
+    id: 'conn-printed-node', cat: 'connectors',
+    name: 'Printed polymer node',
+    status: 'superseded',
+    role: 'The many-arm printed hub that holds the built article together today — '
+        + 'measured, weighed, and photographed from every side.',
+    story: 'It carried the pump-down, and it is ruled out for flight: the polymer fails '
+        + 'its own strength screen and drinks water into a months-hold vacuum. Titanium '
+        + 'clamps replace it.',
+    draw: { kind: 'node', arms: 7, hubMm: 46 },
+    specs: [
+      { k: 'Set per cell', v: `${sb.printedNodes}`, u: 'joints' },
+      { k: 'Set mass', v: NODE_MASS_MEASURED_KG.toFixed(3), u: 'kg, measured' },
+      { k: 'Share of tube mass', v: '≈30', u: '% — target is 15' },
+      { k: 'Material', v: 'PAHT-CF, printed', u: '' },
+    ],
+    prov: 'cell/model.js NODE_MASS_MEASURED_KG (weighed set) · metal-joint report (the ruling)',
+    flags: ['dead for flight — strength screen + hygroscopic reservoir'],
+  },
 
   /* ------------------------------------------------ skins ------------------------------ */
   {
     id: 'skin-cell-film', cat: 'skins',
     name: 'Cell film',
     status: 'decided',
-    role: 'The membrane that turns a frame into a vessel: pre-formed into its solved '
-        + 'dome shape so the sky loads it as a drum, not as a wrinkle.',
+    role: 'The membrane that turns a frame into a vessel: Zylon-class high-modulus film, '
+        + 'pre-formed into its solved dome shape so the sky loads it as a drum, not as a '
+        + 'wrinkle.',
     story: 'The gore study measured flat cutting to death — even twelve gores per panel '
         + 'miss the elastic budget. The net keeps its proven outline and is formed.',
-    draw: { kind: 'film', layers: [{ name: 'high-modulus film', gsm: barrierKgPerM2(sb.spanM) * 1000 }] },
+    draw: { kind: 'film', layers: [{ name: 'Zylon-class film', gsm: barrierKgPerM2(sb.spanM) * 1000 }] },
     specs: [
       { k: 'Per cell', v: (sb.skinKg * 1000).toFixed(0), u: 'g' },
       { k: 'Areal mass', v: (barrierKgPerM2(sb.spanM) * 1000).toFixed(1), u: 'g/m² (law, at article span)' },
