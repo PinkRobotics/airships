@@ -187,6 +187,25 @@ PROBE = r"""(() => {
   // Tick it fully shut. The ease takes 1.6 s of animation time and the tour walk below shares
   // this cell — leaving it half-open blanked every stop on the skin level.
   for (let i = 0; i < 300 && E.state.unfold > 0.001; i++) E.tick(0.05);
+  // THE ASSEMBLY MUST MOVE THE FRAME AND PUT IT BACK EXACTLY. Same lesson as the unfold:
+  // assert on the drawn state through the page's own probe, drive it through the same
+  // advance() the real loop uses, and demand byte-exact restoration — a part parked a
+  // micron off its seat would ride into every other level that shares this cell. The pile
+  // check runs at t=0 (every animated part displaced, the farthest by most of a span);
+  // the mid check at 0.45 (a genuine mixture: some seated, some flying); then the eased
+  // path home, ticked like a viewer would see it.
+  E.setLevel(E.levels.findIndex(l => l.id === 'cell'), true);
+  E.tick(0.016);
+  E.jumpAssemble(0);
+  E.tick(0.016);
+  out.asmPile = E.assemblyProbe();
+  E.jumpAssemble(0.45);
+  E.tick(0.016);
+  out.asmMid = E.assemblyProbe();
+  E.setAssemble(1);
+  for (let i = 0; i < 400 && E.state.assemble < 1; i++) E.tick(0.1);
+  E.tick(0.016);
+  out.asmDone = E.assemblyProbe();
   // EVERY JOINT MUST BE DRAWN AS ITS GENERATED MESH — the successor to the receiver count.
   // The receivers used to be lathed cones, and a member family losing its joints was the
   // defect the count existed for; the joints are now the generator's own meshes, one scene
@@ -617,6 +636,37 @@ def main() -> None:
     if (net.get("folds"), net.get("cuts")) != (13, 23):
         bad.append(f"net has {net.get('folds')} folds and {net.get('cuts')} cuts, "
                    "expected 13 and 23 across the 36 edges")
+    # THE ASSEMBLY ANIMATION, held the way the unfold is held: the frame must actually
+    # move, a mixture must exist mid-build, and the restore must be EXACT — a part parked
+    # a hair off its seat rides into every level that shares this cell, and only a
+    # measured zero can promise it did not. Counts come from the page's own probe against
+    # the same authorities as everything else: every manifest joint and every scheduled
+    # member is an animated event, no more, no fewer.
+    asm_pile = res.get("asmPile") or {}
+    asm_mid = res.get("asmMid") or {}
+    asm_done = res.get("asmDone") or {}
+    n_parts = len(manifest["nodes"]) + sum(
+        g["count"] for g in fresh["cuts"]["groups"].values())
+    if (asm_pile.get("joints"), asm_pile.get("members")) != (
+            len(manifest["nodes"]), sum(g["count"] for g in fresh["cuts"]["groups"].values())):
+        bad.append(f"the assembly timeline animates {asm_pile.get('joints')} joints and "
+                   f"{asm_pile.get('members')} members — the article has "
+                   f"{len(manifest['nodes'])} and "
+                   f"{sum(g['count'] for g in fresh['cuts']['groups'].values())}; a part "
+                   f"the timeline missed would sit assembled in the middle of the pile")
+    if asm_pile.get("displaced") != n_parts:
+        bad.append(f"at build=0 only {asm_pile.get('displaced')} of {n_parts} parts left "
+                   f"their seats — the pile is not a pile")
+    if (asm_pile.get("maxDispM") or 0) < 0.3:
+        bad.append(f"at build=0 the farthest part sits {asm_pile.get('maxDispM')} m from "
+                   f"its seat — that is not a pile under a 0.709 m article")
+    if not (0 < (asm_mid.get("displaced") or 0) < n_parts):
+        bad.append(f"at build=0.45 {asm_mid.get('displaced')} of {n_parts} parts are "
+                   f"displaced — mid-build must be a mixture of seated and flying")
+    if asm_done.get("displaced") != 0 or asm_done.get("maxDispM") != 0:
+        bad.append(f"after the build played home, {asm_done.get('displaced')} parts sit "
+                   f"{asm_done.get('maxDispM')} m off their seats — the restore must be "
+                   f"byte-exact or every other level inherits a displaced article")
     # THE JOINTS ARE MESHES NOW, so the receiver count's job — a member family drawn with
     # no joint on it, the way the rim went for weeks — is done by counting drawn joint
     # meshes against the manifest and drawn pipe instances against the cut schedule. Both
@@ -883,6 +933,10 @@ def main() -> None:
           f"{_n.get('widthM', 0):.3f} x {_n.get('heightM', 0):.3f} m, "
           f"{_n.get('thicknessMm', 0):.5f} mm out of plane, "
           f"{_n.get('overlaps')} overlapping face pairs — it can be cut.")
+    _a = res.get("asmPile") or {}
+    print(f"          the article assembles itself: {_a.get('joints')} joints + "
+          f"{_a.get('members')} members fly in from a pile {_a.get('maxDispM', 0):.2f} m "
+          "deep, in the prover's own build order, and restore byte-exact.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
           f"#tourNext: camera, panel and dim agree.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "

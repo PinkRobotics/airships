@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=4c57ee79';
-import * as G from './explorer-geom.js?v=4c57ee79';
+import * as CELL from './model.js?v=804dad1b';
+import * as G from './explorer-geom.js?v=804dad1b';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
-  FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=4c57ee79';
+  FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
+} from './nodes.generated.js?v=804dad1b';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=4c57ee79';
+import { NODEMESHES } from './nodemeshes.generated.js?v=804dad1b';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -548,6 +548,7 @@ const mat3mul = (A, B) => {
 };
 const add = (p, q) => [p[0] + q[0], p[1] + q[1], p[2] + q[2]];
 const sub = (p, q) => [p[0] - q[0], p[1] - q[1], p[2] - q[2]];
+const scale = (p, s) => [p[0] * s, p[1] * s, p[2] * s];
 const dot = (p, q) => p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
 const cross = (p, q) => [p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2],
   p[0] * q[1] - p[1] * q[0]];
@@ -856,6 +857,9 @@ function buildCell(ctx) {
   // is the printed part and the other fifty stay light.
   const meshOf = new Map(NODEMESHES.nodes.map((m2) => [`${m2.role}|${m2.u.join(',')}`, m2]));
   const repFamOf = new Map(FAMILY_ORDER.map((k) => [NODE_FAMILIES[k].repFile, k]));
+  // Every scene node the assembly animation may move, by id — recorded where each one is
+  // created, never rediscovered by walking the graph and guessing from id strings.
+  const animNodes = new Map();
   const addPart = (key, role, u, local) => {
     const rec = meshOf.get(`${role}|${u.join(',')}`);
     if (rec) {                 // the gate counts drawn joints; a miss must not kill the page
@@ -866,6 +870,7 @@ function buildCell(ctx) {
       jm.xmat = XM.printed;
       jm.partFamily = 'printed';
       own(key, jm.id, 0);
+      animNodes.set(jm.id, jm);
       const famKey = repFamOf.get(rec.file);
       if (famKey) {
         jm.dispRepOf = famKey;
@@ -881,6 +886,7 @@ function buildCell(ctx) {
       key, role, u,
       arms: armCount.get(key) || 0,
       pos: m4transform(cgM, local),
+      local: local.slice(),
       inst: instOf.get(key) || [],
     });
   };
@@ -957,6 +963,7 @@ function buildCell(ctx) {
       pn.geom = G.tubeArcGeom(g.odMm / 2000, wallM, cutM, 360, g.sku === 'rim' ? 22 : 20);
       pn.xmat = g.sku === 'rim' ? XM.pipeRim : XM.pipe;
       pn.partFamily = 'pipe';
+      animNodes.set(pn.id, pn);
     }
     const heroRec = recs.find((rec) => rec.hero);
     if (heroRec) {
@@ -966,6 +973,7 @@ function buildCell(ctx) {
       hero.xmat = XM.pipe;
       hero.partFamily = 'pipe';
       heroRec.inst.push(['HeroStrut', 0]);
+      animNodes.set('HeroStrut', hero);
     }
   }
   // The members and the faces get the same treatment as the joints: their positions are
@@ -976,9 +984,187 @@ function buildCell(ctx) {
   // is exactly what the tour's pose helper already works from.
   for (const mrec of memberRecs) mrec.pos = m4transform(cgM, mrec.mid);
   for (const frec of faceRecs) frec.pos = m4transform(cgM, frec.centre);
+
+  /* THE ASSEMBLY, PLAYABLE. The timeline is the prover's own build order — ASSEMBLY in
+   * the generated module is A3's inside-out sequence, the one proven to give every member
+   * a clear path at its own turn — with each joint flying in just before the first member
+   * that needs it. Nothing here invents choreography: tree members slide home axially the
+   * way A4 sweeps them, closing members arrive tilted at their own kinematic entry angle
+   * (from their cut and swing relief, the same identity P8 sweeps) and rotate down onto
+   * their pilots. The default state is FULLY ASSEMBLED and every seated matrix is a byte
+   * copy of the one the article was built with, so nothing outside the animation can tell
+   * it exists; the pile poses are hashed deterministically (the strutInstances jitter
+   * idiom — never Math.random, or the gate could not reproduce a frame). */
+  const assembly = (() => {
+    const uOfKey = new Map(parts.map((p2) => [p2.key, p2.u]));
+    const partByU = new Map(parts.map((p2) => [p2.u.join(','), p2]));
+    const pairKey = (ua, ub, fam) =>
+      [ua.join(','), ub.join(',')].sort().join('|') + '|' + fam;
+    const recByPair = new Map();
+    for (const rec of memberRecs) {
+      const ua = uOfKey.get(rec.keys[0]), ub = uOfKey.get(rec.keys[1]);
+      if (ua && ub) recByPair.set(pairKey(ua, ub, rec.kind), rec);
+    }
+    const h = (i, s) => {
+      const x = Math.sin(i * 12.9898 + s * 78.233) * 43758.5453;
+      return x - Math.floor(x);
+    };
+    // World "down" in the cell group's local frame, so the pile lies on the floor the
+    // viewer actually sees whatever the group's own rotation is.
+    const dn = norm([-cgM[2], -cgM[6], -cgM[10]]);
+    const e1 = norm(cross(dn, Math.abs(dn[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0]));
+    const e2 = cross(dn, e1);
+    const evs = [];
+    const seenJ = new Set();
+    for (const row of ASSEMBLY) {
+      const rec = recByPair.get(pairKey(row.a, row.b, row.fam));
+      if (!rec || !rec.inst.length) continue;    // the gate counts events; a miss shows there
+      for (const uu of [row.a, row.b]) {
+        const us = uu.join(',');
+        if (seenJ.has(us)) continue;
+        seenJ.add(us);
+        const p2 = partByU.get(us);
+        if (p2 && p2.inst.length) evs.push({ kind: 'joint', part: p2 });
+      }
+      evs.push({ kind: 'member', rec, closing: row.closing });
+    }
+    const N = evs.length;
+    const w = Math.max(0.02, 9 / Math.max(N, 1));
+    evs.forEach((ev, i) => {
+      ev.t0 = (N > 1 ? i / (N - 1) : 0) * (1 - w);
+      ev.t1 = ev.t0 + w;
+      const r = span * 0.55 * Math.sqrt(h(i, 1));
+      const th = 2 * Math.PI * h(i, 2);
+      ev.pile = add(scale(dn, span * (0.66 + 0.14 * h(i, 3))),
+                    add(scale(e1, r * Math.cos(th)), scale(e2, r * Math.sin(th))));
+      ev.tumbleAxis = norm([h(i, 4) - 0.5, h(i, 5) - 0.5, h(i, 6) - 0.5]);
+      ev.tumbleAng = (0.5 + 1.5 * h(i, 7)) * Math.PI;
+      if (ev.kind === 'joint') {
+        const [nid] = ev.part.inst[0];               // [0] is Joint_XX; reps come after
+        ev.node = animNodes.get(nid);
+        ev.idx = 0;
+        ev.seated = ev.node ? ev.node.inst.xf.slice(0, 16) : null;
+      } else {
+        const [nid, idx] = ev.rec.inst[0];
+        ev.node = animNodes.get(nid);
+        ev.idx = idx;
+        ev.seated = ev.node ? ev.node.inst.xf.slice(idx * 16, idx * 16 + 16) : null;
+        if (!ev.seated) return;
+        const m = ev.seated;
+        ev.outN = norm([m[12], m[13], m[14]]);
+        const axis = norm([m[0], m[1], m[2]]);       // column 0: the pipe's stretched axis
+        const [A, B] = ev.rec.ends;
+        const outEnd = Math.hypot(...A) > Math.hypot(...B) ? A : B;
+        ev.slideDir = norm(sub(outEnd, [m[12], m[13], m[14]]));
+        let ta = cross(axis, ev.outN);
+        if (Math.hypot(...ta) < 1e-6) {
+          ta = cross(axis, Math.abs(axis[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0]);
+        }
+        ev.tiltAxis = norm(ta);
+        // The closing entry tilt is the sweep's own identity: acos(1 - 2*s_eff/P) on the
+        // member's own cut, with its own swing relief off the pilot. Drawn TRUE, not
+        // exaggerated — the animation is the proof played back, not an illustration.
+        ev.phi = 0;
+        if (ev.closing && ev.rec.group) {
+          const g = CUT_GROUPS.groups[ev.rec.group];
+          const sEff = Math.max(0.2, JOINT.closingEndsMm - g.swingReliefMm);
+          ev.phi = Math.acos(clamp(1 - 2 * sEff / g.cutMm, -1, 1));
+        }
+      }
+    });
+    const aa3 = (ax, ang, out) => {                  // 3x3 axis-angle, column-major
+      const c = Math.cos(ang), s = Math.sin(ang), t = 1 - c;
+      const [x, y, z] = ax;
+      out[0] = t * x * x + c;     out[1] = t * x * y + s * z; out[2] = t * x * z - s * y;
+      out[3] = t * x * y - s * z; out[4] = t * y * y + c;     out[5] = t * y * z + s * x;
+      out[6] = t * x * z + s * y; out[7] = t * y * z - s * x; out[8] = t * z * z + c;
+    };
+    const mul3 = (a, b, out) => {
+      for (let c = 0; c < 3; c++) for (let r = 0; r < 3; r++) {
+        out[c * 3 + r] = a[r] * b[c * 3] + a[3 + r] * b[c * 3 + 1] + a[6 + r] * b[c * 3 + 2];
+      }
+    };
+    const R1 = new Float64Array(9), R2 = new Float64Array(9), Rt = new Float64Array(9);
+    const I3 = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+    const writePose = (ev, Rm, pos) => {
+      // Rotate the seated matrix's three columns — per-instance stretch rides in their
+      // norms and must survive, or a pipe changes length mid-flight — then replace the
+      // translation with the animated one.
+      const s = ev.seated, xf = ev.node.inst.xf, off = ev.idx * 16;
+      for (let c = 0; c < 3; c++) {
+        const x = s[c * 4], y = s[c * 4 + 1], z = s[c * 4 + 2];
+        xf[off + c * 4] = Rm[0] * x + Rm[3] * y + Rm[6] * z;
+        xf[off + c * 4 + 1] = Rm[1] * x + Rm[4] * y + Rm[7] * z;
+        xf[off + c * 4 + 2] = Rm[2] * x + Rm[5] * y + Rm[8] * z;
+        xf[off + c * 4 + 3] = s[c * 4 + 3];
+      }
+      xf[off + 12] = pos[0]; xf[off + 13] = pos[1]; xf[off + 14] = pos[2];
+      xf[off + 15] = s[15];
+    };
+    function apply(t) {
+      const touched = new Set();
+      for (const ev of evs) {
+        if (!ev.node || !ev.seated) continue;
+        const a = clamp((t - ev.t0) / (ev.t1 - ev.t0), 0, 1);
+        if (a >= 1) {                                // seated EXACTLY: byte-copied back
+          ev.node.inst.xf.set(ev.seated, ev.idx * 16);
+          touched.add(ev.node);
+          continue;
+        }
+        const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
+        const settleFrom = ev.kind === 'member'
+          ? (ev.closing ? add(seatPos, scale(ev.outN, span * 0.16))
+                        : add(seatPos, scale(ev.slideDir, span * 0.22)))
+          : seatPos;
+        let pos, tumble = 0;
+        let tilt = ev.kind === 'member' && ev.closing ? ev.phi : 0;
+        if (a < 0.6) {
+          const p = easeInOut(a / 0.6);
+          pos = lerp3(ev.pile, settleFrom, p);
+          tumble = ev.tumbleAng * (1 - p);
+        } else {
+          const q = easeInOut((a - 0.6) / 0.4);
+          pos = lerp3(settleFrom, seatPos, q);
+          tilt *= (1 - q);
+        }
+        let Rm = I3;
+        if (tumble > 1e-6 && tilt > 1e-6) {
+          aa3(ev.tumbleAxis, tumble, R1); aa3(ev.tiltAxis, tilt, R2);
+          mul3(R1, R2, Rt); Rm = Rt;
+        } else if (tumble > 1e-6) { aa3(ev.tumbleAxis, tumble, R1); Rm = R1; }
+        else if (tilt > 1e-6) { aa3(ev.tiltAxis, tilt, R2); Rm = R2; }
+        writePose(ev, Rm, pos);
+        touched.add(ev.node);
+      }
+      for (const n of touched) n.inst.dirty = true;
+    }
+    return {
+      apply,
+      counts: {
+        joints: evs.filter((e) => e.kind === 'joint').length,
+        members: evs.filter((e) => e.kind === 'member').length,
+      },
+      /** For the gate: how far the animated state sits from the seated one, measured off
+       * the live instance buffers against the byte-cached seated matrices. */
+      probe() {
+        let displaced = 0, maxD = 0;
+        for (const ev of evs) {
+          if (!ev.node || !ev.seated) continue;
+          const xf = ev.node.inst.xf, off = ev.idx * 16;
+          const d = Math.hypot(xf[off + 12] - ev.seated[12],
+                               xf[off + 13] - ev.seated[13],
+                               xf[off + 14] - ev.seated[14]);
+          if (d > 1e-9) displaced++;
+          if (d > maxD) maxD = d;
+        }
+        return { displaced, maxDispM: maxD };
+      },
+    };
+  })();
+
   return {
     root,
-    parts, members: memberRecs, faces: faceRecs, cgM, cellGroup: cg,
+    parts, members: memberRecs, faces: faceRecs, cgM, cellGroup: cg, assembly,
     // What a single joint occupies, measured on the meshes actually drawn: the farthest
     // vertex any joint carries (a tree stub's tip, ~39 mm out), so the connector tour
     // frames the whole part — arms and all — rather than the old cone-length guess.
@@ -1522,6 +1708,8 @@ export function mountExplorer(opts) {
     skinMode: 'transparent',     // 'solid' | 'transparent' | 'off'
     unfold: 0,                   // 0 = the cell, 1 = the flat net
     unfoldTo: 0,                 // what it is easing toward
+    assemble: 1,                 // 0 = a pile of parts, 1 = the finished article (default)
+    assembleTo: 1,               // what it is easing toward; scoped to the cell level
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     // THE CELL OPENS ON ITS CENTRE JOINT. "Everything" is 216 identical-looking sticks and
     // says nothing about how the cell carries load; lighting the twelve members that reach
@@ -1836,6 +2024,12 @@ export function mountExplorer(opts) {
       }
       if (fr.unfoldGone) return { hidden: true };
     }
+    // MID-ASSEMBLY THE SKIN HAS NOTHING TO DRAPE ON. While the cell is animating itself
+    // together the membrane and its seams hide — a sealed film floating over a pile of
+    // parts is a lie about the build order, the film goes on LAST — and come back the
+    // frame the article is whole. Scoped to the cell level like every other mode.
+    if (n.skinPart && state.assemble < 0.999
+        && LEVELS[state.levelIdx].id === 'cell') return { hidden: true };
     // THE PRINT-RESOLUTION SWAP, scoped to the level that owns it (a leaked flag has
     // blanked two tours before). While the connector tour is framing a family, that
     // family's representative joint is drawn as the printed part — open sockets, bores,
@@ -1948,6 +2142,7 @@ export function mountExplorer(opts) {
   /** Advance any running move; returns true if the camera or fades changed. */
   function advance(dt) {
     stepUnfold(dt);
+    stepAssemble(dt);
     if (!transition) return false;
     transition.t = Math.min(1, transition.t + dt / transition.seconds);
     const k = easeInOut(transition.t);
@@ -2036,6 +2231,32 @@ export function mountExplorer(opts) {
     let f = 0;
     for (const i of stageIdx) f = Math.max(f, built[i].claim);
     cell.fade = f;
+  }
+
+  /** Ease the assembly toward its target, scoped HARD to the cell level. The stage cell
+   *  is one scene graph shared by the connector, tube and skin levels — a leaked mode has
+   *  blanked two tours before — so leaving the cell level snaps every part back to seated
+   *  before anything else can frame a half-built article. Seated restore is a byte copy
+   *  of the matrices the cell was built with; at assemble = 1 the animation is
+   *  indistinguishable from never having existed. */
+  const ASSEMBLE_SECONDS = 24;
+  function stepAssemble(dt) {
+    const cell = built[STAGE_LEVEL];
+    if (!cell.assembly) return;
+    if (LEVELS[state.levelIdx].id !== 'cell') {
+      if (state.assemble !== 1 || state.assembleTo !== 1) {
+        state.assemble = 1; state.assembleTo = 1;
+        cell.assembly.apply(1);
+        dirty = true;
+      }
+      return;
+    }
+    const d = state.assembleTo - state.assemble;
+    if (Math.abs(d) < 1e-4) return;
+    state.assemble += Math.sign(d) * Math.min(Math.abs(d), dt / ASSEMBLE_SECONDS);
+    state.assemble = clamp(state.assemble, 0, 1);
+    cell.assembly.apply(state.assemble);
+    dirty = true;
   }
 
   /** Ease the net open or shut, rebuilding its geometry only while it actually moves.
@@ -2292,6 +2513,25 @@ export function mountExplorer(opts) {
       dirty = true;
     },
     setCut(v) { state.cut = v; dirty = true; },
+    /** Scrub the assembly: 0 = a pile of parts, 1 = the finished cell. The stepper eases
+     * the live value toward this; only meaningful on the cell level, snaps home off it. */
+    setAssemble(v) { state.assembleTo = clamp(v, 0, 1); dirty = true; },
+    /** Play the whole build: drop everything into the pile and let it assemble. */
+    playAssembly() { state.assemble = 0; state.assembleTo = 1; dirty = true; },
+    /** Park the build at t without easing — deep links and the gate's pose checks. The
+     * scope guard still owns it: off the cell level this snaps home next frame. */
+    jumpAssemble(v) {
+      state.assemble = state.assembleTo = clamp(v, 0, 1);
+      const a = built[STAGE_LEVEL].assembly;
+      if (a) a.apply(state.assemble);
+      dirty = true;
+    },
+    /** The gate's probe: parts displaced from their seated matrices, and by how far —
+     * measured off the live instance buffers, never off the animation's own bookkeeping. */
+    assemblyProbe() {
+      const a = built[STAGE_LEVEL].assembly;
+      return a ? { t: state.assemble, ...a.probe(), ...a.counts } : null;
+    },
     /** The tour, exposed so the page's button and the gate drive the same thing. */
     tourFor(idx) { return tourOf(idx === undefined ? state.levelIdx : idx); },
     setPart,

@@ -164,6 +164,16 @@
        color:var(--faint)}
   #cutbox input[type=range]{accent-color:var(--warm);width:120px;margin:0}
   #cutbox output{font:var(--t-12) var(--mono);color:var(--bone);min-width:44px}
+  /* ---- assembly, stacked above the cutaway; shown on the cell level only ---- */
+  #asmbox{position:fixed;left:var(--s5);bottom:calc(var(--s4) + 44px);z-index:6;display:flex;
+       align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(6px);
+       border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 10px}
+  #asmbox label{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
+       color:var(--faint)}
+  #asmbox input[type=range]{accent-color:var(--warm);width:120px;margin:0}
+  #asmbox button{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
+       color:var(--bone);background:none;border:1px solid var(--warm-dim);
+       border-radius:var(--r-sm);padding:3px 8px;cursor:pointer}
   #wallchip{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
   #wallchip .line1{font:var(--t-12) var(--mono);color:var(--bone)}
   #wallchip .line2{font:var(--t-11) var(--mono);color:var(--faint)}
@@ -394,6 +404,17 @@
   <span data-n="pahtRho" data-f="0"></span> kg/m³) weighed from their own geometry rather
   than budgeted. Solid because these parts sit <em>inside</em> the vacuum, where sparse infill
   is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
+
+  <p class="sowhat"><b>And it can assemble itself — press <b>assemble</b>, bottom left.</b>
+  The build the animation plays is not choreography: it is the assembly prover's own order,
+  inside-out, the sequence in which every one of the
+  <span data-n="nodes.members" data-f="0"></span> members is proven to have a clear
+  straight-line path at its own turn. Each of the
+  <span data-n="nodes.nodes" data-f="0"></span> joints flies in just before the first member
+  that needs it; a tree member slides home axially over its long spigot; a closing member —
+  there is no other way into a loop of fixed joints — arrives tilted at its own computed
+  entry angle and rotates down onto its pilots. The skin stays off until the frame is
+  whole, because that is the build order too.</p>
 
   <p class="sowhat"><b>This cell does not float, and printing is not what decides it.</b> To
   float it would have to weigh under
@@ -1339,6 +1360,13 @@
   <input id="cutR" type="range" min="-100" max="100" step="1" value="100">
   <output id="cutOut">off</output>
 </div>
+
+<!-- ASSEMBLY — the build order, playable. Cell level only; the box hides elsewhere. -->
+<div id="asmbox" hidden>
+  <button id="asmPlay">assemble</button>
+  <label for="asmR">build</label>
+  <input id="asmR" type="range" min="0" max="100" step="1" value="100">
+</div>
   </div>
 </div>
 
@@ -1378,8 +1406,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=4c57ee79';
-import * as CELL from './model.js?v=4c57ee79';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=804dad1b';
+import * as CELL from './model.js?v=804dad1b';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1628,6 +1656,28 @@ if (!api) {
     api.setCut(v >= 100 ? 0 : v / 100);
     cutOut.textContent = v >= 100 ? 'off' : (v / 100).toFixed(2);
   });
+
+  /* assembly — play the prover's own build order. The slider is a scrub AND a readout:
+   * while the build plays, it follows the live state, the same read-it-back rule as every
+   * label here. The box shows only on the cell level, where the mode is scoped. */
+  const asmBox = document.getElementById('asmbox');
+  const asmR = document.getElementById('asmR');
+  document.getElementById('asmPlay').addEventListener('click', () => api.playAssembly());
+  asmR.addEventListener('input', () => api.setAssemble(+asmR.value / 100));
+  setInterval(() => {
+    const onCell = api.state.levelIdx === api.stageLevel;
+    asmBox.hidden = !onCell;
+    if (onCell && document.activeElement !== asmR) {
+      asmR.value = Math.round(api.state.assemble * 100);
+    }
+  }, 150);
+  // ?build=1 plays the assembly on load; ?build=0.42 parks it mid-build — the still
+  // harness loads a URL and cannot click, same deep-link rule as ?unfold=1.
+  if (qs.has('build')) {
+    const bv = parseFloat(qs.get('build'));
+    if (bv >= 1) api.playAssembly();
+    else api.jumpAssemble(Math.max(0, bv || 0));
+  }
 
   document.getElementById('clearBreach').addEventListener('click', () => {
     api.clearBreach();

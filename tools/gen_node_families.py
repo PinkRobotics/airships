@@ -49,7 +49,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 from gen_nodes import (HALF, article_graph, boundary_frame,  # noqa: E402  (path set above)
-                       face_planes)
+                       face_planes, spanning_tree)
 
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
 OUT = ROOT / "cell" / "nodes.generated.js"
@@ -183,10 +183,40 @@ def cut_groups(nodes: list, members: list, prm: dict, cut_list: list) -> list:
     return out
 
 
+def assembly_order(gnodes: list, members: list) -> list:
+    """The build sequence, for the page to play: every member in the order the assembly
+    proof walks them, with each one's engagement kind.
+
+    THE ORDER IS A3's OWN RULE, transcribed exactly — members sorted by ascending lattice
+    |midpoint|, ties broken by (family, u, v) — not a new opinion about how to build the
+    cell. check_assembly.build_order_access() derives the same order from the same graph
+    every run and PROVES it: zero members blocked at their own turn, straight-line escapes
+    swept against everything placed before each one, emitted as buildOrder in the report.
+    This transcription exists because the page reads generated modules, not prover reports,
+    and the rule is four deterministic lines; if the two ever diverge, A3's memberIds and
+    this list disagree on the same day the graphs do, and check_explorer's recompute of the
+    page's schedule is what goes red first.
+
+    `closing` is the spanning tree's verdict, the same one that sizes the spigots: a tree
+    member slides on axially over its full stub, a closing member swings in on pilots at
+    its own entry tilt — which is exactly how the page animates each kind.
+    """
+    tree, _ = spanning_tree(gnodes, members)
+
+    def mid(k):
+        a, b, _f = members[k]
+        return math.sqrt(sum(((ai + bi) / 2.0) ** 2 for ai, bi in zip(a, b)))
+
+    order = sorted(range(len(members)), key=lambda k: (mid(k), members[k][2], members[k][0],
+                                                       members[k][1]))
+    return [{"a": list(members[k][0]), "b": list(members[k][1]),
+             "fam": members[k][2], "closing": k not in tree} for k in order]
+
+
 def payload() -> dict:
     m = json.loads(MANIFEST.read_text())
     nodes = m["nodes"]
-    _, members, tally = article_graph()
+    gnodes, members, tally = article_graph()
 
     # Arm composition per node, by member kind, from the graph that generated the meshes.
     inc: dict[tuple, dict[str, int]] = {}
@@ -327,6 +357,7 @@ def payload() -> dict:
     return {
         "families": fams,
         "order": ORDER,
+        "assembly": assembly_order(gnodes, members),
         "cuts": {
             "order": [g["key"] for g in cuts],
             "groups": {g["key"]: g for g in cuts},
@@ -370,7 +401,8 @@ def render(data: dict) -> str:
             "export const FAMILY_ORDER = NODES.order;\n"
             "export const NODE_TOTALS = NODES.totals;\n"
             "export const JOINT = NODES.joint;\n"
-            "export const CUT_GROUPS = NODES.cuts;\n")
+            "export const CUT_GROUPS = NODES.cuts;\n"
+            "export const ASSEMBLY = NODES.assembly;\n")
 
 
 def main() -> None:

@@ -183,6 +183,28 @@ land posts, not partial sockets. Screenshots verified by eye: corner joint (full
 faceted post cap), hub (post disc at the face plane, six spokes seated), whole cell
 (general shape exactly preserved — the designer's rule, visible).
 
+## The cell assembles itself on the page (#69, added 2026-08-11 late)
+
+The cell level carries an **assemble** control (bottom-left; `?build=1` plays it from a
+URL, `?build=0.45` parks it mid-build for stills). The animation is the proof played
+back, not choreography: the timeline is A3's own inside-out build order carried through
+`nodes.generated.js` (`ASSEMBLY`, transcribed from the same four-line sort rule and
+byte-identical to the report's buildOrder — verified at generation), each joint flies in
+just before the first member that needs it, tree members slide home axially, closing
+members arrive tilted at their own kinematic entry angle (their cut and swing relief,
+the identity P8 sweeps) and rotate down onto their pilots. The skin hides until the
+frame is whole because that is the build order too.
+
+Mechanics for whoever touches it: default state is FULLY ASSEMBLED and the seated
+instance matrices are byte-cached at build time — `apply(1)` restores them exactly, and
+the gate asserts displaced = 0 AND maxDisp = 0 after a played build (watch the falsy-zero
+trap: `x or 1` on a measured 0.0 invented a failure on this feature's first run). The
+mode is scoped HARD to the cell level (the stage cell is shared; leaving the level snaps
+everything home in stepAssemble). Pile poses are hashed deterministically — never
+Math.random, or no gate could reproduce a frame. Pipes' per-instance stretch rides in
+their matrix column norms: the animation rotates the seated columns and replaces only
+the translation, so a pipe cannot change length mid-flight.
+
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
