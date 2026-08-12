@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=1a816e47';
+         stockBuild, barrierKgPerM2 } from './model.js?v=a3816c5f';
 
 const sb = stockBuild();
 
@@ -57,7 +57,9 @@ export const SHIP = {
 /* Band and grid scoping lines the level sections visualise. Same provenance rule. */
 export const BAND = {
   arealKgM2Lo: 5.0, arealKgM2Hi: 10.7,     // by tube/joint basis (E' retuned … committed article)
-  prov: 'ship-scale analysis v2 §3 — one cell-span band absorbs the full atmosphere',
+  cells: 20000,                             // order-of: analysis v2 §7 seal-and-hold count (~2×10⁴)
+  perCellPushT: 7.2,                        // ≈0.7 m² band footprint per cell × 1 atm, tonnes-force
+  prov: 'ship-scale analysis v2 §3/§7 — one cell-span band absorbs the full atmosphere',
 };
 export const GRID = {
   depthM: 3, bayM: 2,

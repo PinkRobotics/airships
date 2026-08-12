@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=1a816e47';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=a3816c5f';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -122,25 +122,30 @@ function drawFilm({ layers }) {
 
 const DRAW = { tube: drawTube, sleeve: drawSleeve, node: drawNode, lap: drawLap, film: drawFilm };
 
-/* True-relative-size strip: every tube in the catalog on one scale, active one lit. */
+/* True-relative-size strip: every tube on one scale — click a bore to select it. */
 function tubeStrip(activeId) {
   const tubes = byCat('tubes');
   const maxOd = Math.max(...tubes.map(t => t.draw.odMm));
   const w = 340, pad = 26, innerW = w - 2 * pad;
   const gaps = 30 * (tubes.length - 1);
   const pxPerMm = Math.min(0.62, (innerW - gaps) / tubes.reduce((s, t) => s + t.draw.odMm, 0));
+  const cy = 30 + maxOd * pxPerMm / 2;
+  const yLab = cy + maxOd * pxPerMm / 2 + 16;
   let x = pad, out = '';
   for (const t of tubes) {
     const r = Math.max(2.4, t.draw.odMm * pxPerMm / 2);
     const on = t.id === activeId;
     x += r;
-    out += `<circle cx="${x}" cy="46" r="${r}" fill="${on ? C.warm : C.cool}" fill-opacity="${on ? 0.35 : 0.10}"
-             stroke="${on ? C.warm : C.faint}" stroke-width="${on ? 1.8 : 1}"/>`;
-    if (on) out += `<text x="${x}" y="${46 + Math.max(r, 8) + 16}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">${fmtMm(t.draw.odMm)}</text>`;
+    out += `<g data-strip="${t.id}" style="cursor:pointer">
+      <circle cx="${x}" cy="${cy.toFixed(1)}" r="${(r + 10).toFixed(1)}" fill="#000" fill-opacity="0" pointer-events="all"/>
+      <circle cx="${x}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}" fill="${on ? C.warm : C.cool}" fill-opacity="${on ? 0.35 : 0.10}"
+       stroke="${on ? C.warm : C.faint}" stroke-width="${on ? 1.8 : 1}"/>
+      <text x="${x}" y="${yLab.toFixed(1)}" fill="${on ? C.warm : C.faint}" font-size="10" text-anchor="middle" font-family="monospace">${fmtMm(t.draw.odMm)}</text>
+    </g>`;
     x += r + 30;
   }
-  out += `<text x="${pad}" y="14" fill="${C.faint}" font-size="10" font-family="monospace">every tube, true relative bore</text>`;
-  return svgEl(out, `0 0 ${w} ${Math.max(96, maxOd * pxPerMm + 66)}`);
+  out += `<text x="${pad}" y="14" fill="${C.faint}" font-size="10" font-family="monospace">every tube, true relative bore — click to select</text>`;
+  return svgEl(out, `0 0 ${w} ${(yLab + 10).toFixed(0)}`);
 }
 
 /* ------------------------------------------------ the pane ----------------------------- */
@@ -190,6 +195,11 @@ function makePane(mount, catId, startIdx = 0) {
         const n = byCat(cat).length;
         idx = (idx + +b.dataset.nav + n) % n;
         render();
+      }));
+    mount.querySelectorAll('[data-strip]').forEach(g =>
+      g.addEventListener('click', () => {
+        const n = byCat(cat).findIndex(t => t.id === g.dataset.strip);
+        if (n >= 0 && n !== idx) { idx = n; render(); }
       }));
   }
   render();
@@ -283,7 +293,7 @@ function drawBandSection() {
   const sx = 96 + flat / 2;
   out += `<text x="${96 + flat}" y="24" fill="${C.warm}" font-size="11" text-anchor="middle" font-family="monospace">outside — one atmosphere, loaded film</text>
           <line x1="${sx.toFixed(1)}" y1="${(cy - flat / 2).toFixed(1)}" x2="${sx.toFixed(1)}" y2="${(cy + flat / 2).toFixed(1)}" stroke="none"/>
-          <text x="${96 + flat}" y="210" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">inside — already vacuum · dashed skin carries nothing</text>
+          <text x="${96 + flat}" y="210" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">inside — vacuum · films unloaded, kept for breach</text>
           <text x="${(96 + flat / 2).toFixed(0)}" y="${cy + 4}" fill="${C.cool}" font-size="10" text-anchor="middle" font-family="monospace">shared</text>
           <text x="${(96 + flat / 2).toFixed(0)}" y="${cy + 16}" fill="${C.cool}" font-size="10" text-anchor="middle" font-family="monospace">wall</text>`;
   return svgEl(out, '0 0 360 224');
@@ -394,7 +404,6 @@ function drawShipEquip() {
 
 bindNumbers();
 makePane($('#pane-a'), 'tubes');
-makePane($('#pane-b'), 'connectors');
 
 const put = (sel, svg) => { const el = $(sel); if (el) el.innerHTML = svg; };
 put('#fig-cell', drawKelvinCell());

@@ -73,7 +73,7 @@
 
   /* ---- catalog panes ---- */
   .pane{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
-        padding:var(--s5);display:flex;flex-direction:column;min-height:640px}
+        padding:var(--s5);display:flex;flex-direction:column;max-width:720px;margin:0 auto}
   .tabs{display:flex;gap:var(--s2);margin-bottom:var(--s4)}
   .tabs button{background:#17171c;color:var(--muted);border:1px solid var(--line-strong);
         border-radius:99px;padding:6px 14px;font:var(--t-13) var(--sans);cursor:pointer}
@@ -164,12 +164,9 @@
     <p>Everything begins as powder, fibre, or film: titanium sintered into split
     clamshells that clamp around their members, carbon rolled onto mandrels, membrane
     pressed into its dome before it ever meets a frame. These are the parts — each one
-    browsable below, each carrying its own honesty chip. <span class="muted">Two panes so
-    any two parts can be compared; the arrows walk each catalog.</span></p>
-    <div class="grid two">
-      <div class="pane" id="pane-a" aria-label="catalog pane A"></div>
-      <div class="pane" id="pane-b" aria-label="catalog pane B"></div>
-    </div>
+    browsable below, each carrying its own honesty chip. <span class="muted">Tabs switch
+    the family; the arrows — or a click on any bore in the strip — walk the catalog.</span></p>
+    <div class="pane" id="pane-a" aria-label="catalog browser"></div>
   </section>
 
   <section id="level-2">
@@ -201,16 +198,24 @@
 
   <section id="level-3">
     <h2><span class="mono faint">Level 3 · </span>The band</h2>
-    <p>Cells joined shoulder to shoulder, one cell deep. Where two cells meet, the wall
-    between them has vacuum on both sides — it carries nothing, needs no film, costs
-    nothing. Only the outermost face fights the sky, and one cell-span of depth is enough
-    to absorb the entire atmosphere. The band is the ship's pressure skin, built from the
-    one block the shop already knows how to make.</p>
+    <p>Cells joined shoulder to shoulder, one cell deep — and one layer is the design,
+    not a thrift: the pressure a band can kill grows with the cube of its cell span, so a
+    single span already absorbs the entire atmosphere, and stacked bands were measured to
+    buy no mass at all. Depth for stiffness is the grid's job; the band spends its cells
+    where they work.</p>
+    <p>Redundancy is not more layers — it is that <em>every cell is its own sealed
+    vessel</em>. Between healthy neighbours an interior film has vacuum on both sides and
+    carries nothing; the moment one cell is holed, the films around it pick up the
+    differential and the loss stays one cell big — a valve closes, a cell gets swapped,
+    the ship never notices. What one wall of cells cannot survive alone is a spreading
+    cascade, and that policy — including a sacrificial outer-gap variant — is an open
+    study, flagged as such.</p>
     <figure class="lvl-fig" id="fig-band"></figure>
     <div class="facts">
-      <span class="fact">absorbs <b>1 atm</b> in one cell-span</span>
+      <span class="fact">absorbs <b>1 atm</b> in one cell-span — one layer by design</span>
+      <span class="fact">cells in the wrap <b>≈<span data-cat="band.cells"></span></b> <span class="chip st-scoping">scoping</span></span>
       <span class="fact">areal mass <b><span data-cat="band.arealKgM2Lo" data-f="1"></span>–<span data-cat="band.arealKgM2Hi" data-f="1"></span> kg/m²</b> by basis <span class="chip st-scoping">scoping</span></span>
-      <span class="fact">interior walls: <b>free</b></span>
+      <span class="fact">breach = <b>one cell</b> · interior films unloaded, not absent</span>
     </div>
   </section>
 
@@ -222,6 +227,17 @@
     titanium joints as the cell, only larger. The hoop chords <em>are</em> the ring
     frames. The band hangs just inside the outer face; the skins close over both sides —
     weather jacket outside, a whisper of a void skin within.</p>
+    <p>The interplay is a clean division of labour. Follow the load: the film drums the
+    sky into each cell's rims; one cell's frame gathers about
+    <b><span data-cat="band.perCellPushT" data-f="1"></span> tonnes</b> of inward push;
+    the web diagonals double as its hangers and hand that push to the outer chord face;
+    and the rings turn twenty thousand small pushes into one great hoop of compression
+    around the barrel. In return the grid gives every cell a stiff foundation — inboard
+    of the band the air is a hundredth of an atmosphere, so no cell ever carries more
+    than its bench-proven load, and no chord ever meets the raw atmosphere. The cells
+    stay one layer deep; the sandwich's metres of depth are empty truss, not stacked
+    cells — that space is where the shell gets its bending stiffness, the way an I-beam
+    gets its from the gap between flanges.</p>
     <figure class="lvl-fig" id="fig-wall"></figure>
     <div class="facts">
       <span class="fact">sandwich depth <b>≈<span data-cat="grid.depthM"></span> m</b> <span class="chip st-scoping">scoping</span></span>
@@ -294,6 +310,6 @@
   </div>
 </footer>
 
-<script type="module" src="./levels.js?v=1a816e47"></script>
+<script type="module" src="./levels.js?v=a3816c5f"></script>
 </body>
 </html>
