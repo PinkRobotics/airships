@@ -247,6 +247,36 @@ over an unchecked number that is better.
   Most of the confusion in this project's history came from numbers that had drifted loose
   from their object.
 
+### How the loop actually runs
+
+From 2026-08-11 this brief is drained by a **work-order loop** (helm's devworker), one order
+at a time, in parallel with whatever else is happening in this repository. The rules above
+are unchanged — this section only says how a pass physically happens, so that a pass written
+by a person and a pass written by the loop are the same shape.
+
+- **An order never edits this repository.** Each one runs in its own clone with the origin
+  remote *deleted*, so the agent cannot write here even if it tries. Whatever the working
+  tree holds while an order runs, the order cannot see it or disturb it.
+- **The deliverable comes back as a branch and a report**, never as a commit on `main`.
+  Nothing merges without a human reading it first. A `devworker/*` ref appearing here is the
+  loop handing something over; deleting it discards that pass and costs nothing else.
+- **One order changes one number.** Orders are sized to a single route from §3 or a single
+  question from the list below. An order that touches two is mis-scoped — split it.
+- **The gate is this repository's own checks, and the loop may not soften them.** `make check`
+  plus the two study self-checks. A failed self-check aborts the order and the failure is
+  reported as a failure. Nothing in the loop is permitted to widen a tolerance, relax a
+  margin, or freeze a baseline to make a gate pass — see the rules above, which the loop
+  inherits verbatim.
+- **A figure the tools did not produce does not go in a report.** If a pass needs arithmetic
+  the tools cannot do yet, the pass's job is to add it to the tools, not to compute it by
+  hand and quote it.
+- **Some orders are read-only by design.** An audit or a research pass makes no code change
+  at all and delivers findings — an issue with the physics, a supplier answer, an enumeration.
+  Those are first-class passes, not failed ones.
+- **Report what did not work.** A route that was priced and turned out worse is a result and
+  belongs in §3's table with its number. The loop is allowed to fail; it is not allowed to be
+  quiet about it.
+
 ### Open questions worth a research pass
 
 1. **Is a vented, shelled joint acceptable in vacuum?** Decides R2's biggest lever.
