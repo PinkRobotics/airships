@@ -61,6 +61,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import heapq
 import importlib.util
 import itertools
 import json
@@ -4501,8 +4502,46 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
         a, b, _ = members[k]
         return float(np.linalg.norm((np.array(a, float) + np.array(b, float)) / 2.0))
 
-    order = sorted(range(len(members)), key=lambda k: (mid(k), members[k][2], members[k][0],
-                                                       members[k][1]))
+    # THE ORDER IS INSIDE-OUT *AND TREE-CONSTRAINED* — the designer caught the seam
+    # (2026-08-11): the spanning tree that sizes the stubs is rooted at a square-centre
+    # joint, while a pure |midpoint| order walks out from the cell centre, so 27 of the 50
+    # tree members used to come up AFTER some other member had already touched their
+    # arriving joint. A tree member's two 20 mm stubs can only engage axially — that is
+    # the entire reason closing members carry pilots — so a sequence in which its arriving
+    # joint is already pinned by another member is not buildable, however clear the
+    # straight-line access. The constraint is exactly the kinematic dependency: a joint's
+    # DISCOVERY member (the tree member that arrives carrying it) must precede every other
+    # member touching that joint. Kahn's construction with the same (|midpoint|, family,
+    # u, v) key among the ready set keeps it deterministic and as inside-out as the
+    # dependency allows, and the escape sweep below then proves access along the order
+    # actually emitted, not the one retired.
+    key_of = {k: (mid(k), members[k][2], members[k][0], members[k][1])
+              for k in range(len(members))}
+    tree_of = {arriving: k for k, _p, arriving in g["treeOrder"]}
+    prereq = collections.defaultdict(set)
+    for k, (a, b, _f) in enumerate(members):
+        for u in (a, b):
+            d = tree_of.get(u)
+            if d is not None and d != k:
+                prereq[k].add(d)
+    dependents = collections.defaultdict(list)
+    for k, ps in prereq.items():
+        for p in ps:
+            dependents[p].append(k)
+    indeg = {k: len(prereq[k]) for k in range(len(members))}
+    ready = [(key_of[k], k) for k in range(len(members)) if indeg[k] == 0]
+    heapq.heapify(ready)
+    order = []
+    while ready:
+        _, k = heapq.heappop(ready)
+        order.append(k)
+        for k2 in dependents[k]:
+            indeg[k2] -= 1
+            if indeg[k2] == 0:
+                heapq.heappush(ready, (key_of[k2], k2))
+    if len(order) != len(members):
+        raise AssertionError("build order: the tree-dependency graph is cyclic, which a "
+                             "BFS tree cannot be — the constraint wiring is wrong")
     blocked, placed, esc = [], [], {}
     for k in order:
         e = escape_scan(S, Q, RAD, k, np.array(placed), dirs, lam)
@@ -4522,8 +4561,10 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
         placed.append(k)
     lines = [
         f"against the FINISHED article {finished} of {len(members)} members have no "
-        f"straight-line escape. Inside-out — members sorted by ascending |midpoint|, ties "
-        f"broken by (family, u, v) for determinism — blocks {len(blocked)} at their own turn. "
+        f"straight-line escape. Inside-out AND tree-constrained — ascending |midpoint| "
+        f"among members whose end joints' discovery members are already placed, so every "
+        f"joint arrives carried by its own tree member and every 20 mm stub engages "
+        f"axially — blocks {len(blocked)} at their own turn. "
         f"Outside-in blocks {blocked_rev}. The order is therefore part of the contract and is "
         f"emitted as buildOrder; it is not left to the builder. Clearance is per pair, "
         f"r_i + r_j over the SKUs stock_build specifies ("
@@ -4531,7 +4572,8 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
                     sorted(collections.Counter(np.round(RAD, 1)).items()))
         + "), and node bodies are covered by P9's envelope bound rather than modelled here."]
     return {"lines": lines,
-            "data": {"rule": "ascending |midpoint|, ties by (family,u,v)",
+            "data": {"rule": "inside-out, tree-constrained: ascending |midpoint| among "
+                             "members whose end joints' discovery members are placed",
                      "memberIds": [f"{members[k][0]}-{members[k][1]}-{members[k][2]}"
                                    for k in order],
                      # The insertion line, reversed, for each member at its own turn — the

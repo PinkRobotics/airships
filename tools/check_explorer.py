@@ -196,12 +196,18 @@ PROBE = r"""(() => {
   // path home, ticked like a viewer would see it.
   E.setLevel(E.levels.findIndex(l => l.id === 'cell'), true);
   E.tick(0.016);
+  // THE TRAJECTORY SWEEP RUNS FIRST — it is also the planner, so the poses probed below
+  // are the planned ones, the same ones a viewer gets.
+  out.asmSweep = E.assemblySweep();
   E.jumpAssemble(0);
   E.tick(0.016);
   out.asmPile = E.assemblyProbe();
   E.jumpAssemble(0.45);
   E.tick(0.016);
   out.asmMid = E.assemblyProbe();
+  // THE GUIDE MUST SPEAK: step one part forward from a parked point and read its caption
+  // back — a guide whose captions went blank would otherwise pass every pose check.
+  out.asmStep = E.assembleStep(1);
   E.setAssemble(1);
   for (let i = 0; i < 400 && E.state.assemble < 1; i++) E.tick(0.1);
   E.tick(0.016);
@@ -667,6 +673,30 @@ def main() -> None:
         bad.append(f"after the build played home, {asm_done.get('displaced')} parts sit "
                    f"{asm_done.get('maxDispM')} m off their seats — the restore must be "
                    f"byte-exact or every other level inherits a displaced article")
+    # THE FLIGHTS THEMSELVES, swept: every trajectory against everything seated at its
+    # moment, planned until clean. Zero fouling arcs is the bar — the planner's candidate
+    # set must cover the article, and a residue would be a part visibly passing through
+    # another, the exact defect the designer caught by eye before this sweep existed. The
+    # settle lines are the prover's own and are held to a knife-edge rather than zero:
+    # their worst approach is REPORTED and capped at reading-as-touching.
+    asm_sweep = res.get("asmSweep") or {}
+    if asm_sweep.get("events") != len(manifest["nodes"]) + sum(
+            g["count"] for g in fresh["cuts"]["groups"].values()) - (
+            asm_pile.get("riders") or 0):
+        bad.append(f"the sweep covered {asm_sweep.get('events')} events — every joint and "
+                   f"member must be swept (riders sweep inside their member's event)")
+    if asm_sweep.get("flyViolations") != 0:
+        bad.append(f"{asm_sweep.get('flyViolations')} flight arcs still foul after "
+                   f"replanning, worst {asm_sweep.get('flyWorstMm')} mm — a part on screen "
+                   f"passes through a seated one and the candidate set did not save it")
+    if asm_sweep.get("settleWorstMm") is None or asm_sweep["settleWorstMm"] > 3.0:
+        bad.append(f"a settle approach closes to {asm_sweep.get('settleWorstMm')} mm of "
+                   f"penetration against a seated part — the proven lines should clear "
+                   f"the article's bodies; this one visibly does not")
+    asm_step = res.get("asmStep") or {}
+    if not (asm_step.get("cap") or "").strip():
+        bad.append("stepping the guide returned an empty caption — the assembly guide "
+                   "has nothing to say about the part it just placed")
     # THE JOINTS ARE MESHES NOW, so the receiver count's job — a member family drawn with
     # no joint on it, the way the rim went for weeks — is done by counting drawn joint
     # meshes against the manifest and drawn pipe instances against the cut schedule. Both
@@ -934,9 +964,14 @@ def main() -> None:
           f"{_n.get('thicknessMm', 0):.5f} mm out of plane, "
           f"{_n.get('overlaps')} overlapping face pairs — it can be cut.")
     _a = res.get("asmPile") or {}
+    _s = res.get("asmSweep") or {}
     print(f"          the article assembles itself: {_a.get('joints')} joints + "
           f"{_a.get('members')} members fly in from a pile {_a.get('maxDispM', 0):.2f} m "
           "deep, in the prover's own build order, and restore byte-exact.")
+    print(f"          every flight swept against the seated article: "
+          f"{_s.get('events')} trajectories, {_s.get('replanned')} arcs replanned, "
+          f"{_s.get('flyViolations')} fouling; worst settle approach "
+          f"{_s.get('settleWorstMm')} mm of the proven lines' clearance spent.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
           f"#tourNext: camera, panel and dim agree.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "

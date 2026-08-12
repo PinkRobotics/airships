@@ -198,12 +198,40 @@ frame is whole because that is the build order too.
 Mechanics for whoever touches it: default state is FULLY ASSEMBLED and the seated
 instance matrices are byte-cached at build time — `apply(1)` restores them exactly, and
 the gate asserts displaced = 0 AND maxDisp = 0 after a played build (watch the falsy-zero
-trap: `x or 1` on a measured 0.0 invented a failure on this feature's first run). The
-mode is scoped HARD to the cell level (the stage cell is shared; leaving the level snaps
-everything home in stepAssemble). Pile poses are hashed deterministically — never
-Math.random, or no gate could reproduce a frame. Pipes' per-instance stretch rides in
-their matrix column norms: the animation rotates the seated columns and replaces only
-the translation, so a pipe cannot change length mid-flight.
+trap: `x or 1` on a measured 0.0 invented a failure on this feature's first run — AND
+AGAIN the same day on the sweep's settleWorstMm; it is the house's own trap and it bites
+the person who just documented it). The mode is scoped HARD to the cell level (the stage
+cell is shared; leaving the level snaps everything home in stepAssemble). Pile poses are
+hashed deterministically — never Math.random, or no gate could reproduce a frame. Pipes'
+per-instance stretch rides in their matrix column norms: the animation rotates the
+seated columns and replaces only the translation, so a pipe cannot change length
+mid-flight.
+
+**Round two, all designer catches (same day, late):**
+- **The build order is tree-constrained now.** The designer spotted the seam: the
+  spanning tree roots at a square-centre joint while pure |midpoint| walks from the cell
+  centre, so 27 tree members used to arrive AFTER their joint was pinned — and a 20 mm
+  stub cannot engage sideways. A3 emits the constrained order (Kahn over the
+  tree-dependency graph, same key among the ready set): every joint arrives CARRIED by
+  its own discovery member, still 0 blocked at any turn. gen_node_families transcribes
+  the same construction and its dir-attach guard refuses any divergence by name.
+- **Every approach is a proven line.** escape_scan returns the direction it verifies;
+  A3 emits all 216 as buildOrder.escapeDirs; closing members fly their reversed escape.
+  Tree pairs slide the parent axis (A4's motion).
+- **The page sweeps its own animation.** Every trajectory — fly arc, settle line, pipe
+  capsule, rider sphere — against everything seated at that timeline moment; fouling
+  arcs replanned from a candidate set; residue REPORTED and gated (currently 217
+  trajectories, 0 replanned, 0 fouling, 0 settle penetration). MUTATION-TESTED: collapse
+  the arcs and it reports 2 fouls at 7.4 mm — the sweep can fire, so its zero means
+  something. Joint collision body is the central-mass sphere (core+lip+2, derived);
+  bare stubs are accepted crossings.
+- **The player is an assembly guide**: wide top scrubber, replay / step-back /
+  play-reverse / pause / play / step-forward / speed; captions name each part, its saw
+  length, group, both joints by STL name, and the swing angle — all off generated data.
+  `?build=1` plays, `?build=0.45` parks.
+- **The ledger** (cell panel, above the metric boxes): total, film, tube and joints
+  split primary/secondary, displaced air + float target + to-shed at sea level and at
+  altitude, crush tf/kPa at both — every row bound, breakdown sums to the total.
 
 ## Open work, in priority order
 

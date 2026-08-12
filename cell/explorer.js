@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=c029f650';
-import * as G from './explorer-geom.js?v=c029f650';
+import * as CELL from './model.js?v=a6184ba1';
+import * as G from './explorer-geom.js?v=a6184ba1';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=c029f650';
+} from './nodes.generated.js?v=a6184ba1';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=c029f650';
+import { NODEMESHES } from './nodemeshes.generated.js?v=a6184ba1';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -270,6 +270,45 @@ function skinBlock(span, stock, edge) {
   };
 }
 
+/* THE LEDGER — mass against the air, the page's own summary of the only fight that
+ * matters. Every row is derived: the breakdown comes off the cut schedule's single-family
+ * groups and the manifest's joint families (primary = the octet's own lattice, secondary =
+ * the boundary apparatus the odd-n article carries), the air comes off the model's ISA
+ * density at each altitude, and the pressure is recovered from that same density through
+ * the ISA identity p = rho·R·T rather than typed — at sea level it reproduces P_ATM to
+ * the pascal, which is the check that it is the same atmosphere. */
+function weighBlock(demo, stock, cuts, skin, altM) {
+  const V = demo.enclosedL / 1000;
+  const A = skin.areaM2;
+  const at = (h) => {
+    const rho = CELL.rhoAir(h);
+    const p = rho * 287.05 * (288.15 - 0.0065 * h);
+    return { airKg: rho * V, forceTf: p * A / 9806.65, pKPa: p / 1000 };
+  };
+  const sl = at(0), up = at(altM);
+  let tubePriKg = 0, tubeSecKg = 0;
+  for (const k of Object.keys(cuts.groups)) {
+    const g = cuts.groups[k];
+    if (Object.keys(g.kinds)[0] === 'octet') tubePriKg += g.memberKg;
+    else tubeSecKg += g.memberKg;
+  }
+  const jKg = (keys) => keys.reduce((t, k) => t + NODE_FAMILIES[k].massGSum, 0) / 1000;
+  const jointPriKg = jKg(['lattice-12', 'lattice-11', 'lattice-8']);
+  const jointSecKg = jKg(['rimVertex-7', 'hexHub-9']);
+  const filmKg = skin.filmG / 1000;
+  const totalKg = stock.totalKg;
+  return {
+    totalKg, filmG: skin.filmG,
+    tubePriKg, tubeSecKg, jointPriKg, jointSecKg,
+    sumKg: tubePriKg + tubeSecKg + jointPriKg + jointSecKg + filmKg,
+    airSLG: sl.airKg * 1000, airUpG: up.airKg * 1000,
+    overSLx: totalKg / sl.airKg, overUpx: totalKg / up.airKg,
+    shedSLKg: totalKg - sl.airKg, shedUpKg: totalKg - up.airKg,
+    forceSLTf: sl.forceTf, forceUpTf: up.forceTf,
+    pSLKPa: sl.pKPa, pUpKPa: up.pKPa,
+  };
+}
+
 /* ---------- everything the page displays, computed in one place ------------------------------- */
 
 const P100 = resolveClass('P100');
@@ -293,6 +332,8 @@ export function computeCtx(matKey = 'PAHT_Z', altM = 2500) {
   const tRef = CELL.tubeStrut(M.M60J_LAM);
   const stock = CELL.stockBuild();
   const edge = CELL.filmEdgeLoads(demo.spanM);
+  const cuts = cutSchedule(stock, M.T700_LAM);
+  const skin = skinBlock(demo.spanM, stock, edge);
   const totals = {};
   for (const [k, mm] of Object.entries(M)) {
     const ts = CELL.totalShell(mm, 2.0);
@@ -323,8 +364,8 @@ export function computeCtx(matKey = 'PAHT_Z', altM = 2500) {
     fam: NODE_FAMILIES, nodes: NODE_TOTALS, joint: JOINT,
     // The saw schedule and the membrane: model lengths and manifest seat depths in one
     // case, the model's own film arithmetic recovered from barrierKgPerM2 in the other.
-    cuts: cutSchedule(stock, M.T700_LAM),
-    skin: skinBlock(demo.spanM, stock, edge),
+    cuts, skin,
+    weigh: weighBlock(demo, stock, cuts, skin, altM),
     padDiaMm: CELL.PAD_R_M * 2000,
     pahtRho: CELL.MATERIALS.PAHT_Z.rho,
     // The fibre the purchased tube is priced as, named by the model rather than by the
@@ -1041,6 +1082,20 @@ function buildCell(ctx) {
     }
     const N = evs.length;
     const w = Math.max(0.02, 9 / Math.max(N, 1));
+    // THE GUIDE CAPTIONS. The designer's brief: usable as an assembly guide, so every
+    // event names the PART — the joint's own STL name, the pipe's family and saw length —
+    // and where it connects, by the STL names of the joints at both ends. Nothing here is
+    // prose someone typed: files come off the mesh manifest, cuts off the schedule, the
+    // swing angle off the same kinematic identity the animation flies.
+    const partByKey = new Map(parts.map((p2) => [p2.key, p2]));
+    const fileOf = (p2) => {
+      const r2 = meshOf.get(`${p2.role}|${p2.u.join(',')}`);
+      return r2 ? r2.file.replace('.stl', '') : p2.key;
+    };
+    const famName = (p2) => {
+      const f2 = NODE_FAMILIES[`${p2.role}-${p2.arms}`];
+      return f2 ? f2.name : p2.role;
+    };
     const pileAt = (i, salt) => {
       const r = span * 0.55 * Math.sqrt(h(i, 1 + salt));
       const th = 2 * Math.PI * h(i, 2 + salt);
@@ -1072,6 +1127,7 @@ function buildCell(ctx) {
           const sp = [ev.seated[12], ev.seated[13], ev.seated[14]];
           ev.way = wayFor(ev.pile, sp);
         }
+        ev.cap = `place ${fileOf(ev.part)} — ${famName(ev.part)}`;
       } else {
         const [nid, idx] = ev.rec.inst[0];
         ev.node = animNodes.get(nid);
@@ -1125,6 +1181,15 @@ function buildCell(ctx) {
             ev.riderTumbleAng = (0.5 + 1.5 * h(i, 18)) * Math.PI;
           }
         }
+        const pa = partByKey.get(ev.rec.keys[0]), pb = partByKey.get(ev.rec.keys[1]);
+        const g = ev.rec.group ? CUT_GROUPS.groups[ev.rec.group] : null;
+        ev.cap = `${ev.rec.kind} pipe`
+          + (g ? ` · cut ${g.cutMm.toFixed(2)} mm (${ev.rec.group})` : '')
+          + (pa && pb ? ` · joins ${fileOf(pa)} ↔ ${fileOf(pb)}` : '')
+          + (ev.rider ? ` · carries ${fileOf(ev.rider)} in with it` : '')
+          + (ev.closing && ev.phi
+              ? ` · swings in at ${(ev.phi * 180 / Math.PI).toFixed(1)}°`
+              : ' · slides on axially');
       }
     });
     const aa3 = (ax, ang, out) => {                  // 3x3 axis-angle, column-major
@@ -1147,6 +1212,34 @@ function buildCell(ctx) {
               a * A[1] + b * W[1] + c * B[1],
               a * A[2] + b * W[2] + c * B[2]];
     };
+    // ---- collision geometry, for the sweep and the planner ----
+    const segDist = (P1, Q1, P2, Q2) => {
+      // Closest distance between two segments — the standard clamped closed form.
+      const d1 = sub(Q1, P1), d2 = sub(Q2, P2), r = sub(P1, P2);
+      const a = dot(d1, d1), e = dot(d2, d2), f = dot(d2, r);
+      let s, t;
+      if (a <= 1e-12 && e <= 1e-12) return Math.hypot(...r);
+      if (a <= 1e-12) { s = 0; t = clamp(f / e, 0, 1); }
+      else {
+        const c = dot(d1, r);
+        if (e <= 1e-12) { t = 0; s = clamp(-c / a, 0, 1); }
+        else {
+          const b = dot(d1, d2), den = a * e - b * b;
+          s = den > 1e-12 ? clamp((b * f - c * e) / den, 0, 1) : 0;
+          t = (b * s + f) / e;
+          if (t < 0) { t = 0; s = clamp(-c / a, 0, 1); }
+          else if (t > 1) { t = 1; s = clamp((b - c) / a, 0, 1); }
+        }
+      }
+      const c1 = add(P1, scale(d1, s)), c2 = add(P2, scale(d2, t));
+      return Math.hypot(c1[0] - c2[0], c1[1] - c2[1], c1[2] - c2[2]);
+    };
+    const ptSegDist = (P, A, B) => segDist(P, P, A, B);
+    // The joint's collision body: a sphere around the blended central mass — core, collar
+    // reach and a little blend. Tree stubs stick past it and are accepted: a fast flight
+    // crossing a bare 4 mm spigot does not read as a violation, a pipe through the body
+    // does. Derived from the manifest's own parameters, not typed.
+    const R_JOINT = (JOINT.coreRMm + JOINT.lipMm + 2.0) / 1000;
     const writePose = (seated, node, idx, Rm, pos) => {
       // Rotate the seated matrix's three columns — per-instance stretch rides in their
       // norms and must survive, or a pipe changes length mid-flight — then replace the
@@ -1170,7 +1263,52 @@ function buildCell(ctx) {
       if (ang2 > 1e-6) { aa3(axis2, ang2, R2); return R2; }
       return I3;
     };
+    // Per-member capsule: half-length column (stretch included) and radius, off the group.
+    for (const ev of evs) {
+      if (ev.kind === 'member' && ev.seated && ev.rec.group) {
+        const g = CUT_GROUPS.groups[ev.rec.group];
+        const hl = g.cutMm / 2000;
+        ev.c0h = [ev.seated[0] * hl, ev.seated[1] * hl, ev.seated[2] * hl];
+        ev.rPipe = g.odMm / 2000;
+      }
+    }
+    /* ---- THE POSES, one authority. The animation draws exactly these and the sweep
+     * below tests exactly these, so "the sweep passed" is a statement about the motion
+     * on screen, not about a lookalike. ---- */
+    const memberPose = (ev, a) => {
+      const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
+      let pos, tumble = 0, q = 0;
+      let tilt = ev.closing ? ev.phi : 0;
+      if (a < 0.6) {
+        const p = easeInOut(a / 0.6);
+        pos = bez(ev.pile, ev.way, ev.stage, p);
+        tumble = ev.tumbleAng * (1 - p);
+      } else {
+        q = easeInOut((a - 0.6) / 0.4);
+        pos = lerp3(ev.stage, seatPos, q);
+        tilt *= (1 - q);
+      }
+      return { pos, Rm: rotFor(ev.tumbleAxis, tumble, ev.tiltAxis, tilt), q };
+    };
+    const riderPose = (ev, a, q) => {
+      const rSeat = [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]];
+      if (a < 0.6) {
+        const p = easeInOut(a / 0.6);
+        return { pos: bez(ev.riderPile, ev.riderWay, ev.riderStage, p),
+                 Rm: rotFor(ev.riderTumbleAxis, ev.riderTumbleAng * (1 - p), null, 0) };
+      }
+      return { pos: lerp3(ev.riderStage, rSeat, q), Rm: I3 };
+    };
+    const jointPose = (ev, a) => {
+      const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
+      const p = easeInOut(a);
+      return { pos: bez(ev.pile, ev.way, seatPos, p),
+               Rm: rotFor(ev.tumbleAxis, ev.tumbleAng * (1 - p), null, 0) };
+    };
     function apply(t) {
+      // Plan on first real use, not at page load: ~a quarter second of sweeping and
+      // replanning, memoised, spent the first time anything actually animates.
+      if (!planStats && t < 1) plan();
       const touched = new Set();
       for (const ev of evs) {
         if (!ev.node || !ev.seated) continue;
@@ -1184,53 +1322,140 @@ function buildCell(ctx) {
           }
           continue;
         }
-        const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
         if (ev.kind === 'joint') {
-          const p = easeInOut(a);
-          writePose(ev.seated, ev.node, ev.idx,
-                    rotFor(ev.tumbleAxis, ev.tumbleAng * (1 - p), null, 0),
-                    bez(ev.pile, ev.way, seatPos, p));
+          const jp = jointPose(ev, a);
+          writePose(ev.seated, ev.node, ev.idx, jp.Rm, jp.pos);
           touched.add(ev.node);
           continue;
         }
-        let pos, tumble = 0;
-        let tilt = ev.closing ? ev.phi : 0;
-        let q = 0;
-        if (a < 0.6) {
-          const p = easeInOut(a / 0.6);
-          pos = bez(ev.pile, ev.way, ev.stage, p);
-          tumble = ev.tumbleAng * (1 - p);
-        } else {
-          q = easeInOut((a - 0.6) / 0.4);
-          pos = lerp3(ev.stage, seatPos, q);
-          tilt *= (1 - q);
-        }
-        writePose(ev.seated, ev.node, ev.idx,
-                  rotFor(ev.tumbleAxis, tumble, ev.tiltAxis, tilt), pos);
+        const mp = memberPose(ev, a);
+        writePose(ev.seated, ev.node, ev.idx, mp.Rm, mp.pos);
         touched.add(ev.node);
-        // The rider joint moves with its member: its own arc from its own pile spot to a
-        // staging offset by the SAME approach vector, then the locked slide home — the
-        // pair arrive as one part, exactly the motion A4 proves.
+        // The rider joint moves with its member — the pair arrive as one part, A4's own
+        // proven motion.
         if (ev.riderNode && ev.riderSeated) {
-          const rSeat = [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]];
-          let rPos, rTum = 0;
-          if (a < 0.6) {
-            const p = easeInOut(a / 0.6);
-            rPos = bez(ev.riderPile, ev.riderWay, ev.riderStage, p);
-            rTum = ev.riderTumbleAng * (1 - p);
-          } else {
-            rPos = lerp3(ev.riderStage, rSeat, q);
-          }
-          writePose(ev.riderSeated, ev.riderNode, 0,
-                    rotFor(ev.riderTumbleAxis, rTum, null, 0), rPos);
+          const rp = riderPose(ev, a, mp.q);
+          writePose(ev.riderSeated, ev.riderNode, 0, rp.Rm, rp.pos);
           touched.add(ev.riderNode);
         }
       }
       for (const n of touched) n.inst.dirty = true;
     }
+    /* ---- THE SWEEP AND THE PLANNER. The designer's charge was fair: the first cut threw
+     * parts at their seats and hoped. Now every event's whole trajectory — fly arc and
+     * settle line, pipe capsule and joint sphere, rider included — is swept against every
+     * part already seated at that moment of the timeline, and any event whose arc fouls
+     * is REPLANNED from a candidate set (wider arcs, higher arcs, swung arcs) until its
+     * flight sweeps clean; if nothing in the set clears, the least-fouling arc is taken
+     * and the residue is REPORTED, never hidden. Co-flying neighbours are not checked
+     * against each other — they are loose formation in fast transit — and the settle
+     * lines are not replanned, because they are the prover's own: what the sweep finds
+     * there is published as settleWorstMm and gated. Deterministic throughout, so the
+     * gate reproduces every frame of it. ---- */
+    const applyR3 = (Rm, v) => [Rm[0] * v[0] + Rm[3] * v[1] + Rm[6] * v[2],
+                                Rm[1] * v[0] + Rm[4] * v[1] + Rm[7] * v[2],
+                                Rm[2] * v[0] + Rm[5] * v[1] + Rm[8] * v[2]];
+    const seatedBodies = (ev) => {
+      const out = [];
+      if (!ev.seated) return out;
+      const p = [ev.seated[12], ev.seated[13], ev.seated[14]];
+      if (ev.kind === 'joint') out.push({ sph: p, r: R_JOINT });
+      else if (ev.c0h) {
+        out.push({ A: sub(p, ev.c0h), B: add(p, ev.c0h), r: ev.rPipe });
+        if (ev.riderSeated) {
+          out.push({ sph: [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]],
+                     r: R_JOINT });
+        }
+      }
+      return out;
+    };
+    const movingPen = (ev, a, bodies) => {
+      let worst = 0;
+      const test = (mv) => {
+        for (const b of bodies) {
+          let d;
+          if (mv.sph && b.sph) d = Math.hypot(...sub(mv.sph, b.sph));
+          else if (mv.sph) d = ptSegDist(mv.sph, b.A, b.B);
+          else if (b.sph) d = ptSegDist(b.sph, mv.A, mv.B);
+          else d = segDist(mv.A, mv.B, b.A, b.B);
+          const pen = (mv.r + b.r) - d;
+          if (pen > worst) worst = pen;
+        }
+      };
+      if (ev.kind === 'joint') {
+        test({ sph: jointPose(ev, a).pos, r: R_JOINT });
+      } else {
+        const mp = memberPose(ev, a);
+        if (ev.c0h) {
+          const c = applyR3(mp.Rm, ev.c0h);
+          test({ A: sub(mp.pos, c), B: add(mp.pos, c), r: ev.rPipe });
+        }
+        if (ev.riderNode && ev.riderSeated) {
+          test({ sph: riderPose(ev, a, mp.q).pos, r: R_JOINT });
+        }
+      }
+      return worst;
+    };
+    const FLY_AS = [];
+    for (let s2 = 1; s2 <= 14; s2++) FLY_AS.push(0.6 * s2 / 14.5);
+    const SETTLE_AS = [];
+    for (let s2 = 1; s2 <= 10; s2++) SETTLE_AS.push(0.6 + 0.4 * s2 / 10.5);
+    const sweepEvent = (ev, bodies) => {
+      let fly = 0, settle = 0;
+      for (const a of FLY_AS) fly = Math.max(fly, movingPen(ev, a, bodies));
+      if (ev.kind === 'member') {
+        for (const a of SETTLE_AS) settle = Math.max(settle, movingPen(ev, a, bodies));
+      }
+      return { fly, settle };
+    };
+    const rotAbout = (axis, v, ang) => { aa3(axis, ang, R1); return applyR3(R1, v); };
+    let planStats = null;
+    function plan() {
+      if (planStats) return planStats;
+      const TOL = 0.0005;                            // half a millimetre reads as touching
+      let replanned = 0, flyViol = 0, flyWorst = 0, settleWorst = 0;
+      const bodies = [];
+      let nextSeated = 0;
+      for (const ev of evs) {
+        while (nextSeated < evs.length && evs[nextSeated].t1 <= ev.t0 + 1e-9) {
+          for (const b of seatedBodies(evs[nextSeated])) bodies.push(b);
+          nextSeated++;
+        }
+        if (!ev.node || !ev.seated) continue;
+        const way0 = ev.way, rway0 = ev.riderWay;
+        const cands = [0, 1.25, 1.5, 0.45, -0.45, 0.9, -0.9, 1.85];
+        let best = null, bestPen = Infinity;
+        for (const c of cands) {
+          if (c === 0) { ev.way = way0; if (rway0) ev.riderWay = rway0; }
+          else if (c > 1) {                          // wider and higher
+            ev.way = scale(way0, c);
+            if (rway0) ev.riderWay = scale(rway0, c);
+          } else {                                   // swung about the pile's own vertical
+            ev.way = rotAbout(dn, scale(way0, 1.3), c * 2);
+            if (rway0) ev.riderWay = rotAbout(dn, scale(rway0, 1.3), c * 2);
+          }
+          const r = sweepEvent(ev, bodies);
+          if (r.fly < bestPen) { bestPen = r.fly; best = { way: ev.way, rway: ev.riderWay, r }; }
+          if (r.fly <= TOL) break;
+        }
+        ev.way = best.way;
+        if (rway0) ev.riderWay = best.rway;
+        if (bestPen > TOL) flyViol++;
+        if (best.way !== way0) replanned++;
+        flyWorst = Math.max(flyWorst, bestPen);
+        settleWorst = Math.max(settleWorst, best.r.settle);
+      }
+      planStats = {
+        events: evs.length, replanned, flyViolations: flyViol,
+        flyWorstMm: Math.round(flyWorst * 1e4) / 10,
+        settleWorstMm: Math.round(settleWorst * 1e4) / 10,
+      };
+      return planStats;
+    }
     const riders = evs.filter((e) => e.riderNode && e.riderSeated).length;
     return {
-      apply,
+      apply, plan,
+      windows: evs.map((ev) => ({ t0: ev.t0, t1: ev.t1, cap: ev.cap || '' })),
       counts: {
         joints: evs.filter((e) => e.kind === 'joint').length + riders,
         members: evs.filter((e) => e.kind === 'member').length,
@@ -1811,6 +2036,8 @@ export function mountExplorer(opts) {
     unfoldTo: 0,                 // what it is easing toward
     assemble: 1,                 // 0 = a pile of parts, 1 = the finished article (default)
     assembleTo: 1,               // what it is easing toward; scoped to the cell level
+    assembleSpeed: 1,            // playback multiplier on ASSEMBLE_SECONDS
+    assembleStepIdx: null,       // guide mode: the event a step landed on; null = live
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     // THE CELL OPENS ON ITS CENTRE JOINT. "Everything" is 216 identical-looking sticks and
     // says nothing about how the cell carries load; lighting the twelve members that reach
@@ -2354,7 +2581,8 @@ export function mountExplorer(opts) {
     }
     const d = state.assembleTo - state.assemble;
     if (Math.abs(d) < 1e-4) return;
-    state.assemble += Math.sign(d) * Math.min(Math.abs(d), dt / ASSEMBLE_SECONDS);
+    state.assemble += Math.sign(d) * Math.min(
+      Math.abs(d), (dt / ASSEMBLE_SECONDS) * (state.assembleSpeed || 1));
     state.assemble = clamp(state.assemble, 0, 1);
     cell.assembly.apply(state.assemble);
     dirty = true;
@@ -2616,22 +2844,77 @@ export function mountExplorer(opts) {
     setCut(v) { state.cut = v; dirty = true; },
     /** Scrub the assembly: 0 = a pile of parts, 1 = the finished cell. The stepper eases
      * the live value toward this; only meaningful on the cell level, snaps home off it. */
-    setAssemble(v) { state.assembleTo = clamp(v, 0, 1); dirty = true; },
+    setAssemble(v) { state.assembleStepIdx = null; state.assembleTo = clamp(v, 0, 1);
+                     dirty = true; },
     /** Play the whole build: drop everything into the pile and let it assemble. */
-    playAssembly() { state.assemble = 0; state.assembleTo = 1; dirty = true; },
-    /** Park the build at t without easing — deep links and the gate's pose checks. The
-     * scope guard still owns it: off the cell level this snaps home next frame. */
+    playAssembly() { state.assembleStepIdx = null; state.assemble = 0; state.assembleTo = 1;
+                     dirty = true; },
+    /** Park the build at t without easing — deep links, scrubbing and the gate's pose
+     * checks. The scope guard still owns it: off the cell level this snaps home. */
     jumpAssemble(v) {
+      state.assembleStepIdx = null;
       state.assemble = state.assembleTo = clamp(v, 0, 1);
       const a = built[STAGE_LEVEL].assembly;
       if (a) a.apply(state.assemble);
       dirty = true;
+    },
+    /** The transport: play in either direction, hold, and set the pace. */
+    assemblePlay(dir) { state.assembleStepIdx = null;
+                        state.assembleTo = dir < 0 ? 0 : 1; dirty = true; },
+    assemblePause() { state.assembleTo = state.assemble; dirty = true; },
+    setAssembleSpeed(x) { state.assembleSpeed = clamp(x, 0.1, 8); return state.assembleSpeed; },
+    /** GUIDE MODE: advance or rewind exactly one part. Each step parks the build at the
+     * end of that part's own window and the caption names it — the part, its saw length,
+     * and the joints it lands between — which is what makes the player an assembly guide
+     * rather than a film. */
+    assembleStep(d) {
+      const a = built[STAGE_LEVEL].assembly;
+      if (!a) return null;
+      const ws = a.windows;
+      let i = state.assembleStepIdx;
+      if (i === null || i === undefined) {
+        i = -1;
+        for (let k2 = 0; k2 < ws.length; k2++) {
+          if (ws[k2].t1 <= state.assemble + 1e-6) i = k2;
+        }
+      }
+      i = clamp(i + d, 0, ws.length - 1);
+      state.assembleStepIdx = i;
+      state.assemble = state.assembleTo = Math.min(1, ws[i].t1 + 1e-4);
+      a.apply(state.assemble);
+      dirty = true;
+      return { idx: i, steps: ws.length, cap: ws[i].cap };
+    },
+    /** What the guide should read right now: the step index, its caption, and whether the
+     * build is running. A manual step pins the caption to its part; play or scrub returns
+     * it to the newest part in flight. */
+    assemblyGuide() {
+      const a = built[STAGE_LEVEL].assembly;
+      if (!a) return null;
+      const ws = a.windows;
+      let i = state.assembleStepIdx;
+      if (i === null || i === undefined) {
+        i = -1;
+        for (let k2 = 0; k2 < ws.length; k2++) {
+          if (ws[k2].t0 <= state.assemble) i = k2; else break;
+        }
+      }
+      return { t: state.assemble, steps: ws.length, idx: i,
+               cap: i >= 0 ? ws[i].cap : 'a pile of parts, and a proven order',
+               playing: Math.abs(state.assembleTo - state.assemble) > 1e-4,
+               speed: state.assembleSpeed };
     },
     /** The gate's probe: parts displaced from their seated matrices, and by how far —
      * measured off the live instance buffers, never off the animation's own bookkeeping. */
     assemblyProbe() {
       const a = built[STAGE_LEVEL].assembly;
       return a ? { t: state.assemble, ...a.probe(), ...a.counts } : null;
+    },
+    /** Run (or fetch) the trajectory sweep and the planner: every flight tested against
+     * everything seated at its moment, arcs replanned until clean, residue reported. */
+    assemblySweep() {
+      const a = built[STAGE_LEVEL].assembly;
+      return a ? a.plan() : null;
     },
     /** The tour, exposed so the page's button and the gate drive the same thing. */
     tourFor(idx) { return tourOf(idx === undefined ? state.levelIdx : idx); },

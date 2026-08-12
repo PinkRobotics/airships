@@ -159,6 +159,21 @@
   #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap;flex:1}
   .gbtn.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
 
+  /* ---- the ledger: mass against the air — dense rows above the metric boxes ---- */
+  #ledger{margin:var(--s3) 0 var(--s4);border:1px solid var(--line);
+       border-radius:var(--r-sm);background:rgba(255,255,255,.02);padding:8px 10px}
+  #ledger .lg-h{font:var(--t-11) var(--mono);letter-spacing:.12em;text-transform:uppercase;
+       color:var(--faint);margin-bottom:6px}
+  #ledger .lg-g{display:grid;grid-template-columns:1fr auto;gap:2px 12px;
+       align-items:baseline}
+  #ledger .k{font:var(--t-11) var(--sans);color:var(--muted)}
+  #ledger .k.i{padding-left:12px}
+  #ledger .k.t{color:var(--bone)}
+  #ledger .v{font:var(--t-12) var(--mono);color:var(--bone);text-align:right;
+       white-space:nowrap}
+  #ledger .v.t{color:var(--warm)}
+  #ledger .k.s,#ledger .v.s{margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
+
   /* ---- cutaway, bottom left ---- */
   #cutbox{position:fixed;left:var(--s5);bottom:var(--s4);z-index:6;display:flex;
        align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(8px);
@@ -167,22 +182,30 @@
        color:var(--faint)}
   #cutbox input[type=range]{accent-color:var(--warm);width:120px;margin:0}
   #cutbox output{font:var(--t-12) var(--mono);color:var(--bone);min-width:44px}
-  /* ---- ASSEMBLY — the page's hero control: top centre, cell level only. The one thing a
-          visitor should not be able to miss: the article builds itself, in the prover's
-          own order, and this is the button that plays it. ---- */
-  #asmbox{position:fixed;top:var(--s4);left:50%;transform:translateX(-50%);z-index:8;
-       display:flex;align-items:center;gap:14px;background:rgba(13,13,16,.88);
-       backdrop-filter:blur(10px);border:1px solid var(--warm-dim);
-       border-radius:var(--r-sm);padding:10px 16px;
-       box-shadow:0 4px 28px rgba(0,0,0,.5),0 0 20px rgba(255,79,163,.16)}
-  #asmbox label{font:var(--t-11) var(--mono);letter-spacing:.10em;text-transform:uppercase;
-       color:var(--faint)}
-  #asmbox input[type=range]{accent-color:var(--warm);width:190px;margin:0}
-  #asmPlay{font:var(--t-13) var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  /* ---- ASSEMBLY — the page's hero control AND an assembly guide: a wide scrubber across
+          the top of the screen, transport underneath, and a live caption naming the part
+          in flight and the joints it lands between. Cell level only. ---- */
+  #asmbox{position:fixed;top:var(--s3);left:50%;transform:translateX(-50%);z-index:8;
+       width:min(960px,92vw);display:flex;flex-direction:column;gap:7px;
+       background:rgba(13,13,16,.88);backdrop-filter:blur(10px);
+       border:1px solid var(--warm-dim);border-radius:var(--r-sm);padding:10px 14px;
+       box-shadow:0 4px 28px rgba(0,0,0,.5),0 0 20px rgba(255,79,163,.14)}
+  #asmbox input[type=range]{accent-color:var(--warm);width:100%;margin:0;display:block}
+  #asmrow{display:flex;align-items:center;gap:6px;min-width:0}
+  #asmrow .tbtn{font:var(--t-12) var(--mono);color:var(--bone);cursor:pointer;
+       background:rgba(255,255,255,.035);border:1px solid var(--line);
+       border-radius:var(--r-sm);padding:4px 9px;white-space:nowrap;
+       transition:color .15s,border-color .15s,background .15s}
+  #asmrow .tbtn:hover{color:var(--text);border-color:var(--line-strong);
+       background:rgba(255,255,255,.07)}
+  #asmPlay{font:var(--t-12) var(--mono);letter-spacing:.12em;text-transform:uppercase;
        color:var(--bg);background:var(--warm);border:1px solid var(--warm);
-       border-radius:var(--r-sm);padding:8px 20px;cursor:pointer;
+       border-radius:var(--r-sm);padding:5px 14px;cursor:pointer;white-space:nowrap;
        transition:filter .15s,box-shadow .15s}
   #asmPlay:hover{filter:brightness(1.15);box-shadow:0 0 14px var(--warm-glow)}
+  #asmCap{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+       font:var(--t-12) var(--mono);color:var(--bone);text-align:right}
+  #asmCap .stepn{color:var(--faint)}
   #wallchip{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
   #wallchip .line1{font:var(--t-12) var(--mono);color:var(--bone)}
   #wallchip .line2{font:var(--t-11) var(--mono);color:var(--faint)}
@@ -377,6 +400,43 @@
     <span data-n="demo.printedNodes" data-f="0"></span> printed joints ·
     <span data-n="stock.totalKg" data-f="2"></span> kg</p>
 
+  <!-- THE LEDGER — mass against the air, denser than the boxes below it. Every number is
+       bound: the breakdown off the schedule and the manifest, the air and the crush off
+       the model's own atmosphere at each altitude. -->
+  <div id="ledger">
+    <div class="lg-h">the ledger — mass against the air</div>
+    <div class="lg-g">
+      <span class="k t">the article, all in</span>
+      <span class="v t"><span data-n="weigh.totalKg" data-f="2"></span> kg</span>
+      <span class="k i">film skin</span>
+      <span class="v"><span data-n="weigh.filmG" data-f="0"></span> g</span>
+      <span class="k i">supports, primary — the octet lattice</span>
+      <span class="v"><span data-n="weigh.tubePriKg" data-f="2"></span> kg</span>
+      <span class="k i">supports, secondary — rim, spokes, ties</span>
+      <span class="v"><span data-n="weigh.tubeSecKg" data-f="2"></span> kg</span>
+      <span class="k i">connectors, primary — lattice joints</span>
+      <span class="v"><span data-n="weigh.jointPriKg" data-f="2"></span> kg</span>
+      <span class="k i">connectors, secondary — boundary frame</span>
+      <span class="v"><span data-n="weigh.jointSecKg" data-f="2"></span> kg</span>
+      <span class="k s">air in the volume · sea level</span>
+      <span class="v s"><span data-n="weigh.airSLG" data-f="0"></span> g</span>
+      <span class="k i">float target = that air · over by</span>
+      <span class="v">×<span data-n="weigh.overSLx" data-f="1"></span> ·
+        <span data-n="weigh.shedSLKg" data-f="2"></span> kg to shed</span>
+      <span class="k s">air in the volume · <span data-n="altM" data-f="0"></span> m</span>
+      <span class="v s"><span data-n="weigh.airUpG" data-f="0"></span> g</span>
+      <span class="k i">float target = that air · over by</span>
+      <span class="v">×<span data-n="weigh.overUpx" data-f="1"></span> ·
+        <span data-n="weigh.shedUpKg" data-f="2"></span> kg to shed</span>
+      <span class="k s">crush on the shell · sea level</span>
+      <span class="v s"><span data-n="weigh.forceSLTf" data-f="1"></span> tf ·
+        <span data-n="weigh.pSLKPa" data-f="0"></span> kPa</span>
+      <span class="k i">crush on the shell · <span data-n="altM" data-f="0"></span> m</span>
+      <span class="v"><span data-n="weigh.forceUpTf" data-f="1"></span> tf ·
+        <span data-n="weigh.pUpKPa" data-f="0"></span> kPa</span>
+    </div>
+  </div>
+
   <div class="metrics">
     <div><div class="v"><span data-n="edge.totalSurfaceLoadTf" data-f="1"></span> <span class="u">tf</span></div>
       <div class="k">squeezing the whole surface</div></div>
@@ -421,17 +481,19 @@
   is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
 
   <p class="sowhat"><b>And it can assemble itself — press <b>assemble</b>, top centre.</b>
-  The build the animation plays is not choreography: it is the assembly prover's own order,
-  inside-out, and every approach is a line the prover verified — each of the
-  <span data-n="nodes.members" data-f="0"></span> members flies in along the straight-line
-  escape proven clear of everything placed before its turn, reversed. Of the
-  <span data-n="nodes.nodes" data-f="0"></span> joints, most fly in just before the first
-  member that needs them; the ones the spanning tree discovers ride in <em>with</em> their
-  tree member, joint and pipe sliding home as one along the parent axis — the free-motion
-  proof's own sweep. A closing member — there is no other way into a loop of fixed
-  joints — arrives tilted at its own computed entry angle and rotates down onto its
-  pilots. The skin stays off until the frame is whole, because that is the build order
-  too.</p>
+  The build the animation plays is not choreography: it is the assembly prover's own order
+  — inside-out, constrained so that every joint arrives carried by its own tree member —
+  and every approach is a line the prover verified. The seed joint is set down first;
+  after it, each of the <span data-n="nodes.members" data-f="0"></span> members flies in
+  along its proven straight-line escape, reversed, and every other joint of the
+  <span data-n="nodes.nodes" data-f="0"></span> rides in <em>with</em> its tree member,
+  joint and pipe sliding home as one along the parent axis — the free-motion proof's own
+  sweep, which is the only way a long spigot can engage at all. A closing member — there
+  is no other way into a loop of fixed joints — arrives tilted at its own computed entry
+  angle and rotates down onto its pilots. Every flight is swept against everything
+  already seated at its moment, and the step buttons walk it one part at a time with each
+  part's name, cut and joints — an assembly guide, not a film. The skin stays off until
+  the frame is whole, because that is the build order too.</p>
 
   <p class="sowhat"><b>This cell does not float, and printing is not what decides it.</b> To
   float it would have to weigh under
@@ -1378,11 +1440,23 @@
   <output id="cutOut">off</output>
 </div>
 
-<!-- ASSEMBLY — the build order, playable. Cell level only; the box hides elsewhere. -->
+<!-- ASSEMBLY — the build order as a playable guide. Cell level only; hides elsewhere.
+     The scrubber spans the whole box; the transport reads left to right — replay, step
+     back, play backward, hold, play forward, step forward, pace — and the caption names
+     the part in flight with the joints it lands between, off the same generated data the
+     animation flies. -->
 <div id="asmbox" hidden>
-  <button id="asmPlay">assemble</button>
-  <label for="asmR">build</label>
-  <input id="asmR" type="range" min="0" max="100" step="1" value="100">
+  <input id="asmR" type="range" min="0" max="1000" step="1" value="1000">
+  <div id="asmrow">
+    <button id="asmPlay">assemble</button>
+    <button id="asmStepB" class="tbtn" title="previous part">|&#8249;</button>
+    <button id="asmRev" class="tbtn" title="play backward">&#8249;</button>
+    <button id="asmPause" class="tbtn" title="hold">pause</button>
+    <button id="asmFwd" class="tbtn" title="play forward">&#8250;</button>
+    <button id="asmStepF" class="tbtn" title="next part">&#8250;|</button>
+    <button id="asmSpeed" class="tbtn" title="playback pace">1&times;</button>
+    <span id="asmCap"></span>
+  </div>
 </div>
   </div>
 </div>
@@ -1423,8 +1497,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=c029f650';
-import * as CELL from './model.js?v=c029f650';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=a6184ba1';
+import * as CELL from './model.js?v=a6184ba1';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1674,20 +1748,43 @@ if (!api) {
     cutOut.textContent = v >= 100 ? 'off' : (v / 100).toFixed(2);
   });
 
-  /* assembly — play the prover's own build order. The slider is a scrub AND a readout:
-   * while the build plays, it follows the live state, the same read-it-back rule as every
-   * label here. The box shows only on the cell level, where the mode is scoped. */
+  /* assembly — the build order as a playable guide. The scrubber and the caption are
+   * READOUTS as much as controls: while the build runs they follow the live state, the
+   * same read-it-back rule as every label here; the step buttons park exactly one part
+   * per press with its name and connections, which is the assembly-guide mode. The box
+   * shows only on the cell level, where the mode is scoped. */
   const asmBox = document.getElementById('asmbox');
   const asmR = document.getElementById('asmR');
+  const asmCap = document.getElementById('asmCap');
+  const SPEEDS = [0.5, 1, 2, 4];
+  let spdIdx = 1;
   document.getElementById('asmPlay').addEventListener('click', () => api.playAssembly());
-  asmR.addEventListener('input', () => api.setAssemble(+asmR.value / 100));
+  document.getElementById('asmFwd').addEventListener('click', () => api.assemblePlay(1));
+  document.getElementById('asmRev').addEventListener('click', () => api.assemblePlay(-1));
+  document.getElementById('asmPause').addEventListener('click', () => api.assemblePause());
+  document.getElementById('asmStepF').addEventListener('click', () => api.assembleStep(1));
+  document.getElementById('asmStepB').addEventListener('click', () => api.assembleStep(-1));
+  const spdBtn = document.getElementById('asmSpeed');
+  spdBtn.addEventListener('click', () => {
+    spdIdx = (spdIdx + 1) % SPEEDS.length;
+    const s = api.setAssembleSpeed(SPEEDS[spdIdx]);
+    spdBtn.textContent = (s === 0.5 ? '½' : s) + '×';
+  });
+  // Scrubbing PARKS the build exactly where the thumb is — no chase, no easing — and any
+  // of the play buttons resumes from there.
+  asmR.addEventListener('input', () => api.jumpAssemble(+asmR.value / 1000));
   setInterval(() => {
     const onCell = api.state.levelIdx === api.stageLevel;
     asmBox.hidden = !onCell;
-    if (onCell && document.activeElement !== asmR) {
-      asmR.value = Math.round(api.state.assemble * 100);
+    if (!onCell) return;
+    if (document.activeElement !== asmR) {
+      asmR.value = Math.round(api.state.assemble * 1000);
     }
-  }, 150);
+    const g = api.assemblyGuide();
+    if (g) {
+      asmCap.innerHTML = `<span class="stepn">${g.idx + 1}/${g.steps}</span> · ${g.cap}`;
+    }
+  }, 120);
   // ?build=1 plays the assembly on load; ?build=0.42 parks it mid-build — the still
   // harness loads a URL and cannot click, same deep-link rule as ?unfold=1.
   if (qs.has('build')) {

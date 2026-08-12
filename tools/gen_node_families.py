@@ -38,6 +38,7 @@ stress would be quoting a figure that holds for 12 of 432 member-ends.
 """
 from __future__ import annotations
 
+import heapq
 import json
 import math
 import pathlib
@@ -188,15 +189,16 @@ def assembly_order(gnodes: list, members: list) -> list:
     proof walks them, with each one's engagement kind, its arriving joint, and its proven
     approach line.
 
-    THE ORDER IS A3's OWN RULE, transcribed exactly — members sorted by ascending lattice
-    |midpoint|, ties broken by (family, u, v) — not a new opinion about how to build the
-    cell. check_assembly.build_order_access() derives the same order from the same graph
-    every run and PROVES it: zero members blocked at their own turn, straight-line escapes
-    swept against everything placed before each one, emitted as buildOrder in the report.
-    This transcription exists because the page reads generated modules, not prover reports,
-    and the rule is four deterministic lines; if the two ever diverge, A3's memberIds and
-    this list disagree on the same day the graphs do, and check_explorer's recompute of the
-    page's schedule is what goes red first.
+    THE ORDER IS A3's OWN RULE, transcribed exactly — inside-out and TREE-CONSTRAINED:
+    ascending lattice |midpoint| with (family, u, v) ties, taken only among members whose
+    end joints' discovery members are already placed — not a new opinion about how to
+    build the cell. check_assembly.build_order_access() derives the same order from the
+    same graph every run and PROVES it: members blocked at their own turn counted,
+    straight-line escapes swept against everything placed before each one, emitted as
+    buildOrder in the report. This transcription exists because the page reads generated
+    modules, not prover reports, and the rule is a dozen deterministic lines; if the two
+    ever diverge, the dir-attach guard below compares this list's ids against the
+    report's memberIds and refuses the mismatch by name.
 
     `closing` is the spanning tree's verdict, the same one that sizes the spigots: a tree
     member slides on axially over its full stub, a closing member swings in on pilots at
@@ -217,8 +219,37 @@ def assembly_order(gnodes: list, members: list) -> list:
         a, b, _f = members[k]
         return math.sqrt(sum(((ai + bi) / 2.0) ** 2 for ai, bi in zip(a, b)))
 
-    order = sorted(range(len(members)), key=lambda k: (mid(k), members[k][2], members[k][0],
-                                                       members[k][1]))
+    # Inside-out AND tree-constrained, exactly as A3 emits it since the designer caught
+    # the seam: the spanning tree is rooted at a square-centre joint while |midpoint|
+    # walks out from the cell centre, so an unconstrained order had 27 tree members
+    # arriving after their joint was already pinned — and a 20 mm stub cannot engage
+    # sideways. Kahn's construction with the same key among the ready set: every joint
+    # arrives carried by its own discovery member, deterministically.
+    tree_of = {tuple(arr): k for k, _p, arr in tree_order}
+    prereq: dict[int, set] = {}
+    dependents: dict[int, list] = {}
+    for k, (a, b, _f) in enumerate(members):
+        for u in (a, b):
+            d = tree_of.get(tuple(u))
+            if d is not None and d != k:
+                prereq.setdefault(k, set()).add(d)
+                dependents.setdefault(d, []).append(k)
+    key_of = {k: (mid(k), members[k][2], members[k][0], members[k][1])
+              for k in range(len(members))}
+    indeg = {k: len(prereq.get(k, ())) for k in range(len(members))}
+    ready = sorted((key_of[k], k) for k in range(len(members)) if indeg[k] == 0)
+    heapq.heapify(ready)
+    order = []
+    while ready:
+        _, k = heapq.heappop(ready)
+        order.append(k)
+        for k2 in dependents.get(k, ()):
+            indeg[k2] -= 1
+            if indeg[k2] == 0:
+                heapq.heappush(ready, (key_of[k2], k2))
+    if len(order) != len(members):
+        raise SystemExit("gen_node_families: tree-dependency order is cyclic — the "
+                         "constraint wiring no longer matches spanning_tree")
     rows = []
     for k in order:
         row = {"a": list(members[k][0]), "b": list(members[k][1]),
