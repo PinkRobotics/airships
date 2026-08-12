@@ -230,9 +230,25 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    (5–7 kN) — 3–7× over; keeping the frame at proven loads wants ≥~6 pickup points per
    cell around the rim ring, or a spreader cradle. Couples #6 (pitch) and #7 (retune);
    same license (865 tool + U4). Catalog carries the part as `conn-tie`, scoping.
-9. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
+9. **THE WEB↔SEALED-WALL JUNCTION (operator found it, 08-12 late — a real hole in the
+   scoping):** analysis v2 says "band hangs inside the outer face; webs double as the
+   hangers" but never draws how webs CROSS the sealed band to reach the inner wall.
+   Three candidate resolutions, recommendation attached:
+   (a) BAG-INBOARD (operator's instinct): unbroken wall hung inside everything — zero
+   penetrations but the truss then sits in atmosphere and the annulus stops being lift
+   (~25–30 % of buoyancy). (b) PLATING-ON-FRAMES: confine web lacing to discrete ring
+   planes; band strips seal circumferentially to each ring frame — penetrations become
+   long bonded seams to structure (naval-architecture classic; keeps current layout).
+   (c) BAND-OUTSIDE (RECOMMENDED): flip the band just outside the outer wall — the sky
+   presses it onto the skeleton: direct bearing back-support for every cell (seats,
+   not ropes), zero structural penetrations (all webs in vacuum), largest lift
+   boundary (+few % vs today, +~30 % vs bag), ties shrink to retention straps; trade =
+   film faces the weather side (jacket + standoff as hail armour), cell swaps from
+   outside. (c) REVISES the v2 arrangement — operator ruling required before any
+   figure/doctrine rebuild. Page carries the open-junction paragraph + fact chip.
+10. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
    (#10) at the head, then #65's remaining proofs, #64, #60, #68.
-10. **Helm governed Caddyfile re-sync** — small chore, helm session.
+11. **Helm governed Caddyfile re-sync** — small chore, helm session.
 
 The operator's standing style notes: decisive recommendations over menus; verify
 before claiming; numbers carry provenance or flags; bias toward shipping behind the
