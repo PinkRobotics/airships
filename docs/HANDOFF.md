@@ -375,24 +375,34 @@ is STALE, three arcs behind the live file; do not "restore" from it). Production
 keeps the current site until the operator says otherwise — do NOT run a bare
 `./deploy.sh pinkrobotics` for this work.
 
-**The level map (operator's assignments, 2026-08-12):**
-1. **The catalog** — sintered joints, pipes, skin materials, individually browsable; two panes
-   side by side with arrows below to walk each catalog. **LANDED first-pass** (`cell/levels.html`
-   + `cell/catalog.js` + `cell/levels.js`, commit 49f3c9e): status chips
-   (proven/decided/scoping/superseded), provenance line per part, true-relative-bore strip,
-   cell figures read live from `model.js` (stockBuild + saw table + weighed nodes).
-2. **The cell** — assemble-able and de-skinnable with each part zoomable: MERGE the explorer's
-   strut/wall/track/cell LEVELS entries into one clean UI (the explorer stays the engine; the
-   catalog is its parts bin). Not started — the shell links to the untouched explorer.
-3. **Assembling cells together** (the band). Stub only.
-4. **The big struts + the skin layers** (internal and external), animated like the cell's
-   assembly. Stub only — chord schedule and grid geometry come from the ship-scale analysis v2
-   in `~/data/airships-reviews/analysis/`.
-5. **RESERVED — the operator skipped five in the sequence.** Deliberately left unassigned on
-   the page; ask before naming it (candidate: closure & first pump-down).
-6. **Equipment & paint.** Stub only.
-7. **The wildfire operations dashboard** (`/airships/`), still flying the previous design;
-   re-points at the new build later. Linked from the shell.
+**Framing (operator, second ruling same day): the page is a VISUALIZATION of the design and
+the blueprint/iteration surface the explorer's levels will be rebuilt to match — NOT a build
+timeline.** All schedule language (planned/live chips, "for the next agent" notes) was removed
+from the page; scoping chips remain because they are number-honesty, not schedule.
+
+**The level map (operator's assignments, 2026-08-12; ALL levels filled with first-pass
+visualisations at commit 3fe303b):**
+1. **The catalog** — two-pane parts browser (tubes/connectors/skins, arrows walk each side,
+   true-relative-bore strip, status chips proven/decided/scoping/superseded, provenance +
+   flags per part). Cell figures read live from `model.js`. **Materials of record (operator:
+   "titanium, with clamped connectors"): the Ti clamp sleeve leads the connectors tab —
+   split clamshell, radial closure, `Closure: clamped` spec row; the printed polymer node
+   sits LAST as superseded history. Tubes = roll-wrapped T700; film = Zylon-class formed.**
+2. **The cell** — true Kelvin-cell wireframe (projected from the real vertex permutation
+   set in levels.js) + the mass bar with the float line (displaced-air mass, live from the
+   model). Still to come: MERGE the explorer's strut/wall/track/cell LEVELS entries into one
+   clean UI with per-part zoom (the explorer stays the engine; the catalog is its parts bin).
+3. **The band** — octagon-row cross-section: shared interior walls free, atmosphere arrows
+   above, vacuum below; facts: 1 atm in one span, areal by basis (scoping).
+4. **The grid & skins** — deep-sandwich wall section: outer chords (the ring hoops ARE the
+   frames), webs, the band hanging inside, inner chords, void skin; depth/bay/hoop facts.
+5. **"Closure" — PROVISIONAL name, chipped as such on the page** (the operator skipped five
+   in his sequence; confirm or rename with him). Content: hull-under-atmosphere schematic +
+   the BOTH-SF float ledger (+3.8 t green / −32.2 t red — the honest pair, always together).
+6. **Equipment & paint** — hull with callouts (rotors, tanks, winch+bag, avionics, livery);
+   the payload axis: budget = residual lift, lines named-not-weighed.
+7. **At work** — links the wildfire operations dashboard (`/airships/`), noted as flying the
+   previous design until the levels harden.
 
 **Rules for whoever picks up levels 2–7** (the operator explicitly deferred their details to
 the next agent): ship figures on any page stay `scoping`-chipped and live in `cell/catalog.js`
