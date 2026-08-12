@@ -233,6 +233,24 @@ mid-flight.
   split primary/secondary, displaced air + float target + to-shed at sea level and at
   altitude, crush tf/kPa at both — every row bound, breakdown sums to the total.
 
+**Round three (guide mode v2, designer-directed, `6953169`'s successor commit):**
+- **Steps RUN the animation** — one part per press flies its full proven approach at
+  watchable speed (GUIDE_PART_SECONDS 2.4 at 1×); back-step flies the newest part OUT
+  and parks on the previous. Guide state = `state.assembleGuide {idx, alpha, to}`;
+  `apply(t, guide)` overrides per-event alpha: strict prefix seated, suffix piled, one
+  part at `alpha` — WHICH IS THE SWEEP'S OWN MODEL, so guide mode is the page's most
+  literally proven view.
+- **Two bars**: COMPONENTS (park on any of 217 steps → `assembleGuidePark(i)`) and THIS
+  PART (scrub the current part's alpha at 1000 ticks → `assemblePartAlpha(v)`) — the
+  slow-motion control. Caption on its own line below the transport.
+- **The moving part is LIT** (warm tint), seated parts quiet grey, piled darker — written
+  into instance tints (RGB never alpha) by `tintFor` inside apply(); `applyGroup(state.group)`
+  takes the tints back the moment the article is whole (stepAssemble calls it at t=1 and
+  on level-exit restore — if tints ever look stuck dim, that call went missing).
+- **Speeds [⅛ ¼ ½ 1 2]** — global timeline and guide steps both scale by it.
+- Global play still uses the overlapped timeline; entering guide from mid-play and back
+  causes an accepted visual pop (~8 parts leap between overlap and prefix states).
+
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
