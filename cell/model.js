@@ -565,6 +565,17 @@ export function demonstrator(m) {
  * (secondary — skin-edge loads, not primary crush), 43 printed node-sockets, film skin.
  * The 10 x 8 mm pipe holds its Euler margin even PINNED; socket fixity is bonus, and E5
  * crushes one strut+sockets to verify it. Mirrored in the Python. */
+/* THE SAW SCHEDULE, measured — nine seat-to-seat cut lengths from the frozen joint
+ * manifest (sunken-frame freeze, 2026-08-11), mirrored from the Python. The spans keep
+ * doing the physics; the BILL is the saw's: 39.8 m bought, not the 48.8 m of
+ * centre-to-centre. check_assembly P14 holds every row to the live manifest. */
+export const CUT_SCHEDULE_MEASURED = [
+  ['octet', 211.183, 24], ['octet', 216.846, 24], ['octet', 221.500, 12],
+  ['rim', 202.778, 24], ['rim', 203.877, 12],
+  ['spoke', 206.142, 48],
+  ['tie', 129.770, 24], ['tie', 134.376, 24], ['tie', 139.025, 24],
+];
+
 export function stockBuild() {
   const m = MATERIALS.T700_LAM;
   const chain = printerChain(MATERIALS.PAHT_Z).find(r => r.designPoint);
@@ -597,13 +608,16 @@ export function stockBuild() {
   // frame from a number that never contained it (see memberDemands on the 96).
   const longCuts = counts.struts + counts.hexSpokeStruts;
   const shortCuts = counts.tieStruts + counts.hexTieStruts;  // 177 mm
-  const longKg = kgPerM * L * longCuts + rimKgPerM * L * rimCuts;
-  const shortKg = kgPerM * (L / Math.SQRT2) * shortCuts;
+  const sawnMainM = CUT_SCHEDULE_MEASURED.filter(r => r[0] !== 'rim')
+    .reduce((t, r) => t + r[1] * r[2], 0) / 1000;
+  const sawnRimM = CUT_SCHEDULE_MEASURED.filter(r => r[0] === 'rim')
+    .reduce((t, r) => t + r[1] * r[2], 0) / 1000;
+  const pipeKg = kgPerM * sawnMainM + rimKgPerM * sawnRimM;
   // Node mass is MEASURED by gen_nodes.py, not budgeted at 15% of strut mass; the page
   // reads the figure the Python read from the generator's manifest.
   const nodesKg = NODE_MASS_MEASURED_KG;
   const skinKg = filmKg(spanM);
-  const totalKg = longKg + shortKg + nodesKg + skinKg;
+  const totalKg = pipeKg + nodesKg + skinKg;
   const displaced = 1.225 * vol;
   const loads = filmEdgeLoads(spanM);
   // ALL 72 SHORT MEMBERS ARE SIZED AT THE WORST OF THEM, which is no longer the hexagon
@@ -618,8 +632,9 @@ export function stockBuild() {
            odM: 2 * ro, idM: 2 * ri, rimOdM: 0.014,
            pipeCount: longCuts + rimCuts + shortCuts, longCuts, rimCuts, shortCuts,
            pipeCutM: L, shortCutM: L / Math.SQRT2,
-           pipeTotalLengthM: (longCuts + rimCuts) * L + shortCuts * L / Math.SQRT2,
-           pipeKg: longKg + shortKg,
+           memberLengthM: (longCuts + rimCuts) * L + shortCuts * L / Math.SQRT2,
+           sawnM: sawnMainM + sawnRimM,
+           pipeKg,
            // perStrutDemandN is the OCTET's demand and nothing else's; every family has its
            // own number in demands, and reading this one for a rim or a spoke is the defect
            // that made the article's margins agree by accident.

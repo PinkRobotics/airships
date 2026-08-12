@@ -25,7 +25,9 @@ except the joints is bought.
   centre).
 
 ### Mass, and what actually decides float
-3.13 kg total: **2.39 kg tube, 0.715 kg joints, 28 g film**. The joints grew 0.465 → 0.715 kg
+2.69 kg total: **1.95 kg tube (billed at the measured saw table since P14 closed,
+2026-08-12 — 39.8 m sawn, not the 48.8 m of centre-to-centre spans), 0.715 kg joints,
+28 g film**. The joints grew 0.465 → 0.715 kg
 on 2026-08-11 when the sunken frame bought back every amputated socket and added the land
 posts — whole geometry costs printed material, and the freeze bill priced it. To float, the
 cell would have to be under 218 g. **The tube is still three quarters of the mass** —
@@ -73,7 +75,8 @@ this document:
   axial-only ~4.2 kg/m3 estimate did not survive the film check: sizing the face members for
   the hexagon-square edge load at SF 1.5 gives **10.76–12.51 kg/m3** across the five checked
   article-A rows. See `docs/FLOAT.md` §3.
-- **State which article a number belongs to.** The bench article is 16.21 kg/m3 and is a
+- **State which article a number belongs to.** The bench article is 15.13 kg/m3 (measured
+  joints + the saw-table tube bill, 2026-08-12) and is a
   process coupon; the reports' "design point" is a closed-form sizing law with no geometry at
   1.4319. They differ by one ratio — tube R/t 5 against 75.5 — and confusing them has cost
   real time.
@@ -176,8 +179,10 @@ moved, bill read); ledger holds 19 rows, "5 frozen, 0 new".
 - gen_node_families now derives the sunken frame, groups members by true cut, PROVES the
   groups against manifest.cutList row by row, and hands the rows' own cutMm through; the
   page binds those (`sinkShortMm` = nominal − seats − cut is displayed per stop). The
-  model keeps NOMINAL lengths as conservative physics; P14 (stock_build bills
-  centre-to-centre, 48.8 m vs 39.8 sawn) is STILL OPEN and is its own commit.
+  model keeps NOMINAL lengths as the Euler physics; P14 CLOSED 2026-08-12 —
+  stock_build bills the measured saw table (CUT_SCHEDULE_MEASURED, mirrored py/js,
+  held row-by-row to manifest.cutList by the prover), tube 2.39 → 1.95 kg, article
+  3.13 → 2.69 kg, 15.13 kg/m³. The audit's O7 confirmed the direction independently.
 
 **Page state:** buildCell sinks every drawn point from NODEMESHES `sinkMm` (source
 points, so members/seats/ghosts/parts all follow); the P5 caption is out, replaced by the
@@ -332,10 +337,11 @@ the ~/data/airships-reviews audit integration, not in this commit.
 
 ## Open work, in priority order
 
-1. **#65 clear the remaining frozen proofs** — P5 is dead; the bill is now P14 (stock_build
-   must bill the nine cuts, not centre-to-centre — 0.44 kg of phantom tube, its own reviewed
-   commit), P8 (cup-mouth chamfer or 2D-corridor sweep), P16 (bench tests named per row),
-   P11 (printer threshold decision), P13 (pinned-row licensing — memo at ~/tmp/p65/MEMO.md).
+1. **#65 clear the remaining frozen proofs** — P5 and P14 are both closed (P14
+   2026-08-12: the saw table is billed; 0.44 kg of phantom tube gone). The bill is now
+   P8 (cup-mouth chamfer or 2D-corridor sweep), P16 (bench tests named per row; the
+   audit's probe-SKU correction and census rerun belong here), P11 (printer threshold
+   decision), P13 (pinned-row licensing — memo at ~/tmp/p65/MEMO.md).
 2. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
    drafts are complete at `~/tmp/skin-barrier/`. Harmonise the budget first — 2.90 cm³/(m²·day)
    is right for the 178 L article; `seams.md` deliberately used the stricter 1.6 and says so.

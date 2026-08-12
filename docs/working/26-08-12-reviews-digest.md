@@ -94,8 +94,11 @@ commercial floor with the 0.605 fix first, ending in an unhedged floats/doesn't 
   be deleted after 871 lands (they contain nothing else).
 
 **Queued next, in order (each its own gated commit):**
-1. **P14 — bill the nine cuts** (#65 head, audit O7 concurs): stock_build 2.390 → 2.023 kg
-   tube, article 3.13 → 2.76 kg. Ripples: ledger, gated prose, FLOAT, P14 un-freezes.
+1. **P14 — bill the nine cuts** — DONE tonight (audit O7 concurred; its −0.367 kg was
+   the pre-sunken-frame schedule, the live nine-row table is −0.442 kg): stock_build
+   2.390 → 1.948 kg tube, article 3.13 → 2.69 kg, 15.13 kg/m³ = 15.8× the wall. Billed
+   from a measured, mirrored CUT_SCHEDULE_MEASURED that the prover holds row-by-row to
+   the live manifest; P14 passes and the contract is re-frozen on exactly that flip.
 2. **The square-panel correction** (above) — analysis + model parity + contract re-freeze.
 3. **Probe-SKU field rerun** (with #65) — then the corrected P16 census the audit asks for.
 4. **0.605 — NOT mine to do:** 871's brief explicitly fixes it first and restates R4's
@@ -132,6 +135,6 @@ commercial floor with the 0.605 fix first, ending in an unhedged floats/doesn't 
 - The audit's 16.03 kg/m³ "base scenario" for article A is a *scenario* stack (cut tube +
   0.465-era nodes + allowances) — it mixes the pre-sunken-frame joint geometry and is
   explicitly not a BOM. Do not quote it as the article's density; the article's gated
-  numbers remain 3.13 kg / 17.6 kg/m³ until P14 lands, then ~2.76 kg on the same gates.
+  numbers are now 2.69 kg / 15.13 kg/m³ (P14 landed tonight) on the same gates.
 - Reviews before 2026-08-11 23:20 ran Codex-only (the clone had no Claude lane); the helm
   side now hard-fails a missing lane. Nothing above relies on a claimed-but-absent review.

@@ -235,16 +235,6 @@ KNOWN = [
      "the thinnest wall the part has, measured: the cup, lip_wall - clearance wide"),
     ("P13", "endsWithoutClampedFixity", 216, 0, "vacuum-cell: quote the pinned row for these",
      "the socket cannot develop the clamped moment filmEdgeLoads quotes for them"),
-    ("P14", "cutRowsDisagreeingWithStockBuild", 9, 0,
-     "vacuum-cell: stock_build publishes centre-to-centre lengths as cuts",
-     "longCutM 0.251 / shortCutM 0.177 are member lengths; the cut is shorter by both bases "
-     "and, since the sunken frame, by the sink at each boundary end too. 6 -> 9 because the "
-     "article grew cuts again, not because stock_build got worse: the sink shortens every "
-     "boundary-adjacent member by its ends' own displacements, which split the octets three "
-     "ways, the ties three ways, and even the 36 rim edges two ways (hexagon-hexagon and "
-     "square-hexagon corners sink along different bisectors). Nine true cut lengths in "
-     "manifest.cutList, still two published, every one of the nine disagreeing with both — "
-     "stock_build bills 48.8 m of tube where the article saws 39.8"),
     # THE SWING THAT RIDES THE CUP MOUTH — the one defect the sunken frame CREATED, frozen
     # at its measured size with its physics read before it was capped. The sink shortens
     # every boundary-adjacent cut, a shorter closing cut swings in steeper, and the field
@@ -3717,26 +3707,31 @@ def main() -> None:
                                f"not a default")
                 break
     n_schema_breaks = len(p14_bad)
-    # THE OTHER FILE'S CUT LIST. stock_build publishes longCutM 0.251 and shortCutM 0.177 and
-    # bills 48.8 m of tube against them. Those are the CENTRE-TO-CENTRE member lengths: the cut
-    # is shorter by both nodes' bases, which this file measures. Cut to the analysis's number
-    # and no joint on the article closes, by 27.9 mm per member; buy to it and the tube line is
-    # 12% heavy. The prover imports the very dict that carries them and never compared.
-    sb_cuts = sorted({round(sb["pipe"]["longCutM"] * 1000.0, 3),
-                      round(sb["pipe"]["shortCutM"] * 1000.0, 3)})
-    cut_off = [r for r in cut_list if not any(abs(r["cutMm"] - c) < 0.5 for c in sb_cuts)]
+    # THE OTHER FILE'S CUT LIST, closed 2026-08-12. stock_build now bills the measured
+    # saw table (vc.CUT_SCHEDULE_MEASURED, nine rows) instead of quoting centre-to-centre
+    # spans as cuts — P14's old standing finding. That table is a measured CONSTANT in the
+    # analysis, so this is the gate that keeps it honest: every manifest cutList row must
+    # match a schedule row exactly (family, length to a micron, count), both totals must
+    # agree, and a regrow that moves one cut goes red HERE, named, instead of the constant
+    # going quietly stale. The spans (memberLongM/memberShortM) remain the physics lengths.
+    sched = {(f, round(mm, 3)): n for f, mm, n in vc.CUT_SCHEDULE_MEASURED}
+    cut_off = [r for r in cut_list
+               if sched.get((r["family"], round(r["cutMm"], 3))) != r["count"]]
     measured_m = sum(r["cutMm"] * r["count"] for r in cut_list) / 1000.0
-    over_kg = sb["pipe"]["kg"] * (1.0 - measured_m / sb["pipe"]["totalLengthM"])
+    if len(cut_list) != len(vc.CUT_SCHEDULE_MEASURED):
+        p14_bad.append(f"manifest cutList has {len(cut_list)} rows, stock_build's measured "
+                       f"schedule has {len(vc.CUT_SCHEDULE_MEASURED)}")
     if cut_off:
         p14_bad.append(
-            f"{len(cut_off)} of {len(cut_list)} cutList rows match no stock_build cut length: "
+            f"{len(cut_off)} of {len(cut_list)} cutList rows are not in stock_build's "
+            "measured schedule: "
             + ", ".join(f"{r['family']} {r['cutMm']:.3f} x{r['count']}" for r in cut_off)
-            + " against stock_build's " + ", ".join(f"{c:.1f}" for c in sb_cuts)
-            + f" mm. stock_build is quoting centre-to-centre lengths as cuts, so it bills "
-              f"{sb['pipe']['totalLengthM']:.1f} m of tube where the article needs "
-              f"{measured_m:.2f} m — {over_kg:.2f} kg "
-              f"of the published {sb['pipe']['kg']:.2f} kg tube line, on an article whose "
-              f"printed joints weigh {(manifest or {}).get('totalNodeMassKg', 0):.3f} kg.")
+            + " — the saw moved and CUT_SCHEDULE_MEASURED did not. Regrow, read the bill, "
+              "update the schedule in research/analysis/vacuum-cell.py AND cell/model.js.")
+    if abs(measured_m - sb["pipe"]["sawnM"]) > 5e-4:
+        p14_bad.append(f"manifest saws {measured_m:.3f} m, stock_build bills "
+                       f"{sb['pipe']['sawnM']:.3f} m — the billed total drifted from the "
+                       "measured schedule")
     jc = (manifest or {}).get("jointCheck", {})
     p14_details = []
     if jc:

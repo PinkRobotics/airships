@@ -966,6 +966,21 @@ def weightless_article(wall: float) -> dict:
     return out
 
 
+# THE SAW SCHEDULE, measured. Nine seat-to-seat cut lengths from the frozen joint
+# manifest (research/geometry/nodes/manifest.json cutList, sunken-frame freeze of
+# 2026-08-11) — the tube the article actually saws. Centre-to-centre stays the physics
+# length (Euler spans, demands); BILLING at it was P14's standing finding: 48.8 m billed
+# where the saw table says 39.8. Like NODE_MASS_MEASURED_KG this is a measured constant,
+# and check_assembly's P14 holds every row to the live manifest, so a regrow that moves
+# one cut goes red there instead of going stale here.
+CUT_SCHEDULE_MEASURED = (
+    ("octet", 211.183, 24), ("octet", 216.846, 24), ("octet", 221.500, 12),
+    ("rim", 202.778, 24), ("rim", 203.877, 12),
+    ("spoke", 206.142, 48),
+    ("tie", 129.770, 24), ("tie", 134.376, 24), ("tie", 139.025, 24),
+)
+
+
 def stock_build() -> dict:
     """The HYBRID article: purchased carbon pipe mains, printed everything else.
 
@@ -1028,11 +1043,15 @@ def stock_build() -> dict:
     # the rim frame from a number that never contained it (see member_demands on the 96).
     long_cuts = counts["struts"] + counts["hexSpokeStruts"]
     short_cuts = counts["tieStruts"] + counts["hexTieStruts"]        # 177 mm: every tie
-    long_kg = kg_per_m * L * long_cuts + rim_kg_per_m * L * rim_cuts
-    short_kg = kg_per_m * (L / math.sqrt(2.0)) * short_cuts
+    # BILL THE SAW TABLE, NOT THE SPANS. The article buys 39.8 m of tube, not 48.8:
+    # every cut is shorter than its centre-to-centre span by both joints' seats, which
+    # the prover measures. The spans keep doing the physics below; the bill is the saw's.
+    sawn_main_m = sum(mm * n for f, mm, n in CUT_SCHEDULE_MEASURED if f != "rim") / 1000.0
+    sawn_rim_m = sum(mm * n for f, mm, n in CUT_SCHEDULE_MEASURED if f == "rim") / 1000.0
+    pipe_kg = kg_per_m * sawn_main_m + rim_kg_per_m * sawn_rim_m
     nodes_kg = measured_node_mass_kg()
     skin_kg = film_kg(span)
-    total = long_kg + short_kg + nodes_kg + skin_kg
+    total = pipe_kg + nodes_kg + skin_kg
     displaced = 1.225 * vol
     loads = film_edge_loads(span)
     # ALL 72 SHORT MEMBERS ARE SIZED AT THE WORST OF THEM, which is no longer the hexagon
@@ -1049,12 +1068,15 @@ def stock_build() -> dict:
         "pipe": {"sku": "10 x 8 mm ROLL-WRAPPED CF tube, [0/+-45/90], T700-class — 180 members",
                  "odM": 2.0 * ro, "idM": 2.0 * ri, "rimOdM": 2.0 * rim_ro,
                  "count": long_cuts + rim_cuts + short_cuts,
-                 "longCuts": long_cuts, "longCutM": round(L, 3),
+                 "longCuts": long_cuts, "memberLongM": round(L, 3),
                  "rimCuts": rim_cuts, "rimSku": "14 x 12 mm roll-wrapped — the film's dihedral edge",
-                 "shortCuts": short_cuts, "shortCutM": round(L / math.sqrt(2.0), 3),
-                 "totalLengthM": round((long_cuts + rim_cuts) * L
-                                       + short_cuts * L / math.sqrt(2.0), 1),
-                 "kg": round(long_kg + short_kg, 3),
+                 "shortCuts": short_cuts, "memberShortM": round(L / math.sqrt(2.0), 3),
+                 # Two lengths, two jobs: the spans do physics, the saw table gets billed.
+                 "memberLengthM": round((long_cuts + rim_cuts) * L
+                                        + short_cuts * L / math.sqrt(2.0), 1),
+                 "sawnM": round(sawn_main_m + sawn_rim_m, 3),
+                 "sawnRows": len(CUT_SCHEDULE_MEASURED),
+                 "kg": round(pipe_kg, 3),
                  # perStrutDemandN is the OCTET's demand and nothing else's. Every family's
                  # own number is in demands below; reading this one for a rim or a spoke is
                  # the defect that made the article's margins agree by accident.
@@ -1070,8 +1092,7 @@ def stock_build() -> dict:
                  "tieEulerMargin": round(pcr_tie / tie_demand, 2)},
         "printed": {"nodes": counts["nodes"] + counts["rimNodes"] + counts["hexNodes"],
                     "nodesKg": round(nodes_kg, 3),
-                    "nodesMeasured": nodes_kg != round(
-                        (long_kg + short_kg) * NODE_MASS_FRAC, 6)},
+                    "nodesMeasured": nodes_kg != round(pipe_kg * NODE_MASS_FRAC, 6)},
         "skinKg": round(skin_kg, 3),
         "totalKg": round(total, 3),
         # THE ARTICLE IN THE UNIT THE WALL IS WRITTEN IN, generated rather than typed. The note

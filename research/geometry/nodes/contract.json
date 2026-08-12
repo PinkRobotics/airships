@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
  "generator": "tools/check_assembly.py --freeze",
- "frozenAtUtc": "2026-08-12T03:01:05Z",
+ "frozenAtUtc": "2026-08-12T08:17:25Z",
  "frozenInMode": "fast",
  "paramsSource": "manifest.paramsMm",
  "paramsMm": {
@@ -59,7 +59,7 @@
   "closingMembersWithNoInsertionPath": 1,
   "cutListTotalM": 39.815,
   "cutRows": 9,
-  "cutRowsDisagreeingWithStockBuild": 9,
+  "cutRowsDisagreeingWithStockBuild": 0,
   "downwardArms": 101,
   "endsAtAnUnexpectedElevation": 0,
   "endsCutByALand": 0,
@@ -179,10 +179,8 @@
    ]
   },
   "P14": {
-   "passed": false,
-   "failKeys": [
-    "cutRowsDisagreeingWithStockBuild"
-   ]
+   "passed": true,
+   "failKeys": []
   },
   "P16": {
    "passed": false,

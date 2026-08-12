@@ -28,8 +28,11 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 > and each carries a printed land post back up to the true face. Full sockets, posts and
 > full seats are printed material: measured joint mass moved **0.465 → 0.715 kg** (an
 > intermediate 0.736 included 24 solidified spigots from a bore-start artifact, since
-> fixed), the article is **3.13 kg**, and the bench figure is now **~17.6 kg/m³, 18.4×**
-> over the target. Boundary-adjacent members also genuinely shortened — the cut list is
+> fixed), the article is **2.69 kg** now that P14 also closed (2026-08-12: stock_build
+> bills the measured nine-row saw table, 39.8 m, instead of quoting 48.8 m of
+> centre-to-centre spans as cuts — tube 2.39 → 1.95 kg), and the bench figure is
+> **~15.1 kg/m³, 15.8×** over the target. Boundary-adjacent members also genuinely
+> shortened — the cut list is
 > nine lengths (`manifest.cutList`). The tables below predate this; their *structure* and
 > every lever they identify stand, their joint columns scale by 0.715/0.465 = 1.54, and
 > the self-check protocol above is what makes re-running them safe. R-route pricing note:
@@ -46,7 +49,7 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 |---|---|
 | the target: air at 2,500 m | **0.9569** |
 | (at sea level, if you prefer the easier bar) | 1.2250 |
-| the measured article as built | **~17.6 — that is 18.4×** |
+| the measured article as built | **~15.1 — that is 15.8×** |
 | best checked R1 configuration (§3) | **10.76 — 11.24×** |
 
 **Definition of done.** A bill of materials, computed by this repository's own model and
@@ -393,12 +396,14 @@ Verified rather than asserted — `scale_study.py` at the pure geometric scale, 
 14.11 × 11.29 and rim 19.76 × 16.94, reports octet 1.82 / spoke 2.75 / tie 2.45 / rim 4.12
 and rim bending at 2.84 atm, which are today's numbers to the last digit.
 
-**And so is the mass budget.** Tube mass grows as `L³` alongside the volume, so **16.21
-kg/m³ at 0.709 m is 16.21 kg/m³ at 1 m**. A bigger cell of this architecture is not lighter
+**And so is the mass budget.** Tube mass grows as `L³` alongside the volume, so the
+article's density at 0.709 m is its density at 1 m (**15.13 kg/m³ either way, on the
+saw-table bill**). A bigger cell of this architecture is not lighter
 per litre. It still does not float and this change will not make it float — the wall it
 must beat is 0.9569 kg/m³ and the article is over it by the same factor at every size —
-16.9× when this section was computed, 18.4× since the sunken frame (see the correction
-at the head of this document); the invariance is the point, not the multiplier.
+16.9× when this section was computed, 15.8× after the sunken frame and the P14 saw-table
+billing (see the correction at the head of this document); the invariance is the point,
+not the multiplier.
 
 ### What happens if the tube does NOT grow
 
@@ -430,7 +435,8 @@ Achieved margins at the recommended 1.000 m parity point — every one above tod
     octet 2.11 (was 1.82)   spoke 3.19 (2.75)   tie 2.83 (2.45)   rim 5.73 (4.12)
     rim bending fails at 3.25 atm (2.84)
 
-**Stock tube beats geometric scaling.** 15.38 kg/m³ against the scale-invariant 16.21,
+**Stock tube beats geometric scaling.** 15.38 kg/m³ against the scale-invariant density
+(16.21 as this appendix was computed, on the old centre-to-centre bill),
 because a 16 mm tube with a 1 mm wall buys more `I` per gram than a 14.1 mm tube with a
 1.4 mm wall. The lesson generalises: *thin wall, big diameter*, right up to the local
 buckling limit — which is **NOT CHECKED ANYWHERE IN THIS MODEL** and wants checking before

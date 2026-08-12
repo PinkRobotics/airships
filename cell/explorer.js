@@ -24,21 +24,21 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=1869c772';
-import * as G from './explorer-geom.js?v=1869c772';
+import * as CELL from './model.js?v=bdd21b7d';
+import * as G from './explorer-geom.js?v=bdd21b7d';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=1869c772';
+} from './nodes.generated.js?v=bdd21b7d';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=1869c772';
+import { NODEMESHES } from './nodemeshes.generated.js?v=bdd21b7d';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=1869c772';
+import { SKIN } from './skin.generated.js?v=bdd21b7d';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -153,8 +153,9 @@ function cutSchedule(stock, mat) {
       cutM: cutMm * g.count / 1000,
       memberM: memberMm * g.count / 1000,
       cutKg: kgPerM * cutMm * g.count / 1000,
-      // Per group, only so the totals below can be summed from it — the page shows the
-      // model's own pipeKg for centre-to-centre mass, and the gate holds this to it.
+      // Centre-to-centre mass per group — the span the physics uses, kept for the copy
+      // that names the difference; the BILL is cutKg, and the gate holds cutKg's total
+      // to the model's own pipeKg.
       memberKg: kgPerM * memberMm * g.count / 1000,
     };
   }
@@ -293,8 +294,8 @@ function weighBlock(demo, stock, cuts, skin, altM) {
   let tubePriKg = 0, tubeSecKg = 0;
   for (const k of Object.keys(cuts.groups)) {
     const g = cuts.groups[k];
-    if (Object.keys(g.kinds)[0] === 'octet') tubePriKg += g.memberKg;
-    else tubeSecKg += g.memberKg;
+    if (Object.keys(g.kinds)[0] === 'octet') tubePriKg += g.cutKg;
+    else tubeSecKg += g.cutKg;
   }
   const jKg = (keys) => keys.reduce((t, k) => t + NODE_FAMILIES[k].massGSum, 0) / 1000;
   const jointPriKg = jKg(['lattice-12', 'lattice-11', 'lattice-8']);

@@ -460,7 +460,7 @@
     <div><div class="v"><span data-n="edge.hexFaceLoadN" data-mul="0.000102" data-f="1"></span> <span class="u">tf</span></div>
       <div class="k">on each of 8 hexagons</div></div>
     <div><div class="v"><span data-n="stock.pipeKg" data-f="2"></span> <span class="u">kg</span></div>
-      <div class="k">purchased carbon tube</div></div>
+      <div class="k">carbon tube, billed at the saw table</div></div>
     <div><div class="v"><span data-n="stock.nodesKg" data-f="2"></span> <span class="u">kg</span></div>
       <div class="k">printed joints, weighed</div></div>
     <div><div class="v warm"><span data-n="edge.rows.2.failsAtAtm" data-f="2"></span> <span class="u">atm</span></div>
@@ -518,8 +518,9 @@
   <span data-n="demo.displacedAirKg" data-mul="1000" data-f="0"></span> g — the air it
   displaces. It weighs <span data-n="stock.totalKg" data-f="2"></span> kg, and that mass is
   <span data-n="stock.pipeKg" data-f="2"></span> kg of bought tube against
-  <span data-n="stock.nodesKg" data-f="2"></span> kg of printed joints. The tube is five
-  sixths of it. Even with joints of zero mass this cell is an order of magnitude over.</p>
+  <span data-n="stock.nodesKg" data-f="2"></span> kg of printed joints. The tube is nearly
+  three quarters of it. Even with joints of zero mass this cell is an order of magnitude
+  over.</p>
 
   <p class="sowhat"><b>What decides it is size, and then the tube's grade.</b> The budget is
   mass per cubic metre <em>enclosed</em>, so volume grows as the cube of the span while the
@@ -1109,11 +1110,12 @@
   stick. Keep each length on its own stick and it is
   <span data-n="cuts.sticksUnmixed" data-f="0"></span>.
   <span data-n="cuts.purchasedKg" data-f="2"></span> kg of tube walks in the door,
-  <span data-n="cuts.cutKg" data-f="2"></span> kg of it ends up in the article, and the
-  model charges <span data-n="stock.pipeKg" data-f="2"></span> kg because it prices mass on
-  the full centre-to-centre length. Three numbers, all correct, and this page shows which
-  is which.</p>
-  <p class="note"><strong><span data-n="stock.pipeTotalLengthM" data-f="2"></span> metres of
+  <span data-n="cuts.cutKg" data-f="2"></span> kg of it ends up in the article — and that
+  is now exactly what the model bills: since P14 closed, stock_build prices the measured
+  saw table (<span data-n="stock.pipeKg" data-f="2"></span> kg over
+  <span data-n="stock.sawnM" data-f="1"></span> m of cuts), not the centre-to-centre spans
+  it once quoted as cuts. The spans still do the Euler physics.</p>
+  <p class="note"><strong><span data-n="stock.memberLengthM" data-f="2"></span> metres of
   member exists; <span data-n="cuts.cutM" data-f="2"></span> metres of tube gets cut.</strong>
   The <span data-n="cuts.insideJointsM" data-f="2"></span> metre difference lives inside
   the joints, and it is the part of the model's own length total you cannot buy your way
@@ -1560,8 +1562,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=1869c772';
-import * as CELL from './model.js?v=1869c772';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=bdd21b7d';
+import * as CELL from './model.js?v=bdd21b7d';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

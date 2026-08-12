@@ -840,13 +840,15 @@ def main() -> None:
     if model.get("stock"):
         expected["cuts"] = cut_schedule(fresh["cuts"], model["stock"], model["tubeRho"])
         # The one dimension the page DERIVES rather than reads: the rim SKU's bore, taken
-        # as "the same wall as the other SKU". If that ever stops being true the mass on
-        # the full member length would not come back to the model's own pipeKg.
-        c2c = expected["cuts"]["memberKg"]
-        if abs(c2c - model["stock"]["pipeKg"]) > 1e-9:
-            bad.append(f"the cut schedule prices the members at {c2c:.6f} kg centre to "
-                       f"centre, the model charges {model['stock']['pipeKg']:.6f} — the "
-                       "derived rim bore no longer matches the section the model uses")
+        # as "the same wall as the other SKU". If that ever stops being true the SAWN mass
+        # would not come back to the model's own pipeKg (the model bills the saw table
+        # since P14 closed; centre-to-centre remains the physics span only).
+        sawn = expected["cuts"]["cutKg"]
+        if abs(sawn - model["stock"]["pipeKg"]) > 1e-9:
+            bad.append(f"the cut schedule saws {sawn:.6f} kg, the model bills "
+                       f"{model['stock']['pipeKg']:.6f} — the derived rim bore no longer "
+                       "matches the section the model uses, or the measured schedule and "
+                       "the manifest have diverged")
     # The schedule may only price members the page actually drew.
     want_kinds = fresh["totals"]["graph"]
     if res.get("memberKinds") != want_kinds:

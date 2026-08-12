@@ -122087,14 +122087,6 @@
    "why": "the socket cannot develop the clamped moment filmEdgeLoads quotes for them"
   },
   {
-   "checkId": "P14",
-   "key": "cutRowsDisagreeingWithStockBuild",
-   "expected": 9,
-   "measured": 9,
-   "owner": "vacuum-cell: stock_build publishes centre-to-centre lengths as cuts",
-   "why": "longCutM 0.251 / shortCutM 0.177 are member lengths; the cut is shorter by both bases and, since the sunken frame, by the sink at each boundary end too. 6 -> 9 because the article grew cuts again, not because stock_build got worse: the sink shortens every boundary-adjacent member by its ends' own displacements, which split the octets three ways, the ties three ways, and even the 36 rim edges two ways (hexagon-hexagon and square-hexagon corners sink along different bisectors). Nine true cut lengths in manifest.cutList, still two published, every one of the nine disagreeing with both \u2014 stock_build bills 48.8 m of tube where the article saws 39.8"
-  },
-  {
    "checkId": "P8",
    "key": "closingMembersWithNoInsertionPath",
    "expected": 1,
@@ -122163,7 +122155,7 @@
   "path": "/home/tyler/dev/airships/research/geometry/nodes/contract.json",
   "schemaVersion": 1,
   "onDisk": true,
-  "frozenAtUtc": "2026-08-12T03:01:05Z",
+  "frozenAtUtc": "2026-08-12T08:17:25Z",
   "frozenInMode": "fast",
   "rewrittenThisRun": false,
   "endsCapped": 432,
@@ -123754,11 +123746,10 @@
   {
    "id": "P14",
    "name": "certificate-closes-the-manifest",
-   "passed": false,
-   "frozen": true,
-   "headline": "432 records, schema closed, 9 cut rows, 9 disagreeing with stock_build, 10 end classes",
+   "passed": true,
+   "frozen": false,
+   "headline": "432 records, schema closed, 9 cut rows, 0 disagreeing with stock_build, 10 end classes",
    "details": [
-    "9 of 9 cutList rows match no stock_build cut length: octet 211.183 x24, octet 221.500 x12, octet 216.846 x24, rim 202.778 x24, rim 203.877 x12, spoke 206.142 x48, tie 129.770 x24, tie 134.376 x24, tie 139.025 x24 against stock_build's 177.0, 251.0 mm. stock_build is quoting centre-to-centre lengths as cuts, so it bills 48.8 m of tube where the article needs 39.81 m \u2014 0.44 kg of the published 2.39 kg tube line, on an article whose printed joints weigh 0.715 kg.",
     "manifest.jointCheck publishes glueAreaMm2 113, glueShearMPa 29.82, spigotStressMPa 94.2, shoulderBearingMPa 119.3 as one calculation wearing 432 hats. Measured: bond 113.1-581.2, shear 5.81-29.85, spigot stress 94-94, bearing area 28.274-28.274. The last two figures have no capacity beside them at all."
    ]
   },
@@ -123779,10 +123770,10 @@
  ],
  "verdict": {
   "proofsRun": 16,
-  "proofsPassed": 11,
-  "frozen": 19,
+  "proofsPassed": 12,
+  "frozen": 18,
   "advisories": 7,
-  "runtimeS": 162.8,
-  "fieldS": 53.1
+  "runtimeS": 158.8,
+  "fieldS": 52.1
  }
 }
