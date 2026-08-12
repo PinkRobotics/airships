@@ -95,13 +95,22 @@ def design(span, main, rim):
 P10x8, P14x12 = sec(0.010, 0.008), sec(0.014, 0.012)
 base = design(S0, P10x8, P14x12)
 
+
+def current_sawn_tube_kg(main, rim):
+    """P14 purchasing object: the measured nine-row cuts, not member spans."""
+    main_m = sum(mm * n for family, mm, n in vc.CUT_SCHEDULE_MEASURED
+                 if family != "rim") / 1000.0
+    rim_m = sum(mm * n for family, mm, n in vc.CUT_SCHEDULE_MEASURED
+                if family == "rim") / 1000.0
+    return main_m * main["kgPerM"] + rim_m * rim["kgPerM"]
+
 # ---------------------------------------------------------------- self-check
 pub = PUB["stockBuild"]
 gov = pub["governingCheck"]
 checks = [
     # Tolerances are the PUBLISHED rounding, one half-unit of the last printed digit —
     # not a fudge factor. A figure quoted as an integer newton is checked to 0.5 N.
-    ("edge mm", base["edge"] * 1000, pub["pipe"]["longCutM"] * 1000, 0.5),
+    ("edge mm", base["edge"] * 1000, pub["pipe"]["memberLongM"] * 1000, 0.5),
     ("volume L", base["volL"], pub["enclosedL"], 0.5),
     ("octet demand N", base["octetN"], pub["pipe"]["perStrutDemandN"], 0.5),
     ("octet Euler", base["octetEuler"], pub["pipe"]["eulerMarginPinned"], 0.005),
@@ -113,7 +122,7 @@ checks = [
     ("tie Euler", base["tieEuler"], pub["pipe"]["tieEulerMargin"], 0.005),
     ("rim bending MPa", base["rimBend"]["stressPinnedMPa"], gov["stressPinnedMPa"], 0.5),
     ("rim fails at atm", base["rimBend"]["failsAtAtm"], gov["failsAtAtm"], 0.005),
-    ("tube kg", base["tubeKg"], pub["pipe"]["kg"], 0.005),
+    ("tube kg", current_sawn_tube_kg(P10x8, P14x12), pub["pipe"]["kg"], 0.005),
     ("film kg", base["filmKg"], pub["skinKg"], 0.0005),
 ]
 print("SELF-CHECK against research/analysis/vacuum-cell.json at span 0.709")
