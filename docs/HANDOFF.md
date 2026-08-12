@@ -366,6 +366,22 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
 
 ## Open work, in priority order
 
+0. **The square-panel correction** (found during #63, missed by the audit; task #10 in
+   the session tracker): `PANEL["squareSpoked"] = 1/(2+√2)` of the EDGE is a HALF-square
+   inradius, but the four in-plane ties quarter each square — the real panel is
+   `S(2−√2)/2` = 51.92 mm, not 73.42. Favourable: square film tension/mass, the smeared
+   debit, and the in-plane tie's radial-pull share of the governing 5,038 N demand all
+   shrink. Ripples: py/js parity, member_demands → contract re-freeze (read the bill),
+   gated prose (tensionSq/wSqTie/bulgeSqMm...), and gen_skin's smearedDebitReproduced
+   gate updates in the SAME commit (it deliberately reproduces the analysis' current
+   number). Full mechanics in `docs/working/26-08-12-reviews-digest.md`.
+0b. **When the loop lands 871's relaunch** (the commercial floor at the 1 m article):
+   review its branch against the ruling in
+   `~/data/airships-reviews/26-08-12-OPERATOR-RULING-871.md` — the 0.605 is already on
+   main, so its Part 1 should verify rather than re-fix. Its floor verdict sentence is
+   the project's next headline. 869 (bonded-socket mechanism) and 870 (fixity plateau,
+   unlicensed K) verdicts are digested in the reviews digest; their branches carry only
+   their reports.
 1. **#65 clear the remaining frozen proofs** — P5 and P14 are both closed (P14
    2026-08-12: the saw table is billed; 0.44 kg of phantom tube gone). The bill is now
    P8 (cup-mouth chamfer or 2D-corridor sweep), P16 (bench tests named per row; the
