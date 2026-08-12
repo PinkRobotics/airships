@@ -166,6 +166,18 @@ figures:  ## Rasterise the 3D figures to PNG, regenerating the SVGs first if nod
 	 else echo "figures: no node — rasterising the committed SVGs unchanged"; fi
 	CHROME=$(CHROME) 3d/scripts/render-figures.sh
 
+# NOT IN `check`, like `analysis`: these need a browser plus minutes, and the review needs
+# the LOCAL vision fleet (dual-GPU gemma at :8010), which CI does not have. The joints are
+# expected to keep changing; this pair is the per-change visual verification — every joint
+# rendered six ways with seat markers, then reviewed by the vision model against its own
+# facts. Verdicts land in research/geometry/nodes/vision/verdicts.json and ARE committed;
+# the shot PNGs are regenerated evidence and are gitignored.
+jointshots:  ## Capture six marked views of every printed joint (browser, ~15 min)
+	$(PY) tools/joint_shots.py
+
+jointreview: jointshots  ## Vision-review every joint against its seats (needs the fleet)
+	$(PY) tools/review_joints.py
+
 # The concept analyses in research/analysis/. These answer questions about the VEHICLE rather
 # than about the code, so they are not in `check`: two of them take minutes and one needs a
 # fire-history extract that is fetched, not generated. But they must stay reproducible, and

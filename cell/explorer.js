@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=f540fcc4';
-import * as G from './explorer-geom.js?v=f540fcc4';
+import * as CELL from './model.js?v=d451d384';
+import * as G from './explorer-geom.js?v=d451d384';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=f540fcc4';
+} from './nodes.generated.js?v=d451d384';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=f540fcc4';
+import { NODEMESHES } from './nodemeshes.generated.js?v=d451d384';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2303,6 +2303,10 @@ export function mountExplorer(opts) {
      * between, and the instance it is. The gate counts these against the generated graph,
      * so the cut schedule cannot price members the article does not have. */
     get members() { return built[STAGE_LEVEL].members || []; },
+    /** The cell group's own matrix. Member ends and seats are recorded in the group's
+     * local frame while part positions are world; the vision harness projects seat
+     * markers through THIS, so a marker lands where the renderer put the geometry. */
+    get cellFrame() { return built[STAGE_LEVEL].cgM; },
     /** Every instanced thing in the cell, as `id#i`. The gate needs one that is NOT in the
      * current stop's subject to check the dim, and on a level that lights whole runs of
      * tube it cannot assume which one that is. */
