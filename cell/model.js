@@ -81,6 +81,14 @@ export function solidStrut(m, p = P_ATM) {
            governs: phiB > phiY ? 'strut buckling' : 'material yield', phiB, phiY };
 }
 
+/* THE BUILT ARTICLE'S GEOMETRY, PINNED (2026-08-12), mirrored from the Python. The
+ * demonstrator is built at the pre-0.605-correction design point — sawn, printed,
+ * frozen — so its size is a measurement, not a derivation. The corrected chain's own
+ * optimum is a finding about future articles, not this one's identity. */
+export const DEMO_STRUT_PINNED_M = 0.2505065525376105;
+export const DEMO_PITCH_PINNED_M = 0.35426976406201705;
+export const DEMO_TUBE_R_PINNED_M = 0.016604417467399196;
+
 export function tubeStrut(m, p = P_ATM) {
   const a = 2 * K_LOCAL / (Math.PI * Math.PI);
   const c = 2 * C_PHI * a;
@@ -521,13 +529,13 @@ export function filmEdgeLoads(span, sf = LATTICE_SF) {
 export function demonstrator(m) {
   const t = tubeStrut(m);
   const chain = printerChain(m).find(r => r.designPoint);
-  const p = chain.cellM;                      // the sub-cell pitch from the printer chain
+  const p = DEMO_PITCH_PINNED_M;              // the built article's pitch, pinned
   const spanM = 2 * p;                        // the Kelvin article, across its squares
   const vol = spanM ** 3 / 2;                 // BCC packs two Kelvin cells per span^3
   const counts = kelvinLatticeCounts();
-  const rM = chain.tubeRadiusMm / 1000;
+  const rM = DEMO_TUBE_R_PINNED_M;
   const wallM = chain.wallMm / 1000;
-  const strutKg = 2 * Math.PI * rM * wallM * chain.strutM * m.rho;   // thin-tube annulus
+  const strutKg = 2 * Math.PI * rM * wallM * DEMO_STRUT_PINNED_M * m.rho;
   const nStruts = counts.struts + counts.rimStrutEquivalents;
   const latKg = (nStruts + counts.tieStrutEquivalents + counts.hexTieStrutEquivalents
                  + counts.hexSpokeStrutEquivalents) * strutKg;
@@ -539,9 +547,11 @@ export function demonstrator(m) {
   const film = filmKg(spanM);
   const displaced = 1.225 * vol;
   const totalKg = latKg + nodesKg + film;
-  return { strutM: chain.strutM, cellM: p, spanM, enclosedL: vol * 1000,
-           wallMm: chain.wallMm, tubeRadiusMm: chain.tubeRadiusMm,
-           tubeROverT: t.tubeROverT,
+  return { strutM: DEMO_STRUT_PINNED_M, cellM: p, spanM, enclosedL: vol * 1000,
+           wallMm: chain.wallMm, tubeRadiusMm: DEMO_TUBE_R_PINNED_M * 1000,
+           // The BUILT article's proportion off its own pinned radius and wall — not the
+           // live optimum's, which the 0.605 correction is free to move.
+           tubeROverT: DEMO_TUBE_R_PINNED_M / wallM,
            printedStruts: nStruts + counts.tieStruts + counts.hexTieStruts
                           + counts.hexSpokeStruts,
            printedNodes: counts.nodes + counts.rimNodes + counts.hexNodes,
@@ -578,11 +588,10 @@ export const CUT_SCHEDULE_MEASURED = [
 
 export function stockBuild() {
   const m = MATERIALS.T700_LAM;
-  const chain = printerChain(MATERIALS.PAHT_Z).find(r => r.designPoint);
-  const p = chain.cellM;
+  const p = DEMO_PITCH_PINNED_M;               // the built article's pitch, pinned
   const spanM = 2 * p;
   const vol = spanM ** 3 / 2;
-  const L = chain.strutM;
+  const L = DEMO_STRUT_PINNED_M;
   const counts = kelvinLatticeCounts();
   // ONE DEMAND PER FAMILY, each from the load path that puts it there. This was a single
   // 3*pd*vol/(96*L) handed to all 216 members; memberDemands says why 96 is right for the

@@ -166,6 +166,19 @@ def arch_solid_strut(m: dict, p: float = P_ATM) -> dict:
             "governs": "strut buckling" if phi_b > phi_y else "material yield"}
 
 
+# THE BUILT ARTICLE'S GEOMETRY, PINNED (2026-08-12). Every article-A row used to re-read
+# the live co-critical chain on each run — fine while the chain's physics was frozen.
+# Landing the classical 0.605 local-buckling coefficient (audit O1) moves the chain's
+# optimum to ~0.55 m span, but the demonstrator is BUILT at the pre-correction point:
+# sawn, printed, frozen in the manifest and the contract. A built object's size is a
+# measurement, not a derivation — same doctrine as the weighed joints and the sawn cut
+# table — so the exact chain outputs it was cut from are pinned here, and the corrected
+# chain's own optimum is a finding about FUTURE articles, not this one's identity.
+DEMO_STRUT_PINNED_M = 0.2505065525376105     # the 0.6 mm x 2 design-point strut
+DEMO_PITCH_PINNED_M = 0.35426976406201705    # sub-cell pitch; span = 2x = 708.53953 mm
+DEMO_TUBE_R_PINNED_M = 0.016604417467399196  # the printed tube radius it was drawn at
+
+
 def arch_tube_strut(m: dict, p: float = P_ATM) -> dict:
     """Hollow struts, each tube proportioned so Euler and local wall buckling coincide."""
     ee = e_eff(m)
@@ -819,7 +832,7 @@ def demonstrator(m: dict) -> dict:
     """
     t = arch_tube_strut(m)
     chain = printer_chain(m)["rows"]["0.6 mm x 2"]
-    p = chain["cellMRaw"]                # the sub-cell pitch the printer chain produces
+    p = DEMO_PITCH_PINNED_M              # the built article's pitch, pinned — see above
     # THE ARTICLE IS NOT A CUBE. The design's cell is the interlocking near-sphere, and
     # the half-pitch meshing makes it buildable from the exact same parts: a Kelvin cell
     # of span 2p, filled with the SAME co-critical struts at pitch p, boundary nodes
@@ -829,9 +842,9 @@ def demonstrator(m: dict) -> dict:
     span = 2.0 * p
     vol = span ** 3 / 2.0                # BCC packs two Kelvin cells per span^3
     counts = kelvin_lattice_counts()
-    r_m = chain["tubeRadiusMRaw"]
+    r_m = DEMO_TUBE_R_PINNED_M
     wall_m = chain["wallMm"] / 1000.0
-    strut_kg = 2.0 * math.pi * r_m * wall_m * chain["strutMRaw"] * m["rho"]
+    strut_kg = 2.0 * math.pi * r_m * wall_m * DEMO_STRUT_PINNED_M * m["rho"]
     # Octet interior + the rim frame along the article's 36 edges (each exactly one strut
     # long at N = 1 — the Kelvin edge IS the lattice spacing) + the 48 vertex ties and
     # 24 hexagon-tripod ties the designer caught missing: without the first the rim is a
@@ -850,10 +863,13 @@ def demonstrator(m: dict) -> dict:
     total_kg = lat_kg + nodes_kg + film_kg_
     return {
         "material": m["name"],
-        "strutM": chain["strutM"], "cellM": chain["cellM"],
+        "strutM": round(DEMO_STRUT_PINNED_M, 3), "cellM": round(DEMO_PITCH_PINNED_M, 3),
         "spanM": round(span, 3), "enclosedL": round(vol * 1000.0),
-        "wallMm": chain["wallMm"], "tubeRadiusMm": chain["tubeRadiusMm"],
-        "tubeROverT": round(t["tubeROverT"], 1),
+        "wallMm": chain["wallMm"],
+        "tubeRadiusMm": round(DEMO_TUBE_R_PINNED_M * 1000.0, 1),
+        # The BUILT article's proportion, from its own pinned radius and wall — not the
+        # live optimum's, which the 0.605 correction is free to move.
+        "tubeROverT": round(DEMO_TUBE_R_PINNED_M / wall_m, 1),
         "printedStruts": (n_struts + counts["tieStruts"] + counts["hexTieStruts"]
                           + counts["hexSpokeStruts"]),
         "printedNodes": counts["nodes"] + counts["rimNodes"] + counts["hexNodes"],
@@ -1012,11 +1028,10 @@ def stock_build() -> dict:
     where it belongs, in the in-array kg/m3 rows, labelled as the assertion it is.
     """
     m = MATERIALS["T700_LAM"]
-    chain = printer_chain(MATERIALS["PAHT_Z"])["rows"]["0.6 mm x 2"]
-    p = chain["cellMRaw"]
+    p = DEMO_PITCH_PINNED_M              # the built article's pitch, pinned
     span = 2.0 * p
     vol = span ** 3 / 2.0
-    L = chain["strutMRaw"]
+    L = DEMO_STRUT_PINNED_M
     counts = kelvin_lattice_counts()
     # ONE DEMAND PER FAMILY, each from the load path that puts it there. This used to be a
     # single 3*pd*vol/(96*L) handed to all 216 members; see member_demands for why 96 is
@@ -1443,10 +1458,8 @@ def main() -> None:
     out["stockBuild"] = stock_build()
     # RAW span, not the rounded display value: the parity gate has caught this exact
     # rounded-vs-raw divergence twice now, once on strut mass and once here.
-    out["filmEdgeLoads"] = film_edge_loads(
-        2.0 * printer_chain(MATERIALS["PAHT_Z"])["rows"]["0.6 mm x 2"]["cellMRaw"])
-    out["memberDemands"] = member_demands(
-        2.0 * printer_chain(MATERIALS["PAHT_Z"])["rows"]["0.6 mm x 2"]["cellMRaw"])
+    out["filmEdgeLoads"] = film_edge_loads(2.0 * DEMO_PITCH_PINNED_M)
+    out["memberDemands"] = member_demands(2.0 * DEMO_PITCH_PINNED_M)
     out["kelvinFaces"] = {str(n): kelvin_lattice_counts(n) for n in (1, 2, 3)}
     out["gradedPressure"] = graded_pressure(ref, wall)
     out["pumpedPlenum"] = pumped_plenum()
