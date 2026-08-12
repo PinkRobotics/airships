@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=d451d384';
-import * as G from './explorer-geom.js?v=d451d384';
+import * as CELL from './model.js?v=492ebc11';
+import * as G from './explorer-geom.js?v=492ebc11';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=d451d384';
+} from './nodes.generated.js?v=492ebc11';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=d451d384';
+import { NODEMESHES } from './nodemeshes.generated.js?v=492ebc11';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {

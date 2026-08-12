@@ -264,13 +264,11 @@ def swing_relief(cut_mm, prm, kind):
 
 
 def face_planes(u):
-    """Outward unit normals of the cell faces this node lies ON — its mating lands.
+    """Outward unit normals of the cell faces this node belongs to — its mating lands.
 
-    Square faces are u_q = +-2; hexagon faces are sum(s*u) = 3 per sign octant. Every
-    boundary node sits exactly ON its faces, so in the node's own frame the land plane
-    passes through the origin and the land is a plain half-space truncation. No inset is
-    needed any more: v1 pushed boundary nodes inward by a core radius to keep the faces
-    flat, which is exactly what truncation does properly.
+    Square faces are u_q = +-2; hexagon faces are sum(s*u) = 3 per sign octant. The node
+    CENTRE no longer sits on these planes — see boundary_frame() — but the planes are
+    still the cell's own faces, and the lands the joint presents are still flat on them.
     """
     out = []
     for q in range(3):
@@ -282,6 +280,50 @@ def face_planes(u):
         if sum(si * ui for si, ui in zip(s, u)) == 3:
             out.append(np.array(s, float) / math.sqrt(3.0))
     return out
+
+
+def boundary_frame(u, dirs, kinds, prm):
+    """THE SUNKEN FRAME — the designer's rule, near-verbatim: "the wrap can grow to the
+    size of the joints, and the size is arbitrary, the edge can be wherever — it's the
+    overall cell and the general shape that matters."
+
+    The article used to put every boundary node exactly ON its mating planes, which cut
+    every in-plane socket to a half-cradle and every rim socket at an edge to the
+    dihedral's own fraction — wrap 0.500 / 0.348 / 0.304, the exact angles the planes
+    allow, P5's whole census. No amount of printed material could recover it: the
+    missing wrap belonged to the neighbour cell's volume.
+
+    So the boundary nodes SINK. Each node moves inward along the mean of its land
+    normals until every incident arm that runs IN a land plane clears that plane by its
+    own collar radius plus land_margin — full sockets, wrap 1.0, derived per node from
+    its own arms' SKUs, never typed. The lands become OFFSET planes the joint no longer
+    reaches... except through its LAND POSTS (see node_sdf): a boss per node grown back
+    up the sink direction and truncated flat at the nominal planes, so cells still seat
+    on flats at the true polyhedron and the draped film is pinned to the nominal shape
+    at every post top. The film is dyneema fabric draped over the structure — it follows
+    the sunken frame between posts, and the cell's overall form is what the posts and
+    the faces preserve.
+
+    Returns (sink_vec_mm, offsets): the node-centre displacement in article mm, and the
+    per-land plane offsets in the node's LOCAL (sunken) frame. In-plane-ness is judged
+    on the NOMINAL lattice directions — the sink itself then tilts real arms slightly
+    off-plane, which only grows their clearance.
+    """
+    normals = face_planes(u)
+    if not normals:
+        return np.zeros(3), []
+    c = np.sum(normals, axis=0)
+    c /= np.linalg.norm(c)
+    t = 0.0
+    for d, k in zip(dirs, kinds):
+        r_collar = arm_pipe(k, prm)[0] / 2.0 + prm["lip_wall"]
+        for n in normals:
+            if abs(float(np.dot(d, n))) > 1e-6:      # not in this plane: never binding
+                continue
+            proj = float(c @ n)
+            if proj > 1e-9:
+                t = max(t, (r_collar + prm["land_margin"]) / proj)
+    return -t * c, [(n, t * float(c @ n)) for n in normals]
 
 
 # -------------------------------------------------------------------- the slot rule --
@@ -334,9 +376,20 @@ def one_way_reach(r_self, r_other, theta_deg):
     The asymmetric half of the same geometry: max t_self = (r_other + r_self cos)/sin. Used
     where the neighbour's feature has no axial start worth crediting — a spigot runs from the
     node centre, so only this arm's own coordinate bounds the overlap.
+
+    NEAR-OPPOSED ARMS ARE OPPOSED. The expression is only meaningful for arms that CROSS;
+    for a pair a hair short of 180 degrees its sine collapses while the numerator stays
+    finite on unequal radii, and it reports tens of millimetres of "reach" for features
+    that sit on near-opposite rays, sleeved about almost the same line and separated by
+    their own axial ranges — exactly the collinear case the sine guard always excluded.
+    The sunken frame is what surfaced this: nominally-collinear pairs (opposite hexagon
+    spokes, the +-z tie pairs through a workhorse) tilt 1-2 degrees off 180 when their
+    end nodes sink along different bisectors, slipped past the float-noise guard, and a
+    hub's slot base exploded from 16.4 to 96.6 mm. Every genuinely crossing pair in this
+    article is at 125.3 degrees or less, so 175 is decades from anything real.
     """
     th = math.radians(theta_deg)
-    if abs(math.sin(th)) < 1e-6:
+    if theta_deg >= 175.0 or abs(math.sin(th)) < 1e-6:
         return -math.inf
     return (r_other + r_self * math.cos(th)) / math.sin(th)
 
@@ -429,7 +482,7 @@ def smin(a, b, k):
 
 
 def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kinds=None,
-             display=False):
+             display=False, land_offs=None, post_axis=None):
     """One field, every joint. Spigots and collars blended into a core, then the slots and
     bores subtracted, then the mating lands truncated last.
 
@@ -453,6 +506,13 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
         base = prm["core_r"] + prm["shoulder"]
     stubs = [prm["stub"]] * len(arms) if stubs is None else list(stubs)
     bores = [prm["core_r"] * 0.3] * len(arms) if bores is None else list(bores)
+    # OFFSET LANDS AND THE POST. `land_offs` is each land plane's distance above the
+    # (sunken) node centre — zero keeps the through-origin planes every older caller
+    # assumes. `post_axis` points from the centre back toward the nominal lattice point;
+    # with land_post_r > 0 a boss rides it and the land cut flattens its top exactly at
+    # the plane — the mating flat and the film's pin, by the same truncate-flat-last rule
+    # as ever.
+    land_offs = [0.0] * len(lands) if land_offs is None else list(land_offs)
     # PER-ARM SKU. `kinds` is what lets one node carry both tubes: a rim vertex has three 14 mm
     # rim arms and four 10 mm spoke/tie arms, and every radius below is the arm's own. Defaults
     # to the main SKU on every arm, which is exactly the V2 field, so old callers are unchanged.
@@ -506,6 +566,18 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
         disc = np.maximum(np.linalg.norm(P - h[:, None] * n[None, :], axis=1) - prm["pad_r"],
                           np.maximum(h, -prm["pad_t"] - h))
         d = smin(d, disc, prm["pad_blend"])
+    if post_axis is not None and prm.get("land_post_r", 0.0) > 0.0 and land_offs:
+        # THE LAND POST: a boss from the sunken centre back up toward the nominal lattice
+        # point. The land cut below flattens its top exactly at the nominal plane(s), so
+        # the mating flat survives the sink and the draped film is pinned to the true
+        # polyhedron at every post top. Rides past the farthest plane and lets the cut
+        # decide, by the same truncate-flat-last rule as everything else here.
+        pa = np.asarray(post_axis, float)
+        tp = P @ pa
+        rad_p = np.linalg.norm(P - tp[:, None] * pa[None, :], axis=1)
+        post = np.maximum(rad_p - prm["land_post_r"],
+                          np.maximum(-tp, tp - (max(land_offs) + 2.0)))
+        d = smin(d, post, prm["blend"])
     if not display:
         for dirv, stub, t_bore, spig_r, ro_slot in zip(arms, stubs, bores, spig_rs, ro_slots):
             # bores and slots, AFTER the blend
@@ -533,8 +605,8 @@ def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kin
                 bore = np.maximum(rad - hollow_r,
                                   np.maximum(t_bore - t, t - t_end))
                 d = np.maximum(d, -bore)
-    for n in lands:                  # THE LANDS, hard and last
-        d = np.maximum(d, P @ n)
+    for n, off in zip(lands, land_offs):     # THE LANDS, hard and last — offset planes
+        d = np.maximum(d, P @ n - off)
     return d
 
 
@@ -947,6 +1019,12 @@ def main() -> None:
     ap.add_argument("--demand-n", type=float, default=3372.0)
     ap.add_argument("--slot-margin", type=float, default=0.5,
                     help="mm of clearance beyond the slot-intersection limit")
+    ap.add_argument("--land-margin", type=float, default=1.0,
+                    help="mm an in-plane arm's collar clears its former plane by, once "
+                         "the node sinks — see boundary_frame()")
+    ap.add_argument("--land-post-r", type=float, default=5.0,
+                    help="radius of the land post grown back to the nominal planes; the "
+                         "mating flat and the draped film's pin. 0 disables")
     ap.add_argument("--rho", type=float, default=1060.0, help="print density, kg/m3")
     ap.add_argument("--only", type=int, default=None)
     ap.add_argument("--assembly", action="store_true",
@@ -975,6 +1053,20 @@ def main() -> None:
         arms are 14 mm rim tube and four are 10 mm."""
         return [members[k][2] for _, k in incident[u]]
 
+    # THE SUNKEN FRAME, in two passes. Sinks are judged on the NOMINAL lattice directions
+    # (boundary_frame's contract), then every real position, direction, angle and cut is
+    # re-derived from the sunken article — boundary-adjacent arms tilt a fraction of a
+    # degree off-lattice and their true angles are what the slot rule and the prover get.
+    frame_of = {u: boundary_frame(u, [d for d, _ in incident[u]], kinds_of(u), prm)
+                for u, _ in nodes}
+    pos_of = {u: np.array(u, float) * HALF + frame_of[u][0] for u, _ in nodes}
+    incident = {u: [] for u, _ in nodes}
+    for k, (a, b, _fam) in enumerate(members):
+        d = pos_of[b] - pos_of[a]
+        d /= np.linalg.norm(d)
+        incident[a].append((d, k))
+        incident[b].append((-d, k))
+
     base_of = {u: slot_base([d for d, _ in incident[u]], prm, kinds_of(u))[0]
                for u, _ in nodes}
 
@@ -993,7 +1085,7 @@ def main() -> None:
     P = np.stack([gx.ravel(), gy.ravel(), gz.ravel()], axis=1)
     cuts = {}
     for k, (a, b, _fam) in enumerate(members):
-        L = float(np.linalg.norm((np.array(b, float) - np.array(a, float)) * HALF))
+        L = float(np.linalg.norm(pos_of[b] - pos_of[a]))
         cuts[k] = L - base_of[a] - base_of[b]
     worst_cut = min(cuts[k] for k in range(len(members)) if k not in tree)
     s_max = pilot_bound(worst_cut, 2.0 * args.clearance)
@@ -1041,7 +1133,8 @@ def main() -> None:
                              ("pipe_od", "pipe_id", "rim_pipe_od", "rim_pipe_id",
                               "clearance", "stub", "pilot", "core_r",
                               "shoulder", "lip", "lip_wall", "spigot_wall", "blend",
-                              "ribs", "rib_h", "bore_margin", "pad_r", "pad_t")},
+                              "ribs", "rib_h", "bore_margin", "pad_r", "pad_t",
+                              "land_margin", "land_post_r")},
                 "graph": tally, "jointCheck": joint, "res": args.res,
                 "cellMm": round(h, 3),
                 "assembly": {"closingMembers": len(members) - len(tree),
@@ -1069,21 +1162,30 @@ def main() -> None:
         dirs = [d for d, _ in incident[u]]
         kinds = kinds_of(u)
         base, min_ang, need = slot_base(dirs, prm, kinds)
-        lands = face_planes(u)
+        sink_vec, land_pairs = frame_of[u]
+        lands = [n for n, _ in land_pairs]
+        offs = [o for _, o in land_pairs]
+        sink = float(np.linalg.norm(sink_vec))
+        post_axis = (-sink_vec / sink) if sink > 1e-9 else None
         # stubs and bores are needed BEFORE the frame now: a landless node has no land to
         # print on, so its datum is chosen by measuring the part, and the part is not defined
         # until the per-arm engagement and bore starts are.
         stubs = [args.stub if k in tree else args.pilot for _, k in incident[u]]
         bores = [bore_start(d, lands, prm, kd) for d, kd in zip(dirs, kinds)]
         search = []
-        R = print_frame(lands, dirs, prm, base, stubs, bores, kinds, search)
+        # EVERY node's datum is measured now. A sunken boundary node's only flat at a land
+        # plane is its post top — a few tens of mm², nothing to seat a print on — so the
+        # bed-normal search that used to serve the 13 landless joints serves all 51.
+        R = print_frame([], dirs, prm, base, stubs, bores, kinds, search)
         arms = [R @ d for d in dirs]
         lands_p = [R @ n for n in lands]
+        post_p = (R @ post_axis) if post_axis is not None else None
         F3 = node_sdf(P, arms, lands_p, prm, role == "hexHub",
-                      base, stubs, bores, kinds).reshape([args.res] * 3)
+                      base, stubs, bores, kinds,
+                      land_offs=offs, post_axis=post_p).reshape([args.res] * 3)
         v, t = surface_nets(F3, np.array([-ext] * 3), h)
-        for n in lands_p:                       # snap: the plane is known exactly
-            dist = v @ n
+        for n, off in zip(lands_p, offs):       # snap: the plane is known exactly
+            dist = v @ n - off
             near = np.abs(dist) < h * 0.75
             v[near] -= np.outer(dist[near], n)
         closed, nonman = mesh_health(t)
@@ -1101,12 +1203,17 @@ def main() -> None:
             # count, and every manifest row written by an --assembly run recorded that
             # instead. The STLs were fine and nothing downstream could tell.
             off = len(asm_v)
-            world = v @ R + np.array(u, float) * HALF     # R is orthonormal: R^T = R^-1
+            world = v @ R + pos_of[u]                     # R is orthonormal: R^T = R^-1
             asm_v.append(world)
             asm_t.append(t + off)
         manifest["nodes"].append({
             "file": name, "u": list(u), "role": role, "arms": len(arms),
             "lands": len(lands), "triangles": int(len(t)), "closed": closed,
+            # THE SUNKEN FRAME, recorded per node: how far and which way this node's
+            # centre sits from its lattice point (article mm), and each land plane's
+            # height above the centre. Zero vector on interior nodes.
+            "sinkMm": [round(float(x), 3) for x in sink_vec],
+            "landOffsMm": [round(o, 3) for o in offs],
             "nonManifoldEdges": nonman, "overhangAreaFrac": round(overhang_fraction(v, t), 3),
             "minArmAngleDeg": round(min_ang, 1), "slotBaseMm": round(base, 2),
             "slotsClear": bool(base >= need - 1e-9),

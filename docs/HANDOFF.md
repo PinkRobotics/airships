@@ -114,6 +114,38 @@ bend the lattice a few percent and a short pipe read as "not connected"). The ga
 joints, reps and pipes by count AND asserts the rep swap as triangle arithmetic on the
 rendered frame, stop by stop.
 
+## THE SUNKEN FRAME — decided, rule landed, article NOT yet regrown (#65, in flight)
+
+The designer resolved P5's wrap ceiling on 2026-08-11, near-verbatim: "the wrap can grow
+to the size of the joints, the size is arbitrary, the edge can be wherever — it's the
+overall cell and the general shape that matters," and chose architecture A: **dyneema
+fabric draped over the sunken structure**, land posts pinning the drape to the nominal
+planes as the mating flats.
+
+`gen_nodes.boundary_frame()` implements it: boundary nodes sink along their land-normal
+bisector until every in-plane arm's collar clears its former plane (sinks: 7.6 mm at
+1-land nodes, 12.3 mm at corners — derived from SKUs, never typed); lands become offset
+planes; a land post (r 5 mm) grows back to the nominal planes, truncated flat by the same
+lands-last rule. Full sockets, wrap 1.0. Validated on node 22 (`--only 22`: closed,
+0 arms in air). The sink also exposed and fixed a real formula hole: `one_way_reach`
+exploded on NEAR-opposed arm pairs (178-179° after sinking, past the collinear guard) —
+a hub slot base went 16.4 → 96.6 mm; pairs ≥ 175° are now opposed by definition.
+
+**The rule is INERT until `make nodes` runs** — the committed STLs/manifest/contract are
+still the on-plane article, so every gate stays green. DO NOT regrow yet: the sequence
+that keeps the proofs honest is
+  1. teach `check_assembly` offset lands (79 land-touching lines; it reconstructs
+     node_sdf args itself and would otherwise measure a field the STLs are not),
+  2. `make nodes` (regrow all 51 + families + display module),
+  3. run the prover, READ the diff, `--freeze` with the designer's sign-off (he has
+     authorized the redesign; still print the bill),
+  4. model: keep NOMINAL lengths as conservative physics (members shorten under the
+     sink → real margins better than quoted); manifest cutList carries true cuts (this
+     is also P14's fix — stock_build must bill cuts, not centre-to-centre),
+  5. page: display module rows carry per-node `sinkMm` — apply as drawn-point offsets,
+  6. `make jointreview` re-verifies all 51 against the vision baseline (51/51 pass on
+     the old article, verdicts committed).
+
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably

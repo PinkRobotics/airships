@@ -15,7 +15,7 @@ export const NODEMESHES = {
   "repRes": 112,
   "quantStepMm": 0.05,
   "quantOriginMm": -48.98381,
-  "sourceHash": "660dafaf1df07590",
+  "sourceHash": "03f5d43a2c6ab4ed",
   "displayTris": 289156,
   "repTris": 137340
  },
