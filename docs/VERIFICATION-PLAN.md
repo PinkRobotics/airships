@@ -121,8 +121,10 @@ none is a choice:
 
 - **216 cuts of purchased pultruded carbon tube** — 144 long
   and 72 short, cut to the joint's own seats rather than to the
-  centre-to-centre span (`make nodes` writes the cut list; six lengths, not two) — with
-  **51 printed joints** (0.465 kg, measured
+  centre-to-centre span (`make nodes` writes the cut list; nine lengths, not two). The
+  sunken boundary frame shortens every boundary-adjacent member by its own ends'
+  displacements, which is where the extra saw settings come from — with
+  **51 printed joints** (0.715 kg, measured
   from their own geometry by `make nodes`, not budgeted). Assembles into a **709 mm Kelvin
   cell, 178 litres**. Of the 216 members, 166 are CLOSING members that drop between two
   nodes already fixed in space: their 332 ends carry a 2 mm pilot inside a 2 mm cup, which is

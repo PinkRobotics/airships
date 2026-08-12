@@ -28,18 +28,18 @@ export const NODES = {
       "armToLandDeg": null,
       "minArmAngleDeg": 60.0,
       "slotBaseMm": 12.26,
-      "massGMin": 14.78,
-      "massGMax": 14.78,
-      "massGSum": 14.78,
-      "massPct": 3.2,
-      "volumeMm3Min": 13944,
-      "volumeMm3Max": 13944,
-      "overhangFracMin": 0.138,
-      "overhangFracMax": 0.138,
-      "trianglesMin": 33280,
-      "trianglesMax": 33280,
-      "nonManifoldEdgesMin": 74,
-      "nonManifoldEdgesMax": 74,
+      "massGMin": 14.9,
+      "massGMax": 14.9,
+      "massGSum": 14.9,
+      "massPct": 2.1,
+      "volumeMm3Min": 14061,
+      "volumeMm3Max": 14061,
+      "overhangFracMin": 0.148,
+      "overhangFracMax": 0.148,
+      "trianglesMin": 25264,
+      "trianglesMax": 25264,
+      "nonManifoldEdgesMin": 292,
+      "nonManifoldEdgesMax": 292,
       "repFile": "node_09_lattice.stl",
       "repU": [
         0,
@@ -47,7 +47,7 @@ export const NODES = {
         0
       ],
       "repUText": "(0, 0, 0)",
-      "repMassG": 14.78
+      "repMassG": 14.9
     },
     "lattice-11": {
       "key": "lattice-11",
@@ -63,28 +63,28 @@ export const NODES = {
       },
       "lands": 0,
       "armToLandDeg": null,
-      "minArmAngleDeg": 45.0,
-      "slotBaseMm": 16.38,
-      "massGMin": 15.01,
-      "massGMax": 19.51,
-      "massGSum": 194.3,
-      "massPct": 41.8,
-      "volumeMm3Min": 14158,
-      "volumeMm3Max": 18402,
-      "overhangFracMin": 0.113,
-      "overhangFracMax": 0.161,
-      "trianglesMin": 38288,
-      "trianglesMax": 53348,
-      "nonManifoldEdgesMin": 55,
-      "nonManifoldEdgesMax": 71,
-      "repFile": "node_02_lattice.stl",
+      "minArmAngleDeg": 43.6,
+      "slotBaseMm": 16.91,
+      "massGMin": 15.16,
+      "massGMax": 19.71,
+      "massGSum": 196.28,
+      "massPct": 27.4,
+      "volumeMm3Min": 14306,
+      "volumeMm3Max": 18591,
+      "overhangFracMin": 0.122,
+      "overhangFracMax": 0.164,
+      "trianglesMin": 29276,
+      "trianglesMax": 40820,
+      "nonManifoldEdgesMin": 184,
+      "nonManifoldEdgesMax": 230,
+      "repFile": "node_07_lattice.stl",
       "repU": [
-        -1,
         0,
-        -1
+        -1,
+        1
       ],
-      "repUText": "(-1, 0, -1)",
-      "repMassG": 15.76
+      "repUText": "(0, -1, 1)",
+      "repMassG": 15.92
     },
     "lattice-8": {
       "key": "lattice-8",
@@ -100,20 +100,20 @@ export const NODES = {
       },
       "lands": 1,
       "armToLandDeg": 45.0,
-      "minArmAngleDeg": 45.0,
-      "slotBaseMm": 16.38,
-      "massGMin": 7.98,
-      "massGMax": 11.69,
-      "massGSum": 55.26,
-      "massPct": 11.9,
-      "volumeMm3Min": 7531,
-      "volumeMm3Max": 11031,
-      "overhangFracMin": 0.122,
-      "overhangFracMax": 0.143,
-      "trianglesMin": 21972,
-      "trianglesMax": 35044,
-      "nonManifoldEdgesMin": 29,
-      "nonManifoldEdgesMax": 39,
+      "minArmAngleDeg": 42.7,
+      "slotBaseMm": 17.26,
+      "massGMin": 11.5,
+      "massGMax": 16.81,
+      "massGSum": 81.21,
+      "massPct": 11.4,
+      "volumeMm3Min": 10846,
+      "volumeMm3Max": 15858,
+      "overhangFracMin": 0.128,
+      "overhangFracMax": 0.153,
+      "trianglesMin": 21060,
+      "trianglesMax": 33728,
+      "nonManifoldEdgesMin": 58,
+      "nonManifoldEdgesMax": 72,
       "repFile": "node_10_lattice.stl",
       "repU": [
         0,
@@ -121,7 +121,7 @@ export const NODES = {
         2
       ],
       "repUText": "(0, 0, 2)",
-      "repMassG": 8.71
+      "repMassG": 13.04
     },
     "rimVertex-7": {
       "key": "rimVertex-7",
@@ -138,28 +138,28 @@ export const NODES = {
       },
       "lands": 3,
       "armToLandDeg": null,
-      "minArmAngleDeg": 45.0,
-      "slotBaseMm": 18.98,
-      "massGMin": 5.45,
-      "massGMax": 5.83,
-      "massGSum": 135.35,
-      "massPct": 29.1,
-      "volumeMm3Min": 5140,
-      "volumeMm3Max": 5500,
-      "overhangFracMin": 0.125,
-      "overhangFracMax": 0.159,
-      "trianglesMin": 16712,
-      "trianglesMax": 17524,
-      "nonManifoldEdgesMin": 47,
-      "nonManifoldEdgesMax": 48,
-      "repFile": "node_22_rimVertex.stl",
+      "minArmAngleDeg": 43.0,
+      "slotBaseMm": 19.84,
+      "massGMin": 13.42,
+      "massGMax": 13.42,
+      "massGSum": 322.08,
+      "massPct": 45.0,
+      "volumeMm3Min": 12657,
+      "volumeMm3Max": 12663,
+      "overhangFracMin": 0.151,
+      "overhangFracMax": 0.169,
+      "trianglesMin": 26848,
+      "trianglesMax": 26996,
+      "nonManifoldEdgesMin": 119,
+      "nonManifoldEdgesMax": 127,
+      "repFile": "node_37_rimVertex.stl",
       "repU": [
-        2,
+        0,
         1,
-        0
+        -2
       ],
-      "repUText": "(2, 1, 0)",
-      "repMassG": 5.82
+      "repUText": "(0, 1, -2)",
+      "repMassG": 13.42
     },
     "hexHub-9": {
       "key": "hexHub-9",
@@ -175,20 +175,20 @@ export const NODES = {
       },
       "lands": 1,
       "armToLandDeg": 54.74,
-      "minArmAngleDeg": 45.0,
-      "slotBaseMm": 16.38,
-      "massGMin": 8.14,
-      "massGMax": 8.14,
-      "massGSum": 65.12,
-      "massPct": 14.0,
-      "volumeMm3Min": 7675,
-      "volumeMm3Max": 7679,
-      "overhangFracMin": 0.201,
-      "overhangFracMax": 0.203,
-      "trianglesMin": 22192,
-      "trianglesMax": 22232,
-      "nonManifoldEdgesMin": 63,
-      "nonManifoldEdgesMax": 66,
+      "minArmAngleDeg": 43.2,
+      "slotBaseMm": 17.04,
+      "massGMin": 12.59,
+      "massGMax": 12.59,
+      "massGSum": 100.72,
+      "massPct": 14.1,
+      "volumeMm3Min": 11876,
+      "volumeMm3Max": 11881,
+      "overhangFracMin": 0.123,
+      "overhangFracMax": 0.144,
+      "trianglesMin": 22752,
+      "trianglesMax": 22804,
+      "nonManifoldEdgesMin": 124,
+      "nonManifoldEdgesMax": 128,
       "repFile": "node_47_hexHub.stl",
       "repU": [
         1,
@@ -196,7 +196,7 @@ export const NODES = {
         -1
       ],
       "repUText": "(1, -1, -1)",
-      "repMassG": 8.14
+      "repMassG": 12.59
     }
   },
   "order": [
@@ -208,85 +208,160 @@ export const NODES = {
   ],
   "cuts": {
     "order": [
-      "mainLongDeep",
       "mainLong",
+      "mainLongDeep",
       "mainLongDeep2",
+      "mainLongDeep3",
       "mainShort",
       "mainShortDeep",
+      "mainShortDeep2",
+      "rimLongDeep",
       "rimLong"
     ],
     "groups": {
-      "mainLongDeep": {
-        "sku": "main",
-        "lengthKey": "long",
-        "deductMm": 32.76,
-        "count": 48,
-        "kinds": {
-          "octet": 48
-        },
-        "key": "mainLongDeep",
-        "name": "octet, into the centre",
-        "kindsText": "48 octet"
-      },
       "mainLong": {
         "sku": "main",
         "lengthKey": "long",
-        "deductMm": 35.36,
+        "deductMm": 36.88,
+        "cutMm": 206.142,
+        "trueMemberMm": 243.023,
         "count": 48,
         "kinds": {
           "spoke": 48
         },
+        "closingCutMm": 205.742,
+        "swingReliefMm": 0.2,
         "key": "mainLong",
         "name": "spoke",
         "kindsText": "48 spoke"
       },
+      "mainLongDeep": {
+        "sku": "main",
+        "lengthKey": "long",
+        "deductMm": 34.17,
+        "cutMm": 211.183,
+        "trueMemberMm": 245.354,
+        "count": 24,
+        "kinds": {
+          "octet": 24
+        },
+        "closingCutMm": 210.883,
+        "swingReliefMm": 0.15,
+        "key": "mainLongDeep",
+        "name": "octet",
+        "kindsText": "24 octet"
+      },
       "mainLongDeep2": {
         "sku": "main",
         "lengthKey": "long",
-        "deductMm": 28.64,
+        "deductMm": 33.82,
+        "cutMm": 216.846,
+        "trueMemberMm": 250.669,
+        "count": 24,
+        "kinds": {
+          "octet": 24
+        },
+        "closingCutMm": 216.546,
+        "swingReliefMm": 0.15,
+        "key": "mainLongDeep2",
+        "name": "octet",
+        "kindsText": "24 octet"
+      },
+      "mainLongDeep3": {
+        "sku": "main",
+        "lengthKey": "long",
+        "deductMm": 29.17,
+        "cutMm": 221.5,
+        "trueMemberMm": 250.669,
         "count": 12,
         "kinds": {
           "octet": 12
         },
-        "key": "mainLongDeep2",
-        "name": "octet, into the centre",
+        "closingCutMm": 221.2,
+        "swingReliefMm": 0.15,
+        "key": "mainLongDeep3",
+        "name": "octet",
         "kindsText": "12 octet"
       },
       "mainShort": {
         "sku": "main",
         "lengthKey": "short",
-        "deductMm": 35.36,
-        "count": 48,
-        "kinds": {
-          "tie": 48
-        },
-        "key": "mainShort",
-        "name": "tie",
-        "kindsText": "48 tie"
-      },
-      "mainShortDeep": {
-        "sku": "main",
-        "lengthKey": "short",
-        "deductMm": 32.76,
+        "deductMm": 37.1,
+        "cutMm": 134.376,
+        "trueMemberMm": 171.479,
         "count": 24,
         "kinds": {
           "tie": 24
         },
-        "key": "mainShortDeep",
-        "name": "tie, into the centre",
+        "closingCutMm": 133.876,
+        "swingReliefMm": 0.25,
+        "key": "mainShort",
+        "name": "tie",
         "kindsText": "24 tie"
+      },
+      "mainShortDeep": {
+        "sku": "main",
+        "lengthKey": "short",
+        "deductMm": 36.75,
+        "cutMm": 129.77,
+        "trueMemberMm": 166.525,
+        "count": 24,
+        "kinds": {
+          "tie": 24
+        },
+        "closingCutMm": 129.27,
+        "swingReliefMm": 0.25,
+        "key": "mainShortDeep",
+        "name": "tie",
+        "kindsText": "24 tie"
+      },
+      "mainShortDeep2": {
+        "sku": "main",
+        "lengthKey": "short",
+        "deductMm": 33.95,
+        "cutMm": 139.025,
+        "trueMemberMm": 172.973,
+        "count": 24,
+        "kinds": {
+          "tie": 24
+        },
+        "closingCutMm": 138.525,
+        "swingReliefMm": 0.25,
+        "key": "mainShortDeep2",
+        "name": "tie",
+        "kindsText": "24 tie"
+      },
+      "rimLongDeep": {
+        "sku": "rim",
+        "lengthKey": "long",
+        "deductMm": 39.68,
+        "cutMm": 202.778,
+        "trueMemberMm": 242.465,
+        "count": 24,
+        "kinds": {
+          "rim": 24
+        },
+        "closingCutMm": 202.078,
+        "swingReliefMm": 0.35,
+        "key": "rimLongDeep",
+        "name": "rim",
+        "kindsText": "24 rim"
       },
       "rimLong": {
         "sku": "rim",
         "lengthKey": "long",
-        "deductMm": 37.96,
-        "count": 36,
+        "deductMm": 39.68,
+        "cutMm": 203.877,
+        "trueMemberMm": 243.564,
+        "count": 12,
         "kinds": {
-          "rim": 36
+          "rim": 12
         },
+        "closingCutMm": 203.177,
+        "swingReliefMm": 0.35,
         "key": "rimLong",
         "name": "rim",
-        "kindsText": "36 rim"
+        "kindsText": "12 rim"
       }
     },
     "members": 216
@@ -298,15 +373,15 @@ export const NODES = {
     "memberEnds": 432,
     "landedNodes": 38,
     "lands": 86,
-    "massG": 464.81,
-    "manifestMassKg": 0.465,
+    "massG": 715.19,
+    "manifestMassKg": 0.715,
     "graph": {
       "octet": 60,
       "rim": 36,
       "spoke": 48,
       "tie": 72
     },
-    "res": 112
+    "res": 96
   },
   "joint": {
     "pipeOdMm": 10.0,
@@ -329,14 +404,14 @@ export const NODES = {
     "spigotStressMPa": 94.2,
     "slotOuterRMm": 5.15,
     "slotBaseMinMm": 12.26,
-    "slotBaseMaxMm": 18.98,
-    "slotBaseSpreadMm": 6.72,
+    "slotBaseMaxMm": 19.84,
+    "slotBaseSpreadMm": 7.58,
     "collarReachMm": 10.5,
     "rimMemberEnds": 72,
     "halfPitchMm": 177.25,
-    "voxelMm": 0.883,
-    "ribHVoxels": 0.28,
-    "clearanceVoxels": 0.17
+    "voxelMm": 1.049,
+    "ribHVoxels": 0.24,
+    "clearanceVoxels": 0.14
   }
 };
 

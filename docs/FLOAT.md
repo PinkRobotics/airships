@@ -21,6 +21,20 @@ moved and the numbers below are stale — re-run before trusting them:
 Figures marked MEASURED came from running the real generator or the real page. Figures
 marked TO VERIFY are supplier or shop-floor questions no calculation here can settle.
 
+> **CORRECTION 2026-08-11, evening — the joints got heavier and every figure below that
+> contains them is stale by the same factor.** The sunken boundary frame landed: boundary
+> nodes sink beneath the mating planes so every socket wraps its pipe whole (P5 is dead),
+> and each carries a printed land post back up to the true face. Full sockets, posts and
+> full seats are printed material: measured joint mass moved **0.465 → 0.715 kg** (an
+> intermediate 0.736 included 24 solidified spigots from a bore-start artifact, since
+> fixed), the article is **3.13 kg**, and the bench figure is now **~17.6 kg/m³, 18.4×**
+> over the target. Boundary-adjacent members also genuinely shortened — the cut list is
+> nine lengths (`manifest.cutList`). The tables below predate this; their *structure* and
+> every lever they identify stand, their joint columns scale by 0.715/0.465 = 1.54, and
+> the self-check protocol above is what makes re-running them safe. R-route pricing note:
+> the sink bought back the amputated sockets the old wrap census was counting against the
+> joints — any joint-lightening route now starts from whole geometry.
+
 ---
 
 ## 0. The goal state
@@ -350,7 +364,9 @@ and rim bending at 2.84 atm, which are today's numbers to the last digit.
 **And so is the mass budget.** Tube mass grows as `L³` alongside the volume, so **16.21
 kg/m³ at 0.709 m is 16.21 kg/m³ at 1 m**. A bigger cell of this architecture is not lighter
 per litre. It still does not float and this change will not make it float — the wall it
-must beat is 0.9569 kg/m³ and the article is 16.9× over it at every size.
+must beat is 0.9569 kg/m³ and the article is over it by the same factor at every size —
+16.9× when this section was computed, 18.4× since the sunken frame (see the correction
+at the head of this document); the invariance is the point, not the multiplier.
 
 ### What happens if the tube does NOT grow
 
@@ -389,7 +405,9 @@ buckling limit — which is **NOT CHECKED ANYWHERE IN THIS MODEL** and wants che
 anyone buys 24 × 22. At `R/t = 12` the classical shell-buckling stress is far above the
 axial demand here, but "far above" is not a number in the repository.
 
-The joints column is `0.465 kg × (od/10)³`, and that cube law is MEASURED, not assumed
+The joints column is `joint mass × (od/10)³` (0.465 kg when computed; 0.715 kg since the
+sunken frame — see the head-of-document correction), and that cube law is MEASURED, not
+assumed
 (§6). At 1 m the joints are 25% of the article by mass instead of 16%.
 
 ---

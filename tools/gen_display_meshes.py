@@ -64,8 +64,9 @@ import numpy as np
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
-from gen_nodes import (article_graph, spanning_tree, face_planes, slot_base,  # noqa: E402
-                       bore_start, node_sdf, surface_nets, mesh_health, mesh_volume)
+from gen_nodes import (HALF, article_graph, spanning_tree, slot_base,  # noqa: E402
+                       bore_start, boundary_frame, node_sdf, surface_nets, mesh_health,
+                       mesh_volume)
 from gen_node_families import ORDER, payload  # noqa: E402
 
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
@@ -103,8 +104,14 @@ def source_hash() -> str:
 
 
 def article():
-    """The graph, the per-node bases, and the per-arm engagements — main()'s own derivation,
-    proven against the manifest rather than trusted."""
+    """The graph, the sunken frame, the per-node bases and the per-arm engagements —
+    main()'s own two-pass derivation, proven against the manifest rather than trusted.
+
+    Sinks are judged on the NOMINAL lattice directions (boundary_frame's contract), then the
+    incident directions are re-derived from the sunken positions — the same order
+    gen_nodes.main() and check_assembly.build_graph() take, because a display mesh grown
+    around the nominal arms would sit visibly off the pipes the page stretches to the real
+    seats."""
     man = json.loads(MANIFEST.read_text())
     prm = dict(man["paramsMm"])
     prm["slot_margin"] = SLOT_MARGIN
@@ -117,6 +124,15 @@ def article():
         incident[a].append((d, k))
         incident[b].append((-d, k))
     kinds_of = {u: [members[k][2] for _, k in incident[u]] for u, _ in nodes}
+    frame_of = {u: boundary_frame(u, [d for d, _ in incident[u]], kinds_of[u], prm)
+                for u, _ in nodes}
+    pos_of = {u: np.array(u, float) * HALF + frame_of[u][0] for u, _ in nodes}
+    incident = {u: [] for u, _ in nodes}
+    for k, (a, b, _fam) in enumerate(members):
+        d = pos_of[b] - pos_of[a]
+        d /= np.linalg.norm(d)
+        incident[a].append((d, k))
+        incident[b].append((-d, k))
     base_of = {u: slot_base([d for d, _ in incident[u]], prm, kinds_of[u])[0]
                for u, _ in nodes}
     for i, (u, role) in enumerate(nodes):
@@ -127,36 +143,43 @@ def article():
                      "parameter (slot_margin?) has drifted from the shipped meshes.")
     ext = max(max(base_of.values()) + prm["stub"] + prm["blend"] + 6.0,
               prm["pad_r"] + 4.0, 22.0 + prm["stub"])
-    return man, prm, nodes, tree, incident, kinds_of, base_of, ext
+    return man, prm, nodes, tree, incident, kinds_of, base_of, frame_of, ext
 
 
-def snap_lands(v, lands, h):
+def snap_lands(v, land_pairs, h):
     """Vertices near a mating land go exactly onto it; near two lands, onto their edge.
 
     The single-plane snap alone leaves a visible staircase along the edge where two lands
-    meet — vertices alternately caught and missed by each plane's band. The land planes
-    all pass through the node's own centre, so the edge is the line orthogonal to both
-    normals, and projecting out both components (the second Gram-Schmidt-orthogonalised
-    against the first) puts a vertex exactly on it. A rim vertex's three lands meet at the
-    cell's corner; a vertex near all three lands is handled by the pairs in sequence and
-    ends where it should — at the corner itself.
+    meet — vertices alternately caught and missed by each plane's band. The lands are
+    OFFSET planes now (P.n = off, the nominal cell face above the sunken centre), so the
+    two-plane edge is the nominal polyhedron's own edge: solve for the line satisfying both
+    plane equations by projecting onto the first plane and then along the second normal
+    Gram-Schmidt-orthogonalised against it, with the offsets carried through. Only the land
+    post reaches this high, so the vertices this catches are the post cap's own edges — a
+    rim vertex's three lands meet at the cell's true corner, and the cap ends exactly there.
     """
-    if not lands:
+    if not land_pairs:
         return v
-    near = [np.abs(v @ n) < h * 0.85 for n in lands]
-    for n, m in zip(lands, near):
-        d = v @ n
+    near = [np.abs(v @ n - off) < h * 0.85 for n, off in land_pairs]
+    for (n, off), m in zip(land_pairs, near):
+        d = v @ n - off
         v[m] -= np.outer(d[m], n)
-    for i in range(len(lands)):
-        for j in range(i + 1, len(lands)):
+    for i in range(len(land_pairs)):
+        for j in range(i + 1, len(land_pairs)):
             m = near[i] & near[j]
             if not m.any():
                 continue
-            n1 = lands[i]
-            n2 = lands[j] - float(lands[j] @ n1) * n1
-            n2 /= np.linalg.norm(n2)
-            v[m] -= np.outer(v[m] @ n1, n1)
-            v[m] -= np.outer(v[m] @ n2, n2)
+            n1, o1 = land_pairs[i]
+            n2, o2 = land_pairs[j]
+            c12 = float(n2 @ n1)
+            n2u = n2 - c12 * n1
+            nrm = np.linalg.norm(n2u)
+            if nrm < 1e-9:
+                continue
+            n2u /= nrm
+            t2 = (o2 - c12 * o1) / nrm
+            v[m] -= np.outer(v[m] @ n1 - o1, n1)
+            v[m] -= np.outer(v[m] @ n2u - t2, n2u)
     return v
 
 
@@ -184,8 +207,10 @@ def project(v, sdf, h):
     return v
 
 
-def extract(res, ext, prm, nodes, tree, incident, kinds_of, base_of, which, display):
-    """Mesh the given node indices at `res`, article frame. Returns [(v, t, vol), ...]."""
+def extract(res, ext, prm, nodes, tree, incident, kinds_of, base_of, frame_of, which,
+            display):
+    """Mesh the given node indices at `res`, about each joint's own SUNKEN centre.
+    Returns [(v, t, vol), ...]."""
     axis = np.linspace(-ext, ext, res)
     h = axis[1] - axis[0]
     gx, gy, gz = np.meshgrid(axis, axis, axis, indexing="ij")
@@ -195,17 +220,22 @@ def extract(res, ext, prm, nodes, tree, incident, kinds_of, base_of, which, disp
         u, role = nodes[i]
         dirs = [d for d, _ in incident[u]]
         kinds = kinds_of[u]
-        lands = face_planes(u)
+        sink_vec, land_pairs = frame_of[u]
+        lands = [n for n, _ in land_pairs]
+        offs = [o for _, o in land_pairs]
+        sink = float(np.linalg.norm(sink_vec))
+        post_axis = (-sink_vec / sink) if sink > 1e-9 else None
         stubs = [prm["stub"] if k in tree else prm["pilot"] for _, k in incident[u]]
-        bores = [bore_start(d, lands, prm, kd) for d, kd in zip(dirs, kinds)]
+        bores = [bore_start(d, lands, prm, kd, offs) for d, kd in zip(dirs, kinds)]
         sdf = lambda pts: node_sdf(pts, dirs, lands, prm, role == "hexHub",  # noqa: E731
-                                   base_of[u], stubs, bores, kinds, display=display)
+                                   base_of[u], stubs, bores, kinds, display=display,
+                                   land_offs=offs, post_axis=post_axis)
         F3 = sdf(P).reshape([res] * 3)
         v, t = surface_nets(F3, np.array([-ext] * 3), h)
         # Projection first (onto the true surface), the exact land planes LAST — the same
         # order the field itself is built in, so no smoothing can round a land back off.
         v = project(v, sdf, h)
-        v = snap_lands(v, lands, h)
+        v = snap_lands(v, land_pairs, h)
         closed, _ = mesh_health(t)
         if not closed:
             sys.exit(f"gen_display_meshes: node {i} came out OPEN at res {res} — "
@@ -226,15 +256,15 @@ def encode(v, t, ext):
 
 
 def build() -> dict:
-    man, prm, nodes, tree, incident, kinds_of, base_of, ext = article()
+    man, prm, nodes, tree, incident, kinds_of, base_of, frame_of, ext = article()
     fams = payload()["families"]
     file_to_idx = {r["file"]: i for i, r in enumerate(man["nodes"])}
     rep_idx = {key: file_to_idx[fams[key]["repFile"]] for key in ORDER}
 
     disp = extract(DISPLAY_RES, ext, prm, nodes, tree, incident, kinds_of, base_of,
-                   range(len(nodes)), display=True)
+                   frame_of, range(len(nodes)), display=True)
     reps = extract(REP_RES, ext, prm, nodes, tree, incident, kinds_of, base_of,
-                   [rep_idx[k] for k in ORDER], display=False)
+                   frame_of, [rep_idx[k] for k in ORDER], display=False)
 
     rows = []
     for i, (v, t, vol) in enumerate(disp):
@@ -243,6 +273,12 @@ def build() -> dict:
         rows.append({
             "file": row["file"], "u": row["u"], "role": row["role"], "arms": row["arms"],
             "slotBaseMm": row["slotBaseMm"],
+            # THE SUNKEN FRAME, for the page: this mesh is about the joint's own sunken
+            # centre, and sinkMm (article mm, from the manifest row) is how far and which
+            # way that centre sits from the nominal lattice point the page's cell geometry
+            # puts it at. The page adds it to the drawn point or the joint floats off its
+            # own pipes by up to 12 mm.
+            "sinkMm": row["sinkMm"],
             "verts": len(v), "tris": len(t), "volumeMm3": round(vol),
             "reachMm": round(float(np.linalg.norm(v, axis=1).max()), 2),
             "v": pv, "i": pi,
@@ -253,6 +289,7 @@ def build() -> dict:
         pv, pi = encode(v, t, ext)
         rep_rows[key] = {
             "file": row["file"], "u": row["u"], "role": row["role"],
+            "sinkMm": row["sinkMm"],
             "verts": len(v), "tris": len(t), "volumeMm3": round(vol),
             "v": pv, "i": pi,
         }
@@ -293,9 +330,11 @@ def check() -> None:
     if len(mod["nodes"]) != len(man["nodes"]):
         bad.append(f"{len(mod['nodes'])} meshes against {len(man['nodes'])} manifest rows")
     for got, want in zip(mod["nodes"], man["nodes"]):
-        for f in ("file", "u", "role", "arms", "slotBaseMm"):
-            if got[f] != want[f]:
-                bad.append(f"{want['file']}: {f} {got[f]!r} != manifest {want[f]!r}")
+        # .get, not [], so a module or manifest that predates a field reports STALE by name
+        # instead of dying on the comparison that exists to say so.
+        for f in ("file", "u", "role", "arms", "slotBaseMm", "sinkMm"):
+            if got.get(f) != want.get(f):
+                bad.append(f"{want['file']}: {f} {got.get(f)!r} != manifest {want.get(f)!r}")
                 break
     fams = payload()["families"]
     if list(mod["reps"]) != list(ORDER):

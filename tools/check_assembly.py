@@ -83,7 +83,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 # catches the failure it was written for — a manifest written by a run whose geometry does not
 # match this graph — because it compares the manifest ON DISK against the recomputed value.
 from gen_nodes import (HALF, arm_pipe, article_graph, bore_start,  # noqa: E402
-                       face_planes, node_sdf, pilot_bound, print_frame,
+                       boundary_frame, face_planes, node_sdf, pilot_bound, print_frame,
                        slot_base, smin, spanning_tree, swing_relief)
 
 NODES_DIR = ROOT / "research" / "geometry" / "nodes"
@@ -174,25 +174,33 @@ def _vacuum_cell():
 #                                     paragraph is longer than the four above it.
 KNOWN = [
     # (checkId, key, expected, tol, owner-phase, one-line why)
-    ("P5", "endsCutByALand", 216, 0, "gen_nodes: inset the socket off in-plane lands",
-     "half the sockets are open-sided grooves because the arm lies in a mating face"),
-    ("P5", "endsCutTwice", 72, 0, "gen_nodes: inset the socket off in-plane lands",
-     "rim-vertex corners cut the same spigot with two coplanar lands"),
-    ("P5", "minWrapFrac", 0.30409, 2e-4, "gen_nodes: inset the socket off in-plane lands",
-     "hexagon+hexagon corner, psi = 70.5288 deg, keeps 109.47 deg of circumference"),
-    ("P5", "sumBondAreaMm2", 76478.95, 0.5, "gen_nodes: inset the socket off in-plane lands",
+    #
+    # WHAT THE 2026-08-11 SUNKEN FRAME DELETED: all three P5 defect rows. endsCutByALand
+    # 216 -> 0, endsCutTwice 72 -> 0, minWrapFrac 0.30409 -> 1.0 — not by widening anything
+    # but by gen_nodes.boundary_frame(): boundary nodes sink along their land-normal
+    # bisectors until every socket clears its planes whole, the lands become offset planes,
+    # and a land post carries the mating flat back up to the nominal face. The wrap census
+    # P5 now holds the article to is zero cut features at every arm's own SKU, and the value
+    # rows below (bond, spigot, bearing sums) carry the new state the fix bought.
+    ("P5", "sumBondAreaMm2", 95667.76, 0.5, "gen_nodes: nothing — this is the design point",
      "the bond area the whole strength case rests on, summed over both bonded surfaces: it "
-     "fell 51% when 332 ends went from a 20 mm stub to a 2 mm pilot in a 2 mm cup"),
-    ("P5", "sumSpigotAreaMm2", 11174.03, 0.5, "gen_nodes: inset the socket off in-plane lands",
-     "the measured section, summed: it moves with spigot_wall, clearance and every land cut"),
+     "fell 51% when 332 ends went from a 20 mm stub to a 2 mm pilot, and rose 25% when the "
+     "sunken frame gave the 216 land-cut ends their full circumference back"),
+    ("P5", "sumSpigotAreaMm2", 15471.73, 0.5, "gen_nodes: nothing — this is the design point",
+     "the measured section, summed: it moves with spigot_wall, clearance and any land cut, "
+     "and 38% of it was missing while the mating planes amputated 216 sockets. The value is "
+     "the second regrow's — the first sank the frame, and the second gave 24 in-plane tie "
+     "arms their bores back after bore_start()'s through-centre tan(beta) blew up on the "
+     "sink's near-90-degree betas and quietly carved them solid"),
     ("P5", "sumEngagementMm", 2664.0, 0, "gen_nodes: nothing — this is the design point",
      "100 tree ends at 20 mm plus 332 closing ends at 2 mm; frozen so a change to either, or "
      "to which members are which, has to be declared"),
     ("P6", "maxBearingAreaMm2", 28.274, 0.01, "gen_nodes: nothing — this is the design point",
      "the full pipe annulus, now present at every uncut end rather than at 12 of 432"),
-    ("P6", "sumBearingAreaAt20umMm2", 8821.586, 0.5, "gen_nodes: nothing — the design point",
-     "the seat measurement summed over 432 ends: 6.7x the V2 blend fillet, and it is exactly "
-     "28.2743 x sum(wrap), which is what a seat that is a land rather than a fillet looks like"),
+    ("P6", "sumBearingAreaAt20umMm2", 12214.498, 0.5, "gen_nodes: nothing — the design point",
+     "the seat measurement summed over 432 ends, and since the sunken frame it is exactly "
+     "432 x the full 28.2743 annulus: every seat in the article is whole, and this row is "
+     "what notices the first one that stops being"),
     ("P1", "closingMembers", 166, 0, "the graph: nothing can reduce this",
      "E-V+C, so 332 of 432 member-ends can never be seated axially; the pilot is the answer "
      "and this row is what notices if the graph or the spanning tree changes"),
@@ -209,57 +217,71 @@ KNOWN = [
      "no MATING land, so print_frame has no face to land on the bed and must choose one. It "
      "chooses a lattice bed normal now and every one of the 13 is measured on the frame it is "
      "actually emitted in — but this key counts mating lands, and 13 nodes will never have one"),
-    ("P11", "downwardArms", 42, 0, "gen_nodes: back the collar's outboard face, or set a "
-                                   "threshold on islandVolumeMm3 and replace this key",
+    ("P11", "downwardArms", 101, 0, "the printer question: set a threshold on "
+                                    "islandVolumeMm3 and replace this key",
      "a 7.7 mm OD, 2.0 mm wall spigot printed downward into air. It cannot reach zero: an "
      "octet node's arms come in opposed pairs, so any orientation points half of them down. "
-     "IT WENT UP BY 2 ON PURPOSE, and that is the price of the fix rather than a regression: "
-     "the frame search minimises material that cannot be built up from the bed, and an arm "
-     "aimed down whose tip REACHES the plate is a tower, not an overhang. The frames that "
-     "minimise this count instead put one long arm straight down, drop the bed 36 mm and leave "
-     "everything else hanging in the gap — 28 downward arms for 7114 mm3 of island against the "
-     "42 and 2864 mm3 taken, with 12 arm ends back in the air. Both columns are generated into "
-     "manifest.nodes[].frameSearch so the trade is readable rather than asserted"),
+     "42 -> 101 BECAUSE THE POPULATION CHANGED, not the frames: a sunken boundary node's "
+     "only flat at a mating plane is its post top, nothing to seat a print on, so the "
+     "bed-normal search that used to serve 13 landless joints now orients all 51, and the "
+     "38 that used to print land-down joined this census. The counterfactual stays "
+     "generated into manifest.nodes[].frameSearch; islandVolumeMm3 (13877 mm3 article-wide) "
+     "and bedContactMm2 are the measures that decide a print, and the threshold on them is "
+     "a printer question this file refuses to invent"),
     # Frozen but NOT a fail key: a number that must not move without someone saying so, which
     # is what a ledger row is for.
     ("P11", "minWallMm", 1.44, 1e-3, "gen_nodes: nothing — this is the design point",
      "the thinnest wall the part has, measured: the cup, lip_wall - clearance wide"),
     ("P13", "endsWithoutClampedFixity", 216, 0, "vacuum-cell: quote the pinned row for these",
      "the socket cannot develop the clamped moment filmEdgeLoads quotes for them"),
-    ("P14", "cutRowsDisagreeingWithStockBuild", 6, 0,
+    ("P14", "cutRowsDisagreeingWithStockBuild", 9, 0,
      "vacuum-cell: stock_build publishes centre-to-centre lengths as cuts",
-     "longCutM 0.251 / shortCutM 0.177 are member lengths; the cut is shorter by both bases. "
-     "IT WENT 5 -> 6 BECAUSE THE ARTICLE GREW A CUT, not because a new row started disagreeing: "
-     "the per-arm SKU pushed the 24 rim vertices' slot base from 16.383 to 18.984 mm, which "
-     "shortened the rim cut by 5.20 mm and split the 72 short members into the 48 that land on "
-     "a rim vertex (141.883) and the 24 tripod ties that do not (144.484). Six cut lengths, "
-     "still two published, and every one of the six disagrees with both of them"),
-    # THE 24 THE CORRECTED DEMAND FOUND. This is a defect P12's fix uncovered rather than one
-    # it caused: these ends were passing on a demand that was never theirs.
-    ("P16", "localBucklingFails", 24, 0,
-     "gen_nodes: inset the socket off in-plane lands — the same fix P5's rows name",
-     "the 24 rim ends whose spigot two coplanar hexagon lands cut to 0.304 of its "
-     "circumference have 10.91 mm2 of section left, and K_LOCAL*E*t/r on that section is 4077 N "
-     "against the rim's own 4477 N. They passed while the rim was priced at the octet's crush "
-     "share, which the rim cannot carry at all — the rim vertices are dual-lattice sites. "
-     "Nothing about the part changed; the load it is held to became the right one"),
-    # FOUR COUNTS ROSE BY EXACTLY 96 IN ONE PASS, and it is one cause, stated once here rather
-    # than four times below: P12 gave the 48 hexagon spokes the film's in-plane radial tributary,
-    # so their 96 member-ends stopped being NOT DERIVED and joined every census that needs a
-    # demand to have an opinion. Not one of those ends got weaker. A margin that could not be
-    # computed is not a margin that passed, which is the whole reason the verdict exists.
-    ("P16", "spigotDirectFails", 432, 0, "gen_nodes/vacuum-cell: the section is under-strength",
+     "longCutM 0.251 / shortCutM 0.177 are member lengths; the cut is shorter by both bases "
+     "and, since the sunken frame, by the sink at each boundary end too. 6 -> 9 because the "
+     "article grew cuts again, not because stock_build got worse: the sink shortens every "
+     "boundary-adjacent member by its ends' own displacements, which split the octets three "
+     "ways, the ties three ways, and even the 36 rim edges two ways (hexagon-hexagon and "
+     "square-hexagon corners sink along different bisectors). Nine true cut lengths in "
+     "manifest.cutList, still two published, every one of the nine disagreeing with both — "
+     "stock_build bills 48.8 m of tube where the article saws 39.8"),
+    # THE SWING THAT RIDES THE CUP MOUTH — the one defect the sunken frame CREATED, frozen
+    # at its measured size with its physics read before it was capped. The sink shortens
+    # every boundary-adjacent cut, a shorter closing cut swings in steeper, and the field
+    # sweep now finds ONE representative — the shortest tie, square-centre end — whose
+    # pipe shaft touches the cup's mouth at its worst pose: -0.0004 mm, measured against
+    # the 0.15 mm radial clearance band the sweep adjudicates, i.e. the shaft RIDES the
+    # mouth edge through part of the swing the way a builder actually feeds one. Probed
+    # 2026-08-11: adding swing relief does not buy margin (the clearance wobbles 0-30
+    # microns as the pose set shifts — the ride is inherent), and the tilt direction
+    # cannot dodge it (the cup is a circle). Two real fixes, either of which retires this
+    # row: a lead-in chamfer on the cup mouth in node_sdf, or teaching the sweep the
+    # builder's true freedom — the pose path here is the SYMMETRIC two-pilot identity, and
+    # biasing engagement between the two ends walks around a contact the symmetric path
+    # cannot.
+    ("P8", "closingMembersWithNoInsertionPath", 1, 0,
+     "gen_nodes: chamfer the cup mouth — or the proof: walk the 2D engagement corridor",
+     "the shortest tie's shaft kisses its square-centre cup mouth at 0.4 microns on the "
+     "symmetric swing path, 375x inside the clearance the sweep adjudicates; the closed-form "
+     "pilot bound still clears x1.35 and the other nine representatives sweep clean"),
+    # THE SUNKEN FRAME'S OWN P16 HARVEST, one cause stated once: giving the 216 land-cut
+    # ends their circumference back grew every cut end's section and bond, so localBuckling
+    # cleared outright (24 -> 0, and the prover stopped emitting a key for a zero census),
+    # transverseShear's 72 derived FAILs became UNPROVEN bounds, and the three counts below
+    # each shed the ends whose only deficit was the amputation. None of this touched a
+    # demand; the parts got whole.
+    ("P16", "spigotDirectFails", 336, 0, "gen_nodes/vacuum-cell: the section is under-strength",
      "a full uncut 35.81 mm2 spigot at 92 MPa is 3295 N against a 3376 N demand, and the "
      "design's answer — that the load rides the butt — is only true now that the butt exists. "
-     "336 -> 432: the 96 spoke ends have a demand now (+96), and every end in the article "
-     "fails this path"),
+     "432 -> 336: the 96 ends whose sections the mating planes had amputated measure whole "
+     "now, and 96 of the article's ends clear this path where zero did"),
     ("P16", "spigotBendingFails", 216, 0, "vacuum-cell: quote the pinned row for these",
      "the clamped moment against the section modulus about the axis it actually bends"),
-    ("P16", "bondShearFails", 356, 0, "phase: the pilot's own bill",
-     "what the pilot cost: a closing end bonds 113 mm2 x wrap over two surfaces where a tree "
-     "end bonds 581, so most ends no longer reach the 10 MPa line. Every member is in "
+    ("P16", "bondShearFails", 332, 0, "phase: the pilot's own bill",
+     "what the pilot cost: a closing end bonds 113 mm2 over two surfaces where a tree end "
+     "bonds 581, so most closing ends no longer reach the 10 MPa line. Every member is in "
      "compression under the design load and rides the seat, but nothing here says so. "
-     "260 -> 356: the 96 spoke ends have a demand now (+96)"),
+     "356 -> 332: full wrap restored the 24 cut closing ends that were failing on "
+     "amputation alone; what remains IS the pilot's bill, exactly the 332 closing ends"),
     # THE FOUR ROWS THE CAPACITIES BOUGHT. 888 margins used to carry a demand and no capacity,
     # which failed nothing and told nobody what to go and do. They are answers now, and three of
     # the four answers are bad — which is the point: a derived capacity that fails is worth more
@@ -269,14 +291,14 @@ KNOWN = [
     # whose bound did not decide them — and they survive a geometry change that would make a
     # typed "119-391 MPa" stale with nothing to catch it. P16's own detail lines print the live
     # figures every run, which is where a number belongs in this repository.
-    ("P16", "axialBearingFails", 432, 0, "bench: press a stub into a printed socket",
-     "every end with a derived axial demand puts more bearing stress on its seat annulus than "
-     "the strongest strength the TDS reports for this material in any direction. The allowable "
-     "is the TENSILE one because no bearing allowable exists, and that substitution is "
-     "conservative for a land this confined — so this row reads NOT SHOWN TO HOLD, not proven "
-     "to crush, and the load at 0.10 mm embedment on a real printed socket replaces it. "
-     "336 -> 432: the 96 spoke ends have a demand now (+96), and every end in the article is "
-     "in this count"),
+    ("P16", "axialBearingFails", 416, 0, "bench: press a stub into a printed socket",
+     "almost every end with a derived axial demand puts more bearing stress on its seat "
+     "annulus than the strongest strength the TDS reports for this material in any "
+     "direction. The allowable is the TENSILE one because no bearing allowable exists, and "
+     "that substitution is conservative for a land this confined — so this row reads NOT "
+     "SHOWN TO HOLD, not proven to crush, and the load at 0.10 mm embedment on a real "
+     "printed socket replaces it. 432 -> 416: sixteen ends' seats sit under the demand line "
+     "now that every seat is the full annulus"),
     ("P16", "pullOutDryFails", 332, 0, "gen_nodes/phase: the pilot, and the bond it leans on",
      "every CLOSING end with a derived axial demand would need a friction coefficient above 1 "
      "on its measured rib crest contact, which is 6.6-14.3 mm2 at a 2 mm pilot and cannot be "
@@ -284,15 +306,13 @@ KNOWN = [
      "adhesive at all' is therefore false wherever the pilot is: this is a bonded joint. "
      "236 -> 332: the 96 closing spoke ends this row used to exclude for want of a demand are "
      "in it now (+96), which is every closing end in the article"),
-    ("P16", "transverseShearFails", 72, 0, "vacuum-cell/gen_nodes: the rim root is under-sized",
-     "the 72 rim ends need more UNIFORM shear across their root section than 92 MPa, which is "
-     "the strongest number the TDS reports for this material in any direction and in tension "
-     "rather than shear. No shear test can clear them; only more section or less line load"),
-    ("P16", "marginsUnproven", 244, 0, "bench: MU_TEST and SHEAR_TEST, one afternoon each",
-     "100 tree ends bounded on dry capture and 144 ends bounded on transverse shear, each "
+    ("P16", "marginsUnproven", 316, 0, "bench: MU_TEST and SHEAR_TEST, one afternoon each",
+     "100 tree ends bounded on dry capture and 216 ends bounded on transverse shear, each "
      "needing a value that lands inside the band a real measurement could return — see the "
-     "ranges P16 prints. Both are decidable and neither is decided, and a bound that did not "
-     "settle a row is work done, not a pass"),
+     "ranges P16 prints. 244 -> 316: transverseShear stopped FAILING 72 rim ends outright "
+     "when their full root sections came back, and those rows joined the undecided-bound "
+     "census instead. Both tests are decidable and neither is decided, and a bound that did "
+     "not settle a row is work done, not a pass"),
     ("P16", "pressFitFails", 432, 0, "the measurement, not the part",
      "the rib is live now (P7) and the margin still reads x0.90: a sign test reports the "
      "outermost SOLID radius, which is one probe step inside a crest that is a surface"),
@@ -340,7 +360,8 @@ LEDGER_TOL = {key: tol for _cid, key, _exp, tol, _own, _why in KNOWN}
 GEN_NODES_DEFAULTS = dict(pipe_od=10.0, pipe_id=8.0, rim_pipe_od=14.0, rim_pipe_id=12.0,
                           clearance=0.15, stub=20.0, pilot=2.0,
                           core_r=8.0, shoulder=2.0, lip=2.5, lip_wall=1.6, spigot_wall=2.0,
-                          blend=4.0, ribs=3, rib_h=0.25, bore_margin=0.4, pad_r=0.0, pad_t=3.0)
+                          blend=4.0, ribs=3, rib_h=0.25, bore_margin=0.4, pad_r=0.0, pad_t=3.0,
+                          land_margin=1.0, land_post_r=5.0)
 EXTRA_PARAMS = dict(pad_blend=2.5, slot_margin=0.5, demand_n=3372.0, rho=1060.0)
 
 
@@ -352,7 +373,12 @@ def load_params(manifest):
     run, and P2 is what notices the graph no longer matches it.
     """
     if manifest and isinstance(manifest.get("paramsMm"), dict):
-        prm = dict(manifest["paramsMm"])
+        # Defaults UNDER the manifest, never over it: the manifest wins wherever it speaks,
+        # and gen_nodes' own defaults fill only the keys a pre-sink manifest predates
+        # (land_margin, land_post_r). A run against such a manifest measures the sunken
+        # graph over on-plane STLs, and P2 is what says so, loudly and by name.
+        prm = dict(GEN_NODES_DEFAULTS)
+        prm.update(manifest["paramsMm"])
         prm.update(EXTRA_PARAMS)
         return prm, "manifest.paramsMm"
     prm = dict(GEN_NODES_DEFAULTS)
@@ -388,12 +414,36 @@ def build_graph(prm):
     role = {u: r for u, r in nodes}
     tree, tree_order = spanning_tree(nodes, members)
 
-    # Arm order is the order gen_nodes.main() builds incident[] in, so endId is stable and
-    # freezable: iterate members in graph order, append d at a and -d at b.
-    incident = {u: [] for u, _ in nodes}
+    # THE SUNKEN FRAME, in the same two passes gen_nodes.main() takes. Sink decisions are
+    # judged on the NOMINAL lattice directions — boundary_frame's contract — and then every
+    # position, direction, angle and cut below is re-derived from the sunken article. A model
+    # that kept the nominal directions here would measure sockets a fraction of a degree off
+    # the arms the STLs were grown around, and hold the mating lands to planes through centres
+    # the joints no longer occupy.
+    nominal = {u: [] for u, _ in nodes}
     for k, (a, b, fam) in enumerate(members):
         d = np.array(b, float) - np.array(a, float)
         d /= np.linalg.norm(d)
+        nominal[a].append((d, fam))
+        nominal[b].append((-d, fam))
+    frame_of = {u: boundary_frame(u, [d for d, _ in nominal[u]],
+                                  [f for _, f in nominal[u]], prm) for u, _ in nodes}
+    pos = {u: np.array(u, float) * HALF + frame_of[u][0] for u, _ in nodes}
+
+    # Arm order is the order gen_nodes.main() builds incident[] in, so endId is stable and
+    # freezable: iterate members in graph order, append d at a and -d at b. tiltMaxDeg is the
+    # largest angle the sink turned any member off its lattice direction — the article's own
+    # bound on how far a real elevation may sit from a lattice one, which P13 holds every end
+    # to instead of a typed list the sink made exactly wrong.
+    incident = {u: [] for u, _ in nodes}
+    tilt_max = 0.0
+    for k, (a, b, fam) in enumerate(members):
+        nd = np.array(b, float) - np.array(a, float)
+        nd /= np.linalg.norm(nd)
+        d = pos[b] - pos[a]
+        d /= np.linalg.norm(d)
+        tilt_max = max(tilt_max, math.degrees(
+            math.acos(max(-1.0, min(1.0, float(nd @ d))))))
         stub = prm["stub"] if k in tree else prm["pilot"]
         incident[a].append({"dir": d, "family": fam, "other": b, "member": k, "stub": stub,
                             "closing": k not in tree})
@@ -408,24 +458,34 @@ def build_graph(prm):
         # at 14 — the prover would then be proving a part nobody prints.
         kinds = [a["family"] for a in incident[u]]
         base, min_ang, need = slot_base(dirs, prm, kinds)
-        lands = face_planes(u)
-        # THE PRINT FRAME IS NOW MEASURED, NOT INHERITED, on the 13 joints that carry no
-        # mating land, so it needs the same per-arm engagement and bore starts the generator
-        # builds the part from. Passing anything less would have this model proving a part in
-        # one orientation while gen_nodes emitted it in another, and every elevation, every
+        sink_vec, land_pairs = frame_of[u]
+        lands = [n for n, _ in land_pairs]
+        offs = [o for _, o in land_pairs]
+        sink = float(np.linalg.norm(sink_vec))
+        post_axis = (-sink_vec / sink) if sink > 1e-9 else None
+        # THE PRINT FRAME IS MEASURED FOR EVERY NODE NOW, exactly as gen_nodes does it: a
+        # sunken node's only flat at a mating plane is its post top, nothing to seat a print
+        # on, so the bed-normal search that used to serve the 13 landless joints serves all
+        # 51. It needs the same per-arm engagement and bore starts the generator builds the
+        # part from. Passing anything less would have this model proving a part in one
+        # orientation while gen_nodes emitted it in another, and every elevation, every
         # allowable interpolated on elevation and every overhang in the report would be about
         # a part nobody prints.
         stubs = [a["stub"] for a in incident[u]]
-        bores = [bore_start(d, lands, prm, kd) for d, kd in zip(dirs, kinds)]
-        R = print_frame(lands, dirs, prm, base, stubs, bores, kinds)
+        bores = [bore_start(d, lands, prm, kd, offs) for d, kd in zip(dirs, kinds)]
+        R = print_frame([], dirs, prm, base, stubs, bores, kinds)
         info[u] = {"dirs": dirs, "lands": lands, "base": base, "minAng": min_ang,
                    "need": need, "R": R, "role": r, "kinds": kinds,
                    "stubs": stubs, "bores": bores,
+                   # The frame the node sits in: each land plane's height above the sunken
+                   # centre (P.n <= off is the part's side), and the post that climbs back.
+                   "offs": offs, "sinkVec": sink_vec, "postAxis": post_axis,
+                   "postPrint": (R @ post_axis) if post_axis is not None else None,
                    "armsPrint": [R @ d for d in dirs],
                    "landsPrint": [R @ n for n in lands]}
     return {"nodes": nodes, "members": members, "tally": tally, "index": index,
             "role": role, "incident": incident, "info": info, "tree": tree,
-            "treeOrder": tree_order}
+            "treeOrder": tree_order, "pos": pos, "tiltMaxDeg": tilt_max}
 
 
 def field(P, inf, prm, ribs=None):
@@ -445,11 +505,14 @@ def field(P, inf, prm, ribs=None):
                     [a.astype(np.float32) for a in inf["armsPrint"]],
                     [n.astype(np.float32) for n in inf["landsPrint"]], p,
                     inf["role"] == "hexHub", inf["base"], inf["stubs"], inf["bores"],
-                    inf["kinds"])
+                    inf["kinds"], land_offs=inf["offs"], post_axis=inf["postPrint"])
 
 
-def member_length(a, b):
-    return float(np.linalg.norm((np.array(b, float) - np.array(a, float)) * HALF))
+def member_length(g, a, b):
+    # Between SUNKEN centres, not lattice points: the sink shortens every boundary-adjacent
+    # member, and the cut the builder makes is this length less both bases. The nominal
+    # lattice pitch survives only in the article's span — the land posts keep the faces there.
+    return float(np.linalg.norm(g["pos"][b] - g["pos"][a]))
 
 
 # ------------------------------------------------------------------ topology and rigidity --
@@ -475,10 +538,11 @@ def topology(g):
 
     # Rigidity matrix: one row per member, +/- its unit direction at its two endpoints. Its
     # rank is 3V-6 for a rigid framework, and E - rank is the static indeterminacy. That is
-    # NOT the assembly number and A1 says so.
+    # NOT the assembly number and A1 says so. Directions are the SUNKEN article's — the frame
+    # that is built is the frame whose rigidity is claimed.
     R = np.zeros((E, 3 * V))
     for k, (a, b, _) in enumerate(members):
-        d = np.array(b, float) - np.array(a, float)
+        d = g["pos"][b] - g["pos"][a]
         d /= np.linalg.norm(d)
         ia, ib = g["index"][a], g["index"][b]
         R[k, 3 * ia:3 * ia + 3] = d
@@ -497,32 +561,67 @@ def topology(g):
 
 
 # ------------------------------------------------------------------- lands: exact geometry --
-def land_cuts(d, lands):
-    """Which of this node's lands cut this arm's socket, and how much circumference survives.
+def _cutting_lands(d, lands, offs, r, t_lo, t_hi):
+    """The subset of this node's lands that reach a radius-r feature on arm d over [t_lo, t_hi].
 
-    A land is the half-space P.n <= 0. Over an arm at t with radius r the land's worst point is
-    t*(d.n) + r*sin(angle between d and n), so a feature of outer radius R starting at t0 is
-    uncut iff t0 >= R*tan(beta) with beta = acos(-d.n). beta = 90 deg — the arm lying IN the
-    plane — fails at every R and every t, and those are the only cuts in this article.
-
-    Returns (coplanar normals, exact surviving fraction). For two coplanar lands whose normals
-    subtend psi the survivor is the wedge (180 - psi)/360; nothing here is sampled.
+    A land is the half-space P.n <= off — an OFFSET plane since the frame sank, `off` being the
+    nominal face's height above the sunken centre. A point of the feature circle at axial s and
+    azimuth psi sits at height s*(d.n) + r*sin(beta)*sin(psi + psi0), beta the arm-plane angle,
+    so the feature's highest excursion over the interval is max(t_lo*(d.n), t_hi*(d.n)) +
+    r*sin(beta), and a land below that never touches it. Exact, no sampling.
     """
-    copl = [n for n in lands if abs(float(d @ n)) < 1e-12]
-    if not copl:
-        return copl, 1.0
-    if len(copl) == 1:
-        return copl, 0.5
-    if len(copl) == 2:
-        psi = math.degrees(math.acos(max(-1.0, min(1.0, float(copl[0] @ copl[1])))))
-        return copl, max(0.0, (180.0 - psi) / 360.0)
-    # Three or more coplanar lands: intersect the half-planes numerically in the arm frame.
+    out = []
+    for n, off in zip(lands, offs):
+        c = float(d @ n)
+        sinb = math.sqrt(max(0.0, 1.0 - c * c))
+        if max(t_lo * c, t_hi * c) + r * sinb > off + 1e-9:
+            out.append((n, off))
+    return out
+
+
+def _ring_fracs(d, cutting, r, ts, na):
+    """Surviving azimuth fraction of the radius-r circle at each station in ts — the same
+    quantity a solid-fraction probe of that ring measures, computed from the plane algebra."""
     e1, e2 = arm_frame(d)
-    phi = np.linspace(0.0, 2 * np.pi, 720000, endpoint=False)
-    ok = np.ones_like(phi, dtype=bool)
-    for n in copl:
-        ok &= (np.cos(phi) * float(e1 @ n) + np.sin(phi) * float(e2 @ n)) <= 1e-15
-    return copl, float(ok.mean())
+    phi = (np.arange(na) + 0.5) * (2.0 * np.pi / na)
+    ok = np.ones((len(ts), na), dtype=bool)
+    for n, off in cutting:
+        c = float(d @ n)
+        rad = np.cos(phi) * float(e1 @ n) + np.sin(phi) * float(e2 @ n)
+        ok &= (np.asarray(ts, float)[:, None] * c + r * rad[None, :]) <= off + 1e-12
+    return ok.mean(axis=1)
+
+
+def land_cuts(d, lands, offs, r, t_lo, t_hi):
+    """Which of this node's lands cut a radius-r feature on this arm, and the worst surviving
+    fraction of its circumference anywhere in the feature's own axial run.
+
+    Before the frame sank this was the whole of P5: every land was a plane through the node's
+    centre, an arm lying IN one kept exactly the dihedral's fraction of its socket — 0.500,
+    0.348, 0.304 — and no radius or station changed the answer. The lands are offset planes
+    now, boundary_frame() reserves collar radius plus land_margin under every one of them, and
+    the correct census is zero cut features. This function is what notices when that stops
+    being true: shrink the sink, thicken a collar, tilt an arm, and the fraction it returns is
+    exact for the geometry as built — closed form deciding WHETHER a land reaches the feature,
+    a fine azimuth grid intersecting the survivors when one does. The station resolution is
+    257 across the run and the azimuth grid 5760, a tenth of a degree, only ever paid on a
+    feature that is actually cut.
+    """
+    cutting = _cutting_lands(d, lands, offs, r, t_lo, t_hi)
+    if not cutting:
+        return [], 1.0
+    ts = np.linspace(t_lo, t_hi, 257)
+    return [n for n, _ in cutting], float(_ring_fracs(d, cutting, r, ts, 5760).min())
+
+
+def ring_wrap_exact(d, lands, offs, r, ts, na):
+    """What the wrap-ring probe MUST read if the field and this algebra describe the same
+    socket: the mean surviving fraction over exactly the probe's own stations, radius and
+    azimuth count. Mirrors the measurement so the corroboration compares like with like."""
+    cutting = _cutting_lands(d, lands, offs, r, float(min(ts)), float(max(ts)))
+    if not cutting:
+        return 1.0
+    return float(_ring_fracs(d, cutting, r, ts, na).mean())
 
 
 # ------------------------------------------------------- the pair-region envelope (no SDF) --
@@ -903,7 +1002,8 @@ def probe_node(u, g, prm):
         p["ribs"] = ribs
         s = node_sdf(P, [a.astype(np.float32) for a in arms],
                      [n.astype(np.float32) for n in lands], p, is_hub, base,
-                     inf["stubs"], inf["bores"])
+                     inf["stubs"], inf["bores"],
+                     land_offs=inf["offs"], post_axis=inf["postPrint"])
         out[ribs] = s
     cursor = {k: 0 for k in out}
     result = collections.defaultdict(dict)
@@ -1158,8 +1258,8 @@ def pipe_segments(g, radius_of=None):
     """
     S, Q, R = [], [], []
     for a, b, fam in g["members"]:
-        pa = np.array(a, float) * HALF
-        pb = np.array(b, float) * HALF
+        pa = g["pos"][a]
+        pb = g["pos"][b]
         d = pb - pa
         L = np.linalg.norm(d)
         un = d / L
@@ -1325,9 +1425,14 @@ def convex_hull_mask(solid, X, Y):
 
 
 def land_maps(u, li, g, prm, half, n, depths):
-    """Silhouette of the solid on one land plane, at a list of signed depths."""
+    """Silhouette of the solid on one land plane, at a list of signed depths INSIDE it.
+
+    The plane is the OFFSET land — P.n = off in the print frame, the nominal cell face the
+    part is truncated at — so depth 0 is the face itself, where the sunken article presents
+    its post flat, and a negative depth samples outside the face where nothing may stand."""
     inf = g["info"][u]
     nrm = inf["landsPrint"][li]
+    off = inf["offs"][li]
     ref = np.array([0.0, 0.0, 1.0]) if abs(nrm[2]) < 0.9 else np.array([1.0, 0.0, 0.0])
     f1 = np.cross(nrm, ref)
     f1 /= np.linalg.norm(f1)
@@ -1337,7 +1442,8 @@ def land_maps(u, li, g, prm, half, n, depths):
     X, Y = np.meshgrid(gg, gg, indexing="ij")
     out = []
     for dep in depths:
-        P = (X[..., None] * f1 + Y[..., None] * f2 - dep * nrm).reshape(-1, 3).astype(np.float32)
+        P = (X[..., None] * f1 + Y[..., None] * f2
+             + (off - dep) * nrm).reshape(-1, 3).astype(np.float32)
         out.append((field(P, inf, prm) < 0).reshape(n, n))
     return out, X, Y, cell
 
@@ -1939,7 +2045,7 @@ def main() -> None:
     # ------------------------------------------------------ 2. bases, cuts, classes --
     cut_of, length_of = {}, {}
     for k, (a, b, fam) in enumerate(members):
-        L = member_length(a, b)
+        L = member_length(g, a, b)
         length_of[k] = L
         cut_of[k] = L - g["info"][a]["base"] - g["info"][b]["base"]
 
@@ -1962,6 +2068,11 @@ def main() -> None:
     # lies IN that face: the demand bends them about their WEAK axis, and the capacity was being
     # quoted from Z_max, 2.3x the truth.
     def bending_fibre(a, b):
+        # NOMINAL lattice coordinates on purpose, both the planes and the direction. The film
+        # is pinned to the nominal faces at the land posts and its panels ARE those faces, so
+        # which member drains which panel is a lattice question; judged on the sunken
+        # directions instead, every boundary member would miss the 1e-12 coplanarity test by
+        # its tilt and report zero moment — an understatement of demand, not a model.
         shared = [n for n in face_planes(a) for m in face_planes(b)
                   if abs(float(n @ m) - 1.0) < 1e-12]
         dd = np.array(b, float) - np.array(a, float)
@@ -1977,7 +2088,33 @@ def main() -> None:
         inf = g["info"][u]
         for ai, arm in enumerate(g["incident"][u]):
             d = arm["dir"]
-            copl, wrap = land_cuts(d, inf["lands"])
+            # THE SOCKET'S OWN FEATURES, at the arm's own SKU — the two surfaces whose
+            # circumference the wrap describes: the collar (seat ring, cup and its skin) over
+            # its own axial run, and the engaged spigot at crest radius. Radius used to be
+            # irrelevant — a plane through the axis cuts every radius the same — but an
+            # OFFSET plane cuts the largest radius first, and which feature governs depends
+            # on where each one ends axially. The core is deliberately absent: on single-land
+            # octet nodes the r=8 core ball stands 0.4 mm proud of the 7.6 mm offset and is
+            # shaved flat — more flat at the nominal plane for the film, and not a socket.
+            od_a, id_a = arm_pipe(arm["family"], prm)
+            cup_a = min(prm["lip"], arm["stub"])
+            feats = [(od_a / 2.0 + prm["lip_wall"],
+                      inf["base"] - prm["shoulder"], inf["base"] + cup_a),
+                     (id_a / 2.0 - prm["clearance"] + prm["rib_h"],
+                      inf["base"], inf["base"] + arm["stub"])]
+            copl_ids, wrap = set(), 1.0
+            for r_f, t_lo, t_hi in feats:
+                cut_n, frac = land_cuts(d, inf["lands"], inf["offs"], r_f, t_lo, t_hi)
+                copl_ids |= {li for li, n in enumerate(inf["lands"])
+                             if any(n is m for m in cut_n)}
+                wrap = min(wrap, frac)
+            copl = [inf["lands"][li] for li in sorted(copl_ids)]
+            # The closed-form twin of the field's own wrap ring, at the ring's exact radius,
+            # stations and azimuth count — what fitAzFrac MUST read if field and algebra
+            # still describe the same socket.
+            ring_ts = inf["base"] + arm["stub"] * np.linspace(0.1, 0.9, WRAP_T)
+            ring_exact = ring_wrap_exact(d, inf["lands"], inf["offs"], 3.50,
+                                         ring_ts, WRAP_AZ)
             dp = inf["R"] @ d
             elev = math.degrees(math.asin(max(-1.0, min(1.0, float(dp[2])))))
             k = arm["member"]
@@ -2002,6 +2139,7 @@ def main() -> None:
                                      for n in inf["lands"]],
                 "coplanarLandCount": len(copl),
                 "landCutFracExact": round(wrap, 5),
+                "ringWrapExact": round(ring_exact, 5),
                 "slotBaseNodeMm": round(inf["base"], 4),
                 "armMinAngleDeg": round(inf["minAng"], 4),
                 "isClosingMember": k not in tree,
@@ -2495,6 +2633,26 @@ def main() -> None:
             if bool(rec.get("slotsClear")) != bool(inf["base"] >= inf["need"] - 1e-9):
                 p2_bad.append(f"node_{ni}: manifest slotsClear {rec.get('slotsClear')} "
                               f"disagrees with the recomputed base")
+            # THE SUNKEN FRAME, held to the manifest like every other derived quantity: the
+            # STLs were grown at these sinks and offsets or they were not, and a manifest
+            # that predates the frame (no sinkMm at all) on a graph that sinks is the same
+            # failure P2 has always named — STLs from a run whose geometry is not this one.
+            want_sink = [round(float(x), 3) for x in inf["sinkVec"]]
+            got_sink = rec.get("sinkMm")
+            if got_sink is None:
+                if any(abs(x) > 1e-9 for x in want_sink):
+                    p2_bad.append(f"node_{ni}: the graph sinks this node {want_sink} mm but "
+                                  f"the manifest carries no sinkMm — the STLs predate the "
+                                  f"sunken frame; run `make nodes`")
+            elif any(abs(a - b) > 2e-3 for a, b in zip(got_sink, want_sink)):
+                p2_bad.append(f"node_{ni}: manifest sinkMm {got_sink} but the graph gives "
+                              f"{want_sink}")
+            want_offs = [round(o, 3) for o in inf["offs"]]
+            got_offs = rec.get("landOffsMm")
+            if got_offs is not None and (len(got_offs) != len(want_offs) or any(
+                    abs(a - b) > 2e-3 for a, b in zip(got_offs, want_offs))):
+                p2_bad.append(f"node_{ni}: manifest landOffsMm {got_offs} but the graph "
+                              f"gives {want_offs}")
     else:
         p2_bad.append("no manifest on disk — run `make nodes` first")
     base_hist = collections.Counter(round(g["info"][u]["base"], 3) for u, _ in nodes)
@@ -2576,37 +2734,41 @@ def main() -> None:
           {"rimEndsWithWrongSku": len(p4_bad)})
 
     # ---- P5: land amputation, the socket must wrap 360 degrees ----
-    # THE PRECONDITION land_cuts IS ONLY EXACT UNDER. Its closed form handles beta = 90 — the
-    # arm lying IN the mating plane — and returns 1.0 for everything else, which is right only
-    # while every other (arm, land) pair clears its own land: a feature of outer radius R
-    # starting at t0 is uncut iff t0 >= R*tan(beta). The article's betas are 0, 35.2644, 45,
-    # 54.7356 and 90 degrees; at ro_slot = 5.15 the worst of those needs 7.28 mm, against the
-    # smallest base in the article. It stops being valid the moment a lighter core or a
-    # narrower slot rule takes some node's base under that, at which point 120 (arm, land)
-    # pairs start cutting sockets this file would still report at wrap 1.00000.
-    ro_slot = prm["pipe_od"] / 2.0 + prm["clearance"]
-    beta_hist, wrap_precondition = collections.Counter(), []
-    for ni, (u, role) in enumerate(nodes):
+    # THE CENSUS boundary_frame() EXISTS TO ZERO. Before the frame sank, every land was a
+    # plane through the node's own centre, so an arm lying IN a mating face kept exactly the
+    # dihedral's fraction of its socket — 0.500 at a single land, 0.348 and 0.304 at the
+    # corners — and no printed material could recover the rest: it belonged to the neighbour
+    # cell's volume. The lands are OFFSET planes now, each one collar-radius-plus-margin above
+    # the sunken centre by construction, and this census is what holds the construction to its
+    # promise. land_cuts() no longer needs the old tan(beta) precondition: it decides reach in
+    # closed form per (feature, land) pair at the arm's own SKU and samples only what is
+    # actually cut, so its answer is exact at every beta including the near-90-degree ones the
+    # sink itself created. The clearance census below is the same closed form read as a
+    # margin, so the pass is a measured distance rather than a zero count.
+    clear_min, clear_pairs = math.inf, 0
+    for u, _role in nodes:
         inf = g["info"][u]
-        for d in inf["dirs"]:
-            for n in inf["lands"]:
-                beta = math.degrees(math.acos(max(-1.0, min(1.0, -float(d @ n)))))
-                beta_hist[round(beta, 4)] += 1
-                if 1e-9 < beta < 90.0 - 1e-9 and ro_slot * math.tan(math.radians(beta)) \
-                        > inf["base"] + 1e-9:
-                    wrap_precondition.append((ni, round(beta, 4)))
-    if wrap_precondition:
-        bad.append(f"P5 precondition: {len(wrap_precondition)} (arm, land) pairs at beta "
-                   f"strictly between 0 and 90 need the socket to start beyond "
-                   f"ro_slot*tan(beta), and their node's base does not reach it (first node_"
-                   f"{wrap_precondition[0][0]} at {wrap_precondition[0][1]} deg) — land_cuts "
-                   f"reports wrap 1.00000 for pairs it is cutting")
+        if not inf["lands"]:
+            continue
+        for d, fam, stub in zip(inf["dirs"], inf["kinds"], inf["stubs"]):
+            od_a, id_a = arm_pipe(fam, prm)
+            cup_a = min(prm["lip"], stub)
+            for r_f, t_lo, t_hi in ((od_a / 2.0 + prm["lip_wall"],
+                                     inf["base"] - prm["shoulder"], inf["base"] + cup_a),
+                                    (id_a / 2.0 - prm["clearance"] + prm["rib_h"],
+                                     inf["base"], inf["base"] + stub)):
+                for n, off in zip(inf["lands"], inf["offs"]):
+                    c = float(d @ n)
+                    sinb = math.sqrt(max(0.0, 1.0 - c * c))
+                    clear_pairs += 1
+                    clear_min = min(clear_min,
+                                    off - (max(t_lo * c, t_hi * c) + r_f * sinb))
     wrap_hist = collections.Counter(e["landCutFracExact"] for e in ends)
     cut_once = sum(1 for e in ends if e["coplanarLandCount"] >= 1)
     cut_twice = sum(1 for e in ends if e["coplanarLandCount"] >= 2)
     min_wrap = min(e["landCutFracExact"] for e in ends)
     ring_bad = [e["endId"] for e in ends
-                if abs(e["fitAzFrac"] - e["landCutFracExact"]) > 2.0 / WRAP_AZ]
+                if abs(e["fitAzFrac"] - e["ringWrapExact"]) > 2.0 / WRAP_AZ]
     if ring_bad:
         bad.append(f"P5 corroboration: the wrap ring at r = 3.50 disagrees with the closed "
                    f"form at {len(ring_bad)} ends (first {ring_bad[0]}) — the exact wrap and "
@@ -2643,14 +2805,24 @@ def main() -> None:
             f"worst end {worst['endId']}: measured spigot section "
             f"{worst['spigotAreaMm2']:.2f} mm2 (nominal {nom_sect:.2f}), direct stress at "
             f"{F:.0f} N = {F / max(worst['spigotAreaMm2'], 1e-9):.0f} MPa.")
-    beta_ok = max((b for b in beta_hist if b < 90.0 - 1e-9), default=0.0)
+    else:
+        sink_mag = [float(np.linalg.norm(g["info"][u]["sinkVec"])) for u, _ in nodes
+                    if g["info"][u]["lands"]]
+        off_all = [o for u, _ in nodes for o in g["info"][u]["offs"]]
+        p5_details.append(
+            f"every socket wraps its full circumference. The {len(sink_mag)} boundary nodes "
+            f"sink {min(sink_mag):.2f}-{max(sink_mag):.2f} mm along their land-normal "
+            f"bisectors (gen_nodes.boundary_frame), the mating lands become offset planes "
+            f"{min(off_all):.2f}-{max(off_all):.2f} mm above the sunken centres with a land "
+            f"post carrying the flat back up to the nominal face, and the missing wrap that "
+            f"used to belong to the neighbour cell's volume is printed material now.")
     p5_details.append(
-        "(arm, land) angles beta = "
-        + ", ".join(f"{b:.4f} x{n}" for b, n in sorted(beta_hist.items()))
-        + f". Only beta = 90 cuts anything: the closed form is exact there, and for the rest it "
-          f"is exact while base >= ro_slot*tan(beta) = "
-          f"{ro_slot * math.tan(math.radians(beta_ok)):.3f} mm at the worst of them, against "
-          f"the smallest base in the article, {min(base_hist):.3f} mm.")
+        f"worst clearance between any socket feature and any land, over {clear_pairs} "
+        f"(feature, land) pairs at each arm's own SKU: {clear_min:.3f} mm against the "
+        f"{prm['land_margin']:.2f} mm land_margin the sink reserves. Corroboration against "
+        f"the FIELD: max |fitAzFrac - ringWrapExact| = "
+        f"{max(abs(e['fitAzFrac'] - e['ringWrapExact']) for e in ends):.5f} over all "
+        f"{2 * E} ends, held to two ring cells = {2.0 / WRAP_AZ:.5f}.")
     proof("P5", "socket-wrap",
           f"{cut_once} ends cut by a land, {cut_twice} cut twice; wrap "
           + ", ".join(f"{w:.5f} x{n}" for w, n in sorted(wrap_hist.items(), reverse=True)),
@@ -2922,7 +3094,7 @@ def main() -> None:
                 math.hypot(max(base_hist) + min(prm["lip"], prm["stub"]),
                            prm["pipe_od"] / 2.0 + prm["lip_wall"]),
                 prm["core_r"]) + prm["blend"] / 4.0
-    centres = np.array([np.array(u, float) * HALF for u, _ in nodes])
+    centres = np.array([g["pos"][u] for u, _ in nodes])
     seg_d = Q - S
     seg_l2 = (seg_d * seg_d).sum(-1)[:, None]
     w = centres[None, :, :] - S[:, None, :]
@@ -3094,36 +3266,55 @@ def main() -> None:
 
     # ---- P10: land-face integrity ----
     in_face = collections.Counter()
+    sunk_depths = []
     for a, b, fam in members:
+        # NOMINAL planes and NOMINAL direction: which members belong to a face is a lattice
+        # property. Where those members physically ARE is the sunken article, and the depths
+        # collected beside the census are the offsets their two nodes' frames put between
+        # them and the face they nominally lie in.
         la, lb = face_planes(a), face_planes(b)
         d = np.array(b, float) - np.array(a, float)
         d /= np.linalg.norm(d)
         shared = [n for n in la for m in lb if abs(float(n @ m) - 1.0) < 1e-12]
-        if any(abs(float(d @ n)) < 1e-12 for n in shared):
+        hits = [n for n in shared if abs(float(d @ n)) < 1e-12]
+        if hits:
             in_face[fam] += 1
+            for n in hits:
+                for uu in (a, b):
+                    for nn, off in zip(g["info"][uu]["lands"], g["info"][uu]["offs"]):
+                        if abs(float(nn @ n) - 1.0) < 1e-12:
+                            sunk_depths.append(off)
     n_in_face = sum(in_face.values())
     n_lands = sum(len(g["info"][u]["lands"]) for u, _ in nodes)
     n_land_nodes = sum(1 for u, _ in nodes if g["info"][u]["lands"])
-    r_bore = prm["pipe_id"] / 2.0 - prm["clearance"] - prm["spigot_wall"]
-    breach, breach_ends, breach_beta = 0, set(), collections.Counter()
-    beta_need = collections.Counter()
+    breach, breach_ends = 0, set()
+    bore_margin_min = math.inf
     for e in ends:
         u = tuple(e["u"])
+        inf_u = g["info"][u]
+        if not inf_u["lands"]:
+            continue
         d = np.array(e["armDirArticle"])
-        # PER ARM, from the arm's own bore start. gen_nodes pushes each mouth out to
-        # r_bore*tan(beta) + bore_margin for the steepest land that arm meets, so holding all
-        # 432 of them to one core_r*0.3 measures a generator that no longer exists.
-        t_bore0 = g["info"][u]["bores"][e["armIndex"]]
-        for n in g["info"][u]["lands"]:
+        # PER ARM, at the arm's own SKU and its own bore start, against the node's OFFSET
+        # lands. The bore is a drilled void over [bore start, base + engagement + blend]; its
+        # worst excursion toward a land at offset `off` is max over that run of
+        # s*(d.n) + r_hollow*sin(beta), and a mouth that stays under every offset opens onto
+        # nothing. The old tan(beta) form was this same statement with off = 0 and the
+        # in-plane case excluded; the sink is what made both generalisations matter.
+        od_a, id_a = arm_pipe(e["family"], prm)
+        r_hollow = id_a / 2.0 - prm["clearance"] - prm["spigot_wall"]
+        if r_hollow <= 0.8:
+            continue            # node_sdf drills no bore this narrow — nothing to breach
+        t_bore0 = inf_u["bores"][e["armIndex"]]
+        t_end = inf_u["base"] + e["engagementMm"] + prm["blend"]
+        for n, off in zip(inf_u["lands"], inf_u["offs"]):
             c = float(d @ n)
-            if abs(c) < 1e-12 or c > 0:
-                continue
-            beta = math.degrees(math.acos(max(-1.0, min(1.0, -c))))
-            beta_need[round(beta, 4)] += 1
-            if r_bore * math.tan(math.radians(beta)) > t_bore0 + 1e-9:
+            sinb = math.sqrt(max(0.0, 1.0 - c * c))
+            reach = max(t_bore0 * c, t_end * c) + r_hollow * sinb
+            bore_margin_min = min(bore_margin_min, off - reach)
+            if reach > off + 1e-9:
                 breach += 1
                 breach_ends.add(e["endId"])
-                breach_beta[round(beta, 4)] += 1
     lands_report, proud, land_flaws = land_integrity(g, prm, args.exhaustive)
     # A representative that does not represent, or a silhouette measured in a window the part
     # runs out of, is a broken MEASUREMENT and not a design defect, so it fails beside the moved
@@ -3134,60 +3325,52 @@ def main() -> None:
         p10_details.append(f"{len(proud)} lands have solid standing outside their own plane "
                            f"(first {proud[0]}) — the truncation is no longer last")
     if n_in_face:
-        # WHAT THIS NUMBER MEANT, AND WHAT IT MEANS NOW — decided 2026-08-11, on the analysis's
-        # own parity argument rather than on a tolerance.
+        # WHAT THIS NUMBER MEANT, AND WHAT IT MEANS NOW — first decided 2026-08-11 on the
+        # analysis's own parity argument, then physically resolved the same day by the sunken
+        # frame.
         #
-        # It used to be a fail key, because two published sentences said cells seat face to face
-        # on these lands (vacuum-cell.md: "all boundary structure sits inset beneath the true
-        # faces"; check_nodes.py: "or cells cannot seat face to face") and the geometry says
-        # they cannot: a member whose two endpoints both lie in a face plane lies IN that plane,
-        # and no generator can inset it without moving a lattice site.
+        # It used to be a fail key, because two published sentences said cells seat face to
+        # face on these lands and the on-plane geometry said they cannot: a member whose two
+        # endpoints both lay in a face plane lay IN that plane, standing a pipe radius proud
+        # of it on both sides. The parity decision stands on its own — an array is ONE
+        # continuous octet lattice partitioned by film (kelvin_lattice_counts: hexagon planes
+        # at even n are full of lattice sites and the whole boundary apparatus disappears;
+        # this article is the odd n = 1 case and carries a rim BECAUSE it stands alone), so
+        # no cell-to-cell butt joint exists in the architecture for these members to foul.
         #
-        # The sentences were wrong, not the geometry. vacuum-cell.kelvin_lattice_counts settles
-        # it: a hexagon face lies in sum(s*u) = 3n, so at ODD n that plane contains no
-        # even-parity site at all and the article has to carry its own rim, hub, spokes and
-        # ties; at EVEN n the plane is full of lattice sites and "the whole boundary apparatus
-        # disappears" — the struts simply continue through it and the film bonds to their
-        # crossings. An array is one continuous octet lattice partitioned by film, not a stack
-        # of finished cells butted together, so there is no cell-to-cell butt joint anywhere in
-        # this architecture for these members to foul. This article is n = 1, the awkward odd
-        # case, and its boundary frame exists BECAUSE it stands alone.
-        #
-        # So the lands are not a mating surface between cells. They are the print datum
-        # print_frame lands on the bed, and the plane the film bonds to. The measurement stays
-        # capped in the contract and stays printed here, because it is the number that forbids
-        # the one thing this decision rules out: if anyone proposes building the array by
-        # stacking finished n = 1 articles, this says how far apart they stop and why.
+        # And then boundary_frame made the old sentence true after the fact: the members that
+        # nominally lie in a face now run BENEATH it, sunk by their nodes' own land offsets,
+        # and the only thing that reaches back up is each node's land post, truncated flat AT
+        # the nominal plane. What a face carries now is post flats and the film pinned to
+        # them, not pipe. The census stays capped and printed because it still names the
+        # members whose demand drains from that face's panels — and because if it ever reads
+        # zero, someone has changed what the lattice IS, not just where it sits.
         p10_details.append(
             f"{n_in_face} of {E} members (" + ", ".join(f"{k} {v}" for k, v in
                                                         sorted(in_face.items()))
-            + f") lie exactly in a face plane shared by both their nodes — each a pipe centred "
-              f"ON the plane, standing {prm['pipe_od'] / 2:.2f} mm proud on both sides "
-              f"({prm['rim_pipe_od'] / 2:.2f} mm on the {in_face.get('rim', 0)} rim members). "
-              f"That is NOT a defect and is no longer a fail key: the {n_lands} lands on "
-              f"{n_land_nodes} nodes are a print datum and a film bond plane, not a bearing "
-              f"face between cells. Two finished articles cannot be brought flush — they stop "
-              f"{prm['rim_pipe_od']:.0f} mm apart on the rim pipes — and nothing in the design "
-              f"asks them to: kelvin_lattice_counts shows this whole boundary apparatus is the "
-              f"ODD-n case, and at even n the lattice runs straight through the hexagon planes "
-              f"with the film bonded to its crossings. The inter-cell joint is E1's open "
-              f"question and it is not a butt joint on these lands.")
+            + f") lie in a NOMINAL face plane shared by both their nodes — and every one of "
+              f"them now runs {min(sunk_depths):.2f}-{max(sunk_depths):.2f} mm beneath that "
+              f"plane at its ends: the sunken frame took the whole boundary structure under "
+              f"the faces, and each node's land post carries the flat back up to the true "
+              f"polyhedron. The {n_lands} lands on {n_land_nodes} nodes are a film bond flat "
+              f"and the pin that holds the draped fabric to the nominal shape, not a bearing "
+              f"face between cells: kelvin_lattice_counts shows an array is one continuous "
+              f"lattice at even n, this boundary apparatus is the odd-n case, and the "
+              f"inter-cell joint is E1's open question — post flats, not a butt joint.")
     if breach:
         p10_details.append(
-            f"{breach} (arm, land) pairs at beta = "
-            + ", ".join(f"{b:.4f} deg x{n}" for b, n in sorted(breach_beta.items()))
-            + f" ({len(breach_ends)} distinct member-ends) need the bore to start at "
-              f"{max(r_bore * math.tan(math.radians(b)) for b in breach_beta):.3f} mm and it "
-              f"does not. The bore opens onto the mating face.")
+            f"{breach} (arm, land) pairs on {len(breach_ends)} distinct member-ends drill "
+            f"their bore past the offset land — worst excursion "
+            f"{-bore_margin_min:.3f} mm ABOVE the plane. The bore opens onto the mating "
+            f"face.")
     else:
         p10_details.append(
-            "bore mouths: (arm, land) angles beta = "
-            + ", ".join(f"{b:.4f} deg x{n}" for b, n in sorted(beta_need.items()))
-            + f", so the steepest of them needs r_bore*tan(beta) = "
-              f"{max((r_bore * math.tan(math.radians(b)) for b in beta_need if b < 89.9), default=0.0):.3f}"
-              f" mm of setback, and gen_nodes.bore_start gives that arm "
-              f"{max(g['info'][tuple(e['u'])]['bores'][e['armIndex']] for e in ends):.3f} mm. "
-              f"No bore opens onto a land.")
+            f"no bore reaches its node's mating plane: over every (arm, land) pair on the "
+            f"{n_land_nodes} landed nodes, each bore's worst excursion — measured at its own "
+            f"SKU's hollow radius over its full [start, base + engagement + blend] run — "
+            f"stays {bore_margin_min:.2f} mm below the offset land. The pre-sink form of "
+            f"this census (r_bore*tan(beta) against the bore start, lands through the "
+            f"centre) is the off = 0 special case of the same inequality.")
     # NOT the published "open area" predicate. Comparing the silhouette 0.05 mm inside the
     # plane against 1.05 mm inside measures the part's TAPER, not holes, and reports 15-37 mm2
     # of fictitious opening. The topology test says the real answer: zero enclosed through-holes
@@ -3461,14 +3644,17 @@ def main() -> None:
     # S_XY cos^2 + S_Z sin^2 in the same loop, so it equals S_XY exactly when the elevation is
     # zero and the count was a tautology of its own arithmetic: 0 candidates out of 432, in
     # every article this graph can produce. It now checks two things it does not itself
-    # compute — that every elevation is one the article's symmetry allows (print_frame lands a
-    # land face down, so <110> arms come out at 0, +-35.2644, +-45, +-54.7356 and +-90 degrees
-    # and nothing else; a graph or frame change shows up here first), and that the ends the
+    # compute — that every elevation sits within the article's own measured tilt of a lattice
+    # one (print_frame's beds are the lattice's signed axes, so a nominal arm comes out at 0,
+    # +-35.2644, +-45, +-54.7356 or +-90 degrees exactly, and the sink then turns each member
+    # by at most g["tiltMaxDeg"], a bound derived from the sunken positions rather than
+    # typed; a graph or frame change still shows up here first), and that the ends the
     # analysis quotes a CLAMPED moment for can actually develop the clamp.
     sig_hist = collections.Counter(e["sigmaAllowMPa"] for e in ends)
-    allowed_elev = {0.0, 35.2644, 45.0, 90.0}
+    lattice_elev = (0.0, 35.2644, 45.0, 54.7356, 90.0)
+    tilt_allow = g["tiltMaxDeg"] + 5e-4
     odd_elev = [e for e in ends
-                if round(abs(e["elevationDeg"]), 4) not in allowed_elev]
+                if min(abs(abs(e["elevationDeg"]) - b) for b in lattice_elev) > tilt_allow]
     band_bad = [e["endId"] for e in ends
                 if not (min(S_XY, S_Z) - 1e-6 <= e["sigmaAllowMPa"] <= max(S_XY, S_Z) + 1e-6)]
     fixity = [e for e in ends if e["momentNm"] > 0
@@ -3692,7 +3878,8 @@ def main() -> None:
         # members into the 48 that land on a rim vertex and the 24 that do not. It is the one
         # sentence in that document a builder acts on directly, so it is held like the mass.
         n_cuts = re.findall(r"the cut list; (\w+) lengths, not two\)", text)
-        words = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}
+        words = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+                 "nine": 9, "ten": 10, "eleven": 11, "twelve": 12}
         if not n_cuts:
             drift.append("prose drift: docs/VERIFICATION-PLAN.md no longer states how many cut "
                          "lengths the article needs in the form 'the cut list; N lengths, not "
@@ -4198,8 +4385,8 @@ def elastic_slack(g, vc, prm, demand, demand_family):
     K = np.zeros((3 * V, 3 * V))
     bs = []
     for a, b, _ in members:
-        pa = np.array(a, float) * HALF
-        pb = np.array(b, float) * HALF
+        pa = g["pos"][a]
+        pb = g["pos"][b]
         d = pb - pa
         L = float(np.linalg.norm(d))
         un = d / L
@@ -4359,10 +4546,10 @@ def free_end_sweep(g, prm, tree_order, S, Q, RAD):
     placed = []
     for k, parent, arriving in tree_order:      # BFS discovery order, not member index
         a, b = parent, arriving
-        d = np.array(b, float) - np.array(a, float)
+        d = g["pos"][b] - g["pos"][a]
         d /= np.linalg.norm(d)
         for s in (prm["stub"], 15.0, 10.0, 5.0, 0.0):
-            centre = np.array(b, float) * HALF + d * s
+            centre = g["pos"][b] + d * s
             arms = []
             for arm in g["incident"][b]:
                 if arm["member"] == k:
@@ -4455,8 +4642,12 @@ def stl_versus_sdf(g, prm, manifest, rng):
     surface, because a mesh has no vertices where a new lump would be — that is what P15 is for.
     """
     lines, data = [], {}
-    ext = max(prm["core_r"] + prm["shoulder"] + prm["stub"] + prm["blend"] + 6.0,
-              prm["pad_r"] + 4.0, 22.0 + prm["stub"])
+    # The grid the STLs were actually cut on: gen_nodes.main() derives its half-extent from
+    # the largest slot base the rule produces, and land_half_extent() is the transcription of
+    # that expression this file already holds itself to. The old core_r + shoulder formula
+    # here was 6.98 mm short of the real window, which made h — the one-cell sensitivity this
+    # whole clause is stated in — 15% finer than any cell the mesh was built from.
+    ext = land_half_extent(prm, g)
     res = (manifest or {}).get("res", 96)
     h = 2.0 * ext / (res - 1)
     need = int(math.ceil(2.0 * ext / prm["clearance"])) + 1
@@ -4485,8 +4676,8 @@ def stl_versus_sdf(g, prm, manifest, rng):
             pick = rng.choice(len(v), size=min(len(v), 20000), replace=False)
             P = v[pick].astype(np.float32)
             on_land = np.zeros(len(P), bool)
-            for n in inf["landsPrint"]:
-                on_land |= np.abs(P @ n.astype(np.float32)) < h * 0.75
+            for n, off in zip(inf["landsPrint"], inf["offs"]):
+                on_land |= np.abs(P @ n.astype(np.float32) - off) < h * 0.75
             dev = np.abs(field(P, inf, prm))[~on_land]
             n_sampled += int(dev.size)
             off_field += int((dev > h).sum())
@@ -4620,15 +4811,23 @@ def land_integrity(g, prm, exhaustive):
     # that fixes the land plane — rotations and reflections alike, and a mirrored silhouette
     # has the same area. Each arm contributes its cosine to the land normal, its engagement,
     # and the sorted list of (cosine, engagement) to every other arm; two lands with the same
-    # multiset of those are congruent.
-    def land_fingerprint(inf, nrm):
+    # multiset of those are congruent. The SUNKEN FRAME is part of the shape now, so the
+    # plane's own offset, the sink magnitude and the post axis's cosine to this land join the
+    # key: two lands whose arms match but whose nodes sank differently silhouette differently,
+    # and a class key blind to that would flag real geometry as a broken measurement.
+    def land_fingerprint(inf, li):
+        nrm = inf["lands"][li]
         dirs, stubs = inf["dirs"], inf["stubs"]
         out = []
         for i, d in enumerate(dirs):
             nb = tuple(sorted((round(float(d @ dirs[j]), 6), stubs[j])
                               for j in range(len(dirs)) if j != i))
             out.append((round(float(d @ nrm), 6), stubs[i], nb))
-        return tuple(sorted(out))
+        frame = (round(inf["offs"][li], 6),
+                 round(float(np.linalg.norm(inf["sinkVec"])), 6),
+                 round(float(inf["postAxis"] @ nrm), 6)
+                 if inf["postAxis"] is not None else None)
+        return (frame, tuple(sorted(out)))
 
     classes = collections.defaultdict(list)
     for ni, (u, role) in enumerate(g["nodes"]):
@@ -4637,7 +4836,7 @@ def land_integrity(g, prm, exhaustive):
             maps, X, Y, cell = land_maps(u, li, g, prm, half, n_proud, [-0.02])
             if maps[0].any():
                 proud.append(f"node_{ni} land{li}")
-            classes[(role, len(inf["dirs"]), land_fingerprint(inf, nrm))].append((ni, u, li))
+            classes[(role, len(inf["dirs"]), land_fingerprint(inf, li))].append((ni, u, li))
     # The published silhouette is always measured on one representative per class at the full
     # 1025 grid, so the number is the same in both modes. What changes is how many nodes are
     # checked to AGREE with it: one more per class in fast mode, all of them under
@@ -4755,7 +4954,7 @@ def insertion_sweep(g, prm, closing, exhaustive):
         w, _ = arm_frame(axis)                     # the tilt axis, perpendicular to the arm
         base, stub = inf["base"], inf["stubs"][ai]
         a, b, _fam = g["members"][k]
-        P_cut = (member_length(a, b) - g["info"][a]["base"] - g["info"][b]["base"])
+        P_cut = (member_length(g, a, b) - g["info"][a]["base"] - g["info"][b]["base"])
         # THE TUBE THIS MEMBER IS ACTUALLY CUT FROM. Inside the loop, from the same arm_pipe()
         # the generator draws the socket with — see the docstring for what a global band did to
         # the 72 rim ends.

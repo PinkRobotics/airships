@@ -43,10 +43,13 @@ import math
 import pathlib
 import sys
 
+import numpy as np
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
-from gen_nodes import HALF, article_graph, face_planes  # noqa: E402  (path set above)
+from gen_nodes import (HALF, article_graph, boundary_frame,  # noqa: E402  (path set above)
+                       face_planes)
 
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
 OUT = ROOT / "cell" / "nodes.generated.js"
@@ -63,23 +66,43 @@ NAMES = {
 }
 
 
-def cut_groups(nodes: list, members: list) -> list:
-    """Every member of the article, grouped by what it is cut to.
+def cut_groups(nodes: list, members: list, prm: dict, cut_list: list) -> list:
+    """Every member of the article, grouped by what it is actually cut to.
 
-    A member's length is centre to centre between two joints. A CUT is shorter than that,
-    by the depth its ends disappear into their sockets — and the sockets differ, because
-    each node's slot base is set by its own tightest pair of arms. Group the 216 members by
-    (SKU, length class, total deduction) and the whole build collapses to four cuts.
+    A member's length is centre to centre between two joints — SUNKEN centres, since the
+    boundary frame: each boundary node sits displaced from its lattice point and every
+    member touching one is genuinely shorter. A CUT is shorter again by the depth its ends
+    disappear into their sockets. Group the 216 members by (SKU, length class, deduction,
+    true cut) and the whole build collapses to nine saw settings — the same nine rows
+    manifest.cutList carries, and that agreement is PROVEN below, not assumed.
 
-    NO LENGTH IS BAKED IN HERE, and that is the point. This generator's own pitch
-    (gen_nodes.HALF = 177.25 mm) is 0.115 mm off the structural model's half-pitch, which
-    is larger than the 0.15 mm clearance the joints are designed around; a cut length
-    computed here would be quietly wrong in the fourth digit. So what is emitted is the
-    DEDUCTION, and cell/explorer.js multiplies it against cell/model.js's own strut length.
-    Lengths come from the model, seat depths come from the manifest, and neither authority
-    has to be copied into the other.
+    THE TRUE CUT IS BAKED IN NOW, and that is a reversal this docstring owes an account of.
+    It used to emit deductions only, because the model's half-pitch is 0.115 mm off this
+    generator's and a length derived here would be wrong in the fourth digit. The sunken
+    frame changed the arithmetic's OWNER: a true cut depends on each end's sink, which the
+    model does not know and cannot derive — the model keeps nominal lattice lengths as its
+    conservative physics — so the cut is the manifest's fact, derived here exactly as
+    gen_nodes.main() derives it and held to manifest.cutList row by row. The page still
+    takes centre-to-centre lengths from the model; what it may no longer do is subtract its
+    way to a cut, because the difference between those two numbers is the sink itself.
     """
     base = {tuple(n["u"]): n["slotBaseMm"] for n in nodes}
+    # The sunken positions, exactly as gen_nodes.main() derives them: sinks judged on
+    # NOMINAL directions, then real positions. sinkMm is already in the manifest per node,
+    # but the frame is re-derived from the same rule instead of read back, so a manifest
+    # written by a different boundary_frame drifts loudly at the cutList proof below.
+    incident: dict[tuple, list] = {tuple(n["u"]): [] for n in nodes}
+    for a, b, kind in members:
+        d = np.array(b, float) - np.array(a, float)
+        d /= np.linalg.norm(d)
+        incident[a].append((d, kind))
+        incident[b].append((-d, kind))
+    pos = {}
+    for n in nodes:
+        u = tuple(n["u"])
+        sink_vec, _pairs = boundary_frame(u, [d for d, _ in incident[u]],
+                                          [k for _, k in incident[u]], prm)
+        pos[u] = np.array(u, float) * HALF + sink_vec
     groups: dict[tuple, dict] = {}
     for a, b, kind in members:
         step2 = sum((a[i] - b[i]) ** 2 for i in range(3))    # in half-pitch units
@@ -91,46 +114,70 @@ def cut_groups(nodes: list, members: list) -> list:
         # pull and the model puts them on 14 x 12. Everything else is the 10 x 8.
         sku = "rim" if kind == "rim" else "main"
         deduct = round(base[a] + base[b], 2)
-        g = groups.setdefault((sku, length_key, deduct),
+        true_len = float(np.linalg.norm(pos[b] - pos[a]))
+        cut = round(true_len - base[a] - base[b], 3)
+        g = groups.setdefault((sku, length_key, deduct, cut),
                               {"sku": sku, "lengthKey": length_key, "deductMm": deduct,
+                               "cutMm": cut, "trueMemberMm": round(true_len, 3),
                                "count": 0, "kinds": {}})
         g["count"] += 1
         g["kinds"][kind] = g["kinds"].get(kind, 0) + 1
 
+    # THE PROOF, AND THE HANDOVER: these groups ARE manifest.cutList, family by family,
+    # count by count — and once each group is identified with its row, the row's own cutMm
+    # replaces the derivation. The derived value groups and matches only: it is built on
+    # the manifest's ROUNDED slot bases (two decimals), so it sits up to ~7 microns off the
+    # generator's full-precision saw length, and publishing it would be publishing the
+    # rounding. The match window is 0.02 mm — twice the worst that rounding can do and 50x
+    # smaller than the closest two distinct cuts in the article — and a frame rule or a
+    # manifest from a different run misses it loudly, by name.
+    rows_left = [dict(r) for r in cut_list]
+    for g in groups.values():
+        if len(g["kinds"]) != 1:
+            raise SystemExit(f"gen_node_families: cut group {g} mixes member families — "
+                             "cutList rows are per family and this group matches none")
+        fam = next(iter(g["kinds"]))
+        near = [r for r in rows_left if r["family"] == fam
+                and abs(r["cutMm"] - g["cutMm"]) <= 0.02]
+        if len(near) != 1 or near[0]["count"] != g["count"]:
+            raise SystemExit(f"gen_node_families: derived cut {fam} {g['cutMm']} x"
+                             f"{g['count']} matches {len(near)} manifest.cutList rows "
+                             f"{[(r['cutMm'], r['count']) for r in near]} — the frame rule "
+                             "and the shipped manifest disagree; run `make nodes`.")
+        g["cutMm"] = near[0]["cutMm"]
+        g["closingCutMm"] = near[0]["closingCutMm"]
+        g["swingReliefMm"] = near[0]["swingReliefMm"]
+        rows_left.remove(near[0])
+    if rows_left:
+        raise SystemExit(f"gen_node_families: manifest.cutList rows unmatched by any drawn "
+                         f"group: {[(r['family'], r['cutMm']) for r in rows_left]}")
+
     # A key must survive being written into a data-n path, a data-stop attribute and a
-    # ?stop= link, so it carries no dot and no deduction: within one (SKU, length class)
-    # the group that seats DEEPER — the shallower slot base, which is the 60-degree cell
-    # centre — is the one that needs telling apart.
-    shallowest: dict[tuple, float] = {}
-    for (sku, lk, ded) in groups:
-        k = (sku, lk)
-        shallowest[k] = min(ded, shallowest.get(k, ded))
-    # RANK the distinct dedications inside each (sku, length) class, largest cut first. This
-    # was a boolean — "is this not the largest dedication in its class" — which names two
-    # groups "Deep" the moment a class holds three distinct slot bases. Giving the rim its own
-    # 14 mm tube did exactly that: the bases are now 12.26, 16.38 and 18.98 mm, mainLong split
-    # three ways, and two of them collided on one key. Rank 0 is still suffix-free and rank 1
-    # is still "Deep", so nothing renames while a class has only two.
+    # ?stop= link, so it carries no dot and no length. RANK the distinct (deduction, cut)
+    # pairs inside each (SKU, length class) — deduction first, descending, then the longer
+    # cut, so rank 0 is suffix-free and the ranks below it take Deep/Deep2/... The sink is
+    # what made the second sort key exist: the 36 rim edges share one deduction and still
+    # saw to two lengths, because hexagon-hexagon and square-hexagon corners sink along
+    # different bisectors.
     ranks: dict[tuple, list] = {}
-    for (sku, lk, ded) in groups:
-        ranks.setdefault((sku, lk), []).append(ded)
+    for (sku, lk, ded, cut) in groups:
+        ranks.setdefault((sku, lk), []).append((ded, cut))
     for k in ranks:
-        ranks[k] = sorted(set(ranks[k]), reverse=True)
+        ranks[k] = sorted(set(ranks[k]), key=lambda dc: (-dc[0], -dc[1]))
     out = []
-    for (sku, lk, ded), g in groups.items():
-        r = ranks[(sku, lk)].index(ded)
-        deep = r > 0
+    for (sku, lk, ded, cut), g in groups.items():
+        r = ranks[(sku, lk)].index((ded, cut))
         g["key"] = sku + lk.capitalize() + ("" if r == 0 else "Deep" if r == 1 else f"Deep{r}")
         # The name is the composition, not a label someone chose: what kinds of member are
-        # cut to this length, heaviest count first.
+        # cut to this length, heaviest count first. (The old ", into the centre" tag hung
+        # off the Deep suffix, which stopped meaning that the day the sink split classes.)
         kinds = sorted(g["kinds"], key=lambda k: (-g["kinds"][k], k))
-        g["name"] = " + ".join(kinds) + (", into the centre" if deep else "")
+        g["name"] = " + ".join(kinds)
         g["kindsText"] = " + ".join(f"{g['kinds'][k]} {k}" for k in kinds)
         out.append(g)
     keys = [g["key"] for g in out]
     if len(set(keys)) != len(keys):
-        raise SystemExit(f"gen_node_families: cut group keys collide: {sorted(keys)} — "
-                         "more than two slot bases in one SKU and length class")
+        raise SystemExit(f"gen_node_families: cut group keys collide: {sorted(keys)}")
     # Interior first, boundary last, longest run first: the order the tour walks them.
     out.sort(key=lambda g: (g["sku"] == "rim", g["lengthKey"] == "short", -g["count"]))
     return out
@@ -276,7 +323,7 @@ def payload() -> dict:
         "ribHVoxels": round(p["rib_h"] / m["cellMm"], 2),
         "clearanceVoxels": round(p["clearance"] / m["cellMm"], 2),
     }
-    cuts = cut_groups(nodes, members)
+    cuts = cut_groups(nodes, members, m["paramsMm"], m["cutList"])
     return {
         "families": fams,
         "order": ORDER,

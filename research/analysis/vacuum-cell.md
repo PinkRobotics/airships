@@ -480,8 +480,8 @@ it was being handed a crush share it cannot carry and does not have. The governi
 member is no longer the hexagon tripod but the **in-plane square tie**, which takes the
 sizing load for all 72 ties from 4,769 N to 5,031 N and their Euler margin from ×2.58 to
 **×2.45**. The spoke, which had nothing, now has 2,235 N and ×2.75; the rim holds
-**×4.12** at 14×12. Nothing here made the article lighter — mass is untouched at 2.88 kg,
-because not one cut length or section changed.
+**×4.12** at 14×12. Nothing in that correction made the article lighter or heavier —
+mass was untouched by it, because not one cut length or section changed.
 
 **And one result that is not a margin.** In the *standalone* article the octet only sees
 **1,124 N** — the square face's centre share, entering through four struts at 45° — because
@@ -511,18 +511,21 @@ The vendors are right to warn against pultruded drone arms, and for the same rea
 be a *smaller* carbon pipe. Carbon yes; smaller no — sized against the load they actually
 react, the ties come out ABOVE the octet's own crush demand, the most heavily loaded
 members in the article, and a 6x4 tube buckles at half their load. So every member is the
-same 10x8 roll-wrapped tube in two cuts, except the 36 rim edges at 14x12:
-**216 cuts, 48.8 m, 2.39 kg**,
-with x2.45 Euler on the ties. 1.69 kg of printed plastic
-became 2.39 kg of carbon that is stronger. The hybrid article now weighs
-**2.88 kg** — lighter than the 3.22 kg it weighed while failing.
+same 10x8 roll-wrapped tube, except the 36 rim edges at 14x12:
+**216 cuts, 2.39 kg** billed centre-to-centre at 48.8 m — the article actually saws
+39.8 m across nine lengths, and P14 stands open until stock_build bills cuts rather than
+centre-to-centre — with x2.45 Euler on the ties. 1.69 kg of printed plastic became 2.39 kg
+of carbon that is stronger. The hybrid article now weighs **3.13 kg**.
 
-The 51 printed joints are now **weighed, not budgeted**: gen_nodes.py integrates each one
-from its own field and the article reads the manifest — 0.47 kg, where the old 15% rule
-asserted 0.42 and the first generated geometry actually measured 0.73. Growing a real seat
-and a cup, moving every slot start further out and cutting 332 of the 432 spigots
-back to a 2 mm pilot came out 41 g LIGHTER than the joint it replaced: the pilot saved
-153 g and the collar and the longer arms spent 112 of it.
+The 51 printed joints are **weighed, not budgeted**: gen_nodes.py integrates each one
+from its own field and the article reads the manifest — **0.71 kg** since the sunken
+boundary frame (2026-08-11). The arc of that number is the design's own history: the old
+15% rule asserted 0.42, the first generated geometry measured 0.73, the pilot redesign
+brought it to 0.47 — 153 g saved on 332 shortened spigots, 112 spent on real seats and
+cups — and then the sunken frame spent 0.25 kg buying back what the mating planes had
+been amputating: every socket whole, a land post per boundary joint pinning the film to
+the true face, and the full seat annulus at all 432 ends. Whole geometry is printed
+material; the freeze bill priced it and the ledger caps it.
 
 **Then 21 g of that came back, and it is worth naming what bought it.** Giving the 36 rim
 members the 14×12 socket the stock build specifies — instead of the 10×8 every other member
@@ -536,8 +539,8 @@ replaced, so the direction of travel holds; but a wall budget that a single sock
 can move by an eighth is the measure of how little slack there is at this cell size.
 
 None of that makes this article fly, and it was never meant to. The demonstrator is
-**16.21 kg/m³** — 16.9× the air it displaces — and its joints alone are 2.6 kg/m³, nearly
-three walls alone. The all-printed
+**17.62 kg/m³** — 18.4× the air it displaces — and its joints alone are 4.0 kg/m³, four
+walls on their own since the sunken frame bought their sockets whole. The all-printed
 variant, which exists to prove the printer chain rather than to fly, is
 7.48 kg, ~34x its displaced air.
 
@@ -614,11 +617,13 @@ bored through its neighbour: the pipe fouls on the remains and never reaches its
 and you find out with glue on your hands. The tightest pair in this article is 45 degrees
 (a tie against an octet arm). The rule now takes the worst of four feature pairs rather
 than one, and the seat collar is the pair that governs, so the slot begins as far out as
-**18.9838 mm** where it began at 10.0 — and it is per node, not per article: a rim vertex
+**19.8433 mm** where it began at 10.0 — and it is per node, not per article: a rim vertex
 holding a 14 mm tube's collar clear of a 10 mm one needs that much, while the rest of the
-article sits at 16.383. That is what took the pipe–pipe interference at a shared node from
-−1.32 mm of overlap to **2.2572 mm** of air. The slot start is computed per node from
-the node's own arms and gated end by end.
+article spreads from 12.26 at the cell centre to 17.26, each node's own arms deciding
+(the sunken frame tilts every boundary-adjacent arm a fraction of a degree, so even the
+interior spread is measured, not assumed). That is what took the pipe–pipe interference at
+a shared node from −1.32 mm of overlap to **2.2572 mm** of air. The slot start is computed
+per node from the node's own arms and gated end by end.
 
 **What is proven about these joints, and what is not.** `tools/check_assembly.py` measures
 all **432 member-ends** out of the generator's own field on every run — not one calculation
@@ -631,9 +636,9 @@ these joints for weight safe to start: shrink a node and quietly take engagement
 the build goes red with the arms named. **11 of the 16 proofs pass**, and they are the ones
 assembly turns on — every one of the **332 closing ends** carries a pilot inside its own
 swing-in bound and none is at the full stub, and the swing is now swept end by end rather
-than sampled; the seat is a real land of **28.274 mm²**, the
-whole pipe annulus times the socket's own wrap, at every end rather than the blend fillet the
-pipe used to come down on; the crush ribs survive the slot that used to delete them; no
+than sampled; the seat is a real land of **28.274 mm²** — the
+whole pipe annulus, at every one of the 432 ends now that no mating plane cuts a socket —
+rather than the blend fillet the pipe used to come down on; the crush ribs survive the slot that used to delete them; no
 slot starts closer than the declared **0.500 mm** to the feature it would foul; every pipe's
 own annulus is empty for its whole travel; and every member-end is priced at a load derived
 from the path that puts it there rather than at one number wearing 432 hats.
@@ -646,16 +651,21 @@ sitting inside the pipe's own bore. Those connections did not exist, and the des
 it by eye in a render before any gate did.
 
 The five proofs still failing are frozen at the value measured, which is how this repository
-publishes a defect it has not fixed yet. **216 sockets are open-sided
-grooves**, because a rim, spoke or tie member lies exactly in a mating face and that face
-truncates its spigot; the worst of them keeps **0.304** of its circumference, and the 24 ends
-at that wrap are also the 24 whose remaining section will not carry the rim's own load in
-local buckling. **356
+publishes a defect it has not fixed yet. **0 sockets are open-sided
+grooves** since the frame sank (2026-08-11): a boundary node now settles beneath its mating
+faces until every socket clears them whole — the worst of them keeps **1.000** of its
+circumference where the old on-plane article kept 0.304 — and a printed land post carries
+the mating flat back up to the true face, the pin the draped skin holds its shape by. What
+the sink could not buy back is the pilot: **332
 member-ends do not reach the 10 MPa glue line** in pull-out, which is the pilot's own bill and
 is survivable only because every member in an evacuated cell is in compression and rides its
-seat — something nothing in this repository yet computes. And **0 margins have a demand and
+seat — something nothing in this repository yet computes. The sink also has a price of its
+own, frozen at its measured size: every boundary-adjacent cut got shorter, the shortest tie's
+swing now rides its cup mouth at less than a micron of interference on the symmetric
+insertion path, and that one representative is capped until the cup gets a lead-in chamfer
+or the sweep learns the builder's full freedom. And **0 margins have a demand and
 no capacity at all**, where 888 did: bearing, dry pull-out and transverse shear are derived
-or bounded now, and three quarters of them fail. **244 margins are UNPROVEN** — bounded but
+or bounded now, and most of them fail. **316 margins are UNPROVEN** — bounded but
 not decided — and each of those names the bench test that would settle it, one afternoon
 each. No bearing allowable, no friction coefficient and no creep knockdown for this print
 exists in any source we hold, so every parameter they would depend on stays frozen. The cap
@@ -675,7 +685,7 @@ the octet carrying 3,372 N per strut — safety factor already inside — with *
 margin even pinned, ×4.3 with socket fixity**, and ×21 on stress; every other family has
 its own demand and its own margin in the table above. All 51 printed joints are now
 weighed rather than budgeted, and the ties are carbon too, so the printed mass is the
-nodes alone. Film skin, 21 g at its halved span. **2.88 kg all-in against 218 g displaced:
+nodes alone. Film skin, 21 g at its halved span. **3.13 kg all-in against 218 g displaced:
 the crush pathfinder, not a floater** —
 identical geometry to the floater, whose primaries become three-rod wound booms
 (level 2 hierarchy from catalogue rod) instead of single pipes. The 10×8 choice is

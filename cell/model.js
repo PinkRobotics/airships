@@ -34,7 +34,7 @@ export const NODE_MASS_FRAC = 0.15;               // nodes carry no load but wei
  * holds it to the manifest the Python reads — if the joints are regenerated and this is
  * not updated, the build fails. NODE_MASS_FRAC survives only for the in-array kg/m3 rows,
  * where it is still an assertion. */
-export const NODE_MASS_MEASURED_KG = 0.465;
+export const NODE_MASS_MEASURED_KG = 0.715;
 /* The printed film pad on each hexagon hub. Local protection for the membrane, not a load
  * path — see filmEdgeLoads, which prices what a pad this size can actually collect. */
 export const PAD_R_M = 0.035;

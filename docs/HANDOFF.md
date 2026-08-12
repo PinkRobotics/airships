@@ -25,8 +25,11 @@ except the joints is bought.
   centre).
 
 ### Mass, and what actually decides float
-2.88 kg total: **2.39 kg tube, 0.465 kg joints, 28 g film**. To float it would have to be under
-218 g, so it is 16.9× over. **The tube is five sixths of the mass** — printing is not the lever.
+3.13 kg total: **2.39 kg tube, 0.715 kg joints, 28 g film**. The joints grew 0.465 → 0.715 kg
+on 2026-08-11 when the sunken frame bought back every amputated socket and added the land
+posts — whole geometry costs printed material, and the freeze bill priced it. To float, the
+cell would have to be under 218 g. **The tube is still three quarters of the mass** —
+printing is still not the lever, and FLOAT.md carries a dated correction saying exactly this.
 
 ## The 1 m cell (asked and costed 2026-08-11)
 
@@ -74,22 +77,37 @@ this document:
 
 ## What is proven, and what the gate's words mean
 
-`tools/check_assembly.py` (~3,300 lines, 16 proofs, ~120 s) proves all 432 member-ends against
-the SDF that generates them — it imports `gen_nodes`, never re-derives. Headline:
+`tools/check_assembly.py` (~4,900 lines, 16 proofs, ~160 s) proves all 432 member-ends against
+the SDF that generates them — it imports `gen_nodes`, never re-derives, and since the sunken
+frame it derives the frame exactly as `main()` does (nominal dirs for the sink decision, real
+positions for everything measured) and threads `land_offs`/`post_axis` into every field it
+evaluates. Headline:
 
     check_assembly: NOT PROVEN — 5 of 16 proofs fail (5 frozen in KNOWN, 0 new), 11 pass
 
 Exit 0 means **no regression against a known-bad baseline**. It does not mean the joints hold.
-The five standing failures: **P5** (216 ends cut by a mating land, worst wrap 0.304), **P11**
-(13 landless nodes; 37 of 51 carry unprintable islands), **P13**, **P14** (the bill over-bills
-tube), **P16** (2,296 of 3,888 margins fail).
+The five standing failures: **P8** (ONE swept representative — the shortest tie's shaft rides
+its cup mouth at 0.4 µm on the symmetric swing path; frozen with its physics read, fix =
+cup-mouth chamfer or a 2D-corridor sweep), **P11** (13 landless nodes by census; all 51 are
+bed-searched now, 13,877 mm³ of island, least bed contact 1.1 mm²), **P13**, **P14** (the
+bill over-bills tube — stock_build still quotes centre-to-centre while the article saws nine
+true cuts), **P16** (2,064 of 3,888 margins fail — down from 2,296: whole sockets cleared
+localBuckling outright and moved transverseShear's 72 to bounded-undecided).
+
+**P5 IS DEAD.** 0 ends cut by a land, wrap 1.00000 ×432, the seat is the full 28.274 mm²
+annulus at every end, and the pass is a measured clearance (worst feature-to-land distance
+printed in the proof), not a zero count.
 
 - **Assemblable: yes**, exhaustively — all 332 closing ends swept, inside-out build order
-  emitted as `buildOrder` in the frozen contract.
-- **Printable: no.** P11, plus A6's blocker: the extraction grid is 5× the 0.15 mm clearance
-  the capture depends on, so the STL cannot certify its own fit.
+  emitted as `buildOrder` in the frozen contract. The P8 row above is a sub-micron graze on
+  one representative's worst pose, 375× inside the clearance band the sweep adjudicates.
+- **Printable: no verdict.** All 51 joints are bed-oriented by the measured frame search
+  (sunken nodes cannot print on their lands — the only flat at a land plane is a post top);
+  the island volume and bed contact are published and gated, and the threshold on them is
+  the printer question this repo refuses to invent. A6's blocker stands: the extraction grid
+  is coarser than the 0.15 mm clearance, so the STL cannot certify its own fit.
 - **Strong: nothing is proven strong.** Node equilibrium does not close either — max residual
-  8,080 N, only 9 of 51 nodes balance — and no proof fails on that.
+  7,868 N — and no proof fails on that.
 
 ## The explorer draws the parts now (#67, closed 2026-08-11)
 
@@ -114,65 +132,68 @@ bend the lattice a few percent and a short pipe read as "not connected"). The ga
 joints, reps and pipes by count AND asserts the rep swap as triangle arithmetic on the
 rendered frame, stop by stop.
 
-## THE SUNKEN FRAME — decided, rule landed, article NOT yet regrown (#65, in flight)
+## THE SUNKEN FRAME — LANDED, regrown, frozen, drawn (#65 P5 arc, closed 2026-08-11)
 
 The designer resolved P5's wrap ceiling on 2026-08-11, near-verbatim: "the wrap can grow
 to the size of the joints, the size is arbitrary, the edge can be wherever — it's the
 overall cell and the general shape that matters," and chose architecture A: **dyneema
 fabric draped over the sunken structure**, land posts pinning the drape to the nominal
-planes as the mating flats.
+planes as the mating flats. The whole sequence the previous session mapped ran to
+completion the same day; what follows is what happened, for whoever touches this next.
 
-`gen_nodes.boundary_frame()` implements it: boundary nodes sink along their land-normal
-bisector until every in-plane arm's collar clears its former plane (sinks: 7.6 mm at
-1-land nodes, 12.3 mm at corners — derived from SKUs, never typed); lands become offset
-planes; a land post (r 5 mm) grows back to the nominal planes, truncated flat by the same
-lands-last rule. Full sockets, wrap 1.0. Validated on node 22 (`--only 22`: closed,
-0 arms in air). The sink also exposed and fixed a real formula hole: `one_way_reach`
-exploded on NEAR-opposed arm pairs (178-179° after sinking, past the collinear guard) —
-a hub slot base went 16.4 → 96.6 mm; pairs ≥ 175° are now opposed by definition.
+**The article now:** boundary nodes sink along their land-normal bisector (7.6 mm at
+1-land nodes, 12.28 mm at corners — derived from SKUs, never typed); lands are offset
+planes each collar-radius-plus-margin above the sunken centre; a land post (r 5 mm) grows
+back up and is truncated flat AT the nominal face — the film's pin. Wrap 1.00000 ×432.
+Cuts are nine true lengths in `manifest.cutList` (the sink shortens every
+boundary-adjacent member — even the 36 rim edges split, hex-hex vs square-hex corners
+sinking along different bisectors). Joints 0.715 kg. Contract re-frozen (11,732 properties
+moved, bill read); ledger holds 19 rows, "5 frozen, 0 new".
 
-**The rule is INERT until `make nodes` runs** — the committed STLs/manifest/contract are
-still the on-plane article, so every gate stays green. DO NOT regrow yet: the sequence
-that keeps the proofs honest is
-  1. teach `check_assembly` offset lands (79 land-touching lines; it reconstructs
-     node_sdf args itself and would otherwise measure a field the STLs are not),
-  2. `make nodes` (regrow all 51 + families + display module),
-  3. run the prover, READ the diff, `--freeze` with the designer's sign-off (he has
-     authorized the redesign; still print the bill),
-  4. model: keep NOMINAL lengths as conservative physics (members shorten under the
-     sink → real margins better than quoted); manifest cutList carries true cuts (this
-     is also P14's fix — stock_build must bill cuts, not centre-to-centre),
-  5. page: display module rows carry per-node `sinkMm` — apply as drawn-point offsets,
-  6. `make jointreview` re-verifies all 51 against the vision baseline (51/51 pass on
-     the old article, verdicts committed).
+**What the sink itself exposed, each fixed the same day:**
+- `bore_start()` blew up exactly like `one_way_reach` had: through-centre `tan(beta)` on
+  the sink's near-90° betas pushed four bore starts per square centre to 98.7 mm and
+  quietly carved those spigots SOLID (mass 736 g on the first regrow). It takes the land
+  offsets now — `(r·sinβ − off)/(−c)` — and the second regrow restored the bores (715 g).
+  THE PATTERN, twice proven: any formula holding a feature away from a land plane assumes
+  the plane passes through the centre until shown otherwise. One more is still unfixed —
+  see the probe gap under traps.
+- P8 grew its one honest defect: the shortest tie's shaft rides its cup mouth at 0.4 µm
+  on the symmetric swing path (shorter cuts swing steeper). Probed: extra relief does NOT
+  buy margin (clearance wobbles 0–30 µm as the pose set shifts — the ride is inherent);
+  the tilt direction cannot dodge a circular cup. Frozen in KNOWN with two named fixes:
+  cup-mouth lead-in chamfer in node_sdf, or teach the sweep the builder's 2D engagement
+  corridor instead of the symmetric identity path.
+- P13's typed elevation set died (every elevation now sits a tilt off-lattice); the check
+  bounds elevations by the article's own measured `tiltMaxDeg` instead.
+- The page's (SKU, length, deduction) cut signature stopped being unique (two rim cuts,
+  one deduction): explorer.js assigns each member's group ONCE where pipes are drawn
+  (nearest true length breaks ties) and cutStops reads `m.group` — the second derivation
+  it used to carry lit all 36 rim edges on both rim stops before it was removed.
+- gen_node_families now derives the sunken frame, groups members by true cut, PROVES the
+  groups against manifest.cutList row by row, and hands the rows' own cutMm through; the
+  page binds those (`sinkShortMm` = nominal − seats − cut is displayed per stop). The
+  model keeps NOMINAL lengths as conservative physics; P14 (stock_build bills
+  centre-to-centre, 48.8 m vs 39.8 sawn) is STILL OPEN and is its own commit.
 
-Working notes for step 1, the prover surgery (mapped, not yet started):
-- `face_planes(` is called at three sites in check_assembly.py (~411 per-end setup,
-  ~1965 shared-land logic, ~3098 pairwise checks); "land" appears on 79 lines. The
-  prover must call `gen_nodes.boundary_frame()` per node exactly as main() does —
-  NOMINAL dirs for the sink decision, then real positions/dirs for everything measured
-  — and pass `land_offs`/`post_axis` into every node_sdf it evaluates, or it measures a
-  field the STLs are not. P5's wrap measurement, P10 land-integrity and bore-vs-land
-  logic all read lands directly and need the offset carried through.
-- After the regrow, expect the ledger to move EVERYWHERE (positions, angles, cuts,
-  masses, wraps, print metrics). Exit 1 with a long diff is the correct first result;
-  read it, then `make contractfreeze` prints the bill before capping.
-- The page edits for step 5: buildCell's `pts` / rim corner points / `hexCorePts` gain
-  the per-node sink offsets (mm→m via /1000) from NODEMESHES rows matched on
-  (role, u); the P5 caption in explorer.html ("the land truncates its socket") comes
-  OUT once wrap is 1.0, and the vision reviewer's KNOWN brief in
-  tools/review_joints.py drops its P5 lines the same day.
-- Page/api state: cell/explorer.js gained `cellFrame` (vision harness) after the last
-  deploy — the live site is one commit-family behind; redeploy rides the regrow.
-- The goal the designer stated for this arc: "get this model looking complete."
+**Page state:** buildCell sinks every drawn point from NODEMESHES `sinkMm` (source
+points, so members/seats/ghosts/parts all follow); the P5 caption is out, replaced by the
+sunken-frame story; the tube tour walks nine stops; the reviewer's KNOWN brief expects
+land posts, not partial sockets. Screenshots verified by eye: corner joint (full sockets,
+faceted post cap), hub (post disc at the face plane, six spokes seated), whole cell
+(general shape exactly preserved — the designer's rule, visible).
 
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
    cuttable, but panels bulge at h/R = 0.25 needing 4.12% membrane strain — **cut it flat and
    the film comes up drum-tight with any barrier coating crazed on first pump-down.** This is
-   the gap between a diagram and a cutting file.
-2. **#65 clear the five frozen proofs.**
+   the gap between a diagram and a cutting file. Context now set: the film is dyneema draped
+   over the sunken frame, pinned at the land posts on the nominal planes.
+2. **#65 clear the remaining frozen proofs** — P5 is dead; the bill is now P14 (stock_build
+   must bill the nine cuts, not centre-to-centre — 0.44 kg of phantom tube, its own reviewed
+   commit), P8 (cup-mouth chamfer or 2D-corridor sweep), P16 (bench tests named per row),
+   P11 (printer threshold decision), P13 (pinned-row licensing — memo at ~/tmp/p65/MEMO.md).
 3. **#64 integrate the barrier and seam notes** into `research/notes/` + `sources.json`. Both
    drafts are complete at `~/tmp/skin-barrier/`. Harmonise the budget first — 2.90 cm³/(m²·day)
    is right for the 178 L article; `seams.md` deliberately used the stricter 1.6 and says so.
@@ -208,6 +229,14 @@ Working notes for step 1, the prover surgery (mapped, not yet started):
   `stampcheck` fails first, wasting the run.
 - **Use the fast path.** Explorer-only edits: `make stamp && make explorercheck` is **11 s**
   against ~4 min; `check_assembly` alone is 122 s of the chain. Full chain once before commit.
+- **FOUND, NOT YET FIXED — probe_node measures the octet-SKU field on rim arms.** Its direct
+  node_sdf call (check_assembly.py ~line 970) predates the `kinds` parameter and never got
+  it: every bearing/wrap/rib/lip/section probe on a rim arm samples a field with 10 mm
+  sockets where the STL has 14. The frozen contract encodes those octet-flavoured numbers
+  consistently, P4's radii are analytic (that is why P4 passes anyway), and the probe sample
+  radii are ALSO global — so the fix is per-arm kinds AND per-arm sample radii together,
+  measured, diffed and frozen as its own commit. Deliberately not slipped into the sunken-
+  frame freeze: one change-class per freeze is what keeps the bill readable.
 - **Editorial sweeps break things.** Two defects came from find-and-replace over prose without
   reading around each hit: a concatenated label got its first half replaced and the tail welded
   on, and a gated `data-n` was deleted with its paragraph. Before deleting copy, check

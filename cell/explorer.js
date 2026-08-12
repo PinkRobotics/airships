@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=492ebc11';
-import * as G from './explorer-geom.js?v=492ebc11';
+import * as CELL from './model.js?v=4c57ee79';
+import * as G from './explorer-geom.js?v=4c57ee79';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=492ebc11';
+} from './nodes.generated.js?v=4c57ee79';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=492ebc11';
+import { NODEMESHES } from './nodemeshes.generated.js?v=4c57ee79';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -109,20 +109,20 @@ function packSticks(groups, stockMm, kerfMm) {
 
 /* THE CUT SCHEDULE, assembled from the two authorities that own its halves.
  *
- * cell/model.js owns the LENGTHS — a member is centre to centre between two joints — and
- * the two SKUs. The node manifest owns the SEAT DEPTHS: each end disappears into a socket
- * by its own node's slot base, and those differ because the slot base is set by each
- * node's tightest pair of arms. tools/gen_node_families.py groups all 216 members by
- * (SKU, length class, total deduction) and emits the DEDUCTIONS only — never a length,
- * because that generator's own pitch is 0.115 mm off the model's and a cut computed there
- * would be wrong in the fourth digit, which is wider than the fit clearance the joints are
- * designed around.
+ * cell/model.js owns the NOMINAL lengths — a member is centre to centre between two
+ * lattice points, the conservative physics length — and the two SKUs. The node manifest
+ * owns the CUTS: since the frame sank, a member's true length depends on each end's own
+ * sink, which the model does not know and cannot derive, so tools/gen_node_families.py
+ * carries manifest.cutList's own saw lengths through to the page (proven row by row at
+ * generation) beside the seat deductions. The visible difference between nominal-less-seats
+ * and the true cut IS the sink, and it is published per group as sinkShortMm rather than
+ * left for a builder to discover at the saw.
  *
- * So the arithmetic happens here, once, on top of both — a saw schedule is not physics and
- * does not belong in the parity-gated model. tools/check_explorer.py recomputes every line
- * of it in Python from the article graph and the manifest, and closes the loop on the one
- * derived dimension by checking that the centre-to-centre mass computed from these
- * sections equals stockBuild().pipeKg.
+ * The remaining arithmetic happens here, once, on top of both — a saw schedule is not
+ * physics and does not belong in the parity-gated model. tools/check_explorer.py recomputes
+ * every line of it in Python from the article graph and the manifest, and closes the loop
+ * on the one derived dimension by checking that the centre-to-centre mass computed from
+ * these sections equals stockBuild().pipeKg.
  */
 function cutSchedule(stock, mat) {
   const wallM = (stock.odM - stock.idM) / 2;
@@ -140,10 +140,11 @@ function cutSchedule(stock, mat) {
     const g = CUT_GROUPS.groups[key];
     const s = SKU[g.sku];
     const memberMm = lengthOf[g.lengthKey] * 1000;
-    const cutMm = memberMm - g.deductMm;
+    const cutMm = g.cutMm;                   // the manifest's own saw length, not derived
     const kgPerM = sectionM2(s) * mat.rho;
     groups[key] = {
       ...g, memberMm, cutMm, kgPerM,
+      sinkShortMm: memberMm - g.deductMm - cutMm,
       odMm: s.odM * 1000, idMm: s.idM * 1000, wallMm: (s.odM - s.idM) / 2 * 1000,
       sectionMm2: sectionM2(s) * 1e6,
       cutM: cutMm * g.count / 1000,
@@ -603,17 +604,24 @@ function buildCell(ctx) {
   const HERO = ['0,0,0', '0,1,1'];
   const pts = [], pairs = [];
   let heroPair = null;
-  // EVERY JOINT AT ITS TRUE POSITION — the boundary insets are gone, and they must never
-  // come back. They existed for the sphere-and-cone era: a ball at a face centre poked
-  // through the mating plane, so boundary nodes were pulled ~10 mm inside and everything
-  // attached to them bent to follow. The real joints are truncated FLAT on their planes —
-  // that is what the lands are — and the meshes' sockets point along exact lattice
-  // directions. Keeping the insets tilted every pipe to an inset neighbour 1.7-3.5° off
-  // its socket's own axis, which put the pipe through the cup wall by a millimetre or two:
-  // the designer saw it at once as interference inside the workhorse's receivers, and it
-  // was the drawing lying about the article, not the article.
+  // EVERY JOINT AT ITS TRUE POSITION — which since the SUNKEN FRAME is the generator's own
+  // sunken one, not the lattice point. The sphere-era insets were a patch and stayed gone;
+  // this is the opposite thing, the article itself: gen_nodes.boundary_frame sinks every
+  // boundary node along its land-normal bisector until its sockets clear the cell faces
+  // (7.6 mm at a single land, 12.3 mm at the corners), a land post carries the mating flat
+  // back up to the nominal plane, and the film drapes over the sunken frame pinned at the
+  // post tops. The mesh module publishes each joint's own sinkMm — the generator's number,
+  // never re-derived here — and the sink is applied AT THE SOURCE POINTS, so members,
+  // seats, ghosts and parts all follow the same displaced article. Drawn without it, every
+  // boundary joint floats off its own pipes by its whole sink.
+  const sinkOf = new Map(NODEMESHES.nodes.map((m2) =>
+    [`${m2.role}|${m2.u.join(',')}`, m2.sinkMm.map((x) => x / 1000)]));
+  const sunk = (role, u, pt) => {
+    const s = sinkOf.get(`${role}|${u.join(',')}`);
+    return s ? [pt[0] + s[0], pt[1] + s[1], pt[2] + s[2]] : pt;
+  };
   for (const u of uNodes) {
-    pts.push([u[0] * half, u[1] * half, u[2] * half]);
+    pts.push(sunk('lattice', u, [u[0] * half, u[1] * half, u[2] * half]));
   }
   const uIndex = new Map(uNodes.map((u, i) => [uKey(u), i]));
   // THE ARTICLE'S OWN CONNECTION GRAPH, recorded while it is drawn, so a tour can fly to a
@@ -675,19 +683,25 @@ function buildCell(ctx) {
   const rimPts = [], rimPairs = [];
   let rp = 0;
   const rimVertMap = new Map();
-  for (const [A, B] of rimEdges) {
-    rimPts.push(A, B);
-    rimPairs.push([rp, rp + 1]);
-    rp += 2;
-    const ends = [];
-    for (const v of [A, B]) {
+  for (const [A0, B0] of rimEdges) {
+    // Each endpoint IS a rim vertex: key it by its NOMINAL coordinate (the identity the
+    // dedupe and the mesh lookup share), then sink the drawn point by that vertex's own
+    // frame. The corner joints sink 12.3 mm along the corner bisector and the rim pipes
+    // must follow them, seat to seat, or the rim floats over empty sockets.
+    const ends = [], sunkAB = [];
+    for (const v of [A0, B0]) {
       const k2 = v.map(x => x.toFixed(6)).join(',');
+      const sv = sunk('rimVertex', v.map(x => Math.round(x / half)), v);
+      sunkAB.push(sv);
       if (!rimVertMap.has(k2)) rimVertMap.set(k2, []);
-      rimVertMap.get(k2).push(v);
+      rimVertMap.get(k2).push(sv);
       bump(rvKey(k2));
       ends.push(rvKey(k2));
     }
-    addMember('rim', ends[0], ends[1], A, B);
+    rimPts.push(sunkAB[0], sunkAB[1]);
+    rimPairs.push([rp, rp + 1]);
+    rp += 2;
+    addMember('rim', ends[0], ends[1], sunkAB[0], sunkAB[1]);
   }
   // Rim vertex cores: every edge contributes the same true corner now, so the average IS
   // the Kelvin vertex, kept as an average only so the map's shape does not change.
@@ -747,7 +761,10 @@ function buildCell(ctx) {
   for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
     const c3 = [sx * half, sy * half, sz * half];
     const inv3 = 1 / Math.sqrt(3);
-    const core = c3.slice();
+    // The JOINT sinks beneath the face (its land post reaches back up); the FACE the film
+    // spans stays the nominal plane, so faceRecs keeps c3 while the hub core takes the
+    // generator's sink.
+    const core = sunk('hexHub', [sx, sy, sz], c3.slice());
     const hubKey = `hh:${hexCorePts.length}`;
     hexU.push([sx, sy, sz]);
     hexCorePts.push(core);
@@ -883,18 +900,35 @@ function buildCell(ctx) {
   // 3,183 N against a primary's 3,372 N crush demand.
   const famOf2 = new Map(parts.map((p2) => [p2.key, NODE_FAMILIES[`${p2.role}-${p2.arms}`]]));
   const wallM = (ctx.stock.odM - ctx.stock.idM) / 2;
-  const sigOf = new Map(CUT_GROUPS.order.map((k) => {
+  // (SKU, length class, deduction) is no longer a unique signature: the sink saws the 36
+  // rim edges to TWO lengths off ONE deduction, because hexagon-hexagon and square-hexagon
+  // corners settle along different bisectors. Where the signature holds several groups the
+  // member's own DRAWN length decides — the drawn article is the sunken one, the candidate
+  // groups differ by 1.1 mm, and the 0.14% pitch offset between the render and the
+  // generator moves a 242 mm member 0.34 mm, three times finer than the split.
+  const sigOf = new Map();
+  for (const k of CUT_GROUPS.order) {
     const g = CUT_GROUPS.groups[k];
-    return [`${g.sku}|${g.lengthKey}|${g.deductMm.toFixed(2)}`, k];
-  }));
+    const sig = `${g.sku}|${g.lengthKey}|${g.deductMm.toFixed(2)}`;
+    if (!sigOf.has(sig)) sigOf.set(sig, []);
+    sigOf.get(sig).push(k);
+  }
   const pipeGroups = new Map(CUT_GROUPS.order.map((k) => [k, []]));
   for (const rec of memberRecs) {
     const a = famOf2.get(rec.keys[0]), b = famOf2.get(rec.keys[1]);
     if (!a || !b) continue;
     const sku = rec.kind === 'rim' ? 'rim' : 'main';
     const lengthKey = rec.kind === 'tie' ? 'short' : 'long';
-    const gk = sigOf.get(`${sku}|${lengthKey}|${(a.slotBaseMm + b.slotBaseMm).toFixed(2)}`);
-    if (gk === undefined) continue;      // the gate counts group membership; see below
+    const cands = sigOf.get(`${sku}|${lengthKey}|${(a.slotBaseMm + b.slotBaseMm).toFixed(2)}`);
+    if (cands === undefined) continue;    // the gate counts group membership; see below
+    let gk = cands[0];
+    if (cands.length > 1) {
+      const [A, B] = rec.ends;
+      const drawnMm = Math.hypot(B[0] - A[0], B[1] - A[1], B[2] - A[2]) * 1000;
+      gk = cands.reduce((best, k) =>
+        Math.abs(drawnMm - CUT_GROUPS.groups[k].trueMemberMm) <
+        Math.abs(drawnMm - CUT_GROUPS.groups[best].trueMemberMm) ? k : best, gk);
+    }
     rec.group = gk;
     rec.seats = [a.slotBaseMm / 1000, b.slotBaseMm / 1000];
     pipeGroups.get(gk).push(rec);
@@ -957,7 +991,7 @@ function buildCell(ctx) {
     span,
     labels: [
       { p: [0, 0, span * 0.62], t: `${(span * 1000).toFixed(0)} mm — ${ctx.demo.enclosedL.toFixed(0)} L of nothing`, s: `dark: every member is purchased carbon, ${ctx.stock.pipeCount} cuts of one SKU — light: the ${ctx.demo.printedNodes} printed joints, and nothing else` },
-      { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; every boundary joint lands flat on its own mating plane' },
+      { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; every boundary joint sinks beneath its faces and pins the skin at a flat-topped land post' },
       { p: [-span * 0.45, -span * 0.28, span * 0.12], t: 'evacuate, then SEAL', s: 'no valve, no pump aboard — permanence is the design' },
       { p: [span * 0.30, span * 0.40, span * 0.34], t: 'the bench article', s: 'sealed under vacuum in the chamber, then carried out into one atmosphere — nothing is pumped down afterwards, because there is no valve' },
     ],
@@ -1335,20 +1369,20 @@ function familyStops(cell, lv) {
  * generated group is a member the schedule does not price, and the gate says so.
  */
 function cutStops(cell, lv, ctx) {
-  const famOf = new Map(cell.parts.map(p => [p.key, NODE_FAMILIES[`${p.role}-${p.arms}`]]));
+  // Membership comes off each member's own record, assigned once where the pipes were
+  // drawn — NOT re-derived from a signature here. The signature stopped being unique the
+  // day the sink sawed one rim deduction to two lengths, and a second derivation of the
+  // same fact is how the two rim stops came to light all 36 edges each.
   const byGroup = new Map();
   for (const m of cell.members) {
-    const a = famOf.get(m.keys[0]), b = famOf.get(m.keys[1]);
-    if (!a || !b) continue;
-    const sig = `${m.kind === 'rim' ? 'rim' : 'main'}|${m.kind === 'tie' ? 'short' : 'long'}` +
-      `|${(a.slotBaseMm + b.slotBaseMm).toFixed(2)}`;
-    if (!byGroup.has(sig)) byGroup.set(sig, []);
-    byGroup.get(sig).push(m);
+    if (!m.group) continue;
+    if (!byGroup.has(m.group)) byGroup.set(m.group, []);
+    byGroup.get(m.group).push(m);
   }
   const stops = [];
   for (const key of ctx.cuts.order) {
     const g = ctx.cuts.groups[key];
-    const group = byGroup.get(`${g.sku}|${g.lengthKey}|${g.deductMm.toFixed(2)}`);
+    const group = byGroup.get(key);
     if (!group || !group.length) continue;
     // The member FARTHEST from the cell's own centre, so the camera lands on one the
     // article does not hide behind itself. Deterministic: ties break on draw order.
@@ -1371,9 +1405,10 @@ function cutStops(cell, lv, ctx) {
           s: `${g.kindsText} · Ø${g.odMm.toFixed(0)} × ${g.idMm.toFixed(0)} · ` +
              `${g.cutM.toFixed(2)} m of tube` },
         { p: [rep.pos[0], rep.pos[1], rep.pos[2] - r * 0.34],
-          t: `${g.memberMm.toFixed(2)} mm centre to centre`,
-          s: `less ${g.deductMm.toFixed(2)} mm of seat — that much of every member is ` +
-             'inside a joint' },
+          t: `${g.memberMm.toFixed(2)} mm on the lattice`,
+          s: `less ${g.deductMm.toFixed(2)} mm of seat and ${g.sinkShortMm.toFixed(2)} mm ` +
+             'of sink — the seats are inside the joints, the sink is the boundary frame ' +
+             'settling beneath the faces' },
       ],
     });
   }

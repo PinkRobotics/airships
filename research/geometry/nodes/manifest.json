@@ -17,7 +17,9 @@
   "rib_h": 0.25,
   "bore_margin": 0.4,
   "pad_r": 0.0,
-  "pad_t": 3.0
+  "pad_t": 3.0,
+  "land_margin": 1.0,
+  "land_post_r": 5.0
  },
  "graph": {
   "octet": 60,
@@ -30,7 +32,7 @@
   "perStrutDemandN": 3372.0,
   "treeEndsMm": 20.0,
   "closingEndsMm": 2.0,
-  "closingPilotBoundMm": 2.783,
+  "closingPilotBoundMm": 2.701,
   "glueAreaTreeMm2": 581,
   "glueAreaClosingMm2": 113,
   "glueShearTreeMPa": 5.8,
@@ -43,14 +45,14 @@
   "shoulderBearingMPa": 119.3,
   "note": "axial load rides the seat and the glue line, not the spigot's own section; the seat is now the full pipe annulus rather than a blend fillet, which is what makes that sentence true. A uniformly evacuated shell is all compression, so E5 crushes one joint DRY and one GLUED and the dry result decides whether adhesive is needed at all \u2014 and it must crush one of each ENGAGEMENT, because a closing end is a 2 mm pilot in a 2 mm cup and a tree end is not"
  },
- "res": 112,
- "cellMm": 0.883,
+ "res": 96,
+ "cellMm": 1.049,
  "assembly": {
   "closingMembers": 166,
   "treeMembers": 50,
   "closingEnds": 332,
-  "shortestClosingCutMm": 141.883,
-  "pilotBoundMm": 2.783,
+  "shortestClosingCutMm": 129.77,
+  "pilotBoundMm": 2.701,
   "rule": "spanning_tree(): BFS from the first node in graph order; a member that discovers a new node keeps the full stub, every other member gets the pilot at both ends"
  },
  "nodes": [
@@ -64,12 +66,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 35044,
+   "triangles": 33728,
    "closed": true,
-   "nonManifoldEdges": 29,
-   "overhangAreaFrac": 0.128,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    7.6,
+    -0.0,
+    -0.0
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 72,
+   "overhangAreaFrac": 0.153,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -102,15 +112,82 @@
     2.4
    ],
    "bedNormalArticle": [
-    -1.0,
-    -0.0,
-    -0.0
+    1.0,
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 799.2,
-   "supportAreaMm2": 18.7,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 48.4,
+   "supportAreaMm2": 643.0,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 259.7,
+     "bedContactMm2": 42.5,
+     "armsIntoAir": 0,
+     "downwardArms": 8
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 311.6,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 921.8,
+     "bedContactMm2": 31.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 921.8,
+     "bedContactMm2": 29.2,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 921.8,
+     "bedContactMm2": 29.2,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 921.8,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -122,17 +199,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    -43.7449,
+    -43.7449,
+    -43.7449,
+    -43.7449,
+    -1.078,
+    -1.078,
+    -1.078,
+    -1.078
    ],
-   "volumeMm3": 11031,
-   "massG": 11.69
+   "volumeMm3": 15858,
+   "massG": 16.81
   },
   {
    "file": "node_01_lattice.stl",
@@ -144,12 +221,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 45640,
+   "triangles": 34988,
    "closed": true,
-   "nonManifoldEdges": 62,
-   "overhangAreaFrac": 0.143,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 206,
+   "overhangAreaFrac": 0.147,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -195,9 +278,9 @@
     0.0,
     1.0
    ],
-   "bedContactMm2": 6.2,
-   "supportAreaMm2": 741.6,
-   "islandVolumeMm3": 715.7,
+   "bedContactMm2": 15.4,
+   "supportAreaMm2": 596.8,
+   "islandVolumeMm3": 419.4,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -206,10 +289,21 @@
       0,
       1
      ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 944.0,
+     "bedContactMm2": 10.5,
+     "armsIntoAir": 1,
+     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -217,8 +311,8 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 959.2,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 948.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
@@ -228,32 +322,21 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 963.7,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 1109.1,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
     {
      "bedNormalArticle": [
-      -1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 968.3,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 1,
-     "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
       1,
       0,
       0
      ],
-     "islandVolumeMm3": 1122.8,
-     "bedContactMm2": 38.4,
+     "islandVolumeMm3": 1422.3,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 2,
-     "downwardArms": 4
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -261,10 +344,10 @@
       1,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1930.3,
+     "bedContactMm2": 15.7,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -290,11 +373,11 @@
     45.0,
     0.0,
     0.0,
-    90.0,
-    -90.0
+    87.9441,
+    -87.9441
    ],
-   "volumeMm3": 16274,
-   "massG": 17.25
+   "volumeMm3": 16434,
+   "massG": 17.42
   },
   {
    "file": "node_02_lattice.stl",
@@ -306,12 +389,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 40848,
+   "triangles": 31308,
    "closed": true,
-   "nonManifoldEdges": 65,
-   "overhangAreaFrac": 0.16,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 184,
+   "overhangAreaFrac": 0.163,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -353,36 +442,47 @@
     2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -1.0,
-    -0.0
+    0.0,
+    1.0,
+    0.0
    ],
-   "bedContactMm2": 6.2,
-   "supportAreaMm2": 741.6,
-   "islandVolumeMm3": 715.7,
+   "bedContactMm2": 15.4,
+   "supportAreaMm2": 599.0,
+   "islandVolumeMm3": 419.4,
    "armsIntoAir": 0,
    "frameSearch": [
-    {
-     "bedNormalArticle": [
-      0,
-      -1,
-      0
-     ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
-     "armsIntoAir": 0,
-     "downwardArms": 3
-    },
     {
      "bedNormalArticle": [
       0,
       1,
       0
      ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 23.6,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 931.3,
+     "bedContactMm2": 10.5,
+     "armsIntoAir": 1,
+     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -390,19 +490,8 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 945.5,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 1,
-     "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      -1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 968.3,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 948.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
@@ -412,10 +501,10 @@
       0,
       1
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1930.3,
+     "bedContactMm2": 15.7,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -423,10 +512,10 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1972.6,
+     "bedContactMm2": 15.7,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -444,19 +533,19 @@
    ],
    "armElevationDeg": [
     0.0,
-    -45.0,
-    45.0,
-    0.0,
     45.0,
     -45.0,
     0.0,
+    -45.0,
+    45.0,
     0.0,
     0.0,
-    -90.0,
-    90.0
+    0.0,
+    87.9441,
+    -87.9441
    ],
-   "volumeMm3": 14867,
-   "massG": 15.76
+   "volumeMm3": 15002,
+   "massG": 15.9
   },
   {
    "file": "node_03_lattice.stl",
@@ -468,12 +557,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 45620,
+   "triangles": 34988,
    "closed": true,
-   "nonManifoldEdges": 63,
-   "overhangAreaFrac": 0.143,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 207,
+   "overhangAreaFrac": 0.148,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -519,9 +614,9 @@
     1.0,
     0.0
    ],
-   "bedContactMm2": 6.2,
-   "supportAreaMm2": 741.6,
-   "islandVolumeMm3": 715.7,
+   "bedContactMm2": 15.4,
+   "supportAreaMm2": 596.8,
+   "islandVolumeMm3": 419.4,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -530,10 +625,21 @@
       1,
       0
      ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 960.9,
+     "bedContactMm2": 10.5,
+     "armsIntoAir": 1,
+     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -541,8 +647,8 @@
       0,
       1
      ],
-     "islandVolumeMm3": 959.2,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 969.4,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
@@ -552,21 +658,10 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 963.7,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 1109.1,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 3
-    },
-    {
-     "bedNormalArticle": [
-      -1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 968.3,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 1,
-     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -574,10 +669,10 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1122.8,
-     "bedContactMm2": 38.4,
+     "islandVolumeMm3": 1422.3,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 2,
-     "downwardArms": 4
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -585,10 +680,10 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1930.3,
+     "bedContactMm2": 15.7,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -614,11 +709,11 @@
     -45.0,
     0.0,
     0.0,
-    90.0,
-    -90.0
+    87.9441,
+    -87.9441
    ],
-   "volumeMm3": 16274,
-   "massG": 17.25
+   "volumeMm3": 16434,
+   "massG": 17.42
   },
   {
    "file": "node_04_lattice.stl",
@@ -630,12 +725,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 53348,
+   "triangles": 40820,
    "closed": true,
-   "nonManifoldEdges": 55,
-   "overhangAreaFrac": 0.115,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 230,
+   "overhangAreaFrac": 0.13,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -681,9 +782,9 @@
     0.0,
     0.0
    ],
-   "bedContactMm2": 9.3,
-   "supportAreaMm2": 622.4,
-   "islandVolumeMm3": 253.0,
+   "bedContactMm2": 20.9,
+   "supportAreaMm2": 600.1,
+   "islandVolumeMm3": 451.8,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -692,10 +793,10 @@
       0,
       0
      ],
-     "islandVolumeMm3": 254.6,
-     "bedContactMm2": 76.8,
+     "islandVolumeMm3": 321.7,
+     "bedContactMm2": 70.7,
      "armsIntoAir": 0,
-     "downwardArms": 4
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -703,8 +804,8 @@
       0,
       0
      ],
-     "islandVolumeMm3": 968.3,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 965.1,
+     "bedContactMm2": 10.5,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
@@ -714,8 +815,8 @@
       1,
       0
      ],
-     "islandVolumeMm3": 972.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 990.5,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
@@ -725,8 +826,8 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 981.9,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 1109.1,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
@@ -736,8 +837,8 @@
       0,
       1
      ],
-     "islandVolumeMm3": 981.9,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 1109.1,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
@@ -747,10 +848,10 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 38.4,
+     "islandVolumeMm3": 1380.0,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 2,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -767,20 +868,20 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
+    43.7449,
     0.0,
     0.0,
+    -46.2551,
     -45.0,
     -45.0,
     -45.0,
-    -45.0,
-    90.0,
-    0.0,
-    0.0,
-    0.0
+    88.0034,
+    -1.9966,
+    -1.4536,
+    -1.4536
    ],
-   "volumeMm3": 18402,
-   "massG": 19.51
+   "volumeMm3": 18591,
+   "massG": 19.71
   },
   {
    "file": "node_05_lattice.stl",
@@ -792,12 +893,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 24456,
+   "triangles": 24460,
    "closed": true,
-   "nonManifoldEdges": 39,
-   "overhangAreaFrac": 0.143,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -0.0,
+    7.6,
+    -0.0
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 62,
+   "overhangAreaFrac": 0.149,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -834,11 +943,78 @@
     -1.0,
     -0.0
    ],
-   "bedContactMm2": 640.3,
-   "supportAreaMm2": 15.6,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 131.0,
+   "supportAreaMm2": 410.7,
+   "islandVolumeMm3": 254.2,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 268.3,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 29.2,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 376.5,
+     "bedContactMm2": 31.9,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 895.9,
+     "bedContactMm2": 15.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 1765.8,
+     "bedContactMm2": 10.6,
+     "armsIntoAir": 3,
+     "downwardArms": 8
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -850,17 +1026,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    43.7449,
+    43.7449,
+    43.7449,
+    43.7449,
+    1.078,
+    1.078,
+    1.078,
+    1.078
    ],
-   "volumeMm3": 8213,
-   "massG": 8.71
+   "volumeMm3": 12298,
+   "massG": 13.04
   },
   {
    "file": "node_06_lattice.stl",
@@ -872,12 +1048,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 40340,
+   "triangles": 30912,
    "closed": true,
-   "nonManifoldEdges": 71,
-   "overhangAreaFrac": 0.148,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 195,
+   "overhangAreaFrac": 0.13,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -895,168 +1077,6 @@
    "armIsClosing": [
     false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    true,
-    true,
-    false
-   ],
-   "armBoreStartMm": [
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4,
-    2.4
-   ],
-   "bedNormalArticle": [
-    0.0,
-    1.0,
-    0.0
-   ],
-   "bedContactMm2": 12.5,
-   "supportAreaMm2": 609.9,
-   "islandVolumeMm3": 97.6,
-   "armsIntoAir": 0,
-   "frameSearch": [
-    {
-     "bedNormalArticle": [
-      0,
-      1,
-      0
-     ],
-     "islandVolumeMm3": 36.4,
-     "bedContactMm2": 65.9,
-     "armsIntoAir": 0,
-     "downwardArms": 4
-    },
-    {
-     "bedNormalArticle": [
-      1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 322.8,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 0,
-     "downwardArms": 3
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      -1
-     ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 0,
-     "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      -1,
-      0
-     ],
-     "islandVolumeMm3": 359.1,
-     "bedContactMm2": 5.5,
-     "armsIntoAir": 0,
-     "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      -1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 1,
-     "downwardArms": 3
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      1
-     ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 3,
-     "downwardArms": 4
-    }
-   ],
-   "armIntoAir": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-   ],
-   "armElevationDeg": [
-    0.0,
-    -45.0,
-    45.0,
-    -45.0,
-    0.0,
-    -45.0,
-    -45.0,
-    0.0,
-    90.0,
-    0.0,
-    0.0
-   ],
-   "volumeMm3": 14855,
-   "massG": 15.75
-  },
-  {
-   "file": "node_07_lattice.stl",
-   "u": [
-    0,
-    -1,
-    1
-   ],
-   "role": "lattice",
-   "arms": 11,
-   "lands": 0,
-   "triangles": 40332,
-   "closed": true,
-   "nonManifoldEdges": 70,
-   "overhangAreaFrac": 0.148,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
-   "slotsClear": true,
-   "armEngagementMm": [
-    2.0,
-    20.0,
-    2.0,
-    2.0,
-    2.0,
-    2.0,
-    2.0,
-    20.0,
-    2.0,
-    2.0,
-    20.0
-   ],
-   "armIsClosing": [
-    true,
-    false,
     true,
     true,
     true,
@@ -1085,9 +1105,9 @@
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 12.5,
-   "supportAreaMm2": 606.8,
-   "islandVolumeMm3": 97.6,
+   "bedContactMm2": 4.4,
+   "supportAreaMm2": 452.6,
+   "islandVolumeMm3": 444.8,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -1096,21 +1116,10 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 36.4,
-     "bedContactMm2": 65.9,
+     "islandVolumeMm3": 385.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
-     "downwardArms": 4
-    },
-    {
-     "bedNormalArticle": [
-      1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 322.8,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 0,
-     "downwardArms": 3
+     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -1118,10 +1127,32 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 436.0,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 512.2,
+     "bedContactMm2": 26.2,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 1049.8,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 1,
+     "downwardArms": 3
     },
     {
      "bedNormalArticle": [
@@ -1129,21 +1160,10 @@
       0,
       1
      ],
-     "islandVolumeMm3": 359.1,
-     "bedContactMm2": 5.5,
-     "armsIntoAir": 0,
-     "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      -1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 1,
-     "downwardArms": 3
+     "islandVolumeMm3": 1938.7,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -1151,10 +1171,10 @@
       1,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1947.2,
+     "bedContactMm2": 2.6,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -1171,20 +1191,188 @@
     false
    ],
    "armElevationDeg": [
-    -45.0,
+    45.0,
     0.0,
-    -45.0,
+    46.2551,
     0.0,
     45.0,
-    -45.0,
-    -45.0,
+    45.0,
+    -43.7449,
+    -88.0034,
+    1.9966,
+    1.4536,
+    1.4536
+   ],
+   "volumeMm3": 15017,
+   "massG": 15.92
+  },
+  {
+   "file": "node_07_lattice.stl",
+   "u": [
+    0,
+    -1,
+    1
+   ],
+   "role": "lattice",
+   "arms": 11,
+   "lands": 0,
+   "triangles": 30888,
+   "closed": true,
+   "sinkMm": [
     0.0,
-    90.0,
     0.0,
     0.0
    ],
-   "volumeMm3": 14852,
-   "massG": 15.74
+   "landOffsMm": [],
+   "nonManifoldEdges": 199,
+   "overhangAreaFrac": 0.131,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
+   "slotsClear": true,
+   "armEngagementMm": [
+    2.0,
+    20.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    20.0,
+    2.0,
+    2.0,
+    20.0
+   ],
+   "armIsClosing": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false
+   ],
+   "armBoreStartMm": [
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
+   ],
+   "bedNormalArticle": [
+    -0.0,
+    -1.0,
+    -0.0
+   ],
+   "bedContactMm2": 1.1,
+   "supportAreaMm2": 463.6,
+   "islandVolumeMm3": 433.3,
+   "armsIntoAir": 0,
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 406.4,
+     "bedContactMm2": 26.2,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 436.0,
+     "bedContactMm2": 20.9,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 512.2,
+     "bedContactMm2": 26.2,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 1028.6,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 1,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 1938.7,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 3,
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 1947.2,
+     "bedContactMm2": 2.6,
+     "armsIntoAir": 3,
+     "downwardArms": 7
+    }
+   ],
+   "armIntoAir": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "armElevationDeg": [
+    0.0,
+    45.0,
+    -43.7449,
+    45.0,
+    46.2551,
+    0.0,
+    45.0,
+    -88.0034,
+    1.9966,
+    1.4536,
+    1.4536
+   ],
+   "volumeMm3": 15016,
+   "massG": 15.92
   },
   {
    "file": "node_08_lattice.stl",
@@ -1196,12 +1384,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 23212,
+   "triangles": 22760,
    "closed": true,
-   "nonManifoldEdges": 38,
-   "overhangAreaFrac": 0.134,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -0.0,
+    -0.0,
+    7.6
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 60,
+   "overhangAreaFrac": 0.139,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -1238,11 +1434,78 @@
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 560.9,
-   "supportAreaMm2": 14.0,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 131.0,
+   "supportAreaMm2": 305.0,
+   "islandVolumeMm3": 242.6,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 246.7,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 346.2,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 882.9,
+     "bedContactMm2": 15.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 1765.8,
+     "bedContactMm2": 10.6,
+     "armsIntoAir": 3,
+     "downwardArms": 8
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -1254,17 +1517,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    43.7449,
+    43.7449,
+    43.7449,
+    43.7449,
+    1.078,
+    1.078,
+    1.078,
+    1.078
    ],
-   "volumeMm3": 7873,
-   "massG": 8.35
+   "volumeMm3": 11572,
+   "massG": 12.27
   },
   {
    "file": "node_09_lattice.stl",
@@ -1276,10 +1539,16 @@
    "role": "lattice",
    "arms": 12,
    "lands": 0,
-   "triangles": 33280,
+   "triangles": 25264,
    "closed": true,
-   "nonManifoldEdges": 74,
-   "overhangAreaFrac": 0.138,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 292,
+   "overhangAreaFrac": 0.148,
    "minArmAngleDeg": 60.0,
    "slotBaseMm": 12.26,
    "slotsClear": true,
@@ -1330,9 +1599,9 @@
     0.0,
     1.0
    ],
-   "bedContactMm2": 74.8,
-   "supportAreaMm2": 391.8,
-   "islandVolumeMm3": 8.3,
+   "bedContactMm2": 26.4,
+   "supportAreaMm2": 252.2,
+   "islandVolumeMm3": 60.1,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -1430,8 +1699,8 @@
     45.0,
     45.0
    ],
-   "volumeMm3": 13944,
-   "massG": 14.78
+   "volumeMm3": 14061,
+   "massG": 14.9
   },
   {
    "file": "node_10_lattice.stl",
@@ -1443,12 +1712,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 24452,
+   "triangles": 24460,
    "closed": true,
-   "nonManifoldEdges": 38,
-   "overhangAreaFrac": 0.143,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -0.0,
+    -0.0,
+    -7.6
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 62,
+   "overhangAreaFrac": 0.149,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -1481,15 +1758,82 @@
     2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
+    0.0,
+    0.0,
     1.0
    ],
-   "bedContactMm2": 640.3,
-   "supportAreaMm2": 15.6,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 131.0,
+   "supportAreaMm2": 410.7,
+   "islandVolumeMm3": 254.2,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 268.3,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 31.9,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 363.5,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 376.5,
+     "bedContactMm2": 29.2,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 887.2,
+     "bedContactMm2": 15.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 1765.8,
+     "bedContactMm2": 10.6,
+     "armsIntoAir": 3,
+     "downwardArms": 8
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -1501,17 +1845,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    43.7449,
+    43.7449,
+    43.7449,
+    43.7449,
+    1.078,
+    1.078,
+    1.078,
+    1.078
    ],
-   "volumeMm3": 8213,
-   "massG": 8.71
+   "volumeMm3": 12298,
+   "massG": 13.04
   },
   {
    "file": "node_11_lattice.stl",
@@ -1523,12 +1867,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 40356,
+   "triangles": 30936,
    "closed": true,
-   "nonManifoldEdges": 70,
-   "overhangAreaFrac": 0.148,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 200,
+   "overhangAreaFrac": 0.131,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -1571,44 +1921,22 @@
    ],
    "bedNormalArticle": [
     -0.0,
-    -1.0,
-    -0.0
+    -0.0,
+    -1.0
    ],
-   "bedContactMm2": 12.5,
-   "supportAreaMm2": 603.7,
-   "islandVolumeMm3": 97.6,
+   "bedContactMm2": 22.0,
+   "supportAreaMm2": 449.2,
+   "islandVolumeMm3": 419.4,
    "armsIntoAir": 0,
    "frameSearch": [
-    {
-     "bedNormalArticle": [
-      0,
-      -1,
-      0
-     ],
-     "islandVolumeMm3": 36.4,
-     "bedContactMm2": 65.9,
-     "armsIntoAir": 0,
-     "downwardArms": 4
-    },
-    {
-     "bedNormalArticle": [
-      1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 322.8,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 0,
-     "downwardArms": 3
-    },
     {
      "bedNormalArticle": [
       0,
       0,
       -1
      ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 406.4,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -1618,10 +1946,21 @@
       1,
       0
      ],
-     "islandVolumeMm3": 359.1,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 436.0,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 512.2,
+     "bedContactMm2": 26.2,
+     "armsIntoAir": 0,
+     "downwardArms": 3
     },
     {
      "bedNormalArticle": [
@@ -1629,8 +1968,8 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1049.8,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
@@ -1640,10 +1979,21 @@
       0,
       1
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1947.2,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 1947.2,
+     "bedContactMm2": 2.6,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -1660,20 +2010,20 @@
     false
    ],
    "armElevationDeg": [
-    -45.0,
-    0.0,
-    -45.0,
-    -45.0,
     0.0,
     45.0,
-    -45.0,
-    90.0,
+    -43.7449,
+    45.0,
+    45.0,
+    46.2551,
     0.0,
-    0.0,
-    0.0
+    1.9966,
+    -88.0034,
+    1.4536,
+    1.4536
    ],
-   "volumeMm3": 14856,
-   "massG": 15.75
+   "volumeMm3": 15020,
+   "massG": 15.92
   },
   {
    "file": "node_12_lattice.stl",
@@ -1685,12 +2035,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 43060,
+   "triangles": 33000,
    "closed": true,
-   "nonManifoldEdges": 67,
-   "overhangAreaFrac": 0.126,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 209,
+   "overhangAreaFrac": 0.136,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -1736,9 +2092,9 @@
     0.0,
     1.0
    ],
-   "bedContactMm2": 10.9,
-   "supportAreaMm2": 581.1,
-   "islandVolumeMm3": 683.4,
+   "bedContactMm2": 4.4,
+   "supportAreaMm2": 505.4,
+   "islandVolumeMm3": 454.1,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -1747,8 +2103,8 @@
       0,
       1
      ],
-     "islandVolumeMm3": 345.5,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 385.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -1758,21 +2114,10 @@
       1,
       0
      ],
-     "islandVolumeMm3": 359.1,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 436.0,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      1,
-      0,
-      0
-     ],
-     "islandVolumeMm3": 936.4,
-     "bedContactMm2": 27.4,
-     "armsIntoAir": 1,
-     "downwardArms": 3
     },
     {
      "bedNormalArticle": [
@@ -1780,8 +2125,19 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1028.6,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 1,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 1100.6,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
@@ -1791,10 +2147,10 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1943.0,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     },
     {
      "bedNormalArticle": [
@@ -1802,10 +2158,10 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1981.1,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -1825,17 +2181,17 @@
     0.0,
     45.0,
     45.0,
-    -45.0,
+    -43.7449,
     0.0,
     45.0,
-    45.0,
-    0.0,
-    -90.0,
-    0.0,
-    0.0
+    46.2551,
+    1.9966,
+    -88.0034,
+    1.4536,
+    1.4536
    ],
-   "volumeMm3": 15571,
-   "massG": 16.5
+   "volumeMm3": 15740,
+   "massG": 16.68
   },
   {
    "file": "node_13_lattice.stl",
@@ -1847,12 +2203,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 28396,
+   "triangles": 28116,
    "closed": true,
-   "nonManifoldEdges": 35,
-   "overhangAreaFrac": 0.139,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -0.0,
+    -7.6,
+    -0.0
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 66,
+   "overhangAreaFrac": 0.153,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     20.0,
@@ -1885,15 +2249,82 @@
     2.4
    ],
    "bedNormalArticle": [
-    -0.0,
+    0.0,
     1.0,
-    -0.0
+    0.0
    ],
-   "bedContactMm2": 719.8,
-   "supportAreaMm2": 17.1,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 131.0,
+   "supportAreaMm2": 517.5,
+   "islandVolumeMm3": 265.7,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 290.0,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 389.5,
+     "bedContactMm2": 31.9,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 389.5,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 895.9,
+     "bedContactMm2": 29.2,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 913.2,
+     "bedContactMm2": 15.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 1263.7,
+     "bedContactMm2": 21.2,
+     "armsIntoAir": 2,
+     "downwardArms": 8
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -1905,17 +2336,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    43.7449,
+    43.7449,
+    43.7449,
+    43.7449,
+    1.078,
+    1.078,
+    1.078,
+    1.078
    ],
-   "volumeMm3": 9266,
-   "massG": 9.82
+   "volumeMm3": 13727,
+   "massG": 14.55
   },
   {
    "file": "node_14_lattice.stl",
@@ -1927,12 +2358,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 38400,
+   "triangles": 29276,
    "closed": true,
-   "nonManifoldEdges": 68,
-   "overhangAreaFrac": 0.113,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 193,
+   "overhangAreaFrac": 0.123,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -1978,9 +2415,9 @@
     0.0,
     0.0
    ],
-   "bedContactMm2": 10.9,
-   "supportAreaMm2": 378.6,
-   "islandVolumeMm3": 673.8,
+   "bedContactMm2": 1.1,
+   "supportAreaMm2": 374.4,
+   "islandVolumeMm3": 420.6,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -1989,8 +2426,8 @@
       0,
       0
      ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 385.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -2000,21 +2437,10 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 345.5,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 414.8,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      -1
-     ],
-     "islandVolumeMm3": 354.6,
-     "bedContactMm2": 5.5,
-     "armsIntoAir": 0,
-     "downwardArms": 3
     },
     {
      "bedNormalArticle": [
@@ -2022,21 +2448,21 @@
       0,
       1
      ],
-     "islandVolumeMm3": 354.6,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 495.3,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
     },
     {
      "bedNormalArticle": [
       0,
-      1,
-      0
+      0,
+      -1
      ],
-     "islandVolumeMm3": 1536.5,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 3,
-     "downwardArms": 4
+     "islandVolumeMm3": 495.3,
+     "bedContactMm2": 23.6,
+     "armsIntoAir": 0,
+     "downwardArms": 3
     },
     {
      "bedNormalArticle": [
@@ -2044,10 +2470,21 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1536.5,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1938.7,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 1981.1,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -2064,20 +2501,20 @@
     false
    ],
    "armElevationDeg": [
+    46.2551,
     45.0,
     45.0,
     45.0,
-    45.0,
-    -45.0,
+    -43.7449,
     0.0,
     0.0,
-    0.0,
-    -90.0,
-    0.0,
-    0.0
+    1.9966,
+    -88.0034,
+    1.4536,
+    1.4536
    ],
-   "volumeMm3": 14160,
-   "massG": 15.01
+   "volumeMm3": 14306,
+   "massG": 15.16
   },
   {
    "file": "node_15_lattice.stl",
@@ -2089,12 +2526,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 38412,
+   "triangles": 29276,
    "closed": true,
-   "nonManifoldEdges": 68,
-   "overhangAreaFrac": 0.113,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 193,
+   "overhangAreaFrac": 0.123,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2140,9 +2583,9 @@
     0.0,
     0.0
    ],
-   "bedContactMm2": 10.9,
-   "supportAreaMm2": 377.8,
-   "islandVolumeMm3": 673.8,
+   "bedContactMm2": 22.0,
+   "supportAreaMm2": 355.7,
+   "islandVolumeMm3": 406.7,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -2151,8 +2594,8 @@
       0,
       0
      ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 385.2,
+     "bedContactMm2": 34.0,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -2162,8 +2605,8 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 345.5,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 414.8,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -2173,8 +2616,8 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 354.6,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 495.3,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
     },
@@ -2184,21 +2627,10 @@
       1,
       0
      ],
-     "islandVolumeMm3": 354.6,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 495.3,
+     "bedContactMm2": 23.6,
      "armsIntoAir": 0,
      "downwardArms": 3
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      1
-     ],
-     "islandVolumeMm3": 1536.5,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 3,
-     "downwardArms": 4
     },
     {
      "bedNormalArticle": [
@@ -2206,10 +2638,21 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1536.5,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1938.7,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 1981.1,
+     "bedContactMm2": 18.3,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -2227,19 +2670,19 @@
    ],
    "armElevationDeg": [
     45.0,
+    46.2551,
     45.0,
     45.0,
-    45.0,
     0.0,
-    -45.0,
+    -43.7449,
     0.0,
-    0.0,
-    -90.0,
-    0.0,
-    0.0
+    1.9966,
+    -88.0034,
+    1.4536,
+    1.4536
    ],
-   "volumeMm3": 14158,
-   "massG": 15.01
+   "volumeMm3": 14306,
+   "massG": 15.16
   },
   {
    "file": "node_16_lattice.stl",
@@ -2251,12 +2694,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 38288,
+   "triangles": 29308,
    "closed": true,
-   "nonManifoldEdges": 68,
-   "overhangAreaFrac": 0.142,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 189,
+   "overhangAreaFrac": 0.122,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2298,34 +2747,34 @@
     2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
-    -1.0
+    1.0,
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 12.5,
-   "supportAreaMm2": 512.6,
-   "islandVolumeMm3": 97.6,
+   "bedContactMm2": 4.4,
+   "supportAreaMm2": 363.4,
+   "islandVolumeMm3": 432.1,
    "armsIntoAir": 0,
    "frameSearch": [
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      -1
-     ],
-     "islandVolumeMm3": 36.4,
-     "bedContactMm2": 65.9,
-     "armsIntoAir": 0,
-     "downwardArms": 4
-    },
     {
      "bedNormalArticle": [
       1,
       0,
       0
      ],
-     "islandVolumeMm3": 331.8,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 364.0,
+     "bedContactMm2": 26.2,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 414.8,
+     "bedContactMm2": 20.9,
      "armsIntoAir": 0,
      "downwardArms": 2
     },
@@ -2335,21 +2784,10 @@
       -1,
       0
      ],
-     "islandVolumeMm3": 336.4,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 495.3,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      0,
-      1
-     ],
-     "islandVolumeMm3": 359.1,
-     "bedContactMm2": 5.5,
-     "armsIntoAir": 0,
-     "downwardArms": 2
     },
     {
      "bedNormalArticle": [
@@ -2357,8 +2795,8 @@
       1,
       0
      ],
-     "islandVolumeMm3": 1109.2,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1049.8,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 1,
      "downwardArms": 3
     },
@@ -2368,10 +2806,21 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1938.7,
+     "bedContactMm2": 18.3,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 1947.2,
+     "bedContactMm2": 2.6,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -2388,20 +2837,20 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    -45.0,
+    45.0,
+    45.0,
+    46.2551,
     45.0,
     0.0,
-    -45.0,
-    -45.0,
-    -45.0,
+    -43.7449,
     0.0,
-    90.0,
-    0.0,
-    0.0
+    -88.0034,
+    1.9966,
+    1.4536,
+    1.4536
    ],
-   "volumeMm3": 14159,
-   "massG": 15.01
+   "volumeMm3": 14307,
+   "massG": 15.17
   },
   {
    "file": "node_17_lattice.stl",
@@ -2413,12 +2862,18 @@
    "role": "lattice",
    "arms": 11,
    "lands": 0,
-   "triangles": 40852,
+   "triangles": 31284,
    "closed": true,
-   "nonManifoldEdges": 64,
-   "overhangAreaFrac": 0.161,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "landOffsMm": [],
+   "nonManifoldEdges": 189,
+   "overhangAreaFrac": 0.164,
+   "minArmAngleDeg": 43.6,
+   "slotBaseMm": 16.91,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2464,9 +2919,9 @@
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 6.2,
-   "supportAreaMm2": 741.6,
-   "islandVolumeMm3": 715.7,
+   "bedContactMm2": 15.4,
+   "supportAreaMm2": 596.8,
+   "islandVolumeMm3": 419.4,
    "armsIntoAir": 0,
    "frameSearch": [
     {
@@ -2475,8 +2930,8 @@
       0,
       -1
      ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 0,
      "downwardArms": 3
     },
@@ -2486,43 +2941,32 @@
       0,
       1
      ],
-     "islandVolumeMm3": 363.7,
-     "bedContactMm2": 5.5,
+     "islandVolumeMm3": 503.7,
+     "bedContactMm2": 23.6,
      "armsIntoAir": 0,
      "downwardArms": 3
     },
     {
      "bedNormalArticle": [
-      1,
       0,
+      1,
       0
      ],
-     "islandVolumeMm3": 945.5,
-     "bedContactMm2": 27.4,
+     "islandVolumeMm3": 931.3,
+     "bedContactMm2": 10.5,
      "armsIntoAir": 1,
      "downwardArms": 2
     },
     {
      "bedNormalArticle": [
-      0,
       1,
+      0,
       0
      ],
-     "islandVolumeMm3": 968.3,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 948.2,
+     "bedContactMm2": 26.2,
      "armsIntoAir": 1,
      "downwardArms": 2
-    },
-    {
-     "bedNormalArticle": [
-      0,
-      -1,
-      0
-     ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
-     "armsIntoAir": 3,
-     "downwardArms": 4
     },
     {
      "bedNormalArticle": [
@@ -2530,10 +2974,21 @@
       0,
       0
      ],
-     "islandVolumeMm3": 1550.1,
-     "bedContactMm2": 19.2,
+     "islandVolumeMm3": 1930.3,
+     "bedContactMm2": 15.7,
      "armsIntoAir": 3,
-     "downwardArms": 4
+     "downwardArms": 7
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 1972.6,
+     "bedContactMm2": 15.7,
+     "armsIntoAir": 3,
+     "downwardArms": 7
     }
    ],
    "armIntoAir": [
@@ -2559,11 +3014,11 @@
     0.0,
     0.0,
     0.0,
-    -90.0,
-    90.0
+    -87.9441,
+    87.9441
    ],
-   "volumeMm3": 14869,
-   "massG": 15.76
+   "volumeMm3": 15004,
+   "massG": 15.9
   },
   {
    "file": "node_18_lattice.stl",
@@ -2575,12 +3030,20 @@
    "role": "lattice",
    "arms": 8,
    "lands": 1,
-   "triangles": 21972,
+   "triangles": 21060,
    "closed": true,
-   "nonManifoldEdges": 37,
-   "overhangAreaFrac": 0.122,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -7.6,
+    -0.0,
+    -0.0
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 58,
+   "overhangAreaFrac": 0.128,
+   "minArmAngleDeg": 42.7,
+   "slotBaseMm": 17.26,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2614,14 +3077,81 @@
    ],
    "bedNormalArticle": [
     1.0,
-    -0.0,
-    -0.0
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 481.4,
-   "supportAreaMm2": 12.5,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 131.0,
+   "supportAreaMm2": 199.3,
+   "islandVolumeMm3": 231.1,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 225.0,
+     "bedContactMm2": 13.3,
+     "armsIntoAir": 0,
+     "downwardArms": 0
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 333.2,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 346.2,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 346.2,
+     "bedContactMm2": 26.6,
+     "armsIntoAir": 0,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 882.9,
+     "bedContactMm2": 15.9,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 1765.8,
+     "bedContactMm2": 10.6,
+     "armsIntoAir": 3,
+     "downwardArms": 8
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -2633,17 +3163,17 @@
     false
    ],
    "armElevationDeg": [
-    45.0,
-    45.0,
-    45.0,
-    45.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    43.7449,
+    43.7449,
+    43.7449,
+    43.7449,
+    1.078,
+    1.078,
+    1.078,
+    1.078
    ],
-   "volumeMm3": 7531,
-   "massG": 7.98
+   "volumeMm3": 10846,
+   "massG": 11.5
   },
   {
    "file": "node_19_rimVertex.stl",
@@ -2655,12 +3185,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17520,
+   "triangles": 26992,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    5.802,
+    10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 119,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2681,24 +3221,91 @@
     false
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 18.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -2712,13 +3319,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5499,
-   "massG": 5.83
+   "volumeMm3": 12662,
+   "massG": 13.42
   },
   {
    "file": "node_20_rimVertex.stl",
@@ -2730,12 +3337,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16720,
+   "triangles": 26848,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    10.826,
+    5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2756,24 +3373,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -1.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -2787,13 +3471,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5142,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_21_rimVertex.stl",
@@ -2805,12 +3489,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26992,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    10.826,
+    -5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2831,24 +3525,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -1.0,
     -0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -2862,13 +3623,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5498,
-   "massG": 5.83
+   "volumeMm3": 12660,
+   "massG": 13.42
   },
   {
    "file": "node_22_rimVertex.stl",
@@ -2880,12 +3641,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26992,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -10.826,
+    -5.802,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2906,24 +3677,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     1.0,
-    -0.0,
-    -0.0
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -2937,13 +3775,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5495,
-   "massG": 5.82
+   "volumeMm3": 12660,
+   "massG": 13.42
   },
   {
    "file": "node_23_rimVertex.stl",
@@ -2955,12 +3793,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17520,
+   "triangles": 26980,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    5.802,
+    -0.0,
+    -10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.152,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -2981,24 +3829,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
+    0.0,
+    0.0,
     1.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3012,13 +3927,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5497,
-   "massG": 5.83
+   "volumeMm3": 12659,
+   "massG": 13.42
   },
   {
    "file": "node_24_rimVertex.stl",
@@ -3030,12 +3945,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16720,
+   "triangles": 26852,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    -10.826,
+    5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.169,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3056,24 +3981,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
+    0.0,
     1.0,
-    -0.0
+    0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3087,13 +4079,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5144,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_25_rimVertex.stl",
@@ -3105,12 +4097,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16720,
+   "triangles": 26852,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    -10.826,
+    -5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3131,24 +4133,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
+    0.0,
     1.0,
-    -0.0
+    0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3162,13 +4231,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5142,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_26_rimVertex.stl",
@@ -3180,12 +4249,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16716,
+   "triangles": 26848,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -5.802,
+    -0.0,
+    10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3206,24 +4285,91 @@
     true
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3237,13 +4383,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5144,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_27_rimVertex.stl",
@@ -3255,12 +4401,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26960,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.126,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -10.826,
+    -0.0,
+    5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 127,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3281,24 +4437,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     1.0,
-    -0.0,
-    -0.0
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 340.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3312,13 +4535,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5498,
-   "massG": 5.83
+   "volumeMm3": 12662,
+   "massG": 13.42
   },
   {
    "file": "node_28_rimVertex.stl",
@@ -3330,12 +4553,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17520,
+   "triangles": 26996,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -10.826,
+    -0.0,
+    -5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 119,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3356,24 +4589,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     1.0,
-    -0.0,
-    -0.0
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 18.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3387,13 +4687,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5497,
-   "massG": 5.83
+   "volumeMm3": 12663,
+   "massG": 13.42
   },
   {
    "file": "node_29_rimVertex.stl",
@@ -3405,12 +4705,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16724,
+   "triangles": 26864,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    10.826,
+    -5.802,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3431,24 +4741,91 @@
     true
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -1.0,
     -0.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3462,13 +4839,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5140,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_30_rimVertex.stl",
@@ -3480,12 +4857,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26988,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    -5.802,
+    -10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 119,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3506,24 +4893,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
+    0.0,
+    0.0,
     1.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 340.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 18.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3537,13 +4991,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5500,
-   "massG": 5.83
+   "volumeMm3": 12663,
+   "massG": 13.42
   },
   {
    "file": "node_31_rimVertex.stl",
@@ -3555,12 +5009,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16720,
+   "triangles": 26864,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -5.802,
+    10.826,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 125,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3581,24 +5045,91 @@
     true
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -1.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 23.3,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3612,13 +5143,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5142,
-   "massG": 5.45
+   "volumeMm3": 12659,
+   "massG": 13.42
   },
   {
    "file": "node_32_rimVertex.stl",
@@ -3630,12 +5161,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26988,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -10.826,
+    5.802,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3656,24 +5197,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     1.0,
-    -0.0,
-    -0.0
+    0.0,
+    0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3687,13 +5295,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5498,
-   "massG": 5.83
+   "volumeMm3": 12660,
+   "massG": 13.42
   },
   {
    "file": "node_33_rimVertex.stl",
@@ -3705,12 +5313,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16724,
+   "triangles": 26848,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.159,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    10.826,
+    -0.0,
+    -5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 125,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3731,24 +5349,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -1.0,
     -0.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 23.3,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3762,13 +5447,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5143,
-   "massG": 5.45
+   "volumeMm3": 12659,
+   "massG": 13.42
   },
   {
    "file": "node_34_rimVertex.stl",
@@ -3780,12 +5465,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17520,
+   "triangles": 26980,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.126,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    5.802,
+    -0.0,
+    10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3806,24 +5501,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3837,13 +5599,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5498,
-   "massG": 5.83
+   "volumeMm3": 12659,
+   "massG": 13.42
   },
   {
    "file": "node_35_rimVertex.stl",
@@ -3855,12 +5617,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16712,
+   "triangles": 26864,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    10.826,
+    -0.0,
+    5.802
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 123,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3881,24 +5653,91 @@
     true
    ],
    "armBoreStartMm": [
-    3.122,
-    4.25,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -1.0,
     -0.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 23.3,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3912,13 +5751,13 @@
     0.0,
     45.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5143,
-   "massG": 5.45
+   "volumeMm3": 12658,
+   "massG": 13.42
   },
   {
    "file": "node_36_rimVertex.stl",
@@ -3930,12 +5769,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26996,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    5.802,
+    10.826,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 119,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -3956,24 +5805,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -1.0,
     -0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 18.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -3987,13 +5903,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5496,
-   "massG": 5.83
+   "volumeMm3": 12663,
+   "massG": 13.42
   },
   {
    "file": "node_37_rimVertex.stl",
@@ -4005,12 +5921,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17520,
+   "triangles": 26960,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.125,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    -5.802,
+    10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 127,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4031,24 +5957,91 @@
     false
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -0.0,
     -0.0,
     -1.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 340.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4062,13 +6055,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5497,
-   "massG": 5.83
+   "volumeMm3": 12662,
+   "massG": 13.42
   },
   {
    "file": "node_38_rimVertex.stl",
@@ -4080,12 +6073,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16724,
+   "triangles": 26860,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    10.826,
+    5.802,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4106,24 +6109,91 @@
     true
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
     -1.0,
     -0.0,
     -0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4137,13 +6207,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5143,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_39_rimVertex.stl",
@@ -4155,12 +6225,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16716,
+   "triangles": 26852,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -0.0,
+    5.802,
+    -10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 125,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4181,24 +6261,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
+    0.0,
+    0.0,
     1.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 426.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 23.3,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4212,13 +6359,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5141,
-   "massG": 5.45
+   "volumeMm3": 12658,
+   "massG": 13.42
   },
   {
    "file": "node_40_rimVertex.stl",
@@ -4230,12 +6377,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16716,
+   "triangles": 26860,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -5.802,
+    -10.826,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 123,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4256,24 +6413,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
+    0.0,
     1.0,
-    -0.0
+    0.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 98.2,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 23.3,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 519.6,
+     "bedContactMm2": 15.5,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4287,13 +6511,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5144,
-   "massG": 5.45
+   "volumeMm3": 12659,
+   "massG": 13.42
   },
   {
    "file": "node_41_rimVertex.stl",
@@ -4305,12 +6529,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 17524,
+   "triangles": 26976,
    "closed": true,
-   "nonManifoldEdges": 48,
-   "overhangAreaFrac": 0.126,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    5.802,
+    -10.826,
+    -0.0
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 127,
+   "overhangAreaFrac": 0.151,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4331,24 +6565,91 @@
     false
    ],
    "armBoreStartMm": [
-    3.122,
-    3.122,
-    4.25,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
+    0.0,
     1.0,
-    -0.0
+    0.0
    ],
-   "bedContactMm2": 193.2,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 339.1,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 249.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 261.9,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 561.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4362,13 +6663,13 @@
     0.0,
     0.0,
     45.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5496,
-   "massG": 5.83
+   "volumeMm3": 12661,
+   "massG": 13.42
   },
   {
    "file": "node_42_rimVertex.stl",
@@ -4380,12 +6681,22 @@
    "role": "rimVertex",
    "arms": 7,
    "lands": 3,
-   "triangles": 16716,
+   "triangles": 26852,
    "closed": true,
-   "nonManifoldEdges": 47,
-   "overhangAreaFrac": 0.158,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 18.98,
+   "sinkMm": [
+    -5.802,
+    -0.0,
+    -10.826
+   ],
+   "landOffsMm": [
+    10.826,
+    9.6,
+    9.6
+   ],
+   "nonManifoldEdges": 122,
+   "overhangAreaFrac": 0.168,
+   "minArmAngleDeg": 43.0,
+   "slotBaseMm": 19.84,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4406,24 +6717,91 @@
     true
    ],
    "armBoreStartMm": [
-    4.25,
-    3.122,
-    3.122,
     2.4,
     2.4,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.0,
-    -0.0,
+    0.0,
+    0.0,
     1.0
    ],
-   "bedContactMm2": 275.8,
-   "supportAreaMm2": 172.9,
-   "islandVolumeMm3": 5.5,
+   "bedContactMm2": 41.8,
+   "supportAreaMm2": 427.2,
+   "islandVolumeMm3": 263.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 124.7,
+     "bedContactMm2": 95.7,
+     "armsIntoAir": 0,
+     "downwardArms": 1
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 182.9,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 241.1,
+     "bedContactMm2": 25.9,
+     "armsIntoAir": 0,
+     "downwardArms": 3
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 540.4,
+     "bedContactMm2": 20.7,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 802.2,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 806.4,
+     "bedContactMm2": 28.4,
+     "armsIntoAir": 1,
+     "downwardArms": 2
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4437,13 +6815,13 @@
     45.0,
     0.0,
     0.0,
-    45.0,
-    45.0,
-    0.0,
-    90.0
+    44.6572,
+    44.6572,
+    -1.078,
+    88.0034
    ],
-   "volumeMm3": 5144,
-   "massG": 5.45
+   "volumeMm3": 12657,
+   "massG": 13.42
   },
   {
    "file": "node_43_hexHub.stl",
@@ -4455,12 +6833,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22192,
+   "triangles": 22760,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.203,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    4.388,
+    4.388,
+    4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 128,
+   "overhangAreaFrac": 0.125,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4491,20 +6877,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.57735,
-    -0.57735,
-    -0.57735
+    -0.0,
+    -0.0,
+    -1.0
    ],
-   "bedContactMm2": 618.5,
-   "supportAreaMm2": 70.1,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 277.5,
+   "islandVolumeMm3": 89.0,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4517,18 +6970,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7679,
-   "massG": 8.14
+   "volumeMm3": 11881,
+   "massG": 12.59
   },
   {
    "file": "node_44_hexHub.stl",
@@ -4540,12 +6993,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22232,
+   "triangles": 22796,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.203,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    4.388,
+    4.388,
+    -4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 124,
+   "overhangAreaFrac": 0.143,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4576,20 +7037,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.57735,
-    -0.57735,
-    0.57735
+    0.0,
+    0.0,
+    1.0
    ],
-   "bedContactMm2": 619.3,
-   "supportAreaMm2": 77.9,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 363.4,
+   "islandVolumeMm3": 98.2,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4602,18 +7130,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    -0.0,
-    0.0,
-    -0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7678,
-   "massG": 8.14
+   "volumeMm3": 11876,
+   "massG": 12.59
   },
   {
    "file": "node_45_hexHub.stl",
@@ -4625,12 +7153,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22200,
+   "triangles": 22796,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.201,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    4.388,
+    -4.388,
+    4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 124,
+   "overhangAreaFrac": 0.123,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4661,20 +7197,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.57735,
-    0.57735,
-    -0.57735
+    -0.0,
+    -0.0,
+    -1.0
    ],
-   "bedContactMm2": 619.3,
-   "supportAreaMm2": 70.1,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 277.5,
+   "islandVolumeMm3": 89.0,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4687,18 +7290,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7678,
-   "massG": 8.14
+   "volumeMm3": 11876,
+   "massG": 12.59
   },
   {
    "file": "node_46_hexHub.stl",
@@ -4710,12 +7313,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22192,
+   "triangles": 22760,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.201,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    4.388,
+    -4.388,
+    -4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 128,
+   "overhangAreaFrac": 0.125,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4746,20 +7357,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    -0.57735,
-    0.57735,
-    0.57735
+    0.0,
+    0.0,
+    1.0
    ],
-   "bedContactMm2": 618.5,
-   "supportAreaMm2": 70.1,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 277.5,
+   "islandVolumeMm3": 89.0,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4772,18 +7450,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    -0.0,
-    0.0,
-    -0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7678,
-   "massG": 8.14
+   "volumeMm3": 11881,
+   "massG": 12.59
   },
   {
    "file": "node_47_hexHub.stl",
@@ -4795,12 +7473,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22224,
+   "triangles": 22752,
    "closed": true,
-   "nonManifoldEdges": 63,
-   "overhangAreaFrac": 0.202,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -4.388,
+    4.388,
+    4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 128,
+   "overhangAreaFrac": 0.143,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4831,20 +7517,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    0.57735,
-    -0.57735,
-    -0.57735
+    -0.0,
+    -0.0,
+    -1.0
    ],
-   "bedContactMm2": 619.3,
-   "supportAreaMm2": 78.7,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 368.9,
+   "islandVolumeMm3": 99.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4857,18 +7610,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7675,
-   "massG": 8.14
+   "volumeMm3": 11881,
+   "massG": 12.59
   },
   {
    "file": "node_48_hexHub.stl",
@@ -4880,12 +7633,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22224,
+   "triangles": 22804,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.202,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -4.388,
+    4.388,
+    -4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 124,
+   "overhangAreaFrac": 0.144,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -4916,20 +7677,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    0.57735,
-    -0.57735,
-    0.57735
+    0.0,
+    0.0,
+    1.0
    ],
-   "bedContactMm2": 618.5,
-   "supportAreaMm2": 77.9,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 363.4,
+   "islandVolumeMm3": 98.2,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -4942,18 +7770,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    -0.0,
-    0.0,
-    -0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7676,
-   "massG": 8.14
+   "volumeMm3": 11876,
+   "massG": 12.59
   },
   {
    "file": "node_49_hexHub.stl",
@@ -4965,12 +7793,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22224,
+   "triangles": 22804,
    "closed": true,
-   "nonManifoldEdges": 66,
-   "overhangAreaFrac": 0.203,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -4.388,
+    -4.388,
+    4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 124,
+   "overhangAreaFrac": 0.144,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -5001,20 +7837,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    0.57735,
-    0.57735,
-    -0.57735
+    -0.0,
+    -0.0,
+    -1.0
    ],
-   "bedContactMm2": 618.5,
-   "supportAreaMm2": 77.9,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 363.4,
+   "islandVolumeMm3": 98.2,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -5027,18 +7930,18 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7678,
-   "massG": 8.14
+   "volumeMm3": 11876,
+   "massG": 12.59
   },
   {
    "file": "node_50_hexHub.stl",
@@ -5050,12 +7953,20 @@
    "role": "hexHub",
    "arms": 9,
    "lands": 1,
-   "triangles": 22224,
+   "triangles": 22752,
    "closed": true,
-   "nonManifoldEdges": 63,
-   "overhangAreaFrac": 0.203,
-   "minArmAngleDeg": 45.0,
-   "slotBaseMm": 16.38,
+   "sinkMm": [
+    -4.388,
+    -4.388,
+    -4.388
+   ],
+   "landOffsMm": [
+    7.6
+   ],
+   "nonManifoldEdges": 128,
+   "overhangAreaFrac": 0.143,
+   "minArmAngleDeg": 43.2,
+   "slotBaseMm": 17.04,
    "slotsClear": true,
    "armEngagementMm": [
     2.0,
@@ -5086,20 +7997,87 @@
     2.4,
     2.4,
     2.4,
-    3.016,
-    3.016,
-    3.016
+    2.4,
+    2.4,
+    2.4
    ],
    "bedNormalArticle": [
-    0.57735,
-    0.57735,
-    0.57735
+    0.0,
+    0.0,
+    1.0
    ],
-   "bedContactMm2": 619.3,
-   "supportAreaMm2": 78.7,
-   "islandVolumeMm3": 0.0,
+   "bedContactMm2": 11.0,
+   "supportAreaMm2": 368.9,
+   "islandVolumeMm3": 99.4,
    "armsIntoAir": 0,
-   "frameSearch": [],
+   "frameSearch": [
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      1
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      1,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 17.1,
+     "bedContactMm2": 63.1,
+     "armsIntoAir": 0,
+     "downwardArms": 4
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      0,
+      -1
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      0,
+      -1,
+      0
+     ],
+     "islandVolumeMm3": 396.8,
+     "bedContactMm2": 23.7,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    },
+    {
+     "bedNormalArticle": [
+      -1,
+      0,
+      0
+     ],
+     "islandVolumeMm3": 401.1,
+     "bedContactMm2": 26.3,
+     "armsIntoAir": 0,
+     "downwardArms": 5
+    }
+   ],
    "armIntoAir": [
     false,
     false,
@@ -5112,78 +8090,102 @@
     false
    ],
    "armElevationDeg": [
-    0.0,
-    0.0,
-    0.0,
-    -0.0,
-    0.0,
-    -0.0,
-    35.2644,
-    35.2644,
-    35.2644
+    -44.6572,
+    0.3333,
+    -44.6572,
+    45.3408,
+    0.3333,
+    45.3408,
+    -1.4536,
+    -1.4536,
+    87.9441
    ],
-   "volumeMm3": 7677,
-   "massG": 8.14
+   "volumeMm3": 11881,
+   "massG": 12.59
   }
  ],
- "totalNodeMassKg": 0.465,
+ "totalNodeMassKg": 0.715,
  "cutList": [
   {
    "family": "octet",
-   "cutMm": 217.903,
-   "count": 48,
+   "cutMm": 211.183,
+   "count": 24,
    "swingReliefMm": 0.15,
-   "closingCutMm": 217.603,
+   "closingCutMm": 210.883,
    "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
   },
   {
    "family": "octet",
-   "cutMm": 222.029,
+   "cutMm": 216.846,
+   "count": 24,
+   "swingReliefMm": 0.15,
+   "closingCutMm": 216.546,
+   "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
+  },
+  {
+   "family": "octet",
+   "cutMm": 221.5,
    "count": 12,
    "swingReliefMm": 0.15,
-   "closingCutMm": 221.729,
+   "closingCutMm": 221.2,
    "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
   },
   {
    "family": "rim",
-   "cutMm": 212.702,
-   "count": 36,
-   "swingReliefMm": 0.3,
-   "closingCutMm": 212.102,
+   "cutMm": 202.778,
+   "count": 24,
+   "swingReliefMm": 0.35,
+   "closingCutMm": 202.078,
+   "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
+  },
+  {
+   "family": "rim",
+   "cutMm": 203.877,
+   "count": 12,
+   "swingReliefMm": 0.35,
+   "closingCutMm": 203.177,
    "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
   },
   {
    "family": "spoke",
-   "cutMm": 215.302,
+   "cutMm": 206.142,
    "count": 48,
-   "swingReliefMm": 0.15,
-   "closingCutMm": 215.002,
+   "swingReliefMm": 0.2,
+   "closingCutMm": 205.742,
    "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
   },
   {
    "family": "tie",
-   "cutMm": 141.883,
-   "count": 48,
-   "swingReliefMm": 0.25,
-   "closingCutMm": 141.383,
-   "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
-  },
-  {
-   "family": "tie",
-   "cutMm": 144.484,
+   "cutMm": 129.77,
    "count": 24,
    "swingReliefMm": 0.25,
-   "closingCutMm": 143.984,
+   "closingCutMm": 129.27,
+   "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
+  },
+  {
+   "family": "tie",
+   "cutMm": 134.376,
+   "count": 24,
+   "swingReliefMm": 0.25,
+   "closingCutMm": 133.876,
+   "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
+  },
+  {
+   "family": "tie",
+   "cutMm": 139.025,
+   "count": 24,
+   "swingReliefMm": 0.25,
+   "closingCutMm": 138.525,
    "basis": "cutMm is the seat-to-seat gap and is what a TREE member is cut to. A CLOSING member is cut closingCutMm, shorter by swing_relief() at each end, because its own end-face corner has to clear the seat while it is rotated in; the space that leaves is a bondline, not a butt. The relief is derived from THIS row's own tube \u2014 the rim's 14 mm corner swings deeper than the 10 mm one on the same length \u2014 so it is a per-family figure, not a global one."
   }
  ],
- "cutTotalM": 41.393,
+ "cutTotalM": 39.815,
  "printability": {
-  "islandVolumeMm3": 5677.5,
-  "nodesWithIslandOver10Mm3": 12,
+  "islandVolumeMm3": 13793.7,
+  "nodesWithIslandOver10Mm3": 51,
   "armsIntoAir": 0,
-  "minBedContactMm2": 6.2,
-  "supportAreaMm2": 12495.6,
+  "minBedContactMm2": 1.1,
+  "supportAreaMm2": 20545.0,
   "searchCellMm": 1.6,
   "rule": "a node with a mating land prints on it; a node without one is oriented by measuring all six lattice bed normals and taking the least island volume, then the most bed contact, then the most sum cos^2(elevation). Island volume is material that cannot be built up from the bed at 45 degrees per layer \u2014 measured here on the extraction grid, not on the coarser grid the search ranks with."
  },

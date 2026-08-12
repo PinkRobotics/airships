@@ -454,23 +454,31 @@ def slot_base(dirs, prm, kinds=None):
     return max(prm["core_r"] + prm["shoulder"], need), min_ang, need
 
 
-def bore_start(d, lands, prm, kind="octet"):
+def bore_start(d, lands, prm, kind="octet", offs=None):
     """Where this arm's bore may open, from the mating faces this arm's node carries.
 
-    A bore of radius R whose axis meets a land plane at beta = acos(-d.n) breaks that plane
-    unless it starts beyond R*tan(beta). Starting every bore at core_r*0.3 opened 120 (arm,
-    land) mouths onto a face two cells are meant to seat on — 0.216 mm short at the worst of
-    them, which is exactly the kind of miss no render shows and no triangle count moves.
+    A bore of radius R meets the land plane P.n = off where its highest excursion
+    t*(d.n) + R*sin(beta) exceeds off, so on a descending arm the mouth must start beyond
+    (R*sin(beta) - off) / (-d.n). With off = 0 — the planes through the centre every node
+    had before the frame sank — that is the old R*tan(beta), and starting every bore at
+    core_r*0.3 once opened 120 (arm, land) mouths onto a face, 0.216 mm short at the worst.
+    With the sunken frame's offsets the numerator goes NEGATIVE — no bore can reach a plane
+    that sits a whole collar radius above it — and the setback correctly vanishes. Without
+    the off term, a formerly-in-plane arm tilted to beta = 89 degrees by the sink returned
+    tan(89) ~ 52, pushed four bore starts per square centre to 98.7 mm, and quietly carved
+    those spigots SOLID: an artifact of a through-centre assumption, not a design.
     """
     r_bore = arm_pipe(kind, prm)[1] / 2.0 - prm["clearance"] - prm["spigot_wall"]
+    offs = [0.0] * len(lands) if offs is None else list(offs)
     t0 = prm["core_r"] * 0.3
-    for n in lands:
+    for n, off in zip(lands, offs):
         c = float(d @ n)
-        if c >= 0.0:                 # the arm points out of the half-space: no mouth to cut
-            continue
-        beta = math.acos(max(-1.0, min(1.0, -c)))
-        if beta < math.pi / 2.0 - 1e-9:
-            t0 = max(t0, r_bore * math.tan(beta) + prm["bore_margin"])
+        if c >= -1e-9:               # level or climbing: the mouth's own height decides,
+            continue                 # and P10's census is what reports a breach
+        sinb = math.sqrt(max(0.0, 1.0 - c * c))
+        need = (r_bore * sinb - off) / (-c)
+        if need > 0.0:
+            t0 = max(t0, need + prm["bore_margin"])
     return t0
 
 
@@ -1171,7 +1179,7 @@ def main() -> None:
         # print on, so its datum is chosen by measuring the part, and the part is not defined
         # until the per-arm engagement and bore starts are.
         stubs = [args.stub if k in tree else args.pilot for _, k in incident[u]]
-        bores = [bore_start(d, lands, prm, kd) for d, kd in zip(dirs, kinds)]
+        bores = [bore_start(d, lands, prm, kd, offs) for d, kd in zip(dirs, kinds)]
         search = []
         # EVERY node's datum is measured now. A sunken boundary node's only flat at a land
         # plane is its post top — a few tens of mm², nothing to seat a print on — so the

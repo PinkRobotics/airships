@@ -453,8 +453,14 @@ def cut_schedule(groups, stock, mat_rho):
         section = math.pi * ((od / 2) ** 2 - (idd / 2) ** 2)
         kg_per_m = section * mat_rho
         member_mm = length[g["lengthKey"]] * 1000
-        cut_mm = member_mm - g["deductMm"]
+        # The cut is the manifest's own saw length, carried through gen_node_families and
+        # proven against manifest.cutList at generation — NOT nominal-less-deductions,
+        # because the sunken frame shortens boundary-adjacent members and the difference
+        # (sinkShortMm) is real sawn millimetres. The model keeps the nominal length as its
+        # conservative physics; the page must not subtract its way to a cut.
+        cut_mm = g["cutMm"]
         g.update(memberMm=member_mm, cutMm=cut_mm, kgPerM=kg_per_m,
+                 sinkShortMm=member_mm - g["deductMm"] - cut_mm,
                  odMm=od * 1000, idMm=idd * 1000, wallMm=(od - idd) / 2 * 1000,
                  sectionMm2=section * 1e6,
                  cutM=cut_mm * g["count"] / 1000, memberM=member_mm * g["count"] / 1000,

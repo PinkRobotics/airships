@@ -16,12 +16,11 @@ WHAT THE MODEL IS AND IS NOT ASKED. It checks what a careful eye checks: every s
 marker covered by a pipe end, no pipe through pipe, no pipe through body, counts, no
 floating fragments. It is NOT the fit authority — 0.15 mm clearances are check_assembly's
 (no render at any resolution shows them) — and it is briefed on the KNOWN, accepted
-state (P5 partial sockets at mating planes, unequal tree/pilot spigots) so the standing
-bill is acknowledged, not rediscovered, and NEW damage still stands out.
+state (the sunken frame's land posts with their flat tops, unequal tree/pilot spigots)
+so the design is acknowledged, not rediscovered, and NEW damage still stands out.
 
 Verdicts land in research/geometry/nodes/vision/verdicts.json. Report-only for now:
-exit 1 on hard failures of the checklist, 0 otherwise — gating against a frozen KNOWN
-ledger (check_assembly-style) comes once the P5 geometry work settles.
+exit 1 on hard failures of the checklist, 0 otherwise.
 
 NOT in `make check`: needs the fleet, which CI does not have. `make jointreview`.
 """
@@ -81,10 +80,11 @@ def facts_for(idx: int, man: dict, end_classes: list) -> str:
 
 KNOWN = """\
 KNOWN AND ACCEPTED — acknowledge under knownSeen, do NOT report as findings:
-- Sockets at the cell's mating planes are PARTIAL: the planes truncate the joint flat,
-  so boundary sockets are half-open cradles and rim sockets at edges wrap only ~1/3 of
-  the pipe (standing defect P5, fix in progress). Flat faces and sharp plane edges are
-  the design's mating lands.
+- Boundary joints SINK beneath the cell's mating planes and carry a LAND POST: a stout
+  printed cylinder rising off the body, cut dead flat on top (at corner joints, flat on
+  up to three meeting planes). The post and its flat top are the design's mating land
+  and film pin — not a broken arm, not an extra pipe stub, not damage. Every socket
+  wraps its pipe fully; no socket is an open cradle any more.
 - Bare spigot stubs differ in length by design (20 mm tree / 2 mm pilot).
 - In the cutaway view, pipes and body are sectioned by a vertical plane: open tube
   mouths and sliced faces at that plane are the section, not damage.
