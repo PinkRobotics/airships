@@ -56,10 +56,9 @@ export function octetStruts(a) {
  * UNLESS `stretchTo` is given: then each instance's x-axis is scaled by its own
  * pair-distance over that nominal length, so the cylinder's ENDS land exactly on the pair's
  * points. The cell draws its pipes seat to seat with geometry cut to the schedule's own
- * length, but the drawn endpoints are not always the model's — boundary joints are inset,
- * so a tie's drawn span differs from its cut by up to a few percent. The socket cones used
- * to swallow that slack; a real joint mesh does not, and a pipe end hanging short of its
- * cup reads as "not connected". Radius is untouched — only the length gives.
+ * length, but the drawn pitch sits 0.14% off the generator's, and a pipe end hanging even
+ * fractionally short of a real joint's cup reads as "not connected" — the old socket cones
+ * swallowed that slack, a mesh does not. Radius is untouched — only the length gives.
  */
 export function strutInstances(pts, pairs, jitter = 0, stretchTo = 0) {
   const n = pairs.length;

@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=9cfb21bf';
-import * as G from './explorer-geom.js?v=9cfb21bf';
+import * as CELL from './model.js?v=498092aa';
+import * as G from './explorer-geom.js?v=498092aa';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=9cfb21bf';
+} from './nodes.generated.js?v=498092aa';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=9cfb21bf';
+import { NODEMESHES } from './nodemeshes.generated.js?v=498092aa';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -392,8 +392,8 @@ function solidNode(parent, id, geom, xmat, extra = {}) {
  *
  * Decoded here in millimetres and scaled straight into drawn metres. The meshes are LOCAL
  * — article orientation, origin at the joint's own centre — and are placed at the page's
- * own drawn points, insets and all: the render's half-pitch is 0.14% off the generator's,
- * and a mesh placed at generator coordinates would open a seam against every pipe. */
+ * own drawn points: the render's half-pitch is 0.14% off the generator's, and a mesh
+ * placed at generator coordinates would open a seam against every pipe. */
 function meshGeom(rec) {
   const meta = NODEMESHES.meta;
   const bytes = (b64) => {
@@ -558,12 +558,9 @@ function buildCell(ctx) {
   const root = node({ id: 'L_cell', category: 'vacuum', selectable: false });
   const p = ctx.design.cellM;                       // the printer-chain sub-cell pitch
   const L = ctx.design.strutM;
-  // DRAW THE ARTICLE WE ARE ACTUALLY SPECIFYING. This used to take its radius from the
-  // printer chain — the all-printed variant's O33 tube — on a lattice whose real members
-  // are O10-14. At O33 the arms of a twelve-way node interpenetrate for 29 mm while the
-  // tubes only stopped 17 mm short, so the render showed pipes passing through pipes: an
-  // article that could not be built, drawn from the wrong bill of materials.
-  const r = ctx.stock.odM / 2;
+  // DRAW THE ARTICLE WE ARE ACTUALLY SPECIFYING. Radii come from the cut schedule's own
+  // SKUs per group below — this level once took a single radius from the printer chain's
+  // O33 tube and drew pipes passing through pipes, an article that could not be built.
   // THE JOINTS ARE THE GENERATED MESHES — the ball-and-cone era is over. A sphere plus
   // twelve lathed cones stood in for every printed part, and the whole history of that
   // stand-in was the designer catching its artifacts one by one: a hub inflated three
@@ -606,15 +603,17 @@ function buildCell(ctx) {
   const HERO = ['0,0,0', '0,1,1'];
   const pts = [], pairs = [];
   let heroPair = null;
-  const coreR0 = r * 1.6;
+  // EVERY JOINT AT ITS TRUE POSITION — the boundary insets are gone, and they must never
+  // come back. They existed for the sphere-and-cone era: a ball at a face centre poked
+  // through the mating plane, so boundary nodes were pulled ~10 mm inside and everything
+  // attached to them bent to follow. The real joints are truncated FLAT on their planes —
+  // that is what the lands are — and the meshes' sockets point along exact lattice
+  // directions. Keeping the insets tilted every pipe to an inset neighbour 1.7-3.5° off
+  // its socket's own axis, which put the pipe through the cup wall by a millimetre or two:
+  // the designer saw it at once as interference inside the workhorse's receivers, and it
+  // was the drawing lying about the article, not the article.
   for (const u of uNodes) {
-    const pt = [u[0] * half, u[1] * half, u[2] * half];
-    // Square-face nodes sit ON the mating plane; pull them (and everything attached to
-    // them) inside by a core radius so the face stays flat for cell-to-cell seating.
-    for (let q = 0; q < 3; q++) {
-      if (Math.abs(u[q]) === 2) pt[q] -= Math.sign(u[q]) * coreR0 * 1.3;
-    }
-    pts.push(pt);
+    pts.push([u[0] * half, u[1] * half, u[2] * half]);
   }
   const uIndex = new Map(uNodes.map((u, i) => [uKey(u), i]));
   // THE ARTICLE'S OWN CONNECTION GRAPH, recorded while it is drawn, so a tour can fly to a
@@ -666,45 +665,32 @@ function buildCell(ctx) {
 
   // THE RIM FRAME: the hexagons have no lattice nodes (their centres belong to the dual
   // lattice), so the article frames its skin along its own 36 edges — each edge exactly
-  // one strut long. Tubes INSET along the edge bisector so the mating faces stay flat:
-  // cells must seat face-to-face, so nothing may stand proud of the true planes.
+  // one strut long, on the EXACT edge, which is where gen_nodes puts it: the rim vertex
+  // joint sits at the corner with three flat lands, and its rim arms leave along the
+  // edges themselves. (The tubes were once inset along the edge bisectors "so the mating
+  // faces stay flat" — a sphere-era patch that tilted every rim pipe off its socket. The
+  // real rim tube DOES stand proud of the two faces meeting at its edge; the film tents
+  // over it, and pricing that tenting is exactly what filmEdgeLoads exists for.)
   const rimEdges = G.kelvinEdges(span);
   const rimPts = [], rimPairs = [];
   let rp = 0;
   const rimVertMap = new Map();
   for (const [A, B] of rimEdges) {
-    // The two faces meeting at this edge: test the midpoint against the face planes.
-    const mid = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2];
-    const tol = span * 1e-4;
-    let nrm = [0, 0, 0];
-    for (let q2 = 0; q2 < 3; q2++) {
-      if (Math.abs(Math.abs(mid[q2]) - span / 2) < tol) nrm[q2] += Math.sign(mid[q2]);
-    }
-    for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
-      if (Math.abs(sx * mid[0] + sy * mid[1] + sz * mid[2] - 0.75 * span) < tol) {
-        const inv = Math.sqrt(3);
-        nrm = [nrm[0] + sx / inv, nrm[1] + sy / inv, nrm[2] + sz / inv];
-      }
-    }
-    const nl2 = Math.hypot(nrm[0], nrm[1], nrm[2]) || 1;
-    const inset = r * 2.1;              // tangent to both adjacent planes, from inside
-    const off = [-nrm[0] / nl2 * inset, -nrm[1] / nl2 * inset, -nrm[2] / nl2 * inset];
-    const A2 = [A[0] + off[0], A[1] + off[1], A[2] + off[2]];
-    const B2 = [B[0] + off[0], B[1] + off[1], B[2] + off[2]];
-    rimPts.push(A2, B2);
+    rimPts.push(A, B);
     rimPairs.push([rp, rp + 1]);
     rp += 2;
     const ends = [];
-    for (const [v, v2] of [[A, A2], [B, B2]]) {
+    for (const v of [A, B]) {
       const k2 = v.map(x => x.toFixed(6)).join(',');
       if (!rimVertMap.has(k2)) rimVertMap.set(k2, []);
-      rimVertMap.get(k2).push(v2);
+      rimVertMap.get(k2).push(v);
       bump(rvKey(k2));
       ends.push(rvKey(k2));
     }
-    addMember('rim', ends[0], ends[1], A2, B2);
+    addMember('rim', ends[0], ends[1], A, B);
   }
-  // Rim vertex cores: average the inset copies of each Kelvin vertex.
+  // Rim vertex cores: every edge contributes the same true corner now, so the average IS
+  // the Kelvin vertex, kept as an average only so the map's shape does not change.
   const rimCorePts = [];
   const rimIdxOf = new Map();
   for (const [k2, copies] of rimVertMap) {
@@ -745,23 +731,23 @@ function buildCell(ctx) {
   });
   // HEX-CENTRE TRIPODS — the designer's second catch: after the vertex ties, the eight
   // hexagon faces were still bare membrane spans. Each face centre (a dual site at n=1)
-  // gets a printed node, inset beneath its face plane, plus three <100> half-step ties
+  // gets a printed node on the plane itself, plus three <100> half-step ties
   // to the cuboctahedron nodes — halving the skin's unsupported span and giving mating
   // cells a shared bond point at every hexagon centre.
   const hexCorePts = [], hexU = [];
   const spokePts = [], spokePairs = [];
   let kp = 0;
-  // THE FACES THE FILM SPANS, recorded as the frame that carries them is built: the true
-  // centre (on the plane, not the inset the joint sits at) and the outward normal. The skin
-  // level tours these, and a face that was not drawn cannot be toured.
+  // THE FACES THE FILM SPANS, recorded as the frame that carries them is built: the
+  // centre and the outward normal. The skin level tours these, and a face that was not
+  // drawn cannot be toured. The hub joint sits AT the face centre — its land is the face
+  // plane, exactly as gen_nodes truncates it; the old inset beneath the plane was the
+  // sphere-era patch and it bent every spoke and tripod prop off its socket's axis.
   const faceRecs = [];
   const PERMS = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]];
   for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
     const c3 = [sx * half, sy * half, sz * half];
     const inv3 = 1 / Math.sqrt(3);
-    const inset3 = coreR0 * 1.3;
-    const core = [c3[0] - sx * inv3 * inset3, c3[1] - sy * inv3 * inset3,
-                  c3[2] - sz * inv3 * inset3];
+    const core = c3.slice();
     const hubKey = `hh:${hexCorePts.length}`;
     hexU.push([sx, sy, sz]);
     hexCorePts.push(core);
@@ -828,9 +814,8 @@ function buildCell(ctx) {
     { kind: 'line', color: TOKENS.bone, weight: 1.2, opacity: 0.7 });
   seams.skinPart = 'seams';
   // THE 51 PRINTED JOINTS, as records a tour can aim at. World position comes from the
-  // DRAWN local point pushed through the cell group's own matrix — never recomputed from
-  // u * half, which would miss every boundary node by its inset (coreR0*1.3 on a square
-  // face, that over sqrt(3) at a hexagon hub), and never a second copy of cg.r / cg.p.
+  // DRAWN local point pushed through the cell group's own matrix — never a second copy of
+  // cg.r / cg.p, so the tour aims at what is on the screen by construction.
   const cgM = m4compose(cg.p, cg.r, 1);
   const parts = [];
   // EACH JOINT IS ITS GENERATED MESH, matched on (role, integer u) — the one identity the
@@ -881,8 +866,8 @@ function buildCell(ctx) {
   // screen is the sawn cut, not a centre-to-centre line with its ends hidden inside the
   // old cones. Members group by (SKU, length class, both ends' seat depth) — the same
   // signature the generated schedule carries — one instanced node per group, geometry cut
-  // to the group's own length. Instances stretch axially onto their drawn span: boundary
-  // insets bend the drawn lattice by a few percent, and a pipe end hanging short of its
+  // to the group's own length. Instances stretch axially onto their drawn span: the drawn
+  // pitch sits 0.14% off the generator's, and a pipe end hanging short of its
   // cup would read as "not connected". The ties are the same purchased 10 x 8 SKU as
   // every primary and the MOST loaded members in the article — a tripod leg takes
   // 3,183 N against a primary's 3,372 N crush demand.
@@ -962,7 +947,7 @@ function buildCell(ctx) {
     span,
     labels: [
       { p: [0, 0, span * 0.62], t: `${(span * 1000).toFixed(0)} mm — ${ctx.demo.enclosedL.toFixed(0)} L of nothing`, s: `dark: every member is purchased carbon, ${ctx.stock.pipeCount} cuts of one SKU — light: the ${ctx.demo.printedNodes} printed joints, and nothing else` },
-      { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; all inset, mating faces stay flat' },
+      { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; every boundary joint lands flat on its own mating plane' },
       { p: [-span * 0.45, -span * 0.28, span * 0.12], t: 'evacuate, then SEAL', s: 'no valve, no pump aboard — permanence is the design' },
       { p: [span * 0.30, span * 0.40, span * 0.34], t: 'the bench article', s: 'sealed under vacuum in the chamber, then carried out into one atmosphere — nothing is pumped down afterwards, because there is no valve' },
     ],
@@ -1276,6 +1261,12 @@ const instKeys = (recs) => {
   return s;
 };
 
+const union = (...sets) => {
+  const s = new Set();
+  for (const one of sets) for (const k of one) s.add(k);
+  return s;
+};
+
 /* THE FIVE PRINTED FAMILIES, centre outward. */
 function familyStops(cell, lv) {
   const byKey = new Map();
@@ -1297,13 +1288,21 @@ function familyStops(cell, lv) {
     const r = cell.partRadius;
     // The whole FAMILY stays lit, not just the one joint the camera is at: the claim on
     // the card is "x24", and dimming the other twenty-three would hide it.
+    //
+    // AND SO DO THE PIPES THE FRAMED JOINT RECEIVES. The card's other claim is the
+    // member-end count, and the pipes are the member-ends. Dim them with the rest and a
+    // carbon tube at 0.28 of an already-dark tone is black inside a lit bone cup: every
+    // socket on the representative read as an EMPTY, broken mouth — "interference in the
+    // workhorse's receivers" — when the pipe was seated exactly where the schedule puts
+    // it. The dim was hiding the very thing the stop exists to show.
+    const inc = cell.members.filter((m) => m.keys.includes(rep.key));
     stops.push({
       key, name: fam.name, rep,
       // dist 4.4, not the 2.05 the levels use: `radius` is a bounding radius fitted to the
       // WIDTH of a 16:9 frame, and a joint whose arms reach 25 mm in every direction has
       // to clear the height too, in a portrait phone viewport as well as on a desktop.
       target: rep.pos.slice(), radius: r, dist: 4.4, ...poseFor(rep.pos, lv),
-      subject: instKeys(group),
+      subject: union(instKeys(group), instKeys(inc)),
       labels: [
         { p: [rep.pos[0], rep.pos[1], rep.pos[2] + r * 1.15],
           t: `${fam.name} — ${fam.arms} arms, ×${fam.count}`,
@@ -1393,11 +1392,6 @@ function faceStops(cell, lv) {
     const fam = NODE_FAMILIES[`${p.role}-${p.arms}`];
     return fam && fam.lands > 0;
   });
-  const union = (...sets) => {
-    const s = new Set();
-    for (const one of sets) for (const k of one) s.add(k);
-    return s;
-  };
   const plan = [
     { key: 'hexagon', name: 'the hexagon', at: hex[0],
       subject: union(instKeys(byKind('spoke')), instKeys(hubs)),
