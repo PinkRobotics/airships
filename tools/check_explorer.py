@@ -350,7 +350,7 @@ PROBE = r"""(() => {
     // prose, which is precisely the failure this repository keeps finding. The allowlist
     // is four patterns and each one is a name, not a measurement:
     //   <110>      Miller indices — a direction, not a quantity
-    //   E5         experiment ids from the test plan
+    //   E5, P11    experiment ids from the test plan, proof ids from the assembly prover
     //   10 MPa     the adhesive allowable the manifest's own field name carries
     //              (glueMarginAt10MPa); it is an assumption, and it is named as one
     //   [0/±45/90] a ply schedule — the angles ARE the specification's name
@@ -362,7 +362,7 @@ PROBE = r"""(() => {
       .cloneNode(true);
     for (const el of copy.querySelectorAll('[data-n],[data-s],[data-t]')) el.remove();
     let txt = copy.textContent;
-    for (const re of [/⟨\d+⟩/g, /\bE\d\b/g, /10 MPa/g, /\[0\/(±45\/)?90\]/g]) {
+    for (const re of [/⟨\d+⟩/g, /\b[EP]\d{1,2}\b/g, /10 MPa/g, /\[0\/(±45\/)?90\]/g]) {
       txt = txt.replace(re, '');
     }
     rec.naked = txt.match(/\d[\d.,]*/g) || [];

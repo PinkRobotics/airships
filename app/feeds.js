@@ -6,12 +6,12 @@
  * service. Whichever tier answers is named on the page — the status line never implies
  * live data it does not have.
  */
-import { dropSeg, havKm, insideFire, planTargets } from '../sim/index.js?v=498092aa';
-import { renderDrawer } from './cockpit/panels.js?v=498092aa';
-import { replanAll } from './fleet.js?v=498092aa';
-import { renderStatus } from './main.js?v=498092aa';
-import { FIRES_URL, PERIMS_URL, cachedJSON, fetchJSON, mirrorJSON } from './net.js?v=498092aa';
-import { S } from './store.js?v=498092aa';
+import { dropSeg, havKm, insideFire, planTargets } from '../sim/index.js?v=f1a736ec';
+import { renderDrawer } from './cockpit/panels.js?v=f1a736ec';
+import { replanAll } from './fleet.js?v=f1a736ec';
+import { renderStatus } from './main.js?v=f1a736ec';
+import { FIRES_URL, PERIMS_URL, cachedJSON, fetchJSON, mirrorJSON } from './net.js?v=f1a736ec';
+import { S } from './store.js?v=f1a736ec';
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to the dataset bundled with the
  * repository: the fires, their perimeters, the satellite heat, and the wind (still air, and

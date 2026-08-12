@@ -493,7 +493,13 @@
   by the generator's own rule — the article draws each one's outer form, with the seating
   slots and bores that sit under the pipes left out of the mesh, and the joint the camera
   is framing is its family's representative at print resolution: open sockets, bores,
-  crush ribs, exactly the STL the printer receives.</p>
+  crush ribs, exactly the STL the printer receives. The bare spigots are deliberately
+  unequal: a tree member slides on axially over a <span data-n="joint.treeEndsMm"
+  data-f="0"></span> mm stub, a closing member swings into a
+  <span data-n="joint.closingEndsMm" data-f="0"></span> mm pilot — which member is which
+  is the spanning tree's decision, not a defect. And where an arm runs along a mating
+  land, the land truncates its socket — that is standing proof P5, the next open work,
+  visible here for the first time because the stand-ins never could show it.</p>
 
   <!-- STOP 1 -->
   <div class="stop" data-stop="lattice-12">
@@ -1284,8 +1290,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=498092aa';
-import * as CELL from './model.js?v=498092aa';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f1a736ec';
+import * as CELL from './model.js?v=f1a736ec';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

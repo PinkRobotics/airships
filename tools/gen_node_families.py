@@ -242,6 +242,11 @@ def payload() -> dict:
         # The capture, as the SDF grows it: pipe over a hollow spigot, butted on a shoulder.
         "pipeOdMm": p["pipe_od"], "pipeIdMm": p["pipe_id"],
         "clearanceMm": p["clearance"], "stubMm": p["stub"],
+        # The TWO engagements — the display meshes made the bare spigots visible for the
+        # first time and their deliberate inequality needs its numbers on the page: a tree
+        # member-end slides on axially over the full stub, a closing member-end swings
+        # into a short pilot bounded by the swing-in geometry.
+        "treeEndsMm": jc["treeEndsMm"], "closingEndsMm": jc["closingEndsMm"],
         "coreRMm": p["core_r"], "lipMm": p["lip"], "shoulderMm": p["shoulder"],
         "padRMm": p["pad_r"], "ribHMm": p["rib_h"], "ribs": p["ribs"],
         "perStrutDemandN": jc["perStrutDemandN"],

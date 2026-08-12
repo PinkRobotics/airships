@@ -14,7 +14,7 @@ those joints, grown by the same rule (`gen_nodes.node_sdf`), grouped exactly the
 
 TWO FIELDS, DELIBERATELY, and the difference is measured rather than assumed:
 
-  display field (all 51, res 48)    node_sdf(display=True): the additive half — per-SKU
+  display field (all 51, DISPLAY_RES)    node_sdf(display=True): the additive half — per-SKU
       spigots, collars, cups, core blend, flat mating lands, tree-stub vs closing-pilot
       engagement per arm. NO seating slots, bores or ribs: those are 0.25-1.3 mm against
       this grid's 2.1 mm cell, and a coarse grid does not show them smaller, it shows
@@ -71,9 +71,11 @@ from gen_node_families import ORDER, payload  # noqa: E402
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
 OUT = ROOT / "cell" / "nodemeshes.generated.js"
 
-DISPLAY_RES = 48       # 164k triangles over 51 joints; the res sweep is in the docstring
+DISPLAY_RES = 64       # 292k triangles over 51 joints. 48 read as melted up close — the
+                       # designer inspects joints at 10-15 px/mm, and the blend's creases
+                       # need cells finer than 2 mm to read as made rather than grown.
 REP_RES = 112          # the resolution the shipped print STLs are cut at
-QUANT_MM = 0.05        # vertex grid; a third of the fit clearance, 42x under the res-48 cell
+QUANT_MM = 0.05        # vertex grid; a third of the fit clearance, far under any cell here
 SLOT_MARGIN = 0.5      # gen_nodes --slot-margin default; proven against slotBaseMm below
 
 HEADER = """\
@@ -158,6 +160,30 @@ def snap_lands(v, lands, h):
     return v
 
 
+def project(v, sdf, h):
+    """Newton-project every vertex onto the field's own zero surface.
+
+    Surface nets places a vertex at the MEAN of its cell's edge crossings — inside the
+    cell, not on the surface — and at display resolution that error is what the eye reads:
+    lumps on every cylinder, stair-steps along every crease, a printed part that looks
+    grown rather than made. The field is cheap to evaluate at points, so three Newton
+    steps along its gradient put each vertex where the surface actually is. Triangle count
+    and payload do not move; only the lie about where the vertices sit does. The step is
+    clamped to half a cell so a vertex beside a thin feature cannot tunnel through it.
+    """
+    for _ in range(3):
+        f = sdf(v)
+        eps = 0.35
+        g = np.stack([sdf(v + np.array([[eps, 0, 0]])) - sdf(v - np.array([[eps, 0, 0]])),
+                      sdf(v + np.array([[0, eps, 0]])) - sdf(v - np.array([[0, eps, 0]])),
+                      sdf(v + np.array([[0, 0, eps]])) - sdf(v - np.array([[0, 0, eps]]))],
+                     axis=1) / (2.0 * eps)
+        step = f / np.maximum((g * g).sum(axis=1), 1e-9)
+        np.clip(step, -h / 2.0, h / 2.0, out=step)
+        v = v - g * step[:, None]
+    return v
+
+
 def extract(res, ext, prm, nodes, tree, incident, kinds_of, base_of, which, display):
     """Mesh the given node indices at `res`, article frame. Returns [(v, t, vol), ...]."""
     axis = np.linspace(-ext, ext, res)
@@ -172,9 +198,13 @@ def extract(res, ext, prm, nodes, tree, incident, kinds_of, base_of, which, disp
         lands = face_planes(u)
         stubs = [prm["stub"] if k in tree else prm["pilot"] for _, k in incident[u]]
         bores = [bore_start(d, lands, prm, kd) for d, kd in zip(dirs, kinds)]
-        F3 = node_sdf(P, dirs, lands, prm, role == "hexHub", base_of[u], stubs, bores,
-                      kinds, display=display).reshape([res] * 3)
+        sdf = lambda pts: node_sdf(pts, dirs, lands, prm, role == "hexHub",  # noqa: E731
+                                   base_of[u], stubs, bores, kinds, display=display)
+        F3 = sdf(P).reshape([res] * 3)
         v, t = surface_nets(F3, np.array([-ext] * 3), h)
+        # Projection first (onto the true surface), the exact land planes LAST — the same
+        # order the field itself is built in, so no smoothing can round a land back off.
+        v = project(v, sdf, h)
         v = snap_lands(v, lands, h)
         closed, _ = mesh_health(t)
         if not closed:

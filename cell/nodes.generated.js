@@ -313,6 +313,8 @@ export const NODES = {
     "pipeIdMm": 8.0,
     "clearanceMm": 0.15,
     "stubMm": 20.0,
+    "treeEndsMm": 20.0,
+    "closingEndsMm": 2.0,
     "coreRMm": 8.0,
     "lipMm": 2.5,
     "shoulderMm": 2.0,
