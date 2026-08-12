@@ -1,0 +1,35 @@
+{
+ "node_33": {
+  "joint": "node_33",
+  "checks": {
+   "allSeated": {
+    "pass": true,
+    "note": "all green markers are covered by pipe ends in the orbit and top views"
+   },
+   "noPipePipeOverlap": {
+    "pass": true,
+    "note": "no pipe volumes intersect each other"
+   },
+   "noPipeBodyClash": {
+    "pass": true,
+    "note": "pipes enter only through their designated sockets"
+   },
+   "armCount": {
+    "pass": true,
+    "note": "7 pipes are connected to the joint"
+   },
+   "bodySane": {
+    "pass": true,
+    "note": "the joint is a single continuous body with no unexpected geometry"
+   }
+  },
+  "knownSeen": [
+   "partial sockets at mating planes",
+   "unequal spigot/pilot lengths",
+   "vertical section plane in cutaway",
+   "organic/blobby surface character",
+   "ghost centrelines in joinery view"
+  ],
+  "findings": []
+ }
+}
