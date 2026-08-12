@@ -146,6 +146,26 @@ that keeps the proofs honest is
   6. `make jointreview` re-verifies all 51 against the vision baseline (51/51 pass on
      the old article, verdicts committed).
 
+Working notes for step 1, the prover surgery (mapped, not yet started):
+- `face_planes(` is called at three sites in check_assembly.py (~411 per-end setup,
+  ~1965 shared-land logic, ~3098 pairwise checks); "land" appears on 79 lines. The
+  prover must call `gen_nodes.boundary_frame()` per node exactly as main() does —
+  NOMINAL dirs for the sink decision, then real positions/dirs for everything measured
+  — and pass `land_offs`/`post_axis` into every node_sdf it evaluates, or it measures a
+  field the STLs are not. P5's wrap measurement, P10 land-integrity and bore-vs-land
+  logic all read lands directly and need the offset carried through.
+- After the regrow, expect the ledger to move EVERYWHERE (positions, angles, cuts,
+  masses, wraps, print metrics). Exit 1 with a long diff is the correct first result;
+  read it, then `make contractfreeze` prints the bill before capping.
+- The page edits for step 5: buildCell's `pts` / rim corner points / `hexCorePts` gain
+  the per-node sink offsets (mm→m via /1000) from NODEMESHES rows matched on
+  (role, u); the P5 caption in explorer.html ("the land truncates its socket") comes
+  OUT once wrap is 1.0, and the vision reviewer's KNOWN brief in
+  tools/review_joints.py drops its P5 lines the same day.
+- Page/api state: cell/explorer.js gained `cellFrame` (vision harness) after the last
+  deploy — the live site is one commit-family behind; redeploy rides the regrow.
+- The goal the designer stated for this arc: "get this model looking complete."
+
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
