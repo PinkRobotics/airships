@@ -366,6 +366,12 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
 
 ## THE SEVEN LEVELS — the site re-org toward "no cell floats, the ship does" (#70, opened 2026-08-12)
 
+**→ The full handoff for whoever takes this arc over is
+`docs/working/26-08-12-seven-levels-handoff.md`** — mission + rulings, file map, what's
+built, the explorer-integration roadmap (blueprint→LEVELS mapping, ship.js port order),
+the physics one-pagers (including the nothing-crosses-the-void doctrine), deploy law,
+traps, and open questions with owners. This section stays as the short version.
+
 The operator's direction, midday 2026-08-12, verbatim intent: stop presenting the cell as the
 thing that floats; reorganize the site as the BUILD of the ship, in seven levels. This arc
 develops on **guppi.ca staging only** (`cd ~/dev/pink-sites && ./deploy.sh stage pinkrobotics`),
