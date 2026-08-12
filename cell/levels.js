@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=31b1956d';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=a0f31dac';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -367,19 +367,20 @@ function drawCellSupport() {
   out += `<text x="${c1x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bench: sky on every side</text>
           <text x="${c1x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">net zero — self-balanced</text>`;
 
-  /* panel 2 — the band: one loaded face, the grid reacts from below */
-  const c2x = 330, c2y = 96, R2 = 44;
+  /* panel 2 — the band: one loaded face; it HANGS from the outer face by ties in tension */
+  const c2x = 330, c2y = 118, R2 = 42;
   out += oct(c2x, c2y, R2);
-  for (const dx of [-26, 0, 26])
-    out += arrowTo(c2x + dx, c2y - R2 - 36, c2x + dx, c2y - R2 - 8, C.warm);
-  const seatY = c2y + R2 * 0.72, chordY = 186;
-  for (const sx of [-27, 27]) {
-    out += `<line x1="${c2x + sx}" y1="${seatY.toFixed(1)}" x2="${c2x + sx * 1.5}" y2="${chordY - 8}" stroke="${C.cool}" stroke-width="1.4"/>`;
-    out += arrowTo(c2x + sx, seatY + 30, c2x + sx, seatY + 4, C.cool);
-    out += `<circle cx="${c2x + sx * 1.5}" cy="${chordY}" r="7" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.5"/>`;
+  for (const dx of [-24, 0, 24])
+    out += arrowTo(c2x + dx, c2y - R2 - 42, c2x + dx, c2y - R2 - 12, C.warm);
+  for (const sx of [-1, 1]) {
+    const jx = c2x + sx * R2 * 0.74, jy = c2y - R2 * 0.74;
+    const chx = c2x + sx * 74, chy = c2y - R2 - 20;
+    out += `<circle cx="${chx}" cy="${chy}" r="7" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.5"/>`;
+    out += `<line x1="${jx.toFixed(1)}" y1="${jy.toFixed(1)}" x2="${chx}" y2="${chy + 6}" stroke="${C.cool}" stroke-width="1.5"/>`;
+    out += arrowTo((jx + chx) / 2 + sx * 6, (jy + chy) / 2 + 2, chx - sx * 3, chy + 8, C.cool);
   }
-  out += `<text x="${c2x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">band: one face loaded</text>
-          <text x="${c2x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the grid replaces the back-push</text>`;
+  out += `<text x="${c2x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">band: one face loaded — it hangs</text>
+          <text x="${c2x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">ties in tension replace the back-push</text>`;
 
   /* panel 3 — the ring: pushes become hoop squeeze (chords outside, band inside) */
   const ccx = 552, ccy = 610, Rr = 470;
@@ -407,6 +408,49 @@ function drawCellSupport() {
           <text x="552" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the arch holds itself</text>`;
 
   return svgEl(out, '0 0 660 234');
+}
+
+/* Level 4 — one bay zoomed: the band hangs from the outer face; webs lace it down. */
+function drawWebDetail() {
+  const faceY = 46, innerY = 276, n1 = 110, n2 = 330, mid = 220;
+  let out = `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="2"/>
+             <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.4"/>`;
+  for (const x of [n1, n2])
+    out += `<circle cx="${x}" cy="${faceY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
+  out += `<circle cx="${mid}" cy="${innerY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
+  out += `<line x1="${n1}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${n2}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${n1}" y1="${faceY + 10}" x2="${30}" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
+          <line x1="${n2}" y1="${faceY + 10}" x2="${410}" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
+  const arrowTo2 = (x1, y1, x2, y2, col) => {
+    const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x2 - 5 * ux).toFixed(1)}" y2="${(y2 - 5 * uy).toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
+      <path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(x2 - 8 * ux - 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy + 3.5 * ux).toFixed(1)} L ${(x2 - 8 * ux + 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy - 3.5 * ux).toFixed(1)} Z" fill="${col}"/>`;
+  };
+  const s8 = 30, R8 = s8 / (2 * Math.sin(Math.PI / 8));
+  const cellY = faceY + 24 + R8 * 0.5 + 26;
+  for (const cx of [125, 220, 315]) {
+    let d = '';
+    for (let k = 0; k < 8; k++) {
+      const a = (22.5 + 45 * k) * Math.PI / 180;
+      d += `${k ? 'L' : 'M'} ${(cx + R8 * Math.cos(a)).toFixed(1)} ${(cellY - R8 * Math.sin(a)).toFixed(1)} `;
+    }
+    out += `<path d="${d}Z" fill="${C.warm}" fill-opacity="0.07" stroke="${C.warm}" stroke-width="1.2"/>`;
+    for (const sx of [-1, 1]) {
+      const jx = cx + sx * R8 * 0.74, jy = cellY - R8 * 0.74;
+      out += `<line x1="${jx.toFixed(1)}" y1="${jy.toFixed(1)}" x2="${jx.toFixed(1)}" y2="${faceY + 3}" stroke="${C.warm}" stroke-width="1.4"/>`;
+    }
+  }
+  out += arrowTo2(150, 108, 190, 218, C.bone) + arrowTo2(290, 108, 250, 218, C.bone);
+  out += `
+    <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — how the band hangs</text>
+    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">ties: one pair per cell — tension, cannot buckle</text>
+    <text x="416" y="${faceY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">outer face · chords</text>
+    <text x="60" y="230" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
+    <text x="60" y="243" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
+    <text x="416" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner face</text>
+    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing under the band — the sky presses cells onto their ties</text>`;
+  return svgEl(out, '0 0 440 310');
 }
 
 /* Level 5 — the closed hull under its atmosphere. */
@@ -482,6 +526,7 @@ put('#fig-cellmass', massBar());
 put('#fig-band', drawBandSection());
 put('#fig-wall', drawWallSection());
 put('#fig-support', drawCellSupport());
+put('#fig-webs', drawWebDetail());
 put('#fig-closure', drawShipClosure());
 put('#fig-ledger', drawLedger());
 put('#fig-equip', drawShipEquip());

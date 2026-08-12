@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=31b1956d';
+         stockBuild, barrierKgPerM2 } from './model.js?v=a0f31dac';
 
 const sb = stockBuild();
 
