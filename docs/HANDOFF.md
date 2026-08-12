@@ -364,6 +364,45 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
   with zero verdict flips.
 - scale_study reads the P14 field names again (871's repair, landed from its branch).
 
+## THE SEVEN LEVELS — the site re-org toward "no cell floats, the ship does" (#70, opened 2026-08-12)
+
+The operator's direction, midday 2026-08-12, verbatim intent: stop presenting the cell as the
+thing that floats; reorganize the site as the BUILD of the ship, in seven levels. This arc
+develops on **guppi.ca staging only** (`cd ~/dev/pink-sites && ./deploy.sh stage pinkrobotics`),
+behind the same tyler/copper realm (a `@guppi_cell` basic-auth block was added to the LIVE
+pink-edge Caddyfile 2026-08-12 — note the helm `ops/pink-edge/files/.../Caddyfile` governed copy
+is STALE, three arcs behind the live file; do not "restore" from it). Production pinkrobotics.ca
+keeps the current site until the operator says otherwise — do NOT run a bare
+`./deploy.sh pinkrobotics` for this work.
+
+**The level map (operator's assignments, 2026-08-12):**
+1. **The catalog** — sintered joints, pipes, skin materials, individually browsable; two panes
+   side by side with arrows below to walk each catalog. **LANDED first-pass** (`cell/levels.html`
+   + `cell/catalog.js` + `cell/levels.js`, commit 49f3c9e): status chips
+   (proven/decided/scoping/superseded), provenance line per part, true-relative-bore strip,
+   cell figures read live from `model.js` (stockBuild + saw table + weighed nodes).
+2. **The cell** — assemble-able and de-skinnable with each part zoomable: MERGE the explorer's
+   strut/wall/track/cell LEVELS entries into one clean UI (the explorer stays the engine; the
+   catalog is its parts bin). Not started — the shell links to the untouched explorer.
+3. **Assembling cells together** (the band). Stub only.
+4. **The big struts + the skin layers** (internal and external), animated like the cell's
+   assembly. Stub only — chord schedule and grid geometry come from the ship-scale analysis v2
+   in `~/data/airships-reviews/analysis/`.
+5. **RESERVED — the operator skipped five in the sequence.** Deliberately left unassigned on
+   the page; ask before naming it (candidate: closure & first pump-down).
+6. **Equipment & paint.** Stub only.
+7. **The wildfire operations dashboard** (`/airships/`), still flying the previous design;
+   re-points at the new build later. Linked from the shell.
+
+**Rules for whoever picks up levels 2–7** (the operator explicitly deferred their details to
+the next agent): ship figures on any page stay `scoping`-chipped and live in `cell/catalog.js`
+(the single swap point) until ship.js lands under the gates — the port path and self-check
+battery are specified in `~/data/airships-reviews/handoff/26-08-12-viz-agent-handoff.md` §4/§6.
+Cell figures must keep reading `model.js` live. The naked-digit rule applies in spirit
+everywhere: prose carries no digits; `data-cat` bindings carry them. `make stamp` after any
+cell/ edit; full `make check` before publish; screenshot after every visual change (the gates
+cannot see visibility).
+
 ## Open work, in priority order
 
 0. **The square-panel correction** (found during #63, missed by the audit; task #10 in
