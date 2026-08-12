@@ -191,9 +191,24 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
 5. **871's relaunched commercial floor** — watch `~/data/airships-reviews/` for the
    branch; review against `26-08-12-OPERATOR-RULING-871.md`; its verdict sentence is
    the project's next headline.
-6. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
+6. **Hanger pitch** (operator question, 2026-08-12 evening) — mid-bay band cells are
+   supported only by their neighbours' shared frames until the nearest hanger line;
+   scoping slab arithmetic says a 2 m one-way pitch OVERLOADS the band's own faces
+   (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a hanger per cell (~0.9 m) is
+   comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
+   behind it — SHIP-2/3 must fix the pitch BEFORE the band-cell retune below.
+7. **Asymmetric band-cell retune** (operator question, same evening) — the band cell's
+   duty is one-sided (loaded film out, breach-only film in, through-crush, side-shear)
+   and the cell already broke symmetry once for film reasons (14×12 rim vs 10×8 main).
+   Candidate lean: heavier outer rim/film, lighter inner, sides sized to the actual
+   hanger pitch. FLOORS on the lean: breach reversal (a neighbour's breach turns a
+   side face into a loaded face), pre-band load states (pump-down, handling, bench
+   proof), and factory one-block economics. License: 865 tool at band span + U4.
+   Sequence AFTER #6. Expected win: a trim, not a transformation (the through-path
+   octet — most of the tube mass — survives any asymmetry).
+8. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
    (#10) at the head, then #65's remaining proofs, #64, #60, #68.
-7. **Helm governed Caddyfile re-sync** — small chore, helm session.
+9. **Helm governed Caddyfile re-sync** — small chore, helm session.
 
 The operator's standing style notes: decisive recommendations over menus; verify
 before claiming; numbers carry provenance or flags; bias toward shipping behind the
