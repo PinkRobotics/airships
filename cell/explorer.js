@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=a6184ba1';
-import * as G from './explorer-geom.js?v=a6184ba1';
+import * as CELL from './model.js?v=bd3a6f02';
+import * as G from './explorer-geom.js?v=bd3a6f02';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=a6184ba1';
+} from './nodes.generated.js?v=bd3a6f02';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=a6184ba1';
+import { NODEMESHES } from './nodemeshes.generated.js?v=bd3a6f02';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1305,14 +1305,39 @@ function buildCell(ctx) {
       return { pos: bez(ev.pile, ev.way, seatPos, p),
                Rm: rotFor(ev.tumbleAxis, ev.tumbleAng * (1 - p), null, 0) };
     };
-    function apply(t) {
+    // The moving part is LIT and everything else steps back: flying parts full and warm,
+    // seated parts quiet, still-piled parts quieter — written straight into the instance
+    // tints (RGB, never alpha — the shader discards vTint.a). The group reading owns the
+    // tints when the article is whole; stepAssemble re-applies it on arrival.
+    const setTint = (node, idx, r, g2, b) => {
+      const tn = node.inst.tint, o = idx * 4;
+      tn[o] = r; tn[o + 1] = g2; tn[o + 2] = b;
+    };
+    const tintFor = (ev, a, on) => {
+      if (a >= 1) { setTint(ev.node, ev.idx, 0.6, 0.6, 0.6); }
+      else if (a <= 0) { setTint(ev.node, ev.idx, 0.35, 0.35, 0.35); }
+      else { setTint(ev.node, ev.idx, 1.0, on ? 0.75 : 1.0, on ? 0.9 : 1.0); }
+      if (ev.riderNode) {
+        const o2 = a >= 1 ? 0.6 : a <= 0 ? 0.35 : 1.0;
+        if (a > 0 && a < 1) setTint(ev.riderNode, 0, 1.0, on ? 0.75 : 1.0, on ? 0.9 : 1.0);
+        else setTint(ev.riderNode, 0, o2, o2, o2);
+      }
+    };
+    function apply(t, guide) {
       // Plan on first real use, not at page load: ~a quarter second of sweeping and
       // replanning, memoised, spent the first time anything actually animates.
-      if (!planStats && t < 1) plan();
+      if (!planStats && (t < 1 || guide)) plan();
       const touched = new Set();
-      for (const ev of evs) {
-        if (!ev.node || !ev.seated) continue;
-        const a = clamp((t - ev.t0) / (ev.t1 - ev.t0), 0, 1);
+      const done = !guide && t >= 1;
+      evs.forEach((ev, i) => {
+        if (!ev.node || !ev.seated) return;
+        // GUIDE MODE: one part at a time — everything before it seated, everything after
+        // it still in the pile, the part itself at exactly the scrubbed instant. This is
+        // also the sweep's own model (a strict prefix seated, one body moving), so guide
+        // mode is the most literally proven view the page has.
+        const a = guide
+          ? (i < guide.idx ? 1 : i > guide.idx ? 0 : clamp(guide.alpha, 0, 1))
+          : clamp((t - ev.t0) / (ev.t1 - ev.t0), 0, 1);
         if (a >= 1) {                                // seated EXACTLY: byte-copied back
           ev.node.inst.xf.set(ev.seated, ev.idx * 16);
           touched.add(ev.node);
@@ -1320,13 +1345,15 @@ function buildCell(ctx) {
             ev.riderNode.inst.xf.set(ev.riderSeated, 0);
             touched.add(ev.riderNode);
           }
-          continue;
+          if (!done) tintFor(ev, 1, false);
+          return;
         }
+        if (!done) tintFor(ev, a, true);
         if (ev.kind === 'joint') {
           const jp = jointPose(ev, a);
           writePose(ev.seated, ev.node, ev.idx, jp.Rm, jp.pos);
           touched.add(ev.node);
-          continue;
+          return;
         }
         const mp = memberPose(ev, a);
         writePose(ev.seated, ev.node, ev.idx, mp.Rm, mp.pos);
@@ -1338,7 +1365,7 @@ function buildCell(ctx) {
           writePose(ev.riderSeated, ev.riderNode, 0, rp.Rm, rp.pos);
           touched.add(ev.riderNode);
         }
-      }
+      });
       for (const n of touched) n.inst.dirty = true;
     }
     /* ---- THE SWEEP AND THE PLANNER. The designer's charge was fair: the first cut threw
@@ -2036,8 +2063,8 @@ export function mountExplorer(opts) {
     unfoldTo: 0,                 // what it is easing toward
     assemble: 1,                 // 0 = a pile of parts, 1 = the finished article (default)
     assembleTo: 1,               // what it is easing toward; scoped to the cell level
-    assembleSpeed: 1,            // playback multiplier on ASSEMBLE_SECONDS
-    assembleStepIdx: null,       // guide mode: the event a step landed on; null = live
+    assembleSpeed: 1,            // playback multiplier, guide and global alike
+    assembleGuide: null,         // {idx, alpha, to}: one part at a time, prefix seated
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     // THE CELL OPENS ON ITS CENTRE JOINT. "Everything" is 216 identical-looking sticks and
     // says nothing about how the cell carries load; lighting the twelve members that reach
@@ -2568,15 +2595,36 @@ export function mountExplorer(opts) {
    *  of the matrices the cell was built with; at assemble = 1 the animation is
    *  indistinguishable from never having existed. */
   const ASSEMBLE_SECONDS = 24;
+  const GUIDE_PART_SECONDS = 2.4;      // one part's whole motion at 1x; speeds scale it
   function stepAssemble(dt) {
     const cell = built[STAGE_LEVEL];
     if (!cell.assembly) return;
     if (LEVELS[state.levelIdx].id !== 'cell') {
-      if (state.assemble !== 1 || state.assembleTo !== 1) {
-        state.assemble = 1; state.assembleTo = 1;
+      if (state.assemble !== 1 || state.assembleTo !== 1 || state.assembleGuide) {
+        state.assemble = 1; state.assembleTo = 1; state.assembleGuide = null;
         cell.assembly.apply(1);
+        applyGroup(state.group);           // the group owns the tints when whole
         dirty = true;
       }
+      return;
+    }
+    // GUIDE MODE: ease exactly one part's alpha; everything else is pinned by apply().
+    const g = state.assembleGuide;
+    if (g) {
+      if (Math.abs(g.to - g.alpha) < 1e-4) return;
+      g.alpha += Math.sign(g.to - g.alpha) * Math.min(Math.abs(g.to - g.alpha),
+        (dt / GUIDE_PART_SECONDS) * (state.assembleSpeed || 1));
+      if (Math.abs(g.to - g.alpha) < 1e-4) {
+        g.alpha = g.to;
+        if (g.to === 0) {                  // flew a part back out: park on the previous
+          g.idx -= 1; g.alpha = 1; g.to = 1;
+        }
+        const ws = cell.assembly.windows;
+        state.assemble = state.assembleTo =
+          g.idx >= 0 ? Math.min(1, ws[g.idx].t1) : 0;
+      }
+      cell.assembly.apply(0, g);
+      dirty = true;
       return;
     }
     const d = state.assembleTo - state.assemble;
@@ -2585,6 +2633,7 @@ export function mountExplorer(opts) {
       Math.abs(d), (dt / ASSEMBLE_SECONDS) * (state.assembleSpeed || 1));
     state.assemble = clamp(state.assemble, 0, 1);
     cell.assembly.apply(state.assemble);
+    if (state.assemble >= 1) applyGroup(state.group);
     dirty = true;
   }
 
@@ -2842,64 +2891,113 @@ export function mountExplorer(opts) {
       dirty = true;
     },
     setCut(v) { state.cut = v; dirty = true; },
-    /** Scrub the assembly: 0 = a pile of parts, 1 = the finished cell. The stepper eases
-     * the live value toward this; only meaningful on the cell level, snaps home off it. */
-    setAssemble(v) { state.assembleStepIdx = null; state.assembleTo = clamp(v, 0, 1);
+    /** Scrub the whole build: 0 = a pile of parts, 1 = the finished cell. Exits guide
+     * mode; the stepper eases toward this. Cell level only, snaps home off it. */
+    setAssemble(v) { state.assembleGuide = null; state.assembleTo = clamp(v, 0, 1);
                      dirty = true; },
     /** Play the whole build: drop everything into the pile and let it assemble. */
-    playAssembly() { state.assembleStepIdx = null; state.assemble = 0; state.assembleTo = 1;
+    playAssembly() { state.assembleGuide = null; state.assemble = 0; state.assembleTo = 1;
                      dirty = true; },
-    /** Park the build at t without easing — deep links, scrubbing and the gate's pose
-     * checks. The scope guard still owns it: off the cell level this snaps home. */
+    /** Park the build at t without easing — deep links and the gate's pose checks. */
     jumpAssemble(v) {
-      state.assembleStepIdx = null;
+      state.assembleGuide = null;
       state.assemble = state.assembleTo = clamp(v, 0, 1);
       const a = built[STAGE_LEVEL].assembly;
       if (a) a.apply(state.assemble);
       dirty = true;
     },
     /** The transport: play in either direction, hold, and set the pace. */
-    assemblePlay(dir) { state.assembleStepIdx = null;
+    assemblePlay(dir) { state.assembleGuide = null;
                         state.assembleTo = dir < 0 ? 0 : 1; dirty = true; },
-    assemblePause() { state.assembleTo = state.assemble; dirty = true; },
-    setAssembleSpeed(x) { state.assembleSpeed = clamp(x, 0.1, 8); return state.assembleSpeed; },
-    /** GUIDE MODE: advance or rewind exactly one part. Each step parks the build at the
-     * end of that part's own window and the caption names it — the part, its saw length,
-     * and the joints it lands between — which is what makes the player an assembly guide
-     * rather than a film. */
+    assemblePause() {
+      const g = state.assembleGuide;
+      if (g) g.to = g.alpha;
+      else state.assembleTo = state.assemble;
+      dirty = true;
+    },
+    setAssembleSpeed(x) { state.assembleSpeed = clamp(x, 0.05, 8); return state.assembleSpeed; },
+    /** GUIDE MODE: run the animation of exactly ONE part per press — everything placed
+     * earlier seated, everything later still in the pile, the part flying its full proven
+     * approach at watchable speed. Forward flies the next part in; back flies the newest
+     * part out and parks on the one before. This is the assembly-guide mode, and it is
+     * also the sweep's own model — a strict prefix seated, one body moving. */
     assembleStep(d) {
       const a = built[STAGE_LEVEL].assembly;
       if (!a) return null;
       const ws = a.windows;
-      let i = state.assembleStepIdx;
-      if (i === null || i === undefined) {
-        i = -1;
+      let g = state.assembleGuide;
+      if (!g) {
+        let i = -1;
         for (let k2 = 0; k2 < ws.length; k2++) {
           if (ws[k2].t1 <= state.assemble + 1e-6) i = k2;
         }
+        g = state.assembleGuide = { idx: i, alpha: 1, to: 1 };
       }
-      i = clamp(i + d, 0, ws.length - 1);
-      state.assembleStepIdx = i;
-      state.assemble = state.assembleTo = Math.min(1, ws[i].t1 + 1e-4);
-      a.apply(state.assemble);
+      if (d > 0) {
+        if (g.alpha < 1 && g.to !== 0) { g.to = 1; }           // finish the current flight
+        else if (g.idx < ws.length - 1 || g.alpha < 1) {
+          if (g.alpha >= 1) { g.idx = clamp(g.idx + 1, 0, ws.length - 1); g.alpha = 0; }
+          g.to = 1;
+        }
+      } else {
+        if (g.alpha > 0 && g.to !== 1) { g.to = 0; }           // finish flying it out
+        else if (g.idx >= 0) { g.to = 0; }                     // fly the newest back out
+      }
+      const i2 = clamp(g.idx, 0, ws.length - 1);
       dirty = true;
-      return { idx: i, steps: ws.length, cap: ws[i].cap };
+      return { idx: g.idx, steps: ws.length, cap: g.idx >= 0 ? ws[i2].cap : '' };
     },
-    /** What the guide should read right now: the step index, its caption, and whether the
-     * build is running. A manual step pins the caption to its part; play or scrub returns
-     * it to the newest part in flight. */
+    /** Park the guide on a component (bar one): that part and everything before it
+     * seated, everything after in the pile. */
+    assembleGuidePark(i) {
+      const a = built[STAGE_LEVEL].assembly;
+      if (!a) return;
+      const ws = a.windows;
+      const g = { idx: clamp(Math.round(i), -1, ws.length - 1), alpha: 1, to: 1 };
+      state.assembleGuide = g;
+      state.assemble = state.assembleTo = g.idx >= 0 ? Math.min(1, ws[g.idx].t1) : 0;
+      a.apply(0, g);
+      dirty = true;
+    },
+    /** Scrub the current part's own motion (bar two): its alpha, parked exactly there —
+     * the slow-motion control, at any pace the hand likes. */
+    assemblePartAlpha(v) {
+      const a = built[STAGE_LEVEL].assembly;
+      if (!a) return;
+      let g = state.assembleGuide;
+      if (!g) {
+        const ws = a.windows;
+        let i = -1;
+        for (let k2 = 0; k2 < ws.length; k2++) {
+          if (ws[k2].t0 <= state.assemble) i = k2; else break;
+        }
+        g = state.assembleGuide = { idx: Math.max(i, 0), alpha: 1, to: 1 };
+      }
+      g.alpha = g.to = clamp(v, 0, 1);
+      a.apply(0, g);
+      dirty = true;
+    },
+    /** What the guide reads right now, in either mode: the component index and its own
+     * motion alpha (the two bars), the caption, the pace, and whether anything runs. */
     assemblyGuide() {
       const a = built[STAGE_LEVEL].assembly;
       if (!a) return null;
       const ws = a.windows;
-      let i = state.assembleStepIdx;
-      if (i === null || i === undefined) {
-        i = -1;
-        for (let k2 = 0; k2 < ws.length; k2++) {
-          if (ws[k2].t0 <= state.assemble) i = k2; else break;
-        }
+      const g = state.assembleGuide;
+      if (g) {
+        const i2 = clamp(g.idx, 0, ws.length - 1);
+        return { mode: 'guide', t: state.assemble, steps: ws.length, idx: g.idx,
+                 alpha: g.alpha,
+                 cap: g.idx >= 0 ? ws[i2].cap : 'a pile of parts, and a proven order',
+                 playing: Math.abs(g.to - g.alpha) > 1e-4, speed: state.assembleSpeed };
       }
-      return { t: state.assemble, steps: ws.length, idx: i,
+      let i = -1;
+      for (let k2 = 0; k2 < ws.length; k2++) {
+        if (ws[k2].t0 <= state.assemble) i = k2; else break;
+      }
+      const alpha = i >= 0
+        ? clamp((state.assemble - ws[i].t0) / (ws[i].t1 - ws[i].t0), 0, 1) : 0;
+      return { mode: 'global', t: state.assemble, steps: ws.length, idx: i, alpha,
                cap: i >= 0 ? ws[i].cap : 'a pile of parts, and a proven order',
                playing: Math.abs(state.assembleTo - state.assemble) > 1e-4,
                speed: state.assembleSpeed };

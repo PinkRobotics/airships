@@ -190,8 +190,15 @@
        background:rgba(13,13,16,.88);backdrop-filter:blur(10px);
        border:1px solid var(--warm-dim);border-radius:var(--r-sm);padding:10px 14px;
        box-shadow:0 4px 28px rgba(0,0,0,.5),0 0 20px rgba(255,79,163,.14)}
-  #asmbox input[type=range]{accent-color:var(--warm);width:100%;margin:0;display:block}
-  #asmrow{display:flex;align-items:center;gap:6px;min-width:0}
+  #asmbox .asmbar{display:flex;align-items:center;gap:10px}
+  #asmbox .asmbar label{font:var(--t-11) var(--mono);letter-spacing:.10em;
+       text-transform:uppercase;color:var(--faint);min-width:86px;text-align:right}
+  #asmbox .asmbar output{font:var(--t-11) var(--mono);color:var(--bone);min-width:58px}
+  #asmbox input[type=range]{accent-color:var(--warm);flex:1;margin:0;display:block}
+  #asmrow{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0}
+  #asmCap{font:var(--t-12) var(--mono);color:var(--bone);text-align:center;
+       overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  #asmCap .stepn{color:var(--faint)}
   #asmrow .tbtn{font:var(--t-12) var(--mono);color:var(--bone);cursor:pointer;
        background:rgba(255,255,255,.035);border:1px solid var(--line);
        border-radius:var(--r-sm);padding:4px 9px;white-space:nowrap;
@@ -203,9 +210,6 @@
        border-radius:var(--r-sm);padding:5px 14px;cursor:pointer;white-space:nowrap;
        transition:filter .15s,box-shadow .15s}
   #asmPlay:hover{filter:brightness(1.15);box-shadow:0 0 14px var(--warm-glow)}
-  #asmCap{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-       font:var(--t-12) var(--mono);color:var(--bone);text-align:right}
-  #asmCap .stepn{color:var(--faint)}
   #wallchip{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
   #wallchip .line1{font:var(--t-12) var(--mono);color:var(--bone)}
   #wallchip .line2{font:var(--t-11) var(--mono);color:var(--faint)}
@@ -1446,17 +1450,26 @@
      the part in flight with the joints it lands between, off the same generated data the
      animation flies. -->
 <div id="asmbox" hidden>
-  <input id="asmR" type="range" min="0" max="1000" step="1" value="1000">
+  <div class="asmbar">
+    <label for="asmComp">components</label>
+    <input id="asmComp" type="range" min="-1" max="216" step="1" value="216">
+    <output id="asmCompOut"></output>
+  </div>
+  <div class="asmbar">
+    <label for="asmR">this part</label>
+    <input id="asmR" type="range" min="0" max="1000" step="1" value="1000">
+    <output id="asmROut"></output>
+  </div>
   <div id="asmrow">
     <button id="asmPlay">assemble</button>
-    <button id="asmStepB" class="tbtn" title="previous part">|&#8249;</button>
+    <button id="asmStepB" class="tbtn" title="fly the newest part back out">|&#8249;</button>
     <button id="asmRev" class="tbtn" title="play backward">&#8249;</button>
     <button id="asmPause" class="tbtn" title="hold">pause</button>
     <button id="asmFwd" class="tbtn" title="play forward">&#8250;</button>
-    <button id="asmStepF" class="tbtn" title="next part">&#8250;|</button>
-    <button id="asmSpeed" class="tbtn" title="playback pace">1&times;</button>
-    <span id="asmCap"></span>
+    <button id="asmStepF" class="tbtn" title="fly the next part in">&#8250;|</button>
+    <button id="asmSpeed" class="tbtn" title="pace">1&times;</button>
   </div>
+  <div id="asmCap"></div>
 </div>
   </div>
 </div>
@@ -1497,8 +1510,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=a6184ba1';
-import * as CELL from './model.js?v=a6184ba1';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=bd3a6f02';
+import * as CELL from './model.js?v=bd3a6f02';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1754,10 +1767,15 @@ if (!api) {
    * per press with its name and connections, which is the assembly-guide mode. The box
    * shows only on the cell level, where the mode is scoped. */
   const asmBox = document.getElementById('asmbox');
+  const asmComp = document.getElementById('asmComp');
+  const asmCompOut = document.getElementById('asmCompOut');
   const asmR = document.getElementById('asmR');
+  const asmROut = document.getElementById('asmROut');
   const asmCap = document.getElementById('asmCap');
-  const SPEEDS = [0.5, 1, 2, 4];
-  let spdIdx = 1;
+  // Five paces: three slower than real time for guide work, real time, and one faster.
+  const SPEEDS = [0.125, 0.25, 0.5, 1, 2];
+  const SPEED_LABELS = ['⅛×', '¼×', '½×', '1×', '2×'];
+  let spdIdx = 3;
   document.getElementById('asmPlay').addEventListener('click', () => api.playAssembly());
   document.getElementById('asmFwd').addEventListener('click', () => api.assemblePlay(1));
   document.getElementById('asmRev').addEventListener('click', () => api.assemblePlay(-1));
@@ -1767,24 +1785,27 @@ if (!api) {
   const spdBtn = document.getElementById('asmSpeed');
   spdBtn.addEventListener('click', () => {
     spdIdx = (spdIdx + 1) % SPEEDS.length;
-    const s = api.setAssembleSpeed(SPEEDS[spdIdx]);
-    spdBtn.textContent = (s === 0.5 ? '½' : s) + '×';
+    api.setAssembleSpeed(SPEEDS[spdIdx]);
+    spdBtn.textContent = SPEED_LABELS[spdIdx];
   });
-  // Scrubbing PARKS the build exactly where the thumb is — no chase, no easing — and any
-  // of the play buttons resumes from there.
-  asmR.addEventListener('input', () => api.jumpAssemble(+asmR.value / 1000));
+  // Bar one parks the guide on a component — it and everything before it seated, the rest
+  // in the pile. Bar two scrubs THAT part's own motion, as slowly as the hand likes.
+  asmComp.addEventListener('input', () => api.assembleGuidePark(+asmComp.value));
+  asmR.addEventListener('input', () => api.assemblePartAlpha(+asmR.value / 1000));
   setInterval(() => {
     const onCell = api.state.levelIdx === api.stageLevel;
     asmBox.hidden = !onCell;
     if (!onCell) return;
-    if (document.activeElement !== asmR) {
-      asmR.value = Math.round(api.state.assemble * 1000);
-    }
     const g = api.assemblyGuide();
-    if (g) {
-      asmCap.innerHTML = `<span class="stepn">${g.idx + 1}/${g.steps}</span> · ${g.cap}`;
-    }
-  }, 120);
+    if (!g) return;
+    asmComp.max = g.steps - 1;
+    if (document.activeElement !== asmComp) asmComp.value = g.idx;
+    if (document.activeElement !== asmR) asmR.value = Math.round(g.alpha * 1000);
+    asmCompOut.textContent = `${g.idx + 1}/${g.steps}`;
+    asmROut.textContent = `${Math.round(g.alpha * 100)}%`;
+    asmCap.innerHTML = `<span class="stepn">${g.mode === 'guide' ? 'guide' : 'play'}</span>` +
+      ` · ${g.cap}`;
+  }, 100);
   // ?build=1 plays the assembly on load; ?build=0.42 parks it mid-build — the still
   // harness loads a URL and cannot click, same deep-link rule as ?unfold=1.
   if (qs.has('build')) {
