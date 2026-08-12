@@ -141,39 +141,48 @@
      answered them, so they read as broken rather than as controls. ?mat= and ?alt= still
      set both, which is what the checks and the deep links use. */
   #controls{position:fixed;top:104px;left:var(--s5);z-index:7;width:min(300px,44vw);
-       display:flex;flex-direction:column;gap:var(--s3)}
-  #controls .grp{display:flex;flex-direction:column;gap:5px}
-  #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.10em;text-transform:uppercase;
-       color:var(--faint);padding-bottom:3px;border-bottom:1px solid var(--line)}
-  #controls .row{display:flex;gap:5px;flex-wrap:wrap}
-  #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold,.gbtn{background:rgba(13,13,16,.82);
-       border:1px solid var(--line-strong);backdrop-filter:blur(6px);
-       color:var(--muted);border-radius:var(--r-sm);padding:4px 9px;cursor:pointer;
-       font:var(--t-12) var(--sans);text-align:left}
+       display:flex;flex-direction:column;gap:var(--s4);
+       background:rgba(13,13,16,.82);backdrop-filter:blur(8px);
+       border:1px solid var(--line);border-radius:var(--r-sm);padding:var(--s4)}
+  #controls .grp{display:flex;flex-direction:column;gap:6px}
+  #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.12em;text-transform:uppercase;
+       color:var(--faint)}
+  #controls .row{display:flex;gap:6px;flex-wrap:wrap}
+  #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold,.gbtn{
+       background:rgba(255,255,255,.035);border:1px solid var(--line);
+       color:var(--muted);border-radius:var(--r-sm);padding:5px 11px;cursor:pointer;
+       font:var(--t-12) var(--sans);text-align:center;
+       transition:color .15s,border-color .15s,background .15s}
   #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold{display:none}
   #clearBreach:hover,#toggleSkin:hover,#toggleParts:hover,#tourNext:hover,.gbtn:hover{
-       color:var(--text)}
-  #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap}
+       color:var(--text);border-color:var(--line-strong);background:rgba(255,255,255,.07)}
+  #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap;flex:1}
   .gbtn.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
 
   /* ---- cutaway, bottom left ---- */
   #cutbox{position:fixed;left:var(--s5);bottom:var(--s4);z-index:6;display:flex;
-       align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(6px);
-       border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 10px}
+       align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(8px);
+       border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 12px}
   #cutbox label{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
        color:var(--faint)}
   #cutbox input[type=range]{accent-color:var(--warm);width:120px;margin:0}
   #cutbox output{font:var(--t-12) var(--mono);color:var(--bone);min-width:44px}
-  /* ---- assembly, stacked above the cutaway; shown on the cell level only ---- */
-  #asmbox{position:fixed;left:var(--s5);bottom:calc(var(--s4) + 44px);z-index:6;display:flex;
-       align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(6px);
-       border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 10px}
-  #asmbox label{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  /* ---- ASSEMBLY — the page's hero control: top centre, cell level only. The one thing a
+          visitor should not be able to miss: the article builds itself, in the prover's
+          own order, and this is the button that plays it. ---- */
+  #asmbox{position:fixed;top:var(--s4);left:50%;transform:translateX(-50%);z-index:8;
+       display:flex;align-items:center;gap:14px;background:rgba(13,13,16,.88);
+       backdrop-filter:blur(10px);border:1px solid var(--warm-dim);
+       border-radius:var(--r-sm);padding:10px 16px;
+       box-shadow:0 4px 28px rgba(0,0,0,.5),0 0 20px rgba(255,79,163,.16)}
+  #asmbox label{font:var(--t-11) var(--mono);letter-spacing:.10em;text-transform:uppercase;
        color:var(--faint)}
-  #asmbox input[type=range]{accent-color:var(--warm);width:120px;margin:0}
-  #asmbox button{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
-       color:var(--bone);background:none;border:1px solid var(--warm-dim);
-       border-radius:var(--r-sm);padding:3px 8px;cursor:pointer}
+  #asmbox input[type=range]{accent-color:var(--warm);width:190px;margin:0}
+  #asmPlay{font:var(--t-13) var(--mono);letter-spacing:.14em;text-transform:uppercase;
+       color:var(--bg);background:var(--warm);border:1px solid var(--warm);
+       border-radius:var(--r-sm);padding:8px 20px;cursor:pointer;
+       transition:filter .15s,box-shadow .15s}
+  #asmPlay:hover{filter:brightness(1.15);box-shadow:0 0 14px var(--warm-glow)}
   #wallchip{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
   #wallchip .line1{font:var(--t-12) var(--mono);color:var(--bone)}
   #wallchip .line2{font:var(--t-11) var(--mono);color:var(--faint)}
@@ -191,6 +200,12 @@
     #rail button .nm{display:none}
     #head{max-width:70vw}
     #controls{width:auto;left:auto}
+    /* the hero control cannot share the top strip with the header on a phone — it drops
+       to the bottom-left stack, above the cutaway, where it used to live */
+    #asmbox{top:auto;bottom:calc(var(--s4) + 44px);left:var(--s5);transform:none;
+        padding:6px 10px;gap:8px;box-shadow:none}
+    #asmbox input[type=range]{width:110px}
+    #asmPlay{font:var(--t-11) var(--mono);padding:5px 10px;letter-spacing:.10em}
   }
   @media (prefers-reduced-motion:reduce){
     #panel section.active{animation:none}
@@ -405,7 +420,7 @@
   than budgeted. Solid because these parts sit <em>inside</em> the vacuum, where sparse infill
   is a virtual leak. The <b>parts</b> button takes the tubes away.</p>
 
-  <p class="sowhat"><b>And it can assemble itself — press <b>assemble</b>, bottom left.</b>
+  <p class="sowhat"><b>And it can assemble itself — press <b>assemble</b>, top centre.</b>
   The build the animation plays is not choreography: it is the assembly prover's own order,
   inside-out, the sequence in which every one of the
   <span data-n="nodes.members" data-f="0"></span> members is proven to have a clear
@@ -1406,8 +1421,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=804dad1b';
-import * as CELL from './model.js?v=804dad1b';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3887d2a2';
+import * as CELL from './model.js?v=3887d2a2';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

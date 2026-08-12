@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=804dad1b';
-import * as G from './explorer-geom.js?v=804dad1b';
+import * as CELL from './model.js?v=3887d2a2';
+import * as G from './explorer-geom.js?v=3887d2a2';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=804dad1b';
+} from './nodes.generated.js?v=3887d2a2';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=804dad1b';
+import { NODEMESHES } from './nodemeshes.generated.js?v=3887d2a2';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1176,7 +1176,10 @@ function buildCell(ctx) {
     faceRadius: span / (2 * Math.SQRT2) * 1.18,
     span,
     labels: [
-      { p: [0, 0, span * 0.62], t: `${(span * 1000).toFixed(0)} mm — ${ctx.demo.enclosedL.toFixed(0)} L of nothing`, s: `dark: every member is purchased carbon, ${ctx.stock.pipeCount} cuts of one SKU — light: the ${ctx.demo.printedNodes} printed joints, and nothing else` },
+      // Anchored off the upper-left shoulder, not the apex: the apex projects to
+      // top-centre of the viewport, which the assemble control owns now — the label
+      // keep-out clears the article's silhouette, and knows nothing about DOM.
+      { p: [-span * 0.30, -span * 0.30, span * 0.52], t: `${(span * 1000).toFixed(0)} mm — ${ctx.demo.enclosedL.toFixed(0)} L of nothing`, s: `dark: every member is purchased carbon, ${ctx.stock.pipeCount} cuts of one SKU — light: the ${ctx.demo.printedNodes} printed joints, and nothing else` },
       { p: [span * 0.42, 0, -span * 0.30], t: 'every face braced in its own plane', s: 'the designer caught both: 48 vertex ties bind the once-islanded rim into the lattice, and every hexagon centre carries a printed node on a 3-tie tripod — halving the skin span; every boundary joint sinks beneath its faces and pins the skin at a flat-topped land post' },
       { p: [-span * 0.45, -span * 0.28, span * 0.12], t: 'evacuate, then SEAL', s: 'no valve, no pump aboard — permanence is the design' },
       { p: [span * 0.30, span * 0.40, span * 0.34], t: 'the bench article', s: 'sealed under vacuum in the chamber, then carried out into one atmosphere — nothing is pumped down afterwards, because there is no valve' },
