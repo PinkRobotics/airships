@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=94faa266';
-import * as G from './explorer-geom.js?v=94faa266';
+import * as CELL from './model.js?v=f540fcc4';
+import * as G from './explorer-geom.js?v=f540fcc4';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS,
-} from './nodes.generated.js?v=94faa266';
+} from './nodes.generated.js?v=f540fcc4';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=94faa266';
+import { NODEMESHES } from './nodemeshes.generated.js?v=f540fcc4';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -803,7 +803,7 @@ function buildCell(ctx) {
   // The skin, with THREE modes (a viewer asked): solid — the sealed article as an object;
   // transparent — structure visible through it; off. styleFor supplies the material per
   // mode; the cutaway slider cuts through all of them.
-  // THE MEMBRANE IS DRAWN AT THE TRUE PLANES, and the hardware stands through it where
+  // THE MEMBRANE IS DRAWN ON THE TRUE PLANES, and the hardware stands through it where
   // the real hardware stands through the real planes. This surface has been drawn proud
   // twice — 1.2% for the sphere-era stand-ins, then 2.4% to clear the collars — and each
   // offset traded one lie for another: first the glass sliced through the joints, then it
@@ -812,7 +812,13 @@ function buildCell(ctx) {
   // over the rim tubes at the edges; a flat surface at the true span is the closest one
   // surface gets to that, and a rim tube poking through the glass is the tenting, not a
   // clash. skin.areaM2 and the film mass come from the model, not from this geometry.
-  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span), XM.kelvinGhost);
+  //
+  // 0.15% proud — half a millimetre, a film thickness of daylight — and NOT exactly 1.0:
+  // the boundary lands are snapped EXACTLY onto these same planes, and two coplanar
+  // surfaces z-fight, which painted every hub land as a flickering white-and-brown patch
+  // in the shape of its own hexagon. Touching and coincident are different things to a
+  // depth buffer.
+  const skin = solidNode(cg, 'CellSkin', G.kelvinGeom(span * 1.0015), XM.kelvinGhost);
   skin.skinPart = 'surface';
   const seams = lineNode(cg, 'CellSkinSeams', G.kelvinEdges(span),
     { kind: 'line', color: TOKENS.bone, weight: 1.2, opacity: 0.7 });

@@ -1,12 +1,12 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=94faa266';
-import { timeSinceDrop } from '../cockpit/panels.js?v=94faa266';
-import { $, SHORT, esc } from '../dom.js?v=94faa266';
-import { needsShip } from '../feeds.js?v=94faa266';
-import { FLEET } from '../fleet.js?v=94faa266';
-import { select } from '../map/interact.js?v=94faa266';
-import { S } from '../store.js?v=94faa266';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=f540fcc4';
+import { timeSinceDrop } from '../cockpit/panels.js?v=f540fcc4';
+import { $, SHORT, esc } from '../dom.js?v=f540fcc4';
+import { needsShip } from '../feeds.js?v=f540fcc4';
+import { FLEET } from '../fleet.js?v=f540fcc4';
+import { select } from '../map/interact.js?v=f540fcc4';
+import { S } from '../store.js?v=f540fcc4';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
