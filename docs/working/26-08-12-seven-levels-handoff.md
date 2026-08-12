@@ -42,9 +42,25 @@ from memory).
   differential when one cell is holed; breach = one cell; the spreading-cascade
   policy is OPEN (SHIP-5) and the page says so.
 - **Support doctrine (the three states, drawn in L4):** bench = sky on every side,
-  net zero, self-balanced; band = one loaded face, the grid's webs supply the missing
-  back-push (the through-loaded "mattress" state the crush law is written for);
-  ring = pushes become hoop squeeze, the arch closed on itself.
+  net zero, self-balanced; band = one loaded face, it HANGS by short tension ties from
+  the outer chord face (the through-loaded "mattress" state the crush law is written
+  for); ring = pushes become hoop squeeze, the arch closed on itself.
+- **Decoupling doctrine (operator Q&A, 08-12 late):** radial ties transmit PUSH, not
+  SQUEEZE — a hung band has no tangential load path, so the skeleton takes effectively
+  100 % of global hoop BY TOPOLOGY (band ceiling 47–67 kPa·m vs 2,634 demand ⇒ ≤~2.5 %
+  even if rigidly engaged — its help is worthless, so it is deliberately not asked).
+  The band's own arching is local only: tie-span slabs at ~1/3 capacity at cell-pitch
+  ties. Band↔skeleton interfaces: ties (force, 99.95 % — a cell weighs ~3.5 kg vs
+  7,200 kg of push), sparse whisper-light tangential stays (position), and the vacuum
+  manifold (service + health monitoring). Film penetrations: ONLY at film corners
+  where the membrane already terminates on joint land posts — the tie horn is a
+  taller land post with the same sealed base; never mid-panel.
+- **Barrier stack:** exactly one LOADED barrier system (the band's outer films);
+  one nearly-free inner terminal skin (10 g/m² at ≤1 kPa) closing the void; one
+  UNLOADED weather jacket outside. No loaded outboard barrier — a barrier costs mass
+  in proportion to the pressure it holds, and stacked pressure skins are the graded-
+  band idea that measured to zero benefit. Void penetrations: plumbing/sensing ports
+  only (trivial at 1 kPa); nothing structural.
 
 ## 2. Where everything lives
 

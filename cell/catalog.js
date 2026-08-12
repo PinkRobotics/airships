@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=d6ac9e93';
+         stockBuild, barrierKgPerM2 } from './model.js?v=68343a7a';
 
 const sb = stockBuild();
 
@@ -258,6 +258,7 @@ export const CATALOG = [
     specs: [
       { k: 'Material', v: 'UHMWPE or Zylon-class braid', u: 'creep vs UV — open trade' },
       { k: 'Termination', v: 'spliced soft eye', u: 'over a printed Ti horn' },
+      { k: 'Film seal', v: 'horn = a taller land post', u: 'film corners already end at joints' },
       { k: 'Duty', v: 'pure tension', u: 'sustained, months' },
       { k: 'Per-tie load', v: 'tens of kN', u: 'set by ties-per-cell' },
       { k: 'Ship set', v: 'order 10⁵', u: 'ties' },
