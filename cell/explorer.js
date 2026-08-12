@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=bd3a6f02';
-import * as G from './explorer-geom.js?v=bd3a6f02';
+import * as CELL from './model.js?v=0286418c';
+import * as G from './explorer-geom.js?v=0286418c';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=bd3a6f02';
+} from './nodes.generated.js?v=0286418c';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=bd3a6f02';
+import { NODEMESHES } from './nodemeshes.generated.js?v=0286418c';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1127,7 +1127,10 @@ function buildCell(ctx) {
           const sp = [ev.seated[12], ev.seated[13], ev.seated[14]];
           ev.way = wayFor(ev.pile, sp);
         }
-        ev.cap = `place ${fileOf(ev.part)} — ${famName(ev.part)}`;
+        ev.cap1 = `place ${fileOf(ev.part)} — ${famName(ev.part)}`;
+        ev.cap2 = 'set down first: the build’s seed — every other joint rides in on '
+          + 'its own tree member';
+        ev.cap = `${ev.cap1} · ${ev.cap2}`;
       } else {
         const [nid, idx] = ev.rec.inst[0];
         ev.node = animNodes.get(nid);
@@ -1142,17 +1145,25 @@ function buildCell(ctx) {
         // the parent axis (A4); everything else flies in along its REVERSED escape — the
         // one straight line A3 verified clear of every part placed before this turn. The
         // outward radial is only the fallback for rows a stale report left bare.
+        // THE SETTLE IS THE MODEL'S OWN MOTION, at its own scale — the designer's catch:
+        // the swing angle is computed for a member ALREADY IN ITS GAP, pivoting about its
+        // own middle, so the flight must deliver the part TO the seat first and the swing
+        // then happens in place. A closing member therefore stages AT its seated midpoint
+        // (tilted, P8's entry pose) and the settle is pure rotation; a tree pair stages
+        // one real engagement out along the parent axis — the stub plus its relief room,
+        // off the manifest, not a theatrical distance — and slides that far home.
         if (ev.rider) {
           const arr0 = uOfKey.get(ev.rec.keys[0]);
           const arrIsEnd0 = arr0 && arr0.join(',') === ev.arrKey;
           const [A, B] = ev.rec.ends;
           ev.approach = norm(arrIsEnd0 ? sub(A, B) : sub(B, A));
-          ev.reach = span * 0.24;
+          ev.reach = (JOINT.stubMm + 8) / 1000;
         } else {
           ev.approach = ev.escape || ev.outN;
-          ev.reach = span * 0.18;
+          ev.reach = ev.closing ? 0 : (JOINT.stubMm + 8) / 1000;
         }
-        ev.stage = add(seatPos, scale(ev.approach, ev.reach));
+        ev.stage = ev.reach > 0 ? add(seatPos, scale(ev.approach, ev.reach))
+                                : seatPos.slice();
         ev.way = wayFor(ev.pile, ev.stage);
         let ta = cross(axis, ev.approach);
         if (Math.hypot(...ta) < 1e-6) {
@@ -1183,13 +1194,14 @@ function buildCell(ctx) {
         }
         const pa = partByKey.get(ev.rec.keys[0]), pb = partByKey.get(ev.rec.keys[1]);
         const g = ev.rec.group ? CUT_GROUPS.groups[ev.rec.group] : null;
-        ev.cap = `${ev.rec.kind} pipe`
-          + (g ? ` · cut ${g.cutMm.toFixed(2)} mm (${ev.rec.group})` : '')
-          + (pa && pb ? ` · joins ${fileOf(pa)} ↔ ${fileOf(pb)}` : '')
+        ev.cap1 = `${ev.rec.kind} pipe`
+          + (g ? ` · cut ${g.cutMm.toFixed(2)} mm (${ev.rec.group})` : '');
+        ev.cap2 = (pa && pb ? `joins ${fileOf(pa)} ↔ ${fileOf(pb)}` : '')
           + (ev.rider ? ` · carries ${fileOf(ev.rider)} in with it` : '')
           + (ev.closing && ev.phi
               ? ` · swings in at ${(ev.phi * 180 / Math.PI).toFixed(1)}°`
               : ' · slides on axially');
+        ev.cap = `${ev.cap1} · ${ev.cap2}`;
       }
     });
     const aa3 = (ax, ang, out) => {                  // 3x3 axis-angle, column-major
@@ -1275,16 +1287,20 @@ function buildCell(ctx) {
     /* ---- THE POSES, one authority. The animation draws exactly these and the sweep
      * below tests exactly these, so "the sweep passed" is a statement about the motion
      * on screen, not about a lookalike. ---- */
+    // The window splits 75/25: the long flight brings the part to the work, then the
+    // short true motion fits it — a swing rotating in place about the member's middle
+    // (P8's identity, at its computed entry angle) or a slide over one real engagement.
+    const FLY_END = 0.75;
     const memberPose = (ev, a) => {
       const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
       let pos, tumble = 0, q = 0;
       let tilt = ev.closing ? ev.phi : 0;
-      if (a < 0.6) {
-        const p = easeInOut(a / 0.6);
+      if (a < FLY_END) {
+        const p = easeInOut(a / FLY_END);
         pos = bez(ev.pile, ev.way, ev.stage, p);
         tumble = ev.tumbleAng * (1 - p);
       } else {
-        q = easeInOut((a - 0.6) / 0.4);
+        q = easeInOut((a - FLY_END) / (1 - FLY_END));
         pos = lerp3(ev.stage, seatPos, q);
         tilt *= (1 - q);
       }
@@ -1292,8 +1308,8 @@ function buildCell(ctx) {
     };
     const riderPose = (ev, a, q) => {
       const rSeat = [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]];
-      if (a < 0.6) {
-        const p = easeInOut(a / 0.6);
+      if (a < FLY_END) {
+        const p = easeInOut(a / FLY_END);
         return { pos: bez(ev.riderPile, ev.riderWay, ev.riderStage, p),
                  Rm: rotFor(ev.riderTumbleAxis, ev.riderTumbleAng * (1 - p), null, 0) };
       }
@@ -1424,9 +1440,9 @@ function buildCell(ctx) {
       return worst;
     };
     const FLY_AS = [];
-    for (let s2 = 1; s2 <= 14; s2++) FLY_AS.push(0.6 * s2 / 14.5);
+    for (let s2 = 1; s2 <= 14; s2++) FLY_AS.push(FLY_END * s2 / 14.5);
     const SETTLE_AS = [];
-    for (let s2 = 1; s2 <= 10; s2++) SETTLE_AS.push(0.6 + 0.4 * s2 / 10.5);
+    for (let s2 = 1; s2 <= 10; s2++) SETTLE_AS.push(FLY_END + (1 - FLY_END) * s2 / 10.5);
     const sweepEvent = (ev, bodies) => {
       let fly = 0, settle = 0;
       for (const a of FLY_AS) fly = Math.max(fly, movingPen(ev, a, bodies));
@@ -1482,7 +1498,8 @@ function buildCell(ctx) {
     const riders = evs.filter((e) => e.riderNode && e.riderSeated).length;
     return {
       apply, plan,
-      windows: evs.map((ev) => ({ t0: ev.t0, t1: ev.t1, cap: ev.cap || '' })),
+      windows: evs.map((ev) => ({ t0: ev.t0, t1: ev.t1, cap: ev.cap || '',
+                                  cap1: ev.cap1 || '', cap2: ev.cap2 || '' })),
       counts: {
         joints: evs.filter((e) => e.kind === 'joint').length + riders,
         members: evs.filter((e) => e.kind === 'member').length,
@@ -1797,7 +1814,9 @@ export const LEVELS = [
   { id: 'strut', name: 'The connectors', scaleM: 0.05, radius: 0.030, az: -1.05, el: 0.24, dist: 2.6, target: CELL_CENTRE, stage: true, build: () => buildStageShell('strut'), instance: 'demonstrator' },
   { id: 'wall', name: 'The tubes', scaleM: 0.25, radius: 0.16, az: -0.9, el: 0.20, dist: 2.4, target: CELL_CENTRE, stage: true, build: () => buildStageShell('wall'), instance: 'demonstrator' },
   { id: 'track', name: 'The skin', scaleM: 0.50, radius: 0.30, az: -0.95, el: 0.30, dist: 2.1, target: CELL_CENTRE, stage: true, build: (c) => buildStageShell('track', c), instance: 'demonstrator' },
-  { id: 'cell', name: 'The cell', scaleM: 0.709, radius: 0.42, az: -0.9, el: 0.27, dist: 3.9, target: CELL_CENTRE, stage: true, build: buildCell, instance: 'demonstrator' },
+  // Target raised +z so the article sits BELOW the assembly guide's top-centre card
+  // rather than behind it — a framing shift only, the geometry does not move.
+  { id: 'cell', name: 'The cell', scaleM: 0.709, radius: 0.42, az: -0.9, el: 0.27, dist: 3.9, target: [CELL_CENTRE[0], CELL_CENTRE[1], CELL_CENTRE[2] + 0.075], stage: true, build: buildCell, instance: 'demonstrator' },
   // The array is framed on its HERO CELL — the one drawn with a skin at [0, -2, 1] — so
   // the descent to the level below goes into a cell already on screen instead of cutting
   // to a new model. openC in buildArray is the same point; one constant, both places.
@@ -2065,6 +2084,8 @@ export function mountExplorer(opts) {
     assembleTo: 1,               // what it is easing toward; scoped to the cell level
     assembleSpeed: 1,            // playback multiplier, guide and global alike
     assembleGuide: null,         // {idx, alpha, to}: one part at a time, prefix seated
+    assembleLoop: null,          // null | 'loop' (restart at the end) | 'bounce' (unwind)
+    assembleHold: 0,             // seconds left of the pause a loop takes at each end
     partsMode: 'all',            // 'all' | 'joinery' | 'pipes'
     // THE CELL OPENS ON ITS CENTRE JOINT. "Everything" is 216 identical-looking sticks and
     // says nothing about how the cell carries load; lighting the twelve members that reach
@@ -2600,8 +2621,10 @@ export function mountExplorer(opts) {
     const cell = built[STAGE_LEVEL];
     if (!cell.assembly) return;
     if (LEVELS[state.levelIdx].id !== 'cell') {
-      if (state.assemble !== 1 || state.assembleTo !== 1 || state.assembleGuide) {
+      if (state.assemble !== 1 || state.assembleTo !== 1 || state.assembleGuide
+          || state.assembleLoop) {
         state.assemble = 1; state.assembleTo = 1; state.assembleGuide = null;
+        state.assembleLoop = null;
         cell.assembly.apply(1);
         applyGroup(state.group);           // the group owns the tints when whole
         dirty = true;
@@ -2628,12 +2651,29 @@ export function mountExplorer(opts) {
       return;
     }
     const d = state.assembleTo - state.assemble;
-    if (Math.abs(d) < 1e-4) return;
+    if (Math.abs(d) < 1e-4) {
+      // A loop takes a breath at each end — a hard cut from finished to pile reads as a
+      // glitch, a beat of stillness reads as a cycle.
+      if (!state.assembleLoop) return;
+      if (state.assembleHold > 0) { state.assembleHold -= dt; return; }
+      if (state.assembleLoop === 'loop' && state.assemble >= 1) {
+        state.assemble = 0; state.assembleTo = 1;
+        cell.assembly.apply(0);
+        dirty = true;
+      } else if (state.assembleLoop === 'bounce') {
+        state.assembleTo = state.assemble >= 0.5 ? 0 : 1;
+        dirty = true;
+      }
+      return;
+    }
     state.assemble += Math.sign(d) * Math.min(
       Math.abs(d), (dt / ASSEMBLE_SECONDS) * (state.assembleSpeed || 1));
     state.assemble = clamp(state.assemble, 0, 1);
     cell.assembly.apply(state.assemble);
-    if (state.assemble >= 1) applyGroup(state.group);
+    if (state.assembleLoop && (state.assemble >= 1 || state.assemble <= 0)) {
+      state.assembleHold = 0.8;          // arrival owns the end-of-cycle breath
+    }
+    if (state.assemble >= 1 && !state.assembleLoop) applyGroup(state.group);
     dirty = true;
   }
 
@@ -2893,27 +2933,47 @@ export function mountExplorer(opts) {
     setCut(v) { state.cut = v; dirty = true; },
     /** Scrub the whole build: 0 = a pile of parts, 1 = the finished cell. Exits guide
      * mode; the stepper eases toward this. Cell level only, snaps home off it. */
-    setAssemble(v) { state.assembleGuide = null; state.assembleTo = clamp(v, 0, 1);
-                     dirty = true; },
+    setAssemble(v) { state.assembleGuide = null; state.assembleLoop = null;
+                     state.assembleTo = clamp(v, 0, 1); dirty = true; },
     /** Play the whole build: drop everything into the pile and let it assemble. */
-    playAssembly() { state.assembleGuide = null; state.assemble = 0; state.assembleTo = 1;
-                     dirty = true; },
+    playAssembly() { state.assembleGuide = null; state.assembleLoop = null;
+                     state.assemble = 0; state.assembleTo = 1; dirty = true; },
     /** Park the build at t without easing — deep links and the gate's pose checks. */
     jumpAssemble(v) {
       state.assembleGuide = null;
+      state.assembleLoop = null;
       state.assemble = state.assembleTo = clamp(v, 0, 1);
       const a = built[STAGE_LEVEL].assembly;
       if (a) a.apply(state.assemble);
       dirty = true;
     },
     /** The transport: play in either direction, hold, and set the pace. */
-    assemblePlay(dir) { state.assembleGuide = null;
+    assemblePlay(dir) { state.assembleGuide = null; state.assembleLoop = null;
                         state.assembleTo = dir < 0 ? 0 : 1; dirty = true; },
     assemblePause() {
       const g = state.assembleGuide;
+      state.assembleLoop = null;
       if (g) g.to = g.alpha;
       else state.assembleTo = state.assemble;
       dirty = true;
+    },
+    /** Loop the build ('loop': end -> pile -> again) or breathe it ('bounce': build,
+     * unbuild, repeat). Toggles: the same mode again turns it off and the run plays out
+     * to its current target. */
+    assembleLoop(mode) {
+      state.assembleGuide = null;
+      state.assembleLoop = state.assembleLoop === mode ? null : mode;
+      if (state.assembleLoop) {
+        if (state.assemble >= 1) {
+          state.assemble = 0;
+          const a = built[STAGE_LEVEL].assembly;
+          if (a) a.apply(0);
+        }
+        state.assembleTo = 1;
+        state.assembleHold = 0;
+      }
+      dirty = true;
+      return state.assembleLoop;
     },
     setAssembleSpeed(x) { state.assembleSpeed = clamp(x, 0.05, 8); return state.assembleSpeed; },
     /** GUIDE MODE: run the animation of exactly ONE part per press — everything placed
@@ -2986,10 +3046,14 @@ export function mountExplorer(opts) {
       const g = state.assembleGuide;
       if (g) {
         const i2 = clamp(g.idx, 0, ws.length - 1);
+        const has = g.idx >= 0;
         return { mode: 'guide', t: state.assemble, steps: ws.length, idx: g.idx,
                  alpha: g.alpha,
-                 cap: g.idx >= 0 ? ws[i2].cap : 'a pile of parts, and a proven order',
-                 playing: Math.abs(g.to - g.alpha) > 1e-4, speed: state.assembleSpeed };
+                 cap: has ? ws[i2].cap : 'a pile of parts, and a proven order',
+                 cap1: has ? ws[i2].cap1 : 'a pile of parts, and a proven order',
+                 cap2: has ? ws[i2].cap2 : 'press assemble, or step the first part in',
+                 playing: Math.abs(g.to - g.alpha) > 1e-4,
+                 loop: state.assembleLoop, speed: state.assembleSpeed };
       }
       let i = -1;
       for (let k2 = 0; k2 < ws.length; k2++) {
@@ -2999,8 +3063,11 @@ export function mountExplorer(opts) {
         ? clamp((state.assemble - ws[i].t0) / (ws[i].t1 - ws[i].t0), 0, 1) : 0;
       return { mode: 'global', t: state.assemble, steps: ws.length, idx: i, alpha,
                cap: i >= 0 ? ws[i].cap : 'a pile of parts, and a proven order',
-               playing: Math.abs(state.assembleTo - state.assemble) > 1e-4,
-               speed: state.assembleSpeed };
+               cap1: i >= 0 ? ws[i].cap1 : 'a pile of parts, and a proven order',
+               cap2: i >= 0 ? ws[i].cap2 : 'press assemble, or step the first part in',
+               playing: Math.abs(state.assembleTo - state.assemble) > 1e-4
+                        || !!state.assembleLoop,
+               loop: state.assembleLoop, speed: state.assembleSpeed };
     },
     /** The gate's probe: parts displaced from their seated matrices, and by how far —
      * measured off the live instance buffers, never off the animation's own bookkeeping. */

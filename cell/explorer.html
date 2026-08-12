@@ -196,8 +196,11 @@
   #asmbox .asmbar output{font:var(--t-11) var(--mono);color:var(--bone);min-width:58px}
   #asmbox input[type=range]{accent-color:var(--warm);flex:1;margin:0;display:block}
   #asmrow{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0}
-  #asmCap{font:var(--t-12) var(--mono);color:var(--bone);text-align:center;
-       overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  #asmCap{text-align:center;min-width:0}
+  #asmCap1{font:var(--t-12) var(--mono);color:var(--bone);
+       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #asmCap2{font:var(--t-11) var(--mono);color:var(--muted);
+       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   #asmCap .stepn{color:var(--faint)}
   #asmrow .tbtn{font:var(--t-12) var(--mono);color:var(--bone);cursor:pointer;
        background:rgba(255,255,255,.035);border:1px solid var(--line);
@@ -205,6 +208,8 @@
        transition:color .15s,border-color .15s,background .15s}
   #asmrow .tbtn:hover{color:var(--text);border-color:var(--line-strong);
        background:rgba(255,255,255,.07)}
+  #asmrow .tbtn.on{color:var(--warm);border-color:var(--warm-dim);
+       background:var(--warm-glow)}
   #asmPlay{font:var(--t-12) var(--mono);letter-spacing:.12em;text-transform:uppercase;
        color:var(--bg);background:var(--warm);border:1px solid var(--warm);
        border-radius:var(--r-sm);padding:5px 14px;cursor:pointer;white-space:nowrap;
@@ -1467,9 +1472,14 @@
     <button id="asmPause" class="tbtn" title="hold">pause</button>
     <button id="asmFwd" class="tbtn" title="play forward">&#8250;</button>
     <button id="asmStepF" class="tbtn" title="fly the next part in">&#8250;|</button>
+    <button id="asmLoop" class="tbtn" title="build, restart, repeat">loop</button>
+    <button id="asmBounce" class="tbtn" title="build, unbuild, repeat">bounce</button>
     <button id="asmSpeed" class="tbtn" title="pace">1&times;</button>
   </div>
-  <div id="asmCap"></div>
+  <div id="asmCap">
+    <div id="asmCap1"></div>
+    <div id="asmCap2"></div>
+  </div>
 </div>
   </div>
 </div>
@@ -1510,8 +1520,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=bd3a6f02';
-import * as CELL from './model.js?v=bd3a6f02';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=0286418c';
+import * as CELL from './model.js?v=0286418c';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1771,7 +1781,8 @@ if (!api) {
   const asmCompOut = document.getElementById('asmCompOut');
   const asmR = document.getElementById('asmR');
   const asmROut = document.getElementById('asmROut');
-  const asmCap = document.getElementById('asmCap');
+  const asmCap1 = document.getElementById('asmCap1');
+  const asmCap2 = document.getElementById('asmCap2');
   // Five paces: three slower than real time for guide work, real time, and one faster.
   const SPEEDS = [0.125, 0.25, 0.5, 1, 2];
   const SPEED_LABELS = ['⅛×', '¼×', '½×', '1×', '2×'];
@@ -1788,6 +1799,10 @@ if (!api) {
     api.setAssembleSpeed(SPEEDS[spdIdx]);
     spdBtn.textContent = SPEED_LABELS[spdIdx];
   });
+  const loopBtn = document.getElementById('asmLoop');
+  const bounceBtn = document.getElementById('asmBounce');
+  loopBtn.addEventListener('click', () => api.assembleLoop('loop'));
+  bounceBtn.addEventListener('click', () => api.assembleLoop('bounce'));
   // Bar one parks the guide on a component — it and everything before it seated, the rest
   // in the pile. Bar two scrubs THAT part's own motion, as slowly as the hand likes.
   asmComp.addEventListener('input', () => api.assembleGuidePark(+asmComp.value));
@@ -1803,8 +1818,11 @@ if (!api) {
     if (document.activeElement !== asmR) asmR.value = Math.round(g.alpha * 1000);
     asmCompOut.textContent = `${g.idx + 1}/${g.steps}`;
     asmROut.textContent = `${Math.round(g.alpha * 100)}%`;
-    asmCap.innerHTML = `<span class="stepn">${g.mode === 'guide' ? 'guide' : 'play'}</span>` +
-      ` · ${g.cap}`;
+    loopBtn.classList.toggle('on', g.loop === 'loop');
+    bounceBtn.classList.toggle('on', g.loop === 'bounce');
+    asmCap1.innerHTML = `<span class="stepn">${g.mode === 'guide' ? 'guide' : 'play'}</span>` +
+      ` · ${g.cap1}`;
+    asmCap2.textContent = g.cap2;
   }, 100);
   // ?build=1 plays the assembly on load; ?build=0.42 parks it mid-build — the still
   // harness loads a URL and cannot click, same deep-link rule as ?unfold=1.

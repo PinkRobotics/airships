@@ -251,6 +251,18 @@ mid-flight.
 - Global play still uses the overlapped timeline; entering guide from mid-play and back
   causes an accepted visual pop (~8 parts leap between overlap and prefix states).
 
+**Round four (same night):** loop + bounce buttons (`assembleLoop('loop'|'bounce')`,
+toggles, 0.8 s breath at each end owned by ARRIVAL in stepAssemble, cleared by every
+other transport control and the scope guard); the cell level's framing target is +0.075 z
+so the article sits below the guide card; the caption is TWO lines (cap1 = what the part
+is, cap2 = joins/carries/motion — built per event, carried through windows and
+assemblyGuide). And the SETTLE IS THE MODEL'S MOTION AT ITS OWN SCALE — the designer
+caught that the swing angle belongs to a member already in its gap pivoting about its own
+middle: closing members now fly (tilted) all the way TO the seated midpoint and the
+settle is pure rotation in place (P8's pose sequence literally); tree pairs stage ONE
+real engagement out (stubMm + 8, off the manifest) and slide that far home. Window split
+FLY_END = 0.75. Sweep re-verified: 217 trajectories, 0/0/0.
+
 ## Open work, in priority order
 
 1. **#63 develop the net for the loaded dome shape.** The flat net now exists and is provably
