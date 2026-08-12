@@ -185,7 +185,8 @@ def cut_groups(nodes: list, members: list, prm: dict, cut_list: list) -> list:
 
 def assembly_order(gnodes: list, members: list) -> list:
     """The build sequence, for the page to play: every member in the order the assembly
-    proof walks them, with each one's engagement kind.
+    proof walks them, with each one's engagement kind, its arriving joint, and its proven
+    approach line.
 
     THE ORDER IS A3's OWN RULE, transcribed exactly — members sorted by ascending lattice
     |midpoint|, ties broken by (family, u, v) — not a new opinion about how to build the
@@ -199,9 +200,18 @@ def assembly_order(gnodes: list, members: list) -> list:
 
     `closing` is the spanning tree's verdict, the same one that sizes the spigots: a tree
     member slides on axially over its full stub, a closing member swings in on pilots at
-    its own entry tilt — which is exactly how the page animates each kind.
+    its own entry tilt — which is exactly how the page animates each kind. `arriving` is
+    the tree's own answer to which joint a tree member CARRIES: A4's proven free motion is
+    the arriving node retracting along the parent axis WITH its member, so the page slides
+    joint and pipe in together and neither can pass through the other. `dir` is the escape
+    line A3 verified for this member at its own turn, read back from the committed report
+    when the report matches this graph — the animation flies members in along the reversed
+    escape, the one straight line proven clear of everything placed before it. A stale or
+    absent report degrades softly: rows just lack `dir`, the page falls back to its
+    outward-radial approach, and the mismatch is printed rather than hidden.
     """
-    tree, _ = spanning_tree(gnodes, members)
+    tree, tree_order = spanning_tree(gnodes, members)
+    arriving_of = {k: arriving for k, _parent, arriving in tree_order}
 
     def mid(k):
         a, b, _f = members[k]
@@ -209,8 +219,30 @@ def assembly_order(gnodes: list, members: list) -> list:
 
     order = sorted(range(len(members)), key=lambda k: (mid(k), members[k][2], members[k][0],
                                                        members[k][1]))
-    return [{"a": list(members[k][0]), "b": list(members[k][1]),
-             "fam": members[k][2], "closing": k not in tree} for k in order]
+    rows = []
+    for k in order:
+        row = {"a": list(members[k][0]), "b": list(members[k][1]),
+               "fam": members[k][2], "closing": k not in tree}
+        if k in arriving_of:
+            row["arriving"] = list(arriving_of[k])
+        rows.append(row)
+    report = ROOT / "research" / "geometry" / "nodes" / "assembly.json"
+    ids = [f"{members[k][0]}-{members[k][1]}-{members[k][2]}" for k in order]
+    bo = None
+    if report.exists():
+        try:
+            bo = json.loads(report.read_text()).get("buildOrder")
+        except json.JSONDecodeError:
+            bo = None
+    if bo and bo.get("memberIds") == ids and len(bo.get("escapeDirs") or []) == len(rows):
+        for row, d in zip(rows, bo["escapeDirs"]):
+            if d:
+                row["dir"] = d
+    else:
+        print("gen_node_families: assembly.json's buildOrder is absent or predates this "
+              "graph — ASSEMBLY rows carry no proven approach lines; the page falls back "
+              "to radial approaches. Run `make assemblycheck` and regenerate.")
+    return rows
 
 
 def payload() -> dict:

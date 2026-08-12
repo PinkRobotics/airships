@@ -1277,7 +1277,15 @@ def fib_dirs(n):
 
 
 def escape_scan(S, Q, R, subject, others, dirs, lam):
-    """Does this pipe have one straight-line direction out, against the geometry present?
+    """This pipe's straight-line direction out, against the geometry present — or None.
+
+    Returns the FIRST verified escape direction rather than a bare boolean, because the
+    direction is not bookkeeping: it is the insertion line, reversed. The page's assembly
+    animation flies each member in along it, so the approach the viewer watches is the
+    same line this proof certified clear — an animation that clipped through placed
+    members was drawing a motion nobody proved. Truthiness is unchanged for callers that
+    only ask WHETHER (an ndarray is truthy here and None is not), but comparisons must be
+    `is None`, never `not`, which numpy refuses on a vector.
 
     Two stages, and the coarse one is a NECESSARY condition rather than an approximation: the
     minimum over a subset of stations can only be larger than the minimum over all of them, so
@@ -1291,7 +1299,7 @@ def escape_scan(S, Q, R, subject, others, dirs, lam):
     every member was.
     """
     if len(others) == 0:
-        return True
+        return dirs[0]                     # nothing placed: every direction is an escape
     axis = Q[subject] - S[subject]
     axis = axis / np.linalg.norm(axis)
     ok = dirs[np.abs(dirs @ axis) < 0.35]
@@ -1308,8 +1316,8 @@ def escape_scan(S, Q, R, subject, others, dirs, lam):
         P1 = (S[subject][None, :] + lam[:, None] * d)[:, None, None, :]
         Q1 = (Q[subject][None, :] + lam[:, None] * d)[:, None, None, :]
         if (seg_seg_dist(P1, Q1, P2, Q2) - clear).min() >= 0.0:
-            return True
-    return False
+            return d
+    return None
 
 
 # ----------------------------------------------------------------- insertion kinematics --
@@ -4495,19 +4503,21 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
 
     order = sorted(range(len(members)), key=lambda k: (mid(k), members[k][2], members[k][0],
                                                        members[k][1]))
-    blocked, placed = [], []
+    blocked, placed, esc = [], [], {}
     for k in order:
-        if placed and not escape_scan(S, Q, RAD, k, np.array(placed), dirs, lam):
+        e = escape_scan(S, Q, RAD, k, np.array(placed), dirs, lam)
+        if e is None:
             blocked.append(k)
+        esc[k] = e
         placed.append(k)
     finished = sum(1 for k in range(len(members))
-                   if not escape_scan(S, Q, RAD, k, np.array([i for i in range(len(members))
-                                                              if i != k]), dirs, lam))
+                   if escape_scan(S, Q, RAD, k, np.array([i for i in range(len(members))
+                                                          if i != k]), dirs, lam) is None)
     rev = sorted(range(len(members)), key=lambda k: (-mid(k), members[k][2], members[k][0],
                                                      members[k][1]))
     blocked_rev, placed = 0, []
     for k in rev:
-        if placed and not escape_scan(S, Q, RAD, k, np.array(placed), dirs, lam):
+        if placed and escape_scan(S, Q, RAD, k, np.array(placed), dirs, lam) is None:
             blocked_rev += 1
         placed.append(k)
     lines = [
@@ -4524,6 +4534,11 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
             "data": {"rule": "ascending |midpoint|, ties by (family,u,v)",
                      "memberIds": [f"{members[k][0]}-{members[k][1]}-{members[k][2]}"
                                    for k in order],
+                     # The insertion line, reversed, for each member at its own turn — the
+                     # page's assembly animation flies members in along these, so the
+                     # approach on screen is the one this proof verified clear.
+                     "escapeDirs": [None if esc[k] is None else
+                                    [round(float(x), 4) for x in esc[k]] for k in order],
                      "blockedAtOwnTurn": len(blocked),
                      "blockedAgainstFinishedArticle": finished,
                      "blockedOutsideIn": blocked_rev,

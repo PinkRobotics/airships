@@ -24,18 +24,18 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=3887d2a2';
-import * as G from './explorer-geom.js?v=3887d2a2';
+import * as CELL from './model.js?v=c029f650';
+import * as G from './explorer-geom.js?v=c029f650';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=3887d2a2';
+} from './nodes.generated.js?v=c029f650';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=3887d2a2';
+import { NODEMESHES } from './nodemeshes.generated.js?v=c029f650';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1019,6 +1019,16 @@ function buildCell(ctx) {
     for (const row of ASSEMBLY) {
       const rec = recByPair.get(pairKey(row.a, row.b, row.fam));
       if (!rec || !rec.inst.length) continue;    // the gate counts events; a miss shows there
+      // A TREE MEMBER CARRIES ITS ARRIVING JOINT. A4's proven free motion is the arriving
+      // node retracting along the parent axis WITH its member, so the pair fly and slide
+      // in together — which is also what stops the pipe passing through a joint already
+      // seated on its own slide line, the clip the designer caught on the first cut.
+      let rider = null;
+      const arrKey = row.arriving ? row.arriving.join(',') : null;
+      if (arrKey && !seenJ.has(arrKey)) {
+        const p2 = partByU.get(arrKey);
+        if (p2 && p2.inst.length) { rider = p2; seenJ.add(arrKey); }
+      }
       for (const uu of [row.a, row.b]) {
         const us = uu.join(',');
         if (seenJ.has(us)) continue;
@@ -1026,17 +1036,31 @@ function buildCell(ctx) {
         const p2 = partByU.get(us);
         if (p2 && p2.inst.length) evs.push({ kind: 'joint', part: p2 });
       }
-      evs.push({ kind: 'member', rec, closing: row.closing });
+      evs.push({ kind: 'member', rec, closing: row.closing, rider,
+                 escape: row.dir ? norm(row.dir) : null, arrKey });
     }
     const N = evs.length;
     const w = Math.max(0.02, 9 / Math.max(N, 1));
+    const pileAt = (i, salt) => {
+      const r = span * 0.55 * Math.sqrt(h(i, 1 + salt));
+      const th = 2 * Math.PI * h(i, 2 + salt);
+      return add(scale(dn, span * (0.66 + 0.14 * h(i, 3 + salt))),
+                 add(scale(e1, r * Math.cos(th)), scale(e2, r * Math.sin(th))));
+    };
+    // The flight from the pile arcs OUTSIDE the article: a straight lerp from under the
+    // cell to a staging point on the far side transits the half-built frame. The control
+    // point sits on the bisector of the two radial directions, pushed past the article's
+    // own radius, so the quadratic bows around rather than through.
+    const wayFor = (pile, stage) => {
+      const dp = norm(pile), ds = norm(stage);
+      let m = add(dp, ds);
+      if (Math.hypot(...m) < 0.3) m = e1;          // opposite sides: swing wide laterally
+      return scale(norm(m), span * 0.85);
+    };
     evs.forEach((ev, i) => {
       ev.t0 = (N > 1 ? i / (N - 1) : 0) * (1 - w);
       ev.t1 = ev.t0 + w;
-      const r = span * 0.55 * Math.sqrt(h(i, 1));
-      const th = 2 * Math.PI * h(i, 2);
-      ev.pile = add(scale(dn, span * (0.66 + 0.14 * h(i, 3))),
-                    add(scale(e1, r * Math.cos(th)), scale(e2, r * Math.sin(th))));
+      ev.pile = pileAt(i, 0);
       ev.tumbleAxis = norm([h(i, 4) - 0.5, h(i, 5) - 0.5, h(i, 6) - 0.5]);
       ev.tumbleAng = (0.5 + 1.5 * h(i, 7)) * Math.PI;
       if (ev.kind === 'joint') {
@@ -1044,6 +1068,10 @@ function buildCell(ctx) {
         ev.node = animNodes.get(nid);
         ev.idx = 0;
         ev.seated = ev.node ? ev.node.inst.xf.slice(0, 16) : null;
+        if (ev.seated) {
+          const sp = [ev.seated[12], ev.seated[13], ev.seated[14]];
+          ev.way = wayFor(ev.pile, sp);
+        }
       } else {
         const [nid, idx] = ev.rec.inst[0];
         ev.node = animNodes.get(nid);
@@ -1051,12 +1079,26 @@ function buildCell(ctx) {
         ev.seated = ev.node ? ev.node.inst.xf.slice(idx * 16, idx * 16 + 16) : null;
         if (!ev.seated) return;
         const m = ev.seated;
-        ev.outN = norm([m[12], m[13], m[14]]);
+        const seatPos = [m[12], m[13], m[14]];
+        ev.outN = norm(seatPos);
         const axis = norm([m[0], m[1], m[2]]);       // column 0: the pipe's stretched axis
-        const [A, B] = ev.rec.ends;
-        const outEnd = Math.hypot(...A) > Math.hypot(...B) ? A : B;
-        ev.slideDir = norm(sub(outEnd, [m[12], m[13], m[14]]));
-        let ta = cross(axis, ev.outN);
+        // THE APPROACH LINE IS THE PROOF'S OWN. A tree member with its rider slides on
+        // the parent axis (A4); everything else flies in along its REVERSED escape — the
+        // one straight line A3 verified clear of every part placed before this turn. The
+        // outward radial is only the fallback for rows a stale report left bare.
+        if (ev.rider) {
+          const arr0 = uOfKey.get(ev.rec.keys[0]);
+          const arrIsEnd0 = arr0 && arr0.join(',') === ev.arrKey;
+          const [A, B] = ev.rec.ends;
+          ev.approach = norm(arrIsEnd0 ? sub(A, B) : sub(B, A));
+          ev.reach = span * 0.24;
+        } else {
+          ev.approach = ev.escape || ev.outN;
+          ev.reach = span * 0.18;
+        }
+        ev.stage = add(seatPos, scale(ev.approach, ev.reach));
+        ev.way = wayFor(ev.pile, ev.stage);
+        let ta = cross(axis, ev.approach);
         if (Math.hypot(...ta) < 1e-6) {
           ta = cross(axis, Math.abs(axis[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0]);
         }
@@ -1069,6 +1111,19 @@ function buildCell(ctx) {
           const g = CUT_GROUPS.groups[ev.rec.group];
           const sEff = Math.max(0.2, JOINT.closingEndsMm - g.swingReliefMm);
           ev.phi = Math.acos(clamp(1 - 2 * sEff / g.cutMm, -1, 1));
+        }
+        if (ev.rider) {
+          const [rnid] = ev.rider.inst[0];
+          ev.riderNode = animNodes.get(rnid);
+          ev.riderSeated = ev.riderNode ? ev.riderNode.inst.xf.slice(0, 16) : null;
+          if (ev.riderSeated) {
+            const rs = [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]];
+            ev.riderPile = pileAt(i, 11);
+            ev.riderStage = add(rs, scale(ev.approach, ev.reach));
+            ev.riderWay = wayFor(ev.riderPile, ev.riderStage);
+            ev.riderTumbleAxis = norm([h(i, 15) - 0.5, h(i, 16) - 0.5, h(i, 17) - 0.5]);
+            ev.riderTumbleAng = (0.5 + 1.5 * h(i, 18)) * Math.PI;
+          }
         }
       }
     });
@@ -1086,20 +1141,34 @@ function buildCell(ctx) {
     };
     const R1 = new Float64Array(9), R2 = new Float64Array(9), Rt = new Float64Array(9);
     const I3 = [1, 0, 0, 0, 1, 0, 0, 0, 1];
-    const writePose = (ev, Rm, pos) => {
+    const bez = (A, W, B, p) => {
+      const q = 1 - p, a = q * q, b = 2 * q * p, c = p * p;
+      return [a * A[0] + b * W[0] + c * B[0],
+              a * A[1] + b * W[1] + c * B[1],
+              a * A[2] + b * W[2] + c * B[2]];
+    };
+    const writePose = (seated, node, idx, Rm, pos) => {
       // Rotate the seated matrix's three columns — per-instance stretch rides in their
       // norms and must survive, or a pipe changes length mid-flight — then replace the
       // translation with the animated one.
-      const s = ev.seated, xf = ev.node.inst.xf, off = ev.idx * 16;
+      const xf = node.inst.xf, off = idx * 16;
       for (let c = 0; c < 3; c++) {
-        const x = s[c * 4], y = s[c * 4 + 1], z = s[c * 4 + 2];
+        const x = seated[c * 4], y = seated[c * 4 + 1], z = seated[c * 4 + 2];
         xf[off + c * 4] = Rm[0] * x + Rm[3] * y + Rm[6] * z;
         xf[off + c * 4 + 1] = Rm[1] * x + Rm[4] * y + Rm[7] * z;
         xf[off + c * 4 + 2] = Rm[2] * x + Rm[5] * y + Rm[8] * z;
-        xf[off + c * 4 + 3] = s[c * 4 + 3];
+        xf[off + c * 4 + 3] = seated[c * 4 + 3];
       }
       xf[off + 12] = pos[0]; xf[off + 13] = pos[1]; xf[off + 14] = pos[2];
-      xf[off + 15] = s[15];
+      xf[off + 15] = seated[15];
+    };
+    const rotFor = (axis1, ang1, axis2, ang2) => {
+      if (ang1 > 1e-6 && ang2 > 1e-6) {
+        aa3(axis1, ang1, R1); aa3(axis2, ang2, R2); mul3(R1, R2, Rt); return Rt;
+      }
+      if (ang1 > 1e-6) { aa3(axis1, ang1, R1); return R1; }
+      if (ang2 > 1e-6) { aa3(axis2, ang2, R2); return R2; }
+      return I3;
     };
     function apply(t) {
       const touched = new Set();
@@ -1109,53 +1178,82 @@ function buildCell(ctx) {
         if (a >= 1) {                                // seated EXACTLY: byte-copied back
           ev.node.inst.xf.set(ev.seated, ev.idx * 16);
           touched.add(ev.node);
+          if (ev.riderNode && ev.riderSeated) {
+            ev.riderNode.inst.xf.set(ev.riderSeated, 0);
+            touched.add(ev.riderNode);
+          }
           continue;
         }
         const seatPos = [ev.seated[12], ev.seated[13], ev.seated[14]];
-        const settleFrom = ev.kind === 'member'
-          ? (ev.closing ? add(seatPos, scale(ev.outN, span * 0.16))
-                        : add(seatPos, scale(ev.slideDir, span * 0.22)))
-          : seatPos;
+        if (ev.kind === 'joint') {
+          const p = easeInOut(a);
+          writePose(ev.seated, ev.node, ev.idx,
+                    rotFor(ev.tumbleAxis, ev.tumbleAng * (1 - p), null, 0),
+                    bez(ev.pile, ev.way, seatPos, p));
+          touched.add(ev.node);
+          continue;
+        }
         let pos, tumble = 0;
-        let tilt = ev.kind === 'member' && ev.closing ? ev.phi : 0;
+        let tilt = ev.closing ? ev.phi : 0;
+        let q = 0;
         if (a < 0.6) {
           const p = easeInOut(a / 0.6);
-          pos = lerp3(ev.pile, settleFrom, p);
+          pos = bez(ev.pile, ev.way, ev.stage, p);
           tumble = ev.tumbleAng * (1 - p);
         } else {
-          const q = easeInOut((a - 0.6) / 0.4);
-          pos = lerp3(settleFrom, seatPos, q);
+          q = easeInOut((a - 0.6) / 0.4);
+          pos = lerp3(ev.stage, seatPos, q);
           tilt *= (1 - q);
         }
-        let Rm = I3;
-        if (tumble > 1e-6 && tilt > 1e-6) {
-          aa3(ev.tumbleAxis, tumble, R1); aa3(ev.tiltAxis, tilt, R2);
-          mul3(R1, R2, Rt); Rm = Rt;
-        } else if (tumble > 1e-6) { aa3(ev.tumbleAxis, tumble, R1); Rm = R1; }
-        else if (tilt > 1e-6) { aa3(ev.tiltAxis, tilt, R2); Rm = R2; }
-        writePose(ev, Rm, pos);
+        writePose(ev.seated, ev.node, ev.idx,
+                  rotFor(ev.tumbleAxis, tumble, ev.tiltAxis, tilt), pos);
         touched.add(ev.node);
+        // The rider joint moves with its member: its own arc from its own pile spot to a
+        // staging offset by the SAME approach vector, then the locked slide home — the
+        // pair arrive as one part, exactly the motion A4 proves.
+        if (ev.riderNode && ev.riderSeated) {
+          const rSeat = [ev.riderSeated[12], ev.riderSeated[13], ev.riderSeated[14]];
+          let rPos, rTum = 0;
+          if (a < 0.6) {
+            const p = easeInOut(a / 0.6);
+            rPos = bez(ev.riderPile, ev.riderWay, ev.riderStage, p);
+            rTum = ev.riderTumbleAng * (1 - p);
+          } else {
+            rPos = lerp3(ev.riderStage, rSeat, q);
+          }
+          writePose(ev.riderSeated, ev.riderNode, 0,
+                    rotFor(ev.riderTumbleAxis, rTum, null, 0), rPos);
+          touched.add(ev.riderNode);
+        }
       }
       for (const n of touched) n.inst.dirty = true;
     }
+    const riders = evs.filter((e) => e.riderNode && e.riderSeated).length;
     return {
       apply,
       counts: {
-        joints: evs.filter((e) => e.kind === 'joint').length,
+        joints: evs.filter((e) => e.kind === 'joint').length + riders,
         members: evs.filter((e) => e.kind === 'member').length,
+        riders,
+        provenApproaches: evs.filter((e) => e.kind === 'member'
+          && (e.escape || e.rider)).length,
       },
       /** For the gate: how far the animated state sits from the seated one, measured off
        * the live instance buffers against the byte-cached seated matrices. */
       probe() {
         let displaced = 0, maxD = 0;
-        for (const ev of evs) {
-          if (!ev.node || !ev.seated) continue;
-          const xf = ev.node.inst.xf, off = ev.idx * 16;
-          const d = Math.hypot(xf[off + 12] - ev.seated[12],
-                               xf[off + 13] - ev.seated[13],
-                               xf[off + 14] - ev.seated[14]);
+        const meas = (node, idx, seated) => {
+          const xf = node.inst.xf, off = idx * 16;
+          const d = Math.hypot(xf[off + 12] - seated[12],
+                               xf[off + 13] - seated[13],
+                               xf[off + 14] - seated[14]);
           if (d > 1e-9) displaced++;
           if (d > maxD) maxD = d;
+        };
+        for (const ev of evs) {
+          if (!ev.node || !ev.seated) continue;
+          meas(ev.node, ev.idx, ev.seated);
+          if (ev.riderNode && ev.riderSeated) meas(ev.riderNode, 0, ev.riderSeated);
         }
         return { displaced, maxDispM: maxD };
       },

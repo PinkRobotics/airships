@@ -219,7 +219,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -233,7 +238,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -247,7 +257,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -261,7 +276,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        0,
+        0
+      ],
+      "dir": [
+        -0.0511,
+        0.2578,
+        0.9648
+      ]
     },
     {
       "a": [
@@ -275,7 +300,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1303,
+        -0.5392,
+        0.832
+      ]
     },
     {
       "a": [
@@ -289,7 +319,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -303,7 +338,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2624,
+        0.4752,
+        0.8398
+      ]
     },
     {
       "a": [
@@ -317,7 +357,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -331,7 +376,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        -1,
+        0
+      ],
+      "dir": [
+        0.1888,
+        0.055,
+        0.9805
+      ]
     },
     {
       "a": [
@@ -345,7 +400,17 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        0,
+        -1
+      ],
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -359,7 +424,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -373,7 +443,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2226,
+        0.2534,
+        0.9414
+      ]
     },
     {
       "a": [
@@ -387,7 +462,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.2022,
+        0.4625,
+        0.8633
+      ]
     },
     {
       "a": [
@@ -401,7 +481,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -415,7 +500,17 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -1,
+        -1
+      ],
+      "dir": [
+        0.4735,
+        -0.2098,
+        0.8555
+      ]
     },
     {
       "a": [
@@ -429,7 +524,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -443,7 +543,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -457,7 +562,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.6176,
+        -0.6892,
+        0.3789
+      ]
     },
     {
       "a": [
@@ -471,7 +581,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.3807,
+        0.7056,
+        0.5977
+      ]
     },
     {
       "a": [
@@ -485,7 +600,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -499,7 +619,17 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -1,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -513,7 +643,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -527,7 +662,17 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        1,
+        -1
+      ],
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -541,7 +686,17 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        1,
+        1
+      ],
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -555,7 +710,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.5028,
+        -0.1692,
+        0.8477
+      ]
     },
     {
       "a": [
@@ -569,7 +729,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.6582,
+        -0.5372,
+        0.5273
+      ]
     },
     {
       "a": [
@@ -583,7 +748,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -597,7 +767,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -611,7 +786,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4746,
+        0.4129,
+        0.7773
+      ]
     },
     {
       "a": [
@@ -625,7 +805,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -639,7 +824,17 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        0,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -653,7 +848,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -667,7 +867,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -681,7 +886,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -695,7 +905,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1303,
+        -0.5392,
+        0.832
+      ]
     },
     {
       "a": [
@@ -709,7 +924,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -723,7 +943,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        -1,
+        -1
+      ],
+      "dir": [
+        -0.837,
+        -0.4464,
+        0.3164
+      ]
     },
     {
       "a": [
@@ -737,7 +967,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.5708,
+        -0.3429,
+        0.7461
+      ]
     },
     {
       "a": [
@@ -751,7 +986,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.316,
+        -0.6327,
+        0.707
+      ]
     },
     {
       "a": [
@@ -765,7 +1005,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.6176,
+        -0.6892,
+        0.3789
+      ]
     },
     {
       "a": [
@@ -779,7 +1024,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        -1,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -793,7 +1048,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -807,7 +1067,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.643,
+        0.2536,
+        0.7227
+      ]
     },
     {
       "a": [
@@ -821,7 +1086,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        1,
+        -1
+      ],
+      "dir": [
+        -0.837,
+        -0.4464,
+        0.3164
+      ]
     },
     {
       "a": [
@@ -835,7 +1110,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1965,
+        0.6874,
+        0.6992
+      ]
     },
     {
       "a": [
@@ -849,7 +1129,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -863,7 +1148,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        1,
+        1
+      ],
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -877,7 +1172,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -891,7 +1191,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        -1,
+        -1
+      ],
+      "dir": [
+        0.2992,
+        -0.6139,
+        0.7305
+      ]
     },
     {
       "a": [
@@ -905,7 +1215,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.3735,
+        -0.8775,
+        0.3008
+      ]
     },
     {
       "a": [
@@ -919,7 +1234,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.7628,
+        -0.265,
+        0.5898
+      ]
     },
     {
       "a": [
@@ -933,7 +1253,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        -1,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -947,7 +1277,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.6368,
+        -0.6801,
+        0.3633
+      ]
     },
     {
       "a": [
@@ -961,7 +1296,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -975,7 +1315,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        1,
+        -1
+      ],
+      "dir": [
+        0.0553,
+        0.7691,
+        0.6367
+      ]
     },
     {
       "a": [
@@ -989,7 +1339,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.653,
+        0.2502,
+        0.7148
+      ]
     },
     {
       "a": [
@@ -1003,7 +1358,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9162,
+        -0.2356,
+        0.3242
+      ]
     },
     {
       "a": [
@@ -1017,7 +1377,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        1,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1031,7 +1401,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1045,7 +1420,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -1059,7 +1439,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        -1,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1073,7 +1463,17 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        0,
+        -1
+      ],
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -1087,7 +1487,17 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        0,
+        1
+      ],
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -1101,7 +1511,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        1,
+        0
+      ],
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -1115,7 +1535,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -2,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1129,7 +1559,17 @@ export const NODES = {
         -2
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        0,
+        -2
+      ],
+      "dir": [
+        -0.4183,
+        -0.9082,
+        0.0117
+      ]
     },
     {
       "a": [
@@ -1143,7 +1583,17 @@ export const NODES = {
         2
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        0,
+        2
+      ],
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -1157,7 +1607,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        2,
+        0
+      ],
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -1171,7 +1631,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9743,
+        -0.0344,
+        0.2227
+      ]
     },
     {
       "a": [
@@ -1185,7 +1650,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -1199,7 +1669,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1213,7 +1688,12 @@ export const NODES = {
         -2
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9219,
+        0.387,
+        0.0195
+      ]
     },
     {
       "a": [
@@ -1227,7 +1707,12 @@ export const NODES = {
         2
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2477,
+        -0.3721,
+        0.8945
+      ]
     },
     {
       "a": [
@@ -1241,7 +1726,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.941,
+        0.3372,
+        0.0273
+      ]
     },
     {
       "a": [
@@ -1255,7 +1745,12 @@ export const NODES = {
         -1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2535,
+        0.9664,
+        0.043
+      ]
     },
     {
       "a": [
@@ -1269,7 +1764,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -1283,7 +1783,12 @@ export const NODES = {
         1
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.3958,
+        -0.0265,
+        0.918
+      ]
     },
     {
       "a": [
@@ -1297,7 +1802,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9177,
+        0.0906,
+        0.3867
+      ]
     },
     {
       "a": [
@@ -1311,7 +1821,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.2022,
+        0.4625,
+        0.8633
+      ]
     },
     {
       "a": [
@@ -1325,7 +1840,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        1,
+        0
+      ],
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -1339,7 +1864,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1353,7 +1883,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -1367,7 +1902,12 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -1381,7 +1921,17 @@ export const NODES = {
         0
       ],
       "fam": "octet",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        2,
+        0,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1395,7 +1945,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1409,7 +1964,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.316,
+        -0.6327,
+        0.707
+      ]
     },
     {
       "a": [
@@ -1423,7 +1983,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1437,7 +2002,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1451,7 +2021,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        -2,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1465,7 +2045,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        0,
+        -2
+      ],
+      "dir": [
+        -0.5149,
+        0.7903,
+        0.332
+      ]
     },
     {
       "a": [
@@ -1479,7 +2069,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        0,
+        2
+      ],
+      "dir": [
+        -0.9319,
+        0.0716,
+        0.3555
+      ]
     },
     {
       "a": [
@@ -1493,7 +2093,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -1,
+        2,
+        0
+      ],
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -1507,7 +2117,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.7578,
+        0.012,
+        0.6523
+      ]
     },
     {
       "a": [
@@ -1521,7 +2136,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -2,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1535,7 +2160,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -1,
+        -2
+      ],
+      "dir": [
+        0.9162,
+        -0.2356,
+        0.3242
+      ]
     },
     {
       "a": [
@@ -1549,7 +2184,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.6368,
+        -0.6801,
+        0.3633
+      ]
     },
     {
       "a": [
@@ -1563,7 +2203,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        1,
+        -2
+      ],
+      "dir": [
+        0.3165,
+        0.897,
+        0.3086
+      ]
     },
     {
       "a": [
@@ -1577,7 +2227,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        1,
+        2
+      ],
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -1591,7 +2251,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.643,
+        0.2536,
+        0.7227
+      ]
     },
     {
       "a": [
@@ -1605,7 +2270,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1619,7 +2289,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1633,7 +2308,12 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.3165,
+        0.897,
+        0.3086
+      ]
     },
     {
       "a": [
@@ -1647,7 +2327,12 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.6368,
+        -0.6801,
+        0.3633
+      ]
     },
     {
       "a": [
@@ -1661,7 +2346,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1675,7 +2365,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        2,
+        -1,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1689,7 +2389,17 @@ export const NODES = {
         -1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        2,
+        0,
+        -1
+      ],
+      "dir": [
+        0.1917,
+        0.6467,
+        0.7383
+      ]
     },
     {
       "a": [
@@ -1703,7 +2413,17 @@ export const NODES = {
         1
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        2,
+        0,
+        1
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1717,7 +2437,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        2,
+        1,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1731,7 +2461,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1693,
+        -0.8997,
+        0.4023
+      ]
     },
     {
       "a": [
@@ -1745,7 +2480,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.7467,
+        -0.3221,
+        0.582
+      ]
     },
     {
       "a": [
@@ -1759,7 +2499,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.9319,
+        0.0716,
+        0.3555
+      ]
     },
     {
       "a": [
@@ -1773,7 +2518,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.9959,
+        -0.006,
+        0.0898
+      ]
     },
     {
       "a": [
@@ -1787,7 +2537,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0074,
+        -0.3583,
+        0.9336
+      ]
     },
     {
       "a": [
@@ -1801,7 +2556,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.289,
+        -0.9411,
+        0.1758
+      ]
     },
     {
       "a": [
@@ -1815,7 +2575,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -1829,7 +2594,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1843,7 +2613,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -1857,7 +2632,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -1871,7 +2651,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1885,7 +2670,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -1899,7 +2689,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.3128,
+        -0.034,
+        0.9492
+      ]
     },
     {
       "a": [
@@ -1913,7 +2708,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1798,
+        0.8627,
+        0.4727
+      ]
     },
     {
       "a": [
@@ -1927,7 +2727,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.9959,
+        -0.006,
+        0.0898
+      ]
     },
     {
       "a": [
@@ -1941,7 +2746,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.8531,
+        -0.0488,
+        0.5195
+      ]
     },
     {
       "a": [
@@ -1955,7 +2765,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1798,
+        0.8627,
+        0.4727
+      ]
     },
     {
       "a": [
@@ -1969,7 +2784,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.3807,
+        0.7056,
+        0.5977
+      ]
     },
     {
       "a": [
@@ -1983,7 +2803,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -1997,7 +2822,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -2011,7 +2841,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -2025,7 +2860,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -2039,7 +2879,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -2053,7 +2898,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2067,7 +2917,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0074,
+        -0.3583,
+        0.9336
+      ]
     },
     {
       "a": [
@@ -2081,7 +2936,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2629,
+        -0.9551,
+        0.1367
+      ]
     },
     {
       "a": [
@@ -2095,7 +2955,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.8123,
+        0.1921,
+        0.5508
+      ]
     },
     {
       "a": [
@@ -2109,7 +2974,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9177,
+        0.0906,
+        0.3867
+      ]
     },
     {
       "a": [
@@ -2123,7 +2993,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0263,
+        -0.8634,
+        0.5039
+      ]
     },
     {
       "a": [
@@ -2137,7 +3012,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1888,
+        0.055,
+        0.9805
+      ]
     },
     {
       "a": [
@@ -2151,7 +3031,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2165,7 +3050,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -2179,7 +3069,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -2193,7 +3088,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -2207,7 +3107,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -2221,7 +3126,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2235,7 +3145,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1218,
+        0.8359,
+        0.5352
+      ]
     },
     {
       "a": [
@@ -2249,7 +3164,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0511,
+        0.2578,
+        0.9648
+      ]
     },
     {
       "a": [
@@ -2263,7 +3183,12 @@ export const NODES = {
         -2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.8666,
+        -0.1027,
+        0.4883
+      ]
     },
     {
       "a": [
@@ -2277,7 +3202,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.8666,
+        -0.1027,
+        0.4883
+      ]
     },
     {
       "a": [
@@ -2291,7 +3221,12 @@ export const NODES = {
         -1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.3958,
+        -0.0265,
+        0.918
+      ]
     },
     {
       "a": [
@@ -2305,7 +3240,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0101,
+        0.9285,
+        0.3711
+      ]
     },
     {
       "a": [
@@ -2319,7 +3259,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -2333,7 +3278,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2347,7 +3297,12 @@ export const NODES = {
         2
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -2361,7 +3316,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -2375,7 +3335,12 @@ export const NODES = {
         1
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2389,7 +3354,12 @@ export const NODES = {
         0
       ],
       "fam": "spoke",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -2403,7 +3373,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -2,
+        -1,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2417,7 +3397,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -2,
+        0,
+        -1
+      ],
+      "dir": [
+        -0.5149,
+        0.7903,
+        0.332
+      ]
     },
     {
       "a": [
@@ -2431,7 +3421,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -2,
+        0,
+        1
+      ],
+      "dir": [
+        -0.9319,
+        0.0716,
+        0.3555
+      ]
     },
     {
       "a": [
@@ -2445,7 +3445,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        -2,
+        1,
+        0
+      ],
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -2459,7 +3469,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2473,7 +3488,12 @@ export const NODES = {
         -2
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.289,
+        -0.9411,
+        0.1758
+      ]
     },
     {
       "a": [
@@ -2487,7 +3507,12 @@ export const NODES = {
         2
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2501,7 +3526,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1369,
+        0.0675,
+        0.9883
+      ]
     },
     {
       "a": [
@@ -2515,7 +3545,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -2,
+        -1
+      ],
+      "dir": [
+        0.9162,
+        -0.2356,
+        0.3242
+      ]
     },
     {
       "a": [
@@ -2529,7 +3569,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1537,
+        -0.9278,
+        0.3398
+      ]
     },
     {
       "a": [
@@ -2543,7 +3588,12 @@ export const NODES = {
         -2
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.9263,
+        -0.3446,
+        0.1523
+      ]
     },
     {
       "a": [
@@ -2557,7 +3607,17 @@ export const NODES = {
         2
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        -1,
+        2
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2571,7 +3631,12 @@ export const NODES = {
         -2
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9114,
+        0.2968,
+        0.2852
+      ]
     },
     {
       "a": [
@@ -2585,7 +3650,12 @@ export const NODES = {
         2
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2599,7 +3669,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        2,
+        -1
+      ],
+      "dir": [
+        -0.5149,
+        0.7903,
+        0.332
+      ]
     },
     {
       "a": [
@@ -2613,7 +3693,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        0,
+        2,
+        1
+      ],
+      "dir": [
+        0.7378,
+        0.5786,
+        0.3477
+      ]
     },
     {
       "a": [
@@ -2627,7 +3717,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        -2,
+        0
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2641,7 +3741,17 @@ export const NODES = {
         -2
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        0,
+        -2
+      ],
+      "dir": [
+        0.3165,
+        0.897,
+        0.3086
+      ]
     },
     {
       "a": [
@@ -2655,7 +3765,17 @@ export const NODES = {
         2
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        0,
+        2
+      ],
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2669,7 +3789,17 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": false
+      "closing": false,
+      "arriving": [
+        1,
+        2,
+        0
+      ],
+      "dir": [
+        0.1888,
+        0.055,
+        0.9805
+      ]
     },
     {
       "a": [
@@ -2683,7 +3813,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2697,7 +3832,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9162,
+        -0.2356,
+        0.3242
+      ]
     },
     {
       "a": [
@@ -2711,7 +3851,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.7378,
+        0.5786,
+        0.3477
+      ]
     },
     {
       "a": [
@@ -2725,7 +3870,12 @@ export const NODES = {
         0
       ],
       "fam": "tie",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1888,
+        0.055,
+        0.9805
+      ]
     },
     {
       "a": [
@@ -2739,7 +3889,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.8515,
+        0.2569,
+        0.457
+      ]
     },
     {
       "a": [
@@ -2753,7 +3908,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -2767,7 +3927,12 @@ export const NODES = {
         -1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.8531,
+        -0.0488,
+        0.5195
+      ]
     },
     {
       "a": [
@@ -2781,7 +3946,12 @@ export const NODES = {
         1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -2795,7 +3965,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2809,7 +3984,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2823,7 +4003,12 @@ export const NODES = {
         -1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.289,
+        -0.9411,
+        0.1758
+      ]
     },
     {
       "a": [
@@ -2837,7 +4022,12 @@ export const NODES = {
         -2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.5149,
+        0.7903,
+        0.332
+      ]
     },
     {
       "a": [
@@ -2851,7 +4041,12 @@ export const NODES = {
         1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -2865,7 +4060,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2879,7 +4079,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -2893,7 +4098,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1693,
+        -0.8997,
+        0.4023
+      ]
     },
     {
       "a": [
@@ -2907,7 +4117,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.0263,
+        -0.8634,
+        0.5039
+      ]
     },
     {
       "a": [
@@ -2921,7 +4136,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -2935,7 +4155,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -2949,7 +4174,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -2963,7 +4193,12 @@ export const NODES = {
         -2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.6176,
+        -0.6892,
+        0.3789
+      ]
     },
     {
       "a": [
@@ -2977,7 +4212,12 @@ export const NODES = {
         -1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.9959,
+        -0.006,
+        0.0898
+      ]
     },
     {
       "a": [
@@ -2991,7 +4231,12 @@ export const NODES = {
         -2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.6368,
+        -0.6801,
+        0.3633
+      ]
     },
     {
       "a": [
@@ -3005,7 +4250,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -3019,7 +4269,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -3033,7 +4288,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.1798,
+        0.8627,
+        0.4727
+      ]
     },
     {
       "a": [
@@ -3047,7 +4307,12 @@ export const NODES = {
         -2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.9764,
+        0.1788,
+        0.1211
+      ]
     },
     {
       "a": [
@@ -3061,7 +4326,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1218,
+        0.8359,
+        0.5352
+      ]
     },
     {
       "a": [
@@ -3075,7 +4345,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.4488,
+        0.1108,
+        0.8867
+      ]
     },
     {
       "a": [
@@ -3089,7 +4364,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     },
     {
       "a": [
@@ -3103,7 +4383,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -3117,7 +4402,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -3131,7 +4421,12 @@ export const NODES = {
         -2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.7378,
+        0.5786,
+        0.3477
+      ]
     },
     {
       "a": [
@@ -3145,7 +4440,12 @@ export const NODES = {
         -1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.2629,
+        -0.9551,
+        0.1367
+      ]
     },
     {
       "a": [
@@ -3159,7 +4459,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.8123,
+        0.1921,
+        0.5508
+      ]
     },
     {
       "a": [
@@ -3173,7 +4478,12 @@ export const NODES = {
         2
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.4187,
+        0.2286,
+        0.8789
+      ]
     },
     {
       "a": [
@@ -3187,7 +4497,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        -0.1589,
+        -0.4647,
+        0.8711
+      ]
     },
     {
       "a": [
@@ -3201,7 +4516,12 @@ export const NODES = {
         0
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.032,
+        -0.0823,
+        0.9961
+      ]
     },
     {
       "a": [
@@ -3215,7 +4535,12 @@ export const NODES = {
         -1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.8666,
+        -0.1027,
+        0.4883
+      ]
     },
     {
       "a": [
@@ -3229,7 +4554,12 @@ export const NODES = {
         1
       ],
       "fam": "rim",
-      "closing": true
+      "closing": true,
+      "dir": [
+        0.0663,
+        0.4259,
+        0.9023
+      ]
     }
   ],
   "cuts": {

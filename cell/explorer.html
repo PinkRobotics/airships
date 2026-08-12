@@ -422,14 +422,16 @@
 
   <p class="sowhat"><b>And it can assemble itself — press <b>assemble</b>, top centre.</b>
   The build the animation plays is not choreography: it is the assembly prover's own order,
-  inside-out, the sequence in which every one of the
-  <span data-n="nodes.members" data-f="0"></span> members is proven to have a clear
-  straight-line path at its own turn. Each of the
-  <span data-n="nodes.nodes" data-f="0"></span> joints flies in just before the first member
-  that needs it; a tree member slides home axially over its long spigot; a closing member —
-  there is no other way into a loop of fixed joints — arrives tilted at its own computed
-  entry angle and rotates down onto its pilots. The skin stays off until the frame is
-  whole, because that is the build order too.</p>
+  inside-out, and every approach is a line the prover verified — each of the
+  <span data-n="nodes.members" data-f="0"></span> members flies in along the straight-line
+  escape proven clear of everything placed before its turn, reversed. Of the
+  <span data-n="nodes.nodes" data-f="0"></span> joints, most fly in just before the first
+  member that needs them; the ones the spanning tree discovers ride in <em>with</em> their
+  tree member, joint and pipe sliding home as one along the parent axis — the free-motion
+  proof's own sweep. A closing member — there is no other way into a loop of fixed
+  joints — arrives tilted at its own computed entry angle and rotates down onto its
+  pilots. The skin stays off until the frame is whole, because that is the build order
+  too.</p>
 
   <p class="sowhat"><b>This cell does not float, and printing is not what decides it.</b> To
   float it would have to weigh under
@@ -1421,8 +1423,8 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3887d2a2';
-import * as CELL from './model.js?v=3887d2a2';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=c029f650';
+import * as CELL from './model.js?v=c029f650';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
