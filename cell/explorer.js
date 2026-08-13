@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=dd909879';
-import * as G from './explorer-geom.js?v=dd909879';
+import * as CELL from './model.js?v=84313257';
+import * as G from './explorer-geom.js?v=84313257';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=dd909879';
+} from './nodes.generated.js?v=84313257';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=dd909879';
+import { NODEMESHES } from './nodemeshes.generated.js?v=84313257';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=dd909879';
+import { SKIN } from './skin.generated.js?v=84313257';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=dd909879';
+import { SHIP, BAND, GRID } from './catalog.js?v=84313257';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1965,19 +1965,37 @@ function buildGrid() {
   const vlist = [...verts.values()];
   pipes('GridPosts', vlist.map(([u, v]) => [at(u, v, 0), at(u, v, D.tileDepth)]),
     0.026, XM.pipe);
-  // The hoop chords, running under the vertex rows the posts stand on.
+  // The hoop chords, running under the vertex rows the posts stand on. POLYLINES, not
+  // single segments: a straight chord across a 12 m patch sags ~0.7 m below a 26 m radius,
+  // which drew the rings as a flat floor under a curved wall — the operator's "flat patio".
   const rows = [...new Set(vlist.map(([u]) => Math.round(u / ROW)))].sort((x, y) => x - y);
-  pipes('GridHoops', rows.map(k => {
-    const u = k * ROW;
-    return [at(u, -NV * 1.5 * A - A, D.tileDepth), at(u, NV * 1.5 * A + A, D.tileDepth)];
-  }), 0.10, XM.pipeRim);
-  // Webs down to the inner wall, from every second ring.
-  pipes('GridWebs', rows.filter((_, i) => i % 4 === 0).map(k => {
-    const u = k * ROW;
-    return [at(u, 0, D.tileDepth), at(u + 2 * ROW, 0, D.tileDepth + GRID.depthM)];
-  }), 0.055, XM.pipe);
-  pipes('GridInner', [[at(-NU * 2 * ROW, 0, D.tileDepth + GRID.depthM),
-                       at(NU * 2 * ROW, 0, D.tileDepth + GRID.depthM)]], 0.10, XM.pipeRim);
+  const vHalf = NV * 1.5 * A + A, ARCSEG = 20;
+  const arc = (u, off) => {
+    const out = [];
+    let prev = null;
+    for (let i = 0; i <= ARCSEG; i++) {
+      const v = -vHalf + 2 * vHalf * i / ARCSEG;
+      const q = at(u, v, off);
+      if (prev) out.push([prev, q]);
+      prev = q;
+    }
+    return out;
+  };
+  // ~100 mm OD, the scoping size: N = pR over the row pitch at mid coupon class.
+  pipes('GridHoops', rows.flatMap(k => arc(k * ROW, D.tileDepth)), 0.05, XM.pipeRim);
+  // The inner wall: its own rings at bay pitch, and the webs that fan down to them.
+  const innerOff = D.tileDepth + GRID.depthM;
+  const innerRows = rows.filter((_, i) => i % 4 === 0);
+  pipes('GridInner', innerRows.flatMap(k => arc(k * ROW, innerOff)), 0.055, XM.pipeRim);
+  const webs = [];
+  for (const k of innerRows) {
+    for (let c = -2; c <= 2; c++) {
+      const v = c * vHalf / 2.5;
+      webs.push([at(k * ROW, v, D.tileDepth), at(k * ROW + 2 * ROW, v, innerOff)]);
+      webs.push([at(k * ROW + 4 * ROW, v, D.tileDepth), at(k * ROW + 2 * ROW, v, innerOff)]);
+    }
+  }
+  pipes('GridWebs', webs, 0.038, XM.pipe);
 
   // The film: one dished panel per tile, laid course only.
   const laidCentres = centres.filter(c => c[0] > -1.6 * ROW);
