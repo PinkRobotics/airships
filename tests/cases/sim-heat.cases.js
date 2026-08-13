@@ -14,7 +14,7 @@
  * These tests exist so that the argument cannot be dropped again in silence.
  */
 import { describe, it, eq, ok } from '../harness.js';
-import { buildMission, planTargets, setSeed } from '../../sim/index.js?v=fba8793e';
+import { buildMission, planTargets, setSeed } from '../../sim/index.js?v=c7b8ef0e';
 
 /* A large fire with a big lake to the west. Interior BC coordinates, so the water search
    and the community scoring behave as they do in production. */

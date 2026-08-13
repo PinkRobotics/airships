@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=fba8793e';
-import * as G from './explorer-geom.js?v=fba8793e';
+import * as CELL from './model.js?v=c7b8ef0e';
+import * as G from './explorer-geom.js?v=c7b8ef0e';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=fba8793e';
+} from './nodes.generated.js?v=c7b8ef0e';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=fba8793e';
+import { NODEMESHES } from './nodemeshes.generated.js?v=c7b8ef0e';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=fba8793e';
+import { SKIN } from './skin.generated.js?v=c7b8ef0e';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=fba8793e';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=c7b8ef0e';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -75,6 +75,8 @@ const XM = {
   pipeGhost: { kind: 'line', color: TOKENS.muted, weight: 1.0, opacity: 0.5 },
   membrane: { kind: 'glass', color: '#9aa2b8', opacity: 0.05 },
   membraneLoaded: { kind: 'glass', color: TOKENS.warm, opacity: 0.18 },
+  // Photovoltaic skin on the hull's sun side — dark blue-grey, glossier than film.
+  solar: { kind: 'surface', color: '#24415f', spec: 0.55, opacity: 1 },
   kelvinGhost: { kind: 'glass', color: '#7aa2c8', opacity: 0.07 },
   // The band as the ship wears it: an opaque skin of film-wrapped cells. Bone-grey rather
   // than pink because at ship range you are looking at the weathered outside of the wall,
@@ -2115,14 +2117,26 @@ function buildGrid() {
     const joints = new Map();
     const joint = (q) => joints.set(
       `${q[0].toFixed(2)},${q[1].toFixed(2)},${q[2].toFixed(2)}`, q);
+    // End beads sit ON the hoop surfaces, not at the centrelines the pipes
+    // swallow (operator catch, 08-13): outer landings pull in by the ring's
+    // own radius, inner landings pull out by the inner hoop's.
+    const INNER_R = 0.055;
     for (const u of innerRows) {
       for (let c = -3; c < 3; c++) {
         const v0 = c * vHalf / 3.5, v1 = (c + 1) * vHalf / 3.5;
         tx.push([at(u, v0, 0), at(u, v1, GRID.depthM)]);
         tx.push([at(u, v1, 0), at(u, v0, GRID.depthM)]);
-        joint(at(u, v0, 0)); joint(at(u, v1, 0));
-        joint(at(u, v0, GRID.depthM)); joint(at(u, v1, GRID.depthM));
-        joint(at(u, (v0 + v1) / 2, GRID.depthM / 2));   // the X crossing
+        joint(at(u, v0, RING_R)); joint(at(u, v1, RING_R));
+        joint(at(u, v0, GRID.depthM - INNER_R));
+        joint(at(u, v1, GRID.depthM - INNER_R));
+        // The X crossing: on a curved wall the two diagonals are SKEW, and the
+        // parametric midpoint missed them (operator catch). By symmetry their
+        // closest-approach midpoint is the world centroid of the four corners.
+        const c00 = at(u, v0, 0), c11 = at(u, v1, GRID.depthM);
+        const c10 = at(u, v1, 0), c01 = at(u, v0, GRID.depthM);
+        joint([(c00[0] + c11[0] + c10[0] + c01[0]) / 4,
+               (c00[1] + c11[1] + c10[1] + c01[1]) / 4,
+               (c00[2] + c11[2] + c10[2] + c01[2]) / 4]);
       }
     }
     pipes('GridTheta', tx, 0.02, XM.pipe);
@@ -2131,8 +2145,9 @@ function buildGrid() {
       const u0 = innerRows[n], u1 = innerRows[n + 1], mid = (u0 + u1) / 2;
       for (let c = -3; c <= 3; c++) {
         const v = c * vHalf / 3.5;
-        joint(at(mid, v, 0));
-        joint(at(u0, v, GRID.depthM)); joint(at(u1, v, GRID.depthM));
+        joint(at(mid, v, RING_R));
+        joint(at(u0, v, GRID.depthM - INNER_R));
+        joint(at(u1, v, GRID.depthM - INNER_R));
       }
     }
     {
@@ -2321,6 +2336,34 @@ function buildVessel() {
     const r = st.r - st.nr * off;
     return [st.x - st.nx * off, -r * Math.cos(th), r * Math.sin(th), r];
   };
+  // SOLAR (operator, 08-13): the sun side is the farm — a band of PV plates
+  // over the top sector of the barrel, sitting proud of the film on the same
+  // frames everything else uses. Placement only; the energy budget lives in
+  // the fleet model, not here.
+  {
+    const px2 = [];
+    const sA = D.sCap, sB = D.sCap + D.cylL;
+    for (let i = 0; i < 10; i++) {
+      const s = sA + (sB - sA) * (i + 0.5) / 10;
+      const st = shipStation(D, s);
+      for (let c = -3; c <= 3; c++) {
+        const th = Math.PI / 2 + c * 0.21;
+        const uu = [0, -Math.cos(th), Math.sin(th)];
+        const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
+        const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
+        const thop = [0, -Math.sin(th), -Math.cos(th)];
+        const q = point(s, -0.12, th);
+        px2.push([thop, tm, n, [q[0], q[1], q[2]]]);
+      }
+    }
+    const xf = new Float32Array(px2.length * 16);
+    px2.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0,
+      Y[0], Y[1], Y[2], 0, Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
+    const sol = inst(root, { id: 'VesselSolar' }, xf, px2.length, {});
+    sol.geom = G.filmDomeGeom(4.3, 0.05, 4, 1);
+    sol.xmat = XM.solar;
+  }
+
   const normalAt = (s, th) => {
     const st = shipStation(D, s);
     return [st.nx, -st.nr * Math.cos(th), st.nr * Math.sin(th)];
@@ -2351,44 +2394,64 @@ function buildVessel() {
   }
   pipesFromSegs(root, 'VesselStraps', straps, 0.09, XM.printed, 6);
 
-  // THRUST: pods at the widest band, port and starboard, slightly below the
-  // beam so the discs also clear the bridle. Pylon > rotor radius, visibly.
+  // THRUST, GIMBALLED (operator ruling, 08-13). Two duties, wildly unequal:
+  // cruise thrust is CHEAP (a trimmed-neutral ship fights only drag) and
+  // HOLDDOWN is EXPENSIVE (the scoop-and-drop transient is ~100 t of force
+  // with nowhere to hide; lifting a heavy ship is the same bill upward, rare
+  // by doctrine). So the pods sit LOW on the widest band — the downthrust
+  // line passes as near the CG as an exterior mount allows, with pitch and
+  // roll authority from the fore/aft spread — and every pod vectors. Drawn
+  // MID-DUTY, not animated: every disc pointed to push the ship down and
+  // forward at once, the posture the water cycle actually flies.
   const ROTOR_R = 5.5, PYLON = 7.5, NAC_L = 7.0;
+  const thrustA = (() => {
+    const v = [-0.45, 0, -1];
+    const n2 = Math.hypot(v[0], v[1], v[2]);
+    return [v[0] / n2, v[1] / n2, v[2] / n2];
+  })();
+  const tB = [thrustA[2], 0, -thrustA[0]];
+  const tC = [thrustA[1] * tB[2] - thrustA[2] * tB[1],
+              thrustA[2] * tB[0] - thrustA[0] * tB[2],
+              thrustA[0] * tB[1] - thrustA[1] * tB[0]];
   const podS = [0.40, 0.52, 0.64].map(f => D.total * f);
   const pylons = [], rotors = [], podXf = [];
   for (const s of podS) {
     for (const side of [0, Math.PI]) {
-      const th = side - 0.38 + (side === 0 ? 0 : 0.76); // 0.38 rad below each beam
+      const th = side === 0 ? -0.52 : Math.PI + 0.52;   // low on each flank
       const base = point(s, 0, th);
       const n = normalAt(s, th);
       const hub = [base[0] + n[0] * PYLON, base[1] + n[1] * PYLON,
                    base[2] + n[2] * PYLON];
       pylons.push({ a: [base[0], base[1], base[2]], b: hub });
       podXf.push(hub);
-      // The disc: a rim ring + three blades in the y-z plane about the hub.
-      const rim = [];
+      // The disc rides the THRUST axis: rim + three blades in the plane
+      // perpendicular to down-and-forward.
+      const hf = [hub[0] + thrustA[0] * NAC_L * 0.28,
+                  hub[1] + thrustA[1] * NAC_L * 0.28,
+                  hub[2] + thrustA[2] * NAC_L * 0.28];
+      const rimAt = (a2) => [
+        hf[0] + ROTOR_R * (Math.cos(a2) * tB[0] + Math.sin(a2) * tC[0]),
+        hf[1] + ROTOR_R * (Math.cos(a2) * tB[1] + Math.sin(a2) * tC[1]),
+        hf[2] + ROTOR_R * (Math.cos(a2) * tB[2] + Math.sin(a2) * tC[2])];
       let prev = null;
       for (let j = 0; j <= 36; j++) {
-        const a = 2 * Math.PI * j / 36;
-        const q = [hub[0] + NAC_L * 0.28,
-                   hub[1] + ROTOR_R * Math.cos(a), hub[2] + ROTOR_R * Math.sin(a)];
-        if (prev) rim.push({ a: prev, b: q });
+        const q = rimAt(2 * Math.PI * j / 36);
+        if (prev) rotors.push({ a: prev, b: q });
         prev = q;
       }
-      for (let b = 0; b < 3; b++) {
-        const a = 2 * Math.PI * b / 3;
-        rim.push({ a: [hub[0] + NAC_L * 0.28, hub[1], hub[2]],
-                   b: [hub[0] + NAC_L * 0.28, hub[1] + ROTOR_R * Math.cos(a),
-                       hub[2] + ROTOR_R * Math.sin(a)] });
+      for (let b2 = 0; b2 < 3; b2++) {
+        rotors.push({ a: hf.slice(), b: rimAt(2 * Math.PI * b2 / 3) });
       }
-      rotors.push(...rim);
     }
   }
   pipesFromSegs(root, 'VesselPylons', pylons, 0.28, XM.pipeRim, 8);
   pipesFromSegs(root, 'VesselRotors', rotors, 0.10, XM.pipe, 6);
   {
     const xf = new Float32Array(podXf.length * 16);
-    podXf.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+    podXf.forEach((q, i) => xf.set([
+      thrustA[0], thrustA[1], thrustA[2], 0,
+      tB[0], tB[1], tB[2], 0,
+      tC[0], tC[1], tC[2], 0,
       q[0], q[1], q[2], 1], i * 16));
     const nac = inst(root, { id: 'VesselPods' }, xf, podXf.length, {});
     nac.geom = latheWithScale([[-NAC_L / 2, 0.4], [-NAC_L * 0.2, 1.1],
@@ -2421,8 +2484,11 @@ function buildVessel() {
     tanks.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
       q[0], q[1], q[2], 1], i * 16));
     const tk = inst(root, { id: 'VesselTanks' }, xf, tanks.length, {});
-    tk.geom = latheWithScale([[-ML * 0.36, 0.3], [-ML * 0.30, 1.75],
-      [ML * 0.30, 1.75], [ML * 0.36, 0.3]], 18, () => 1);
+    // Sized to the water, not to the raft (operator check, 08-13): three
+    // barrels of pi x 1.2^2 x 7.7 = 34.8 m3 each — 104 m3 together, the
+    // Mission-0 100 t split with trim margin. The old draw was ~380 m3.
+    tk.geom = latheWithScale([[-4.2, 0.25], [-3.85, 1.2],
+      [3.85, 1.2], [4.2, 0.25]], 18, () => 1);
     tk.xmat = XM.membraneLoaded;
     const gear = [[xMid - ML * 0.42, -MW * 0.22, mz1 + 0.8],
                   [xMid - ML * 0.42, MW * 0.22, mz1 + 0.8],
@@ -2447,9 +2513,29 @@ function buildVessel() {
     }
   }
   const bucketZ = mz1 - 15;
-  lines.push([[xMid, 0, mz1], [xMid, 0, bucketZ + 3.2]]);
+  const boxZ = bucketZ + 7.0;
+  // THE PUMP + ANCHOR-WINCH BOX (operator, 08-13): the working end that gets
+  // LOWERED to the water — pumps to fill the tanks, and the winch whose anchor
+  // drops from here to grab the water and pull the ship DOWN against its own
+  // buoyancy while it drinks. A box is sufficient; the drop line carries it,
+  // the bucket hangs beneath, the anchor line runs on past both.
+  lines.push([[xMid, 0, mz1], [xMid, 0, boxZ + 1.2]]);
+  lines.push([[xMid, 0, boxZ - 1.2], [xMid, 0, bucketZ + 1.9]]);
+  lines.push([[xMid, 0, boxZ - 1.2], [xMid, 0, bucketZ - 9.0]]);
   lineNode(root, 'VesselLines', lines,
     { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
+  {
+    const bx = new Float32Array(16);
+    bx.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, xMid, 0, boxZ, 1]);
+    const pw = inst(root, { id: 'VesselPumpWinch' }, bx, 1, {});
+    pw.geom = boxGeom(2.4, 3.2, 2.4);
+    pw.xmat = XM.printed;
+    const ax = new Float32Array(16);
+    ax.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, xMid, 0, bucketZ - 9.0, 1]);
+    const an = inst(root, { id: 'VesselAnchor' }, ax, 1, {});
+    an.geom = G.beadGeom(1.0, 0.7, 0.9, 10);
+    an.xmat = XM.pipe;
+  }
   {
     const bxf = new Float32Array(16);
     bxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid, 0, bucketZ, 1]);
@@ -2471,6 +2557,21 @@ function buildVessel() {
       { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. We build this 52 m hull first; the spec is what it graduates into' },
     ],
   };
+}
+
+function boxGeom(w, l, h) {
+  const x = l / 2, y = w / 2, z = h / 2;
+  const P = [[-x, -y, -z], [x, -y, -z], [x, y, -z], [-x, y, -z],
+             [-x, -y, z], [x, -y, z], [x, y, z], [-x, y, z]];
+  const F = [[0, 1, 2, 3], [7, 6, 5, 4], [0, 4, 5, 1],
+             [1, 5, 6, 2], [2, 6, 7, 3], [3, 7, 4, 0]];
+  const pos = [], idx = [];
+  for (const f of F) {
+    const b0 = pos.length / 3;
+    for (const vi of f) pos.push(...P[vi]);
+    idx.push(b0, b0 + 1, b0 + 2, b0, b0 + 2, b0 + 3);
+  }
+  return G.solid(new Float32Array(pos), new Uint32Array(idx));
 }
 
 function latheWithScale(prof, seg, sScale) {
@@ -2579,12 +2680,6 @@ const LEVEL_VIEWS = {
     { k: 'above', n: 'from above', az: -0.9, el: 1.15, d: 1.7 },
     { k: 'level', n: 'level with it', az: -0.9, el: 0.03, d: 1.45 },
   ],
-  array: [
-    { k: 'whole', n: 'the divided void', tg: [0, 0, 0], az: -0.9, el: 0.25, d: 105 },
-    { k: 'membrane', n: 'one membrane', tg: [-17.3, 0, 0], az: -1.35, el: 0.12, d: 34 },
-    { k: 'inside', n: 'inside a compartment', tg: [8.7, 0, 0], az: -0.7, el: 0.05, d: 10 },
-    { k: 'fromship', n: 'see it from the ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
-  ],
 };
 
 /* THE FLY-THROUGH — the operator's ask, verbatim: "the complete ship with all
@@ -2616,9 +2711,10 @@ export const LEVELS = [
   // the descent to the level below goes into a cell already on screen instead of cutting
   // to a new model. openC in buildArray is the same point; one constant, both places.
   { id: 'bay', name: 'The grid', scaleM: 20, radius: 9, depthR: 130, az: -0.62, el: 0.85, dist: 3.0, target: [0, 0, SHIP.diaM / 2 - GRID.depthM / 2], build: buildGrid, instance: 'flight' },
-  { id: 'array', name: 'The compartments', scaleM: 30, radius: 62, depthR: 130,
-    az: -0.9, el: 0.25, dist: 1.6, target: [0, 0, 0], build: buildArray,
-    instance: 'flight' },
+  // THE COMPARTMENTS LEVEL IS RETIRED (operator + agreement, 08-13): the level
+  // drew ONE membrane arrangement while SHIP-5 is an open policy, and the drawn
+  // slabs escaped the hull. The doctrine paragraph lives on the hull panel; the
+  // level returns when the policy is decided, drawn from a decided rule.
   // THE HULL — the blueprint's closure level: the 52 x 104 plan of record, bare —
   // every member class the gated model prices, and nothing else. (Renamed from
   // 'Ship 0', operator 08-13: the ship is the level above, wearing its gear.)
@@ -3196,11 +3292,12 @@ export function mountExplorer(opts) {
                        ShipLongs: 'skeleton', ShipInnerRings: 'skeleton',
                        ShipWebs: 'webs', ShipTheta: 'webs', ShipJunction: 'webs',
                        ShipSpokes: 'spokes', ShipVoidSkin: 'voidskin' };
-  const VESSEL_LAYER = { VesselWrap: 'wall',
+  const VESSEL_LAYER = { VesselWrap: 'wall', VesselSolar: 'wall',
                          VesselPylons: 'pods', VesselPods: 'pods',
                          VesselRotors: 'pods',
                          VesselModule: 'module', VesselTanks: 'module',
                          VesselGear: 'module', VesselBucket: 'module',
+                         VesselPumpWinch: 'module', VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines' };
   const styleFor = (n) => {
     // THE CONNECTOR LEVEL HIDES THE SKIN (operator, 08-13): its tour parks the
@@ -3665,53 +3762,13 @@ export function mountExplorer(opts) {
   /* -- DOM labels -- */
   const labelEls = new Map();
   function placeLabels() {
-    const b = built[state.levelIdx];
-    const fade = diving() ? built[transition.to].fade : 1;
-    const view = viewMatrix(cam);
-    const proj = projMatrix(cam, sceneBox.w / sceneBox.h);
-    const wanted = new Set();
-    const src = diving() ? built[transition.to] : b;
-    // A tour's captions belong to the stop, not the level. Label elements are created once
-    // per key and their innerHTML is written only at creation, so a level-indexed key would
-    // show stop 0's caption over every later stop — confidently, and invisibly, wrong.
-    const idx = LEVELS.indexOf(src.level);
-    const stop = tourOf(idx) ? tourOf(idx).stops[clamp(state.tourIdx, 0,
-      tourOf(idx).stops.length - 1)] : null;
-    const labels = stop ? stop.labels : src.labels;
-    for (let i = 0; i < labels.length; i++) {
-      const lb = labels[i];
-      const key = `${src.level.id}_${stop ? stop.key : '-'}_${i}`;
-      wanted.add(key);
-      let el = labelEls.get(key);
-      if (!el) {
-        el = document.createElement('div');
-        el.className = 'lbl';
-        el.innerHTML = `<b>${lb.t}</b>${lb.s ? `<span>${lb.s}</span>` : ''}`;
-        labelLayer.appendChild(el);
-        labelEls.set(key, el);
-      }
-      let p = projectPoint(view, proj, lb.p);
-      if (!p) { el.style.display = 'none'; continue; }
-      // NEVER OVER THE ARTICLE. A caption sitting on the thing it describes hides it, and the
-      // designer asked for them to float nearby instead. Push each label radially away from
-      // the model's own screen centre until it clears a keep-out disc sized to the level's
-      // framing — the direction it already wanted to sit in is preserved, only the distance
-      // changes, so a label attached to the left of something stays on the left.
-      const c = projectPoint(view, proj, cam.target);
-      if (c) {
-        const dx = p[0] - c[0], dy = p[1] - c[1];
-        const r = Math.hypot(dx, dy) || 1;
-        // 0.30 was still inside the silhouette — the article fills most of the frame at
-        // these framings, so clearing it means going most of the way to the edge.
-        const keepOut = Math.min(sceneBox.w, sceneBox.h) * 0.46;
-        if (r < keepOut) p = [c[0] + dx / r * keepOut, c[1] + dy / r * keepOut];
-      }
-      el.style.display = '';
-      el.style.opacity = (Math.max(0, fade * 1.15 - 0.15)).toFixed(2);
-      el.style.transform = `translate(${p[0].toFixed(1)}px, ${p[1].toFixed(1)}px)`;
-    }
-    for (const [key, el] of labelEls) {
-      if (!wanted.has(key)) { el.remove(); labelEls.delete(key); }
+    // FLOATING CARDS ARE RETIRED (operator, 08-13): every reading they
+    // carried lives in the side panel now — one place to read, nothing
+    // drifting over the model. The builders still declare label data; this
+    // layer simply never mounts it, so bringing a card back is one revert.
+    if (labelEls.size) {
+      for (const el of labelEls.values()) el.remove();
+      labelEls.clear();
     }
   }
   function projectPoint(view, proj, p) {

@@ -298,3 +298,35 @@ module scope is the pattern (the gate caught it before any human did).
   connector print-swap arithmetic now measures against the SKINLESS baseline — with
   skinTris measured by driving the real skin button by READ-BACK (counted clicks
   assumed 'solid' when the default was glass, and measured zero).
+
+
+## MORNING, PART 7 — the vessel kit, compartments retired, cards retired
+
+- **Grid joints true**: X-crossing beads at the world centroid of the four corners (the
+  diagonals are SKEW on a curved wall; the parametric midpoint missed — operator catch);
+  end beads pulled onto the hoop SURFACES (outer in by the ring radius, inner out by the
+  inner hoop's) instead of being swallowed at centrelines.
+- **THE COMPARTMENTS LEVEL IS RETIRED** (operator + agreement): it drew ONE membrane
+  arrangement while SHIP-5 is an open policy, and the drawn slabs escaped the hull. The
+  doctrine paragraph lives on the hull panel ("membranes so a holed wall floods a room,
+  not the ship — ~10 t of air a minute through a cell-sized hole"); membranes stay
+  priced as skins; the level returns when the policy is decided. Ladder is 7 levels.
+- **The vessel kit grew the working end**: pump + anchor-winch BOX on the drop line
+  above the bucket (lowered to the water as one unit; the anchor line runs on past the
+  bucket to the anchor weight). TANKS resized to the water: three 34.8 m3 barrels =
+  104 m3 — the Mission-0 100 t split with trim margin (the old draw was ~380 m3).
+  SOLAR band on the hull's top sector (70 plates, placement only — energy budget lives
+  in the fleet model). ROTORS GIMBALLED mid-duty: pods moved lower on the widest band
+  (downthrust line near the CG; fore-aft spread for pitch/roll authority) and every
+  disc pointed down-and-forward — the water cycle's posture. Cruise is the cheap duty;
+  holddown is the expensive one; lifting heavy is the same bill upward, rare by doctrine.
+- **FLOATING CARDS RETIRED on every level**: placeLabels() unmounts and never rebuilds;
+  every reading they carried was folded into the side panels (rotor duties, working
+  end, connector-at-every-landing with the eta pricing, skin-hidden-here on strut,
+  open-policy compartments on the hull).
+- **TRAP RE-PAID: the missing-id audit.** Removing the reseal button orphaned its
+  addEventListener and the null killed the wiring module — the tour button died and
+  the gate said 'the camera did not move'. The audit (ids wired vs ids present) found
+  it in one line. HANDOFF already warned about exactly this.
+- Stray processes: two idle serve.py killed; no headless Chromium; the mouse stutter
+  suspect is localsearch-3 (GNOME indexer) chewing the night's file churn + openrgb.
