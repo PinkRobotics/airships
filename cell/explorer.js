@@ -24,21 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=1c525370';
-import * as G from './explorer-geom.js?v=1c525370';
+import * as CELL from './model.js?v=8c75847b';
+import * as G from './explorer-geom.js?v=8c75847b';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=1c525370';
+} from './nodes.generated.js?v=8c75847b';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=1c525370';
+import { NODEMESHES } from './nodemeshes.generated.js?v=8c75847b';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=1c525370';
+import { SKIN } from './skin.generated.js?v=8c75847b';
+// SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
+// provenance comments and scoping status, until ship.js lands under the gates (see
+// docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
+// the drawn population and the quoted population are one number. model.js stays the cell's.
+import { SHIP, BAND } from './catalog.js?v=8c75847b';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -71,6 +76,10 @@ const XM = {
   membrane: { kind: 'glass', color: '#9aa2b8', opacity: 0.05 },
   membraneLoaded: { kind: 'glass', color: TOKENS.warm, opacity: 0.18 },
   kelvinGhost: { kind: 'glass', color: '#7aa2c8', opacity: 0.07 },
+  // The band as the ship wears it: an opaque skin of film-wrapped cells. Bone-grey rather
+  // than pink because at ship range you are looking at the weathered outside of the wall,
+  // not at a load diagram — the colour code (pink = loaded film) belongs to the sections.
+  sealedWall: { kind: 'surface', color: '#8f96a3', spec: 0.30, opacity: 1 },
   fairing: { kind: 'glass', color: '#54555f', opacity: 0.16 },
   band: { kind: 'glass', color: TOKENS.cool, opacity: 0.14 },
   bulkhead: { kind: 'glass', color: TOKENS.bone, opacity: 0.14 },
@@ -1836,6 +1845,103 @@ function buildHull(ctx) {
   };
 }
 
+/* Level — SHIP 0: the whole vehicle drawn as what it is — a sealed wall of cells.
+ *
+ * Every instance is the real Kelvin silhouette at band pitch, SHELL ONLY: at this range a
+ * cell's internal lattice is smaller than a pixel, and the ship story is the skin-and-bones
+ * ruling, not the octet (the operator's direction: cells render without internal structure
+ * at ship view). Cells are drawn 2% under pitch so the seams read and the surface says
+ * "wall of cells" instead of "smooth hull".
+ *
+ * Dimensions and the cell count come from catalog.js — the blueprint page's own data
+ * module, typed once with provenance there and scoping-chipped on the panel. The pitch is
+ * DERIVED (surface area over the quoted count), so the drawn population IS the quoted
+ * population and the two cannot disagree. When ship.js lands under the gates these become
+ * imports and the chips come off; nothing here reaches into model.js, which owns the cell.
+ *
+ * The shape is the plan of record: a stubby 2:1 cigar — cylinder plus hemispherical ends.
+ * Cap tiling is schematic (rings shrink toward the poles; real cells cannot tile a sphere
+ * at constant pitch), which the panel says out loud. */
+function buildShip() {
+  const root = node({ id: 'L_ship', category: 'vacuum', selectable: false });
+  const R = SHIP.diaM / 2;
+  const cylL = SHIP.lenM - SHIP.diaM;
+  const area = 2 * Math.PI * R * cylL + 4 * Math.PI * R * R;
+  const pitch = Math.sqrt(area / BAND.cells);
+  const sCap = Math.PI * R / 2;                 // meridian length of one hemisphere
+  const total = 2 * sCap + cylL;
+  const nRings = Math.round(total / pitch);
+
+  // Meridian station at arc length s from the nose pole: axial x, ring radius r, and the
+  // outward normal / tailward tangent in the (x, radial) plane.
+  const station = (s) => {
+    if (s <= sCap) {
+      const a = s / R;                          // polar angle from the nose pole
+      return { x: -cylL / 2 - R * Math.cos(a), r: R * Math.sin(a),
+               nx: -Math.cos(a), nr: Math.sin(a), tx: Math.sin(a), tr: Math.cos(a) };
+    }
+    if (s <= sCap + cylL) {
+      return { x: -cylL / 2 + (s - sCap), r: R, nx: 0, nr: 1, tx: 1, tr: 0 };
+    }
+    const b = (s - sCap - cylL) / R;            // angle past the tail equator
+    return { x: cylL / 2 + R * Math.sin(b), r: R * Math.cos(b),
+             nx: Math.sin(b), nr: Math.cos(b), tx: Math.cos(b), tr: -Math.sin(b) };
+  };
+
+  const xfs = [];
+  const place = (p, X, Y, Z) => {
+    xfs.push(X[0], X[1], X[2], 0, Y[0], Y[1], Y[2], 0, Z[0], Z[1], Z[2], 0,
+             p[0], p[1], p[2], 1);
+  };
+  const inset = pitch / 2;                      // cell centres sit half a span under the surface
+  for (let i = 0; i <= nRings; i++) {
+    const st = station(total * i / nRings);
+    const m = Math.round(2 * Math.PI * st.r / pitch);
+    if (m < 3) continue;                        // the poles get their own single cells below
+    for (let j = 0; j < m; j++) {
+      const th = 2 * Math.PI * j / m;
+      // The lathe convention: a ring point at angle th sits along u = (0, -cos th, sin th).
+      const u = [0, -Math.cos(th), Math.sin(th)];
+      const n = [st.nx, st.nr * u[1], st.nr * u[2]];
+      const tm = [st.tx, st.tr * u[1], st.tr * u[2]];
+      // Negated hoop tangent, so the (X, Y, Z) basis stays right-handed with Z outward.
+      const thop = [0, -Math.sin(th), -Math.cos(th)];
+      const p = [st.x - n[0] * inset, st.r * u[1] - n[1] * inset, st.r * u[2] - n[2] * inset];
+      place(p, thop, tm, n);
+    }
+  }
+  // One cell on each pole, square face out along the axis.
+  place([-(SHIP.lenM / 2 - inset), 0, 0], [0, 0, 1], [0, 1, 0], [-1, 0, 0]);
+  place([SHIP.lenM / 2 - inset, 0, 0], [0, 0, -1], [0, 1, 0], [1, 0, 0]);
+
+  const count = xfs.length / 16;
+  const cells = inst(root, { id: 'ShipCells' }, new Float32Array(xfs), count, {});
+  cells.geom = G.kelvinGeom(pitch * 0.98);
+  cells.xmat = XM.sealedWall;
+  // The void, hinted: the inner terminal skin as glass, one cell-depth inboard.
+  const prof = [];
+  const NP = 40;
+  for (let i = 0; i <= NP; i++) {
+    const st = station(total * i / NP);
+    prof.push([st.x - st.nx * pitch, Math.max(0.01, st.r - st.nr * pitch)]);
+  }
+  solidNode(root, 'ShipVoidSkin', latheWithScale(prof, 48, () => 1), XM.kelvinGhost);
+  // A person at the nose, 1.8 m — the same two pixels as on the flight-reference level.
+  const px = -SHIP.lenM / 2 - 2;
+  lineNode(root, 'ShipPerson', [[[px, 0, -R * 0.1], [px, 0, -R * 0.1 + 1.8]]], XM.scaleTick);
+  return {
+    root,
+    shipCellCount: count, shipPitchM: pitch,
+    labels: [
+      { p: [0, 0, R * 1.3], t: `ship 0 — ${SHIP.diaM} m × ${SHIP.lenM} m`, s: 'the sealed wall IS the visible ship: one layer of cells, pressed onto the skeleton by the sky' },
+      // Both low labels anchor on the centre plane, port and starboard of the keel line —
+      // the first pass hung one on the rail and pushed the other into the viewport fade.
+      { p: [SHIP.lenM * 0.16, 0, -R * 1.3], t: `${count.toLocaleString('en-US')} cells drawn, shells only`, s: 'at this range a cell\'s whole lattice is smaller than a pixel; the cap tiling is schematic' },
+      { p: [-SHIP.lenM * 0.16, 0, -R * 1.3], t: 'inside: the void', s: 'no stacked cells — an empty two-walled skeleton, and everything inboard of the wall is lift' },
+    ],
+  };
+}
+
 function latheWithScale(prof, seg, sScale) {
   const pos = [], idx = [];
   const rings = prof.length;
@@ -1888,6 +1994,10 @@ export const LEVELS = [
   { id: 'array', name: 'The array', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
     target: [0, -2, 1], build: buildArray, instance: 'flight' },
   { id: 'bay', name: 'Section & bay', scaleM: 20, radius: 14, az: -1.05, el: 0.5, dist: 2.5, target: [0, 0, 0.5], build: buildBay, instance: 'flight' },
+  // SHIP 0 — the blueprint's closure level: the 52 x 104 plan of record as a wall of
+  // cells. Sits between the bay and the flight-reference hull on the ladder because that
+  // is where its scale lands; the 190 m fleet above it is the PREVIOUS design, at work.
+  { id: 'ship', name: 'Ship 0', scaleM: 52, radius: 62, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
   { id: 'hull', name: 'The hull', scaleM: 190, radius: 105, az: -1.2, el: 0.16, dist: 2.2, build: buildHull, instance: 'flight' },
 ];
 export const STAGE_LEVEL = LEVELS.findIndex(l => l.id === 'cell');
@@ -2855,7 +2965,9 @@ export function mountExplorer(opts) {
       styleFor,
       clips: clips(),
       lineWidth: 1,
-      depthPrepass: state.levelIdx === 6 && !diving() ? ['Hull'] : null,
+      // By id, not index: inserting the ship level shifted the hull to a new slot, and a
+      // prepass keyed on "6" would have quietly started prepassing the wrong level.
+      depthPrepass: LEVELS[state.levelIdx].id === 'hull' && !diving() ? ['Hull'] : null,
     });
     placeLabels();
   }

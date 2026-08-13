@@ -135,6 +135,18 @@ The page is fully filled, all seven levels, first-pass:
    named-not-weighed.
 7. **At work** — links `../` (the wildfire dashboard, previous design, re-points later).
 
+**THE EXPLORER GREW ITS SHIP LEVEL (08-12 late, operator direction):** `buildShip` in
+explorer.js draws ship 0 as what it is — ~20k instanced Kelvin SHELLS (no internal
+lattice; at that range a cell's lattice is sub-pixel) on the 52 × 104 stadium, pitch
+DERIVED from surface area over BAND.cells so the drawn population equals the quoted one.
+Figures come from catalog.js via a ctx merge in explorer.html (`ship.*`, `band.cells`,
+two derived margins), scoping-chipped until the ship.js port. Rail slot: between bay and
+the 190 m flight-reference hull (now "Level 8 … previous design, at work"). Traps paid
+for: `#asmbox` needed `[hidden]{display:none}` (author display beats the hidden
+attribute — the guide was showing on EVERY level); the hull depth-prepass was keyed on
+levelIdx 6 and had to move to id-keyed. The full §4c level-merge (catalog tour, band
+wrap, grid rebuild) is still ahead; this was its first stone.
+
 **The number-binding system:** HTML prose carries no digits. `data-cat="a.b"` spans
 resolve against `CTX = {ship, article, band, grid}` in `levels.js` (`data-f` =
 decimals). Cell figures come from `model.js` live (the page can never disagree with
@@ -197,8 +209,16 @@ colour swap):**
   modules, the explorer, or the sim → the FULL `make check` before publish, as ever.
 - when unsure which side an edit falls on, that uncertainty IS the answer: full chain.
 
+**PRODUCTION RULING (operator, 08-12 late): this arc now deploys DIRECT TO PRODUCTION**
+(`./deploy.sh pinkrobotics`) — the cell pages are behind the tyler/copper realm on
+pinkrobotics.ca (verified: `/airships/cell/*` answers 401 unauthenticated; the monitor
+root stays public by design), so guppi staging is retired for this work. Two cautions
+survive the ruling: production's dirty-tree gate is REAL (a co-session's uncommitted
+files block it — never ALLOW_DIRTY around someone else's work), and anything already
+staged on guppi goes stale from here.
+
 `make stamp && <the gate above>` → `tools/publish.py` → commit pink-sites →
-**`./deploy.sh stage pinkrobotics` ONLY** (guppi.ca). Production
+`./deploy.sh pinkrobotics`. The old staging law, for the record: Production
 (`./deploy.sh pinkrobotics`) is NOT part of this arc until the operator says the
 re-org replaces the current site — he likes the current site; do not surprise him.
 Verify after every stage: unauth `curl -I` = 401, auth'd = 200 with the new stamp.
