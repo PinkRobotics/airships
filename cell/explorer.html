@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
 <title>The ship, joint by joint — a 3D walk through the vacuum airship's structure</title>
-<meta name="description" content="Seven scales, one structure, top down: ship 0 complete, the compartments, the film-on-rings wall, the 709 mm bench cell, its skin, its cuts, its printed joints. Every number computed live by the same gated model the analysis runs.">
+<meta name="description" content="Eight scales, one structure, top down: the ship wearing its gear, the bare hull, the compartments, the film-on-rings wall, the 709 mm bench cell, its skin, its cuts, its printed joints. Every number computed live by the same gated model the analysis runs.">
 <style>
   :root{
     --bg:#0a0a0c; --panel:#111114; --line:#232329; --line-strong:#33333c;
@@ -275,10 +275,60 @@
 <aside id="panel" aria-live="polite">
 
 <!-- SHIP 0 ------------------------------------------------------------------------------- -->
+<section data-level="vessel">
+  <p class="lv-kicker">Level 8 · <span data-n="ship.diaM" data-f="0"></span> ×
+    <span data-n="ship.lenM" data-f="0"></span> m + the works · the ship ·
+    <a class="bplink" href="./ship.html">checks ↗</a></p>
+  <h2>The Ship — the hull, and everything it wears</h2>
+  <div class="big"><span data-n="ship.liftT" data-f="1"></span> <span class="unit">tonnes of lift</span></div>
+  <p class="bigsub">and one rule for spending it: nothing cuts the wall</p>
+  <div class="metrics">
+    <div><div class="v"><span data-n="ship.ratio" data-f="3"></span></div>
+      <div class="k">float ratio, house-harsh basis — the hull's own verdict, unchanged by the gear</div></div>
+    <div><div class="v warm"><span data-n="ship.bestWorldRatio" data-f="3"></span></div>
+      <div class="k">best defensible world — the band the equipment must fit inside</div></div>
+  </div>
+
+  <p class="sowhat"><b>There is no interior. The inside is the product.</b> A vacuum ship
+  has no bay to hide machinery in and a wall with no spare capacity for a single bolt
+  hole — so every system lives outside, and this level draws that doctrine: thrust pods
+  standing off on pylons <i>longer than their own rotor radius</i> (the fleet dashboard's
+  law — its old hull-piercing mounts are exactly what this retires), circumferential
+  straps and twin keel rails as the only interface the gear may have with the wall, and
+  the working machinery — tanks, pumps, winch — on a raft <b>suspended under the keel</b>
+  from a wide bridle.</p>
+
+  <p class="sowhat"><b>Why suspended, not bolted to the belly?</b> A hard-mounted gondola
+  feeds its thrust and slosh moments straight into film-on-rings — local bending the
+  4&nbsp;mm wall has no line for. Pendants on a wide bridle arrive nearly tangential, so
+  the wall sees distributed pulls along straps that ride many rings in bearing; the hull
+  is huge, so the bridle can be wide and the swing angle small. The price is a pendulum
+  in the control loop, and ops owns it. Both readings are [SCOPING] — the equipment axis
+  is named, not weighed, in the gated ledger.</p>
+
+  <p class="sowhat"><b>Mission 0 wears this same fit.</b> The spec ship — the one the
+  numbers will always be quoted against — is this architecture at 112 m: 100 t of water
+  and 19 t of equipment, neutrally buoyant at sea level in the certified world. We build
+  this 52 m hull first; Mission 0 is what it graduates into. The hull below carries the
+  whole honest verdict.</p>
+
+  <div class="shiplinks">
+    <button class="golv" data-golevel="ship">strip the gear → the bare hull</button>
+    <button class="golv" data-golevel="array">into the void → compartments</button>
+    <button class="golv" data-golevel="bay">onto the wall → the grid</button>
+  </div>
+
+  <p class="nav" style="margin-top:10px"><a class="bplink" href="./band.html">choose the hull inside the two walls → the band calculator ↗</a></p>
+  <span class="tag st-decided">hull: gated model.js ship0 · parity-held</span>
+  <span class="tag cool">equipment named, not weighed [SCOPING] — the payload axis</span>
+  <span class="tag warm">Mission 0 spec: 112 m · 100 t water + 19 t gear</span>
+</section>
+
+<!-- LEVEL 7 ------------------------------------------------------------------------------ -->
 <section data-level="ship">
   <p class="lv-kicker">Level 7 · <span data-n="ship.diaM" data-f="0"></span> ×
-    <span data-n="ship.lenM" data-f="0"></span> m · ship 0 · <a class="bplink" href="./levels.html#level-5">blueprint ↗</a></p>
-  <h2>Ship 0 — complete, and honestly weighed</h2>
+    <span data-n="ship.lenM" data-f="0"></span> m · the hull · <a class="bplink" href="./levels.html#level-5">blueprint ↗</a></p>
+  <h2>The Hull — complete, and honestly weighed</h2>
   <div class="big"><span data-n="ship.liftT" data-f="1"></span> <span class="unit">tonnes of lift</span></div>
   <p class="bigsub">what the whole sky gives back for holding nothing</p>
   <div class="metrics">
@@ -1492,6 +1542,10 @@
       <button id="toggleLoaded" data-lv="cell track">film: slack</button>
       <button id="toggleUnfold" data-lv="track">unfold flat</button>
       <button id="clearBreach" data-lv="array">reseal compartments</button>
+      <button class="sbtn on" data-layer="wall" data-lv="vessel">the hull</button>
+      <button class="sbtn on" data-layer="pods" data-lv="vessel">thrust pods</button>
+      <button class="sbtn on" data-layer="module" data-lv="vessel">the module</button>
+      <button class="sbtn on" data-layer="lines" data-lv="vessel">straps &amp; lines</button>
       <button class="sbtn on" data-layer="wall" data-lv="ship">the film</button>
       <button class="sbtn on" data-layer="skeleton" data-lv="ship">skeleton</button>
       <button class="sbtn on" data-layer="webs" data-lv="ship">webs</button>
@@ -1586,9 +1640,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=fb749c9d';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=fb749c9d';
-import * as CELL from './model.js?v=fb749c9d';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=ad7c76bb';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=ad7c76bb';
+import * as CELL from './model.js?v=ad7c76bb';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1599,11 +1653,11 @@ const qs = new URLSearchParams(location.search);
  * prefers-reduced-motion and would otherwise make every transition an untestable cut. */
 const reduced = (matchMedia('(prefers-reduced-motion: reduce)').matches || qs.has('still'))
   && !qs.has('motion');
-const startId = qs.get('level') || 'ship';   // the ladder opens at its top now
-// An unknown or legacy ?level= id falls back to the SHIP, not the ladder's
-// bottom — a stale bookmark should land on the most representative level.
+const startId = qs.get('level') || 'vessel';   // the ladder opens at its top now
+// An unknown or legacy ?level= id falls back to THE SHIP (the vessel), not the
+// ladder's bottom — a stale bookmark should land on the most representative level.
 const startIdx = LEVELS.findIndex(l => l.id === startId);
-const startLevel = startIdx >= 0 ? startIdx : LEVELS.findIndex(l => l.id === 'ship');
+const startLevel = startIdx >= 0 ? startIdx : LEVELS.findIndex(l => l.id === 'vessel');
 
 /* ---- number filling: every figure on this page comes from the model ---- */
 function dig(obj, path) {

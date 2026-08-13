@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=fb749c9d';
-import * as G from './explorer-geom.js?v=fb749c9d';
+import * as CELL from './model.js?v=ad7c76bb';
+import * as G from './explorer-geom.js?v=ad7c76bb';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=fb749c9d';
+} from './nodes.generated.js?v=ad7c76bb';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=fb749c9d';
+import { NODEMESHES } from './nodemeshes.generated.js?v=ad7c76bb';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=fb749c9d';
+import { SKIN } from './skin.generated.js?v=ad7c76bb';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=fb749c9d';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=ad7c76bb';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1845,6 +1845,14 @@ function shipSkeletonSegs(D) {
     const nRings = Math.round(D.total / D.rowY);
     for (let i = 0; i <= nRings; i++) outerRings.push(D.total * i / nRings);
   }
+  // EVERY OUTER ATTACHMENT LANDS ON A RING (operator catch, 08-13 morning: "the
+  // webs don't line up to the top hoops"). Bay midpoints and junction stations
+  // are not multiples of the drawn ring pitch, so an unsnapped web ended in the
+  // film between hoops — a joint the real wall does not have. The grid level
+  // always drew this correctly; now the whole-ship skeleton does too.
+  const outerStep = D.total / Math.round(D.total / D.rowY);
+  const snapOuter = (s) =>
+    Math.max(0, Math.min(D.total, Math.round(s / outerStep) * outerStep));
   const innerRings = [];
   for (let i = 0; i <= D.nBays; i++) innerRings.push(D.total * i / D.nBays);
   const point = (s, off, th) => {
@@ -1888,7 +1896,7 @@ function shipSkeletonSegs(D) {
   // bay's midpoint down to the two inner rings that bound it. The drawing IS
   // the drawn population the webs line bills.
   for (let bIdx = 0; bIdx < innerRings.length - 1; bIdx++) {
-    const mid = (innerRings[bIdx] + innerRings[bIdx + 1]) / 2;
+    const mid = snapOuter((innerRings[bIdx] + innerRings[bIdx + 1]) / 2);
     for (let k = 0; k < NLONG; k++) {
       const th = 2 * Math.PI * k / NLONG;
       const a = point(mid, wallOff, th);
@@ -1905,10 +1913,11 @@ function shipSkeletonSegs(D) {
   // what let the two walls bend as ONE deep ring; the fan cannot do it.
   for (const sb of innerRings) {
     if (point(sb, wallOff, 0)[3] < RMIN) continue;
+    const sbo = snapOuter(sb);
     for (let k = 0; k < NLONG; k++) {
       const th0 = 2 * Math.PI * k / NLONG;
       const th1 = 2 * Math.PI * (k + 1) / NLONG;
-      const oa = point(sb, wallOff, th0), ob = point(sb, wallOff, th1);
+      const oa = point(sbo, wallOff, th0), ob = point(sbo, wallOff, th1);
       const ia = point(sb, innerOff, th0), ib = point(sb, innerOff, th1);
       if (Math.min(oa[3], ob[3], ia[3], ib[3]) < RMIN) continue;
       thetas.push({ a: [oa[0], oa[1], oa[2]], b: [ib[0], ib[1], ib[2]], off: wallOff, s: sb, th: th0 });
@@ -1921,7 +1930,7 @@ function shipSkeletonSegs(D) {
     for (let k = 0; k < NLONG; k++) {
       const th = 2 * Math.PI * k / NLONG;
       const dir = sj < D.total / 2 ? 1 : -1;
-      const a = point(sj - dir * over * 0.5, wallOff, th);
+      const a = point(snapOuter(sj - dir * over * 0.5), wallOff, th);
       const b = point(sj + dir * over * 0.5, innerOff, th);
       if (a[3] >= RMIN && b[3] >= RMIN)
         junctions.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: wallOff, s: sj, th });
@@ -2022,15 +2031,19 @@ function buildGrid() {
   // permanently in bearing. What the clamps are really for is the UNPRESSURISED states:
   // the operator's requirement that the wall be buildable and structured before the first
   // pump-down, plus ground handling and maintenance. So: one clamp every fourth bar along
-  // every ring (~2 m), phase-shifted two bars on each successive ring — a brick pattern,
-  // 1 in 4 crossings, ~1/m2. It also leaves the outer wall a coarse shear net rather than
-  // none, which the torsion check inherits.
+  // every ring (~2 m), phase-shifted ONE bar on each successive ring — a brick pattern,
+  // 1 in 4 crossings, ~1/m2, and EVERY bar clamped every fourth ring. The two-bar walk
+  // this first drew left every odd bar with no clamp at all (operator catch, 08-13
+  // morning) — and the erection-wind check prices each clamp at a barPitch x 4-ring
+  // tributary, which only exists if every bar is actually clamped at that spacing. It
+  // also leaves the outer wall a coarse shear net rather than none, which the torsion
+  // check inherits.
   const CLAMP_EVERY = 4;
   {
     const cl = [];
     for (let k = -NU; k <= NU; k++) {
       for (let c = -NV; c <= NV; c++) {
-        if ((((c + 2 * k) % CLAMP_EVERY) + CLAMP_EVERY) % CLAMP_EVERY !== 0) continue;
+        if ((((c + k) % CLAMP_EVERY) + CLAMP_EVERY) % CLAMP_EVERY !== 0) continue;
         const u = k * ROW, v = c * CROSS;
         const st = shipStation(D, s0 + u);
         const th = TH0 + v / D.R;
@@ -2050,33 +2063,9 @@ function buildGrid() {
     cn.xmat = XM.printed;
   }
 
-  // THE FILM: one dished pillow per square panel — doubly curved, which is the whole
-  // reason the panel is square.
-  {
-    const px = [];
-    for (let k = -NU; k < NU; k++) {
-      for (let c = -NV; c < NV; c++) {
-        const u = (k + 0.5) * ROW, v = (c + 0.5) * CROSS;
-        const st = shipStation(D, s0 + u);
-        const th = TH0 + v / D.R;
-        const uu = [0, -Math.cos(th), Math.sin(th)];
-        const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
-        const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
-        const thop = [0, -Math.sin(th), -Math.cos(th)];
-        // The film lies on the CROSS-BARS and drapes the one-diameter step down onto the
-        // rings between them — inside the sag it takes anyway, which is why the fabric's
-        // own flex covers it and no flat plane is needed.
-        const q = at(u, v, BAR_OFF - BAR_R);
-        px.push([thop, tm, n, q]);
-      }
-    }
-    const xf = new Float32Array(px.length * 16);
-    px.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0, Y[0], Y[1], Y[2], 0,
-      Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
-    const film = inst(root, { id: 'GridCells' }, xf, px.length, {});
-    film.geom = G.filmDomeGeom(ROW * 0.97, 0.11, 12, 3);
-    film.xmat = XM.membraneLoaded;
-  }
+  // NO FILM AT THIS LEVEL (operator, 08-13 morning): the per-panel pillows read
+  // as the old cells and hid the members. The grid level shows the BARE grid —
+  // the film's story lives on the wall level below and the pressure wrap above.
 
   // The inner wall and the fan that reaches it — every web ends ON a ring.
   const innerRows = rows.filter((_, i) => i % 4 === 0);
@@ -2118,7 +2107,7 @@ function buildGrid() {
   return {
     root,
     labels: [
-      { p: at(0, 3.4 * CROSS, -1.6), t: 'the film lies straight on the rings', s: 'no posts and no rim grid: the hoop chords ARE the frame across, and a ring loaded along its length sees uniform radial load — pure compression, the case it is funicular for' },
+      { p: at(0, 3.4 * CROSS, -1.6), t: 'the bare grid — the film goes on last', s: 'no posts and no rim grid: the hoop chords ARE the frame, and a ring loaded uniformly along its length is pure compression — the case it is funicular for. The film itself is drawn where it is the subject: the wall below, the wrap above' },
       { p: at(1.2 * ROW, -3.4 * CROSS, -1.4), t: 'square panels, and why', s: 'doubly curved carries pressure both ways at half the tension of a long trough — half the film, and half the pull the cross-bars resist' },
       { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped sparsely, staggered ≈2 m', s: 'nothing drilled, cut or woven — and the crossings need no fastener under load, since the push is always inward. The clamps are for the unpressurised states: this has to stand up before it is ever pumped down' },
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
@@ -2194,11 +2183,15 @@ function pipesFromSegs(parent, id, segs, rOut, xmat, sides = 8) {
  * and the spokes across the void. Fly through it — the fly view threads the
  * bow, the void and the wall gap. Figures come from the gated model through
  * catalog.js; nothing here is typed. */
+let _wrapMemo = null;
+const wrapGeomShared = (D) => _wrapMemo || (_wrapMemo = shipWrapGeom(D));
+
 function buildShip() {
   const root = node({ id: 'L_ship', category: 'vacuum', selectable: false });
   const D = shipDims();
   // THE WRAP — the one loaded membrane, dished into every panel by the sky.
-  const wrap = solidNode(root, 'ShipFilm', shipWrapGeom(D), XM.sealedWall);
+  // (Geometry shared with The Ship level above — one mesh, built once.)
+  const wrap = solidNode(root, 'ShipFilm', wrapGeomShared(D), XM.sealedWall);
   wrap.shipWrap = true;
   const bones = shipSkeletonSegs(D);
   // The wall's members at their model sections (WALL carries mm; drawn in m).
@@ -2246,9 +2239,183 @@ function buildShip() {
     root,
     shipPanelCount: WALL.panels, shipPitchM: D.pitch,
     labels: [
-      { p: [0, 0, D.R * 1.3], t: `ship 0 — ${SHIP.diaM} m × ${SHIP.lenM} m`, s: 'complete: one pressure-formed film over the ring grid, the two-walled skeleton, the ring-plane webs, and the spokes across the void' },
+      { p: [0, 0, D.R * 1.3], t: `the hull — ${SHIP.diaM} m × ${SHIP.lenM} m`, s: 'complete: one pressure-formed film over the ring grid, the two-walled skeleton, the ring-plane webs, and the spokes across the void. What it wears is the level above' },
       { p: [SHIP.lenM * 0.16, 0, -D.R * 1.3], t: `${WALL.rings.toLocaleString('en-US')} rings · ${WALL.bars.toLocaleString('en-US')} bars · ${WALL.panels.toLocaleString('en-US')} panels`, s: 'the gated model’s own populations — the cap tiling is drawn schematic' },
       { p: [-SHIP.lenM * 0.16, 0, -D.R * 1.3], t: 'the honest pair rides every number', s: 'it does not float on the house-harsh stability basis; the knockdown and coupon campaigns are the decision — the panel carries both worlds' },
+    ],
+  };
+}
+
+/* Level — THE SHIP: the hull plus everything it wears, under one rule —
+ * NOTHING CUTS THE WALL (operator, 08-13). A vacuum wall has no spare local
+ * capacity for a hole's stress raiser, and there is no interior to put gear
+ * in: the inside IS the product. So every system is exterior. Thrust stands
+ * off on pylons LONGER THAN THEIR OWN ROTOR RADIUS — the fleet dashboard
+ * model's law, imported verbatim (its old hull-piercing mounts are exactly
+ * what this level retires). Tanks, pumps and the winch ride a suspended
+ * module under the keel on a wide bridle, so every pendant meets the hull as
+ * a near-tangential pull on a circumferential strap — spread over many rings,
+ * bearing and friction, never a bolt through film. The bucket lives on a line
+ * below. Equipment is NAMED, NOT WEIGHED [SCOPING] — the ledger's declared
+ * payload axis; Mission 0 (112 m) wears this same fit. */
+function buildVessel() {
+  const root = node({ id: 'L_vessel', category: 'vacuum', selectable: false });
+  const D = shipDims();
+  const wrap = solidNode(root, 'VesselWrap', wrapGeomShared(D), XM.sealedWall);
+  wrap.shipWrap = true;
+  const point = (s, off, th) => {
+    const st = shipStation(D, s);
+    const r = st.r - st.nr * off;
+    return [st.x - st.nx * off, -r * Math.cos(th), r * Math.sin(th), r];
+  };
+  const normalAt = (s, th) => {
+    const st = shipStation(D, s);
+    return [st.nx, -st.nr * Math.cos(th), st.nr * Math.sin(th)];
+  };
+  const ringSeg = (s, off, out, th0 = 0, th1 = 2 * Math.PI, segN = 64) => {
+    let prev = null;
+    for (let j = 0; j <= segN; j++) {
+      const th = th0 + (th1 - th0) * j / segN;
+      const q = point(s, off, th);
+      if (prev) out.push({ a: prev, b: [q[0], q[1], q[2]] });
+      prev = [q[0], q[1], q[2]];
+    }
+  };
+
+  // THE STRAPS: circumferential bands at the bridle stations and twin keel
+  // rails — the only interface the equipment is allowed to have with the wall.
+  const strapS = [0.32, 0.42, 0.58, 0.68].map(f => D.total * f);
+  const straps = [];
+  for (const s of strapS) ringSeg(s, -0.10, straps);
+  for (const dth of [-0.10, 0.10]) {
+    let prev = null;
+    for (let i = 0; i <= 40; i++) {
+      const s = D.total * (0.26 + 0.48 * i / 40);
+      const q = point(s, -0.10, -Math.PI / 2 + dth);
+      if (prev) straps.push({ a: prev, b: [q[0], q[1], q[2]] });
+      prev = [q[0], q[1], q[2]];
+    }
+  }
+  pipesFromSegs(root, 'VesselStraps', straps, 0.09, XM.printed, 6);
+
+  // THRUST: pods at the widest band, port and starboard, slightly below the
+  // beam so the discs also clear the bridle. Pylon > rotor radius, visibly.
+  const ROTOR_R = 5.5, PYLON = 7.5, NAC_L = 7.0;
+  const podS = [0.40, 0.52, 0.64].map(f => D.total * f);
+  const pylons = [], rotors = [], podXf = [];
+  for (const s of podS) {
+    for (const side of [0, Math.PI]) {
+      const th = side - 0.38 + (side === 0 ? 0 : 0.76); // 0.38 rad below each beam
+      const base = point(s, 0, th);
+      const n = normalAt(s, th);
+      const hub = [base[0] + n[0] * PYLON, base[1] + n[1] * PYLON,
+                   base[2] + n[2] * PYLON];
+      pylons.push({ a: [base[0], base[1], base[2]], b: hub });
+      podXf.push(hub);
+      // The disc: a rim ring + three blades in the y-z plane about the hub.
+      const rim = [];
+      let prev = null;
+      for (let j = 0; j <= 36; j++) {
+        const a = 2 * Math.PI * j / 36;
+        const q = [hub[0] + NAC_L * 0.28,
+                   hub[1] + ROTOR_R * Math.cos(a), hub[2] + ROTOR_R * Math.sin(a)];
+        if (prev) rim.push({ a: prev, b: q });
+        prev = q;
+      }
+      for (let b = 0; b < 3; b++) {
+        const a = 2 * Math.PI * b / 3;
+        rim.push({ a: [hub[0] + NAC_L * 0.28, hub[1], hub[2]],
+                   b: [hub[0] + NAC_L * 0.28, hub[1] + ROTOR_R * Math.cos(a),
+                       hub[2] + ROTOR_R * Math.sin(a)] });
+      }
+      rotors.push(...rim);
+    }
+  }
+  pipesFromSegs(root, 'VesselPylons', pylons, 0.28, XM.pipeRim, 8);
+  pipesFromSegs(root, 'VesselRotors', rotors, 0.10, XM.pipe, 6);
+  {
+    const xf = new Float32Array(podXf.length * 16);
+    podXf.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+      q[0], q[1], q[2], 1], i * 16));
+    const nac = inst(root, { id: 'VesselPods' }, xf, podXf.length, {});
+    nac.geom = latheWithScale([[-NAC_L / 2, 0.4], [-NAC_L * 0.2, 1.1],
+      [NAC_L * 0.2, 1.1], [NAC_L / 2, 0.35]], 20, () => 1);
+    nac.xmat = XM.printed;
+  }
+
+  // THE MODULE, suspended: a pipe-frame raft under the keel on a wide bridle.
+  const xMid = point(D.total / 2, 0, 0)[0];
+  const keelZ = -D.R;
+  const DROP = D.R * 0.34;
+  const MW = 13, ML = 22, MH = 3.2;
+  const mz0 = keelZ - DROP, mz1 = mz0 - MH;
+  const corner = (sx, sy, z) => [xMid + sx * ML / 2, sy * MW / 2, z];
+  const frame = [];
+  for (const z of [mz0, mz1]) {
+    frame.push({ a: corner(-1, -1, z), b: corner(1, -1, z) });
+    frame.push({ a: corner(-1, 1, z), b: corner(1, 1, z) });
+    frame.push({ a: corner(-1, -1, z), b: corner(-1, 1, z) });
+    frame.push({ a: corner(1, -1, z), b: corner(1, 1, z) });
+  }
+  for (const sx of [-1, 1]) for (const sy of [-1, 1])
+    frame.push({ a: corner(sx, sy, mz0), b: corner(sx, sy, mz1) });
+  pipesFromSegs(root, 'VesselModule', frame, 0.16, XM.pipeRim, 6);
+  {
+    // Tanks along the raft, pumps at its aft corners, the winch drum amidships.
+    const tanks = [];
+    for (const y of [-MW * 0.30, 0, MW * 0.30]) tanks.push([xMid, y, (mz0 + mz1) / 2]);
+    const xf = new Float32Array(tanks.length * 16);
+    tanks.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+      q[0], q[1], q[2], 1], i * 16));
+    const tk = inst(root, { id: 'VesselTanks' }, xf, tanks.length, {});
+    tk.geom = latheWithScale([[-ML * 0.36, 0.3], [-ML * 0.30, 1.75],
+      [ML * 0.30, 1.75], [ML * 0.36, 0.3]], 18, () => 1);
+    tk.xmat = XM.membraneLoaded;
+    const gear = [[xMid - ML * 0.42, -MW * 0.22, mz1 + 0.8],
+                  [xMid - ML * 0.42, MW * 0.22, mz1 + 0.8],
+                  [xMid + ML * 0.40, 0, mz1 + 0.7]];
+    const gxf = new Float32Array(gear.length * 16);
+    gear.forEach((q, i) => gxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+      q[0], q[1], q[2], 1], i * 16));
+    const gn = inst(root, { id: 'VesselGear' }, gxf, gear.length, {});
+    gn.geom = G.beadGeom(1.15, 0.85, 1.0, 12);
+    gn.xmat = XM.printed;
+  }
+
+  // THE BRIDLE: eight pendants from the strap bands to the raft's corners,
+  // plus the drop line and the bucket. Lines, not pipes — they are tension.
+  const lines = [];
+  const bridleTh = [-Math.PI / 2 - 0.55, -Math.PI / 2 + 0.55];
+  const sPair = [[strapS[0], -1], [strapS[1], -1], [strapS[2], 1], [strapS[3], 1]];
+  for (const [s, sx] of sPair) {
+    for (let i = 0; i < 2; i++) {
+      const q = point(s, -0.10, bridleTh[i]);
+      lines.push([[q[0], q[1], q[2]], corner(sx, i === 0 ? -1 : 1, mz0)]);
+    }
+  }
+  const bucketZ = mz1 - 15;
+  lines.push([[xMid, 0, mz1], [xMid, 0, bucketZ + 3.2]]);
+  lineNode(root, 'VesselLines', lines,
+    { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
+  {
+    const bxf = new Float32Array(16);
+    bxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid, 0, bucketZ, 1]);
+    const bk = inst(root, { id: 'VesselBucket' }, bxf, 1, {});
+    bk.geom = latheWithScale([[-1.6, 0.4], [1.4, 2.3], [1.7, 2.35], [1.75, 2.1]],
+      18, () => 1);
+    bk.xmat = XM.membraneLoaded;
+  }
+  const px = -SHIP.lenM / 2 - 2;
+  lineNode(root, 'VesselPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]],
+    XM.scaleTick);
+  return {
+    root,
+    labels: [
+      { p: [0, 0, D.R * 1.35], t: 'the ship — the hull plus everything it wears', s: 'one rule: NOTHING cuts the wall. There is no interior to put gear in — the inside is the product — so every system is exterior, on straps and pylons and lines. Equipment is named, not weighed [SCOPING]' },
+      { p: point(podS[1], 0, -0.38).slice(0, 3).map((v, i) => i === 2 ? v + ROTOR_R + 9 : v), t: 'thrust stands off on pylons', s: 'the pylon is longer than the rotor radius so the disc clears the skin — the dashboard model’s own law. The load enters at a strap hardpoint and spreads over many rings; nothing is drilled' },
+      { p: [xMid - ML * 2.6, 0, mz0 + 2.0], t: 'the works, suspended', s: 'tanks, pumps and the winch on a raft under the keel, hung from a wide bridle: every pendant meets the hull as a near-tangential pull on a circumferential strap. A hard-mounted gondola would put its moments straight into a 4 mm wall; the pendulum is the price, and ops owns it [SCOPING]' },
+      { p: [xMid + 16, 0, bucketZ + 2.5], t: 'the bucket rides a line', s: 'scoop, climb, drop — the water cycle never touches the hull. Drop the water and the ship is ~100 t light: the rotors and the anchor line are what hold it down while it refills' },
+      { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. We build this 52 m hull first; the spec is what it graduates into' },
     ],
   };
 }
@@ -2315,6 +2482,13 @@ const SHIPVIEW = (() => {
 })();
 
 const LEVEL_VIEWS = {
+  vessel: [
+    { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.28, el: 0.12, d: 235 },
+    { k: 'flank', n: 'the working flank', tg: [0, -SHIPVIEW.D.R * 0.9, -SHIPVIEW.D.R * 0.35], az: -0.55, el: 0.06, d: 60 },
+    { k: 'keel', n: 'under the keel', tg: [0, 0, -SHIPVIEW.D.R - 8], az: -1.2, el: -0.30, d: 55 },
+    { k: 'module', n: 'the suspended works', tg: [0, 0, -SHIPVIEW.D.R * 1.38], az: -0.8, el: 0.05, d: 34 },
+    { k: 'drop', n: 'down the drop line', tg: [0, 0, -SHIPVIEW.D.R * 1.75], az: -1.0, el: 0.12, d: 40 },
+  ],
   ship: [
     { k: 'fly', n: 'fly through it', fly: true },
     { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
@@ -2377,10 +2551,13 @@ export const LEVELS = [
   { id: 'array', name: 'The compartments', scaleM: 30, radius: 62, depthR: 130,
     az: -0.9, el: 0.25, dist: 1.6, target: [0, 0, 0], build: buildArray,
     instance: 'flight' },
-  // SHIP 0 — the blueprint's closure level: the 52 x 104 plan of record as a wall of
-  // cells. Sits between the bay and the flight-reference hull on the ladder because that
-  // is where its scale lands; the 190 m fleet above it is the PREVIOUS design, at work.
-  { id: 'ship', name: 'Ship 0', scaleM: 52, radius: 62, depthR: 130, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
+  // THE HULL — the blueprint's closure level: the 52 x 104 plan of record, bare —
+  // every member class the gated model prices, and nothing else. (Renamed from
+  // 'Ship 0', operator 08-13: the ship is the level above, wearing its gear.)
+  { id: 'ship', name: 'The Hull', scaleM: 52, radius: 62, depthR: 130, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
+  // THE SHIP — the hull plus everything it wears, all of it EXTERIOR: pylon
+  // thrust, strap rails, the suspended module, the bucket. Nothing cuts the wall.
+  { id: 'vessel', name: 'The Ship', scaleM: 60, radius: 72, depthR: 150, az: -1.28, el: 0.12, dist: 3.4, build: buildVessel, instance: 'flight' },
 ];
 export const STAGE_LEVEL = LEVELS.findIndex(l => l.id === 'cell');
 
@@ -2647,7 +2824,8 @@ export function mountExplorer(opts) {
     tourStop: null,              // its key, so a probe and a label can read it back
     // The ship level's own controls: every layer starts ON; the wall hides the skeleton
     // until the viewer opens it, which is what a sealed wall does.
-    shipLayers: { wall: true, skeleton: true, webs: true, spokes: true, voidskin: true },
+    shipLayers: { wall: true, skeleton: true, webs: true, spokes: true, voidskin: true,
+                  pods: true, module: true, lines: true },
     flyQueue: null,              // the ship's fly-through: remaining path legs
     turntable: !reducedMotion,
     reduced: !!reducedMotion,
@@ -2945,6 +3123,12 @@ export function mountExplorer(opts) {
                        ShipLongs: 'skeleton', ShipInnerRings: 'skeleton',
                        ShipWebs: 'webs', ShipTheta: 'webs', ShipJunction: 'webs',
                        ShipSpokes: 'spokes', ShipVoidSkin: 'voidskin' };
+  const VESSEL_LAYER = { VesselWrap: 'wall',
+                         VesselPylons: 'pods', VesselPods: 'pods',
+                         VesselRotors: 'pods',
+                         VesselModule: 'module', VesselTanks: 'module',
+                         VesselGear: 'module', VesselBucket: 'module',
+                         VesselStraps: 'lines', VesselLines: 'lines' };
   const styleFor = (n) => {
     // Once the skin is unfolding, the cell it came off is not the subject any more.
     // Its own membrane is replaced by the net; the rest goes with it.
@@ -2953,6 +3137,10 @@ export function mountExplorer(opts) {
     // layer state must never blank another level's geometry.
     if (fr && fr.level && fr.level.id === 'ship') {
       const lay = SHIP_LAYER[n.id];
+      if (lay && !state.shipLayers[lay]) return { hidden: true };
+    }
+    if (fr && fr.level && fr.level.id === 'vessel') {
+      const lay = VESSEL_LAYER[n.id];
       if (lay && !state.shipLayers[lay]) return { hidden: true };
     }
     // ...but only on the level that owns the net. The stage cell is shared with the

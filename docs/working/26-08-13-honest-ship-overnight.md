@@ -192,3 +192,38 @@ for a figure AND an interactive calculator. Landed, all gated:
   to 0.2 t (his arithmetic exact); loaded-neutral ceiling ~sea level by construction;
   empty-at-crush ceilings 0 m (harsh) / 362 m (frame mid) / 1,075 m (frame 1450);
   at 2,500 m the certified-bound band closes at every hull.
+
+
+## MORNING, PART 3 — The Ship level, and the exterior doctrine (operator round, 08-13)
+
+Operator's orders after seeing the band live, all landed:
+
+- **'Ship 0' is now 'The Hull' and THE SHIP sits above it** — level 8, the new default
+  open. One rule drawn everywhere: **NOTHING CUTS THE WALL.** There is no interior to
+  put gear in (the inside is the product), so every system is exterior: thrust pods on
+  pylons LONGER THAN THEIR OWN ROTOR RADIUS (the fleet dashboard's law, imported — its
+  old hull-piercing mounts are what this retires), circumferential straps + twin keel
+  rails as the only wall interface, tanks/pumps/winch on a raft SUSPENDED under the
+  keel from a wide bridle, the bucket on a drop line. Equipment named-not-weighed
+  [SCOPING]; views: whole/flank/keel/module/drop; switches: hull/pods/module/lines.
+- **Suspended vs belly-mounted, answered on the panel:** a hard-mounted gondola feeds
+  thrust + slosh moments into film-on-rings as local bending the 4 mm wall has no line
+  for; a wide bridle arrives near-tangential and spreads pulls along straps riding many
+  rings in bearing. The hull's size makes the bridle wide and the swing angle small;
+  the price is a pendulum in the control loop — ops owns it. [SCOPING], both readings.
+- **Clamp render bug — operator caught it, and the model check mattered:** the drawn
+  stagger walked TWO bars per ring, so every odd bar had no clamp anywhere. The model's
+  erection-wind check prices each clamp at a barPitch × 4-ring tributary — which only
+  exists if every bar is clamped at that spacing. The physics model was CONSISTENT
+  (count = 1-in-4 and tributary both assume the true brick); only the drawing lied.
+  Now a one-bar walk: every bar, every fourth ring.
+- **Webs land on hoops now:** bay midpoints/junction stations are not multiples of the
+  drawn ring pitch, so fan/theta/junction outer ends floated between rings. snapOuter()
+  puts every outer attachment on a ring station, matching the grid level's own law.
+- **The grid level is bare** — the per-panel film pillows (the old cell look) are gone;
+  film is the subject on the wall level and the wrap above.
+- **MISSION 0 SPEC RECORDED**: the spec ship = this architecture at 112 m — 100 t
+  water + 19 t equipment, neutral at sea level in the certified world (mid-band
+  structure 2,130.7 t; the operator's own arithmetic, verified to 0.2 t). It is what
+  the numbers get quoted against; the 52 m plan of record is what gets BUILT first and
+  models are NOT resized. Chip on the vessel panel; the band calculator explores it.

@@ -4,8 +4,8 @@
  * energy it takes to move water through the sky, it is wrong in one of these four
  * functions, so they are kept together, short, and separately testable.
  */
-import { airDensity } from './atmosphere.js?v=fb749c9d';
-import { CFG, sourceAltM } from './config.js?v=fb749c9d';
+import { airDensity } from './atmosphere.js?v=ad7c76bb';
+import { CFG, sourceAltM } from './config.js?v=ad7c76bb';
 
 export function pumpMW(cls) {
   return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * sourceAltM(cls) / CFG.pumpEta / 1e6;

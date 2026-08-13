@@ -5,7 +5,7 @@
 
 Same discipline as check_cell_parity.py, one page over: cell/explorer.html is a third
 surface displaying the cell physics, and a surface that displays numbers is a surface that
-can drift. This drives the page headless, walks all seven levels, and checks that what the
+can drift. This drives the page headless, walks all eight levels, and checks that what the
 DOM shows equals what cell/model.js computes — through the page's own wiring, not a copy
 of it.
 
