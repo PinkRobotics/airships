@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=e4cd07ce';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=e7bc4d9d';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -304,7 +304,10 @@ function drawBandSection() {
   for (const cx of centres) {
     for (let k = 0; k < 8; k++) {
       const [x1, y1] = pt(cx, k), [x2, y2] = pt(cx, (k + 1) % 8);
-      const top = (k === 1 || k === 2 || k === 3);
+      // Faces span vertex k (at 22.5 + 45k degrees) to k+1, so the three that face the
+      // sky are k = 0,1,2: NE, N, NW. Writing 1,2,3 lit W-NW-N — the whole pink crown
+      // slid one face anticlockwise, and the operator read the compass off the screen.
+      const top = (k === 0 || k === 1 || k === 2);
       const st = top ? `stroke="${C.warm}" stroke-width="1.8"`
                      : `stroke="${C.cool}" stroke-width="1.2" stroke-dasharray="3 3"`;
       out += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" ${st}/>`;
@@ -355,15 +358,18 @@ function drawCellSupport() {
   out += `<text x="${c1x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bench: sky on every side</text>
           <text x="${c1x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">net zero — self-balanced</text>`;
 
-  /* panel 2 — the band: only the outer face keeps its sky; the cell SITS face-down on
-   * the wall. One warm face up, every other film blue-dotted in the vacuum, nothing
-   * drawn underneath but the wall itself. */
+  /* panel 2 — the band: only the outer side keeps its sky; the cell SITS face-down on
+   * the wall. The three sky faces warm, every other film blue-dotted in the vacuum,
+   * nothing drawn underneath but the wall itself. */
   const c2x = 330, R2 = 42, apo = R2 * Math.cos(Math.PI / 8);
   const wallY = 168, c2y = wallY - apo;
   for (let k = 0; k < 8; k++) {
     const a1 = (22.5 + 45 * k) * Math.PI / 180, a2 = (22.5 + 45 * (k + 1)) * Math.PI / 180;
-    const st = k === 1 ? `stroke="${C.warm}" stroke-width="1.8"`
-                       : `stroke="${C.cool}" stroke-width="1.2" stroke-dasharray="3 3"`;
+    // Same compass as the band section: NE, N, NW (k = 0,1,2) face the sky and are the
+    // loaded film; every other face is in the vacuum.
+    const st = (k === 0 || k === 1 || k === 2)
+      ? `stroke="${C.warm}" stroke-width="1.8"`
+      : `stroke="${C.cool}" stroke-width="1.2" stroke-dasharray="3 3"`;
     out += `<line x1="${(c2x + R2 * Math.cos(a1)).toFixed(1)}" y1="${(c2y - R2 * Math.sin(a1)).toFixed(1)}"
                   x2="${(c2x + R2 * Math.cos(a2)).toFixed(1)}" y2="${(c2y - R2 * Math.sin(a2)).toFixed(1)}" ${st}/>`;
   }
