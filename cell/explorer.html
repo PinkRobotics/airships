@@ -180,6 +180,23 @@
   #ledger .v.t{color:var(--warm)}
   #ledger .k.s,#ledger .v.s{margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
 
+  /* ---- flight, bottom left, above the cutaway ---- */
+  #flybox{position:fixed;left:var(--s5);bottom:calc(var(--s4) + 52px);z-index:6;
+       display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  #flyToggle{font:var(--t-11) var(--mono);letter-spacing:.08em;text-transform:uppercase;
+       color:var(--faint);background:var(--panel);border:1px solid var(--line);
+       border-radius:6px;padding:5px 12px;cursor:pointer}
+  #flyToggle.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
+  #flypad{display:flex;flex-direction:column;gap:4px;background:var(--panel);
+       border:1px solid var(--line);border-radius:8px;padding:8px}
+  .fprow{display:flex;gap:4px}
+  .fk{width:38px;height:32px;font:14px var(--mono);color:var(--bone);cursor:pointer;
+       background:#17171d;border:1px solid var(--line);border-radius:5px;
+       touch-action:none;user-select:none}
+  .fk:active,.fk.held{color:var(--warm);border-color:var(--warm-dim);
+       background:var(--warm-glow)}
+  #flyhint{font:var(--t-11) var(--mono);color:var(--faint);max-width:150px}
+
   /* ---- cutaway, bottom left ---- */
   #cutbox{position:fixed;left:var(--s5);bottom:var(--s4);z-index:6;display:flex;
        align-items:center;gap:8px;background:rgba(13,13,16,.82);backdrop-filter:blur(8px);
@@ -1562,6 +1579,26 @@
   </div>
 </div>
 
+<!-- FLIGHT — bottom left, above the cutaway (operator, 08-13): game-style free
+     camera on every level. Arrows/WASD move, drag looks, wheel sets speed, shift
+     boosts, esc exits; the pad is the same controls for a mouse or a thumb. -->
+<div id="flybox">
+  <button id="flyToggle">✈ fly</button>
+  <div id="flypad" hidden>
+    <div class="fprow">
+      <button class="fk" data-fk="up" title="rise (E / PgUp)">⤒</button>
+      <button class="fk" data-fk="fwd" title="forward (W / ↑)">▲</button>
+      <button class="fk" data-fk="down" title="sink (Q / PgDn)">⤓</button>
+    </div>
+    <div class="fprow">
+      <button class="fk" data-fk="left" title="strafe left (A / ←)">◀</button>
+      <button class="fk" data-fk="back" title="back (S / ↓)">▼</button>
+      <button class="fk" data-fk="right" title="strafe right (D / →)">▶</button>
+    </div>
+    <div id="flyhint">drag = look · wheel = speed · shift = boost · esc exits</div>
+  </div>
+</div>
+
 <!-- CUTAWAY — bottom left, clear of both the reading and the controls. -->
 <div id="cutbox">
   <label for="cutR">cutaway</label>
@@ -1640,9 +1677,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=ad7c76bb';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=ad7c76bb';
-import * as CELL from './model.js?v=ad7c76bb';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3df25b73';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=3df25b73';
+import * as CELL from './model.js?v=3df25b73';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1653,6 +1690,7 @@ const qs = new URLSearchParams(location.search);
  * prefers-reduced-motion and would otherwise make every transition an untestable cut. */
 const reduced = (matchMedia('(prefers-reduced-motion: reduce)').matches || qs.has('still'))
   && !qs.has('motion');
+let syncFly = () => {};          // assigned once the flight deck is wired
 const startId = qs.get('level') || 'vessel';   // the ladder opens at its top now
 // An unknown or legacy ?level= id falls back to THE SHIP (the vessel), not the
 // ladder's bottom — a stale bookmark should land on the most representative level.
@@ -1853,6 +1891,7 @@ api = mountExplorer({
     if (stop && api) btn.textContent = api.partLabel();
   },
   onCtx: (c) => fillNumbers({ ...c, ship: SHIP, band: BAND, grid: GRID, w: WALL }),
+  onFlight(on) { syncFly(on); },   // syncFly is a module-scope let, assigned below
   onBreach(n) {
     document.getElementById('clearBreach').textContent =
       n ? `reseal ${n} compartment${n > 1 ? 's' : ''}` : 'reseal compartments';
@@ -2036,6 +2075,35 @@ if (!api) {
       if (api.shipLayers[k] !== want.has(k)) api.shipLayer(k);
     syncLayers();
   }
+  // FLIGHT deck — the same free camera the keys drive. Sync reads BACK from the
+  // api (button-is-truth, like every control here); the pad's buttons are
+  // hold-to-move so a mouse or a thumb gets exactly what the keys get.
+  const flyToggle = document.getElementById('flyToggle');
+  const flypad = document.getElementById('flypad');
+  syncFly = (on) => {
+    flyToggle.classList.toggle('on', !!on);
+    flyToggle.textContent = on ? '\u2708 flying' : '\u2708 fly';
+    flypad.hidden = !on;
+  };
+  flyToggle.addEventListener('click', () => syncFly(api.flightToggle()));
+  for (const b of document.querySelectorAll('.fk')) {
+    const act = b.dataset.fk;
+    const down = (e) => {
+      e.preventDefault();
+      b.classList.add('held');
+      syncFly(api.flightKey(act, true));
+    };
+    const up = () => { b.classList.remove('held'); api.flightKey(act, false); };
+    b.addEventListener('pointerdown', down);
+    b.addEventListener('pointerup', up);
+    b.addEventListener('pointerleave', up);
+    b.addEventListener('pointercancel', up);
+  }
+
+  // ?fly=1 — open already flying, the same way ?layers and ?group deep-link:
+  // a still harness cannot press W, and a shared link should land mid-flight.
+  if (qs.has('fly')) syncFly(api.flightToggle());
+
   // The panel's dive links: each layer of the ship points at the level that explains it.
   document.querySelectorAll('.golv').forEach(b => b.addEventListener('click', () => {
     api.setLevel(api.levels.findIndex(l => l.id === b.dataset.golevel));

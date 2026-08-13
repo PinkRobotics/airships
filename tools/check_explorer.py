@@ -486,6 +486,22 @@ PROBE = r"""(() => {
   E.tick(0.016);
   out.clearedTint = E.tintAt('Joint_00', 0);
   out.clearedFrame = [E.renderer.stats.drawCalls, E.renderer.stats.triangles];
+  // FLIGHT (operator, 08-13): the game-style free camera must move the camera
+  // under the same tick the gate drives, stay finite, and hand the orbit back.
+  {
+    const tg0 = E.cam.target.slice();
+    E.flightKey('fwd', true);
+    for (let i = 0; i < 90; i++) E.tick(1 / 60);
+    E.flightKey('fwd', false);
+    const tg1 = E.cam.target.slice();
+    const moved = Math.hypot(tg1[0] - tg0[0], tg1[1] - tg0[1], tg1[2] - tg0[2]);
+    const finite = [E.cam.azimuth, E.cam.elevation, E.cam.distance,
+                    ...E.cam.target].every(Number.isFinite);
+    const wasOn = E.flight.on;
+    E.flightToggle();
+    out.flight = { moved, finite, wasOn, offAfter: !E.flight.on,
+                   radius: E.cam.radius };
+  }
   return out;
 })()"""
 
@@ -1040,6 +1056,27 @@ def main() -> None:
     if not rim_mismatch and res.get("rimSkuNotes"):
         bad.append("the generator now matches the rim SKU — the contradiction notes are "
                    "stale and must go")
+
+    fl = res.get("flight") or {}
+
+    if not fl.get("wasOn"):
+
+        bad.append("flight: flightKey did not engage the free camera")
+
+    if not fl.get("finite"):
+
+        bad.append("flight: camera left finite space")
+
+    if not fl.get("offAfter"):
+
+        bad.append("flight: flightToggle did not exit")
+
+    if not fl.get("moved", 0) > 0.05 * fl.get("radius", 1):
+
+        bad.append(f"flight: 1.5 s of forward moved only {fl.get('moved')} "
+
+                   f"against radius {fl.get('radius')}")
+
 
     if bad:
         print("EXPLORER CHECK FAILED:\n")

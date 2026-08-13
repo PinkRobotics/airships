@@ -227,3 +227,26 @@ Operator's orders after seeing the band live, all landed:
   structure 2,130.7 t; the operator's own arithmetic, verified to 0.2 t). It is what
   the numbers get quoted against; the 52 m plan of record is what gets BUILT first and
   models are NOT resized. Chip on the vessel panel; the band calculator explores it.
+
+
+## MORNING, PART 4 — flight controls (operator: "game style I think")
+
+Every level now carries a free camera: arrows/WASD move, Q/E and PgUp/PgDn rise
+and sink, SHIFT boosts, the mouse drags the nose around, the wheel sets speed,
+ESC exits, and a D-pad + toggle sits bottom-left above the cutaway (same
+controls for a thumb). `?fly=1` deep-links straight into flight. Speed rides
+`cam.radius`, so it flies sensibly at the 5 cm connector AND the 60 m ship.
+
+The implementation is one honest trick: the free camera is REALIZED THROUGH THE
+ORBIT RIG — az = yaw + pi, el = -pitch, target = pos + dir·L, distance = L
+(maxDistance raised first; the documented clamp trap) — so projection, near/far,
+styles and screenshots all see an ordinary orbit pose and no second code path
+exists. flightStep() integrates inside advance(), which is the SAME path
+api.tick() drives, so the gate flies it for real: check_explorer now holds
+90 ticks of forward to a finite camera that actually moved and exits clean.
+Dives and eased views end the flight; the flight ends tours and the fly-path.
+
+TRAP PAID: a `function syncFly()` declared inside the boot's else-block does
+not hoist to module scope, and the opts.onFlight callback threw ReferenceError
+only when the first flight engaged — a `let syncFly = () => {}` indirection at
+module scope is the pattern (the gate caught it before any human did).

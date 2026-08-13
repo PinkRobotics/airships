@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=ad7c76bb';
-import * as G from './explorer-geom.js?v=ad7c76bb';
+import * as CELL from './model.js?v=3df25b73';
+import * as G from './explorer-geom.js?v=3df25b73';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=ad7c76bb';
+} from './nodes.generated.js?v=3df25b73';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=ad7c76bb';
+import { NODEMESHES } from './nodemeshes.generated.js?v=3df25b73';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=ad7c76bb';
+import { SKIN } from './skin.generated.js?v=3df25b73';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=ad7c76bb';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=3df25b73';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2924,6 +2924,7 @@ export function mountExplorer(opts) {
   }
 
   function setLevel(idx, immediate = false) {
+    if (typeof exitFlight === 'function' && flight && flight.on) exitFlight();
     idx = clamp(idx, 0, LEVELS.length - 1);
     if (idx === state.levelIdx && !immediate) return;
     const from = state.levelIdx;
@@ -3283,6 +3284,7 @@ export function mountExplorer(opts) {
     stepUnfold(dt);
     stepSkinLoad(dt);
     stepAssemble(dt);
+    if (flightStep(dt)) dirty = true;
     if (!transition) return false;
     transition.t = Math.min(1, transition.t + dt / transition.seconds);
     const k = easeInOut(transition.t);
@@ -3672,7 +3674,11 @@ export function mountExplorer(opts) {
     // Pan clamps the target into a box about a CENTRE, and the centre is the subject, not
     // the world origin: at a stop 0.29 m out with a 25 mm radius the origin's box is 40 mm
     // wide and the first drag-pan throws the part out of frame.
-    if (e.shiftKey || drag.b === 2) pan(cam, dx, dy, sceneBox.h, panCentre());
+    if (flight.on) {
+      flight.yaw -= dx * 0.0032;
+      flight.pitch = clamp(flight.pitch - dy * 0.0028, -1.5, 1.5);
+      flightApply();
+    } else if (e.shiftKey || drag.b === 2) pan(cam, dx, dy, sceneBox.h, panCentre());
     else orbit(cam, -dx * 0.006, dy * 0.005);
     drag.x = e.clientX; drag.y = e.clientY;
     lastInteract = performance.now();
@@ -3701,6 +3707,12 @@ export function mountExplorer(opts) {
     e.preventDefault();
     state.flyQueue = null;
     lastInteract = performance.now();
+    if (flight.on) {
+      flight.speed = clamp(flight.speed * Math.exp(-e.deltaY * 0.0009), 0.12, 12);
+      if (opts.onFlight) opts.onFlight(true);
+      dirty = true;
+      return;
+    }
     if (transition) return;
     const f = Math.exp(e.deltaY * 0.0011);
     dolly(cam, f);
@@ -3718,9 +3730,130 @@ export function mountExplorer(opts) {
   }, { passive: false });
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
+  /* -- FLIGHT: the game-style free camera (operator, 08-13) --------------------
+   * Arrow keys / WASD move, the mouse points the nose, and it works at every
+   * scale because speed rides the level's own radius. The free camera is
+   * REALIZED THROUGH THE ORBIT RIG rather than beside it — az = yaw + pi,
+   * el = -pitch, target = pos + dir*L, distance = L — so every consumer of the
+   * camera (projection, near/far, styles, screenshots) sees an ordinary orbit
+   * pose and nothing needs a second code path. maxDistance is raised BEFORE
+   * distance (the documented clamp trap). A dive or an eased view ends the
+   * flight; entering the flight ends any tour or fly-path. */
+  const flight = { on: false, pos: [0, 0, 0], yaw: 0, pitch: 0,
+                   keys: new Set(), boost: false, speed: 1 };
+  function flightApply() {
+    const cp = Math.cos(flight.pitch);
+    const d = [cp * Math.cos(flight.yaw), cp * Math.sin(flight.yaw),
+               Math.sin(flight.pitch)];
+    const L = cam.radius * 0.6;
+    cam.maxDistance = Math.max(cam.maxDistance, L);
+    cam.distance = L;
+    cam.azimuth = flight.yaw + Math.PI;
+    cam.elevation = -flight.pitch;
+    cam.target = [flight.pos[0] + d[0] * L, flight.pos[1] + d[1] * L,
+                  flight.pos[2] + d[2] * L];
+  }
+  function enterFlight() {
+    if (flight.on) return;
+    state.flyQueue = null;
+    const ce = Math.cos(cam.elevation), se = Math.sin(cam.elevation);
+    const eye = [cam.target[0] + cam.distance * ce * Math.cos(cam.azimuth),
+                 cam.target[1] + cam.distance * ce * Math.sin(cam.azimuth),
+                 cam.target[2] + cam.distance * se];
+    const d = [cam.target[0] - eye[0], cam.target[1] - eye[1],
+               cam.target[2] - eye[2]];
+    const dl = Math.hypot(d[0], d[1], d[2]) || 1;
+    flight.pos = eye;
+    flight.yaw = Math.atan2(d[1] / dl, d[0] / dl);
+    flight.pitch = Math.asin(clamp(d[2] / dl, -1, 1));
+    flight.keys.clear();
+    flight.speed = 1;
+    flight.on = true;
+    flightApply();
+    dirty = true;
+    if (opts.onFlight) opts.onFlight(true);
+  }
+  function exitFlight() {
+    if (!flight.on) return;
+    flight.on = false;
+    flight.keys.clear();
+    // The pose stays where the flight left it — an ordinary orbit about the
+    // point just ahead of the nose; the views row re-frames on demand.
+    dirty = true;
+    if (opts.onFlight) opts.onFlight(false);
+  }
+  function flightStep(dt) {
+    if (!flight.on || transition) return false;
+    if (flight.keys.size) {
+      const sp = cam.radius * 0.55 * flight.speed * (flight.boost ? 4 : 1);
+      const cp = Math.cos(flight.pitch);
+      const f = [cp * Math.cos(flight.yaw), cp * Math.sin(flight.yaw),
+                 Math.sin(flight.pitch)];
+      const r = [Math.sin(flight.yaw), -Math.cos(flight.yaw), 0];
+      const mv = [0, 0, 0];
+      const acc = (v, s) => { mv[0] += v[0] * s; mv[1] += v[1] * s; mv[2] += v[2] * s; };
+      if (flight.keys.has('fwd')) acc(f, 1);
+      if (flight.keys.has('back')) acc(f, -1);
+      if (flight.keys.has('right')) acc(r, 1);
+      if (flight.keys.has('left')) acc(r, -1);
+      if (flight.keys.has('up')) mv[2] += 1;
+      if (flight.keys.has('down')) mv[2] -= 1;
+      const n = Math.hypot(mv[0], mv[1], mv[2]);
+      if (n > 0) {
+        flight.pos[0] += mv[0] / n * sp * dt;
+        flight.pos[1] += mv[1] / n * sp * dt;
+        flight.pos[2] += mv[2] / n * sp * dt;
+      }
+    }
+    flightApply();
+    return flight.keys.size > 0;
+  }
+  const FLY_KEYS = { ArrowUp: 'fwd', KeyW: 'fwd', ArrowDown: 'back', KeyS: 'back',
+                     ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right',
+                     KeyD: 'right', KeyE: 'up', PageUp: 'up', KeyQ: 'down',
+                     PageDown: 'down' };
+  window.addEventListener('keydown', (e) => {
+    const tag = e.target && e.target.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA'
+        || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.code === 'Escape') {
+      if (flight.on) { exitFlight(); e.preventDefault(); }
+      return;
+    }
+    const act = FLY_KEYS[e.code];
+    if (!act) return;
+    if (!flight.on) {
+      if (transition) return;         // never wrestle a dive for the camera
+      enterFlight();
+    }
+    flight.keys.add(act);
+    flight.boost = e.shiftKey;
+    lastInteract = performance.now();
+    e.preventDefault();               // arrows must not scroll the page
+  });
+  window.addEventListener('keyup', (e) => {
+    const act = FLY_KEYS[e.code];
+    if (act) { flight.keys.delete(act); flight.boost = e.shiftKey; }
+  });
+
   /* -- public api -- */
   const api = {
-    state, cam, renderer,
+    state, cam, renderer, flight,
+    flightToggle() {
+      if (flight.on) exitFlight(); else if (!transition) enterFlight();
+      return flight.on;
+    },
+    flightKey(act, down) {
+      if (down) {
+        if (!flight.on) { if (transition) return false; enterFlight(); }
+        flight.keys.add(act);
+      } else flight.keys.delete(act);
+      return flight.on;
+    },
+    flightSpeed(f) {
+      flight.speed = clamp(f, 0.12, 12);
+      return flight.speed;
+    },
     get ctx() { return ctx; },
     setLevel,
     setMaterial(k) {
@@ -3966,6 +4099,7 @@ export function mountExplorer(opts) {
     applyView(key) {
       const v = (LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []).find(x => x.k === key);
       if (!v) return null;
+      exitFlight();
       // THE FLY-THROUGH: a queue of poses flown as one continuous path, each leg
       // the same eased move a view uses. Any input cancels it (the handlers
       // clear the queue); reduced motion parks at the path's heart instead —
