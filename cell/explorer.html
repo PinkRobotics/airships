@@ -319,47 +319,39 @@
 
 <!-- LEVEL 5 ------------------------------------------------------------------------------ -->
 <section data-level="bay">
-  <p class="lv-kicker">Level 6 · ~20 m · flight reference</p>
-  <h2>Section &amp; machinery bay</h2>
-  <div class="big"><span data-n="graded.band.outerSurfaceDifferentialAtm" data-f="1"></span>
-    <span class="unit">atm on the outer envelope</span></div>
-  <p class="bigsub">behind a graded band, instead of a full atmosphere</p>
+  <p class="lv-kicker">Level 6 · ~20 m · the grid, up close</p>
+  <h2>The grid &amp; the wall it carries</h2>
+  <div class="big"><span data-n="grid.hoopKPaM" data-f="0"></span> <span class="unit">kPa·m of hoop</span></div>
+  <p class="bigsub">P·R at the barrel — the shell's whole job, carried around the void</p>
   <div class="metrics">
-    <div><div class="v"><span data-n="graded.band.outerSurfaceDifferentialAtm" data-f="1"></span> <span class="u">atm</span></div>
-      <div class="k">on the outer envelope, not a full one</div></div>
-    <div><div class="v"><span data-n="graded.band.levels" data-f="0"></span></div>
-      <div class="k">graded levels across the band</div></div>
-    <div><div class="v"><span data-n="graded.band.bandVolumeFraction" data-mul="100" data-f="1"></span><span class="u">%</span></div>
-      <div class="k">of hull volume spent on the band</div></div>
-    <div><div class="v"><span data-n="graded.band.costPctOfNetLift" data-f="1"></span><span class="u">%</span></div>
-      <div class="k">of net lift it costs</div></div>
+    <div><div class="v">≈<span data-n="grid.bayM" data-f="0"></span> <span class="u">m</span></div>
+      <div class="k">between ring frames — the hoop chords ARE the frames</div></div>
+    <div><div class="v">≈<span data-n="grid.depthM" data-f="0"></span> <span class="u">m</span></div>
+      <div class="k">between the two chord walls — depth is the stiffness</div></div>
+    <div><div class="v warm"><span data-n="band.perCellPushT" data-f="1"></span> <span class="u">t</span></div>
+      <div class="k">one cell's push, delivered face-down into the outer wall</div></div>
+    <div><div class="v">≤<span data-n="grid.bandCapKPaM" data-f="0"></span> <span class="u">kPa·m</span></div>
+      <div class="k">all the band could add if asked — it is not asked</div></div>
   </div>
 
-  <p class="sowhat"><b>Sealed at every scale.</b> Sub-cells inside cells, cells inside
-  sections — each level evacuated and sealed, so no partition ever faces more than its own
-  level's differential and a breach is bounded by the smallest enclosure containing it. A
-  section is a cell of cells.</p>
+  <p class="sowhat"><b>You are hovering over ship 0's own flank.</b> The whole ship is
+  still there, faint; the lit patch is the same surface with the detail turned up — hoop
+  chords in bone, longerons, webs lacing down to the inner wall, and the warm ticks where
+  every cell leans its push into the chords. One cell stands open to its lattice: the
+  same article you can hold at the bottom of the ladder.</p>
 
-  <p class="sowhat"><b>The pumped plenum is that doctrine made active.</b> A soft shell across
-  the whole ship holds as much vacuum as its pumps can — lossy, never sealed — so no interior
-  cell works against a full atmosphere. It buys no lattice mass, because statics still
-  delivers one atmosphere to the array through the shell's mounts. What it buys is margin:
-  a cell proven to ×<span data-n="plenumHalf.cellOperatingMarginX" data-f="2"></span> of its
-  operating load instead of scraping past it.</p>
+  <p class="sowhat"><b>A clean division of labour.</b> Hoop chords carry the barrel's
+  squeeze; longerons carry half that along the length; webs carry shear between the
+  walls. The metres of depth are empty truss on purpose — bending stiffness grows with
+  the square of the gap, the way an I-beam earns its from the space between flanges.</p>
 
-<table>
-    <thead><tr><th class="num">levels</th><th class="num">structure</th><th class="num">gas</th>
-      <th class="num">films</th><th class="num">net lift</th></tr></thead>
-    <tbody data-t="graded"></tbody>
-  </table>
-  <p>The <strong>ambient bay</strong> holds pumps, tanks and plant at one atmosphere inside
-  the ship — ordinary machinery, ordinary maintenance, surrounded by the cells that carry
-  it.</p>
-  <p style="color:var(--faint);font-size:var(--t-11)">Open on this level: whether interior
-  films are sized to contain a breach (0.347 kg/m³) or only to seal (nearly free, but a
-  breach cascades) — the report calls that the sharpest unresolved trade in the design, and
-  sealing at every scale is the lever that shrinks it.</p>
-  <span class="tag cool">reference assumption</span><span class="tag">generated numbers</span>
+  <p class="sowhat"><b>Where a cell bears is still an open question</b> — a hoop line
+  passes under roughly every second cell today, and bearing at cell pitch means a seat
+  rail or a hoop under every cell. The scoping arithmetic is on the blueprint page;
+  SHIP-2 owns the answer.</p>
+
+  <span class="tag cool">ship figures: scoping — ship.js port pending</span>
+  <span class="tag st-scoping">seat line open</span>
 </section>
 
 <!-- LEVEL 4 ------------------------------------------------------------------------------ -->
@@ -1595,9 +1587,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=e4a9d248';
-import { SHIP, BAND } from './catalog.js?v=e4a9d248';
-import * as CELL from './model.js?v=e4a9d248';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=b171e7e8';
+import { SHIP, BAND, GRID } from './catalog.js?v=b171e7e8';
+import * as CELL from './model.js?v=b171e7e8';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1817,7 +1809,7 @@ if (!api) {
   window.EXPLORER = api;
   // The ship level's figures come from catalog.js (typed once, scoping-chipped), plus the
   // two derived margins so the panel can show the honest pair without arithmetic in HTML.
-  fillNumbers({ ...api.ctx, ship: SHIP, band: BAND,
+  fillNumbers({ ...api.ctx, ship: SHIP, band: BAND, grid: GRID,
                 shipMarginSF12: SHIP.liftT - SHIP.massT,
                 shipMarginSF15: SHIP.liftT - SHIP.massSF15T });
 

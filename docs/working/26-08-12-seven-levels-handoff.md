@@ -135,6 +135,22 @@ The page is fully filled, all seven levels, first-pass:
    named-not-weighed.
 7. **At work** — links `../` (the wildfire dashboard, previous design, re-points later).
 
+**OVERHAUL ROUND 3 (08-12 latest): THE GRID LEVEL IS A ZOOM, NOT A WARP** — operator
+ruling: "I want the layers to be zooming into components of the existing airship, not
+warping to a new thing." The old graded-band wedge (buildBay — the superseded stacked-band
+idea, drawn as a bench prop) is deleted. buildGrid draws a lit patch of ship 0's OWN flank
+superimposed on the whole ship kept faint: same coordinates, same generators — the ship's
+surface math now lives in module-scope functions (shipDims / shipStation /
+shipCellPlacements / shipSkeletonSegs) that both buildShip and buildGrid consume, so the
+patch and the whole cannot drift. The forward third of the patch stands OPEN (bare chords,
+warm seat ticks waiting on the wall) because an opaque wall hides the very grid the level
+exists to show; one hero cell is drawn glass with its REAL half-pitch lattice inside,
+tying the ladder's top to its bottom. Panel rewritten to the grid story (hoop 2,634 vs
+band ≤67; bay/depth; per-cell push; seat-line-open chip). LEVELS gained a `depthR`
+override (framing()) — the grid orbits a 12 m patch while keeping the 104 m ghost inside
+the clip planes. NEXT in this pattern: the band level (the 3×3×2 abstract block is the
+remaining warp) and per-course assembly on the grid.
+
 **OVERHAUL ROUND 2 (08-12 later): the 190 m P-100 hull level is DELETED** — "we can get
 rid of the hull level"; ship 0 tops the ladder at 7 levels. With it went buildHull, its
 panel section (the wall doctrine line and wallWork binding moved into the ship section),
