@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=3df25b73';
-import * as G from './explorer-geom.js?v=3df25b73';
+import * as CELL from './model.js?v=a2eb5498';
+import * as G from './explorer-geom.js?v=a2eb5498';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=3df25b73';
+} from './nodes.generated.js?v=a2eb5498';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=3df25b73';
+import { NODEMESHES } from './nodemeshes.generated.js?v=a2eb5498';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=3df25b73';
+import { SKIN } from './skin.generated.js?v=a2eb5498';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=3df25b73';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=a2eb5498';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2019,7 +2019,10 @@ function buildGrid() {
   // rings together and these hold them apart — and they tie the rings into ONE flange,
   // so the webs can serve every ring between them instead of leaving most floating.
   const bars = [];
-  for (let c = -NV; c <= NV; c++) {
+  // INTERIOR columns only (operator, 08-13): a bar on the patch's cut edge hung
+  // half off the lit region with its clamps showing in full — an artefact of
+  // where the patch ends, not a thing the wall has.
+  for (let c = -NV + 1; c <= NV - 1; c++) {
     // Continuous, end to end of the patch — segmented only by the clamps it passes under.
     bars.push([at(-NU * ROW, c * CROSS, BAR_OFF), at(NU * ROW, c * CROSS, BAR_OFF)]);
   }
@@ -2042,7 +2045,7 @@ function buildGrid() {
   {
     const cl = [];
     for (let k = -NU; k <= NU; k++) {
-      for (let c = -NV; c <= NV; c++) {
+      for (let c = -NV + 1; c <= NV - 1; c++) {
         if ((((c + k) % CLAMP_EVERY) + CLAMP_EVERY) % CLAMP_EVERY !== 0) continue;
         const u = k * ROW, v = c * CROSS;
         const st = shipStation(D, s0 + u);
@@ -2084,18 +2087,50 @@ function buildGrid() {
   // drawn at the patch's two bay planes; and two spoke cords crossing the void,
   // the licensed foundation, heading for the far wall.
   {
+    // EVERY bay plane carries its X (operator, 08-13: two lit planes read as
+    // "some hoops have them, some don't" — the model puts the crossed pair at
+    // every inner ring, so the drawing does too), and EVERY landing wears a
+    // connector: web ends on their rings, X ends on theirs, and the crossing
+    // itself. Joints are PRICED SMEARED (the eta line, 15% of member mass),
+    // so the beads are instanced truth about where fittings live, not a new
+    // mass line — and minimizing that count is named daylight work.
     const tx = [];
-    for (const u of [innerRows[Math.floor(innerRows.length / 2) - 1] || 0,
-                     innerRows[Math.floor(innerRows.length / 2)] || 0]) {
+    const joints = new Map();
+    const joint = (q) => joints.set(
+      `${q[0].toFixed(2)},${q[1].toFixed(2)},${q[2].toFixed(2)}`, q);
+    for (const u of innerRows) {
       for (let c = -3; c < 3; c++) {
         const v0 = c * vHalf / 3.5, v1 = (c + 1) * vHalf / 3.5;
         tx.push([at(u, v0, 0), at(u, v1, GRID.depthM)]);
         tx.push([at(u, v1, 0), at(u, v0, GRID.depthM)]);
+        joint(at(u, v0, 0)); joint(at(u, v1, 0));
+        joint(at(u, v0, GRID.depthM)); joint(at(u, v1, GRID.depthM));
+        joint(at(u, (v0 + v1) / 2, GRID.depthM / 2));   // the X crossing
       }
     }
     pipes('GridTheta', tx, 0.02, XM.pipe);
+    // The fan's own landings: outer end on its ring, inner ends on theirs.
+    for (let n = 0; n < innerRows.length - 1; n++) {
+      const u0 = innerRows[n], u1 = innerRows[n + 1], mid = (u0 + u1) / 2;
+      for (let c = -3; c <= 3; c++) {
+        const v = c * vHalf / 3.5;
+        joint(at(mid, v, 0));
+        joint(at(u0, v, GRID.depthM)); joint(at(u1, v, GRID.depthM));
+      }
+    }
+    {
+      const pts = [...joints.values()];
+      const xf = new Float32Array(pts.length * 16);
+      pts.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+        q[0], q[1], q[2], 1], i * 16));
+      const jn = inst(root, { id: 'GridJoints' }, xf, pts.length, {});
+      jn.geom = G.beadGeom(0.085, 0.06, 0.075, 8);
+      jn.xmat = XM.printed;
+    }
+    // Spokes leave from EVERY inner hoop — the model's own layout (one pair
+    // drawn per bay here; the ship level draws the full diametral set).
     const sp = [];
-    for (const u of [innerRows[Math.floor(innerRows.length / 2)] || 0]) {
+    for (const u of innerRows) {
       for (const v of [-vHalf / 3, vHalf / 4]) {
         sp.push([at(u, v, GRID.depthM), at(u, v * 0.2, GRID.depthM + 18)]);
       }
@@ -2112,7 +2147,8 @@ function buildGrid() {
       { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped sparsely, staggered ≈2 m', s: 'nothing drilled, cut or woven — and the crossings need no fastener under load, since the push is always inward. The clamps are for the unpressurised states: this has to stand up before it is ever pumped down' },
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
-      { p: at(0.5 * ROW, 2.0 * CROSS, GRID.depthM + 0.6), t: 'the X in the ring plane', s: 'the member the checks found missing: without it the two walls cannot bend as one deep ring — the fan lives in meridional planes and cannot carry this shear' },
+      { p: at(0.5 * ROW, 2.0 * CROSS, GRID.depthM + 0.6), t: 'the X in the ring plane, at every bay', s: 'the member the checks found missing: without it the two walls cannot bend as one deep ring — the fan lives in meridional planes and cannot carry this shear' },
+      { p: at(-2.2 * ROW, -1.2 * CROSS, GRID.depthM * 0.5), t: 'a connector at every landing', s: 'web ends, X ends, the crossing itself — the ledger prices joints smeared (the η line, 15% of member mass), and the render instances them for free. Getting that count DOWN is named daylight work; the count is why η matters' },
       { p: at(0, -1.5 * CROSS, GRID.depthM + 8), t: 'spokes, crossing the void', s: 'the licensed fallback: pretensioned cords against the EVEN out-of-round modes at fibre weight — a diametral cord cannot see the odd ones, and the record says so; the chordal net that could is SHIP-3' },
     ],
   };
@@ -3675,9 +3711,11 @@ export function mountExplorer(opts) {
     // the world origin: at a stop 0.29 m out with a 25 mm radius the origin's box is 40 mm
     // wide and the first drag-pan throws the part out of frame.
     if (flight.on) {
-      flight.yaw -= dx * 0.0032;
-      flight.pitch = clamp(flight.pitch - dy * 0.0028, -1.5, 1.5);
-      flightApply();
+      // DAMPED look (operator tune): the drag writes a TARGET at reduced
+      // sensitivity and flightStep glides the nose onto it — twitch removed,
+      // intent kept. flightApply happens in the step, not here.
+      flight.yawT -= dx * 0.0016;
+      flight.pitchT = clamp(flight.pitchT - dy * 0.0014, -1.5, 1.5);
     } else if (e.shiftKey || drag.b === 2) pan(cam, dx, dy, sceneBox.h, panCentre());
     else orbit(cam, -dx * 0.006, dy * 0.005);
     drag.x = e.clientX; drag.y = e.clientY;
@@ -3740,6 +3778,7 @@ export function mountExplorer(opts) {
    * distance (the documented clamp trap). A dive or an eased view ends the
    * flight; entering the flight ends any tour or fly-path. */
   const flight = { on: false, pos: [0, 0, 0], yaw: 0, pitch: 0,
+                   yawT: 0, pitchT: 0,
                    keys: new Set(), boost: false, speed: 1 };
   function flightApply() {
     const cp = Math.cos(flight.pitch);
@@ -3766,6 +3805,8 @@ export function mountExplorer(opts) {
     flight.pos = eye;
     flight.yaw = Math.atan2(d[1] / dl, d[0] / dl);
     flight.pitch = Math.asin(clamp(d[2] / dl, -1, 1));
+    flight.yawT = flight.yaw;
+    flight.pitchT = flight.pitch;
     flight.keys.clear();
     flight.speed = 1;
     flight.on = true;
@@ -3784,8 +3825,19 @@ export function mountExplorer(opts) {
   }
   function flightStep(dt) {
     if (!flight.on || transition) return false;
+    // Glide the nose onto the drag's target — a first-order lag, ~120 ms to
+    // close. Returns "moving" while the glide is live so the frame keeps
+    // rendering after the pointer stops.
+    const g = 1 - Math.exp(-dt * 9);
+    const dYaw = flight.yawT - flight.yaw;
+    const dPitch = flight.pitchT - flight.pitch;
+    flight.yaw += dYaw * g;
+    flight.pitch += dPitch * g;
+    const gliding = Math.abs(dYaw) + Math.abs(dPitch) > 1e-4;
     if (flight.keys.size) {
-      const sp = cam.radius * 0.55 * flight.speed * (flight.boost ? 4 : 1);
+      // Normal is a walk, boost is the old cruise (operator tune, 08-13):
+      // 0.55 radii/s read as fast everywhere, so it is now what SHIFT buys.
+      const sp = cam.radius * 0.1375 * flight.speed * (flight.boost ? 4 : 1);
       const cp = Math.cos(flight.pitch);
       const f = [cp * Math.cos(flight.yaw), cp * Math.sin(flight.yaw),
                  Math.sin(flight.pitch)];
@@ -3806,7 +3858,7 @@ export function mountExplorer(opts) {
       }
     }
     flightApply();
-    return flight.keys.size > 0;
+    return flight.keys.size > 0 || gliding;
   }
   const FLY_KEYS = { ArrowUp: 'fwd', KeyW: 'fwd', ArrowDown: 'back', KeyS: 'back',
                      ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right',
@@ -3820,20 +3872,30 @@ export function mountExplorer(opts) {
       if (flight.on) { exitFlight(); e.preventDefault(); }
       return;
     }
-    const act = FLY_KEYS[e.code];
+    let act = FLY_KEYS[e.code];
     if (!act) return;
+    // SHIFT + up/down arrows fly ALTITUDE (operator ask); shift with anything
+    // else stays the boost. Rise and sink also live on Q/E and PgUp/PgDn.
+    const altArrow = e.code === 'ArrowUp' || e.code === 'ArrowDown';
+    if (e.shiftKey && altArrow) act = e.code === 'ArrowUp' ? 'up' : 'down';
     if (!flight.on) {
       if (transition) return;         // never wrestle a dive for the camera
       enterFlight();
     }
     flight.keys.add(act);
-    flight.boost = e.shiftKey;
+    flight.boost = e.shiftKey && !(e.shiftKey && altArrow);
     lastInteract = performance.now();
     e.preventDefault();               // arrows must not scroll the page
   });
   window.addEventListener('keyup', (e) => {
     const act = FLY_KEYS[e.code];
-    if (act) { flight.keys.delete(act); flight.boost = e.shiftKey; }
+    if (act) {
+      flight.keys.delete(act);
+      // A shift-mapped altitude arrow may be held under EITHER name — clear both.
+      if (e.code === 'ArrowUp') flight.keys.delete('up');
+      if (e.code === 'ArrowDown') flight.keys.delete('down');
+      flight.boost = e.shiftKey;
+    }
   });
 
   /* -- public api -- */

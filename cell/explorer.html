@@ -1677,9 +1677,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=3df25b73';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=3df25b73';
-import * as CELL from './model.js?v=3df25b73';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=a2eb5498';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=a2eb5498';
+import * as CELL from './model.js?v=a2eb5498';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -2131,17 +2131,13 @@ if (!api) {
   // assertion untestable, because one writer would always cover for the other.
   document.getElementById('tourNext').addEventListener('click', () => api.nextPart());
 
-  /* keyboard */
+  /* keyboard — ARROWS BELONG TO THE FLIGHT now (operator, 08-13): they used to
+   * dive levels and walk tours, which fought the free camera for the stick.
+   * Levels move by scroll-dive, the ladder and the panel links; tours walk by
+   * their own buttons. This handler keeps only what flight does not own. */
   window.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
-    const i = api.state.levelIdx;
-    if (e.key === 'ArrowUp' || e.key === 'PageUp') { api.setLevel(i + 1); e.preventDefault(); }
-    else if (e.key === 'ArrowDown' || e.key === 'PageDown') { api.setLevel(i - 1); e.preventDefault(); }
-    // Left and right walk the tour, both ways — the button only goes forward, and a viewer
-    // who overshoots the joint they wanted should not have to go round again.
-    else if (e.key === 'ArrowRight' && api.tourFor()) { api.nextPart(); e.preventDefault(); }
-    else if (e.key === 'ArrowLeft' && api.tourFor()) { api.prevPart(); e.preventDefault(); }
-    else if (e.key === 'Escape') api.clearBreach();
+    if (e.key === 'Escape') api.clearBreach();
   });
 }
 </script>

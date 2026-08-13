@@ -250,3 +250,27 @@ TRAP PAID: a `function syncFly()` declared inside the boot's else-block does
 not hoist to module scope, and the opts.onFlight callback threw ReferenceError
 only when the first flight engaged — a `let syncFly = () => {}` indirection at
 module scope is the pattern (the gate caught it before any human did).
+
+
+## MORNING, PART 5 — grid truth + the stick sorted (operator round 2)
+
+- **X-webs at EVERY bay plane** on the grid level (two lit planes had read as "some
+  hoops have them, some don't" — the model has the crossed pair at every inner ring).
+- **A connector at every landing**: instanced beads at web ends, X ends, and the X
+  crossing itself, deduped on shared landings. New label says the honest thing: joints
+  are priced SMEARED (the η line, 15% of member mass), the beads are where fittings
+  live, and getting the count down is named daylight work (the η axis ≈ 17 t at ship
+  scale).
+- **Edge bars gone**: the patch draws interior bar columns only — the half-hanging
+  edge bar with full clamps was an artefact of where the patch ends.
+- **Spokes from every inner hoop** (one pair per bay drawn; the ship level carries the
+  full diametral set). Operator likes the cords — keep the treatment.
+- **Arrows belong to the flight now**: the html's ArrowUp/Down level-dive and
+  ArrowLeft/Right tour-walk bindings fought the free camera for the stick — removed
+  (levels: scroll-dive/ladder/links; tours: their own buttons). **Shift+Up/Down flies
+  altitude** (operator ask); shift with anything else stays the boost; keyup clears
+  both names of a shift-mapped arrow.
+- **Flight feel (operator tune):** the old normal speed (0.55 radii/s) is now what
+  SHIFT buys; normal is a 4x-slower walk. The mouse look is DAMPED: drags write a
+  target at half sensitivity and flightStep glides the nose onto it with a ~120 ms
+  first-order lag (the glide keeps frames rendering after the pointer stops).
