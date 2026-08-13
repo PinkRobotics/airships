@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=84313257';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=ca9b8477';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -432,7 +432,7 @@ function drawWebDetail() {
     out += `<path d="M ${(cx - W / 2).toFixed(1)} ${faceY - 34} Q ${cx} ${faceY - 34 + sag * 2} ${(cx + W / 2).toFixed(1)} ${faceY - 34}"
              fill="none" stroke="${C.warm}" stroke-width="2"/>`;
   }
-  // Posts: one at EVERY junction, down to the ring beneath it.
+  // No posts: the rings sit IN the film line, at every panel junction.
   const posts = [];
   for (let i = 0; i <= centres.length; i++) posts.push(mid + (i - centres.length / 2) * W);
   const hoopSec = (x, y, r = 9) => {
@@ -441,11 +441,12 @@ function drawWebDetail() {
       <line x1="${x - d}" y1="${y - d}" x2="${x + d}" y2="${y + d}" stroke="${C.cool}" stroke-width="1.1"/>
       <line x1="${x - d}" y1="${y + d}" x2="${x + d}" y2="${y - d}" stroke="${C.cool}" stroke-width="1.1"/>`;
   };
-  for (const px of posts) {
-    out += `<line x1="${px.toFixed(1)}" y1="${faceY - 34}" x2="${px.toFixed(1)}" y2="${faceY - 11}"
-             stroke="${C.bone}" stroke-width="2.2"/>`;
-    out += hoopSec(px, faceY);
+  // Cross-bars run along the meridian — in this section plane, straight between rings.
+  for (let i = 0; i < posts.length - 1; i++) {
+    out += `<line x1="${posts[i].toFixed(1)}" y1="${faceY - 34}" x2="${posts[i + 1].toFixed(1)}" y2="${faceY - 34}"
+             stroke="${C.bone}" stroke-width="1.6"/>`;
   }
+  for (const px of posts) out += hoopSec(px, faceY - 34, 8);
   out += `<line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.6"/>`;
   out += hoopSec(mid - 106, innerY) + hoopSec(mid + 106, innerY);
   out += `<line x1="${mid - W * 1.5}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
@@ -454,14 +455,14 @@ function drawWebDetail() {
           <line x1="${mid + W / 2}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-opacity="0.5" stroke-width="1.3"/>`;
   out += `
     <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, in section — film, rim, post, ring</text>
-    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">a post at EVERY rim junction — both ends of every rim held</text>
-    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ a hoop chord under every row of posts</text>
+    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">the film lies straight on the rings — no posts, no rim grid</text>
+    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords · — cross-bars, holding them apart</text>
     <text x="24" y="${faceY - 44}" fill="${C.warm}" font-size="10" font-family="monospace">loaded film, dished inward</text>
     <text x="60" y="236" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
     <text x="60" y="249" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
     <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — bays + all the longerons</text>
     <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing behind the film is sealed — it is already vacuum</text>
-    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">~2.9 posts per m², ~35 kN each · rim bending + pitch to SHIP-2</text>`;
+    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">square panels: doubly curved, half the tension of a trough</text>`;
   return svgEl(out, '0 0 440 340');
 }
 

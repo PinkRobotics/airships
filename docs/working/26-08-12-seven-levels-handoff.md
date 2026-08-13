@@ -355,7 +355,35 @@ explorer") — a breach then costs a compartment, not the ship.
 **Redundancy sequencing (operator):** "design in redundancy once we figure out how to
 get it to work at all." Make it work, then armour it.
 
-**TOPOLOGY CORRECTION (operator, immediately after): A POST AT EVERY VERTEX.** The first
+**SUPERSEDED SAME NIGHT — THE FILM LIES ON THE RINGS (operator, 08-13).** He noticed the
+rings are DENSER than the panels (~0.50 m against ~0.92 m), and asked the question that
+retires the tile: "should we just lay the fabric right on them with some cross bars between
+them, is there any point in putting a pipe above another to support?" No point: a rim member
+held over a ring member by a post is two members doing one job plus a spacer, and separation
+only earns its keep as SANDWICH depth — between the two walls, not inside one. **RULED: the
+outer wall is hoop chords + meridional cross-bars + film laid straight on them. No posts, no
+rim grid, no clasps standing off the chord.** ~2.4x less frame material, the entire post
+class and its clasps deleted, and the loading gets BETTER: film bearing along a ring's whole
+length is uniform radial load — the funicular case, pure compression — where posts delivered
+the same push as point loads and bent the ring between them.
+**PANELS ARE SQUARE** (operator: "or squares or triangles?"): cross-bar pitch = ring pitch.
+A doubly-curved panel carries pressure both ways at T = pR/2 against a long trough's pR, so
+squaring halves the film AND halves the meridional pull that is the cross-bars' entire
+reason to exist. Member material is demand-fixed either way (force/sigma, spacing-
+independent), so the halving is pure profit; triangles are doubly curved too but pay a
+cosine penalty on every diagonal.
+**AND THE HEXAGON ANALYSIS IS RETIRED WITH IT** — it optimised a free-standing rim grid, and
+the grid should not be free-standing. Worth keeping as a geometric fact: a hex lattice
+contains NO straight continuous lines (three edges at 120deg, never collinear), so hexagons
+and a continuous funicular hoop are mutually exclusive. What tiles a strip between two
+straight rings is rectangles or triangles — not hexagons.
+**Also fixed in the same round:** the web fan was landing HALFWAY BETWEEN inner rings (it
+targeted a fixed offset instead of the nearest actual ring) — the misalignment the operator
+spotted; and the hoop chords were drawn as single straight segments, which chord ~0.7 m
+below the surface across a 12 m patch and read as "a flat patio under a rounded honeycomb".
+Both corrected; rings are polylines on the arc.
+
+**SUPERSEDED — TOPOLOGY CORRECTION (operator): A POST AT EVERY VERTEX.** The first
 drawing legged the ALTERNATING vertices (3 per tile to a central bracket) — and because hex
 vertices are bipartite and all tiles share one orientation, the other sublattice went
 globally unsupported: every rim member a cantilever, M = wL²/2 instead of wL²/8, **4x the

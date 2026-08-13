@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=84313257';
-import * as G from './explorer-geom.js?v=84313257';
+import * as CELL from './model.js?v=ca9b8477';
+import * as G from './explorer-geom.js?v=ca9b8477';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=84313257';
+} from './nodes.generated.js?v=ca9b8477';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=84313257';
+import { NODEMESHES } from './nodemeshes.generated.js?v=ca9b8477';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=84313257';
+import { SKIN } from './skin.generated.js?v=ca9b8477';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=84313257';
+import { SHIP, BAND, GRID } from './catalog.js?v=ca9b8477';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1744,10 +1744,23 @@ function shipDims() {
   // meridian — and THAT is where the hoop chords go, because a post stands at every
   // vertex and every post must land on a ring. Roughly twice as many rings as tile rows;
   // hoop material is demand-fixed, so they are simply thinner.
-  const tileA = pitch * Math.sqrt(2 / (3 * Math.sqrt(3)));   // hex edge, equal area
-  const rowY = Math.sqrt(3) * tileA / 2;                     // vertex-row spacing
-  const tileDepth = 0.22;                                    // rim to ring: the post's length
-  return { R, cylL, pitch, sCap, total, nBays, tileA, rowY, tileDepth };
+  // THE PANEL GRID (operator, 08-13): the film lies straight on the hoop chords, so the
+  // rings ARE the frame in the hoop direction and only meridional cross-bars are bought.
+  // No posts, no separate rim grid, no pipe standing above a pipe. A ring loaded by film
+  // along its whole length sees UNIFORM RADIAL LOAD — the funicular case, pure
+  // compression — where posts delivered the same load as point loads and bent it.
+  const tileA = pitch * Math.sqrt(2 / (3 * Math.sqrt(3)));
+  const rowY = Math.sqrt(3) * tileA / 2;     // ring pitch, unchanged: ~0.50 m
+  // SQUARE panels: cross-bar pitch = ring pitch. A doubly-curved panel carries pressure
+  // in BOTH directions (T = pR/2, the sphere) where a long strip carries it in one
+  // (T = pR, the cylinder) — so squaring the panel halves the membrane tension, which
+  // halves the film AND halves the meridional pull the cross-bars exist to resist.
+  // Member material is demand-fixed either way (force/sigma, independent of spacing), so
+  // the halving is pure profit. Triangles would be doubly curved too but pay a cosine
+  // penalty on every diagonal. [SCOPING — #74 optimises pitch itself]
+  const crossM = rowY;
+  const panels = Math.round(area / (rowY * crossM));
+  return { R, cylL, pitch, sCap, total, nBays, tileA, rowY, crossM, panels, area };
 }
 
 /* Meridian station at arc length s from the nose pole: axial x, ring radius r, outward
@@ -1776,8 +1789,8 @@ function shipStation(D, s) {
  * the old cell grid, because the pitch is what breaks the film into panels. */
 function shipCellPlacements(D) {
   const out = [];
-  const inset = D.pitch / 2;
-  const nRings = Math.round(D.total / D.pitch);
+  const inset = 0;                           // the film sits ON the rings now
+  const nRings = Math.round(D.total / D.rowY);
   for (let i = 0; i <= nRings; i++) {
     const s = D.total * i / nRings;
     const st = shipStation(D, s);
@@ -1814,7 +1827,10 @@ const cellsToXf = (cells) => {
 function shipSkeletonSegs(D) {
   // The outer chord wall now sits at the POST'S FOOT — a hand's breadth under the film,
   // not a cell's depth — so the whole band thins and the void grows by the difference.
-  const wallOff = D.tileDepth, innerOff = D.tileDepth + GRID.depthM;
+  // The barrier is ON the skeleton now: rings at the outer surface, inner wall one
+  // sandwich depth in. The old post standoff is gone, so the whole band thins to nothing
+  // and the void grows by that much.
+  const wallOff = 0, innerOff = GRID.depthM;
   // SUPPORT PER CELL — the operator's ruling (08-12): the OUTER wall carries a hoop
   // chord under EVERY cell row, so each cell lands its face on a ring and the seat rail
   // is deleted as a class. The INNER wall keeps its rings at bay pitch, and the webs fan
@@ -1824,7 +1840,7 @@ function shipSkeletonSegs(D) {
   // between web points and prices the ring count.
   const outerRings = [];
   {
-    const nRings = Math.round(D.total / D.rowY);      // the VERTEX rows, exactly
+    const nRings = Math.round(D.total / D.rowY);      // one ring per panel row, exactly
     for (let i = 0; i <= nRings; i++) outerRings.push(D.total * i / nRings);
   }
   const innerRings = [];
@@ -1871,6 +1887,9 @@ function shipSkeletonSegs(D) {
   }
   // The 2:1 fan: every outer ring sheds down a diagonal to its NEAREST inner ring, so
   // inner nodes collect from ~2.2 outer rings each and the drawing IS the load path.
+  // Every web ENDS ON AN INNER RING. They were landing halfway between them — the
+  // misalignment the operator spotted — because the fan targeted a fixed offset rather
+  // than the nearest actual inner ring.
   for (const so of outerRings) {
     let si = innerRings[0];
     for (const c of innerRings) if (Math.abs(c - so) < Math.abs(si - so)) si = c;
@@ -1899,48 +1918,19 @@ function buildGrid() {
   const bones = shipSkeletonSegs(D);
   const s0 = D.total / 2, TH0 = Math.PI / 2;
 
-  // The whole ship, faint, so the patch is visibly PART of it.
   const ghost = inst(root, { id: 'GridGhostCells' }, cellsToXf(cells), cells.length, {});
-  ghost.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 8, 2);
+  ghost.geom = G.filmDomeGeom(D.crossM * 0.9, 0.11, 6, 2);
   ghost.xmat = { kind: 'glass', color: '#7d8698', opacity: 0.05 };
   lineNode(root, 'GridGhostFrame',
     segLines([...bones.hoops, ...bones.longs].filter((_, i) => i % 3 === 0)), XM.latticeFaint);
 
-  /* THE PATCH — a real shared honeycomb, laid on the barrel where the tiling is exact
-   * (the caps stay schematic, as the panel says). Flat-top hexagons in a local frame:
-   * v runs around the hoop, u along the meridian. Rims are SHARED between neighbours —
-   * one continuous grid, not a rim per tile, which halves the dominant mass term; the
-   * only thing that buys is per-tile liftability, and redundancy moved to compartments.
-   * A POST STANDS AT EVERY VERTEX (the operator's catch): support only the alternating
-   * ones and every rim member is a cantilever at 4x the moment. Each post is shared by
-   * three tiles — 2 per tile of area, ~2.9 per m2, ~35 kN each. */
-  const A = D.tileA, ROW = D.rowY;
-  const NU = 9, NV = 7;                       // half-extents in hex steps
-  const key = (u, v) => `${Math.round(u * 1e4)},${Math.round(v * 1e4)}`;
-  const verts = new Map(), edgeSet = new Set(), edges = [], centres = [];
-  for (let i = -NV; i <= NV; i++) {
-    for (let j = -NU; j <= NU; j++) {
-      const cv = 1.5 * A * i;
-      const cu = Math.sqrt(3) * A * j + (((i % 2) + 2) % 2) * ROW;
-      centres.push([cu, cv]);
-      const ring = [];
-      for (let k = 0; k < 6; k++) {
-        const ang = Math.PI / 3 * k;
-        const vv = cv + A * Math.cos(ang), uu = cu + A * Math.sin(ang);
-        const kk = key(uu, vv);
-        if (!verts.has(kk)) verts.set(kk, [uu, vv]);
-        ring.push(kk);
-      }
-      for (let k = 0; k < 6; k++) {
-        const p1 = ring[k], p2 = ring[(k + 1) % 6];
-        const ek = p1 < p2 ? `${p1}|${p2}` : `${p2}|${p1}`;
-        if (edgeSet.has(ek)) continue;        // SHARED: each rim member drawn once
-        edgeSet.add(ek);
-        edges.push([verts.get(p1), verts.get(p2)]);
-      }
-    }
-  }
-  // (u, v) on the surface -> world, at a given depth under the film.
+  /* THE WALL, as ruled: hoop chords at panel pitch with the film laid straight on them,
+   * meridional cross-bars holding adjacent rings apart against the film's pull, and
+   * nothing else. No posts and no rim grid — a pipe above a pipe was two members doing
+   * one job with a spacer between them. */
+  const ROW = D.rowY, CROSS = D.crossM;
+  const NU = 8, NV = 6;
+  const vHalf = NV * CROSS, ARCSEG = 26;
   const at = (u, v, off) => {
     const st = shipStation(D, s0 + u);
     const th = TH0 + v / D.R;
@@ -1956,73 +1946,78 @@ function buildGrid() {
     n2.geom = G.tubeArcGeom(rOut, rOut * 0.35, 1.0, 360, 10);
     n2.xmat = xmat;
   };
-
-  // The laid course, and ahead of it a course still open: bare rings and waiting posts.
-  const laid = ([u]) => u > -1.6 * ROW;
-  pipes('GridTileRims', edges.filter(e => laid(e[0]) && laid(e[1]))
-    .map(([p1, p2]) => [at(p1[0], p1[1], 0), at(p2[0], p2[1], 0)]), 0.030, XM.pipeRim);
-  // EVERY vertex gets its post — that is the whole correction.
-  const vlist = [...verts.values()];
-  pipes('GridPosts', vlist.map(([u, v]) => [at(u, v, 0), at(u, v, D.tileDepth)]),
-    0.026, XM.pipe);
-  // The hoop chords, running under the vertex rows the posts stand on. POLYLINES, not
-  // single segments: a straight chord across a 12 m patch sags ~0.7 m below a 26 m radius,
-  // which drew the rings as a flat floor under a curved wall — the operator's "flat patio".
-  const rows = [...new Set(vlist.map(([u]) => Math.round(u / ROW)))].sort((x, y) => x - y);
-  const vHalf = NV * 1.5 * A + A, ARCSEG = 20;
-  const arc = (u, off) => {
+  const arc = (u, off, half = vHalf) => {
     const out = [];
     let prev = null;
     for (let i = 0; i <= ARCSEG; i++) {
-      const v = -vHalf + 2 * vHalf * i / ARCSEG;
-      const q = at(u, v, off);
+      const q = at(u, -half + 2 * half * i / ARCSEG, off);
       if (prev) out.push([prev, q]);
       prev = q;
     }
     return out;
   };
-  // ~100 mm OD, the scoping size: N = pR over the row pitch at mid coupon class.
-  pipes('GridHoops', rows.flatMap(k => arc(k * ROW, D.tileDepth)), 0.05, XM.pipeRim);
-  // The inner wall: its own rings at bay pitch, and the webs that fan down to them.
-  const innerOff = D.tileDepth + GRID.depthM;
+  const rows = [];
+  for (let k = -NU; k <= NU; k++) rows.push(k * ROW);
+
+  // ~100 mm OD: N = pR over the row pitch, at the mid coupon class, R/t 13.
+  pipes('GridHoops', rows.flatMap(u => arc(u, 0)), 0.05, XM.pipeRim);
+  // The cross-bars: struts between adjacent rings. The film's meridional pull draws the
+  // rings together and these hold them apart — and they tie the rings into ONE flange,
+  // so the webs can serve every ring between them instead of leaving most floating.
+  const bars = [];
+  for (let k = -NU; k < NU; k++) {
+    for (let c = -NV; c <= NV; c++) {
+      bars.push([at(k * ROW, c * CROSS, 0), at((k + 1) * ROW, c * CROSS, 0)]);
+    }
+  }
+  pipes('GridCross', bars, 0.012, XM.pipe);   // ~24 mm: the pull is halved by the square
+
+  // THE FILM: one dished pillow per square panel — doubly curved, which is the whole
+  // reason the panel is square.
+  {
+    const px = [];
+    for (let k = -NU; k < NU; k++) {
+      for (let c = -NV; c < NV; c++) {
+        const u = (k + 0.5) * ROW, v = (c + 0.5) * CROSS;
+        const st = shipStation(D, s0 + u);
+        const th = TH0 + v / D.R;
+        const uu = [0, -Math.cos(th), Math.sin(th)];
+        const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
+        const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
+        const thop = [0, -Math.sin(th), -Math.cos(th)];
+        const q = at(u, v, 0);
+        px.push([thop, tm, n, q]);
+      }
+    }
+    const xf = new Float32Array(px.length * 16);
+    px.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0, Y[0], Y[1], Y[2], 0,
+      Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
+    const film = inst(root, { id: 'GridCells' }, xf, px.length, {});
+    film.geom = G.filmDomeGeom(ROW * 0.97, 0.11, 12, 3);
+    film.xmat = XM.membraneLoaded;
+  }
+
+  // The inner wall and the fan that reaches it — every web ends ON a ring.
   const innerRows = rows.filter((_, i) => i % 4 === 0);
-  pipes('GridInner', innerRows.flatMap(k => arc(k * ROW, innerOff)), 0.055, XM.pipeRim);
+  pipes('GridInner', innerRows.flatMap(u => arc(u, GRID.depthM)), 0.055, XM.pipeRim);
   const webs = [];
-  for (const k of innerRows) {
-    for (let c = -2; c <= 2; c++) {
-      const v = c * vHalf / 2.5;
-      webs.push([at(k * ROW, v, D.tileDepth), at(k * ROW + 2 * ROW, v, innerOff)]);
-      webs.push([at(k * ROW + 4 * ROW, v, D.tileDepth), at(k * ROW + 2 * ROW, v, innerOff)]);
+  for (let n = 0; n < innerRows.length - 1; n++) {
+    const u0 = innerRows[n], u1 = innerRows[n + 1], mid = (u0 + u1) / 2;
+    for (let c = -3; c <= 3; c++) {
+      const v = c * vHalf / 3.5;
+      webs.push([at(mid, v, 0), at(u0, v, GRID.depthM)]);
+      webs.push([at(mid, v, 0), at(u1, v, GRID.depthM)]);
     }
   }
   pipes('GridWebs', webs, 0.038, XM.pipe);
 
-  // The film: one dished panel per tile, laid course only.
-  const laidCentres = centres.filter(c => c[0] > -1.6 * ROW);
-  const tileXf = new Float32Array(laidCentres.length * 16);
-  laidCentres.forEach(([u, v], i) => {
-    const st = shipStation(D, s0 + u);
-    const th = TH0 + v / D.R;
-    const uu = [0, -Math.cos(th), Math.sin(th)];
-    const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
-    const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
-    const thop = [0, -Math.sin(th), -Math.cos(th)];
-    const p = at(u, v, 0);
-    tileXf.set([thop[0], thop[1], thop[2], 0, tm[0], tm[1], tm[2], 0,
-                n[0], n[1], n[2], 0, p[0], p[1], p[2], 1], i * 16);
-  });
-  const film = inst(root, { id: 'GridCells' }, tileXf, laidCentres.length, {});
-  film.geom = G.filmDomeGeom(D.pitch * 0.96, 0.11, 12, 3);
-  film.xmat = XM.membraneLoaded;
-
-  const hero = laidCentres[Math.floor(laidCentres.length / 2)];
   return {
     root,
     labels: [
-      { p: at(0, 2.4 * A, -2.0), t: 'a post at every rim junction', s: 'about 2.9 per square metre, ~35 kN each — each one shared by the three tiles that meet on it, so every rim member is held at BOTH ends' },
-      { p: at(-3 * ROW, -2.6 * A, -1.4), t: 'a course not yet laid', s: 'bare rings and their waiting posts — the film goes on last, and nothing threads through the barrier' },
-      { p: at(2.5 * ROW, 0, D.tileDepth + 1.4), t: 'hoop chords under every vertex row', s: `one ring per row of posts, ~${(D.rowY).toFixed(2)} m apart; hoop material is fixed by demand, so more rings only means thinner ones` },
-      { p: at(hero[0], hero[1], -1.0), t: 'one tile', s: 'a panel of loaded film on a shared rim — no vessel, nothing sealed: behind the barrier it is already vacuum' },
+      { p: at(0, 3.4 * CROSS, -1.6), t: 'the film lies straight on the rings', s: 'no posts and no rim grid: the hoop chords ARE the frame across, and a ring loaded along its length sees uniform radial load — pure compression, the case it is funicular for' },
+      { p: at(1.2 * ROW, -3.4 * CROSS, -1.4), t: 'square panels, and why', s: 'doubly curved carries pressure both ways at half the tension of a long trough — half the film, and half the pull the cross-bars resist' },
+      { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
+      { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
     ],
   };
 }
@@ -2054,7 +2049,7 @@ function buildShip() {
   const NP = 40;
   for (let i = 0; i <= NP; i++) {
     const st = shipStation(D, D.total * i / NP);
-    const off = D.tileDepth + GRID.depthM;
+    const off = GRID.depthM;
     prof.push([st.x - st.nx * off, Math.max(0.01, st.r - st.nr * off)]);
   }
   solidNode(root, 'ShipVoidSkin', latheWithScale(prof, 48, () => 1), XM.kelvinGhost);
@@ -2130,11 +2125,11 @@ const SHIPVIEW = (() => {
   };
   return {
     D,
-    gridTg: [0, 0, D.R - D.tileDepth - GRID.depthM / 2],
+    gridTg: [0, 0, D.R - GRID.depthM / 2],
     heroTg: hero.p.slice(),
-    openTg: at(-2.2 * D.rowY, D.tileDepth),
-    laidTg: at(2.0 * D.rowY, D.tileDepth),
-    depthTg: [0, 0, D.R - D.tileDepth - GRID.depthM / 2],
+    openTg: at(-2.2 * D.rowY, 0),
+    laidTg: at(2.0 * D.rowY, 0),
+    depthTg: [0, 0, D.R - GRID.depthM / 2],
   };
 })();
 
@@ -2178,7 +2173,7 @@ export const LEVELS = [
   // to a new model. openC in buildArray is the same point; one constant, both places.
   { id: 'array', name: 'The band', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
     target: [0, -2, 1], build: buildArray, instance: 'flight' },
-  { id: 'bay', name: 'The grid', scaleM: 20, radius: 9, depthR: 130, az: -0.62, el: 0.85, dist: 3.0, target: [0, 0, SHIP.diaM / 2 - 0.22 - GRID.depthM / 2], build: buildGrid, instance: 'flight' },
+  { id: 'bay', name: 'The grid', scaleM: 20, radius: 9, depthR: 130, az: -0.62, el: 0.85, dist: 3.0, target: [0, 0, SHIP.diaM / 2 - GRID.depthM / 2], build: buildGrid, instance: 'flight' },
   // SHIP 0 — the blueprint's closure level: the 52 x 104 plan of record as a wall of
   // cells. Sits between the bay and the flight-reference hull on the ladder because that
   // is where its scale lands; the 190 m fleet above it is the PREVIOUS design, at work.
