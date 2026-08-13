@@ -188,7 +188,16 @@ restores byte-exact on exit (the assembly animation does this — copy its patte
 instance tints touch RGB never alpha; the stage cell is one shared scene.
 
 ### 4d. Deploy law for this arc
-`make stamp && make check` → `tools/publish.py` → commit pink-sites → 
+**Scope the gate to the change (operator ruling, on being made to wait 8 minutes for a
+colour swap):**
+- edits confined to `cell/levels.*`, `tools/check_levels.py` and docs →
+  `make stamp && make stampcheck levelscheck` (~10 s) → publish → stage. Nothing the
+  other gates verify has moved; running them is ritual, not verification.
+- anything touching `cell/model.js`, `cell/catalog.js`, the generators, generated
+  modules, the explorer, or the sim → the FULL `make check` before publish, as ever.
+- when unsure which side an edit falls on, that uncertainty IS the answer: full chain.
+
+`make stamp && <the gate above>` → `tools/publish.py` → commit pink-sites →
 **`./deploy.sh stage pinkrobotics` ONLY** (guppi.ca). Production
 (`./deploy.sh pinkrobotics`) is NOT part of this arc until the operator says the
 re-org replaces the current site — he likes the current site; do not surprise him.
