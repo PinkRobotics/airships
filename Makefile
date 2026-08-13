@@ -11,7 +11,7 @@ PORT   ?= 8875
 .DEFAULT_GOAL := help
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze skin skincheck clean
+        assemblycheck contractfreeze skin skincheck fallback fallbackcheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -59,7 +59,19 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figfresh figcheck analysischeck cellparity skincheck explorercheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+
+# The monitor page's no-script/crawler fallback: the FALLBACK regions in index.html, written
+# from the bundled snapshot by replaying it headless (`?seed=7&data=snapshot`, the golden
+# suite's own pinned run). `fallback` re-shoots the map poster too; the check does not — a
+# canvas capture is not byte-stable — but it DOES re-run the replay and diff every region,
+# for the same reason figfresh and skincheck regenerate: this repository has twice shipped a
+# gate that lied by comparing a stale file.
+fallback:  ## Regenerate index.html's static fallback block (and its map poster) from the snapshot
+	$(PY) tools/gen_fallback.py --poster
+
+fallbackcheck:  ## The fallback block must match a fresh regeneration from the snapshot
+	$(PY) tools/gen_fallback.py --check
 
 analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
 	$(PY) tools/check_analysis.py
