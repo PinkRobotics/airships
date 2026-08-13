@@ -1,5 +1,19 @@
 # Making the cell float
 
+> **SHIP-ERA NOTE, 2026-08-13 — the fight moved one scale up and this brief now has a
+> sibling.** The wall is film-on-rings (no cells in it), the ship physics is gated in
+> `cell/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
+> and the honest verdict is: **ship 0 does not float on the house-harsh stability basis
+> (0.698 at declared SF 1.2, mid coupons — 97 t short); it floats +12.5 t only in the
+> best defensible world (frame-practice GI knockdown + 1,450 MPa coupons).** The float
+> decision is two named test campaigns — the GI knockdown tests and the chord coupons —
+> plus three [TO VERIFY] carriers (spoke creep, eta, drape two-way credit). The full
+> record: `tools/ship_scoping.py` (self-checking study layer),
+> `cell/ship.html` (the checks page), and
+> `docs/working/26-08-13-honest-ship-overnight.md` (the night that corrected it, eleven
+> refuted bugs included). THIS document remains the BENCH CELL's own mass brief — the
+> 0.709 m article, the process coupon — and everything below still governs that object.
+
 Written 2026-08-11. This is the standing brief for continuous work on the vacuum cell's
 mass. It began as a study of retargeting the cell to one metre; the answer to that turned
 out to be *size is not the lever*, so the sizing work order has moved to Appendix A and the

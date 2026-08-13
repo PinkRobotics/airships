@@ -364,6 +364,32 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
   with zero verdict flips.
 - scale_study reads the P14 field names again (871's repair, landed from its branch).
 
+## THE HONEST SHIP — the overnight that gated the ship physics (2026-08-13)
+
+Full record: `docs/working/26-08-13-honest-ship-overnight.md`. The short version for
+whoever lands here cold:
+
+- **The ship physics is GATED now.** `ship0_summary()` in cell/model.js, mirrored in
+  vacuum-cell.py, parity 322 values (`make cellparity`). catalog.js computes SHIP/WALL/
+  GRID live; estate.py and robotics.py in pink-sites read the Python mirror directly.
+- **The verdict is the honest pair and it inverted mid-night**: +6.4 t died under a
+  three-refuter panel (11 confirmed bugs — Bryant divisor, crimp triangle, phantom brace
+  pitch, cap duties); corrected: 0.698 harsh basis (sinks 97 t), 1.059 best defensible
+  world (+12.5 t). The two test campaigns (GI knockdown, chord coupons) ARE the decision
+  and every page says so.
+- **New member classes the checks forced**: ring-plane X-webs (the fan cannot carry
+  ring-plane shear), the licensed tension SPOKES (v2 SS1's fallback — 20 t of cord for
+  ~120 t of iron), junction shear diagonals, torsion straps, saddle pads.
+- **New surfaces**: `cell/ship.html` (checks page, gate: `make shipcheck`); the explorer
+  is the complete ship (one-mesh pressure wrap, all members as pipes, spokes as cords,
+  fly-through, the compartments level replaced the band — the last warp is dead; ladder
+  opens at Ship 0). Six ship rows in check_explorer hold the panel to ship0Summary().
+- **Deployed to production** (pink-sites `217aa85`), stamps verified, 401/200 held.
+- **Traps paid**: a commit issued from the wrong CWD landed in airships with a
+  pink-sites message (amended, `741bcc9`); screenshot.py needs a SERVED URL, not a
+  relative path (black PNGs otherwise); helium.md had been stale since the 0.605 landed
+  and the regenerated JSON caught it (useful fraction 53.0 -> 43.7%).
+
 ## THE SEVEN LEVELS — the site re-org toward "no cell floats, the ship does" (#70, opened 2026-08-12)
 
 **→ The full handoff for whoever takes this arc over is
