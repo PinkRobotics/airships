@@ -140,14 +140,20 @@
      altitude slider were removed outright — they drove ctx and nothing on screen visibly
      answered them, so they read as broken rather than as controls. ?mat= and ?alt= still
      set both, which is what the checks and the deep links use. */
+  /* Same footgun as #asmbox, same day: an author display beats the hidden attribute,
+     so the ship level was wearing BOTH control decks at once. */
+  #controls[hidden]{display:none}
   #controls{position:fixed;top:104px;left:var(--s5);z-index:7;width:min(300px,44vw);
        display:flex;flex-direction:column;gap:var(--s4);
        background:rgba(13,13,16,.82);backdrop-filter:blur(8px);
        border:1px solid var(--line);border-radius:var(--r-sm);padding:var(--s4)}
-  #controls .grp{display:flex;flex-direction:column;gap:6px}
-  #controls .glab{font:var(--t-11) var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  #shipbox[hidden]{display:none}
+  #shipbox{position:fixed;top:104px;left:var(--s5);z-index:7;width:min(300px,44vw);
+        display:flex;flex-direction:column;gap:14px}
+  #controls .grp,#shipbox .grp{display:flex;flex-direction:column;gap:6px}
+  #controls .glab,#shipbox .glab{font:var(--t-11) var(--mono);letter-spacing:.12em;text-transform:uppercase;
        color:var(--faint)}
-  #controls .row{display:flex;gap:6px;flex-wrap:wrap}
+  #controls .row,#shipbox .row{display:flex;gap:6px;flex-wrap:wrap}
   #clearBreach,#toggleSkin,#toggleParts,#tourNext,#toggleUnfold,#toggleLoaded,.gbtn{
        background:rgba(255,255,255,.035);border:1px solid var(--line);
        color:var(--muted);border-radius:var(--r-sm);padding:5px 11px;cursor:pointer;
@@ -157,7 +163,7 @@
   #clearBreach:hover,#toggleSkin:hover,#toggleParts:hover,#tourNext:hover,#toggleLoaded:hover,.gbtn:hover{
        color:var(--text);border-color:var(--line-strong);background:rgba(255,255,255,.07)}
   #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap;flex:1}
-  .gbtn.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
+  .gbtn.on,.sbtn.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
 
   /* ---- the ledger: mass against the air — dense rows above the metric boxes ---- */
   #ledger{margin:var(--s3) 0 var(--s4);border:1px solid var(--line);
@@ -297,49 +303,18 @@
   and it is shown at both safety factors, always: the chord coupon campaign decides which
   one the hull is sized to, and the honest pair today straddles zero.</p>
 
-  <span class="tag cool">ship figures: scoping — ship.js port pending</span>
-  <span class="tag">cap tiling schematic</span>
-</section>
+  <p class="sowhat"><b>The wall to beat is <span data-n="wallWork" data-f="4"></span> kg/m³</b>
+  — what a cubic metre of air weighs at the working altitude. Every level below this one is
+  the fight to get a cubic metre of ship under that number.</p>
 
-<!-- LEVEL 6 ------------------------------------------------------------------------------ -->
-<section data-level="hull">
-  <p class="lv-kicker">Level 8 · <span data-n="hull.lengthM" data-f="0"></span> m · flight reference — the previous design, at work</p>
-  <h2>The hull</h2>
-  <div class="big"><span data-n="wallWork" data-f="4"></span> <span class="unit">kg/m³ — the wall</span></div>
-  <p class="bigsub">air density at the 2,500 m working altitude</p>
-  <div class="metrics">
-    <div class="wide"><div class="v warm"><span data-n="wallWork" data-f="4"></span> <span class="u">kg/m³</span></div>
-      <div class="k">the wall — mass per m³ enclosed, above which nothing floats at any size</div></div>
-    <div><div class="v"><span data-n="hull.lengthM" data-f="0"></span> <span class="u">m</span></div>
-      <div class="k">reference ship — shorter than the Hindenburg</div></div>
-    <div><div class="v">2,500 <span class="u">m</span></div>
-      <div class="k">working altitude the wall is set at</div></div>
+  <div class="shiplinks">
+    <button class="golv" data-golevel="array">open the wall → the band</button>
+    <button class="golv" data-golevel="bay">the skeleton → the grid</button>
+    <button class="golv" data-golevel="cell">one cell, in the hand</button>
   </div>
 
-  <p class="sowhat"><b>One number decides the whole project.</b> A vacuum shell heavier than
-  the wall has no net lift at any size, ever. Lighter, and the hull can simply be grown until
-  lift covers the ledger. Every level below this one exists to get under it.</p>
-
-  <p class="sowhat"><b>The hull is just the array, continued until it is a vehicle.</b>
-  Machinery sits in ambient bays bolted to structure the cells pull up on. Nothing operates
-  in vacuum.</p>
-
-  <p class="sowhat"><b>Structure inside structure is what closes the gap.</b> Each level of
-  hierarchy improves the strength-to-density <em>exponent</em> — (n+2)/(n+1), tending to
-  linear (Lakes, <em>Nature</em> 361, 1993) — and it converges fast:</p>
-  <table>
-    <thead><tr><th>levels</th><th class="num">exponent</th><th class="num">kg/m³</th>
-      <th class="num">margin</th><th></th></tr></thead>
-    <tbody data-t="ladder"></tbody>
-  </table>
-  <p class="note"><strong>Level 2 is the design target.</strong> Beyond it the exponent gains
-  shrink while every added level still costs joints, tolerance and inspection. The final
-  ships are generatively designed to these specs — load-graded, built and maintained by
-  machine — but the rule they follow is this table.</p>
-  <span class="tag cool">reference assumption</span><span class="tag">M60J-class laminate</span>
-  <p style="color:var(--faint);font-size:var(--t-11)">Conceptual reference vehicle. No
-  flightworthy vacuum airship exists; the first physical gate is one positively buoyant
-  evacuated cell.</p>
+  <span class="tag cool">ship figures: scoping — ship.js port pending</span>
+  <span class="tag">cap tiling schematic</span>
 </section>
 
 <!-- LEVEL 5 ------------------------------------------------------------------------------ -->
@@ -1523,6 +1498,23 @@
     <div class="row"><button id="tourNext">…</button></div>
   </div>
 </div>
+
+<!-- SHIP CONTROLS — the ship level's own: layers, not tours. The cell's structure and
+     view boxes hide here (they act on the stage article, which is not on this stage);
+     the cutaway stays, because cutting the tictac open is how you meet the skeleton. -->
+<div id="shipbox" hidden>
+  <div class="grp">
+    <div class="glab">ship layers — the wall, and what holds it</div>
+    <div class="row">
+      <button class="sbtn on" data-layer="wall">wall of cells</button>
+      <button class="sbtn on" data-layer="skeleton">skeleton</button>
+    </div>
+    <div class="row">
+      <button class="sbtn on" data-layer="webs">webs</button>
+      <button class="sbtn on" data-layer="voidskin">void skin</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- CUTAWAY — bottom left, clear of both the reading and the controls. -->
@@ -1603,9 +1595,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=8c75847b';
-import { SHIP, BAND } from './catalog.js?v=8c75847b';
-import * as CELL from './model.js?v=8c75847b';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=e4a9d248';
+import { SHIP, BAND } from './catalog.js?v=e4a9d248';
+import * as CELL from './model.js?v=e4a9d248';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1898,6 +1890,10 @@ if (!api) {
   setInterval(() => {
     const onCell = api.state.levelIdx === api.stageLevel;
     asmBox.hidden = !onCell;
+    // The ship swaps control decks: its layer box in, the cell's structure/view box out.
+    const onShip = api.levels[api.state.levelIdx].id === 'ship';
+    document.getElementById('shipbox').hidden = !onShip;
+    document.getElementById('controls').hidden = onShip;
     if (!onCell) return;
     const g = api.assemblyGuide();
     if (!g) return;
@@ -1957,6 +1953,29 @@ if (!api) {
   // attached: firing it before did nothing at all, which is how the first attempt at this
   // "verified" a screenshot of the folded cell.
   if (qs.has('unfold')) uf.click();
+  // SHIP LAYER TOGGLES read their state BACK from the api, same law as every button here.
+  const sbtns = [...document.querySelectorAll('.sbtn')];
+  const syncLayers = () => {
+    const lay = api.shipLayers;
+    sbtns.forEach(b => b.classList.toggle('on', !!lay[b.dataset.layer]));
+  };
+  sbtns.forEach(b => b.addEventListener('click', () => {
+    api.shipLayer(b.dataset.layer);
+    syncLayers();
+  }));
+  // ?layers=skeleton,webs — deep-link a layer set, the same way ?group and ?unfold work:
+  // a still harness loads a URL and cannot click, so without this no screenshot can ever
+  // show the skeleton through the wall.
+  if (qs.has('layers')) {
+    const want = new Set(qs.get('layers').split(',').filter(Boolean));
+    for (const k of Object.keys(api.shipLayers))
+      if (api.shipLayers[k] !== want.has(k)) api.shipLayer(k);
+    syncLayers();
+  }
+  // The panel's dive links: each layer of the ship points at the level that explains it.
+  document.querySelectorAll('.golv').forEach(b => b.addEventListener('click', () => {
+    api.setLevel(api.levels.findIndex(l => l.id === b.dataset.golevel));
+  }));
   gbtns.forEach(b => b.addEventListener('click', () => {
     api.setGroup(b.dataset.group === api.group ? 'all' : b.dataset.group);
     syncGroups();

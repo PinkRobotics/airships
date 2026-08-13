@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=8c75847b';
-import * as G from './explorer-geom.js?v=8c75847b';
+import * as CELL from './model.js?v=e4a9d248';
+import * as G from './explorer-geom.js?v=e4a9d248';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=8c75847b';
+} from './nodes.generated.js?v=e4a9d248';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=8c75847b';
+import { NODEMESHES } from './nodemeshes.generated.js?v=e4a9d248';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=8c75847b';
+import { SKIN } from './skin.generated.js?v=e4a9d248';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND } from './catalog.js?v=8c75847b';
+import { SHIP, BAND, GRID } from './catalog.js?v=e4a9d248';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1798,53 +1798,6 @@ function buildBay(ctx) {
 }
 
 /* L6 — the hull: the wall, the ladder, and what the array becomes. */
-function buildHull(ctx) {
-  const root = node({ id: 'L_hull', category: 'vacuum', selectable: false });
-  const cls = resolveClass('P100');
-  const hull = solidNode(root, 'Hull', G.hullGeom(cls, profileR, sectionScale), XM.fairing);
-  hull.selectable = false;
-  lineNode(root, 'HullWire', G.hullWire(cls, profileR, sectionScale), XM.latticeLine);
-  // Section boundaries: rings at intervals; one section highlighted.
-  const nSec = 8;
-  const ringSegs = [];
-  for (let i = 1; i < nSec; i++) {
-    const t = i / nSec;
-    const x = cls.xNose - t * cls.lengthM;
-    const r = profileR(t) * cls.maxRadiusM;
-    let prev = null;
-    for (let j = 0; j <= 48; j++) {
-      const th = 2 * Math.PI * j / 48;
-      const k = sectionScale(th);
-      const p = [x, -r * k * Math.cos(th), r * k * Math.sin(th)];
-      if (prev) ringSegs.push([prev, p]);
-      prev = p;
-    }
-  }
-  lineNode(root, 'SectionRings', ringSegs, XM.frameLine);
-  // The highlighted section: a warm band of hull between two rings.
-  const t0 = 3 / nSec, t1 = 4 / nSec;
-  const prof = [];
-  for (let i = 0; i <= 10; i++) {
-    const t = t0 + (t1 - t0) * i / 10;
-    prof.push([cls.xNose - t * cls.lengthM, profileR(t) * cls.maxRadiusM * 1.006]);
-  }
-  solidNode(root, 'FocusSection', latheWithScale(prof, 48, sectionScale), XM.membraneLoaded);
-  // A person, for scale: 1.8 m of line at the bow. Two pixels tall, which is the point.
-  const px = cls.xNose + 6;
-  lineNode(root, 'Person', [
-    [[px, 0, -cls.maxRadiusM * 0.98], [px, 0, -cls.maxRadiusM * 0.98 + 1.8]],
-  ], XM.scaleTick);
-  return {
-    root,
-    labels: [
-      { p: [cls.xNose - 0.12 * cls.lengthM, 0, cls.maxRadiusM * 1.15], t: `P-100 — ${cls.lengthM.toFixed(0)} m`, s: 'a solid of cells; grown until lift covers the ledger' },
-      { p: [cls.xNose - 0.44 * cls.lengthM, -cls.maxRadiusM * 1.05, 0], t: 'one section', s: 'a sealed cell of cells — the hierarchy, one level up' },
-      { p: [px, 0, -cls.maxRadiusM * 0.98 + 3], t: 'a person', s: 'two pixels tall here; the same cell you can hold at the bottom of the ladder' },
-      { p: [cls.xNose - 0.85 * cls.lengthM, 0, cls.maxRadiusM * 0.9], t: `the wall: ${ctx.wallWork.toFixed(4)} kg/m³`, s: 'mass per cubic metre enclosed; under this line a hull can be grown until it lifts' },
-    ],
-  };
-}
-
 /* Level — SHIP 0: the whole vehicle drawn as what it is — a sealed wall of cells.
  *
  * Every instance is the real Kelvin silhouette at band pitch, SHELL ONLY: at this range a
@@ -1926,6 +1879,60 @@ function buildShip() {
     prof.push([st.x - st.nx * pitch, Math.max(0.01, st.r - st.nr * pitch)]);
   }
   solidNode(root, 'ShipVoidSkin', latheWithScale(prof, 48, () => 1), XM.kelvinGhost);
+
+  // THE SKELETON — the endoskeleton the wall leans on, at its recorded pitches: hoop
+  // chords (the ring frames themselves) every bay of meridian arc, on BOTH walls; a ring
+  // of longerons along the meridians; webs lacing the two walls, one diagonal per bay per
+  // column, alternating direction — a Warren truss in the round. Offsets follow the
+  // rulings: the outer chord wall sits ONE CELL under the surface (cells sit face-down on
+  // it), the inner wall GRID.depthM further in. Cap continuation is schematic, like the
+  // tiling, and the panel says so.
+  const wallOff = pitch, innerOff = pitch + GRID.depthM;
+  const nBays = Math.max(2, Math.round(total / GRID.bayM));
+  const ringsAt = [];
+  for (let i = 0; i <= nBays; i++) ringsAt.push(total * i / nBays);
+  const ringPoint = (s, off, th) => {
+    const st = station(s);
+    const r = st.r - st.nr * off;
+    return [st.x - st.nx * off, -r * Math.cos(th), r * Math.sin(th), r];
+  };
+  const hoops = [], longs = [], webs = [];
+  const SEG = 64, NLONG = 36, RMIN = 2;
+  for (const off of [wallOff, innerOff]) {
+    for (const s of ringsAt) {
+      if (ringPoint(s, off, 0)[3] < RMIN) continue;
+      let prev = null;
+      for (let j = 0; j <= SEG; j++) {
+        const p = ringPoint(s, off, 2 * Math.PI * j / SEG);
+        if (prev) hoops.push([[prev[0], prev[1], prev[2]], [p[0], p[1], p[2]]]);
+        prev = p;
+      }
+    }
+    for (let k = 0; k < NLONG; k++) {
+      const th = 2 * Math.PI * k / NLONG;
+      let prev = null;
+      for (let i = 0; i <= 72; i++) {
+        const p = ringPoint(total * i / 72, off, th);
+        if (p[3] < RMIN) { prev = null; continue; }
+        if (prev) longs.push([[prev[0], prev[1], prev[2]], [p[0], p[1], p[2]]]);
+        prev = p;
+      }
+    }
+  }
+  for (let i = 0; i < nBays; i++) {
+    for (let k = 0; k < NLONG; k++) {
+      const th = 2 * Math.PI * k / NLONG;
+      const flip = (i + k) % 2;
+      const a = ringPoint(ringsAt[flip ? i + 1 : i], wallOff, th);
+      const b = ringPoint(ringsAt[flip ? i : i + 1], innerOff, th);
+      if (a[3] >= RMIN && b[3] >= RMIN)
+        webs.push([[a[0], a[1], a[2]], [b[0], b[1], b[2]]]);
+    }
+  }
+  lineNode(root, 'ShipHoops', hoops, XM.frameLine);
+  lineNode(root, 'ShipLongs', longs, XM.latticeLine);
+  lineNode(root, 'ShipWebs', webs, { kind: 'line', color: TOKENS.cool, weight: 1.0, opacity: 0.5 });
+
   // A person at the nose, 1.8 m — the same two pixels as on the flight-reference level.
   const px = -SHIP.lenM / 2 - 2;
   lineNode(root, 'ShipPerson', [[[px, 0, -R * 0.1], [px, 0, -R * 0.1 + 1.8]]], XM.scaleTick);
@@ -1991,14 +1998,13 @@ export const LEVELS = [
   // The array is framed on its HERO CELL — the one drawn with a skin at [0, -2, 1] — so
   // the descent to the level below goes into a cell already on screen instead of cutting
   // to a new model. openC in buildArray is the same point; one constant, both places.
-  { id: 'array', name: 'The array', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
+  { id: 'array', name: 'The band', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
     target: [0, -2, 1], build: buildArray, instance: 'flight' },
-  { id: 'bay', name: 'Section & bay', scaleM: 20, radius: 14, az: -1.05, el: 0.5, dist: 2.5, target: [0, 0, 0.5], build: buildBay, instance: 'flight' },
+  { id: 'bay', name: 'The grid', scaleM: 20, radius: 14, az: -1.05, el: 0.5, dist: 2.5, target: [0, 0, 0.5], build: buildBay, instance: 'flight' },
   // SHIP 0 — the blueprint's closure level: the 52 x 104 plan of record as a wall of
   // cells. Sits between the bay and the flight-reference hull on the ladder because that
   // is where its scale lands; the 190 m fleet above it is the PREVIOUS design, at work.
   { id: 'ship', name: 'Ship 0', scaleM: 52, radius: 62, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
-  { id: 'hull', name: 'The hull', scaleM: 190, radius: 105, az: -1.2, el: 0.16, dist: 2.2, build: buildHull, instance: 'flight' },
 ];
 export const STAGE_LEVEL = LEVELS.findIndex(l => l.id === 'cell');
 
@@ -2226,14 +2232,6 @@ function buildTour(levelId, cell, ctx) {
   return stops && stops.length ? { levelId, noun, skinLit, stops } : null;
 }
 
-{
-  // The hull level frames the real vehicle: centre and radius come from the class, not a guess.
-  const cls = resolveClass('P100');
-  const hull = LEVELS[LEVELS.length - 1];
-  hull.target = [(cls.xNose + cls.xTail) / 2, 0, 0];
-  hull.radius = cls.lengthM * 0.55;
-  hull.scaleM = cls.lengthM;
-}
 
 /* ---------- mount -------------------------------------------------------------------------------- */
 
@@ -2271,6 +2269,9 @@ export function mountExplorer(opts) {
     group: 'centre',             // which structural reading is lit; see applyGroup
     tourIdx: 0,                  // which stop of the current level's tour
     tourStop: null,              // its key, so a probe and a label can read it back
+    // The ship level's own controls: every layer starts ON; the wall hides the skeleton
+    // until the viewer opens it, which is what a sealed wall does.
+    shipLayers: { wall: true, skeleton: true, webs: true, voidskin: true },
     turntable: !reducedMotion,
     reduced: !!reducedMotion,
   };
@@ -2560,10 +2561,18 @@ export function mountExplorer(opts) {
     const uf = b.unfoldDim === undefined ? 1 : b.unfoldDim;
     return ((nn.skinPart ? b.tourSkinDim : b.tourDim) || 1) * uf;
   };
+  const SHIP_LAYER = { ShipCells: 'wall', ShipHoops: 'skeleton', ShipLongs: 'skeleton',
+                       ShipWebs: 'webs', ShipVoidSkin: 'voidskin' };
   const styleFor = (n) => {
     // Once the skin is unfolding, the cell it came off is not the subject any more.
     // Its own membrane is replaced by the net; the rest goes with it.
     const fr = n._fadeRoot;
+    // SHIP LAYERS: scoped by the build that owns the node, like the unfold — a leaked
+    // layer state must never blank another level's geometry.
+    if (fr && fr.level && fr.level.id === 'ship') {
+      const lay = SHIP_LAYER[n.id];
+      if (lay && !state.shipLayers[lay]) return { hidden: true };
+    }
     // ...but only on the level that owns the net. The stage cell is shared with the
     // connector and tube tours, and a leaked unfold state blanked both of them.
     const onTrack = LEVELS[state.levelIdx].id === 'track';
@@ -2645,7 +2654,9 @@ export function mountExplorer(opts) {
     if (diving()) return null;
     if (!state.cut) return null;
     const lv = LEVELS[state.levelIdx];
-    if (lv.id === 'track' || lv.id === 'hull') return null;
+    // The track level owns the unfold instead of a cut; every other level cuts — the
+    // SHIP included, where the cutaway is how you see the skeleton through the wall.
+    if (lv.id === 'track') return null;
     // A stage level frames a 25 mm joint but the thing being cut is the whole 709 mm
     // article, and it sits at CELL_CENTRE, not the origin. Cut about the stage's own
     // radius and centre or the plane lands inside a node and the level slices itself away.
@@ -2965,9 +2976,7 @@ export function mountExplorer(opts) {
       styleFor,
       clips: clips(),
       lineWidth: 1,
-      // By id, not index: inserting the ship level shifted the hull to a new slot, and a
-      // prepass keyed on "6" would have quietly started prepassing the wrong level.
-      depthPrepass: LEVELS[state.levelIdx].id === 'hull' && !diving() ? ['Hull'] : null,
+      depthPrepass: null,
     });
     placeLabels();
   }
@@ -3359,6 +3368,14 @@ export function mountExplorer(opts) {
       });
       return out;
     },
+    /** Toggle one ship layer; returns its new state for the button to read back. */
+    shipLayer(name) {
+      if (!(name in state.shipLayers)) return null;
+      state.shipLayers[name] = !state.shipLayers[name];
+      dirty = true;
+      return state.shipLayers[name];
+    },
+    get shipLayers() { return { ...state.shipLayers }; },
     cycleSkin() {
       const order = ['solid', 'transparent', 'off'];
       state.skinMode = order[(order.indexOf(state.skinMode) + 1) % order.length];

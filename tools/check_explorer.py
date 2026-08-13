@@ -74,14 +74,8 @@ PROBE = r"""(() => {
   const sw = C.sharedWall(2.0);
   out.checks.push(['shared', shown('[data-n="sw.sharedFractionPct"]'),
                    sw.sharedFractionPct.toFixed(1)]);
-  // The hull length must be the MODEL's, everywhere it appears. A typed 177 survived on
-  // this page for a day while the rail said 190 beside it.
-  out.checks.push(['hullLen', shown('[data-n="hull.lengthM"]'),
-                   E.ctx.hull.lengthM.toFixed(0)]);
-  // Scoped, because 177 is now a legitimate figure on this page: the tie cut is 177 mm.
-  // The stale value this guards against was a hull LENGTH in metres — '177 m', never
-  // '177 mm'. A review predicted this exact collision before the copy was written.
-  out.staleHullLength = /177\s*m(?!m)/.test(document.body.textContent);
+  // (The 190 m flight-reference hull and its checks retired with the level, 2026-08-12:
+  // the operator's ship 0 replaced it as the top of the ladder.)
   // The ladder's decisive row and the material figures the copy quotes.
   const lad = C.ladder(C.MATERIALS.M60J_LAM);
   out.checks.push(['level2', shown('[data-n="level2.total"]'), lad[2].total.toFixed(3)]);
@@ -429,6 +423,18 @@ PROBE = r"""(() => {
     }
     E.state.reduced = true;
   }
+  // THE SHIP'S LAYER CONTROLS: hiding the wall must change what is DRAWN — a toggle that
+  // only flips state is the alpha-tint failure all over again — and the skeleton must
+  // actually have trusses in it ("put in the trusses too" with no lines is a lie).
+  {
+    const si = E.levels.findIndex(l => l.id === 'ship');
+    E.setLevel(si, true); E.tick(0.016);
+    const tris0 = E.renderer.stats.triangles, lines0 = E.renderer.stats.lines;
+    E.shipLayer('wall'); E.tick(0.016);
+    const tris1 = E.renderer.stats.triangles;
+    E.shipLayer('wall'); E.tick(0.016);
+    out.shipLayerProbe = { tris0, lines0, tris1, restored: E.renderer.stats.triangles === tris0 };
+  }
   // The page's OWN arm histogram, counted off the joints it drew. Held to the manifest of
   // the 51 STLs, so the explorer cannot tour parts that are not the parts we print.
   out.hist = {};
@@ -621,9 +627,6 @@ def main() -> None:
     for name, got, want in res.get("checks", []):
         if got != want:
             bad.append(f"displayed {name}: page shows {got!r}, model computes {want!r}")
-    if res.get("staleHullLength"):
-        bad.append("the page still says '177' somewhere — the hull length must come from "
-                   "the model")
     if res.get("breachRows") != ["pass", "pass", "pass", "fail"]:
         bad.append(f"breach table rows read {res.get('breachRows')} — the claim above it "
                    "says float through L=2 and fail at L=3 (corrected coefficient); the "

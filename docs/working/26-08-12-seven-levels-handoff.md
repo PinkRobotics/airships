@@ -135,6 +135,21 @@ The page is fully filled, all seven levels, first-pass:
    named-not-weighed.
 7. **At work** — links `../` (the wildfire dashboard, previous design, re-points later).
 
+**OVERHAUL ROUND 2 (08-12 later): the 190 m P-100 hull level is DELETED** — "we can get
+rid of the hull level"; ship 0 tops the ladder at 7 levels. With it went buildHull, its
+panel section (the wall doctrine line and wallWork binding moved into the ship section),
+the hullLen/stale-177 gate checks, and a LANDMINE: a framing block that reached for
+`LEVELS[LEVELS.length - 1]` to reframe "the hull" and would have silently reframed the
+SHIP after the deletion. The ship gained ITS OWN CONTROL DECK (#shipbox: wall of cells /
+skeleton / webs / void skin — the cell's structure/view deck hides there), the SKELETON
+(hoops at bay pitch on both walls, longerons, Warren webs, all layer-toggleable, cutaway
+works through it), panel dive-links into band/grid/cell, and `?layers=` deep-links for
+screenshots. Rail renames: array→"The band", bay→"The grid" (their panel copy is still
+the old story — the §4c rebuild owes them new sections). `#controls` had the SAME
+display-beats-hidden footgun as #asmbox, found the same way — if you add a control deck,
+write `#yourbox[hidden]{display:none}` FIRST. The gate now proves the wall toggle changes
+drawn triangles, trusses exist as lines, and the frame restores exactly.
+
 **THE EXPLORER GREW ITS SHIP LEVEL (08-12 late, operator direction):** `buildShip` in
 explorer.js draws ship 0 as what it is — ~20k instanced Kelvin SHELLS (no internal
 lattice; at that range a cell's lattice is sub-pixel) on the 52 × 104 stadium, pitch
