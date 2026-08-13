@@ -1,7 +1,7 @@
 /* The satellite heat overlay, drawn once into an offscreen canvas and composited.
  */
-import { H, W, latOfY, mercY } from '../map/projection.js?v=e7bc4d9d';
-import { S } from '../store.js?v=e7bc4d9d';
+import { H, W, latOfY, mercY } from '../map/projection.js?v=b5da402b';
+import { S } from '../store.js?v=b5da402b';
 
 /* Live hotspot heat, drawn as heat: each CWFIS detection is an additive glow sprite, so
    burning ground reads as brightness — clusters saturate toward white-orange — instead of

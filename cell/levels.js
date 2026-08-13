@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=e7bc4d9d';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=b5da402b';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -289,7 +289,9 @@ function massBar() {
   out += `<line x1="${fx.toFixed(1)}" y1="${y - 20}" x2="${fx.toFixed(1)}" y2="${y + h + 4}" stroke="${C.warm}" stroke-width="1.6"/>
           <text x="${(fx + 6).toFixed(1)}" y="${y - 8}" fill="${C.warm}" font-size="10" font-family="monospace">what its own air weighs: ${ARTICLE.displacedAirG.toFixed(0)} g</text>
           <text x="${x0}" y="20" fill="${C.faint}" font-size="11" font-family="monospace">one cell, ${tot.toFixed(2)} kg — the line is the float budget</text>`;
-  return svgEl(out, '0 0 360 106');
+  // 112, not 106: the film label's baseline sits at y = 106 and its descenders hung off
+  // the canvas — the first thing the caption gate caught on the day it was written.
+  return svgEl(out, '0 0 360 112');
 }
 
 /* Level 3 — a band cross-section: octagons sharing walls, atmosphere above, vacuum below. */
@@ -575,7 +577,9 @@ function drawShipEquip() {
   const call = (x, y, tx, ty, label, anchor = 'start') =>
     `<line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="${C.faint}" stroke-width="0.8"/>
      <text x="${tx + (anchor === 'start' ? 4 : -4)}" y="${ty + 3}" fill="${C.faint}" font-size="10" text-anchor="${anchor}" font-family="monospace">${label}</text>`;
-  out += call(160, cy - r - 12, 74, 34, 'rotor stations', 'end');
+  // End-anchored text needs its LEFT edge on canvas: at x = 74 this 14-character label
+  // reached x = -14. Same gate, same day.
+  out += call(160, cy - r - 12, 100, 30, 'rotor stations', 'end');
   out += call(193, cy + 20, 84, 196, 'water tanks', 'end');
   out += call(210, cy + r + 48, 300, 208, 'descent winch + bag');
   out += call(xr + r - 6, cy - 12, 352, 44, 'avionics');

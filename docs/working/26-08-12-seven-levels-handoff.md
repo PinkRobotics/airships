@@ -151,6 +151,13 @@ clickable strip → L3/L4 expansion → support figure in one day). Each figure 
 small function; each number is one data field. Keep edits cheap and screenshot every
 change — the gates cannot see visibility.
 
+**The iteration loop is `make stamp && make levelscheck` — about 10 s.** It boots the
+page headless and fails on any page error, an empty figure, an unresolved data-cat, or
+ANY text outside its SVG viewBox (the caption trap in §6, now a gate — it caught two
+standing clips on its first run). The full chain is for pre-publish; do not pay 8
+minutes per figure tweak. What no gate can see is still WHICH face is pink — the
+compass in a figure remains eye-only, and the operator has caught exactly that once.
+
 ### 4b. Port ship.js under the gates (BEFORE any explorer ship-level)
 Follow the viz handoff §6 exactly: reconcile the prototype to analysis-v2 (§3 lists
 the known divergences — the step-law default and the 2,500 m default site are wrong

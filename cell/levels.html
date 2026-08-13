@@ -342,6 +342,15 @@
   </div>
 </footer>
 
-<script type="module" src="./levels.js?v=e7bc4d9d"></script>
+<script>
+/* The gate's ears. check_levels.py reads window.__errs after load; without this, a module
+ * that throws mid-boot leaves half the figures blank and the probe sees nothing wrong —
+ * which is exactly how this page shipped broken once: a figure function deleted for
+ * rewrite, still called, and only an eye on the screen caught it. */
+window.__errs = [];
+window.addEventListener('error', (e) => window.__errs.push(String(e.message || e)));
+window.addEventListener('unhandledrejection', (e) => window.__errs.push(String(e.reason)));
+</script>
+<script type="module" src="./levels.js?v=b5da402b"></script>
 </body>
 </html>
