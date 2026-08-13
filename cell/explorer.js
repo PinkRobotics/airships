@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=8566ca0c';
-import * as G from './explorer-geom.js?v=8566ca0c';
+import * as CELL from './model.js?v=f46f7c09';
+import * as G from './explorer-geom.js?v=f46f7c09';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=8566ca0c';
+} from './nodes.generated.js?v=f46f7c09';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=8566ca0c';
+import { NODEMESHES } from './nodemeshes.generated.js?v=f46f7c09';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=8566ca0c';
+import { SKIN } from './skin.generated.js?v=f46f7c09';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=8566ca0c';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f46f7c09';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -76,7 +76,7 @@ const XM = {
   membrane: { kind: 'glass', color: '#9aa2b8', opacity: 0.05 },
   membraneLoaded: { kind: 'glass', color: TOKENS.warm, opacity: 0.18 },
   // Photovoltaic skin on the hull's sun side — dark blue-grey, glossier than film.
-  solar: { kind: 'surface', color: '#24415f', spec: 0.55, opacity: 1 },
+  solar: { kind: 'surface', color: '#2a4a6d', spec: 0.78, opacity: 1 },
   // Cryo/N2 tankage — cool glass, read clearly apart from the pink water.
   cryo: { kind: 'glass', color: '#7aa2c8', opacity: 0.26 },
   kelvinGhost: { kind: 'glass', color: '#7aa2c8', opacity: 0.07 },
@@ -2368,21 +2368,24 @@ function buildVessel() {
       const q = point(s, -0.12, th);
       px2.push([thop, tm, n, [q[0], q[1], q[2]]]);
     };
-    for (let i = 0; i < 22; i++) {
-      const s = sA + (sB - sA) * (i + 0.5) / 22;
-      for (let c = -6; c <= 6; c++) plate(s, Math.PI / 2 + c * 0.225);
+    // CONTINUOUS DECKING (operator, round 10): plates abut — the pitch IS
+    // the plate, so the top surface reads as one panelled skin with seam
+    // lines, not a scatter of tiles.
+    for (let i = 0; i < 24; i++) {
+      const s = sA + (sB - sA) * (i + 0.5) / 24;
+      for (let c = -8; c <= 8; c++) plate(s, Math.PI / 2 + c * 0.1673);
     }
     // THE ENDS TOO (operator, round 9 addendum): the domes' top halves carry
     // the array as well — column count follows the shrinking circumference,
     // stopping short of the pole where a plate would out-size its ring.
     for (const [c0, c1] of [[0, D.sCap], [D.sCap + D.cylL, D.total]]) {
       const out = c0 === 0;             // orient rows outward from the barrel
-      for (let i = 0; i < 6; i++) {
-        const f = 0.20 + 0.72 * (i + 0.5) / 6;
+      for (let i = 0; i < 8; i++) {
+        const f = 0.12 + 0.82 * (i + 0.5) / 8;
         const s = out ? c1 - (c1 - c0) * f : c0 + (c1 - c0) * f;
         const st = shipStation(D, s);
-        if (st.r < 11) continue;
-        const dth = 5.7 / st.r;
+        if (st.r < 9) continue;
+        const dth = 4.35 / st.r;
         const m = Math.floor(1.35 / dth);
         for (let c = -m; c <= m; c++) plate(s, Math.PI / 2 + c * dth);
       }
@@ -2391,7 +2394,7 @@ function buildVessel() {
     px2.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0,
       Y[0], Y[1], Y[2], 0, Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
     const sol = inst(root, { id: 'VesselSolar' }, xf, px2.length, {});
-    sol.geom = G.filmDomeGeom(4.3, 0.05, 4, 1);
+    sol.geom = G.filmDomeGeom(4.32, 0.05, 4, 1);
     sol.xmat = XM.solar;
   }
 
