@@ -369,8 +369,12 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
 **→ The full handoff for whoever takes this arc over is
 `docs/working/26-08-12-seven-levels-handoff.md`** — mission + rulings, file map, what's
 built, the explorer-integration roadmap (blueprint→LEVELS mapping, ship.js port order),
-the physics one-pagers (including the nothing-crosses-the-void doctrine), deploy law,
-traps, and open questions with owners. This section stays as the short version.
+the physics one-pagers, deploy law, traps, and open questions with owners. **The 08-12
+evening ruling cascade lives there and in the reviews-drop ruling file: band OUTSIDE
+the outer wall (lean on seats, not hang — v2 §4 superseded), skin-and-bones
+terminology (the truss is an endoskeleton), replacement ops (holed cells fly on;
+swap landed or behind a cofferdam), the Kelvin-vs-hex-prism shape trade, and the
+seat-rail-at-cell-pitch grid requirement.** This section stays as the short version.
 
 The operator's direction, midday 2026-08-12, verbatim intent: stop presenting the cell as the
 thing that floats; reorganize the site as the BUILD of the ship, in seven levels. This arc

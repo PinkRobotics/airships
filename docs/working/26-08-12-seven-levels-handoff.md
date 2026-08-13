@@ -1,7 +1,12 @@
 # The seven levels — handoff for continued development and explorer integration
 
-Written 2026-08-12, end of the day the arc opened. For the agent taking over the
-"no cell floats, the ship does" site re-org and its integration into the explorer.
+Written 2026-08-12, end of the day the arc opened; brought current the same evening
+after the operator's ruling cascade (band-outside → lean/seats → skin-and-bones →
+replacement ops → the shape trade). For the agent taking over the "no cell floats,
+the ship does" site re-org and its integration into the explorer. Where anything
+here disagrees with an older phrase elsewhere (including analysis-v2 §4's band
+position), THIS document and the ruling file win:
+`~/data/airships-reviews/26-08-12-OPERATOR-RULING-band-position.md`.
 Everything here is verified-at-write: the staged site is live, `make check` exits 0,
 and every claim about the physics traces to a named document.
 
@@ -69,7 +74,7 @@ from memory).
   SQUEEZE — a leaning band has no tangential load path, so the skeleton takes effectively
   100 % of global hoop BY TOPOLOGY (band ceiling 47–67 kPa·m vs 2,634 demand ⇒ ≤~2.5 %
   even if rigidly engaged — its help is worthless, so it is deliberately not asked).
-  The band's own arching is local only: tie-span slabs at ~1/3 capacity at cell-pitch
+  The band's own arching is local only: seat-span slabs at ~1/3 capacity at cell-pitch
   ties. Band↔skeleton interfaces: bearing seats (force, 99.95 % — a cell weighs ~3.5 kg vs
   7,200 kg of push), light retention straps (position/handling), and the vacuum
   manifold (service + health monitoring). Film penetrations: ONLY at film corners
@@ -113,8 +118,11 @@ The page is fully filled, all seven levels, first-pass:
    down, shared walls) + the redundancy copy + facts (≈2×10⁴ cells, one layer by
    design, breach = one cell).
 4. **The grid & skins** — `drawWallSection` (jacket→chords→band→webs→chords→void
-   skin) + the interplay paragraph (film→rims→frame ~7.2 t→hangers→chords→hoop) +
-   `drawCellSupport` (the bench/band/ring three-panel).
+   skin) + the interplay paragraph (film→rims→frame ~7.2 t→seats→chords→hoop) +
+   `drawCellSupport` (bench/band-leans/ring) + `drawWebDetail` (one bay: cells on
+   seats above the outer wall, webs behind, strap shown light) + `drawRingSection`
+   (full ring: sealed wall outermost, seats inward, both truss walls in the lift) +
+   the ruled-junction paragraph and skin-and-bones paragraph.
 5. **"Closure" — PROVISIONAL name** (operator skipped five in his sequence; the page
    chips it "provisional name"; confirm or rename WITH HIM) — `drawShipClosure` +
    `drawLedger` (both-SF bars: +3.8 t green / −32.2 t red; never show one SF alone).
@@ -158,7 +166,7 @@ dive-in read as zoom-out; see the comment above the array). The mapping:
 | L1 catalog | strut/wall/track stages | per-part zoom stops fed by catalog.js (the tour machinery already generates stops from the article — reuse it) |
 | L2 cell | 'cell' + the three stages | MERGE into one level: assemble/de-skin/zoom in a single clean UI |
 | L3 band | 'array' | one-layer wrap, shared-wall story, breach vignette (one cell tinted, films take over) |
-| L4 grid | 'bay' | chord grid + hangers + band, assembly-animated like #69's cell build (`jumpAssemble` idiom) |
+| L4 grid | 'bay' | chord grid + seat rail + band leaning on it, assembly-animated like #69's cell build (`jumpAssemble` idiom) |
 | L5 closure | 'hull' | pump-down state + the both-SF ledger; hull becomes 52×104 ship-0 once ship.js is in |
 | L6 equipment | — | new level (equipment stays visual until lines are weighed) |
 | L7 at work | the dashboard | re-point `app/` renders at the new hull LAST, only on operator go |
@@ -187,7 +195,7 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
   which is why cells are the skin, never the spine.
 - **The band:** one span kills 1 atm (cubic step law, rim-governed); ~2×10⁴ cells;
   in-plane capacity ~47–67 kPa·m vs hoop demand P·R ≈ 2,634 kPa·m at R = 26 — the
-  band hangs, the shell carries.
+  band leans on the skeleton, the shell carries.
 - **The grid:** hoop chords carry pR, longerons pR/2, webs shear; depth is
   load-bearing (ovalization resistance ∝ T²); chord σ_gov is lever #1
   (742 verified-class / 1050 mid / 1450 sourced ceiling → 52 m at SF 1.2 /
@@ -227,11 +235,12 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
 5. **871's relaunched commercial floor** — watch `~/data/airships-reviews/` for the
    branch; review against `26-08-12-OPERATOR-RULING-871.md`; its verdict sentence is
    the project's next headline.
-6. **Hanger pitch** (operator question, 2026-08-12 evening) — mid-bay band cells are
-   supported only by their neighbours' shared frames until the nearest hanger line;
-   scoping slab arithmetic says a 2 m one-way pitch OVERLOADS the band's own faces
-   (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a hanger per cell (~0.9 m) is
-   comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
+6. **Seat pitch** (operator question, 2026-08-12 evening; asked as hanger pitch
+   pre-ruling — the arithmetic is support-direction-agnostic) — mid-bay band cells
+   are supported only by their neighbours' shared frames until the nearest support
+   line; scoping slab arithmetic says a 2 m one-way pitch OVERLOADS the band's own
+   faces (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a support per cell
+   (~0.9 m) is comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
    behind it — SHIP-2/3 must fix the pitch BEFORE the band-cell retune below.
    POST-RULING FORM: this is now the SEAT RAIL requirement — the skeleton's outer
    wall must offer bearing points at CELL pitch (~0.9 m), not just bay pitch;
