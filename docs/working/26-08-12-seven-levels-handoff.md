@@ -37,6 +37,15 @@ from memory).
   may someday exist: tension spokes against ovalization (unstudied alternative if
   SHIP-2 prices the stability reserve high) and SHIP-5 breach bulkheads (membranes,
   not trusses, only if cascade policy demands compartments).
+- **Skin-and-bones terminology (operator, after the ruling):** the truss is an
+  ENDOskeleton — the ship is a sealed skin of evacuated cells around a single
+  two-walled skeleton, nothing in the middle. Sweep any stale "exoskeleton" phrasing.
+- **Replacement-ops doctrine (operator Q&A):** a HOLED cell is near-free to carry
+  (carcass plugs the wall, neighbour films back it, ~0.4 kg lift) — swaps are
+  maintenance-window work, never emergencies. Paths: land-and-repressurize
+  (re-evacuating ~184k m³ ≈ 19 GJ minimum ≈ 10–20 MWh real ≈ hours on ship
+  generation) or aloft behind a clamped cofferdam leaning on the neighbours like a
+  cell; NEVER an open hole (a cell-sized opening swallows ~10 t of air a minute).
 - **Redundancy doctrine (band):** not more layers — every cell is its own sealed
   vessel; interior films are unloaded between healthy neighbours and catch the
   differential when one cell is holed; breach = one cell; the spreading-cascade
@@ -224,15 +233,21 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a hanger per cell (~0.9 m) is
    comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
    behind it — SHIP-2/3 must fix the pitch BEFORE the band-cell retune below.
-7. **Asymmetric band-cell retune** (operator question, same evening) — the band cell's
-   duty is one-sided (loaded film out, breach-only film in, through-crush, side-shear)
-   and the cell already broke symmetry once for film reasons (14×12 rim vs 10×8 main).
-   Candidate lean: heavier outer rim/film, lighter inner, sides sized to the actual
-   hanger pitch. FLOORS on the lean: breach reversal (a neighbour's breach turns a
-   side face into a loaded face), pre-band load states (pump-down, handling, bench
-   proof), and factory one-block economics. License: 865 tool at band span + U4.
-   Sequence AFTER #6. Expected win: a trim, not a transformation (the through-path
-   octet — most of the tube mass — survives any asymmetry).
+   POST-RULING FORM: this is now the SEAT RAIL requirement — the skeleton's outer
+   wall must offer bearing points at CELL pitch (~0.9 m), not just bay pitch;
+   per-seat ~12 kN on cm-scale Ti pads.
+7. **Band-cell retune — now a SHAPE TRADE (widened by the operator, 08-12 late):**
+   a single-layer wall reopens the cell shape. Candidates: (a) asymmetric Kelvin
+   (original scope — heavier outer rim/film, lighter inner, sides to seat pitch);
+   (b) BRACED HEX PRISM honeycomb — straight through-crush columns, exactly 6 inner
+   corner posts (matches the ≥6-seat finding), perfect tiling (no interstitial
+   space), straight seams, hex dome films transfer; needs added diagonals (a bare
+   prism is a mechanism, unlike self-bracing Kelvin) and forfeits the proven-article
+   infrastructure (saw table, assembly order, the cubic crush law are Kelvin's).
+   License: 865 film tool + crush-law rerun at band duty. Cell 0's process-proof
+   role (clamps, seals, films, pump-down) is shape-agnostic and survives any ruling.
+   Kelvin interstitial space, if Kelvin wins: vents inboard → vacuum → lift; hosts
+   seams, manifold runs, strap points.
 8. **Seat & strap interface** (evolved from the tie question after the band-outside
    ruling) — Ti bearing pad on the clamp sleeve (compression, mm-scale, cannot
    buckle) + light UHMWPE/Zylon retention strap (occasional load — creep moot).

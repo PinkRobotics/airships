@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=8fd4c8cc';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=75e59915';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -536,9 +536,9 @@ function drawRingSection() {
   o += lab(153, 120, C.warm, 'THE SEALED WALL — evacuated cells,');
   o += lab(150, 138, C.warm, 'outermost, pressed on by the sky');
   o += lab(144, 186, C.warm, 'bearing seats');
-  o += lab(135, 232, C.cool, 'outer wall · chords — exoskeleton');
+  o += lab(135, 232, C.cool, 'outer wall · chords — the skeleton');
   o += lab(112, 278, C.cool, 'webs — all in vacuum');
-  o += lab(93, 324, C.cool, 'inner wall · chords — exoskeleton');
+  o += lab(93, 324, C.cool, 'inner wall · chords — the skeleton');
   o += lab(86, 370, C.bone, 'void skin — gossamer');
   o += `<text x="12" y="452" fill="${C.faint}" font-size="10" font-family="monospace">wall exaggerated ≈4× — at true scale the annulus is a tenth of the radius.</text>
         <text x="12" y="466" fill="${C.faint}" font-size="10" font-family="monospace">everything inboard of the sealed wall is vacuum: both truss walls live in the lift.</text>`;
