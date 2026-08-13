@@ -25,8 +25,8 @@ At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:
 | architecture | gas | structure | net |
 |---|---|---|---|
 | vacuum, ideal massless shell | 0 | 0 | +0.957 |
-| vacuum, single-level lattice (demonstrable) | 0 | 1.108 | **-0.151** |
-| vacuum, level-2 hierarchy (the target) | 0 | 0.450 | +0.507 |
+| vacuum, single-level lattice (demonstrable) | 0 | 1.306 | **-0.349** |
+| vacuum, level-2 hierarchy (the target) | 0 | 0.538 | +0.419 |
 | hydrogen, pure | 0.067 | envelope extra | +0.890 |
 | helium, pure | 0.132 | envelope extra | +0.825 |
 | helium at 97% operating purity | 0.157 | envelope extra | +0.800 |
@@ -41,13 +41,15 @@ in `docs/VERIFICATION-PLAN.md` is the cheap test that moves it.
 
 **Structure double-duty.** A gas ship's gas is not its only overhead — it needs an envelope
 and, at scale, a frame that the cell array already is. Structure-included useful fractions:
-the level-2 vacuum target delivers **53.0%** of gross lift as useful lift, against the
+the level-2 vacuum target delivers **43.7%** of gross lift as useful lift, against the
 *Hindenburg*'s demonstrated 49% on hydrogen (dead weight 0.590 kg/m³ of volume) and 41% for
-the same LZ-126 hull flown on helium as USS *Los Angeles* (airships.net flight ledger). When
-hierarchy delivers its number under real loads, the vacuum ship's useful lift per m³ is
-competitive with anything ever flown on gas — with margin still on the ladder above it. That
-figure excludes deviatoric load, creep, ground handling and packing fraction, and
-`vacuum-cell.md` says so.
+the same LZ-126 hull flown on helium as USS *Los Angeles* (airships.net flight ledger).
+Since the classical 0.605 coefficient landed (2026-08-12) that figure sits BETWEEN the two
+gas ships rather than above both — the honest price of the correction: level 2 now beats
+the helium hull it must replace and trails the hydrogen one nobody will fly again. The
+margin the argument needs is still on the ladder above level 2, and hierarchy has to earn
+it under real loads. The figure excludes deviatoric load, creep, ground handling and
+packing fraction, and `vacuum-cell.md` says so.
 
 **Supply independence is a fleet property, and this fleet is the point.** One P-100 fill is
 171,844 standard m³ ≈ **$2.4M** at the 2024 USGS Grade-A base price of $14/m³ (up from
