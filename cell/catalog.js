@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=615922b9';
+         stockBuild, barrierKgPerM2 } from './model.js?v=cc055829';
 
 const sb = stockBuild();
 
@@ -246,21 +246,21 @@ export const CATALOG = [
   },
   {
     id: 'conn-tie', cat: 'connectors',
-    name: 'Seat & retention strap',
+    name: 'Crossing clamp',
     status: 'decided',
-    role: 'The interface, as ruled: the cell sits face-down on the outer wall, its push '
-        + 'passing through a flush pad embedded in the face — compression over '
-        + 'millimetres, which cannot buckle — while a light strap holds position '
-        + 'whenever the sky lets go.',
-    story: 'The rope survives the ruling as the strap: creep stops mattering when the '
-        + 'load is occasional, so Dyneema is back on the table. And the loaded film '
-        + 'above faces nothing but sky — every attachment lands on the unloaded side.',
+    role: 'The interface, as ruled: the film lies on the hoop chords and the cross-bars '
+        + 'run continuous over them; a split titanium clamp holds each crossing it is '
+        + 'given. Sparse and staggered — roughly every two metres, one crossing in four.',
+    story: 'The load never asks for it: inside is vacuum, so the push is always inward '
+        + 'and every crossing sits permanently in bearing. The clamps are there for the '
+        + 'states with no pressure at all — erection, handling, maintenance — because the '
+        + 'wall has to stand as a structure before it is ever pumped down.',
     draw: { kind: 'seat' },
     specs: [
-      { k: 'Bearing seat', v: 'embedded flush in the wall', u: 'the cell sits on its face' },
-      { k: 'Film seal', v: 'boss = a taller land post', u: 'on the UNLOADED inner film' },
-      { k: 'Strap', v: 'UHMWPE or Zylon braid', u: 'retention only — light' },
-      { k: 'Per-seat load', v: 'tens of kN', u: 'set by seats-per-cell' },
+      { k: 'Crossing', v: 'continuous over continuous', u: 'nothing drilled, cut or woven' },
+      { k: 'Spacing', v: 'every ~2 m, staggered', u: '1 crossing in 4, ~1/m²' },
+      { k: 'Duty', v: 'unpressurised states', u: 'erection, handling, maintenance' },
+      { k: 'Under load', v: 'bearing only', u: 'the push never reverses' },
       { k: 'Ship set', v: 'order 10⁵', u: 'seats' },
     ],
     prov: 'band-outside ruling 08-12 (operator) — supersedes the hang/tie variant',

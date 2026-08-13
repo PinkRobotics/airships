@@ -1,11 +1,11 @@
 /* Drawing the map: the layer order, and every layer.
  */
-import { CITIES, PHASE_TINT, bez, fmt, havKm, segAt, stateAt } from '../../sim/index.js?v=615922b9';
-import { $ } from '../dom.js?v=615922b9';
-import { TERRAIN, drawSat, terrainImg, terrainReady } from '../map/basemap.js?v=615922b9';
-import { heatLayer, renderHeatLayer } from '../map/heat.js?v=615922b9';
-import { DPR, H, W, ctx, latOfY, px } from '../map/projection.js?v=615922b9';
-import { S } from '../store.js?v=615922b9';
+import { CITIES, PHASE_TINT, bez, fmt, havKm, segAt, stateAt } from '../../sim/index.js?v=cc055829';
+import { $ } from '../dom.js?v=cc055829';
+import { TERRAIN, drawSat, terrainImg, terrainReady } from '../map/basemap.js?v=cc055829';
+import { heatLayer, renderHeatLayer } from '../map/heat.js?v=cc055829';
+import { DPR, H, W, ctx, latOfY, px } from '../map/projection.js?v=cc055829';
+import { S } from '../store.js?v=cc055829';
 
 export const COL = {
   bg: "#08080a", land: "#101015", coast: "#33333c",
