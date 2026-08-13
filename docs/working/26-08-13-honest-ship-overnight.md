@@ -516,3 +516,38 @@ worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
 - pink-sites@f7146c1 "The envelope closes at both ends — and shows you the ship";
   deployed from clean worktree, CF purged, live-verified. Hero agent's beacon commit
   (4350cd5) rode along, already committed by them. data/live/* churn left untouched.
+
+## Part 16 — vessel round: honest solar, the pump on its pipe, a mind aboard (late afternoon 08-13)
+
+- **Solar diamonds diagnosed and retired**: filmDomeGeom(…, seg=4) is a lathe, and a
+  4-seg lathe puts its VERTICES at revolve angles 0/90/180/270 — in the plate basis
+  those are the hoop and axial axes, so every plate rendered as a diamond and its
+  ±2.16 m corners lapped the 2.17 m barrel rows. Now: boxGeom(1,1,1) with
+  PER-INSTANCE basis scaling (thop·4.2, tm·axLen, n·0.1) — barrel axLen 2.06 under
+  its 2.167 pitch, cap rows 4.0 under 4.19 — seams show, nothing overlaps, and each
+  plate stands proud by its own hoop sagitta (off = 0.18 + sag + 0.08 on caps) so a
+  flat panel's corners never dip into the film at small cap radii.
+- **Working end, operator's re-read**: the flared cone (old sprayer lathe) read as
+  "weirdness" — GONE. Sprayer = the white upright cylinder (old pump's profile) on
+  its own cable at −3.3, raised to the sprayer height (above water when env on).
+  PUMP = blue-grey HORIZONTAL unit ('#5b8fc4', lathe along x, vert2 false like the
+  water tank) at +3.2, z −5.4, hanging off the END of a rigid VesselPumpPipe from
+  the winch keel — the pipe is reach spec and suspension in one; its old cable
+  removed. Anchor line at +4.0 clears the pump body (ends x 3.8).
+- **Lower deck**: cryo box was overhanging its winch sheave (boxGeom l=1.9 → span
+  to −3.55 vs pulley at −3.3) → moved inboard to −2.0. NEW VesselShipMind at +2.0:
+  the compute core in pink glass (TOKENS.warm, 0.3) — panel names it. N2 tanks
+  raised to nzFloor = mz1+1.4 so both bellies sit on the water tank's datum
+  (mz1+0.4). New vessel view 'the water gear' (tg −R·2.3, d 20) frames the trio.
+- **Figures**: Figure 1 inputs panel now bills "≈68 km pipe · 46.5 t Ti" +
+  "≈16,990 m² film" — the titanium is the ledger's OWN tiJoints row at the declared
+  world (finished mass, never sinter feed; caption carries the basis; the ring
+  count was a wall fact and panel 3 keeps it). load_ship exposes ti_finished_t.
+  Figure 2's TOO HEAVY sits top-right on two lines — centred, it captioned Ship 0.
+- **Chain discipline paid again**: first make check FAILED on stampcheck (explorer
+  edits, no restamp) — make stamp (?v=c631abe1) then green end-to-end incl. the
+  25-interaction sweep. Also: chaining pkill in a compound Bash = exit 144 again.
+- airships@33ccf24 (51 files: 2 real + 48 stamps + view), pink-sites@b4286bb
+  (38 published + robotics.py + index.html). Worktree deploy, CF purged, live
+  verified: front page shows 46.5 t Ti / finished mass / TOO HEAVY two-liner;
+  served explorer.js?v=c631abe1 carries water-gear/ShipMind/PumpPipe markers.

@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=c631abe1';
-import * as G from './explorer-geom.js?v=c631abe1';
+import * as CELL from './model.js?v=05c05d25';
+import * as G from './explorer-geom.js?v=05c05d25';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=c631abe1';
+} from './nodes.generated.js?v=05c05d25';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=c631abe1';
+import { NODEMESHES } from './nodemeshes.generated.js?v=05c05d25';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=c631abe1';
+import { SKIN } from './skin.generated.js?v=05c05d25';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=c631abe1';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=05c05d25';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2392,14 +2392,18 @@ function buildVessel() {
     // stopping short of the pole where a plate would out-size its ring.
     for (const [c0, c1] of [[0, D.sCap], [D.sCap + D.cylL, D.total]]) {
       const out = c0 === 0;             // orient rows outward from the barrel
-      for (let i = 0; i < 8; i++) {
-        const f = 0.12 + 0.82 * (i + 0.5) / 8;
+      // Rows start almost at the barrel joint (operator, round 12: "fill the
+      // curve/center transition") — f from 0.02, ten rows, plates sized under
+      // the tighter pitch, so the decking runs continuously off the barrel
+      // and over the shoulder.
+      for (let i = 0; i < 10; i++) {
+        const f = 0.9 * (i + 0.5) / 10;
         const s = out ? c1 - (c1 - c0) * f : c0 + (c1 - c0) * f;
         const st = shipStation(D, s);
         if (st.r < 9) continue;
         const dth = 4.35 / st.r;
         const m = Math.floor(1.35 / dth);
-        for (let c = -m; c <= m; c++) plate(s, Math.PI / 2 + c * dth, 4.0, true);
+        for (let c = -m; c <= m; c++) plate(s, Math.PI / 2 + c * dth, 3.6, true);
       }
     }
     const xf = new Float32Array(px2.length * 16);
@@ -2659,44 +2663,78 @@ function buildVessel() {
     }
     lineNode(root, 'VesselEnvGrid', gridL,
       { kind: 'line', color: '#26262e', weight: 1.0, opacity: 0.45 });
-    // A DISC, not a needle: the lathe spins about local x, so the water gets
-    // the vertical basis and a thin profile — radius in the profile's r.
-    const lxf = new Float32Array(16);
-    lxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid, -6, zg, 1]);
-    const lake = inst(root, { id: 'VesselEnvLake' }, lxf, 1, {});
-    lake.geom = latheWithScale([[-0.18, 1.0], [-0.12, 118], [0.12, 118],
+    // THE LAKE HAS A SHORE NOW (operator, round 12). The old 118 m disc put
+    // the trees and half the crowd IN the water and ended in a hard glass
+    // rim. Now: a 90 m core of water whose edge FADES over three stepped-
+    // opacity washers (the solid shader discards per-instance alpha, so the
+    // fade is stepped materials, not a gradient), lapping onto a beach
+    // annulus — and everybody stands on the beach.
+    const LC = [xMid, -6];                   // lake centre; the ship dips near it
+    const vdisc = (z2) => {
+      const xf = new Float32Array(16);
+      xf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, LC[0], LC[1], z2, 1]);
+      return xf;
+    };
+    const lake = inst(root, { id: 'VesselEnvLake' }, vdisc(zg), 1, {});
+    lake.geom = latheWithScale([[-0.18, 1.0], [-0.12, 90], [0.12, 90],
       [0.18, 1.0]], 40, () => 1);
     lake.xmat = { kind: 'glass', color: '#3d6f8f', opacity: 0.5 };
-    // The shore: trees ranked behind the waterline, people at the edge
-    // watching the ship drink.
-    const trees = [];
-    const TR = [[-64, 96], [-40, 104], [-16, 98], [8, 108], [30, 100],
-                [54, 106], [76, 96], [-82, 108], [98, 110], [-30, 118],
-                [20, 122], [64, 120], [-56, 124], [44, 130], [-8, 132],
-                [88, 128]];
-    TR.forEach(([x2, y2], i2) => trees.push(vert(x2, y2, zg + 4 + (i2 % 3))));
+    // Washer = two profile rings at the water plane; the vertical basis lays
+    // it flat. Opacity steps 0.30 / 0.16 / 0.07 walk the water out over the
+    // sand until it is gone.
+    const washer = (id2, r0, r1, op) => {
+      const w2 = inst(root, { id: id2 }, vdisc(zg), 1, {});
+      w2.geom = latheWithScale([[0.12, r0], [0.12, r1]], 40, () => 1);
+      w2.xmat = { kind: 'glass', color: '#3d6f8f', opacity: op };
+    };
+    washer('VesselEnvLakeF1', 90, 98, 0.30);
+    washer('VesselEnvLakeF2', 98, 106, 0.16);
+    washer('VesselEnvLakeF3', 106, 114, 0.07);
+    // The beach: a flat annulus just under the water plane, running from
+    // inside the fade to well past the treeline.
+    const shore = inst(root, { id: 'VesselEnvShore' }, vdisc(zg), 1, {});
+    shore.geom = latheWithScale([[-0.06, 94], [-0.06, 132]], 40, () => 1);
+    shore.xmat = { kind: 'surface', color: '#413d2e', spec: 0.06, opacity: 1 };
+    // Trees rank along the OUTER shore (angle°, radius from the lake centre):
+    // north arc facing the default camera, radii 112-127 — all on sand.
+    const ringAt = (aDeg, r2) => [LC[0] + Math.cos(aDeg * Math.PI / 180) * r2,
+                                  LC[1] + Math.sin(aDeg * Math.PI / 180) * r2];
+    const TR = [[18, 118], [34, 124], [50, 114], [62, 126], [74, 116],
+                [86, 122], [95, 113], [104, 125], [116, 115], [128, 121],
+                [142, 113], [156, 124], [42, 119], [80, 127], [110, 120],
+                [148, 118]];
     {
-      const xf = new Float32Array(trees.length * 16);
-      trees.forEach((m, i2) => xf.set(m, i2 * 16));
-      const tn = inst(root, { id: 'VesselEnvTrees' }, xf, trees.length, {});
+      const xf = new Float32Array(TR.length * 16);
+      TR.forEach(([a2, r2], i2) => {
+        const [x2, y2] = ringAt(a2, r2);
+        xf.set(vert(x2, y2, zg + 4.5 + (i2 % 3) * 0.4), i2 * 16);
+      });
+      const tn = inst(root, { id: 'VesselEnvTrees' }, xf, TR.length, {});
       tn.geom = latheWithScale([[-4.5, 0.4], [-3.2, 2.6], [4.5, 0.15]], 8, () => 1);
       tn.xmat = { kind: 'surface', color: '#2d4a35', spec: 0.1, opacity: 1 };
     }
     // People v2 (operator: "more detail to the human"): a shouldered body
-    // and a separate head, 1.8 m all in — pawns no more.
-    const PP = [[-46, 84], [-43.6, 85.4], [-41.2, 84.2], [-38.6, 86],
-                [12, 88], [14.6, 89], [17.2, 88.2], [40, 86], [42.4, 87.4],
-                [66, 90], [68.5, 91], [-70, 92], [-14, 90], [-11.4, 91.2]];
+    // and a separate head, 1.8 m all in — knots of watchers at the
+    // waterline, feet on the beach (radius just past the fade's start).
+    const PP = [[86, 98.5], [88.5, 100.1], [91, 98.9], [94, 100.7],
+                [70, 99.3], [72.5, 100.5], [75, 99.1], [60, 100.9],
+                [62.4, 99.5], [105, 100.3], [107.5, 99.7], [118, 100.5],
+                [45, 100.1], [132, 99.9]];
     {
       const xf = new Float32Array(PP.length * 16);
-      PP.forEach(([x2, y2], i2) => xf.set(vert(x2, y2, zg + 0.9), i2 * 16));
+      PP.forEach(([a2, r2], i2) => {
+        const [x2, y2] = ringAt(a2, r2);
+        xf.set(vert(x2, y2, zg + 0.84), i2 * 16);
+      });
       const fn = inst(root, { id: 'VesselEnvPeople' }, xf, PP.length, {});
       fn.geom = latheWithScale([[-0.9, 0.11], [-0.5, 0.155], [-0.18, 0.20],
         [-0.05, 0.21], [0.28, 0.19], [0.5, 0.14], [0.55, 0.06]], 8, () => 1);
       fn.xmat = XM.printed;
       const hxf = new Float32Array(PP.length * 16);
-      PP.forEach(([x2, y2], i2) => hxf.set([1, 0, 0, 0, 0, 1, 0, 0,
-        0, 0, 1, 0, x2, y2, zg + 1.62, 1], i2 * 16));
+      PP.forEach(([a2, r2], i2) => {
+        const [x2, y2] = ringAt(a2, r2);
+        hxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, x2, y2, zg + 1.56, 1], i2 * 16);
+      });
       const hd = inst(root, { id: 'VesselEnvHeads' }, hxf, PP.length, {});
       hd.geom = G.beadGeom(0.145, 0.125, 0.135, 8);
       hd.xmat = XM.printed;
@@ -3550,7 +3588,9 @@ export function mountExplorer(opts) {
                          VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines',
                          VesselEnvGround: 'env', VesselEnvGrid: 'env',
-                         VesselEnvLake: 'env', VesselEnvTrees: 'env',
+                         VesselEnvLake: 'env', VesselEnvLakeF1: 'env',
+                         VesselEnvLakeF2: 'env', VesselEnvLakeF3: 'env',
+                         VesselEnvShore: 'env', VesselEnvTrees: 'env',
                          VesselEnvPeople: 'env', VesselEnvHeads: 'env' };
   const styleFor = (n) => {
     // THE CONNECTOR LEVEL HIDES THE SKIN (operator, 08-13): its tour parks the
@@ -4662,6 +4702,30 @@ export function mountExplorer(opts) {
     shipLayer(name) {
       if (!(name in state.shipLayers)) return null;
       state.shipLayers[name] = !state.shipLayers[name];
+      // Switching the WORLD on pulls the camera back (operator, round 12):
+      // the lake is ~230 m across — at ship-framing distance it reads as a
+      // wall of water. Ease out only, never in, and only on the vessel.
+      if (name === 'env' && state.shipLayers.env
+          && LEVELS[state.levelIdx].id === 'vessel' && !transition) {
+        const lv = LEVELS[state.levelIdx];
+        const depthR = lv.depthR || lv.radius;
+        const d1 = Math.max(cam.distance * 1.4, 330);
+        if (d1 > cam.distance + 1) {
+          if (state.reduced) {
+            cam.distance = d1;
+          } else {
+            transition = {
+              kind: 'view', from: state.levelIdx, to: state.levelIdx, t: 0,
+              seconds: 1.1,
+              d0: cam.distance, d1,
+              r0: cam.radius, r1: lv.radius, dr0: depthR, dr1: depthR,
+              tg0: cam.target.slice(), tg1: cam.target.slice(),
+              az0: cam.azimuth, az1: cam.azimuth,
+              el0: cam.elevation, el1: cam.elevation,
+            };
+          }
+        }
+      }
       dirty = true;
       return state.shipLayers[name];
     },
