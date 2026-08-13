@@ -356,13 +356,14 @@ def main() -> None:
                       ("giMarginK02", 2), ("giCritN", 0),
                       ("reserveKgM2", 2), ("capBuckleMargin", 1),
                       ("beamBendMargin", 0), ("torsionMargin", 1),
-                      ("cradleFlangeMPa", 1), ("jigPoints", 0)):
+                      ("cradleFlangeMPa", 1), ("windMargin", 2),
+                      ("jigPoints", 0)):
             cmp(f"ship0.checks.{k}", pc_[k], jc_[k], dp)
         for k in ("unpressurised", "unpressurisedAllOk", "checksPass"):
             checked += 1
             if bool(pc_[k]) != bool(jc_[k]):
                 bad.append(f"ship0.checks.{k}: python {pc_[k]}, js {jc_[k]}")
-        for k in ("rings", "bars", "panels", "clamps"):
+        for k in ("rings", "bars", "panels", "clamps", "barrelRings"):
             cmp(f"ship0.counts.{k}", psh["counts"][k], jsh["counts"][k], 0)
         for k in ("longerons", "innerRings", "fanWebsPerColPerBay", "thetaWebs"):
             cmp(f"ship0.skeletonCounts.{k}", psh["skeletonCounts"][k],

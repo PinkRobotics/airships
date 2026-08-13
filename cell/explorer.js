@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=40aa0f07';
-import * as G from './explorer-geom.js?v=40aa0f07';
+import * as CELL from './model.js?v=f65b9e14';
+import * as G from './explorer-geom.js?v=f65b9e14';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=40aa0f07';
+} from './nodes.generated.js?v=f65b9e14';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=40aa0f07';
+import { NODEMESHES } from './nodemeshes.generated.js?v=f65b9e14';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=40aa0f07';
+import { SKIN } from './skin.generated.js?v=f65b9e14';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=40aa0f07';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f65b9e14';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2124,7 +2124,7 @@ function buildGrid() {
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
       { p: at(0.5 * ROW, 2.0 * CROSS, GRID.depthM + 0.6), t: 'the X in the ring plane', s: 'the member the checks found missing: without it the two walls cannot bend as one deep ring — the fan lives in meridional planes and cannot carry this shear' },
-      { p: at(0, -1.5 * CROSS, GRID.depthM + 8), t: 'spokes, crossing the void', s: 'the licensed fallback: pretensioned cords that fight the low-n ovalization modes at fibre weight — cheapest exactly where the sandwich pays most' },
+      { p: at(0, -1.5 * CROSS, GRID.depthM + 8), t: 'spokes, crossing the void', s: 'the licensed fallback: pretensioned cords against the EVEN out-of-round modes at fibre weight — a diametral cord cannot see the odd ones, and the record says so; the chordal net that could is SHIP-3' },
     ],
   };
 }

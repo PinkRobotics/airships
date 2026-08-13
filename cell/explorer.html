@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>The cell, joint to ship — a 3D walk through the vacuum airship's structure</title>
-<meta name="description" content="Eight scales, one structure: the printed joint, the purchased cut, the film on one face, the 709 mm bench cell, the compartments, the film-on-rings wall, ship 0 complete, the fleet. Every number computed live by the same gated model the analysis runs.">
+<title>The ship, joint by joint — a 3D walk through the vacuum airship's structure</title>
+<meta name="description" content="Seven scales, one structure, top down: ship 0 complete, the compartments, the film-on-rings wall, the 709 mm bench cell, its skin, its cuts, its printed joints. Every number computed live by the same gated model the analysis runs.">
 <style>
   :root{
     --bg:#0a0a0c; --panel:#111114; --line:#232329; --line-strong:#33333c;
@@ -285,7 +285,7 @@
     <div><div class="v"><span data-n="ship.ratio" data-f="3"></span></div>
       <div class="k">float ratio, house-harsh stability basis, declared SF — sinks today</div></div>
     <div><div class="v warm"><span data-n="ship.bestWorldRatio" data-f="3"></span></div>
-      <div class="k">in the best defensible world: frame-practice knockdown + ceiling coupons</div></div>
+      <div class="k">best defensible world — within two percent, and still short</div></div>
     <div><div class="v"><span data-n="w.panels" data-f="0"></span></div>
       <div class="k">film panels in the wrap — one membrane, pressure-formed onto the rings</div></div>
     <div><div class="v"><span data-n="ship.massT" data-f="1"></span> <span class="u">t</span></div>
@@ -299,12 +299,15 @@
   void, the ruled tension exception, fighting the ovalization modes at fibre weight.
   Fly through it: the fly view threads the bow, the wall gap and the void.</p>
 
-  <p class="sowhat"><b>The verdict is the honest pair, and today it reads: not yet.</b>
-  On the house-harsh stability basis the ship misses its own lift at both declared factors
-  — the corrected shell mechanics moved the answer, and this page moved with it. In the
-  friendliest defensible world (frame-practice knockdown, sourced-ceiling coupons) it
-  floats with tonnes to spare. Between those two worlds sit exactly two test campaigns:
-  the knockdown tests and the chord coupons. They are not details. They are the decision.</p>
+  <p class="sowhat"><b>The verdict is the honest pair, and today it reads: not yet — in
+  any world.</b> On the house-harsh stability basis the ship misses its own lift at both
+  declared factors. In the friendliest defensible world (frame-practice knockdown,
+  sourced-ceiling coupons) it comes within two percent and still misses. Two review
+  panels moved this number twice in one night, each time toward the truth; what remains
+  between here and floating is two test campaigns — the knockdown tests and the chord
+  coupons — plus the two design moves the checks themselves named: a chordal spoke net
+  that works the odd out-of-round modes, and an in-surface shear system that would buy
+  the membrane term back. None of that is hidden in an average.</p>
 
   <p class="sowhat"><b>The wall to beat is <span data-n="wallWork" data-f="4"></span> kg/m³</b>
   — what a cubic metre of air weighs at the working altitude. Every level below this one is
@@ -1583,9 +1586,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=40aa0f07';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=40aa0f07';
-import * as CELL from './model.js?v=40aa0f07';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f65b9e14';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f65b9e14';
+import * as CELL from './model.js?v=f65b9e14';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1597,7 +1600,10 @@ const qs = new URLSearchParams(location.search);
 const reduced = (matchMedia('(prefers-reduced-motion: reduce)').matches || qs.has('still'))
   && !qs.has('motion');
 const startId = qs.get('level') || 'ship';   // the ladder opens at its top now
-const startLevel = Math.max(0, LEVELS.findIndex(l => l.id === startId));
+// An unknown or legacy ?level= id falls back to the SHIP, not the ladder's
+// bottom — a stale bookmark should land on the most representative level.
+const startIdx = LEVELS.findIndex(l => l.id === startId);
+const startLevel = startIdx >= 0 ? startIdx : LEVELS.findIndex(l => l.id === 'ship');
 
 /* ---- number filling: every figure on this page comes from the model ---- */
 function dig(obj, path) {

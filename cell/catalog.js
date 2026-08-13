@@ -20,7 +20,7 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0Summary } from './model.js?v=40aa0f07';
+         SHIP0, ship0Summary } from './model.js?v=f65b9e14';
 
 const sb = stockBuild();
 /* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,
@@ -62,10 +62,10 @@ export const SHIP = {
   massSF15T: S0.worlds.s1050_sf15.totalT, ratioSF15: S0.worlds.s1050_sf15.ratioSL,
   ratioSF15Sigma1450: S0.worlds.s1450_sf15.ratioSL,
   ratioSigma742: S0.worlds.s742_sf12.ratioSL,
-  // Lift falls as air warms: d(rho)/rho = -dT/T, so %/K is 100/T0 — and the
-  // residual buys an operating window of residual/(lift * that slope).
+  // Lift falls as air warms: d(rho)/rho = -dT/T, so %/K is 100/T0. The old
+  // windowK died with the positive residual — a temperature window only
+  // exists on a basis that floats, and no page may imply one that does not.
   tempPctPerK: 100 / 288.15,
-  windowK: S0.mid.residualSLT / (S0.planOfRecord.liftSLT * (1 / 288.15)),
   worlds: S0.worlds,
   worldsFrame: S0.worldsFramePractice,
   giKnockdown: S0.giKnockdown, giKnockdownFrame: S0.giKnockdownFrame,
@@ -190,7 +190,7 @@ export const CATALOG = [
       { k: 'Construction', v: 'roll-wrapped T700, moulded curved', u: '' },
       { k: 'Linear mass', v: linKgPerM(S0.sections.ring.odMm, S0.sections.ring.wallMm, T700.rho).toFixed(2), u: 'kg/m' },
       { k: 'Runs at', v: `${S0.sections.ring.runsAtMPa.toFixed(0)}`, u: `MPa (${S0.sections.ring.governs}-governed, margin ${S0.sections.ring.marginAtSF.toFixed(2)} at declared SF)` },
-      { k: 'Ship set', v: `${S0.counts.rings.toLocaleString('en-US')}`, u: 'rings' },
+      { k: 'Ship set', v: `${S0.counts.barrelRings.toLocaleString('en-US')} + ${(S0.counts.rings - S0.counts.barrelRings).toLocaleString('en-US')}`, u: 'barrel rings + cap-grid hoops' },
     ],
     prov: 'cell/model.js shipWall() — gated by cellparity',
     flags: ['sigma world [TO VERIFY] — the coupon campaign decides which column is real'],

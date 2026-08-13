@@ -387,20 +387,26 @@ def skeleton(sigma_mat: float, sf: float, wall: dict) -> dict:
         # the mode load them. Ring on elastic foundation adds k*R/(n^2-1):
         # strongest at n=2, gone by n>=5 — exactly complementary to the
         # bend+crimp branch, which is weakest at n=2 and strong at high n.
-        k_r = E_SPOKE * a_spoke / (2 * R)
+        # [REV-1] diametral cords have zero first-order stiffness at odd n
+        # (ends move (+w,-w): pure translation); even n: per-end E*a/R.
+        # Chordal spoke nets engage odd n — SHIP-3's design move, not drawn.
+        # [REV-2] the Bryant membrane term is ZEROED — it needs an in-surface
+        # shear path this wall does not have [TO VERIFY — SHIP-3 buys it back].
+        # [REV-3, REJECTED with the textbook]: the second panel proposed
+        # swapping the crimp to c*d^2/l^3; Timoshenko's laced-column shear
+        # rigidity S = E*A_d*sin(g)cos^2(g) (g from the CHORD) is exactly the
+        # coded d*c^2/l^3, confirmed by the exact X-panel slip stiffness and
+        # by both degenerate limits. The coded form stands.
+        k_r = E_SPOKE * a_spoke / R
         best_n, best_q = 2, None
         for n in range(2, 13):
-            nn = n * n + lam2
-            div = n * n + lam2 / 2.0 - 1.0
-            q_mem = (E * a_x * ((lam2 * lam2))
-                     / (R * div * (nn * nn)))
             q_ring = (n * n - 1) * E * i_eff / (R * R * R)
             if q_ring > 0 and q_crimp > 0:
                 q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
             else:
                 q_ring = 0.0
-            q_found = k_r * R / (n * n - 1)
-            q = q_mem + q_ring + q_found
+            q_found = (k_r * R / (n * n - 1)) if n % 2 == 0 else 0.0
+            q = q_ring + q_found
             if best_q is None or q < best_q:
                 best_q, best_n = q, n
         return {"qCrPa": best_q * knockdown, "critN": best_n,
@@ -666,7 +672,7 @@ def ship_ledger(sigma_key: str, sf: float, s_r: float = RING_PITCH,
         "arealKgM2": total_t * 1000 / AREA_M2,
         # [REF-8] FLOATS only if it also STANDS: every named margin >= 1 at
         # this SF (the frame-practice GI world is reported, never gated on).
-        "checksPass": (wall["ring"]["marginAtSF"] >= 1
+        "checksPassInclErection": (wall["ring"]["marginAtSF"] >= 1
                        and wall["bar"]["marginAtSF"] >= 1
                        and skel["longeron"]["marginAtSF"] >= 1
                        and skel["ovalization"]["marginAtSF"] >= 1

@@ -6,13 +6,13 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=40aa0f07';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID, WALL } from './catalog.js?v=f65b9e14';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
 /* ------------------------------------------------ number bindings ---------------------- */
 
-const CTX = { ship: SHIP, article: ARTICLE, band: BAND, grid: GRID };
+const CTX = { ship: SHIP, article: ARTICLE, band: BAND, grid: GRID, wall: WALL };
 
 function bindNumbers() {
   for (const el of document.querySelectorAll('[data-cat]')) {

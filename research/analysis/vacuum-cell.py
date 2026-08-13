@@ -1494,20 +1494,31 @@ def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
         abar = a_o * a_i_smeared / (a_o + a_i_smeared)
         i_eff = abar * depth * depth
         q_crimp = crimp_of(a_theta)
-        k_r = SHIP0["eSpoke"] * a_spoke / (2.0 * g["R"])
+        # [REV-1, 08-13 second panel] A diametral cord has ZERO first-order
+        # stiffness at odd n: for w = w_n cos(n th) the two ends move (+w, -w)
+        # and the cord translates without stretching. At even n both ends move
+        # together and the per-end stiffness is E*a/R (twice the first draft's
+        # /2R). The first draft credited every mode and the greedy bought 20 t
+        # of spokes for capacity they cannot deliver at the n=3 mode that
+        # governed. A CHORDAL (offset) spoke net would engage odd n too —
+        # named for SHIP-3, not drawn.
+        k_r = SHIP0["eSpoke"] * a_spoke / g["R"]
+        # [REV-2] Bryant's membrane term is ZEROED: it prices generator
+        # stretching that only exists through in-surface (x-theta) shear, and
+        # this wall's shear surface (film + gust-sized straps) is three orders
+        # under the smeared E*a_x the term assumes. An in-surface shear system
+        # would buy it back [TO VERIFY — SHIP-3]; until licensed the capacity
+        # is rings + crimp + the even-n foundation, the honest floor.
         best_n, best_q = 2, None
         for n in range(2, 13):
-            nn = n * n + lam2
-            div = n * n + lam2 / 2.0 - 1.0
-            q_mem = (E_ * a_x * ((lam2 * lam2)) / (g["R"] * div * (nn * nn)))
             q_ring = ((n * n - 1) * E_ * i_eff
                       / (g["R"] * g["R"] * g["R"]))
             if q_ring > 0.0 and q_crimp > 0.0:
                 q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
             else:
                 q_ring = 0.0
-            q_found = k_r * g["R"] / (n * n - 1)
-            q = q_mem + q_ring + q_found
+            q_found = (k_r * g["R"] / (n * n - 1)) if n % 2 == 0 else 0.0
+            q = q_ring + q_found
             if best_q is None or q < best_q:
                 best_q, best_n = q, n
         return dict(qCrPa=best_q * knockdown, critN=best_n, qCrimpPa=q_crimp,
@@ -1795,9 +1806,13 @@ def ship0_summary() -> dict:
             unpressurised=mid["unpressurised"]["stands"],
             unpressurisedAllOk=mid["unpressurised"]["allOk"],
             cradleFlangeMPa=round(mid["unpressurised"]["cradleFlangeMPa"], 1),
+            windMargin=round(SHIP0["clampCapN"]
+                             / (mid["unpressurised"]["erectionClampN"] * 1.5), 2),
             jigPoints=mid["unpressurised"]["jigPoints"],
             checksPass=mid["checksPass"]),
-        counts=mid["wall"]["counts"],
+        counts=dict(mid["wall"]["counts"],
+                    barrelRings=round(mid["geom"]["cylL"]
+                                      / SHIP0["ringPitchM"]) + 1),
         skeletonCounts=dict(
             longerons=SHIP0["nLong"], innerRings=s["nInnerRings"],
             fanWebsPerColPerBay=2 * SHIP0["kFan"], thetaWebs=s["nThetaWebs"]),

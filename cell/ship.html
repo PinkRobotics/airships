@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="description" content="Every structural check with its margin, the whole component ledger, and the float verdict in every world we cannot yet choose between — computed by the gated model at page load, at both safety factors, nothing typed.">
 <title>Ship 0 — the checks, the ledger, and the two verdicts</title>
 <style>
   :root{
@@ -74,10 +75,10 @@ the air the hull displaces, at sea level, across every world we cannot yet choos
 between.</p>
 
 <div class="bigpair">
-  <div><div class="v fail"><span data-n="mid.ratioSL" data-f="3"></span></div>
-    <div class="k">float ratio · house-harsh stability basis · declared SF · mid coupons — sinks by <span data-n="midShortT" data-f="1"></span> t</div></div>
-  <div><div class="v pass"><span data-n="best.ratioSL" data-f="3"></span></div>
-    <div class="k">the best defensible world: frame-practice knockdown + ceiling coupons — floats, +<span data-n="best.residualSLT" data-f="1"></span> t</div></div>
+  <div><div class="v" id="vMid"><span data-n="mid.ratioSL" data-f="3"></span></div>
+    <div class="k">float ratio · house-harsh stability basis · declared SF · mid coupons — <span id="vMidWord"></span></div></div>
+  <div><div class="v" id="vBest"><span data-n="best.ratioSL" data-f="3"></span></div>
+    <div class="k">the best defensible world: frame-practice knockdown + ceiling coupons — <span id="vBestWord"></span></div></div>
 </div>
 <p class="note">Between those two cells sit exactly two test campaigns: the
 general-instability knockdown tests (is a built-up frame shell a 0.3-knockdown object or
@@ -115,7 +116,10 @@ story.</p>
 <p class="note">Lift at sea level: <span data-n="plan.liftSLT" data-f="1"></span> t
 (the film's inward scallop already debited). Total:
 <span data-n="mid.totalT" data-f="1"></span> t —
-<span data-n="mid.arealKgM2" data-f="2"></span> kg per m² of hull.</p>
+<span data-n="mid.arealKgM2" data-f="2"></span> kg per m² of hull. Of that,
+<span data-n="led.stabilityReserve" data-f="1"></span> t is the K 0.2 insurance layer
+priced on top of the γ 0.3 sizing — the deficit is real on either reading, and the
+split is shown so no one has to take an average on faith.</p>
 
 <h2>The checks — does it stand?</h2>
 <table>
@@ -128,31 +132,35 @@ nowhere in this repository (audit U4), and this page does not pretend otherwise.
 unpressurised verdict is the operator's own requirement: the wall must be buildable and
 structured before the sky is let in.</p>
 
-<h2>The night the checks fought back</h2>
+<h2>The night the checks fought back — twice</h2>
 <p>This page's first draft said the ship floats (+6.4 t at the declared factor). Three
 adversarial reviewers were set on the physics before any page quoted it, and they
 confirmed eleven bugs — a missing divisor in the general-instability law, a shear
 stiffness built on the wrong leg of a triangle, a brace pitch the drawn fan cannot
-produce, caps that escaped two of their duties. Fixed, the ship sinks on the harsh
-basis. Kept fixed, three things came back the honest way:</p>
+produce, caps that escaped two of their duties. Fixed, the ship sank on the harsh basis
+but still floated in the best defensible world. A second panel then killed that too:
+a diametral spoke has no first-order stiffness against the odd out-of-round modes —
+exactly the mode that governed — and the membrane term needs an in-surface shear path
+this wall does not have. Both fixes are in, and the best world now misses by under two
+percent. Three things survived the whole fight the honest way:</p>
 <ul>
   <li><b>The ring-plane X-webs</b> — a member class no drawing had, without which the two
   walls cannot act as one deep ring. Now drawn, priced, gated.</li>
-  <li><b>The spokes</b> — the fallback the record had already licensed for exactly this
-  finding: pretensioned tension cords across the void, a Winkler foundation strongest at
-  precisely the low-order ovalization modes the sandwich pays most for.
-  <span data-n="led.spokes" data-f="1"></span> t of cord doing work that compression
-  iron priced at ten times that.</li>
+  <li><b>The spokes</b> — the fallback the record had already licensed: pretensioned
+  cords across the void, a Winkler foundation against the EVEN out-of-round modes.
+  <span data-n="led.spokes" data-f="1"></span> t of cord in the ledger today; the
+  chordal layout that would also work the odd modes is SHIP-3's named design move.</li>
   <li><b>The verdict gates</b> — FLOATS is only printed when the structure also stands;
   a failing check now fails the sentence, not just a row in a table.</li>
 </ul>
 
 <h2>The float window</h2>
 <p>With the old band's fixed per-area mass gone, almost every line scales with lift and
-the old closure map inverts: bigger is no longer better. On the harsh basis nothing
-floats at any size — on the best defensible basis the window is
-<span data-n="fwLo" data-f="0"></span>–<span data-n="fwHi" data-f="0"></span> m of
-diameter, with the plan of record inside it.</p>
+the old closure map inverts: bigger is no longer better. The table shows both bases at
+every hull; a dash under a window edge means that basis floats nowhere in the swept
+range — which, since the second review round, is where even the best defensible world
+sits at every diameter. The gap it has to close at the plan of record is under two
+percent.</p>
 <table>
   <thead><tr><th>diameter m</th><th class="num">ratio — harsh basis</th>
     <th class="num">ratio — best world</th></tr></thead>
@@ -162,7 +170,10 @@ diameter, with the plan of record inside it.</p>
 <h2>What would have to be true</h2>
 <ul>
   <li><b>The GI knockdown lands near frame practice.</b> SHIP-2's test campaign; the
-  single biggest lever on the ship — worth roughly a hundred tonnes of verdict.</li>
+  single biggest lever on the ship — worth roughly two hundred tonnes of verdict.</li>
+  <li><b>SHIP-3's two named design moves land</b>: the chordal spoke net (odd modes at
+  fibre weight) and an in-surface shear system (licenses the membrane term the honest
+  model currently zeroes). Together they are what turns −2% into a float.</li>
   <li><b>The chord coupons land above the working estimate.</b> The second lever;
   decides the world inside whichever knockdown holds.</li>
   <li><b>The spokes hold their premise</b>: pretension without creep-walk (Dyneema-class
@@ -179,18 +190,28 @@ FLOAT.md: a gated bill of materials under the wall with the declared factor on e
 failure mode, and nothing dropped to get there.</p>
 
 <script type="module">
-import { ship0Summary, SHIP0 } from './model.js?v=40aa0f07';
+import { ship0Summary, SHIP0 } from './model.js?v=f65b9e14';
 const S = ship0Summary();
 const ctx = {
   plan: { ...S.planOfRecord, sfDeclared: SHIP0.sfDeclared,
           giKnockdown: S.giKnockdown, giKnockdownFrame: S.giKnockdownFrame },
   mid: S.mid, led: S.mid.ledgerT,
   best: S.worldsFramePractice.s1450_sf12,
-  midShortT: -S.worlds.s1050_sf12.residualSLT,
   sk: S.skeletonCounts,
   etaPct: SHIP0.etaMass * 100,
   fwLo: S.floatWindowFrame.loM, fwHi: S.floatWindowFrame.hiM,
 };
+// THE VERDICT WORDS ARE COMPUTED, never typed — a model flip must flip them.
+const verdictCell = (elV, elW, world) => {
+  const f = world.floats;
+  document.getElementById(elV).classList.add(f ? 'pass' : 'fail');
+  const r = world.residualSLT;
+  document.getElementById(elW).textContent = f
+    ? `floats, +${Math.abs(r).toFixed(1)} t`
+    : `sinks by ${Math.abs(r).toFixed(1)} t`;
+};
+verdictCell('vMid', 'vMidWord', S.worlds.s1050_sf12);
+verdictCell('vBest', 'vBestWord', S.worldsFramePractice.s1450_sf12);
 const dig = (o, p) => p.split('.').reduce((c, k) => c[k], o);
 for (const el of document.querySelectorAll('[data-n]')) {
   let v = dig(ctx, el.dataset.n);
@@ -262,7 +283,7 @@ worldRows(S.worldsFramePractice, 'worldsFrame');
         `${c.cradleFlangeMPa.toFixed(1)} MPa flange; ≥${c.jigPoints} jig points per bare ring`,
         c.unpressurised),
     row('unpressurised — 15 m/s ground wind on the clamp net',
-        c.unpressurisedAllOk ? 1 : 0.68,
+        c.windMargin,
         c.unpressurisedAllOk ? 'clears unshored' : 'build constraint: shoring or a calmer day [SCOPING]',
         c.unpressurisedAllOk),
   ].join('');
