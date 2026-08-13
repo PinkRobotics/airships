@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=7acd0dab';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=620f1239';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -503,22 +503,32 @@ function drawShipClosure() {
 
 /* Level 5 — the float ledger, both safety factors, always. */
 function drawLedger() {
-  const x0 = 130, k = 0.85, liftX = x0 + SHIP.liftT * k;
+  // The scale ADAPTS to the worst bar — the corrected physics moved the masses
+  // far past the old fixed 0.85 px/t, and the gate caught the label leaving
+  // the canvas. Three bars now: both SFs on the house-harsh stability basis,
+  // and the one defensible world that floats (frame-practice knockdown +
+  // sourced-ceiling coupons) — the decision the campaigns will make, drawn.
+  const x0 = 130;
+  const worst = Math.max(SHIP.massT, SHIP.massSF15T, SHIP.liftT);
+  const k = (420 - x0 - 74) / worst;
+  const liftX = x0 + SHIP.liftT * k;
   const bar = (y, label, mass, col) => {
     const w = mass * k, over = Math.max(0, x0 + w - liftX);
     let s = `<text x="${x0 - 8}" y="${y + 14}" fill="${C.faint}" font-size="10" text-anchor="end" font-family="monospace">${label}</text>
              <rect x="${x0}" y="${y}" width="${Math.min(w, liftX - x0).toFixed(1)}" height="20" fill="${col}" fill-opacity="0.25" stroke="${col}" stroke-width="1.2"/>`;
     if (over > 0.5) s += `<rect x="${liftX}" y="${y}" width="${over.toFixed(1)}" height="20" fill="#d98b80" fill-opacity="0.45" stroke="#d98b80" stroke-width="1.2"/>`;
     const res = SHIP.liftT - mass;
-    s += `<text x="${(x0 + w + 8).toFixed(1)}" y="${y + 14}" fill="${res >= 0 ? '#46d06e' : '#d98b80'}" font-size="11" font-family="monospace">${res >= 0 ? '+' : '−'}${Math.abs(res).toFixed(1)} t</text>`;
+    const tx = Math.min(x0 + w + 8, 414 - 52);
+    s += `<text x="${tx.toFixed(1)}" y="${y + 14}" fill="${res >= 0 ? '#46d06e' : '#d98b80'}" font-size="11" font-family="monospace">${res >= 0 ? '+' : '−'}${Math.abs(res).toFixed(1)} t</text>`;
     return s;
   };
-  let out = `<line x1="${liftX}" y1="16" x2="${liftX}" y2="120" stroke="#46d06e" stroke-width="1.4" stroke-dasharray="2 3"/>
-             <text x="${liftX}" y="12" fill="#46d06e" font-size="10" text-anchor="middle" font-family="monospace">lift ${SHIP.liftT} t</text>`;
-  out += bar(28, `structure @ SF 1.2`, SHIP.massT, C.cool);
-  out += bar(76, `structure @ SF 1.5`, SHIP.massSF15T, C.cool);
-  out += `<text x="210" y="140" fill="${C.faint}" font-size="9.5" text-anchor="middle" font-family="monospace">floats at the declared factor — the chord coupons decide SF 1.5</text>`;
-  return svgEl(out, '0 0 420 150');
+  let out = `<line x1="${liftX}" y1="16" x2="${liftX}" y2="126" stroke="#46d06e" stroke-width="1.4" stroke-dasharray="2 3"/>
+             <text x="${liftX}" y="12" fill="#46d06e" font-size="10" text-anchor="middle" font-family="monospace">lift ${SHIP.liftT.toFixed(1)} t</text>`;
+  out += bar(24, `harsh basis @ SF 1.2`, SHIP.massT, C.cool);
+  out += bar(58, `harsh basis @ SF 1.5`, SHIP.massSF15T, C.cool);
+  out += bar(92, `best world @ SF 1.2`, SHIP.worldsFrame.s1450_sf12.totalT, C.warm);
+  out += `<text x="210" y="146" fill="${C.faint}" font-size="9.5" text-anchor="middle" font-family="monospace">the knockdown test and the coupon campaign ARE the float decision</text>`;
+  return svgEl(out, '0 0 420 156');
 }
 
 /* Level 6 — equipment callouts on the hull; the payload axis. */
