@@ -107,6 +107,9 @@
         padding:var(--s4);margin:var(--s5) 0;display:flex;align-items:center;justify-content:center;
         position:relative}
   .lvl-fig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto}
+  .in3d{font-family:var(--mono);font-size:var(--t-12);color:var(--faint);margin:var(--s2) 0 var(--s4)}
+  .in3d a{color:var(--cool);text-decoration:none;border-bottom:1px dotted var(--cool-dim)}
+  .in3d a:hover{color:var(--warm)}
   .figno{position:absolute;top:var(--s2);right:var(--s3);font:var(--t-11)/1 var(--mono);
         color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
   .facts{display:flex;flex-wrap:wrap;gap:var(--s3);margin:var(--s4) 0}
@@ -162,8 +165,12 @@
     <a class="lvl" href="#level-7"><span class="n">7</span><span class="nm">At work</span></a>
   </nav>
 
+  <p class="lede-links"><a href="./explorer.html">Open the 3D explorer →</a> — every level
+  below is a live model there; the links in each section land on the matching scale.</p>
+
   <section id="level-1">
     <h2><span class="mono faint">Level 1 · </span>The catalog</h2>
+    <p class="in3d">in 3D: <a href="./explorer.html?level=strut">the connectors</a> · <a href="./explorer.html?level=wall">the tubes</a> · <a href="./explorer.html?level=track">the skin</a></p>
     <p>Everything begins as powder, fibre, or film: titanium sintered into split
     clamshells that clamp around their members, carbon rolled onto mandrels, membrane
     pressed into its dome before it ever meets a frame. These are the parts — each one
@@ -174,6 +181,7 @@
 
   <section id="level-2">
     <h2><span class="mono faint">Level 2 · </span>The cell</h2>
+    <p class="in3d">in 3D: <a href="./explorer.html?level=cell">the cell</a> · <a href="./explorer.html?level=cell&view=centre">into the centre</a></p>
     <p>One Kelvin cell: the first buildable block, deliberately not lighter than air. It
     assembles from the catalog's parts — tubes cut to a measured saw table, titanium
     clamps closed around every meeting of members, the formed film drawn over the frame —
@@ -201,6 +209,7 @@
 
   <section id="level-3">
     <h2><span class="mono faint">Level 3 · </span>The band</h2>
+    <p class="in3d">in 3D: <a href="./explorer.html?level=array">the band block</a></p>
     <p>Cells joined shoulder to shoulder, one cell deep — and one layer is the design,
     not a thrift: the pressure a band can kill grows with the cube of its cell span, so a
     single span already absorbs the entire atmosphere, and stacked bands were measured to
@@ -227,6 +236,7 @@
 
   <section id="level-4">
     <h2><span class="mono faint">Level 4 · </span>The grid &amp; skins</h2>
+    <p class="in3d">in 3D: <a href="./explorer.html?level=bay">the grid, on the ship</a> · <a href="./explorer.html?level=bay&view=hero">one cell, opened</a> · <a href="./explorer.html?level=bay&view=fromship">from the ship</a></p>
     <p>The big struts arrive. The band can kill the atmosphere locally but cannot carry
     the ship's global squeeze — that belongs to a deep sandwich shell: two faces of fat
     carbon chord pipe held metres apart by web diagonals, joined by the same clamped
@@ -284,6 +294,7 @@
 
   <section id="level-5">
     <h2><span class="mono faint">Level 5 · </span>Closure <span class="provisional">provisional name</span></h2>
+    <p class="in3d">in 3D: <a href="./explorer.html?level=ship">ship 0, whole</a> · <a href="./explorer.html?level=ship&view=void">inside the void</a> · <a href="./explorer.html?level=ship&layers=skeleton,webs,voidskin">skeleton only</a></p>
     <p>The hull closes, the pumps run down, and the machine becomes the thing the whole
     site is about: a vessel whose cargo is nothing, pressed on every side by the entire
     sky, weighing less than the air it pushed out of the way. Lift is fixed by geometry;
@@ -355,6 +366,6 @@ window.__errs = [];
 window.addEventListener('error', (e) => window.__errs.push(String(e.message || e)));
 window.addEventListener('unhandledrejection', (e) => window.__errs.push(String(e.reason)));
 </script>
-<script type="module" src="./levels.js?v=cb2f7f52"></script>
+<script type="module" src="./levels.js?v=989cb5de"></script>
 </body>
 </html>

@@ -334,6 +334,16 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    faces (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a support per cell
    (~0.9 m) is comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
    behind it — SHIP-2/3 must fix the pitch BEFORE the band-cell retune below.
+   ** FOLLOW-ON (same night): OUTER LONGERONS DELETED. ** Operator asked "we get to
+   remove top longeron from sandwich right, as top will be anchored on cell?" — adopted
+   with the rationale CORRECTED in the record: the band is never structural (his own
+   decoupling ruling), so the cells anchor nothing; what licenses the deletion is that
+   the axial pR/2 re-homes entirely to inner-wall longerons and the web fan positions
+   the outer rings. Outer face = rings at cell pitch + webs + the leaning band. SHIP-2
+   adds: torsion path on one closed wall, hull beam bending on the smaller-radius
+   flange (~R_i/R_o efficiency), outer-ring lateral stability. Drawn same night on all
+   three surfaces; cross-page navigation (blueprint ↔ explorer deep links, per-level)
+   landed in the same commit.
    ** RULED (operator, 08-12 night): SUPPORT PER CELL — his own candidate, adopted. **
    The outer wall carries a hoop chord under EVERY cell row; the seat rail is DELETED
    as a class (with its undesigned 0.5 kg/m² ledger line); the inner wall keeps bay

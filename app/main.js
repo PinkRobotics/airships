@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=cb2f7f52';
-import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=cb2f7f52';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=cb2f7f52';
-import { renderDrawer } from './cockpit/panels.js?v=cb2f7f52';
-import { renderStats, renderTable } from './cockpit/tables.js?v=cb2f7f52';
-import { $, esc } from './dom.js?v=cb2f7f52';
-import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=cb2f7f52';
-import { rebuildMissions, replanAll } from './fleet.js?v=cb2f7f52';
-import { frame } from './loop.js?v=cb2f7f52';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=cb2f7f52';
-import { resize } from './map/projection.js?v=cb2f7f52';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=cb2f7f52';
-import { S } from './store.js?v=cb2f7f52';
-import { DIALS, renderWorked } from './worked.js?v=cb2f7f52';
+import * as SIM from '../sim/index.js?v=989cb5de';
+import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=989cb5de';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=989cb5de';
+import { renderDrawer } from './cockpit/panels.js?v=989cb5de';
+import { renderStats, renderTable } from './cockpit/tables.js?v=989cb5de';
+import { $, esc } from './dom.js?v=989cb5de';
+import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=989cb5de';
+import { rebuildMissions, replanAll } from './fleet.js?v=989cb5de';
+import { frame } from './loop.js?v=989cb5de';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=989cb5de';
+import { resize } from './map/projection.js?v=989cb5de';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=989cb5de';
+import { S } from './store.js?v=989cb5de';
+import { DIALS, renderWorked } from './worked.js?v=989cb5de';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {

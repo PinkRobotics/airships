@@ -254,6 +254,8 @@
     #panel section.active{animation:none}
     .lbl{transition:none}
   }
+  .bplink{color:#7aa2c8;text-decoration:none;border-bottom:1px dotted #47637d}
+  .bplink:hover{color:#ff4fa3}
 </style>
 </head>
 <body>
@@ -265,7 +267,7 @@
   <div class="kicker">Pink Robotics · airship structures</div>
   <h1>From the joint to the ship</h1>
   <p>Eight scales of one structure. Drag to orbit · scroll to dive ·
-     <a href="./">the flat explainer</a></p>
+     <a href="./levels.html">the blueprint</a> · <a href="./">the flat explainer</a></p>
 </header>
 
 <nav id="rail" aria-label="Scale ladder"></nav>
@@ -275,7 +277,7 @@
 <!-- SHIP 0 ------------------------------------------------------------------------------- -->
 <section data-level="ship">
   <p class="lv-kicker">Level 7 · <span data-n="ship.diaM" data-f="0"></span> ×
-    <span data-n="ship.lenM" data-f="0"></span> m · ship 0</p>
+    <span data-n="ship.lenM" data-f="0"></span> m · ship 0 · <a class="bplink" href="./levels.html#level-5">blueprint ↗</a></p>
   <h2>The ship — a sealed wall of cells</h2>
   <div class="big"><span data-n="ship.liftT" data-f="1"></span> <span class="unit">tonnes of lift</span></div>
   <p class="bigsub">what the whole sky gives back for holding nothing</p>
@@ -319,7 +321,7 @@
 
 <!-- LEVEL 5 ------------------------------------------------------------------------------ -->
 <section data-level="bay">
-  <p class="lv-kicker">Level 6 · ~20 m · the grid, up close</p>
+  <p class="lv-kicker">Level 6 · ~20 m · the grid, up close · <a class="bplink" href="./levels.html#level-4">blueprint ↗</a></p>
   <h2>The grid &amp; the wall it carries</h2>
   <div class="big"><span data-n="grid.hoopKPaM" data-f="0"></span> <span class="unit">kPa·m of hoop</span></div>
   <p class="bigsub">P·R at the barrel — the shell's whole job, carried around the void</p>
@@ -341,7 +343,7 @@
   same article you can hold at the bottom of the ladder.</p>
 
   <p class="sowhat"><b>A clean division of labour.</b> Hoop chords carry the barrel's
-  squeeze; longerons carry half that along the length; webs carry shear between the
+  squeeze; the longerons — all on the inner wall now — carry half that along the length; webs carry shear between the
   walls. The metres of depth are empty truss on purpose — bending stiffness grows with
   the square of the gap, the way an I-beam earns its from the space between flanges.</p>
 
@@ -352,13 +354,18 @@
   however many rings share it; what SHIP-2 still verifies is the thin ring's Euler margin
   between web points, and the ring count against the winding line.</p>
 
+  <div class="shiplinks">
+    <button class="golv" data-golevel="ship">up: the whole ship</button>
+    <button class="golv" data-golevel="array">down: the band</button>
+    <button class="golv" data-golevel="cell">down: one cell</button>
+  </div>
   <span class="tag cool">ship figures: scoping — ship.js port pending</span>
   <span class="tag st-decided">support per cell — ruled</span>
 </section>
 
 <!-- LEVEL 4 ------------------------------------------------------------------------------ -->
 <section data-level="array">
-  <p class="lv-kicker">Level 5 · 2 m cells · flight reference</p>
+  <p class="lv-kicker">Level 5 · 2 m cells · flight reference · <a class="bplink" href="./levels.html#level-3">blueprint ↗</a></p>
   <h2>The array</h2>
   <div class="big"><span data-n="sw.sharedFractionPct" data-f="1"></span><span class="unit">% of wall area carries nothing</span></div>
   <p class="bigsub">interior walls have vacuum on both sides — Δp = 0</p>
@@ -1559,9 +1566,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=cb2f7f52';
-import { SHIP, BAND, GRID } from './catalog.js?v=cb2f7f52';
-import * as CELL from './model.js?v=cb2f7f52';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=989cb5de';
+import { SHIP, BAND, GRID } from './catalog.js?v=989cb5de';
+import * as CELL from './model.js?v=989cb5de';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

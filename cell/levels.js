@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=cb2f7f52';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=989cb5de';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -446,9 +446,11 @@ function drawWebDetail() {
     pts.map(([x, y]) => `L ${x.toFixed(1)} ${(y - 6).toFixed(1)}`).join(' ') +
     ` L 396 ${(cy - 0.383 * R8 - 6).toFixed(1)}`;
   out += `<path d="${skin}" fill="none" stroke="${C.warm}" stroke-width="2"/>`;
-  // The axial chord: a member, not a floor — drawn at member weight.
-  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="1.4"/>
-          <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.4"/>`;
+  // The outer face runs NOTHING lengthwise any more — rings, webs and the leaning band
+  // only (outer longerons deleted; the axial chord lives on the inner wall). The faint
+  // dashed line is the seat plane through the rings, a reference, not a member.
+  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.6"/>`;
   // Hoop chords in section: circled cross = into the page, around the barrel.
   const hoopSec = (x, y) => {
     const d = 11 * Math.SQRT1_2 - 2.4;
@@ -488,12 +490,12 @@ function drawWebDetail() {
     <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — the skin rides the cell landscape</text>
     <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">cells sit face-down on the wall — the seat is embedded in the face</text>
     <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords — one under EVERY cell; the inner wall keeps its bays</text>
-    <text x="24" y="${faceY + 17}" fill="${C.cool}" font-size="10" font-family="monospace">longeron</text>
+    <text x="24" y="${faceY + 17}" fill="${C.faint}" font-size="10" font-family="monospace">seat plane — rings only</text>
     <text x="${mid}" y="${faceY + 21}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">every cell lands on its own ring</text>
     <text x="${n1 - 14}" y="190" fill="${C.cool}" font-size="10" font-family="monospace">hoop chord</text>
     <text x="60" y="236" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
     <text x="60" y="249" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
-    <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — the same hoops</text>
+    <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — bays + ALL the longerons</text>
     <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>
     <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the rail is deleted — SHIP-2 checks the thin ring between web points</text>`;
   return svgEl(out, '0 0 440 340');
