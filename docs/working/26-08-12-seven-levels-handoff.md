@@ -315,6 +315,65 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
 - Scratch on `~/tmp` or the session scratchpad, never `/tmp` (RAM tmpfs, has
   OOM-killed a service).
 
+## 6a. THE WALL-TILE CASCADE — operator rulings, 08-12 late night (READ FIRST)
+
+Four rulings in one conversation, each licensed by the one before it. Where anything
+above disagrees, THIS section wins.
+
+1. **SUPPORT PER CELL** — outer hoop chords at cell pitch, seat rail deleted, webs fan
+   ~2:1 to the inner wall. (Ruling detail in Q6 below.)
+2. **OUTER LONGERONS DELETED** — axial pR/2 re-homes to the inner wall; the outer face
+   is rings + webs + the leaning band. (Rationale corrected in Q6: the band anchors
+   NOTHING — the decoupling ruling stands.)
+3. **THE BAND CELLS ARE NOT SEALED, AND THEN NOT CELLS AT ALL.** The operator's chain:
+   the atmospheric barrier is at the outer face, so everything behind it is already in
+   the shared vacuum — a structural cell there needs no airtightness, no interior films,
+   no per-cell pump-down. Strip the dead roles (sealed vessel; per-cell redundancy, now
+   compartments; lateral bracing, forbidden by his own decoupling ruling) and only two
+   irreducible jobs remain: **break the loaded film into small panels** (film mass and
+   tension scale with span — a rim grid is the standard and correct answer) and **carry
+   each panel's push to the ring right beneath it**. Neither needs a 0.9 m sealed
+   polyhedron.
+4. **THE WALL IS TILES, NOT CELLS** (his design, verbatim intent: "a wall cell being very
+   similar to the existing cell but flat top to a single bracket that mounts to the
+   pipe"): a **rim frame + short legs + ONE saddle bracket** clamped to the hoop.
+   ~15–25 cm deep, not flat — the film sags ~11 cm inward at 0.9 m and the legs need
+   triangulation. One bracket is legitimate here: the >=6-seat concentration finding
+   protected ARTICLE-class joints (5–7 kN members); a purpose-built stalk is simply
+   sized for its ~82 kN.
+
+**Why it matters:** the Kelvin band's ledger is 5.0–10.7 kg/m². Film + rim grid + legs
++ bracket scopes to ~1–2 kg/m² — over ~17,000 m² that is the largest single mass event
+in the project's history. [SCOPING, chat-grade — see the licensed checks below.]
+
+**Kept in the baseline regardless:** the film stays RIM-BONDED at every tile (tear
+arrest is free, and a propagating tear in the one loaded membrane will not wait for the
+redundancy phase), and COMPARTMENT MEMBRANES at super-cell pitch (operator: "I agree
+with compartment membranes entirely, we'll put them at the next level down in the
+explorer") — a breach then costs a compartment, not the ship.
+
+**Redundancy sequencing (operator):** "design in redundancy once we figure out how to
+get it to work at all." Make it work, then armour it.
+
+**LICENSED CHECKS THIS OWES — do not size a member without them:**
+- **rim bending under the film's edge pull at tile pitch** — the exact phenomenon that
+  governed the bench cell's boundary; 865 tool at band duty. THIS is the one that can
+  bite.
+- **the pitch optimisation itself** — film mass ~ pitch against grid mass ~ 1/pitch;
+  0.9 m is inherited from cell arithmetic, not derived for this job.
+- leg Euler at ~0.2 m and the bracket's 82 kN into a clamped saddle.
+- everything Q6/Q7 already owed: thin-ring Euler between web points, torsion on one
+  closed wall, single-flange hull bending, outer-ring stability, ovalization reserve.
+
+**Cell 0 is NOT orphaned** — it keeps its recorded, shape-agnostic role as the process
+coupon (clamps, films, seals, months-long hold) and becomes the panel-physics testbed
+besides: a tile rim at 0.9 m is the same film-edge problem its own rim already carries.
+The saw table, the prover and the assembly order keep earning.
+
+**Superseded, same night, before it was ever drawn:** the honeycomb-open-cell lean
+(§7 Q7's hex prism) — the operator's "do we need the cells at all?" retired it one hour
+after it was proposed. Numbers-first paid for itself.
+
 ## 7. Open questions, with owners
 
 1. **L5's real name** — operator (page chips it provisional).

@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=989cb5de';
-import * as G from './explorer-geom.js?v=989cb5de';
+import * as CELL from './model.js?v=31a96843';
+import * as G from './explorer-geom.js?v=31a96843';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=989cb5de';
+} from './nodes.generated.js?v=31a96843';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=989cb5de';
+import { NODEMESHES } from './nodemeshes.generated.js?v=31a96843';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=989cb5de';
+import { SKIN } from './skin.generated.js?v=31a96843';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=989cb5de';
+import { SHIP, BAND, GRID } from './catalog.js?v=31a96843';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1758,8 +1758,14 @@ function shipStation(D, s) {
            nx: Math.sin(b), nr: Math.cos(b), tx: Math.cos(b), tr: -Math.sin(b) };
 }
 
-/* Every cell on the wall: centre, right-handed basis (Z outward), and its (s, th)
- * surface coordinates, so a level can light a patch of them. */
+/* Every TILE on the wall: centre, right-handed basis (Z outward), and its (s, th)
+ * surface coordinates, so a level can light a patch of them.
+ *
+ * A tile is the operator's wall unit (08-12 cascade): a rim frame holding one panel of
+ * loaded film, short legs, and ONE saddle bracket clamped to the hoop chord beneath it.
+ * Not a cell — nothing behind the outer barrier is sealed, so there is no vessel here,
+ * no interior film and no per-tile pump-down. Placement is unchanged: the tile grid IS
+ * the old cell grid, because the pitch is what breaks the film into panels. */
 function shipCellPlacements(D) {
   const out = [];
   const inset = D.pitch / 2;
@@ -1900,14 +1906,52 @@ function buildGrid() {
   const solidCells = patch.filter(c => c !== hero && !open(c));
 
   const ghost = inst(root, { id: 'GridGhostCells' }, cellsToXf(cells), cells.length, {});
-  ghost.geom = G.kelvinGeom(D.pitch * 0.98);
+  ghost.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 8, 2);
   ghost.xmat = { kind: 'glass', color: '#7d8698', opacity: 0.05 };
   lineNode(root, 'GridGhostFrame',
     segLines([...bones.hoops, ...bones.longs].filter((_, i) => i % 2 === 0)), XM.latticeFaint);
 
+  // THE LAID TILES: film panel (loaded, warm), its rim frame, four legs and one saddle.
   const lit = inst(root, { id: 'GridCells' }, cellsToXf(solidCells), solidCells.length, {});
-  lit.geom = G.kelvinGeom(D.pitch * 0.98);
-  lit.xmat = XM.sealedWall;
+  lit.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 14, 4);
+  lit.xmat = XM.membraneLoaded;
+  {
+    // Rim + legs + bracket, built in tile-local coordinates and instanced with the tile:
+    // the rim hexagon at the film's edge, legs converging inward and down, a stub at the
+    // saddle. ONE bracket per tile — the >=6-seat finding guarded article-class joints;
+    // this stalk is purpose-sized for its ~82 kN.
+    const rimR = D.pitch * 0.49, deep = D.pitch * 0.22;
+    const rim = [], legs = [];
+    const P = [];
+    for (let k = 0; k < 6; k++) {
+      const a = 2 * Math.PI * k / 6;
+      P.push([rimR * Math.cos(a), rimR * Math.sin(a), 0]);
+    }
+    for (let k = 0; k < 6; k++) rim.push([P[k], P[(k + 1) % 6]]);
+    const foot = [0, 0, -deep];
+    for (let k = 0; k < 6; k += 2) legs.push([P[k], foot]);
+    legs.push([foot, [0, 0, -deep - D.pitch * 0.10]]);   // the on-end stub into the saddle
+    const local = (v, c) => [
+      c.p[0] + c.X[0] * v[0] + c.Y[0] * v[1] + c.Z[0] * v[2],
+      c.p[1] + c.X[1] * v[0] + c.Y[1] * v[1] + c.Z[1] * v[2],
+      c.p[2] + c.X[2] * v[0] + c.Y[2] * v[1] + c.Z[2] * v[2],
+    ];
+    const rimSegs = [], legSegs = [];
+    for (const c of patch) {
+      for (const [a, b] of rim) rimSegs.push([local(a, c), local(b, c)]);
+      for (const [a, b] of legs) legSegs.push([local(a, c), local(b, c)]);
+    }
+    const mk = (id, segs, rOut, xmat) => {
+      const pts = [], pairs = [];
+      for (const [a, b] of segs) { pts.push(a, b); pairs.push([pts.length - 2, pts.length - 1]); }
+      const gi = G.strutInstances(pts, pairs, 0, 1.0);
+      const n2 = inst(root, { id }, gi.xf, gi.count, {});
+      n2.geom = G.tubeArcGeom(rOut, rOut * 0.35, 1.0, 360, 10);
+      n2.xmat = xmat;
+    };
+    mk('GridTileRims', rimSegs, 0.035, XM.pipeRim);
+    mk('GridTileLegs', legSegs, 0.028, XM.pipe);
+  }
   // THE CROSS BARS ARE PIPE, not lines — the operator's call: the cell level's rendered
   // CF members "look and behave well there", so the patch uses the same recipe exactly:
   // strutInstances aiming a unit tube per segment, tubeArcGeom for the shell, XM.pipe for
@@ -1927,9 +1971,12 @@ function buildGrid() {
   pipes('GridHoops', bones.hoops.filter(near), 0.12, XM.pipeRim);
   pipes('GridLongs', bones.longs.filter(near), 0.085, XM.pipe);
   pipes('GridWebs', bones.webs.filter(near), 0.06, XM.pipe);
-  lineNode(root, 'GridBearings', patch.map(c => [
-    c.p, [c.p[0] - c.Z[0] * D.pitch / 2, c.p[1] - c.Z[1] * D.pitch / 2, c.p[2] - c.Z[2] * D.pitch / 2],
-  ]), { kind: 'line', color: TOKENS.warm, weight: 2.0, opacity: 0.9 });
+  // The open course keeps its waiting saddles: a warm mark on the ring where each tile
+  // lands, drawn only where no tile has been set yet.
+  lineNode(root, 'GridBearings', patch.filter(open).map(c => [
+    [c.p[0] - c.Z[0] * D.pitch * 0.30, c.p[1] - c.Z[1] * D.pitch * 0.30, c.p[2] - c.Z[2] * D.pitch * 0.30],
+    [c.p[0] - c.Z[0] * D.pitch * 0.50, c.p[1] - c.Z[1] * D.pitch * 0.50, c.p[2] - c.Z[2] * D.pitch * 0.50],
+  ]), { kind: 'line', color: TOKENS.warm, weight: 2.4, opacity: 0.95 });
 
   const heroM = (v) => [
     hero.p[0] + hero.X[0] * v[0] + hero.Y[0] * v[1] + hero.Z[0] * v[2],
@@ -1937,11 +1984,8 @@ function buildGrid() {
     hero.p[2] + hero.X[2] * v[0] + hero.Y[2] * v[1] + hero.Z[2] * v[2],
   ];
   const heroShell = inst(root, { id: 'GridHeroShell' }, cellsToXf([hero]), 1, {});
-  heroShell.geom = G.kelvinGeom(D.pitch * 0.98);
-  heroShell.xmat = { kind: 'glass', color: '#9fb8d8', opacity: 0.16 };
-  lineNode(root, 'GridHeroLattice',
-    G.kelvinLatticeSegs(D.pitch * 0.98).map(([a, b]) => [heroM(a), heroM(b)]),
-    { kind: 'line', color: TOKENS.warm, weight: 1.2, opacity: 0.85 });
+  heroShell.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 20, 6);
+  heroShell.xmat = { kind: 'glass', color: '#9fb8d8', opacity: 0.20 };
 
   const at = (ds, dth, off) => {
     const st = shipStation(D, s0 + ds);
@@ -1952,11 +1996,11 @@ function buildGrid() {
   return {
     root,
     labels: [
-      { p: at(0, 0.32, -2.2), t: 'the sealed wall — cells lean on the grid', s: 'face-down, nothing crossing it; the warm ticks are the push, straight into the outer chords' },
+      { p: at(0, 0.32, -2.2), t: 'the wall is tiles — rim, legs, one bracket', s: 'nothing back here is sealed: behind the barrier everything is already vacuum, so a tile is a frame holding film, not a vessel' },
       { p: at(-2 * GRID.bayM, -0.5, D.pitch), t: 'hoop chords — the ring frames', s: `one ring every bay ≈ ${GRID.bayM} m, on both walls: they carry the barrel's whole squeeze` },
       { p: at(2.2 * GRID.bayM, 0.42, D.pitch + GRID.depthM), t: 'webs — shear, all in vacuum', s: `lacing two walls ≈ ${GRID.depthM} m apart; depth is where the shell's bending stiffness lives` },
-      { p: at(-2.3 * GRID.bayM, -0.1, -1.2), t: 'a course not yet laid', s: 'bare grid and waiting seat ticks — cells simply set on face-down, nothing to thread or cross' },
-      { p: heroM([0, 0, D.pitch * 1.6]), t: 'one cell, opened', s: 'the same article at the bottom of the ladder — from the ship its whole lattice is smaller than a pixel' },
+      { p: at(-2.3 * GRID.bayM, -0.1, -1.2), t: 'a course not yet laid', s: 'bare rings and waiting saddles — a tile clamps on, no threading and nothing crossing the barrier' },
+      { p: heroM([0, 0, D.pitch * 1.6]), t: 'one tile', s: 'a panel of the loaded film on its rim; the legs gather ~82 kN into a single saddle clamped on the hoop below' },
     ],
   };
 }
@@ -1973,8 +2017,11 @@ function buildShip() {
   const root = node({ id: 'L_ship', category: 'vacuum', selectable: false });
   const D = shipDims();
   const cells = shipCellPlacements(D);
+  // THE WALL IS TILES: at ship range each one reads as its film panel, so the surface is
+  // the loaded barrier itself — a dome per tile, sagging inward under the sky — rather
+  // than a lattice of sealed boxes. Same population, same pitch, honest membrane.
   const wall = inst(root, { id: 'ShipCells' }, cellsToXf(cells), cells.length, {});
-  wall.geom = G.kelvinGeom(D.pitch * 0.98);
+  wall.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 8, 2);
   wall.xmat = XM.sealedWall;
   const bones = shipSkeletonSegs(D);
   lineNode(root, 'ShipHoops', segLines(bones.hoops), XM.frameLine);
