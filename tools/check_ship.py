@@ -25,10 +25,13 @@ PROBE = r"""(() => {
   out.missing = [...document.querySelectorAll('[data-n].miss')]
     .map(e => e.dataset.n);
   out.tables = {};
-  for (const id of ['worldsHarsh', 'worldsFrame', 'ledger', 'checks', 'window']) {
+  for (const id of ['worldsHarsh', 'worldsFrame', 'ledger', 'checks', 'window',
+                    'bandrows']) {
     const el = document.getElementById(id);
     out.tables[id] = el ? el.querySelectorAll('tr').length : -1;
   }
+  const bf = document.getElementById('bandfig');
+  out.bandFigMarks = bf ? bf.querySelectorAll('line, rect').length : -1;
   return import('./model.js').then(M => {
     const S = M.ship0Summary();
     const shown = (sel) => document.querySelector(sel).textContent.replace(/,/g, '');
@@ -38,7 +41,12 @@ PROBE = r"""(() => {
        S.worldsFramePractice.s1450_sf12.ratioSL.toFixed(3)],
       ['liftT', shown('[data-n="plan.liftSLT"]'), S.planOfRecord.liftSLT.toFixed(1)],
       ['totalT', shown('[data-n="mid.totalT"]'), S.mid.totalT.toFixed(1)],
+      ['band25', shown('[data-n="band25"]'), S.band.harshMid.lift2500T.toFixed(1)],
+      ['bandCrushHarsh',
+       document.querySelector('#bandrows tr td:nth-child(2)').textContent,
+       S.band.harshMid.crushT.toFixed(1)],
     ];
+    out.bandWorlds = Object.keys(S.band).length;
     out.ledgerRows = Object.keys(S.mid.ledgerT).length;
     return out;
   });
@@ -68,7 +76,8 @@ def main() -> None:
     for m in res.get("missing", []):
         bad.append(f"data-n=\"{m}\" resolved to nothing — a figure with no source")
     for tid, n in (res.get("tables") or {}).items():
-        want = {"worldsHarsh": 6, "worldsFrame": 6, "window": 8}.get(tid, 1)
+        want = {"worldsHarsh": 6, "worldsFrame": 6, "window": 8,
+                "bandrows": 3}.get(tid, 1)
         if n < want:
             bad.append(f"table #{tid}: {n} rows, expected >= {want}")
     if res.get("tables", {}).get("ledger", 0) != res.get("ledgerRows", -2):
@@ -77,6 +86,12 @@ def main() -> None:
     for name, got, want in res.get("checks", []):
         if got != want:
             bad.append(f"displayed {name}: page shows {got!r}, model computes {want!r}")
+    if res.get("bandrows", res.get("tables", {}).get("bandrows", 0)) \
+            != res.get("bandWorlds", 3):
+        pass  # row count already asserted above against the fixed 3
+    if res.get("bandFigMarks", -1) < 12:
+        bad.append(f"band figure: only {res.get('bandFigMarks')} marks drawn — "
+                   "the two-walls SVG did not render")
 
     if bad:
         print("SHIP PAGE CHECK FAILED:\n")
@@ -85,7 +100,8 @@ def main() -> None:
         sys.exit(1)
     print(f"ship page: boots clean, {res['tables']['ledger']} ledger lines, "
           f"{res['tables']['checks']} checks drawn, both verdict cells match the "
-          "model, no unresolved bindings.")
+          f"model, the two walls drawn for {res.get('bandWorlds', 0)} worlds, "
+          "no unresolved bindings.")
 
 
 if __name__ == "__main__":

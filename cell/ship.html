@@ -167,6 +167,34 @@ percent.</p>
   <tbody id="window"></tbody>
 </table>
 
+<h2>The two walls — crush and sink</h2>
+<p>The operator's ruling (08-13): these are the numbers that define the project. The
+<b>crush wall</b> is the ledger this same model writes at a safety factor of exactly
+1.0 — every capacity meets its demand at nominal pressure with zero margin anywhere,
+the lightest ship that stands at all. The <b>sink wall</b> is the lift the hull
+displaces. Every buildable design lives between them; its distance above the crush
+wall is its real structural margin (the emergent SF), its distance below the sink
+wall is its payload. Margin stops being a declaration and becomes an output of
+materials and tests. Altitude moves the sink wall only — about nine percent of lift
+per thousand metres — so the neutral ceiling column says how high each world's
+crush-boundary ship could ever be neutrally buoyant, empty.</p>
+<svg id="bandfig" viewBox="0 0 720 190" role="img"
+     aria-label="The band between the crush wall and the sink wall, three worlds"
+     style="width:100%;height:auto;display:block;margin:0.6rem 0 0.2rem"></svg>
+<table>
+  <thead><tr><th>world</th><th class="num">crush wall t</th>
+    <th class="num">sink wall t (SL)</th><th class="num">band t</th>
+    <th class="num">SF_float</th><th class="num">neutral ceiling m</th></tr></thead>
+  <tbody id="bandrows"></tbody>
+</table>
+<p class="note">SF_float is the largest emergent factor that still floats at sea
+level — the whole band spent on margin; a dash means the band is closed. At the
+2,500 m working altitude the sink wall drops to
+<span data-n="band25" data-f="1"></span> t and every world's band as drawn is
+negative — the altitude ladder is a design input, not a detail. Both SHIP-3 moves
+and every hull from 32 to 112 m are explorable in
+<a href="./band.html">the band calculator ↗</a>, on this same gated model.</p>
+
 <h2>What would have to be true</h2>
 <ul>
   <li><b>The GI knockdown lands near frame practice.</b> SHIP-2's test campaign; the
@@ -190,7 +218,7 @@ FLOAT.md: a gated bill of materials under the wall with the declared factor on e
 failure mode, and nothing dropped to get there.</p>
 
 <script type="module">
-import { ship0Summary, SHIP0 } from './model.js?v=f65b9e14';
+import { ship0Summary, SHIP0 } from './model.js?v=fb749c9d';
 const S = ship0Summary();
 const ctx = {
   plan: { ...S.planOfRecord, sfDeclared: SHIP0.sfDeclared,
@@ -200,6 +228,7 @@ const ctx = {
   sk: S.skeletonCounts,
   etaPct: SHIP0.etaMass * 100,
   fwLo: S.floatWindowFrame.loM, fwHi: S.floatWindowFrame.hiM,
+  band25: S.band.harshMid.lift2500T,
 };
 // THE VERDICT WORDS ARE COMPUTED, never typed — a model flip must flip them.
 const verdictCell = (elV, elW, world) => {
@@ -297,6 +326,55 @@ worldRows(S.worldsFramePractice, 'worldsFrame');
     rows.push(`<tr><td>${h.diaM.toFixed(0)}${h.diaM === S.planOfRecord.diaM ? ' — plan of record' : ''}</td>${cell(h.ratioSL)}${cell(f.ratioSL)}</tr>`);
   }
   document.getElementById('window').innerHTML = rows.join('');
+}
+{
+  // THE TWO WALLS — every number from S.band (gated, parity-held); the SVG is
+  // drawn from the same values the table binds, never from literals.
+  const B = S.band;
+  const WNAMES = {
+    harshMid: 'house-harsh 0.3 · mid coupons — sizes the record',
+    frameMid: 'frame-practice 0.65 [TO VERIFY] · mid coupons',
+    frame1450: 'frame-practice 0.65 [TO VERIFY] · 1,450 MPa ceiling',
+  };
+  const rows = [];
+  for (const [k, b] of Object.entries(B)) {
+    const open = b.bandSLT > 0;
+    rows.push(`<tr><td>${WNAMES[k] || k}</td>
+      <td class="num">${b.crushT.toFixed(1)}</td>
+      <td class="num">${b.liftSLT.toFixed(1)}</td>
+      <td class="num ${open ? 'pass' : 'fail'}">${b.bandSLT >= 0 ? '+' : '−'}${Math.abs(b.bandSLT).toFixed(1)}</td>
+      <td class="num">${b.sfFloat === null ? '—' : b.sfFloat.toFixed(2)}</td>
+      <td class="num">${b.neutralCeilM.toFixed(0)}</td></tr>`);
+  }
+  document.getElementById('bandrows').innerHTML = rows.join('');
+  // The figure: one horizontal track per world; the crush wall in red, the
+  // sink walls (SL solid, 2,500 m dashed), the band shaded where it exists.
+  const keys = Object.keys(B);
+  const maxT = Math.max(...keys.map(k => Math.max(B[k].crushT, B[k].liftSLT))) * 1.08;
+  const X0 = 210, X1 = 700, ROW_H = 56, Y0 = 26;
+  const x = t => X0 + (X1 - X0) * t / maxT;
+  const esc = [];
+  esc.push(`<style>#bandfig text{font:11px ui-monospace,monospace;fill:#bbb}
+    #bandfig .wl{font-size:10.5px;fill:#999}</style>`);
+  keys.forEach((k, i) => {
+    const b = B[k], y = Y0 + i * ROW_H;
+    const open = b.bandSLT > 0;
+    const lo = Math.min(b.crushT, b.liftSLT), hi = Math.max(b.crushT, b.liftSLT);
+    const SHORT = { harshMid: 'harsh 0.3 · mid coupons',
+      frameMid: 'frame 0.65 · mid coupons', frame1450: 'frame 0.65 · σ 1450' };
+    esc.push(`<text class="wl" x="0" y="${y + 4}">${SHORT[k] || k}</text>`);
+    esc.push(`<line x1="${x(0)}" y1="${y}" x2="${x(maxT)}" y2="${y}" stroke="#333" stroke-width="1"/>`);
+    esc.push(`<rect x="${x(lo)}" y="${y - 9}" width="${Math.max(1.5, x(hi) - x(lo))}" height="18" rx="2"
+      fill="${open ? 'rgba(80,200,120,0.25)' : 'rgba(230,70,90,0.18)'}"
+      stroke="${open ? 'rgba(80,200,120,0.7)' : 'rgba(230,70,90,0.55)'}" stroke-width="1"/>`);
+    esc.push(`<line x1="${x(b.crushT)}" y1="${y - 14}" x2="${x(b.crushT)}" y2="${y + 14}" stroke="#e64653" stroke-width="2.5"/>`);
+    esc.push(`<line x1="${x(b.liftSLT)}" y1="${y - 14}" x2="${x(b.liftSLT)}" y2="${y + 14}" stroke="#ff6fae" stroke-width="2.5"/>`);
+    esc.push(`<line x1="${x(b.lift2500T)}" y1="${y - 12}" x2="${x(b.lift2500T)}" y2="${y + 12}" stroke="#6fb2ff" stroke-width="1.5" stroke-dasharray="3 3"/>`);
+    esc.push(`<text x="${x(b.crushT) - 4}" y="${y - 18}" text-anchor="end" fill="#e64653">crush ${b.crushT.toFixed(0)}</text>`);
+    esc.push(`<text x="${x(b.liftSLT) + 4}" y="${y + 26}" fill="#ff6fae">sink ${b.liftSLT.toFixed(0)}</text>`);
+    if (i === 0) esc.push(`<text x="${x(b.lift2500T)}" y="${y - 18}" text-anchor="middle" fill="#6fb2ff">2,500 m</text>`);
+  });
+  document.getElementById('bandfig').innerHTML = esc.join('');
 }
 </script>
 </body>

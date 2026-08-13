@@ -158,3 +158,37 @@ PLAN_CFG before it prints).
 
 BOUND_CHORDAL / BOUND_MEMBRANE flags exist for the study only — both False in every
 gated run; the gi loop is FP-identical with flags off (record pin proves it).
+
+
+## MORNING, PART 2 — the two walls land on the site (operator ruling: report them everywhere)
+
+The operator ruled the crush/float boundaries THE project-defining numbers and asked
+for a figure AND an interactive calculator. Landed, all gated:
+
+- **`ship_band()` + `ship_neutral_ceiling_m()` in BOTH mirrors** (vacuum-cell.py +
+  model.js), summary block `ship0.band` = three as-drawn worlds (harsh mid, frame mid,
+  frame 1450) × {crushT, liftSLT, lift2500T, bandSLT, band2500T, sfFloat, neutralCeilM}.
+  **Parity 324 → 345.** The gi() in both mirrors gained default-off `gi_chordal` /
+  `gi_membrane` flags (the SHIP-3 moves as bounds; FP-identical off — the record
+  reproduced before anything printed).
+- **cell/ship.html: "The two walls — crush and sink"** — prose, an SVG walls figure
+  (crush red / sink pink / 2,500 m dashed blue, band shaded), the three-world table
+  with SF_float and neutral ceilings. check_ship extended (band rows, fig marks,
+  band25 binding, crush cell vs model).
+- **cell/band.html — the calculator** (auth area): hull 32–112 m, neutrality altitude
+  0–3,000 m, world, coupons, the two moves as loudly-labelled BOUND toggles, design
+  point chosen by EMERGENT SF, payload slider. Live outputs: both walls, band,
+  SF_float, structure, payload at altitude, neutral ceilings empty/loaded, plus the
+  walls-by-hull chart with the design dot. Every number solved live by model.js.
+  **New gate `tools/check_band.py` (`make bandcheck`, in `make check`):** boots the
+  page, has window.BAND solve five tuples (record crush, frame ceiling, off-record
+  80 m, declared record, bound view) and diffs them against the Python mirror at
+  1e-9 relative — 23 values — plus DOM-rendered assertions.
+- **Front page (public):** the walls paragraph — crushharsh/crushbest/sinkwall tokens
+  (338 / 202 / 225 t) injected by robotics.py from the mirror's band block.
+- **The altitude ladder is now first-class**: lift falls ~9%/1,000 m; the calculator
+  and the checks page both carry it. Verified for the operator's 112 m scenario:
+  mid-band structure 2,130.7 t + 100 t water + 19 t equipment = neutral at sea level
+  to 0.2 t (his arithmetic exact); loaded-neutral ceiling ~sea level by construction;
+  empty-at-crush ceilings 0 m (harsh) / 362 m (frame mid) / 1,075 m (frame 1450);
+  at 2,500 m the certified-bound band closes at every hull.

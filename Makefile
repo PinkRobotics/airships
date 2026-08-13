@@ -11,7 +11,7 @@ PORT   ?= 8875
 .DEFAULT_GOAL := help
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck clean
+        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -59,7 +59,7 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
 
 # The monitor page's no-script/crawler fallback: the FALLBACK regions in index.html, written
 # from the bundled snapshot by replaying it headless (`?seed=7&data=snapshot`, the golden
@@ -90,6 +90,9 @@ levelscheck:  ## The blueprint page must boot clean, draw every figure, keep tex
 
 shipcheck:  ## The ship checks page must boot clean and show only the model's numbers
 	$(PY) tools/check_ship.py
+
+bandcheck:  ## The band calculator must solve the same physics as the Python mirror
+	$(PY) tools/check_band.py
 
 skin:  ## Re-solve the loaded skin (#63): membrane FEM, gore study, generated outputs
 	$(PY) tools/gen_skin.py

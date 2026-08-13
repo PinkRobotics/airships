@@ -1440,7 +1440,8 @@ def ship_wall(g: dict, sigma_mat: float, sf: float) -> dict:
 
 
 def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
-                  gi_knockdown: float) -> dict:
+                  gi_knockdown: float, gi_chordal: bool = False,
+                  gi_membrane: bool = False) -> dict:
     """The corrected stability system. General instability in Bryant's honest
     form — membrane term WITH the load-side divisor (n^2 + lam^2/2 - 1), head-
     credit effective length, ring term series-combined with the X-braced
@@ -1509,6 +1510,13 @@ def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
         # under the smeared E*a_x the term assumes. An in-surface shear system
         # would buy it back [TO VERIFY — SHIP-3]; until licensed the capacity
         # is rings + crimp + the even-n foundation, the honest floor.
+        # The two SHIP-3 moves as OPTIONAL terms, default OFF (every gated
+        # record path runs with both false — FP-identical to the bare sum).
+        # gi_chordal: a chordal net engages odd n too (cord priced by the
+        # same greedy; net geometry [SCOPING]). gi_membrane: an in-surface
+        # shear system licenses Bryant's membrane term (its own hardware
+        # UNPRICED — an outer bound, not a design). The band page shows both
+        # only under a BOUND label.
         best_n, best_q = 2, None
         for n in range(2, 13):
             q_ring = ((n * n - 1) * E_ * i_eff
@@ -1517,8 +1525,15 @@ def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
                 q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
             else:
                 q_ring = 0.0
-            q_found = (k_r * g["R"] / (n * n - 1)) if n % 2 == 0 else 0.0
-            q = q_ring + q_found
+            q_found = (k_r * g["R"] / (n * n - 1)) \
+                if (n % 2 == 0 or gi_chordal) else 0.0
+            q_mem = 0.0
+            if gi_membrane:
+                nn_l2 = n * n + lam2
+                q_mem = (E_ * a_x * lam2 * lam2
+                         / (g["R"] * (n * n + lam2 / 2.0 - 1.0)
+                            * nn_l2 * nn_l2))
+            q = q_ring + q_found + q_mem
             if best_q is None or q < best_q:
                 best_q, best_n = q, n
         return dict(qCrPa=best_q * knockdown, critN=best_n, qCrimpPa=q_crimp,
@@ -1665,16 +1680,19 @@ def ship_unpressurised(g: dict, wall: dict, skel: dict, total_t: float) -> dict:
 
 
 def ship0(sigma_key: str = None, sf: float = None, dia_m: float = None,
-          gi_knockdown: float = None) -> dict:
+          gi_knockdown: float = None, gi_chordal: bool = False,
+          gi_membrane: bool = False) -> dict:
     """One whole-ship ledger, at a named sigma world, SF, hull and GI knockdown
-    (harsh sizes the record; the frame world is the reported alternative)."""
+    (harsh sizes the record; the frame world is the reported alternative). The
+    two gi_* flags are the SHIP-3 moves as bounds — every record path leaves
+    them False; only the band page turns them on, under a BOUND label."""
     key = SHIP0["sigmaMid"] if sigma_key is None else sigma_key
     sf_ = SHIP0["sfDeclared"] if sf is None else sf
     gi_kd = SHIP0["giKnockdown"] if gi_knockdown is None else gi_knockdown
     g = ship_geom(dia_m)
     sig = SHIP0["sigmaWorldsMPa"][key] * 1e6
     wall = ship_wall(g, sig, sf_)
-    skel = ship_skeleton(g, sig, sf_, wall, gi_kd)
+    skel = ship_skeleton(g, sig, sf_, wall, gi_kd, gi_chordal, gi_membrane)
     member_t = (wall["membersT"]
                 + (skel["longeronsT"] + skel["innerRingsT"] + skel["websT"]
                    + skel["thetaWebsT"] + skel["flangeDoublerT"]
@@ -1724,6 +1742,70 @@ def ship0(sigma_key: str = None, sf: float = None, dia_m: float = None,
         floats=total_t < lift_sl,
         floatsAndStands=(total_t < lift_sl) and checks_pass,
     )
+
+
+def ship_neutral_ceiling_m(mass_t: float, lift_sl_t: float) -> float:
+    """Highest ISA altitude where mass_t is neutrally buoyant. Lift scales
+    exactly with rho (the film-sag debit scales with it too, so lift(h) =
+    lift_sl * rho(h)/rho(0) is the ledger's own law). 0 if heavier than
+    sea-level lift; capped at 5000 m. Fixed 40 bisections — deterministic."""
+    if mass_t >= lift_sl_t:
+        return 0.0
+    r0 = rho_air(0.0)
+    if lift_sl_t * rho_air(5000.0) / r0 > mass_t:
+        return 5000.0
+    lo, hi = 0.0, 5000.0
+    for _ in range(40):
+        h = (lo + hi) / 2.0
+        if lift_sl_t * rho_air(h) / r0 > mass_t:
+            lo = h
+        else:
+            hi = h
+    return (lo + hi) / 2.0
+
+
+def ship_band(sigma_key: str = None, dia_m: float = None,
+              gi_knockdown: float = None) -> dict:
+    """THE TWO WALLS the operator designs between (ruling, 08-13 morning):
+    CRUSH = the SF-1.0 ledger — every capacity meets its demand at nominal
+    pressure with zero margin anywhere; SINK = displacement lift. The band
+    between them is the whole design space; a design's emergent SF is the SF
+    whose ledger hits its mass, so margin is an OUTPUT. sfFloat is the largest
+    emergent SF that still floats at sea level (the whole band spent on
+    margin). As-drawn architecture only — the SHIP-3 moves are bounds and
+    live behind the gi_* flags, never in this record block."""
+    r1 = ship0(sigma_key, 1.0, dia_m, gi_knockdown)
+    crush = r1["totalT"]
+    lift_sl = r1["liftSLT"]
+    lift_25 = r1["lift2500T"]
+    band_sl = lift_sl - crush
+    band_25 = lift_25 - crush
+    sf_float = None
+    if band_sl > 0.0:
+        lo, hi = 1.0, 2.0
+        for _ in range(4):
+            try:
+                if ship0(sigma_key, hi, dia_m,
+                         gi_knockdown)["totalT"] >= lift_sl:
+                    break
+            except RuntimeError:
+                break
+            hi = hi * 1.5
+        for _ in range(20):
+            mid_sf = (lo + hi) / 2.0
+            try:
+                m_mid = ship0(sigma_key, mid_sf, dia_m,
+                              gi_knockdown)["totalT"]
+            except RuntimeError:
+                m_mid = None
+            if m_mid is not None and m_mid < lift_sl:
+                lo = mid_sf
+            else:
+                hi = mid_sf
+        sf_float = (lo + hi) / 2.0
+    return dict(crushT=crush, liftSLT=lift_sl, lift2500T=lift_25,
+                bandSLT=band_sl, band2500T=band_25, sfFloat=sf_float,
+                neutralCeilM=ship_neutral_ceiling_m(crush, lift_sl))
 
 
 def ship0_summary() -> dict:
@@ -1824,7 +1906,25 @@ def ship0_summary() -> dict:
                               hiM=max(floats_f) if floats_f else None,
                               basis="s1450 + frame-practice knockdown — the "
                                     "friendliest defensible world"),
+        band=dict(
+            harshMid=_ship_band_round(ship_band("s1050", None, None)),
+            frameMid=_ship_band_round(ship_band(
+                "s1050", None, SHIP0["giKnockdownFrame"])),
+            frame1450=_ship_band_round(ship_band(
+                "s1450", None, SHIP0["giKnockdownFrame"])),
+        ),
     )
+
+
+def _ship_band_round(b: dict) -> dict:
+    return dict(crushT=round(b["crushT"], 1),
+                liftSLT=round(b["liftSLT"], 1),
+                lift2500T=round(b["lift2500T"], 1),
+                bandSLT=round(b["bandSLT"], 1),
+                band2500T=round(b["band2500T"], 1),
+                sfFloat=(None if b["sfFloat"] is None
+                         else round(b["sfFloat"], 3)),
+                neutralCeilM=round(b["neutralCeilM"]))
 
 
 def main() -> None:

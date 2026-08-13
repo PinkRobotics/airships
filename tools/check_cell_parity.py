@@ -400,6 +400,36 @@ def main() -> None:
             checked += 1
             if (pv is None) != (jv is None) or (pv is not None and pv != jv):
                 bad.append(f"ship0.windowFrame.{edge}: python {pv}, js {jv}")
+        # THE BAND — the two walls (operator ruling, 08-13 morning): crush at
+        # SF exactly 1.0, sink at lift, both altitudes, the largest emergent
+        # SF that still floats, the neutral ceiling. Three worlds; missing-key
+        # detection both directions like every block above.
+        pb, jb = psh.get("band"), jsh.get("band")
+        if pb is None or jb is None:
+            bad.append("ship0.band: missing on one side — the two walls must "
+                       "land in BOTH mirrors in one commit")
+        else:
+            for wname, prow in pb.items():
+                jrow = jb.get(wname)
+                if jrow is None:
+                    bad.append(f"ship0.band.{wname}: missing from JS")
+                    continue
+                for k, dp in (("crushT", 1), ("liftSLT", 1), ("lift2500T", 1),
+                              ("bandSLT", 1), ("band2500T", 1),
+                              ("neutralCeilM", 0)):
+                    cmp(f"ship0.band.{wname}.{k}", prow[k], jrow[k], dp)
+                psf, jsf = prow["sfFloat"], jrow["sfFloat"]
+                if psf is None or jsf is None:
+                    checked += 1
+                    if (psf is None) != (jsf is None):
+                        bad.append(f"ship0.band.{wname}.sfFloat: python "
+                                   f"{psf}, js {jsf}")
+                else:
+                    cmp(f"ship0.band.{wname}.sfFloat", psf, jsf, 3)
+            for wname in jb:
+                if wname not in pb:
+                    bad.append(f"ship0.band.{wname}: present in JS, missing "
+                               "from Python")
 
     if bad:
         print("CELL PARITY FAILED — the page and the analysis disagree:\n")

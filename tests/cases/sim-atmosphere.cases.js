@@ -9,7 +9,7 @@ import { close, describe, it, ok, throws } from '../harness.js';
 import {
   ISA, RHO_SL_ISA, airDensity, altitudeForDensity, densityRatio,
   isaPressurePa, isaTemperatureK,
-} from '../../sim/index.js?v=f65b9e14';
+} from '../../sim/index.js?v=fb749c9d';
 
 describe('atmosphere · against the ISO 2533 table', () => {
   it('density at 0, 1,000, 2,000, 2,500 and 3,000 m', () => {

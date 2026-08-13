@@ -892,7 +892,8 @@ export function shipWall(g, sigmaMat, sf) {
 /* The corrected stability system — Bryant with the load-side divisor, head-
  * credit length, X-braced ring-plane crimp in series, the licensed spoke
  * foundation, four growth moves cheapest-first, the caps kept covered. */
-export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown) {
+export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,
+                             giChordal = false, giMembrane = false) {
   const E_ = MATERIALS.T700_LAM.E;
   const rho = MATERIALS.T700_LAM.rho;
   const depth = g.depthM, rIn = g.rIn, bay = SHIP0.bayM;
@@ -948,13 +949,25 @@ export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown) {
     // smeared E*a_x the term assumes. An in-surface shear system would buy it
     // back [TO VERIFY — SHIP-3]; until licensed the capacity is rings + crimp
     // + the even-n foundation, which is the honest floor.
+    // The two SHIP-3 moves as OPTIONAL terms, default OFF (every gated record
+    // path runs with both false — FP-identical to the bare sum). giChordal: a
+    // chordal net engages odd n too (cord priced by the same greedy; net
+    // geometry [SCOPING]). giMembrane: an in-surface shear system licenses
+    // Bryant's membrane term (its own hardware UNPRICED — an outer bound, not
+    // a design). The band page shows both only under a BOUND label.
     let bestN = 2, bestQ = null;
     for (let n = 2; n < 13; n++) {
       let qRing = (n * n - 1) * E_ * iEff / (g.R * g.R * g.R);
       qRing = (qRing > 0.0 && qCrimp > 0.0)
         ? 1.0 / (1.0 / qRing + 1.0 / qCrimp) : 0.0;
-      const qFound = (n % 2 === 0) ? kR * g.R / (n * n - 1) : 0.0;
-      const q = qRing + qFound;
+      const qFound = (n % 2 === 0 || giChordal) ? kR * g.R / (n * n - 1) : 0.0;
+      let qMem = 0.0;
+      if (giMembrane) {
+        const nnL2 = n * n + lam2;
+        qMem = E_ * aX * lam2 * lam2
+          / (g.R * (n * n + lam2 / 2.0 - 1.0) * nnL2 * nnL2);
+      }
+      const q = qRing + qFound + qMem;
       if (bestQ === null || q < bestQ) { bestQ = q; bestN = n; }
     }
     return { qCrPa: bestQ * knockdown, critN: bestN, qCrimpPa: qCrimp,
@@ -1082,14 +1095,15 @@ export function shipUnpressurised(g, wall, skel, totalT) {
 
 /* One whole-ship ledger at a named sigma world, SF, hull, GI knockdown. */
 export function ship0(sigmaKey = null, sf = null, diaM = null,
-                      giKnockdown = null) {
+                      giKnockdown = null, giChordal = false,
+                      giMembrane = false) {
   const key = sigmaKey === null ? SHIP0.sigmaMid : sigmaKey;
   const sf_ = sf === null ? SHIP0.sfDeclared : sf;
   const giKd = giKnockdown === null ? SHIP0.giKnockdown : giKnockdown;
   const g = shipGeom(diaM);
   const sig = SHIP0.sigmaWorldsMPa[key] * 1e6;
   const wall = shipWall(g, sig, sf_);
-  const skel = shipSkeleton(g, sig, sf_, wall, giKd);
+  const skel = shipSkeleton(g, sig, sf_, wall, giKd, giChordal, giMembrane);
   const memberT = wall.membersT
     + (skel.longeronsT + skel.innerRingsT + skel.websT + skel.thetaWebsT
        + skel.flangeDoublerT + skel.junctionT) * (1.0 + SHIP0.junctionAdder);
@@ -1137,6 +1151,61 @@ export function ship0(sigmaKey = null, sf = null, diaM = null,
     floats: totalT < liftSL,
     floatsAndStands: totalT < liftSL && checksPass,
   };
+}
+
+/* Highest ISA altitude where massT is neutrally buoyant. Lift scales exactly
+ * with rho (the film-sag debit scales too, so lift(h) = liftSL * rho(h)/rho(0)
+ * is the ledger's own law). 0 if heavier than sea-level lift; capped at
+ * 5000 m. Fixed 40 bisections — deterministic, parity-held. */
+export function shipNeutralCeilingM(massT, liftSLT) {
+  if (massT >= liftSLT) return 0.0;
+  const r0 = rhoAir(0.0);
+  if (liftSLT * rhoAir(5000.0) / r0 > massT) return 5000.0;
+  let lo = 0.0, hi = 5000.0;
+  for (let i = 0; i < 40; i++) {
+    const h = (lo + hi) / 2.0;
+    if (liftSLT * rhoAir(h) / r0 > massT) lo = h;
+    else hi = h;
+  }
+  return (lo + hi) / 2.0;
+}
+
+/* THE TWO WALLS the operator designs between (ruling, 08-13 morning): CRUSH =
+ * the SF-1.0 ledger — every capacity meets its demand at nominal pressure
+ * with zero margin anywhere; SINK = displacement lift. The band between them
+ * is the whole design space; a design's emergent SF is the SF whose ledger
+ * hits its mass, so margin is an OUTPUT. sfFloat is the largest emergent SF
+ * that still floats at sea level. As-drawn architecture only — the SHIP-3
+ * moves are bounds behind the gi flags, never in this record block. */
+export function shipBand(sigmaKey = null, diaM = null, giKnockdown = null) {
+  const r1 = ship0(sigmaKey, 1.0, diaM, giKnockdown);
+  const crush = r1.totalT;
+  const liftSL = r1.liftSLT;
+  const lift25 = r1.lift2500T;
+  const bandSL = liftSL - crush;
+  const band25 = lift25 - crush;
+  let sfFloat = null;
+  if (bandSL > 0.0) {
+    let lo = 1.0, hi = 2.0;
+    for (let i = 0; i < 4; i++) {
+      try {
+        if (ship0(sigmaKey, hi, diaM, giKnockdown).totalT >= liftSL) break;
+      } catch { break; }
+      hi = hi * 1.5;
+    }
+    for (let i = 0; i < 20; i++) {
+      const midSf = (lo + hi) / 2.0;
+      let mMid = null;
+      try { mMid = ship0(sigmaKey, midSf, diaM, giKnockdown).totalT; }
+      catch { mMid = null; }
+      if (mMid !== null && mMid < liftSL) lo = midSf;
+      else hi = midSf;
+    }
+    sfFloat = (lo + hi) / 2.0;
+  }
+  return { crushT: crush, liftSLT: liftSL, lift2500T: lift25,
+           bandSLT: bandSL, band2500T: band25, sfFloat,
+           neutralCeilM: shipNeutralCeilingM(crush, liftSL) };
 }
 
 /* What the pages bind: BOTH knockdown worlds' matrices, the ledger, sections,
@@ -1242,6 +1311,11 @@ export function ship0Summary() {
       loM: floatsF.length ? Math.min(...floatsF) : null,
       hiM: floatsF.length ? Math.max(...floatsF) : null,
       basis: 's1450 + frame-practice knockdown — the friendliest defensible world',
+    },
+    band: {
+      harshMid: shipBand('s1050', null, null),
+      frameMid: shipBand('s1050', null, SHIP0.giKnockdownFrame),
+      frame1450: shipBand('s1450', null, SHIP0.giKnockdownFrame),
     },
   };
 }
