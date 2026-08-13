@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=593c814d';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=8fd4c8cc';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -120,30 +120,31 @@ function drawFilm({ layers }) {
   return svgEl(out);
 }
 
-/* The hanger tie: rope from the face, soft eye over a printed horn on the clamp. */
-function drawTie() {
+/* The seat & strap: a bearing pad presses the cell onto the chord; a light strap holds it. */
+function drawSeat() {
   const cx = 180;
   return svgEl(`
-    <line x1="60" y1="30" x2="300" y2="30" stroke="${C.cool}" stroke-width="2"/>
-    <circle cx="${cx}" cy="30" r="9" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.6"/>
-    <text x="296" y="20" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">outer chord face</text>
-    <line x1="${cx - 1.5}" y1="40" x2="${cx - 1.5}" y2="112" stroke="${C.bone}" stroke-width="1.6"/>
-    <line x1="${cx + 1.5}" y1="40" x2="${cx + 1.5}" y2="112" stroke="${C.bone}" stroke-width="1.6"/>
-    <ellipse cx="${cx}" cy="126" rx="11" ry="15" fill="none" stroke="${C.bone}" stroke-width="2.4"/>
-    <path d="M ${cx - 5} 132 h 10 a 5 5 0 0 1 5 5 v 14 h -20 v -14 a 5 5 0 0 1 5 -5 z"
-          fill="${C.warm}" fill-opacity="0.18" stroke="${C.warm}" stroke-width="1.5"/>
-    <rect x="${cx - 46}" y="151" width="92" height="20" rx="9"
-          fill="${C.warm}" fill-opacity="0.10" stroke="${C.warm}" stroke-width="1.6"/>
-    <rect x="${cx - 70}" y="156" width="140" height="10" rx="4"
-          fill="${C.cool}" fill-opacity="0.12" stroke="${C.cool}" stroke-width="1.2"/>
-    <text x="${cx + 24}" y="120" fill="${C.bone}" font-size="10" font-family="monospace">spliced soft eye</text>
-    <text x="${cx + 24}" y="146" fill="${C.warm}" font-size="10" font-family="monospace">printed horn</text>
-    <text x="${cx}" y="188" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">…on the clamp sleeve at a rim joint — no pins, no threads</text>
-    <text x="60" y="78" fill="${C.faint}" font-size="10" font-family="monospace">pure</text>
-    <text x="60" y="91" fill="${C.faint}" font-size="10" font-family="monospace">tension</text>`);
+    <path d="M 96 44 L 140 28 H 220 L 264 44" fill="none" stroke="${C.warm}" stroke-width="1.3"/>
+    <text x="${cx}" y="18" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">cell underside — the UNLOADED film side</text>
+    <rect x="${cx - 45}" y="44" width="90" height="18" rx="8"
+          fill="${C.warm}" fill-opacity="0.12" stroke="${C.warm}" stroke-width="1.6"/>
+    <text x="${cx + 56}" y="57" fill="${C.warm}" font-size="9.5" font-family="monospace">clamp sleeve</text>
+    <rect x="${cx - 13}" y="64" width="26" height="18" rx="2"
+          fill="${C.warm}" fill-opacity="0.35" stroke="${C.warm}" stroke-width="1.6"/>
+    <text x="${cx + 22}" y="77" fill="${C.warm}" font-size="9.5" font-family="monospace">bearing seat</text>
+    <line x1="60" y1="100" x2="300" y2="100" stroke="${C.cool}" stroke-width="2"/>
+    <circle cx="${cx}" cy="100" r="12" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>
+    <text x="64" y="118" fill="${C.cool}" font-size="10" font-family="monospace">outer chord</text>
+    <line x1="90" y1="30" x2="90" y2="52" stroke="${C.warm}" stroke-width="1.5"/>
+    <path d="M 86 46 L 90 56 L 94 46 Z" fill="${C.warm}"/>
+    <text x="84" y="42" fill="${C.warm}" font-size="9.5" text-anchor="end" font-family="monospace">sky's push</text>
+    <line x1="240" y1="44" x2="272" y2="94" stroke="${C.bone}" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="336" y="116" fill="${C.bone}" font-size="9.5" text-anchor="end" font-family="monospace">strap — light</text>
+    <text x="${cx}" y="152" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">compression over millimetres — cannot buckle.</text>
+    <text x="${cx}" y="167" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the loaded film above faces nothing but sky.</text>`, '0 0 360 182');
 }
 
-const DRAW = { tube: drawTube, sleeve: drawSleeve, node: drawNode, lap: drawLap, film: drawFilm, tie: drawTie };
+const DRAW = { tube: drawTube, sleeve: drawSleeve, node: drawNode, lap: drawLap, film: drawFilm, seat: drawSeat };
 
 /* True-relative-size strip: every tube on one scale — click a bore to select it. */
 function tubeStrip(activeId) {
@@ -390,20 +391,19 @@ function drawCellSupport() {
   out += `<text x="${c1x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bench: sky on every side</text>
           <text x="${c1x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">net zero — self-balanced</text>`;
 
-  /* panel 2 — the band: one loaded face; it HANGS from the outer face by ties in tension */
-  const c2x = 330, c2y = 118, R2 = 42;
+  /* panel 2 — the band: one loaded face; it LEANS on the outer wall via bearing seats */
+  const c2x = 330, c2y = 96, R2 = 42;
   out += oct(c2x, c2y, R2);
   for (const dx of [-24, 0, 24])
-    out += arrowTo(c2x + dx, c2y - R2 - 42, c2x + dx, c2y - R2 - 12, C.warm);
+    out += arrowTo(c2x + dx, c2y - R2 - 40, c2x + dx, c2y - R2 - 10, C.warm);
   for (const sx of [-1, 1]) {
-    const jx = c2x + sx * R2 * 0.74, jy = c2y - R2 * 0.74;
-    const chx = c2x + sx * 74, chy = c2y - R2 - 20;
-    out += `<circle cx="${chx}" cy="${chy}" r="7" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.5"/>`;
-    out += `<line x1="${jx.toFixed(1)}" y1="${jy.toFixed(1)}" x2="${chx}" y2="${chy + 6}" stroke="${C.cool}" stroke-width="1.5"/>`;
-    out += arrowTo((jx + chx) / 2 + sx * 6, (jy + chy) / 2 + 2, chx - sx * 3, chy + 8, C.cool);
+    const jx = c2x + sx * R2 * 0.72, jy = c2y + R2 * 0.72;
+    out += `<rect x="${(jx - 6).toFixed(1)}" y="${jy.toFixed(1)}" width="12" height="16" rx="2"
+             fill="${C.warm}" fill-opacity="0.30" stroke="${C.warm}" stroke-width="1.4"/>`;
+    out += `<circle cx="${jx.toFixed(1)}" cy="${(jy + 26).toFixed(1)}" r="8" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.5"/>`;
   }
-  out += `<text x="${c2x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">band: one face loaded — it hangs</text>
-          <text x="${c2x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">ties in tension replace the back-push</text>`;
+  out += `<text x="${c2x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">band: one face loaded — it leans</text>
+          <text x="${c2x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the sky presses it onto the skeleton</text>`;
 
   /* panel 3 — the ring: pushes become hoop squeeze (chords outside, band inside) */
   const ccx = 552, ccy = 610, Rr = 470;
@@ -433,25 +433,17 @@ function drawCellSupport() {
   return svgEl(out, '0 0 660 234');
 }
 
-/* Level 4 — one bay zoomed: the band hangs from the outer face; webs lace it down. */
+/* Level 4 — one bay zoomed: the sealed wall leans on the skeleton; webs live behind it. */
 function drawWebDetail() {
-  const faceY = 46, innerY = 276, n1 = 110, n2 = 330, mid = 220;
-  let out = `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="2"/>
-             <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.4"/>`;
-  for (const x of [n1, n2])
-    out += `<circle cx="${x}" cy="${faceY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
-  out += `<circle cx="${mid}" cy="${innerY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
-  out += `<line x1="${n1}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${n2}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${n1}" y1="${faceY + 10}" x2="${30}" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
-          <line x1="${n2}" y1="${faceY + 10}" x2="${410}" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
+  const faceY = 138, innerY = 284, n1 = 110, n2 = 330, mid = 220;
+  let out = '';
+  const s8 = 30, R8 = s8 / (2 * Math.sin(Math.PI / 8));
+  const cellY = 78;
   const arrowTo2 = (x1, y1, x2, y2, col) => {
     const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
     return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x2 - 5 * ux).toFixed(1)}" y2="${(y2 - 5 * uy).toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
       <path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(x2 - 8 * ux - 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy + 3.5 * ux).toFixed(1)} L ${(x2 - 8 * ux + 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy - 3.5 * ux).toFixed(1)} Z" fill="${col}"/>`;
   };
-  const s8 = 30, R8 = s8 / (2 * Math.sin(Math.PI / 8));
-  const cellY = faceY + 24 + R8 * 0.5 + 26;
   for (const cx of [125, 220, 315]) {
     let d = '';
     for (let k = 0; k < 8; k++) {
@@ -459,24 +451,37 @@ function drawWebDetail() {
       d += `${k ? 'L' : 'M'} ${(cx + R8 * Math.cos(a)).toFixed(1)} ${(cellY - R8 * Math.sin(a)).toFixed(1)} `;
     }
     out += `<path d="${d}Z" fill="${C.warm}" fill-opacity="0.07" stroke="${C.warm}" stroke-width="1.2"/>`;
+    out += arrowTo2(cx, cellY - R8 - 30, cx, cellY - R8 - 6, C.warm);
     for (const sx of [-1, 1]) {
-      const jx = cx + sx * R8 * 0.74, jy = cellY - R8 * 0.74;
-      out += `<line x1="${jx.toFixed(1)}" y1="${jy.toFixed(1)}" x2="${jx.toFixed(1)}" y2="${faceY + 3}" stroke="${C.warm}" stroke-width="1.4"/>`;
+      const jx = cx + sx * R8 * 0.72, jy = cellY + R8 * 0.72;
+      out += `<rect x="${(jx - 5).toFixed(1)}" y="${jy.toFixed(1)}" width="10" height="${(faceY - 4 - jy).toFixed(1)}" rx="2"
+               fill="${C.warm}" fill-opacity="0.28" stroke="${C.warm}" stroke-width="1.2"/>`;
     }
   }
-  out += arrowTo2(150, 108, 190, 218, C.bone) + arrowTo2(290, 108, 250, 218, C.bone);
+  out += `<line x1="343" y1="64" x2="392" y2="132" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="436" y="98" fill="${C.bone}" font-size="9.5" text-anchor="end" font-family="monospace">strap — light</text>`;
+  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="2"/>
+          <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.4"/>`;
+  for (const x of [n1, n2])
+    out += `<circle cx="${x}" cy="${faceY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
+  out += `<circle cx="${mid}" cy="${innerY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
+  out += `<line x1="${n1}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${n2}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${n1}" y1="${faceY + 10}" x2="30" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
+          <line x1="${n2}" y1="${faceY + 10}" x2="410" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
+  out += arrowTo2(150, 178, 190, 252, C.bone) + arrowTo2(290, 178, 250, 252, C.bone);
   out += `
-    <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — how the band hangs</text>
-    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">ties at every cell — tension, cannot buckle</text>
-    <text x="416" y="${faceY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">outer face · chords</text>
-    <text x="60" y="230" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
-    <text x="60" y="243" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
-    <text x="416" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner face</text>
-    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing under the band — the sky presses cells onto their ties</text>`;
-  return svgEl(out, '0 0 440 310');
+    <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — the sealed wall leans on the skeleton</text>
+    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">seats: short bearings — the sky does the clamping</text>
+    <text x="24" y="${faceY + 16}" fill="${C.cool}" font-size="10" font-family="monospace">outer wall · chords</text>
+    <text x="60" y="222" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
+    <text x="60" y="235" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
+    <text x="416" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall</text>
+    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>`;
+  return svgEl(out, '0 0 440 316');
 }
 
-/* Level 4 — the ring in section: two skeletons, the band riding in the gap. */
+/* Level 4 — the ring in section: the sealed wall outermost, pressed onto two truss walls. */
 function drawRingSection() {
   const cx = 195, cy = 235;
   let o = '';
@@ -493,32 +498,32 @@ function drawRingSection() {
   o += `<circle cx="${cx}" cy="${cy}" r="80" fill="#0d0d10"/>`;
   for (let k = 0; k < 8; k++) {
     const a = k * Math.PI / 4 + Math.PI / 8;
-    const x1 = cx + 190 * Math.cos(a), y1 = cy + 190 * Math.sin(a);
-    const x2 = cx + 168 * Math.cos(a), y2 = cy + 168 * Math.sin(a);
-    const ux = (x2 - x1) / 22, uy = (y2 - y1) / 22;
+    const x1 = cx + 192 * Math.cos(a), y1 = cy + 192 * Math.sin(a);
+    const x2 = cx + 172 * Math.cos(a), y2 = cy + 172 * Math.sin(a);
+    const ux = (x2 - x1) / 20, uy = (y2 - y1) / 20;
     o += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x2 - 4 * ux).toFixed(1)}" y2="${(y2 - 4 * uy).toFixed(1)}" stroke="${C.warm}" stroke-width="1.4"/>
           <path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(x2 - 7 * ux - 3 * uy).toFixed(1)} ${(y2 - 7 * uy + 3 * ux).toFixed(1)} L ${(x2 - 7 * ux + 3 * uy).toFixed(1)} ${(y2 - 7 * uy - 3 * ux).toFixed(1)} Z" fill="${C.warm}"/>`;
   }
-  o += ring(160, `stroke="${C.bone}" stroke-width="1"`);
-  o += dots(149, 30, 4.5, C.cool);
+  o += ring(164, `stroke="${C.bone}" stroke-width="1"`);
+  o += dots(153, 50, 5, C.warm);
   for (let k = 0; k < 50; k++) {
     const a = (k / 50) * 2 * Math.PI;
-    o += `<line x1="${(cx + 139 * Math.cos(a)).toFixed(1)}" y1="${(cy + 139 * Math.sin(a)).toFixed(1)}"
-                x2="${(cx + 146 * Math.cos(a)).toFixed(1)}" y2="${(cy + 146 * Math.sin(a)).toFixed(1)}"
-                stroke="${C.warm}" stroke-width="1"/>`;
+    o += `<line x1="${(cx + 147 * Math.cos(a)).toFixed(1)}" y1="${(cy + 147 * Math.sin(a)).toFixed(1)}"
+                x2="${(cx + 141 * Math.cos(a)).toFixed(1)}" y2="${(cy + 141 * Math.sin(a)).toFixed(1)}"
+                stroke="${C.warm}" stroke-width="1.3"/>`;
   }
-  o += dots(133, 50, 5, C.warm);
+  o += dots(135, 30, 4.5, C.cool);
   for (let k = 0; k < 30; k++) {
     const a1 = (k / 30) * 2 * Math.PI, a2 = a1 + Math.PI / 30, a3 = a1 + 2 * Math.PI / 30;
-    o += `<line x1="${(cx + 127 * Math.cos(a1)).toFixed(1)}" y1="${(cy + 127 * Math.sin(a1)).toFixed(1)}"
-                x2="${(cx + 97 * Math.cos(a2)).toFixed(1)}" y2="${(cy + 97 * Math.sin(a2)).toFixed(1)}"
+    o += `<line x1="${(cx + 129 * Math.cos(a1)).toFixed(1)}" y1="${(cy + 129 * Math.sin(a1)).toFixed(1)}"
+                x2="${(cx + 99 * Math.cos(a2)).toFixed(1)}" y2="${(cy + 99 * Math.sin(a2)).toFixed(1)}"
                 stroke="${C.cool}" stroke-opacity="0.45" stroke-width="1"/>
-          <line x1="${(cx + 97 * Math.cos(a2)).toFixed(1)}" y1="${(cy + 97 * Math.sin(a2)).toFixed(1)}"
-                x2="${(cx + 127 * Math.cos(a3)).toFixed(1)}" y2="${(cy + 127 * Math.sin(a3)).toFixed(1)}"
+          <line x1="${(cx + 99 * Math.cos(a2)).toFixed(1)}" y1="${(cy + 99 * Math.sin(a2)).toFixed(1)}"
+                x2="${(cx + 129 * Math.cos(a3)).toFixed(1)}" y2="${(cy + 129 * Math.sin(a3)).toFixed(1)}"
                 stroke="${C.cool}" stroke-opacity="0.45" stroke-width="1"/>`;
   }
-  o += dots(91, 30, 4.5, C.cool);
-  o += ring(84, `stroke="${C.bone}" stroke-width="1" stroke-dasharray="5 4"`);
+  o += dots(93, 30, 4.5, C.cool);
+  o += ring(86, `stroke="${C.bone}" stroke-width="1" stroke-dasharray="5 4"`);
   o += `<text x="${cx}" y="${cy - 4}" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">the void</text>
         <text x="${cx}" y="${cy + 12}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">pure vacuum · pure lift</text>`;
   const lab = (r, ly, col, text) => {
@@ -527,15 +532,16 @@ function drawRingSection() {
     return `<line x1="${px.toFixed(1)}" y1="${py.toFixed(1)}" x2="374" y2="${ly}" stroke="${C.faint}" stroke-opacity="0.6" stroke-width="0.8"/>
             <text x="380" y="${ly + 3}" fill="${col}" font-size="9.5" font-family="monospace">${text}</text>`;
   };
-  o += lab(160, 62, C.bone, 'weather jacket — unloaded');
-  o += lab(149, 120, C.cool, 'outer wall · chords — exoskeleton');
-  o += lab(140, 178, C.warm, 'ties, then the band — evacuated');
-  o += lab(133, 196, C.warm, 'cells, hanging in the gap');
-  o += lab(112, 254, C.cool, 'webs — lacing the two walls');
-  o += lab(91, 312, C.cool, 'inner wall · chords — exoskeleton');
-  o += lab(84, 370, C.bone, 'void skin — gossamer');
+  o += lab(164, 62, C.bone, 'weather jacket — hail armour');
+  o += lab(153, 120, C.warm, 'THE SEALED WALL — evacuated cells,');
+  o += lab(150, 138, C.warm, 'outermost, pressed on by the sky');
+  o += lab(144, 186, C.warm, 'bearing seats');
+  o += lab(135, 232, C.cool, 'outer wall · chords — exoskeleton');
+  o += lab(112, 278, C.cool, 'webs — all in vacuum');
+  o += lab(93, 324, C.cool, 'inner wall · chords — exoskeleton');
+  o += lab(86, 370, C.bone, 'void skin — gossamer');
   o += `<text x="12" y="452" fill="${C.faint}" font-size="10" font-family="monospace">wall exaggerated ≈4× — at true scale the annulus is a tenth of the radius.</text>
-        <text x="12" y="466" fill="${C.faint}" font-size="10" font-family="monospace">everything inboard of the band is vacuum: the truss depth itself is lift.</text>`;
+        <text x="12" y="466" fill="${C.faint}" font-size="10" font-family="monospace">everything inboard of the sealed wall is vacuum: both truss walls live in the lift.</text>`;
   return svgEl(o, '0 0 580 476');
 }
 

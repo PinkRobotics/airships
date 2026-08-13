@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=593c814d';
+         stockBuild, barrierKgPerM2 } from './model.js?v=8fd4c8cc';
 
 const sb = stockBuild();
 
@@ -246,25 +246,25 @@ export const CATALOG = [
   },
   {
     id: 'conn-tie', cat: 'connectors',
-    name: 'The hanger tie',
-    status: 'scoping',
-    role: 'The suspension: a soft rope from the cell’s rim joints up to the outer chord '
-        + 'face — pure tension, the one duty where a string beats a strut, because a '
-        + 'string cannot buckle.',
-    story: 'Dyneema is the famous name; months of sustained load favour the creep-proof '
-        + 'fibres — and the cell film is already Zylon-class. Either way the tie ends in '
-        + 'a loop, not a thread.',
-    draw: { kind: 'tie' },
+    name: 'Seat & retention strap',
+    status: 'decided',
+    role: 'The interface, as ruled: a titanium bearing pad on the clamp sleeve takes the '
+        + 'cell’s push straight into the outer chords — compression over millimetres, '
+        + 'which cannot buckle — while a light strap holds position whenever the sky '
+        + 'lets go.',
+    story: 'The rope survives the ruling as the strap: creep stops mattering when the '
+        + 'load is occasional, so Dyneema is back on the table. And the loaded film '
+        + 'above faces nothing but sky — every attachment lands on the unloaded side.',
+    draw: { kind: 'seat' },
     specs: [
-      { k: 'Material', v: 'UHMWPE or Zylon-class braid', u: 'creep vs UV — open trade' },
-      { k: 'Termination', v: 'spliced soft eye', u: 'over a printed Ti horn' },
-      { k: 'Film seal', v: 'horn = a taller land post', u: 'film corners already end at joints' },
-      { k: 'Duty', v: 'pure tension', u: 'sustained, months' },
-      { k: 'Per-tie load', v: 'tens of kN', u: 'set by ties-per-cell' },
-      { k: 'Ship set', v: 'order 10⁵', u: 'ties' },
+      { k: 'Bearing seat', v: 'Ti pad on the clamp sleeve', u: 'compression, mm-scale' },
+      { k: 'Film seal', v: 'boss = a taller land post', u: 'on the UNLOADED inner film' },
+      { k: 'Strap', v: 'UHMWPE or Zylon braid', u: 'retention only — light' },
+      { k: 'Per-seat load', v: 'tens of kN', u: 'set by seats-per-cell' },
+      { k: 'Ship set', v: 'order 10⁵', u: 'seats' },
     ],
-    prov: 'hang doctrine (analysis v2 §4) · tie trade opened 08-12 — SHIP-2/3',
-    flags: ['material + ties-per-cell [TO VERIFY] — creep governs UHMWPE; joint concentration governs count'],
+    prov: 'band-outside ruling 08-12 (operator) — supersedes the hang/tie variant',
+    flags: ['seat pad + strap detail [TO VERIFY] — SHIP-2/3; seats-per-cell governs joint concentration'],
   },
   {
     id: 'conn-printed-node', cat: 'connectors',

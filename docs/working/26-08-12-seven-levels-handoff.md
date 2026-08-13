@@ -42,19 +42,30 @@ from memory).
   differential when one cell is holed; breach = one cell; the spreading-cascade
   policy is OPEN (SHIP-5) and the page says so.
 - **Support doctrine (the three states, drawn in L4):** bench = sky on every side,
-  net zero, self-balanced; band = one loaded face, it HANGS by short tension ties from
-  the outer chord face (the through-loaded "mattress" state the crush law is written
-  for); ring = pushes become hoop squeeze, the arch closed on itself.
-- **Decoupling doctrine (operator Q&A, 08-12 late):** radial ties transmit PUSH, not
-  SQUEEZE — a hung band has no tangential load path, so the skeleton takes effectively
+  net zero, self-balanced; band = one loaded face, it LEANS — the sky presses it onto
+  the outer wall through short bearing seats (the through-loaded "mattress" state the
+  crush law is written for); ring = pushes become hoop squeeze, the arch closed on
+  itself.
+- **BAND-OUTSIDE RULING (operator, 08-12 late — supersedes analysis v2 §4's "hangs
+  inside the outer face" on this point):** the sealed wall wraps OUTSIDE the outer
+  chord wall, pressed onto it by the atmosphere. Consequences: zero structural
+  penetrations of the sealed wall (webs lace the two walls entirely behind it, in
+  vacuum); lift boundary at the largest radius (both truss walls + webs count as
+  lift); the LOADED outer film faces nothing but sky (every attachment lands on the
+  unloaded inner film at corner land posts); ties demote to light retention straps
+  (creep moot at occasional load — UHMWPE viable again); the jacket gains a hail-
+  armour/standoff duty [TO VERIFY, SHIP-2/3]. Ruling file:
+  `~/data/airships-reviews/26-08-12-OPERATOR-RULING-band-position.md`.
+- **Decoupling doctrine (operator Q&A, 08-12 late):** radial seats transmit PUSH, not
+  SQUEEZE — a leaning band has no tangential load path, so the skeleton takes effectively
   100 % of global hoop BY TOPOLOGY (band ceiling 47–67 kPa·m vs 2,634 demand ⇒ ≤~2.5 %
   even if rigidly engaged — its help is worthless, so it is deliberately not asked).
   The band's own arching is local only: tie-span slabs at ~1/3 capacity at cell-pitch
-  ties. Band↔skeleton interfaces: ties (force, 99.95 % — a cell weighs ~3.5 kg vs
-  7,200 kg of push), sparse whisper-light tangential stays (position), and the vacuum
+  ties. Band↔skeleton interfaces: bearing seats (force, 99.95 % — a cell weighs ~3.5 kg vs
+  7,200 kg of push), light retention straps (position/handling), and the vacuum
   manifold (service + health monitoring). Film penetrations: ONLY at film corners
-  where the membrane already terminates on joint land posts — the tie horn is a
-  taller land post with the same sealed base; never mid-panel.
+  where the membrane already terminates on joint land posts — the seat boss is a
+  taller land post on the UNLOADED inner film; the loaded outer film is virgin.
 - **Barrier stack:** exactly one LOADED barrier system (the band's outer films);
   one nearly-free inner terminal skin (10 g/m² at ≤1 kPa) closing the void; one
   UNLOADED weather jacket outside. No loaded outboard barrier — a barrier costs mass
@@ -222,30 +233,19 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    proof), and factory one-block economics. License: 865 tool at band span + U4.
    Sequence AFTER #6. Expected win: a trim, not a transformation (the through-path
    octet — most of the tube mass — survives any asymmetry).
-8. **Tie material + interface** (operator question, same evening) — rope-class ties
-   (Dyneema/UHMWPE vs Zylon-class braid: sustained-load creep vs UV/moisture — open
-   trade, [TO VERIFY]; ties live in the atmospheric gap under the jacket) ending in
-   spliced soft eyes over printed Ti horns on rim-joint clamp sleeves. CONCENTRATION
-   FINDING: two ties/cell ⇒ ~35 kN into single joints whose members are article-class
-   (5–7 kN) — 3–7× over; keeping the frame at proven loads wants ≥~6 pickup points per
-   cell around the rim ring, or a spreader cradle. Couples #6 (pitch) and #7 (retune);
-   same license (865 tool + U4). Catalog carries the part as `conn-tie`, scoping.
-9. **THE WEB↔SEALED-WALL JUNCTION (operator found it, 08-12 late — a real hole in the
-   scoping):** analysis v2 says "band hangs inside the outer face; webs double as the
-   hangers" but never draws how webs CROSS the sealed band to reach the inner wall.
-   Three candidate resolutions, recommendation attached:
-   (a) BAG-INBOARD (operator's instinct): unbroken wall hung inside everything — zero
-   penetrations but the truss then sits in atmosphere and the annulus stops being lift
-   (~25–30 % of buoyancy). (b) PLATING-ON-FRAMES: confine web lacing to discrete ring
-   planes; band strips seal circumferentially to each ring frame — penetrations become
-   long bonded seams to structure (naval-architecture classic; keeps current layout).
-   (c) BAND-OUTSIDE (RECOMMENDED): flip the band just outside the outer wall — the sky
-   presses it onto the skeleton: direct bearing back-support for every cell (seats,
-   not ropes), zero structural penetrations (all webs in vacuum), largest lift
-   boundary (+few % vs today, +~30 % vs bag), ties shrink to retention straps; trade =
-   film faces the weather side (jacket + standoff as hail armour), cell swaps from
-   outside. (c) REVISES the v2 arrangement — operator ruling required before any
-   figure/doctrine rebuild. Page carries the open-junction paragraph + fact chip.
+8. **Seat & strap interface** (evolved from the tie question after the band-outside
+   ruling) — Ti bearing pad on the clamp sleeve (compression, mm-scale, cannot
+   buckle) + light UHMWPE/Zylon retention strap (occasional load — creep moot).
+   CONCENTRATION FINDING STANDS: a cell's ~70 kN over too few seats overloads
+   article-class joints (5–7 kN members); wants ~6+ seat points per cell around the
+   rim ring or a spreader cradle. Couples #6 (pitch) and #7 (retune); license = 865
+   tool + U4. Catalog part `conn-tie` (now "Seat & retention strap"), decided.
+9. **The web↔sealed-wall junction — RULED (operator, 08-12 late):** the operator
+   found the hole (webs must cross the band as drawn in v2) and ruled option (c):
+   band OUTSIDE the outer wall. Nothing crosses the sealed wall. The rejected
+   alternatives, for the record: bag-inboard (purity for ~25–30 % of lift) and
+   plating-on-frames (band sealed to ring planes). See the §1 ruling bullet and the
+   ruling file in the reviews drop.
 10. **Cell-side queue** (unchanged, `docs/HANDOFF.md`): the square-panel correction
    (#10) at the head, then #65's remaining proofs, #64, #60, #68.
 11. **Helm governed Caddyfile re-sync** — small chore, helm session.
