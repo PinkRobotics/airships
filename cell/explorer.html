@@ -368,19 +368,19 @@
   spread buys pitch and roll authority, and symmetric pairs cancel their own moments;
   real disc sizing belongs to the fleet-model power work.</p>
 
-  <p class="sowhat"><b>The working end is the box on the drop line, directly above the
-  bucket.</b> The pump and anchor-winch module is lowered to the water as one unit: its
-  pumps fill the raft's single water tank (one 107 m³ vessel — the Mission-0 100 t with
-  trim margin, flanked fore and aft by the two N₂ ballast tanks the descent doctrine
-  prices); its anchor drops from the box to grab the water and pull the ship DOWN
-  against its own buoyancy while it drinks — and the pump and the bucket ride SEPARATE
-  cables from the box, because they operate independently: the pump holds station at
-  the surface while the bucket cycles. The raft is sized to the tank cluster it
-  carries. The ENTIRE top half of the hull is solar — as much power as the sun side
-  can give — tiled densely enough that the array reads as an array; the energy budget
-  lives in the fleet model. Switch on <em>environment</em> to see the ship at true
-  scale: tethered over the field at the lake's edge, bucket in the water, people at
-  the anchors, the hangar with its trees and vehicles beyond — then fly down to them.</p>
+  <p class="sowhat"><b>The working end is two decks.</b> TANKS ON THE UPPER DECK: the
+  raft carries the single 107 m³ water tank amidships — the Mission-0 100 t with trim
+  margin — with the two N₂ ballast tanks resting on its floor. EQUIPMENT ON THE LOWER
+  DECK: a see-through equipment bay rides the drop line, batteries boxed along its
+  ceiling, the N₂ cryo unit low beside the sensors, and three pulleys on its keel —
+  one each for the PUMP (a 100 m pipe down into the water), the BUCKET (centred, with
+  clearance to both neighbouring lines), and the SPRAYER opposite the pump — separate
+  cables because they operate independently. The anchor line leaves the bay's stern
+  for the weight that pulls the ship down against its own buoyancy while it drinks.
+  The ENTIRE top half of the hull is solar, tiled densely enough that the array reads
+  as an array; the energy budget lives in the fleet model. Switch on
+  <em>environment</em> to see it working: dipping into a lake with trees and people
+  at the shore — then fly down and stand with them.</p>
 
   <p class="sowhat"><b>Mission 0 wears this same fit.</b> The spec ship — the one the
   numbers will always be quoted against — is this architecture at 112 m: 100 t of water
@@ -1572,12 +1572,6 @@
   <span class="tag warm">buildable now</span><span class="tag">seal &amp; barrier: E6, a live thread</span>
 </section>
 
-<!-- The wall chip: it is information, not a control, so it reads in the panel now rather
-     than sitting in the far corner of a bar. Always visible, under whichever level is open. -->
-<div id="wallchip">
-  <div class="line1" id="chip1"></div>
-  <div class="line2" id="chip2"></div>
-</div>
 </aside>
 
 <!-- CONTROLS — top right, under the level title. The bottom bar is gone; see the CSS.
@@ -1727,9 +1721,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=30f4ad28';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=30f4ad28';
-import * as CELL from './model.js?v=30f4ad28';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=8566ca0c';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=8566ca0c';
+import * as CELL from './model.js?v=8566ca0c';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1772,7 +1766,6 @@ function fillNumbers(ctx) {
     el.textContent = String(dig(ctx, el.dataset.s));
   }
   fillTables(ctx);
-  fillChip(ctx);
 }
 
 function row(cells, cls) {
@@ -1844,18 +1837,6 @@ function fillTables(ctx) {
   }
 }
 
-function fillChip(ctx) {
-  const t = ctx.selTotal;
-  // Margin against air density at the SELECTED altitude, so the altitude slider is live.
-  const margin = ctx.wall / t.total;
-  const chip1 = document.getElementById('chip1');
-  const chip2 = document.getElementById('chip2');
-  chip1.innerHTML = `${ctx.m.name.split(',')[0]}: ${t.total.toFixed(2)} kg/m³ · ` +
-    `<span class="${margin >= 1 ? 'pass' : 'fail'}">${margin.toFixed(2)}× ` +
-    `${margin >= 1 ? 'FLOATS' : `vs air at ${ctx.altM.toLocaleString('en-US')} m`}</span>`;
-  chip2.textContent = `level-2 path: ${ctx.level2.total.toFixed(3)} kg/m³ — ` +
-    `${ctx.level2.margin.toFixed(2)}× over the wall (a prediction; E5 tests it)`;
-}
 
 /* ---- mount ---- */
 const canvas = document.getElementById('stage');

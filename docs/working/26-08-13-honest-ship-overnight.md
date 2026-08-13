@@ -435,3 +435,26 @@ worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
   + the env layer (must add >500 triangles).
 - Boot-order trap (4th of its family): rebuildTours needed the module-scope let AND
   the explicit boot call beside rebuildViews' — onLevelChange fires before assignment.
+
+
+## MORNING, PART 13 — camera manners, the dip, and the two-deck working end
+
+- **The furious spin is dead**: the idle turntable winds cam.azimuth without bound and
+  every transition lerped through the accumulated turns. nearAz() wraps the delta to
+  the shortest path at EVERY eased builder (dive, stop, view, both leg sites). Tours
+  now END POLITELY: restoreLevelPose() eases back to the level's own framing and the
+  turntable holds for ~12 s (spinHold) before resuming.
+- **The stale cell-era wall chip is gone** (Bambu PAHT-CF / level-2 path readout —
+  #wallchip + fillChip removed; nothing gated it).
+- **ENVIRONMENT v2 — the dip**: hangar, vehicles and tethers removed; the ship WORKS
+  now — over a wide lake disc (a real disc; the first cut lathed a 256 m needle),
+  trees ranked at the shore, PEOPLE v2 (shouldered body + separate head, 1.8 m) at
+  the water's edge. Fly down and stand with them.
+- **THE TWO-DECK WORKING END (doctrine)**: tanks upper deck (water amidships, N2 pair
+  ON THE FLOOR of the raft); equipment lower deck — a LONGER SEE-THROUGH equipment
+  bay (glass, 8.2 m) with the battery box along its ceiling, the N2 cryo unit low,
+  and THREE PULLEYS on its keel: pump (100 m pipe spec, into the water), BUCKET
+  CENTRED with ~0.95 m clearance to each neighbouring line, SPRAYER opposite the
+  pump — separate cables, independent operation. Anchor line from the bay's stern.
+  Bucket volume check: pi x 2.05^2 x ~2.9 ≈ 30 m3-class per dip — three-to-four dips
+  per 100 t fill, plausible for the cycle.
