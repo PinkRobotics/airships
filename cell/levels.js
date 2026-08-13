@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=cc055829';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=45616dde';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -294,120 +294,78 @@ function massBar() {
   return svgEl(out, '0 0 360 112');
 }
 
-/* Level 3 — a band cross-section: octagons sharing walls, atmosphere above, vacuum below. */
+/* Level 3 — THE WALL, face on: what the barrier actually is. Rings around, cross-bars
+ * along, square panels of film between, clamps sparse and staggered. PINK = film loaded
+ * by the atmosphere; BLUE = structure. */
 function drawBandSection() {
-  const s = 33, R = s / (2 * Math.sin(Math.PI / 8)), flat = s * (1 + Math.SQRT2);
-  const cy = 118, centres = [96, 96 + flat, 96 + 2 * flat];
-  const pt = (cx, k) => {
-    const a = (22.5 + 45 * k) * Math.PI / 180;
-    return [cx + R * Math.cos(a), cy - R * Math.sin(a)];
-  };
+  const x0 = 40, y0 = 44, C_ = 46, NCOL = 6, NROW = 3;
   let out = '';
-  for (const cx of centres) {
-    for (let k = 0; k < 8; k++) {
-      const [x1, y1] = pt(cx, k), [x2, y2] = pt(cx, (k + 1) % 8);
-      // Faces span vertex k (at 22.5 + 45k degrees) to k+1, so the three that face the
-      // sky are k = 0,1,2: NE, N, NW. Writing 1,2,3 lit W-NW-N — the whole pink crown
-      // slid one face anticlockwise, and the operator read the compass off the screen.
-      const top = (k === 0 || k === 1 || k === 2);
-      const st = top ? `stroke="${C.warm}" stroke-width="1.8"`
-                     : `stroke="${C.cool}" stroke-width="1.2" stroke-dasharray="3 3"`;
-      out += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" ${st}/>`;
+  for (let r = 0; r < NROW; r++) {
+    for (let c = 0; c < NCOL; c++) {
+      out += `<rect x="${x0 + c * C_}" y="${y0 + r * C_}" width="${C_}" height="${C_}"
+               fill="${C.warm}" fill-opacity="0.13"/>
+              <ellipse cx="${x0 + c * C_ + C_ / 2}" cy="${y0 + r * C_ + C_ / 2}" rx="${C_ * 0.30}" ry="${C_ * 0.30}"
+               fill="none" stroke="${C.warm}" stroke-width="0.9" stroke-opacity="0.5"/>`;
     }
   }
-  for (const ax of [96, 96 + flat, 96 + 2 * flat])
-    out += `<line x1="${ax}" y1="34" x2="${ax}" y2="52" stroke="${C.warm}" stroke-width="1.4"/>
-            <path d="M ${ax - 4} 46 L ${ax} 54 L ${ax + 4} 46" fill="none" stroke="${C.warm}" stroke-width="1.4"/>`;
-  const sx = 96 + flat / 2;
-  out += `<text x="${96 + flat}" y="24" fill="${C.warm}" font-size="11" text-anchor="middle" font-family="monospace">outside — one atmosphere, loaded film</text>
-          <line x1="${sx.toFixed(1)}" y1="${(cy - flat / 2).toFixed(1)}" x2="${sx.toFixed(1)}" y2="${(cy + flat / 2).toFixed(1)}" stroke="none"/>
-          <text x="${96 + flat}" y="196" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">inside — vacuum</text>
-          <text x="${96 + flat}" y="212" fill="${C.faint}" font-size="11" text-anchor="middle" font-family="monospace">dotted films unloaded, kept for breach</text>
-          <text x="${(96 + flat / 2).toFixed(0)}" y="${cy + 4}" fill="${C.cool}" font-size="10" text-anchor="middle" font-family="monospace">shared</text>
-          <text x="${(96 + flat / 2).toFixed(0)}" y="${cy + 16}" fill="${C.cool}" font-size="10" text-anchor="middle" font-family="monospace">wall</text>`;
-  return svgEl(out, '0 0 360 224');
+  for (let r = 0; r <= NROW; r++)
+    out += `<line x1="${x0}" y1="${y0 + r * C_}" x2="${x0 + NCOL * C_}" y2="${y0 + r * C_}" stroke="${C.cool}" stroke-width="3"/>`;
+  for (let c = 0; c <= NCOL; c++)
+    out += `<line x1="${x0 + c * C_}" y1="${y0}" x2="${x0 + c * C_}" y2="${y0 + NROW * C_}" stroke="${C.cool}" stroke-width="1.5"/>`;
+  for (let r = 0; r <= NROW; r++)
+    for (let c = 0; c <= NCOL; c++) {
+      if (((c + 2 * r) % 4 + 4) % 4 !== 0) continue;
+      out += `<rect x="${x0 + c * C_ - 5}" y="${y0 + r * C_ - 5}" width="10" height="10" rx="2" fill="${C.bone}"/>`;
+    }
+  const yb = y0 + NROW * C_;
+  out += `<line x1="${x0}" y1="30" x2="${x0 + C_}" y2="30" stroke="${C.faint}" stroke-width="1"/>
+          <line x1="${x0}" y1="26" x2="${x0}" y2="34" stroke="${C.faint}" stroke-width="1"/>
+          <line x1="${x0 + C_}" y1="26" x2="${x0 + C_}" y2="34" stroke="${C.faint}" stroke-width="1"/>
+          <text x="${x0 + C_ + 8}" y="33" fill="${C.faint}" font-size="10" font-family="monospace">≈0.5 m — the ring pitch IS the panel</text>
+          <text x="24" y="16" fill="${C.warm}" font-size="11" font-family="monospace">the wall, face on — the film and what carries it</text>
+          <text x="${x0}" y="${yb + 18}" fill="${C.cool}" font-size="10" font-family="monospace">— hoop chords round · | cross-bars along</text>
+          <text x="${x0}" y="${yb + 32}" fill="${C.bone}" font-size="10" font-family="monospace">■ clamps — one crossing in four, ≈2 m</text>
+          <text x="${x0}" y="${yb + 46}" fill="${C.faint}" font-size="10" font-family="monospace">nothing behind it is sealed — it is already vacuum</text>`;
+  return svgEl(out, `0 0 360 ${yb + 56}`);
 }
 
-/* Level 4 — what holds a cell: bench (self-balanced), band (sits face-down), ring (hoop).
- * Colour code throughout: PINK = film loaded by the atmosphere; BLUE DOTTED = film in
- * vacuum, unloaded. No seat is ever drawn as a prop — the pad is embedded in the face,
- * so the drawing shows exactly what the eye would see: a cell resting on the wall. */
+/* Level 4 — THE LOAD PATH, end to end: the sky lands on film, the film hands it to a
+ * ring, and the ring turns it into hoop compression that closes on itself. */
 function drawCellSupport() {
-  const oct = (cx, cy, R, rot = 0, style = `fill="${C.warm}" fill-opacity="0.08" stroke="${C.warm}" stroke-width="1.3"`) => {
-    let d = '';
-    for (let k = 0; k < 8; k++) {
-      const a = (22.5 + 45 * k + rot) * Math.PI / 180;
-      d += `${k ? 'L' : 'M'} ${(cx + R * Math.cos(a)).toFixed(1)} ${(cy - R * Math.sin(a)).toFixed(1)} `;
-    }
-    return `<path d="${d}Z" ${style}/>`;
-  };
-  const arrowTo = (x1, y1, x2, y2, col) => {
+  let out = '';
+  const arrow = (x1, y1, x2, y2, col) => {
     const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
-    const bx = x2 - 5 * ux, by = y2 - 5 * uy;
-    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
+    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x2 - 5 * ux).toFixed(1)}" y2="${(y2 - 5 * uy).toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
       <path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(x2 - 8 * ux - 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy + 3.5 * ux).toFixed(1)} L ${(x2 - 8 * ux + 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy - 3.5 * ux).toFixed(1)} Z" fill="${col}"/>`;
   };
-  let out = '';
-
-  /* panel 1 — the bench: sky on every side, every film loaded, net zero */
-  const c1x = 110, c1y = 108, R1 = 44;
-  out += oct(c1x, c1y, R1);
-  for (let k = 0; k < 8; k++) {
-    const a = (k * 45) * Math.PI / 180;
-    out += arrowTo(c1x + Math.cos(a) * (R1 + 34), c1y - Math.sin(a) * (R1 + 34),
-                   c1x + Math.cos(a) * (R1 + 8), c1y - Math.sin(a) * (R1 + 8), C.warm);
+  for (const dx of [-30, 0, 30]) out += arrow(110 + dx, 42, 110 + dx, 76, C.warm);
+  out += `<path d="M 62 86 Q 110 110 158 86" fill="none" stroke="${C.warm}" stroke-width="2.4"/>
+          <circle cx="62" cy="86" r="7" fill="${C.cool}" fill-opacity="0.2" stroke="${C.cool}" stroke-width="1.6"/>
+          <circle cx="158" cy="86" r="7" fill="${C.cool}" fill-opacity="0.2" stroke="${C.cool}" stroke-width="1.6"/>
+          <text x="110" y="136" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">1 · the sky loads one panel</text>
+          <text x="110" y="150" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">it dishes in, and pulls its rings</text>`;
+  out += `<line x1="232" y1="86" x2="376" y2="86" stroke="${C.cool}" stroke-width="3"/>`;
+  for (let i = 0; i <= 6; i++) out += arrow(232 + i * 24, 54, 232 + i * 24, 80, C.warm);
+  out += `<text x="304" y="136" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">2 · every panel does the same, so</text>
+          <text x="304" y="150" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the ring loads evenly — no bending</text>`;
+  const cx = 300, cy = 330, R = 108;
+  out += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${C.cool}" stroke-width="3"/>`;
+  for (let k = 0; k < 12; k++) {
+    const a2 = k * Math.PI / 6;
+    out += arrow(cx + Math.cos(a2) * (R + 32), cy + Math.sin(a2) * (R + 32),
+                 cx + Math.cos(a2) * (R + 9), cy + Math.sin(a2) * (R + 9), C.warm);
   }
-  out += `<text x="${c1x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bench: sky on every side</text>
-          <text x="${c1x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">net zero — self-balanced</text>`;
-
-  /* panel 2 — the band: only the outer side keeps its sky; the cell SITS face-down on
-   * the wall. The three sky faces warm, every other film blue-dotted in the vacuum,
-   * nothing drawn underneath but the wall itself. */
-  const c2x = 330, R2 = 42, apo = R2 * Math.cos(Math.PI / 8);
-  const wallY = 168, c2y = wallY - apo;
-  for (let k = 0; k < 8; k++) {
-    const a1 = (22.5 + 45 * k) * Math.PI / 180, a2 = (22.5 + 45 * (k + 1)) * Math.PI / 180;
-    // Same compass as the band section: NE, N, NW (k = 0,1,2) face the sky and are the
-    // loaded film; every other face is in the vacuum.
-    const st = (k === 0 || k === 1 || k === 2)
-      ? `stroke="${C.warm}" stroke-width="1.8"`
-      : `stroke="${C.cool}" stroke-width="1.2" stroke-dasharray="3 3"`;
-    out += `<line x1="${(c2x + R2 * Math.cos(a1)).toFixed(1)}" y1="${(c2y - R2 * Math.sin(a1)).toFixed(1)}"
-                  x2="${(c2x + R2 * Math.cos(a2)).toFixed(1)}" y2="${(c2y - R2 * Math.sin(a2)).toFixed(1)}" ${st}/>`;
+  for (let k = 0; k < 4; k++) {
+    const a2 = k * Math.PI / 2 + 0.32;
+    out += arrow(cx + Math.cos(a2) * R, cy + Math.sin(a2) * R,
+                 cx + Math.cos(a2 + 0.3) * R, cy + Math.sin(a2 + 0.3) * R, C.cool);
   }
-  for (const dx of [-24, 0, 24])
-    out += arrowTo(c2x + dx, c2y - apo - 40, c2x + dx, c2y - apo - 8, C.warm);
-  out += `<line x1="240" y1="${wallY}" x2="420" y2="${wallY}" stroke="${C.cool}" stroke-width="2.4"/>
-          <text x="418" y="${wallY + 14}" fill="${C.cool}" font-size="9.5" text-anchor="end" font-family="monospace">outer wall</text>`;
-  out += `<text x="${c2x}" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">band: sits face-down on the wall</text>
-          <text x="${c2x}" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the sky presses it onto the skeleton</text>`;
-
-  /* panel 3 — the ring: cells OUTSIDE the wall (the ruling), pushes become hoop squeeze */
-  const ccx = 552, ccy = 610, Rr = 470;
-  const arcP = (deg, r) => {
-    const a = deg * Math.PI / 180;
-    return [ccx + r * Math.cos(a), ccy + r * Math.sin(a)];
-  };
-  const [ax1, ay1] = arcP(-103, Rr), [ax2, ay2] = arcP(-77, Rr);
-  out += `<path d="M ${ax1.toFixed(1)} ${ay1.toFixed(1)} A ${Rr} ${Rr} 0 0 1 ${ax2.toFixed(1)} ${ay2.toFixed(1)}"
-           fill="none" stroke="${C.cool}" stroke-width="2.4"/>`;
-  for (const deg of [-99.5, -93, -86.5, -80.5]) {
-    const [px, py] = arcP(deg, Rr + 18);
-    out += oct(px, py, 16, deg + 90, `fill="${C.warm}" fill-opacity="0.08" stroke="${C.warm}" stroke-width="1.1"`);
-    const [fx, fy] = arcP(deg, Rr + 68), [tx2, ty2] = arcP(deg, Rr + 40);
-    out += arrowTo(fx, fy, tx2, ty2, C.warm);
-  }
-  const tang = (deg, dir) => {
-    const a = deg * Math.PI / 180;
-    const [px, py] = arcP(deg, Rr);
-    const tx = -Math.sin(a) * dir, ty = Math.cos(a) * dir;
-    return arrowTo(px - 26 * tx, py - 26 * ty, px + 8 * tx, py + 8 * ty, C.cool);
-  };
-  out += tang(-101, 1) + tang(-79, -1);
-  out += `<text x="552" y="208" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">ring: pushes become hoop squeeze</text>
-          <text x="552" y="222" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the arch holds itself</text>`;
-
-  return svgEl(out, '0 0 660 234');
+  out += `<text x="${cx}" y="${cy - 4}" fill="${C.cool}" font-size="11" text-anchor="middle" font-family="monospace">pure compression</text>
+          <text x="${cx}" y="${cy + 12}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">round the barrel</text>
+          <text x="${cx}" y="${cy + R + 36}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">3 · the ring closes on itself — a keystone arch</text>
+          <text x="${cx}" y="${cy + R + 50}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">nothing spans the void, and nothing needs to</text>
+          <text x="24" y="18" fill="${C.warm}" font-size="11" font-family="monospace">the load path, end to end</text>`;
+  return svgEl(out, '0 0 600 500');
 }
 
 /* Level 4 — one bay zoomed: adjacent cells face-down on the wall, skin over the landscape.
