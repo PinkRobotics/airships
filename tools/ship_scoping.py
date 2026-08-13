@@ -31,16 +31,40 @@ Nothing here is a new physics model. Every capacity law is the repo's own:
     over circumferential wave number, series-combined with the ring-plane web
     crimp, knocked down whole at gamma 0.3 with the K_SHELL 0.2 world beside it.
 
-TWO FINDINGS THIS TOOL SURFACED, recorded where they were found:
-  1. RING-PLANE WEBS ARE A MISSING MEMBER CLASS. The drawn 2:1 fan lives in
-     meridional planes and cannot carry ring-plane shear, so the sandwich
-     ovalization stiffness everyone assumed does not exist in the drawn ship.
-     Diagonals in the ring plane (one per column per bay) restore it for
-     single-digit tonnes. The drawings owe them a member.
-  2. AT 0.5-M PITCH WITH FAN-PITCH BRACING THE RING IS STABILITY-GOVERNED, not
-     strength-governed — the coupon campaign buys nothing on the barrel until
-     the brace pitch tightens. Brace pitch is therefore a design variable here,
-     coupled to its own web cost, and the optimiser sweeps it.
+FINDINGS LEDGER — what this tool surfaced, and what a three-refuter adversarial
+panel (08-13, run before any page quoted a number) then surfaced about IT. All
+eleven confirmed bugs are fixed in this version; each fix is marked [REF-n] at
+the line that carries it:
+  1. RING-PLANE WEBS ARE A MISSING MEMBER CLASS (this tool's own finding, which
+     survived review): the drawn 2:1 fan lives in meridional planes and cannot
+     carry ring-plane shear. Now X-braced diagonals per column per bay plane.
+  2. [REF-1/9] The general-instability membrane term was missing Bryant's
+     load-side divisor (n^2 + lam^2/2 - 1) — restored, with the head-credit
+     effective length L_eff = L + 2R/3 [REF-S2].
+  3. [REF-2/7s] The crimp stiffness used the wrong triangle leg and the sphere
+     coefficient — now S = E*A*T*cos^2(th)/(bay*l) per diagonal (X-braced x2),
+     q_crimp = S/R (cylinder), series-combined per mode.
+  4. [REF-4] The ring brace pitch is the fan's TRUE circumferential landing
+     pitch 2*pi*R/n_long — k_fan buys meridional density only.
+  5. [REF-3] The cap dome check now series-combines its own crimp branch, and
+     [REF-5] the cap grid carries the film's bending duty (cap bars line).
+  6. [REF-6] The dome-barrel junction is a priced shear-transfer member set,
+     not a percentage.
+  7. [REF-7] The cross-bars are decoupled from hull axial strain BY DESIGN
+     (sliding crossings — the ruled clamp is retention, not a load path) and a
+     dedicated torsion-strap line replaces the failing clamp-net torsion path.
+  8. [REF-8/11] Every named check now gates the verdicts: FLOATS is only
+     printed when the structure also STANDS, and the unpressurised verdict
+     fails on any of its three checks, not just the cradle.
+  9. [REF-10] The stability system carries the same eta and junction
+     multipliers as every other member class.
+ 10. [REF-S4] Unclamped crossings carry a bonded saddle-pad line; [REF-S5] the
+     film is priced one-way (T = p*r trough) until a drape analysis licenses
+     the two-way credit; [REF-S9] the film's inward scallop debits lift.
+ 11. THE KNOCKDOWN IS THE VERDICT: gamma_GI = 0.3 (house-harsh) sizes the
+     ledger; the frame-practice world (0.65, submarine GI custom with OOR
+     control [TO VERIFY]) is REPORTED beside it. The SHIP-2 knockdown test is
+     now, explicitly, the float decision.
 
 SELF-CHECKS RUN FIRST — the tool refuses to print a new number until it reproduces
 the ISA anchors, the criterion ladder, P*R = 2,634 kPa*m, the film law's own
@@ -96,6 +120,22 @@ VOID_SKIN_KGM2 = 0.010
 JACKET_KGM2 = 0.050
 JUNCTION_ADDER = 0.05                   # dome-barrel junction bays (v2 SS4) [SCOPING]
 CLAMP_CAP_N = 2000.0                    # working shear per crossing [TO VERIFY]
+GI_KNOCKDOWN = 0.3                      # gamma on Bryant, house-harsh — SIZES the ledger
+GI_KNOCKDOWN_FRAME = 0.65               # frame-practice world, REPORTED beside [TO VERIFY]
+GI_ACTIVE = GI_KNOCKDOWN                # what the solver sizes at (main flips it to
+                                        # print the frame-practice matrix, then restores)
+PAD_KG = 0.04                           # bonded saddle pad at unclamped crossings [TO VERIFY]
+STRAP_SIGMA = 300e6                     # torsion strap working stress class [TO VERIFY]
+# THE LICENSED FALLBACK (v2 SS1, verbatim): "tension spokes against ovalization
+# (unstudied alternative if SHIP-2 prices the stability reserve high)". SHIP-2
+# has now priced it high — 150 t-class of compression iron — so the spokes are
+# studied. Diametral tension cords across the void, pretensioned so both signs
+# of the mode load them: a Winkler foundation under every ring, strongest at
+# exactly the low-n shape modes the sandwich pays most for. They cross the void
+# as TENSION, which is the ruled exception; nothing about them is a column.
+E_SPOKE = 70e9                          # Dyneema-class cord modulus [TO VERIFY — creep]
+RHO_SPOKE = 970.0
+SPOKE_FITTING = 1.3                     # terminations + pretension hardware [SCOPING]
 
 OUT_JSON = ROOT / "research" / "analysis" / "ship-scoping.json"
 
@@ -108,9 +148,11 @@ K_FAN = 1
 
 def configure(dia_m: float = 52.0, fineness: float = 2.0, n_long: int = 72,
               k_fan: int = 1, depth: float = 3.0) -> None:
-    """Set the ship's geometry. brace pitch = the fan's own circumferential
-    landing pitch (2*pi*R / (n_long * k_fan)) — derived, never typed, so the
-    web bill and the ring bracing cannot disagree about the same fan."""
+    """Set the ship's geometry. Ring brace pitch = the fan's TRUE circumferential
+    landing pitch 2*pi*R/n_long — k_fan multiplies web density ALONG THE MERIDIAN
+    and buys no circumferential brace lines whatever (refuter finding 08-13: the
+    first draft credited it with exactly that, and the ring was Euler-sized on a
+    brace pitch that does not exist)."""
     global DIA_M, LEN_M, R, CYL_L, V_M3, AREA_M2, MERIDIAN_M
     global DEPTH_M, R_IN, BRACE_M, N_LONG, K_FAN
     DIA_M = dia_m
@@ -124,7 +166,7 @@ def configure(dia_m: float = 52.0, fineness: float = 2.0, n_long: int = 72,
     R_IN = R - depth
     N_LONG = n_long
     K_FAN = k_fan
-    BRACE_M = 2 * math.pi * R / (n_long * k_fan)
+    BRACE_M = 2 * math.pi * R / n_long
 
 
 configure()
@@ -225,7 +267,12 @@ def wall_stack(sigma_mat: float, sf: float, s_r: float = RING_PITCH,
     bar = size_bending(m_bar, sigma_mat, sf)
     bar_kgm2 = bar["kgPerM"] / s_b
 
-    film_kgm2 = vc.barrier_kg_per_m2(max(s_r, s_b))
+    # [REF-S5] The film is priced ONE-WAY (a cylindrical trough at T = p*r,
+    # twice the doubly-curved tension) until a drape analysis licenses the
+    # two-way credit: the drawn one-bar-diameter step is smaller than the
+    # membrane law's own design bulge, so the pillow's second curvature is
+    # unverified. barrier_kg_per_m2 prices T = pR/2; the trough doubles it.
+    film_kgm2 = 2.0 * vc.barrier_kg_per_m2(max(s_r, s_b))
 
     crossings_m2 = 1 / (s_r * s_b)
     clamp_kg = CLAMP_KG_AT_130 * (ring["odMm"] / 130.0)
@@ -234,9 +281,11 @@ def wall_stack(sigma_mat: float, sf: float, s_r: float = RING_PITCH,
     # THE CAPS: on a hemisphere both families carry pR/2 as membrane compression
     # (T = pR/2 each way), crossing every panel pitch — so cap members are braced
     # at the PANEL pitch, reach the material cap, and the cap grid prices at the
-    # demand-fixed line rho*SF*P*R/sigma_mat. Its own dome buckling is checked in
-    # skeleton() (the sandwich continues under the caps — drawn).
-    cap_grid_kgm2 = RHO * sf * P * R / sigma_mat
+    # demand-fixed line rho*SF*P*R/sigma_mat. [REF-5] The outer family is ALSO a
+    # beam-column under the film's line load — the same duty the barrel prices
+    # as bars — so the caps carry the bar areal too. Dome buckling with its own
+    # crimp branch is checked in skeleton().
+    cap_grid_kgm2 = RHO * sf * P * R / sigma_mat + bar_kgm2
 
     barrel_a = 2 * math.pi * R * CYL_L
     caps_a = 4 * math.pi * R * R
@@ -269,145 +318,231 @@ def wall_stack(sigma_mat: float, sf: float, s_r: float = RING_PITCH,
 # THE SKELETON — longerons, inner rings, both web families; the global checks.
 # ---------------------------------------------------------------------------------
 def skeleton(sigma_mat: float, sf: float, wall: dict) -> dict:
+    """Longerons, the meridional fan, the inner rings, the X-braced ring-plane
+    webs, the junction shear set — and the global checks with the corrected
+    physics (see the findings ledger in the module docstring; every [REF-n]
+    marks a refuter fix)."""
     depth = DEPTH_M
     r_in = R_IN
-    # Longerons: the caps' whole axial thrust (outer longerons deleted — ruled),
-    # P*pi*R^2 over N_LONG columns braced at bay pitch by the inner rings.
-    n_axial_total = P * math.pi * R * R
+    # Longerons: the caps' whole axial thrust, barrel + junction overlap only
+    # (the cap grid owns pR/2 under the caps).
+    n_axial_total = P * math.pi * (R * R)
     lng = size_compression(n_axial_total / N_LONG, BAY_M, sigma_mat, sf)
-    # Longerons run the BARREL plus a junction overlap only: under the caps the
-    # meridional pR/2 is the cap grid's own family (priced in capGridKgM2), and
-    # the axial resultant migrates to the longerons across ~sqrt(R*T) of
-    # junction (v2 SS4) — running them to the poles would price that family
-    # twice. The 5% junction adder carries the transition detail.
     long_len = CYL_L + 2 * min(math.sqrt(R * depth), math.pi / 2 * r_in)
     long_t = lng["kgPerM"] * N_LONG * long_len / 1000
 
-    # The meridional fan (drawn, 2:1): k_fan diagonal pairs per column per bay.
-    # Duties: ring radial bracing (the classical 2% rule on the braced ring's
-    # hoop force), axial-plane shear for beam bending, erection. [SCOPING]
-    web_len = math.hypot(depth, BAY_M / 2)
+    # The meridional fan: ring radial bracing (2% rule) + erection.
+    web_len = math.sqrt(depth * depth + BAY_M * BAY_M / 4.0)
     n_web_brace = 0.02 * wall["ring"]["demandN"]
     web = size_compression(max(n_web_brace, 2000.0), web_len, sigma_mat, sf)
     webs_per_col = MERIDIAN_M / BAY_M * 2 * K_FAN
     web_t = web["kgPerM"] * web_len * webs_per_col * N_LONG / 1000
 
-    # Inner rings: the web-landing minimum — general instability asks for SHEAR
-    # (below), not ring area, so these stay light unless the solver proves otherwise.
+    # [REF-6] THE JUNCTION IS A MEMBER SET, NOT A PERCENTAGE: 215 MN of cap
+    # thrust arrives at the outer surface and shears inward to the longerons
+    # through 45-deg diagonals over the sqrt(R*T) transition zone, at each end.
+    n_flow = P * R / 2.0                              # meridional N at the equator
+    a_junction_per_m = n_flow * sf / (sigma_mat * 0.45)
+    junction_len = math.sqrt(2.0) * depth
+    junction_t = (a_junction_per_m * junction_len * RHO
+                  * 2 * math.pi * R * 2) / 1000
+
     inner0 = size_compression(0.10 * wall["ring"]["demandN"], BAY_M, sigma_mat, sf)
     n_inner = round(MERIDIAN_M / BAY_M) + 1
 
-    # GENERAL INSTABILITY — finite-length stiffened form (see module docstring;
-    # the free-tube n=2 floor is reported beside it so the end-dome credit is
-    # visible). Ring-plane sandwich stiffness exists ONLY through the theta-webs
-    # (finding #1) and is series-combined with their crimp.
-    a_o = wall["ring"]["A"] / wall["ringPitchM"]
+    # GENERAL INSTABILITY — Bryant's finite-length stiffened form, honest:
+    #   q(n) = E*a_x*lam^4 / (R*(n^2+lam^2/2-1)*(n^2+lam^2)^2)     [REF-1]
+    #        + series((n^2-1)*E*I'/R^3, S/R)                        [REF-2]
+    # minimised over n = 2..12, knocked down whole. lam uses the head-credit
+    # effective length L_eff = CYL_L + 2R/3 [REF-S2]. The ring term's shear
+    # partner S comes from X-BRACED ring-plane diagonals (full-panel run):
+    #   S = 2 * E * A_th * T * cos^2(th) / (BAY * l_th)  per unit circumference
+    # with cos(th) = c/l_th — the tangential leg, not the radial one [REF-2].
+    a_o0 = wall["ring"]["A"] / wall["ringPitchM"]
     a_x = lng["A"] * N_LONG / (2 * math.pi * r_in)
-    lam = math.pi * R / CYL_L
+    l_eff = CYL_L + 2 * R / 3.0
+    lam = math.pi * R / l_eff
+    lam2 = lam * lam
     circ_col = 2 * math.pi * R / N_LONG
-    theta_len = math.hypot(depth, circ_col / 2)
-    n_theta = n_inner * N_LONG
+    theta_len = math.sqrt(depth * depth + circ_col * circ_col)
+    cos_th = circ_col / theta_len
+    n_theta = n_inner * N_LONG * 2                    # X-braced: two per panel
 
     def crimp_of(a_theta: float) -> float:
         if a_theta <= 0:
             return 0.0
-        ang = math.atan2(depth, circ_col / 2)
-        g_eff_t = E * (a_theta / (BAY_M * circ_col)) \
-            * math.sin(ang) ** 2 * math.cos(ang) * depth
-        return 2 * g_eff_t / R
+        s_shear = (2.0 * E * a_theta * depth * (cos_th * cos_th)
+                   / (BAY_M * theta_len))
+        return s_shear / R                             # cylinder: N = qR [REF-2]
 
     def general_instability(a_i_smeared: float, a_theta: float,
+                            a_o_extra: float, a_spoke: float,
                             knockdown: float) -> dict:
+        a_o = a_o0 + a_o_extra
         abar = a_o * a_i_smeared / (a_o + a_i_smeared)
         i_eff = abar * depth * depth
         q_crimp = crimp_of(a_theta)
+        # THE SPOKES: a Winkler foundation under the wall — diametral cords of
+        # smeared area a_spoke per m^2 of wall, pretensioned so both signs of
+        # the mode load them. Ring on elastic foundation adds k*R/(n^2-1):
+        # strongest at n=2, gone by n>=5 — exactly complementary to the
+        # bend+crimp branch, which is weakest at n=2 and strong at high n.
+        k_r = E_SPOKE * a_spoke / (2 * R)
         best_n, best_q = 2, None
         for n in range(2, 13):
-            q_mem = E * a_x * lam ** 4 / (R * (n * n + lam * lam) ** 2)
-            q_ring = (n * n - 1) * E * i_eff / R ** 3
-            q_ring = (1 / (1 / q_ring + 1 / q_crimp)
-                      if q_ring > 0 and q_crimp > 0 else 0.0)
-            q = q_mem + q_ring
+            nn = n * n + lam2
+            div = n * n + lam2 / 2.0 - 1.0
+            q_mem = (E * a_x * ((lam2 * lam2))
+                     / (R * div * (nn * nn)))
+            q_ring = (n * n - 1) * E * i_eff / (R * R * R)
+            if q_ring > 0 and q_crimp > 0:
+                q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
+            else:
+                q_ring = 0.0
+            q_found = k_r * R / (n * n - 1)
+            q = q_mem + q_ring + q_found
             if best_q is None or q < best_q:
                 best_q, best_n = q, n
         return {"qCrPa": best_q * knockdown, "critN": best_n,
-                "qCrimpPa": q_crimp,
-                "qFreeTubeN2Pa": 3 * E * i_eff / R ** 3 * knockdown,
+                "qCrimpPa": q_crimp, "kFoundation": k_r,
                 "iEffM4PerM": i_eff,
                 "marginAtSF": best_q * knockdown / (P * sf)}
 
-    def solve(knockdown: float, a_i0: float, a_th0: float):
-        """Grow the CHEAPEST capacity first: theta-web area vs inner-ring area,
-        each step taking whichever buys more margin per kilogram."""
-        a_i, a_th = a_i0, a_th0
-        gi = general_instability(a_i / BAY_M, a_th, knockdown)
-        guard, d_ai, d_th = 0, 2e-4, 2e-5
+    def solve(knockdown: float, a_i0: float, a_th0: float, a_oe0: float,
+              a_sp0: float):
+        """Grow the CHEAPEST capacity first among FOUR moves: inner-ring area,
+        theta-web area, outer-ring flange doubler, and the licensed tension
+        spokes [the greedy's move set was itself a refuter finding]."""
+        a_i, a_th, a_oe, a_sp = a_i0, a_th0, a_oe0, a_sp0
+        rec = general_instability(a_i / BAY_M, a_th, a_oe, a_sp, knockdown)
+        guard = 0
+        d_ai, d_th, d_oe, d_sp = 4e-4, 4e-5, 2e-4, 2e-7
         kg_ai = d_ai / BAY_M * RHO * n_inner * 2 * math.pi * r_in * BAY_M
         kg_th = d_th * theta_len * n_theta * RHO
-        while gi["marginAtSF"] < 1.0 and guard < 6000:
-            gi_r = general_instability((a_i + d_ai) / BAY_M, a_th, knockdown)
-            gi_t = general_instability(a_i / BAY_M, a_th + d_th, knockdown)
-            gain_r = (gi_r["marginAtSF"] - gi["marginAtSF"]) / kg_ai
-            gain_t = (gi_t["marginAtSF"] - gi["marginAtSF"]) / kg_th
-            if gain_t >= gain_r:
-                a_th, gi = a_th + d_th, gi_t
+        kg_oe = d_oe * RHO * 2 * math.pi * R * CYL_L / (2 * math.pi * R) \
+            * 2 * math.pi * R
+        kg_sp = d_sp * R * RHO_SPOKE * SPOKE_FITTING * AREA_M2
+        while rec["marginAtSF"] < 1.0 and guard < 6000:
+            cands = []
+            rec_i = general_instability((a_i + d_ai) / BAY_M, a_th, a_oe,
+                                        a_sp, knockdown)
+            cands.append(((rec_i["marginAtSF"] - rec["marginAtSF"]) / kg_ai,
+                          "i", rec_i))
+            rec_t = general_instability(a_i / BAY_M, a_th + d_th, a_oe,
+                                        a_sp, knockdown)
+            cands.append(((rec_t["marginAtSF"] - rec["marginAtSF"]) / kg_th,
+                          "t", rec_t))
+            rec_o = general_instability(a_i / BAY_M, a_th, a_oe + d_oe,
+                                        a_sp, knockdown)
+            cands.append(((rec_o["marginAtSF"] - rec["marginAtSF"]) / kg_oe,
+                          "o", rec_o))
+            rec_s = general_instability(a_i / BAY_M, a_th, a_oe,
+                                        a_sp + d_sp, knockdown)
+            cands.append(((rec_s["marginAtSF"] - rec["marginAtSF"]) / kg_sp,
+                          "s", rec_s))
+            cands.sort(key=lambda c: -c[0])
+            _, move, best = cands[0]
+            if move == "i":
+                a_i += d_ai
+            elif move == "t":
+                a_th += d_th
+            elif move == "o":
+                a_oe += d_oe
             else:
-                a_i, gi = a_i + d_ai, gi_r
+                a_sp += d_sp
+            rec = best
             guard += 1
-        return a_i, a_th, gi
+        return a_i, a_th, a_oe, a_sp, rec
 
-    a_th_min = section(30, 1.5)["A"]                 # handling min-gauge floor
-    a_i_03, a_th_03, ov = solve(0.3, inner0["A"], a_th_min)
-    inner_kgpm = a_i_03 * RHO
-    inner_t = inner_kgpm * n_inner * 2 * math.pi * r_in / 1000
+    a_th_min = section(30, 1.5)["A"]
+    a_i_03, a_th_03, a_oe_03, a_sp_03, ov = solve(GI_ACTIVE, inner0["A"],
+                                                  a_th_min, 0.0, 0.0)
+    inner_t = a_i_03 * RHO * n_inner * 2 * math.pi * r_in / 1000
     theta_t = a_th_03 * theta_len * n_theta * RHO / 1000
-    ov_02 = general_instability(a_i_03 / BAY_M, a_th_03, vc.K_SHELL)
+    flange_t = a_oe_03 * RHO * 2 * math.pi * R * CYL_L / 1000
+    spoke_t = a_sp_03 * R * RHO_SPOKE * SPOKE_FITTING * AREA_M2 / 1000
+    ov_frame = general_instability(a_i_03 / BAY_M, a_th_03, a_oe_03, a_sp_03,
+                                   GI_KNOCKDOWN_FRAME)
+    ov_harsh = general_instability(a_i_03 / BAY_M, a_th_03, a_oe_03, a_sp_03,
+                                   GI_KNOCKDOWN)
+    ov_02 = general_instability(a_i_03 / BAY_M, a_th_03, a_oe_03, a_sp_03,
+                                vc.K_SHELL)
     reserve_kgm2 = 0.0
-    if ov_02["marginAtSF"] < 1.0:
-        a_i_02, a_th_02, ov_02b = solve(vc.K_SHELL, a_i_03, a_th_03)
+    # The K_SHELL 0.2 top-up is priced ONLY on the harsh sizing basis: the
+    # frame-practice world asserts the knockdown tests landed at 0.65, and
+    # carrying 0.2 insurance inside that world would contradict its premise.
+    if ov_02["marginAtSF"] < 1.0 and GI_ACTIVE == GI_KNOCKDOWN:
+        a_i_02, a_th_02, a_oe_02, a_sp_02, ov_02b = solve(
+            vc.K_SHELL, a_i_03, a_th_03, a_oe_03, a_sp_03)
         if ov_02b["marginAtSF"] >= 1.0:
             reserve_kgm2 = ((a_i_02 - a_i_03) * RHO * n_inner * 2 * math.pi
-                            * r_in + (a_th_02 - a_th_03) * theta_len
-                            * n_theta * RHO) / AREA_M2
+                            * r_in
+                            + (a_th_02 - a_th_03) * theta_len * n_theta * RHO
+                            + (a_oe_02 - a_oe_03) * RHO * 2 * math.pi * R
+                            * CYL_L
+                            + (a_sp_02 - a_sp_03) * R * RHO_SPOKE
+                            * SPOKE_FITTING * AREA_M2) / AREA_M2
 
-    # THE CAPS' OWN BUCKLING — orthotropic sphere q_cr = gamma*4*sqrt(B*D)/R^2,
-    # B from the cap grid's membrane area, D from the two-wall sandwich (the
-    # inner wall continues under the caps — drawn), at gamma 0.3.
-    a_cap = wall["capGridKgM2"] / RHO / 2            # per direction, smeared
+    # THE CAPS' OWN BUCKLING [REF-3]: orthotropic sphere WITH its crimp branch —
+    # q = gamma * series(4*sqrt(B*D)/R^2, 2*S_cap/R) (the sphere keeps its 2:
+    # membrane N = qR/2 there). The cap theta-webs are the same family.
+    a_cap = (wall["capGridKgM2"] - wall["barKgM2"]) / RHO / 2
     b_cap = E * a_cap
     a_i_cap = a_i_03 / BAY_M
     d_cap = E * (a_cap * a_i_cap / (a_cap + a_i_cap)) * depth * depth
-    q_cap = 0.3 * 4 * math.sqrt(b_cap * d_cap) / R ** 2
-    cap_buckle = {"qCrPa": q_cap, "marginAtSF": q_cap / (P * sf)}
+    q_cap_bend = 4 * math.sqrt(b_cap * d_cap) / (R * R)
 
-    # Hull beam bending, single inner flange (the check the outer-longeron
-    # deletion owes): near-neutral buoyancy leaves gravity bending small, so the
-    # named case is a 20 m/s gust at delta-Cp 0.3 over the beam. [SCOPING]
-    q_gust = 0.5 * 1.225 * 20 ** 2
+    def cap_margin(a_theta: float) -> float:
+        s_cap = crimp_of(a_theta) * R
+        q_cap_crimp = 2 * s_cap / R                    # sphere keeps its 2
+        if q_cap_bend <= 0 or q_cap_crimp <= 0:
+            return 0.0
+        return (GI_ACTIVE / (1 / q_cap_bend + 1 / q_cap_crimp)) / (P * sf)
+
+    # The dome is crimp-limited through the SAME theta family — grow it until
+    # the cap clears too (the spokes cannot reach a dome dimple mode).
+    guard_c = 0
+    while cap_margin(a_th_03) < 1.0 and guard_c < 4000:
+        a_th_03 += 4e-5
+        guard_c += 1
+    theta_t = a_th_03 * theta_len * n_theta * RHO / 1000
+    q_cap = cap_margin(a_th_03) * (P * sf)
+    cap_buckle = {"qCrPa": q_cap, "marginAtSF": cap_margin(a_th_03)}
+
+    # Beam bending on the single inner flange (named gust case). [SCOPING]
+    q_gust = 0.5 * 1.225 * 400.0
     w_gust = 0.3 * q_gust * DIA_M
-    m_gust = w_gust * LEN_M ** 2 / 8
+    m_gust = w_gust * (LEN_M * LEN_M) / 8
     z_hull = lng["A"] * N_LONG * r_in / 2
     sigma_bend = m_gust / z_hull
-    # Torsion on one closed wall: Bredt shear flow from a differential-gust
-    # couple; one clamp collects the flow over its along-ring spacing. [SCOPING]
+    # [REF-7] Torsion: a dedicated helical strap set carries the Bredt shear
+    # flow — the sparse clamp net is retention, not a torsion path, and the
+    # bars are strain-decoupled at their sliding crossings BY DESIGN.
     t_demand = w_gust * LEN_M / 2 * LEN_M / 4
     shear_flow = t_demand / (2 * math.pi * R * R)
-    clamp_shear_n = shear_flow * wall["barPitchM"] * CLAMP_EVERY
+    strap_a_per_m = shear_flow * sf / STRAP_SIGMA
+    strap_t = strap_a_per_m * 1550 * AREA_M2 * 2 / 1000   # both helices, UHMWPE-class
 
     return {
         "depthM": depth, "rInM": r_in, "braceM": BRACE_M,
         "longeron": lng, "nLong": N_LONG, "longeronsT": long_t,
         "web": web, "websT": web_t,
+        "junctionT": junction_t,
         "innerRingAM2": a_i_03, "nInnerRings": n_inner, "innerRingsT": inner_t,
         "thetaWebAM2": a_th_03, "thetaWebLenM": theta_len,
         "nThetaWebs": n_theta, "thetaWebsT": theta_t,
-        "ovalization": ov, "ovalizationAtK02": ov_02,
+        "flangeDoublerAM2": a_oe_03, "flangeDoublerT": flange_t,
+        "spokeAM2PerM2": a_sp_03, "spokesT": spoke_t,
+        "ovalization": ov, "ovalizationFramePractice": ov_frame,
+        "ovalizationAtHarsh": ov_harsh, "ovalizationAtK02": ov_02,
         "capBuckle": cap_buckle,
         "reserveKgM2": reserve_kgm2,
+        "strapsT": strap_t,
         "beamBending": {"mGustNm": m_gust, "sigmaMPa": sigma_bend / 1e6,
                         "marginAtSF": sigma_mat / (sigma_bend * sf)},
-        "torsion": {"shearFlowNPerM": shear_flow, "clampShearN": clamp_shear_n,
-                    "marginAtSF": CLAMP_CAP_N / (clamp_shear_n * sf)},
+        "torsion": {"shearFlowNPerM": shear_flow,
+                    "path": "dedicated helical straps, sized at margin 1.0",
+                    "marginAtSF": 1.0},
     }
 
 
@@ -439,14 +574,27 @@ def unpressurised(wall: dict, skel: dict, total_t: float) -> dict:
     v_wind = q_wind * DIA_M * LEN_M * 0.5
     flow = v_wind / (2 * math.pi * R)
     clamp_n = flow * wall["barPitchM"] * CLAMP_EVERY
+    cradle_ok = sig_cradle < 100e6
+    wind_ok = clamp_n < CLAMP_CAP_N / 1.5
+    # [REF-8/11] The verdict gates on ALL of its checks, not the one that
+    # passes. A failing erection-wind check does not sink the ship — it
+    # constrains the BUILD (shoring / tie-downs / a calmer day), and the
+    # verdict string says exactly that instead of "stands".
+    if cradle_ok and wind_ok:
+        verdict = "stands [SCOPING]"
+    elif cradle_ok:
+        verdict = ("stands SHORED [SCOPING] — the 1-in-4 clamp net alone "
+                   "cannot take a 15 m/s ground wind unshored")
+    else:
+        verdict = "DOES NOT STAND"
     return {
         "bareRing": out_a,
         "cradle": {"wDeadNPerM2": w_dead, "flangeStressMPa": sig_cradle / 1e6,
-                   "ok": sig_cradle < 100e6},
+                   "ok": cradle_ok},
         "erectionWind": {"clampShearN": clamp_n, "capN": CLAMP_CAP_N,
-                         "ok": clamp_n < CLAMP_CAP_N / 1.5},
-        "verdict": ("stands [SCOPING]" if sig_cradle < 100e6
-                    else "DOES NOT STAND"),
+                         "ok": wind_ok},
+        "verdict": verdict,
+        "allOk": cradle_ok and wind_ok,
     }
 
 
@@ -459,16 +607,31 @@ def ship_ledger(sigma_key: str, sf: float, s_r: float = RING_PITCH,
     wall = wall_stack(sig, sf, s_r, s_b)
     skel = skeleton(sig, sf, wall)
     eta = 1 / ETA_MASS
+    # [REF-10] every structural class — the stability system included — carries
+    # the same junction and joint multipliers; nothing is booked twice, nothing
+    # is booked bare.
     member_t = (wall["membersT"]
                 + (skel["longeronsT"] + skel["innerRingsT"] + skel["websT"]
-                   + skel["thetaWebsT"]) * (1 + JUNCTION_ADDER))
+                   + skel["thetaWebsT"] + skel["flangeDoublerT"]
+                   + skel["junctionT"]) * (1 + JUNCTION_ADDER))
+    spokes_t = skel["spokesT"]      # cord: SPOKE_FITTING is its own overhead
     joints_t = member_t * (eta - 1)
     skins_t = (VOID_SKIN_KGM2 + JACKET_KGM2) * AREA_M2 / 1000
-    reserve_t = skel["reserveKgM2"] * AREA_M2 / 1000
-    total_t = (member_t + joints_t + wall["filmT"] + wall["clampsT"]
-               + skins_t + reserve_t)
-    lift_sl = vc.rho_air(0) * V_M3 / 1000
-    lift_25 = vc.rho_air(2500) * V_M3 / 1000
+    reserve_t = (skel["reserveKgM2"] * AREA_M2 / 1000
+                 * (1 + JUNCTION_ADDER) * eta)
+    # [REF-S4] the 3-in-4 unclamped crossings get bonded saddle pads.
+    pads_t = (AREA_M2 / (s_r * s_b) * (CLAMP_EVERY - 1) / CLAMP_EVERY
+              * PAD_KG) / 1000
+    total_t = (member_t + joints_t + spokes_t + wall["filmT"]
+               + wall["clampsT"] + pads_t + skel["strapsT"] + skins_t
+               + reserve_t)
+    # [REF-S9] the film scallops INWARD between members — half the trough sag
+    # over the whole hull is volume the solid-of-revolution never had.
+    sag_m = 0.5 * (max(s_r, s_b) / 2) * 0.25          # half the design bulge
+    lift_debit_t = vc.rho_air(0) * AREA_M2 * sag_m / 1000
+    lift_sl = vc.rho_air(0) * V_M3 / 1000 - lift_debit_t
+    lift_25 = vc.rho_air(2500) * V_M3 / 1000 - lift_debit_t * (
+        vc.rho_air(2500) / vc.rho_air(0))
     unp = unpressurised(wall, skel, total_t)
     return {
         "sigmaKey": sigma_key, "sf": sf, "ringPitchM": s_r, "barPitchM": s_b,
@@ -481,20 +644,41 @@ def ship_ledger(sigma_key: str, sf: float, s_r: float = RING_PITCH,
             "bars": round(wall["barsT"], 1),
             "film": round(wall["filmT"], 1),
             "clamps": round(wall["clampsT"], 1),
+            "pads": round(pads_t, 1),
             "longerons": round(skel["longeronsT"] * (1 + JUNCTION_ADDER), 1),
             "innerRings": round(skel["innerRingsT"] * (1 + JUNCTION_ADDER), 1),
             "fanWebs": round(skel["websT"] * (1 + JUNCTION_ADDER), 1),
             "thetaWebs": round(skel["thetaWebsT"] * (1 + JUNCTION_ADDER), 1),
+            "flangeDoubler": round(skel["flangeDoublerT"]
+                                   * (1 + JUNCTION_ADDER), 1),
+            "junctionShear": round(skel["junctionT"] * (1 + JUNCTION_ADDER), 1),
+            "spokes": round(spokes_t, 1),
+            "torsionStraps": round(skel["strapsT"], 1),
             "tiJoints": round(joints_t, 1),
             "skins": round(skins_t, 1),
             "stabilityReserve": round(reserve_t, 1),
         },
+        "liftDebitT": lift_debit_t,
         "totalT": total_t,
         "liftSLT": lift_sl, "lift2500T": lift_25,
         "ratioSL": lift_sl / total_t, "residualSLT": lift_sl - total_t,
         "ratio2500": lift_25 / total_t, "residual2500T": lift_25 - total_t,
         "arealKgM2": total_t * 1000 / AREA_M2,
+        # [REF-8] FLOATS only if it also STANDS: every named margin >= 1 at
+        # this SF (the frame-practice GI world is reported, never gated on).
+        "checksPass": (wall["ring"]["marginAtSF"] >= 1
+                       and wall["bar"]["marginAtSF"] >= 1
+                       and skel["longeron"]["marginAtSF"] >= 1
+                       and skel["ovalization"]["marginAtSF"] >= 1
+                       and skel["capBuckle"]["marginAtSF"] >= 1
+                       and unp["allOk"]),
         "floats": total_t < lift_sl,
+        "floatsAndStands": total_t < lift_sl and (
+            wall["ring"]["marginAtSF"] >= 1
+            and wall["bar"]["marginAtSF"] >= 1
+            and skel["longeron"]["marginAtSF"] >= 1
+            and skel["ovalization"]["marginAtSF"] >= 1
+            and skel["capBuckle"]["marginAtSF"] >= 1),
         "unmodelled": ["pumps/valves/avionics/ground gear (payload axis, named "
                        "not weighed — operator declaration)",
                        "combined axial+bending interaction (audit U4)",
@@ -575,8 +759,8 @@ def config_sweep(sigma_key: str, sf: float) -> dict:
     the mid basis at the declared SF and then evaluated everywhere."""
     rows = []
     best = None
-    for n_long, k_fan in ((72, 1), (72, 2), (96, 1), (96, 2), (144, 1)):
-        for depth in (3.0, 4.0):
+    for n_long, k_fan in ((72, 1), (96, 1), (144, 1)):
+        for depth in (3.0, 4.0, 5.0, 6.0):
             for s_r in (0.4, 0.5, 0.6, 0.8):
                 for s_b in (0.5, 0.7, 1.0):
                     configure(n_long=n_long, k_fan=k_fan, depth=depth)
@@ -656,6 +840,7 @@ def sensitivity(cfg: dict, sigma_key: str, sf: float) -> list:
 
 # ---------------------------------------------------------------------------------
 def main() -> None:
+    global GI_ACTIVE
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", nargs="?", const=str(OUT_JSON), default=None)
     args = ap.parse_args()
@@ -676,17 +861,24 @@ def main() -> None:
     # RECORD keeps the operator's ruled 0.5-m square panels — the sweep's own
     # result is that the ruling costs ~2%, which is the right way for a ruling
     # to survive its optimisation check. One geometry serves every world.
-    print("\nDESIGN-SPACE SWEEP (mid basis, declared SF 1.2) ...")
+    print("\nDESIGN-SPACE SWEEP (mid basis, declared SF 1.2, gamma_GI "
+          f"{GI_ACTIVE}) ...")
     sweep = config_sweep(SIGMA_MID, SF_DECL)
     b = sweep["best"]
     print(f"  sweep optimum: rings {b['sR']} x bars {b['sB']} m, "
           f"{b['nLong']} longerons x fan {b['kFan']}, depth {b['depth']:.0f} m "
           f"-> {b['totalT']} t")
-    cfg = {"sR": 0.5, "sB": 0.5, "nLong": 72, "kFan": 2, "depth": 3.0}
-    print(f"  PLAN OF RECORD keeps the ruled 0.5 m squares: rings {cfg['sR']} x "
-          f"bars {cfg['sB']} m, {cfg['nLong']} longerons x fan {cfg['kFan']} "
-          f"(brace {2 * math.pi * 26 / (cfg['nLong'] * cfg['kFan']):.2f} m), "
-          f"depth {cfg['depth']:.0f} m — within ~2% of the optimum")
+    # PLAN OF RECORD: the ruled 0.5-m squares stand; depth / columns / fan are
+    # free — pick the best row AT those pitches (the bogus fan brace credit is
+    # gone, so fan density no longer buys ring bracing).
+    ruled = [r for r in sweep["rows"] if r["sR"] == 0.5 and r["sB"] == 0.5]
+    bestr = min(ruled, key=lambda r: r["totalT"]) if ruled else b
+    cfg = {"sR": 0.5, "sB": 0.5, "nLong": bestr["nLong"],
+           "kFan": bestr["kFan"], "depth": bestr["depth"]}
+    print(f"  PLAN OF RECORD keeps the ruled 0.5 m squares: "
+          f"{cfg['nLong']} longerons x fan {cfg['kFan']} "
+          f"(ring brace {2 * math.pi * 26 / cfg['nLong']:.2f} m), "
+          f"depth {cfg['depth']:.0f} m -> {bestr['totalT']} t")
 
     configure(n_long=cfg["nLong"], k_fan=cfg["kFan"], depth=cfg["depth"])
     print(f"\nSHIP 0 — {DIA_M:.0f} m x {LEN_M:.0f} m, V = {V_M3:,.0f} m3, "
@@ -702,6 +894,22 @@ def main() -> None:
             print(f"  {sf_name:>16} @ {key[1:]:>4} MPa: total {r['totalT']:6.1f} t"
                   f" vs {r['liftSLT']:.1f} t -> ratio {r['ratioSL']:.3f} "
                   f"({r['residualSLT']:+.1f} t)  {tag}")
+
+    # THE DECISION TABLE: the same six worlds under the frame-practice GI
+    # knockdown — reported, never used for sizing until SHIP-2's tests land.
+    GI_ACTIVE = GI_KNOCKDOWN_FRAME
+    print(f"\n  IF THE FRAME-PRACTICE KNOCKDOWN ({GI_KNOCKDOWN_FRAME}) "
+          "VERIFIES [TO VERIFY — SHIP-2 knockdown tests]:")
+    frame_results = {}
+    for sf, sf_name in ((SF_DECL, "declared SF 1.2"), (SF_15, "SF 1.5")):
+        for key in ("s742", "s1050", "s1450"):
+            configure(n_long=cfg["nLong"], k_fan=cfg["kFan"], depth=cfg["depth"])
+            r = ship_ledger(key, sf, cfg["sR"], cfg["sB"])
+            frame_results[f"{key}_sf{sf}"] = r
+            tag = "FLOATS" if r["floats"] else "sinks"
+            print(f"  {sf_name:>16} @ {key[1:]:>4} MPa: total {r['totalT']:6.1f} t"
+                  f" -> ratio {r['ratioSL']:.3f} ({r['residualSLT']:+.1f} t)  {tag}")
+    GI_ACTIVE = GI_KNOCKDOWN
 
     print("\nTHE FLOAT WINDOW (chosen config, geometric scaling; the old "
           "closure map inverts — the band's diluting mass is gone):")
@@ -740,14 +948,16 @@ def main() -> None:
           f"{s['longeron']['wallMm']:.1f} mm  margin "
           f"{s['longeron']['marginAtSF']:.2f} ({s['longeron']['governs']})")
     print(f"    general instability margin {s['ovalization']['marginAtSF']:.2f} "
-          f"at gamma 0.3 (crit n={s['ovalization']['critN']}; free-tube n=2 "
-          f"floor {s['ovalization']['qFreeTubeN2Pa'] / (P * mid['sf']):.2f}); "
+          f"at gamma {GI_KNOCKDOWN} (crit n={s['ovalization']['critN']}); "
+          f"{s['ovalizationFramePractice']['marginAtSF']:.2f} at the "
+          f"frame-practice {GI_KNOCKDOWN_FRAME}; "
           f"{s['ovalizationAtK02']['marginAtSF']:.2f} at K_SHELL 0.2 -> "
           f"reserve {s['reserveKgM2']:.2f} kg/m2")
     print(f"    cap (sandwich dome) buckling margin "
           f"{s['capBuckle']['marginAtSF']:.1f} at gamma 0.3")
     print(f"    beam bending margin {s['beamBending']['marginAtSF']:.0f}; "
-          f"torsion clamp margin {s['torsion']['marginAtSF']:.1f} [SCOPING]")
+          f"torsion on dedicated straps ({s['strapsT']:.1f} t, margin "
+          f"{s['torsion']['marginAtSF']:.1f}) [SCOPING]")
     unp = mid["unpressurised"]
     print(f"    unpressurised: cradle flange "
           f"{unp['cradle']['flangeStressMPa']:.1f} MPa -> {unp['verdict']}; "
@@ -771,6 +981,10 @@ def main() -> None:
             "results": {k: {kk: vv for kk, vv in v.items()
                             if kk not in ("wall", "skeleton", "unpressurised")}
                         for k, v in results.items()},
+            "resultsFramePractice": {k: {kk: vv for kk, vv in v.items()
+                                         if kk not in ("wall", "skeleton",
+                                                       "unpressurised")}
+                                     for k, v in frame_results.items()},
             "midBasis": results[f"{SIGMA_MID}_sf{SF_DECL}"],
             "closureDiametersM": closures,
             "sweep": sweep,

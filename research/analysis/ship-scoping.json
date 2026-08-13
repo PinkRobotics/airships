@@ -110,7 +110,7 @@
   },
   {
    "name": "MUT: film line is not zero",
-   "got": 0.98391755029387,
+   "got": 1.96783510058774,
    "want": 0,
    "pass": true
   },
@@ -125,7 +125,7 @@
   "sR": 0.5,
   "sB": 0.5,
   "nLong": 72,
-  "kFan": 2,
+  "kFan": 1,
   "depth": 3.0
  },
  "geometry": {
@@ -144,33 +144,41 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 58.0,
-    "capGrid": 57.9,
+    "rings": 58.2,
+    "capGrid": 64.0,
     "bars": 6.1,
-    "film": 1.0,
-    "clamps": 1.5,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
     "longerons": 40.8,
-    "innerRings": 14.0,
-    "fanWebs": 27.3,
-    "thetaWebs": 9.3,
-    "tiJoints": 37.7,
+    "innerRings": 27.2,
+    "fanWebs": 13.7,
+    "thetaWebs": 25.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 11.0,
+    "spokes": 18.6,
+    "torsionStraps": 0.3,
+    "tiJoints": 43.5,
     "skins": 1.0,
-    "stabilityReserve": 14.0
+    "stabilityReserve": 46.1
    },
-   "totalT": 268.4659839514905,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 0.8398463383018726,
-   "residualSLT": -42.99581037122189,
-   "ratio2500": 0.6560097018008729,
-   "residual2500T": -92.34969387579528,
-   "arealKgM2": 15.801659910469363,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 362.2435980644486,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.620631475752922,
+   "residualSLT": -137.42381921566152,
+   "ratio2500": 0.48477947782701225,
+   "residual2500T": -186.6353357485871,
+   "arealKgM2": 21.321323681712546,
+   "checksPass": false,
    "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -185,33 +193,41 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 41.3,
-    "capGrid": 40.9,
+    "rings": 58.2,
+    "capGrid": 45.1,
     "bars": 4.2,
-    "film": 1.0,
-    "clamps": 1.6,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
     "longerons": 29.5,
-    "innerRings": 14.0,
-    "fanWebs": 27.3,
-    "thetaWebs": 9.3,
-    "tiJoints": 29.4,
+    "innerRings": 27.2,
+    "fanWebs": 13.7,
+    "thetaWebs": 25.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 7.8,
+    "spokes": 20.2,
+    "torsionStraps": 0.3,
+    "tiJoints": 37.3,
     "skins": 1.0,
-    "stabilityReserve": 19.6
+    "stabilityReserve": 45.9
    },
-   "totalT": 219.10303646359674,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 1.02906001313099,
-   "residualSLT": 6.36713711667187,
-   "ratio2500": 0.8038057934672045,
-   "residual2500T": -42.98674638790152,
-   "arealKgM2": 12.896202403707548,
-   "floats": true,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 322.10745535539377,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.6979651514142527,
+   "residualSLT": -97.28767650660672,
+   "ratio2500": 0.5451853392281965,
+   "residual2500T": -146.4991930395323,
+   "arealKgM2": 18.958947384083917,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -226,33 +242,41 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 36.7,
-    "capGrid": 29.6,
+    "rings": 58.2,
+    "capGrid": 33.2,
     "bars": 3.6,
-    "film": 1.0,
-    "clamps": 1.4,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
     "longerons": 29.5,
-    "innerRings": 14.0,
-    "fanWebs": 27.3,
-    "thetaWebs": 9.3,
-    "tiJoints": 26.5,
+    "innerRings": 27.2,
+    "fanWebs": 13.7,
+    "thetaWebs": 25.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 5.6,
+    "spokes": 20.2,
+    "torsionStraps": 0.3,
+    "tiJoints": 34.7,
     "skins": 1.0,
-    "stabilityReserve": 20.6
+    "stabilityReserve": 45.9
    },
-   "totalT": 200.52581722267576,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 1.124394737311521,
-   "residualSLT": 24.944356357592852,
-   "ratio2500": 0.878272396616767,
-   "residual2500T": -24.409527146980537,
-   "arealKgM2": 11.80276443362824,
-   "floats": true,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 304.8914759496941,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.7373763997452045,
+   "residualSLT": -80.07169710090704,
+   "ratio2500": 0.5759697340467339,
+   "residual2500T": -129.28321363383262,
+   "arealKgM2": 17.945630733719504,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -267,33 +291,41 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 72.4,
-    "capGrid": 72.4,
+    "rings": 73.0,
+    "capGrid": 79.2,
     "bars": 6.9,
-    "film": 1.0,
-    "clamps": 1.6,
+    "film": 2.0,
+    "clamps": 2.5,
+    "pads": 2.0,
     "longerons": 51.3,
-    "innerRings": 16.1,
-    "fanWebs": 29.9,
-    "thetaWebs": 10.9,
-    "tiJoints": 45.9,
+    "innerRings": 36.0,
+    "fanWebs": 14.9,
+    "thetaWebs": 30.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 13.8,
+    "spokes": 22.3,
+    "torsionStraps": 0.3,
+    "tiJoints": 53.9,
     "skins": 1.0,
-    "stabilityReserve": 19.1
+    "stabilityReserve": 62.4
    },
-   "totalT": 328.47724169015294,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 0.6864103352187512,
-   "residualSLT": -103.00706810988433,
-   "ratio2500": 0.536159793505033,
-   "residual2500T": -152.36095161445772,
-   "arealKgM2": 19.33386712580586,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 452.09996972783745,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.4972789071057177,
+   "residualSLT": -227.2801908790504,
+   "ratio2500": 0.38842794530947883,
+   "residual2500T": -276.491707411976,
+   "arealKgM2": 26.610186743299398,
+   "checksPass": false,
    "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -308,33 +340,41 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 51.2,
-    "capGrid": 51.2,
+    "rings": 67.9,
+    "capGrid": 57.0,
     "bars": 5.8,
-    "film": 1.0,
-    "clamps": 1.5,
+    "film": 2.0,
+    "clamps": 2.4,
+    "pads": 2.0,
     "longerons": 36.0,
-    "innerRings": 16.1,
-    "fanWebs": 29.9,
-    "thetaWebs": 12.5,
-    "tiJoints": 35.8,
+    "innerRings": 36.0,
+    "fanWebs": 14.9,
+    "thetaWebs": 30.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 9.7,
+    "spokes": 24.2,
+    "torsionStraps": 0.3,
+    "tiJoints": 45.5,
     "skins": 1.0,
-    "stabilityReserve": 26.9
+    "stabilityReserve": 62.7
    },
-   "totalT": 268.9795667111836,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 0.8382427570134606,
-   "residualSLT": -43.509393130915015,
-   "ratio2500": 0.6547571335215949,
-   "residual2500T": -92.8632766354884,
-   "arealKgM2": 15.831888917456027,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 397.98214753567726,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.5648991550020042,
+   "residualSLT": -173.1623686868902,
+   "ratio2500": 0.44124658204704775,
+   "residual2500T": -222.37388521981578,
+   "arealKgM2": 23.424861702156438,
+   "checksPass": false,
    "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -349,33 +389,337 @@
    "barPitchM": 0.5,
    "depthM": 3.0,
    "nLong": 72,
-   "kFan": 2,
-   "braceM": 1.1344640137963142,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
    "diaM": 52.0,
    "lenM": 104.0,
    "ledgerT": {
-    "rings": 42.3,
-    "capGrid": 37.0,
+    "rings": 67.9,
+    "capGrid": 41.1,
     "bars": 4.0,
-    "film": 1.0,
-    "clamps": 1.5,
+    "film": 2.0,
+    "clamps": 2.4,
+    "pads": 2.0,
     "longerons": 34.7,
-    "innerRings": 19.4,
-    "fanWebs": 29.9,
-    "thetaWebs": 12.0,
-    "tiJoints": 31.7,
+    "innerRings": 36.0,
+    "fanWebs": 14.9,
+    "thetaWebs": 30.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 7.1,
+    "spokes": 24.4,
+    "torsionStraps": 0.3,
+    "tiJoints": 41.7,
     "skins": 1.0,
-    "stabilityReserve": 25.8
+    "stabilityReserve": 62.7
    },
-   "totalT": 240.29941482207983,
-   "liftSLT": 225.4701735802686,
-   "lift2500T": 176.11629007569522,
-   "ratioSL": 0.938288483753525,
-   "residualSLT": -14.829241241811218,
-   "ratio2500": 0.7329035328949658,
-   "residual2500T": -64.1831247463846,
-   "arealKgM2": 14.143801660881607,
+   "liftDebitT": 0.650394731481544,
+   "totalT": 372.67830222709136,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.6032542745453241,
+   "residualSLT": -147.8585233783043,
+   "ratio2500": 0.47120602746777207,
+   "residual2500T": -197.07003991122988,
+   "arealKgM2": 21.935500733186725,
+   "checksPass": false,
    "floats": false,
+   "floatsAndStands": false,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  }
+ },
+ "resultsFramePractice": {
+  "s742_sf1.2": {
+   "sigmaKey": "s742",
+   "sf": 1.2,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 58.2,
+    "capGrid": 64.0,
+    "bars": 6.1,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
+    "longerons": 40.8,
+    "innerRings": 14.0,
+    "fanWebs": 13.7,
+    "thetaWebs": 13.3,
+    "flangeDoubler": 0.0,
+    "junctionShear": 11.0,
+    "spokes": 5.6,
+    "torsionStraps": 0.3,
+    "tiJoints": 39.0,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 273.0508257183347,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.8233623841178187,
+   "residualSLT": -48.23104686954764,
+   "ratio2500": 0.6431339727828181,
+   "residual2500T": -97.44256340247321,
+   "arealKgM2": 16.07151946316442,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  },
+  "s1050_sf1.2": {
+   "sigmaKey": "s1050",
+   "sf": 1.2,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 58.2,
+    "capGrid": 45.1,
+    "bars": 4.2,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
+    "longerons": 29.5,
+    "innerRings": 14.0,
+    "fanWebs": 13.7,
+    "thetaWebs": 10.8,
+    "flangeDoubler": 0.0,
+    "junctionShear": 7.8,
+    "spokes": 6.6,
+    "torsionStraps": 0.3,
+    "tiJoints": 32.3,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 229.5834202506996,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.9792509345983662,
+   "residualSLT": -4.763641401912537,
+   "ratio2500": 0.7648995825748283,
+   "residual2500T": -53.97515793483811,
+   "arealKgM2": 13.513068115696296,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  },
+  "s1450_sf1.2": {
+   "sigmaKey": "s1450",
+   "sf": 1.2,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 58.2,
+    "capGrid": 33.2,
+    "bars": 3.6,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
+    "longerons": 29.5,
+    "innerRings": 14.0,
+    "fanWebs": 13.7,
+    "thetaWebs": 10.8,
+    "flangeDoubler": 0.0,
+    "junctionShear": 5.6,
+    "spokes": 6.6,
+    "torsionStraps": 0.3,
+    "tiJoints": 29.7,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 212.36744084499995,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 1.0586358151430362,
+   "residualSLT": 12.452338003787105,
+   "ratio2500": 0.8269076540976552,
+   "residual2500T": -36.75917852913847,
+   "arealKgM2": 12.499751465331885,
+   "checksPass": false,
+   "floats": true,
+   "floatsAndStands": true,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  },
+  "s742_sf1.5": {
+   "sigmaKey": "s742",
+   "sf": 1.5,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 73.0,
+    "capGrid": 79.2,
+    "bars": 6.9,
+    "film": 2.0,
+    "clamps": 2.5,
+    "pads": 2.0,
+    "longerons": 51.3,
+    "innerRings": 16.1,
+    "fanWebs": 14.9,
+    "thetaWebs": 15.7,
+    "flangeDoubler": 0.0,
+    "junctionShear": 13.8,
+    "spokes": 6.7,
+    "torsionStraps": 0.3,
+    "tiJoints": 47.8,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 333.3407643200103,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.6744443011865118,
+   "residualSLT": -108.52098547122324,
+   "ratio2500": 0.5268130427254792,
+   "residual2500T": -157.7325020041488,
+   "arealKgM2": 19.620129576760405,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  },
+  "s1050_sf1.5": {
+   "sigmaKey": "s1050",
+   "sf": 1.5,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 67.9,
+    "capGrid": 57.0,
+    "bars": 5.8,
+    "film": 2.0,
+    "clamps": 2.4,
+    "pads": 2.0,
+    "longerons": 36.0,
+    "innerRings": 16.1,
+    "fanWebs": 14.9,
+    "thetaWebs": 15.7,
+    "flangeDoubler": 0.0,
+    "junctionShear": 9.7,
+    "spokes": 8.8,
+    "torsionStraps": 0.3,
+    "tiJoints": 39.4,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 279.1705162089368,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.805313476157086,
+   "residualSLT": -54.350737360149765,
+   "ratio2500": 0.6290358476983032,
+   "residual2500T": -103.56225389307534,
+   "arealKgM2": 16.431718794440968,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
+   "unmodelled": [
+    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
+    "combined axial+bending interaction (audit U4)",
+    "erection sequence loads beyond the three scoping checks",
+    "aero loads beyond the named gust cases"
+   ]
+  },
+  "s1450_sf1.5": {
+   "sigmaKey": "s1450",
+   "sf": 1.5,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "depthM": 3.0,
+   "nLong": 72,
+   "kFan": 1,
+   "braceM": 2.2689280275926285,
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "ledgerT": {
+    "rings": 67.9,
+    "capGrid": 41.1,
+    "bars": 4.0,
+    "film": 2.0,
+    "clamps": 2.4,
+    "pads": 2.0,
+    "longerons": 34.7,
+    "innerRings": 16.1,
+    "fanWebs": 14.9,
+    "thetaWebs": 15.7,
+    "flangeDoubler": 0.0,
+    "junctionShear": 7.1,
+    "spokes": 9.0,
+    "torsionStraps": 0.3,
+    "tiJoints": 35.6,
+    "skins": 1.0,
+    "stabilityReserve": 0.0
+   },
+   "liftDebitT": 0.650394731481544,
+   "totalT": 253.86667090035078,
+   "liftSLT": 224.81977884878705,
+   "lift2500T": 175.60826231586148,
+   "ratioSL": 0.8855820972932466,
+   "residualSLT": -29.04689205156373,
+   "ratio2500": 0.6917342150234138,
+   "residual2500T": -78.2584085844893,
+   "arealKgM2": 14.942357825471246,
+   "checksPass": false,
+   "floats": false,
+   "floatsAndStands": false,
    "unmodelled": [
     "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
     "combined axial+bending interaction (audit U4)",
@@ -391,8 +735,8 @@
   "barPitchM": 0.5,
   "depthM": 3.0,
   "nLong": 72,
-  "kFan": 2,
-  "braceM": 1.1344640137963142,
+  "kFan": 1,
+  "braceM": 2.2689280275926285,
   "diaM": 52.0,
   "lenM": 104.0,
   "wall": {
@@ -400,22 +744,22 @@
    "sf": 1.2,
    "ringPitchM": 0.5,
    "barPitchM": 0.5,
-   "braceM": 1.1344640137963142,
+   "braceM": 2.2689280275926285,
    "ring": {
-    "odMm": 112.0,
+    "odMm": 156.0,
     "wallMm": 4.5,
-    "ro": 0.056,
-    "rm": 0.053750000000000006,
-    "A": 0.0015197454461740618,
-    "I": 2.199166644704253e-06,
-    "Z": 3.927083294114737e-05,
-    "kgPerM": 2.4315927138784987,
-    "sigmaCap": 1050000000.0,
-    "sigmaDemand": 866740547.4489796,
-    "marginAtSF": 1.0095293252119448,
-    "governs": "material",
+    "ro": 0.078,
+    "rm": 0.07575,
+    "A": 0.0021417807915848444,
+    "I": 6.150257404335348e-06,
+    "Z": 7.884945390173524e-05,
+    "kgPerM": 3.426849266535751,
+    "sigmaCap": 743207951.183431,
+    "sigmaDemand": 615013919.8070306,
+    "marginAtSF": 1.0070340513818818,
+    "governs": "euler",
     "demandN": 1317225.0,
-    "bracedL": 1.1344640137963142
+    "bracedL": 2.2689280275926285
    },
    "bar": {
     "odMm": 50.0,
@@ -429,18 +773,18 @@
     "marginAtSF": 1.0217870041926405,
     "demandNm": 1583.203125
    },
-   "ringKgM2": 4.8631854277569975,
+   "ringKgM2": 6.853698533071502,
    "barKgM2": 0.4926017280828806,
-   "filmKgM2": 0.057912478448275864,
-   "clampKgM2": 0.09476923076923077,
-   "capGridKgM2": 4.81728,
-   "ringsT": 41.31211114524461,
+   "filmKgM2": 0.11582495689655173,
+   "clampKgM2": 0.132,
+   "capGridKgM2": 5.309881728082881,
+   "ringsT": 58.22125431167042,
    "barsT": 4.184585935125563,
-   "capGridT": 40.92215066320274,
-   "membersT": 86.41884774357291,
-   "filmT": 0.98391755029387,
-   "clampsT": 1.6101039340766121,
-   "wallT": 89.01286922794338,
+   "capGridT": 45.10673659832831,
+   "membersT": 107.51257684512427,
+   "filmT": 1.96783510058774,
+   "clampsT": 2.2426447653209958,
+   "wallT": 111.723056711033,
    "counts": {
     "rings": 268,
     "bars": 327,
@@ -451,7 +795,7 @@
   "skeleton": {
    "depthM": 3.0,
    "rInM": 23.0,
-   "braceM": 1.1344640137963142,
+   "braceM": 2.2689280275926285,
    "longeron": {
     "odMm": 166.0,
     "wallMm": 7.0,
@@ -486,35 +830,57 @@
     "demandN": 26344.5,
     "bracedL": 3.1622776601683795
    },
-   "websT": 26.008918123835084,
-   "innerRingAM2": 0.000845320758646353,
+   "websT": 13.004459061917542,
+   "junctionT": 7.419571855048265,
+   "innerRingAM2": 0.001645320758646353,
    "nInnerRings": 68,
-   "innerRingsT": 13.291014563181058,
-   "thetaWebAM2": 0.0003543030859409637,
-   "thetaWebLenM": 3.207336683075047,
-   "nThetaWebs": 4896,
-   "thetaWebsT": 8.90186242678615,
+   "innerRingsT": 25.869448893330016,
+   "thetaWebAM2": 0.0004143030859409637,
+   "thetaWebLenM": 3.761387296516456,
+   "nThetaWebs": 9792,
+   "thetaWebsT": 24.415049497393525,
+   "flangeDoublerAM2": 0.0,
+   "flangeDoublerT": 0.0,
+   "spokeAM2PerM2": 3.6200000000000046e-05,
+   "spokesT": 20.164319062003603,
    "ovalization": {
-    "qCrPa": 123493.17221398698,
-    "critN": 5,
-    "qCrimpPa": 752723.4910737177,
-    "qFreeTubeN2Pa": 23085.80849670916,
-    "iEffM4PerM": 0.0033395569558696317,
-    "marginAtSF": 1.0156523744879264
+    "qCrPa": 124141.75744291792,
+    "critN": 3,
+    "qCrimpPa": 624305.4451020912,
+    "kFoundation": 48730.76923076929,
+    "iEffM4PerM": 0.006211098499975436,
+    "marginAtSF": 1.0209865732619288
+   },
+   "ovalizationFramePractice": {
+    "qCrPa": 268973.80779298884,
+    "critN": 3,
+    "qCrimpPa": 624305.4451020912,
+    "kFoundation": 48730.76923076929,
+    "iEffM4PerM": 0.006211098499975436,
+    "marginAtSF": 2.212137575400846
+   },
+   "ovalizationAtHarsh": {
+    "qCrPa": 124141.75744291792,
+    "critN": 3,
+    "qCrimpPa": 624305.4451020912,
+    "kFoundation": 48730.76923076929,
+    "iEffM4PerM": 0.006211098499975436,
+    "marginAtSF": 1.0209865732619288
    },
    "ovalizationAtK02": {
-    "qCrPa": 82328.78147599133,
-    "critN": 5,
-    "qCrimpPa": 752723.4910737177,
-    "qFreeTubeN2Pa": 15390.538997806108,
-    "iEffM4PerM": 0.0033395569558696317,
-    "marginAtSF": 0.6771015829919511
+    "qCrPa": 82761.17162861196,
+    "critN": 3,
+    "qCrimpPa": 624305.4451020912,
+    "kFoundation": 48730.76923076929,
+    "iEffM4PerM": 0.006211098499975436,
+    "marginAtSF": 0.6806577155079526
    },
    "capBuckle": {
-    "qCrPa": 506730.3763076701,
-    "marginAtSF": 4.167533319415002
+    "qCrPa": 236744.05149635853,
+    "marginAtSF": 1.9470684389864177
    },
-   "reserveKgM2": 1.1544285120890887,
+   "reserveKgM2": 2.1881508979837596,
+   "strapsT": 0.25630026240000003,
    "beamBending": {
     "mGustNm": 5167344.0,
     "sigmaMPa": 1.7848100408788667,
@@ -522,8 +888,8 @@
    },
    "torsion": {
     "shearFlowNPerM": 1216.580384994448,
-    "clampShearN": 2433.160769988896,
-    "marginAtSF": 0.6849800832002864
+    "path": "dedicated helical straps, sized at margin 1.0",
+    "marginAtSF": 1.0
    }
   },
   "unpressurised": {
@@ -531,31 +897,31 @@
     {
      "jigPoints": 4,
      "spanM": 40.840704496667314,
-     "sigmaMPa": 84.40080717853908,
+     "sigmaMPa": 59.240974189313285,
      "ok": false
     },
     {
      "jigPoints": 8,
      "spanM": 20.420352248333657,
-     "sigmaMPa": 21.10020179463477,
+     "sigmaMPa": 14.810243547328321,
      "ok": true
     },
     {
      "jigPoints": 12,
      "spanM": 13.61356816555577,
-     "sigmaMPa": 9.37786746428212,
+     "sigmaMPa": 6.582330465479253,
      "ok": true
     },
     {
      "jigPoints": 24,
      "spanM": 6.806784082777885,
-     "sigmaMPa": 2.34446686607053,
+     "sigmaMPa": 1.6455826163698133,
      "ok": true
     }
    ],
    "cradle": {
-    "wDeadNPerM2": 126.4685433023186,
-    "flangeStressMPa": 1.4063660379373752,
+    "wDeadNPerM2": 185.9237613641265,
+    "flangeStressMPa": 1.4670556293152126,
     "ok": true
    },
    "erectionWind": {
@@ -563,31 +929,40 @@
     "capN": 2000.0,
     "ok": false
    },
-   "verdict": "stands [SCOPING]"
+   "verdict": "stands SHORED [SCOPING] \u2014 the 1-in-4 clamp net alone cannot take a 15 m/s ground wind unshored",
+   "allOk": false
   },
   "ledgerT": {
-   "rings": 41.3,
-   "capGrid": 40.9,
+   "rings": 58.2,
+   "capGrid": 45.1,
    "bars": 4.2,
-   "film": 1.0,
-   "clamps": 1.6,
+   "film": 2.0,
+   "clamps": 2.2,
+   "pads": 2.0,
    "longerons": 29.5,
-   "innerRings": 14.0,
-   "fanWebs": 27.3,
-   "thetaWebs": 9.3,
-   "tiJoints": 29.4,
+   "innerRings": 27.2,
+   "fanWebs": 13.7,
+   "thetaWebs": 25.6,
+   "flangeDoubler": 0.0,
+   "junctionShear": 7.8,
+   "spokes": 20.2,
+   "torsionStraps": 0.3,
+   "tiJoints": 37.3,
    "skins": 1.0,
-   "stabilityReserve": 19.6
+   "stabilityReserve": 45.9
   },
-  "totalT": 219.10303646359674,
-  "liftSLT": 225.4701735802686,
-  "lift2500T": 176.11629007569522,
-  "ratioSL": 1.02906001313099,
-  "residualSLT": 6.36713711667187,
-  "ratio2500": 0.8038057934672045,
-  "residual2500T": -42.98674638790152,
-  "arealKgM2": 12.896202403707548,
-  "floats": true,
+  "liftDebitT": 0.650394731481544,
+  "totalT": 322.10745535539377,
+  "liftSLT": 224.81977884878705,
+  "lift2500T": 175.60826231586148,
+  "ratioSL": 0.6979651514142527,
+  "residualSLT": -97.28767650660672,
+  "ratio2500": 0.5451853392281965,
+  "residual2500T": -146.4991930395323,
+  "arealKgM2": 18.958947384083917,
+  "checksPass": false,
+  "floats": false,
+  "floatsAndStands": false,
   "unmodelled": [
    "pumps/valves/avionics/ground gear (payload axis, named not weighed \u2014 operator declaration)",
    "combined axial+bending interaction (audit U4)",
@@ -600,51 +975,51 @@
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 0.86,
-     "totalT": 119.3,
-     "residualT": -16.7
+     "ratioSL": 0.621,
+     "totalT": 164.5,
+     "residualT": -62.3
     },
     {
      "diaM": 44.0,
-     "ratioSL": 0.85,
-     "totalT": 160.7,
-     "residualT": -24.1
+     "ratioSL": 0.629,
+     "totalT": 216.6,
+     "residualT": -80.5
     },
     {
      "diaM": 48.0,
-     "ratioSL": 0.85,
-     "totalT": 208.7,
-     "residualT": -31.3
+     "ratioSL": 0.619,
+     "totalT": 285.8,
+     "residualT": -109.0
     },
     {
      "diaM": 52.0,
-     "ratioSL": 0.84,
-     "totalT": 268.5,
-     "residualT": -43.0
+     "ratioSL": 0.621,
+     "totalT": 362.2,
+     "residualT": -137.4
     },
     {
      "diaM": 56.0,
-     "ratioSL": 0.839,
-     "totalT": 335.8,
-     "residualT": -54.2
+     "ratioSL": 0.609,
+     "totalT": 461.5,
+     "residualT": -180.7
     },
     {
      "diaM": 60.0,
-     "ratioSL": 0.831,
-     "totalT": 416.7,
-     "residualT": -70.4
+     "ratioSL": 0.601,
+     "totalT": 574.7,
+     "residualT": -229.2
     },
     {
      "diaM": 68.0,
-     "ratioSL": 0.82,
-     "totalT": 614.5,
-     "residualT": -110.3
+     "ratioSL": 0.583,
+     "totalT": 863.0,
+     "residualT": -359.9
     },
     {
      "diaM": 80.0,
-     "ratioSL": 0.798,
-     "totalT": 1028.8,
-     "residualT": -207.8
+     "ratioSL": 0.547,
+     "totalT": 1498.1,
+     "residualT": -678.7
     }
    ],
    "window": null
@@ -653,163 +1028,157 @@
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 1.049,
-     "totalT": 97.8,
-     "residualT": 4.8
+     "ratioSL": 0.697,
+     "totalT": 146.7,
+     "residualT": -44.5
     },
     {
      "diaM": 44.0,
-     "ratioSL": 1.042,
-     "totalT": 131.1,
-     "residualT": 5.5
+     "ratioSL": 0.711,
+     "totalT": 191.4,
+     "residualT": -55.3
     },
     {
      "diaM": 48.0,
-     "ratioSL": 1.019,
-     "totalT": 174.0,
-     "residualT": 3.3
+     "ratioSL": 0.692,
+     "totalT": 255.3,
+     "residualT": -78.5
     },
     {
      "diaM": 52.0,
-     "ratioSL": 1.029,
-     "totalT": 219.1,
-     "residualT": 6.4
+     "ratioSL": 0.698,
+     "totalT": 322.1,
+     "residualT": -97.3
     },
     {
      "diaM": 56.0,
-     "ratioSL": 1.02,
-     "totalT": 276.2,
-     "residualT": 5.5
+     "ratioSL": 0.69,
+     "totalT": 407.0,
+     "residualT": -126.2
     },
     {
      "diaM": 60.0,
-     "ratioSL": 1.002,
-     "totalT": 345.7,
-     "residualT": 0.6
+     "ratioSL": 0.682,
+     "totalT": 506.7,
+     "residualT": -161.2
     },
     {
      "diaM": 68.0,
-     "ratioSL": 0.988,
-     "totalT": 510.5,
-     "residualT": -6.3
+     "ratioSL": 0.662,
+     "totalT": 759.6,
+     "residualT": -256.5
     },
     {
      "diaM": 80.0,
-     "ratioSL": 0.946,
-     "totalT": 868.0,
-     "residualT": -47.0
+     "ratioSL": 0.615,
+     "totalT": 1332.5,
+     "residualT": -513.0
     }
    ],
-   "window": [
-    40.0,
-    60.0
-   ]
+   "window": null
   },
   "s1450_sf1.2": {
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 1.129,
-     "totalT": 90.9,
-     "residualT": 11.7
+     "ratioSL": 0.737,
+     "totalT": 138.7,
+     "residualT": -36.5
     },
     {
      "diaM": 44.0,
-     "ratioSL": 1.134,
-     "totalT": 120.5,
-     "residualT": 16.1
+     "ratioSL": 0.753,
+     "totalT": 180.8,
+     "residualT": -44.7
     },
     {
      "diaM": 48.0,
-     "ratioSL": 1.104,
-     "totalT": 160.6,
-     "residualT": 16.7
+     "ratioSL": 0.732,
+     "totalT": 241.7,
+     "residualT": -64.9
     },
     {
      "diaM": 52.0,
-     "ratioSL": 1.124,
-     "totalT": 200.5,
-     "residualT": 24.9
+     "ratioSL": 0.737,
+     "totalT": 304.9,
+     "residualT": -80.1
     },
     {
      "diaM": 56.0,
-     "ratioSL": 1.12,
-     "totalT": 251.3,
-     "residualT": 30.3
+     "ratioSL": 0.73,
+     "totalT": 384.8,
+     "residualT": -103.9
     },
     {
      "diaM": 60.0,
-     "ratioSL": 1.113,
-     "totalT": 311.1,
-     "residualT": 35.3
+     "ratioSL": 0.725,
+     "totalT": 476.6,
+     "residualT": -131.1
     },
     {
      "diaM": 68.0,
-     "ratioSL": 1.098,
-     "totalT": 459.2,
-     "residualT": 45.0
+     "ratioSL": 0.702,
+     "totalT": 716.4,
+     "residualT": -213.3
     },
     {
      "diaM": 80.0,
-     "ratioSL": 1.054,
-     "totalT": 779.2,
-     "residualT": 41.8
+     "ratioSL": 0.655,
+     "totalT": 1251.2,
+     "residualT": -431.8
     }
    ],
-   "window": [
-    40.0,
-    80.0
-   ]
+   "window": null
   },
   "s742_sf1.5": {
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 0.703,
-     "totalT": 146.0,
-     "residualT": -43.4
+     "ratioSL": 0.512,
+     "totalT": 199.7,
+     "residualT": -97.4
     },
     {
      "diaM": 44.0,
-     "ratioSL": 0.694,
-     "totalT": 196.9,
-     "residualT": -60.3
+     "ratioSL": 0.515,
+     "totalT": 264.4,
+     "residualT": -128.2
     },
     {
      "diaM": 48.0,
-     "ratioSL": 0.693,
-     "totalT": 256.0,
-     "residualT": -78.7
+     "ratioSL": 0.51,
+     "totalT": 346.9,
+     "residualT": -170.1
     },
     {
      "diaM": 52.0,
-     "ratioSL": 0.686,
-     "totalT": 328.5,
-     "residualT": -103.0
+     "ratioSL": 0.497,
+     "totalT": 452.1,
+     "residualT": -227.3
     },
     {
      "diaM": 56.0,
-     "ratioSL": 0.686,
-     "totalT": 410.8,
-     "residualT": -129.2
+     "ratioSL": 0.497,
+     "totalT": 565.3,
+     "residualT": -284.4
     },
     {
      "diaM": 60.0,
-     "ratioSL": 0.681,
-     "totalT": 508.5,
-     "residualT": -162.1
+     "ratioSL": 0.487,
+     "totalT": 709.3,
+     "residualT": -363.8
     },
     {
      "diaM": 68.0,
-     "ratioSL": 0.671,
-     "totalT": 751.2,
-     "residualT": -247.0
+     "ratioSL": 0.473,
+     "totalT": 1064.2,
+     "residualT": -561.1
     },
     {
      "diaM": 80.0,
-     "ratioSL": 0.652,
-     "totalT": 1259.4,
-     "residualT": -438.4
+     "ratioSL": 0.444,
+     "totalT": 1843.9,
+     "residualT": -1024.4
     }
    ],
    "window": null
@@ -818,51 +1187,51 @@
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 0.852,
-     "totalT": 120.4,
-     "residualT": -17.8
+     "ratioSL": 0.568,
+     "totalT": 179.9,
+     "residualT": -77.6
     },
     {
      "diaM": 44.0,
-     "ratioSL": 0.846,
-     "totalT": 161.4,
-     "residualT": -24.8
+     "ratioSL": 0.583,
+     "totalT": 233.6,
+     "residualT": -97.4
     },
     {
      "diaM": 48.0,
-     "ratioSL": 0.849,
-     "totalT": 208.9,
-     "residualT": -31.6
+     "ratioSL": 0.574,
+     "totalT": 308.0,
+     "residualT": -131.2
     },
     {
      "diaM": 52.0,
-     "ratioSL": 0.838,
-     "totalT": 269.0,
-     "residualT": -43.5
+     "ratioSL": 0.565,
+     "totalT": 398.0,
+     "residualT": -173.2
     },
     {
      "diaM": 56.0,
-     "ratioSL": 0.827,
-     "totalT": 340.6,
-     "residualT": -59.0
+     "ratioSL": 0.569,
+     "totalT": 493.3,
+     "residualT": -212.5
     },
     {
      "diaM": 60.0,
-     "ratioSL": 0.829,
-     "totalT": 417.9,
-     "residualT": -71.5
+     "ratioSL": 0.548,
+     "totalT": 630.3,
+     "residualT": -284.8
     },
     {
      "diaM": 68.0,
-     "ratioSL": 0.813,
-     "totalT": 620.4,
-     "residualT": -116.2
+     "ratioSL": 0.534,
+     "totalT": 941.9,
+     "residualT": -438.8
     },
     {
      "diaM": 80.0,
-     "ratioSL": 0.782,
-     "totalT": 1049.6,
-     "residualT": -228.6
+     "ratioSL": 0.507,
+     "totalT": 1615.2,
+     "residualT": -795.7
     }
    ],
    "window": null
@@ -871,51 +1240,51 @@
    "curve": [
     {
      "diaM": 40.0,
-     "ratioSL": 0.937,
-     "totalT": 109.5,
-     "residualT": -6.9
+     "ratioSL": 0.607,
+     "totalT": 168.3,
+     "residualT": -66.1
     },
     {
      "diaM": 44.0,
-     "ratioSL": 0.946,
-     "totalT": 144.4,
-     "residualT": -7.8
+     "ratioSL": 0.625,
+     "totalT": 218.0,
+     "residualT": -81.8
     },
     {
      "diaM": 48.0,
-     "ratioSL": 0.944,
-     "totalT": 187.8,
-     "residualT": -10.4
+     "ratioSL": 0.616,
+     "totalT": 286.9,
+     "residualT": -110.1
     },
     {
      "diaM": 52.0,
-     "ratioSL": 0.938,
-     "totalT": 240.3,
-     "residualT": -14.8
+     "ratioSL": 0.603,
+     "totalT": 372.7,
+     "residualT": -147.9
     },
     {
      "diaM": 56.0,
-     "ratioSL": 0.936,
-     "totalT": 300.8,
-     "residualT": -19.2
+     "ratioSL": 0.611,
+     "totalT": 459.7,
+     "residualT": -178.9
     },
     {
      "diaM": 60.0,
-     "ratioSL": 0.924,
-     "totalT": 375.0,
-     "residualT": -28.6
+     "ratioSL": 0.589,
+     "totalT": 586.6,
+     "residualT": -241.1
     },
     {
      "diaM": 68.0,
-     "ratioSL": 0.909,
-     "totalT": 554.4,
-     "residualT": -50.2
+     "ratioSL": 0.573,
+     "totalT": 877.7,
+     "residualT": -374.7
     },
     {
      "diaM": 80.0,
-     "ratioSL": 0.884,
-     "totalT": 929.0,
-     "residualT": -108.0
+     "ratioSL": 0.543,
+     "totalT": 1508.6,
+     "residualT": -689.1
     }
    ],
    "window": null
@@ -929,8 +1298,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 224.5,
-    "ratioSL": 1.004
+    "totalT": 324.0,
+    "ratioSL": 0.694
    },
    {
     "nLong": 72,
@@ -938,8 +1307,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 223.5,
-    "ratioSL": 1.009
+    "totalT": 322.1,
+    "ratioSL": 0.697
    },
    {
     "nLong": 72,
@@ -947,8 +1316,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 223.6,
-    "ratioSL": 1.008
+    "totalT": 322.4,
+    "ratioSL": 0.695
    },
    {
     "nLong": 72,
@@ -956,8 +1325,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 222.6,
-    "ratioSL": 1.013
+    "totalT": 322.1,
+    "ratioSL": 0.698
    },
    {
     "nLong": 72,
@@ -965,8 +1334,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 222.5,
-    "ratioSL": 1.013
+    "totalT": 322.1,
+    "ratioSL": 0.697
    },
    {
     "nLong": 72,
@@ -974,8 +1343,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 221.8,
-    "ratioSL": 1.017
+    "totalT": 320.6,
+    "ratioSL": 0.699
    },
    {
     "nLong": 72,
@@ -983,8 +1352,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 223.8,
-    "ratioSL": 1.008
+    "totalT": 325.6,
+    "ratioSL": 0.69
    },
    {
     "nLong": 72,
@@ -992,8 +1361,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 222.2,
-    "ratioSL": 1.015
+    "totalT": 322.5,
+    "ratioSL": 0.696
    },
    {
     "nLong": 72,
@@ -1001,8 +1370,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 221.3,
-    "ratioSL": 1.019
+    "totalT": 320.9,
+    "ratioSL": 0.699
    },
    {
     "nLong": 72,
@@ -1010,8 +1379,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 221.9,
-    "ratioSL": 1.016
+    "totalT": 326.9,
+    "ratioSL": 0.687
    },
    {
     "nLong": 72,
@@ -1019,8 +1388,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 221.4,
-    "ratioSL": 1.018
+    "totalT": 325.9,
+    "ratioSL": 0.689
    },
    {
     "nLong": 72,
@@ -1028,8 +1397,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 219.8,
-    "ratioSL": 1.026
+    "totalT": 322.8,
+    "ratioSL": 0.694
    },
    {
     "nLong": 72,
@@ -1037,8 +1406,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 222.3,
-    "ratioSL": 1.014
+    "totalT": 335.7,
+    "ratioSL": 0.67
    },
    {
     "nLong": 72,
@@ -1046,8 +1415,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 221.3,
-    "ratioSL": 1.019
+    "totalT": 333.7,
+    "ratioSL": 0.673
    },
    {
     "nLong": 72,
@@ -1055,8 +1424,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 221.4,
-    "ratioSL": 1.018
+    "totalT": 334.0,
+    "ratioSL": 0.671
    },
    {
     "nLong": 72,
@@ -1064,8 +1433,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 219.7,
-    "ratioSL": 1.026
+    "totalT": 334.1,
+    "ratioSL": 0.673
    },
    {
     "nLong": 72,
@@ -1073,8 +1442,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 219.6,
-    "ratioSL": 1.027
+    "totalT": 334.0,
+    "ratioSL": 0.672
    },
    {
     "nLong": 72,
@@ -1082,8 +1451,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 218.9,
-    "ratioSL": 1.03
+    "totalT": 332.6,
+    "ratioSL": 0.674
    },
    {
     "nLong": 72,
@@ -1091,8 +1460,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 221.1,
-    "ratioSL": 1.02
+    "totalT": 338.4,
+    "ratioSL": 0.664
    },
    {
     "nLong": 72,
@@ -1100,8 +1469,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 219.5,
-    "ratioSL": 1.027
+    "totalT": 335.3,
+    "ratioSL": 0.67
    },
    {
     "nLong": 72,
@@ -1109,8 +1478,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 218.7,
-    "ratioSL": 1.031
+    "totalT": 333.7,
+    "ratioSL": 0.672
    },
    {
     "nLong": 72,
@@ -1118,8 +1487,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 221.2,
-    "ratioSL": 1.019
+    "totalT": 339.5,
+    "ratioSL": 0.661
    },
    {
     "nLong": 72,
@@ -1127,8 +1496,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 220.6,
-    "ratioSL": 1.022
+    "totalT": 338.5,
+    "ratioSL": 0.663
    },
    {
     "nLong": 72,
@@ -1136,242 +1505,242 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 219.1,
-    "ratioSL": 1.029
+    "totalT": 335.4,
+    "ratioSL": 0.668
    },
    {
     "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 215.5,
-    "ratioSL": 1.046
+    "totalT": 371.8,
+    "ratioSL": 0.605
    },
    {
     "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.4,
-    "sB": 0.7,
-    "totalT": 214.8,
-    "ratioSL": 1.05
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.4,
-    "sB": 1.0,
-    "totalT": 215.1,
-    "ratioSL": 1.048
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.5,
-    "sB": 0.5,
-    "totalT": 219.1,
-    "ratioSL": 1.029
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.5,
-    "sB": 0.7,
-    "totalT": 219.2,
-    "ratioSL": 1.028
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.5,
-    "sB": 1.0,
-    "totalT": 218.6,
-    "ratioSL": 1.031
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.6,
-    "sB": 0.5,
-    "totalT": 223.2,
-    "ratioSL": 1.01
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.6,
-    "sB": 0.7,
-    "totalT": 221.9,
-    "ratioSL": 1.016
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.6,
-    "sB": 1.0,
-    "totalT": 221.2,
-    "ratioSL": 1.019
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.8,
-    "sB": 0.5,
-    "totalT": 228.8,
-    "ratioSL": 0.986
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.8,
-    "sB": 0.7,
-    "totalT": 228.4,
-    "ratioSL": 0.987
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 3.0,
-    "sR": 0.8,
-    "sB": 1.0,
-    "totalT": 226.9,
-    "ratioSL": 0.994
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.4,
-    "sB": 0.5,
-    "totalT": 220.3,
-    "ratioSL": 1.023
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.4,
-    "sB": 0.7,
-    "totalT": 219.6,
-    "ratioSL": 1.027
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.4,
-    "sB": 1.0,
-    "totalT": 219.9,
-    "ratioSL": 1.025
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.5,
-    "sB": 0.5,
-    "totalT": 224.7,
-    "ratioSL": 1.004
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.5,
-    "sB": 0.7,
-    "totalT": 224.8,
-    "ratioSL": 1.003
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.5,
-    "sB": 1.0,
-    "totalT": 224.2,
-    "ratioSL": 1.006
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.6,
-    "sB": 0.5,
-    "totalT": 230.4,
-    "ratioSL": 0.979
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.6,
-    "sB": 0.7,
-    "totalT": 229.0,
-    "ratioSL": 0.984
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.6,
-    "sB": 1.0,
-    "totalT": 228.4,
-    "ratioSL": 0.987
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.8,
-    "sB": 0.5,
-    "totalT": 237.8,
-    "ratioSL": 0.948
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.8,
-    "sB": 0.7,
-    "totalT": 237.4,
-    "ratioSL": 0.95
-   },
-   {
-    "nLong": 72,
-    "kFan": 2,
-    "depth": 4.0,
-    "sR": 0.8,
-    "sB": 1.0,
-    "totalT": 236.0,
-    "ratioSL": 0.956
-   },
-   {
-    "nLong": 96,
     "kFan": 1,
-    "depth": 3.0,
+    "depth": 5.0,
+    "sR": 0.4,
+    "sB": 0.7,
+    "totalT": 369.8,
+    "ratioSL": 0.607
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.4,
+    "sB": 1.0,
+    "totalT": 370.1,
+    "ratioSL": 0.606
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 0.5,
+    "totalT": 366.6,
+    "ratioSL": 0.613
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 0.7,
+    "totalT": 366.6,
+    "ratioSL": 0.613
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 1.0,
+    "totalT": 365.1,
+    "ratioSL": 0.614
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 0.5,
+    "totalT": 370.8,
+    "ratioSL": 0.606
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 0.7,
+    "totalT": 367.7,
+    "ratioSL": 0.611
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 1.0,
+    "totalT": 366.1,
+    "ratioSL": 0.612
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 0.5,
+    "totalT": 375.5,
+    "ratioSL": 0.598
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 0.7,
+    "totalT": 374.5,
+    "ratioSL": 0.599
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 1.0,
+    "totalT": 371.4,
+    "ratioSL": 0.604
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 222.8,
-    "ratioSL": 1.012
+    "totalT": 418.2,
+    "ratioSL": 0.538
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.4,
+    "sB": 0.7,
+    "totalT": 416.3,
+    "ratioSL": 0.539
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.4,
+    "sB": 1.0,
+    "totalT": 416.6,
+    "ratioSL": 0.538
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 0.5,
+    "totalT": 417.4,
+    "ratioSL": 0.539
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 0.7,
+    "totalT": 417.3,
+    "ratioSL": 0.538
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 1.0,
+    "totalT": 415.8,
+    "ratioSL": 0.539
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 0.5,
+    "totalT": 422.2,
+    "ratioSL": 0.532
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 0.7,
+    "totalT": 419.1,
+    "ratioSL": 0.536
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 1.0,
+    "totalT": 417.5,
+    "ratioSL": 0.537
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 0.5,
+    "totalT": 429.4,
+    "ratioSL": 0.523
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 0.7,
+    "totalT": 428.4,
+    "ratioSL": 0.524
+   },
+   {
+    "nLong": 72,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 1.0,
+    "totalT": 425.3,
+    "ratioSL": 0.527
    },
    {
     "nLong": 96,
     "kFan": 1,
     "depth": 3.0,
     "sR": 0.4,
+    "sB": 0.5,
+    "totalT": 349.0,
+    "ratioSL": 0.644
+   },
+   {
+    "nLong": 96,
+    "kFan": 1,
+    "depth": 3.0,
+    "sR": 0.4,
     "sB": 0.7,
-    "totalT": 221.9,
-    "ratioSL": 1.016
+    "totalT": 347.2,
+    "ratioSL": 0.647
    },
    {
     "nLong": 96,
@@ -1379,8 +1748,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 222.2,
-    "ratioSL": 1.015
+    "totalT": 347.6,
+    "ratioSL": 0.645
    },
    {
     "nLong": 96,
@@ -1388,8 +1757,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 221.0,
-    "ratioSL": 1.02
+    "totalT": 348.5,
+    "ratioSL": 0.645
    },
    {
     "nLong": 96,
@@ -1397,8 +1766,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 221.0,
-    "ratioSL": 1.02
+    "totalT": 348.5,
+    "ratioSL": 0.644
    },
    {
     "nLong": 96,
@@ -1406,8 +1775,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 220.4,
-    "ratioSL": 1.023
+    "totalT": 347.2,
+    "ratioSL": 0.646
    },
    {
     "nLong": 96,
@@ -1415,8 +1784,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 222.0,
-    "ratioSL": 1.016
+    "totalT": 352.4,
+    "ratioSL": 0.638
    },
    {
     "nLong": 96,
@@ -1424,8 +1793,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 220.5,
-    "ratioSL": 1.023
+    "totalT": 349.4,
+    "ratioSL": 0.643
    },
    {
     "nLong": 96,
@@ -1433,8 +1802,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 219.7,
-    "ratioSL": 1.026
+    "totalT": 347.9,
+    "ratioSL": 0.644
    },
    {
     "nLong": 96,
@@ -1442,8 +1811,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 223.3,
-    "ratioSL": 1.01
+    "totalT": 356.4,
+    "ratioSL": 0.63
    },
    {
     "nLong": 96,
@@ -1451,8 +1820,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 222.9,
-    "ratioSL": 1.012
+    "totalT": 355.5,
+    "ratioSL": 0.631
    },
    {
     "nLong": 96,
@@ -1460,8 +1829,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 221.4,
-    "ratioSL": 1.018
+    "totalT": 352.4,
+    "ratioSL": 0.636
    },
    {
     "nLong": 96,
@@ -1469,8 +1838,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 223.8,
-    "ratioSL": 1.007
+    "totalT": 388.4,
+    "ratioSL": 0.579
    },
    {
     "nLong": 96,
@@ -1478,8 +1847,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 223.0,
-    "ratioSL": 1.011
+    "totalT": 386.6,
+    "ratioSL": 0.581
    },
    {
     "nLong": 96,
@@ -1487,8 +1856,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 223.2,
-    "ratioSL": 1.01
+    "totalT": 387.0,
+    "ratioSL": 0.579
    },
    {
     "nLong": 96,
@@ -1496,8 +1865,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 221.7,
-    "ratioSL": 1.017
+    "totalT": 392.1,
+    "ratioSL": 0.573
    },
    {
     "nLong": 96,
@@ -1505,8 +1874,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 221.8,
-    "ratioSL": 1.017
+    "totalT": 392.1,
+    "ratioSL": 0.573
    },
    {
     "nLong": 96,
@@ -1514,8 +1883,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 221.1,
-    "ratioSL": 1.02
+    "totalT": 390.8,
+    "ratioSL": 0.574
    },
    {
     "nLong": 96,
@@ -1523,8 +1892,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 224.6,
-    "ratioSL": 1.004
+    "totalT": 390.1,
+    "ratioSL": 0.576
    },
    {
     "nLong": 96,
@@ -1532,8 +1901,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 223.2,
-    "ratioSL": 1.01
+    "totalT": 387.1,
+    "ratioSL": 0.58
    },
    {
     "nLong": 96,
@@ -1541,8 +1910,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 222.4,
-    "ratioSL": 1.014
+    "totalT": 385.6,
+    "ratioSL": 0.581
    },
    {
     "nLong": 96,
@@ -1550,8 +1919,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 226.5,
-    "ratioSL": 0.995
+    "totalT": 395.2,
+    "ratioSL": 0.568
    },
    {
     "nLong": 96,
@@ -1559,8 +1928,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 226.1,
-    "ratioSL": 0.997
+    "totalT": 394.3,
+    "ratioSL": 0.569
    },
    {
     "nLong": 96,
@@ -1568,224 +1937,224 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 224.6,
-    "ratioSL": 1.004
+    "totalT": 391.2,
+    "ratioSL": 0.573
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 230.5,
-    "ratioSL": 0.978
+    "totalT": 457.8,
+    "ratioSL": 0.491
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 229.8,
-    "ratioSL": 0.981
+    "totalT": 455.9,
+    "ratioSL": 0.493
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 230.1,
-    "ratioSL": 0.98
+    "totalT": 456.3,
+    "ratioSL": 0.491
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 234.0,
-    "ratioSL": 0.963
+    "totalT": 458.0,
+    "ratioSL": 0.491
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 234.3,
-    "ratioSL": 0.962
+    "totalT": 458.1,
+    "ratioSL": 0.49
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 233.7,
-    "ratioSL": 0.965
+    "totalT": 456.7,
+    "ratioSL": 0.491
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 239.4,
-    "ratioSL": 0.942
+    "totalT": 463.5,
+    "ratioSL": 0.485
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 238.0,
-    "ratioSL": 0.947
+    "totalT": 460.5,
+    "ratioSL": 0.488
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 237.3,
-    "ratioSL": 0.95
+    "totalT": 459.0,
+    "ratioSL": 0.488
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 245.7,
-    "ratioSL": 0.918
+    "totalT": 469.8,
+    "ratioSL": 0.478
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 245.3,
-    "ratioSL": 0.919
+    "totalT": 468.9,
+    "ratioSL": 0.479
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 3.0,
+    "kFan": 1,
+    "depth": 5.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 243.9,
-    "ratioSL": 0.924
+    "totalT": 465.8,
+    "ratioSL": 0.481
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 241.5,
-    "ratioSL": 0.934
+    "totalT": 571.6,
+    "ratioSL": 0.393
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 240.8,
-    "ratioSL": 0.936
+    "totalT": 569.7,
+    "ratioSL": 0.394
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 241.1,
-    "ratioSL": 0.935
+    "totalT": 570.1,
+    "ratioSL": 0.393
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 246.6,
-    "ratioSL": 0.914
+    "totalT": 572.3,
+    "ratioSL": 0.393
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 246.8,
-    "ratioSL": 0.913
+    "totalT": 572.4,
+    "ratioSL": 0.392
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 246.3,
-    "ratioSL": 0.915
+    "totalT": 571.0,
+    "ratioSL": 0.393
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 254.3,
-    "ratioSL": 0.887
+    "totalT": 577.9,
+    "ratioSL": 0.389
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 252.9,
-    "ratioSL": 0.891
+    "totalT": 574.9,
+    "ratioSL": 0.391
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 252.3,
-    "ratioSL": 0.894
+    "totalT": 573.4,
+    "ratioSL": 0.391
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 263.1,
-    "ratioSL": 0.857
+    "totalT": 586.6,
+    "ratioSL": 0.383
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 262.7,
-    "ratioSL": 0.858
+    "totalT": 585.7,
+    "ratioSL": 0.383
    },
    {
     "nLong": 96,
-    "kFan": 2,
-    "depth": 4.0,
+    "kFan": 1,
+    "depth": 6.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 261.2,
-    "ratioSL": 0.863
+    "totalT": 582.6,
+    "ratioSL": 0.385
    },
    {
     "nLong": 144,
@@ -1793,8 +2162,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 230.0,
-    "ratioSL": 0.98
+    "totalT": 447.7,
+    "ratioSL": 0.502
    },
    {
     "nLong": 144,
@@ -1802,8 +2171,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 229.3,
-    "ratioSL": 0.984
+    "totalT": 446.0,
+    "ratioSL": 0.504
    },
    {
     "nLong": 144,
@@ -1811,8 +2180,8 @@
     "depth": 3.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 229.6,
-    "ratioSL": 0.982
+    "totalT": 446.5,
+    "ratioSL": 0.502
    },
    {
     "nLong": 144,
@@ -1820,8 +2189,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 233.2,
-    "ratioSL": 0.967
+    "totalT": 445.8,
+    "ratioSL": 0.504
    },
    {
     "nLong": 144,
@@ -1829,8 +2198,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 233.4,
-    "ratioSL": 0.966
+    "totalT": 446.0,
+    "ratioSL": 0.504
    },
    {
     "nLong": 144,
@@ -1838,8 +2207,8 @@
     "depth": 3.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 232.7,
-    "ratioSL": 0.969
+    "totalT": 444.6,
+    "ratioSL": 0.504
    },
    {
     "nLong": 144,
@@ -1847,8 +2216,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 237.6,
-    "ratioSL": 0.949
+    "totalT": 452.4,
+    "ratioSL": 0.497
    },
    {
     "nLong": 144,
@@ -1856,8 +2225,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 236.3,
-    "ratioSL": 0.954
+    "totalT": 449.5,
+    "ratioSL": 0.5
    },
    {
     "nLong": 144,
@@ -1865,8 +2234,8 @@
     "depth": 3.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 235.6,
-    "ratioSL": 0.957
+    "totalT": 448.0,
+    "ratioSL": 0.5
    },
    {
     "nLong": 144,
@@ -1874,8 +2243,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 243.3,
-    "ratioSL": 0.927
+    "totalT": 461.1,
+    "ratioSL": 0.487
    },
    {
     "nLong": 144,
@@ -1883,8 +2252,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 243.0,
-    "ratioSL": 0.928
+    "totalT": 460.3,
+    "ratioSL": 0.488
    },
    {
     "nLong": 144,
@@ -1892,8 +2261,8 @@
     "depth": 3.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 241.5,
-    "ratioSL": 0.934
+    "totalT": 457.3,
+    "ratioSL": 0.49
    },
    {
     "nLong": 144,
@@ -1901,8 +2270,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.5,
-    "totalT": 239.5,
-    "ratioSL": 0.942
+    "totalT": 581.3,
+    "ratioSL": 0.387
    },
    {
     "nLong": 144,
@@ -1910,8 +2279,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 0.7,
-    "totalT": 238.7,
-    "ratioSL": 0.944
+    "totalT": 579.6,
+    "ratioSL": 0.387
    },
    {
     "nLong": 144,
@@ -1919,8 +2288,8 @@
     "depth": 4.0,
     "sR": 0.4,
     "sB": 1.0,
-    "totalT": 239.1,
-    "ratioSL": 0.943
+    "totalT": 580.1,
+    "ratioSL": 0.386
    },
    {
     "nLong": 144,
@@ -1928,8 +2297,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.5,
-    "totalT": 243.1,
-    "ratioSL": 0.928
+    "totalT": 585.3,
+    "ratioSL": 0.384
    },
    {
     "nLong": 144,
@@ -1937,8 +2306,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 0.7,
-    "totalT": 243.2,
-    "ratioSL": 0.927
+    "totalT": 585.4,
+    "ratioSL": 0.384
    },
    {
     "nLong": 144,
@@ -1946,8 +2315,8 @@
     "depth": 4.0,
     "sR": 0.5,
     "sB": 1.0,
-    "totalT": 242.6,
-    "ratioSL": 0.93
+    "totalT": 584.1,
+    "ratioSL": 0.384
    },
    {
     "nLong": 144,
@@ -1955,8 +2324,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.5,
-    "totalT": 250.6,
-    "ratioSL": 0.9
+    "totalT": 593.7,
+    "ratioSL": 0.378
    },
    {
     "nLong": 144,
@@ -1964,8 +2333,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 0.7,
-    "totalT": 249.2,
-    "ratioSL": 0.905
+    "totalT": 590.8,
+    "ratioSL": 0.38
    },
    {
     "nLong": 144,
@@ -1973,8 +2342,8 @@
     "depth": 4.0,
     "sR": 0.6,
     "sB": 1.0,
-    "totalT": 248.6,
-    "ratioSL": 0.907
+    "totalT": 589.3,
+    "ratioSL": 0.38
    },
    {
     "nLong": 144,
@@ -1982,8 +2351,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.5,
-    "totalT": 257.1,
-    "ratioSL": 0.877
+    "totalT": 597.6,
+    "ratioSL": 0.376
    },
    {
     "nLong": 144,
@@ -1991,8 +2360,8 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 0.7,
-    "totalT": 256.7,
-    "ratioSL": 0.878
+    "totalT": 596.7,
+    "ratioSL": 0.376
    },
    {
     "nLong": 144,
@@ -2000,55 +2369,271 @@
     "depth": 4.0,
     "sR": 0.8,
     "sB": 1.0,
-    "totalT": 255.2,
-    "ratioSL": 0.883
+    "totalT": 593.8,
+    "ratioSL": 0.378
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.4,
+    "sB": 0.5,
+    "totalT": 808.4,
+    "ratioSL": 0.278
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.4,
+    "sB": 0.7,
+    "totalT": 806.7,
+    "ratioSL": 0.278
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.4,
+    "sB": 1.0,
+    "totalT": 807.2,
+    "ratioSL": 0.278
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 0.5,
+    "totalT": 816.4,
+    "ratioSL": 0.275
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 0.7,
+    "totalT": 816.6,
+    "ratioSL": 0.275
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.5,
+    "sB": 1.0,
+    "totalT": 815.2,
+    "ratioSL": 0.275
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 0.5,
+    "totalT": 827.0,
+    "ratioSL": 0.272
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 0.7,
+    "totalT": 824.1,
+    "ratioSL": 0.272
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.6,
+    "sB": 1.0,
+    "totalT": 822.7,
+    "ratioSL": 0.272
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 0.5,
+    "totalT": 835.8,
+    "ratioSL": 0.269
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 0.7,
+    "totalT": 834.9,
+    "ratioSL": 0.269
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 5.0,
+    "sR": 0.8,
+    "sB": 1.0,
+    "totalT": 832.0,
+    "ratioSL": 0.269
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.4,
+    "sB": 0.5,
+    "totalT": 1155.0,
+    "ratioSL": 0.195
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.4,
+    "sB": 0.7,
+    "totalT": 1153.3,
+    "ratioSL": 0.195
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.4,
+    "sB": 1.0,
+    "totalT": 1153.8,
+    "ratioSL": 0.194
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 0.5,
+    "totalT": 1162.2,
+    "ratioSL": 0.193
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 0.7,
+    "totalT": 1162.4,
+    "ratioSL": 0.193
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.5,
+    "sB": 1.0,
+    "totalT": 1161.0,
+    "ratioSL": 0.193
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 0.5,
+    "totalT": 1172.0,
+    "ratioSL": 0.192
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 0.7,
+    "totalT": 1169.1,
+    "ratioSL": 0.192
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.6,
+    "sB": 1.0,
+    "totalT": 1167.7,
+    "ratioSL": 0.192
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 0.5,
+    "totalT": 1188.0,
+    "ratioSL": 0.189
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 0.7,
+    "totalT": 1187.1,
+    "ratioSL": 0.189
+   },
+   {
+    "nLong": 144,
+    "kFan": 1,
+    "depth": 6.0,
+    "sR": 0.8,
+    "sB": 1.0,
+    "totalT": 1184.2,
+    "ratioSL": 0.189
    }
   ],
   "best": {
    "nLong": 72,
-   "kFan": 2,
+   "kFan": 1,
    "depth": 3.0,
-   "sR": 0.4,
-   "sB": 0.7,
-   "totalT": 214.8,
-   "ratioSL": 1.05
+   "sR": 0.5,
+   "sB": 1.0,
+   "totalT": 320.6,
+   "ratioSL": 0.699
   }
  },
  "sensitivity": [
   {
    "case": "baseline (chosen config)",
-   "totalT": 219.1,
-   "ratioSL": 1.029
+   "totalT": 322.1,
+   "ratioSL": 0.698
   },
   {
    "case": "depth +1 m",
-   "totalT": 224.7,
-   "ratioSL": 1.004
+   "totalT": 334.1,
+   "ratioSL": 0.673
   },
   {
    "case": "rings +0.1 m",
-   "totalT": 223.2,
-   "ratioSL": 1.01
+   "totalT": 325.6,
+   "ratioSL": 0.69
   },
   {
    "case": "eta 0.80",
-   "totalT": 231.3,
-   "ratioSL": 0.975
+   "totalT": 340.5,
+   "ratioSL": 0.66
   },
   {
    "case": "eta 0.90",
-   "totalT": 208.2,
-   "ratioSL": 1.083
+   "totalT": 305.8,
+   "ratioSL": 0.735
   },
   {
    "case": "dia 56 m",
-   "totalT": 276.2,
-   "ratioSL": 1.02
+   "totalT": 407.0,
+   "ratioSL": 0.69
   },
   {
    "case": "dia 60 m",
-   "totalT": 345.7,
-   "ratioSL": 1.002
+   "totalT": 506.7,
+   "ratioSL": 0.682
   }
  ]
 }
