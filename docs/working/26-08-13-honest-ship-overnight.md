@@ -378,3 +378,19 @@ Operator round 6, the UI-quality verdict ("good, not just a trigger of functiona
 - **Gate follows**: parts probe clicks segments (joinery→pipes→all, same visit order the
   cycle used), the skin read-back drives the segment, 'parts: all' label assertion
   became active-segment read-back, the pump's label assertion became a lit-dot check.
+
+
+## MORNING, PART 10 — one tank, its ballast pair, and the rotor decision recorded
+
+- **ONE water tank** (pi x 1.8^2 x 10.5 = 107 m3 — Mission-0 100 t with trim margin),
+  flanked fore and aft by **two N2 ballast tanks** in cool glass (the air-admission
+  ballast the descent doctrine prices). The raft frame is resized to hug the cluster
+  (19.5 x 6.0 x 4.4 — was 22 x 13 x 3.2 around barrels it dwarfed). The raft's gear
+  beads are gone: the pumps and the winch live in the drop-line box, which sits
+  directly above the bucket as the operator specified.
+- **ROTOR PLACEMENT: DECIDED [SCOPING], and the panel says why** — low on the widest
+  band: the downthrust washes clear past the hull's curve instead of fountaining
+  against the belly (a keel mount fights its own suckdown and the bridle), the
+  fore-aft spread buys pitch/roll authority, symmetric pairs cancel their own moments,
+  and the gimbal gives cruise for free. Real disc sizing belongs to the fleet-model
+  power work (#88's neighbourhood).

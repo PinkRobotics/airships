@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=9fe80f91';
-import * as G from './explorer-geom.js?v=9fe80f91';
+import * as CELL from './model.js?v=74d38967';
+import * as G from './explorer-geom.js?v=74d38967';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=9fe80f91';
+} from './nodes.generated.js?v=74d38967';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=9fe80f91';
+import { NODEMESHES } from './nodemeshes.generated.js?v=74d38967';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=9fe80f91';
+import { SKIN } from './skin.generated.js?v=74d38967';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=9fe80f91';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=74d38967';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -77,6 +77,8 @@ const XM = {
   membraneLoaded: { kind: 'glass', color: TOKENS.warm, opacity: 0.18 },
   // Photovoltaic skin on the hull's sun side — dark blue-grey, glossier than film.
   solar: { kind: 'surface', color: '#24415f', spec: 0.55, opacity: 1 },
+  // Cryo/N2 tankage — cool glass, read clearly apart from the pink water.
+  cryo: { kind: 'glass', color: '#7aa2c8', opacity: 0.26 },
   kelvinGhost: { kind: 'glass', color: '#7aa2c8', opacity: 0.07 },
   // The band as the ship wears it: an opaque skin of film-wrapped cells. Bone-grey rather
   // than pink because at ship range you are looking at the weathered outside of the wall,
@@ -2476,7 +2478,9 @@ function buildVessel() {
   const xMid = point(D.total / 2, 0, 0)[0];
   const keelZ = -D.R;
   const DROP = D.R * 0.34;
-  const MW = 13, ML = 22, MH = 3.2;
+  // Sized to what it carries (operator, round 7): the raft hugs the tank
+  // cluster instead of rattling around a 22 m frame.
+  const MW = 6.0, ML = 19.5, MH = 4.4;
   const mz0 = keelZ - DROP, mz1 = mz0 - MH;
   const corner = (sx, sy, z) => [xMid + sx * ML / 2, sy * MW / 2, z];
   const frame = [];
@@ -2490,28 +2494,26 @@ function buildVessel() {
     frame.push({ a: corner(sx, sy, mz0), b: corner(sx, sy, mz1) });
   pipesFromSegs(root, 'VesselModule', frame, 0.16, XM.pipeRim, 6);
   {
-    // Tanks along the raft, pumps at its aft corners, the winch drum amidships.
-    const tanks = [];
-    for (const y of [-MW * 0.30, 0, MW * 0.30]) tanks.push([xMid, y, (mz0 + mz1) / 2]);
-    const xf = new Float32Array(tanks.length * 16);
-    tanks.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
-      q[0], q[1], q[2], 1], i * 16));
-    const tk = inst(root, { id: 'VesselTanks' }, xf, tanks.length, {});
-    // Sized to the water, not to the raft (operator check, 08-13): three
-    // barrels of pi x 1.2^2 x 7.7 = 34.8 m3 each — 104 m3 together, the
-    // Mission-0 100 t split with trim margin. The old draw was ~380 m3.
-    tk.geom = latheWithScale([[-4.2, 0.25], [-3.85, 1.2],
-      [3.85, 1.2], [4.2, 0.25]], 18, () => 1);
-    tk.xmat = XM.membraneLoaded;
-    const gear = [[xMid - ML * 0.42, -MW * 0.22, mz1 + 0.8],
-                  [xMid - ML * 0.42, MW * 0.22, mz1 + 0.8],
-                  [xMid + ML * 0.40, 0, mz1 + 0.7]];
-    const gxf = new Float32Array(gear.length * 16);
-    gear.forEach((q, i) => gxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
-      q[0], q[1], q[2], 1], i * 16));
-    const gn = inst(root, { id: 'VesselGear' }, gxf, gear.length, {});
-    gn.geom = G.beadGeom(1.15, 0.85, 1.0, 12);
-    gn.xmat = XM.printed;
+    // ONE water tank, two N2 tanks fore and aft (operator, round 7): the
+    // water is a single pi x 1.8^2 x 10.5 = 107 m3 vessel — the Mission-0
+    // 100 t with trim margin — and the nitrogen pair is the air-admission
+    // ballast the descent doctrine prices, riding the same raft. The pumps
+    // and the winch are NOT here: they live in the box on the drop line.
+    const zc = (mz0 + mz1) / 2;
+    const wxf = new Float32Array(16);
+    wxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, xMid, 0, zc, 1]);
+    const wt = inst(root, { id: 'VesselTankWater' }, wxf, 1, {});
+    wt.geom = latheWithScale([[-5.6, 0.3], [-5.25, 1.8],
+      [5.25, 1.8], [5.6, 0.3]], 20, () => 1);
+    wt.xmat = XM.membraneLoaded;
+    const nx = [xMid - 7.8, xMid + 7.8];
+    const nxf = new Float32Array(nx.length * 16);
+    nx.forEach((x2, i) => nxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+      x2, 0, zc, 1], i * 16));
+    const nt = inst(root, { id: 'VesselTanksN2' }, nxf, nx.length, {});
+    nt.geom = latheWithScale([[-1.9, 0.25], [-1.7, 1.0],
+      [1.7, 1.0], [1.9, 0.25]], 16, () => 1);
+    nt.xmat = XM.cryo;
   }
 
   // THE BRIDLE: eight pendants from the strap bands to the raft's corners,
@@ -2565,7 +2567,7 @@ function buildVessel() {
     labels: [
       { p: [0, 0, D.R * 1.35], t: 'the ship — the hull plus everything it wears', s: 'one rule: NOTHING cuts the wall. There is no interior to put gear in — the inside is the product — so every system is exterior, on straps and pylons and lines. Equipment is named, not weighed [SCOPING]' },
       { p: point(podS[1], 0, -0.38).slice(0, 3).map((v, i) => i === 2 ? v + ROTOR_R + 9 : v), t: 'thrust stands off on pylons', s: 'the pylon is longer than the rotor radius so the disc clears the skin — the dashboard model’s own law. The load enters at a strap hardpoint and spreads over many rings; nothing is drilled' },
-      { p: [xMid - ML * 2.6, 0, mz0 + 2.0], t: 'the works, suspended', s: 'tanks, pumps and the winch on a raft under the keel, hung from a wide bridle: every pendant meets the hull as a near-tangential pull on a circumferential strap. A hard-mounted gondola would put its moments straight into a 4 mm wall; the pendulum is the price, and ops owns it [SCOPING]' },
+      { p: [xMid - ML * 2.6, 0, mz0 + 2.0], t: 'the works, suspended', s: 'one water tank with its N2 ballast pair on a raft under the keel, hung from a wide bridle: every pendant meets the hull as a near-tangential pull on a circumferential strap. A hard-mounted gondola would put its moments straight into a 4 mm wall; the pendulum is the price, and ops owns it [SCOPING]' },
       { p: [xMid + 16, 0, bucketZ + 2.5], t: 'the bucket rides a line', s: 'scoop, climb, drop — the water cycle never touches the hull. Drop the water and the ship is ~100 t light: the rotors and the anchor line are what hold it down while it refills' },
       { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. We build this 52 m hull first; the spec is what it graduates into' },
     ],
@@ -3313,8 +3315,8 @@ export function mountExplorer(opts) {
   const VESSEL_LAYER = { VesselWrap: 'wall', VesselSolar: 'wall',
                          VesselPylons: 'pods', VesselPods: 'pods',
                          VesselRotors: 'pods',
-                         VesselModule: 'module', VesselTanks: 'module',
-                         VesselGear: 'module', VesselBucket: 'module',
+                         VesselModule: 'module', VesselTankWater: 'module',
+                         VesselTanksN2: 'module', VesselBucket: 'module',
                          VesselPumpWinch: 'module', VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines' };
   const styleFor = (n) => {
