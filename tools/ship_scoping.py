@@ -137,6 +137,23 @@ E_SPOKE = 70e9                          # Dyneema-class cord modulus [TO VERIFY 
 RHO_SPOKE = 970.0
 SPOKE_FITTING = 1.3                     # terminations + pretension hardware [SCOPING]
 
+# SHIP-3 DESIGN-MOVE BOUNDS — for the --band study ONLY; both False in every
+# gated run and the record never sizes with either:
+#   BOUND_CHORDAL — the chordal spoke net engages the ODD circumferential
+#     modes a diametral cord cannot [REV-1]. Credited as the same Winkler
+#     foundation at odd n; the cord mass IS priced (the greedy buys it at
+#     diametral-cord rates), the net's geometry/terminations are [SCOPING].
+#   BOUND_MEMBRANE — the in-surface shear system licenses Bryant's membrane
+#     term back [REV-2]. Stiffness credited, the shear system's own mass NOT
+#     priced — an OUTER BOUND, not a design.
+BOUND_CHORDAL = False
+BOUND_MEMBRANE = False
+
+# The committed plan-of-record configuration. main() re-derives it from the
+# sweep every run; the band study evaluates this committed row and refuses to
+# print if the 52 m record does not reproduce first.
+PLAN_CFG = {"sR": 0.5, "sB": 0.5, "nLong": 72, "kFan": 1, "depth": 3.0}
+
 OUT_JSON = ROOT / "research" / "analysis" / "ship-scoping.json"
 
 # The live geometry — set by configure(); every solver reads these.
@@ -405,8 +422,14 @@ def skeleton(sigma_mat: float, sf: float, wall: dict) -> dict:
                 q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
             else:
                 q_ring = 0.0
-            q_found = (k_r * R / (n * n - 1)) if n % 2 == 0 else 0.0
-            q = q_ring + q_found
+            q_found = (k_r * R / (n * n - 1)) \
+                if (n % 2 == 0 or BOUND_CHORDAL) else 0.0
+            q_mem = 0.0
+            if BOUND_MEMBRANE:
+                nn_l2 = n * n + lam2
+                q_mem = (E * a_x * lam2 * lam2
+                         / (R * (n * n + lam2 / 2 - 1) * nn_l2 * nn_l2))
+            q = q_ring + q_found + q_mem
             if best_q is None or q < best_q:
                 best_q, best_n = q, n
         return {"qCrPa": best_q * knockdown, "critN": best_n,
@@ -845,10 +868,204 @@ def sensitivity(cfg: dict, sigma_key: str, sf: float) -> list:
 
 
 # ---------------------------------------------------------------------------------
+# THE BAND STUDY (--band) — operator question, 2026-08-13 morning: "instead of
+# asking for a set safety factor, put ourselves in the middle of the band (best
+# float, farthest from crush) and let the margin be an OUTPUT of materials and
+# design." The two boundaries at every hull:
+#   CRUSH = the ledger the solver writes at SF exactly 1.0 — every capacity
+#           meets its demand at nominal pressure, zero margin anywhere;
+#   SINK  = displacement lift.
+# Every design that both stands and floats lives between them. The emergent
+# safety factor of a design at mass m is the SF whose ledger hits m — so the
+# margin becomes a consequence of the band, not a declaration. Honest limits:
+# the crush boundary is the STATIC nominal-pressure boundary (gusts, thermal
+# and control loads spend emergent SF in service), it lives inside a knockdown
+# WORLD (which the campaigns decide), and the erection/shoring bill stays a
+# separate ops line, not a mass line.
+# ---------------------------------------------------------------------------------
+def _mass_lift(dia: float, sigma_key: str, sf: float) -> tuple:
+    led = at_diameter(dia, PLAN_CFG, sigma_key, sf)
+    converged = (led["skeleton"]["ovalization"]["marginAtSF"] >= 1.0
+                 and led["skeleton"]["capBuckle"]["marginAtSF"] >= 1.0)
+    return led["totalT"], led["liftSLT"], converged
+
+
+def _mass_or_inf(dia: float, sigma_key: str, sf: float) -> float:
+    """m(SF), with the section catalog running out treated as +inf — a factor
+    the catalog cannot build is above any mass target we would bisect for."""
+    try:
+        m, _, _ = _mass_lift(dia, sigma_key, sf)
+        return m
+    except RuntimeError:
+        return math.inf
+
+
+def emergent_sf(dia: float, sigma_key: str, target_t: float) -> float | None:
+    """The safety factor whose ledger mass hits target_t — m(SF) is monotone
+    rising in SF. None if even the crush boundary (SF 1.0) overshoots."""
+    lo, hi = 1.0, 2.0
+    m_lo, _, ok = _mass_lift(dia, sigma_key, lo)
+    if not ok or m_lo > target_t:
+        return None
+    m_hi = _mass_or_inf(dia, sigma_key, hi)
+    grow = 0
+    while m_hi < target_t and grow < 4:
+        hi *= 1.5
+        m_hi = _mass_or_inf(dia, sigma_key, hi)
+        grow += 1
+    if m_hi < target_t:
+        return None
+    for _ in range(14):
+        mid = (lo + hi) / 2.0
+        if _mass_or_inf(dia, sigma_key, mid) < target_t:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2.0
+
+
+def band_study() -> None:
+    global GI_ACTIVE, BOUND_CHORDAL, BOUND_MEMBRANE
+    # Pin the committed plan before printing anything: the 52 m record must
+    # reproduce from PLAN_CFG or this study is talking about some other ship.
+    configure(n_long=PLAN_CFG["nLong"], k_fan=PLAN_CFG["kFan"],
+              depth=PLAN_CFG["depth"])
+    rec = ship_ledger(SIGMA_MID, SF_DECL, PLAN_CFG["sR"], PLAN_CFG["sB"])
+    if abs(rec["totalT"] - 403.1) > 0.8 or abs(rec["ratioSL"] - 0.558) > 0.003:
+        sys.exit("band: the 52 m record did not reproduce "
+                 f"({rec['totalT']:.1f} t, ratio {rec['ratioSL']:.3f}) — "
+                 "PLAN_CFG drifted from the sweep's pick. Stop; fix the plan.")
+    print(f"\n  record reproduced first: {rec['totalT']:.1f} t, "
+          f"ratio {rec['ratioSL']:.3f} at 52 m, harsh basis, declared SF.\n")
+
+    dias = [32.0, 36.0, 40.0, 46.0, 52.0, 60.0, 68.0, 80.0, 96.0, 112.0]
+    worlds = [("house-harsh 0.3 (+K_SHELL 0.2 reserve)", GI_KNOCKDOWN),
+              ("frame-practice 0.65 [TO VERIFY - SHIP-2]", GI_KNOCKDOWN_FRAME)]
+    sigmas = ("s1050", "s1450")
+    grid = {}
+
+    print("THE BAND, BY HULL — crush boundary (the SF-1.0 ledger) vs sink "
+          "boundary (lift),\ntonnes. A design exists wherever the band is "
+          "positive; SF_float is the LARGEST\nemergent factor that still "
+          "floats there (the whole band, spent on margin):\n")
+    for wname, gamma in worlds:
+        GI_ACTIVE = gamma
+        for key in sigmas:
+            print(f"  {wname} @ {key[1:]} MPa:")
+            print(f"    {'dia m':>6} {'crush t':>9} {'lift t':>9} "
+                  f"{'band t':>9} {'SF_float':>9}")
+            for d in dias:
+                m1, lift, ok = _mass_lift(d, key, 1.0)
+                grid[(gamma, key, d)] = (m1, lift, ok)
+                band = lift - m1
+                sff = emergent_sf(d, key, lift) if (band > 0 and ok) else None
+                sfs = f"{sff:9.2f}" if sff else "        -"
+                note = "" if ok else "   [solver hit its guard - crush is a floor]"
+                print(f"    {d:6.0f} {m1:9.1f} {lift:9.1f} {band:+9.1f}"
+                      f"{sfs}{note}")
+            print()
+    GI_ACTIVE = GI_KNOCKDOWN
+
+    print("THE TWO DESIGN MOVES AS BOUNDS at 52 m (chordal net: cord mass "
+          "priced, geometry\n[SCOPING]; in-surface shear: stiffness credited, "
+          "its own mass UNPRICED - outer\nbound). crush = SF-1.0 ledger; "
+          "@SF1.2 = the declared-factor ledger beside it:\n")
+    variants = [("as drawn", False, False),
+                ("chordal spoke net", True, False),
+                ("in-surface shear", False, True),
+                ("both moves", True, True)]
+    for wname, gamma in worlds:
+        GI_ACTIVE = gamma
+        for key in sigmas:
+            print(f"  {wname} @ {key[1:]} MPa:")
+            for vname, ch, mem in variants:
+                BOUND_CHORDAL, BOUND_MEMBRANE = ch, mem
+                m1, lift, ok = _mass_lift(52.0, key, 1.0)
+                configure(n_long=PLAN_CFG["nLong"], k_fan=PLAN_CFG["kFan"],
+                          depth=PLAN_CFG["depth"])
+                led = ship_ledger(key, SF_DECL, PLAN_CFG["sR"], PLAN_CFG["sB"])
+                configure()
+                tag = "FLOATS" if led["floats"] else "sinks"
+                print(f"    {vname:<18} crush {m1:6.1f} t  band "
+                      f"{lift - m1:+7.1f} t   @SF1.2 {led['totalT']:6.1f} t "
+                      f"ratio {led['ratioSL']:.3f} {tag}")
+            BOUND_CHORDAL = BOUND_MEMBRANE = False
+            print()
+    GI_ACTIVE = GI_KNOCKDOWN
+
+    print("MID-BAND DESIGN POINTS — mass target halfway crush->sink at the "
+          "widest hull;\nfloat reserve and emergent SF split the band, and "
+          "the margin is an output:\n")
+    for wname, gamma in worlds:
+        GI_ACTIVE = gamma
+        for key in sigmas:
+            best = None
+            for d in dias:
+                m1, lift, ok = grid[(gamma, key, d)]
+                if best is None or (lift - m1) > best[1]:
+                    best = (d, lift - m1, m1, lift, ok)
+            d, band, m1, lift, ok = best
+            if band <= 0:
+                print(f"    {wname} @ {key[1:]} MPa: band CLOSED at every "
+                      f"hull (best {band:+.1f} t at {d:.0f} m) - the "
+                      "campaigns and the design moves are what open it")
+                continue
+            target = (m1 + lift) / 2.0
+            sfm = emergent_sf(d, key, target)
+            sfm_s = f"{sfm:.2f}" if sfm else "-"
+            print(f"    {wname} @ {key[1:]} MPa: widest at {d:.0f} m - "
+                  f"design at {target:.1f} t:\n"
+                  f"      float reserve {lift - target:+.1f} t AND emergent "
+                  f"SF {sfm_s}  (crush {m1:.1f} / lift {lift:.1f})")
+    GI_ACTIVE = GI_KNOCKDOWN
+
+    print("\nTHE DESIGN-GOAL SCENARIO — BOTH moves credited as bounds "
+          "(chordal cord priced,\nshear system mass unpriced), by hull; "
+          "mid-band design at the widest:\n")
+    BOUND_CHORDAL = BOUND_MEMBRANE = True
+    for wname, gamma in worlds:
+        GI_ACTIVE = gamma
+        for key in sigmas:
+            print(f"  {wname} @ {key[1:]} MPa, both moves:")
+            print(f"    {'dia m':>6} {'crush t':>9} {'lift t':>9} "
+                  f"{'band t':>9} {'SF_float':>9}")
+            best = None
+            for d in dias:
+                m1, lift, ok = _mass_lift(d, key, 1.0)
+                band = lift - m1
+                sff = emergent_sf(d, key, lift) if (band > 0 and ok) else None
+                sfs = f"{sff:9.2f}" if sff else "        -"
+                note = "" if ok else "   [solver hit its guard]"
+                print(f"    {d:6.0f} {m1:9.1f} {lift:9.1f} {band:+9.1f}"
+                      f"{sfs}{note}")
+                if ok and (best is None or band > best[1]):
+                    best = (d, band, m1, lift)
+            d, band, m1, lift = best
+            if band > 0:
+                target = (m1 + lift) / 2.0
+                sfm = emergent_sf(d, key, target)
+                sfm_s = f"{sfm:.2f}" if sfm else "-"
+                print(f"    -> mid-band at {d:.0f} m: {target:.1f} t, float "
+                      f"reserve {lift - target:+.1f} t, emergent SF {sfm_s}\n")
+            else:
+                print(f"    -> band still closed (best {band:+.1f} t "
+                      f"at {d:.0f} m)\n")
+    BOUND_CHORDAL = BOUND_MEMBRANE = False
+    GI_ACTIVE = GI_KNOCKDOWN
+    configure()
+    print("\n  Erection/shoring stays a separate ops bill. Emergent SF is "
+          "spent by gusts,\n  thermal and control loads in service - the "
+          "declared-SF record remains the\n  published basis until the "
+          "operator re-rules.")
+
+
+# ---------------------------------------------------------------------------------
 def main() -> None:
     global GI_ACTIVE
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", nargs="?", const=str(OUT_JSON), default=None)
+    ap.add_argument("--band", action="store_true",
+                    help="the float/crush band study (operator, 08-13 morning)")
     args = ap.parse_args()
 
     cks = self_check()
@@ -862,6 +1079,10 @@ def main() -> None:
     if not ok:
         sys.exit("\nship_scoping: SELF-CHECK FAILED — the model moved; every "
                  "figure below would be stale. Stop; do not widen.")
+
+    if args.band:
+        band_study()
+        return
 
     # The configuration pick: the sweep finds the optimum, and the PLAN OF
     # RECORD keeps the operator's ruled 0.5-m square panels — the sweep's own

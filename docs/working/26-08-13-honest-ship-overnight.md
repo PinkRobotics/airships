@@ -118,3 +118,43 @@ ordering (currently dormant — cap margin 2.7, loop never fires); cradle min-fl
 (passes 13× regardless); erection-wind peak flow ×2 (shoring bill only); spoke
 pretension demand booking (negligible at 4.6 t of spokes). Also still open from round
 two's site set: minor link/vocabulary notes recorded in the panel output file.
+
+
+## MORNING — the band study (operator question, 08-13; regenerate: `python3 tools/ship_scoping.py --band`)
+
+The operator reframed the goal: *stop declaring a safety factor; put the design in the
+middle of the band between crush and sink, and let margin be an output of materials and
+design.* The tool now computes it: CRUSH = the SF-1.0 ledger (every capacity meets its
+demand at nominal pressure), SINK = lift, and the emergent SF of any design is the SF
+whose ledger hits its mass. Record pinned first (403.1 t / 0.558 reproduces from
+PLAN_CFG before it prints).
+
+**Findings, at the record config (52 m class scales, depth 3):**
+- **Sizing up does NOT buy float.** Harsh basis: band negative at every hull 32–112 m
+  and DIVERGING (−22 t at 32 m → −3,160 t at 112 m, σ1450). Frame world as drawn:
+  a thin window 32–80 m (σ1450, peak +50 t at 80 m; SF_float ≤ 1.17); closed by 96 m.
+- **The chordal spoke net is nearly the whole prize of SHIP-3.** At 52 m harsh σ1050
+  the crush boundary drops 337.7 → 255.1 t (−83 t, cord priced by the greedy at
+  diametral rates); the in-surface shear system adds only ~0.3–5 t on top of it in any
+  world (both fight the same low-n modes), and its own hardware is unpriced — likely
+  net NEGATIVE once built. Recommendation: chordal net yes, shear system probably no.
+- **The harsh world never opens** — even with both moves credited, best −5.8 t at 36 m.
+  The knockdown campaign is load-bearing for the concept, not decoration.
+- **In the certified world (frame 0.65 + σ1450 + chordal net):** band open at every
+  hull 32–112 m; relative width peaks flat across 52–68 m (~21% of lift); mid-band at
+  the ruled 52 m = design at ~201 t, float reserve +23 t, emergent SF ≈ 1.17 —
+  **the declared 1.2 was a hair conservative of mid-band all along.** Absolute reserve
+  (= payload) grows with hull: +77 t at 80 m, +106 t at 96 m at the same relative
+  margin. SF_float peaks 1.39 at 60 m.
+- **The sweep now prefers depth 4 m** (spokes even-n-only made the sandwich want
+  depth): 383.0 t vs the record's 403.1 at the ruled squares — a ~20 t re-rule
+  candidate for daylight, alongside the chordal net.
+- σ axis (1050→1450) is worth ~7–12% of crush mass; the knockdown axis (0.3+reserve →
+  0.65) is worth ~26–35%. In-house manufacturing quality pays mostly through the
+  KNOCKDOWN tests it justifies, secondly through coupons hitting the datasheet ceiling.
+- Fittings are not the story: clamps 2.2 t + pads 2.0 + straps 0.3 + skins 1.0 of
+  403.1. The stability system (~190 t incl. reserve 81.3) and tiJoints (46.5, the eta
+  axis) are. eta 0.85→0.90 (in-house joints) ≈ 17 t.
+
+BOUND_CHORDAL / BOUND_MEMBRANE flags exist for the study only — both False in every
+gated run; the gi loop is FP-identical with flags off (record pin proves it).
