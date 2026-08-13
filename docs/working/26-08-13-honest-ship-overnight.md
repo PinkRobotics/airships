@@ -354,3 +354,27 @@ module scope is the pattern (the gate caught it before any human did).
 - Operator dropped the disk-I/O + 6.32 TB download investigation from this session —
   another agent takes it. (First look before the drop: no headless browsers, two idle
   serve.py strays killed; localsearch-3 indexer + openrgb were the CPU load.)
+
+
+## MORNING, PART 9 — the deck is rebuilt: fixed grid, nothing reflows
+
+Operator round 6, the UI-quality verdict ("good, not just a trigger of functionality"):
+
+- **NOTHING EVER RESIZES.** The reflow bug was state-in-label buttons ('skin: solid' →
+  'skin: transparent', '✈ fly' → '✈ flying'): the button grew, the row reflowed, and a
+  double-click hit a different control. Labels are CONSTANT now; state is indicators —
+  square check = independent layer switch, radio dot = one-of-many (views, walk stops,
+  two-states like pump-down/unfold/fly), SEGMENTS = modes (skin [solid|glass|off],
+  parts [all|joinery|pipes], via new api setSkinMode/setPartsMode beside the cyclers).
+- **ONE geometry**: every chip a uniform 26 px cell in a fixed two-column grid,
+  ellipsized, same radius, same font. The views row had been UA-DEFAULT buttons since
+  birth — the 'different shapes' the operator saw was three style families in one deck.
+  One base rule covers .gbtn/.sbtn/.vbtn/.dot2 now; retired ids are out of every
+  selector list (a stale display:none list would have eaten the unfold toggle).
+- **The [hidden] trap, paid a THIRD time**: .segrow had display:grid, the data-lv sweep
+  sets el.hidden, and author display beats the hidden attribute — the parts segment
+  showed on every level until .segrow[hidden]{display:none} joined the two existing
+  guards. The trap is now in three places in this file; it is the pattern.
+- **Gate follows**: parts probe clicks segments (joinery→pipes→all, same visit order the
+  cycle used), the skin read-back drives the segment, 'parts: all' label assertion
+  became active-segment read-back, the pump's label assertion became a lit-dot check.

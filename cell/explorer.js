@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=f3b0230d';
-import * as G from './explorer-geom.js?v=f3b0230d';
+import * as CELL from './model.js?v=9fe80f91';
+import * as G from './explorer-geom.js?v=9fe80f91';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=f3b0230d';
+} from './nodes.generated.js?v=9fe80f91';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=f3b0230d';
+import { NODEMESHES } from './nodemeshes.generated.js?v=9fe80f91';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=f3b0230d';
+import { SKIN } from './skin.generated.js?v=9fe80f91';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f3b0230d';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=9fe80f91';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -4344,6 +4344,26 @@ export function mountExplorer(opts) {
       state.skinMode = order[(order.indexOf(state.skinMode) + 1) % order.length];
       dirty = true;
       return state.skinMode;
+    },
+    /** Segmented deck (operator, round 6): SET a mode, don't cycle to it. */
+    setSkinMode(mode) {
+      if (['solid', 'transparent', 'off'].includes(mode)) {
+        state.skinMode = mode;
+        dirty = true;
+      }
+      return state.skinMode;
+    },
+    setPartsMode(mode) {
+      if (['all', 'joinery', 'pipes'].includes(mode)) {
+        state.partsMode = mode;
+        // Same demotion the cycler applies: a joinery view behind an opaque
+        // skin is a blank box.
+        if (mode !== 'all' && state.skinMode === 'solid') {
+          state.skinMode = 'transparent';
+        }
+        dirty = true;
+      }
+      return state.partsMode;
     },
     /** Pump the article down (1) or vent it (0): the film eases between slack and the
      *  membrane shape gen_skin solved. Returns what the button should now claim. */

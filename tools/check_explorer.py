@@ -151,19 +151,25 @@ PROBE = r"""(() => {
   // against the cell's member count and failed, correctly.
   E.setLevel(E.levels.findIndex(l => l.id === 'cell'), true);
   E.tick(0.016);
-  const btn = document.getElementById('toggleParts');
+  // The parts control is a SEGMENT now (operator, round 6): the gate clicks
+  // each segment — the same order the old cycle visited — and reads back.
+  const pseg = document.getElementById('partsSeg');
+  const psegBtn = (v) => [...pseg.children].find(b => b.dataset.v === v);
   const seq = [];
-  for (let i = 0; i < 3; i++) { btn.click(); seq.push(E.state.partsMode); E.tick(0.016);
+  for (const v of ['joinery', 'pipes', 'all']) {
+    psegBtn(v).click(); seq.push(E.state.partsMode); E.tick(0.016);
     out.parts = out.parts || [];
     out.parts.push([E.renderer.stats.drawCalls, E.renderer.stats.triangles]);
     if (E.state.partsMode === 'joinery') out.ghostLines = E.renderer.stats.lines - 36; }
   out.partsCycle = seq.join(',');
+  out.partsActive = ([...pseg.children].find(b => b.classList.contains('on'))
+    || { dataset: {} }).dataset.v;
   // Every pipe-family member must leave a ghost behind when it is hidden, or the joinery
   // view quietly loses part of the article. Counted from the model, never typed.
   const kc = C.kelvinLatticeCounts(1);
   out.ghostExpected = kc.struts + kc.rimStrutEquivalents + kc.hexSpokeStruts +
     kc.tieStruts + kc.hexTieStruts;
-  out.partsLabel = btn.textContent;
+
   // The frame with everything back on, at the cell level: the baseline the connector
   // tour's print-resolution swap is measured against, stop by stop, below.
   E.tick(0.016);
@@ -172,16 +178,15 @@ PROBE = r"""(() => {
   // arithmetic below needs the SKINLESS baseline. Measured by driving the real
   // skin button (solid -> transparent -> off, read, -> solid), never typed.
   {
-    // Driven by READ-BACK, not by counted clicks: the cycle's start point is
-    // state, and assuming 'solid' measured zero when the default was glass.
-    const sk = document.getElementById('toggleSkin');
+    // Driven through the SEGMENT by read-back (operator, round 6): click the
+    // 'off' segment, measure, click the original mode's segment.
+    const sseg = document.getElementById('skinSeg');
+    const ssegBtn = (v) => [...sseg.children].find(b => b.dataset.v === v);
     const mode0 = E.state.skinMode;
-    let g0 = 0;
-    while (E.state.skinMode !== 'off' && g0++ < 4) sk.click();
+    ssegBtn('off').click();
     E.tick(0.016);
     out.skinTris = out.cellBaseTris - E.renderer.stats.triangles;
-    g0 = 0;
-    while (E.state.skinMode !== mode0 && g0++ < 4) sk.click();
+    ssegBtn(mode0).click();
     E.tick(0.016);
   }
   // EVERY MEMBER-END MUST BE DRAWN WITH A RECEIVER. This gate did not exist, and its
@@ -228,7 +233,7 @@ PROBE = r"""(() => {
   E.tick(0.016);
   out.skinStatsLoaded = E.skinStats();
   out.skinTrisLoaded = E.renderer.stats.triangles;
-  out.skinLabelLoaded = document.getElementById('toggleLoaded').textContent;
+  out.pumpOn = document.getElementById('toggleLoaded').classList.contains('on');
   document.getElementById('toggleLoaded').click();
   for (let i = 0; i < 300 && E.state.skinLoad > 0.001; i++) E.tick(0.05);
   E.tick(0.016);
@@ -726,8 +731,9 @@ def main() -> None:
     if st_loaded.get("sumWMm") is None or abs(st_loaded["sumWMm"] - sum_w * 1000) > 1e-3:
         bad.append(f"pump: page's dome-field checksum {st_loaded.get('sumWMm')} differs "
                    f"from the generated module's {sum_w * 1000:.4f} mm")
-    if res.get("skinLabelLoaded") != "film: loaded":
-        bad.append(f"pump button says {res.get('skinLabelLoaded')!r} while loaded")
+    if not res.get("pumpOn"):
+        bad.append("pump toggle shows no lit dot while the film is loaded — the "
+                   "indicator, not a label, is the state now")
     tris_slack, tris_loaded = res.get("skinTrisSlack"), res.get("skinTrisLoaded")
     if tris_slack is None or tris_loaded is None or (
             tris_loaded - tris_slack != exp_loaded_tris - 72):
@@ -856,9 +862,9 @@ def main() -> None:
                     f"connector stop {w['stop']}: frame moved {got:+d} triangles against "
                     f"the cell baseline, the swap to {rep['file']} should move {want:+d} — "
                     "the print-resolution mesh is not what is on screen")
-    if res.get("partsLabel") != "parts: all":
-        bad.append(f"parts button label {res.get('partsLabel')!r} after a full cycle — "
-                   "the label must be read back from the state, not assumed")
+    if res.get("partsActive") != "all":
+        bad.append(f"parts segment lights {res.get('partsActive')!r} after the walk "
+                   "ended on 'all' — the segment must be read back from the state")
     if res.get("rail") != len(res.get("levels", [])):
         bad.append(f"rail has {res.get('rail')} buttons for {len(res.get('levels', []))} levels")
     if res.get("sections") != len(res.get("levels", [])):
