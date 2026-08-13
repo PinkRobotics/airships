@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=635befe5';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=cb2f7f52';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -456,14 +456,17 @@ function drawWebDetail() {
       <line x1="${x - d}" y1="${y - d}" x2="${x + d}" y2="${y + d}" stroke="${C.cool}" stroke-width="1.2"/>
       <line x1="${x - d}" y1="${y + d}" x2="${x + d}" y2="${y - d}" stroke="${C.cool}" stroke-width="1.2"/>`;
   };
-  out += hoopSec(n1, faceY) + hoopSec(n2, faceY) + hoopSec(mid, innerY);
-  // The mid-bay cell's face, and the nothing that is under it.
-  out += `<line x1="${mid - 19}" y1="${faceY + 7}" x2="${mid + 19}" y2="${faceY + 7}"
-           stroke="${C.warm}" stroke-width="1.4" stroke-dasharray="3 3"/>`;
-  out += `<line x1="${n1}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${n2}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${n1}" y1="${faceY + 10}" x2="30" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
-          <line x1="${n2}" y1="${faceY + 10}" x2="410" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
+  // RULED: a hoop under EVERY cell on the outer wall; the inner wall keeps the bay.
+  for (const cx of centres) out += hoopSec(cx, faceY);
+  out += hoopSec(mid - 106, innerY) + hoopSec(mid + 106, innerY);
+
+  // The 2:1 fan: each outer ring sheds to its nearest inner node.
+  out += `<line x1="${(mid - flat).toFixed(1)}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${mid}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${mid}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-opacity="0.55" stroke-width="1.4"/>
+          <line x1="${(mid + flat).toFixed(1)}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${(mid - flat).toFixed(1)}" y1="${faceY + 10}" x2="30" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
+          <line x1="${(mid + flat).toFixed(1)}" y1="${faceY + 10}" x2="410" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
   // One bay, dimensioned between the two hoop-chord lines.
   out += `<line x1="${n1}" y1="200" x2="${n2}" y2="200" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
           <line x1="${n1}" y1="195" x2="${n1}" y2="205" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
@@ -484,15 +487,15 @@ function drawWebDetail() {
   out += `
     <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — the skin rides the cell landscape</text>
     <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">cells sit face-down on the wall — the seat is embedded in the face</text>
-    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords run into the page, around the barrel — one line per bay</text>
+    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords — one under EVERY cell; the inner wall keeps its bays</text>
     <text x="24" y="${faceY + 17}" fill="${C.cool}" font-size="10" font-family="monospace">longeron</text>
-    <text x="${mid}" y="${faceY + 21}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">no chord under this one</text>
+    <text x="${mid}" y="${faceY + 21}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">every cell lands on its own ring</text>
     <text x="${n1 - 14}" y="190" fill="${C.cool}" font-size="10" font-family="monospace">hoop chord</text>
     <text x="60" y="236" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
     <text x="60" y="249" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
     <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — the same hoops</text>
     <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>
-    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bearing at cell pitch — a rail, or a hoop under every cell — is open</text>`;
+    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the rail is deleted — SHIP-2 checks the thin ring between web points</text>`;
   return svgEl(out, '0 0 440 340');
 }
 

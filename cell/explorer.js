@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=635befe5';
-import * as G from './explorer-geom.js?v=635befe5';
+import * as CELL from './model.js?v=cb2f7f52';
+import * as G from './explorer-geom.js?v=cb2f7f52';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=635befe5';
+} from './nodes.generated.js?v=cb2f7f52';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=635befe5';
+import { NODEMESHES } from './nodemeshes.generated.js?v=cb2f7f52';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=635befe5';
+import { SKIN } from './skin.generated.js?v=cb2f7f52';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=635befe5';
+import { SHIP, BAND, GRID } from './catalog.js?v=cb2f7f52';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1799,8 +1799,20 @@ const cellsToXf = (cells) => {
  * wall GRID.depthM further in. Segments carry (s, th) for the same reason the cells do. */
 function shipSkeletonSegs(D) {
   const wallOff = D.pitch, innerOff = D.pitch + GRID.depthM;
-  const ringsAt = [];
-  for (let i = 0; i <= D.nBays; i++) ringsAt.push(D.total * i / D.nBays);
+  // SUPPORT PER CELL — the operator's ruling (08-12): the OUTER wall carries a hoop
+  // chord under EVERY cell row, so each cell lands its face on a ring and the seat rail
+  // is deleted as a class. The INNER wall keeps its rings at bay pitch, and the webs fan
+  // ~2:1, collecting the fine outer rings onto the coarse inner ones — force gathered,
+  // then distributed, exactly as ruled. Total hoop material is demand-fixed (P·R does
+  // not care how many rings share it); SHIP-2 verifies the thin ring's Euler margin
+  // between web points and prices the ring count.
+  const outerRings = [];
+  {
+    const nRings = Math.round(D.total / D.pitch);      // the CELL rows, exactly
+    for (let i = 0; i <= nRings; i++) outerRings.push(D.total * i / nRings);
+  }
+  const innerRings = [];
+  for (let i = 0; i <= D.nBays; i++) innerRings.push(D.total * i / D.nBays);
   const point = (s, off, th) => {
     const st = shipStation(D, s);
     const r = st.r - st.nr * off;
@@ -1808,8 +1820,8 @@ function shipSkeletonSegs(D) {
   };
   const hoops = [], longs = [], webs = [];
   const SEG = 64, NLONG = 36, RMIN = 2;
-  for (const off of [wallOff, innerOff]) {
-    for (const s of ringsAt) {
+  const ringPass = (rings, off) => {
+    for (const s of rings) {
       if (point(s, off, 0)[3] < RMIN) continue;
       let prev = null;
       for (let j = 0; j <= SEG; j++) {
@@ -1819,6 +1831,10 @@ function shipSkeletonSegs(D) {
         prev = q;
       }
     }
+  };
+  ringPass(outerRings, wallOff);
+  ringPass(innerRings, innerOff);
+  for (const off of [wallOff, innerOff]) {
     for (let k = 0; k < NLONG; k++) {
       const th = 2 * Math.PI * k / NLONG;
       let prev = null;
@@ -1831,15 +1847,18 @@ function shipSkeletonSegs(D) {
       }
     }
   }
-  for (let i = 0; i < D.nBays; i++) {
+  // The 2:1 fan: every outer ring sheds down a diagonal to its NEAREST inner ring, so
+  // inner nodes collect from ~2.2 outer rings each and the drawing IS the load path.
+  for (const so of outerRings) {
+    let si = innerRings[0];
+    for (const c of innerRings) if (Math.abs(c - so) < Math.abs(si - so)) si = c;
     for (let k = 0; k < NLONG; k++) {
       const th = 2 * Math.PI * k / NLONG;
-      const flip = (i + k) % 2;
-      const a = point(ringsAt[flip ? i + 1 : i], wallOff, th);
-      const b = point(ringsAt[flip ? i : i + 1], innerOff, th);
+      const a = point(so, wallOff, th);
+      const b = point(si, innerOff, th);
       if (a[3] >= RMIN && b[3] >= RMIN)
         webs.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: wallOff,
-                    s: (ringsAt[i] + ringsAt[i + 1]) / 2, th });
+                    s: (so + si) / 2, th });
     }
   }
   return { hoops, longs, webs };

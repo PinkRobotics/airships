@@ -324,12 +324,12 @@
   <div class="big"><span data-n="grid.hoopKPaM" data-f="0"></span> <span class="unit">kPa·m of hoop</span></div>
   <p class="bigsub">P·R at the barrel — the shell's whole job, carried around the void</p>
   <div class="metrics">
-    <div><div class="v">≈<span data-n="grid.bayM" data-f="0"></span> <span class="u">m</span></div>
-      <div class="k">between ring frames — the hoop chords ARE the frames</div></div>
+    <div><div class="v warm">≈<span data-n="gridOuterPitchM" data-f="1"></span> <span class="u">m</span></div>
+      <div class="k">between OUTER rings — a hoop under every cell, ruled</div></div>
     <div><div class="v">≈<span data-n="grid.depthM" data-f="0"></span> <span class="u">m</span></div>
       <div class="k">between the two chord walls — depth is the stiffness</div></div>
-    <div><div class="v warm"><span data-n="band.perCellPushT" data-f="1"></span> <span class="u">t</span></div>
-      <div class="k">one cell's push, delivered face-down into the outer wall</div></div>
+    <div><div class="v"><span data-n="band.perCellPushT" data-f="1"></span> <span class="u">t</span></div>
+      <div class="k">one cell's push, straight onto its own ring</div></div>
     <div><div class="v">≤<span data-n="grid.bandCapKPaM" data-f="0"></span> <span class="u">kPa·m</span></div>
       <div class="k">all the band could add if asked — it is not asked</div></div>
   </div>
@@ -345,13 +345,15 @@
   walls. The metres of depth are empty truss on purpose — bending stiffness grows with
   the square of the gap, the way an I-beam earns its from the space between flanges.</p>
 
-  <p class="sowhat"><b>Where a cell bears is still an open question</b> — a hoop line
-  passes under roughly every second cell today, and bearing at cell pitch means a seat
-  rail or a hoop under every cell. The scoping arithmetic is on the blueprint page;
-  SHIP-2 owns the answer.</p>
+  <p class="sowhat"><b>Support per cell — ruled.</b> The outer wall carries a hoop chord
+  under every cell row, so each cell lands its push on its own ring and the seat rail is
+  deleted as a class; the inner wall keeps its bays, and the webs fan two-to-one,
+  collecting the fine rings onto the coarse ones. Total hoop material is fixed by demand
+  however many rings share it; what SHIP-2 still verifies is the thin ring's Euler margin
+  between web points, and the ring count against the winding line.</p>
 
   <span class="tag cool">ship figures: scoping — ship.js port pending</span>
-  <span class="tag st-scoping">seat line open</span>
+  <span class="tag st-decided">support per cell — ruled</span>
 </section>
 
 <!-- LEVEL 4 ------------------------------------------------------------------------------ -->
@@ -1557,9 +1559,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=635befe5';
-import { SHIP, BAND, GRID } from './catalog.js?v=635befe5';
-import * as CELL from './model.js?v=635befe5';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=cb2f7f52';
+import { SHIP, BAND, GRID } from './catalog.js?v=cb2f7f52';
+import * as CELL from './model.js?v=cb2f7f52';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1780,6 +1782,8 @@ if (!api) {
   // The ship level's figures come from catalog.js (typed once, scoping-chipped), plus the
   // two derived margins so the panel can show the honest pair without arithmetic in HTML.
   fillNumbers({ ...api.ctx, ship: SHIP, band: BAND, grid: GRID,
+                gridOuterPitchM: Math.sqrt((2 * Math.PI * (SHIP.diaM / 2) * (SHIP.lenM - SHIP.diaM)
+                  + 4 * Math.PI * (SHIP.diaM / 2) ** 2) / BAND.cells),
                 shipMarginSF12: SHIP.liftT - SHIP.massT,
                 shipMarginSF15: SHIP.liftT - SHIP.massSF15T });
 

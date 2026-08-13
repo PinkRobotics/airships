@@ -334,10 +334,17 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    faces (~78 kN/m vs its 47–67 kN/m in-plane ceiling) while a support per cell
    (~0.9 m) is comfortable (~20 kN/m). The webs ledger line (0.5 kg/m²) has no member-level design
    behind it — SHIP-2/3 must fix the pitch BEFORE the band-cell retune below.
-   POST-RULING FORM: this is now the SEAT RAIL requirement — the skeleton's outer
-   wall must offer bearing points at CELL pitch (~0.9 m), not just bay pitch;
-   per-seat ~12 kN on cm-scale Ti pads.
-   OPERATOR CANDIDATE (08-12, on reading fig 6): no rail and no floor at all —
+   ** RULED (operator, 08-12 night): SUPPORT PER CELL — his own candidate, adopted. **
+   The outer wall carries a hoop chord under EVERY cell row; the seat rail is DELETED
+   as a class (with its undesigned 0.5 kg/m² ledger line); the inner wall keeps bay
+   pitch; the webs re-lace ~2:1, outer rings converging on inner. Pricing basis at
+   ruling: total hoop material is demand-fixed (P·R independent of ring count); local
+   buckling is a ratio (R/t) and scale-free; the residual bill is the thin ring's
+   Euler margin between web points (scoping says just under mid sigma_gov at 2 m web
+   spacing — derate or lace at ~1.4 m) plus ring COUNT on the winding line. SHIP-2
+   verifies with the 865 tool + U4 before any member is sized. Geometry, both pages
+   and the shared generators, updated same night — the drawing IS the ruling now.
+   The superseded candidate, for the record: no rail and no floor at all —
    set the hoop-chord pitch to the CELL pitch and land every cell's face directly
    on a chord. Same total hoop material by demand (P·R is fixed), spread over
    more, thinner lines; SHIP-2 must price the thinner chord's local buckling and
