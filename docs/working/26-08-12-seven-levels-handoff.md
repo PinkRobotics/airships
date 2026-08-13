@@ -389,6 +389,25 @@ them** — inside the ~28 mm sag it takes anyway, which is the operator's own po
 flex means no flat plane is needed. Bonus recorded: continuous cross-bars are longerons
 again in all but name, segmented only by clamps, which partly restores the meridional
 continuity SHIP-2 inherited as a worry when the outer longerons were deleted.
+**CLAMPS ARE SPARSE, AND A NEW REQUIREMENT CAME WITH THEM (operator, 08-13).** A clamp at
+every crossing was ~4/m2 — 68,000 fittings — and the LOAD CASE never asks for them: inside
+is vacuum, so the push is always inward (no gust or manoeuvre can reverse it; external
+pressure cannot fall below the zero inside), and every crossing sits permanently in bearing.
+In-plane film pulls also cancel between the panels either side of any interior member. So
+the clamps are not a load path. **RULED: one clamp every fourth bar along every ring
+(~2 m), phase-shifted two bars on each successive ring — a brick pattern, 1 in 4 crossings,
+~1/m2.** ~0.05 kg/m2 against ~0.20 for clamping everything. No lashings (operator declined).
+**THE REQUIREMENT THAT CAME WITH IT — write this into every downstream analysis: "we should
+aim for this to be buildable and structured without pressure."** Until now the ship was
+implicitly a pressure-stabilised structure — the sky was the fastener, and a pile of parts
+until first pump-down. The operator has ruled that the wall must stand as a structure BEFORE
+it is evacuated. Consequences: the clamp pattern is a shear net, not just retention, and its
+spacing is now a structural result rather than a handling convenience; the erection sequence
+becomes a design input; and the sparse pattern's coarse in-plane shear is what the outer wall
+offers the torsion check (better than the nothing an unfastened grid would give). SHIP-2
+owes: erection analysis of the unpressurised grid, and whether 1-in-4 staggered is enough
+for it — the spacing is provisional ("for now", his word).
+
 **Not every outer ring gets a web, and that is correct** — a ring under uniform radial load
 is self-equilibrating (an arch closed on itself), and webs carry SHEAR, which wants diagonals
 near 45deg, so web spacing should track the sandwich depth (~2-3 m), not the ring pitch.

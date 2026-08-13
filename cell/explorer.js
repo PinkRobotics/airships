@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=ded350b9';
-import * as G from './explorer-geom.js?v=ded350b9';
+import * as CELL from './model.js?v=615922b9';
+import * as G from './explorer-geom.js?v=615922b9';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=ded350b9';
+} from './nodes.generated.js?v=615922b9';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=ded350b9';
+import { NODEMESHES } from './nodemeshes.generated.js?v=615922b9';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=ded350b9';
+import { SKIN } from './skin.generated.js?v=615922b9';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=ded350b9';
+import { SHIP, BAND, GRID } from './catalog.js?v=615922b9';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1979,12 +1979,21 @@ function buildGrid() {
   }
   pipes('GridCross', bars, BAR_R, XM.pipe);   // ~24 mm: the square halves the pull
 
-  // THE CROSSING CLAMPS — one per intersection, the same split clamshell family as every
-  // other joint. ~4 per m2 of wall, which is the count worth watching.
+  // THE CROSSING CLAMPS — SPARSE and STAGGERED (operator, 08-13): a clamp at every
+  // intersection was ~4/m2 and 68,000 fittings on the ship, and the load case never asks
+  // for them — inside is vacuum, so the push is always inward and every crossing sits
+  // permanently in bearing. What the clamps are really for is the UNPRESSURISED states:
+  // the operator's requirement that the wall be buildable and structured before the first
+  // pump-down, plus ground handling and maintenance. So: one clamp every fourth bar along
+  // every ring (~2 m), phase-shifted two bars on each successive ring — a brick pattern,
+  // 1 in 4 crossings, ~1/m2. It also leaves the outer wall a coarse shear net rather than
+  // none, which the torsion check inherits.
+  const CLAMP_EVERY = 4;
   {
     const cl = [];
     for (let k = -NU; k <= NU; k++) {
       for (let c = -NV; c <= NV; c++) {
+        if ((((c + 2 * k) % CLAMP_EVERY) + CLAMP_EVERY) % CLAMP_EVERY !== 0) continue;
         const u = k * ROW, v = c * CROSS;
         const st = shipStation(D, s0 + u);
         const th = TH0 + v / D.R;
@@ -2051,7 +2060,7 @@ function buildGrid() {
     labels: [
       { p: at(0, 3.4 * CROSS, -1.6), t: 'the film lies straight on the rings', s: 'no posts and no rim grid: the hoop chords ARE the frame across, and a ring loaded along its length sees uniform radial load — pure compression, the case it is funicular for' },
       { p: at(1.2 * ROW, -3.4 * CROSS, -1.4), t: 'square panels, and why', s: 'doubly curved carries pressure both ways at half the tension of a long trough — half the film, and half the pull the cross-bars resist' },
-      { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped where they cross', s: 'nothing drilled, nothing cut, nothing woven: both members run continuous and a split clamp holds the crossing — a weave would kink a compression member into bending' },
+      { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped sparsely, staggered ≈2 m', s: 'nothing drilled, cut or woven — and the crossings need no fastener under load, since the push is always inward. The clamps are for the unpressurised states: this has to stand up before it is ever pumped down' },
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
     ],
