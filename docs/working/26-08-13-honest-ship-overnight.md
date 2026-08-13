@@ -79,3 +79,42 @@ The dashboard and its renders (operator scoped them out); the bench-article leve
 the explorer (they are correct as the bench story); pushing either repo to a remote
 (still unpushed, flagged every session); any relaxation of a margin to make a page read
 better.
+
+
+## ROUND TWO — the ordered review sets (added ~06:50)
+
+The operator's two 3× review sets ran after the build (three physics reviewers, three
+site reviewers, 67 findings). The physics set killed the night's second verdict too:
+
+- **REV-1 (BLOCKER, both reviewers independently):** a diametral spoke has zero
+  first-order stiffness at odd n — ends move (+w, −w), pure translation — and the
+  governing mode was n=3. Foundation now credits even n only at the corrected per-end
+  E·a/R. **Chordal spoke nets work the odd modes: SHIP-3's named design move.**
+- **REV-2 (MAJOR, accepted as the honest bound):** Bryant's membrane term zeroed —
+  it requires in-surface (x–θ) shear this wall does not have. An in-surface shear
+  system buys it back [TO VERIFY — SHIP-3's second named move].
+- **REV-3 (REJECTED, with the textbook):** the proposed crimp-leg swap contradicts
+  Timoshenko's laced-column form, the exact X-panel slip stiffness, and both
+  degenerate limits. Recorded at the line in ship_scoping.py.
+
+**FINAL VERDICT OF THE NIGHT: harsh basis 0.558 (−178.3 t); best defensible world
+0.981 (−4.3 t). Nothing floats at 52 m as drawn.** The gap in the friendliest world is
+under two percent, and the model names exactly what closes it: the two test campaigns
+(GI knockdown ~two hundred tonnes of verdict; chord coupons) and the two SHIP-3 design
+moves (chordal spokes; in-surface shear).
+
+The site set (42 findings) drove: the public concept page stopped teaching
+cells-as-current and the floating-cell milestone (plus three 404 archive links fixed);
+the blueprint dropped a hand-typed '+' that rendered '+-97.3 t', got the wall's real
+populations, and retitled to "the ship is the bet"; the checks page's fabricated 0.68
+wind margin became a computed, parity-held windMargin and its verdict words are now
+derived, never typed; windowK died (a temperature window only exists on a basis that
+floats); explorer meta/title/fallback fixed.
+
+**Deferred to daylight, accepted but not implemented (tonnes-level refinements, none
+verdict-moving):** junction diagonals through the compression solver (±5 t-class);
+reserve spoke-delta convention (~3 t conservative as-is); cap-loop-before-reserve
+ordering (currently dormant — cap margin 2.7, loop never fires); cradle min-flange
+(passes 13× regardless); erection-wind peak flow ×2 (shoring bill only); spoke
+pretension demand booking (negligible at 4.6 t of spokes). Also still open from round
+two's site set: minor link/vocabulary notes recorded in the panel output file.

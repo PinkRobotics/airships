@@ -370,13 +370,19 @@ Full record: `docs/working/26-08-13-honest-ship-overnight.md`. The short version
 whoever lands here cold:
 
 - **The ship physics is GATED now.** `ship0_summary()` in cell/model.js, mirrored in
-  vacuum-cell.py, parity 322 values (`make cellparity`). catalog.js computes SHIP/WALL/
+  vacuum-cell.py, parity 324 values (`make cellparity`). catalog.js computes SHIP/WALL/
   GRID live; estate.py and robotics.py in pink-sites read the Python mirror directly.
-- **The verdict is the honest pair and it inverted mid-night**: +6.4 t died under a
-  three-refuter panel (11 confirmed bugs — Bryant divisor, crimp triangle, phantom brace
-  pitch, cap duties); corrected: 0.698 harsh basis (sinks 97 t), 1.059 best defensible
-  world (+12.5 t). The two test campaigns (GI knockdown, chord coupons) ARE the decision
-  and every page says so.
+- **The verdict moved twice in one night, both times against us, both times correctly.**
+  +6.4 t died under a three-refuter panel (11 confirmed bugs — Bryant divisor, crimp
+  triangle, phantom brace pitch, cap duties) → 0.698/−97 t with +12.5 t in the best
+  world. Then the ordered review round killed THAT: diametral spokes have zero
+  first-order stiffness at odd n (governing mode was n=3 — even-n credit only now), and
+  the Bryant membrane term is zeroed until an in-surface shear system licenses it.
+  **FINAL: 0.558 harsh (−178.3 t); best defensible world 0.981 (−4.3 t). Nothing floats
+  at 52 m as drawn — the best world is within 2%.** The decision = two test campaigns
+  (GI knockdown, chord coupons) + two SHIP-3 design moves (chordal spoke nets,
+  in-surface shear). One proposed fix was REJECTED with Timoshenko's laced-column form
+  + two degenerate limits — recorded at the line in ship_scoping.py. Parity 324.
 - **New member classes the checks forced**: ring-plane X-webs (the fan cannot carry
   ring-plane shear), the licensed tension SPOKES (v2 SS1's fallback — 20 t of cord for
   ~120 t of iron), junction shear diagonals, torsion straps, saddle pads.

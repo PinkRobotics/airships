@@ -3,15 +3,19 @@
 > **SHIP-ERA NOTE, 2026-08-13 — the fight moved one scale up and this brief now has a
 > sibling.** The wall is film-on-rings (no cells in it), the ship physics is gated in
 > `cell/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
-> and the honest verdict is: **ship 0 does not float on the house-harsh stability basis
-> (0.698 at declared SF 1.2, mid coupons — 97 t short); it floats +12.5 t only in the
-> best defensible world (frame-practice GI knockdown + 1,450 MPa coupons).** The float
-> decision is two named test campaigns — the GI knockdown tests and the chord coupons —
-> plus three [TO VERIFY] carriers (spoke creep, eta, drape two-way credit). The full
+> and the honest verdict, after BOTH review rounds, is: **nothing floats at 52 m as
+> drawn — 0.558 on the house-harsh basis (178 t short at declared SF 1.2, mid coupons);
+> 0.981 even in the best defensible world (frame-practice GI knockdown + 1,450 MPa
+> coupons — 4.3 t short, within two percent).** Round two found the diametral spokes
+> carry nothing at odd circumferential n (the governing mode) and the Bryant membrane
+> term needs an in-surface shear system the wall lacks. The float decision is two named
+> test campaigns — the GI knockdown tests and the chord coupons — plus two SHIP-3
+> design moves (chordal spoke nets, in-surface shear) and three [TO VERIFY] carriers
+> (spoke creep, eta, drape two-way credit). The full
 > record: `tools/ship_scoping.py` (self-checking study layer),
 > `cell/ship.html` (the checks page), and
-> `docs/working/26-08-13-honest-ship-overnight.md` (the night that corrected it, eleven
-> refuted bugs included). THIS document remains the BENCH CELL's own mass brief — the
+> `docs/working/26-08-13-honest-ship-overnight.md` (the night that corrected it TWICE —
+> eleven refuted bugs, then the two round-two reversals). THIS document remains the BENCH CELL's own mass brief — the
 > 0.709 m article, the process coupon — and everything below still governs that object.
 
 Written 2026-08-11. This is the standing brief for continuous work on the vacuum cell's
