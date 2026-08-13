@@ -107,6 +107,25 @@ PROBE = r"""(() => {
   // eight hexagons as well. Hold the total to the model.
   out.checks.push(['surfaceLoadTf', shown('[data-n="edge.totalSurfaceLoadTf"]'),
                    el.totalSurfaceLoadTf.toFixed(1)]);
+  // SHIP 0 — the gated port's own figures, read off the panel and recomputed
+  // fresh: the harsh-basis ratio, the best-world ratio, the wall populations,
+  // the ring section. The ship level is not toured, so these explicit rows are
+  // what holds its panel to the model.
+  {
+    const s0 = C.ship0Summary();
+    out.checks.push(['shipRatio', shown('[data-n="ship.ratio"]'),
+                     s0.mid.ratioSL.toFixed(3)]);
+    out.checks.push(['shipBestWorld', shown('[data-n="ship.bestWorldRatio"]'),
+                     s0.worldsFramePractice.s1450_sf12.ratioSL.toFixed(3)]);
+    out.checks.push(['shipMassT', shown('[data-n="ship.massT"]'),
+                     s0.mid.totalT.toFixed(1)]);
+    out.checks.push(['wallPanels', shown('[data-n="w.panels"]'),
+                     s0.counts.panels.toFixed(0)]);
+    out.checks.push(['wallRingOd', shown('[data-n="w.ringOdMm"]'),
+                     s0.sections.ring.odMm.toFixed(0)]);
+    out.checks.push(['wallFilm', shown('[data-n="w.filmGM2"]'),
+                     s0.sections.filmGM2.toFixed(0)]);
+  }
   // The connectors level's model-sourced figures: what the hexagon hub is asked to carry,
   // and the rim SKU the printed socket does not yet match.
   out.checks.push(['hubShare', shown('[data-n="edge.hubShareN"]'),

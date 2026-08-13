@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=620f1239';
-import * as G from './explorer-geom.js?v=620f1239';
+import * as CELL from './model.js?v=40aa0f07';
+import * as G from './explorer-geom.js?v=40aa0f07';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=620f1239';
+} from './nodes.generated.js?v=40aa0f07';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=620f1239';
+import { NODEMESHES } from './nodemeshes.generated.js?v=40aa0f07';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=620f1239';
+import { SKIN } from './skin.generated.js?v=40aa0f07';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=620f1239';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=40aa0f07';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1628,98 +1628,115 @@ function buildCell(ctx) {
   };
 }
 
-/* L4 — the array: shared walls, the boundary, and what a breach costs. */
-// The hero cell's own membrane: read as a surface, not as the barely-there glass the rest
-// of the array uses, because it is the one cell the viewer is about to fly into.
-const SKIN_ARRAY = { kind: 'glass', color: '#8fb6dc', opacity: 0.34 };
+/* L4 — THE COMPARTMENTS: the ship's own void, divided. The last warp on the
+ * ladder is gone — this level zooms INTO ship 0 (same generators, whole ship
+ * faint) and shows the breach doctrine the cascade ruled: membranes at
+ * super-panel pitch across the void, so a holed wall costs a compartment and
+ * not the ship. Policy — pitch, valves, cascade rules — is SHIP-5's and the
+ * panel says so; the membranes here are the doctrine drawn, not a sizing.
+ * Click a compartment to flood it; the neighbours' membranes catch the
+ * differential exactly the way the interior films of the cell era did. */
+const COMPARTMENTS = 6;                      // drawn doctrine — SHIP-5 owns the number
 
 function buildArray(ctx) {
   const root = node({ id: 'L_array', category: 'vacuum', selectable: false });
-  const span = 2.0;                                  // the reference cell size
-  const centres = G.kelvinArrayCentres(span, 3, 3, 2);
-  const xf = new Float32Array(centres.length * 16);
-  const tint = new Float32Array(centres.length * 4);
+  const D = shipDims();
+  const bones = shipSkeletonSegs(D);
+  // The whole ship, faint — the level is a zoom, never a warp.
+  lineNode(root, 'CompGhostFrame',
+    segLines([...bones.hoops.filter((_, i) => i % 6 === 0),
+              ...bones.longs.filter((_, i) => i % 2 === 0)]), XM.latticeFaint);
+  const prof = [];
+  for (let i = 0; i <= 40; i++) {
+    const st = shipStation(D, D.total * i / 40);
+    prof.push([st.x, Math.max(0.01, st.r)]);
+  }
+  solidNode(root, 'CompHull', latheWithScale(prof, 40, () => 1),
+    { kind: 'glass', color: '#7d8698', opacity: 0.05 });
+
+  // The compartment slabs — pickable, one per bay group. Instanced cylinders of
+  // glass; flooding one tints it warm and its two bounding membranes carry the
+  // differential (drawn brighter), the doctrine in one click.
+  const xs = [];
+  for (let i = 0; i <= COMPARTMENTS; i++) {
+    xs.push(-SHIP.lenM / 2 + SHIP.lenM * i / COMPARTMENTS);
+  }
+  const slabXf = new Float32Array(COMPARTMENTS * 16);
+  const tint = new Float32Array(COMPARTMENTS * 4);
   const ids = [];
-  const m = new Float32Array(16);
-  for (let i = 0; i < centres.length; i++) {
-    m4compose(centres[i].p, [0, 0, 0], 1, m);
-    xf.set(m, i * 16);
+  const slabCentres = [];
+  for (let i = 0; i < COMPARTMENTS; i++) {
+    const cx = (xs[i] + xs[i + 1]) / 2;
+    slabCentres.push([cx, 0, 0]);
+    const m = new Float32Array(16);
+    m4compose([cx, 0, 0], [0, 0, 0], 1, m);
+    slabXf.set(m, i * 16);
     tint.set([1, 1, 1, 1], i * 4);
     ids.push(`Cell_${i}`);
   }
-  const cells = inst(root, { id: 'KelvinCells' }, xf, centres.length, { tint, ids });
-  cells.geom = G.kelvinGeom(span * 0.985);
-  cells.xmat = { ...XM.membrane, opacity: 0.035 };   // membranes barely-there; edges carry form
-  cells.selectable = true;
-  // Their edges, merged into one line node.
-  const edgeTpl = G.kelvinEdges(span * 0.985);
-  let allEdges = [];
-  for (const c of centres) {
-    const mm = m4compose(c.p, [0, 0, 0], 1);
-    allEdges = allEdges.concat(transformSegs(edgeTpl, mm));
-  }
-  // The array is a field, not a drawing of every cell: 27 cells of full-strength wireframe
-  // is a thicket you cannot find a cell in. The edges fall back to a ground tone and the
-  // two skinned cells carry the reading.
-  lineNode(root, 'KelvinEdges', allEdges,
-    { ...XM.kelvinEdge, opacity: (XM.kelvinEdge.opacity || 1) * 0.28 });
-  // THE WRAPPED CELL, and it now shows ONE thing. At half pitch the sub-cell octet grid
-  // meshes with the Kelvin surface exactly — corner nodes land in the hexagons, axis nodes
-  // in the squares (Kelvin is BCC's Voronoi cell and the half-pitch grid contains the BCC
-  const openC = [0, -span, span / 2];
-  const openIdx = 7;                     // the corner-sublattice cell at exactly openC
-  const sEff = span * 0.985;             // match the drawn membrane geometry
-  // THE HERO CELL. One cell in the array is drawn the way the level below draws it — a
-  // solid skin over its own lattice — so the dive into it is a dive into something already
-  // on screen rather than a cut to a new model. Its membrane goes opaque and its lattice
-  // shows through the open faces as the camera closes.
-  //
-  // The loose balls that used to sit inside it are gone. They were the boundary nodes of a
-  // 2 m flight cell, drawn as spheres at a scale where they read as scribble inside a bag,
-  // and the lattice lines already say everything they said.
-  // TWO SKINNED CELLS, on opposite corners of the block. One alone reads as a special case;
-  // a pair reads as what every cell in the array is, with the wireframe between them showing
-  // how they pack. The near one is what the level below opens on.
-  // The pair is ADJACENT and interior, not on opposite corners. Two cells that touch show the
-  // thing worth showing — how they pack, and that the wall between them has vacuum on both
-  // sides and carries nothing. On opposite edges of the block they were two isolated objects
-  // and hard to pick out at all. Nearest neighbour to the first, chosen by distance rather
-  // than by an index that would go stale the moment the array's shape changes.
-  const farIdx = centres.reduce((best, c, i) => {
-    if (i === openIdx) return best;
-    const d = Math.hypot(c.p[0] - openC[0], c.p[1] - openC[1], c.p[2] - openC[2]);
-    return d < best.d ? { i, d } : best;
-  }, { i: 0, d: Infinity }).i;
-  for (const [id, c, idx] of [['ArrayHeroSkin', openC, openIdx],
-    ['ArrayHeroSkinFar', centres[farIdx].p, farIdx]]) {
-    const s = solidNode(root, id, G.kelvinGeom(sEff), SKIN_ARRAY);
-    s.p = c.slice();
-    s.skinPart = 'surface';
-    tint.set([1, 1, 1, 5.0], idx * 4);
-  }
-  // The loaded boundary: a faint warm plane off the +y face, with a few pressure arrows.
-  const bx = 3 * span, bz = 2 * span;
-  const face = solidNode(root, 'BoundaryFace', G.boxGeom(bx * 1.05, 0.015, bz * 1.05),
-    { ...XM.membraneLoaded, opacity: 0.08 });
-  face.p = [0, 1.85 * span, 0];
-  lineNode(root, 'BoundaryArrows', (() => {
-    const segs = [];
-    for (const [x, z] of [[-span, 0], [0, 0.55 * span], [span, -0.55 * span]]) {
-      const y0 = 2.55 * span, y1 = 1.95 * span;
-      segs.push([[x, y0, z], [x, y1, z]]);
-      segs.push([[x, y1, z], [x - 0.07 * span, y1 + 0.11 * span, z]]);
-      segs.push([[x, y1, z], [x + 0.07 * span, y1 + 0.11 * span, z]]);
+  const cells = inst(root, { id: 'KelvinCells' }, slabXf, COMPARTMENTS, { tint, ids });
+  // Each slab: a squat glass cylinder inside the void radius, gap between them.
+  const slabLen = SHIP.lenM / COMPARTMENTS - 1.2;
+  const rIn = D.R - GRID.depthM - 0.6;
+  cells.geom = (() => {
+    const pos = [], idx = [];
+    const SEGC = 36;
+    for (const xoff of [-slabLen / 2, slabLen / 2]) {
+      const base = pos.length / 3;
+      for (let j = 0; j < SEGC; j++) {
+        const th = 2 * Math.PI * j / SEGC;
+        pos.push(xoff, -rIn * Math.cos(th) * 0.72, rIn * Math.sin(th) * 0.72);
+      }
+      void base;
     }
-    return segs;
-  })(), XM.eulerGhost);
+    for (let j = 0; j < SEGC; j++) {
+      const a = j, b = (j + 1) % SEGC, c = SEGC + j, d = SEGC + (j + 1) % SEGC;
+      idx.push(a, c, d, a, d, b);
+    }
+    return G.solid(new Float32Array(pos), new Uint32Array(idx));
+  })();
+  cells.xmat = { kind: 'glass', color: '#8fb6dc', opacity: 0.10 };
+  cells.selectable = true;
+
+  // The membranes: one disc at every boundary station, glass, drawn as film —
+  // pink is the code for LOADED film, and a membrane only loads when its
+  // neighbour floods, so they rest cool and blush on breach (applyBreach).
+  const memSegs = [];
+  const discs = [];
+  for (let i = 0; i <= COMPARTMENTS; i++) {
+    const x = xs[i];
+    // radius at this station, one depth in
+    let r = 0.01;
+    {
+      // invert x -> station radius by sampling the meridian
+      let best = 1e9;
+      for (let k = 0; k <= 200; k++) {
+        const st = shipStation(D, D.total * k / 200);
+        if (Math.abs(st.x - x) < best) { best = Math.abs(st.x - x); r = Math.max(0.01, st.r - GRID.depthM); }
+      }
+    }
+    if (r < 3) continue;
+    discs.push([x, r]);
+    const SEGC = 48;
+    for (let j = 0; j < SEGC; j++) {
+      const t0 = 2 * Math.PI * j / SEGC, t1 = 2 * Math.PI * (j + 1) / SEGC;
+      memSegs.push([[x, -r * Math.cos(t0), r * Math.sin(t0)],
+                    [x, -r * Math.cos(t1), r * Math.sin(t1)]]);
+      // a light radial web of cords — a membrane, not a wall
+      if (j % 6 === 0) memSegs.push([[x, 0, 0], [x, -r * Math.cos(t0), r * Math.sin(t0)]]);
+    }
+  }
+  lineNode(root, 'CompMembranes', memSegs,
+    { kind: 'line', color: TOKENS.cool, weight: 1.1, opacity: 0.55 });
+
   return {
     root,
-    centres, cellsNode: cells, span, openIdx, farIdx,
+    centres: slabCentres.map((p2) => ({ p: p2 })), cellsNode: cells,
+    span: SHIP.lenM / COMPARTMENTS, openIdx: 1, farIdx: COMPARTMENTS - 2,
     labels: [
-      { p: [0, 2.4 * span, 1.1 * span], t: 'one atmosphere, boundary only', s: 'the array holds pressure at its skin, nowhere else' },
-      { p: [-1.3 * span, -1.2 * span, 0.9 * span], t: 'interior wall: Δp = 0', s: `${ctx.sw.sharedFractionPct.toFixed(1)}% of all wall area — vacuum on both sides` },
-      { p: [openC[0], openC[1] - 0.62 * span, openC[2] + 0.55 * span], t: 'the skin wears its lattice', s: 'the lattice nodes lie exactly in the cell surface, and the film is bonded to that grid and bulges between them' },
-      { p: [1.4 * span, 0, -1.15 * span], t: 'click a cell to flood it', s: 'a breach is a local load, bounded by its own walls' },
+      { p: [0, 0, D.R * 1.25], t: 'the void, divided', s: 'membranes at compartment pitch — a holed wall costs one compartment of vacuum, never the ship. SHIP-5 owns the pitch and the valve doctrine; this is the doctrine drawn' },
+      { p: [-SHIP.lenM * 0.28, 0, -D.R * 1.1], t: 'click a compartment to flood it', s: 'its membranes catch one atmosphere of differential and hand the load to the rings they terminate on — the same trick the cell era played, one scale up' },
+      { p: [SHIP.lenM * 0.3, 0, D.R * 0.9], t: 'membranes, not trusses', s: 'nothing structural crosses the void — the ruled exceptions are tension only: these films, and the spokes' },
     ],
   };
 }
@@ -1732,35 +1749,22 @@ function buildArray(ctx) {
    computed here exactly once — the patch and the whole cannot drift apart. */
 
 function shipDims() {
+  // EVERY DIMENSION FROM THE GATED MODEL now (the ship.js port, 2026-08-13):
+  // WALL carries the ruled 0.5 m pitches and the computed populations, GRID the
+  // skeleton's — so the drawn geometry and the parity-held record are one thing.
+  // The old derivation from BAND.cells died with the tiles: the 20,000-cell
+  // census was the hex-tile fossil, and the wall is rings + bars + one film.
   const R = SHIP.diaM / 2;
   const cylL = SHIP.lenM - SHIP.diaM;
   const area = 2 * Math.PI * R * cylL + 4 * Math.PI * R * R;
-  const pitch = Math.sqrt(area / BAND.cells);   // drawn population IS the quoted population
   const sCap = Math.PI * R / 2;
   const total = 2 * sCap + cylL;
   const nBays = Math.max(2, Math.round(total / GRID.bayM));
-  // THE TILE GRID (operator cascade, 08-12): flat-top hexagons of the same area as the
-  // old cell footprint. Vertex rows fall on straight lines every sqrt(3)*a/2 along the
-  // meridian — and THAT is where the hoop chords go, because a post stands at every
-  // vertex and every post must land on a ring. Roughly twice as many rings as tile rows;
-  // hoop material is demand-fixed, so they are simply thinner.
-  // THE PANEL GRID (operator, 08-13): the film lies straight on the hoop chords, so the
-  // rings ARE the frame in the hoop direction and only meridional cross-bars are bought.
-  // No posts, no separate rim grid, no pipe standing above a pipe. A ring loaded by film
-  // along its whole length sees UNIFORM RADIAL LOAD — the funicular case, pure
-  // compression — where posts delivered the same load as point loads and bent it.
-  const tileA = pitch * Math.sqrt(2 / (3 * Math.sqrt(3)));
-  const rowY = Math.sqrt(3) * tileA / 2;     // ring pitch, unchanged: ~0.50 m
-  // SQUARE panels: cross-bar pitch = ring pitch. A doubly-curved panel carries pressure
-  // in BOTH directions (T = pR/2, the sphere) where a long strip carries it in one
-  // (T = pR, the cylinder) — so squaring the panel halves the membrane tension, which
-  // halves the film AND halves the meridional pull the cross-bars exist to resist.
-  // Member material is demand-fixed either way (force/sigma, independent of spacing), so
-  // the halving is pure profit. Triangles would be doubly curved too but pay a cosine
-  // penalty on every diagonal. [SCOPING — #74 optimises pitch itself]
-  const crossM = rowY;
-  const panels = Math.round(area / (rowY * crossM));
-  return { R, cylL, pitch, sCap, total, nBays, tileA, rowY, crossM, panels, area };
+  const rowY = WALL.ringPitchM;              // ring pitch — ruled, sweep-confirmed
+  const crossM = WALL.barPitchM;             // square panels — ruled
+  const pitch = crossM;                      // panel pitch around the girth
+  const panels = WALL.panels;                // quoted population = model population
+  return { R, cylL, pitch, sCap, total, nBays, rowY, crossM, panels, area };
 }
 
 /* Meridian station at arc length s from the nose pole: axial x, ring radius r, outward
@@ -1825,22 +1829,20 @@ const cellsToXf = (cells) => {
  * the outer chord wall one cell under the surface (cells sit face-down on it), the inner
  * wall GRID.depthM further in. Segments carry (s, th) for the same reason the cells do. */
 function shipSkeletonSegs(D) {
-  // The outer chord wall now sits at the POST'S FOOT — a hand's breadth under the film,
-  // not a cell's depth — so the whole band thins and the void grows by the difference.
-  // The barrier is ON the skeleton now: rings at the outer surface, inner wall one
-  // sandwich depth in. The old post standoff is gone, so the whole band thins to nothing
-  // and the void grows by that much.
+  // THE COMPLETE SKELETON, post-correction (08-13): every member class the gated
+  // model prices is drawn, and only those. Outer rings at panel pitch; inner
+  // rings at bay pitch; longerons on the inner wall over the BARREL plus the
+  // junction overlap only (under the caps the meridional load is the cap grid's
+  // own — pricing both was the 23-tonne error the scoping tool caught); the
+  // meridional fan per column per bay; the RING-PLANE X-webs (the member class
+  // the checks found missing — without them the two walls cannot act as one
+  // deep ring); the junction shear diagonals at both dome edges; and the
+  // LICENSED SPOKES — diametral tension cords at every bay plane, the Winkler
+  // foundation that fights the low-n ovalization modes at fibre weight.
   const wallOff = 0, innerOff = GRID.depthM;
-  // SUPPORT PER CELL — the operator's ruling (08-12): the OUTER wall carries a hoop
-  // chord under EVERY cell row, so each cell lands its face on a ring and the seat rail
-  // is deleted as a class. The INNER wall keeps its rings at bay pitch, and the webs fan
-  // ~2:1, collecting the fine outer rings onto the coarse inner ones — force gathered,
-  // then distributed, exactly as ruled. Total hoop material is demand-fixed (P·R does
-  // not care how many rings share it); SHIP-2 verifies the thin ring's Euler margin
-  // between web points and prices the ring count.
   const outerRings = [];
   {
-    const nRings = Math.round(D.total / D.rowY);      // one ring per panel row, exactly
+    const nRings = Math.round(D.total / D.rowY);
     for (let i = 0; i <= nRings; i++) outerRings.push(D.total * i / nRings);
   }
   const innerRings = [];
@@ -1850,59 +1852,95 @@ function shipSkeletonSegs(D) {
     const r = st.r - st.nr * off;
     return [st.x - st.nx * off, -r * Math.cos(th), r * Math.sin(th), r];
   };
-  const hoops = [], longs = [], webs = [];
-  const SEG = 64, NLONG = 36, RMIN = 2;
-  const ringPass = (rings, off) => {
+  const hoops = [], hoopsInner = [], longs = [], webs = [], thetas = [],
+    junctions = [], spokes = [];
+  const SEG = 64, NLONG = GRID.nLong, RMIN = 2;
+  const ringPass = (rings, off, out) => {
     for (const s of rings) {
       if (point(s, off, 0)[3] < RMIN) continue;
       let prev = null;
       for (let j = 0; j <= SEG; j++) {
         const th = 2 * Math.PI * j / SEG;
         const q = point(s, off, th);
-        if (prev) hoops.push({ a: [prev[0], prev[1], prev[2]], b: [q[0], q[1], q[2]], off, s, th });
+        if (prev) out.push({ a: [prev[0], prev[1], prev[2]], b: [q[0], q[1], q[2]], off, s, th });
         prev = q;
       }
     }
   };
-  ringPass(outerRings, wallOff);
-  ringPass(innerRings, innerOff);
-  // OUTER LONGERONS DELETED (operator direction, same night as support-per-cell): the
-  // axial pR/2 re-homes entirely to the inner wall's longerons, and the outer face is
-  // rings, webs and the leaning band — nothing running lengthwise. NOT because the cells
-  // anchor the wall: the band stays deliberately non-structural (the decoupling ruling);
-  // the rings are positioned by the web fan. SHIP-2 inherits the torsion-on-one-wall,
-  // single-flange bending and outer-ring stability checks.
-  for (const off of [innerOff]) {
+  ringPass(outerRings, wallOff, hoops);
+  ringPass(innerRings, innerOff, hoopsInner);
+  // Longerons: BARREL + sqrt(R*T) overlap, inner wall, one per column.
+  const over = Math.sqrt(D.R * GRID.depthM);
+  const s0 = Math.max(0.5, D.sCap - over), s1 = Math.min(D.total - 0.5, D.sCap + D.cylL + over);
+  for (let k = 0; k < NLONG; k++) {
+    const th = 2 * Math.PI * k / NLONG;
+    let prev = null;
+    const NSEG = 40;
+    for (let i = 0; i <= NSEG; i++) {
+      const sm = s0 + (s1 - s0) * i / NSEG;
+      const q = point(sm, innerOff, th);
+      if (q[3] < RMIN) { prev = null; continue; }
+      if (prev) longs.push({ a: [prev[0], prev[1], prev[2]], b: [q[0], q[1], q[2]], off: innerOff, s: sm, th });
+      prev = q;
+    }
+  }
+  // The meridional fan: per column, per bay, TWO diagonals — outer wall at the
+  // bay's midpoint down to the two inner rings that bound it. The drawing IS
+  // the drawn population the webs line bills.
+  for (let bIdx = 0; bIdx < innerRings.length - 1; bIdx++) {
+    const mid = (innerRings[bIdx] + innerRings[bIdx + 1]) / 2;
     for (let k = 0; k < NLONG; k++) {
       const th = 2 * Math.PI * k / NLONG;
-      let prev = null;
-      for (let i = 0; i <= 72; i++) {
-        const sm = D.total * i / 72;
-        const q = point(sm, off, th);
-        if (q[3] < RMIN) { prev = null; continue; }
-        if (prev) longs.push({ a: [prev[0], prev[1], prev[2]], b: [q[0], q[1], q[2]], off, s: sm, th });
-        prev = q;
+      const a = point(mid, wallOff, th);
+      if (a[3] < RMIN) continue;
+      for (const si of [innerRings[bIdx], innerRings[bIdx + 1]]) {
+        const b = point(si, innerOff, th);
+        if (b[3] >= RMIN)
+          webs.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: wallOff, s: mid, th });
       }
     }
   }
-  // The 2:1 fan: every outer ring sheds down a diagonal to its NEAREST inner ring, so
-  // inner nodes collect from ~2.2 outer rings each and the drawing IS the load path.
-  // Every web ENDS ON AN INNER RING. They were landing halfway between them — the
-  // misalignment the operator spotted — because the fan targeted a fixed offset rather
-  // than the nearest actual inner ring.
-  for (const so of outerRings) {
-    let si = innerRings[0];
-    for (const c of innerRings) if (Math.abs(c - so) < Math.abs(si - so)) si = c;
+  // The RING-PLANE X-webs: at every bay plane, per column, the crossed pair —
+  // outer at column k to inner at k+1 and outer at k+1 to inner at k. These are
+  // what let the two walls bend as ONE deep ring; the fan cannot do it.
+  for (const sb of innerRings) {
+    if (point(sb, wallOff, 0)[3] < RMIN) continue;
     for (let k = 0; k < NLONG; k++) {
-      const th = 2 * Math.PI * k / NLONG;
-      const a = point(so, wallOff, th);
-      const b = point(si, innerOff, th);
-      if (a[3] >= RMIN && b[3] >= RMIN)
-        webs.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: wallOff,
-                    s: (so + si) / 2, th });
+      const th0 = 2 * Math.PI * k / NLONG;
+      const th1 = 2 * Math.PI * (k + 1) / NLONG;
+      const oa = point(sb, wallOff, th0), ob = point(sb, wallOff, th1);
+      const ia = point(sb, innerOff, th0), ib = point(sb, innerOff, th1);
+      if (Math.min(oa[3], ob[3], ia[3], ib[3]) < RMIN) continue;
+      thetas.push({ a: [oa[0], oa[1], oa[2]], b: [ib[0], ib[1], ib[2]], off: wallOff, s: sb, th: th0 });
+      thetas.push({ a: [ob[0], ob[1], ob[2]], b: [ia[0], ia[1], ia[2]], off: wallOff, s: sb, th: th1 });
     }
   }
-  return { hoops, longs, webs };
+  // Junction shear diagonals: both dome edges, 45-deg outer->inner across the
+  // transition zone — the caps' 215 MN of thrust migrating to the longerons.
+  for (const sj of [D.sCap, D.sCap + D.cylL]) {
+    for (let k = 0; k < NLONG; k++) {
+      const th = 2 * Math.PI * k / NLONG;
+      const dir = sj < D.total / 2 ? 1 : -1;
+      const a = point(sj - dir * over * 0.5, wallOff, th);
+      const b = point(sj + dir * over * 0.5, innerOff, th);
+      if (a[3] >= RMIN && b[3] >= RMIN)
+        junctions.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: wallOff, s: sj, th });
+    }
+  }
+  // The spokes: diametral cords at every bay plane, half the columns (each cord
+  // serves both ends). Drawn as the layout concept; the model bills the smeared
+  // area. Pretensioned, so both signs of the ovalization mode load them.
+  for (const sb of innerRings) {
+    const p0 = point(sb, innerOff, 0);
+    if (p0[3] < RMIN + 4) continue;
+    for (let k = 0; k < NLONG / 2; k++) {
+      const th = 2 * Math.PI * k / NLONG;
+      const a = point(sb, innerOff, th);
+      const b = point(sb, innerOff, th + Math.PI);
+      spokes.push({ a: [a[0], a[1], a[2]], b: [b[0], b[1], b[2]], off: innerOff, s: sb, th });
+    }
+  }
+  return { hoops, hoopsInner, longs, webs, thetas, junctions, spokes };
 }
 
 const segLines = (arr) => arr.map((g) => [g.a, g.b]);
@@ -1914,15 +1952,14 @@ const segLines = (arr) => arr.map((g) => [g.a, g.b]);
 function buildGrid() {
   const root = node({ id: 'L_grid', category: 'vacuum', selectable: false });
   const D = shipDims();
-  const cells = shipCellPlacements(D);
   const bones = shipSkeletonSegs(D);
   const s0 = D.total / 2, TH0 = Math.PI / 2;
 
-  const ghost = inst(root, { id: 'GridGhostCells' }, cellsToXf(cells), cells.length, {});
-  ghost.geom = G.filmDomeGeom(D.crossM * 0.9, 0.11, 6, 2);
-  ghost.xmat = { kind: 'glass', color: '#7d8698', opacity: 0.05 };
+  // The whole ship stays present as its faint frame — the ghost DOMES died with
+  // the panel pitch (69,000 instances of context is not context).
   lineNode(root, 'GridGhostFrame',
-    segLines([...bones.hoops, ...bones.longs].filter((_, i) => i % 3 === 0)), XM.latticeFaint);
+    segLines([...bones.hoops.filter((_, i) => i % 6 === 0),
+              ...bones.longs.filter((_, i) => i % 2 === 0)]), XM.latticeFaint);
 
   /* THE WALL, as ruled: hoop chords at panel pitch with the film laid straight on them,
    * meridional cross-bars holding adjacent rings apart against the film's pull, and
@@ -1966,7 +2003,7 @@ function buildGrid() {
   // weave's amplitude is one tube diameter over a half-metre span, an out-of-straightness
   // of ~1/21 against the L/500 a compression member wants, and the eccentricity moment
   // alone (P x 12 mm) exceeds the bar's section. Clamps do the interlock without kinking.
-  const RING_R = 0.05, BAR_R = 0.012;
+  const RING_R = WALL.ringOdMm / 2000, BAR_R = WALL.barOdMm / 2000;
   const BAR_OFF = -(RING_R + BAR_R);        // negative = outboard of the rings
   pipes('GridHoops', rows.flatMap(u => arc(u, 0)), RING_R, XM.pipeRim);
   // The cross-bars: struts between adjacent rings. The film's meridional pull draws the
@@ -2054,6 +2091,29 @@ function buildGrid() {
     }
   }
   pipes('GridWebs', webs, 0.038, XM.pipe);
+  // The ring-plane X-webs — the member class the 08-13 checks found missing —
+  // drawn at the patch's two bay planes; and two spoke cords crossing the void,
+  // the licensed foundation, heading for the far wall.
+  {
+    const tx = [];
+    for (const u of [innerRows[Math.floor(innerRows.length / 2) - 1] || 0,
+                     innerRows[Math.floor(innerRows.length / 2)] || 0]) {
+      for (let c = -3; c < 3; c++) {
+        const v0 = c * vHalf / 3.5, v1 = (c + 1) * vHalf / 3.5;
+        tx.push([at(u, v0, 0), at(u, v1, GRID.depthM)]);
+        tx.push([at(u, v1, 0), at(u, v0, GRID.depthM)]);
+      }
+    }
+    pipes('GridTheta', tx, 0.02, XM.pipe);
+    const sp = [];
+    for (const u of [innerRows[Math.floor(innerRows.length / 2)] || 0]) {
+      for (const v of [-vHalf / 3, vHalf / 4]) {
+        sp.push([at(u, v, GRID.depthM), at(u, v * 0.2, GRID.depthM + 18)]);
+      }
+    }
+    lineNode(root, 'GridSpokes', sp,
+      { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.55 });
+  }
 
   return {
     root,
@@ -2063,33 +2123,115 @@ function buildGrid() {
       { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped sparsely, staggered ≈2 m', s: 'nothing drilled, cut or woven — and the crossings need no fastener under load, since the push is always inward. The clamps are for the unpressurised states: this has to stand up before it is ever pumped down' },
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
+      { p: at(0.5 * ROW, 2.0 * CROSS, GRID.depthM + 0.6), t: 'the X in the ring plane', s: 'the member the checks found missing: without it the two walls cannot bend as one deep ring — the fan lives in meridional planes and cannot carry this shear' },
+      { p: at(0, -1.5 * CROSS, GRID.depthM + 8), t: 'spokes, crossing the void', s: 'the licensed fallback: pretensioned cords that fight the low-n ovalization modes at fibre weight — cheapest exactly where the sandwich pays most' },
     ],
   };
 }
 
-/* Level — SHIP 0: the whole vehicle drawn as what it is — a sealed wall of cells.
- *
- * Shell-only instances of the real Kelvin silhouette (the operator's direction: no
- * internal structure at ship range — a cell's lattice is smaller than a pixel here),
- * drawn 2% under pitch so the seams read as cells rather than a smooth hull; the
- * endoskeleton in the round beneath it; the void hinted by a glass inner skin. All of it
- * comes from the shared surface generators above, and the figures come from catalog.js,
- * scoping-chipped until the ship.js port. Cap tiling is schematic and the panel says so. */
+/* The wrap: ONE mesh, the whole film, pressure-formed. Every panel gets its own
+ * inward dimple — ring-line vertices ON the rings, a centre vertex dished by the
+ * membrane law's own bulge (h = 0.25 a). Constant panel count around the girth
+ * (the barrel's own); the caps narrow their panels toward the poles and the
+ * panel already wears its "cap tiling schematic" tag. Drawn population is the
+ * barrel's honest grid; the QUOTED population is the model's. */
+function shipWrapGeom(D) {
+  const nAround = Math.round(2 * Math.PI * D.R / D.crossM);
+  const nRows = Math.round(D.total / D.rowY);
+  const sag = 0.25 * (Math.max(D.rowY, D.crossM) / 2);
+  const pos = [], idx = [];
+  const ringVert = [];                        // [row][j] -> vertex index
+  for (let i = 0; i <= nRows; i++) {
+    const st = shipStation(D, D.total * i / nRows);
+    const row = [];
+    for (let j = 0; j < nAround; j++) {
+      const th = 2 * Math.PI * j / nAround;
+      row.push(pos.length / 3);
+      pos.push(st.x, -st.r * Math.cos(th), st.r * Math.sin(th));
+    }
+    ringVert.push(row);
+  }
+  for (let i = 0; i < nRows; i++) {
+    const sMid = D.total * (i + 0.5) / nRows;
+    const st = shipStation(D, sMid);
+    if (st.r < 1.5) {                         // polar caps: plain fan, no dimple room
+      for (let j = 0; j < nAround; j++) {
+        const a = ringVert[i][j], b = ringVert[i][(j + 1) % nAround];
+        const c = ringVert[i + 1][j], d = ringVert[i + 1][(j + 1) % nAround];
+        idx.push(a, c, d, a, d, b);
+      }
+      continue;
+    }
+    for (let j = 0; j < nAround; j++) {
+      const thMid = 2 * Math.PI * (j + 0.5) / nAround;
+      const r = st.r - st.nr * sag;
+      const centre = pos.length / 3;
+      pos.push(st.x - st.nx * sag, -r * Math.cos(thMid), r * Math.sin(thMid));
+      const a = ringVert[i][j], b = ringVert[i][(j + 1) % nAround];
+      const c = ringVert[i + 1][j], d = ringVert[i + 1][(j + 1) % nAround];
+      idx.push(a, b, centre, b, d, centre, d, c, centre, c, a, centre);
+    }
+  }
+  return G.solid(new Float32Array(pos), new Uint32Array(idx));
+}
+
+/* Instanced pipes from a segment list — the grid level's own idiom, shared. */
+function pipesFromSegs(parent, id, segs, rOut, xmat, sides = 8) {
+  if (!segs.length) return null;
+  const pts = [], pairs = [];
+  for (const g of segs) { pts.push(g.a, g.b); pairs.push([pts.length - 2, pts.length - 1]); }
+  const gi = G.strutInstances(pts, pairs, 0, 1.0);
+  const n2 = inst(parent, { id }, gi.xf, gi.count, {});
+  n2.geom = G.tubeArcGeom(rOut, rOut * 0.35, 1.0, 360, sides);
+  n2.xmat = xmat;
+  return n2;
+}
+
+/* Level — SHIP 0: the whole vehicle, complete. Every member class the gated
+ * model prices is on screen as pipe or cord: the film wrap pressure-formed over
+ * the rings, the rings and cross-bars as real sections, the inner wall's
+ * longerons and rings, the fan, the ring-plane X-webs, the junction diagonals,
+ * and the spokes across the void. Fly through it — the fly view threads the
+ * bow, the void and the wall gap. Figures come from the gated model through
+ * catalog.js; nothing here is typed. */
 function buildShip() {
   const root = node({ id: 'L_ship', category: 'vacuum', selectable: false });
   const D = shipDims();
-  const cells = shipCellPlacements(D);
-  // THE WALL IS TILES: at ship range each one reads as its film panel, so the surface is
-  // the loaded barrier itself — a dome per tile, sagging inward under the sky — rather
-  // than a lattice of sealed boxes. Same population, same pitch, honest membrane.
-  const wall = inst(root, { id: 'ShipCells' }, cellsToXf(cells), cells.length, {});
-  wall.geom = G.filmDomeGeom(D.pitch * 0.98, 0.11, 8, 2);
-  wall.xmat = XM.sealedWall;
+  // THE WRAP — the one loaded membrane, dished into every panel by the sky.
+  const wrap = solidNode(root, 'ShipFilm', shipWrapGeom(D), XM.sealedWall);
+  wrap.shipWrap = true;
   const bones = shipSkeletonSegs(D);
-  lineNode(root, 'ShipHoops', segLines(bones.hoops), XM.frameLine);
-  lineNode(root, 'ShipLongs', segLines(bones.longs), XM.latticeLine);
-  lineNode(root, 'ShipWebs', segLines(bones.webs), { kind: 'line', color: TOKENS.cool, weight: 1.0, opacity: 0.5 });
-  // The void, hinted: the inner terminal skin as glass, one cell-depth inboard.
+  // The wall's members at their model sections (WALL carries mm; drawn in m).
+  pipesFromSegs(root, 'ShipRings', bones.hoops, WALL.ringOdMm / 2000, XM.pipeRim, 6);
+  // Cross-bars: continuous meridians one ring-diameter outboard would be sub-
+  // pixel at this range; drawn on-surface at their true OD, one per column of
+  // panels — the bar POPULATION is the girth count, drawn as full meridians.
+  const barSegs = [];
+  {
+    const nB = Math.round(2 * Math.PI * D.R / D.crossM);
+    for (let k = 0; k < nB; k += 1) {
+      const th = 2 * Math.PI * k / nB;
+      let prev = null;
+      for (let i = 0; i <= 48; i++) {
+        const sm = D.total * i / 48;
+        const st = shipStation(D, sm);
+        if (st.r < 1.2) { prev = null; continue; }
+        const q = [st.x, -st.r * Math.cos(th), st.r * Math.sin(th)];
+        if (prev) barSegs.push({ a: prev, b: q });
+        prev = q;
+      }
+    }
+  }
+  pipesFromSegs(root, 'ShipBars', barSegs, WALL.barOdMm / 2000, XM.pipe, 6);
+  pipesFromSegs(root, 'ShipInnerRings', bones.hoopsInner, 0.05, XM.pipeRim, 6);
+  pipesFromSegs(root, 'ShipLongs', bones.longs, GRID.longOdMm / 2000, XM.pipeRim, 6);
+  pipesFromSegs(root, 'ShipWebs', bones.webs, 0.03, XM.pipe, 6);
+  pipesFromSegs(root, 'ShipTheta', bones.thetas, 0.02, XM.pipe, 6);
+  pipesFromSegs(root, 'ShipJunction', bones.junctions, 0.04, XM.pipe, 6);
+  // The spokes are CORDS, not pipes — drawn as the tension lines they are.
+  lineNode(root, 'ShipSpokes', segLines(bones.spokes),
+    { kind: 'line', color: TOKENS.warm, weight: 0.9, opacity: 0.4 });
+  // The void's terminal skin, glass, one depth in.
   const prof = [];
   const NP = 40;
   for (let i = 0; i <= NP; i++) {
@@ -2098,16 +2240,15 @@ function buildShip() {
     prof.push([st.x - st.nx * off, Math.max(0.01, st.r - st.nr * off)]);
   }
   solidNode(root, 'ShipVoidSkin', latheWithScale(prof, 48, () => 1), XM.kelvinGhost);
-  // A person at the nose, 1.8 m — two pixels, which is the point.
   const px = -SHIP.lenM / 2 - 2;
   lineNode(root, 'ShipPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]], XM.scaleTick);
   return {
     root,
-    shipCellCount: cells.length, shipPitchM: D.pitch,
+    shipPanelCount: WALL.panels, shipPitchM: D.pitch,
     labels: [
-      { p: [0, 0, D.R * 1.3], t: `ship 0 — ${SHIP.diaM} m × ${SHIP.lenM} m`, s: 'the sealed wall IS the visible ship: one layer of cells, pressed onto the skeleton by the sky' },
-      { p: [SHIP.lenM * 0.16, 0, -D.R * 1.3], t: `${cells.length.toLocaleString('en-US')} cells drawn, shells only`, s: "at this range a cell's whole lattice is smaller than a pixel; the cap tiling is schematic" },
-      { p: [-SHIP.lenM * 0.16, 0, -D.R * 1.3], t: 'inside: the void', s: 'no stacked cells — an empty two-walled skeleton, and everything inboard of the wall is lift' },
+      { p: [0, 0, D.R * 1.3], t: `ship 0 — ${SHIP.diaM} m × ${SHIP.lenM} m`, s: 'complete: one pressure-formed film over the ring grid, the two-walled skeleton, the ring-plane webs, and the spokes across the void' },
+      { p: [SHIP.lenM * 0.16, 0, -D.R * 1.3], t: `${WALL.rings.toLocaleString('en-US')} rings · ${WALL.bars.toLocaleString('en-US')} bars · ${WALL.panels.toLocaleString('en-US')} panels`, s: 'the gated model’s own populations — the cap tiling is drawn schematic' },
+      { p: [-SHIP.lenM * 0.16, 0, -D.R * 1.3], t: 'the honest pair rides every number', s: 'it does not float on the house-harsh stability basis; the knockdown and coupon campaigns are the decision — the panel carries both worlds' },
     ],
   };
 }
@@ -2158,12 +2299,7 @@ const CELL_CENTRE = [-CELL_SHIFT, 0, 0];   // cg.p shifts NEGATIVE; follow it
 // pull all the way out and find the detailed patch sitting on the whole vehicle.
 const SHIPVIEW = (() => {
   const D = shipDims();
-  const s0 = D.total / 2, TH0 = Math.PI / 2;
-  const cells = shipCellPlacements(D);
-  let hero = cells[0];
-  for (const c of cells) {
-    if (Math.hypot(c.s - s0, (c.th - TH0) * D.R) < Math.hypot(hero.s - s0, (hero.th - TH0) * D.R)) hero = c;
-  }
+  const s0 = D.total / 2;
   const at = (ds, off) => {
     const st = shipStation(D, s0 + ds);
     return [st.x - st.nx * off, 0, st.r - st.nr * off];
@@ -2171,7 +2307,7 @@ const SHIPVIEW = (() => {
   return {
     D,
     gridTg: [0, 0, D.R - GRID.depthM / 2],
-    heroTg: hero.p.slice(),
+    heroTg: at(0.5 * D.rowY, 0),
     openTg: at(-2.2 * D.rowY, 0),
     laidTg: at(2.0 * D.rowY, 0),
     depthTg: [0, 0, D.R - GRID.depthM / 2],
@@ -2180,6 +2316,7 @@ const SHIPVIEW = (() => {
 
 const LEVEL_VIEWS = {
   ship: [
+    { k: 'fly', n: 'fly through it', fly: true },
     { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
     { k: 'bow', n: 'bow-on', tg: [0, 0, 0], az: -2.75, el: 0.10, d: 150 },
     { k: 'skim', n: 'skim the wall', tg: [0, 0, SHIPVIEW.D.R], az: -0.85, el: 0.10, d: 15 },
@@ -2189,7 +2326,7 @@ const LEVEL_VIEWS = {
   bay: [
     { k: 'open', n: 'the open course', tg: SHIPVIEW.openTg, az: -0.55, el: 0.72, d: 15 },
     { k: 'laid', n: 'the laid wall', tg: SHIPVIEW.laidTg, az: -0.5, el: 0.62, d: 15 },
-    { k: 'post', n: 'one post, three tiles', tg: SHIPVIEW.heroTg, az: -0.7, el: 0.35, d: 3.2 },
+    { k: 'post', n: 'one crossing, clamped', tg: SHIPVIEW.heroTg, az: -0.7, el: 0.35, d: 3.2 },
     { k: 'depth', n: 'into the depth', tg: SHIPVIEW.depthTg, az: -0.4, el: 0.1, d: 8 },
     { k: 'fromship', n: 'see it from the ship', tg: SHIPVIEW.gridTg, az: -1.0, el: 0.5, d: 240 },
   ],
@@ -2201,10 +2338,30 @@ const LEVEL_VIEWS = {
     { k: 'level', n: 'level with it', az: -0.9, el: 0.03, d: 1.45 },
   ],
   array: [
-    { k: 'block', n: 'the whole band block', az: -0.8, el: 0.3, d: 12.3 },
-    { k: 'hero', n: 'the opened cell', tg: [0, -2, 1], az: -0.65, el: 0.2, d: 4.5 },
+    { k: 'whole', n: 'the divided void', tg: [0, 0, 0], az: -0.9, el: 0.25, d: 105 },
+    { k: 'membrane', n: 'one membrane', tg: [-17.3, 0, 0], az: -1.35, el: 0.12, d: 34 },
+    { k: 'inside', n: 'inside a compartment', tg: [8.7, 0, 0], az: -0.7, el: 0.05, d: 10 },
+    { k: 'fromship', n: 'see it from the ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
   ],
 };
+
+/* THE FLY-THROUGH — the operator's ask, verbatim: "the complete ship with all
+ * struts and components as a view we can fly through." A chain of poses flown
+ * as one continuous eased path: bow approach, skim the wall, thread the gap
+ * between the walls, cross the void among the spokes, out over the stern.
+ * Cancelled by any input; reduced motion steps it as cuts. */
+const FLY_PATH = (() => {
+  const D = shipDims();
+  const R = D.R;
+  return [
+    { tg: [-SHIP.lenM * 0.62, 0, 0], az: -2.9, el: 0.06, d: 70, s: 2.4 },
+    { tg: [-SHIP.lenM * 0.30, 0, R * 0.9], az: -2.2, el: 0.10, d: 26, s: 2.6 },
+    { tg: [0, 0, R - GRID.depthM / 2], az: -1.45, el: 0.06, d: 7, s: 3.0 },
+    { tg: [SHIP.lenM * 0.12, 0, R * 0.35], az: -0.9, el: 0.02, d: 12, s: 2.8 },
+    { tg: [SHIP.lenM * 0.30, 0, 0], az: -0.5, el: -0.04, d: 18, s: 2.6 },
+    { tg: [SHIP.lenM * 0.60, 0, 0], az: -0.25, el: 0.12, d: 90, s: 2.8 },
+  ];
+})();
 
 export const LEVELS = [
   { id: 'strut', name: 'The connectors', scaleM: 0.05, radius: 0.030, az: -1.05, el: 0.24, dist: 2.6, target: CELL_CENTRE, stage: true, build: () => buildStageShell('strut'), instance: 'demonstrator' },
@@ -2216,13 +2373,14 @@ export const LEVELS = [
   // The array is framed on its HERO CELL — the one drawn with a skin at [0, -2, 1] — so
   // the descent to the level below goes into a cell already on screen instead of cutting
   // to a new model. openC in buildArray is the same point; one constant, both places.
-  { id: 'array', name: 'The band', scaleM: 2, radius: 4.4, az: -0.8, el: 0.3, dist: 2.8,
-    target: [0, -2, 1], build: buildArray, instance: 'flight' },
   { id: 'bay', name: 'The grid', scaleM: 20, radius: 9, depthR: 130, az: -0.62, el: 0.85, dist: 3.0, target: [0, 0, SHIP.diaM / 2 - GRID.depthM / 2], build: buildGrid, instance: 'flight' },
+  { id: 'array', name: 'The compartments', scaleM: 30, radius: 62, depthR: 130,
+    az: -0.9, el: 0.25, dist: 1.6, target: [0, 0, 0], build: buildArray,
+    instance: 'flight' },
   // SHIP 0 — the blueprint's closure level: the 52 x 104 plan of record as a wall of
   // cells. Sits between the bay and the flight-reference hull on the ladder because that
   // is where its scale lands; the 190 m fleet above it is the PREVIOUS design, at work.
-  { id: 'ship', name: 'Ship 0', scaleM: 52, radius: 62, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
+  { id: 'ship', name: 'Ship 0', scaleM: 52, radius: 62, depthR: 130, az: -1.15, el: 0.18, dist: 3.4, build: buildShip, instance: 'flight' },
 ];
 export const STAGE_LEVEL = LEVELS.findIndex(l => l.id === 'cell');
 
@@ -2489,7 +2647,8 @@ export function mountExplorer(opts) {
     tourStop: null,              // its key, so a probe and a label can read it back
     // The ship level's own controls: every layer starts ON; the wall hides the skeleton
     // until the viewer opens it, which is what a sealed wall does.
-    shipLayers: { wall: true, skeleton: true, webs: true, voidskin: true },
+    shipLayers: { wall: true, skeleton: true, webs: true, spokes: true, voidskin: true },
+    flyQueue: null,              // the ship's fly-through: remaining path legs
     turntable: !reducedMotion,
     reduced: !!reducedMotion,
   };
@@ -2781,8 +2940,11 @@ export function mountExplorer(opts) {
     const uf = b.unfoldDim === undefined ? 1 : b.unfoldDim;
     return ((nn.skinPart ? b.tourSkinDim : b.tourDim) || 1) * uf;
   };
-  const SHIP_LAYER = { ShipCells: 'wall', ShipHoops: 'skeleton', ShipLongs: 'skeleton',
-                       ShipWebs: 'webs', ShipVoidSkin: 'voidskin' };
+  const SHIP_LAYER = { ShipFilm: 'wall',
+                       ShipRings: 'skeleton', ShipBars: 'skeleton',
+                       ShipLongs: 'skeleton', ShipInnerRings: 'skeleton',
+                       ShipWebs: 'webs', ShipTheta: 'webs', ShipJunction: 'webs',
+                       ShipSpokes: 'spokes', ShipVoidSkin: 'voidskin' };
   const styleFor = (n) => {
     // Once the skin is unfolding, the cell it came off is not the subject any more.
     // Its own membrane is replaced by the net; the rest goes with it.
@@ -2887,7 +3049,7 @@ export function mountExplorer(opts) {
 
   /* -- breach handling (array level) -- */
   function applyBreach() {
-    const arr = built[4];
+    const arr = built[LEVELS.findIndex(l => l.id === 'array')];
     if (!arr.cellsNode) return;
     const tint = arr.cellsNode.inst.tint;
     const centres = arr.centres;
@@ -2986,6 +3148,23 @@ export function mountExplorer(opts) {
       const landed = transition.to;
       transition = null;
       if (wasTour) { tourFrom = tourTo; applyTour(1); }
+      // The fly-through's next leg, if one is queued and nothing cancelled it.
+      if (state.flyQueue && state.flyQueue.length
+          && LEVELS[state.levelIdx].id === 'ship') {
+        const leg = state.flyQueue.shift();
+        const lv = LEVELS[state.levelIdx];
+        transition = {
+          kind: 'view', from: state.levelIdx, to: state.levelIdx, t: 0,
+          seconds: leg.s,
+          d0: cam.distance, d1: leg.d,
+          r0: cam.radius, r1: lv.radius,
+          dr0: lv.depthR || lv.radius, dr1: lv.depthR || lv.radius,
+          tg0: cam.target.slice(), tg1: leg.tg.slice(),
+          az0: cam.azimuth, az1: leg.az, el0: cam.elevation, el1: leg.el,
+        };
+      } else if (state.flyQueue && !state.flyQueue.length) {
+        state.flyQueue = null;
+      }
       // Put the array back if we came to rest on it by any route. The clear-down above only
       // reverses itself on the return dive from the cell; arriving from the rail or from the
       // bay above would otherwise show a field of cells that had been faded out and never
@@ -3293,6 +3472,7 @@ export function mountExplorer(opts) {
   };
   let drag = null;
   canvas.addEventListener('pointerdown', (e) => {
+    state.flyQueue = null;                    // any hand on the stick ends the tour
     drag = { x: e.clientX, y: e.clientY, moved: false, b: e.button };
     canvas.setPointerCapture(e.pointerId);
     lastInteract = performance.now();
@@ -3311,10 +3491,11 @@ export function mountExplorer(opts) {
     dirty = true;
   });
   canvas.addEventListener('pointerup', (e) => {
-    if (drag && !drag.moved && state.levelIdx === 4 && !diving()) {
+    const arrIdxPick = LEVELS.findIndex(l => l.id === 'array');
+    if (drag && !drag.moved && state.levelIdx === arrIdxPick && !diving()) {
       const r = canvas.getBoundingClientRect();
       const id = renderer.pick({
-        root: built[4].root, camera: cam,
+        root: built[arrIdxPick].root, camera: cam,
         width: sceneBox.w, height: sceneBox.h, dpr: sceneBox.dpr,
         styleFor, clips: clips(),
       }, e.clientX - r.left, e.clientY - r.top);
@@ -3330,6 +3511,7 @@ export function mountExplorer(opts) {
   });
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
+    state.flyQueue = null;
     lastInteract = performance.now();
     if (transition) return;
     const f = Math.exp(e.deltaY * 0.0011);
@@ -3596,6 +3778,37 @@ export function mountExplorer(opts) {
     applyView(key) {
       const v = (LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []).find(x => x.k === key);
       if (!v) return null;
+      // THE FLY-THROUGH: a queue of poses flown as one continuous path, each leg
+      // the same eased move a view uses. Any input cancels it (the handlers
+      // clear the queue); reduced motion parks at the path's heart instead —
+      // the gap between the walls — because a slideshow of six cuts is worse
+      // than one good vantage.
+      if (v.fly) {
+        if (state.reduced) {
+          const mid = FLY_PATH[2];
+          const lv = LEVELS[state.levelIdx];
+          applyRadius(cam, lv.radius, lv.depthR || lv.radius);
+          cam.target = mid.tg.slice();
+          cam.azimuth = mid.az; cam.elevation = mid.el; cam.distance = mid.d;
+          state.flyQueue = null;
+          dirty = true;
+          return v.n;
+        }
+        state.flyQueue = FLY_PATH.slice(1);
+        const first = FLY_PATH[0];
+        const lv = LEVELS[state.levelIdx];
+        transition = {
+          kind: 'view', from: state.levelIdx, to: state.levelIdx, t: 0,
+          seconds: first.s,
+          d0: cam.distance, d1: first.d,
+          r0: cam.radius, r1: lv.radius,
+          dr0: lv.depthR || lv.radius, dr1: lv.depthR || lv.radius,
+          tg0: cam.target.slice(), tg1: first.tg.slice(),
+          az0: cam.azimuth, az1: first.az, el0: cam.elevation, el1: first.el,
+        };
+        dirty = true;
+        return v.n;
+      }
       if (v.group !== undefined) applyGroup(v.group);
       const lv = LEVELS[state.levelIdx];
       const depthR = lv.depthR || (isStage(state.levelIdx) ? LEVELS[STAGE_LEVEL].radius : lv.radius);
