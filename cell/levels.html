@@ -104,8 +104,11 @@
 
   /* ---- level sections ---- */
   .lvl-fig{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
-        padding:var(--s4);margin:var(--s5) 0;display:flex;align-items:center;justify-content:center}
+        padding:var(--s4);margin:var(--s5) 0;display:flex;align-items:center;justify-content:center;
+        position:relative}
   .lvl-fig svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto}
+  .figno{position:absolute;top:var(--s2);right:var(--s3);font:var(--t-11)/1 var(--mono);
+        color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
   .facts{display:flex;flex-wrap:wrap;gap:var(--s3);margin:var(--s4) 0}
   .fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-sm);
         padding:var(--s2) var(--s4);font-family:var(--mono);font-size:var(--t-13);color:var(--bone)}
@@ -272,7 +275,8 @@
     <figure class="lvl-fig" id="fig-webs"></figure>
     <div class="facts">
       <span class="fact">sandwich depth <b>≈<span data-cat="grid.depthM"></span> m</b> <span class="chip st-scoping">scoping</span></span>
-      <span class="fact">ring bays <b>≈<span data-cat="grid.bayM"></span> m</b></span>
+      <span class="fact">ring bays <b>≈<span data-cat="grid.bayM"></span> m</b> — one hoop line per bay, fewer than one per cell</span>
+      <span class="fact">bearing at cell pitch — <b>rail, or a hoop per cell</b> <span class="chip st-scoping">open</span></span>
       <span class="fact">hoop demand <b><span data-cat="grid.hoopKPaM"></span> kPa·m</b> — the shell's job, not the band's</span>
       <span class="fact">sealed wall outside — <b>nothing crosses it</b> <span class="chip st-decided">ruled</span></span>
     </div>
@@ -351,6 +355,6 @@ window.__errs = [];
 window.addEventListener('error', (e) => window.__errs.push(String(e.message || e)));
 window.addEventListener('unhandledrejection', (e) => window.__errs.push(String(e.reason)));
 </script>
-<script type="module" src="./levels.js?v=b5da402b"></script>
+<script type="module" src="./levels.js?v=1c525370"></script>
 </body>
 </html>

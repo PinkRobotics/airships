@@ -63,6 +63,7 @@ PROBE = r"""(() => {
   }
   const pane = document.querySelector('#pane-a svg');
   if (pane) { out.paneSvg = true; sweep(pane, 'catalog pane'); }
+  out.fignos = [...document.querySelectorAll('figure.lvl-fig .figno')].map(e => e.textContent);
   for (const el of document.querySelectorAll('[data-cat]'))
     if (el.classList.contains('miss') || el.textContent.trim() === '—')
       out.miss.push(el.dataset.cat);
@@ -99,6 +100,10 @@ def main() -> int:
             bad.append(f"#{fid} drew {kids} SVG children — an empty or stub figure")
     if not res.get("paneSvg"):
         bad.append("the catalog pane mounted no part drawing")
+    want_nos = [f"fig {i + 1}" for i in range(len(seen))]
+    if res.get("fignos") != want_nos:
+        bad.append(f"figure numbers read {res.get('fignos')} — every figure carries "
+                   "'fig N' in document order, or the operator cannot name what he sees")
     for path in res.get("miss", []):
         bad.append(f"data-cat=\"{path}\" resolved to nothing — the binder shows a dash")
     for o in res.get("overflow", []):

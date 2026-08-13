@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=b5da402b';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=1c525370';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -410,7 +410,15 @@ function drawCellSupport() {
   return svgEl(out, '0 0 660 234');
 }
 
-/* Level 4 — one bay zoomed: adjacent cells face-down on the wall, skin over the landscape. */
+/* Level 4 — one bay zoomed: adjacent cells face-down on the wall, skin over the landscape.
+ *
+ * The section plane holds the ship's AXIS, so the two chord families read differently and
+ * the drawing must say so: HOOP chords (the pR carriers, the ring frames themselves) run
+ * around the barrel and appear only as circled-cross sections, one line per bay; the
+ * LONGERON (the axial chord, pR/2) is the one that genuinely runs along this view. The
+ * old drawing's thick "outer wall" line read as a continuous floor — there is no floor,
+ * and the operator called it: at bay pitch the mid-bay cell has NO chord beneath it, which
+ * is exactly the open seat-line question, so the figure now draws that gap honestly. */
 function drawWebDetail() {
   const faceY = 150, innerY = 288, n1 = 110, n2 = 330, mid = 220;
   const s8 = 39.6, R8 = s8 / (2 * Math.sin(Math.PI / 8)), flat = s8 * (1 + Math.SQRT2);
@@ -438,15 +446,35 @@ function drawWebDetail() {
     pts.map(([x, y]) => `L ${x.toFixed(1)} ${(y - 6).toFixed(1)}`).join(' ') +
     ` L 396 ${(cy - 0.383 * R8 - 6).toFixed(1)}`;
   out += `<path d="${skin}" fill="none" stroke="${C.warm}" stroke-width="2"/>`;
-  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="2.4"/>
+  // The axial chord: a member, not a floor — drawn at member weight.
+  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-width="1.4"/>
           <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.4"/>`;
-  for (const x of [n1, n2])
-    out += `<circle cx="${x}" cy="${faceY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
-  out += `<circle cx="${mid}" cy="${innerY}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>`;
+  // Hoop chords in section: circled cross = into the page, around the barrel.
+  const hoopSec = (x, y) => {
+    const d = 11 * Math.SQRT1_2 - 2.4;
+    return `<circle cx="${x}" cy="${y}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>
+      <line x1="${x - d}" y1="${y - d}" x2="${x + d}" y2="${y + d}" stroke="${C.cool}" stroke-width="1.2"/>
+      <line x1="${x - d}" y1="${y + d}" x2="${x + d}" y2="${y - d}" stroke="${C.cool}" stroke-width="1.2"/>`;
+  };
+  out += hoopSec(n1, faceY) + hoopSec(n2, faceY) + hoopSec(mid, innerY);
+  // The mid-bay cell's face, and the nothing that is under it.
+  out += `<line x1="${mid - 19}" y1="${faceY + 7}" x2="${mid + 19}" y2="${faceY + 7}"
+           stroke="${C.warm}" stroke-width="1.4" stroke-dasharray="3 3"/>`;
   out += `<line x1="${n1}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
           <line x1="${n2}" y1="${faceY + 10}" x2="${mid}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
           <line x1="${n1}" y1="${faceY + 10}" x2="30" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
           <line x1="${n2}" y1="${faceY + 10}" x2="410" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
+  // One bay, dimensioned between the two hoop-chord lines.
+  out += `<line x1="${n1}" y1="200" x2="${n2}" y2="200" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="${n1}" y1="195" x2="${n1}" y2="205" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="${n2}" y1="195" x2="${n2}" y2="205" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <text x="${mid}" y="213" fill="${C.bone}" font-size="10" text-anchor="middle" font-family="monospace">one bay ≈ ${GRID.bayM} m</text>`;
+  // The sandwich depth, dimensioned at the right edge.
+  out += `<line x1="424" y1="${faceY}" x2="424" y2="${innerY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="419" y1="${faceY}" x2="429" y2="${faceY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="419" y1="${innerY}" x2="429" y2="${innerY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
+          <text x="436" y="216" fill="${C.bone}" font-size="10" text-anchor="end" font-family="monospace">deep</text>
+          <text x="436" y="230" fill="${C.bone}" font-size="10" text-anchor="end" font-family="monospace">≈ ${GRID.depthM} m</text>`;
   const arrowTo2 = (x1, y1, x2, y2, col) => {
     const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
     return `<line x1="${x1}" y1="${y1}" x2="${(x2 - 5 * ux).toFixed(1)}" y2="${(y2 - 5 * uy).toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
@@ -456,12 +484,16 @@ function drawWebDetail() {
   out += `
     <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — the skin rides the cell landscape</text>
     <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">cells sit face-down on the wall — the seat is embedded in the face</text>
-    <text x="24" y="${faceY + 16}" fill="${C.cool}" font-size="10" font-family="monospace">outer wall · chords</text>
-    <text x="60" y="226" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
-    <text x="60" y="239" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
-    <text x="416" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall</text>
-    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>`;
-  return svgEl(out, '0 0 440 320');
+    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords run into the page, around the barrel — one line per bay</text>
+    <text x="24" y="${faceY + 17}" fill="${C.cool}" font-size="10" font-family="monospace">longeron</text>
+    <text x="${mid}" y="${faceY + 21}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">no chord under this one</text>
+    <text x="${n1 - 14}" y="190" fill="${C.cool}" font-size="10" font-family="monospace">hoop chord</text>
+    <text x="60" y="236" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
+    <text x="60" y="249" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
+    <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — the same hoops</text>
+    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>
+    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">bearing at cell pitch — a rail, or a hoop under every cell — is open</text>`;
+  return svgEl(out, '0 0 440 340');
 }
 
 /* Level 4 — the ring in section: the sealed wall outermost, pressed onto two truss walls. */
@@ -603,3 +635,14 @@ put('#fig-ring', drawRingSection());
 put('#fig-closure', drawShipClosure());
 put('#fig-ledger', drawLedger());
 put('#fig-equip', drawShipEquip());
+
+// FIGURE NUMBERS, so the operator can say "fig 5" instead of describing a drawing.
+// Assigned in document order AFTER every figure is mounted, so a new figure numbers
+// itself and an HTML reorder renumbers automatically — a hand-kept list would go stale
+// the first time either happened. The gate asserts the sequence is complete.
+document.querySelectorAll('figure.lvl-fig').forEach((f, i) => {
+  const tag = document.createElement('figcaption');
+  tag.className = 'figno';
+  tag.textContent = `fig ${i + 1}`;
+  f.appendChild(tag);
+});

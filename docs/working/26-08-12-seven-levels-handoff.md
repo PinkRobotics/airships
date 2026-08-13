@@ -257,6 +257,12 @@ arcs — never "restore" from it**; syncing it back is an open helm chore.
    POST-RULING FORM: this is now the SEAT RAIL requirement — the skeleton's outer
    wall must offer bearing points at CELL pitch (~0.9 m), not just bay pitch;
    per-seat ~12 kN on cm-scale Ti pads.
+   OPERATOR CANDIDATE (08-12, on reading fig 6): no rail and no floor at all —
+   set the hoop-chord pitch to the CELL pitch and land every cell's face directly
+   on a chord. Same total hoop material by demand (P·R is fixed), spread over
+   more, thinner lines; SHIP-2 must price the thinner chord's local buckling and
+   what becomes of the bay/web layout before this is more than a candidate. It
+   deletes the undesigned 0.5 kg/m² webs-ledger rail line if it wins.
 7. **Band-cell retune — now a SHAPE TRADE (widened by the operator, 08-12 late):**
    a single-layer wall reopens the cell shape. Candidates: (a) asymmetric Kelvin
    (original scope — heavier outer rim/film, lighter inner, sides to seat pitch);
