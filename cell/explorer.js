@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=74d38967';
-import * as G from './explorer-geom.js?v=74d38967';
+import * as CELL from './model.js?v=30f4ad28';
+import * as G from './explorer-geom.js?v=30f4ad28';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=74d38967';
+} from './nodes.generated.js?v=30f4ad28';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=74d38967';
+import { NODEMESHES } from './nodemeshes.generated.js?v=30f4ad28';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=74d38967';
+import { SKIN } from './skin.generated.js?v=30f4ad28';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=74d38967';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=30f4ad28';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2351,18 +2351,19 @@ function buildVessel() {
     const r = st.r - st.nr * off;
     return [st.x - st.nx * off, -r * Math.cos(th), r * Math.sin(th), r];
   };
-  // SOLAR (operator, 08-13): the sun side is the farm — a band of PV plates
-  // over the top sector of the barrel, sitting proud of the film on the same
+  // SOLAR (operator, round 8): "as much power as we can get" — the ENTIRE top
+  // half is the farm. Dense plate tiling with visible seams, so it reads as a
+  // PV array rather than grey paint; sitting proud of the film on the same
   // frames everything else uses. Placement only; the energy budget lives in
   // the fleet model, not here.
   {
     const px2 = [];
     const sA = D.sCap, sB = D.sCap + D.cylL;
-    for (let i = 0; i < 10; i++) {
-      const s = sA + (sB - sA) * (i + 0.5) / 10;
+    for (let i = 0; i < 22; i++) {
+      const s = sA + (sB - sA) * (i + 0.5) / 22;
       const st = shipStation(D, s);
-      for (let c = -3; c <= 3; c++) {
-        const th = Math.PI / 2 + c * 0.21;
+      for (let c = -6; c <= 6; c++) {
+        const th = Math.PI / 2 + c * 0.225;
         const uu = [0, -Math.cos(th), Math.sin(th)];
         const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
         const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
@@ -2529,13 +2530,15 @@ function buildVessel() {
   }
   const bucketZ = mz1 - 15;
   const boxZ = bucketZ + 7.0;
-  // THE PUMP + ANCHOR-WINCH BOX (operator, 08-13): the working end that gets
-  // LOWERED to the water — pumps to fill the tanks, and the winch whose anchor
-  // drops from here to grab the water and pull the ship DOWN against its own
-  // buoyancy while it drinks. A box is sufficient; the drop line carries it,
-  // the bucket hangs beneath, the anchor line runs on past both.
+  // THE WINCH BOX AND ITS THREE INDEPENDENT LINES (operator, round 8): the
+  // box is the winch house on the drop line, directly above the bucket — and
+  // the PUMP and the BUCKET hang from it on SEPARATE cables, because they
+  // operate independently (the pump holds station at the surface while the
+  // bucket cycles). The anchor line is the third, running past everything to
+  // the weight that pulls the ship down against its own buoyancy.
   lines.push([[xMid, 0, mz1], [xMid, 0, boxZ + 1.2]]);
-  lines.push([[xMid, 0, boxZ - 1.2], [xMid, 0, bucketZ + 1.9]]);
+  lines.push([[xMid + 0.9, 0, boxZ - 1.2], [xMid + 0.9, 0, bucketZ + 1.9]]);
+  lines.push([[xMid - 0.9, 0, boxZ - 1.2], [xMid - 0.9, 0, bucketZ - 3.0]]);
   lines.push([[xMid, 0, boxZ - 1.2], [xMid, 0, bucketZ - 9.0]]);
   lineNode(root, 'VesselLines', lines,
     { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
@@ -2553,15 +2556,114 @@ function buildVessel() {
   }
   {
     const bxf = new Float32Array(16);
-    bxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid, 0, bucketZ, 1]);
+    bxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid + 0.9, 0, bucketZ, 1]);
     const bk = inst(root, { id: 'VesselBucket' }, bxf, 1, {});
     bk.geom = latheWithScale([[-1.6, 0.4], [1.4, 2.3], [1.7, 2.35], [1.75, 2.1]],
       18, () => 1);
     bk.xmat = XM.membraneLoaded;
+    // The pump unit on its own cable — a small submersible cylinder.
+    const pxf = new Float32Array(16);
+    pxf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, xMid - 0.9, 0, bucketZ - 3.0, 1]);
+    const pu = inst(root, { id: 'VesselPump' }, pxf, 1, {});
+    pu.geom = latheWithScale([[-1.1, 0.3], [-0.9, 0.55], [0.9, 0.55], [1.1, 0.3]],
+      12, () => 1);
+    pu.xmat = XM.printed;
   }
   const px = -SHIP.lenM / 2 - 2;
   lineNode(root, 'VesselPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]],
     XM.scaleTick);
+
+  // THE ENVIRONMENT (operator, round 8): the honest answer to "how big is
+  // it" is a world to stand in — tethered over a field at the lake's edge,
+  // bucket in the water, people by the tether anchors, the hangar with its
+  // trees and vehicles beyond. Opt-in 'env' layer, stylized minimal; the fly
+  // camera is what makes the scale legible.
+  {
+    const zg = -(D.R + 14);                    // ground: keel rides 14 m up
+    const vert = (x2, y2, z2) => {
+      const xf = new Float32Array(16);
+      xf.set([0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, x2, y2, z2, 1]);
+      return xf;
+    };
+    const gxf = new Float32Array(16);
+    gxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 40, zg - 0.25, 1]);
+    const gnd = inst(root, { id: 'VesselEnvGround' }, gxf, 1, {});
+    gnd.geom = boxGeom(560, 560, 0.4);
+    gnd.xmat = { kind: 'surface', color: '#15161b', spec: 0.05, opacity: 1 };
+    const gridL = [];
+    for (let k = -12; k <= 12; k++) {
+      gridL.push([[-280, 40 + k * 22, zg + 0.02], [280, 40 + k * 22, zg + 0.02]]);
+      gridL.push([[k * 22, -240, zg + 0.02], [k * 22, 320, zg + 0.02]]);
+    }
+    lineNode(root, 'VesselEnvGrid', gridL,
+      { kind: 'line', color: '#26262e', weight: 1.0, opacity: 0.5 });
+    const lxf = new Float32Array(16);
+    lxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, xMid, -18, zg + 0.1, 1]);
+    const lake = inst(root, { id: 'VesselEnvLake' }, lxf, 1, {});
+    lake.geom = latheWithScale([[-42, 0.2], [-38, 42], [38, 42], [42, 0.2]],
+      28, () => 0.02);
+    lake.xmat = { kind: 'glass', color: '#3d6f8f', opacity: 0.5 };
+    const hxf = new Float32Array(16);
+    hxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30, 95, zg + 8, 1]);
+    const hg = inst(root, { id: 'VesselEnvHangar' }, hxf, 1, {});
+    hg.geom = boxGeom(24, 46, 16);
+    hg.xmat = { kind: 'surface', color: '#3a3d46', spec: 0.2, opacity: 1 };
+    const trees = [];
+    const TR = [[58, 66], [66, 78], [74, 64], [84, 92], [92, 72], [63, 104],
+                [78, 112], [96, 106], [55, 88], [88, 58], [70, 92], [100, 88]];
+    TR.forEach(([x2, y2], i) => trees.push(vert(x2, y2, zg + 4 + (i % 3))));
+    {
+      const xf = new Float32Array(trees.length * 16);
+      trees.forEach((m, i) => xf.set(m, i * 16));
+      const tn = inst(root, { id: 'VesselEnvTrees' }, xf, trees.length, {});
+      tn.geom = latheWithScale([[-4.5, 0.4], [-3.2, 2.6], [4.5, 0.15]], 8, () => 1);
+      tn.xmat = { kind: 'surface', color: '#2d4a35', spec: 0.1, opacity: 1 };
+    }
+    const cars = [[12, 76], [16, 82], [12, 88], [17, 70]];
+    {
+      const xf = new Float32Array(cars.length * 16);
+      cars.forEach(([x2, y2], i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+        x2, y2, zg + 0.9, 1], i * 16));
+      const cn = inst(root, { id: 'VesselEnvVehicles' }, xf, cars.length, {});
+      cn.geom = boxGeom(2.1, 4.8, 1.6);
+      cn.xmat = { kind: 'surface', color: '#565b64', spec: 0.35, opacity: 1 };
+    }
+    // People — 1.8 m, printed-bone so they read against the dark field: a
+    // group at each tether anchor, a line at the hangar, two at the water.
+    const folk = [];
+    const PP = [[-33, 24], [-31.6, 26], [-34.4, 27], [33, 24], [31.4, 25.6],
+                [34.2, 27.2], [20, 72], [21.4, 73], [22.8, 74], [24.2, 75],
+                [8, 4], [9.6, 5], [-20, 118], [26, 40]];
+    PP.forEach(([x2, y2]) => folk.push(vert(x2, y2, zg + 0.9)));
+    {
+      const xf = new Float32Array(folk.length * 16);
+      folk.forEach((m, i) => xf.set(m, i * 16));
+      const fn = inst(root, { id: 'VesselEnvPeople' }, xf, folk.length, {});
+      fn.geom = latheWithScale([[-0.9, 0.13], [-0.55, 0.24], [-0.30, 0.15],
+        [-0.22, 0.20], [0.62, 0.17], [0.9, 0.02]], 8, () => 1);
+      fn.xmat = XM.printed;
+    }
+    // Tethers: four lines from the low strap bands to ground anchors.
+    const tet = [];
+    const anchors = [];
+    for (const [sf2, ax2, ay2] of [[0.34, -33, 25], [0.66, -30, 25],
+                                   [0.34, 33, 25], [0.66, 30, 25]]) {
+      const s2 = D.total * sf2;
+      const hp = point(s2, -0.1, ay2 > 0 ? Math.PI + 1.05 : -1.05);
+      tet.push([[hp[0], hp[1], hp[2]], [ax2, ay2, zg + 0.4]]);
+      anchors.push([ax2, ay2, zg + 0.4]);
+    }
+    lineNode(root, 'VesselEnvTethers', tet,
+      { kind: 'line', color: TOKENS.cool, weight: 1.2, opacity: 0.65 });
+    {
+      const xf = new Float32Array(anchors.length * 16);
+      anchors.forEach(([x2, y2, z2], i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0,
+        0, 0, 1, 0, x2, y2, z2, 1], i * 16));
+      const an2 = inst(root, { id: 'VesselEnvAnchors' }, xf, anchors.length, {});
+      an2.geom = G.beadGeom(0.8, 0.55, 0.7, 8);
+      an2.xmat = XM.pipe;
+    }
+  }
   return {
     root,
     labels: [
@@ -2697,6 +2799,77 @@ const LEVEL_VIEWS = {
   ],
 };
 
+/* TOURS (operator, round 8): "at least one tour for every level that visits
+ * all, other tours for specialty areas as well." Two kinds, both cancelled by
+ * any input: a PATH tour is a chain of eased camera legs (the fly-through's
+ * own machinery, generalized off the hull level); a WALK tour drives the
+ * level's stop chips on a dwell timer, so the highlight, the caption and the
+ * camera travel together through the existing stop machinery. The hull's
+ * grand tour IS the fly-through — FLY_PATH is assigned in just after it is
+ * built below. */
+const LEVEL_TOURS = (() => {
+  const D = shipDims();
+  const R = D.R, L = SHIP.lenM;
+  return {
+    vessel: [
+      { k: 'walkaround', n: 'the full walkaround', type: 'path', legs: [
+        { tg: [-L * 0.62, 0, 0], az: -2.9, el: 0.06, d: 120, s: 2.4 },
+        { tg: [0, -R * 0.9, -R * 0.35], az: -0.55, el: 0.06, d: 60, s: 2.6 },
+        { tg: [0, 0, -R - 8], az: -1.2, el: -0.3, d: 55, s: 2.6 },
+        { tg: [0, 0, -R * 1.38], az: -0.8, el: 0.05, d: 34, s: 2.4 },
+        { tg: [0, 0, -R * 1.75], az: -1.0, el: 0.12, d: 40, s: 2.4 },
+        { tg: [L * 0.6, 0, 0], az: -0.25, el: 0.12, d: 150, s: 2.8 },
+      ] },
+      { k: 'workingend', n: 'the working end', type: 'path', legs: [
+        { tg: [0, 0, -R * 1.38], az: -0.8, el: 0.05, d: 34, s: 2.2 },
+        { tg: [0, 0, -R * 1.62], az: -1.05, el: 0.02, d: 18, s: 2.2 },
+        { tg: [0.9, 0, -R * 1.8], az: -0.7, el: 0.06, d: 14, s: 2.2 },
+        { tg: [0, 0, -R * 1.98], az: -1.0, el: 0.15, d: 26, s: 2.4 },
+      ] },
+      { k: 'solarfield', n: 'over the solar field', type: 'path', legs: [
+        { tg: [-L * 0.3, 0, R * 1.02], az: -1.5, el: 0.55, d: 42, s: 2.4 },
+        { tg: [0, 0, R * 1.04], az: -1.1, el: 0.35, d: 26, s: 2.6 },
+        { tg: [L * 0.3, 0, R * 1.02], az: -0.6, el: 0.5, d: 42, s: 2.6 },
+      ] },
+    ],
+    ship: [
+      { k: 'fly', n: 'the fly-through', type: 'path', legs: null },
+      { k: 'stability', n: 'the stability circuit', type: 'path', legs: [
+        { tg: [0, 0, R], az: -0.85, el: 0.10, d: 15, s: 2.2 },
+        { tg: [0, 0, R - 1.5], az: -1.45, el: 0.06, d: 7, s: 2.6 },
+        { tg: [0, 0, 0], az: -1.15, el: 0.05, d: 9, s: 2.6 },
+        { tg: [L * 0.36, 0, R * 0.5], az: -0.5, el: 0.2, d: 22, s: 2.4 },
+      ] },
+    ],
+    bay: [
+      { k: 'wholewall', n: 'the whole wall', type: 'path', legs: [
+        { tg: [0, 0, R - 1.5], az: -0.55, el: 0.72, d: 15, s: 2.2 },
+        { tg: [0, 0, R - 1.5], az: -0.7, el: 0.35, d: 3.2, s: 2.4 },
+        { tg: [0, 0, R - 1.5], az: -0.4, el: 0.1, d: 8, s: 2.4 },
+        { tg: [0, 0, R - 3], az: -1.0, el: 0.5, d: 30, s: 2.4 },
+      ] },
+    ],
+    cell: [
+      { k: 'article', n: 'around the article', type: 'path', legs: [
+        { az: -0.9, el: 0.27, d: 1.64, s: 2.2 },
+        { az: -0.6, el: 0.15, d: 1.15, s: 2.4 },
+        { az: -1.3, el: 0.45, d: 1.5, s: 2.4 },
+        { az: -0.9, el: 1.15, d: 1.7, s: 2.4 },
+        { az: -0.9, el: 0.03, d: 1.45, s: 2.4 },
+      ] },
+    ],
+    strut: [{ k: 'families', n: 'walk all five families', type: 'walk' }],
+    wall: [{ k: 'cuts', n: 'walk all nine cuts', type: 'walk' }],
+    track: [
+      { k: 'skin', n: 'around the skin', type: 'path', legs: [
+        { az: -0.95, el: 0.30, d: 1.64, s: 2.2 },
+        { az: -0.95, el: 0.03, d: 1.45, s: 2.4 },
+        { az: -0.95, el: 1.15, d: 1.7, s: 2.4 },
+      ] },
+    ],
+  };
+})();
+
 /* THE FLY-THROUGH — the operator's ask, verbatim: "the complete ship with all
  * struts and components as a view we can fly through." A chain of poses flown
  * as one continuous eased path: bow approach, skim the wall, thread the gap
@@ -2714,6 +2887,7 @@ const FLY_PATH = (() => {
     { tg: [SHIP.lenM * 0.60, 0, 0], az: -0.25, el: 0.12, d: 90, s: 2.8 },
   ];
 })();
+LEVEL_TOURS.ship[0].legs = FLY_PATH;
 
 export const LEVELS = [
   { id: 'strut', name: 'The connectors', scaleM: 0.05, radius: 0.030, az: -1.05, el: 0.24, dist: 2.6, target: CELL_CENTRE, stage: true, build: () => buildStageShell('strut'), instance: 'demonstrator' },
@@ -3013,8 +3187,10 @@ export function mountExplorer(opts) {
     // The ship level's own controls: every layer starts ON; the wall hides the skeleton
     // until the viewer opens it, which is what a sealed wall does.
     shipLayers: { wall: true, skeleton: true, webs: true, spokes: true, voidskin: true,
-                  pods: true, module: true, lines: true },
-    flyQueue: null,              // the ship's fly-through: remaining path legs
+                  pods: true, module: true, lines: true, env: false },
+    flyQueue: null,              // a path tour's remaining legs (any level)
+    tourKey: null,               // which tour the queue belongs to
+    autoWalk: null,              // { key, dwell, acc, visited } for walk tours
     turntable: !reducedMotion,
     reduced: !!reducedMotion,
   };
@@ -3113,6 +3289,7 @@ export function mountExplorer(opts) {
 
   function setLevel(idx, immediate = false) {
     if (typeof exitFlight === 'function' && flight && flight.on) exitFlight();
+    if (typeof cancelGuidance === 'function') cancelGuidance();
     idx = clamp(idx, 0, LEVELS.length - 1);
     if (idx === state.levelIdx && !immediate) return;
     const from = state.levelIdx;
@@ -3317,8 +3494,14 @@ export function mountExplorer(opts) {
                          VesselRotors: 'pods',
                          VesselModule: 'module', VesselTankWater: 'module',
                          VesselTanksN2: 'module', VesselBucket: 'module',
+                         VesselPump: 'module',
                          VesselPumpWinch: 'module', VesselAnchor: 'module',
-                         VesselStraps: 'lines', VesselLines: 'lines' };
+                         VesselStraps: 'lines', VesselLines: 'lines',
+                         VesselEnvGround: 'env', VesselEnvGrid: 'env',
+                         VesselEnvLake: 'env', VesselEnvHangar: 'env',
+                         VesselEnvTrees: 'env', VesselEnvVehicles: 'env',
+                         VesselEnvPeople: 'env', VesselEnvTethers: 'env',
+                         VesselEnvAnchors: 'env' };
   const styleFor = (n) => {
     // THE CONNECTOR LEVEL HIDES THE SKIN (operator, 08-13): its tour parks the
     // camera at a joint INSIDE the article, and a solid shell around that is a
@@ -3478,6 +3661,24 @@ export function mountExplorer(opts) {
     stepSkinLoad(dt);
     stepAssemble(dt);
     if (flightStep(dt)) dirty = true;
+    // A WALK tour advances its level's stops on a dwell timer once each hop's
+    // ease has landed; the stop machinery does everything else.
+    if (state.autoWalk && !transition) {
+      state.autoWalk.acc += dt;
+      dirty = true;
+      if (state.autoWalk.acc >= state.autoWalk.dwell) {
+        state.autoWalk.acc = 0;
+        state.autoWalk.visited += 1;
+        const wt = tourOf(state.levelIdx);
+        if (!wt || state.autoWalk.visited >= wt.stops.length) {
+          const k = state.autoWalk.key;
+          state.autoWalk = null;
+          if (opts.onTourEnd) opts.onTourEnd(k);
+        } else {
+          setPart(state.tourIdx + 1);
+        }
+      }
+    }
     if (!transition) return false;
     transition.t = Math.min(1, transition.t + dt / transition.seconds);
     const k = easeInOut(transition.t);
@@ -3531,9 +3732,9 @@ export function mountExplorer(opts) {
       const landed = transition.to;
       transition = null;
       if (wasTour) { tourFrom = tourTo; applyTour(1); }
-      // The fly-through's next leg, if one is queued and nothing cancelled it.
-      if (state.flyQueue && state.flyQueue.length
-          && LEVELS[state.levelIdx].id === 'ship') {
+      // The next queued leg of whatever path tour is running — generalized
+      // off the hull level (round 8): every level may fly its own paths now.
+      if (state.flyQueue && state.flyQueue.length) {
         const leg = state.flyQueue.shift();
         const lv = LEVELS[state.levelIdx];
         transition = {
@@ -3542,11 +3743,14 @@ export function mountExplorer(opts) {
           d0: cam.distance, d1: leg.d,
           r0: cam.radius, r1: lv.radius,
           dr0: lv.depthR || lv.radius, dr1: lv.depthR || lv.radius,
-          tg0: cam.target.slice(), tg1: leg.tg.slice(),
+          tg0: cam.target.slice(), tg1: (leg.tg || cam.target).slice(),
           az0: cam.azimuth, az1: leg.az, el0: cam.elevation, el1: leg.el,
         };
       } else if (state.flyQueue && !state.flyQueue.length) {
         state.flyQueue = null;
+        const k = state.tourKey;
+        state.tourKey = null;
+        if (k && opts.onTourEnd) opts.onTourEnd(k);
       }
       // Put the array back if we came to rest on it by any route. The clear-down above only
       // reverses itself on the return dive from the cell; arriving from the rail or from the
@@ -3815,7 +4019,7 @@ export function mountExplorer(opts) {
   };
   let drag = null;
   canvas.addEventListener('pointerdown', (e) => {
-    state.flyQueue = null;                    // any hand on the stick ends the tour
+    cancelGuidance();                         // any hand on the stick ends the tour
     drag = { x: e.clientX, y: e.clientY, moved: false, b: e.button };
     canvas.setPointerCapture(e.pointerId);
     lastInteract = performance.now();
@@ -3860,7 +4064,7 @@ export function mountExplorer(opts) {
   });
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
-    state.flyQueue = null;
+    cancelGuidance();
     lastInteract = performance.now();
     if (flight.on) {
       flight.speed = clamp(flight.speed * Math.exp(-e.deltaY * 0.0009), 0.12, 12);
@@ -3909,9 +4113,16 @@ export function mountExplorer(opts) {
     cam.target = [flight.pos[0] + d[0] * L, flight.pos[1] + d[1] * L,
                   flight.pos[2] + d[2] * L];
   }
+  function cancelGuidance() {
+    const k = state.tourKey || (state.autoWalk && state.autoWalk.key) || null;
+    state.flyQueue = null;
+    state.tourKey = null;
+    state.autoWalk = null;
+    if (k && opts.onTourEnd) opts.onTourEnd(k);
+  }
   function enterFlight() {
     if (flight.on) return;
-    state.flyQueue = null;
+    cancelGuidance();
     const ce = Math.cos(cam.elevation), se = Math.sin(cam.elevation);
     const eye = [cam.target[0] + cam.distance * ce * Math.cos(cam.azimuth),
                  cam.target[1] + cam.distance * ce * Math.sin(cam.azimuth),
@@ -4272,6 +4483,49 @@ export function mountExplorer(opts) {
     },
     /** The current level's named views — what the deck's view buttons are built from. */
     viewsFor() { return LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []; },
+    /** The level's tours, and the door into one. A path tour rides the fly
+     * queue; a walk tour rides the stop machinery on a dwell. */
+    toursFor() { return LEVEL_TOURS[LEVELS[state.levelIdx].id] || []; },
+    startTour(key) {
+      const tr = (LEVEL_TOURS[LEVELS[state.levelIdx].id] || [])
+        .find(x => x.k === key);
+      if (!tr) return null;
+      exitFlight();
+      cancelGuidance();
+      if (tr.type === 'walk') {
+        setPart(0);
+        state.autoWalk = { key, dwell: 2.6, acc: 0, visited: 0 };
+        dirty = true;
+        return tr.n;
+      }
+      const legs = tr.legs || [];
+      if (!legs.length) return null;
+      if (state.reduced) {
+        const mid = legs[Math.floor(legs.length / 2)];
+        const lv = LEVELS[state.levelIdx];
+        applyRadius(cam, lv.radius, lv.depthR || lv.radius);
+        if (mid.tg) cam.target = mid.tg.slice();
+        cam.azimuth = mid.az; cam.elevation = mid.el; cam.distance = mid.d;
+        dirty = true;
+        if (opts.onTourEnd) opts.onTourEnd(key);
+        return tr.n;
+      }
+      state.tourKey = key;
+      state.flyQueue = legs.slice(1).map(l => ({ ...l }));
+      const leg = legs[0];
+      const lv = LEVELS[state.levelIdx];
+      transition = {
+        kind: 'view', from: state.levelIdx, to: state.levelIdx, t: 0,
+        seconds: leg.s || 1.6,
+        d0: cam.distance, d1: leg.d,
+        r0: cam.radius, r1: lv.radius,
+        dr0: lv.depthR || lv.radius, dr1: lv.depthR || lv.radius,
+        tg0: cam.target.slice(), tg1: (leg.tg || cam.target).slice(),
+        az0: cam.azimuth, az1: leg.az, el0: cam.elevation, el1: leg.el,
+      };
+      dirty = true;
+      return tr.n;
+    },
     /** Fly to a named view of the current level. A camera move (plus a reading, where the
      * view carries one) through the SAME transition the dives use — eased from the live
      * camera, never snapped, and instant under reduced motion. */
@@ -4279,6 +4533,7 @@ export function mountExplorer(opts) {
       const v = (LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []).find(x => x.k === key);
       if (!v) return null;
       exitFlight();
+      cancelGuidance();
       // THE FLY-THROUGH: a queue of poses flown as one continuous path, each leg
       // the same eased move a view uses. Any input cancels it (the handlers
       // clear the queue); reduced motion parks at the path's heart instead —

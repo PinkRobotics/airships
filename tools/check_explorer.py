@@ -514,6 +514,36 @@ PROBE = r"""(() => {
   E.tick(0.016);
   out.clearedTint = E.tintAt('Joint_00', 0);
   out.clearedFrame = [E.renderer.stats.drawCalls, E.renderer.stats.triangles];
+  // TOURS (operator, round 8): one path tour and one walk tour must actually
+  // guide — the path moves the camera through legs, the walk advances stops
+  // on its dwell — and the environment layer must add drawn geometry.
+  {
+    E.setLevel(E.levels.findIndex(l => l.id === 'vessel'), true);
+    E.tick(0.016);
+    const tg0 = E.cam.target.slice();
+    E.startTour('walkaround');
+    for (let i = 0; i < 150; i++) E.tick(1 / 30);
+    const tg1 = E.cam.target.slice();
+    out.tourPath = {
+      moved: Math.hypot(tg1[0] - tg0[0], tg1[1] - tg0[1], tg1[2] - tg0[2]),
+      queued: !!E.state.flyQueue || !!E.state.tourKey,
+    };
+    const trisOff = E.renderer.stats.triangles;
+    E.shipLayer('env');
+    E.tick(0.016);
+    out.envDelta = E.renderer.stats.triangles - trisOff;
+    E.shipLayer('env');
+    E.tick(0.016);
+    E.setLevel(E.levels.findIndex(l => l.id === 'wall'), true);
+    E.tick(0.016);
+    E.startTour('cuts');
+    const idx0 = E.state.tourIdx;
+    for (let i = 0; i < 150; i++) E.tick(1 / 30);
+    out.tourWalk = { from: idx0, to: E.state.tourIdx,
+                     walking: !!E.state.autoWalk };
+    E.setLevel(E.levels.findIndex(l => l.id === 'cell'), true);
+    E.tick(0.016);
+  }
   // FLIGHT (operator, 08-13): the game-style free camera must move the camera
   // under the same tick the gate drives, stay finite, and hand the orbit back.
   {
@@ -1098,6 +1128,22 @@ def main() -> None:
     if not rim_mismatch and res.get("rimSkuNotes"):
         bad.append("the generator now matches the rim SKU — the contradiction notes are "
                    "stale and must go")
+
+    tp = res.get("tourPath") or {}
+
+    if not tp.get("moved", 0) > 1.0:
+
+        bad.append(f"path tour moved the camera only {tp.get('moved')} m in 5 s")
+
+    tw = res.get("tourWalk") or {}
+
+    if not (tw.get("to", 0) > tw.get("from", 0) and tw.get("walking")):
+
+        bad.append(f"walk tour did not advance ({tw}) — the dwell stepper is dead")
+
+    if not res.get("envDelta", 0) > 500:
+
+        bad.append(f"environment layer added only {res.get('envDelta')} triangles")
 
     fl = res.get("flight") or {}
 

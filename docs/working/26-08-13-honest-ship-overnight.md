@@ -394,3 +394,44 @@ Operator round 6, the UI-quality verdict ("good, not just a trigger of functiona
   fore-aft spread buys pitch/roll authority, symmetric pairs cancel their own moments,
   and the gimbal gives cruise for free. Real disc sizing belongs to the fleet-model
   power work (#88's neighbourhood).
+
+
+## MORNING, PART 11 — the ALLOW_DIRTY exception burned, and the rule is absolute again
+
+Round 7's deploy: the tanks round committed clean, but a co-agent's front-page rework
+(shared/ridge.js + pinkrobotics/index.html + tools/inline_design.py) had grown INTO the
+pinkrobotics rsync scope between rounds, and an ALLOW_DIRTY=1 run — justified an hour
+earlier when the only foreign file sat OUTSIDE the scope — shipped their half-done
+index.html to production. Caught in the same command's status echo; restored inside ~2
+minutes by single-file rsync of the committed index.html straight to the edge docroot +
+purge; their working files untouched throughout. The airships tree shipped that round
+was fully committed, so the front page was the only casualty.
+
+THE LESSON, PERMANENT: scope reasoning does not survive a live co-agent. Never
+ALLOW_DIRTY. A deploy against a dirty tree ships the COMMITTED state from a clean
+worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
+
+
+## MORNING, PART 12 — the world arrives: full solar, split cables, environment, tours
+
+- **SOLAR IS THE WHOLE TOP HALF** (operator: "as much power as we can get"): 22 x 13
+  dense plate tiling with visible seams — it reads as an array, not grey paint. Straps
+  ride over it; energy budget stays with the fleet model.
+- **THE WORKING END SPLIT**: pump and bucket on SEPARATE cables from the winch box
+  (independent operation — the pump holds station at the surface while the bucket
+  cycles); the pump unit is drawn on its own line; the anchor line is the third.
+- **THE ENVIRONMENT (opt-in 'env' layer)** answers "how big is it" the honest way:
+  tethered over a field at the lake's edge (four tethers to anchor beads), bucket in
+  the water, 1.8 m people at the anchors/hangar/shore, the hangar with trees and
+  vehicles beyond, ground grid + lake glass. Stylized minimal; the fly camera makes
+  the scale legible. The bow's 1.8 m scale tick stays as the always-on reference.
+- **TOURS, a real system**: LEVEL_TOURS registry; PATH tours ride the fly-through's
+  leg chaining (generalized off the hull level — any level flies now) and WALK tours
+  drive the stop chips on a 2.6 s dwell through the existing machinery. Every level
+  has a grand tour; vessel adds 'the working end' + 'over the solar field', hull adds
+  'the stability circuit'. Deck: TOURS group above views; chips lit while running;
+  onTourEnd (finish or any-input cancel via cancelGuidance()) clears them. Gate drives
+  one path tour (camera must move through legs) + one walk tour (dwell must advance)
+  + the env layer (must add >500 triangles).
+- Boot-order trap (4th of its family): rebuildTours needed the module-scope let AND
+  the explicit boot call beside rebuildViews' — onLevelChange fires before assignment.

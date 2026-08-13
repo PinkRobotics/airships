@@ -373,9 +373,14 @@
   pumps fill the raft's single water tank (one 107 m³ vessel — the Mission-0 100 t with
   trim margin, flanked fore and aft by the two N₂ ballast tanks the descent doctrine
   prices); its anchor drops from the box to grab the water and pull the ship DOWN
-  against its own buoyancy while it drinks. The raft is sized to the tank cluster it
-  carries. The top of the hull carries the solar band — the sun side is the farm; its
-  energy budget lives in the fleet model.</p>
+  against its own buoyancy while it drinks — and the pump and the bucket ride SEPARATE
+  cables from the box, because they operate independently: the pump holds station at
+  the surface while the bucket cycles. The raft is sized to the tank cluster it
+  carries. The ENTIRE top half of the hull is solar — as much power as the sun side
+  can give — tiled densely enough that the array reads as an array; the energy budget
+  lives in the fleet model. Switch on <em>environment</em> to see the ship at true
+  scale: tethered over the field at the lake's edge, bucket in the water, people at
+  the anchors, the hangar with its trees and vehicles beyond — then fly down to them.</p>
 
   <p class="sowhat"><b>Mission 0 wears this same fit.</b> The spec ship — the one the
   numbers will always be quoted against — is this architecture at 112 m: 100 t of water
@@ -1584,6 +1589,10 @@
        around the things this level is about, rebuilt per level from api.viewsFor().
        The toggles row keeps only the switches the CURRENT level owns (data-lv). -->
   <div class="grp">
+    <div class="glab">tours — let it fly you</div>
+    <div class="ctlgrid" id="tourbtns"></div>
+  </div>
+  <div class="grp">
     <div class="glab" id="viewslab">views — move around this level</div>
     <div class="ctlgrid" id="viewbtns"></div>
   </div>
@@ -1596,6 +1605,7 @@
       <button class="sbtn on" data-layer="pods" data-lv="vessel">thrust pods</button>
       <button class="sbtn on" data-layer="module" data-lv="vessel">the module</button>
       <button class="sbtn on" data-layer="lines" data-lv="vessel">straps &amp; lines</button>
+      <button class="sbtn" data-layer="env" data-lv="vessel">environment</button>
       <button class="sbtn on" data-layer="wall" data-lv="ship">the film</button>
       <button class="sbtn on" data-layer="skeleton" data-lv="ship">skeleton</button>
       <button class="sbtn on" data-layer="webs" data-lv="ship">webs</button>
@@ -1717,9 +1727,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=74d38967';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=74d38967';
-import * as CELL from './model.js?v=74d38967';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=30f4ad28';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=30f4ad28';
+import * as CELL from './model.js?v=30f4ad28';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1732,6 +1742,8 @@ const reduced = (matchMedia('(prefers-reduced-motion: reduce)').matches || qs.ha
   && !qs.has('motion');
 let syncFly = () => {};          // assigned once the flight deck is wired
 let rebuildViews = () => {};     // assigned once the views row is wired
+let rebuildTours = () => {};     // assigned once the tours row is wired
+let clearTourChips = () => {};
 const startId = qs.get('level') || 'vessel';   // the ladder opens at its top now
 // An unknown or legacy ?level= id falls back to THE SHIP (the vessel), not the
 // ladder's bottom — a stale bookmark should land on the most representative level.
@@ -1861,6 +1873,7 @@ api = mountExplorer({
   reducedMotion: reduced,
   onLevelChange(idx, lv) {
     rebuildViews();
+    rebuildTours();
     for (const s of document.querySelectorAll('#panel section')) {
       s.classList.toggle('active', s.dataset.level === lv.id);
     }
@@ -1927,6 +1940,7 @@ api = mountExplorer({
   },
   onCtx: (c) => fillNumbers({ ...c, ship: SHIP, band: BAND, grid: GRID, w: WALL }),
   onFlight(on) { syncFly(on); },   // syncFly is a module-scope let, assigned below
+  onTourEnd() { clearTourChips(); },
 });
 
 if (!api) {
@@ -2076,6 +2090,30 @@ if (!api) {
   // attached: firing it before did nothing at all, which is how the first attempt at this
   // "verified" a screenshot of the folded cell.
   if (qs.has('unfold')) uf.click();
+  // THE TOUR BUTTONS: one grand tour per level plus its specialties, rebuilt
+  // per level like the views. A chip stays lit while its tour runs; the
+  // engine's onTourEnd (finish OR any-input cancel) clears it.
+  rebuildTours = () => {
+    const row = document.getElementById('tourbtns');
+    const tours = api.toursFor();
+    row.innerHTML = '';
+    row.parentElement.style.display = tours.length ? '' : 'none';
+    for (const tr of tours) {
+      const b = document.createElement('button');
+      b.className = 'vbtn';
+      b.textContent = tr.n;
+      b.addEventListener('click', () => {
+        api.startTour(tr.k);
+        [...row.children].forEach(c => c.classList.toggle('on', c === b));
+      });
+      row.appendChild(b);
+    }
+  };
+  clearTourChips = () => {
+    for (const c of document.getElementById('tourbtns').children)
+      c.classList.remove('on');
+  };
+
   // THE VIEW BUTTONS: rebuilt whenever the level changes, from the level's own
   // list. (Assigned onto the module-scope let — onLevelChange fires before this
   // line runs on boot, and a stale row was exactly the bug the operator saw:
@@ -2162,17 +2200,11 @@ if (!api) {
   if (qs.has('group')) api.setGroup(qs.get('group'));
   syncGroups();
   rebuildViews();
+  rebuildTours();
   // ?view=key — deep-link a named view, same contract as ?group/?unfold/?layers.
   if (qs.has('view')) api.applyView(qs.get('view'));
-  // THE TOUR. One real button, because a control the probe cannot drive is a control no
-  // gate covers — the parts view was invisible to check_explorer's level loop until
-  // someone drove the real button.
-  //
-  // The click does NOT write the label. onPart does, from api.partLabel(), and it is the
-  // only writer: a second one here (from nextPart's return value) would keep the button
-  // saying the right thing after the state stopped agreeing with it, which is the failure
-  // the "read it back" rule exists to prevent — and it would make the gate's own label
-  // assertion untestable, because one writer would always cover for the other.
+  // (The old '…' stepper's wiring lived here; the walk is chips now and the
+  // gate drives them. The read-it-back law it taught lives on in every chip.)
 
   /* keyboard — ARROWS BELONG TO THE FLIGHT now (operator, 08-13): they used to
    * dive levels and walk tours, which fought the free camera for the stick.
