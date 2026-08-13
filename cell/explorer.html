@@ -1677,9 +1677,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=a2eb5498';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=a2eb5498';
-import * as CELL from './model.js?v=a2eb5498';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=fba8793e';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=fba8793e';
+import * as CELL from './model.js?v=fba8793e';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1691,6 +1691,7 @@ const qs = new URLSearchParams(location.search);
 const reduced = (matchMedia('(prefers-reduced-motion: reduce)').matches || qs.has('still'))
   && !qs.has('motion');
 let syncFly = () => {};          // assigned once the flight deck is wired
+let rebuildViews = () => {};     // assigned once the views row is wired
 const startId = qs.get('level') || 'vessel';   // the ladder opens at its top now
 // An unknown or legacy ?level= id falls back to THE SHIP (the vessel), not the
 // ladder's bottom — a stale bookmark should land on the most representative level.
@@ -1819,6 +1820,7 @@ api = mountExplorer({
   altM: qs.has('alt') ? +qs.get('alt') : 2500,
   reducedMotion: reduced,
   onLevelChange(idx, lv) {
+    rebuildViews();
     for (const s of document.querySelectorAll('#panel section')) {
       s.classList.toggle('active', s.dataset.level === lv.id);
     }
@@ -2041,8 +2043,11 @@ if (!api) {
   // attached: firing it before did nothing at all, which is how the first attempt at this
   // "verified" a screenshot of the folded cell.
   if (qs.has('unfold')) uf.click();
-  // THE VIEW BUTTONS: rebuilt whenever the level changes, from the level's own list.
-  const rebuildViews = () => {
+  // THE VIEW BUTTONS: rebuilt whenever the level changes, from the level's own
+  // list. (Assigned onto the module-scope let — onLevelChange fires before this
+  // line runs on boot, and a stale row was exactly the bug the operator saw:
+  // the ship's views sitting on the tube level, influencing nothing.)
+  rebuildViews = () => {
     const row = document.getElementById('viewbtns');
     const views = api.viewsFor();
     row.innerHTML = '';

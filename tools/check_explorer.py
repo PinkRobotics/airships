@@ -168,6 +168,22 @@ PROBE = r"""(() => {
   // tour's print-resolution swap is measured against, stop by stop, below.
   E.tick(0.016);
   out.cellBaseTris = E.renderer.stats.triangles;
+  // THE CONNECTOR LEVEL HIDES THE SKIN by ruling (08-13), so its print-swap
+  // arithmetic below needs the SKINLESS baseline. Measured by driving the real
+  // skin button (solid -> transparent -> off, read, -> solid), never typed.
+  {
+    // Driven by READ-BACK, not by counted clicks: the cycle's start point is
+    // state, and assuming 'solid' measured zero when the default was glass.
+    const sk = document.getElementById('toggleSkin');
+    const mode0 = E.state.skinMode;
+    let g0 = 0;
+    while (E.state.skinMode !== 'off' && g0++ < 4) sk.click();
+    E.tick(0.016);
+    out.skinTris = out.cellBaseTris - E.renderer.stats.triangles;
+    g0 = 0;
+    while (E.state.skinMode !== mode0 && g0++ < 4) sk.click();
+    E.tick(0.016);
+  }
   // EVERY MEMBER-END MUST BE DRAWN WITH A RECEIVER. This gate did not exist, and its
   // absence let the 36 rim members render as pipes butting into a bare ball for weeks —
   // the builder even carried a comment saying "a rim arm, even though it draws no socket
@@ -816,7 +832,10 @@ def main() -> None:
     # features that were verified by their state and invisible on screen.
     disp_by_file = {r["file"]: r for r in meshes["nodes"]}
     strut_walk = next((t for t in res.get("tours", []) if t["id"] == "strut"), None)
-    base_tris = res.get("cellBaseTris") or 0
+    # The strut level renders WITHOUT the skin (operator ruling, 08-13), so the
+    # swap is measured against the skinless frame — skinTris is measured by the
+    # probe off the real button, never typed here.
+    base_tris = (res.get("cellBaseTris") or 0) - (res.get("skinTris") or 0)
     if strut_walk:
         for w in strut_walk["walk"]:
             rep = meshes["reps"].get(w["stop"])
@@ -956,14 +975,24 @@ def main() -> None:
             if w["draws"] < 3 or w["tris"] <= 0:
                 bad.append(f"{lid}/{w['stop']}: nearly empty frame "
                            f"({w['draws']} draws, {w['tris']} tris)")
-            # The camera must actually go there. A tour that relabels and dims but never
-            # moves would otherwise pass green.
+            # The camera must land exactly where the stop says. What the stop
+            # SAYS changed by operator ruling (08-13): on the tube and skin
+            # levels every stop parks at the same whole-article framing and the
+            # walk moves the HIGHLIGHT — so there the camera must NOT drift
+            # between stops, and the dim/subject assertions below are what
+            # prove the walk still walks. The connector level keeps per-stop
+            # vantages, so there the camera must still travel.
             d = max(abs(a - b) for a, b in zip(w["target"], t["targets"][i]))
             if d > 1e-9:
                 bad.append(f"{lid}/{w['stop']}: camera target {w['target']} is {d:.2e} m "
                            f"from the stop's own target {t['targets'][i]}")
-            if seen_targets and w["target"] == seen_targets[-1]:
-                bad.append(f"{lid}/{w['stop']}: the camera did not move from the last stop")
+            if lid == "strut":
+                if seen_targets and w["target"] == seen_targets[-1]:
+                    bad.append(f"{lid}/{w['stop']}: the camera did not move from the "
+                               "last stop")
+            elif seen_targets and w["target"] != seen_targets[-1]:
+                bad.append(f"{lid}/{w['stop']}: the camera moved between stops — this "
+                           "level's walk moves the highlight, not the vantage")
             seen_targets.append(w["target"])
             if w["on"] != [w["stop"]]:
                 bad.append(f"{lid}/{w['stop']}: the panel shows {w['on']}, not just this "

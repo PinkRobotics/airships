@@ -274,3 +274,27 @@ module scope is the pattern (the gate caught it before any human did).
   SHIFT buys; normal is a 4x-slower walk. The mouse look is DAMPED: drags write a
   target at half sensitivity and flightStep glides the nose onto it with a ~120 ms
   first-order lag (the glide keeps frames rendering after the pointer stops).
+
+
+## MORNING, PART 6 — the fine levels earn their views (operator round 3)
+
+- **The net unfolds SKY-SIDE UP now**: netPose turns the whole net half a page about
+  the root face's own in-plane axis as it opens (pi x u) — a rigid motion, so the
+  offline guarantees (planarity, areas, zero overlaps) ride along and u = 0 is still
+  exactly the cell. The flat used to land inside-up: the dark face of a film whose
+  whole point is its bright outer surface.
+- **Tube + skin walks move the HIGHLIGHT, not the vantage**: every cut/face stop parks
+  at the cell's own whole-article framing; the lit group and its labels travel. The
+  connector walk keeps per-joint vantages — and the STRUT LEVEL NOW HIDES THE SKIN
+  outright (a solid shell around a camera parked inside it is a wall, not a reading;
+  the skin button keeps its state for every other level).
+- **Views belong to their level**: rebuildViews existed but was called once at boot —
+  the ship's views sat on the tube level influencing nothing (operator caught it).
+  Now rebuilt on every level change via a module-scope let (same TDZ pattern syncFly
+  needed), and strut/wall/track carry their own poses (centre joint / whole article /
+  above / level-with-it).
+- **The gate followed the ruling both ways**: wall/track stops must NOT move the
+  camera (highlight-only walk, dim/subject asserted), strut stops MUST. And the
+  connector print-swap arithmetic now measures against the SKINLESS baseline — with
+  skinTris measured by driving the real skin button by READ-BACK (counted clicks
+  assumed 'solid' when the default was glass, and measured zero).

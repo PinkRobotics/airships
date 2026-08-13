@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=a2eb5498';
-import * as G from './explorer-geom.js?v=a2eb5498';
+import * as CELL from './model.js?v=fba8793e';
+import * as G from './explorer-geom.js?v=fba8793e';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=a2eb5498';
+} from './nodes.generated.js?v=fba8793e';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=a2eb5498';
+import { NODEMESHES } from './nodemeshes.generated.js?v=fba8793e';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=a2eb5498';
+import { SKIN } from './skin.generated.js?v=fba8793e';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=a2eb5498';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=fba8793e';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -573,6 +573,23 @@ function netPose(net, u) {
     // rotate about the LINE through A, then carry by the parent's accumulated pose
     const t0 = sub(A, mat3(R, A));
     M[f] = [mat3mul(Rp, R), add(mat3(Rp, t0), Tp)];
+  }
+  // SHOW THE SKY SIDE (operator, 08-13): flat, the net used to land inside-up —
+  // the dark face of a film whose whole point is its bright outer surface. The
+  // net now turns half a page about the root face's own in-plane axis as it
+  // opens (pi times u, about the line through the root's first edge): a RIGID
+  // motion, so the offline guarantees — planarity, areas, zero overlaps — ride
+  // along untouched, and at u = 0 it is still exactly the cell.
+  if (u !== 0) {
+    const rl = net.faces[root].loop;
+    const A2 = verts[rl[0]];
+    const ax2 = norm(sub(verts[rl[1]], A2));
+    const Rf = rotAxis(ax2, Math.PI * u);
+    const tA = sub(A2, mat3(Rf, A2));
+    for (const f of order) {
+      const [R0, T0] = M[f];
+      M[f] = [mat3mul(Rf, R0), add(mat3(Rf, T0), tA)];
+    }
   }
   return M;
 }
@@ -2518,6 +2535,21 @@ const SHIPVIEW = (() => {
 })();
 
 const LEVEL_VIEWS = {
+  strut: [
+    { k: 'centre', n: 'into the centre joint', az: -0.6, el: 0.15, d: 0.55 },
+    { k: 'whole', n: 'the whole article', az: -0.9, el: 0.27, d: 1.64 },
+    { k: 'above', n: 'from above', az: -0.9, el: 1.15, d: 1.2 },
+  ],
+  wall: [
+    { k: 'whole', n: 'the whole article', az: -0.9, el: 0.27, d: 1.64 },
+    { k: 'level', n: 'level with it', az: -0.9, el: 0.03, d: 1.45 },
+    { k: 'above', n: 'from above', az: -0.9, el: 1.15, d: 1.7 },
+  ],
+  track: [
+    { k: 'whole', n: 'the whole skin', az: -0.95, el: 0.30, d: 1.64 },
+    { k: 'level', n: 'level with it', az: -0.95, el: 0.03, d: 1.45 },
+    { k: 'above', n: 'from above', az: -0.95, el: 1.15, d: 1.7 },
+  ],
   vessel: [
     { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.28, el: 0.12, d: 235 },
     { k: 'flank', n: 'the working flank', tg: [0, -SHIPVIEW.D.R * 0.9, -SHIPVIEW.D.R * 0.35], az: -0.55, el: 0.06, d: 60 },
@@ -2722,10 +2754,13 @@ function cutStops(cell, lv, ctx) {
     const r = cell.memberRadius;
     stops.push({
       key, name: g.name, rep,
-      // dist 3.6: far enough back that a 251 mm member reads whole AND the rest of its run
-      // is visible across the article behind it. At 2.4 the camera stood inside the
-      // lattice and the lit run was indistinguishable from the forest around it.
-      target: rep.pos.slice(), radius: r, dist: 3.6, ...poseFor(rep.pos, lv),
+      // WHOLE ARTICLE IN FRAME (operator, 08-13): the walk changes the
+      // HIGHLIGHT, not the vantage. Every stop parks at the cell's own framing
+      // — same pose for all of them, so between stops the camera does not move
+      // and the lit group is what travels. The labels still ride the lit rep.
+      target: LEVELS[STAGE_LEVEL].target.slice(),
+      radius: LEVELS[STAGE_LEVEL].radius,
+      dist: LEVELS[STAGE_LEVEL].dist, az: -0.9, el: 0.27,
       subject: instKeys(group),
       labels: [
         { p: [rep.pos[0], rep.pos[1], rep.pos[2] + r * 0.42],
@@ -2794,10 +2829,11 @@ function faceStops(cell, lv) {
     const r = cell.faceRadius;
     stops.push({
       key: s.key, name: s.name,
-      // A face is half a metre across corners; standing off 3.7 radii puts the whole of
-      // one in frame with its neighbours around it, which is what makes a face read as a
-      // face rather than as more lattice.
-      target: pos.slice(), radius: r, dist: 3.7, ...poseFor(pos, lv),
+      // WHOLE ARTICLE IN FRAME (operator, 08-13), same rule as the cuts: the
+      // walk moves the lit frame, never the camera.
+      target: LEVELS[STAGE_LEVEL].target.slice(),
+      radius: LEVELS[STAGE_LEVEL].radius,
+      dist: LEVELS[STAGE_LEVEL].dist, az: -0.9, el: 0.27,
       subject: s.subject,
       labels: [{ p: [pos[0], pos[1], pos[2] + r * 0.5], t: s.t, s: s.s }],
     });
@@ -3167,6 +3203,10 @@ export function mountExplorer(opts) {
                          VesselGear: 'module', VesselBucket: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines' };
   const styleFor = (n) => {
+    // THE CONNECTOR LEVEL HIDES THE SKIN (operator, 08-13): its tour parks the
+    // camera at a joint INSIDE the article, and a solid shell around that is a
+    // wall, not a reading. The skin button keeps its state for every other level.
+    if (n.skinPart && LEVELS[state.levelIdx].id === 'strut') return { hidden: true };
     // Once the skin is unfolding, the cell it came off is not the subject any more.
     // Its own membrane is replaced by the net; the rest goes with it.
     const fr = n._fadeRoot;
