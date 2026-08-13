@@ -19,9 +19,17 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=45616dde';
+         stockBuild, barrierKgPerM2, P_ATM,
+         SHIP0, ship0Summary } from './model.js?v=7acd0dab';
 
 const sb = stockBuild();
+/* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,
+ * mirrored in research/analysis/vacuum-cell.py, and held identical by
+ * tools/check_cell_parity.py — so every ship figure below is now GATED, and the
+ * scoping chips those numbers wore since 08-12 come off. What stays flagged is
+ * what is genuinely unverified: the sigma worlds themselves (the coupon
+ * campaign), eta, the Ti fitting masses — carried as [TO VERIFY] in the model. */
+const S0 = ship0Summary();
 
 /* Linear masses from section geometry x the laminate density the model bills with. */
 const linKgPerM = (odMm, wallMm, rho) => {
@@ -41,31 +49,68 @@ const mainM = famM('octet') + famM('spoke') + famM('tie');
 const cutMin = Math.min(...sawnRows.map(r => r[1]));
 const cutMax = Math.max(...sawnRows.map(r => r[1]));
 
-/* The ship-0 summary the shell page quotes. SCOPING: analysis-v2 §7 plan-of-record row,
- * declared SF 1.2 with the SF 1.5 column beside it, as the house display rule requires.
- * These digits move only with that document until ship.js lands. */
+/* The ship-0 summary the pages quote — GATED now: computed live by model.js's
+ * ship0 port, parity-held to the Python record. Declared SF 1.2 with the SF 1.5
+ * column beside it, as the house display rule requires. The mid sigma world
+ * (1050 MPa) is the primary basis and remains [TO VERIFY by coupon]. */
 export const SHIP = {
   name: 'ship 0',
-  diaM: 52, lenM: 104, fineness: 2,
-  volumeM3: 184055, hullM2: 16990,
-  liftT: 225.5, massT: 221.7, residualT: 3.8, ratio: 1.017,
-  massSF15T: 257.7, ratioSF15: 0.875, ratioSF15Sigma1450: 1.043,
-  tempPctPerK: 0.34, windowK: 5,
-  prov: 'ship-scale analysis v2 §7 — scoping, pending the gated ship.js port',
+  diaM: S0.planOfRecord.diaM, lenM: S0.planOfRecord.lenM, fineness: SHIP0.fineness,
+  volumeM3: S0.planOfRecord.vM3, hullM2: S0.planOfRecord.areaM2,
+  liftT: S0.planOfRecord.liftSLT,
+  massT: S0.mid.totalT, residualT: S0.mid.residualSLT, ratio: S0.mid.ratioSL,
+  massSF15T: S0.worlds.s1050_sf15.totalT, ratioSF15: S0.worlds.s1050_sf15.ratioSL,
+  ratioSF15Sigma1450: S0.worlds.s1450_sf15.ratioSL,
+  ratioSigma742: S0.worlds.s742_sf12.ratioSL,
+  // Lift falls as air warms: d(rho)/rho = -dT/T, so %/K is 100/T0 — and the
+  // residual buys an operating window of residual/(lift * that slope).
+  tempPctPerK: 100 / 288.15,
+  windowK: S0.mid.residualSLT / (S0.planOfRecord.liftSLT * (1 / 288.15)),
+  worlds: S0.worlds,
+  worldsFrame: S0.worldsFramePractice,
+  giKnockdown: S0.giKnockdown, giKnockdownFrame: S0.giKnockdownFrame,
+  giMarginHarsh: S0.checks.giMarginHarsh, giMarginFrame: S0.checks.giMarginFrame,
+  bestWorldRatio: S0.worldsFramePractice.s1450_sf12.ratioSL,
+  bestWorldResidualT: S0.worldsFramePractice.s1450_sf12.residualSLT,
+  floatWindow: S0.floatWindow,
+  floatWindowFrame: S0.floatWindowFrame,
+  checks: S0.checks,
+  prov: 'cell/model.js ship0Summary() — the gated post-refutation port (2026-08-13); '
+      + 'sigma worlds AND the GI knockdown [TO VERIFY — the two campaigns ARE the float decision]',
 };
 
-/* Band and grid scoping lines the level sections visualise. Same provenance rule. */
+/* THE WALL — the film-on-rings outer face that replaced the band of cells
+ * (operator cascade 08-12/08-13). Population and sections computed, gated. */
+export const WALL = {
+  ringPitchM: S0.planOfRecord.ringPitchM, barPitchM: S0.planOfRecord.barPitchM,
+  rings: S0.counts.rings, bars: S0.counts.bars,
+  panels: S0.counts.panels, clamps: S0.counts.clamps,
+  ringOdMm: S0.sections.ring.odMm, ringWallMm: S0.sections.ring.wallMm,
+  ringMargin: S0.sections.ring.marginAtSF, ringGoverns: S0.sections.ring.governs,
+  barOdMm: S0.sections.bar.odMm, barWallMm: S0.sections.bar.wallMm,
+  filmGM2: S0.sections.filmGM2,
+  clampEvery: SHIP0.clampEvery,
+  prov: 'cell/model.js shipWall() — gated',
+};
+
+/* The superseded band-of-cells record, kept because it happened: what the wall
+ * replaced, and what the replacement bought. History, not design. */
 export const BAND = {
-  arealKgM2Lo: 5.0, arealKgM2Hi: 10.7,     // by tube/joint basis (E' retuned … committed article)
-  cells: 20000,                             // order-of: analysis v2 §7 seal-and-hold count (~2×10⁴)
-  perCellPushT: 7.2,                        // ≈0.7 m² band footprint per cell × 1 atm, tonnes-force
-  prov: 'ship-scale analysis v2 §3/§7 — one cell-span band absorbs the full atmosphere',
+  arealKgM2Lo: 5.0, arealKgM2Hi: 10.7,     // the Kelvin band's ledger, by basis
+  cells: 20000,                             // the census the tile pitch inherited
+  perCellPushT: 7.2,
+  superseded: true,
+  prov: 'ship-scale analysis v2 §3/§7 — SUPERSEDED by the film-on-rings wall (08-13 cascade)',
 };
 export const GRID = {
-  depthM: 3, bayM: 2,
-  hoopKPaM: 2634,                           // P·R at the ship-0 barrel radius (R = 26 m)
-  bandCapKPaM: 67,                          // the band's own in-plane ceiling (upper bound)
-  prov: 'ship-scale analysis v2 §3/§4 — the shell carries the global load; the band hangs on it',
+  depthM: SHIP0.depthM, bayM: SHIP0.bayM,
+  nLong: S0.planOfRecord.nLong, braceM: S0.planOfRecord.braceM,
+  innerRings: S0.skeletonCounts.innerRings,
+  thetaWebs: S0.skeletonCounts.thetaWebs,
+  longOdMm: S0.sections.longeron.odMm, longWallMm: S0.sections.longeron.wallMm,
+  hoopKPaM: Math.round(P_ATM * S0.planOfRecord.diaM / 2 / 1000), // P·R at the barrel
+  bandCapKPaM: 67,                          // the dead band's own ceiling, kept for the history copy
+  prov: 'cell/model.js shipSkeleton() — gated; the ring-plane webs are the 08-13 finding',
 };
 
 /* The committed article, read live from the model so this page can never disagree
@@ -130,57 +175,85 @@ export const CATALOG = [
     flags: [],
   },
   {
+    id: 'tube-ring', cat: 'tubes',
+    name: 'Hoop ring pipe',
+    status: 'decided',
+    role: 'The wall itself, in the hoop direction: a continuous curved ring every '
+        + 'half-metre of meridian, carrying its strip of the sky as pure compression '
+        + '— the funicular case, which is the whole reason the wall is rings.',
+    story: 'Moulded curved in-house — curvature, not continuity of straight stock: '
+        + 'bending straight tube to this radius would lock a third of the working '
+        + 'stress in before the first pump-down.',
+    draw: { kind: 'tube', odMm: S0.sections.ring.odMm, wallMm: S0.sections.ring.wallMm, cutMm: 2000 },
+    specs: [
+      { k: 'Bore', v: `${S0.sections.ring.odMm.toFixed(0)} od × wall ${S0.sections.ring.wallMm.toFixed(1)}`, u: 'mm' },
+      { k: 'Construction', v: 'roll-wrapped T700, moulded curved', u: '' },
+      { k: 'Linear mass', v: linKgPerM(S0.sections.ring.odMm, S0.sections.ring.wallMm, T700.rho).toFixed(2), u: 'kg/m' },
+      { k: 'Runs at', v: `${S0.sections.ring.runsAtMPa.toFixed(0)}`, u: `MPa (${S0.sections.ring.governs}-governed, margin ${S0.sections.ring.marginAtSF.toFixed(2)} at declared SF)` },
+      { k: 'Ship set', v: `${S0.counts.rings.toLocaleString('en-US')}`, u: 'rings' },
+    ],
+    prov: 'cell/model.js shipWall() — gated by cellparity',
+    flags: ['sigma world [TO VERIFY] — the coupon campaign decides which column is real'],
+  },
+  {
+    id: 'tube-bar', cat: 'tubes',
+    name: 'Cross-bar pipe',
+    status: 'decided',
+    role: 'The meridional half of the wall grid: continuous bars one ring-diameter '
+        + 'outboard, holding adjacent rings apart against the film’s pull and '
+        + 'squaring the panels so the membrane carries pressure both ways.',
+    story: 'Sized for the worst case — every panel handing its whole load to its bar '
+        + 'first — and it is still the lightest structural member on the ship.',
+    draw: { kind: 'tube', odMm: S0.sections.bar.odMm, wallMm: S0.sections.bar.wallMm, cutMm: 2000 },
+    specs: [
+      { k: 'Bore', v: `${S0.sections.bar.odMm.toFixed(0)} od × wall ${S0.sections.bar.wallMm.toFixed(1)}`, u: 'mm' },
+      { k: 'Duty', v: 'bending between rings', u: 'end-span worst case' },
+      { k: 'Linear mass', v: linKgPerM(S0.sections.bar.odMm, S0.sections.bar.wallMm, T700.rho).toFixed(2), u: 'kg/m' },
+      { k: 'Ship set', v: `${S0.counts.bars.toLocaleString('en-US')}`, u: 'bars, pole to pole' },
+    ],
+    prov: 'cell/model.js shipWall() — gated by cellparity',
+    flags: [],
+  },
+  {
+    id: 'tube-longeron', cat: 'tubes',
+    name: 'Longeron pipe',
+    status: 'decided',
+    role: 'The inner wall’s axial columns: all of the caps’ thrust — the atmosphere '
+        + 'pressing the two ends together — carried as compression down the barrel, '
+        + 'braced every bay by the inner rings.',
+    story: 'They stop at the dome junction: under the caps the meridional load is the '
+        + 'cap grid’s own job, and pricing both was a 23-tonne error the scoping tool '
+        + 'caught in its own first draft.',
+    draw: { kind: 'tube', odMm: S0.sections.longeron.odMm, wallMm: S0.sections.longeron.wallMm, cutMm: 2000 },
+    specs: [
+      { k: 'Bore', v: `${S0.sections.longeron.odMm.toFixed(0)} od × wall ${S0.sections.longeron.wallMm.toFixed(1)}`, u: 'mm' },
+      { k: 'Governing', v: S0.sections.longeron.governs, u: `margin ${S0.sections.longeron.marginAtSF.toFixed(2)} at declared SF` },
+      { k: 'Linear mass', v: linKgPerM(S0.sections.longeron.odMm, S0.sections.longeron.wallMm, T700.rho).toFixed(2), u: 'kg/m' },
+      { k: 'Ship set', v: `${S0.skeletonCounts.longerons}`, u: 'columns' },
+    ],
+    prov: 'cell/model.js shipSkeleton() — gated by cellparity',
+    flags: ['sigma world [TO VERIFY] — coupon campaign'],
+  },
+  {
     id: 'tube-web', cat: 'tubes',
-    name: 'Grid web tube',
-    status: 'scoping',
-    role: 'The diagonals of the ship’s deep sandwich shell — they hold the two chord '
-        + 'faces apart and carry the shear between them.',
-    story: 'The longest single parts of the whole ship, and still shorter than a canoe.',
-    draw: { kind: 'tube', odMm: 60, wallMm: 2, cutMm: 3600 },
+    name: 'Web tube — two families',
+    status: 'decided',
+    role: 'The fan webs lace the walls in meridional planes (ring bracing, beam '
+        + 'shear); the ring-plane diagonals — the member the 08-13 checks found '
+        + 'missing — give the sandwich the circumferential shear that ovalization '
+        + 'stiffness actually rides on.',
+    story: 'The fan was drawn for a job it could not do: every diagonal lived in a '
+        + 'meridional plane, so the two walls could not act as one deep ring. The '
+        + 'general-instability check found the gap and priced the fix at single-digit '
+        + 'tonnes.',
+    draw: { kind: 'tube', odMm: 30, wallMm: 1.5, cutMm: 3400 },
     specs: [
-      { k: 'Bore', v: '60 × 56', u: 'mm od × id (class)' },
-      { k: 'Piece length', v: '≈3.6', u: 'm' },
-      { k: 'Linear mass', v: (linKgPerM(60, 2, T700.rho)).toFixed(2), u: 'kg/m' },
-      { k: 'Ship set', v: '≈4,000 pieces · ≈15 km', u: '' },
+      { k: 'Fan pitch', v: `${2 * SHIP0.kFan}`, u: 'diagonals per column per bay' },
+      { k: 'Ring-plane set', v: `${S0.skeletonCounts.thetaWebs.toLocaleString('en-US')}`, u: 'diagonals' },
+      { k: 'Duty', v: 'shear', u: 'meridional + ring-plane' },
     ],
-    prov: 'ship-scale analysis v2 §4 (webs 0.5 kg/m² scoping line)',
-    flags: ['member-level design absent — scoping line only'],
-  },
-  {
-    id: 'tube-chord', cat: 'tubes',
-    name: 'Chord pipe',
-    status: 'scoping',
-    role: 'The ship’s ring hoops and longerons — the face members of the sandwich '
-        + 'shell that carry the whole squeeze of the atmosphere as compression.',
-    story: 'Fatter-not-thinner is the verified law: this section sits on the co-critical '
-        + 'locus where Euler and wall buckling bind together.',
-    draw: { kind: 'tube', odMm: 137, wallMm: 3.5, cutMm: 2000 },
-    specs: [
-      { k: 'Bore', v: '137 × 130', u: 'mm od × wall 3.5' },
-      { k: 'Piece length', v: '≈2', u: 'm (one ring bay)' },
-      { k: 'Linear mass', v: linKgPerM(137, 3.5, T700.rho).toFixed(2), u: 'kg/m' },
-      { k: 'Governing stress', v: '742', u: 'MPa (co-critical, verified-class)' },
-      { k: 'Coupon target', v: '1,050–1,450', u: 'MPa — decides the hull size' },
-    ],
-    prov: 'ship-scale analysis v2 §2/§4 — custom roll-wrap, beyond stock walls',
-    flags: ['axial-compressive allowable [TO VERIFY] — the single biggest ship lever'],
-  },
-  {
-    id: 'tube-chord-heavy', cat: 'tubes',
-    name: 'Heavy chord pipe',
-    status: 'scoping',
-    role: 'The yield-cap end of the chord family: fewer, fatter members for the load '
-        + 'concentrations — dome junctions, ring frames that double as bulkhead rims.',
-    story: 'Nineteen centimetres of carbon pipe. The biggest single section anywhere in '
-        + 'the design, and it still ships on a pallet.',
-    draw: { kind: 'tube', odMm: 190, wallMm: 10, cutMm: 2000 },
-    specs: [
-      { k: 'Bore', v: '190 × 170', u: 'mm od × wall 10' },
-      { k: 'Piece length', v: '≈2', u: 'm (one ring bay)' },
-      { k: 'Linear mass', v: linKgPerM(190, 10, T700.rho).toFixed(2), u: 'kg/m' },
-    ],
-    prov: 'ship-scale analysis v2 §4 (chord class upper bound)',
-    flags: ['sourcing [TO VERIFY] — custom-wrap territory'],
+    prov: 'cell/model.js shipSkeleton() — gated; ring-plane family = the 08-13 finding',
+    flags: ['fan brace rule (2%) conservative — a stiffness-based rule could halve it'],
   },
 
   /* ---------------------------------------------- connectors --------------------------- */

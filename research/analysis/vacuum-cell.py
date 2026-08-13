@@ -1277,6 +1277,541 @@ def pumped_plenum() -> dict:
     }
 
 
+# =====================================================================================
+# SHIP 0 — the film-on-rings wall and the two-walled skeleton, sized live.
+#
+# The corrected port of tools/ship_scoping.py (2026-08-13, post-refutation): three
+# adversarial reviewers attacked the scoping tool before any page quoted it; eleven
+# confirmed bugs are fixed here (Bryant's load-side divisor, the ring-plane crimp
+# triangle and coefficient, the impossible fan brace credit, the caps' missing crimp
+# and bending duty, the junction as a priced member, gated verdicts, one-way film,
+# pads, straps, the lift scallop). The stability system now includes THE LICENSED
+# FALLBACK — v2 SS1's tension spokes, licensed by exactly this round's finding that
+# the reserve prices high: diametral pretensioned cords, a Winkler foundation under
+# every ring, strongest at the low-n modes the sandwich pays most for.
+#
+# Mirrored line for line in cell/model.js, held identical by check_cell_parity.
+# Display law (operator): declared SF 1.2 with SF 1.5 beside; sea-level survive and
+# float; sigma worlds named (742/1050/1450 [TO VERIFY — coupon campaign]); the GI
+# knockdown worlds named (0.3 house-harsh SIZES the ledger; 0.65 frame-practice
+# REPORTED beside [TO VERIFY — SHIP-2 knockdown tests]). The float decision belongs
+# to those two campaigns, and the model says so rather than hiding it.
+# =====================================================================================
+SHIP0 = dict(
+    diaM=52.0, fineness=2.0, sfDeclared=1.2,
+    sigmaWorldsMPa=dict(s742=742.0, s1050=1050.0, s1450=1450.0), sigmaMid="s1050",
+    ringPitchM=0.5, barPitchM=0.5, nLong=72, kFan=1, depthM=3.0, bayM=2.0,
+    clampEvery=4, clampKgAt130=0.11, etaMass=0.85,
+    voidSkinKgM2=0.010, jacketKgM2=0.050, junctionAdder=0.05, clampCapN=2000.0,
+    giKnockdown=0.3, giKnockdownFrame=0.65,
+    padKg=0.04, strapSigma=300e6,
+    eSpoke=70e9, rhoSpoke=970.0, spokeFitting=1.3,
+)
+
+
+def ship_geom(dia_m: float = None) -> dict:
+    """Ship-0 geometry; geometric scaling for off-record hulls (depth and column
+    count grow with R; pitches stay absolute). Ring brace pitch is the fan's TRUE
+    circumferential landing pitch 2*pi*R/nLong — meridional fan density buys no
+    circumferential brace lines (refuter finding, 08-13)."""
+    dia = SHIP0["diaM"] if dia_m is None else dia_m
+    scale = dia / SHIP0["diaM"]
+    r = dia / 2.0
+    cyl_l = SHIP0["fineness"] * dia - dia
+    depth = SHIP0["depthM"] * scale
+    n_long = max(24, round(SHIP0["nLong"] * scale))
+    return dict(diaM=dia, lenM=SHIP0["fineness"] * dia, R=r, cylL=cyl_l,
+                vM3=math.pi * r * r * cyl_l + 4.0 / 3.0 * math.pi * (r * r * r),
+                areaM2=2.0 * math.pi * r * cyl_l + 4.0 * math.pi * r * r,
+                meridianM=math.pi * r + cyl_l, depthM=depth, rIn=r - depth,
+                nLong=n_long, braceM=2.0 * math.pi * r / n_long)
+
+
+def ship_section(od_mm: float, wall_mm: float) -> dict:
+    ro = od_mm / 2000.0
+    ri = ro - wall_mm / 1000.0
+    a = math.pi * (ro * ro - ri * ri)
+    i = math.pi / 4.0 * ((ro * ro) * (ro * ro) - (ri * ri) * (ri * ri))
+    return dict(odMm=od_mm, wallMm=wall_mm, ro=ro, rm=(ro + ri) / 2.0,
+                A=a, I=i, Z=i / ro, kgPerM=a * MATERIALS["T700_LAM"]["rho"])
+
+
+def _ship_sigma_local(s: dict) -> float:
+    return (K_CLASSICAL * K_LOCAL * ORTHO_PENALTY * MATERIALS["T700_LAM"]["E"]
+            * (s["wallMm"] / 1000.0) / s["rm"])
+
+
+def _ship_sigma_euler(s: dict, braced_l: float) -> float:
+    return ((math.pi * math.pi) * MATERIALS["T700_LAM"]["E"] * s["I"]
+            / (s["A"] * braced_l * braced_l))
+
+
+_SHIP_WALLS_MM = (1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0, 7.0, 8.0,
+                  10.0, 12.0)
+
+
+def ship_size_compression(n_demand: float, braced_l: float, sigma_mat: float,
+                          sf: float) -> dict:
+    """The lightest tube at margin >= sf against all three INDEPENDENT checks
+    (Euler pinned / 0.605-corrected local wall / material) — audit U4 stands."""
+    best = None
+    for odi in range(10, 141):
+        od = odi * 2.0
+        for w in _SHIP_WALLS_MM:
+            if w * 2.0 >= od * 0.45:
+                continue
+            s = ship_section(od, w)
+            cap = min(_ship_sigma_euler(s, braced_l), _ship_sigma_local(s),
+                      sigma_mat)
+            if cap * s["A"] < n_demand * sf:
+                continue
+            if best is None or s["A"] < best["A"]:
+                best = dict(s)
+                best["sigmaCapPa"] = cap
+                best["sigmaDemandPa"] = n_demand / s["A"]
+                best["marginAtSF"] = cap * s["A"] / (n_demand * sf)
+                best["governs"] = ("euler" if cap == _ship_sigma_euler(s, braced_l)
+                                   else "local" if cap == _ship_sigma_local(s)
+                                   else "material")
+    if best is None:
+        raise RuntimeError("ship_size_compression: no section")
+    best["demandN"] = n_demand
+    best["bracedL"] = braced_l
+    return best
+
+
+def ship_size_bending(m_demand: float, sigma_mat: float, sf: float) -> dict:
+    """The lightest STOCKY tube (R/t <= 25 — the axial local-buckling formula is
+    not a bending limit, FLOAT open q.3) at margin >= sf."""
+    best = None
+    for odi in range(20, 121):
+        od = float(odi)
+        for w in (1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0):
+            if od / 2.0 / w > 25.0 or w * 2.0 >= od * 0.45:
+                continue
+            s = ship_section(od, w)
+            if sigma_mat * s["Z"] < m_demand * sf:
+                continue
+            if best is None or s["A"] < best["A"]:
+                best = dict(s)
+                best["marginAtSF"] = sigma_mat * s["Z"] / (m_demand * sf)
+    if best is None:
+        raise RuntimeError("ship_size_bending: no section")
+    best["demandNm"] = m_demand
+    return best
+
+
+def ship_wall(g: dict, sigma_mat: float, sf: float) -> dict:
+    """The film-on-rings wall. Rings carry hoop N = P*s_r*R braced at the fan's
+    true landing pitch; bars sized all-on-bars at the end span; the film is
+    priced ONE-WAY (T = p*r trough, twice the two-way tension) until a drape
+    analysis licenses the doubly-curved credit; the caps carry the demand-fixed
+    membrane grid at sigma_mat PLUS the bar bending duty the barrel prices
+    separately (both refuter fixes)."""
+    s_r, s_b = SHIP0["ringPitchM"], SHIP0["barPitchM"]
+    rho = MATERIALS["T700_LAM"]["rho"]
+    n_ring = P_ATM * s_r * g["R"]
+    ring = ship_size_compression(n_ring, g["braceM"], sigma_mat, sf)
+    bar = ship_size_bending(P_ATM * s_b * s_r * s_r / 8.0, sigma_mat, sf)
+    film_kgm2 = 2.0 * barrier_kg_per_m2(max(s_r, s_b))
+    clamp_kgm2 = (1.0 / (s_r * s_b) / SHIP0["clampEvery"]
+                  * SHIP0["clampKgAt130"] * (ring["odMm"] / 130.0))
+    bar_kgm2 = bar["kgPerM"] / s_b
+    cap_grid_kgm2 = rho * sf * P_ATM * g["R"] / sigma_mat + bar_kgm2
+    barrel_a = 2.0 * math.pi * g["R"] * g["cylL"]
+    caps_a = 4.0 * math.pi * g["R"] * g["R"]
+    ring_kgm2 = ring["kgPerM"] / s_r
+    return dict(
+        ring=ring, bar=bar,
+        ringKgM2=ring_kgm2, barKgM2=bar_kgm2, filmKgM2=film_kgm2,
+        clampKgM2=clamp_kgm2, capGridKgM2=cap_grid_kgm2,
+        ringsT=ring_kgm2 * barrel_a / 1000.0,
+        barsT=bar_kgm2 * barrel_a / 1000.0,
+        capGridT=cap_grid_kgm2 * caps_a / 1000.0,
+        filmT=film_kgm2 * g["areaM2"] / 1000.0,
+        clampsT=clamp_kgm2 * g["areaM2"] / 1000.0,
+        membersT=(ring_kgm2 + bar_kgm2) * barrel_a / 1000.0
+                 + cap_grid_kgm2 * caps_a / 1000.0,
+        counts=dict(rings=round(g["meridianM"] / s_r) + 1,
+                    bars=round(2.0 * math.pi * g["R"] / s_b),
+                    panels=round(g["areaM2"] / (s_r * s_b)),
+                    clamps=round(g["areaM2"] / (s_r * s_b) / SHIP0["clampEvery"])),
+    )
+
+
+def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
+                  gi_knockdown: float) -> dict:
+    """The corrected stability system. General instability in Bryant's honest
+    form — membrane term WITH the load-side divisor (n^2 + lam^2/2 - 1), head-
+    credit effective length, ring term series-combined with the X-braced
+    ring-plane web crimp (S = 2*E*A*T*cos^2/(bay*l), q = S/R), and the LICENSED
+    tension-spoke foundation k*R/(n^2-1) — minimised over n, knocked down whole.
+    Four growth moves, cheapest-first: inner rings, theta webs, ring flange
+    doubler, spokes. The caps keep their crimp partner. Everything [SCOPING]."""
+    E_ = MATERIALS["T700_LAM"]["E"]
+    rho = MATERIALS["T700_LAM"]["rho"]
+    depth, r_in, bay = g["depthM"], g["rIn"], SHIP0["bayM"]
+    lng = ship_size_compression(P_ATM * math.pi * (g["R"] * g["R"]) / g["nLong"],
+                                bay, sigma_mat, sf)
+    long_len = g["cylL"] + 2.0 * min(math.sqrt(g["R"] * depth),
+                                     math.pi / 2.0 * r_in)
+    long_t = lng["kgPerM"] * g["nLong"] * long_len / 1000.0
+    web_len = math.sqrt(depth * depth + bay * bay / 4.0)
+    web = ship_size_compression(max(0.02 * wall["ring"]["demandN"], 2000.0),
+                                web_len, sigma_mat, sf)
+    webs_per_col = g["meridianM"] / bay * 2.0 * SHIP0["kFan"]
+    web_t = web["kgPerM"] * web_len * webs_per_col * g["nLong"] / 1000.0
+    # The junction is a MEMBER SET: the caps' thrust shears inward to the
+    # longerons through 45-deg diagonals over sqrt(R*T), both ends.
+    n_flow = P_ATM * g["R"] / 2.0
+    a_junction_per_m = n_flow * sf / (sigma_mat * 0.45)
+    junction_len = math.sqrt(2.0) * depth
+    junction_t = (a_junction_per_m * junction_len * rho
+                  * 2.0 * math.pi * g["R"] * 2.0) / 1000.0
+    inner0 = ship_size_compression(0.10 * wall["ring"]["demandN"], bay,
+                                   sigma_mat, sf)
+    n_inner = round(g["meridianM"] / bay) + 1
+    a_o0 = wall["ring"]["A"] / SHIP0["ringPitchM"]
+    a_x = lng["A"] * g["nLong"] / (2.0 * math.pi * r_in)
+    l_eff = g["cylL"] + 2.0 * g["R"] / 3.0
+    lam = math.pi * g["R"] / l_eff
+    lam2 = lam * lam
+    circ_col = 2.0 * math.pi * g["R"] / g["nLong"]
+    theta_len = math.sqrt(depth * depth + circ_col * circ_col)
+    cos_th = circ_col / theta_len
+    n_theta = n_inner * g["nLong"] * 2
+
+    def crimp_of(a_theta: float) -> float:
+        if a_theta <= 0.0:
+            return 0.0
+        s_shear = (2.0 * E_ * a_theta * depth * (cos_th * cos_th)
+                   / (bay * theta_len))
+        return s_shear / g["R"]
+
+    def gi(a_i_smeared: float, a_theta: float, a_o_extra: float,
+           a_spoke: float, knockdown: float) -> dict:
+        a_o = a_o0 + a_o_extra
+        abar = a_o * a_i_smeared / (a_o + a_i_smeared)
+        i_eff = abar * depth * depth
+        q_crimp = crimp_of(a_theta)
+        k_r = SHIP0["eSpoke"] * a_spoke / (2.0 * g["R"])
+        best_n, best_q = 2, None
+        for n in range(2, 13):
+            nn = n * n + lam2
+            div = n * n + lam2 / 2.0 - 1.0
+            q_mem = (E_ * a_x * ((lam2 * lam2)) / (g["R"] * div * (nn * nn)))
+            q_ring = ((n * n - 1) * E_ * i_eff
+                      / (g["R"] * g["R"] * g["R"]))
+            if q_ring > 0.0 and q_crimp > 0.0:
+                q_ring = 1.0 / (1.0 / q_ring + 1.0 / q_crimp)
+            else:
+                q_ring = 0.0
+            q_found = k_r * g["R"] / (n * n - 1)
+            q = q_mem + q_ring + q_found
+            if best_q is None or q < best_q:
+                best_q, best_n = q, n
+        return dict(qCrPa=best_q * knockdown, critN=best_n, qCrimpPa=q_crimp,
+                    marginAtSF=best_q * knockdown / (P_ATM * sf))
+
+    def solve(knockdown: float, a_i0: float, a_th0: float, a_oe0: float,
+              a_sp0: float):
+        a_i, a_th, a_oe, a_sp = a_i0, a_th0, a_oe0, a_sp0
+        rec = gi(a_i / bay, a_th, a_oe, a_sp, knockdown)
+        guard = 0
+        d_ai, d_th, d_oe, d_sp = 4e-4, 4e-5, 2e-4, 2e-7
+        kg_ai = d_ai / bay * rho * n_inner * 2.0 * math.pi * r_in * bay
+        kg_th = d_th * theta_len * n_theta * rho
+        kg_oe = d_oe * rho * 2.0 * math.pi * g["R"] * g["cylL"] \
+            / (2.0 * math.pi * g["R"]) * 2.0 * math.pi * g["R"]
+        kg_sp = (d_sp * g["R"] * SHIP0["rhoSpoke"] * SHIP0["spokeFitting"]
+                 * g["areaM2"])
+        while rec["marginAtSF"] < 1.0 and guard < 6000:
+            cands = []
+            rec_i = gi((a_i + d_ai) / bay, a_th, a_oe, a_sp, knockdown)
+            cands.append(((rec_i["marginAtSF"] - rec["marginAtSF"]) / kg_ai,
+                          "i", rec_i))
+            rec_t = gi(a_i / bay, a_th + d_th, a_oe, a_sp, knockdown)
+            cands.append(((rec_t["marginAtSF"] - rec["marginAtSF"]) / kg_th,
+                          "t", rec_t))
+            rec_o = gi(a_i / bay, a_th, a_oe + d_oe, a_sp, knockdown)
+            cands.append(((rec_o["marginAtSF"] - rec["marginAtSF"]) / kg_oe,
+                          "o", rec_o))
+            rec_s = gi(a_i / bay, a_th, a_oe, a_sp + d_sp, knockdown)
+            cands.append(((rec_s["marginAtSF"] - rec["marginAtSF"]) / kg_sp,
+                          "s", rec_s))
+            cands.sort(key=lambda c: -c[0])
+            _, move, best = cands[0]
+            if move == "i":
+                a_i += d_ai
+            elif move == "t":
+                a_th += d_th
+            elif move == "o":
+                a_oe += d_oe
+            else:
+                a_sp += d_sp
+            rec = best
+            guard += 1
+        return a_i, a_th, a_oe, a_sp, rec
+
+    a_th_min = ship_section(30.0, 1.5)["A"]
+    a_i_1, a_th_1, a_oe_1, a_sp_1, ov = solve(gi_knockdown, inner0["A"],
+                                              a_th_min, 0.0, 0.0)
+    ov_frame = gi(a_i_1 / bay, a_th_1, a_oe_1, a_sp_1,
+                  SHIP0["giKnockdownFrame"])
+    ov_harsh = gi(a_i_1 / bay, a_th_1, a_oe_1, a_sp_1, SHIP0["giKnockdown"])
+    ov_02 = gi(a_i_1 / bay, a_th_1, a_oe_1, a_sp_1, K_SHELL)
+    reserve_kgm2 = 0.0
+    if ov_02["marginAtSF"] < 1.0 and gi_knockdown == SHIP0["giKnockdown"]:
+        a_i_2, a_th_2, a_oe_2, a_sp_2, ov_02b = solve(K_SHELL, a_i_1, a_th_1,
+                                                      a_oe_1, a_sp_1)
+        if ov_02b["marginAtSF"] >= 1.0:
+            reserve_kgm2 = ((a_i_2 - a_i_1) * rho * n_inner * 2.0 * math.pi
+                            * r_in
+                            + (a_th_2 - a_th_1) * theta_len * n_theta * rho
+                            + (a_oe_2 - a_oe_1) * rho * 2.0 * math.pi
+                            * g["R"] * g["cylL"]
+                            + (a_sp_2 - a_sp_1) * g["R"] * SHIP0["rhoSpoke"]
+                            * SHIP0["spokeFitting"] * g["areaM2"]) / g["areaM2"]
+    # THE CAPS keep their crimp partner: the dome is crimp-limited through the
+    # same theta family (the spokes cannot reach a dome dimple mode).
+    a_cap = (wall["capGridKgM2"] - wall["barKgM2"]) / rho / 2.0
+    b_cap = E_ * a_cap
+    a_i_cap = a_i_1 / bay
+    d_cap = E_ * (a_cap * a_i_cap / (a_cap + a_i_cap)) * depth * depth
+    q_cap_bend = 4.0 * math.sqrt(b_cap * d_cap) / (g["R"] * g["R"])
+
+    def cap_margin(a_theta: float) -> float:
+        s_cap = crimp_of(a_theta) * g["R"]
+        q_cap_crimp = 2.0 * s_cap / g["R"]
+        if q_cap_bend <= 0.0 or q_cap_crimp <= 0.0:
+            return 0.0
+        return (gi_knockdown / (1.0 / q_cap_bend + 1.0 / q_cap_crimp)) \
+            / (P_ATM * sf)
+
+    guard_c = 0
+    while cap_margin(a_th_1) < 1.0 and guard_c < 4000:
+        a_th_1 += 4e-5
+        guard_c += 1
+    inner_t = a_i_1 * rho * n_inner * 2.0 * math.pi * r_in / 1000.0
+    theta_t = a_th_1 * theta_len * n_theta * rho / 1000.0
+    flange_t = a_oe_1 * rho * 2.0 * math.pi * g["R"] * g["cylL"] / 1000.0
+    spoke_t = (a_sp_1 * g["R"] * SHIP0["rhoSpoke"] * SHIP0["spokeFitting"]
+               * g["areaM2"]) / 1000.0
+    cap_buckle = dict(marginAtSF=cap_margin(a_th_1))
+    q_gust = 0.5 * 1.225 * 400.0
+    w_gust = 0.3 * q_gust * g["diaM"]
+    m_gust = w_gust * (g["lenM"] * g["lenM"]) / 8.0
+    sigma_bend = m_gust / (lng["A"] * g["nLong"] * r_in / 2.0)
+    t_demand = w_gust * g["lenM"] / 2.0 * g["lenM"] / 4.0
+    shear_flow = t_demand / (2.0 * math.pi * g["R"] * g["R"])
+    strap_t = (shear_flow * sf / SHIP0["strapSigma"] * 1550.0 * g["areaM2"]
+               * 2.0) / 1000.0
+    return dict(
+        longeron=lng, longeronsT=long_t, web=web, websT=web_t,
+        junctionT=junction_t,
+        innerRingAM2=a_i_1, nInnerRings=n_inner, innerRingsT=inner_t,
+        thetaWebAM2=a_th_1, thetaWebLenM=theta_len, nThetaWebs=n_theta,
+        thetaWebsT=theta_t,
+        flangeDoublerT=flange_t,
+        spokeAM2PerM2=a_sp_1, spokesT=spoke_t,
+        ovalization=ov, ovalizationFramePractice=ov_frame,
+        ovalizationAtHarsh=ov_harsh, ovalizationAtK02=ov_02,
+        capBuckle=cap_buckle,
+        reserveKgM2=reserve_kgm2,
+        strapsT=strap_t,
+        beamBending=dict(sigmaMPa=sigma_bend / 1e6,
+                         marginAtSF=sigma_mat / (sigma_bend * sf)),
+        torsion=dict(path="dedicated helical straps, sized at margin 1.0",
+                     marginAtSF=1.0),
+    )
+
+
+def ship_unpressurised(g: dict, wall: dict, skel: dict, total_t: float) -> dict:
+    """The operator's requirement, checked three ways — and the verdict gates on
+    ALL of them (refuter fix): a failing erection-wind check constrains the
+    BUILD and the verdict string says so. All [SCOPING]."""
+    ring = wall["ring"]
+    w_self = ring["kgPerM"] * 9.80665
+    jig = None
+    for k in (4, 8, 12, 24):
+        span = 2.0 * math.pi * g["R"] / k
+        if w_self * span * span / 12.0 / ring["Z"] < 50e6:
+            jig = k
+            break
+    w_dead = total_t * 1000.0 * 9.80665 / g["lenM"] / (2.0 * math.pi * g["R"])
+    sig_cradle = (0.15 * w_dead * g["R"] * g["R"] / g["depthM"]
+                  / (ring["A"] / SHIP0["ringPitchM"]))
+    q_wind = 0.5 * 1.225 * 225.0
+    flow = q_wind * g["diaM"] * g["lenM"] * 0.5 / (2.0 * math.pi * g["R"])
+    clamp_n = flow * SHIP0["barPitchM"] * SHIP0["clampEvery"]
+    cradle_ok = sig_cradle < 100e6
+    wind_ok = clamp_n < SHIP0["clampCapN"] / 1.5
+    return dict(jigPoints=jig, cradleFlangeMPa=sig_cradle / 1e6,
+                cradleOk=cradle_ok, windOk=wind_ok,
+                erectionClampN=clamp_n,
+                stands=cradle_ok,
+                allOk=cradle_ok and wind_ok)
+
+
+def ship0(sigma_key: str = None, sf: float = None, dia_m: float = None,
+          gi_knockdown: float = None) -> dict:
+    """One whole-ship ledger, at a named sigma world, SF, hull and GI knockdown
+    (harsh sizes the record; the frame world is the reported alternative)."""
+    key = SHIP0["sigmaMid"] if sigma_key is None else sigma_key
+    sf_ = SHIP0["sfDeclared"] if sf is None else sf
+    gi_kd = SHIP0["giKnockdown"] if gi_knockdown is None else gi_knockdown
+    g = ship_geom(dia_m)
+    sig = SHIP0["sigmaWorldsMPa"][key] * 1e6
+    wall = ship_wall(g, sig, sf_)
+    skel = ship_skeleton(g, sig, sf_, wall, gi_kd)
+    member_t = (wall["membersT"]
+                + (skel["longeronsT"] + skel["innerRingsT"] + skel["websT"]
+                   + skel["thetaWebsT"] + skel["flangeDoublerT"]
+                   + skel["junctionT"]) * (1.0 + SHIP0["junctionAdder"]))
+    joints_t = member_t * (1.0 / SHIP0["etaMass"] - 1.0)
+    spokes_t = skel["spokesT"]
+    skins_t = (SHIP0["voidSkinKgM2"] + SHIP0["jacketKgM2"]) * g["areaM2"] / 1000.0
+    reserve_t = (skel["reserveKgM2"] * g["areaM2"] / 1000.0
+                 * (1.0 + SHIP0["junctionAdder"]) / SHIP0["etaMass"])
+    pads_t = (g["areaM2"] / (SHIP0["ringPitchM"] * SHIP0["barPitchM"])
+              * (SHIP0["clampEvery"] - 1) / SHIP0["clampEvery"]
+              * SHIP0["padKg"]) / 1000.0
+    total_t = (member_t + joints_t + spokes_t + wall["filmT"]
+               + wall["clampsT"] + pads_t + skel["strapsT"] + skins_t
+               + reserve_t)
+    sag_m = 0.5 * (max(SHIP0["ringPitchM"], SHIP0["barPitchM"]) / 2.0) * 0.25
+    lift_debit_t = rho_air(0.0) * g["areaM2"] * sag_m / 1000.0
+    lift_sl = rho_air(0.0) * g["vM3"] / 1000.0 - lift_debit_t
+    lift_25 = (rho_air(2500.0) * g["vM3"] / 1000.0
+               - lift_debit_t * (rho_air(2500.0) / rho_air(0.0)))
+    unp = ship_unpressurised(g, wall, skel, total_t)
+    checks_pass = (wall["ring"]["marginAtSF"] >= 1.0
+                   and wall["bar"]["marginAtSF"] >= 1.0
+                   and skel["longeron"]["marginAtSF"] >= 1.0
+                   and skel["ovalization"]["marginAtSF"] >= 1.0
+                   and skel["capBuckle"]["marginAtSF"] >= 1.0)
+    return dict(
+        sigmaKey=key, sf=sf_, giKnockdown=gi_kd, geom=g, wall=wall,
+        skeleton=skel, unpressurised=unp,
+        ledgerT=dict(
+            rings=wall["ringsT"], capGrid=wall["capGridT"], bars=wall["barsT"],
+            film=wall["filmT"], clamps=wall["clampsT"], pads=pads_t,
+            longerons=skel["longeronsT"] * (1.0 + SHIP0["junctionAdder"]),
+            innerRings=skel["innerRingsT"] * (1.0 + SHIP0["junctionAdder"]),
+            fanWebs=skel["websT"] * (1.0 + SHIP0["junctionAdder"]),
+            thetaWebs=skel["thetaWebsT"] * (1.0 + SHIP0["junctionAdder"]),
+            flangeDoubler=skel["flangeDoublerT"] * (1.0 + SHIP0["junctionAdder"]),
+            junctionShear=skel["junctionT"] * (1.0 + SHIP0["junctionAdder"]),
+            spokes=spokes_t, torsionStraps=skel["strapsT"],
+            tiJoints=joints_t, skins=skins_t, stabilityReserve=reserve_t),
+        liftDebitT=lift_debit_t,
+        totalT=total_t, liftSLT=lift_sl, lift2500T=lift_25,
+        ratioSL=lift_sl / total_t, residualSLT=lift_sl - total_t,
+        ratio2500=lift_25 / total_t, residual2500T=lift_25 - total_t,
+        arealKgM2=total_t * 1000.0 / g["areaM2"],
+        checksPass=checks_pass,
+        floats=total_t < lift_sl,
+        floatsAndStands=(total_t < lift_sl) and checks_pass,
+    )
+
+
+def ship0_summary() -> dict:
+    """What the pages bind: BOTH knockdown worlds' matrices (harsh sizes the
+    record; frame-practice is the reported alternative), the ledger, sections,
+    checks, counts, the float windows. Pre-rounded — the published record the
+    parity gate holds the browser to."""
+    worlds = {}
+    worlds_frame = {}
+    for sf_name, sf_ in (("sf12", SHIP0["sfDeclared"]), ("sf15", LATTICE_SF)):
+        for key in ("s742", "s1050", "s1450"):
+            r = ship0(key, sf_)
+            worlds[f"{key}_{sf_name}"] = dict(
+                totalT=round(r["totalT"], 1), ratioSL=round(r["ratioSL"], 3),
+                residualSLT=round(r["residualSLT"], 1),
+                ratio2500=round(r["ratio2500"], 3), floats=r["floats"])
+            rf = ship0(key, sf_, None, SHIP0["giKnockdownFrame"])
+            worlds_frame[f"{key}_{sf_name}"] = dict(
+                totalT=round(rf["totalT"], 1), ratioSL=round(rf["ratioSL"], 3),
+                residualSLT=round(rf["residualSLT"], 1), floats=rf["floats"])
+    mid = ship0()
+    window = []
+    for dia in (40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 68.0, 80.0):
+        try:
+            led = ship0(None, None, dia)
+            window.append(dict(diaM=dia, ratioSL=round(led["ratioSL"], 3)))
+        except RuntimeError:
+            window.append(dict(diaM=dia, ratioSL=None))
+    floats = [w["diaM"] for w in window
+              if w["ratioSL"] is not None and w["ratioSL"] >= 1.0]
+    window_frame = []
+    for dia in (40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 68.0, 80.0):
+        try:
+            led = ship0("s1450", None, dia, SHIP0["giKnockdownFrame"])
+            window_frame.append(dict(diaM=dia, ratioSL=round(led["ratioSL"], 3)))
+        except RuntimeError:
+            window_frame.append(dict(diaM=dia, ratioSL=None))
+    floats_f = [w["diaM"] for w in window_frame
+                if w["ratioSL"] is not None and w["ratioSL"] >= 1.0]
+    w, s = mid["wall"], mid["skeleton"]
+    return dict(
+        planOfRecord=dict(
+            diaM=SHIP0["diaM"], lenM=SHIP0["fineness"] * SHIP0["diaM"],
+            vM3=round(mid["geom"]["vM3"]), areaM2=round(mid["geom"]["areaM2"]),
+            liftSLT=round(mid["liftSLT"], 1), lift2500T=round(mid["lift2500T"], 1),
+            ringPitchM=SHIP0["ringPitchM"], barPitchM=SHIP0["barPitchM"],
+            nLong=SHIP0["nLong"], kFan=SHIP0["kFan"], depthM=SHIP0["depthM"],
+            bayM=SHIP0["bayM"], braceM=round(mid["geom"]["braceM"], 3)),
+        worlds=worlds,
+        worldsFramePractice=worlds_frame,
+        giKnockdown=SHIP0["giKnockdown"],
+        giKnockdownFrame=SHIP0["giKnockdownFrame"],
+        mid=dict(totalT=round(mid["totalT"], 1),
+                 ratioSL=round(mid["ratioSL"], 3),
+                 residualSLT=round(mid["residualSLT"], 1),
+                 ratio2500=round(mid["ratio2500"], 3),
+                 arealKgM2=round(mid["arealKgM2"], 2),
+                 ledgerT={k: round(v, 1) for k, v in mid["ledgerT"].items()}),
+        sections=dict(
+            ring=dict(odMm=w["ring"]["odMm"], wallMm=w["ring"]["wallMm"],
+                      marginAtSF=round(w["ring"]["marginAtSF"], 2),
+                      governs=w["ring"]["governs"],
+                      runsAtMPa=round(w["ring"]["sigmaDemandPa"] / 1e6)),
+            bar=dict(odMm=w["bar"]["odMm"], wallMm=w["bar"]["wallMm"],
+                     marginAtSF=round(w["bar"]["marginAtSF"], 2)),
+            longeron=dict(odMm=s["longeron"]["odMm"],
+                          wallMm=s["longeron"]["wallMm"],
+                          marginAtSF=round(s["longeron"]["marginAtSF"], 2),
+                          governs=s["longeron"]["governs"]),
+            filmGM2=round(w["filmKgM2"] * 1000.0)),
+        checks=dict(
+            giMarginHarsh=round(s["ovalizationAtHarsh"]["marginAtSF"], 2),
+            giMarginFrame=round(s["ovalizationFramePractice"]["marginAtSF"], 2),
+            giMarginK02=round(s["ovalizationAtK02"]["marginAtSF"], 2),
+            giCritN=s["ovalization"]["critN"],
+            reserveKgM2=round(s["reserveKgM2"], 2),
+            capBuckleMargin=round(s["capBuckle"]["marginAtSF"], 1),
+            beamBendMargin=round(s["beamBending"]["marginAtSF"]),
+            torsionMargin=round(s["torsion"]["marginAtSF"], 1),
+            unpressurised=mid["unpressurised"]["stands"],
+            unpressurisedAllOk=mid["unpressurised"]["allOk"],
+            cradleFlangeMPa=round(mid["unpressurised"]["cradleFlangeMPa"], 1),
+            jigPoints=mid["unpressurised"]["jigPoints"],
+            checksPass=mid["checksPass"]),
+        counts=mid["wall"]["counts"],
+        skeletonCounts=dict(
+            longerons=SHIP0["nLong"], innerRings=s["nInnerRings"],
+            fanWebsPerColPerBay=2 * SHIP0["kFan"], thetaWebs=s["nThetaWebs"]),
+        floatWindow=dict(curve=window,
+                         loM=min(floats) if floats else None,
+                         hiM=max(floats) if floats else None),
+        floatWindowFrame=dict(curve=window_frame,
+                              loM=min(floats_f) if floats_f else None,
+                              hiM=max(floats_f) if floats_f else None,
+                              basis="s1450 + frame-practice knockdown — the "
+                                    "friendliest defensible world"),
+    )
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", metavar="OUT")
@@ -1473,6 +2008,10 @@ def main() -> None:
     out["gradedPressure"] = graded_pressure(ref, wall)
     out["pumpedPlenum"] = pumped_plenum()
     out["weightlessArticle"] = weightless_article(wall)
+    # SHIP 0 — the film-on-rings wall and skeleton, the whole-ship ledger and the
+    # verdicts, live from the same module the browser mirrors. The study layer
+    # (design-space sweeps, sensitivity) stays in tools/ship_scoping.py.
+    out["ship0"] = ship0_summary()
 
     if args.json:
         pathlib.Path(args.json).write_text(json.dumps(out, indent=1))

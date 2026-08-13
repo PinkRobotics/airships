@@ -741,6 +741,499 @@ export function weightlessArticle(wall) {
  * film is priced for the differential it actually sees. In bulk, grading surrenders over
  * half the net lift; as a thin outer band, the tenfold-lighter envelope film pays for the
  * band's gas — roughly free in mass, tenfold gentler on the outer surface. */
+/* =====================================================================================
+ * SHIP 0 — the film-on-rings wall and the two-walled skeleton, sized live.
+ *
+ * The corrected port of tools/ship_scoping.py (2026-08-13, post-refutation): three
+ * adversarial reviewers attacked the scoping tool before any page quoted it; eleven
+ * confirmed bugs are fixed here (Bryant's load-side divisor, the ring-plane crimp
+ * triangle and coefficient, the impossible fan brace credit, the caps' missing
+ * crimp and bending duty, the junction as a priced member, gated verdicts, one-way
+ * film, pads, straps, the lift scallop). The stability system includes THE LICENSED
+ * FALLBACK — v2 SS1's tension spokes, licensed by exactly this round's finding
+ * that the reserve prices high: diametral pretensioned cords, a Winkler foundation
+ * under every ring, strongest at the low-n modes the sandwich pays most for.
+ *
+ * Mirrored line for line from research/analysis/vacuum-cell.py, held identical by
+ * tools/check_cell_parity.py. Display law (operator): declared SF 1.2 with SF 1.5
+ * beside; sea-level survive and float; sigma worlds named (742/1050/1450
+ * [TO VERIFY — coupon campaign]); GI knockdown worlds named (0.3 house-harsh SIZES
+ * the ledger; 0.65 frame-practice REPORTED beside [TO VERIFY — SHIP-2 knockdown
+ * tests]). The float decision belongs to those two campaigns, and the model says
+ * so rather than hiding it.
+ * ===================================================================================== */
+export const SHIP0 = {
+  diaM: 52.0, fineness: 2.0, sfDeclared: 1.2,
+  sigmaWorldsMPa: { s742: 742.0, s1050: 1050.0, s1450: 1450.0 }, sigmaMid: 's1050',
+  ringPitchM: 0.5, barPitchM: 0.5, nLong: 72, kFan: 1, depthM: 3.0, bayM: 2.0,
+  clampEvery: 4, clampKgAt130: 0.11, etaMass: 0.85,
+  voidSkinKgM2: 0.010, jacketKgM2: 0.050, junctionAdder: 0.05, clampCapN: 2000.0,
+  giKnockdown: 0.3, giKnockdownFrame: 0.65,
+  padKg: 0.04, strapSigma: 300e6,
+  eSpoke: 70e9, rhoSpoke: 970.0, spokeFitting: 1.3,
+};
+
+export function shipGeom(diaM = null) {
+  const dia = diaM === null ? SHIP0.diaM : diaM;
+  const scale = dia / SHIP0.diaM;
+  const r = dia / 2.0;
+  const cylL = SHIP0.fineness * dia - dia;
+  const depth = SHIP0.depthM * scale;
+  const nLong = Math.max(24, Math.round(SHIP0.nLong * scale));
+  return {
+    diaM: dia, lenM: SHIP0.fineness * dia, R: r, cylL,
+    vM3: Math.PI * r * r * cylL + 4.0 / 3.0 * Math.PI * (r * r * r),
+    areaM2: 2.0 * Math.PI * r * cylL + 4.0 * Math.PI * r * r,
+    meridianM: Math.PI * r + cylL, depthM: depth, rIn: r - depth,
+    nLong, braceM: 2.0 * Math.PI * r / nLong,
+  };
+}
+
+export function shipSection(odMm, wallMm) {
+  const ro = odMm / 2000.0;
+  const ri = ro - wallMm / 1000.0;
+  const a = Math.PI * (ro * ro - ri * ri);
+  const i = Math.PI / 4.0 * ((ro * ro) * (ro * ro) - (ri * ri) * (ri * ri));
+  return { odMm, wallMm, ro, rm: (ro + ri) / 2.0, A: a, I: i, Z: i / ro,
+           kgPerM: a * MATERIALS.T700_LAM.rho };
+}
+
+const shipSigmaLocal = (s) => K_CLASSICAL * K_LOCAL * ORTHO_PENALTY
+  * MATERIALS.T700_LAM.E * (s.wallMm / 1000.0) / s.rm;
+const shipSigmaEuler = (s, bracedL) => (Math.PI * Math.PI) * MATERIALS.T700_LAM.E
+  * s.I / (s.A * bracedL * bracedL);
+
+const SHIP_WALLS_MM = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0, 7.0,
+  8.0, 10.0, 12.0];
+
+/* The lightest tube at margin >= sf against all three INDEPENDENT checks
+ * (Euler pinned / 0.605-corrected local wall / material) — audit U4 stands. */
+export function shipSizeCompression(nDemand, bracedL, sigmaMat, sf) {
+  let best = null;
+  for (let odi = 10; odi < 141; odi++) {
+    const od = odi * 2.0;
+    for (const w of SHIP_WALLS_MM) {
+      if (w * 2.0 >= od * 0.45) continue;
+      const s = shipSection(od, w);
+      const cap = Math.min(shipSigmaEuler(s, bracedL), shipSigmaLocal(s), sigmaMat);
+      if (cap * s.A < nDemand * sf) continue;
+      if (best === null || s.A < best.A) {
+        best = { ...s };
+        best.sigmaCapPa = cap;
+        best.sigmaDemandPa = nDemand / s.A;
+        best.marginAtSF = cap * s.A / (nDemand * sf);
+        best.governs = cap === shipSigmaEuler(s, bracedL) ? 'euler'
+          : cap === shipSigmaLocal(s) ? 'local' : 'material';
+      }
+    }
+  }
+  if (best === null) throw new Error('shipSizeCompression: no section');
+  best.demandN = nDemand;
+  best.bracedL = bracedL;
+  return best;
+}
+
+/* The lightest STOCKY tube (R/t <= 25 — the axial local-buckling formula is
+ * not a bending limit, FLOAT open q.3) at margin >= sf. */
+export function shipSizeBending(mDemand, sigmaMat, sf) {
+  let best = null;
+  for (let odi = 20; odi < 121; odi++) {
+    const od = odi;
+    for (const w of [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0]) {
+      if (od / 2.0 / w > 25.0 || w * 2.0 >= od * 0.45) continue;
+      const s = shipSection(od, w);
+      if (sigmaMat * s.Z < mDemand * sf) continue;
+      if (best === null || s.A < best.A) {
+        best = { ...s };
+        best.marginAtSF = sigmaMat * s.Z / (mDemand * sf);
+      }
+    }
+  }
+  if (best === null) throw new Error('shipSizeBending: no section');
+  best.demandNm = mDemand;
+  return best;
+}
+
+/* The film-on-rings wall — corrected: film ONE-WAY until the drape licenses
+ * two-way; the caps carry the demand-fixed membrane grid PLUS the bar bending
+ * duty; rings brace at the fan's true landing pitch. */
+export function shipWall(g, sigmaMat, sf) {
+  const sR = SHIP0.ringPitchM, sB = SHIP0.barPitchM;
+  const rho = MATERIALS.T700_LAM.rho;
+  const nRing = P_ATM * sR * g.R;
+  const ring = shipSizeCompression(nRing, g.braceM, sigmaMat, sf);
+  const bar = shipSizeBending(P_ATM * sB * sR * sR / 8.0, sigmaMat, sf);
+  const filmKgM2 = 2.0 * barrierKgPerM2(Math.max(sR, sB));
+  const clampKgM2 = 1.0 / (sR * sB) / SHIP0.clampEvery
+    * SHIP0.clampKgAt130 * (ring.odMm / 130.0);
+  const barKgM2 = bar.kgPerM / sB;
+  const capGridKgM2 = rho * sf * P_ATM * g.R / sigmaMat + barKgM2;
+  const barrelA = 2.0 * Math.PI * g.R * g.cylL;
+  const capsA = 4.0 * Math.PI * g.R * g.R;
+  const ringKgM2 = ring.kgPerM / sR;
+  return {
+    ring, bar, ringKgM2, barKgM2, filmKgM2, clampKgM2, capGridKgM2,
+    ringsT: ringKgM2 * barrelA / 1000.0,
+    barsT: barKgM2 * barrelA / 1000.0,
+    capGridT: capGridKgM2 * capsA / 1000.0,
+    filmT: filmKgM2 * g.areaM2 / 1000.0,
+    clampsT: clampKgM2 * g.areaM2 / 1000.0,
+    membersT: (ringKgM2 + barKgM2) * barrelA / 1000.0
+      + capGridKgM2 * capsA / 1000.0,
+    counts: {
+      rings: Math.round(g.meridianM / sR) + 1,
+      bars: Math.round(2.0 * Math.PI * g.R / sB),
+      panels: Math.round(g.areaM2 / (sR * sB)),
+      clamps: Math.round(g.areaM2 / (sR * sB) / SHIP0.clampEvery),
+    },
+  };
+}
+
+/* The corrected stability system — Bryant with the load-side divisor, head-
+ * credit length, X-braced ring-plane crimp in series, the licensed spoke
+ * foundation, four growth moves cheapest-first, the caps kept covered. */
+export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown) {
+  const E_ = MATERIALS.T700_LAM.E;
+  const rho = MATERIALS.T700_LAM.rho;
+  const depth = g.depthM, rIn = g.rIn, bay = SHIP0.bayM;
+  const lng = shipSizeCompression(P_ATM * Math.PI * (g.R * g.R) / g.nLong,
+    bay, sigmaMat, sf);
+  const longLen = g.cylL + 2.0 * Math.min(Math.sqrt(g.R * depth),
+    Math.PI / 2.0 * rIn);
+  const longT = lng.kgPerM * g.nLong * longLen / 1000.0;
+  const webLen = Math.sqrt(depth * depth + bay * bay / 4.0);
+  const web = shipSizeCompression(Math.max(0.02 * wall.ring.demandN, 2000.0),
+    webLen, sigmaMat, sf);
+  const websPerCol = g.meridianM / bay * 2.0 * SHIP0.kFan;
+  const webT = web.kgPerM * webLen * websPerCol * g.nLong / 1000.0;
+  const nFlow = P_ATM * g.R / 2.0;
+  const aJunctionPerM = nFlow * sf / (sigmaMat * 0.45);
+  const junctionLen = Math.sqrt(2.0) * depth;
+  const junctionT = aJunctionPerM * junctionLen * rho
+    * 2.0 * Math.PI * g.R * 2.0 / 1000.0;
+  const inner0 = shipSizeCompression(0.10 * wall.ring.demandN, bay, sigmaMat, sf);
+  const nInner = Math.round(g.meridianM / bay) + 1;
+  const aO0 = wall.ring.A / SHIP0.ringPitchM;
+  const aX = lng.A * g.nLong / (2.0 * Math.PI * rIn);
+  const lEff = g.cylL + 2.0 * g.R / 3.0;
+  const lam = Math.PI * g.R / lEff;
+  const lam2 = lam * lam;
+  const circCol = 2.0 * Math.PI * g.R / g.nLong;
+  const thetaLen = Math.sqrt(depth * depth + circCol * circCol);
+  const cosTh = circCol / thetaLen;
+  const nTheta = nInner * g.nLong * 2;
+
+  const crimpOf = (aTheta) => {
+    if (aTheta <= 0.0) return 0.0;
+    const sShear = 2.0 * E_ * aTheta * depth * (cosTh * cosTh)
+      / (bay * thetaLen);
+    return sShear / g.R;
+  };
+  const gi = (aISmeared, aTheta, aOExtra, aSpoke, knockdown) => {
+    const aO = aO0 + aOExtra;
+    const abar = aO * aISmeared / (aO + aISmeared);
+    const iEff = abar * depth * depth;
+    const qCrimp = crimpOf(aTheta);
+    const kR = SHIP0.eSpoke * aSpoke / (2.0 * g.R);
+    let bestN = 2, bestQ = null;
+    for (let n = 2; n < 13; n++) {
+      const nn = n * n + lam2;
+      const div = n * n + lam2 / 2.0 - 1.0;
+      const qMem = E_ * aX * ((lam2 * lam2)) / (g.R * div * (nn * nn));
+      let qRing = (n * n - 1) * E_ * iEff / (g.R * g.R * g.R);
+      qRing = (qRing > 0.0 && qCrimp > 0.0)
+        ? 1.0 / (1.0 / qRing + 1.0 / qCrimp) : 0.0;
+      const qFound = kR * g.R / (n * n - 1);
+      const q = qMem + qRing + qFound;
+      if (bestQ === null || q < bestQ) { bestQ = q; bestN = n; }
+    }
+    return { qCrPa: bestQ * knockdown, critN: bestN, qCrimpPa: qCrimp,
+             marginAtSF: bestQ * knockdown / (P_ATM * sf) };
+  };
+  const solve = (knockdown, aI0, aTh0, aOe0, aSp0) => {
+    let aI = aI0, aTh = aTh0, aOe = aOe0, aSp = aSp0;
+    let rec = gi(aI / bay, aTh, aOe, aSp, knockdown);
+    let guard = 0;
+    const dAi = 4e-4, dTh = 4e-5, dOe = 2e-4, dSp = 2e-7;
+    const kgAi = dAi / bay * rho * nInner * 2.0 * Math.PI * rIn * bay;
+    const kgTh = dTh * thetaLen * nTheta * rho;
+    const kgOe = dOe * rho * 2.0 * Math.PI * g.R * g.cylL
+      / (2.0 * Math.PI * g.R) * 2.0 * Math.PI * g.R;
+    const kgSp = dSp * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting * g.areaM2;
+    while (rec.marginAtSF < 1.0 && guard < 6000) {
+      const cands = [];
+      const recI = gi((aI + dAi) / bay, aTh, aOe, aSp, knockdown);
+      cands.push([(recI.marginAtSF - rec.marginAtSF) / kgAi, 'i', recI]);
+      const recT = gi(aI / bay, aTh + dTh, aOe, aSp, knockdown);
+      cands.push([(recT.marginAtSF - rec.marginAtSF) / kgTh, 't', recT]);
+      const recO = gi(aI / bay, aTh, aOe + dOe, aSp, knockdown);
+      cands.push([(recO.marginAtSF - rec.marginAtSF) / kgOe, 'o', recO]);
+      const recS = gi(aI / bay, aTh, aOe, aSp + dSp, knockdown);
+      cands.push([(recS.marginAtSF - rec.marginAtSF) / kgSp, 's', recS]);
+      cands.sort((a, b) => b[0] - a[0]);
+      const [, move, best] = cands[0];
+      if (move === 'i') aI += dAi;
+      else if (move === 't') aTh += dTh;
+      else if (move === 'o') aOe += dOe;
+      else aSp += dSp;
+      rec = best;
+      guard++;
+    }
+    return [aI, aTh, aOe, aSp, rec];
+  };
+  const aThMin = shipSection(30.0, 1.5).A;
+  let [aI1, aTh1, aOe1, aSp1, ov] = solve(giKnockdown, inner0.A, aThMin,
+    0.0, 0.0);
+  const ovFrame = gi(aI1 / bay, aTh1, aOe1, aSp1, SHIP0.giKnockdownFrame);
+  const ovHarsh = gi(aI1 / bay, aTh1, aOe1, aSp1, SHIP0.giKnockdown);
+  const ov02 = gi(aI1 / bay, aTh1, aOe1, aSp1, K_SHELL);
+  let reserveKgM2 = 0.0;
+  if (ov02.marginAtSF < 1.0 && giKnockdown === SHIP0.giKnockdown) {
+    const [aI2, aTh2, aOe2, aSp2, ov02b] = solve(K_SHELL, aI1, aTh1, aOe1, aSp1);
+    if (ov02b.marginAtSF >= 1.0) {
+      reserveKgM2 = ((aI2 - aI1) * rho * nInner * 2.0 * Math.PI * rIn
+        + (aTh2 - aTh1) * thetaLen * nTheta * rho
+        + (aOe2 - aOe1) * rho * 2.0 * Math.PI * g.R * g.cylL
+        + (aSp2 - aSp1) * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting
+        * g.areaM2) / g.areaM2;
+    }
+  }
+  const aCap = (wall.capGridKgM2 - wall.barKgM2) / rho / 2.0;
+  const bCap = E_ * aCap;
+  const aICap = aI1 / bay;
+  const dCap = E_ * (aCap * aICap / (aCap + aICap)) * depth * depth;
+  const qCapBend = 4.0 * Math.sqrt(bCap * dCap) / (g.R * g.R);
+  const capMargin = (aTheta) => {
+    const sCap = crimpOf(aTheta) * g.R;
+    const qCapCrimp = 2.0 * sCap / g.R;
+    if (qCapBend <= 0.0 || qCapCrimp <= 0.0) return 0.0;
+    return (giKnockdown / (1.0 / qCapBend + 1.0 / qCapCrimp)) / (P_ATM * sf);
+  };
+  let guardC = 0;
+  while (capMargin(aTh1) < 1.0 && guardC < 4000) {
+    aTh1 += 4e-5;
+    guardC++;
+  }
+  const innerT = aI1 * rho * nInner * 2.0 * Math.PI * rIn / 1000.0;
+  const thetaT = aTh1 * thetaLen * nTheta * rho / 1000.0;
+  const flangeT = aOe1 * rho * 2.0 * Math.PI * g.R * g.cylL / 1000.0;
+  const spokeT = aSp1 * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting
+    * g.areaM2 / 1000.0;
+  const capBuckle = { marginAtSF: capMargin(aTh1) };
+  const qGust = 0.5 * 1.225 * 400.0;
+  const wGust = 0.3 * qGust * g.diaM;
+  const mGust = wGust * (g.lenM * g.lenM) / 8.0;
+  const sigmaBend = mGust / (lng.A * g.nLong * rIn / 2.0);
+  const tDemand = wGust * g.lenM / 2.0 * g.lenM / 4.0;
+  const shearFlow = tDemand / (2.0 * Math.PI * g.R * g.R);
+  const strapT = shearFlow * sf / SHIP0.strapSigma * 1550.0 * g.areaM2
+    * 2.0 / 1000.0;
+  return {
+    longeron: lng, longeronsT: longT, web, websT: webT,
+    junctionT,
+    innerRingAM2: aI1, nInnerRings: nInner, innerRingsT: innerT,
+    thetaWebAM2: aTh1, thetaWebLenM: thetaLen, nThetaWebs: nTheta,
+    thetaWebsT: thetaT,
+    flangeDoublerT: flangeT,
+    spokeAM2PerM2: aSp1, spokesT: spokeT,
+    ovalization: ov, ovalizationFramePractice: ovFrame,
+    ovalizationAtHarsh: ovHarsh, ovalizationAtK02: ov02,
+    capBuckle,
+    reserveKgM2,
+    strapsT: strapT,
+    beamBending: { sigmaMPa: sigmaBend / 1e6,
+                   marginAtSF: sigmaMat / (sigmaBend * sf) },
+    torsion: { path: 'dedicated helical straps, sized at margin 1.0',
+               marginAtSF: 1.0 },
+  };
+}
+
+/* The operator's requirement, gated on ALL of its checks (refuter fix). */
+export function shipUnpressurised(g, wall, skel, totalT) {
+  const ring = wall.ring;
+  const wSelf = ring.kgPerM * 9.80665;
+  let jig = null;
+  for (const k of [4, 8, 12, 24]) {
+    const span = 2.0 * Math.PI * g.R / k;
+    if (wSelf * span * span / 12.0 / ring.Z < 50e6) { jig = k; break; }
+  }
+  const wDead = totalT * 1000.0 * 9.80665 / g.lenM / (2.0 * Math.PI * g.R);
+  const sigCradle = 0.15 * wDead * g.R * g.R / g.depthM
+    / (ring.A / SHIP0.ringPitchM);
+  const qWind = 0.5 * 1.225 * 225.0;
+  const flow = qWind * g.diaM * g.lenM * 0.5 / (2.0 * Math.PI * g.R);
+  const clampN = flow * SHIP0.barPitchM * SHIP0.clampEvery;
+  const cradleOk = sigCradle < 100e6;
+  const windOk = clampN < SHIP0.clampCapN / 1.5;
+  return { jigPoints: jig, cradleFlangeMPa: sigCradle / 1e6,
+           cradleOk, windOk, erectionClampN: clampN,
+           stands: cradleOk, allOk: cradleOk && windOk };
+}
+
+/* One whole-ship ledger at a named sigma world, SF, hull, GI knockdown. */
+export function ship0(sigmaKey = null, sf = null, diaM = null,
+                      giKnockdown = null) {
+  const key = sigmaKey === null ? SHIP0.sigmaMid : sigmaKey;
+  const sf_ = sf === null ? SHIP0.sfDeclared : sf;
+  const giKd = giKnockdown === null ? SHIP0.giKnockdown : giKnockdown;
+  const g = shipGeom(diaM);
+  const sig = SHIP0.sigmaWorldsMPa[key] * 1e6;
+  const wall = shipWall(g, sig, sf_);
+  const skel = shipSkeleton(g, sig, sf_, wall, giKd);
+  const memberT = wall.membersT
+    + (skel.longeronsT + skel.innerRingsT + skel.websT + skel.thetaWebsT
+       + skel.flangeDoublerT + skel.junctionT) * (1.0 + SHIP0.junctionAdder);
+  const jointsT = memberT * (1.0 / SHIP0.etaMass - 1.0);
+  const spokesT = skel.spokesT;
+  const skinsT = (SHIP0.voidSkinKgM2 + SHIP0.jacketKgM2) * g.areaM2 / 1000.0;
+  const reserveT = skel.reserveKgM2 * g.areaM2 / 1000.0
+    * (1.0 + SHIP0.junctionAdder) / SHIP0.etaMass;
+  const padsT = g.areaM2 / (SHIP0.ringPitchM * SHIP0.barPitchM)
+    * (SHIP0.clampEvery - 1) / SHIP0.clampEvery * SHIP0.padKg / 1000.0;
+  const totalT = memberT + jointsT + spokesT + wall.filmT + wall.clampsT
+    + padsT + skel.strapsT + skinsT + reserveT;
+  const sagM = 0.5 * (Math.max(SHIP0.ringPitchM, SHIP0.barPitchM) / 2.0) * 0.25;
+  const liftDebitT = rhoAir(0.0) * g.areaM2 * sagM / 1000.0;
+  const liftSL = rhoAir(0.0) * g.vM3 / 1000.0 - liftDebitT;
+  const lift25 = rhoAir(2500.0) * g.vM3 / 1000.0
+    - liftDebitT * (rhoAir(2500.0) / rhoAir(0.0));
+  const unp = shipUnpressurised(g, wall, skel, totalT);
+  const checksPass = wall.ring.marginAtSF >= 1.0
+    && wall.bar.marginAtSF >= 1.0
+    && skel.longeron.marginAtSF >= 1.0
+    && skel.ovalization.marginAtSF >= 1.0
+    && skel.capBuckle.marginAtSF >= 1.0;
+  return {
+    sigmaKey: key, sf: sf_, giKnockdown: giKd, geom: g, wall, skeleton: skel,
+    unpressurised: unp,
+    ledgerT: {
+      rings: wall.ringsT, capGrid: wall.capGridT, bars: wall.barsT,
+      film: wall.filmT, clamps: wall.clampsT, pads: padsT,
+      longerons: skel.longeronsT * (1.0 + SHIP0.junctionAdder),
+      innerRings: skel.innerRingsT * (1.0 + SHIP0.junctionAdder),
+      fanWebs: skel.websT * (1.0 + SHIP0.junctionAdder),
+      thetaWebs: skel.thetaWebsT * (1.0 + SHIP0.junctionAdder),
+      flangeDoubler: skel.flangeDoublerT * (1.0 + SHIP0.junctionAdder),
+      junctionShear: skel.junctionT * (1.0 + SHIP0.junctionAdder),
+      spokes: spokesT, torsionStraps: skel.strapsT,
+      tiJoints: jointsT, skins: skinsT, stabilityReserve: reserveT,
+    },
+    liftDebitT,
+    totalT, liftSLT: liftSL, lift2500T: lift25,
+    ratioSL: liftSL / totalT, residualSLT: liftSL - totalT,
+    ratio2500: lift25 / totalT, residual2500T: lift25 - totalT,
+    arealKgM2: totalT * 1000.0 / g.areaM2,
+    checksPass,
+    floats: totalT < liftSL,
+    floatsAndStands: totalT < liftSL && checksPass,
+  };
+}
+
+/* What the pages bind: BOTH knockdown worlds' matrices, the ledger, sections,
+ * checks, counts, the float windows. Raw values — the parity gate rounds to
+ * the Python record's published precision. */
+export function ship0Summary() {
+  const worlds = {};
+  const worldsFrame = {};
+  for (const [sfName, sf_] of [['sf12', SHIP0.sfDeclared], ['sf15', LATTICE_SF]]) {
+    for (const key of ['s742', 's1050', 's1450']) {
+      const r = ship0(key, sf_);
+      worlds[`${key}_${sfName}`] = {
+        totalT: r.totalT, ratioSL: r.ratioSL, residualSLT: r.residualSLT,
+        ratio2500: r.ratio2500, floats: r.floats,
+      };
+      const rf = ship0(key, sf_, null, SHIP0.giKnockdownFrame);
+      worldsFrame[`${key}_${sfName}`] = {
+        totalT: rf.totalT, ratioSL: rf.ratioSL, residualSLT: rf.residualSLT,
+        floats: rf.floats,
+      };
+    }
+  }
+  const mid = ship0();
+  const window = [];
+  for (const dia of [40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 68.0, 80.0]) {
+    try {
+      const led = ship0(null, null, dia);
+      window.push({ diaM: dia, ratioSL: led.ratioSL });
+    } catch {
+      window.push({ diaM: dia, ratioSL: null });
+    }
+  }
+  const floats = window.filter((x) => x.ratioSL !== null && x.ratioSL >= 1.0)
+    .map((x) => x.diaM);
+  const windowFrame = [];
+  for (const dia of [40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 68.0, 80.0]) {
+    try {
+      const led = ship0('s1450', null, dia, SHIP0.giKnockdownFrame);
+      windowFrame.push({ diaM: dia, ratioSL: led.ratioSL });
+    } catch {
+      windowFrame.push({ diaM: dia, ratioSL: null });
+    }
+  }
+  const floatsF = windowFrame.filter((x) => x.ratioSL !== null && x.ratioSL >= 1.0)
+    .map((x) => x.diaM);
+  const w = mid.wall, s = mid.skeleton;
+  return {
+    planOfRecord: {
+      diaM: SHIP0.diaM, lenM: SHIP0.fineness * SHIP0.diaM,
+      vM3: mid.geom.vM3, areaM2: mid.geom.areaM2,
+      liftSLT: mid.liftSLT, lift2500T: mid.lift2500T,
+      ringPitchM: SHIP0.ringPitchM, barPitchM: SHIP0.barPitchM,
+      nLong: SHIP0.nLong, kFan: SHIP0.kFan, depthM: SHIP0.depthM,
+      bayM: SHIP0.bayM, braceM: mid.geom.braceM,
+    },
+    worlds,
+    worldsFramePractice: worldsFrame,
+    giKnockdown: SHIP0.giKnockdown,
+    giKnockdownFrame: SHIP0.giKnockdownFrame,
+    mid: { totalT: mid.totalT, ratioSL: mid.ratioSL,
+           residualSLT: mid.residualSLT, ratio2500: mid.ratio2500,
+           arealKgM2: mid.arealKgM2, ledgerT: mid.ledgerT },
+    sections: {
+      ring: { odMm: w.ring.odMm, wallMm: w.ring.wallMm,
+              marginAtSF: w.ring.marginAtSF, governs: w.ring.governs,
+              runsAtMPa: w.ring.sigmaDemandPa / 1e6 },
+      bar: { odMm: w.bar.odMm, wallMm: w.bar.wallMm,
+             marginAtSF: w.bar.marginAtSF },
+      longeron: { odMm: s.longeron.odMm, wallMm: s.longeron.wallMm,
+                  marginAtSF: s.longeron.marginAtSF,
+                  governs: s.longeron.governs },
+      filmGM2: w.filmKgM2 * 1000.0,
+    },
+    checks: {
+      giMarginHarsh: s.ovalizationAtHarsh.marginAtSF,
+      giMarginFrame: s.ovalizationFramePractice.marginAtSF,
+      giMarginK02: s.ovalizationAtK02.marginAtSF,
+      giCritN: s.ovalization.critN,
+      reserveKgM2: s.reserveKgM2,
+      capBuckleMargin: s.capBuckle.marginAtSF,
+      beamBendMargin: s.beamBending.marginAtSF,
+      torsionMargin: s.torsion.marginAtSF,
+      unpressurised: mid.unpressurised.stands,
+      unpressurisedAllOk: mid.unpressurised.allOk,
+      cradleFlangeMPa: mid.unpressurised.cradleFlangeMPa,
+      jigPoints: mid.unpressurised.jigPoints,
+      checksPass: mid.checksPass,
+    },
+    counts: mid.wall.counts,
+    skeletonCounts: {
+      longerons: SHIP0.nLong, innerRings: s.nInnerRings,
+      fanWebsPerColPerBay: 2 * SHIP0.kFan, thetaWebs: s.nThetaWebs,
+    },
+    floatWindow: {
+      curve: window,
+      loM: floats.length ? Math.min(...floats) : null,
+      hiM: floats.length ? Math.max(...floats) : null,
+    },
+    floatWindowFrame: {
+      curve: windowFrame,
+      loM: floatsF.length ? Math.min(...floatsF) : null,
+      hiM: floatsF.length ? Math.max(...floatsF) : null,
+      basis: 's1450 + frame-practice knockdown — the friendliest defensible world',
+    },
+  };
+}
+
 export function gradedPressure(m, wall) {
   const lad = ladder(m, 5, 0);
   const lat2 = lad[2].lattice;

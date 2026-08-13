@@ -1058,5 +1058,257 @@
     "note": "N is sub-cells of half-span per side; the article spans 2N pitches across its squares. Pitch depends on the material's thinnest wall, so size in metres is set by that wall, not by this table."
    }
   }
+ },
+ "ship0": {
+  "planOfRecord": {
+   "diaM": 52.0,
+   "lenM": 104.0,
+   "vM3": 184055,
+   "areaM2": 16990,
+   "liftSLT": 224.8,
+   "lift2500T": 175.6,
+   "ringPitchM": 0.5,
+   "barPitchM": 0.5,
+   "nLong": 72,
+   "kFan": 1,
+   "depthM": 3.0,
+   "bayM": 2.0,
+   "braceM": 2.269
+  },
+  "worlds": {
+   "s742_sf12": {
+    "totalT": 362.2,
+    "ratioSL": 0.621,
+    "residualSLT": -137.4,
+    "ratio2500": 0.485,
+    "floats": false
+   },
+   "s1050_sf12": {
+    "totalT": 322.1,
+    "ratioSL": 0.698,
+    "residualSLT": -97.3,
+    "ratio2500": 0.545,
+    "floats": false
+   },
+   "s1450_sf12": {
+    "totalT": 304.9,
+    "ratioSL": 0.737,
+    "residualSLT": -80.1,
+    "ratio2500": 0.576,
+    "floats": false
+   },
+   "s742_sf15": {
+    "totalT": 452.1,
+    "ratioSL": 0.497,
+    "residualSLT": -227.3,
+    "ratio2500": 0.388,
+    "floats": false
+   },
+   "s1050_sf15": {
+    "totalT": 398.0,
+    "ratioSL": 0.565,
+    "residualSLT": -173.2,
+    "ratio2500": 0.441,
+    "floats": false
+   },
+   "s1450_sf15": {
+    "totalT": 372.7,
+    "ratioSL": 0.603,
+    "residualSLT": -147.9,
+    "ratio2500": 0.471,
+    "floats": false
+   }
+  },
+  "worldsFramePractice": {
+   "s742_sf12": {
+    "totalT": 273.1,
+    "ratioSL": 0.823,
+    "residualSLT": -48.2,
+    "floats": false
+   },
+   "s1050_sf12": {
+    "totalT": 229.6,
+    "ratioSL": 0.979,
+    "residualSLT": -4.8,
+    "floats": false
+   },
+   "s1450_sf12": {
+    "totalT": 212.4,
+    "ratioSL": 1.059,
+    "residualSLT": 12.5,
+    "floats": true
+   },
+   "s742_sf15": {
+    "totalT": 333.3,
+    "ratioSL": 0.674,
+    "residualSLT": -108.5,
+    "floats": false
+   },
+   "s1050_sf15": {
+    "totalT": 279.2,
+    "ratioSL": 0.805,
+    "residualSLT": -54.4,
+    "floats": false
+   },
+   "s1450_sf15": {
+    "totalT": 253.9,
+    "ratioSL": 0.886,
+    "residualSLT": -29.0,
+    "floats": false
+   }
+  },
+  "giKnockdown": 0.3,
+  "giKnockdownFrame": 0.65,
+  "mid": {
+   "totalT": 322.1,
+   "ratioSL": 0.698,
+   "residualSLT": -97.3,
+   "ratio2500": 0.545,
+   "arealKgM2": 18.96,
+   "ledgerT": {
+    "rings": 58.2,
+    "capGrid": 45.1,
+    "bars": 4.2,
+    "film": 2.0,
+    "clamps": 2.2,
+    "pads": 2.0,
+    "longerons": 29.5,
+    "innerRings": 27.2,
+    "fanWebs": 13.7,
+    "thetaWebs": 25.6,
+    "flangeDoubler": 0.0,
+    "junctionShear": 7.8,
+    "spokes": 20.2,
+    "torsionStraps": 0.3,
+    "tiJoints": 37.3,
+    "skins": 1.0,
+    "stabilityReserve": 45.9
+   }
+  },
+  "sections": {
+   "ring": {
+    "odMm": 156.0,
+    "wallMm": 4.5,
+    "marginAtSF": 1.01,
+    "governs": "euler",
+    "runsAtMPa": 615
+   },
+   "bar": {
+    "odMm": 50.0,
+    "wallMm": 1.0,
+    "marginAtSF": 1.02
+   },
+   "longeron": {
+    "odMm": 166.0,
+    "wallMm": 7.0,
+    "marginAtSF": 1.02,
+    "governs": "material"
+   },
+   "filmGM2": 116
+  },
+  "checks": {
+   "giMarginHarsh": 1.02,
+   "giMarginFrame": 2.21,
+   "giMarginK02": 0.68,
+   "giCritN": 3,
+   "reserveKgM2": 2.19,
+   "capBuckleMargin": 1.9,
+   "beamBendMargin": 490,
+   "torsionMargin": 1.0,
+   "unpressurised": true,
+   "unpressurisedAllOk": false,
+   "cradleFlangeMPa": 1.5,
+   "jigPoints": 8,
+   "checksPass": true
+  },
+  "counts": {
+   "rings": 268,
+   "bars": 327,
+   "panels": 67959,
+   "clamps": 16990
+  },
+  "skeletonCounts": {
+   "longerons": 72,
+   "innerRings": 68,
+   "fanWebsPerColPerBay": 2,
+   "thetaWebs": 9792
+  },
+  "floatWindow": {
+   "curve": [
+    {
+     "diaM": 40.0,
+     "ratioSL": 0.697
+    },
+    {
+     "diaM": 44.0,
+     "ratioSL": 0.711
+    },
+    {
+     "diaM": 48.0,
+     "ratioSL": 0.692
+    },
+    {
+     "diaM": 52.0,
+     "ratioSL": 0.698
+    },
+    {
+     "diaM": 56.0,
+     "ratioSL": 0.69
+    },
+    {
+     "diaM": 60.0,
+     "ratioSL": 0.682
+    },
+    {
+     "diaM": 68.0,
+     "ratioSL": 0.662
+    },
+    {
+     "diaM": 80.0,
+     "ratioSL": 0.615
+    }
+   ],
+   "loM": null,
+   "hiM": null
+  },
+  "floatWindowFrame": {
+   "curve": [
+    {
+     "diaM": 40.0,
+     "ratioSL": 0.985
+    },
+    {
+     "diaM": 44.0,
+     "ratioSL": 1.035
+    },
+    {
+     "diaM": 48.0,
+     "ratioSL": 1.024
+    },
+    {
+     "diaM": 52.0,
+     "ratioSL": 1.059
+    },
+    {
+     "diaM": 56.0,
+     "ratioSL": 1.074
+    },
+    {
+     "diaM": 60.0,
+     "ratioSL": 1.063
+    },
+    {
+     "diaM": 68.0,
+     "ratioSL": 1.06
+    },
+    {
+     "diaM": 80.0,
+     "ratioSL": 1.039
+    }
+   ],
+   "loM": 44.0,
+   "hiM": 80.0,
+   "basis": "s1450 + frame-practice knockdown \u2014 the friendliest defensible world"
+  }
  }
 }

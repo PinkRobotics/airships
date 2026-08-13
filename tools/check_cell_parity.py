@@ -90,6 +90,9 @@ PROBE = """(() => {
   out.counts = [kc.struts, kc.rimStrutEquivalents, kc.tieStruts, kc.hexTieStruts,
                 kc.hexSpokeStruts, kc.hexNodes];
   out.counts2 = [kc2.struts, kc2.rimStrutEquivalents, kc2.hexSpokeStruts];
+  // SHIP 0 — the film-on-rings port. The whole summary the pages bind, raw; the
+  // Python record carries the published rounding and this gate holds them together.
+  out.ship0 = C.ship0Summary();
   return out;
 })()"""
 
@@ -277,6 +280,126 @@ def main() -> None:
         cmp(f"weightless[{i}].minAlt",
             -1 if pw[i]["minNAt2500m"] is None else pw[i]["minNAt2500m"], alt, 0)
 
+    # SHIP 0 — the film-on-rings wall's whole record: both SFs, all three sigma
+    # worlds, the ledger, the sections, the checks, the counts, the float window.
+    # Missing-key detection both directions, like the materials block above.
+    psh, jsh = py.get("ship0"), js.get("ship0")
+    if psh is None or jsh is None:
+        bad.append("ship0: missing on one side — the port must land in BOTH files "
+                   "in one commit (parity is bidirectional)")
+    else:
+        for world, prow in psh["worlds"].items():
+            jrow = jsh["worlds"].get(world)
+            if jrow is None:
+                bad.append(f"ship0.worlds.{world}: present in Python, missing from JS")
+                continue
+            cmp(f"ship0.{world}.totalT", prow["totalT"], jrow["totalT"], 1)
+            cmp(f"ship0.{world}.ratioSL", prow["ratioSL"], jrow["ratioSL"], 3)
+            cmp(f"ship0.{world}.residualSLT", prow["residualSLT"],
+                jrow["residualSLT"], 1)
+            cmp(f"ship0.{world}.ratio2500", prow["ratio2500"], jrow["ratio2500"], 3)
+            checked += 1
+            if bool(prow["floats"]) != bool(jrow["floats"]):
+                bad.append(f"ship0.{world}.floats: python {prow['floats']}, "
+                           f"js {jrow['floats']}")
+        for world in jsh["worlds"]:
+            if world not in psh["worlds"]:
+                bad.append(f"ship0.worlds.{world}: present in JS, missing from Python")
+        pp, jp = psh["planOfRecord"], jsh["planOfRecord"]
+        for k, dp in (("diaM", 1), ("lenM", 1), ("vM3", 0), ("areaM2", 0),
+                      ("liftSLT", 1), ("lift2500T", 1), ("ringPitchM", 2),
+                      ("barPitchM", 2), ("nLong", 0), ("kFan", 0), ("depthM", 1),
+                      ("bayM", 1), ("braceM", 3)):
+            cmp(f"ship0.plan.{k}", pp[k], jp[k], dp)
+        pm, jm = psh["mid"], jsh["mid"]
+        cmp("ship0.mid.totalT", pm["totalT"], jm["totalT"], 1)
+        cmp("ship0.mid.ratioSL", pm["ratioSL"], jm["ratioSL"], 3)
+        cmp("ship0.mid.residualSLT", pm["residualSLT"], jm["residualSLT"], 1)
+        cmp("ship0.mid.arealKgM2", pm["arealKgM2"], jm["arealKgM2"], 2)
+        for k, want in pm["ledgerT"].items():
+            if k not in jm["ledgerT"]:
+                bad.append(f"ship0.ledger.{k}: present in Python, missing from JS")
+                continue
+            cmp(f"ship0.ledger.{k}", want, jm["ledgerT"][k], 1)
+        for k in jm["ledgerT"]:
+            if k not in pm["ledgerT"]:
+                bad.append(f"ship0.ledger.{k}: present in JS, missing from Python")
+        ps_, js_ = psh["sections"], jsh["sections"]
+        for mem in ("ring", "bar", "longeron"):
+            cmp(f"ship0.{mem}.odMm", ps_[mem]["odMm"], js_[mem]["odMm"], 0)
+            cmp(f"ship0.{mem}.wallMm", ps_[mem]["wallMm"], js_[mem]["wallMm"], 1)
+            cmp(f"ship0.{mem}.margin", ps_[mem]["marginAtSF"],
+                js_[mem]["marginAtSF"], 2)
+        for mem in ("ring", "longeron"):
+            checked += 1
+            if ps_[mem]["governs"] != js_[mem]["governs"]:
+                bad.append(f"ship0.{mem}.governs: python {ps_[mem]['governs']}, "
+                           f"js {js_[mem]['governs']}")
+        cmp("ship0.filmGM2", ps_["filmGM2"], js_["filmGM2"], 0)
+        cmp("ship0.ring.runsAtMPa", ps_["ring"]["runsAtMPa"],
+            js_["ring"]["runsAtMPa"], 0)
+        # The frame-practice matrix, the reported alternative world.
+        for world, prow in psh["worldsFramePractice"].items():
+            jrow = jsh["worldsFramePractice"].get(world)
+            if jrow is None:
+                bad.append(f"ship0.frame.{world}: missing from JS")
+                continue
+            cmp(f"ship0.frame.{world}.totalT", prow["totalT"], jrow["totalT"], 1)
+            cmp(f"ship0.frame.{world}.ratioSL", prow["ratioSL"],
+                jrow["ratioSL"], 3)
+            checked += 1
+            if bool(prow["floats"]) != bool(jrow["floats"]):
+                bad.append(f"ship0.frame.{world}.floats: python "
+                           f"{prow['floats']}, js {jrow['floats']}")
+        pc_, jc_ = psh["checks"], jsh["checks"]
+        for k, dp in (("giMarginHarsh", 2), ("giMarginFrame", 2),
+                      ("giMarginK02", 2), ("giCritN", 0),
+                      ("reserveKgM2", 2), ("capBuckleMargin", 1),
+                      ("beamBendMargin", 0), ("torsionMargin", 1),
+                      ("cradleFlangeMPa", 1), ("jigPoints", 0)):
+            cmp(f"ship0.checks.{k}", pc_[k], jc_[k], dp)
+        for k in ("unpressurised", "unpressurisedAllOk", "checksPass"):
+            checked += 1
+            if bool(pc_[k]) != bool(jc_[k]):
+                bad.append(f"ship0.checks.{k}: python {pc_[k]}, js {jc_[k]}")
+        for k in ("rings", "bars", "panels", "clamps"):
+            cmp(f"ship0.counts.{k}", psh["counts"][k], jsh["counts"][k], 0)
+        for k in ("longerons", "innerRings", "fanWebsPerColPerBay", "thetaWebs"):
+            cmp(f"ship0.skeletonCounts.{k}", psh["skeletonCounts"][k],
+                jsh["skeletonCounts"][k], 0)
+        for i, prow in enumerate(psh["floatWindow"]["curve"]):
+            jrow = jsh["floatWindow"]["curve"][i]
+            cmp(f"ship0.window[{i}].diaM", prow["diaM"], jrow["diaM"], 1)
+            if prow["ratioSL"] is None:
+                checked += 1
+                if jrow["ratioSL"] is not None:
+                    bad.append(f"ship0.window[{i}]: python None, js "
+                               f"{jrow['ratioSL']}")
+            else:
+                cmp(f"ship0.window[{i}].ratioSL", prow["ratioSL"],
+                    jrow["ratioSL"], 3)
+        for edge in ("loM", "hiM"):
+            pv, jv = psh["floatWindow"][edge], jsh["floatWindow"][edge]
+            checked += 1
+            if (pv is None) != (jv is None) or (pv is not None and pv != jv):
+                bad.append(f"ship0.window.{edge}: python {pv}, js {jv}")
+        for i, prow in enumerate(psh["floatWindowFrame"]["curve"]):
+            jrow = jsh["floatWindowFrame"]["curve"][i]
+            if prow["ratioSL"] is None:
+                checked += 1
+                if jrow["ratioSL"] is not None:
+                    bad.append(f"ship0.windowFrame[{i}]: python None, js "
+                               f"{jrow['ratioSL']}")
+            else:
+                cmp(f"ship0.windowFrame[{i}].ratioSL", prow["ratioSL"],
+                    jrow["ratioSL"], 3)
+        for edge in ("loM", "hiM"):
+            pv = psh["floatWindowFrame"][edge]
+            jv = jsh["floatWindowFrame"][edge]
+            checked += 1
+            if (pv is None) != (jv is None) or (pv is not None and pv != jv):
+                bad.append(f"ship0.windowFrame.{edge}: python {pv}, js {jv}")
+
     if bad:
         print("CELL PARITY FAILED — the page and the analysis disagree:\n")
         for b in bad:
@@ -284,7 +407,7 @@ def main() -> None:
         sys.exit(1)
     print(f"cell parity: {checked} values identical across model.js and vacuum-cell.py "
           f"({len(py['materials'])} materials, 3 architectures, 4 ladders, printer chain, "
-          f"demonstrator, graded pressure, shapes)")
+          f"demonstrator, graded pressure, shapes, ship 0)")
 
 
 if __name__ == "__main__":
