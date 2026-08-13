@@ -483,3 +483,36 @@ worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
   state. Open: #85 SHIP-3 chordal net (+depth-4 re-rule, band-basis ruling), #88
   fleet-monitor exterior doctrine, older queue. BOTH REPOS UNPUSHED (pink-sites 158+
   commits ahead).
+
+## Part 15 — envelope round 4: the lens, the ship schematic, phones (afternoon 08-13)
+
+- **Floor to 0.8 revealed the whole truth: THE ENVELOPE IS A CLOSED LENS.** crush/lift
+  at s1450+frame-gi: 1.073 @24 m (square-cube starves the small hull), min 0.901
+  @52–60 m, back through 1.000 @96 m, 1.135 @120 m. Both closures now visible; the old
+  "pinches shut near 90 m" docstring was half the story (it opens near 28 m too). The
+  green fill now clamps at the float line (path of min(crushR,1.0)) — before this a
+  wrong-green wedge lurked under the top-red band wherever crush > 1.
+- Operator wording round: envelope claim on two lines; CRUSHES + explanation on two
+  lines (bottom-right); float-line label centered above the lens (dOpen/dClose scanned
+  in JS, label at xs((dOpen+dClose)/2)); ENVELOPE block centered on the same dMid.
+- **Live hull schematic** in the readout column: capsule at TRUE relative scale
+  (24 m IS a fifth of 120 m — no floor, no lie), cap-seam lines, bracketed
+  length/width, surface + volume. Geometry computed in-page from ONE model constant
+  (F = SHIP0.fineness = 2.0, emitted by fig_envelope) with ship_geom's own formulas —
+  cyl = F·d − d, capsule area/volume; verified equal to mirror output (16,990 m² /
+  184,055 m³ @52 m). Page still computes no physics.
+- **Mobile**: min-width:660px removed (that forced the sideways-scroll trap);
+  layout() swaps viewBox 880×430 ↔ 620×700 at container <640 px and re-transforms
+  #envread (below plot) + #envhull (beside readout); .narrow class bumps text 11→14,
+  big 13→17. Touch: svg root is touch-action:pan-y, ONE transparent #envcatch rect
+  over the plot alone is touch-action:none and owns all pointer handlers — page
+  scrolls past the figure, plot still drags/taps. drag() reads the live viewBox.
+- **DOM-check technique on this box (no node): snap chromium headless.**
+  `chromium --headless=new --virtual-time-budget=4000 --dump-dom <file|url>` executes
+  the scripts and serializes generated children — grep for live values (length 104 m,
+  surface 16,990). Screenshots via --screenshot --window-size=390,844 for narrow.
+  Checked LOCALLY before commit and ON PRODUCTION after purge, both widths: 77
+  children, hull values live, narrow stacks (read at translate(24,438)).
+- pink-sites@f7146c1 "The envelope closes at both ends — and shows you the ship";
+  deployed from clean worktree, CF purged, live-verified. Hero agent's beacon commit
+  (4350cd5) rode along, already committed by them. data/live/* churn left untouched.

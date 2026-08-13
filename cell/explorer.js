@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=f46f7c09';
-import * as G from './explorer-geom.js?v=f46f7c09';
+import * as CELL from './model.js?v=c631abe1';
+import * as G from './explorer-geom.js?v=c631abe1';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=f46f7c09';
+} from './nodes.generated.js?v=c631abe1';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=f46f7c09';
+import { NODEMESHES } from './nodemeshes.generated.js?v=c631abe1';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=f46f7c09';
+import { SKIN } from './skin.generated.js?v=c631abe1';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f46f7c09';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=c631abe1';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2359,21 +2359,33 @@ function buildVessel() {
   {
     const px2 = [];
     const sA = D.sCap, sB = D.sCap + D.cylL;
-    const plate = (s, th) => {
+    // RECTANGULAR PANELS, GRID-ALIGNED (operator, round 11): the old plates
+    // were 4-gon domes whose lathe put VERTICES on the hoop/axial axes — every
+    // panel read as a diamond and its corners lapped the neighbouring rows.
+    // Now each panel is a thin box with EDGES on the grid, sized just under
+    // its pitch so seams show and nothing overlaps. The centre stands proud by
+    // the hoop sagitta so a flat panel's corners never dip into the film.
+    const HOOP_W = 4.2, THICK = 0.1;
+    const plate = (s, th, axLen, capRow) => {
       const st = shipStation(D, s);
       const uu = [0, -Math.cos(th), Math.sin(th)];
       const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
       const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
       const thop = [0, -Math.sin(th), -Math.cos(th)];
-      const q = point(s, -0.12, th);
-      px2.push([thop, tm, n, [q[0], q[1], q[2]]]);
+      const sag = st.r - Math.sqrt(Math.max(0, st.r * st.r - (HOOP_W / 2) ** 2));
+      const off = 0.18 + sag + (capRow ? 0.08 : 0);
+      const q = point(s, -off, th);
+      px2.push([[thop[0] * HOOP_W, thop[1] * HOOP_W, thop[2] * HOOP_W],
+                [tm[0] * axLen, tm[1] * axLen, tm[2] * axLen],
+                [n[0] * THICK, n[1] * THICK, n[2] * THICK],
+                [q[0], q[1], q[2]]]);
     };
     // CONTINUOUS DECKING (operator, round 10): plates abut — the pitch IS
     // the plate, so the top surface reads as one panelled skin with seam
     // lines, not a scatter of tiles.
     for (let i = 0; i < 24; i++) {
       const s = sA + (sB - sA) * (i + 0.5) / 24;
-      for (let c = -8; c <= 8; c++) plate(s, Math.PI / 2 + c * 0.1673);
+      for (let c = -8; c <= 8; c++) plate(s, Math.PI / 2 + c * 0.1673, 2.06, false);
     }
     // THE ENDS TOO (operator, round 9 addendum): the domes' top halves carry
     // the array as well — column count follows the shrinking circumference,
@@ -2387,14 +2399,14 @@ function buildVessel() {
         if (st.r < 9) continue;
         const dth = 4.35 / st.r;
         const m = Math.floor(1.35 / dth);
-        for (let c = -m; c <= m; c++) plate(s, Math.PI / 2 + c * dth);
+        for (let c = -m; c <= m; c++) plate(s, Math.PI / 2 + c * dth, 4.0, true);
       }
     }
     const xf = new Float32Array(px2.length * 16);
     px2.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0,
       Y[0], Y[1], Y[2], 0, Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
     const sol = inst(root, { id: 'VesselSolar' }, xf, px2.length, {});
-    sol.geom = G.filmDomeGeom(4.32, 0.05, 4, 1);
+    sol.geom = boxGeom(1, 1, 1);
     sol.xmat = XM.solar;
   }
 
@@ -2526,7 +2538,10 @@ function buildVessel() {
       [5.25, 1.8], [5.6, 0.3]], 20, () => 1);
     wt.xmat = XM.membraneLoaded;
     const nx = [xMid - 7.8, xMid + 7.8];
-    const nzFloor = mz1 + 1.15;            // resting on the upper deck's floor
+    // On the upper deck's floor, bottoms on the WATER TANK'S DATUM (operator,
+    // round 11): water r 1.8 centred at mz1+2.2, N2 r 1.0 — both underbellies
+    // sit at mz1+0.4, one shared deck line.
+    const nzFloor = mz1 + 1.4;
     const nxf = new Float32Array(nx.length * 16);
     nx.forEach((x2, i) => nxf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
       x2, 0, nzFloor, 1], i * 16));
@@ -2547,22 +2562,22 @@ function buildVessel() {
       lines.push([[q[0], q[1], q[2]], corner(sx, i === 0 ? -1 : 1, mz0)]);
     }
   }
-  // THE TWO-DECK WORKING END (operator, round 9). Doctrine: TANK STORAGE ON
-  // THE UPPER DECK (the raft — water amidships, the N2 pair ON ITS FLOOR),
-  // ALL EQUIPMENT AND SENSORS ON THE LOWER DECK: a longer, SEE-THROUGH
-  // equipment bay on the drop line holding the battery box up top, the N2
-  // cryo unit low, and THREE PULLEYS on its keel — pump, bucket, sprayer —
-  // each on its own cable because they operate independently. The pump rides
-  // a 100 m pipe (its reach spec) into the water; the bucket hangs CENTRED
-  // with ~0.95 m clearance to each neighbouring line; the sprayer hangs
-  // opposite the pump. The anchor line leaves the bay's stern for the weight
-  // that pulls the ship down against its own buoyancy while it drinks.
+  // THE TWO-DECK WORKING END (operator, rounds 9 + 11). Doctrine: TANK
+  // STORAGE ON THE UPPER DECK (the raft — water amidships, the N2 pair ON ITS
+  // FLOOR), ALL EQUIPMENT AND SENSORS ON THE LOWER DECK: a longer,
+  // SEE-THROUGH equipment bay on the drop line holding the battery box up
+  // top, the N2 cryo unit and THE SHIP MIND flanking it low, and THREE
+  // PULLEYS on its keel. The sprayer hangs on its own cable to one side; the
+  // bucket hangs CENTRED; the PUMP rides its RIGID PIPE from the winch — the
+  // pipe IS the 100 m reach spec and the suspension, no separate cable — down
+  // past the bucket into the water. The anchor line leaves the bay's stern
+  // for the weight that pulls the ship down against its own buoyancy while
+  // it drinks.
   const bayZ = mz1 - 8.8;
   const bucketZ = bayZ - 9.6;
   lines.push([[xMid, 0, mz1], [xMid, 0, bayZ + 1.9]]);
-  lines.push([[xMid - 3.3, 0, bayZ - 1.95], [xMid - 3.3, 0, bucketZ - 4.6]]);
+  lines.push([[xMid - 3.3, 0, bayZ - 1.95], [xMid - 3.3, 0, bucketZ + 0.6]]);
   lines.push([[xMid, 0, bayZ - 1.95], [xMid, 0, bucketZ + 1.9]]);
-  lines.push([[xMid + 3.3, 0, bayZ - 1.95], [xMid + 3.3, 0, bucketZ + 0.4]]);
   lines.push([[xMid + 4.0, 0, bayZ - 1.95], [xMid + 4.0, 0, bucketZ - 7.5]]);
   lineNode(root, 'VesselLines', lines,
     { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
@@ -2579,8 +2594,14 @@ function buildVessel() {
       { kind: 'glass', color: '#9fb4cd', opacity: 0.22 });
     one('VesselBatteryBox', xMid, bayZ + 1.05, boxGeom(2.0, 6.4, 1.1),
       { kind: 'surface', color: '#2c2f38', spec: 0.35, opacity: 1 });
-    one('VesselCryoBox', xMid - 2.6, bayZ - 0.95, boxGeom(1.7, 1.9, 1.5),
+    // The cryo unit sits INBOARD of its keel pulley (operator, round 11 —
+    // at x-2.6 the box overhung the winch sheave at x-3.3), and THE SHIP MIND
+    // mirrors it on the other flank: the compute core in its own pink glass
+    // box, clear of the pump pipe at x+3.2.
+    one('VesselCryoBox', xMid - 2.0, bayZ - 0.95, boxGeom(1.7, 1.9, 1.5),
       XM.cryo);
+    one('VesselShipMind', xMid + 2.0, bayZ - 0.95, boxGeom(1.5, 1.7, 1.4),
+      { kind: 'glass', color: TOKENS.warm, opacity: 0.3 });
     {
       const off2 = [-3.3, 0, 3.3];
       const pxf2 = new Float32Array(off2.length * 16);
@@ -2594,12 +2615,19 @@ function buildVessel() {
     one('VesselBucket', xMid, bucketZ, latheWithScale(
       [[-1.6, 0.4], [1.4, 2.3], [1.7, 2.35], [1.75, 2.1]], 18, () => 1),
       XM.membraneLoaded, true);
-    one('VesselPump', xMid - 3.3, bucketZ - 5.4, latheWithScale(
+    // The working trio, re-read (operator, round 11): SPRAYER = the white
+    // upright cylinder on its own cable, riding above the water; PUMP = a
+    // blue-grey HORIZONTAL unit hanging off the END of its rigid pipe, the
+    // one thing that goes under; the old flared-cone sprayer drawing is gone.
+    one('VesselSprayer', xMid - 3.3, bucketZ - 0.6, latheWithScale(
       [[-1.1, 0.3], [-0.9, 0.55], [0.9, 0.55], [1.1, 0.3]], 12, () => 1),
       XM.printed, true);
-    one('VesselSprayer', xMid + 3.3, bucketZ - 0.6, latheWithScale(
-      [[-1.3, 0.22], [0.1, 0.5], [0.55, 1.28], [0.75, 1.34], [0.85, 0.2]],
-      14, () => 1), XM.printed, true);
+    one('VesselPump', xMid + 3.2, bucketZ - 5.4, latheWithScale(
+      [[-0.6, 0.28], [-0.45, 0.5], [0.45, 0.5], [0.6, 0.28]], 12, () => 1),
+      { kind: 'surface', color: '#5b8fc4', spec: 0.5, opacity: 1 });
+    pipesFromSegs(root, 'VesselPumpPipe',
+      [{ a: [xMid + 3.2, 0, bayZ - 1.85], b: [xMid + 3.2, 0, bucketZ - 4.95] }],
+      0.09, XM.pipe, 6);
     one('VesselAnchor', xMid + 4.0, bucketZ - 7.5,
       G.beadGeom(1.0, 0.7, 0.9, 10), XM.pipe);
   }
@@ -2784,6 +2812,7 @@ const LEVEL_VIEWS = {
     { k: 'keel', n: 'under the keel', tg: [0, 0, -SHIPVIEW.D.R - 8], az: -1.2, el: -0.30, d: 55 },
     { k: 'module', n: 'the suspended works', tg: [0, 0, -SHIPVIEW.D.R * 1.38], az: -0.8, el: 0.05, d: 34 },
     { k: 'drop', n: 'down the drop line', tg: [0, 0, -SHIPVIEW.D.R * 1.75], az: -1.0, el: 0.12, d: 40 },
+    { k: 'gear', n: 'the water gear', tg: [0, 0, -SHIPVIEW.D.R * 2.3], az: -0.9, el: 0.05, d: 20 },
   ],
   ship: [
     { k: 'fly', n: 'fly through it', fly: true },
@@ -3516,7 +3545,8 @@ export function mountExplorer(opts) {
                          VesselTanksN2: 'module', VesselBucket: 'module',
                          VesselPump: 'module', VesselSprayer: 'module',
                          VesselRecvBay: 'module', VesselBatteryBox: 'module',
-                         VesselCryoBox: 'module', VesselPulleys: 'module',
+                         VesselCryoBox: 'module', VesselShipMind: 'module',
+                         VesselPulleys: 'module', VesselPumpPipe: 'module',
                          VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines',
                          VesselEnvGround: 'env', VesselEnvGrid: 'env',
