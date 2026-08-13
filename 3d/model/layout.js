@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=7439a398';
-import { segPointDist } from '../core/math.js?v=7439a398';
-import { streamFor, jitter } from '../core/prng.js?v=7439a398';
+} from './config.js?v=8bea3346';
+import { segPointDist } from '../core/math.js?v=8bea3346';
+import { streamFor, jitter } from '../core/prng.js?v=8bea3346';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -116,10 +116,19 @@ export function buildLayout(cls) {
     const { ts } = stationStations(cls);
     const perSide = ts.length;
     let k = 0;
+    // Pods sit LOW on the widest band (the vessel doctrine, 08-13): the
+    // downthrust line passes near the CG and the wash clears the hull's curve
+    // instead of fountaining against the belly. The network class staggers
+    // alternate stations deeper still — on a fineness-2 capsule seven 85 m
+    // discs no longer fit in one line along the flank, and two offset rows
+    // is also what makes a thrust NETWORK read as one.
+    const LOW = 0.42;
     for (let i = 0; i < perSide; i++) {
       const t = ts[i];
+      const stag = cls.stationLayout === 'network' ? (i % 2 ? 0.34 : -0.34) : 0;
+      const drop = LOW + stag;                 // angular drop below the beam
       for (const side of [1, -1]) {          // +1 port (+y), -1 starboard
-        const theta = side > 0 ? Math.PI : 0; // beam
+        const theta = side > 0 ? Math.PI + drop : -drop;
         const skin = inside(cls, t, theta, 1);
         const rl = hullR(cls, skin[0]);
         // THE PYLON MUST BE LONGER THAN THE ROTOR RADIUS, or the disc slices through the hull.
@@ -135,7 +144,12 @@ export function buildLayout(cls) {
           widest = Math.max(widest, hullR(cls, skin[0] + (rr * j) / 6));
         }
         const pylon = widest - rl + rr + Math.max(1.2, rr * 0.10);
-        const p = [skin[0], skin[1] + side * pylon, skin[2] + rl * 0.06];
+        // The pylon runs along the OUTWARD SURFACE NORMAL at its hardpoint —
+        // radial on an axisymmetric hull — so a low-flank mount stands off
+        // low-and-outboard instead of purely sideways.
+        const nrm = [0, -Math.cos(theta), Math.sin(theta)];
+        const p = [skin[0] + nrm[0] * pylon, skin[1] + nrm[1] * pylon,
+                   skin[2] + nrm[2] * pylon];
         layout.rotorStations.push({
           id: `PrimaryRotorStation_${pad(k)}`,
           index: k, side, t, p,

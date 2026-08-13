@@ -3,7 +3,7 @@
 <!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1**
 
-<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. The reference vehicle here is the \textbf{P-100}: 190 m long, smaller than the Hindenburg, delivering \textbf{175 tonnes an hour indefinitely} --- about 2,100 tonnes in a twelve-hour day against roughly 560 for a very large airtanker, and it does not stop at dusk. Two larger classes are modelled to find where the arithmetic breaks; it breaks on the descent, not on the structure or the power. This paper is that arithmetic and the list of what would have to be true.-->
+<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. The reference vehicle here is the \textbf{P-100}: 110 m long, smaller than the Hindenburg, delivering \textbf{175 tonnes an hour indefinitely} --- about 2,100 tonnes in a twelve-hour day against roughly 560 for a very large airtanker, and it does not stop at dusk. Two larger classes are modelled to find where the arithmetic breaks; it breaks on the descent, not on the structure or the power. This paper is that arithmetic and the list of what would have to be true.-->
 
 > **Status.** Every headline quantity below is an output of the simulation in this repository,
 > cited by key and verified automatically against `research/figures.json`; figures from catalogued
@@ -71,8 +71,8 @@ downstream inherits that assumption.
 
 Three classes, geometrically similar, sized by a single safety requirement (§4). **The P-100 is
 the reference vehicle and everything below is worked through on it unless it says otherwise.** It
-is the smallest of the three and the only one smaller than something that has already flown: 190 m
-against the Hindenburg's 245. The P-1000 and P-10000 are the same arithmetic extrapolated, and §6
+is the smallest of the three and the only one smaller than something that has already flown: 110 m
+against the Hindenburg’s 245. The P-1000 and P-10000 are the same arithmetic extrapolated, and §6
 is about what that extrapolation runs into.
 
 <!--tex:fig charts/scale.pdf | The three hulls at true relative scale, against the largest aircraft and the largest airship ever flown. Drawn from the same lengths and diameters as the table below. | 0.92-->
@@ -81,7 +81,7 @@ is about what that extrapolation runs into.
 |---|---:|---:|---:|
 | Payload | 100 t<!--f:P100.spec.payloadT--> | 1,000 t<!--f:P1000.spec.payloadT--> | 10,000 t<!--f:P10000.spec.payloadT--> |
 | Displacement | 220,000 m³<!--f:P100.spec.dispM3--> | 2,200,000 m³<!--f:P1000.spec.dispM3--> | 22,000,000 m³<!--f:P10000.spec.dispM3--> |
-| Length × diameter | 190<!--f:P100.spec.lenM--> × 47 m<!--f:P100.spec.diaM--> | 404<!--f:P1000.spec.lenM--> × 102 m<!--f:P1000.spec.diaM--> | 876<!--f:P10000.spec.lenM--> × 219 m<!--f:P10000.spec.diaM--> |
+| Length × diameter | 110<!--f:P100.spec.lenM--> × 55 m<!--f:P100.spec.diaM--> | 238<!--f:P1000.spec.lenM--> × 119 m<!--f:P1000.spec.diaM--> | 512<!--f:P10000.spec.lenM--> × 256 m<!--f:P10000.spec.diaM--> |
 | Cruise | 90 km/h<!--f:P100.spec.cruiseKph--> | 110 km/h<!--f:P1000.spec.cruiseKph--> | 130 km/h<!--f:P10000.spec.cruiseKph--> |
 | Rotors / disc area | 4<!--f:P100.spec.rotors--> / 2,500 m²<!--f:P100.spec.diskM2--> | 6<!--f:P1000.spec.rotors--> / 12,000 m²<!--f:P1000.spec.diskM2--> | 14<!--f:P10000.spec.rotors--> / 160,000 m²<!--f:P10000.spec.diskM2--> |
 | Battery | 20 MWh<!--f:P100.spec.battMWh--> | 120 MWh<!--f:P1000.spec.battMWh--> | 2,000 MWh<!--f:P10000.spec.battMWh--> |
@@ -216,7 +216,7 @@ that revealed the problem. The shortfall was the symptom; the exponent was the f
 Three consequences worth stating plainly:
 
 - **Every class carries one, including the P-100 whose descent closes without it.** Removing its
-  bag costs 1.526 MWh a cycle against 1.253<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
+  bag costs 1.526 MWh a cycle against 1.391<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
   that does not need the mechanism. A bucket is cheaper than thrust everywhere.
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
@@ -241,14 +241,14 @@ transcribed:
 
 | Term | MWh |
 |---|---:|
-| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) | 14.705<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
+| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) | 16.611<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
 | `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) | 10.900<!--f:P10000.energy.ledgerMWh.WATER_FILL--> |
-| `other` (hotel + manoeuvring drag) | 10.689<!--f:P10000.energy.ledgerMWh.other--> |
-| `OUTBOUND_TRANSIT` (drag, loaded) | 9.459<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
+| `other` (hotel + manoeuvring drag) | 13.772<!--f:P10000.energy.ledgerMWh.other--> |
+| `OUTBOUND_TRANSIT` (drag, loaded) | 12.926<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
 | `letdown` (rotor work, with the anchor deployed) | 1.420<!--f:P10000.energy.ledgerMWh.letdown--> |
 | `anchor` (lifting the bag 15 m) | 0.596<!--f:P10000.energy.ledgerMWh.anchor--> |
 | `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
-| **total** | **45.869<!--f:P10000.cycle.eCycleMWh-->** |
+| **total** | **54.325<!--f:P10000.cycle.eCycleMWh-->** |
 
 Shares are on the figure rather than in the table. They were in both, and the table's column was
 still dividing by the pre-correction 43.0 MWh cycle — so the same seven numbers carried two sets
@@ -259,8 +259,8 @@ gate cannot see it; the chart computes it from the ledger, so the chart is where
 
 <!--tex:fig charts/ledger-limit.pdf | The same ledger at the limit case. The proportions invert: pumping and water handling dominate where flying did, which is the square-cube law seen from the other side.-->
 
-12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
-7.40<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 4.59<!--f:P10000.cycle.kwhPerTonne--> for
+13.91 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
+8.45<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43<!--f:P10000.cycle.kwhPerTonne--> for
 the largest. Larger is cheaper per tonne, as the square-cube law demands — which is the reason to
 model the larger classes at all, and §6 is the reason not to assume you can build them.
 
@@ -292,9 +292,9 @@ confused with a cycle that takes an hour.
 
 | | solar | per cycle | spend | deficit | endurance |
 |---|---:|---:|---:|---:|---:|
-| P-100 | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 1.253<!--f:P100.cycle.eCycleMWh--> | 1.10<!--f:P100.energy.deficitPerCycleMWh--> | 10.4 h<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 7.399<!--f:P1000.cycle.eCycleMWh--> | 6.66<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 45.869<!--f:P10000.cycle.eCycleMWh--> | 41.77<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 1.391<!--f:P100.cycle.eCycleMWh--> | 1.24<!--f:P100.energy.deficitPerCycleMWh--> | 9.2 h<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 8.454<!--f:P1000.cycle.eCycleMWh--> | 7.71<!--f:P1000.energy.deficitPerCycleMWh--> | 9.2 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 54.325<!--f:P10000.cycle.eCycleMWh--> | 50.23<!--f:P10000.energy.deficitPerCycleMWh--> | 30.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 <!--tex:fig charts/deficit.pdf | What each hull spends against what its skin makes, and how long a full battery lasts.-->
 
@@ -358,9 +358,9 @@ It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 fl
 
 | | solar | per cycle | deficit | endurance |
 |---|---|---|---|---|
-| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.68 → **0.15 MWh<!--f:P100.energy.solarPerCycleMWh-->** | 0.32 → **1.10<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **10.4 h<!--f:P100.energy.hoursOnBattery-->** |
-| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.30 → **0.74 MWh<!--f:P1000.energy.solarPerCycleMWh-->** | 3.09 → **6.66<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **10.6 h<!--f:P1000.energy.hoursOnBattery-->** |
-| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 18.20 → **4.10 MWh<!--f:P10000.energy.solarPerCycleMWh-->** | 24.81 → **41.77<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **36.3 h<!--f:P10000.energy.hoursOnBattery-->** |
+| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.68 → **0.15 MWh<!--f:P100.energy.solarPerCycleMWh-->** | 0.32 → **1.24<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **9.2 h<!--f:P100.energy.hoursOnBattery-->** |
+| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.30 → **0.74 MWh<!--f:P1000.energy.solarPerCycleMWh-->** | 3.09 → **7.71<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **9.2 h<!--f:P1000.energy.hoursOnBattery-->** |
+| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 18.20 → **4.10 MWh<!--f:P10000.energy.solarPerCycleMWh-->** | 24.81 → **50.23<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **30.2 h<!--f:P10000.energy.hoursOnBattery-->** |
 
 **Three things this exposed are worth more than the correction.** The constant was duplicated five
 times and wrong in every copy — there is one now, plus one on the far side of the `3d/` boundary
@@ -383,7 +383,7 @@ generator efficiency. Not an optimistic efficiency — a violation, and it was o
 It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
-45.869<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
+54.325<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
 copy of the constant, because a second law is not a tuning bound.
 
 ### 8.4 The drop may not arrive, and tonnes may be the wrong metric
@@ -450,13 +450,13 @@ In descending order of how likely it is to kill the concept:
 2. **Batteries at 200 Wh/kg pack-level with the rest of the vehicle free.** Not available.
 3. **A 12,400 t bucket on a 440 mm cable, and a hull that can hold station over water while it
    hangs there.** The mechanism is a scaled Bambi bucket at 1,265 times the largest
-   ever built (9,800 L) — the principle is 43 years old and the engineering is not. Pendulum dynamics under an 876 m hull are not modelled.
+   ever built (9,800 L) — the principle is 43 years old and the engineering is not. Pendulum dynamics under an 512 m hull are not modelled.
 4. **A drop from 450 m that arrives as water rather than as mist.** Currently contradicted by the
    USFS's own guidance.
 5. **An energy import chain.** The fleet is a battery being spent, and the 2026-08-09 solar
    correction made that sharper rather than softer: the smallest class now has
-   10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
-   36.3<!--f:P10000.energy.hoursOnBattery-->. Nothing here changes that; §7.3 is where it is
+   9.2 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
+   30.2<!--f:P10000.energy.hoursOnBattery-->. Nothing here changes that; §7.3 is where it is
    costed.
 
 If (1) fails, the rest is a well-tested model of a vehicle that cannot exist. That is why it is

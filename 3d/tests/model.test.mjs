@@ -7,17 +7,17 @@ import {
   resolveClass, classes, validateClass, CLASS_IDS, hullVolume, radiusForVolume,
   profileR, sectionScale, HULL_DEFAULT, stationX, stationT, hullR,
   capsuleRadiusForVolume, RHO_LN2,
-} from '../model/config.js?v=7439a398';
-import { build } from '../model/build.js?v=7439a398';
-import { buildLayout, insideHull } from '../model/layout.js?v=7439a398';
-import { proxyField, dataField, anchorsFor } from '../model/density.js?v=7439a398';
-import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=7439a398';
-import { buildLattice, TIERS } from '../model/structure.js?v=7439a398';
-import { auditBuild } from '../model/audit.js?v=7439a398';
-import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=7439a398';
-import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=7439a398';
-import { m4transform, norm, cross } from '../core/math.js?v=7439a398';
-import { prng, streamFor } from '../core/prng.js?v=7439a398';
+} from '../model/config.js?v=8bea3346';
+import { build } from '../model/build.js?v=8bea3346';
+import { buildLayout, insideHull } from '../model/layout.js?v=8bea3346';
+import { proxyField, dataField, anchorsFor } from '../model/density.js?v=8bea3346';
+import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=8bea3346';
+import { buildLattice, TIERS } from '../model/structure.js?v=8bea3346';
+import { auditBuild } from '../model/audit.js?v=8bea3346';
+import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=8bea3346';
+import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=8bea3346';
+import { m4transform, norm, cross } from '../core/math.js?v=8bea3346';
+import { prng, streamFor } from '../core/prng.js?v=8bea3346';
 
 test('the three classes resolve and validate', () => {
   for (const c of classes()) {
@@ -61,12 +61,17 @@ test('hull profile is well behaved end to end', () => {
     const r = profileR(i / 100, HULL_DEFAULT);
     assert.ok(r >= 0 && r <= 1 && isFinite(r), `profileR(${i / 100}) = ${r}`);
   }
-  // the top is flattened for solar, the keel slightly, the beam not at all
-  assert.ok(sectionScale(Math.PI / 2, HULL_DEFAULT) < 1);
-  assert.ok(sectionScale(-Math.PI / 2, HULL_DEFAULT) < 1);
+  // The hull of record is a PURE REVOLVE (capsule ruling, 2026-08-13): the
+  // solar decking sits proud of the film instead of flattening it, so the
+  // section is round everywhere.
+  assert.ok(Math.abs(sectionScale(Math.PI / 2, HULL_DEFAULT) - 1) < 1e-12);
+  assert.ok(Math.abs(sectionScale(-Math.PI / 2, HULL_DEFAULT) - 1) < 1e-12);
   assert.ok(Math.abs(sectionScale(0, HULL_DEFAULT) - 1) < 1e-12);
-  assert.ok(sectionScale(Math.PI / 2, HULL_DEFAULT) < sectionScale(-Math.PI / 2, HULL_DEFAULT),
-    'the top is flatter than the keel');
+  // The capsule's mid-body is a true cylinder: constant radius across the
+  // middle half, hemispherical run-out to the poles.
+  assert.ok(Math.abs(profileR(0.3, HULL_DEFAULT) - 1) < 1e-9);
+  assert.ok(Math.abs(profileR(0.7, HULL_DEFAULT) - 1) < 1e-9);
+  assert.ok(profileR(0.1, HULL_DEFAULT) < 1 && profileR(0.9, HULL_DEFAULT) < 1);
 });
 
 test('station coordinates round-trip', () => {
@@ -124,14 +129,18 @@ test('primary disc area matches the figure the wildfire page publishes', () => {
 
 test('adjacent rotor discs never overlap each other', () => {
   // The P-10000 grew 85 m discs so it could push a fully emptied hull back down (2026-08-08).
-  // At that size the discs are within ~10 m of touching, so the clearance is a test now.
+  // On the fineness-2 capsule (2026-08-13) seven of them no longer fit in one line along the
+  // flank, so the network class staggers alternate stations onto two rows — which is why the
+  // criterion is 3D CENTRE DISTANCE now, not axial spacing: two rows separate diagonally.
   for (const id of CLASS_IDS) {
     const c = resolveClass(id);
     const st = buildLayout(c).rotorStations.filter((s) => s.side > 0)
       .sort((a, b) => a.p[0] - b.p[0]);
     const bladeR = (c.primaryRotorDiameterM * 0.94) / 2;    // rotorGeom draws blades to 0.94 r
     for (let i = 1; i < st.length; i++) {
-      const gap = Math.abs(st[i].p[0] - st[i - 1].p[0]) - 2 * bladeR;
+      const d = Math.hypot(st[i].p[0] - st[i - 1].p[0], st[i].p[1] - st[i - 1].p[1],
+                           st[i].p[2] - st[i - 1].p[2]);
+      const gap = d - 2 * bladeR;
       assert.ok(gap > 2, `${c.id} stations ${i - 1}/${i}: ${gap.toFixed(1)} m apart`);
     }
   }

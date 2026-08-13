@@ -37,7 +37,7 @@ import {
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
   anchorAt, resolveClass,
-} from '../index.js?v=7439a398';
+} from '../index.js?v=8bea3346';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -150,9 +150,14 @@ await check('adjacent rotor discs never overlap each other', async () => {
     const st = v.model.layout.rotorStations.filter(s => s.side > 0)
       .sort((a, b) => a.p[0] - b.p[0]);
     const bladeR = cls.primaryRotorDiameterM * 0.94 / 2;   // rotorGeom draws blades to 0.94 r
+    // 3D centre distance, not axial spacing (2026-08-13): on the fineness-2
+    // capsule the network class staggers alternate stations onto two rows,
+    // and staggered neighbours separate diagonally.
     let gapMin = Infinity;
     for (let i = 1; i < st.length; i++) {
-      gapMin = Math.min(gapMin, Math.abs(st[i].p[0] - st[i - 1].p[0]) - 2 * bladeR);
+      const d = Math.hypot(st[i].p[0] - st[i - 1].p[0], st[i].p[1] - st[i - 1].p[1],
+                           st[i].p[2] - st[i - 1].p[2]);
+      gapMin = Math.min(gapMin, d - 2 * bladeR);
     }
     assert(gapMin > 2, `${id}: adjacent discs ${gapMin.toFixed(1)} m apart`);
     worst.push(`${id} ${gapMin.toFixed(1)} m`);

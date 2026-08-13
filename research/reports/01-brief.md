@@ -30,17 +30,17 @@ where the fires and the lakes are usually within tens of kilometres of each othe
 <!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle that produces it. Nothing here lands: on every class the longest phases are moving water, not flying.-->
 
 **The reference ship is the smallest one.** The P-100 carries
-100 tonnes<!--f:P100.spec.payloadT--> of water, is 190 m<!--f:P100.spec.lenM--> long and
-47 m<!--f:P100.spec.diaM--> across — **smaller than the Hindenburg**, which flew in 1936 at 245 m.
+100 tonnes<!--f:P100.spec.payloadT--> of water, is 110 m<!--f:P100.spec.lenM--> long and
+55 m<!--f:P100.spec.diaM--> across — **smaller than the Hindenburg**, which flew in 1936 at 245 m.
 Everything below is that ship unless it says otherwise.
 
 | P-100, the reference ship | |
 |---|---:|
 | Water per drop | 100 t<!--f:P100.spec.payloadT--> |
-| Length × diameter | 190<!--f:P100.spec.lenM--> × 47 m<!--f:P100.spec.diaM--> |
+| Length × diameter | 110<!--f:P100.spec.lenM--> × 55 m<!--f:P100.spec.diaM--> |
 | Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> |
 | **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** |
-| Energy per tonne delivered | 12.5 kWh<!--f:P100.cycle.kwhPerTonne--> |
+| Energy per tonne delivered | 13.9 kWh<!--f:P100.cycle.kwhPerTonne--> |
 
 175 tonnes an hour sounds modest beside a very large airtanker's seventy-tonne drop. It is not the
 same quantity. **The airtanker's number is one drop; this one is every hour, indefinitely, through
@@ -55,8 +55,8 @@ would have to be true.
 ### And then the question of how much bigger
 
 Buoyancy scales with volume and drag with area, so a bigger ship is a *cheaper* ship per tonne
-delivered: 12.5 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
-7.4<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 4.6<!--f:P10000.cycle.kwhPerTonne--> on
+delivered: 13.9 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
+8.5<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4<!--f:P10000.cycle.kwhPerTonne--> on
 a 10,000-tonne one delivering 13,183 t/h<!--f:P10000.cycle.tph-->. The square-cube law, which
 punishes almost every other kind of vehicle, is on this one's side.
 
@@ -65,7 +65,7 @@ the structure or the power — it is getting back down.** That is the next secti
 the largest class exists in this project at all: as the place the arithmetic breaks, not as
 something anyone is proposing to build first.
 
-<!--tex:fig charts/scale.pdf | True relative scale. \textbf{The reference ship is smaller than the Hindenburg} --- 190 m against 245 --- and the two larger classes are the same arithmetic extrapolated, not a plan. | 0.92-->
+<!--tex:fig charts/scale.pdf | True relative scale. \textbf{The reference ship is smaller than the Hindenburg} --- 110 m against 245 --- and the two larger classes are the same arithmetic extrapolated, not a plan. | 0.92-->
 
 ## Why it is possible now, and was not before
 
@@ -110,7 +110,7 @@ helicopter bucket ever built, which is an engineering programme. On the 10,000-t
 a fair measure of how far past the reference ship the limit case sits.
 
 
-<!--tex:fig charts/render-anchor.png | The mechanism at the limit case, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag in the water. The bag is to scale --- 12,400 tonnes is 28.7 m across beside an 876 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows upward.-->
+<!--tex:fig charts/render-anchor.png | The mechanism at the limit case, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag in the water. The bag is to scale --- 12,400 tonnes is 28.7 m across beside an 512 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows upward.-->
 
 The P-100 does not need it — its descent closes on rotors alone with 1.97× headroom — and it
 carries one anyway, because a bucket is cheaper than thrust even when thrust would do: the bag
@@ -139,7 +139,7 @@ evidence *against*. Four are load-bearing:
   measures whether fire behaviour changed, not tonnes delivered, and finds success turns on ground
   crews being engaged with the drop. Tonnage is our metric and it may be the wrong one.
 - **An energy chain.** Every class runs a deficit every cycle. A P-100 has
-  10.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
+  9.2 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
   fleet is a battery being spent, and the chain that recharges it is part of the design.
 
 Seventeen such issues are tracked at `docs/OPEN-QUESTIONS.md`, fifteen still open. Two closed on

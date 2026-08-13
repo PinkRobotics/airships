@@ -9,7 +9,7 @@ import { close, describe, eq, it, ok, throws } from '../harness.js';
 import {
   CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, TERRAIN_MSL, WORK_ALT_MSL,
   airDensity, diskMW, dragMW, ledger, planCycle, pumpMW, resetConfig, setConfig,
-} from '../../sim/index.js?v=05c05d25';
+} from '../../sim/index.js?v=92ce525c';
 
 const P100 = CLASSES.P100, P1000 = CLASSES.P1000, P10000 = CLASSES.P10000;
 
@@ -58,7 +58,7 @@ describe('physics · dragMW', () => {
     // buy fail-safe float-up, and frontal area goes as the square, so cruise drag rose 14%
     // on all three. That is the running cost of the safety property, and it is charged.
     resetConfig();
-    close(dragMW(P100, MODES.balanced), 1.0649771190, 1e-9, 'dragMW(P-100, balanced)');
+    close(dragMW(P100, MODES.balanced), 1.4583774491, 1e-8, 'dragMW(P-100, balanced)');
   });
 
   it('is cubic in speed', () => {

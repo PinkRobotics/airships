@@ -186,7 +186,7 @@ export const VZ_MAX = 6;
  * it. 300 m on every class. It was briefly 1,100 and 1,350 m on the larger two, as a way of
  * keeping them out of the dense air near the water — that worked and cost 29 MWh a cycle in
  * pump work against a 2 m bore and 140 bar at the pod. The anchor below does the same job for
- * 0.60 MWh against a 45.87 MWh cycle, so the hoses went back to being hoses.
+ * 0.60 MWh against a 54.33 MWh cycle, so the hoses went back to being hoses.
  *
  * `anchorM`, `anchorBagT` — THE DESCENT ANCHOR, which is how a buoyant ship gets down.
  *
@@ -257,21 +257,21 @@ export const VZ_MAX = 6;
 export const REFERENCE_CLASS = 'P100';
 
 export const CLASSES = {  P100: {
-    id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 190, diaM: 47,
+    id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 110, diaM: 55,
     cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,
     anchorM: 350, anchorBagT: 125,
     genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarM2: 6000, diskM2: 2500, rotors: 4, ln2CapT: 155,
     minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: "Initial attack and small incidents close to water",
   },
   P1000: {
-    id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 404, diaM: 102,
+    id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 238, diaM: 119,
     cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,
     anchorM: 600, anchorBagT: 1250,
     genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarM2: 28000, diskM2: 12000, rotors: 6, ln2CapT: 1550,
     minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: "Sustained delivery on project fires and fires of note",
   },
   P10000: {
-    id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 876, diaM: 219,
+    id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 512, diaM: 256,
     cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
     anchorM: 850, anchorBagT: 12400,
     /* diskM2 AND battMW ARE LEFT OVER FROM A CONSTRAINT THAT NO LONGER BINDS. Read this before

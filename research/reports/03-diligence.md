@@ -42,10 +42,10 @@ vacuum is free and does not, if the shell can be made light enough — which is 
 construction may finally allow, and what §4.1 says has not been shown yet.
 
 **What the model says.** The reference vehicle is the **P-100**: 100 t<!--f:P100.spec.payloadT-->
-of water, 190 m<!--f:P100.spec.lenM--> long — smaller than the Hindenburg — flying a
+of water, 110 m<!--f:P100.spec.lenM--> long — smaller than the Hindenburg — flying a
 34.2-minute<!--f:P100.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way and
 delivering 175 t/h<!--f:P100.cycle.tph--> indefinitely, at
-12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
+13.91 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
 against roughly 560 for a very large airtanker flying eight sorties, and the airtanker stops at
 dusk.
 
@@ -62,14 +62,14 @@ that emerged mid-project, it is 58× cheaper than the rotor work it replaces, an
 part of this concept that is not a scaling exercise on prior art.
 
 **Why scale is interesting, and why it is not the plan.** Energy per tonne falls as the ships get
-bigger — 12.53 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the reference ship against
-4.59<!--f:P10000.cycle.kwhPerTonne--> at ten thousand tonnes — because buoyancy scales with volume
+bigger — 13.91 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the reference ship against
+5.43<!--f:P10000.cycle.kwhPerTonne--> at ten thousand tonnes — because buoyancy scales with volume
 and drag with area. The square-cube law works against nearly every other vehicle and for this one.
 
 That is an argument for the concept having room to grow, not an argument for starting large.
-Everything that makes a reader wince in this document is a property of the largest class: a 876 m
+Everything that makes a reader wince in this document is a property of the largest class: a 512 m
 hull, a 1,400 MW bus, a suspended bag 1,265 times the largest ever built. The reference ship is
-190 m, 30 MW, and a bag thirteen times a Bambi bucket.
+110 m, 30 MW, and a bag thirteen times a Bambi bucket.
 
 **What would make this investable.** Not a better simulation. A gram-level mass breakdown of a
 lattice shell at scale, from someone who builds them. Everything else is downstream of that number
@@ -124,8 +124,8 @@ fire is not near water.** How often that is true is the open question §8 now li
 | | P-100 | P-1000 | P-10000 |
 |---|---:|---:|---:|
 | Delivered per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
-| Energy per tonne | 12.53 kWh<!--f:P100.cycle.kwhPerTonne--> | 7.40 kWh<!--f:P1000.cycle.kwhPerTonne--> | 4.59 kWh<!--f:P10000.cycle.kwhPerTonne--> |
-| Energy per cycle | 1.253 MWh<!--f:P100.cycle.eCycleMWh--> | 7.399 MWh<!--f:P1000.cycle.eCycleMWh--> | 45.869 MWh<!--f:P10000.cycle.eCycleMWh--> |
+| Energy per tonne | 13.91 kWh<!--f:P100.cycle.kwhPerTonne--> | 8.45 kWh<!--f:P1000.cycle.kwhPerTonne--> | 5.43 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+| Energy per cycle | 1.391 MWh<!--f:P100.cycle.eCycleMWh--> | 8.454 MWh<!--f:P1000.cycle.eCycleMWh--> | 54.325 MWh<!--f:P10000.cycle.eCycleMWh--> |
 
 A 747 supertanker drops about 70 t and then flies to a base. **The comparison that matters is per
 day, not per drop**: twelve hours of a P-100 is about 2,100 t against roughly 560 t for eight
@@ -171,7 +171,7 @@ does not need, costs 34% more energy per cycle.
 |---|---|
 | **Scale** | 12,400 t against the largest bucket ever built, 9,800 L. **1,265×.** The principle is 43 years old; the engineering is not. |
 | **Cable** | 121.6 MN needs ~440 mm of UHMWPE massing 125 t — **not charged as dry mass anywhere in the model**, on a budget already over (§4.1). |
-| **Pendulum** | 12,400 t swinging on one cable under an 876 m hull. Not modelled at all. |
+| **Pendulum** | 12,400 t swinging on one cable under an 512 m hull. Not modelled at all. |
 | **Rotor wash on water** | The P-10000 has ~79 kg/m² disc loading against a Black Hawk's ~47, across 14 rotors whose combined disc area equals a single 451 m disc. A hovering Black Hawk must be over 160 ft up before surface wash falls below 30 mph (Suter 2005). The model has no wash physics, and the anchor requires a stationary hover over the surface it is disturbing. |
 | **Station-keeping** | The mechanism requires a dead stop, no yaw while lines are down, and departure only when pumps clear the water. The model enforces these; nothing validates that a hull this size can hold station in the wind over a lake. |
 
@@ -222,7 +222,7 @@ clear path past — the pack consumes 40% of a budget the hull already exceeds o
 
 **And there is a fifth objection that attacks the method rather than the numbers.** Both structural
 sources hold shell mass fraction constant with radius — the scale invariance that lets a
-metre-scale demonstration imply a 219 m<!--f:P10000.spec.diaM--> hull. Derveni et al. (2024) show
+metre-scale demonstration imply a 256 m<!--f:P10000.spec.diaM--> hull. Derveni et al. (2024) show
 that in pressurised shells with distributed defects, **the single worst defect sets the buckling
 knockdown factor**, and removing all the lesser defects changes it by under 4%. Defect count is not
 invariant with radius: it grows with the number of manufactured features, and so does the expected
@@ -243,9 +243,9 @@ curvature, cell temperature, soiling and conversion, on a projected area.
 
 | | solar | deficit/cycle | endurance |
 |---|---|---|---|
-| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.32 → **1.10<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **10.4 h<!--f:P100.energy.hoursOnBattery-->** |
-| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.09 → **6.66<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **10.6 h<!--f:P1000.energy.hoursOnBattery-->** |
-| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 24.81 → **41.77<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **36.3 h<!--f:P10000.energy.hoursOnBattery-->** |
+| P-100 | 1.20 → **0.27 MW<!--f:P100.energy.solarMW-->** | 0.32 → **1.24<!--f:P100.energy.deficitPerCycleMWh-->** | 35.4 → **9.2 h<!--f:P100.energy.hoursOnBattery-->** |
+| P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.09 → **7.71<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **9.2 h<!--f:P1000.energy.hoursOnBattery-->** |
+| P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 24.81 → **50.23<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **30.2 h<!--f:P10000.energy.hoursOnBattery-->** |
 
 *Diligence status:* **closed, and the finding underneath it is not.** Two things a reader should
 take from this. First, the correction cut published endurance by roughly two thirds and the project
@@ -265,7 +265,7 @@ turbine or generator efficiency.
 
 It is **0.20<!--f:assumptions.rtLN2-->** now — 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. The P-10000's cycle rose 43.019 →
-**45.869 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
+**54.325 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
 now fail the build if `rtLN2 × eLN2 × 1000` exceeds 173.4.
 
 *Diligence status:* **closed.** Small in magnitude, absolute in kind, and worth reading for what it
@@ -279,7 +279,7 @@ Two findings from the wildfire-aviation literature, both aimed at the top of the
 
 **The drop may not arrive.** The US Forest Service's 2022 assessment states that a drop released
 1,000 ft above ground/vegetation "would completely dissipate". `ALT.drop` is 450 m — **1,476 ft**.
-The altitude was raised for hull-clearance reasons that are sound (an 876 m hull cannot manoeuvre
+The altitude was raised for hull-clearance reasons that are sound (an 512 m hull cannot manoeuvre
 out of a surprise over a fire), and **the delivery consequence was never costed**. The model has no
 droplet physics at all: it moves tonnes from a tank to a coordinate.
 
@@ -333,14 +333,14 @@ P-100, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 
 | Term | MWh |
 |---|---:|
-| Return transit (drag + cryogenic plant) | 0.938<!--f:P100.energy.ledgerMWh.RETURN_TRANSIT--> |
-| Outbound transit | 0.209<!--f:P100.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
-| Hotel + manoeuvring | 0.143<!--f:P100.energy.ledgerMWh.other--> |
+| Return transit (drag + cryogenic plant) | 0.981<!--f:P100.energy.ledgerMWh.RETURN_TRANSIT--> |
+| Outbound transit | 0.286<!--f:P100.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
+| Hotel + manoeuvring | 0.162<!--f:P100.energy.ledgerMWh.other--> |
 | Pumping | 0.109<!--f:P100.energy.ledgerMWh.WATER_FILL--> |
 | Letdown | 0.012<!--f:P100.energy.ledgerMWh.letdown--> |
 | Anchor | 0.006<!--f:P100.energy.ledgerMWh.anchor--> |
 | Nitrogen recovery (credit) | −0.165<!--f:P100.energy.ledgerMWh.recovery--> |
-| **Total** | **1.253<!--f:P100.cycle.eCycleMWh-->** |
+| **Total** | **1.391<!--f:P100.cycle.eCycleMWh-->** |
 
 <!--tex:fig charts/ledger.pdf | The reference ship's cycle ledger, printed from the model. Three quarters of it is the return leg; the mechanism that closes the descent costs half a per cent.-->
 
@@ -351,9 +351,9 @@ stated on the site rather than hidden:
 
 | | deficit/cycle | endurance |
 |---|---:|---:|
-| P-100 | 1.10 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 10.4 h<!--f:P100.energy.hoursOnBattery--> |
-| P-1000 | 6.66 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 10.6 h<!--f:P1000.energy.hoursOnBattery--> |
-| P-10000 | 41.77 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 36.3 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-100 | 1.24 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 9.2 h<!--f:P100.energy.hoursOnBattery--> |
+| P-1000 | 7.71 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 9.2 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-10000 | 50.23 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 30.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 Those figures are post-correction and roughly a third of what this report would have carried a day
 earlier. There is no configuration in which this fleet sustains itself; it requires an energy
@@ -368,11 +368,11 @@ energy figures and the published BC Hydro Transmission Service Rate Schedule 183
 1 April 2026: demand $12.178/kV·A, energy 4.914 ¢/kWh). **All currency is Canadian**, because the
 tariff is. Assumptions stated inline.
 
-- **Continuous draw, reference ship:** 1.253 MWh<!--f:P100.cycle.eCycleMWh--> per
+- **Continuous draw, reference ship:** 1.391 MWh<!--f:P100.cycle.eCycleMWh--> per
   34.2-minute<!--f:P100.cycle.cycleMin--> cycle = **2.20 MW average**, or **1.93 MW imported** net
   of the corrected solar (0.27 MW<!--f:P100.energy.solarMW-->).
 - **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.62/t**
-  (12.53 kWh/t<!--f:P100.cycle.kwhPerTonne-->). A full 100-tonne drop costs about **$62** of
+  (13.91 kWh/t<!--f:P100.cycle.kwhPerTonne-->). A full 100-tonne drop costs about **$62** of
   electricity.
 - **A ten-ship P-100 fleet** — 1,750 t/h between them, day and night — imports about **19 MW**.
   At Schedule 1830 that is on the order of **CA$0.9M per month**. Forty ships, delivering
@@ -390,7 +390,7 @@ at 1,400 MW<!--f:P10000.spec.battMW--> of discharge, but that rating is one of t
 reverse-engineered constants §7 flags and nobody should plan against it.
 
 So: **the grid is not an obstacle to this concept. It is an obstacle to the largest version of
-it**, and it arrives long before anyone is asked to believe in an 876-metre hull. A programme that
+it**, and it arrives long before anyone is asked to believe in an 512-metre hull. A programme that
 starts at the reference scale can be connected to the existing grid today; one that starts at the
 top cannot, and would carry an interconnection queue measured in years. BC Hydro's 2025 capacity
 call drew 106 submissions totalling 19 GW, which indicates what that queue looks like.
@@ -430,9 +430,9 @@ because an invented market size next to a generated throughput figure would deva
 |---|---|---|
 | **Taking the water** | BC's *Water Sustainability Act* permits diverting unrecorded water for firefighting **without authorisation**, and a fire department may divert, use and store water for firefighting preparation without authorisation. | **Clear on its face.** The legal half is the easy half. |
 | **The lake's capacity** | The Act says nothing about whether a lake can stand repeated 10,000 t draws. A P-10000 removes 13,183 t/h<!--f:P10000.cycle.tph--> from one body of water. | **Open.** Hydrological, not legal, and unaddressed. |
-| **Flying it** | ICAO Chicago Convention Art. 1 (sovereignty) and Art. 8 (pilotless aircraft need special authorisation over another state). FAA/EASA routes for large uncrewed aircraft exist but nothing of this scale has been certificated. | **Open, long lead.** No certification basis exists for an 876 m uncrewed vehicle. |
+| **Flying it** | ICAO Chicago Convention Art. 1 (sovereignty) and Art. 8 (pilotless aircraft need special authorisation over another state). FAA/EASA routes for large uncrewed aircraft exist but nothing of this scale has been certificated. | **Open, long lead.** No certification basis exists for an 512 m uncrewed vehicle. |
 | **Autonomy assurance** | FAA 2024 AI safety-assurance roadmap, EASA AI roadmap 2.0, NIST AI RMF, runtime-assurance literature all catalogued as context. | **Open.** No work done. |
-| **Airspace deconfliction** | An 876 m uncrewed hull working the same incident as crewed airtankers and Type 1 helicopters. Appears in `docs/PHYSICS.md` only as out of scope. | **Open. No work done**, and an operational blocker rather than a certification detail. |
+| **Airspace deconfliction** | An 512 m uncrewed hull working the same incident as crewed airtankers and Type 1 helicopters. Appears in `docs/PHYSICS.md` only as out of scope. | **Open. No work done**, and an operational blocker rather than a certification detail. |
 | **Liability and insurability** | A 10,000 t release over ground, and a 12,400 t bag on a cable over a lake. | **Open. No work done.** |
 | **Weather modification law** | ENMOD catalogued. Not obviously engaged by water delivery. | Low. |
 
@@ -495,7 +495,7 @@ tool rather than a resolution.
    are closed, and §4.4 changes what the product is rather than whether it can exist.
 2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; NASA
    has flown 149 and sees no clear path past 500.
-3. **A drop from a height an 876 m hull can safely use that still arrives as water.** Currently
+3. **A drop from a height an 512 m hull can safely use that still arrives as water.** Currently
    contradicted by USFS guidance. Needs droplet physics and, eventually, a drop test.
 4. **A 12,400 t suspended bag, its cable, its pendulum dynamics, and hull station-keeping over
    water in wind.** The mechanism is sound in principle and unbuilt at 1,265× the precedent.

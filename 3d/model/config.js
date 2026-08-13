@@ -125,34 +125,37 @@ export function boxScaleForVolume(volM3, a, b, c) {
  * ------------------------------------------------------------------------------------------- */
 
 export const HULL_DEFAULT = {
-  xMax: 0.36,        // station of the maximum section, as a fraction of length
-  noseExp: 2.15,     // nose fullness: higher is blunter
-  noseRoot: 2.0,
-  tailExp: 2.55,     // tail fineness: higher is a longer, finer run-out
-  tailRoot: 2.15,
-  tailStub: 0.018,   // the tail does not close to a point; this is the stub radius / max radius
-  noseStub: 0.010,
-  topFlat: 0.13,     // fraction the upper surface is flattened by, for the solar field
-  bottomFlat: 0.05,  // slight keel flattening where the water and hose gear mounts
+  // THE HONEST-SHIP CAPSULE (operator ruling, 2026-08-13). The streamlined
+  // two-lobe teardrop is retired: the vacuum ship the cell pages derive is a
+  // CYLINDER BETWEEN TWO DOMES at fineness ~2 — the shape the gated mirror
+  // prices (ship_geom: lenM = 2 x diaM) and the shape the explorer draws.
+  // The dashboard showing a cigar while every other page shows the capsule
+  // was reader-facing confusion, and the reader won.
+  xMax: 0.5,         // any mid station is the maximum section on a capsule
+  capFrac: 0.25,     // each dome's axial run as a fraction of length (= 1/(2F), F = 2)
+  stub: 0.012,       // poles keep a hair of radius so downstream ratios stay finite
+  topFlat: 0,        // the hull of record is a pure revolve; solar sits PROUD of it
+  bottomFlat: 0,
 };
 
 /**
  * Hull radius at station t in [0,1] (0 = nose, 1 = tail), as a fraction of the maximum radius.
- * Two power-law lobes meeting at xMax with r = 1 and zero slope discontinuity in practice.
+ * Capsule: spherical-cap rise over [0, capFrac], cylinder at 1, mirror-image run-out. With the
+ * class lengths chosen so the solved radius lands at lengthM * capFrac, the caps are true
+ * hemispheres; the solver owning the radius keeps the displacement exact either way.
  */
 export function profileR(t, h = HULL_DEFAULT) {
   const u = t <= 0 ? 0 : t >= 1 ? 1 : t;
-  let r;
-  if (u <= h.xMax) {
-    const q = (h.xMax - u) / h.xMax;                       // 1 at the nose, 0 at max section
-    r = Math.pow(1 - Math.pow(q, h.noseExp), 1 / h.noseRoot);
-    r = Math.max(r, h.noseStub * (1 - q) + h.noseStub);
-  } else {
-    const q = (u - h.xMax) / (1 - h.xMax);                 // 0 at max section, 1 at the tail
-    r = Math.pow(1 - Math.pow(q, h.tailExp), 1 / h.tailRoot);
-    r = Math.max(r, h.tailStub);
+  const cf = h.capFrac;
+  let r = 1;
+  if (u < cf) {
+    const q = u / cf;                                      // 0 at the nose, 1 at the shoulder
+    r = Math.sqrt(Math.max(0, q * (2 - q)));
+  } else if (u > 1 - cf) {
+    const q = (1 - u) / cf;                                // 0 at the tail, 1 at the shoulder
+    r = Math.sqrt(Math.max(0, q * (2 - q)));
   }
-  return Math.max(0, Math.min(1, r));
+  return Math.max(h.stub, Math.min(1, r));
 }
 
 /**
@@ -231,8 +234,8 @@ const CLASS_SPECS = {
     name: 'P-100',
     payloadTonnes: 100,
     displacementM3: 220000,
-    lengthM: 190,
-    nominalDiameterM: 47,          // the published illustrative figure, for cross-checking
+    lengthM: 110,               // capsule at fineness 2 — the honest-ship shape family
+    nominalDiameterM: 55,          // the capsule the displacement costs, for cross-checking
     use: 'Initial attack and small incidents close to water',
 
     // --- actuation -------------------------------------------------------------------------
@@ -306,8 +309,8 @@ const CLASS_SPECS = {
     name: 'P-1000',
     payloadTonnes: 1000,
     displacementM3: 2.2e6,
-    lengthM: 404,
-    nominalDiameterM: 102,
+    lengthM: 238,               // capsule at fineness 2
+    nominalDiameterM: 119,
     use: 'Sustained delivery on project fires and fires of note',
 
     primaryRotorStations: 6,
@@ -366,8 +369,8 @@ const CLASS_SPECS = {
     name: 'P-10000',
     payloadTonnes: 10000,
     displacementM3: 2.2e7,
-    lengthM: 876,
-    nominalDiameterM: 219,
+    lengthM: 512,               // capsule at fineness 2
+    nominalDiameterM: 256,
     use: 'Campaign fires, long hauls, and moving water between regions',
 
     // The four-rotor reading breaks down here on purpose: fourteen stations distributed over the
@@ -529,8 +532,12 @@ export function validateClass(c) {
     errs.push(`${c.id}: solved diameter ${c.diameterM.toFixed(1)} m is ${(dErr * 100).toFixed(1)}% ` +
       `from the published ${c.nominalDiameterM} m — the profile or the premise moved`);
   }
-  if (c.finenessRatio < 2 || c.finenessRatio > 9) {
-    errs.push(`${c.id}: fineness ratio ${c.finenessRatio.toFixed(2)} outside the plausible 2-9 band`);
+  // The capsule family (2026-08-13) DESIGNS at fineness 2.0, and the solver
+  // may land a hair under it (Simpson vs the cap's sqrt profile), so the
+  // plausibility floor sits just below the design point. The old 2-9 band
+  // encoded the streamlined era.
+  if (c.finenessRatio < 1.9 || c.finenessRatio > 9) {
+    errs.push(`${c.id}: fineness ratio ${c.finenessRatio.toFixed(2)} outside the plausible 1.9-9 band`);
   }
   if (c.primaryRotorDiameterM > c.diameterM * 1.2) {
     errs.push(`${c.id}: rotors (${c.primaryRotorDiameterM} m) wider than the hull allows`);

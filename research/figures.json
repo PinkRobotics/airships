@@ -30,8 +30,8 @@
       "spec": {
         "payloadT": 100,
         "dispM3": 220000,
-        "lenM": 190,
-        "diaM": 47,
+        "lenM": 110,
+        "diaM": 55,
         "cruiseKph": 90,
         "fillM3s": 0.5,
         "hoseM": 300,
@@ -72,8 +72,8 @@
         "tph": 175,
         "dropsPerHour": 1.75,
         "passes": 1,
-        "eCycleMWh": 1.253,
-        "kwhPerTonne": 12.53,
+        "eCycleMWh": 1.391,
+        "kwhPerTonne": 13.91,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 2,
@@ -86,32 +86,32 @@
       },
       "energy": {
         "pumpMW": 1.96,
-        "dragMW": 1.06,
+        "dragMW": 1.46,
         "downMW": 0.3,
         "solarMW": 0.27,
         "solarPerCycleMWh": 0.15,
-        "deficitPerCycleMWh": 1.1,
+        "deficitPerCycleMWh": 1.24,
         "ln2MakeT": 1.83,
         "eBackMWh": 0.165,
         "ledgerMWh": {
           "WATER_FILL": 0.109,
           "recovery": -0.165,
-          "OUTBOUND_TRANSIT": 0.209,
-          "RETURN_TRANSIT": 0.938,
+          "OUTBOUND_TRANSIT": 0.286,
+          "RETURN_TRANSIT": 0.981,
           "letdown": 0.012,
           "anchor": 0.006,
-          "other": 0.143
+          "other": 0.162
         },
-        "cyclesOnBattery": 18.2,
-        "hoursOnBattery": 10.4
+        "cyclesOnBattery": 16.2,
+        "hoursOnBattery": 9.2
       }
     },
     "P1000": {
       "spec": {
         "payloadT": 1000,
         "dispM3": 2200000,
-        "lenM": 404,
-        "diaM": 102,
+        "lenM": 238,
+        "diaM": 119,
         "cruiseKph": 110,
         "fillM3s": 3,
         "hoseM": 300,
@@ -152,8 +152,8 @@
         "tph": 1697,
         "dropsPerHour": 1.7,
         "passes": 1,
-        "eCycleMWh": 7.399,
-        "kwhPerTonne": 7.4,
+        "eCycleMWh": 8.454,
+        "kwhPerTonne": 8.45,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 3,
@@ -166,32 +166,32 @@
       },
       "energy": {
         "pumpMW": 11.77,
-        "dragMW": 9.16,
+        "dragMW": 12.46,
         "downMW": 5,
         "solarMW": 1.26,
         "solarPerCycleMWh": 0.74,
-        "deficitPerCycleMWh": 6.66,
+        "deficitPerCycleMWh": 7.71,
         "ln2MakeT": 7.49,
         "eBackMWh": 0.674,
         "ledgerMWh": {
           "WATER_FILL": 1.09,
           "recovery": -0.674,
-          "OUTBOUND_TRANSIT": 1.469,
-          "RETURN_TRANSIT": 4.177,
+          "OUTBOUND_TRANSIT": 2,
+          "RETURN_TRANSIT": 4.469,
           "letdown": 0.161,
           "anchor": 0.06,
-          "other": 1.116
+          "other": 1.349
         },
-        "cyclesOnBattery": 18,
-        "hoursOnBattery": 10.6
+        "cyclesOnBattery": 15.6,
+        "hoursOnBattery": 9.2
       }
     },
     "P10000": {
       "spec": {
         "payloadT": 10000,
         "dispM3": 22000000,
-        "lenM": 876,
-        "diaM": 219,
+        "lenM": 512,
+        "diaM": 256,
         "cruiseKph": 130,
         "fillM3s": 15,
         "hoseM": 300,
@@ -232,8 +232,8 @@
         "tph": 13183,
         "dropsPerHour": 1.32,
         "passes": 1,
-        "eCycleMWh": 45.869,
-        "kwhPerTonne": 4.59,
+        "eCycleMWh": 54.325,
+        "kwhPerTonne": 5.43,
         "bottleneck": "transit distance",
         "durations": {
           "SOURCE_APPROACH": 5,
@@ -246,24 +246,24 @@
       },
       "energy": {
         "pumpMW": 58.86,
-        "dragMW": 69.68,
+        "dragMW": 95.22,
         "downMW": 52.3,
         "solarMW": 5.4,
         "solarPerCycleMWh": 4.1,
-        "deficitPerCycleMWh": 41.77,
+        "deficitPerCycleMWh": 50.23,
         "ln2MakeT": 21.12,
         "eBackMWh": 1.9,
         "ledgerMWh": {
           "WATER_FILL": 10.9,
           "recovery": -1.9,
-          "OUTBOUND_TRANSIT": 9.459,
-          "RETURN_TRANSIT": 14.705,
+          "OUTBOUND_TRANSIT": 12.926,
+          "RETURN_TRANSIT": 16.611,
           "letdown": 1.42,
           "anchor": 0.596,
-          "other": 10.689
+          "other": 13.772
         },
-        "cyclesOnBattery": 47.9,
-        "hoursOnBattery": 36.3
+        "cyclesOnBattery": 39.8,
+        "hoursOnBattery": 30.2
       }
     }
   },
@@ -273,32 +273,32 @@
   },
   "sensitivity": {
     "propEta": {
-      "lo": 13.4,
-      "hi": -8.9
+      "lo": 15.2,
+      "hi": -10.1
     },
     "Cd": {
-      "lo": -10.1,
-      "hi": 10.1
+      "lo": -11.6,
+      "hi": 11.6
     },
     "rhoAir": {
-      "lo": -9.7,
-      "hi": 9.8
+      "lo": -11.3,
+      "hi": 11.4
     },
     "pumpEta": {
-      "lo": 5.9,
-      "hi": -4
+      "lo": 5,
+      "hi": -3.3
     },
     "hoseMul": {
-      "lo": -4.2,
-      "hi": 4.3
+      "lo": -3.6,
+      "hi": 3.6
     },
     "rhoSL": {
-      "lo": -3.5,
-      "hi": 27.3
+      "lo": -2.9,
+      "hi": 23.1
     },
     "rtLN2": {
-      "lo": 0.8,
-      "hi": -0.8
+      "lo": 0.7,
+      "hi": -0.7
     },
     "eLN2": {
       "lo": 0,
@@ -309,24 +309,24 @@
       "hi": 0
     },
     "cruiseKph": {
-      "lo": -15.1,
-      "hi": 23.9
+      "lo": -19.1,
+      "hi": 28.6
     },
     "anchorBagT": {
-      "lo": 11.7,
-      "hi": -3
+      "lo": 9.9,
+      "hi": -2.5
     },
     "fillM3s": {
-      "lo": 3.4,
-      "hi": -2.3
+      "lo": 3.8,
+      "hi": -2.5
     },
     "dispM3": {
-      "lo": -3.5,
-      "hi": 27.3
+      "lo": -2.9,
+      "hi": 23.1
     },
     "diskM2": {
-      "lo": 0.4,
-      "hi": -0.3
+      "lo": 0.3,
+      "hi": -0.2
     },
     "battMW": {
       "lo": 0,
@@ -337,8 +337,8 @@
       "hi": 0
     },
     "oneWayKm": {
-      "lo": -10.7,
-      "hi": 10.7
+      "lo": -11,
+      "hi": 11
     },
     "dropKm": {
       "lo": 0,

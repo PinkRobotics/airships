@@ -9,7 +9,7 @@ import { close, describe, eq, it, knownFail, ok } from '../harness.js';
 import {
   CFG, CLASSES, CLASS_ORDER, MODES, WORK_ALT_MSL,
   ledger, planCycle, resetConfig, setConfig,
-} from '../../sim/index.js?v=05c05d25';
+} from '../../sim/index.js?v=92ce525c';
 
 const MODE_IDS = Object.keys(MODES);
 const KMS = [2, 5, 15, 30, 60, 120, 400];
@@ -252,9 +252,9 @@ describe('plan · modes', () => {
     ok(e.eCycleMWh < b.eCycleMWh && b.eCycleMWh < r.eCycleMWh,
       `slower should be cheaper per cycle now: ${r.eCycleMWh.toFixed(1)} / `
       + `${b.eCycleMWh.toFixed(1)} / ${e.eCycleMWh.toFixed(1)} MWh`);
-    close(r.eCycleMWh, 125.2, 0.2, 'rapid');
-    close(b.eCycleMWh, 118.5, 0.2, 'balanced');
-    close(e.eCycleMWh, 118.0, 0.2, 'endurance');
+    close(r.eCycleMWh, 158.0, 0.2, 'rapid');
+    close(b.eCycleMWh, 143.1, 0.2, 'balanced');
+    close(e.eCycleMWh, 133.4, 0.2, 'endurance');
   });
 
   it('speedMul shortens the transit legs', () => {
@@ -350,12 +350,12 @@ describe('plan · the mechanisms the copy describes', () => {
     ok(rotorShare < 0.15, `the rotors should be left doing trim, not lift — ${(rotorShare * 100).toFixed(1)}%`);
     // The P-100 carries one too, though its descent closes on rotors alone (x1.94 headroom).
     // Not because it needs holding down, but because a bucket is cheaper than thrust on every
-    // class: 1.773 -> 1.253 MWh for the same delivered water, a 29% saving on a class that
+    // class: 1.912 -> 1.391 MWh for the same delivered water, a 27% saving on a class that
     // does not need the mechanism at all. The largest class saves 49% AND delivers 1,056 t
     // more, because without the bag it cannot get all of its water down to the fire.
     const small = planCycle(CLASSES.P100, MODES.balanced, 15);
     close(small.anchorT, 125, 0.5, 'the P-100 uses its bag as well');
-    close(small.eCycleMWh, 1.253, 5e-3, 'and saves 29% of its cycle energy doing it');
+    close(small.eCycleMWh, 1.391, 5e-3, 'and saves 27% of its cycle energy doing it');
   });
 
   it('the descent balance is struck at the source, not at the ceiling', () => {
@@ -419,13 +419,13 @@ describe('plan · the mechanisms the copy describes', () => {
 
   it('the letdown is no longer the largest term, and the anchor is why', () => {
     // For the life of this model the biggest line in the published energy budget was an
-    // unexplained window. It is a minor term now — 1.42 MWh of a 45.87 MWh cycle — while the
+    // unexplained window. It is a minor term now — 1.42 MWh of a 54.33 MWh cycle — while the
     // anchor's own cost, lifting 12,400 t of lake water the 15 m it takes to break the surface,
     // is 0.6 MWh and buys a 34.5 MWh reduction in rotor work. That ratio is the entire argument
     // for the mechanism.
     resetConfig();
     const p = planCycle(CLASSES.P10000, MODES.balanced, CFG.exampleKm);
-    close(p.eCycleMWh, 45.87, 0.05, 'the published P-10000 cycle energy');
+    close(p.eCycleMWh, 54.33, 0.05, 'the published P-10000 cycle energy');
     const letdownMWh = p.downMW * Math.min(6, p.dur.RETURN_TRANSIT * 0.2) / 60;
     const returnMWh = p.dragMW * 0.55 * p.dur.RETURN_TRANSIT / 60;
     ok(letdownMWh < returnMWh, `the letdown ${letdownMWh.toFixed(2)} should now be under the `
