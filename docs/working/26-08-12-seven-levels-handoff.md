@@ -117,12 +117,17 @@ The page is fully filled, all seven levels, first-pass:
 3. **The band** — `drawBandSection` (octagon row, loaded film up, unloaded films
    down, shared walls) + the redundancy copy + facts (≈2×10⁴ cells, one layer by
    design, breach = one cell).
-4. **The grid & skins** — `drawWallSection` (jacket→chords→band→webs→chords→void
-   skin) + the interplay paragraph (film→rims→frame ~7.2 t→seats→chords→hoop) +
-   `drawCellSupport` (bench/band-leans/ring) + `drawWebDetail` (one bay: cells on
-   seats above the outer wall, webs behind, strap shown light) + `drawRingSection`
-   (full ring: sealed wall outermost, seats inward, both truss walls in the lift) +
-   the ruled-junction paragraph and skin-and-bones paragraph.
+4. **The grid & skins** — the interplay paragraph (film→rims→frame ~7.2 t→face→
+   chords→hoop) + `drawCellSupport` (bench / band-sits-face-down / ring) +
+   `drawWebDetail` (one bay: ADJACENT cells face-down on the outer wall, the warm
+   skin riding their landscape, webs behind) + `drawRingSection` (full ring: sealed
+   wall outermost, both truss walls in the lift) + the ruled-junction and
+   skin-and-bones paragraphs. Figure colour code (operator, 08-12): PINK = film
+   loaded by atmosphere; BLUE DOTTED = film in vacuum, unloaded (L3 band section
+   follows it: three pink top faces, everything else blue dotted). Seats are
+   EMBEDDED — the cell sits on its face; never draw a seat as a prop.
+   (`drawWallSection` REMOVED on operator direction — it drew the pre-ruling
+   band-inside-the-sandwich arrangement.)
 5. **"Closure" — PROVISIONAL name** (operator skipped five in his sequence; the page
    chips it "provisional name"; confirm or rename WITH HIM) — `drawShipClosure` +
    `drawLedger` (both-SF bars: +3.8 t green / −32.2 t red; never show one SF alone).

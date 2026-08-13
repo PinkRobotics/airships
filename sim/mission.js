@@ -1,13 +1,13 @@
 /* Assembling one mission: a fire, a water source, a plan and a set of drop lines.
  */
-import { assign } from './assign.js?v=75e59915';
-import { CLASSES, MODES, PHASES } from './config.js?v=75e59915';
-import { fmt } from './format.js?v=75e59915';
-import { havKm, trackBearing } from './geo.js?v=75e59915';
-import { planCycle } from './plan.js?v=75e59915';
-import { hashFrac } from './rng.js?v=75e59915';
-import { deliveryPoint, dropSeg, legKmFor, planTargets } from './targets.js?v=75e59915';
-import { intakePoint } from './water.js?v=75e59915';
+import { assign } from './assign.js?v=e4cd07ce';
+import { CLASSES, MODES, PHASES } from './config.js?v=e4cd07ce';
+import { fmt } from './format.js?v=e4cd07ce';
+import { havKm, trackBearing } from './geo.js?v=e4cd07ce';
+import { planCycle } from './plan.js?v=e4cd07ce';
+import { hashFrac } from './rng.js?v=e4cd07ce';
+import { deliveryPoint, dropSeg, legKmFor, planTargets } from './targets.js?v=e4cd07ce';
+import { intakePoint } from './water.js?v=e4cd07ce';
 
 export function buildMission(fire, water, modeId, forceClsId, forceSrc, heat = []) {
   const a = forceClsId

@@ -19,7 +19,7 @@
  * as history.
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
-         stockBuild, barrierKgPerM2 } from './model.js?v=75e59915';
+         stockBuild, barrierKgPerM2 } from './model.js?v=e4cd07ce';
 
 const sb = stockBuild();
 
@@ -248,16 +248,16 @@ export const CATALOG = [
     id: 'conn-tie', cat: 'connectors',
     name: 'Seat & retention strap',
     status: 'decided',
-    role: 'The interface, as ruled: a titanium bearing pad on the clamp sleeve takes the '
-        + 'cell’s push straight into the outer chords — compression over millimetres, '
-        + 'which cannot buckle — while a light strap holds position whenever the sky '
-        + 'lets go.',
+    role: 'The interface, as ruled: the cell sits face-down on the outer wall, its push '
+        + 'passing through a flush pad embedded in the face — compression over '
+        + 'millimetres, which cannot buckle — while a light strap holds position '
+        + 'whenever the sky lets go.',
     story: 'The rope survives the ruling as the strap: creep stops mattering when the '
         + 'load is occasional, so Dyneema is back on the table. And the loaded film '
         + 'above faces nothing but sky — every attachment lands on the unloaded side.',
     draw: { kind: 'seat' },
     specs: [
-      { k: 'Bearing seat', v: 'Ti pad on the clamp sleeve', u: 'compression, mm-scale' },
+      { k: 'Bearing seat', v: 'embedded flush in the wall', u: 'the cell sits on its face' },
       { k: 'Film seal', v: 'boss = a taller land post', u: 'on the UNLOADED inner film' },
       { k: 'Strap', v: 'UHMWPE or Zylon braid', u: 'retention only — light' },
       { k: 'Per-seat load', v: 'tens of kN', u: 'set by seats-per-cell' },
