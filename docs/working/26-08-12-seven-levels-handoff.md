@@ -135,6 +135,26 @@ The page is fully filled, all seven levels, first-pass:
    named-not-weighed.
 7. **At work** — links `../` (the wildfire dashboard, previous design, re-points later).
 
+**OVERHAUL ROUND 4 (08-12 night): NAMED VIEWS replace the structure/view deck; the
+patch's cross bars are PIPE.** Operator: replace "structure — light one, dim the rest /
+view" with proper movement per level; render the grid's bars as the cell level's CF pipes
+("they look and behave well there"); include the zoom-out ("I really like zooming out and
+seeing the section you've detailed from a higher level") as a view button. Done as:
+LEVEL_VIEWS registry + api.viewsFor()/applyView() — poses computed from the SAME surface
+generators as the geometry, flown through the existing non-dive transition (eased from the
+live camera; instant under reduced motion); `?view=` deep-link; the deck is now ONE box —
+a per-level views row + a "this level's switches" row driven by data-lv (ship layer sbtns
+folded in; #shipbox deleted). The grid's hoops/longerons/webs inside the patch are
+strutInstances + tubeArcGeom + XM.pipe/pipeRim at schematic radii (SHIP-2 sizes chords).
+The group-dim api (setGroup/?group) SURVIVES button removal — gates and deep links intact;
+the cell's views apply groups as part of their poses. Traps paid: the views registry must
+sit OUTSIDE the LEVELS array literal (an anchor comment lived inside it), and deleting a
+deck group orphaned #toggleLoaded's wiring (null addEventListener kills the whole module —
+the id-audit one-liner in the round-4 commit is the check to rerun after ANY deck edit).
+**OPERATOR WISH RECORDED for the assembly arc: a ship-scale assembly animation in the
+spirit of the cell's #69 — cells + cell-external CF pipe + connector flying in — "one
+cell, and cell-external CF pipe and connector … assembling the entire ship."**
+
 **OVERHAUL ROUND 3 (08-12 latest): THE GRID LEVEL IS A ZOOM, NOT A WARP** — operator
 ruling: "I want the layers to be zooming into components of the existing airship, not
 warping to a new thing." The old graded-band wedge (buildBay — the superseded stacked-band

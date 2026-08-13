@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=b171e7e8';
-import * as G from './explorer-geom.js?v=b171e7e8';
+import * as CELL from './model.js?v=635befe5';
+import * as G from './explorer-geom.js?v=635befe5';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=b171e7e8';
+} from './nodes.generated.js?v=635befe5';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=b171e7e8';
+import { NODEMESHES } from './nodemeshes.generated.js?v=635befe5';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=b171e7e8';
+import { SKIN } from './skin.generated.js?v=635befe5';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=b171e7e8';
+import { SHIP, BAND, GRID } from './catalog.js?v=635befe5';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1883,12 +1883,25 @@ function buildGrid() {
   const lit = inst(root, { id: 'GridCells' }, cellsToXf(solidCells), solidCells.length, {});
   lit.geom = G.kelvinGeom(D.pitch * 0.98);
   lit.xmat = XM.sealedWall;
-  lineNode(root, 'GridHoops', segLines(bones.hoops.filter(near)),
-    { kind: 'line', color: TOKENS.bone, weight: 2.2, opacity: 0.95 });
-  lineNode(root, 'GridLongs', segLines(bones.longs.filter(near)),
-    { kind: 'line', color: TOKENS.muted, weight: 1.5, opacity: 0.8 });
-  lineNode(root, 'GridWebs', segLines(bones.webs.filter(near)),
-    { kind: 'line', color: TOKENS.cool, weight: 1.5, opacity: 0.75 });
+  // THE CROSS BARS ARE PIPE, not lines — the operator's call: the cell level's rendered
+  // CF members "look and behave well there", so the patch uses the same recipe exactly:
+  // strutInstances aiming a unit tube per segment, tubeArcGeom for the shell, XM.pipe for
+  // the finish. Radii are schematic until SHIP-2 sizes the chords, like every ship figure.
+  const pipes = (id, segs, rOut, xmat) => {
+    if (!segs.length) return;
+    const pts = [], pairs = [];
+    for (const g of segs) {
+      pts.push(g.a, g.b);
+      pairs.push([pts.length - 2, pts.length - 1]);
+    }
+    const gi = G.strutInstances(pts, pairs, 0, 1.0);
+    const nP = inst(root, { id }, gi.xf, gi.count, {});
+    nP.geom = G.tubeArcGeom(rOut, rOut * 0.35, 1.0, 360, 12);
+    nP.xmat = xmat;
+  };
+  pipes('GridHoops', bones.hoops.filter(near), 0.12, XM.pipeRim);
+  pipes('GridLongs', bones.longs.filter(near), 0.085, XM.pipe);
+  pipes('GridWebs', bones.webs.filter(near), 0.06, XM.pipe);
   lineNode(root, 'GridBearings', patch.map(c => [
     c.p, [c.p[0] - c.Z[0] * D.pitch / 2, c.p[1] - c.Z[1] * D.pitch / 2, c.p[2] - c.Z[2] * D.pitch / 2],
   ]), { kind: 'line', color: TOKENS.warm, weight: 2.0, opacity: 0.9 });
@@ -2003,6 +2016,61 @@ const CELL_CENTRE = [-CELL_SHIFT, 0, 0];   // cg.p shifts NEGATIVE; follow it
 // graph a level that framed wider than the one below it would make a dive-in read as a
 // zoom-out. On a level that declares a tour, `radius`, `target`, `az`, `el` and `dist` are
 // only the fallback: the camera is framed by the stop it enters at.
+// NAMED VIEWS — "proper movement around this": each level carries poses aimed at the
+// things that matter on it, computed from the same generators that placed the geometry.
+// A view is a camera move (and sometimes a reading), never a new scene — the same rule
+// as the levels themselves. The grid's "see it from the ship" is the operator's own ask:
+// pull all the way out and find the detailed patch sitting on the whole vehicle.
+const SHIPVIEW = (() => {
+  const D = shipDims();
+  const s0 = D.total / 2, TH0 = Math.PI / 2;
+  const cells = shipCellPlacements(D);
+  let hero = cells[0];
+  for (const c of cells) {
+    if (Math.hypot(c.s - s0, (c.th - TH0) * D.R) < Math.hypot(hero.s - s0, (hero.th - TH0) * D.R)) hero = c;
+  }
+  const at = (ds, off) => {
+    const st = shipStation(D, s0 + ds);
+    return [st.x - st.nx * off, 0, st.r - st.nr * off];
+  };
+  return {
+    D,
+    gridTg: [0, 0, D.R - D.pitch - GRID.depthM / 2],
+    heroTg: hero.p.slice(),
+    openTg: at(-1.6 * GRID.bayM, D.pitch / 2),
+    laidTg: at(1.4 * GRID.bayM, D.pitch / 2),
+    depthTg: [0, 0, D.R - D.pitch - GRID.depthM / 2],
+  };
+})();
+
+const LEVEL_VIEWS = {
+  ship: [
+    { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
+    { k: 'bow', n: 'bow-on', tg: [0, 0, 0], az: -2.75, el: 0.10, d: 150 },
+    { k: 'skim', n: 'skim the wall', tg: [0, 0, SHIPVIEW.D.R], az: -0.85, el: 0.10, d: 15 },
+    { k: 'void', n: 'inside the void', tg: [0, 0, 0], az: -1.15, el: 0.05, d: 9 },
+    { k: 'patch', n: 'where the grid lives', tg: SHIPVIEW.gridTg, az: -0.55, el: 0.62, d: 70 },
+  ],
+  bay: [
+    { k: 'open', n: 'the open course', tg: SHIPVIEW.openTg, az: -0.55, el: 0.62, d: 17 },
+    { k: 'laid', n: 'the laid wall', tg: SHIPVIEW.laidTg, az: -0.5, el: 0.5, d: 17 },
+    { k: 'hero', n: 'one cell, opened', tg: SHIPVIEW.heroTg, az: -0.7, el: 0.5, d: 5.5 },
+    { k: 'depth', n: 'into the depth', tg: SHIPVIEW.depthTg, az: -0.4, el: 0.1, d: 8 },
+    { k: 'fromship', n: 'see it from the ship', tg: SHIPVIEW.gridTg, az: -1.0, el: 0.5, d: 240 },
+  ],
+  cell: [
+    { k: 'whole', n: 'the whole article', group: 'all', az: -0.9, el: 0.27, d: 1.64 },
+    { k: 'centre', n: 'into the centre', group: 'centre', az: -0.6, el: 0.15, d: 1.15 },
+    { k: 'primary', n: 'the primary path', group: 'primary', az: -1.3, el: 0.45, d: 1.5 },
+    { k: 'above', n: 'from above', az: -0.9, el: 1.15, d: 1.7 },
+    { k: 'level', n: 'level with it', az: -0.9, el: 0.03, d: 1.45 },
+  ],
+  array: [
+    { k: 'block', n: 'the whole band block', az: -0.8, el: 0.3, d: 12.3 },
+    { k: 'hero', n: 'the opened cell', tg: [0, -2, 1], az: -0.65, el: 0.2, d: 4.5 },
+  ],
+};
+
 export const LEVELS = [
   { id: 'strut', name: 'The connectors', scaleM: 0.05, radius: 0.030, az: -1.05, el: 0.24, dist: 2.6, target: CELL_CENTRE, stage: true, build: () => buildStageShell('strut'), instance: 'demonstrator' },
   { id: 'wall', name: 'The tubes', scaleM: 0.25, radius: 0.16, az: -0.9, el: 0.20, dist: 2.4, target: CELL_CENTRE, stage: true, build: () => buildStageShell('wall'), instance: 'demonstrator' },
@@ -3384,6 +3452,37 @@ export function mountExplorer(opts) {
         return true;
       });
       return out;
+    },
+    /** The current level's named views — what the deck's view buttons are built from. */
+    viewsFor() { return LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []; },
+    /** Fly to a named view of the current level. A camera move (plus a reading, where the
+     * view carries one) through the SAME transition the dives use — eased from the live
+     * camera, never snapped, and instant under reduced motion. */
+    applyView(key) {
+      const v = (LEVEL_VIEWS[LEVELS[state.levelIdx].id] || []).find(x => x.k === key);
+      if (!v) return null;
+      if (v.group !== undefined) applyGroup(v.group);
+      const lv = LEVELS[state.levelIdx];
+      const depthR = lv.depthR || (isStage(state.levelIdx) ? LEVELS[STAGE_LEVEL].radius : lv.radius);
+      const tg = (v.tg || lv.target || [0, 0, 0]).slice();
+      const az = v.az !== undefined ? v.az : cam.azimuth;
+      const el = v.el !== undefined ? v.el : cam.elevation;
+      const d = v.d !== undefined ? v.d : cam.distance;
+      if (state.reduced) {
+        applyRadius(cam, lv.radius, depthR);
+        cam.target = tg; cam.azimuth = az; cam.elevation = el; cam.distance = d;
+        dirty = true;
+        return v.n;
+      }
+      transition = {
+        kind: 'view', from: state.levelIdx, to: state.levelIdx, t: 0, seconds: 1.1,
+        d0: cam.distance, d1: d,
+        r0: cam.radius, r1: lv.radius, dr0: depthR, dr1: depthR,
+        tg0: cam.target.slice(), tg1: tg,
+        az0: cam.azimuth, az1: az, el0: cam.elevation, el1: el,
+      };
+      dirty = true;
+      return v.n;
     },
     /** Toggle one ship layer; returns its new state for the button to read back. */
     shipLayer(name) {

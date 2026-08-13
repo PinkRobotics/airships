@@ -1449,37 +1449,25 @@
      structural reading of the same article and dims the rest, so the question "which of these
      216 members is the primary path" is answered by looking rather than by reading a count. -->
 <div id="controls">
+  <!-- VIEWS — the operator's replacement for the old structure/view groups: movement
+       around the things this level is about, rebuilt per level from api.viewsFor().
+       The toggles row keeps only the switches the CURRENT level owns (data-lv). -->
   <div class="grp">
-    <div class="glab">structure — light one, dim the rest</div>
-    <div class="row">
-      <button class="gbtn" data-group="all">everything</button>
-      <button class="gbtn" data-group="internal">internal</button>
-      <button class="gbtn" data-group="external">boundary</button>
-    </div>
-    <div class="row">
-      <button class="gbtn" data-group="primary">primary load path</button>
-      <button class="gbtn" data-group="secondary">bracing</button>
-    </div>
-    <div class="row">
-      <button class="gbtn" data-group="long">long cuts</button>
-      <button class="gbtn" data-group="short">short cuts</button>
-      <!-- Pressed on load: the cell opens on its centre joint. api.group is the authority
-           and syncGroups re-reads it, but the markup must agree or the first paint lies. -->
-      <button class="gbtn on" data-group="centre">into the centre</button>
-    </div>
+    <div class="glab" id="viewslab">views — move around this level</div>
+    <div class="row" id="viewbtns"></div>
   </div>
   <div class="grp">
-    <div class="glab">view</div>
+    <div class="glab">this level's switches</div>
     <div class="row">
-      <button id="toggleSkin">skin: solid</button>
-      <button id="toggleParts">parts: all</button>
-    </div>
-    <div class="row">
-      <button id="clearBreach">reseal cells</button>
-      <button id="toggleUnfold">unfold flat</button>
-    </div>
-    <div class="row">
-      <button id="toggleLoaded">film: slack</button>
+      <button id="toggleSkin" data-lv="cell track">skin: solid</button>
+      <button id="toggleParts" data-lv="cell">parts: all</button>
+      <button id="toggleLoaded" data-lv="cell track">film: slack</button>
+      <button id="toggleUnfold" data-lv="track">unfold flat</button>
+      <button id="clearBreach" data-lv="array">reseal cells</button>
+      <button class="sbtn on" data-layer="wall" data-lv="ship">wall of cells</button>
+      <button class="sbtn on" data-layer="skeleton" data-lv="ship">skeleton</button>
+      <button class="sbtn on" data-layer="webs" data-lv="ship">webs</button>
+      <button class="sbtn on" data-layer="voidskin" data-lv="ship">void skin</button>
     </div>
   </div>
   <!-- One button per stop, built from the tour itself so the set is always the parts that
@@ -1489,24 +1477,6 @@
     <div class="row" id="tourstops"></div>
     <div class="row"><button id="tourNext">…</button></div>
   </div>
-</div>
-
-<!-- SHIP CONTROLS — the ship level's own: layers, not tours. The cell's structure and
-     view boxes hide here (they act on the stage article, which is not on this stage);
-     the cutaway stays, because cutting the tictac open is how you meet the skeleton. -->
-<div id="shipbox" hidden>
-  <div class="grp">
-    <div class="glab">ship layers — the wall, and what holds it</div>
-    <div class="row">
-      <button class="sbtn on" data-layer="wall">wall of cells</button>
-      <button class="sbtn on" data-layer="skeleton">skeleton</button>
-    </div>
-    <div class="row">
-      <button class="sbtn on" data-layer="webs">webs</button>
-      <button class="sbtn on" data-layer="voidskin">void skin</button>
-    </div>
-  </div>
-</div>
 </div>
 
 <!-- CUTAWAY — bottom left, clear of both the reading and the controls. -->
@@ -1587,9 +1557,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=b171e7e8';
-import { SHIP, BAND, GRID } from './catalog.js?v=b171e7e8';
-import * as CELL from './model.js?v=b171e7e8';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=635befe5';
+import { SHIP, BAND, GRID } from './catalog.js?v=635befe5';
+import * as CELL from './model.js?v=635befe5';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1882,10 +1852,11 @@ if (!api) {
   setInterval(() => {
     const onCell = api.state.levelIdx === api.stageLevel;
     asmBox.hidden = !onCell;
-    // The ship swaps control decks: its layer box in, the cell's structure/view box out.
-    const onShip = api.levels[api.state.levelIdx].id === 'ship';
-    document.getElementById('shipbox').hidden = !onShip;
-    document.getElementById('controls').hidden = onShip;
+    // One deck, reshaped per level: only the current level's switches show.
+    const lvId = api.levels[api.state.levelIdx].id;
+    document.querySelectorAll('[data-lv]').forEach(el => {
+      el.hidden = !el.dataset.lv.split(' ').includes(lvId);
+    });
     if (!onCell) return;
     const g = api.assemblyGuide();
     if (!g) return;
@@ -1945,6 +1916,21 @@ if (!api) {
   // attached: firing it before did nothing at all, which is how the first attempt at this
   // "verified" a screenshot of the folded cell.
   if (qs.has('unfold')) uf.click();
+  // THE VIEW BUTTONS: rebuilt whenever the level changes, from the level's own list.
+  const rebuildViews = () => {
+    const row = document.getElementById('viewbtns');
+    const views = api.viewsFor();
+    row.innerHTML = '';
+    document.getElementById('viewslab').textContent =
+      views.length ? 'views — move around this level' : 'views — this level walks its parts below';
+    for (const v of views) {
+      const b = document.createElement('button');
+      b.className = 'vbtn';
+      b.textContent = v.n;
+      b.addEventListener('click', () => api.applyView(v.k));
+      row.appendChild(b);
+    }
+  };
   // SHIP LAYER TOGGLES read their state BACK from the api, same law as every button here.
   const sbtns = [...document.querySelectorAll('.sbtn')];
   const syncLayers = () => {
@@ -1977,6 +1963,9 @@ if (!api) {
   // screenshot can ever show is the one the page opens on.
   if (qs.has('group')) api.setGroup(qs.get('group'));
   syncGroups();
+  rebuildViews();
+  // ?view=key — deep-link a named view, same contract as ?group/?unfold/?layers.
+  if (qs.has('view')) api.applyView(qs.get('view'));
   // THE TOUR. One real button, because a control the probe cannot drive is a control no
   // gate covers — the parts view was invisible to check_explorer's level loop until
   // someone drove the real button.
