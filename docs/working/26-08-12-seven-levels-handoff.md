@@ -355,6 +355,26 @@ explorer") — a breach then costs a compartment, not the ship.
 **Redundancy sequencing (operator):** "design in redundancy once we figure out how to
 get it to work at all." Make it work, then armour it.
 
+**TOPOLOGY CORRECTION (operator, immediately after): A POST AT EVERY VERTEX.** The first
+drawing legged the ALTERNATING vertices (3 per tile to a central bracket) — and because hex
+vertices are bipartite and all tiles share one orientation, the other sublattice went
+globally unsupported: every rim member a cantilever, M = wL²/2 instead of wL²/8, **4x the
+moment on the governing check**. Corrected: a post at EVERY vertex, each shared by the three
+tiles meeting on it — **2 per tile of area, ~2.9 per m², ~35 kN each** (2.9 x 35 kN = 101
+kPa = 1 atm, the check that it closes). Consequences, all drawn: hoop chords move to the
+VERTEX-ROW pitch (flat-top hexagons put vertex rows on straight lines every sqrt(3)a/2 —
+about half the tile pitch, so ~2x the rings, which costs nothing since hoop is demand-fixed
+and they simply get thinner); the outer chord wall rises to the post's foot (~0.22 m under
+the film, not a cell's depth — the band thins and the void grows); and the RIM IS SHARED
+between neighbours as one continuous grid, not a frame per tile, which halves the dominant
+mass term. Per-tile liftability was the only thing unshared rims bought, and redundancy
+moved to compartments. **Also recorded from the same exchange:** the interior rim gets the
+COPLANAR case (neighbouring panels' in-plane pulls cancel; the ship's curvature leaves ~2°),
+not the 109° dihedral that governed the bench cell — the same phenomenon in its mild form.
+And on pattern: hexagons win on both rim terms — least rim length per unit area (1.86 vs
+2.00 square, 2.28 triangle) and least rim moment (0.21 vs 0.50 vs 1.01), because their edges
+are SHORTER for equal area; they lose only on film, which is the small term.
+
 **LICENSED CHECKS THIS OWES — do not size a member without them:**
 - **rim bending under the film's edge pull at tile pitch** — the exact phenomenon that
   governed the bench cell's boundary; 865 tool at band duty. THIS is the one that can

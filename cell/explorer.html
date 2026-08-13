@@ -285,7 +285,7 @@
     <div><div class="v"><span data-n="ship.diaM" data-f="0"></span> × <span data-n="ship.lenM" data-f="0"></span> <span class="u">m</span></div>
       <div class="k">plan of record — a stubby 2:1 cigar</div></div>
     <div><div class="v">≈<span data-n="band.cells" data-f="0"></span></div>
-      <div class="k">tiles in the wrap — rim, legs, one bracket each</div></div>
+      <div class="k">tiles in the wrap — one shared rim grid, a post at every junction</div></div>
     <div><div class="v warm">+<span data-n="shipMarginSF12" data-f="1"></span> <span class="u">t</span></div>
       <div class="k">margin at SF 1.2 — the declared factor</div></div>
     <div><div class="v"><span data-n="shipMarginSF15" data-f="1"></span> <span class="u">t</span></div>
@@ -328,11 +328,11 @@
   <p class="bigsub">P·R at the barrel — the shell's whole job, carried around the void</p>
   <div class="metrics">
     <div><div class="v warm">≈<span data-n="gridOuterPitchM" data-f="1"></span> <span class="u">m</span></div>
-      <div class="k">tile pitch = outer ring pitch — one hoop per row, ruled</div></div>
+      <div class="k">between hoop chords — one under every row of posts, ruled</div></div>
     <div><div class="v">≈<span data-n="grid.depthM" data-f="0"></span> <span class="u">m</span></div>
       <div class="k">between the two chord walls — depth is the stiffness</div></div>
-    <div><div class="v"><span data-n="band.perCellPushT" data-f="1"></span> <span class="u">t</span></div>
-      <div class="k">one tile's push, gathered by its legs onto one bracket</div></div>
+    <div><div class="v">≈35 <span class="u">kN</span></div>
+      <div class="k">per post — ~2.9 of them per m², each shared by three tiles</div></div>
     <div><div class="v">≤<span data-n="grid.bandCapKPaM" data-f="0"></span> <span class="u">kPa·m</span></div>
       <div class="k">all the band could add if asked — it is not asked</div></div>
   </div>
@@ -349,13 +349,16 @@
   walls. The metres of depth are empty truss on purpose — bending stiffness grows with
   the square of the gap, the way an I-beam earns its from the space between flanges.</p>
 
-  <p class="sowhat"><b>Support per tile — ruled.</b> The outer wall carries a hoop chord
-  under every tile row, so each lands its push on its own ring and the seat rail is deleted
-  as a class; the inner wall keeps its bays and all the axial, and the webs fan two-to-one,
-  collecting the fine rings onto the coarse ones. Total hoop material is fixed by demand
-  however many rings share it. What SHIP-2 verifies before any member is sized: the rim's
-  bending under the film's edge pull — the check that governed the bench cell's own
-  boundary — the tile pitch itself, and the thin ring's Euler margin between web points.</p>
+  <p class="sowhat"><b>A post at every junction — ruled.</b> Support only the alternating
+  corners and every rim member becomes a cantilever at four times the moment; support all of
+  them and each is a simple span. Each post is shared by the three tiles meeting on it, so
+  the wall carries about 2.9 posts per square metre at ~35 kN each — which multiplies back
+  to exactly one atmosphere, as it must. The hoop chords run under each row of posts, the
+  seat rail is deleted as a class, and the inner wall keeps its bays and all the axial.
+  What SHIP-2 verifies before any member is sized: the rim's bending under the film's edge
+  pull — the check that governed the bench cell's own boundary, though here neighbouring
+  panels are near-coplanar and their in-plane pulls cancel — the tile pitch itself, and the
+  thin ring's Euler margin between web points.</p>
 
   <div class="shiplinks">
     <button class="golv" data-golevel="ship">up: the whole ship</button>
@@ -1570,9 +1573,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=31a96843';
-import { SHIP, BAND, GRID } from './catalog.js?v=31a96843';
-import * as CELL from './model.js?v=31a96843';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=dd909879';
+import { SHIP, BAND, GRID } from './catalog.js?v=dd909879';
+import * as CELL from './model.js?v=dd909879';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1793,8 +1796,10 @@ if (!api) {
   // The ship level's figures come from catalog.js (typed once, scoping-chipped), plus the
   // two derived margins so the panel can show the honest pair without arithmetic in HTML.
   fillNumbers({ ...api.ctx, ship: SHIP, band: BAND, grid: GRID,
-                gridOuterPitchM: Math.sqrt((2 * Math.PI * (SHIP.diaM / 2) * (SHIP.lenM - SHIP.diaM)
-                  + 4 * Math.PI * (SHIP.diaM / 2) ** 2) / BAND.cells),
+                // vertex-row pitch: sqrt(3)/2 * the hex edge that gives the tile its area
+                gridOuterPitchM: (Math.sqrt(3) / 2) * Math.sqrt((2 * Math.PI * (SHIP.diaM / 2)
+                  * (SHIP.lenM - SHIP.diaM) + 4 * Math.PI * (SHIP.diaM / 2) ** 2) / BAND.cells)
+                  * Math.sqrt(2 / (3 * Math.sqrt(3))),
                 shipMarginSF12: SHIP.liftT - SHIP.massT,
                 shipMarginSF15: SHIP.liftT - SHIP.massSF15T });
 

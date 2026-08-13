@@ -6,7 +6,7 @@
  * retires it. All displayed numbers come from catalog.js (which reads the committed
  * model where the model knows); the HTML prose carries none of its own digits.
  */
-import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=31a96843';
+import { CATALOG, CATS, byCat, SHIP, ARTICLE, BAND, GRID } from './catalog.js?v=dd909879';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -420,84 +420,48 @@ function drawCellSupport() {
  * and the operator called it: at bay pitch the mid-bay cell has NO chord beneath it, which
  * is exactly the open seat-line question, so the figure now draws that gap honestly. */
 function drawWebDetail() {
-  const faceY = 150, innerY = 288, n1 = 110, n2 = 330, mid = 220;
-  const s8 = 39.6, R8 = s8 / (2 * Math.sin(Math.PI / 8)), flat = s8 * (1 + Math.SQRT2);
-  const cy = faceY - flat / 2;
-  const centres = [220 - flat, 220, 220 + flat];
+  const faceY = 150, innerY = 288, mid = 220;
+  const W = 74;                       // tile width across flats, px
+  const centres = [mid - 2 * W, mid - W, mid, mid + W, mid + 2 * W];
   let out = '';
+  // THE FILM, tile by tile: each panel dishes INWARD under the sky, and every junction
+  // between panels is a rim vertex — which is where a post stands. (The operator's
+  // correction: support alternating vertices and every rim member is a cantilever.)
+  const sag = 13;
   for (const cx of centres) {
-    for (let k = 0; k < 8; k++) {
-      const a1 = (22.5 + 45 * k) * Math.PI / 180, a2 = (22.5 + 45 * (k + 1)) * Math.PI / 180;
-      const side = (k === 3 || k === 7);
-      out += `<line x1="${(cx + R8 * Math.cos(a1)).toFixed(1)}" y1="${(cy - R8 * Math.sin(a1)).toFixed(1)}"
-                    x2="${(cx + R8 * Math.cos(a2)).toFixed(1)}" y2="${(cy - R8 * Math.sin(a2)).toFixed(1)}"
-                    stroke="${C.cool}" stroke-width="1.2" ${side ? 'stroke-dasharray="3 3"' : ''}/>`;
-    }
+    out += `<path d="M ${(cx - W / 2).toFixed(1)} ${faceY - 34} Q ${cx} ${faceY - 34 + sag * 2} ${(cx + W / 2).toFixed(1)} ${faceY - 34}"
+             fill="none" stroke="${C.warm}" stroke-width="2"/>`;
   }
-  let skin = '';
-  const pts = [];
-  for (const cx of centres) {
-    pts.push([cx - 0.924 * R8, cy - 0.383 * R8]);
-    pts.push([cx - 0.383 * R8, cy - 0.924 * R8]);
-    pts.push([cx + 0.383 * R8, cy - 0.924 * R8]);
-    pts.push([cx + 0.924 * R8, cy - 0.383 * R8]);
-  }
-  skin = `M 44 ${(cy - 0.383 * R8 - 6).toFixed(1)} ` +
-    pts.map(([x, y]) => `L ${x.toFixed(1)} ${(y - 6).toFixed(1)}`).join(' ') +
-    ` L 396 ${(cy - 0.383 * R8 - 6).toFixed(1)}`;
-  out += `<path d="${skin}" fill="none" stroke="${C.warm}" stroke-width="2"/>`;
-  // The outer face runs NOTHING lengthwise any more — rings, webs and the leaning band
-  // only (outer longerons deleted; the axial chord lives on the inner wall). The faint
-  // dashed line is the seat plane through the rings, a reference, not a member.
-  out += `<line x1="20" y1="${faceY}" x2="420" y2="${faceY}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="4 4"/>
-          <line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.6"/>`;
-  // Hoop chords in section: circled cross = into the page, around the barrel.
-  const hoopSec = (x, y) => {
-    const d = 11 * Math.SQRT1_2 - 2.4;
-    return `<circle cx="${x}" cy="${y}" r="11" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.8"/>
-      <line x1="${x - d}" y1="${y - d}" x2="${x + d}" y2="${y + d}" stroke="${C.cool}" stroke-width="1.2"/>
-      <line x1="${x - d}" y1="${y + d}" x2="${x + d}" y2="${y - d}" stroke="${C.cool}" stroke-width="1.2"/>`;
+  // Posts: one at EVERY junction, down to the ring beneath it.
+  const posts = [];
+  for (let i = 0; i <= centres.length; i++) posts.push(mid + (i - centres.length / 2) * W);
+  const hoopSec = (x, y, r = 9) => {
+    const d = r * Math.SQRT1_2 - 2;
+    return `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.cool}" fill-opacity="0.15" stroke="${C.cool}" stroke-width="1.7"/>
+      <line x1="${x - d}" y1="${y - d}" x2="${x + d}" y2="${y + d}" stroke="${C.cool}" stroke-width="1.1"/>
+      <line x1="${x - d}" y1="${y + d}" x2="${x + d}" y2="${y - d}" stroke="${C.cool}" stroke-width="1.1"/>`;
   };
-  // RULED: a hoop under EVERY cell on the outer wall; the inner wall keeps the bay.
-  for (const cx of centres) out += hoopSec(cx, faceY);
+  for (const px of posts) {
+    out += `<line x1="${px.toFixed(1)}" y1="${faceY - 34}" x2="${px.toFixed(1)}" y2="${faceY - 11}"
+             stroke="${C.bone}" stroke-width="2.2"/>`;
+    out += hoopSec(px, faceY);
+  }
+  out += `<line x1="20" y1="${innerY}" x2="420" y2="${innerY}" stroke="${C.cool}" stroke-width="1.6"/>`;
   out += hoopSec(mid - 106, innerY) + hoopSec(mid + 106, innerY);
-
-  // The 2:1 fan: each outer ring sheds to its nearest inner node.
-  out += `<line x1="${(mid - flat).toFixed(1)}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${mid}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${mid}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-opacity="0.55" stroke-width="1.4"/>
-          <line x1="${(mid + flat).toFixed(1)}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
-          <line x1="${(mid - flat).toFixed(1)}" y1="${faceY + 10}" x2="30" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>
-          <line x1="${(mid + flat).toFixed(1)}" y1="${faceY + 10}" x2="410" y2="${innerY - 14}" stroke="${C.cool}" stroke-opacity="0.35" stroke-width="1.4"/>`;
-  // One bay, dimensioned between the two hoop-chord lines.
-  out += `<line x1="${n1}" y1="200" x2="${n2}" y2="200" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <line x1="${n1}" y1="195" x2="${n1}" y2="205" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <line x1="${n2}" y1="195" x2="${n2}" y2="205" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <text x="${mid}" y="213" fill="${C.bone}" font-size="10" text-anchor="middle" font-family="monospace">one bay ≈ ${GRID.bayM} m</text>`;
-  // The sandwich depth, dimensioned at the right edge.
-  out += `<line x1="424" y1="${faceY}" x2="424" y2="${innerY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <line x1="419" y1="${faceY}" x2="429" y2="${faceY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <line x1="419" y1="${innerY}" x2="429" y2="${innerY}" stroke="${C.bone}" stroke-opacity="0.6" stroke-width="1"/>
-          <text x="436" y="216" fill="${C.bone}" font-size="10" text-anchor="end" font-family="monospace">deep</text>
-          <text x="436" y="230" fill="${C.bone}" font-size="10" text-anchor="end" font-family="monospace">≈ ${GRID.depthM} m</text>`;
-  const arrowTo2 = (x1, y1, x2, y2, col) => {
-    const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
-    return `<line x1="${x1}" y1="${y1}" x2="${(x2 - 5 * ux).toFixed(1)}" y2="${(y2 - 5 * uy).toFixed(1)}" stroke="${col}" stroke-width="1.5"/>
-      <path d="M ${x2} ${y2} L ${(x2 - 8 * ux - 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy + 3.5 * ux).toFixed(1)} L ${(x2 - 8 * ux + 3.5 * uy).toFixed(1)} ${(y2 - 8 * uy - 3.5 * ux).toFixed(1)} Z" fill="${col}"/>`;
-  };
-  out += arrowTo2(150, 182, 190, 252, C.bone) + arrowTo2(290, 182, 250, 252, C.bone);
+  out += `<line x1="${mid - W * 1.5}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${mid + W * 1.5}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-width="1.6"/>
+          <line x1="${mid - W / 2}" y1="${faceY + 10}" x2="${mid - 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-opacity="0.5" stroke-width="1.3"/>
+          <line x1="${mid + W / 2}" y1="${faceY + 10}" x2="${mid + 106}" y2="${innerY - 10}" stroke="${C.cool}" stroke-opacity="0.5" stroke-width="1.3"/>`;
   out += `
-    <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, zoomed — the skin rides the cell landscape</text>
-    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">cells sit face-down on the wall — the seat is embedded in the face</text>
-    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ hoop chords — one under EVERY cell; the inner wall keeps its bays</text>
-    <text x="24" y="${faceY + 17}" fill="${C.faint}" font-size="10" font-family="monospace">seat plane — rings only</text>
-    <text x="${mid}" y="${faceY + 21}" fill="${C.warm}" font-size="10" text-anchor="middle" font-family="monospace">every cell lands on its own ring</text>
-    <text x="${n1 - 14}" y="190" fill="${C.cool}" font-size="10" font-family="monospace">hoop chord</text>
+    <text x="24" y="16" fill="${C.faint}" font-size="10.5" font-family="monospace">one bay, in section — film, rim, post, ring</text>
+    <text x="24" y="31" fill="${C.warm}" font-size="10" font-family="monospace">a post at EVERY rim junction — both ends of every rim held</text>
+    <text x="24" y="46" fill="${C.cool}" font-size="10" font-family="monospace">⊗ a hoop chord under every row of posts</text>
+    <text x="24" y="${faceY - 44}" fill="${C.warm}" font-size="10" font-family="monospace">loaded film, dished inward</text>
     <text x="60" y="236" fill="${C.bone}" font-size="10" font-family="monospace">webs walk the</text>
     <text x="60" y="249" fill="${C.bone}" font-size="10" font-family="monospace">load down</text>
-    <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — bays + ALL the longerons</text>
-    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing crosses the sealed wall — every strut lives in the lift</text>
-    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">the rail is deleted — SHIP-2 checks the thin ring between web points</text>`;
+    <text x="412" y="${innerY - 8}" fill="${C.cool}" font-size="10" text-anchor="end" font-family="monospace">inner wall — bays + all the longerons</text>
+    <text x="${mid}" y="${innerY + 24}" fill="${C.faint}" font-size="10.5" text-anchor="middle" font-family="monospace">nothing behind the film is sealed — it is already vacuum</text>
+    <text x="${mid}" y="${innerY + 39}" fill="${C.faint}" font-size="10" text-anchor="middle" font-family="monospace">~2.9 posts per m², ~35 kN each · rim bending + pitch to SHIP-2</text>`;
   return svgEl(out, '0 0 440 340');
 }
 
