@@ -14,7 +14,7 @@ and the skin all show the same cell and fly between stops on it — five printed
 families, four cuts, four kinds of face — and their copy comes from two places at once:
 cell/model.js for anything physical, and research/geometry/nodes/manifest.json (by way of a
 generated module) for anything about the printed joints. So the gate clicks the real
-#tourNext button through every stop of every tour and asserts, at each: the camera arrived
+stop chips through every stop of every tour and asserts, at each: the camera arrived
 at the stop's own target, the panel is showing that stop's block, the label was read back
 from the state with the tour's own noun, the surroundings are dimmed in tint RGB (where the
 shader can see it) and not in alpha (where it cannot).
@@ -372,11 +372,15 @@ PROBE = r"""(() => {
     const lid = E.levels[i].id;
     E.setLevel(i, true);
     E.tick(0.016);
-    const btn = document.getElementById('tourNext');
+    // The '…' stepper is retired (operator, 08-13 round 5): the walk IS the
+    // chip row, so the gate drives the chips — the same buttons a person has.
+    const chips = () => [...document.getElementById('tourstops').children];
     const sel = (q) => [...document.querySelectorAll(
       `#panel section[data-level="${lid}"] ${q}`)].map(e => e.dataset.stop);
     const rec = {
-      id: lid, shown: btn.style.display !== 'none', noun: t.noun,
+      id: lid,
+      shown: document.getElementById('tourgrp').style.display !== 'none',
+      chipCount: chips().length, noun: t.noun,
       keys: t.stops.map(s => s.key),
       names: t.stops.map(s => s.name),
       targets: t.stops.map(s => s.target.slice()),
@@ -386,9 +390,10 @@ PROBE = r"""(() => {
       walk: [],
     };
     const everything = E.instanceKeys();
-    // stops+1 clicks: every stop once, and the wrap back onto the first.
+    // stops+1 clicks: every stop once, and the wrap back onto the first —
+    // by clicking chip (idx+1) % n each time, the cycle the stepper used to walk.
     for (let k = 0; k <= t.stops.length; k++) {
-      btn.click();
+      chips()[(E.state.tourIdx + 1) % t.stops.length].click();
       E.tick(0.016);
       const s = E.renderer.stats;
       const cur = t.stops[E.state.tourIdx];
@@ -398,8 +403,10 @@ PROBE = r"""(() => {
       // stop somehow lit everything there would be nothing to find, and the Python's
       // "not dimmed" branch is the right complaint — so hand it a null rather than throw.
       const offKey = everything.find(k2 => !cur.subject.has(k2));
+      const onChip = chips().find(c => c.classList.contains('on'));
       rec.walk.push({
-        stop: E.state.tourStop, idx: E.state.tourIdx, label: btn.textContent,
+        stop: E.state.tourStop, idx: E.state.tourIdx,
+        label: `${t.noun}: ${onChip ? onChip.textContent : ''}`,
         target: E.cam.target.slice(), dist: E.cam.distance,
         draws: s.drawCalls, tris: s.triangles,
         on: sel('[data-stop].on'),
@@ -935,7 +942,7 @@ def main() -> None:
     for t in res.get("tours") or []:
         lid, keys, names = t["id"], t["keys"], t["names"]
         if not t["shown"]:
-            bad.append(f"{lid}: #tourNext is hidden on a level that has a tour")
+            bad.append(f"{lid}: the walk group is hidden on a level that has a tour")
         for k, n in zip(keys, t["subjects"]):
             if not n:
                 bad.append(f"{lid}/{k}: the stop lights nothing — a stop with an empty "
@@ -1143,7 +1150,7 @@ def main() -> None:
           f"{_s.get('flyViolations')} fouling; worst settle approach "
           f"{_s.get('settleWorstMm')} mm of the proven lines' clearance spent.")
     print(f"          {len(res['tours'])} tours ({ids}), {stops} stops driven through "
-          f"#tourNext: camera, panel and dim agree.")
+          f"the stop chips: camera, panel and dim agree.")
     st = res.get("skinStatsLoaded") or {}
     print(f"          the pump dishes the film onto the solved membrane field: "
           f"{st.get('sagHexMm')} / {st.get('sagSqMm')} mm sag, "

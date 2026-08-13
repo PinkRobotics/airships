@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=c7b8ef0e';
-import * as G from './explorer-geom.js?v=c7b8ef0e';
+import * as CELL from './model.js?v=f3b0230d';
+import * as G from './explorer-geom.js?v=f3b0230d';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=c7b8ef0e';
+} from './nodes.generated.js?v=f3b0230d';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=c7b8ef0e';
+import { NODEMESHES } from './nodemeshes.generated.js?v=f3b0230d';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=c7b8ef0e';
+import { SKIN } from './skin.generated.js?v=f3b0230d';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=c7b8ef0e';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f3b0230d';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -2117,48 +2117,61 @@ function buildGrid() {
     const joints = new Map();
     const joint = (q) => joints.set(
       `${q[0].toFixed(2)},${q[1].toFixed(2)},${q[2].toFixed(2)}`, q);
-    // End beads sit ON the hoop surfaces, not at the centrelines the pipes
-    // swallow (operator catch, 08-13): outer landings pull in by the ring's
-    // own radius, inner landings pull out by the inner hoop's.
+    // CONNECTORS AS COLLARS (operator round 5): a landing bead is centred ON
+    // its pipe's centreline with a radius a little over the pipe's, so it
+    // reads as a fitting wrapped around the member — visible on the big outer
+    // hoops and the small inner ones alike. Three families, three sizes.
     const INNER_R = 0.055;
+    const jOuter = new Map(), jInner = new Map(), jCross = new Map();
+    const put = (m, q) => m.set(
+      `${q[0].toFixed(2)},${q[1].toFixed(2)},${q[2].toFixed(2)}`, q);
     for (const u of innerRows) {
       for (let c = -3; c < 3; c++) {
         const v0 = c * vHalf / 3.5, v1 = (c + 1) * vHalf / 3.5;
-        tx.push([at(u, v0, 0), at(u, v1, GRID.depthM)]);
-        tx.push([at(u, v1, 0), at(u, v0, GRID.depthM)]);
-        joint(at(u, v0, RING_R)); joint(at(u, v1, RING_R));
-        joint(at(u, v0, GRID.depthM - INNER_R));
-        joint(at(u, v1, GRID.depthM - INNER_R));
-        // The X crossing: on a curved wall the two diagonals are SKEW, and the
-        // parametric midpoint missed them (operator catch). By symmetry their
-        // closest-approach midpoint is the world centroid of the four corners.
-        const c00 = at(u, v0, 0), c11 = at(u, v1, GRID.depthM);
-        const c10 = at(u, v1, 0), c01 = at(u, v0, GRID.depthM);
-        joint([(c00[0] + c11[0] + c10[0] + c01[0]) / 4,
-               (c00[1] + c11[1] + c10[1] + c01[1]) / 4,
-               (c00[2] + c11[2] + c10[2] + c01[2]) / 4]);
+        const A0 = at(u, v0, 0), A1 = at(u, v1, GRID.depthM);
+        const B0 = at(u, v1, 0), B1 = at(u, v0, GRID.depthM);
+        tx.push([A0, A1]);
+        tx.push([B0, B1]);
+        put(jOuter, A0); put(jOuter, B0);
+        put(jInner, A1); put(jInner, B1);
+        // THE TRUE CROSSING (operator round 5: "slightly above, in the well
+        // of the top V"): the ring-plane panel is an isosceles trapezoid, and
+        // trapezoid diagonals cross at the RADIUS-WEIGHTED point — a fraction
+        // r_outer/(r_outer + r_inner) along each diagonal, nearer the short
+        // inner chord — not at the corner centroid the last fix used.
+        const rO = Math.hypot(A0[1], A0[2]);
+        const rI = Math.hypot(A1[1], A1[2]);
+        const tt = rO / (rO + rI);
+        put(jCross, [A0[0] + (A1[0] - A0[0]) * tt,
+                     A0[1] + (A1[1] - A0[1]) * tt,
+                     A0[2] + (A1[2] - A0[2]) * tt]);
       }
     }
     pipes('GridTheta', tx, 0.02, XM.pipe);
-    // The fan's own landings: outer end on its ring, inner ends on theirs.
+    // The fan's own landings: outer end on its ring, inner ends on theirs —
+    // including the four-legs-to-one point where two bays' webs share an
+    // inner-hoop landing with the X ends.
     for (let n = 0; n < innerRows.length - 1; n++) {
       const u0 = innerRows[n], u1 = innerRows[n + 1], mid = (u0 + u1) / 2;
       for (let c = -3; c <= 3; c++) {
         const v = c * vHalf / 3.5;
-        joint(at(mid, v, RING_R));
-        joint(at(u0, v, GRID.depthM - INNER_R));
-        joint(at(u1, v, GRID.depthM - INNER_R));
+        put(jOuter, at(mid, v, 0));
+        put(jInner, at(u0, v, GRID.depthM));
+        put(jInner, at(u1, v, GRID.depthM));
       }
     }
-    {
-      const pts = [...joints.values()];
+    const mount = (id, m, geom) => {
+      const pts = [...m.values()];
       const xf = new Float32Array(pts.length * 16);
       pts.forEach((q, i) => xf.set([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
         q[0], q[1], q[2], 1], i * 16));
-      const jn = inst(root, { id: 'GridJoints' }, xf, pts.length, {});
-      jn.geom = G.beadGeom(0.085, 0.06, 0.075, 8);
+      const jn = inst(root, { id }, xf, pts.length, {});
+      jn.geom = geom;
       jn.xmat = XM.printed;
-    }
+    };
+    mount('GridJointsOuter', jOuter, G.beadGeom(0.105, 0.075, 0.095, 8));
+    mount('GridJointsInner', jInner, G.beadGeom(0.078, 0.056, 0.070, 8));
+    mount('GridJointsX', jCross, G.beadGeom(0.062, 0.045, 0.055, 8));
     // Spokes leave from EVERY inner hoop — the model's own layout (one pair
     // drawn per bay here; the ship level draws the full diametral set).
     const sp = [];
@@ -2849,7 +2862,10 @@ function cutStops(cell, lv, ctx) {
     }, group[0]);
     const r = cell.memberRadius;
     stops.push({
-      key, name: g.name, rep,
+      // Named by the CUT (operator, 08-13 round 5): nine chips that all said
+      // 'octet' or 'tie' were labels in name only — the length is the identity
+      // on a saw table, so the chip says the length.
+      key, name: `${g.cutMm.toFixed(0)} mm ${g.name}`, rep,
       // WHOLE ARTICLE IN FRAME (operator, 08-13): the walk changes the
       // HIGHLIGHT, not the vantage. Every stop parks at the cell's own framing
       // — same pose for all of them, so between stops the camera does not move
@@ -2947,9 +2963,11 @@ function buildTour(levelId, cell, ctx) {
   let stops = null, noun = 'part', skinLit = false;
   if (levelId === 'strut') stops = familyStops(cell, lv);
   else if (levelId === 'wall') { stops = cutStops(cell, lv, ctx); noun = 'cut'; }
-  else if (levelId === 'track') {
-    stops = faceStops(cell, lv); noun = 'face'; skinLit = true;
-  }
+  // The SKIN's walk is retired (operator, 08-13 round 5): its stops stopped
+  // moving the camera when the wide-framing rule landed, so the walk became a
+  // list of highlights the panel already carries — the panel shows all four
+  // face readings at once there now. faceStops stays for the day a walk earns
+  // its place back.
   return stops && stops.length ? { levelId, noun, skinLit, stops } : null;
 }
 

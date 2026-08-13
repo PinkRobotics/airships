@@ -164,6 +164,16 @@
        color:var(--text);border-color:var(--line-strong);background:rgba(255,255,255,.07)}
   #tourNext{border-color:var(--warm-dim);color:var(--bone);white-space:nowrap;flex:1}
   .gbtn.on,.sbtn.on{color:var(--warm);border-color:var(--warm-dim);background:var(--warm-glow)}
+  /* TOGGLE PANELS (operator, 08-13 round 5): switches read as switches. Every
+     control row is a stacked panel; multi-select layer switches carry a square
+     check, single-select views and walk chips carry a radio dot. */
+  #controls .row{display:flex;flex-wrap:wrap;gap:4px}
+  .sbtn::before{content:'';display:inline-block;width:8px;height:8px;margin-right:7px;
+       border:1px solid var(--faint);border-radius:2px;vertical-align:0}
+  .sbtn.on::before{background:var(--warm);border-color:var(--warm)}
+  .vbtn::before,#tourstops .gbtn::before{content:'';display:inline-block;width:8px;
+       height:8px;margin-right:7px;border:1px solid var(--faint);border-radius:99px}
+  .vbtn.on::before,#tourstops .gbtn.on::before{background:var(--warm);border-color:var(--warm)}
 
   /* ---- the ledger: mass against the air — dense rows above the metric boxes ---- */
   #ledger{margin:var(--s3) 0 var(--s4);border:1px solid var(--line);
@@ -1572,7 +1582,6 @@
   <div class="grp" id="tourgrp">
     <div class="glab" id="tourlab">walk the parts</div>
     <div class="row" id="tourstops"></div>
-    <div class="row"><button id="tourNext">…</button></div>
   </div>
 </div>
 
@@ -1674,9 +1683,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=c7b8ef0e';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=c7b8ef0e';
-import * as CELL from './model.js?v=c7b8ef0e';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=f3b0230d';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=f3b0230d';
+import * as CELL from './model.js?v=f3b0230d';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1821,6 +1830,12 @@ api = mountExplorer({
     for (const s of document.querySelectorAll('#panel section')) {
       s.classList.toggle('active', s.dataset.level === lv.id);
     }
+    // A level whose walk retired keeps its stop blocks as PLAIN READING: all
+    // of them shown at once (the skin's four faces), none gated on a stop.
+    if (api && !api.tourFor(idx)) {
+      const sec2 = document.querySelector(`#panel section[data-level="${lv.id}"]`);
+      if (sec2) for (const d of sec2.querySelectorAll('.stop')) d.classList.add('on');
+    }
     for (const b of document.querySelectorAll('#rail button')) {
       b.classList.toggle('on', b.dataset.id === lv.id);
     }
@@ -1853,10 +1868,8 @@ api = mountExplorer({
         d.classList.toggle('on', !!stop && d.dataset.stop === stop.key);
       }
     }
-    const btn = document.getElementById('tourNext');
-    btn.style.display = stop ? 'block' : 'none';
-    // The whole labelled group goes with the button. A section heading reading "walk the
-    // parts" over an empty row on a level that has no tour is worse than no heading.
+    // A labelled group over an empty row on a level with no walk is worse
+    // than no heading. (The '…' stepper is retired — the chips ARE the walk.)
     document.getElementById('tourgrp').style.display = stop ? 'flex' : 'none';
     // Unfolding is the skin level's own control — there is nothing to unfold anywhere else.
     document.getElementById('toggleUnfold').style.display =
@@ -1881,11 +1894,6 @@ api = mountExplorer({
     }
     if (tr) [...box.children].forEach((b, i) =>
       b.classList.toggle('on', tr.stops[i] && tr.stops[i].key === (stop && stop.key)));
-    // Read back from the state, not from the argument: if the two ever disagree, the
-    // button is the thing a person looks at and the thing the gate asserts on. The NOUN
-    // comes back with it — a stop on the tube level is a cut and a stop on the skin level
-    // is a face — so the page asks what it is showing instead of deciding.
-    if (stop && api) btn.textContent = api.partLabel();
   },
   onCtx: (c) => fillNumbers({ ...c, ship: SHIP, band: BAND, grid: GRID, w: WALL }),
   onFlight(on) { syncFly(on); },   // syncFly is a module-scope let, assigned below
@@ -2044,7 +2052,12 @@ if (!api) {
       const b = document.createElement('button');
       b.className = 'vbtn';
       b.textContent = v.n;
-      b.addEventListener('click', () => api.applyView(v.k));
+      b.addEventListener('click', () => {
+        api.applyView(v.k);
+        // Radio-dot truth: the lit view is the last one flown to; a drag or a
+        // flight does not unlight it (the pose label is a bookmark, not state).
+        [...row.children].forEach(c => c.classList.toggle('on', c === b));
+      });
       row.appendChild(b);
     }
   };
@@ -2121,7 +2134,6 @@ if (!api) {
   // saying the right thing after the state stopped agreeing with it, which is the failure
   // the "read it back" rule exists to prevent — and it would make the gate's own label
   // assertion untestable, because one writer would always cover for the other.
-  document.getElementById('tourNext').addEventListener('click', () => api.nextPart());
 
   /* keyboard — ARROWS BELONG TO THE FLIGHT now (operator, 08-13): they used to
    * dive levels and walk tours, which fought the free camera for the stick.

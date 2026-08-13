@@ -10,7 +10,7 @@ import { close, describe, it, knownFail, ok } from '../harness.js';
 import {
   CLASSES, CLASS_ORDER, MODES,
   buildMission, findSource, resetConfig, setSeed, stateAt,
-} from '../../sim/index.js?v=c7b8ef0e';
+} from '../../sim/index.js?v=f3b0230d';
 
 const WATER = [[-120.30, 50.00, 40000, 0, 'Big Lake', null]];
 const FIRE = () => ({ id: 'NRG-1', ll: [-120.05, 50.05], sizeHa: 4000, status: 'Out of Control', note: false, ring: null });

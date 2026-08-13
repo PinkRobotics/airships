@@ -330,3 +330,27 @@ module scope is the pattern (the gate caught it before any human did).
   it in one line. HANDOFF already warned about exactly this.
 - Stray processes: two idle serve.py killed; no headless Chromium; the mouse stutter
   suspect is localsearch-3 (GNOME indexer) chewing the night's file churn + openrgb.
+
+
+## MORNING, PART 8 — collars true, walks curated, the deck is toggles
+
+- **The X beads sit ON the crossings now** (operator round 5: "slightly above, in the
+  well of the top V" — exactly diagnostic): a ring-plane panel is an isosceles
+  TRAPEZOID, and trapezoid diagonals cross at the radius-weighted point
+  r_outer/(r_outer + r_inner) along each diagonal (nearer the inner chord), not at the
+  corner centroid the previous fix used. Landing beads became COLLARS: centred on the
+  pipe centrelines with radii a little over each pipe family's own (outer hoops 0.105,
+  inner 0.078, X mid-span 0.062) — visible on the big rings and the small ones, and at
+  the four-legs-to-one landings.
+- **The walks are curated** (operator, mid-round): tubes and connectors KEEP their
+  walks — they are the good ones — with the cut chips renamed by LENGTH ('206 mm
+  spoke', '134 mm tie': the identity on a saw table; nine chips no longer read
+  octet/octet/octet). The SKIN's walk is retired (its stops stopped moving the camera
+  under the wide-frame rule, so it was a list the panel already carries — all four
+  face readings now show at once there). The '…' stepper is gone everywhere: the chip
+  row IS the walk, and the gate now drives the chips, not the stepper.
+- **The deck is toggle panels**: layer switches wear square checks, views and walk
+  chips wear radio dots, the lit view is a bookmark of the last pose flown to.
+- Operator dropped the disk-I/O + 6.32 TB download investigation from this session —
+  another agent takes it. (First look before the drop: no headless browsers, two idle
+  serve.py strays killed; localsearch-3 indexer + openrgb were the CPU load.)
