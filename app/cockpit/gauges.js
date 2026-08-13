@@ -1,8 +1,8 @@
 /* The SVG instruments: round gauges, the dual generation/consumption dial, the phase dial.
  */
-import { PHASES, PHASE_TINT, fmtMin } from '../../sim/index.js?v=ca9b8477';
-import { SHORT } from '../dom.js?v=ca9b8477';
-import { S } from '../store.js?v=ca9b8477';
+import { PHASES, PHASE_TINT, fmtMin } from '../../sim/index.js?v=ded350b9';
+import { SHORT } from '../dom.js?v=ded350b9';
+import { S } from '../store.js?v=ded350b9';
 
 export const SVGNS = "http://www.w3.org/2000/svg";
 

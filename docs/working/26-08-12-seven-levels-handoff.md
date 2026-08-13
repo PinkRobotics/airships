@@ -372,6 +372,30 @@ squaring halves the film AND halves the meridional pull that is the cross-bars' 
 reason to exist. Member material is demand-fixed either way (force/sigma, spacing-
 independent), so the halving is pure profit; triangles are doubly curved too but pay a
 cosine penalty on every diagonal.
+**THE CROSSING, RULED (operator, 08-13): NOTHING CUT, NOTHING DRILLED, NOTHING WOVEN.**
+He asked whether the bars butt in with connectors, thread through drilled rings, or weave.
+Answer: none of those — **both members run CONTINUOUS, the cross-bars one diameter outboard,
+and a split-Ti clamp holds each crossing** (~4 per m2 — the count worth watching, ~0.2 kg/m2
+at ~50 g each, and it wants sizing rather than assuming). Reasons on the record: (a) drilling
+the hoop puts a stress raiser in the primary compression member, severs the wound fibre and
+invites local buckling in a 4 mm wall — ring continuity is the one thing to protect
+absolutely; (b) butt-jointing chops the bar and doubles the connector ends; (c) WEAVING IS
+WORSE THAN EITHER — the weave amplitude is one tube diameter over a half-metre span, an
+out-of-straightness of ~1/21 against the L/500 a compression member wants, and the
+eccentricity moment alone (P x ~12 mm) exceeds the bar's section modulus by scoping
+arithmetic. Clamps do the interlock a weave would, without kinking anything.
+**The film lies on the cross-bars and drapes the one-diameter step onto the rings between
+them** — inside the ~28 mm sag it takes anyway, which is the operator's own point: fabric
+flex means no flat plane is needed. Bonus recorded: continuous cross-bars are longerons
+again in all but name, segmented only by clamps, which partly restores the meridional
+continuity SHIP-2 inherited as a worry when the outer longerons were deleted.
+**Not every outer ring gets a web, and that is correct** — a ring under uniform radial load
+is self-equilibrating (an arch closed on itself), and webs carry SHEAR, which wants diagonals
+near 45deg, so web spacing should track the sandwich depth (~2-3 m), not the ring pitch.
+Webbing every ring would make the truss worse for the same material. What the untied rings
+do rely on is the cross-bars tying them to their webbed neighbours under NON-uniform load —
+local ovalization between web lines, now named in #74.
+
 **AND THE HEXAGON ANALYSIS IS RETIRED WITH IT** — it optimised a free-standing rim grid, and
 the grid should not be free-standing. Worth keeping as a geometric fact: a hex lattice
 contains NO straight continuous lines (three edges at 120deg, never collinear), so hexagons

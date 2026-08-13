@@ -11,7 +11,7 @@ import { close, describe, eq, it, ok } from '../harness.js';
 import {
   ALT, ALT_DROP_TOP, CLASSES, CLASS_ORDER, MODES, PHASES,
   buildMission, findSource, havKm, resetConfig, setSeed, sourceAltM, stateAt,
-} from '../../sim/index.js?v=ca9b8477';
+} from '../../sim/index.js?v=ded350b9';
 
 /* A fixture with no live data in it: two lakes big enough for any class, one fire between
    them. `null` outlines mean intakePoint returns the centroid, so the geometry is exactly

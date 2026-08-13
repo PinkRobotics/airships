@@ -24,26 +24,26 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=ca9b8477';
-import * as G from './explorer-geom.js?v=ca9b8477';
+import * as CELL from './model.js?v=ded350b9';
+import * as G from './explorer-geom.js?v=ded350b9';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=ca9b8477';
+} from './nodes.generated.js?v=ded350b9';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=ca9b8477';
+import { NODEMESHES } from './nodemeshes.generated.js?v=ded350b9';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=ca9b8477';
+import { SKIN } from './skin.generated.js?v=ded350b9';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID } from './catalog.js?v=ca9b8477';
+import { SHIP, BAND, GRID } from './catalog.js?v=ded350b9';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7439a398';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7439a398';
 import {
@@ -1959,18 +1959,50 @@ function buildGrid() {
   const rows = [];
   for (let k = -NU; k <= NU; k++) rows.push(k * ROW);
 
-  // ~100 mm OD: N = pR over the row pitch, at the mid coupon class, R/t 13.
-  pipes('GridHoops', rows.flatMap(u => arc(u, 0)), 0.05, XM.pipeRim);
+  // NOTHING IS CUT AND NOTHING IS DRILLED (operator, 08-13). The rings run continuous —
+  // a hole in the primary compression member is a stress raiser, severs the wound fibre,
+  // and invites local buckling in a 4 mm wall. The cross-bars also run continuous, one
+  // diameter OUTBOARD, and a split-Ti clamp holds them where they cross. Not woven: a
+  // weave's amplitude is one tube diameter over a half-metre span, an out-of-straightness
+  // of ~1/21 against the L/500 a compression member wants, and the eccentricity moment
+  // alone (P x 12 mm) exceeds the bar's section. Clamps do the interlock without kinking.
+  const RING_R = 0.05, BAR_R = 0.012;
+  const BAR_OFF = -(RING_R + BAR_R);        // negative = outboard of the rings
+  pipes('GridHoops', rows.flatMap(u => arc(u, 0)), RING_R, XM.pipeRim);
   // The cross-bars: struts between adjacent rings. The film's meridional pull draws the
   // rings together and these hold them apart — and they tie the rings into ONE flange,
   // so the webs can serve every ring between them instead of leaving most floating.
   const bars = [];
-  for (let k = -NU; k < NU; k++) {
-    for (let c = -NV; c <= NV; c++) {
-      bars.push([at(k * ROW, c * CROSS, 0), at((k + 1) * ROW, c * CROSS, 0)]);
-    }
+  for (let c = -NV; c <= NV; c++) {
+    // Continuous, end to end of the patch — segmented only by the clamps it passes under.
+    bars.push([at(-NU * ROW, c * CROSS, BAR_OFF), at(NU * ROW, c * CROSS, BAR_OFF)]);
   }
-  pipes('GridCross', bars, 0.012, XM.pipe);   // ~24 mm: the pull is halved by the square
+  pipes('GridCross', bars, BAR_R, XM.pipe);   // ~24 mm: the square halves the pull
+
+  // THE CROSSING CLAMPS — one per intersection, the same split clamshell family as every
+  // other joint. ~4 per m2 of wall, which is the count worth watching.
+  {
+    const cl = [];
+    for (let k = -NU; k <= NU; k++) {
+      for (let c = -NV; c <= NV; c++) {
+        const u = k * ROW, v = c * CROSS;
+        const st = shipStation(D, s0 + u);
+        const th = TH0 + v / D.R;
+        const uu = [0, -Math.cos(th), Math.sin(th)];
+        const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
+        const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
+        const thop = [0, -Math.sin(th), -Math.cos(th)];
+        const q = at(u, v, BAR_OFF / 2);
+        cl.push([thop, tm, n, q]);
+      }
+    }
+    const xf = new Float32Array(cl.length * 16);
+    cl.forEach(([X, Y, Z, q], i) => xf.set([X[0], X[1], X[2], 0, Y[0], Y[1], Y[2], 0,
+      Z[0], Z[1], Z[2], 0, q[0], q[1], q[2], 1], i * 16));
+    const cn = inst(root, { id: 'GridClamps' }, xf, cl.length, {});
+    cn.geom = G.beadGeom(0.15, 0.11, 0.13, 10);
+    cn.xmat = XM.printed;
+  }
 
   // THE FILM: one dished pillow per square panel — doubly curved, which is the whole
   // reason the panel is square.
@@ -1985,7 +2017,10 @@ function buildGrid() {
         const n = [st.nx, st.nr * uu[1], st.nr * uu[2]];
         const tm = [st.tx, st.tr * uu[1], st.tr * uu[2]];
         const thop = [0, -Math.sin(th), -Math.cos(th)];
-        const q = at(u, v, 0);
+        // The film lies on the CROSS-BARS and drapes the one-diameter step down onto the
+        // rings between them — inside the sag it takes anyway, which is why the fabric's
+        // own flex covers it and no flat plane is needed.
+        const q = at(u, v, BAR_OFF - BAR_R);
         px.push([thop, tm, n, q]);
       }
     }
@@ -2016,6 +2051,7 @@ function buildGrid() {
     labels: [
       { p: at(0, 3.4 * CROSS, -1.6), t: 'the film lies straight on the rings', s: 'no posts and no rim grid: the hoop chords ARE the frame across, and a ring loaded along its length sees uniform radial load — pure compression, the case it is funicular for' },
       { p: at(1.2 * ROW, -3.4 * CROSS, -1.4), t: 'square panels, and why', s: 'doubly curved carries pressure both ways at half the tension of a long trough — half the film, and half the pull the cross-bars resist' },
+      { p: at(-1.4 * ROW, 3.4 * CROSS, -1.5), t: 'clamped where they cross', s: 'nothing drilled, nothing cut, nothing woven: both members run continuous and a split clamp holds the crossing — a weave would kink a compression member into bending' },
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
     ],
