@@ -3,31 +3,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=7737f66b';
-import { build } from '../model/build.js?v=7737f66b';
+import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=4cd9890f';
+import { build } from '../model/build.js?v=4cd9890f';
 import {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from '../physics/state.js?v=7737f66b';
+} from '../physics/state.js?v=4cd9890f';
 import {
   demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES, ALT,
-} from '../anim/mission.js?v=7737f66b';
-import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=7737f66b';
-import { buildActuators } from '../control/actuators.js?v=7737f66b';
-import { allocate, demoWrench } from '../control/allocator.js?v=7737f66b';
-import { massState } from '../physics/mass.js?v=7737f66b';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=7737f66b';
-import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=7737f66b';
-import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=7737f66b';
-import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=7737f66b';
-import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=7737f66b';
-import { CSS } from '../render/styles.js?v=7737f66b';
+} from '../anim/mission.js?v=4cd9890f';
+import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=4cd9890f';
+import { buildActuators } from '../control/actuators.js?v=4cd9890f';
+import { allocate, demoWrench } from '../control/allocator.js?v=4cd9890f';
+import { massState } from '../physics/mass.js?v=4cd9890f';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=4cd9890f';
+import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=4cd9890f';
+import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=4cd9890f';
+import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=4cd9890f';
+import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=4cd9890f';
+import { CSS } from '../render/styles.js?v=4cd9890f';
 import {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS,
-} from '../adapter/fable.js?v=7737f66b';
-import { walk } from '../core/nodes.js?v=7737f66b';
-import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=7737f66b';
+} from '../adapter/fable.js?v=4cd9890f';
+import { walk } from '../core/nodes.js?v=4cd9890f';
+import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=4cd9890f';
 
 /* ---------- state -------------------------------------------------------------------------- */
 
@@ -719,73 +719,17 @@ test('every view layer is reachable in the mode that is meant to show it', () =>
   assert.ok(shows('ghost', 'HullWire', { shellWire: true }), 'shellWire must work in ghost too');
 });
 
-test('only the ROTOR of a blower spins — the housing stays put', () => {
-  // Regression: duct and blades were one merged mesh carried by one instance transform, so
-  // "spinning the fan" turned the whole nacelle, flange and all. Housing and rotor are now
-  // separate instanced containers sharing a placement, and only the rotor turns.
-  for (const [housingId, rotorId] of [['LocalTrimFans', 'LocalTrimFanBlades'],
-    ['MediumThrusters', 'MediumThrusterFans']]) {
-    // A FRESH model per pair. Sharing one across both runs the same 30 frames twice at the same
-    // rate, so the second driver lands on the phase the first one left behind and the transform
-    // looks unchanged — a false failure that says nothing about the code.
-    const b = build('P100', { tier: 2 });
-    const acts = buildActuators(b.cls, b.layout);
-    const m = massState(b.cls, defaultState({ waterFraction: 1 }), b.layout);
-    const alloc = allocate(acts, demoWrench('lateral', b.cls, m.totalTonnes * 1000),
-      { densityAt: (p) => b.field.sample(p).density },
-      { weightN: m.weightN, armM: b.cls.lengthM / 2 });
-    const housing = b.index.get(housingId);
-    const rotor = b.index.get(rotorId);
-    assert.ok(housing && rotor, `${housingId} / ${rotorId} missing`);
-    const h0 = Array.from(housing.inst.xf);
-    const r0 = Array.from(rotor.inst.xf);
-    const d = createDriver(b);
-    for (let i = 0; i < 30; i++) updateDriver(d, 1 / 60, defaultState({ airspeedMps: 10 }), alloc);
-    assert.deepEqual(Array.from(housing.inst.xf), h0, `${housingId} moved — the housing must not spin`);
-    assert.ok(Array.from(rotor.inst.xf).some((v, i) => Math.abs(v - r0[i]) > 1e-6),
-      `${rotorId} did not turn`);
-  }
-});
-
-test('blowers spin only when commanded, and stop when reduced motion is on', () => {
-  const mk = () => build('P100', { tier: 2 });
-  const b = mk();
-  const acts = buildActuators(b.cls, b.layout);
-  const m = massState(b.cls, defaultState({ waterFraction: 1 }), b.layout);
-  const alloc = allocate(acts, demoWrench('lateral', b.cls, m.totalTonnes * 1000),
-    { densityAt: (p) => b.field.sample(p).density },
-    { weightN: m.weightN, armM: b.cls.lengthM / 2 });
-
-  // Nothing commanded: nothing turns.
-  const bIdle = mk();
-  const idle = bIdle.index.get('LocalTrimFanBlades');
-  const still = Array.from(idle.inst.xf);
-  const dIdle = createDriver(bIdle);
-  for (let i = 0; i < 30; i++) updateDriver(dIdle, 1 / 60, defaultState(), null);
-  assert.deepEqual(Array.from(idle.inst.xf), still, 'uncommanded fans must not turn');
-
-  // Reduced motion freezes them even when commanded.
-  const b3 = mk();
-  const d3 = createDriver(b3, { reduced: true });
-  const f3 = b3.index.get('LocalTrimFanBlades');
-  const s3 = Array.from(f3.inst.xf);
-  for (let i = 0; i < 30; i++) updateDriver(d3, 1 / 60, defaultState({ airspeedMps: 10 }), alloc);
-  assert.deepEqual(Array.from(f3.inst.xf), s3, 'reduced motion must stop the blowers');
-});
-
-test('ducted units have blades, or spinning them would animate nothing', () => {
-  // A cylinder is rotationally symmetric: rotating it is invisible. The fan geometry must have
-  // features off its own axis for the spin to read at all.
+test('the ducted units are retired — no blower nodes exist on any class', () => {
+  // Operator, 08-13 late: ALL thrusters removed — ducted units were set INTO
+  // the skin and nothing cuts the wall. The three blower behaviour tests that
+  // lived here (housing-vs-rotor spin, commanded-only spin, bladed geometry)
+  // guarded parts that no longer exist; this guard replaces them and fails
+  // loudly if a blower node quietly returns.
   const b = build('P100', { tier: 2 });
-  for (const id of ['LocalTrimFanBlades', 'MediumThrusterFans']) {
-    const g = b.index.get(id).geom;
-    let offAxis = 0;
-    for (let i = 0; i < g.pos.length; i += 3) {
-      // a blade reaches out in y/z while sitting away from the duct wall
-      const r = Math.hypot(g.pos[i + 1], g.pos[i + 2]);
-      if (r > 1e-3) offAxis++;
-    }
-    assert.ok(g.tris > 60, `${id} has only ${g.tris} triangles — too simple to be a bladed fan`);
-    assert.ok(offAxis > 20, `${id} has no off-axis geometry to make rotation visible`);
+  for (const id of ['LocalTrimFans', 'LocalTrimFanBlades',
+    'MediumThrusters', 'MediumThrusterFans']) {
+    assert.ok(!b.index.get(id), `${id} exists — the thruster retirement regressed`);
   }
+  assert.equal(b.layout.mediumThrusters.length, 0, 'medium thrusters came back');
+  assert.equal(b.layout.trimFans.length, 0, 'trim fans came back');
 });

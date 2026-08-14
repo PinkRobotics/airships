@@ -7,17 +7,17 @@ import {
   resolveClass, classes, validateClass, CLASS_IDS, hullVolume, radiusForVolume,
   profileR, sectionScale, HULL_DEFAULT, stationX, stationT, hullR,
   capsuleRadiusForVolume, RHO_LN2,
-} from '../model/config.js?v=7737f66b';
-import { build } from '../model/build.js?v=7737f66b';
-import { buildLayout, insideHull } from '../model/layout.js?v=7737f66b';
-import { proxyField, dataField, anchorsFor } from '../model/density.js?v=7737f66b';
-import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=7737f66b';
-import { buildLattice, TIERS } from '../model/structure.js?v=7737f66b';
-import { auditBuild } from '../model/audit.js?v=7737f66b';
-import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=7737f66b';
-import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=7737f66b';
-import { m4transform, norm, cross } from '../core/math.js?v=7737f66b';
-import { prng, streamFor } from '../core/prng.js?v=7737f66b';
+} from '../model/config.js?v=4cd9890f';
+import { build } from '../model/build.js?v=4cd9890f';
+import { buildLayout, insideHull } from '../model/layout.js?v=4cd9890f';
+import { proxyField, dataField, anchorsFor } from '../model/density.js?v=4cd9890f';
+import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=4cd9890f';
+import { buildLattice, TIERS } from '../model/structure.js?v=4cd9890f';
+import { auditBuild } from '../model/audit.js?v=4cd9890f';
+import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=4cd9890f';
+import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=4cd9890f';
+import { m4transform, norm, cross } from '../core/math.js?v=4cd9890f';
+import { prng, streamFor } from '../core/prng.js?v=4cd9890f';
 
 test('the three classes resolve and validate', () => {
   for (const c of classes()) {
@@ -212,13 +212,13 @@ test('decoration is not in the pick space at all', () => {
     const sel = new Set(b.selectableIds);
     for (const dec of ['Motion_0', 'Wind_0', 'Puff_0', 'Pipe_0_0', 'HoseFlow_00_0',
       'DropOutlet_00_Drop3', 'WaterManifold_00_Slug2', 'PrimaryRotorStation_00_Wash0',
-      'WaterTank_00_Fill', 'LocalTrimFan_000_Fan']) {
+      'WaterTank_00_Fill']) {
       assert.ok(!sel.has(dec), `${id}: ${dec} is decoration and must not be selectable`);
     }
     // …and the components that share those nodes' geometry still are, or the fix removed the
     // pick space rather than trimming it.
-    for (const real of ['WaterTank_00', 'DropOutlet_00', 'HoseReel_00', 'LocalTrimFan_000',
-      'MediumThruster_00', 'Generator_00', 'PrimaryRotorStation_00']) {
+    for (const real of ['WaterTank_00', 'DropOutlet_00', 'HoseReel_00',
+      'Generator_00', 'PrimaryRotorStation_00']) {
       assert.ok(sel.has(real), `${id}: ${real} is a component and must be selectable`);
       assert.ok(b.metadata.get(real), `${id}: ${real} has no metadata`);
     }

@@ -191,7 +191,7 @@ import {
   phaseTimeline, stepPhase, MODES, demoState,
   AirshipScaleComparison, AirshipTrajectoryExplorer, AirshipMapModel, AirshipStaticFigure,
   componentPanel, describeMapping, injectStyles, VERSION,
-} from '../3d/index.js?v=7737f66b';
+} from '../3d/index.js?v=4cd9890f';
 
 injectStyles();
 const $ = (id) => document.getElementById(id);
@@ -279,7 +279,7 @@ function buildFailureButtons() {
     ...b.layout.rotorStations.slice(0, 6).map((s) => [s.id, `Rotor ${s.id.slice(-2)}`]),
     ['HVDCBus_00', 'HVDC bus 0'], ['Generator_00', 'Generator 0'],
     ['PumpPod_00', 'Pump pod 0'], ['VacuumCellModule_03', 'Vacuum cell 3'],
-    ['SensorCluster_PortQtr', 'Port sensor'], ['MediumThruster_00', 'Thruster 0'],
+    ['SensorCluster_PortQtr', 'Port sensor'],
     ['TailSurface_00', 'Tail surface 0'],
   ];
   for (const [id, label] of cand) {

@@ -15,8 +15,8 @@
  * deliberate, the right move is to delete the field from one side, not to loosen this.
  */
 import { describe, it, eq } from '../harness.js';
-import { CLASSES, CLASS_ORDER, DEFAULTS } from '../../sim/index.js?v=4a4cf3a2';
-import { ASSUMPTIONS, resolveClass } from '../../3d/model/config.js?v=7737f66b';
+import { CLASSES, CLASS_ORDER, DEFAULTS } from '../../sim/index.js?v=77312b8b';
+import { ASSUMPTIONS, resolveClass } from '../../3d/model/config.js?v=4cd9890f';
 
 /** sim field -> 3D field, for every quantity both files claim to know. */
 const SHARED = {

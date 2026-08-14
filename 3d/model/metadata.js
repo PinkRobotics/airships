@@ -21,8 +21,8 @@
  * not weights.
  */
 
-import { CATEGORIES } from '../core/nodes.js?v=7737f66b';
-import { ASSUMPTIONS } from './config.js?v=7737f66b';
+import { CATEGORIES } from '../core/nodes.js?v=4cd9890f';
+import { ASSUMPTIONS } from './config.js?v=4cd9890f';
 
 /** Fraction of the dry mass allowance each system gets. Sums to 1. */
 export const MASS_SHARE = {

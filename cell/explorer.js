@@ -24,36 +24,36 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=4a4cf3a2';
-import * as G from './explorer-geom.js?v=4a4cf3a2';
+import * as CELL from './model.js?v=77312b8b';
+import * as G from './explorer-geom.js?v=77312b8b';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=4a4cf3a2';
+} from './nodes.generated.js?v=77312b8b';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=4a4cf3a2';
+import { NODEMESHES } from './nodemeshes.generated.js?v=77312b8b';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=4a4cf3a2';
+import { SKIN } from './skin.generated.js?v=77312b8b';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4a4cf3a2';
-import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7737f66b';
-import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7737f66b';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=77312b8b';
+import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=4cd9890f';
+import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=4cd9890f';
 import {
   createCamera, orbit, dolly, pan, viewMatrix, projMatrix,
-} from '../3d/render/camera.js?v=7737f66b';
-import { TOKENS, mix } from '../3d/render/palette.js?v=7737f66b';
-import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=7737f66b';
-import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=7737f66b';
-import { boxSegs, transformSegs } from '../3d/model/geom.js?v=7737f66b';
-import { m4compose, m4transform } from '../3d/core/math.js?v=7737f66b';
+} from '../3d/render/camera.js?v=4cd9890f';
+import { TOKENS, mix } from '../3d/render/palette.js?v=4cd9890f';
+import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=4cd9890f';
+import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=4cd9890f';
+import { boxSegs, transformSegs } from '../3d/model/geom.js?v=4cd9890f';
+import { m4compose, m4transform } from '../3d/core/math.js?v=4cd9890f';
 
 /* ---------- explorer materials (styleFor supplies these; palette keys work too) --------------- */
 
@@ -2582,12 +2582,17 @@ function buildVessel() {
   // it drinks.
   const bayZ = mz1 - 8.8;
   const bucketZ = bayZ - 9.6;
+  // COLOUR CODE (operator, 08-13 late): PINK lines carry WEIGHT — bridle,
+  // drop line, bucket, anchor. BLUE lines carry WATER — the sprayer's feed
+  // and the pump's rigid pipe. One glance says which is which.
   lines.push([[xMid, 0, mz1], [xMid, 0, bayZ + 1.9]]);
-  lines.push([[xMid - 3.3, 0, bayZ - 1.95], [xMid - 3.3, 0, bucketZ + 0.6]]);
   lines.push([[xMid, 0, bayZ - 1.95], [xMid, 0, bucketZ + 1.9]]);
   lines.push([[xMid + 4.0, 0, bayZ - 1.95], [xMid + 4.0, 0, bucketZ - 7.5]]);
   lineNode(root, 'VesselLines', lines,
     { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
+  lineNode(root, 'VesselLinesWater',
+    [[[xMid - 3.3, 0, bayZ - 1.95], [xMid - 3.3, 0, bucketZ + 0.6]]],
+    { kind: 'line', color: '#5b8fc4', weight: 1.1, opacity: 0.75 });
   {
     const one = (id, x2, z2, geom, xmat, vert2 = false) => {
       const xf = new Float32Array(16);
@@ -2622,19 +2627,20 @@ function buildVessel() {
     one('VesselBucket', xMid, bucketZ, latheWithScale(
       [[-1.6, 0.4], [1.4, 2.3], [1.7, 2.35], [1.75, 2.1]], 18, () => 1),
       XM.membraneLoaded, true);
-    // The working trio, re-read (operator, round 11): SPRAYER = the white
-    // upright cylinder on its own cable, riding above the water; PUMP = a
-    // blue-grey HORIZONTAL unit hanging off the END of its rigid pipe, the
-    // one thing that goes under; the old flared-cone sprayer drawing is gone.
-    one('VesselSprayer', xMid - 3.3, bucketZ - 0.6, latheWithScale(
-      [[-1.1, 0.3], [-0.9, 0.55], [0.9, 0.55], [1.1, 0.3]], 12, () => 1),
-      XM.printed, true);
+    // The working trio, re-read AGAIN (operator, 08-13 late): the grey
+    // upright read as a second pump — gone. The SPRAYER is its blue water
+    // line ending in a modest nozzle head; the PUMP is the blue horizontal
+    // unit on its rigid pipe; the bucket rides pink, because pink carries
+    // weight and blue carries water.
+    one('VesselSprayer', xMid - 3.3, bucketZ + 0.1, latheWithScale(
+      [[-0.5, 0.10], [-0.15, 0.24], [0.2, 0.3], [0.42, 0.06]], 12, () => 1),
+      { kind: 'surface', color: '#5b8fc4', spec: 0.5, opacity: 1 }, true);
     one('VesselPump', xMid + 3.2, bucketZ - 5.4, latheWithScale(
       [[-0.6, 0.28], [-0.45, 0.5], [0.45, 0.5], [0.6, 0.28]], 12, () => 1),
       { kind: 'surface', color: '#5b8fc4', spec: 0.5, opacity: 1 });
     pipesFromSegs(root, 'VesselPumpPipe',
       [{ a: [xMid + 3.2, 0, bayZ - 1.85], b: [xMid + 3.2, 0, bucketZ - 4.95] }],
-      0.09, XM.pipe, 6);
+      0.09, { kind: 'surface', color: '#5b8fc4', spec: 0.5, opacity: 1 }, 6);
     one('VesselAnchor', xMid + 4.0, bucketZ - 7.5,
       G.beadGeom(1.0, 0.7, 0.9, 10), XM.pipe);
   }
@@ -3590,6 +3596,7 @@ export function mountExplorer(opts) {
                          VesselPulleys: 'module', VesselPumpPipe: 'module',
                          VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines',
+                         VesselLinesWater: 'lines',
                          VesselEnvGround: 'env', VesselEnvGrid: 'env',
                          VesselEnvLake: 'env', VesselEnvLakeF1: 'env',
                          VesselEnvLakeF2: 'env', VesselEnvLakeF3: 'env',

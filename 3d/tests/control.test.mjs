@@ -3,15 +3,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { ASSUMPTIONS, resolveClass, CLASS_IDS } from '../model/config.js?v=7737f66b';
-import { buildLayout } from '../model/layout.js?v=7737f66b';
-import { proxyField } from '../model/density.js?v=7737f66b';
-import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=7737f66b';
-import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=7737f66b';
-import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=7737f66b';
-import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=7737f66b';
-import { defaultState } from '../physics/state.js?v=7737f66b';
-import { dot, len, norm, cross } from '../core/math.js?v=7737f66b';
+import { ASSUMPTIONS, resolveClass, CLASS_IDS } from '../model/config.js?v=4cd9890f';
+import { buildLayout } from '../model/layout.js?v=4cd9890f';
+import { proxyField } from '../model/density.js?v=4cd9890f';
+import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=4cd9890f';
+import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=4cd9890f';
+import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=4cd9890f';
+import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=4cd9890f';
+import { defaultState } from '../physics/state.js?v=4cd9890f';
+import { dot, len, norm, cross } from '../core/math.js?v=4cd9890f';
 
 const rig = (id = 'P100') => {
   const cls = resolveClass(id);
@@ -85,12 +85,13 @@ test('allocation respects every actuator limit', () => {
   }
 });
 
-test('a fixed-axis fan can only ever push along its axis', () => {
+test('all thrusters are retired — no fan or duct actuators exist', () => {
+  // Operator, 08-13 late: ducted units cut the wall and the doctrine forbids
+  // it. The gimballed primaries are the actuator set. This guard fails loudly
+  // if anyone quietly reintroduces a fan.
   const { acts } = rig();
-  const fan = acts.find((a) => a.kind === 'fan');
-  const c = clampToEnvelope(fan, [fan.fMaxN, fan.fMaxN, fan.fMaxN]);
-  const d = norm(c.f);
-  assert.ok(Math.abs(Math.abs(dot(d, fan.axis)) - 1) < 1e-6, 'fan thrust left its axis');
+  assert.equal(acts.filter((a) => a.kind === 'fan').length, 0, 'a fan actuator came back');
+  assert.equal(acts.filter((a) => a.kind === 'thruster').length, 0, 'a duct actuator came back');
 });
 
 test('a reversible station reaches any direction in its swing plane without a big slew', () => {

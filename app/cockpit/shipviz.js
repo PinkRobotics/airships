@@ -3,12 +3,12 @@
  * It exists because a wireframe with labelled force arrows says things a rendered
  * vehicle cannot: which way the rotors are pushing, and how hard.
  */
-import { fmt } from '../../sim/index.js?v=4a4cf3a2';
-import { anchorView } from '../anchorview.js?v=4a4cf3a2';
-import { $ } from '../dom.js?v=4a4cf3a2';
-import { resize } from '../map/projection.js?v=4a4cf3a2';
-import { draw } from '../map/render.js?v=4a4cf3a2';
-import { S } from '../store.js?v=4a4cf3a2';
+import { fmt } from '../../sim/index.js?v=77312b8b';
+import { anchorView } from '../anchorview.js?v=77312b8b';
+import { $ } from '../dom.js?v=77312b8b';
+import { resize } from '../map/projection.js?v=77312b8b';
+import { draw } from '../map/render.js?v=77312b8b';
+import { S } from '../store.js?v=77312b8b';
 
 /* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
    force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel
@@ -58,8 +58,9 @@ export const shipViz = (() => {
   /* Rotors per class: 4 / 6 / 14, paired port and starboard along the hull, ON THE
      HORIZONTAL PLANE (operator ruling, 08-13): the hardest duty is holddown, and
      holddown's WASH GOES UP — a keel pod would fountain its hardest wash straight
-     into the belly, and the ships push both ways. The P-10000's network runs TWO
-     BANKS at ±45° from the horizon so neither bank sits in the other's column.
+     into the belly, and the ships push both ways. The P-10000's network stays on
+     the horizontal line as well: four stations at normal reach, three interleaved
+     on extra-long posts standing wider — separated by radius, never by height.
      Station x's follow the 3D layout's t stations (x = 1 - 2t). */
   const rotorCache = {};
   function rotorsFor(cls) {
@@ -67,25 +68,26 @@ export const shipViz = (() => {
     const spec = {
       P100: { xs: [0.40, -0.24], r: 0.18 },
       P1000: { xs: [0.52, 0.08, -0.36], r: 0.15 },
-      P10000: { xs: [0.68, 0.46, 0.24, 0.02, -0.20, -0.42, -0.64], r: 0.165, banks: true },
+      P10000: { xs: [0.68, 0.46, 0.24, 0.02, -0.20, -0.42, -0.64], r: 0.165, tiers: true },
     }[cls.id] || { xs: [0.40, -0.24], r: 0.18 };
     const out = [];
     spec.xs.forEach((x0, i) => {
       const yh = capR(x0);
-      const yc = yh + spec.r + 0.05;
-      // banked classes alternate stations above/below the horizon at 45 deg
-      const bankA = spec.banks ? (i % 2 ? -Math.PI / 4 : Math.PI / 4) : 0;
-      const cy2 = Math.cos(bankA), sy2 = Math.sin(bankA);
+      // Everything on the horizontal line (operator revision, 08-13 late).
+      // Tiered classes interleave: four stations at normal reach, three on
+      // extra-long posts standing wider — radius separates them, not height.
+      const widen = spec.tiers && i % 2 === 1 ? spec.r * 3 : 0;
+      const yc = yh + spec.r + 0.05 + widen;
       for (const sgn of [1, -1]) {
-        const y0 = sgn * yc * cy2;
-        const z0 = yc * sy2 - 0.03;
+        const y0 = sgn * yc;
+        const z0 = -0.03;
         const disc = [];
         for (let j = 0; j <= 18; j++) {
           const a = 2 * Math.PI * j / 18;
           disc.push([x0 + spec.r * Math.cos(a), y0 + spec.r * Math.sin(a), z0]);
         }
         out.push({ x0, y0, z0, disc,
-          pylon: [[x0, sgn * yh * cy2 * 0.95, yh * sy2 * 0.95 - 0.02], [x0, y0, z0]] });
+          pylon: [[x0, sgn * yh * 0.95, -0.02], [x0, y0, z0]] });
       }
     });
     rotorCache[cls.id] = out;
@@ -316,7 +318,8 @@ export const shipViz = (() => {
     // edge and loses its tail instead of losing its head.
     c2.fillText(rlab, Math.max(8, w - rw - 8), h - 36);
     c2.fillStyle = "#74747f";
-    c2.fillText(m.cls.name + " · " + fmt(m.cls.lenM) + " m · schematic, not the design", 8, h - 8);
+    c2.fillText(m.cls.name + " · " + fmt(m.cls.lenM) + " m · schematic, not the design"
+      + (m.cls.id === "P100" ? "" : " · currently impossible"), 8, h - 8);
   }
   return { draw, snap() { snapNext = true; } };
 })();

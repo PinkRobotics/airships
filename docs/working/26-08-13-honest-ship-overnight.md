@@ -599,3 +599,72 @@ worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
   do NOT debug the old one twice); front-page spinning 3D hero (The Ship view, no
   person tick; co-agent owns hero regions — new module, check git log first). Another
   co-agent surfaced in pink-sites (tylerdwyer theme, 197cf41) — same interleave rules.
+
+## Part 18 — the wash ruling: rotors to the horizontal plane, the avatar becomes the capsule
+
+- **OPERATOR REVERSED the low-flank rotor call (same day)** — my advice read the wash
+  direction backwards: holddown (the hard duty) THROWS AIR UP, so a low pod fires its
+  hardest wash into the belly above it; the ships thrust both directions. NEW RULING:
+  pods on THE HORIZONTAL PLANE (beam of the widest band), discs as far from
+  wall/straps/lines as the pylons hold them; the P-10000's network in TWO BANKS at
+  ±45° from the horizon, alternating stations, so neither bank sits in the other's
+  column (and fourteen 85 m discs get room a single row cannot give).
+- Applied in ONE round to all three surfaces: 3d/model/layout.js (drop = ±π/4 network,
+  0 elsewhere), cell/explorer.js vessel pods (th = 0/π) + panel doctrine paragraph
+  (supersession NAMED in the prose), and app/cockpit/shipviz.js — the 2D avatar
+  rebuilt as the CAPSULE (capR profile, B = 0.5, x-station rings) with TAIL FINS
+  DELETED and per-class rotor specs matching the 3D layout (P10000 banks in the
+  schematic too, z0 threaded through disc/pylon/tilt/arrows).
+- airships@ccec7d9, published, worktree-deployed, purged, live-verified (avatar
+  markers ×7, layout ×2, explorer ×1 on the stamped ?v=4a4cf3a2 files). CHAIN16
+  EXIT=0. Third co-agent commit interleaved in pink-sites (tylerdwyer 42f9c9f) —
+  worktree deploys keep being the right call.
+- Memory corrected at the source: airships-vehicle-architecture now carries the
+  reversal (the old DECIDED-low text was the trap for any future session).
+
+## Part 19 — round in flight: tiers/colors/badges/thrusters SHIPPED; raft/void/solar/single-source NEXT
+
+DONE in this slice (chain pending):
+- P-10000 REVISED AGAIN (operator): no banks — ALL stations on the horizontal line;
+  4 per side at normal reach + 3 interleaved on EXTRA-LONG pylons (pylon += rr*1.5)
+  standing wider; radius separates discs, never height. layout.js + shipviz spec
+  (tiers flag, widen = r*3 unit) + explorer.html panel sentence all updated.
+- LINE COLOUR CODE (explorer vessel): PINK carries WEIGHT (bridle/drop/bucket/anchor),
+  BLUE carries WATER — new VesselLinesWater node (sprayer feed, '#5b8fc4'), pump pipe
+  re-materialed blue; the grey upright (read as a second pump) REMOVED — VesselSprayer
+  is now a modest blue nozzle head at the line end (lathe [[-0.5,.10],[-0.15,.24],
+  [.2,.3],[.42,.06]] at bucketZ+0.1). Panel names the code.
+- "Currently Impossible" badges: worked.js class kicker (red span, P1000+P10000) +
+  shipviz footer suffix. RATIONALE for prose elsewhere: the crush envelope closes
+  near 96 m dia — 119 m and 256 m hulls are OUTSIDE the lens (Figure 2 shows it).
+- ALL THRUSTERS RETIRED: CLASS_SPECS mediumThrusters/localTrimFans = 0 for all three
+  (arrays empty; build+actuators no-op on empty); dead 'Thruster 0' failure chip
+  removed from model-lab/index.html:282.
+
+NEXT SLICE (not started — the heavy build.js work), design settled:
+1. RAFT UNDERCARRIAGE (D): post-pass at END of buildLayout (before return): move
+   waterTanks/ln2Tanks/generators/batteries/compute/cryoModules(+Trains)/pumpPods/
+   hoseReels/anchorWinch positions onto a two-deck raft below keel (keelZ=-R, DROP=
+   R*0.34, upper deck tanks in rows, lower deck boxes); store layout.raft={W,L,decks,
+   corners}; EMPTY waterManifolds/waterPipes/ln2Pipes/dropOutlets (interior routes).
+   build.js: NEW RaftFrame (thin bars, reuse cylGeom like PrimaryRotorPylon_ at
+   build.js~856 pattern) + BridleLines (8 pendants, material 'cable' like AnchorCable
+   ~702) hull→corners + drop line. Tanks/boxes/fills follow layout.p AUTOMATICALLY
+   (instanceNode maps over layout arrays). TESTS: model.test 'every layout item sits
+   inside the hull' → for moved groups assert OUTSIDE hull && p[2] < -R*0.95.
+2. VACUUM VOID (E): views.js:124 VacuumFillBalls pattern → new 'VacuumVoid' node
+   (inset hull solid ~0.97 scale, near-black material, shown ONLY mode==='vacuum');
+   balls retired from the vacuum view ("not small cells"). Balls builder at
+   build.js~1171-1253.
+3. SOLAR DECKING (C): replace SolarSkin single mesh (build.js~516, geom solarG) with
+   instanced thin boxes over the top half like explorer plate() — barrel rows pitch
+   from cylL, cap rows to the pole guard r>~R/3, HOOP arc pitch const, plates sized
+   under pitch, proud + hoop sagitta. Keep id 'SolarSkin' + category 'power' so
+   metadata/energy wiring holds.
+4. SINGLE-SOURCE STEP (F, operator direction "one model as ground truth"): shipviz
+   derives hull profile + rotor stations from resolveClass()+buildLayout() (unit
+   scale 2/lenM) instead of its local capR + spec tables; longer term the explorer
+   vessel and airship3d should share one vessel-geometry module — record as the
+   architectural goal in HANDOFF.
+5. Then: badges 'mention elsewhere' candidate = model-lab header line + maybe
+   /airships page prose; wash particles (#97) reproduce-first; hero (#98).

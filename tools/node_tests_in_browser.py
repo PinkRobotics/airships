@@ -80,7 +80,8 @@ SHIM_ASSERT = (
 # What `node --test 3d/tests/*.test.mjs` reports. A harness that runs a subset and says green is
 # worse than none: the first version of this file ran 22 and passed. Raise this when the suite
 # grows — in a diff, on purpose.
-EXPECTED_MIN = 103
+EXPECTED_MIN = 101   # was 103: the thruster retirement (2026-08-13) folded three
+                     # blower-behaviour tests into one absence guard (net -2)
 
 # The host div is on screen and sized, because the viewer stops rendering when it is not
 # intersecting and several of these tests build a real scene.

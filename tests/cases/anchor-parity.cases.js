@@ -13,10 +13,10 @@
  * comment that says they match.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=4a4cf3a2';
-import { anchorView } from '../../app/anchorview.js?v=4a4cf3a2';
-import { fromMonitorState } from '../../3d/adapter/fable.js?v=7737f66b';
-import { resolveClass } from '../../3d/model/config.js?v=7737f66b';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=77312b8b';
+import { anchorView } from '../../app/anchorview.js?v=77312b8b';
+import { fromMonitorState } from '../../3d/adapter/fable.js?v=4cd9890f';
+import { resolveClass } from '../../3d/model/config.js?v=4cd9890f';
 
 describe('the anchor reads the same in the model and in the avatar', () => {
   /* Compared END TO END: the avatar's rule against what the ADAPTER actually hands the 3D model,

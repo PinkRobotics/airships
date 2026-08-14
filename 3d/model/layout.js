@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=7737f66b';
-import { segPointDist } from '../core/math.js?v=7737f66b';
-import { streamFor, jitter } from '../core/prng.js?v=7737f66b';
+} from './config.js?v=4cd9890f';
+import { segPointDist } from '../core/math.js?v=4cd9890f';
+import { streamFor, jitter } from '../core/prng.js?v=4cd9890f';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -123,13 +123,18 @@ export function buildLayout(cls) {
     // wash straight into the belly. On the beam the column clears the hull's
     // curve in either direction, and the discs sit as far from the wall, the
     // straps and the working lines as a pylon can put them. The network
-    // class runs TWO BANKS at ±45° from the horizon — seven 85 m discs do
-    // not fit in one line along a 512 m flank, and stacked banks would sit
-    // in each other's wash column; the 45° offsets interleave them clear.
+    // class stays on the horizontal line too: four stations per side at
+    // normal reach and three interleaved on EXTRA-LONG pylons standing
+    // wider — seven 85 m discs cannot share one radius along a 512 m
+    // flank, so they separate in RADIUS, never in height, and every disc
+    // keeps the beam plane's clear wash column.
+    // P-10000 revision (operator, 08-13 late): ALL stations on the horizontal
+    // line — four at normal reach, three interleaved on EXTRA-LONG pylons
+    // standing wider, so the discs separate in radius instead of height.
     for (let i = 0; i < perSide; i++) {
       const t = ts[i];
-      const drop = cls.stationLayout === 'network'
-        ? (i % 2 ? Math.PI / 4 : -Math.PI / 4) : 0;   // + is below the beam
+      const drop = 0;                        // every class: the horizontal plane
+      const wide = cls.stationLayout === 'network' && i % 2 === 1;
       for (const side of [1, -1]) {          // +1 port (+y), -1 starboard
         const theta = side > 0 ? Math.PI + drop : -drop;
         const skin = inside(cls, t, theta, 1);
@@ -146,10 +151,10 @@ export function buildLayout(cls) {
         for (let j = -6; j <= 6; j++) {          // `j`: `k` is the station counter
           widest = Math.max(widest, hullR(cls, skin[0] + (rr * j) / 6));
         }
-        const pylon = widest - rl + rr + Math.max(1.2, rr * 0.10);
+        const pylon = widest - rl + rr + Math.max(1.2, rr * 0.10)
+          + (wide ? rr * 1.5 : 0);
         // The pylon runs along the OUTWARD SURFACE NORMAL at its hardpoint —
-        // radial on an axisymmetric hull — so a low-flank mount stands off
-        // low-and-outboard instead of purely sideways.
+        // radial on an axisymmetric hull.
         const nrm = [0, -Math.cos(theta), Math.sin(theta)];
         const p = [skin[0] + nrm[0] * pylon, skin[1] + nrm[1] * pylon,
                    skin[2] + nrm[2] * pylon];

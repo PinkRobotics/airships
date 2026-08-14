@@ -10,7 +10,7 @@
  * it answers it transparently enough to be argued with.
  */
 
-import { cross, norm, sub, len } from '../core/math.js?v=7737f66b';
+import { cross, norm, sub, len } from '../core/math.js?v=4cd9890f';
 
 /** Thrust available from a disc of area A at power P: T = (2 rho A P^2)^(1/3) for an ideal disc. */
 export function idealDiscThrust(areaM2, powerW, rho = 1.10) {

@@ -1,9 +1,9 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle } from '../sim/index.js?v=4a4cf3a2';
-import { $, kvRows } from './dom.js?v=4a4cf3a2';
-import { replanAll } from './fleet.js?v=4a4cf3a2';
-import { S } from './store.js?v=4a4cf3a2';
+import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle } from '../sim/index.js?v=77312b8b';
+import { $, kvRows } from './dom.js?v=77312b8b';
+import { replanAll } from './fleet.js?v=77312b8b';
+import { S } from './store.js?v=77312b8b';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
@@ -65,7 +65,7 @@ export function renderClassCards() {
   if (!$("classcards")) return; // class cards render on the concept page
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];
-    return `<div class="cls"><span class="kicker">${c.name}</span>
+    return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· currently impossible</span>'}</span>
       <h3>${fmt(c.payloadT)} t of water</h3>
       <p class="one">${c.use}.</p>` + kvRows([
       ["payload", fmt(c.payloadT * 1000) + " L"],

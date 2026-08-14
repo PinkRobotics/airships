@@ -244,9 +244,11 @@ const CLASS_SPECS = {
     primaryRotorDiameterM: 20,
     publishedDiscAreaM2: 2500,   // /airships page CLASSES.P100.diskM2
     stationLayout: 'quad',         // 'quad' | 'hex' | 'network'
-    mediumThrusters: 8,
+    // ALL THRUSTERS RETIRED (operator, 08-13 late): ducted units cut the wall
+    // and the doctrine forbids it; the gimballed primaries are the actuators.
+    mediumThrusters: 0,               // retired — see the P-100 note
     mediumThrusterDiameterM: 7,
-    localTrimFans: 48,
+    localTrimFans: 0,
     tailArrangement: 'x',          // 'x' | 'plus' | 'invertedY'
     tailSurfaces: 4,
 
@@ -318,9 +320,9 @@ const CLASS_SPECS = {
     primaryRotorDiameterM: 36,
     publishedDiscAreaM2: 12000,  // /airships page CLASSES.P1000.diskM2
     stationLayout: 'hex',
-    mediumThrusters: 16,
+    mediumThrusters: 0,               // retired — see the P-100 note
     mediumThrusterDiameterM: 11,
-    localTrimFans: 96,
+    localTrimFans: 0,
     tailArrangement: 'x',
     tailSurfaces: 4,
 
