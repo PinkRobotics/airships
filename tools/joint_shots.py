@@ -215,7 +215,7 @@ async def run(args) -> None:
                        {"width": args.size, "height": args.size,
                         "deviceScaleFactor": 1, "mobile": False})
             await call("Page.navigate",
-                       {"url": f"http://127.0.0.1:{port}/cell/explorer.html?still=1"})
+                       {"url": f"http://127.0.0.1:{port}/ship/index.html?still=1"})
             await asyncio.sleep(args.boot)
 
             manifest = json.loads(

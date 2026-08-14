@@ -3,16 +3,16 @@
 
     python3 tools/check_explorer.py
 
-Same discipline as check_cell_parity.py, one page over: cell/explorer.html is a third
+Same discipline as check_cell_parity.py, one page over: ship/index.html is a third
 surface displaying the cell physics, and a surface that displays numbers is a surface that
 can drift. This drives the page headless, walks all seven levels, and checks that what the
-DOM shows equals what cell/model.js computes — through the page's own wiring, not a copy
+DOM shows equals what ship/model.js computes — through the page's own wiring, not a copy
 of it.
 
 It also drives the THREE TOURS, which are a second kind of drift. The connectors, the tube
 and the skin all show the same cell and fly between stops on it — five printed joint
 families, four cuts, four kinds of face — and their copy comes from two places at once:
-cell/model.js for anything physical, and research/geometry/nodes/manifest.json (by way of a
+ship/model.js for anything physical, and research/geometry/nodes/manifest.json (by way of a
 generated module) for anything about the printed joints. So the gate clicks the real
 stop chips through every stop of every tour and asserts, at each: the camera arrived
 at the stop's own target, the panel is showing that stop's block, the label was read back
@@ -577,7 +577,7 @@ def dig(obj, path):
 def cut_schedule(groups, stock, mat_rho):
     """The purchased schedule, rebuilt here from the two authorities the page composes.
 
-    Deliberately not a translation of cell/explorer.js: the group counts and deductions
+    Deliberately not a translation of ship/explorer.js: the group counts and deductions
     come from the article graph and the manifest (through gen_node_families, which regroups
     them from scratch), and the lengths, diameters and density come from the model as the
     page's own probe read them back. If either side moves, this stops agreeing.
@@ -647,7 +647,7 @@ def cut_schedule(groups, stock, mat_rho):
 
 # The page's two declared choices, restated here rather than imported: a gate that reads
 # its expected values out of the thing it is checking is not a gate. If the kerf or the
-# stock length moves in cell/explorer.js, the stick count stops matching and somebody has
+# stock length moves in ship/explorer.js, the stick count stops matching and somebody has
 # to come here and agree with it on purpose.
 KERF_MM = 2.0
 STOCK_LEN_M = 2.0
@@ -688,7 +688,7 @@ def main() -> None:
     # is the expectation the drawn frame is measured against, so a stale module must stop
     # the comparison rather than agree with the page about the wrong thing.
     if not GDM.OUT.exists() or GDM.parse_module()["meta"]["sourceHash"] != GDM.source_hash():
-        sys.exit("check_explorer: cell/nodemeshes.generated.js is missing or stale — run "
+        sys.exit("check_explorer: ship/nodemeshes.generated.js is missing or stale — run "
                  "`python3 tools/gen_display_meshes.py`, then `make stamp`.")
     meshes = GDM.parse_module()
 
@@ -700,7 +700,7 @@ def main() -> None:
                                 "--port", "8909", "--quiet"], cwd=ROOT)
         try:
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            "http://127.0.0.1:8909/cell/explorer.html?still=1",
+                            "http://127.0.0.1:8909/ship/index.html?still=1",
                             str(probe), str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL)
             res = json.loads(out.read_text())
@@ -742,7 +742,7 @@ def main() -> None:
     # measured zeros are real values in this house.
     skin_rec = json.loads((ROOT / "research" / "geometry" / "skin"
                            / "loaded-skin.json").read_text())["numbers"]
-    skin_js = json.loads((ROOT / "cell" / "skin.generated.js").read_text()
+    skin_js = json.loads((ROOT / "ship" / "skin.generated.js").read_text()
                          .split("export const SKIN = ", 1)[1].rstrip().rstrip(";"))
     exp_loaded_tris = sum(len(skin_js["classes"][pl[0]]["tris"]) // 3
                           for pl in skin_js["placements"])
@@ -906,7 +906,7 @@ def main() -> None:
     # compares the page against the manifest, and a stale module would make both wrong in
     # the same direction and the comparison would pass.
     if not GNF.OUT.exists() or GNF.OUT.read_text() != GNF.render(fresh):
-        bad.append("cell/nodes.generated.js has drifted from "
+        bad.append("ship/nodes.generated.js has drifted from "
                    "research/geometry/nodes/manifest.json — run "
                    "`python3 tools/gen_node_families.py`, then `make stamp`")
     # THE AUTHORITY every figure on a toured level answers to. Three independent sources,

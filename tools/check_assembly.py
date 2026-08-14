@@ -3728,7 +3728,7 @@ def main() -> None:
             "measured schedule: "
             + ", ".join(f"{r['family']} {r['cutMm']:.3f} x{r['count']}" for r in cut_off)
             + " — the saw moved and CUT_SCHEDULE_MEASURED did not. Regrow, read the bill, "
-              "update the schedule in research/analysis/vacuum-cell.py AND cell/model.js.")
+              "update the schedule in research/analysis/vacuum-cell.py AND ship/model.js.")
     if abs(measured_m - sb["pipe"]["sawnM"]) > 5e-4:
         p14_bad.append(f"manifest saws {measured_m:.3f} m, stock_build bills "
                        f"{sb['pipe']['sawnM']:.3f} m — the billed total drifted from the "

@@ -2,7 +2,7 @@
 
 > **SHIP-ERA NOTE, 2026-08-13 — the fight moved one scale up and this brief now has a
 > sibling.** The wall is film-on-rings (no cells in it), the ship physics is gated in
-> `cell/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
+> `ship/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
 > and the honest verdict, after BOTH review rounds, is: **nothing floats at 52 m as
 > drawn — 0.558 on the house-harsh basis (178 t short at declared SF 1.2, mid coupons);
 > 0.981 even in the best defensible world (frame-practice GI knockdown + 1,450 MPa
@@ -208,7 +208,7 @@ Estimate/source uncertainties, not zero-mass lines: even-n joint valence and geo
 not been validated, and the tube catalogue remains invented rather than supplier-backed.
 
 **Next tasks**
-1. Extend `kelvinLatticeCounts` usage into `cell/model.js` so an n = 2 article can be
+1. Extend `kelvinLatticeCounts` usage into `ship/model.js` so an n = 2 article can be
    costed by the real model, not a study script, and gated like everything else.
 2. Then the joint problem changes shape: 201 joints with more arms each. The film-sized bore
    is larger than the old axial-only estimate, so count the actual arm valences before pricing.
@@ -490,7 +490,7 @@ uses**. Every member is bought tube now; the nozzle that set this span prints on
 joints, whose size is set by the pipe OD and not by this chain at all. The 709 mm is a
 fossil.
 
-- Make `span` a named constant in `cell/model.js` and `research/analysis/vacuum-cell.py`,
+- Make `span` a named constant in `ship/model.js` and `research/analysis/vacuum-cell.py`,
   and have `stockBuild()` / `stock_build()` take it.
 - **`demonstrator()` must keep using the printer chain** — that function is about the
   all-printed article and the chain is genuinely its sizing law. Do not "fix" both.
@@ -577,7 +577,7 @@ on the hexagons. Still an ordinary product, but it is a different order.
 
 ### A4.6 The page
 
-`cell/explorer.js` takes `span` through `buildCell` already and most of it follows. What
+`ship/explorer.js` takes `span` through `buildCell` already and most of it follows. What
 does not:
 
 - `LEVELS`: `scaleM: 0.709` and every `radius`, `dist` on the four stage levels
@@ -588,7 +588,7 @@ does not:
   falls: 8.5 mm today, about 13.6 mm at a 1.6× pipe, which is ~1.4% of a metre. Re-check it
   by eye — an intersecting skin is one of the things the designer has caught twice
 - every `data-n` figure re-reads from the model automatically; every number typed into prose
-  does not. `grep -n '[0-9]\{3\} mm\|709\|251 mm\|177 mm\|178 L' cell/explorer.html`
+  does not. `grep -n '[0-9]\{3\} mm\|709\|251 mm\|177 mm\|178 L' ship/index.html`
 - the three tours name cut lengths in their stop copy
 
 ### A4.7 The reports

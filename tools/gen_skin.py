@@ -56,7 +56,7 @@ WHAT IT COMPUTES, in order, each step gated:
      quantified reason forming wins.
 
 OUTPUTS. research/geometry/skin/loaded-skin.json (the record: solve, gores, totals) and
-cell/skin.generated.js (the page's copy: subsampled class meshes, 72 placements, the
+ship/skin.generated.js (the page's copy: subsampled class meshes, 72 placements, the
 ledger numbers). --check regenerates both to a temp path and byte-compares, so a stale
 committed copy goes red without an argument. Every gate prints as a PROOF line; any
 failure exits nonzero. Deterministic: fixed meshes, fixed iteration, no randomness.
@@ -78,7 +78,7 @@ import gen_nodes  # noqa: E402  (article_graph parity gate)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_OUT = os.path.join(ROOT, "research", "geometry", "skin", "loaded-skin.json")
-JS_OUT = os.path.join(ROOT, "cell", "skin.generated.js")
+JS_OUT = os.path.join(ROOT, "ship", "skin.generated.js")
 
 # The article's exact cut basis: half-pitch 177.25 mm, span 709.00 mm across the squares.
 # One unit of the integer lattice is one half-pitch. Mirrors check_assembly's KNOWN span.

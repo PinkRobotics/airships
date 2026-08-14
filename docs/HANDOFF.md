@@ -117,7 +117,7 @@ printed in the proof), not a zero count.
 
 ## The explorer draws the parts now (#67, closed 2026-08-11)
 
-Every joint on screen is the generator's own mesh — `cell/nodemeshes.generated.js`, written
+Every joint on screen is the generator's own mesh — `ship/nodemeshes.generated.js`, written
 by `tools/gen_display_meshes.py`, regrown by `make nodes`, held fresh by a source-hash check
 in `make nodescheck`. The ball-and-cone stand-ins are gone, and with them the whole class of
 "bug" the designer kept finding that was never in the geometry.
@@ -294,7 +294,7 @@ of that gate reported 2.6 mm, all of it from inside a printed joint, which is wh
 clip is for).
 
 **The solved numbers** (`research/geometry/skin/loaded-skin.json`; page copy
-`cell/skin.generated.js`; `make skin` regenerates, `skincheck` re-solves and
+`ship/skin.generated.js`; `make skin` regenerates, `skincheck` re-solves and
 byte-compares inside `make check`):
 - sag 25.217 mm at a hex-panel centre, 18.811 mm at a square — 0.35·r, deeper than the
   0.25·r cap idealization, because a triangle is not its incircle; the cap law still
@@ -369,7 +369,7 @@ consequence and STOPPED, correctly, at the studies' immutable gates). The operat
 Full record: `docs/working/26-08-13-honest-ship-overnight.md`. The short version for
 whoever lands here cold:
 
-- **The ship physics is GATED now.** `ship0_summary()` in cell/model.js, mirrored in
+- **The ship physics is GATED now.** `ship0_summary()` in ship/model.js, mirrored in
   vacuum-cell.py, parity 324 values (`make cellparity`). catalog.js computes SHIP/WALL/
   GRID live; estate.py and robotics.py in pink-sites read the Python mirror directly.
 - **The verdict moved twice in one night, both times against us, both times correctly.**
@@ -447,7 +447,7 @@ visualisations at commit 3fe303b):**
    previous design until the levels harden.
 
 **Rules for whoever picks up levels 2–7** (the operator explicitly deferred their details to
-the next agent): ship figures on any page stay `scoping`-chipped and live in `cell/catalog.js`
+the next agent): ship figures on any page stay `scoping`-chipped and live in `ship/catalog.js`
 (the single swap point) until ship.js lands under the gates — the port path and self-check
 battery are specified in `~/data/airships-reviews/handoff/26-08-12-viz-agent-handoff.md` §4/§6.
 Cell figures must keep reading `model.js` live. The naked-digit rule applies in spirit
@@ -511,7 +511,7 @@ cannot see visibility).
 - **A background-task notification fires when the WRAPPER exits, not the work.** A `make check`
   launched with `& sleep 2` reports "completed" immediately and its log looks truncated because
   it is still being written. Poll for a sentinel line.
-- **`make stamp` before any check** after touching `cell/` — the site hash moves and
+- **`make stamp` before any check** after touching `cell/` or `ship/` — the site hash moves and
   `stampcheck` fails first, wasting the run.
 - **Use the fast path.** Explorer-only edits: `make stamp && make explorercheck` is **11 s**
   against ~4 min; `check_assembly` alone is 122 s of the chain. Full chain once before commit.
@@ -534,7 +534,7 @@ cannot see visibility).
 - **State that is shared between levels leaks.** The unfold blanked the connector and tube tours
   because they share the stage cell. Scope any new mode to the level that owns it.
 
-## Working on the explorer specifically — read this before touching cell/explorer.js
+## Working on the explorer specifically — read this before touching ship/explorer.js
 
 These each cost a round trip with the designer on 2026-08-11, and every one was invisible to a
 green `make check`.
@@ -576,4 +576,7 @@ cd ../pink-sites && git add -A pinkrobotics/airships && git commit
 # purge Cloudflare: token ~/.config/cloudflare/token-dns, zone ec339e336294deb8339928dcb4919dcd
 ```
 
-Live behind Caddy basic auth **tyler/copper** at `pinkrobotics.ca/airships/cell/explorer.html`.
+The viewer is **public** at `pinkrobotics.ca/airships/ship/` (the 2026-08-13 public arc moved
+it out of `cell/`). The working pages that stayed in `cell/` — the flat explainer, the
+blueprint, the checks page and the band calculator — remain behind Caddy basic auth
+**tyler/copper**; the gate matches the `/airships/cell/*` path, so nothing in `ship/` is gated.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The 51 printed joints as browser meshes — the real parts, not stand-ins.
 
-    python3 tools/gen_display_meshes.py            # write cell/nodemeshes.generated.js
+    python3 tools/gen_display_meshes.py            # write ship/nodemeshes.generated.js
     python3 tools/gen_display_meshes.py --check    # exit 1 if the module has gone stale
     python3 tools/gen_display_meshes.py --deep     # re-extract and compare (slow, manual)
 
@@ -10,7 +10,7 @@ three separate "bugs" the designer found by eye — a hub resized four times, a 
 with no receivers, interference inside the sockets — were all artifacts of the stand-ins,
 not of the article. The fix is to draw the joints the SDF actually grows. This module is
 those joints, grown by the same rule (`gen_nodes.node_sdf`), grouped exactly the way
-`cell/nodes.generated.js` publishes their numbers.
+`ship/nodes.generated.js` publishes their numbers.
 
 TWO FIELDS, DELIBERATELY, and the difference is measured rather than assumed:
 
@@ -70,7 +70,7 @@ from gen_nodes import (HALF, article_graph, spanning_tree, slot_base,  # noqa: E
 from gen_node_families import ORDER, payload  # noqa: E402
 
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
-OUT = ROOT / "cell" / "nodemeshes.generated.js"
+OUT = ROOT / "ship" / "nodemeshes.generated.js"
 
 DISPLAY_RES = 64       # 292k triangles over 51 joints. 48 read as melted up close — the
                        # designer inspects joints at 10-15 px/mm, and the blend's creases

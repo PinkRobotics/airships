@@ -76,7 +76,7 @@ fallbackcheck:  ## The fallback block must match a fresh regeneration from the s
 analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
 	$(PY) tools/check_analysis.py
 
-cellparity:  ## cell/model.js must agree with research/analysis/vacuum-cell.py exactly
+cellparity:  ## ship/model.js must agree with research/analysis/vacuum-cell.py exactly
 	$(PY) tools/check_cell_parity.py
 
 explorercheck:  ## The 3D explorer must render every level and display only the model's numbers
@@ -96,7 +96,7 @@ bandcheck:  ## The band calculator must solve the same physics as the Python mir
 
 skin:  ## Re-solve the loaded skin (#63): membrane FEM, gore study, generated outputs
 	$(PY) tools/gen_skin.py
-	@echo 'skin: run `make stamp` — cell/skin.generated.js changed.'
+	@echo 'skin: run `make stamp` — ship/skin.generated.js changed.'
 
 # A full re-solve and byte comparison, not a hash shortcut: the solve is nine seconds,
 # and this repository has twice shipped a gate that lied by comparing a stale file.
@@ -111,7 +111,7 @@ nodes:  ## Regrow every computed joint STL from the SDF rule (research/geometry/
 	@# The joints the explorer DRAWS: the display field over all 51, plus the five family
 	@# representatives at print resolution. Same SDF rule; regrow one, regrow the other.
 	$(PY) tools/gen_display_meshes.py
-	@echo 'nodes: run `make stamp` — cell/nodes.generated.js and nodemeshes.generated.js changed.'
+	@echo 'nodes: run `make stamp` — ship/nodes.generated.js and nodemeshes.generated.js changed.'
 
 nodescheck:  ## The computed-node manifest must be closed and match the article graph
 	$(PY) tools/check_nodes.py

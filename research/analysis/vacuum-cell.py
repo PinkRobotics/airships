@@ -407,7 +407,7 @@ def member_demands(span: float, sf: float = LATTICE_SF, p: float = P_ATM) -> dic
         "safetyFactor": sf,
         "crushDivisor": 96,
         # RAW newtons, never rounded here. stock_build divides capacities by these to get
-        # its margins and cell/model.js does the same arithmetic on its own side; rounding
+        # its margins and ship/model.js does the same arithmetic on its own side; rounding
         # on one side only is the divergence the parity gate has already caught twice.
         "families": {k: {"axialN": v, "from": why} for k, (v, why) in fam.items()},
         "crushPerOctetStrutN": crush,
@@ -741,7 +741,7 @@ def printer_chain(m: dict) -> dict:
 
 
 def kelvin_lattice_counts(n: int = 1) -> dict:
-    """The Kelvin demonstrator's lattice, counted exactly (mirrored in cell/model.js).
+    """The Kelvin demonstrator's lattice, counted exactly (mirrored in ship/model.js).
 
     Fill a Kelvin cell of span 2p with the octet grid at pitch p: every coordinate is a
     multiple of p/2, so in those units the nodes are the integer triples with
@@ -1290,7 +1290,7 @@ def pumped_plenum() -> dict:
 # the reserve prices high: diametral pretensioned cords, a Winkler foundation under
 # every ring, strongest at the low-n modes the sandwich pays most for.
 #
-# Mirrored line for line in cell/model.js, held identical by check_cell_parity.
+# Mirrored line for line in ship/model.js, held identical by check_cell_parity.
 # Display law (operator): declared SF 1.2 with SF 1.5 beside; sea-level survive and
 # float; sigma worlds named (742/1050/1450 [TO VERIFY — coupon campaign]); the GI
 # knockdown worlds named (0.3 house-harsh SIZES the ledger; 0.65 frame-practice

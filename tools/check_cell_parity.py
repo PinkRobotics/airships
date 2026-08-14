@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""cell/model.js must agree with research/analysis/vacuum-cell.py, to floating point.
+"""ship/model.js must agree with research/analysis/vacuum-cell.py, to floating point.
 
     python3 tools/check_cell_parity.py
 
@@ -137,7 +137,7 @@ def main() -> None:
     for key, prec in py["materials"].items():
         jsm = js["materials"].get(key)
         if jsm is None:
-            bad.append(f"{key}: present in Python, missing from cell/model.js")
+            bad.append(f"{key}: present in Python, missing from ship/model.js")
             continue
         for pykey, jskey, prec_dp in PAIRS:
             want, got = prec[pykey], jsm[jskey]
@@ -147,7 +147,7 @@ def main() -> None:
 
     for key in js["materials"]:
         if key not in py["materials"]:
-            bad.append(f"{key}: present in cell/model.js, missing from the Python")
+            bad.append(f"{key}: present in ship/model.js, missing from the Python")
 
     def cmp(label: str, want, got, dp: int) -> None:
         nonlocal checked
@@ -235,18 +235,18 @@ def main() -> None:
     cmp("demands.crushDivisor", pmd["crushDivisor"], jmd["divisor"], 0)
     for fam, rec in pmd["families"].items():
         if fam not in jmd["families"]:
-            bad.append(f"demands.{fam}: present in Python, missing from cell/model.js")
+            bad.append(f"demands.{fam}: present in Python, missing from ship/model.js")
             continue
         cmp(f"demands.{fam}", round(rec["axialN"]), jmd["families"][fam], 0)
     for fam in jmd["families"]:
         if fam not in pmd["families"]:
-            bad.append(f"demands.{fam}: present in cell/model.js, missing from the Python")
+            bad.append(f"demands.{fam}: present in ship/model.js, missing from the Python")
     for key, got in jmd["scalars"].items():
         cmp(f"demands.{key}", round(pmd[key]), got, 0)
     for key, got in jmd["external"].items():
         cmp(f"demands.film.{key}", round(pmd["externalFilmShareAtSF"][key]), got, 0)
 
-    # THE MEASURED NODE MASS. cell/model.js cannot read the geometry manifest, so it
+    # THE MEASURED NODE MASS. ship/model.js cannot read the geometry manifest, so it
     # carries the number as a constant; this is what stops it drifting when the joints
     # are regenerated (the failure mode that produced NODE_MASS_FRAC in the first place).
     cmp("nodes.measuredKg", ps["printed"]["nodesKg"], jsb["nodesMeasuredConst"], 3)

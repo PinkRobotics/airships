@@ -32,7 +32,7 @@ PROBE = r"""(() => {
   }
   const bf = document.getElementById('bandfig');
   out.bandFigMarks = bf ? bf.querySelectorAll('line, rect').length : -1;
-  return import('./model.js').then(M => {
+  return import('../ship/model.js').then(M => {
     const S = M.ship0Summary();
     const shown = (sel) => document.querySelector(sel).textContent.replace(/,/g, '');
     out.checks = [

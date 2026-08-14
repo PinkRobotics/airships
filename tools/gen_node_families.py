@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Group the 51 printed joints into their five families and emit them as an ES module.
 
-    python3 tools/gen_node_families.py            # write cell/nodes.generated.js
+    python3 tools/gen_node_families.py            # write ship/nodes.generated.js
     python3 tools/gen_node_families.py --check    # exit 1 if the module has gone stale
 
-WHY THIS EXISTS. cell/model.js carries exactly ONE number out of the whole node manifest —
+WHY THIS EXISTS. ship/model.js carries exactly ONE number out of the whole node manifest —
 NODE_MASS_MEASURED_KG — hand-copied, with a comment explaining that a browser cannot read a
 file off disk. (check_cell_parity holds it to the manifest; this docstring used to quote its
 value, 0.444, and was wrong within a day of the per-arm SKU fix moving it to 0.465. A
@@ -53,7 +53,7 @@ from gen_nodes import (HALF, article_graph, boundary_frame,  # noqa: E402  (path
                        face_planes, spanning_tree)
 
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
-OUT = ROOT / "cell" / "nodes.generated.js"
+OUT = ROOT / "ship" / "nodes.generated.js"
 
 # The families, in the order the tour walks them: the cell centre first, then outward to
 # the boundary. Names are the page's, the keys are the manifest's own (role, arms).
@@ -474,13 +474,13 @@ def main() -> None:
     text = render(payload())
     if "--check" in sys.argv:
         if not OUT.exists():
-            sys.exit("gen_node_families: cell/nodes.generated.js is missing — run "
+            sys.exit("gen_node_families: ship/nodes.generated.js is missing — run "
                      "`python3 tools/gen_node_families.py`.")
         if OUT.read_text() != text:
-            sys.exit("gen_node_families: cell/nodes.generated.js has drifted from "
+            sys.exit("gen_node_families: ship/nodes.generated.js has drifted from "
                      "research/geometry/nodes/manifest.json — run "
                      "`python3 tools/gen_node_families.py` (then `make stamp`).")
-        print(f"node families: cell/nodes.generated.js is current with the manifest "
+        print(f"node families: ship/nodes.generated.js is current with the manifest "
               f"({len(payload()['families'])} families, 51 joints).")
         return
     OUT.write_text(text)
