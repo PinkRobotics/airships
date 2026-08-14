@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=dd91118e';
-import * as G from './explorer-geom.js?v=dd91118e';
+import * as CELL from './model.js?v=2e5ac7dc';
+import * as G from './explorer-geom.js?v=2e5ac7dc';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=dd91118e';
+} from './nodes.generated.js?v=2e5ac7dc';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
@@ -41,17 +41,17 @@ import {
  * mounts, which is the same ordering the old static import enforced. */
 let NODEMESHES = null;
 export function loadNodemeshes() {
-  return import('./nodemeshes.generated.js?v=dd91118e')
+  return import('./nodemeshes.generated.js?v=2e5ac7dc')
     .then((m) => { NODEMESHES = m.NODEMESHES; return NODEMESHES; });
 }
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=dd91118e';
+import { SKIN } from './skin.generated.js?v=2e5ac7dc';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=dd91118e';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=2e5ac7dc';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=e8cd84c3';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=e8cd84c3';
 import {
@@ -2585,20 +2585,22 @@ function buildVessel(ctx) {
   // FLOOR), ALL EQUIPMENT AND SENSORS ON THE LOWER DECK: a longer,
   // SEE-THROUGH equipment bay on the drop line holding the battery box up
   // top, the N2 cryo unit and THE SHIP MIND flanking it low, and THREE
-  // PULLEYS on its keel. The sprayer hangs on its own cable to one side; the
-  // bucket hangs CENTRED; the PUMP rides its RIGID PIPE from the winch — the
-  // pipe IS the 100 m reach spec and the suspension, no separate cable — down
-  // past the bucket into the water. The anchor line leaves the bay's stern
-  // for the weight that pulls the ship down against its own buoyancy while
-  // it drinks.
+  // PULLEYS on its keel — one per working line, and there are exactly three.
+  // The sprayer hangs on its own cable to one side; the bucket hangs CENTRED;
+  // the PUMP rides its RIGID PIPE from the winch — the pipe IS the 100 m reach
+  // spec and the suspension, no separate cable — down past the bucket into the
+  // water. THE ANCHOR LINE IS RETIRED (operator, 08-14): a fourth pendant off
+  // the bay's stern, longer than everything else, drawn back when a hanging
+  // weight was the holddown story. The wash ruling gave that duty to the
+  // rotors, so the weight was a leftover reading as clutter — the gear now
+  // ends at the water it works in.
   const bayZ = mz1 - 8.8;
   const bucketZ = bayZ - 9.6;
   // COLOUR CODE (operator, 08-13 late): PINK lines carry WEIGHT — bridle,
-  // drop line, bucket, anchor. BLUE lines carry WATER — the sprayer's feed
-  // and the pump's rigid pipe. One glance says which is which.
+  // drop line, bucket. BLUE lines carry WATER — the sprayer's feed and the
+  // pump's rigid pipe. One glance says which is which.
   lines.push([[xMid, 0, mz1], [xMid, 0, bayZ + 1.9]]);
   lines.push([[xMid, 0, bayZ - 1.95], [xMid, 0, bucketZ + 1.9]]);
-  lines.push([[xMid + 4.0, 0, bayZ - 1.95], [xMid + 4.0, 0, bucketZ - 7.5]]);
   lineNode(root, 'VesselLines', lines,
     { kind: 'line', color: TOKENS.warm, weight: 1.1, opacity: 0.6 });
   lineNode(root, 'VesselLinesWater',
@@ -2652,8 +2654,6 @@ function buildVessel(ctx) {
     pipesFromSegs(root, 'VesselPumpPipe',
       [{ a: [xMid + 3.2, 0, bayZ - 1.85], b: [xMid + 3.2, 0, bucketZ - 4.95] }],
       0.09, { kind: 'surface', color: '#5b8fc4', spec: 0.5, opacity: 1 }, 6);
-    one('VesselAnchor', xMid + 4.0, bucketZ - 7.5,
-      G.beadGeom(1.0, 0.7, 0.9, 10), XM.pipe);
   }
   const px = -SHIP.lenM / 2 - 2;
   // The 1.8 m person at the bow is the viewer's scale reference. The hero ring
@@ -2790,7 +2790,7 @@ function buildVessel(ctx) {
       { p: [0, 0, D.R * 1.35], t: 'the ship — the hull plus everything it wears', s: 'one rule: NOTHING cuts the wall. There is no interior to put gear in — the inside is the product — so every system is exterior, on straps and pylons and lines. Equipment is named, not weighed [SCOPING]' },
       { p: point(podS[1], 0, -0.38).slice(0, 3).map((v, i) => i === 2 ? v + ROTOR_R + 9 : v), t: 'thrust stands off on pylons', s: 'the pylon is longer than the rotor radius so the disc clears the skin — the dashboard model’s own law. The load enters at a strap hardpoint and spreads over many rings; nothing is drilled' },
       { p: [xMid - ML * 2.6, 0, mz0 + 2.0], t: 'the works, suspended', s: 'one water tank with its N2 ballast pair on a raft under the keel, hung from a wide bridle: every pendant meets the hull as a near-tangential pull on a circumferential strap. A hard-mounted gondola would put its moments straight into a 4 mm wall; the pendulum is the price, and ops owns it [SCOPING]' },
-      { p: [xMid + 16, 0, bucketZ + 2.5], t: 'the bucket rides a line', s: 'scoop, climb, drop — the water cycle never touches the hull. Drop the water and the ship is ~100 t light: the rotors and the anchor line are what hold it down while it refills' },
+      { p: [xMid + 16, 0, bucketZ + 2.5], t: 'the bucket rides a line', s: 'scoop, climb, drop — the water cycle never touches the hull. Drop the water and the ship is ~100 t light: the rotors are what hold it down while it refills, wash thrown upward' },
       { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. We build this 52 m hull first; the spec is what it graduates into' },
     ],
   };
@@ -3639,7 +3639,6 @@ export function mountExplorer(opts) {
                          VesselRecvBay: 'module', VesselBatteryBox: 'module',
                          VesselCryoBox: 'module', VesselShipMind: 'module',
                          VesselPulleys: 'module', VesselPumpPipe: 'module',
-                         VesselAnchor: 'module',
                          VesselStraps: 'lines', VesselLines: 'lines',
                          VesselLinesWater: 'lines',
                          VesselEnvGround: 'env', VesselEnvGrid: 'env',

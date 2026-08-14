@@ -8,8 +8,8 @@
  * sink = band.harshMid.liftSLT. Two pages disagreeing about the same wall is the
  * class of bug this project exists to make impossible.
  */
-import { SHIP, WALL, GRID, ARTICLE } from '../ship/catalog.js?v=dd91118e';
-import { ship0Summary } from '../ship/model.js?v=dd91118e';
+import { SHIP, WALL, GRID, ARTICLE } from '../ship/catalog.js?v=2e5ac7dc';
+import { ship0Summary } from '../ship/model.js?v=2e5ac7dc';
 
 const S = ship0Summary();
 const WALLS = {
