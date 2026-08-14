@@ -872,7 +872,7 @@ deployed + purged + verified):
 
 Operator: "the top of the spinning hero render gets flattened/cut off at its largest
 turn" — then, precisely: "keep in spot and size, just raise the top of the bounding
-box so the model doesn't cut." Landed (airships@<this>, pink-sites@<this>):
+box so the model doesn't cut." Landed (airships@d088fd4, pink-sites@ below):
 - THE CAUSE IS PERSPECTIVE, NOT SIZE. A turning capsule has no constant silhouette.
   BOW-ON the nose cap is 52 m nearer the eye than the hull's middle, so the crown
   projects HIGHER than it ever does broadside. Swept over azimuth (scratch script,
