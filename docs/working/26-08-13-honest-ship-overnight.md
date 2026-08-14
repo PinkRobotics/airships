@@ -698,3 +698,37 @@ fully designed above — start THERE.
 - REMAINING from the operator batch: shipviz derives from resolveClass/buildLayout
   (single-source step F — direction recorded, avatar hand-matched for now); wash
   particles #97 (reproduce-first); hero #98.
+
+## Part 21 — exterior fix shipped; THE PUBLIC ARC briefed (operator, 08-13 night)
+
+SHIPPED: airships@<exterior-fix> + pink-sites@9596604 — the exterior allow-list
+(3d/render/views.js EXTERNAL_PREFIX) now includes the raft cargo; the operator's
+"only two lines down" report was exterior mode hiding the moved machinery. Test
+'exterior hides the interior' flipped to assert the doctrine. CHAIN28 EXIT=0.
+
+THE PUBLIC ARC (operator's verbatim asks, staged as #99/#100 — START HERE NEXT):
+1. Move the viewer + design information OUT of the passworded area, organized into
+   the main site. Three entries: "Inspect the design", "Watch the fleet", and
+   "See the engineering" (engineering sits BELOW the other two).
+2. HERO ANIMATION on the main page: the design model WITH the environment, but
+   trees and people ALL THE WAY AROUND the ship (in view from any azimuth), slow
+   spin exactly like the viewer's idle turntable, NO user control, and a link
+   "Inspect the ship" -> the current explorer page. (Absorbs task #98; the person
+   scale-tick at the bow is already slated for removal in the hero variant.)
+3. GOOD NAMING for the pages (operator explicitly asked; propose e.g. /ship/
+   /fleet/ /engineering/ under pinkrobotics.ca — decide with taste, review against
+   the estate design memory).
+4. MORE LINKED INFORMATION like the levels page but PUBLIC-FRIENDLY copy and
+   materials — figures included and UPDATED to the current idea (capsule, raft
+   undercarriage, beam rotors, colour-coded lines, currently-impossible bigs);
+   clean, concise, estate styling/structure/formatting (pink-sites design system;
+   tone contract in pink-sites-estate-design memory).
+IMPLEMENTATION NOTES: the auth gate lives in the pink-edge Caddyfile
+(@pinkrobotics_cell block) — moving pages public means NEW public paths with new
+copy, not un-gating cell/* verbatim (the gated checks pages keep their audience).
+The hero should be a hero-specific ENV VARIANT in buildVessel (ring of trees +
+people at all azimuths — a flag, not a rewrite of the lake-shore scene) driven by
+a small no-controls boot on the front page; co-agent owns the ridge hero regions,
+so land it as a new module and integrate minimally after checking git log.
+STILL QUEUED BEHIND THIS: wash particles #97 (reproduce-first), shipviz
+single-source derivation, tail-surface retirement on the 3D model.
