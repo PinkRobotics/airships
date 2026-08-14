@@ -22,10 +22,10 @@
  * stencil pass and no artefacts.
  */
 
-import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=9f64fc33';
-import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=9f64fc33';
-import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=9f64fc33';
-import { updateWorld, walk } from '../core/nodes.js?v=9f64fc33';
+import { m4identity, m4mul, m4invert, m4transform } from '../core/math.js?v=e8cd84c3';
+import { viewMatrix, projMatrix, cameraEye } from './camera.js?v=e8cd84c3';
+import { MATERIALS, resolveMaterial, rgb, TOKENS } from './palette.js?v=e8cd84c3';
+import { updateWorld, walk } from '../core/nodes.js?v=e8cd84c3';
 
 /* ---------- shaders --------------------------------------------------------------------------- */
 
@@ -451,7 +451,11 @@ export function createRenderer(canvas, opts = {}) {
     const [w, h] = resize(scene.width, scene.height, scene.dpr);
     gl.viewport(0, 0, w, h);
     const bg = rgb(scene.background || TOKENS.bg);
-    gl.clearColor(bg[0], bg[1], bg[2], scene.transparent ? 0 : 1);
+    // The context is premultiplied: a transparent clear must be (0,0,0,0), or the
+    // compositor reads colour*alpha as additive light and the whole canvas rect
+    // shows as a faint pale box over the hosting page.
+    if (scene.transparent) gl.clearColor(0, 0, 0, 0);
+    else gl.clearColor(bg[0], bg[1], bg[2], 1);
     gl.clearDepth(1);
     gl.enable(gl.DEPTH_TEST);
     gl.depthFunc(gl.LEQUAL);

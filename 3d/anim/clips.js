@@ -9,9 +9,9 @@
  * If a clip needed to be re-authored to change the vehicle, it would be the wrong kind of object.
  */
 
-import { MODES, phaseTimeline, phaseAt, demoState, ALT } from './mission.js?v=9f64fc33';
-import { demoWrench } from '../control/allocator.js?v=9f64fc33';
-import { clamp01, lerp, smoothstep } from '../core/math.js?v=9f64fc33';
+import { MODES, phaseTimeline, phaseAt, demoState, ALT } from './mission.js?v=e8cd84c3';
+import { demoWrench } from '../control/allocator.js?v=e8cd84c3';
+import { clamp01, lerp, smoothstep } from '../core/math.js?v=e8cd84c3';
 
 /** Clip groups, in the order the lab lists them. */
 export const CLIP_GROUPS = [

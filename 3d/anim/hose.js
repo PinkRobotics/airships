@@ -19,8 +19,8 @@
  * animation appear in a static exported figure.
  */
 
-import { clamp, clamp01, lerp, damp, add, sub, mul, len, norm } from '../core/math.js?v=9f64fc33';
-import { tubeGeom } from '../model/geom.js?v=9f64fc33';
+import { clamp, clamp01, lerp, damp, add, sub, mul, len, norm } from '../core/math.js?v=e8cd84c3';
+import { tubeGeom } from '../model/geom.js?v=e8cd84c3';
 
 /**
  * @param {object} cls   resolved class

@@ -7,7 +7,7 @@
 import { close, describe, eq, it, ok } from '../harness.js';
 import {
   CITIES, R_EARTH, bez, bezBearing, easeSm, easeTrap, havKm, lerpAng, moveToward, trackBearing,
-} from '../../sim/index.js?v=7f4c949b';
+} from '../../sim/index.js?v=dd91118e';
 
 const city = name => {
   const c = CITIES.find(q => q[2] === name);
