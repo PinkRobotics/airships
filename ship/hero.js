@@ -13,7 +13,7 @@
  * (ctx.envRing), so the ship has company from every azimuth as it turns.
  * prefers-reduced-motion gets a still ship; a machine without WebGL2 keeps
  * whatever fallback the hosting section painted behind the canvas. */
-import { mountExplorer, LEVELS } from './explorer.js?v=60a254ea';
+import { mountExplorer, LEVELS } from './explorer.js?v=68dfa70b';
 
 export function mountShipHero(canvas) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -24,9 +24,12 @@ export function mountShipHero(canvas) {
     envRing: true,
     layers: { env: true },
     startLevel: LEVELS.findIndex((l) => l.id === 'vessel'),
-    // Letterboxed banner framing: a touch above the beam and far enough out that
-    // the ship, the raft below it and the whole shore ring share the frame.
-    pose: { el: 0.24, d: 290 },
+    // Tight framing (operator, 08-14): the whole machine fills the frame — hull
+    // top to the bucket at the water, raft and lines included — with minimal
+    // margin. Target sits mid-stack (hull top +26 m, water -60 m); 32-degree
+    // vertical fov at ~172 m covers the ~95 m stack. The shore ring reads at the
+    // frame's edges as it turns, which is what the watchers are for.
+    pose: { tg: [0, 0, -17], el: 0.05, d: 172 },
   });
   if (api) canvas.classList.add('live');
   // Spin only while the banner is actually on screen — a hero scrolled past should
