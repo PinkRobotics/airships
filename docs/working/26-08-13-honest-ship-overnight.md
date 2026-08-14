@@ -966,3 +966,32 @@ Eight corrections after living with the phone build. All in ship/, all gated:
   first scroll after landing reads as a dive.
 - THE HEADER LOSES ITS LINKS, gated and public: they are one tap from the front door,
   and on a phone they cost two lines of the model's sky to say where you just were.
+
+## Part 29 — the fleet monitor on a phone (operator, 08-14)
+
+Operator: make the dashboard mobile-friendly the way the viewer now is — "clean, useful,
+information where it should be, organized". Landed in index.html only (the application
+is untouched; it works through ids that never moved):
+- A DEAD CASCADE, FOUND WHILE MEASURING. `.mapbox canvas{height:100%}` is declared LATE
+  in the sheet, and the `@media (max-width:1100px)` block that set `58vh` was declared
+  EARLY — same specificity, so the base rule won and the map has been a ~180 px sliver
+  on every screen under 1100 px since that rule was written. Media queries are not
+  stronger than anything; they are ordinary rules with a condition, and they belong at
+  the END. Both blocks now sit there; the tablet's 58vh works for the first time.
+- THE MAP IS THE HERO and never leaves: 44dvh, with the LEGEND MOVED OUT of the map's
+  bottom-left corner (six rows pinned inside the frame covered the very corner the
+  ships work in) into a strip underneath, and the HUD chips ellipsized to one line.
+- ONE PANEL AT A TIME behind a sticky tab bar — fleet / ship / 3D / operation — the same
+  shape as the viewer's tray, so the two pages read as one instrument. `.monbody` goes
+  flex-column on a phone so the map can be FIRST whatever the grid areas say. Every
+  show/hide is `:not([hidden])`, because the application owns those attributes.
+- SELECTING A SHIP OPENS ITS COCKPIT, watched through the focus panel's own title with a
+  MutationObserver — no hook inside the application. ARMED 2.5 s after boot: the app
+  opens with a ship already selected, and following that would mean the fleet list could
+  never be the landing tab. Only a selection the reader made moves the tab.
+- Two hint cards for the empty states, a control row that scrolls sideways instead of
+  stacking six deep, SPLIT hidden (side-by-side means nothing at 390 px), and an intro
+  overlay that drops its five desktop-pinned call-outs for the one card that says what
+  the page is. Header: two lines, not four.
+Gates: interaction (25/25), fallbackcheck. Desktop verified untouched at 1440x900 —
+grid 300/764/320, tab bar display:none, no body class.

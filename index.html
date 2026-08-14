@@ -556,6 +556,93 @@ nav.estate .est-rb{margin-right:auto}
   .drawer{max-height:none}
   .kv{grid-template-columns:auto 1fr}
 }
+/* ---- OVERRIDES LIVE AT THE END, WHICH IS WHY THIS BLOCK MOVED HERE ----
+   The phone rules were first written up beside the 1100 px one, and both were DEAD: the
+   base rule `.mapbox canvas{height:100%}` is declared further down this sheet at equal
+   specificity, so it won every cascade and the map has been a sliver on every screen
+   under 1100 px since that rule was written. Media queries are not stronger than
+   anything; they are ordinary rules with a condition. They go last. */
+@media (max-width:1100px){
+  .mapbox canvas{height:58vh}    /* now that it is after the base rule, it applies */
+}
+/* ---- THE PHONE (operator, 08-14, after the same round on the viewer) ----
+   The 1100 px rule above releases the one-viewport contract and stacks the cockpit in
+   the order map / ship / fleet / ops. That is right for a tablet and wrong for a phone:
+   four full panels end to end is a two-metre scroll, the legend covers a quarter of the
+   map, and six control chips stack six deep before the model even starts.
+
+   THE RULE HERE: the map is the hero and never leaves. Everything else is ONE panel at
+   a time behind a sticky tab bar — fleet, ship, 3D, operation — which is the same
+   shape the viewer's tray took, so the two pages feel like one instrument. A tap on a
+   ship (map or roster) opens its cockpit, because that is what the tap meant. */
+#dtabs{display:none}
+@media (max-width:900px){
+  .monitor{padding:var(--s2) var(--s3) 0}
+  .monitor>.kicker{font-size:var(--t-11);line-height:1.4;gap:var(--s1) var(--s3)}
+  /* Both links share line one, the disclaimer takes its own — two lines, not three. */
+  .monitor>.kicker>span{order:1;flex-basis:100%}
+  .monitor>.kicker a:last-child{margin-left:auto}
+  /* Three lines of chrome above a 44vh map is a third of the screen spent on saying
+     where you are. What survives is the way back, what the colours mean, and the link
+     to the sources — the words "autonomous fleet monitor" are the page you are on. */
+  .m-hide{display:none}
+  /* Flex, not block, so the MAP can be first whatever the DOM order is — the grid
+     areas that put it in the middle on a desktop are off here. */
+  .monbody{display:flex;flex-direction:column;margin-top:var(--s2)}
+  .cp-map{order:0}
+  .cp-leftcol,.cp-rightcol,.cp-ops{order:1}
+  .cp-leftcol,.cp-rightcol{overflow:visible}
+  /* The map: shorter than the tablet's 58vh, because a tab bar and a panel live under
+     it now and a hero you have to scroll to finish is not a hero. */
+  .mapbox canvas{height:44vh;height:44dvh}
+  .mapcol{gap:var(--s2)}
+  /* THE LEGEND STOPS COVERING THE MAP. Six rows pinned inside a 44vh box ate the
+     bottom-left corner — where the ships mostly are. It reads as a strip underneath. */
+  .maplegend{position:static;background:none;border:0;padding:0;margin-top:2px;
+    display:flex;flex-wrap:wrap;gap:1px var(--s3);font-size:10px;line-height:1.6}
+  .maplegend br{display:none}
+  .hud{top:var(--s2);left:var(--s2);right:var(--s2);gap:var(--s2)}
+  .hud .chip{font-size:10px;padding:3px 7px;max-width:100%;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  .mapscale{display:none}          /* the legend strip carries the reading now */
+  /* One scrolling row of chips instead of six stacked lines. */
+  .monctl{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;gap:var(--s2);margin-top:var(--s2);padding-bottom:2px}
+  .monctl::-webkit-scrollbar{display:none}
+  .monctl>*{flex:none}
+  #btnSplit{display:none}          /* side-by-side has no meaning on a 390 px screen */
+  /* THE TAB BAR. Sticky, so it is reachable however far the panel scrolls. */
+  #dtabs{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:sticky;top:0;
+    z-index:20;margin:var(--s3) 0 var(--s3);background:rgba(10,10,12,.96);
+    border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  #dtabs button{border:0;border-left:1px solid var(--line);background:none;height:42px;
+    color:var(--muted);font:var(--t-12) var(--mono);letter-spacing:.06em;cursor:pointer}
+  #dtabs button:first-child{border-left:0}
+  #dtabs button.on{color:var(--warm);background:var(--warm-glow)}
+  /* One panel at a time. `:not([hidden])` everywhere — an author display beats the
+     hidden attribute, and the app owns those attributes (the trap this repo has now
+     paid for four times). */
+  .cp-leftcol,.cp-rightcol,#model3d,.cp-ops,#dtHintShip,#dtHint3d{display:none}
+  body.dt-fleet .cp-leftcol{display:flex}
+  body.dt-ship .cp-rightcol:not([hidden]){display:block}
+  body.dt-ship #cpLeft[hidden]~#dtHintShip{display:block}
+  body.dt-3d #model3d:not([hidden]){display:flex}
+  body.dt-3d #model3d[hidden]~#dtHint3d{display:block}
+  body.dt-ops .cp-ops:not([hidden]){display:block}
+  .dthint{color:var(--faint);font-size:var(--t-13);line-height:1.6;
+    border:1px dashed var(--line-strong);border-radius:var(--r);padding:var(--s4)}
+  /* Instruments get their desktop room back: the phone is not the dense 4K column. */
+  .cp-rightcol #shipviz{height:190px}
+  .cp-rightcol .dialgrid{margin-top:-18px}
+  .cp-rightcol .dialgrid svg{max-width:140px}
+  #m3dView{height:46vh;height:46dvh}
+  /* The intro's five call-outs are pinned to a desktop cockpit; on a phone they land on
+     top of each other. Only the one that says what this page is survives. */
+  #introOv .io{display:none}
+  #introOv .io-tap{display:block;position:static;margin:38vh var(--s5) 0;
+    transform:none;max-width:none}
+}
+
 </style>
 </head>
 <body>
@@ -563,11 +650,11 @@ nav.estate .est-rb{margin-right:auto}
   <div class="monitor" id="monroot">
     <p class="kicker" style="margin:0;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:baseline">
       <a href="../" style="color:var(--faint)">← Pink Robotics</a>
-      <span>Autonomous fleet monitor —
+      <span><span class="m-hide">Autonomous fleet monitor —</span>
         <span style="color:#c9c3b6">live BC fires</span> ·
         <span style="color:var(--warm)">simulated fleet</span> ·
         <span style="color:#d98b80">not for emergency use</span></span>
-      <a href="concept/" style="margin-left:auto;color:var(--warm)">How it works · sources →</a></p>
+      <a href="concept/" style="margin-left:auto;color:var(--warm)"><span class="m-hide">How it works · </span>sources →</a></p>
     <div class="monbody has-ship" id="cockpit">
       <div class="cp-leftcol">
       <div class="cpanel" id="cpFleet">
@@ -604,6 +691,8 @@ nav.estate .est-rb{margin-right:auto}
           <div id="cpStep" style="margin-top:var(--s3)"></div>
         </div>
       </div>
+      <p id="dtHintShip" class="dthint">Nothing selected yet. Tap a ship on the map, or a
+        row in the fleet list, and its forces, phase and systems appear here.</p>
       </div>
       <div class="cp-map" id="cpMap">
         <div class="mapcol">
@@ -677,6 +766,16 @@ nav.estate .est-rb{margin-right:auto}
         </div>
         </div>
 
+        <!-- THE PHONE'S TAB BAR — display:none until the mobile query matches. It sits
+             here, inside the map column and under it, so that on a phone the order reads
+             map, tabs, then whichever panel the tabs chose (the 3D pane is a child of
+             this column and follows immediately). A desktop never sees it. -->
+        <nav id="dtabs" aria-label="Which panel to show">
+          <button data-dtab="fleet" class="on">fleet</button>
+          <button data-dtab="ship">ship</button>
+          <button data-dtab="3d">3D</button>
+          <button data-dtab="ops">operation</button>
+        </nav>
         <div class="cpanel" id="model3d" hidden>
           <h4 class="cp-h">The airship, live · <b id="m3dTitle">—</b> ·
             <span style="color:var(--faint);text-transform:none;letter-spacing:0">conceptual reference vehicle, driven by the same state as everything else here</span></h4>
@@ -721,6 +820,8 @@ nav.estate .est-rb{margin-right:auto}
             <span id="m3cCats"></span>
           </div>
         </div>
+        <p id="dtHint3d" class="dthint">Pick a ship — tap one on the map, or a row in the
+          fleet list — and it is drawn here, flying the same simulation.</p>
 
       </div>
 
@@ -934,6 +1035,58 @@ nav.estate .est-rb{margin-right:auto}
   reveal(); refresh();
 })();
 /*/DESIGNJS*/
+</script>
+<script>
+/* THE PHONE'S TABS (operator, 08-14). Below 900 px the cockpit's four panels take turns
+ * under the map instead of stacking end to end. Everything here is inert unless that
+ * media query matches, so the desktop cockpit — and every check that drives it — is
+ * untouched. It is deliberately NOT part of app/main.js: this is page furniture, and
+ * the application still does all its work through ids that never move.
+ *
+ * The one piece of judgement: selecting a ship SWITCHES to its cockpit, but only from
+ * the fleet tab. A tap on a ship means "show me this ship"; a reader already reading
+ * the operation panel means the opposite, so they are left where they are. */
+(function phoneTabs() {
+  const mq = matchMedia('(max-width:900px)');
+  const tabs = document.getElementById('dtabs');
+  const KEYS = ['fleet', 'ship', '3d', 'ops'];
+  const cls = KEYS.map((k) => 'dt-' + k);
+  const setTab = (k) => {
+    document.body.classList.remove(...cls);
+    document.body.classList.add('dt-' + k);
+    for (const b of tabs.children) b.classList.toggle('on', b.dataset.dtab === k);
+    // A canvas that was display:none has no box; the 3D view measures itself from one.
+    // Its own ResizeObserver catches the change, and this is the belt to that braces.
+    window.dispatchEvent(new Event('resize'));
+  };
+  tabs.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (b) setTab(b.dataset.dtab);
+  });
+  const apply = (on) => {
+    if (on) { if (!cls.some((c) => document.body.classList.contains(c))) setTab('fleet'); }
+    else document.body.classList.remove(...cls);
+  };
+  mq.addEventListener('change', (e) => apply(e.matches));
+  apply(mq.matches);
+  // The selection's own signal: the focus panel's title is written by the app on every
+  // selection change, so watching it needs no hook inside the application at all.
+  const name = document.getElementById('cpShip');
+  // ARMED AFTER BOOT. The application opens with a ship already selected, and following
+  // that would mean the fleet list — the overview a reader lands on — could never be the
+  // first thing they see. Only a selection they made themselves moves the tab.
+  let armed = false;
+  setTimeout(() => { armed = true; }, 2500);
+  if (name && 'MutationObserver' in window) {
+    new MutationObserver(() => {
+      const has = (name.textContent || '').trim();
+      if (armed && mq.matches && has && has !== '\u2014' &&
+          document.body.classList.contains('dt-fleet')) {
+        setTab('ship');
+      }
+    }).observe(name, { childList: true, characterData: true, subtree: true });
+  }
+})();
 </script>
 <!-- The whole application is app/main.js. This page is markup: everything it does,
      it does from there, and there is no build step between the two — the browser
