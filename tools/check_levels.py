@@ -36,11 +36,18 @@ import tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PORT = "8911"          # explorer's in-check server uses 8909, the Makefile's 8899
 
-# Figures the page promises today. The probe also sweeps every .lvl-fig it finds, so a
-# NEW figure is covered automatically; this list only pins the known set against silent
+# Figures each page promises today. The probe also sweeps every .lvl-fig it finds, so a
+# NEW figure is covered automatically; these lists only pin the known sets against silent
 # removal (an id typo'd in HTML simply vanishes — querySelector finds nothing to fill).
-EXPECTED_FIGS = ["fig-cell", "fig-cellmass", "fig-band", "fig-ring", "fig-support",
-                 "fig-webs", "fig-closure", "fig-ledger", "fig-equip"]
+# The public engineering page rides the same gate: same binder contract, same failure
+# modes, no catalog pane.
+PAGES = [
+    {"url": "cell/levels.html", "pane": True,
+     "figs": ["fig-cell", "fig-cellmass", "fig-band", "fig-ring", "fig-support",
+              "fig-webs", "fig-closure", "fig-ledger", "fig-equip"]},
+    {"url": "engineering/index.html", "pane": False,
+     "figs": ["fig-wall", "fig-walls", "fig-gear"]},
+]
 
 PROBE = r"""(() => {
   const out = { errors: window.__errs || [], figs: [], miss: [], overflow: [], paneSvg: false };
@@ -71,34 +78,27 @@ PROBE = r"""(() => {
 })()"""
 
 
-def main() -> int:
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
-        probe = pathlib.Path(td) / "probe.js"
-        probe.write_text(PROBE)
-        out = pathlib.Path(td) / "out.json"
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", PORT, "--quiet"], cwd=ROOT)
-        try:
-            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"http://127.0.0.1:{PORT}/cell/levels.html",
-                            str(probe), str(out), "8"], cwd=ROOT, check=True,
-                           stdout=subprocess.DEVNULL)
-            res = json.loads(out.read_text())
-        finally:
-            srv.terminate()
-            srv.wait()
+def check_page(page, td) -> tuple[list[str], int]:
+    probe = pathlib.Path(td) / "probe.js"
+    probe.write_text(PROBE)
+    out = pathlib.Path(td) / f"out-{page['url'].replace('/', '-')}.json"
+    subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
+                    f"http://127.0.0.1:{PORT}/{page['url']}",
+                    str(probe), str(out), "8"], cwd=ROOT, check=True,
+                   stdout=subprocess.DEVNULL)
+    res = json.loads(out.read_text())
 
     bad = []
     for e in res.get("errors", []):
         bad.append(f"page error at boot: {e}")
     seen = {f["id"]: f["kids"] for f in res.get("figs", [])}
-    for fid in EXPECTED_FIGS:
+    for fid in page["figs"]:
         if fid not in seen:
             bad.append(f"#{fid} is missing from the page")
     for fid, kids in seen.items():
         if kids < 3:
             bad.append(f"#{fid} drew {kids} SVG children — an empty or stub figure")
-    if not res.get("paneSvg"):
+    if page["pane"] and not res.get("paneSvg"):
         bad.append("the catalog pane mounted no part drawing")
     want_nos = [f"fig {i + 1}" for i in range(len(seen))]
     if res.get("fignos") != want_nos:
@@ -110,16 +110,31 @@ def main() -> int:
         bad.append(f"text clipped by its viewBox in {o['where']}: \"{o['text']}\" spans "
                    f"x {o['x']}..{o['right']} of {o['vbw']}, "
                    f"y {o['y']}..{o['bottom']} of {o['vbh']}")
+    return [f"{page['url']}: {b}" for b in bad], len(seen)
+
+
+def main() -> int:
+    bad, figs = [], []
+    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
+                                "--port", PORT, "--quiet"], cwd=ROOT)
+        try:
+            for page in PAGES:
+                page_bad, n = check_page(page, td)
+                bad += page_bad
+                figs.append(f"{page['url']} {n}")
+        finally:
+            srv.terminate()
+            srv.wait()
 
     if bad:
         print("LEVELS CHECK FAILED:\n")
         for b in bad:
             print(f"  {b}")
         return 1
-    n_text = "every"
-    print(f"levels: booted with no page errors, {len(seen)} figures drawn, the catalog "
-          f"pane mounted, all number bindings resolved, {n_text} caption inside its "
-          "viewBox.")
+    print(f"levels: {len(PAGES)} pages booted with no page errors ({', '.join(figs)} "
+          "figures drawn), the catalog pane mounted, all number bindings resolved, "
+          "every caption inside its viewBox.")
     return 0
 
 

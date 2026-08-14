@@ -304,6 +304,9 @@
     .lbl{transition:none}
   }
   .bplink{color:#7aa2c8;text-decoration:none;border-bottom:1px dotted #47637d}
+  /* The working pages under ../cell/ sit behind the working password. A public
+   * visitor deserves to know that BEFORE the browser throws a login prompt. */
+  a[href^="../cell/"]::after{content:" (gated)";color:#74747f;font-size:.82em}
   .bplink:hover{color:#ff4fa3}
 </style>
 </head>
@@ -316,7 +319,8 @@
   <div class="kicker">Pink Robotics · airship structures</div>
   <h1>From the joint to the ship</h1>
   <p>Eight scales of one structure. Drag to orbit · scroll to dive ·
-     <a href="../cell/levels.html">the blueprint</a> · <a href="../cell/ship.html">the checks</a> · <a href="../cell/">the flat explainer</a></p>
+     <a href="../engineering/">the engineering</a> · <a href="../">the fleet</a> ·
+     <span style="opacity:.75"><a href="../cell/levels.html">the blueprint</a> · <a href="../cell/ship.html">the checks</a></span></p>
 </header>
 
 <nav id="rail" aria-label="Scale ladder"></nav>
@@ -1728,9 +1732,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=4b042085';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4b042085';
-import * as CELL from './model.js?v=4b042085';
+import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=2681f8dc';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=2681f8dc';
+import * as CELL from './model.js?v=2681f8dc';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
