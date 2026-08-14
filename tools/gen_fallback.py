@@ -127,8 +127,12 @@ def render(d: dict) -> dict[str, str]:
 
     rows = []
     for grp in d['roster']:
+        # P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
+        # the crush envelope closes near 96 m of hull and both live outside it.
+        badge = ("" if grp["cls"] == "P-100" else
+                 ' <span style="color:#d98b80;font-weight:600">· currently impossible</span>')
         rows.append(f'<tr class="r-clsrow"><td colspan="3">'
-                    f'<span class="r-cls">{esc(grp["cls"])} ×{grp["count"]}</span></td></tr>')
+                    f'<span class="r-cls">{esc(grp["cls"])} ×{grp["count"]}{badge}</span></td></tr>')
         for s in grp['ships']:
             fire = esc(s['fire']) if s['fire'] else '<span style="color:var(--faint)">standing by</span>'
             rate = f'{fmt(s["tph"])} kL/h' if s['tph'] else '—'

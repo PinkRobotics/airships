@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=77312b8b';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=77312b8b';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=77312b8b';
-import { shipViz } from '../cockpit/shipviz.js?v=77312b8b';
-import { updateRoster } from '../cockpit/tables.js?v=77312b8b';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=77312b8b';
-import { needsShip } from '../feeds.js?v=77312b8b';
-import { S } from '../store.js?v=77312b8b';
+import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=944e6574';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=944e6574';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=944e6574';
+import { shipViz } from '../cockpit/shipviz.js?v=944e6574';
+import { updateRoster } from '../cockpit/tables.js?v=944e6574';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=944e6574';
+import { needsShip } from '../feeds.js?v=944e6574';
+import { S } from '../store.js?v=944e6574';
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
@@ -76,7 +76,11 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   const m3p = $("model3d");
   if (m3p && !m3dDead) {
     m3p.hidden = !m;
-    if (m) { $("m3dTitle").textContent = (m.name ? m.name + " · " : "") + m.cls.name; ensureM3D(m); }
+    if (m) {
+      $("m3dTitle").textContent = (m.name ? m.name + " · " : "") + m.cls.name
+        + (m.cls.id === "P100" ? "" : " · currently impossible");
+      ensureM3D(m);
+    }
   }
   if (m) {
     const f = m.fire;
@@ -87,7 +91,8 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       shipViz.snap();
       setCamera({ azimuth: null });
     }
-    $("cpShip").textContent = (m.name || m.cls.name) + " · " + m.cls.name + " · " +
+    $("cpShip").textContent = (m.name || m.cls.name) + " · " + m.cls.name
+      + (m.cls.id === "P100" ? "" : " · currently impossible") + " · " +
       (f.name || f.geo || f.id);
     phaseDialObj = makePhaseDial($("phaseDial"), m);
     const sd = $("sysDials");

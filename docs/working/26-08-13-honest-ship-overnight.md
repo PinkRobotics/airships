@@ -668,3 +668,8 @@ NEXT SLICE (not started — the heavy build.js work), design settled:
    architectural goal in HANDOFF.
 5. Then: badges 'mention elsewhere' candidate = model-lab header line + maybe
    /airships page prose; wash particles (#97) reproduce-first; hero (#98).
+SHIPPED: airships@f4502ec + pink-sites@38ed2ec, CHAIN19 EXIT=0 (suite pin 103->101 for
+the folded blower tests), deployed from clean worktree, purged, live-verified (layout
+tiers x2, explorer colour code x3, badges in served worked.js + shipviz.js). The next
+slice (raft undercarriage / vacuum void / solar decking / single-source shipviz) is
+fully designed above — start THERE.

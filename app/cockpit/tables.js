@@ -1,12 +1,12 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=77312b8b';
-import { timeSinceDrop } from '../cockpit/panels.js?v=77312b8b';
-import { $, SHORT, esc } from '../dom.js?v=77312b8b';
-import { needsShip } from '../feeds.js?v=77312b8b';
-import { FLEET } from '../fleet.js?v=77312b8b';
-import { select } from '../map/interact.js?v=77312b8b';
-import { S } from '../store.js?v=77312b8b';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=944e6574';
+import { timeSinceDrop } from '../cockpit/panels.js?v=944e6574';
+import { $, SHORT, esc } from '../dom.js?v=944e6574';
+import { needsShip } from '../feeds.js?v=944e6574';
+import { FLEET } from '../fleet.js?v=944e6574';
+import { select } from '../map/interact.js?v=944e6574';
+import { S } from '../store.js?v=944e6574';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -131,8 +131,12 @@ export function renderRoster() {
   if (!el) return;
   const body = FLEET.map(([clsId, count]) => {
     const ships = S.missions.map((m, i) => ({ m, i })).filter(x => x.m.cls && x.m.cls.id === clsId);
+    // P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
+    // the crush envelope closes near 96 m of hull and both live outside it.
+    const impossible = clsId === "P100" ? "" :
+      ` <span style="color:#d98b80;font-weight:600" title="the crush envelope closes near 96 m of hull diameter — this class is outside it (front page, Figure 2)">· currently impossible</span>`;
     const head = `<tr class="r-clsrow"><td colspan="3"><button class="r-cls" data-hl="${clsId}" ` +
-      `aria-pressed="${S.hlClass === clsId}">${CLASSES[clsId].name} ×${count}</button></td></tr>`;
+      `aria-pressed="${S.hlClass === clsId}">${CLASSES[clsId].name} ×${count}${impossible}</button></td></tr>`;
     const rows = ships.map(({ m, i }) =>
       `<tr class="r-ship${S.sel && S.sel.m === m ? " sel" : ""}" data-mi="${i}" ` +
       `aria-selected="${!!(S.sel && S.sel.m === m)}" title="${esc(m.why || "")}">` +
