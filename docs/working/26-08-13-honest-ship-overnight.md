@@ -819,3 +819,23 @@ Operator's morning notes, all landed + deployed (airships@2e2c4fd, pink-sites@0c
   (its caption claimed the sim still flies the old hull — false since the capsule
   landed); control section now says beam pylons + raft; monitor section dropped
   its rot-prone embedded screenshot (a live app's screenshot is stale by design).
+
+## Part 24 — the lean front page: ship over the ridge (operator round 3, 08-14)
+
+Operator: hull horizon at the header's bottom edge; pinkai-lean page; engineering
+is the main link. Landed (airships@2f1b67c/897f003, pink-sites@e295968, deployed):
+- SHIP OVER THE RIDGE: #ship3d pulls up by (s8 padding + 48% of canvas height) so
+  the beam line sits at the hero boundary at every width; section border-top off.
+  The sky is TRANSPARENT now — opts.transparentSky → scene.transparent → the
+  renderer's clear. TRAP WORTH KEEPING: a premultiplied context must clear to
+  (0,0,0,0); clearing (bg,0) reads as additive light — a faint pale box over the
+  page. The canvas takes pointer-events:none; the overlay feather now covers only
+  the lower (geometry) region and masks its own top edge — masks are safe on
+  painted elements, never on the accelerated canvas.
+- LEAN BODY: construction = the two figures only (captions trimmed; the prose
+  moved to /airships/engineering/ where it already lived); then START HERE (the
+  engineering, mainly + inspect + fleet) and EVERYTHING ELSE (how it works, the
+  energy, the research, the model lab, working animals, the archive, gated
+  working pages marked); one honesty line; water/control/status/monitor/parked
+  sections deleted. Page height 6757 → 4456 px. robotics.py tolerates the
+  removed N: tokens (skip, not fail) — numbers now live only in the figures.
