@@ -732,3 +732,63 @@ a small no-controls boot on the front page; co-agent owns the ridge hero regions
 so land it as a new module and integrate minimally after checking git log.
 STILL QUEUED BEHIND THIS: wash particles #97 (reproduce-first), shipviz
 single-source derivation, tail-surface retirement on the 3D model.
+
+## Part 22 — THE PUBLIC ARC SHIPPED: ship/, engineering/, the hero, the three doors (08-13/14 night)
+
+The operator's part-21 brief, built and deployed in three rounds + the front page:
+
+**ROUND A — the split (airships@3a20638).** The viewer's whole module graph moved
+cell/ → ship/ (model, catalog, explorer, geom, 3 generated modules; explorer.html →
+ship/index.html). The pink-edge gate matches /airships/cell/* BY PATH, so ship/ is
+public with NO server change. Gated pages import ../ship/; cell/explorer.html is a
+redirect stub that keeps deep links (location.replace with search+hash). Tools that
+moved with it: gen_node_families/gen_display_meshes/gen_skin OUT paths, check_explorer
+(page URL + generated paths + ROOT/"cell"/"skin..." Path form — grep for BOTH string
+and Path forms), check_ship's PROBE (it did import('./model.js') RELATIVE TO THE PAGE
+— the 404 said /cell/model.js and the page's own import was fine; probes have their
+own imports), stamp_site OWNED += ship, dist.manifest rows, Makefile echoes, README/
+HANDOFF/FLOAT live references. TRAP PAID TWICE: the generated meshes' freshness hash
+folds in the GENERATOR'S OWN BYTES — any edit to gen_*.py (even a docstring) demands
+regeneration, not just restamp.
+
+**ROUND A2 — the hero boot (airships@fe5319a).** NODEMESHES (6.5 MB) became a lazy
+module: `loadNodemeshes()` exported; the viewer page top-level-awaits it before
+mountExplorer (same ordering the static import enforced — no UX change, gate-proven);
+buildCell throws loudly if built without it. mountExplorer grew opts: `lite` (only
+the vessel level builds; others get bare shells; no tours — a lite page wires no
+controls so shells are unreachable), `envRing` (via ctx: TR/PP become full-circle
+index-hashed rings — trees every 12°, watcher knots every 30°, same shore band;
+VesselPerson tick NOT drawn in this variant per #100), `layers` (Object.assign into
+state.shipLayers pre-build: env on at boot, no transition), `pose` (applied AFTER the
+boot setLevel or it is clobbered; maxDistance before distance). ship/hero.js = the
+no-controls boot: turntable runs from frame one (lastInteract starts at -1e9 — the
+viewer always idled from boot; the hero needed nothing), reduced-motion = still ship,
+IntersectionObserver parks the spin offscreen (api.state is the LIVE state object).
+Hero pose {el:0.24, d:290} letterboxes ship + whole shore ring.
+
+**ROUND B — engineering/ (airships@37e84e6).** The public design story: seven scales
+(the parts / the cell / the wall / the skeleton / the hull / the gear / at work),
+keynums (52×104, 224.8 t, 203–338 t walls, −4.3 t honest residual), three drawn
+figures (film-on-rings; THE TWO WALLS as a corridor on a mass axis — harsh floor
+ABOVE the ceiling, best floor below it, "a ship exists in here"; the gear elevation
+with the colour-code legend), the what-is-not-solved panel, provenance. Every number
+binds live: catalog.js + model.js ship0Summary().band with THE FRONT PAGE'S EXACT
+BASES (harshMid.crushT / frame1450.crushT / harshMid.liftSLT — robotics.py tok_walls
+is the reference; two pages must never disagree about a wall). check_levels.py is now
+a PAGES loop driving both blueprint-style pages through one probe. The viewer header
+leads with public links; a CSS rule marks every ../cell/ link "(gated)" so the login
+prompt is never a surprise. Fig lesson re-paid: format EVERY interpolated model value
+(115.82495689655173 g/m² shipped to a local screenshot before fmt0 caught it).
+
+**ROUND C — the front page (pink-sites).** After the co-agent's hero: #ship3d section
+(canvas data-ship-hero + hero.js self-boot, unstamped src — html no-cache + purge
+carry freshness), caption + "Inspect the ship →", THE THREE DOORS (Inspect the design
+/ Watch the fleet, then See the engineering full-width below — as ruled). The hero
+.acts nav (co-agent markup, minimal touch): + Inspect the design, See the engineering
+retargeted #lift → airships/engineering/. The "closed review" paragraph now says the
+story is public and names what stays gated. NO .sechead on the band — the report
+sections are numbered by position and a new section must not shift them.
+
+**Naming settled:** /airships/ship/ (the viewer — object-named, matches "Inspect the
+ship"), /airships/ (the fleet), /airships/engineering/ (the story). cell/ = the gated
+working pages only.
