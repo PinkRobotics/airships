@@ -24,36 +24,36 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=92ce525c';
-import * as G from './explorer-geom.js?v=92ce525c';
+import * as CELL from './model.js?v=4a4cf3a2';
+import * as G from './explorer-geom.js?v=4a4cf3a2';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=92ce525c';
+} from './nodes.generated.js?v=4a4cf3a2';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=92ce525c';
+import { NODEMESHES } from './nodemeshes.generated.js?v=4a4cf3a2';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=92ce525c';
+import { SKIN } from './skin.generated.js?v=4a4cf3a2';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=92ce525c';
-import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=8bea3346';
-import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=8bea3346';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4a4cf3a2';
+import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=7737f66b';
+import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=7737f66b';
 import {
   createCamera, orbit, dolly, pan, viewMatrix, projMatrix,
-} from '../3d/render/camera.js?v=8bea3346';
-import { TOKENS, mix } from '../3d/render/palette.js?v=8bea3346';
-import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=8bea3346';
-import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=8bea3346';
-import { boxSegs, transformSegs } from '../3d/model/geom.js?v=8bea3346';
-import { m4compose, m4transform } from '../3d/core/math.js?v=8bea3346';
+} from '../3d/render/camera.js?v=7737f66b';
+import { TOKENS, mix } from '../3d/render/palette.js?v=7737f66b';
+import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=7737f66b';
+import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=7737f66b';
+import { boxSegs, transformSegs } from '../3d/model/geom.js?v=7737f66b';
+import { m4compose, m4transform } from '../3d/core/math.js?v=7737f66b';
 
 /* ---------- explorer materials (styleFor supplies these; palette keys work too) --------------- */
 
@@ -2444,15 +2444,18 @@ function buildVessel() {
   }
   pipesFromSegs(root, 'VesselStraps', straps, 0.09, XM.printed, 6);
 
-  // THRUST, GIMBALLED (operator ruling, 08-13). Two duties, wildly unequal:
-  // cruise thrust is CHEAP (a trimmed-neutral ship fights only drag) and
-  // HOLDDOWN is EXPENSIVE (the scoop-and-drop transient is ~100 t of force
-  // with nowhere to hide; lifting a heavy ship is the same bill upward, rare
-  // by doctrine). So the pods sit LOW on the widest band — the downthrust
-  // line passes as near the CG as an exterior mount allows, with pitch and
-  // roll authority from the fore/aft spread — and every pod vectors. Drawn
-  // MID-DUTY, not animated: every disc pointed to push the ship down and
-  // forward at once, the posture the water cycle actually flies.
+  // THRUST, GIMBALLED (operator ruling, 08-13 evening — REVERSING the same
+  // day's low-mount call). Two duties, wildly unequal: cruise thrust is
+  // CHEAP (a trimmed-neutral ship fights only drag) and HOLDDOWN is
+  // EXPENSIVE (the scoop-and-drop transient is ~100 t of force with nowhere
+  // to hide). The correction: holddown's WASH GOES UP — thrust down means
+  // air thrown upward — so a pod below the beam fires its hardest wash
+  // straight into the belly. The pods therefore ride THE HORIZONTAL PLANE,
+  // the widest band's beam, where the wash column clears the hull's curve
+  // in BOTH duties and the discs sit as far from wall, straps and working
+  // lines as a pylon can hold them. Every pod vectors. Drawn MID-DUTY, not
+  // animated: discs pointed to push the ship down and forward at once, the
+  // posture the water cycle actually flies.
   const ROTOR_R = 5.5, PYLON = 7.5, NAC_L = 7.0;
   const thrustA = (() => {
     const v = [-0.45, 0, -1];
@@ -2467,7 +2470,7 @@ function buildVessel() {
   const pylons = [], rotors = [], podXf = [];
   for (const s of podS) {
     for (const side of [0, Math.PI]) {
-      const th = side === 0 ? -0.52 : Math.PI + 0.52;   // low on each flank
+      const th = side === 0 ? 0 : Math.PI;   // on the beam — the horizontal plane
       const base = point(s, 0, th);
       const n = normalAt(s, th);
       const hub = [base[0] + n[0] * PYLON, base[1] + n[1] * PYLON,

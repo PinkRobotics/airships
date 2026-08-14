@@ -355,18 +355,21 @@
   in the control loop, and ops owns it. Both readings are [SCOPING] — the equipment axis
   is named, not weighed, in the gated ledger.</p>
 
-  <p class="sowhat"><b>The rotors have two jobs, priced worlds apart.</b> Cruise thrust
-  is cheap: a trimmed-neutral ship fights only drag. HOLDDOWN is the expensive duty —
-  the scoop-and-drop transient is ~100 t of force — and lifting a heavy ship is the same
-  bill pointed up, rare by doctrine. So the pods sit <b>low on the widest band</b>, where
-  the downthrust line passes as near the centre of gravity as an exterior mount allows,
-  with pitch and roll authority from the fore-aft spread; every pod gimbals through 90°.
-  They are drawn mid-duty — pointed to push the ship down and forward at once, the
-  posture the water cycle actually flies. This placement is DECIDED [SCOPING]: low on
-  the flank the downthrust washes clear past the hull's curve instead of fountaining
-  against the belly (a keel mount fights its own suckdown and the bridle), the fore-aft
-  spread buys pitch and roll authority, and symmetric pairs cancel their own moments;
-  real disc sizing belongs to the fleet-model power work.</p>
+  <p class="sowhat"><b>The rotors have two jobs, priced worlds apart — and the wash
+  decides where they sit.</b> Cruise thrust is cheap: a trimmed-neutral ship fights only
+  drag. HOLDDOWN is the expensive duty — the scoop-and-drop transient is ~100 t of
+  force — and holddown's wash goes <i>up</i>: pushing the ship down means throwing air
+  at the sky. A pod mounted low would fire its hardest wash straight into the belly
+  above it. So the pods ride <b>the horizontal plane</b> — the widest band's beam —
+  where the wash column clears the hull's curve in both duties, the discs sit as far
+  from the wall, the straps and the working lines as a pylon can hold them, and the
+  fore-aft spread buys pitch and roll authority; every pod gimbals through 90° and
+  symmetric pairs cancel their own moments. They are drawn mid-duty — pointed to push
+  the ship down and forward at once, the posture the water cycle actually flies. This
+  placement is DECIDED [SCOPING], superseding an earlier low-flank call that read the
+  wash direction backwards; real disc sizing belongs to the fleet-model power work.
+  (The largest class runs two banks at ±45° from the horizon — its fourteen discs do
+  not fit in one line, and stacked banks would sit in each other's column.)</p>
 
   <p class="sowhat"><b>The working end is two decks.</b> TANKS ON THE UPPER DECK: the
   raft carries the single 107 m³ water tank amidships — the Mission-0 100 t with trim
@@ -1723,9 +1726,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=92ce525c';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=92ce525c';
-import * as CELL from './model.js?v=92ce525c';
+import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=4a4cf3a2';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4a4cf3a2';
+import * as CELL from './model.js?v=4a4cf3a2';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

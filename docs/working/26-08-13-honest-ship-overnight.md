@@ -551,3 +551,51 @@ worktree (`git worktree add <tmp> HEAD`; deploy from there; remove), or waits.
   (38 published + robotics.py + index.html). Worktree deploy, CF purged, live
   verified: front page shows 46.5 t Ti / finished mass / TOO HEAVY two-liner;
   served explorer.js?v=c631abe1 carries water-gear/ShipMind/PumpPipe markers.
+
+## Part 17 — the dashboard arc opens: env polish shipped, THE CAPSULE LANDS IN THE MONITOR (evening 08-13)
+
+- **Env round (airships@467867c, deployed)**: lake 118→90 m core, edge FADES over three
+  stepped-opacity washers (VesselEnvLakeF1-3 — shader discards per-instance alpha, so the
+  fade is stepped glass materials) onto a VesselEnvShore beach annulus (94-132 m); trees
+  (angle,radius on 112-127) and people (waterline knots at 97-101) all stand ON SAND —
+  the old coords put them in the water. Env toggle eases the camera OUT (≥330 m, never
+  in) via a view-kind transition in api.shipLayer; reduced-motion jumps. Solar cap rows
+  start AT the barrel joint (f = 0.9(i+.5)/10, plate 3.6) — shoulder fully decked after
+  the operator's "fill the curve/center transition".
+- **DASHBOARD STAGE 1 = THE CAPSULE FAMILY (airships@a32809f, 96 files, deployed)**:
+  3d/model/config.js profileR/sectionScale/HULL_DEFAULT rewritten — spherical-cap rise
+  over capFrac 0.25, cylinder, mirror; pure revolve (topFlat 0). Classes re-solved at
+  UNCHANGED displacement: P100 110×55, P1000 238×119, P10000 512×256 (lengths chosen so
+  the solved radius ≈ L/4 → true hemispheres). sim/config.js adopts the same dims
+  (spec-parity forced it — the gate works). Rotor stations LOW on radial pylons
+  (LOW 0.42); network class staggers ±0.34 into two rows (seven 85 m discs no longer fit
+  one line on a 512 m flank); both overlap tests (model.test.mjs + browser.html — TWO
+  copies!) now use 3D centre distance. Fineness plausibility floor 2→1.9 (design point
+  IS 2.0; Simpson lands 1.99).
+- **THE HONEST DRAG BILL, in the open**: frontal area ×(55/47)² = 1.37 → P-100 drag
+  1.06→1.46 MW, cycle 1.253→1.391 MWh (+11%), kWh/t 12.53→13.91, battery 10.4→9.2 h;
+  P-10000 example cycle 45.87→54.33 MWh; anchor saving re-measures 29%→27%
+  (no-anchor baseline 1.912 via js_eval probe). Golden regenerated + DIFF READ (only
+  dims + drag-descended values moved); figures.json refreshed; 71 tagged citations
+  rewritten by `tools/check_figures.py --fix` (IT EXISTS — the project pre-paid this);
+  8 untagged 190 m/876 m prose mentions fixed by hand (Hindenburg claims survive —
+  110 < 245 more than ever). Pinned observation tests re-pinned from recomputed values.
+- **THE GATE CASCADE a dims change walks (order observed)**: browser suite → spec-parity
+  (sim vs 3d dims) → golden (tests/golden/check.py --update, READ THE DIFF) → figfresh
+  (make factsheet) → figcheck (--fix + hand-fix untagged prose) → fallbackcheck
+  (tools/gen_fallback.py) → node-tests-in-browser (validateClass fineness band) →
+  stampcheck at every step. CHAIN15 EXIT=0, 25 interactions green.
+- **Traps**: js_eval scripts are EXPRESSIONS — async IIFE `(async()=>{...})()`, no top-
+  level return; snap chromium drops `fallback-*` junk dirs in CWD (publish's manifest
+  gate catches them — delete, never classify); background `(cmd) &` inside a Bash tool
+  call dies with the call — use run_in_background or survive-by-file sentinel; make
+  from wrong CWD = "No rule to make target".
+- **REMAINING for the dashboard arc (#96/#97/#98)**: exterior working end on the
+  monitor model (layout.js internal tanks → raft + bay + three lines, retire tail
+  surfaces + recessed medium thrusters, solar decking on the top half — 'every layout
+  item sits inside the hull' test flips by design); bind mission phaseShape to
+  bucket/pump/sprayer line lengths + raft tank fills; rotor spin verify; WASH particle
+  direction-vs-speed bug (Tyler: reproduce first, reimplement minimal if it persists —
+  do NOT debug the old one twice); front-page spinning 3D hero (The Ship view, no
+  person tick; co-agent owns hero regions — new module, check git log first). Another
+  co-agent surfaced in pink-sites (tylerdwyer theme, 197cf41) — same interleave rules.

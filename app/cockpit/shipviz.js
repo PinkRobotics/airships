@@ -3,12 +3,12 @@
  * It exists because a wireframe with labelled force arrows says things a rendered
  * vehicle cannot: which way the rotors are pushing, and how hard.
  */
-import { fmt } from '../../sim/index.js?v=92ce525c';
-import { anchorView } from '../anchorview.js?v=92ce525c';
-import { $ } from '../dom.js?v=92ce525c';
-import { resize } from '../map/projection.js?v=92ce525c';
-import { draw } from '../map/render.js?v=92ce525c';
-import { S } from '../store.js?v=92ce525c';
+import { fmt } from '../../sim/index.js?v=4a4cf3a2';
+import { anchorView } from '../anchorview.js?v=4a4cf3a2';
+import { $ } from '../dom.js?v=4a4cf3a2';
+import { resize } from '../map/projection.js?v=4a4cf3a2';
+import { draw } from '../map/render.js?v=4a4cf3a2';
+import { S } from '../store.js?v=4a4cf3a2';
 
 /* A wireframe prolate hull with rotors and fins, rotating continuously and wearing its live
    force vectors. It draws on a 2D canvas and shares nothing with the WebGL model in the panel
@@ -30,59 +30,67 @@ export const shipViz = (() => {
     if (dragX !== null) { theta += (e.clientX - dragX) * 0.012; dragX = e.clientX; }
   });
   cv.addEventListener("pointerup", () => { dragX = null; });
-  // unit hull: semi-axis 1 along X, 0.25 across (the 4:1 family proportion)
-  const B = 0.25, rings = [], longs = [];
-  for (let i = 1; i <= 7; i++) {
-    const v = Math.PI * i / 8, ring = [];
+  // Unit hull: THE CAPSULE at fineness 2 (2026-08-13) — cylinder between two
+  // hemispheres, x in [-1, 1], radius 0.5. The 4:1 prolate cigar this avatar
+  // wore is retired everywhere the site speaks; so are its tail fins, which
+  // the exterior doctrine never allowed to cut the wall in the first place.
+  const B = 0.5, rings = [], longs = [];
+  const capR = (x) => {
+    const ax = Math.abs(x);
+    return ax <= 0.5 ? B : Math.sqrt(Math.max(1e-6, B * B - (ax - 0.5) ** 2));
+  };
+  for (const x of [-0.9, -0.62, -0.31, 0, 0.31, 0.62, 0.9]) {
+    const r = capR(x), ring = [];
     for (let j = 0; j <= 28; j++) {
       const a = 2 * Math.PI * j / 28;
-      ring.push([Math.cos(v), B * Math.sin(v) * Math.cos(a), B * Math.sin(v) * Math.sin(a)]);
+      ring.push([x, r * Math.cos(a), r * Math.sin(a)]);
     }
     rings.push(ring);
   }
   for (let k = 0; k < 8; k++) {
     const a = 2 * Math.PI * k / 8, ln = [];
     for (let j = 0; j <= 24; j++) {
-      const v = Math.PI * j / 24;
-      ln.push([Math.cos(v), B * Math.sin(v) * Math.cos(a), B * Math.sin(v) * Math.sin(a)]);
+      const x = -1 + 2 * j / 24, r = capR(x);
+      ln.push([x, r * Math.cos(a), r * Math.sin(a)]);
     }
     longs.push(ln);
   }
-  /* Rotors per class: 4 / 6 / 14, paired port and starboard along the hull. Discs shrink
-     as count grows — rotor diameter scales slower than hull, so the big ships carry a
-     distributed network, not four giants. Inner disc edge always clears the body: the
-     pylon reaches to hull half-width at that station plus disc radius plus margin. */
+  /* Rotors per class: 4 / 6 / 14, paired port and starboard along the hull, ON THE
+     HORIZONTAL PLANE (operator ruling, 08-13): the hardest duty is holddown, and
+     holddown's WASH GOES UP — a keel pod would fountain its hardest wash straight
+     into the belly, and the ships push both ways. The P-10000's network runs TWO
+     BANKS at ±45° from the horizon so neither bank sits in the other's column.
+     Station x's follow the 3D layout's t stations (x = 1 - 2t). */
   const rotorCache = {};
   function rotorsFor(cls) {
     if (rotorCache[cls.id]) return rotorCache[cls.id];
     const spec = {
-      P100: { xs: [-0.35, 0.35], r: 0.16 },
-      P1000: { xs: [-0.5, 0, 0.5], r: 0.125 },
-      P10000: { xs: [-0.72, -0.48, -0.24, 0, 0.24, 0.48, 0.72], r: 0.104 },
-    }[cls.id] || { xs: [-0.35, 0.35], r: 0.16 };
+      P100: { xs: [0.40, -0.24], r: 0.18 },
+      P1000: { xs: [0.52, 0.08, -0.36], r: 0.15 },
+      P10000: { xs: [0.68, 0.46, 0.24, 0.02, -0.20, -0.42, -0.64], r: 0.165, banks: true },
+    }[cls.id] || { xs: [0.40, -0.24], r: 0.18 };
     const out = [];
-    for (const x0 of spec.xs) {
-      const yh = B * Math.sqrt(Math.max(0, 1 - x0 * x0));
+    spec.xs.forEach((x0, i) => {
+      const yh = capR(x0);
       const yc = yh + spec.r + 0.05;
+      // banked classes alternate stations above/below the horizon at 45 deg
+      const bankA = spec.banks ? (i % 2 ? -Math.PI / 4 : Math.PI / 4) : 0;
+      const cy2 = Math.cos(bankA), sy2 = Math.sin(bankA);
       for (const sgn of [1, -1]) {
-        const y0 = sgn * yc;
+        const y0 = sgn * yc * cy2;
+        const z0 = yc * sy2 - 0.03;
         const disc = [];
         for (let j = 0; j <= 18; j++) {
           const a = 2 * Math.PI * j / 18;
-          disc.push([x0 + spec.r * Math.cos(a), y0 + spec.r * Math.sin(a), -0.03]);
+          disc.push([x0 + spec.r * Math.cos(a), y0 + spec.r * Math.sin(a), z0]);
         }
-        out.push({ x0, y0, disc, pylon: [[x0, sgn * yh * 0.95, -0.02], [x0, y0, -0.03]] });
+        out.push({ x0, y0, z0, disc,
+          pylon: [[x0, sgn * yh * cy2 * 0.95, yh * sy2 * 0.95 - 0.02], [x0, y0, z0]] });
       }
-    }
+    });
     rotorCache[cls.id] = out;
     return out;
   }
-  const fins = [
-    [[-0.82, 0, 0.16], [-1.06, 0, 0.34], [-1.02, 0, 0.1]],
-    [[-0.82, 0, -0.16], [-1.06, 0, -0.34], [-1.02, 0, -0.1]],
-    [[-0.82, 0.16, 0], [-1.06, 0.34, 0], [-1.02, 0.1, 0]],
-    [[-0.82, -0.16, 0], [-1.06, -0.34, 0], [-1.02, -0.1, 0]],
-  ];
   function proj(pt, sc, cx, cy) {
     const cp = Math.cos(pitch), sp = Math.sin(pitch);
     const x1 = pt[0] * cp + pt[2] * sp, z1 = -pt[0] * sp + pt[2] * cp, y1 = pt[1];
@@ -163,8 +171,8 @@ export const shipViz = (() => {
       const tilt = baseTilt + turn * Math.sign(rt.y0);
       const ct = Math.cos(tilt), stt = Math.sin(tilt);
       const disc = rt.disc.map(q => {
-        const dx2 = q[0] - rt.x0, dz2 = q[2] + 0.03;
-        return [rt.x0 + dx2 * ct + dz2 * stt, q[1], -0.03 - dx2 * stt + dz2 * ct];
+        const dx2 = q[0] - rt.x0, dz2 = q[2] - rt.z0;
+        return [rt.x0 + dx2 * ct + dz2 * stt, q[1], rt.z0 - dx2 * stt + dz2 * ct];
       });
       poly3(rt.pylon, sc, cx, cy, "#ff4fa3", 0.9);
       poly3(disc, sc, cx, cy, "#ff4fa3", rotF > 0.03 || fwd > 0.15 ? 1 : 0.55);
@@ -172,7 +180,7 @@ export const shipViz = (() => {
       // holding, straight up on climb assist, raked forward in cruise. One rule — the arrow
       // runs along the thrust axis into the disc.
       const nv = [stt, 0, ct];                                    // tilted disc normal
-      const ctr = [rt.x0, rt.y0, -0.03];
+      const ctr = [rt.x0, rt.y0, rt.z0];
       const along = (m2) => [ctr[0] + nv[0] * m2, ctr[1], ctr[2] + nv[2] * m2];
       if (rotF > 0.03)                                            // pushing the ship DOWN
         arrow(along(0.13 + 0.28 * rotF), along(0.02), sc, cx, cy, "#ff4fa3", "");
@@ -181,7 +189,6 @@ export const shipViz = (() => {
         arrow(along(-(0.13 + 0.24 * mag)), along(-0.02), sc, cx, cy, "#ff4fa3", "");
       }
     }
-    for (const f of fins) poly3(f.concat([f[0]]), sc, cx, cy, "#74747f", 0.7);
     // forces: buoyancy up, weight down, rotor downforce, net — lengths against buoyancy
     const base = st.buoyN || 1;
     arrow([-0.55, 0, 0.30], [-0.55, 0, 0.72], sc, cx, cy, "#7aa2c8", "");
