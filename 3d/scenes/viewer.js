@@ -13,26 +13,26 @@
  * several-to-a-page on an explanatory article.
  */
 
-import { build, buildVacuumFill } from '../model/build.js?v=4cd9890f';
-import { hullR } from '../model/config.js?v=4cd9890f';
-import { createRenderer, isWebGL2Available } from '../render/gl.js?v=4cd9890f';
+import { build, buildVacuumFill } from '../model/build.js?v=2bbbd396';
+import { hullR } from '../model/config.js?v=2bbbd396';
+import { createRenderer, isWebGL2Available } from '../render/gl.js?v=2bbbd396';
 import {
   createCamera, orbit, dolly, pan, goToPreset, updateCamera, frameAll, avoidInterior,
   PRESETS, PRESET_IDS, viewMatrix, projMatrix, cameraEye,
-} from '../render/camera.js?v=4cd9890f';
-import { viewStyle, VIEW_MODES, VIEW_LABELS } from '../render/views.js?v=4cd9890f';
-import { CATEGORY_TONE, CLAIM_TONE, TOKENS, STATE_TONE } from '../render/palette.js?v=4cd9890f';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=4cd9890f';
-import { buildActuators } from '../control/actuators.js?v=4cd9890f';
-import { allocate } from '../control/allocator.js?v=4cd9890f';
-import { defaultState, sanitizeState, describeState, PHASE_LABELS } from '../physics/state.js?v=4cd9890f';
-import { massState, forceSet, angularAccelDegS2 } from '../physics/mass.js?v=4cd9890f';
-import { energyFlows } from '../physics/energy.js?v=4cd9890f';
-import { node, addChild, walk } from '../core/nodes.js?v=4cd9890f';
-import { cylGeom, latheGeom, mergeSolids, lines, pathSegs } from '../model/geom.js?v=4cd9890f';
-import { m4compose, m4mul, clamp, clamp01, len, norm, mul, add, sub } from '../core/math.js?v=4cd9890f';
-import { staticFigureSVG } from '../render/svg.js?v=4cd9890f';
-import { injectStyles } from '../render/styles.js?v=4cd9890f';
+} from '../render/camera.js?v=2bbbd396';
+import { viewStyle, VIEW_MODES, VIEW_LABELS } from '../render/views.js?v=2bbbd396';
+import { CATEGORY_TONE, CLAIM_TONE, TOKENS, STATE_TONE } from '../render/palette.js?v=2bbbd396';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=2bbbd396';
+import { buildActuators } from '../control/actuators.js?v=2bbbd396';
+import { allocate } from '../control/allocator.js?v=2bbbd396';
+import { defaultState, sanitizeState, describeState, PHASE_LABELS } from '../physics/state.js?v=2bbbd396';
+import { massState, forceSet, angularAccelDegS2 } from '../physics/mass.js?v=2bbbd396';
+import { energyFlows } from '../physics/energy.js?v=2bbbd396';
+import { node, addChild, walk } from '../core/nodes.js?v=2bbbd396';
+import { cylGeom, latheGeom, mergeSolids, lines, pathSegs } from '../model/geom.js?v=2bbbd396';
+import { m4compose, m4mul, clamp, clamp01, len, norm, mul, add, sub } from '../core/math.js?v=2bbbd396';
+import { staticFigureSVG } from '../render/svg.js?v=2bbbd396';
+import { injectStyles } from '../render/styles.js?v=2bbbd396';
 
 const QUALITY_TIER = { low: 1, medium: 2, high: 3 };
 
@@ -135,6 +135,10 @@ export function createViewer(container, props = {}) {
    * on an article page should pay for them at mount.
    */
   function ensureVacuumFill() {
+    // Retired (operator, 08-13): the vacuum view draws VacuumVoid — one black
+    // volume built with the model — so the lazy ball field never builds.
+    return;
+    // eslint-disable-next-line no-unreachable
     if (!b || b.index.get('VacuumFillBalls')) return;
     const n = buildVacuumFill(b, { tier: tierFor(state.quality) });
     addChild(b.root, n);

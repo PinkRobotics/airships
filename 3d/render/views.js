@@ -11,11 +11,11 @@
  * which is why this cutaway has no stencil pass and no z-fighting along the cut.
  */
 
-import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=4cd9890f';
-import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=4cd9890f';
-import { solid } from '../model/geom.js?v=4cd9890f';
-import { node } from '../core/nodes.js?v=4cd9890f';
-import { clamp01 } from '../core/math.js?v=4cd9890f';
+import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=2bbbd396';
+import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=2bbbd396';
+import { solid } from '../model/geom.js?v=2bbbd396';
+import { node } from '../core/nodes.js?v=2bbbd396';
+import { clamp01 } from '../core/math.js?v=2bbbd396';
 
 export const VIEW_MODES = [
   'exterior', 'ghost', 'cutaway-longitudinal', 'cutaway-transverse', 'vacuum', 'lattice',
@@ -121,7 +121,9 @@ export function viewStyle(b, mode, p = {}) {
   function layerStyle(n) {
     // The full vacuum fill exists ONLY for the 'vacuum' view. It is built lazily on first entry
     // and stays in the tree afterwards, so every other mode must explicitly not draw it.
-    if (n.id === 'VacuumFillBalls') return mode === 'vacuum' ? null : { hidden: true };
+    // The void replaced the ball field (operator, 08-13): one black space.
+    if (n.id === 'VacuumVoid') return mode === 'vacuum' ? null : { hidden: true };
+    if (n.id === 'VacuumFillBalls') return { hidden: true };
     if (n.id === 'HullWire') {
       if (mode === 'wire') return null;
       return (mode === 'exterior' || mode === 'ghost') && p.shellWire
@@ -413,7 +415,7 @@ function capNode(cls, axis, offset, id) {
 
 const EPISTEMIC = {
   'load-paths': 'Illustrative load paths — not an FEA result.',
-  vacuum: 'Display-pitch packing: each sphere stands for many real sealed cells, not one.',
+  vacuum: 'The free interior volume, drawn as what it is: one evacuated space behind the wall.',
   lattice: 'Illustrative stress-informed topology. Cell modules are representative, not the real count.',
   wire: 'Representative internal arrangement. Conceptual reference vehicle.',
   failure: 'Graceful containment is a design objective, not demonstrated performance.',
@@ -442,7 +444,7 @@ function legendFor(mode, systems) {
   if (mode === 'systems') return cats.map((c) => ({ id: c, ...CATEGORY_TONE[c] }));
   if (mode === 'vacuum') {
     return [
-      { id: 'vac', color: TOKENS.warm, label: 'Evacuated cell volume (display pitch)', dash: null },
+      { id: 'vac', color: '#9a9aa5', label: 'The evacuated volume — the void is the product', dash: null },
       { id: 'mach', color: TOKENS.faint, label: 'Structure and machinery, ghosted', dash: null },
     ];
   }

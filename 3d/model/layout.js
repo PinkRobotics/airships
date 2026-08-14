@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=4cd9890f';
-import { segPointDist } from '../core/math.js?v=4cd9890f';
-import { streamFor, jitter } from '../core/prng.js?v=4cd9890f';
+} from './config.js?v=2bbbd396';
+import { segPointDist } from '../core/math.js?v=2bbbd396';
+import { streamFor, jitter } from '../core/prng.js?v=2bbbd396';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -700,6 +700,83 @@ export function buildLayout(cls) {
   }
 
   void rnd; void profileR; void hullPoint;
+  /* --- THE UNDERCARRIAGE (operator, 08-13 late) ---------------------------------------------
+   * Everything the vacuum used to hide leaves it. Water, ballast (the LN2 and
+   * its plant), power and the mind ride a TWO-DECK RAFT suspended under the
+   * keel — the explorer's working end at fleet scale. One post-pass OVERRIDES
+   * the positions the blocks above chose, so their sizing logic is untouched
+   * and every consumer (build, density anchors, fill overlays, the anchor
+   * cable) follows the moved parts automatically. The hull keeps structure
+   * and void, nothing else; interior plumbing (manifolds, pipes, drop
+   * outlets) retires with the interior. The cryo AIR INTAKES stay flush on
+   * the skin — a ram intake is a skin feature, not cargo. */
+  {
+    const dropM = R * 0.34;
+    const wR = layout.waterTanks[0] ? layout.waterTanks[0].radius : R * 0.10;
+    const deckZ = -R - dropM - wR;                    // tank centreline
+    const boxH = Math.max(2.5, R * 0.10);
+    const lowZ = deckZ - wR - Math.max(2.0, R * 0.08) - boxH / 2;
+    const gap = Math.max(1.5, R * 0.05);
+    // Tanks are 3.1:1 (water) and 3.4:1 (LN2) capsules — allow the longer,
+    // plus a hair, so neighbours never kiss (the audit caught 3.1 exactly).
+    const wOf = (it) => (it.radius ? it.radius * 3.55 : (it.size || R * 0.08) * 2.2);
+    const rowSeq = (items, z, y) => {
+      if (!items.length) return 0;
+      const total = items.reduce((a, it) => a + wOf(it), 0) + gap * (items.length - 1);
+      let x = -total / 2;
+      for (const it of items) {
+        const w2 = wOf(it);
+        it.p = [x + w2 / 2, y, z];
+        x += w2 + gap;
+      }
+      return total;
+    };
+    // Long fleets fold their deck into parallel rows rather than growing a
+    // raft longer than the ship.
+    const deck = (items, z, rowGap, maxPer) => {
+      if (!items.length) return { len: 0, yExt: 0 };
+      const nRows = Math.ceil(items.length / maxPer);
+      let len = 0;
+      for (let ri = 0; ri < nRows; ri++) {
+        const rowItems = items.filter((_, ix) => ix % nRows === ri);
+        const y = (ri - (nRows - 1) / 2) * rowGap;
+        len = Math.max(len, rowSeq(rowItems, z, y));
+      }
+      return { len, yExt: ((nRows - 1) / 2) * rowGap };
+    };
+    // UPPER DECK: LN2 forward, water amidships, LN2 aft — tanks in a line.
+    const half = Math.ceil(layout.ln2Tanks.length / 2);
+    const upper = [...layout.ln2Tanks.slice(0, half), ...layout.waterTanks,
+                   ...layout.ln2Tanks.slice(half)];
+    // Row gap follows the LARGEST tank on the deck — the LN2 tanks out-girth
+    // the water tanks (155 t of capacity against 100), and the audit caught
+    // two of them kissing across rows sized to the water radius.
+    const maxTankR = upper.reduce((a, it) => Math.max(a, it.radius || 0), wR);
+    const up = deck(upper, deckZ, maxTankR * 2.4, 9);
+    // LOWER DECK: the machines — power, the mind, the ballast plant (minus
+    // its skin intakes), pumps and reels. The winch keeps the stern.
+    const cryoBelow = layout.cryoModules.filter((m) => !m.flush);
+    const lower = [...layout.generators, ...layout.batteries, ...cryoBelow,
+                   ...layout.compute, ...layout.pumpPods, ...layout.hoseReels];
+    const lo = deck(lower, lowZ, boxH * 1.8, 12);
+    if (layout.anchorWinch) {
+      layout.anchorWinch.p =
+        [-(Math.max(up.len, lo.len) / 2 + Math.max(2.5, R * 0.08)), 0, lowZ];
+    }
+    layout.waterManifolds = [];
+    layout.waterPipes = [];
+    layout.ln2Pipes = [];
+    layout.dropOutlets = [];
+    const xh = Math.max(up.len, lo.len) / 2 + Math.max(3, R * 0.10);
+    const yh = Math.max(wR * 1.3, up.yExt + wR * 1.2, lo.yExt + boxH);
+    layout.raft = {
+      xHalf: xh, yHalf: yh,
+      zTop: deckZ + wR * 1.05,
+      zBot: lowZ - boxH * 0.75,
+      pendantX: [0.30, 0.42, 0.58, 0.70].map((t) => stationX(cls, t)),
+    };
+  }
+
   return layout;
 }
 

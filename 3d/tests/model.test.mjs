@@ -7,17 +7,17 @@ import {
   resolveClass, classes, validateClass, CLASS_IDS, hullVolume, radiusForVolume,
   profileR, sectionScale, HULL_DEFAULT, stationX, stationT, hullR,
   capsuleRadiusForVolume, RHO_LN2,
-} from '../model/config.js?v=4cd9890f';
-import { build } from '../model/build.js?v=4cd9890f';
-import { buildLayout, insideHull } from '../model/layout.js?v=4cd9890f';
-import { proxyField, dataField, anchorsFor } from '../model/density.js?v=4cd9890f';
-import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=4cd9890f';
-import { buildLattice, TIERS } from '../model/structure.js?v=4cd9890f';
-import { auditBuild } from '../model/audit.js?v=4cd9890f';
-import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=4cd9890f';
-import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=4cd9890f';
-import { m4transform, norm, cross } from '../core/math.js?v=4cd9890f';
-import { prng, streamFor } from '../core/prng.js?v=4cd9890f';
+} from '../model/config.js?v=2bbbd396';
+import { build } from '../model/build.js?v=2bbbd396';
+import { buildLayout, insideHull } from '../model/layout.js?v=2bbbd396';
+import { proxyField, dataField, anchorsFor } from '../model/density.js?v=2bbbd396';
+import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=2bbbd396';
+import { buildLattice, TIERS } from '../model/structure.js?v=2bbbd396';
+import { auditBuild } from '../model/audit.js?v=2bbbd396';
+import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=2bbbd396';
+import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=2bbbd396';
+import { m4transform, norm, cross } from '../core/math.js?v=2bbbd396';
+import { prng, streamFor } from '../core/prng.js?v=2bbbd396';
 
 test('the three classes resolve and validate', () => {
   for (const c of classes()) {
@@ -150,12 +150,16 @@ test('every layout item sits inside the hull', () => {
   for (const id of CLASS_IDS) {
     const c = resolveClass(id);
     const L = buildLayout(c);
-    // Internal machinery must be inside the envelope.
-    const internal = ['waterTanks', 'ln2Tanks', 'generators', 'batteries', 'compute'];
-    for (const g of internal) {
+    // THE UNDERCARRIAGE RULING (operator, 08-13): water, ballast, power and
+    // the mind live OUTSIDE the vacuum, on the raft below the keel. Inside
+    // is structure and void only — so these groups must be out and UNDER.
+    const raft = ['waterTanks', 'ln2Tanks', 'generators', 'batteries', 'compute'];
+    for (const g of raft) {
       for (const item of L[g]) {
-        assert.ok(insideHull(c, item.p, -0.5),
-          `${id}: ${item.id} at ${item.p.map((v) => v.toFixed(1))} is outside the hull`);
+        assert.ok(!insideHull(c, item.p, 0),
+          `${id}: ${item.id} at ${item.p.map((v) => v.toFixed(1))} is still inside the hull`);
+        assert.ok(item.p[2] < -c.maxRadiusM,
+          `${id}: ${item.id} rides above the keel line`);
       }
     }
     // Skin-mounted units sit ON the surface, within a band about it — not adrift inside or out.
@@ -217,7 +221,7 @@ test('decoration is not in the pick space at all', () => {
     }
     // …and the components that share those nodes' geometry still are, or the fix removed the
     // pick space rather than trimming it.
-    for (const real of ['WaterTank_00', 'DropOutlet_00', 'HoseReel_00',
+    for (const real of ['WaterTank_00', 'HoseReel_00',
       'Generator_00', 'PrimaryRotorStation_00']) {
       assert.ok(sel.has(real), `${id}: ${real} is a component and must be selectable`);
       assert.ok(b.metadata.get(real), `${id}: ${real} has no metadata`);

@@ -37,7 +37,7 @@ import {
   AirshipStaticFigure, VIEW_MODES, PRESET_IDS, CLASS_IDS, defaultState, isWebGL2Available,
   injectStyles, updateDriver, AirshipHUD, profileR, sectionScale, verticalDuty,
   anchorAt, resolveClass,
-} from '../index.js?v=4cd9890f';
+} from '../index.js?v=2bbbd396';
 
 const out = document.getElementById('out');
 const host = document.getElementById('host');
@@ -567,49 +567,23 @@ await check('mountForMission forwards the monitor’s adapt.headM and keeps tonn
   v.dispose();
 });
 
-await check('the vacuum view packs the free volume and respects hull and machinery', async () => {
+await check('the vacuum view is one black void, not a field of cells', async () => {
+  // Operator, 08-13: the vacuum tab shows the VOLUME ITSELF — a single black
+  // space a hair inside the skin — and the lazy ball field never builds.
   if (!gl) return null;
   const v = mount(host, { classId: 'P100', quality: 'low' });
   await frame();
-  assert(!v.model.index.get('VacuumFillBalls'), 'the fill must be built lazily, not at mount');
+  assert(v.model.index.get('VacuumVoid'), 'VacuumVoid must be built with the model');
   v.setProps({ viewMode: 'vacuum' });
   v.tick(1 / 60);
-  const n = v.model.index.get('VacuumFillBalls');
-  assert(n, 'entering the vacuum view did not build the fill');
-  const { count, radiusM } = n.vacuumFill;
-  assert(count >= 800 && count <= 8000, `count ${count} is outside the low thousands`);
+  assert(!v.model.index.get('VacuumFillBalls'), 'the retired ball field was built');
   assert(v.stats.drawCalls > 0, 'the vacuum view drew nothing');
-  const cls = v.model.cls;
-  const layout = v.model.layout;
-  const segDist = (a, b, p) => {
-    const ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
-    const ap = [p[0] - a[0], p[1] - a[1], p[2] - a[2]];
-    const t = Math.max(0, Math.min(1,
-      (ap[0] * ab[0] + ap[1] * ab[1] + ap[2] * ab[2]) /
-      Math.max(1e-9, ab[0] * ab[0] + ab[1] * ab[1] + ab[2] * ab[2])));
-    return Math.hypot(p[0] - a[0] - ab[0] * t, p[1] - a[1] - ab[1] * t, p[2] - a[2] - ab[2] * t);
-  };
-  let leak = 0, hit = 0;
-  for (let i = 0; i < count; i++) {
-    const p = [n.inst.xf[i * 16 + 12], n.inst.xf[i * 16 + 13], n.inst.xf[i * 16 + 14]];
-    const t = (cls.xNose - p[0]) / cls.lengthM;
-    const theta = Math.atan2(p[2], -p[1]);
-    const skin = profileR(t, cls.hull) * cls.maxRadiusM * sectionScale(theta, cls.hull);
-    if (t < 0 || t > 1 || Math.hypot(p[1], p[2]) > skin - radiusM * 0.98) leak++;
-    for (const tk of layout.waterTanks.concat(layout.ln2Tanks)) {
-      const h = Math.max(0, tk.length / 2 - tk.radius);
-      if (segDist([tk.p[0] - h, tk.p[1], tk.p[2]], [tk.p[0] + h, tk.p[1], tk.p[2]], p)
-          < tk.radius + radiusM * 0.95) { hit++; break; }
-    }
-  }
-  assert(leak === 0, `${leak} cells poke outside the shell`);
-  assert(hit === 0, `${hit} cells intersect a tank`);
-  // The cut plane must slice the field like everything else.
+  // The cut plane must slice the void like everything else.
   v.setProps({ cutFrac: 0.15 });
   v.tick(1 / 60);
   assert(v.stats.drawCalls > 0, 'moving the cut killed the vacuum view');
   v.dispose();
-  return `${count} cells, r=${radiusM.toFixed(2)} m`;
+  return 'one void, zero cells';
 });
 
 await check('the descent anchor dips, fills, and is lifted clear — in that order', async () => {

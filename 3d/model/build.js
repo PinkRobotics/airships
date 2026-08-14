@@ -15,19 +15,19 @@
 import {
   resolveClass, stationX, stationT, hullR, sectionScale, profileR, CLASS_IDS,
   TRIM_FAN_DEPTH_RATIO, HULL_BAND_LIFT,
-} from './config.js?v=4cd9890f';
-import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=4cd9890f';
-import { proxyField } from './density.js?v=4cd9890f';
+} from './config.js?v=2bbbd396';
+import { buildLayout, layoutIndex, inside, insideHull } from './layout.js?v=2bbbd396';
+import { proxyField } from './density.js?v=2bbbd396';
 import { buildLattice, buildMacroFrames, buildSectionJoints, buildCellModules, buildLoadPaths, TIERS }
-  from './structure.js?v=4cd9890f';
-import { buildMetadata } from './metadata.js?v=4cd9890f';
+  from './structure.js?v=2bbbd396';
+import { buildMetadata } from './metadata.js?v=2bbbd396';
 import {
   latheGeom, tankGeom, boxGeom, discGeom, cylGeom, bladeGeom, sphereGeom, tubeGeom, circleSegs,
   lines, pathSegs, mergeSolids, countOf, featureEdges, transformSegs, solid,
-} from './geom.js?v=4cd9890f';
-import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=4cd9890f';
-import { m4compose, segPointDist } from '../core/math.js?v=4cd9890f';
-import { streamFor } from '../core/prng.js?v=4cd9890f';
+} from './geom.js?v=2bbbd396';
+import { node, child, addChild, buildIndex, walk, CATEGORIES } from '../core/nodes.js?v=2bbbd396';
+import { m4compose, segPointDist } from '../core/math.js?v=2bbbd396';
+import { streamFor } from '../core/prng.js?v=2bbbd396';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -480,7 +480,6 @@ export function build(classId, opts = {}) {
   /* --- skin ------------------------------------------------------------------------------- */
   const apertures = aperturesFor(cls, layout, tier);
   const fairingG = fairingGeom(cls, tier, apertures);
-  const solarG = solarGeom(cls, tier, apertures);
   const undersideG = undersideGeom(cls, tier, apertures);
   // The widest hole any layer cut for a given port, plus a margin, is what the panel must cover.
   const measured = apertures.map((ap, i) => Math.max(
@@ -512,9 +511,62 @@ export function build(classId, opts = {}) {
       }
     }
   }
-  child(root, {
-    id: 'SolarSkin', category: 'power', geom: solarG, material: 'solar', lod: 1,
-  });
+  /* SOLAR DECKING (operator, 08-13): the top half is PANELLED — rectangular
+   * plates proud of the skin with visible seams, the explorer's decking at
+   * fleet scale, replacing the painted band. Orientation is EXACT: the
+   * surface basis [meridian | hoop | normal] is decomposed to ZYX eulers
+   * (m4compose composes R = Rz*Ry*Rx), and each plate stands proud by its
+   * own hoop sagitta so flat corners never dip into the hull. */
+  {
+    const Rm = cls.maxRadiusM;
+    const shoulder = cls.lengthM / 2 - Rm;           // capsule cap starts here
+    const HOOP = Math.max(2.2, Rm / 6.2);
+    const THICK = Math.max(0.08, Rm * 0.005);
+    const eps = Math.max(0.05, Rm * 1e-3);
+    const recs = [];
+    const plate = (x, th, axLen) => {
+      const rl = hullR(cls, x);
+      if (rl < Rm / 3) return;
+      const drdx = (hullR(cls, x + eps) - hullR(cls, x - eps)) / (2 * eps);
+      const ml = Math.hypot(1, drdx);
+      const tm = [1 / ml, (drdx / ml) * -Math.cos(th), (drdx / ml) * Math.sin(th)];
+      const nrm = [-drdx / ml, (1 / ml) * -Math.cos(th), (1 / ml) * Math.sin(th)];
+      const hoop = [0, Math.sin(th), Math.cos(th)];
+      const sag = rl - Math.sqrt(Math.max(0, rl * rl - (HOOP / 2) ** 2));
+      const off = Math.max(0.14, Rm * 0.006) + sag + THICK / 2;
+      const pP = [x + nrm[0] * off,
+                  -rl * Math.cos(th) + nrm[1] * off,
+                  rl * Math.sin(th) + nrm[2] * off];
+      const ry = Math.asin(Math.max(-1, Math.min(1, -tm[2])));
+      const rz = Math.atan2(tm[1], tm[0]);
+      const rx = Math.atan2(hoop[2], nrm[2]);
+      recs.push({ id: `SolarPlate_${recs.length}`, p: pP, r: [rx, ry, rz],
+                  s: [axLen, HOOP * 0.94, THICK] });
+    };
+    const nB = Math.max(6, Math.round((2 * shoulder) / (HOOP * 0.52)));
+    for (let i = 0; i < nB; i++) {
+      const x = -shoulder + (2 * shoulder) * (i + 0.5) / nB;
+      const dth = HOOP / Rm;
+      const mC = Math.floor(1.35 / dth);
+      for (let c = -mC; c <= mC; c++) plate(x, Math.PI / 2 + c * dth, (2 * shoulder / nB) * 0.94);
+    }
+    for (const dir of [-1, 1]) {
+      for (let i = 0; i < 10; i++) {
+        const b2 = (Math.PI / 2) * 0.9 * (i + 0.5) / 10;
+        const x = dir * (shoulder + Rm * Math.sin(b2));
+        const rl = hullR(cls, x);
+        if (rl < Rm / 3) continue;
+        const dth = HOOP / rl;
+        const mC = Math.floor(1.35 / dth);
+        const axLen = (Math.PI / 2) * 0.9 * Rm / 10 * 0.9;
+        for (let c = -mC; c <= mC; c++) plate(x, Math.PI / 2 + c * dth, axLen);
+      }
+    }
+    addChild(root, instanceNode(
+      { id: 'SolarSkin', category: 'power', material: 'solar', lod: 1, selectable: false },
+      boxGeom(1, 1, 1), recs,
+    ));
+  }
   child(root, {
     id: 'HullUnderside', category: 'structure', geom: undersideG, material: 'underside', lod: 1,
   });
@@ -525,6 +577,13 @@ export function build(classId, opts = {}) {
   child(struct, {
     id: 'VacuumLattice', category: 'vacuum', geom: lat.geom, material: 'lattice', lod: 1,
     selectable: false,
+  });
+  // THE VOID (operator, 08-13): the vacuum view shows ONE BLACK SPACE — the
+  // volume itself, a hair inside the skin — not a field of little cells.
+  // Only the 'vacuum' view draws it (render/views.js owns that).
+  child(struct, {
+    id: 'VacuumVoid', category: 'vacuum', geom: hullBandGeom(cls, tier, 0, Math.PI * 2, []),
+    material: 'voidBlack', lod: 1, selectable: false, s: 0.985,
   });
   child(struct, {
     id: 'MacroFrames', category: 'structure', geom: buildMacroFrames(cls, field, tierId),
@@ -992,6 +1051,52 @@ export function build(classId, opts = {}) {
       geom: bladeGeom(ts.span, ts.chord, ts.chord * 0.55, Math.max(0.5, R * 0.02)),
     });
     n.hinge = { theta: ts.theta, deflect: 0, station: ts.p[0], radius: Math.hypot(ts.p[1], ts.p[2]) };
+  }
+
+  /* --- THE RAFT: the undercarriage frame and its bridle -------------------------------------
+   * The two-deck frame the moved machinery rides, and the pendants that hang
+   * it from the hull's lower flanks. Bars are axis-aligned cylinders; the
+   * pendants are line geometry in the cable material, like the anchor cable. */
+  if (layout.raft) {
+    const rf = layout.raft;
+    const grp = child(root, { id: 'RaftGroup', category: 'structure', selectable: false });
+    const barR = Math.max(0.22, R * 0.012);
+    const xBars = [], yBars = [], zBars = [];
+    for (const z of [rf.zTop, rf.zBot]) {
+      for (const sy of [-1, 1]) xBars.push({ id: `RaftBarX_${xBars.length}`, p: [0, sy * rf.yHalf, z], r: [0, 0, 0], s: 1 });
+      for (const sx of [-1, 1]) yBars.push({ id: `RaftBarY_${yBars.length}`, p: [sx * rf.xHalf, 0, z], r: [0, 0, Math.PI / 2], s: 1 });
+    }
+    for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
+      zBars.push({ id: `RaftBarZ_${zBars.length}`,
+        p: [sx * rf.xHalf, sy * rf.yHalf, (rf.zTop + rf.zBot) / 2], r: [0, Math.PI / 2, 0], s: 1 });
+    }
+    addChild(grp, instanceNode({ id: 'RaftFrameX', category: 'structure', material: 'machine', selectable: false },
+      cylGeom(rf.xHalf * 2, barR, 8), xBars));
+    addChild(grp, instanceNode({ id: 'RaftFrameY', category: 'structure', material: 'machine', selectable: false },
+      cylGeom(rf.yHalf * 2, barR, 8), yBars));
+    addChild(grp, instanceNode({ id: 'RaftFrameZ', category: 'structure', material: 'machine', selectable: false },
+      cylGeom(rf.zTop - rf.zBot, barR, 8), zBars));
+    const pos = [], idx = [], wid = [];
+    for (const px of rf.pendantX) {
+      const rl = hullR(cls, px);
+      for (const side of [-1, 1]) {
+        const a = [px, side * rl * 0.531, -rl * 0.847];
+        const bx = Math.max(-rf.xHalf * 0.92, Math.min(rf.xHalf * 0.92, px));
+        const b2 = [bx, side * rf.yHalf, rf.zTop];
+        idx.push(pos.length / 3, pos.length / 3 + 1);
+        pos.push(...a, ...b2);
+        wid.push(1.2, 1.2);
+      }
+    }
+    const bb = { min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] };
+    for (let i = 0; i < pos.length; i += 3) for (let k = 0; k < 3; k++) {
+      bb.min[k] = Math.min(bb.min[k], pos[i + k]); bb.max[k] = Math.max(bb.max[k], pos[i + k]);
+    }
+    child(grp, {
+      id: 'BridleLines', category: 'structure', material: 'cable', selectable: false,
+      geom: { kind: 'lines', pos: new Float32Array(pos), wid: new Float32Array(wid),
+              idx: new Uint32Array(idx), segs: idx.length / 2, bbox: bb },
+    });
   }
 
   /* --- sensing, compute, maintenance ----------------------------------------------------------- */

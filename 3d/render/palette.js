@@ -115,6 +115,8 @@ export const MATERIALS = {
   /** The full vacuum-fill spheres of the 'vacuum' view. Estate pink, lit, fully opaque: in that
    *  view the evacuated volume IS the subject and everything else is ghosted around it. */
   vacuumFill: { kind: 'surface', color: TOKENS.warm, spec: 0.18, opacity: 1 },
+  // The single black void the vacuum view shows (operator, 08-13).
+  voidBlack: { kind: 'surface', color: '#070709', spec: 0.03, opacity: 1 },
 
   machine: { kind: 'surface', color: '#6a6b76', spec: 0.35, opacity: 1 },
   battery: { kind: 'surface', color: '#7d6841', spec: 0.25, opacity: 1, tone: 'power' },

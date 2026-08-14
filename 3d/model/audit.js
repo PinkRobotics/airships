@@ -10,15 +10,23 @@
  * something, and a finding needs reading rather than believing.
  */
 
-import { hullR, sectionScale, CLASS_IDS } from './config.js?v=4cd9890f';
-import { insideHull } from './layout.js?v=4cd9890f';
-import { segPointDist } from '../core/math.js?v=4cd9890f';
+import { hullR, sectionScale, CLASS_IDS } from './config.js?v=2bbbd396';
+import { insideHull } from './layout.js?v=2bbbd396';
+import { segPointDist } from '../core/math.js?v=2bbbd396';
 
 /** Mounted outside the envelope on purpose, so exempt from containment. */
 export const EXTERNAL_PREFIXES = [
   'PrimaryRotorStation', 'PrimaryRotorPylon', 'PrimaryRotorGimbal', 'PrimaryRotorA',
   'PrimaryRotorB', 'PrimaryRotorDisc', 'TailSurface', 'Hose_', 'PumpPod', 'TankerDock',
   'MediumThruster', 'LocalTrimFan', 'SensorCluster', 'DropOutlet', 'HoseReel',
+  // THE UNDERCARRIAGE (operator, 08-13): water, ballast, power and the mind
+  // ride the raft below the keel — outside the envelope BY DOCTRINE. Their
+  // being outside is asserted by the layout test; here they are exempt from
+  // "breaches the skin", while machinery-vs-machinery interference still
+  // applies to them like everything else.
+  'WaterTank', 'LN2Tank', 'Generator', 'BatteryModule', 'CryoCompressor',
+  'CryoColdBox', 'CryoExpander', 'VehicleMindCompute', 'SafetyKernel',
+  'AnchorWinch', 'RaftBar', 'BridleLines',
 ];
 const isExternal = (id) => EXTERNAL_PREFIXES.some((p) => id.startsWith(p));
 

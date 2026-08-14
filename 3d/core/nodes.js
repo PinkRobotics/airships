@@ -10,7 +10,7 @@
  * by id. `buildIndex()` enforces uniqueness; a duplicate is a build error, not a warning.
  */
 
-import { m4compose, m4identity, m4mul } from './math.js?v=4cd9890f';
+import { m4compose, m4identity, m4mul } from './math.js?v=2bbbd396';
 
 /** The ten semantic categories. Systems view, palette and the metadata schema all key off these. */
 export const CATEGORIES = [

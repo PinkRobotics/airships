@@ -24,36 +24,36 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=944e6574';
-import * as G from './explorer-geom.js?v=944e6574';
+import * as CELL from './model.js?v=763a6846';
+import * as G from './explorer-geom.js?v=763a6846';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=944e6574';
+} from './nodes.generated.js?v=763a6846';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=944e6574';
+import { NODEMESHES } from './nodemeshes.generated.js?v=763a6846';
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=944e6574';
+import { SKIN } from './skin.generated.js?v=763a6846';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=944e6574';
-import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=4cd9890f';
-import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=4cd9890f';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=763a6846';
+import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=2bbbd396';
+import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=2bbbd396';
 import {
   createCamera, orbit, dolly, pan, viewMatrix, projMatrix,
-} from '../3d/render/camera.js?v=4cd9890f';
-import { TOKENS, mix } from '../3d/render/palette.js?v=4cd9890f';
-import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=4cd9890f';
-import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=4cd9890f';
-import { boxSegs, transformSegs } from '../3d/model/geom.js?v=4cd9890f';
-import { m4compose, m4transform } from '../3d/core/math.js?v=4cd9890f';
+} from '../3d/render/camera.js?v=2bbbd396';
+import { TOKENS, mix } from '../3d/render/palette.js?v=2bbbd396';
+import { resolveClass, profileR, sectionScale } from '../3d/model/config.js?v=2bbbd396';
+import { clamp, lerp, lerp3, easeInOut, smoothstep } from '../3d/core/math.js?v=2bbbd396';
+import { boxSegs, transformSegs } from '../3d/model/geom.js?v=2bbbd396';
+import { m4compose, m4transform } from '../3d/core/math.js?v=2bbbd396';
 
 /* ---------- explorer materials (styleFor supplies these; palette keys work too) --------------- */
 

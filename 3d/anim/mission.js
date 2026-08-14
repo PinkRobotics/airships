@@ -17,11 +17,11 @@
  * altitudes the wildfire page reads — so the two cannot drift apart even here.
  */
 
-import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=4cd9890f';
-import { massState } from '../physics/mass.js?v=4cd9890f';
-import { derivePower } from '../physics/energy.js?v=4cd9890f';
-import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=4cd9890f';
-import { ASSUMPTIONS } from '../model/config.js?v=4cd9890f';
+import { MISSION_PHASES, PHASE_LABELS, defaultState } from '../physics/state.js?v=2bbbd396';
+import { massState } from '../physics/mass.js?v=2bbbd396';
+import { derivePower } from '../physics/energy.js?v=2bbbd396';
+import { clamp, clamp01, lerp, smoothstep } from '../core/math.js?v=2bbbd396';
+import { ASSUMPTIONS } from '../model/config.js?v=2bbbd396';
 
 /** Altitudes, in metres. Same three bands the /airships page uses. */
 export const ALT = { cruise: 1500, source: 300, drop: 250 };
