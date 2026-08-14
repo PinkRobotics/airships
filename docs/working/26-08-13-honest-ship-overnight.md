@@ -839,3 +839,31 @@ is the main link. Landed (airships@2f1b67c/897f003, pink-sites@e295968, deployed
   working pages marked); one honesty line; water/control/status/monitor/parked
   sections deleted. Page height 6757 → 4456 px. robotics.py tolerates the
   removed N: tokens (skip, not fail) — numbers now live only in the figures.
+
+## Part 25 — the anchor line leaves the ship (operator, 08-14)
+
+Operator, one small fix before closing: "a pink pipe hanging down on the far end,
+in addition to the pump/spray/bucket, on a pink cable, longest, hangs from the very
+end of the second level box — remove it." That is the ANCHOR: `lines.push` at
+xMid+4.0 running from the bay's stern past the bucket to a bead at bucketZ−7.5,
+plus `one('VesselAnchor', …)`. Landed (airships@cabb90e, pink-sites@6e5fbbe,
+deployed + purged + verified):
+- WHY IT WAS ALREADY DEAD DOCTRINE: the weight was drawn when a hanging mass was
+  the holddown story. The wash ruling of 08-13 gave holddown to the rotors (wash
+  goes UP, pods on the horizontal plane), so the anchor had stopped being the
+  mechanism a day earlier — only the geometry lagged. Its removal is a currency
+  fix, not a styling one.
+- ONE MODEL, ONE DELETION: buildVessel is shared, so the viewer, its `view=gear`
+  and the front-page hero all lost it in the same commit. Nothing to sync.
+- WHAT WENT WITH IT: the VESSEL_LAYER entry, the two doctrine comments, the
+  bucket label's "the rotors and the anchor line are what hold it down" (now the
+  rotors alone, wash upward), ship/index.html's fit-out paragraph, and the
+  engineering page's colour-code legend ("the bucket line, the bridle" — the
+  anchor is out of the pink list). Repo grep for VesselAnchor: 0.
+- THE SHAPE IT LEAVES: three pulleys on the bay's keel, three working lines —
+  bucket on pink, sprayer feed and pump pipe on blue — and the gear ends at the
+  water it works in. Gates: explorercheck (7 levels, 27 figures), levelscheck,
+  shipcheck, stampcheck all green.
+- NOTICED, NOT FIXED (operator's call): the lake lathe's profile starts at r=1.0,
+  so there is a ~2 m hole at the lake's centre — a small dark dot on the water in
+  the hero. Pre-existing, one number to close.
