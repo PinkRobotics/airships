@@ -8,8 +8,8 @@
  * sink = band.harshMid.liftSLT. Two pages disagreeing about the same wall is the
  * class of bug this project exists to make impossible.
  */
-import { SHIP, WALL, GRID, ARTICLE } from '../ship/catalog.js?v=2681f8dc';
-import { ship0Summary } from '../ship/model.js?v=2681f8dc';
+import { SHIP, WALL, GRID, ARTICLE } from '../ship/catalog.js?v=60a254ea';
+import { ship0Summary } from '../ship/model.js?v=60a254ea';
 
 const S = ship0Summary();
 const WALLS = {
@@ -81,7 +81,7 @@ function put(id, no, svg) {
   }
   p.push(`<text x="${x0}" y="${y0 - 58}" fill="#c9c3b6" font-size="12">the sky presses the film onto the rings</text>`);
   p.push(`<text x="${x0}" y="${y0 + 56}" fill="#7aa2c8" font-size="12">hoop rings, ${WALL.ringPitchM} m apart — ${fmt0(WALL.rings)} around the barrel</text>`);
-  p.push(`<text x="${x0}" y="${y0 + 76}" fill="#ff4fa3" font-size="12">one membrane, ~${fmt0(WALL.panels)} dished square panels, ${WALL.filmGM2} g/m²</text>`);
+  p.push(`<text x="${x0}" y="${y0 + 76}" fill="#ff4fa3" font-size="12">one membrane, ~${fmt0(WALL.panels)} dished square panels, ${fmt0(WALL.filmGM2)} g/m²</text>`);
   // Inset: one panel in plan, curvature both ways.
   const ix = 470, iy = 60, s = 120;
   p.push(`<rect x="${ix}" y="${iy}" width="${s}" height="${s}" fill="none" stroke="#33333c"/>`);
@@ -169,6 +169,5 @@ function put(id, no, svg) {
   p.push(`<text x="74" y="274" fill="#ff4fa3" font-size="12">pink carries weight</text>`);
   p.push(`<line x1="40" y1="292" x2="66" y2="292" stroke="#5b8fc4" stroke-width="2.4"/>`);
   p.push(`<text x="74" y="296" fill="#5b8fc4" font-size="12">blue carries water</text>`);
-  p.push(`<text x="40" y="42" fill="#9a9aa5" font-size="12">the bucket on its line, the pump on its rigid pipe, the sprayer on its feed</text>`);
   put('fig-gear', 3, `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Side elevation of the dressed ship: capsule hull with solar decking over the top, rotor pods on the beam, a raft of tanks slung under the keel on a pink bridle, a pink bucket line, a blue pump pipe and a blue sprayer feed reaching down, with the pink-carries-weight blue-carries-water legend">${p.join('')}</svg>`);
 }
