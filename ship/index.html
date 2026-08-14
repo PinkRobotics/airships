@@ -285,20 +285,96 @@
   #fallback p{max-width:56ch;margin:var(--s3) auto;color:var(--muted)}
 
 
+  /* ---- THE PHONE (operator, 08-14: "I can't move around it at all") ----
+     The old rule here only re-placed the decks and left every one of them ON at
+     once: header, ladder, the controls block, the fly pad, the cutaway and a 44vh
+     reading sheet. On a 390 px screen that is the whole screen — there was no
+     canvas left to put a thumb on, which is the entire complaint. (The other half
+     was the dolly: no wheel on a phone. Two-finger pinch, in explorer.js.)
+
+     THE RULE NOW: the middle of the screen is always the model. The header keeps
+     one line, the ladder becomes a scrolling strip along the top, and everything
+     else lives in ONE bottom tray with tabs — controls first (movement and layers
+     are what the operator ranked highest), the reading second, and 'full screen'
+     for nothing at all. The tray never exceeds 42vh, so the drag area is never
+     smaller than about a third of the screen and is one tap from being all of it.
+     The fly pad, the cutaway and the assembly guide are moved INTO the controls
+     tray by the script below — on a phone they are controls like any other. */
+  #mtabs{display:none}
   @media (max-width:900px){
-    #panel{top:auto;bottom:0;width:100%;max-height:44vh;
-        background:linear-gradient(to top,rgba(10,10,12,.96) 70%,transparent)}
-    #rail{left:var(--s3)}
-    #rail button .nm{display:none}
-    #head{max-width:70vw}
-    #controls{width:auto;left:auto}
-    /* the hero control cannot share the top strip with the header on a phone — it drops
-       to the bottom-left stack, above the cutaway, where it used to live */
-    #asmbox{top:auto;bottom:calc(var(--s4) + 44px);left:var(--s5);transform:none;
-        padding:6px 10px;gap:8px;box-shadow:none}
-    #asmbox input[type=range]{width:110px}
-    #asmPlay{font:var(--t-11) var(--mono);padding:5px 10px;letter-spacing:.10em}
+    #head{left:var(--s3);top:var(--s2);max-width:calc(100vw - 24px)}
+    #head .kicker{display:none}
+    #head h1{font-size:var(--t-16)}
+    #head p{font-size:var(--t-11);line-height:1.4}
+    /* THE LADDER, ACROSS THE TOP: eight scales read as a strip of chips a thumb can
+       swipe, which is also the one control that must never be buried in a tray —
+       it is how you get from the ship to a joint. */
+    #rail{left:0;right:0;top:auto;bottom:calc(45px + env(safe-area-inset-bottom,0px));
+        transform:none;flex-direction:row;gap:6px;padding:6px var(--s3);z-index:8;
+        overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;
+        background:linear-gradient(to top,rgba(10,10,12,.92),transparent)}
+    #rail::-webkit-scrollbar{display:none}
+    #rail::before{display:none}
+    #rail button{flex:none;padding:5px 10px;border:1px solid var(--line);
+        border-radius:99px;background:rgba(13,13,16,.9);gap:7px}
+    #rail button .sc{min-width:0}
+    #rail button.on{border-color:var(--warm-dim);background:var(--warm-glow)}
+    /* THE TRAY. Both sheets are already position:fixed — they only need re-placing,
+       not reparenting, so nothing about the desktop DOM changes. */
+    #mtabs{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:10;
+        grid-auto-flow:column;grid-auto-columns:1fr;
+        padding-bottom:env(safe-area-inset-bottom,0px);
+        background:rgba(13,13,16,.96);border-top:1px solid var(--line)}
+    #mtabs button{height:44px;border:0;border-left:1px solid var(--line);background:none;
+        color:var(--muted);font:var(--t-12) var(--sans);cursor:pointer}
+    #mtabs button:first-child{border-left:0}
+    #mtabs button.on{color:var(--warm);background:var(--warm-glow)}
+    /* THE STACK IS DETERMINISTIC: tabs (45) at the floor, the ladder strip (39) on
+       top of them, the sheet above that at a FIXED 42vh — fixed, not max-height,
+       because the canvas below is sized against it and a sheet that shrank with its
+       content would leave the model framed for a screen it no longer has. */
+    #controls,#panel{position:fixed;left:0;right:0;top:auto;width:auto;z-index:9;
+        bottom:calc(84px + env(safe-area-inset-bottom,0px));height:42vh;
+        overflow-y:auto;overscroll-behavior:contain;
+        border:0;border-top:1px solid var(--line);border-radius:0}
+    /* THE CANVAS IS THE FREE AREA, NOT THE SCREEN. Left full-bleed under the tray,
+       the model centres on a point hidden behind the sheet — it reads as a ship
+       that has slipped off the bottom of the page. Sizing the canvas to what can
+       actually be seen also feeds the real aspect to the fov fit, so the framing
+       is right in both states, and the label layer must track it exactly or every
+       leader line lands somewhere the part is not. */
+       NEVER height:auto HERE. A canvas with an auto CSS height takes its INTRINSIC
+       size — the width/height attributes — and this renderer writes those attributes
+       from the measured box every frame, so the two chase each other: one resize
+       took the stage to 33,554,432 px square. The height is always stated. */
+    #stage,#labels{top:0;left:0;right:0;bottom:auto;width:100%;
+        height:calc(100vh - 84px - env(safe-area-inset-bottom,0px));
+        height:calc(100dvh - 84px - env(safe-area-inset-bottom,0px))}
+    body.mt-controls #stage,body.mt-controls #labels,
+    body.mt-read #stage,body.mt-read #labels{
+        height:calc(100vh - 84px - 42vh - env(safe-area-inset-bottom,0px));
+        height:calc(100dvh - 84px - 42dvh - env(safe-area-inset-bottom,0px))}
+    #controls{background:rgba(13,13,16,.96);padding:var(--s4) var(--s4) var(--s5);
+        gap:var(--s5)}
+    #panel{background:rgba(10,10,12,.97);padding:var(--s4) var(--s4) var(--s5)}
+    body:not(.mt-controls) #controls{display:none}
+    body:not(.mt-read) #panel{display:none}
+    /* Moved into the tray by the script: they lay out in flow now, not in corners. */
+    #controls #flybox,#controls #cutbox,#controls #asmbox{position:static;inset:auto;
+        transform:none;width:auto;max-width:none;box-shadow:none;z-index:auto}
+    #controls #flybox{flex-direction:row;align-items:center;gap:var(--s3);flex-wrap:wrap}
+    #controls #cutbox{margin-top:var(--s2)}
+    #controls #cutbox input[type=range]{flex:1;width:auto}
+    #controls #asmbox{gap:8px}
+    /* Touch targets: the deck's 26 px cells are a mouse size, not a thumb size. */
+    #controls .ctlgrid button{height:38px;line-height:36px;font-size:var(--t-13)}
+    #controls .seg button{height:34px}
+    .fk{width:52px;height:42px}
+    #flyhint{max-width:none}
   }
+  /* The head's hint is a lie on a touch screen — there is no wheel to scroll. */
+  .touchonly{display:none}
+  @media (hover:none){.touchonly{display:inline} .penonly{display:none}}
   @media (prefers-reduced-motion:reduce){
     #panel section.active{animation:none}
     .lbl{transition:none}
@@ -318,7 +394,9 @@
 <header id="head">
   <div class="kicker">Pink Robotics · airship structures</div>
   <h1>From the joint to the ship</h1>
-  <p>Eight scales of one structure. Drag to orbit · scroll to dive ·
+  <p><span class="penonly">Eight scales of one structure. Drag to orbit · scroll to
+     dive</span><span class="touchonly">Drag to turn · pinch to zoom, and keep
+     pinching to change scale</span> ·
      <a href="../engineering/">the engineering</a> · <a href="../">the fleet</a> ·
      <span style="opacity:.75"><a href="../cell/levels.html">the blueprint</a> · <a href="../cell/ship.html">the checks</a></span></p>
 </header>
@@ -1697,6 +1775,14 @@
   </div>
 </div>
 
+<!-- THE PHONE'S TRAY BAR — display:none until the mobile query matches, so a desktop
+     never sees it and the gate (which runs at desktop width) never has to know. -->
+<nav id="mtabs" aria-label="Screen layout">
+  <button data-mtab="controls" class="on">controls</button>
+  <button data-mtab="read">the reading</button>
+  <button data-mtab="none">full screen</button>
+</nav>
+
 <div id="fallback">
   <h1>The cell, joint to ship</h1>
   <p id="fallbackWhy">This page needs WebGL 2, which this browser has not made available.</p>
@@ -1706,6 +1792,49 @@
 </div>
 
 <script>
+/* THE PHONE'S TRAY (operator, 08-14). Two decks and three floating controls cannot
+ * all be on a 390 px screen at once, so on a phone they become one tray with tabs
+ * and the middle of the screen stays the model. Everything here is a no-op unless
+ * the media query matches — the desktop DOM is exactly what it was, which is also
+ * why the gate (desktop width) is untouched. The fly pad, the cutaway and the
+ * assembly guide MOVE into the controls deck: on a phone they are controls like
+ * any other, and a corner-pinned box would be sitting on the drag area. They move
+ * back if the query stops matching, so a rotation or a resize is not a one-way
+ * door. */
+(function phoneTray() {
+  const mq = matchMedia('(max-width:900px)');
+  const tabs = document.getElementById('mtabs');
+  const deck = document.getElementById('controls');
+  const movers = ['flybox', 'cutbox', 'asmbox']
+    .map((id) => document.getElementById(id)).filter(Boolean);
+  const homes = new Map();          // element -> where it lives on a desktop
+  const TABS = ['mt-controls', 'mt-read', 'mt-none'];
+  function setTab(k) {
+    document.body.classList.remove(...TABS);
+    document.body.classList.add('mt-' + k);
+    for (const b of tabs.children) b.classList.toggle('on', b.dataset.mtab === k);
+  }
+  function apply(on) {
+    if (on) {
+      for (const el of movers) {
+        if (!homes.has(el)) homes.set(el, [el.parentNode, el.nextSibling]);
+        deck.appendChild(el);
+      }
+      if (!TABS.some((c) => document.body.classList.contains(c))) setTab('controls');
+    } else {
+      for (const [el, [parent, next]] of homes) parent.insertBefore(el, next);
+      homes.clear();
+      document.body.classList.remove(...TABS);
+    }
+  }
+  tabs.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (b) setTab(b.dataset.mtab);
+  });
+  mq.addEventListener('change', (e) => apply(e.matches));
+  apply(mq.matches);
+})();
+
 /* The test gate reads this. Module errors are otherwise silent in a headless probe. */
 window.__errs = [];
 window.addEventListener('error', (e) => window.__errs.push(String(e.message || e)));
@@ -1733,9 +1862,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=173e4858';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=173e4858';
-import * as CELL from './model.js?v=173e4858';
+import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=5f420769';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5f420769';
+import * as CELL from './model.js?v=5f420769';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

@@ -113,6 +113,17 @@ async def main():
                 if msg.get("id") == mid:
                     return msg.get("result", {})
         await call("Page.enable"); await call("Runtime.enable")
+        # A3D_VIEWPORT=390x844 emulates a phone. It has to be a device-metrics
+        # override rather than --window-size, because Chromium refuses to make a
+        # window narrower than 500 px and silently gives you 500 — which reads as a
+        # tablet to any media query and quietly tests the wrong layout.
+        if os.environ.get("A3D_VIEWPORT"):
+            vw, _, vh = os.environ["A3D_VIEWPORT"].partition("x")
+            await call("Emulation.setDeviceMetricsOverride", {
+                "width": int(vw), "height": int(vh),
+                "deviceScaleFactor": 1, "mobile": True})
+            await call("Emulation.setTouchEmulationEnabled",
+                       {"enabled": True, "maxTouchPoints": 5})
         await call("Page.navigate", {"url": URL})
         await asyncio.sleep(WAIT)
         r = await call("Runtime.evaluate",

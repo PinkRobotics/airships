@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import pathlib
 import subprocess
 import sys
@@ -678,6 +679,93 @@ def shown_as(v, digits):
     return str(Decimal(repr(float(v))).quantize(q, rounding=ROUND_HALF_UP))
 
 
+PHONE_PROBE = r"""(() => {
+  const c = document.getElementById('stage');
+  const r = c.getBoundingClientRect();
+  const tabs = document.getElementById('mtabs');
+  const inDeck = (id) => {
+    const el = document.getElementById(id);
+    return !!(el && el.closest('#controls'));
+  };
+  return {
+    errors: window.__errs || [],
+    mounted: !!window.EXPLORER,
+    css: [Math.round(r.width), Math.round(r.height)],
+    backing: [c.width, c.height],
+    tabs: getComputedStyle(tabs).display,
+    tabCount: tabs.querySelectorAll('button').length,
+    body: document.body.className,
+    moved: ['flybox', 'cutbox', 'asmbox'].filter(inDeck),
+    fov: window.EXPLORER ? +window.EXPLORER.cam.fovDeg.toFixed(2) : 0,
+  };
+})()"""
+
+
+def check_phone() -> list:
+    """The viewer on a phone: the tray exists, the canvas is the free area, and the
+    frame widens to fit a portrait screen.
+
+    Worth a gate of its own because none of the desktop assertions can see any of it,
+    and the failure mode that shipped here was silent and total: an `auto` CSS height
+    on the canvas made its box take the ELEMENT's intrinsic size, which this renderer
+    writes from the measured box every frame — the two chased each other out to a
+    33,554,432 px square and the model vanished, with no page error to show for it.
+    A bound on the backing store is the cheapest way to never repeat that."""
+    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+        probe = pathlib.Path(td) / "phone.js"
+        probe.write_text(PHONE_PROBE)
+        out = pathlib.Path(td) / "phone.json"
+        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
+                                "--port", "8911", "--quiet"], cwd=ROOT)
+        try:
+            env = {**os.environ, "A3D_VIEWPORT": "390x844"}
+            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
+                            "http://127.0.0.1:8911/ship/index.html?still=1",
+                            str(probe), str(out), "10"], cwd=ROOT, check=True,
+                           stdout=subprocess.DEVNULL, env=env)
+            r = json.loads(out.read_text())
+        finally:
+            srv.terminate()
+            srv.wait()
+
+    out_bad = []
+    if r.get("errors"):
+        out_bad += [f"phone: page error: {e}" for e in r["errors"]]
+    if not r.get("mounted"):
+        out_bad.append("phone: EXPLORER did not mount at 390x844")
+    w, h = r.get("css", [0, 0])
+    if not 380 <= w <= 400:
+        out_bad.append(f"phone: the canvas is {w} px wide, not the screen's 390")
+    # The tray takes the bottom: tabs 45 + ladder 39 + a 42vh sheet. What is left is
+    # the drag area, and it must be a real one — a third of the screen at least.
+    if not 200 <= h <= 500:
+        out_bad.append(f"phone: the canvas is {h} px tall — the free area between the "
+                       "header and the tray should be about 400")
+    bw, bh = r.get("backing", [0, 0])
+    if bw > w * 5 or bh > h * 5:
+        out_bad.append(f"phone: the canvas backing store is {bw}x{bh} for a {w}x{h} box "
+                       "— the measure/resize loop has run away (see this function's note)")
+    if r.get("tabs") == "none" or r.get("tabCount") != 3:
+        out_bad.append(f"phone: the tray's tab bar is {r.get('tabs')!r} with "
+                       f"{r.get('tabCount')} tabs — a phone cannot reach the reading")
+    if "mt-controls" not in (r.get("body") or ""):
+        out_bad.append(f"phone: opens on {r.get('body')!r} — controls must be the "
+                       "first tab, since movement and layers are what a reader came for")
+    if sorted(r.get("moved") or []) != ["asmbox", "cutbox", "flybox"]:
+        out_bad.append(f"phone: only {r.get('moved')} moved into the deck — a "
+                       "corner-pinned control sits on the drag area")
+    # Portrait fits by WIDTH: at this aspect the fov must have widened past its base.
+    if not r.get("fov", 0) > 33:
+        out_bad.append(f"phone: fov is {r.get('fov')} — a portrait canvas must widen "
+                       "the vertical field or the ship overflows both edges")
+    if not out_bad:
+        print(f"          the phone holds up: at 390x844 the canvas is {w}x{h} "
+              f"(backing {bw}x{bh}), fov widened to {r.get('fov')}deg to fit by width, "
+              "the tray's three tabs are up, and the fly pad, cutaway and assembly "
+              "guide are in the deck.")
+    return out_bad
+
+
 def main() -> None:
     # The manifest, regrouped here, is the authority the page's node figures answer to.
     fresh = GNF.payload()
@@ -1166,6 +1254,7 @@ def main() -> None:
                    f"against radius {fl.get('radius')}")
 
 
+    bad += check_phone()
     if bad:
         print("EXPLORER CHECK FAILED:\n")
         for b in bad:

@@ -5,7 +5,10 @@
  *
  *   - only The Ship level builds; the six joint-scale levels get empty shells,
  *   - the 6.5 MB of joint display meshes never load (they are a lazy module now),
- *   - no listeners attach: the page never captures a scroll, a drag or a key.
+ *   - the host sets pointer-events:none on the canvas, so the viewer's own drag,
+ *     pinch and wheel listeners — which DO attach; lite mode does not skip them —
+ *     never see an event and the page keeps its scroll. That CSS line is load
+ *     bearing: remove it and the hero starts eating scrolls on a phone.
  *
  * The turntable is the viewer's own idle spin, which runs from the first frame
  * until an interaction — and here no interaction can ever come. The environment
@@ -13,7 +16,7 @@
  * (ctx.envRing), so the ship has company from every azimuth as it turns.
  * prefers-reduced-motion gets a still ship; a machine without WebGL2 keeps
  * whatever fallback the hosting section painted behind the canvas. */
-import { mountExplorer, LEVELS } from './explorer.js?v=173e4858';
+import { mountExplorer, LEVELS } from './explorer.js?v=5f420769';
 
 export function mountShipHero(canvas) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;

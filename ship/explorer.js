@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=173e4858';
-import * as G from './explorer-geom.js?v=173e4858';
+import * as CELL from './model.js?v=5f420769';
+import * as G from './explorer-geom.js?v=5f420769';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=173e4858';
+} from './nodes.generated.js?v=5f420769';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
@@ -41,17 +41,17 @@ import {
  * mounts, which is the same ordering the old static import enforced. */
 let NODEMESHES = null;
 export function loadNodemeshes() {
-  return import('./nodemeshes.generated.js?v=173e4858')
+  return import('./nodemeshes.generated.js?v=5f420769')
     .then((m) => { NODEMESHES = m.NODEMESHES; return NODEMESHES; });
 }
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=173e4858';
+import { SKIN } from './skin.generated.js?v=5f420769';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=173e4858';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5f420769';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=e8cd84c3';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=e8cd84c3';
 import {
@@ -3787,11 +3787,30 @@ export function mountExplorer(opts) {
 
   /* -- frame loop -- */
   const sceneBox = { w: 1, h: 1, dpr: 1 };
+  /* FIT BY WIDTH ON A TALL SCREEN (operator, 08-14). Every framing in this file — the
+   * levels' distances, the views, the tours, the hero's pose — was chosen against a
+   * landscape window, and the projection's fov is VERTICAL. On a phone held upright
+   * the aspect falls to about 0.46, so the horizontal field collapses with it and a
+   * ship framed to fill a laptop overflows both edges: the reader's first sight of
+   * the viewer is a wall of hull with no way to know what it is. Below a reference
+   * aspect the vertical fov therefore widens to hold the HORIZONTAL field constant,
+   * which is what "fit the subject" means on a portrait screen. REF sits just under
+   * the front page's own hero aspect (860 x 713 = 1.206) so that framing — measured
+   * and verified — is not touched, and every window wider than the reference keeps
+   * the fov it always had. */
+  const REF_ASPECT = 1.2;
+  let baseFov = cam.fovDeg;
+  function fitFov() {
+    const aspect = sceneBox.w / sceneBox.h;
+    const widen = Math.max(1, REF_ASPECT / Math.max(aspect, 0.05));
+    cam.fovDeg = 2 * Math.atan(Math.tan(baseFov * Math.PI / 360) * widen) * 180 / Math.PI;
+  }
   function measure() {
     const r = canvas.getBoundingClientRect();
     sceneBox.w = Math.max(1, r.width);
     sceneBox.h = Math.max(1, r.height);
     sceneBox.dpr = window.devicePixelRatio || 1;
+    fitFov();
   }
   measure();
   const ro = new ResizeObserver(() => { measure(); dirty = true; });
@@ -4172,13 +4191,68 @@ export function mountExplorer(opts) {
     return (lv.target || [0, 0, 0]);
   };
   let drag = null;
+  /* TOUCH (operator, 08-14: "I can't move around it at all" on a phone). One finger
+   * always orbited — pointer events give a thumb the same path as a mouse — but the
+   * DOLLY was wheel-only, and the dolly is also how the ladder dives. So a phone
+   * could turn the model and nothing else. Two fingers now do what the wheel does:
+   * the pinch RATIO drives the same zoom step, and the pair's midpoint pans. The map
+   * is what makes the second finger visible; without it the browser hands a
+   * two-finger gesture to whichever pointer moved last and it reads as a wild orbit. */
+  const pointers = new Map();
+  let pinch = null;
+  const pinchOf = () => {
+    const [a, b] = [...pointers.values()];
+    return { d: Math.hypot(a.x - b.x, a.y - b.y), cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 };
+  };
+  /* ONE zoom step, whatever drove it — a wheel notch or a pinch ratio. f > 1 pulls
+   * out. Kept as one function so the powers-of-ten dive can never be a thing the
+   * wheel does and the fingers do not. */
+  function zoomBy(f) {
+    cancelGuidance();
+    lastInteract = performance.now();
+    if (flight.on) {
+      // In flight the wheel sets SPEED, not distance. Its exponents were -0.0009
+      // against the dolly's 0.0011, so the same notch moves speed as f^-0.82.
+      flight.speed = clamp(flight.speed * Math.pow(f, -0.82), 0.12, 12);
+      if (opts.onFlight) opts.onFlight(true);
+      dirty = true;
+      return;
+    }
+    if (transition) return;
+    dolly(cam, f);
+    // Powers-of-ten: sail past the near threshold and dive a level; out, and rise. Both
+    // thresholds ride the CAMERA's clamps, not the level's radius — once a tour frames a
+    // 25 mm joint on a level whose own radius is 30 mm, the level's number is not the one
+    // the dolly is working against and dive-out becomes unreachable.
+    if (cam.distance <= cam.minDistance * 1.02 && f < 1 && state.levelIdx > 0) {
+      setLevel(state.levelIdx - 1);
+    } else if (cam.distance >= cam.maxDistance * 0.92 && f > 1 &&
+               state.levelIdx < LEVELS.length - 1) {
+      setLevel(state.levelIdx + 1);
+    }
+    dirty = true;
+  }
   canvas.addEventListener('pointerdown', (e) => {
     cancelGuidance();                         // any hand on the stick ends the tour
-    drag = { x: e.clientX, y: e.clientY, moved: false, b: e.button };
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     canvas.setPointerCapture(e.pointerId);
+    if (pointers.size >= 2) { pinch = pinchOf(); drag = null; }
+    else drag = { x: e.clientX, y: e.clientY, moved: false, b: e.button };
     lastInteract = performance.now();
   });
   canvas.addEventListener('pointermove', (e) => {
+    if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && pointers.size === 2) {
+      const p = pinchOf();
+      // Clamped per move: a finger that jumps (or a second one that lands mid-drag)
+      // must not teleport the camera through a level boundary.
+      if (p.d > 8 && pinch.d > 8) zoomBy(clamp(pinch.d / p.d, 0.6, 1.7));
+      if (!flight.on) pan(cam, p.cx - pinch.cx, p.cy - pinch.cy, sceneBox.h, panCentre());
+      pinch = p;
+      dirty = true;
+      lastInteract = performance.now();
+      return;
+    }
     if (!drag) return;
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
     if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
@@ -4213,33 +4287,25 @@ export function mountExplorer(opts) {
         if (opts.onBreach) opts.onBreach(state.breached.size);
       }
     }
-    drag = null;
-    lastInteract = performance.now();
+    release(e);
   });
+  /* A finger lifted out of a pinch leaves the other one down. Re-seed the drag where
+   * that finger ACTUALLY is, or the next move jumps the camera by the whole gap
+   * between the two. pointercancel matters as much as pointerup on a phone: the
+   * browser takes a pointer away for its own gestures and never sends the up. */
+  function release(e) {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinch = null;
+    if (pointers.size === 1) {
+      const p = pointers.values().next().value;
+      drag = { x: p.x, y: p.y, moved: true, b: 0 };
+    } else if (pointers.size === 0) drag = null;
+    lastInteract = performance.now();
+  }
+  canvas.addEventListener('pointercancel', release);
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
-    cancelGuidance();
-    lastInteract = performance.now();
-    if (flight.on) {
-      flight.speed = clamp(flight.speed * Math.exp(-e.deltaY * 0.0009), 0.12, 12);
-      if (opts.onFlight) opts.onFlight(true);
-      dirty = true;
-      return;
-    }
-    if (transition) return;
-    const f = Math.exp(e.deltaY * 0.0011);
-    dolly(cam, f);
-    // Powers-of-ten: sail past the near threshold and dive a level; out, and rise. Both
-    // thresholds ride the CAMERA's clamps, not the level's radius — once a tour frames a
-    // 25 mm joint on a level whose own radius is 30 mm, the level's number is not the one
-    // the dolly is working against and dive-out becomes unreachable.
-    if (cam.distance <= cam.minDistance * 1.02 && f < 1 && state.levelIdx > 0) {
-      setLevel(state.levelIdx - 1);
-    } else if (cam.distance >= cam.maxDistance * 0.92 && f > 1 &&
-               state.levelIdx < LEVELS.length - 1) {
-      setLevel(state.levelIdx + 1);
-    }
-    dirty = true;
+    zoomBy(Math.exp(e.deltaY * 0.0011));
   }, { passive: false });
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
@@ -4948,7 +5014,9 @@ export function mountExplorer(opts) {
     // are tan(fov/2) / height, so scaling both leaves the subject exactly the size and
     // place it was and spends the difference on frame. That is how the hero buys
     // headroom for the bow-on crown without moving the ship (operator, 08-14).
-    if (po.fov) cam.fovDeg = po.fov;
+    // It sets the BASE fov, not the live one: fitFov() widens it again on a portrait
+    // canvas, and it must widen from the pose's number rather than from the default.
+    if (po.fov) { baseFov = po.fov; fitFov(); }
     dirty = true;
   }
   return api;

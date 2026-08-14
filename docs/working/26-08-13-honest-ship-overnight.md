@@ -896,3 +896,45 @@ box so the model doesn't cut." Landed (airships@d088fd4, pink-sites@ below):
   have grown the error toward the frame's edges; it does not. Same size, same spot.
 - IF THE POSE, THE HULL OR THE GEAR MOVES, re-run the sweep: the two numbers (fov
   and canvas height) are one ratio and must move together or neither moves.
+
+## Part 27 — the viewer on a phone (operator, 08-14)
+
+Operator: "make the inspect page more mobile friendly, I can't move around it at all.
+The information panel is the least important and can be put at the bottom or hidden,
+moving about and the layers is most important." TWO causes, both total:
+- NO CANVAS TO TOUCH. The old phone rule only re-placed the decks and left every one
+  of them on: header, ladder, controls block, fly pad, cutaway and a 44vh reading
+  sheet. On a 390 px screen that IS the screen — measured, the drag area was a few
+  strips between panels, and the reading sheet ate any drag that landed in it.
+- NO DOLLY AT ALL. Zoom was `wheel` only, and a phone has no wheel. Since the dolly
+  is also how the ladder dives, a phone could turn the model and do nothing else.
+FIXED, and every part of it is gated now:
+- TWO-FINGER GESTURES (explorer.js): a pointer MAP makes the second finger visible;
+  pinch ratio drives the SAME zoom step the wheel does (one `zoomBy`, so the
+  powers-of-ten dive can never be a thing only the wheel can reach), the pair's
+  midpoint pans, and `release()` re-seeds the drag from the finger still down —
+  without that the camera jumps by the whole gap when one lifts. pointercancel is
+  wired: a phone browser takes a pointer for its own gesture and never sends the up.
+- FIT BY WIDTH (explorer.js measure): every framing in the file was chosen against a
+  landscape window and the fov is VERTICAL, so at aspect 0.46 the ship overflowed
+  both edges. Below REF_ASPECT = 1.2 the vertical fov widens to hold the HORIZONTAL
+  field constant. REF sits just under the front page hero's own aspect (1.206) so
+  part 26's measured framing is untouched, and every landscape window keeps fov 32
+  exactly (verified: 1440x900 reads 32.000).
+- ONE TRAY (index.html): header one line, the ladder a scrolling chip strip, and
+  everything else in a bottom tray with three tabs — controls (default: movement and
+  layers, what the operator ranked first), the reading, full screen. The fly pad,
+  cutaway and assembly guide are REPARENTED into the controls deck on a phone and
+  put back if the query stops matching. Deck cells go 26 -> 38 px for thumbs.
+- THE CANVAS IS THE FREE AREA, not the screen: sized above the tray so the model
+  centres on something you can see, and #labels tracks it or every leader lands
+  wrong. TRAP WORTH KEEPING: `height:auto` on the canvas means INTRINSIC size, and
+  this renderer writes width/height attributes from the measured box every frame —
+  the two chased each other to a 33,554,432 px square and the model vanished with no
+  page error. The height is always stated; the gate now bounds the backing store.
+- GATE: check_explorer grew check_phone() — boots at 390x844 (js_eval gained
+  A3D_VIEWPORT, a device-metrics override, because --window-size cannot go below
+  500 px and silently gives you a tablet), and asserts canvas 390x406, backing store
+  sane, three tabs up, opens on controls, all three floating boxes in the deck, fov
+  widened. Touch itself was proven with real CDP touch events: one finger moved
+  azimuth -1.18 -> -2.00, two fingers spreading took distance 244.8 -> 94.2.
