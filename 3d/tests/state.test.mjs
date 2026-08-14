@@ -3,31 +3,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=2bbbd396';
-import { build } from '../model/build.js?v=2bbbd396';
+import { resolveClass, CLASS_IDS, ASSUMPTIONS, setAssumptions } from '../model/config.js?v=9f64fc33';
+import { build } from '../model/build.js?v=9f64fc33';
 import {
   defaultState, sanitizeState, validateState, lerpState, describeState,
   MISSION_PHASES, ALL_PHASES, PHASE_LABELS, isAtSource, hoseIsOut,
-} from '../physics/state.js?v=2bbbd396';
+} from '../physics/state.js?v=9f64fc33';
 import {
   demoState, phaseTimeline, phaseAt, phaseShape, stepPhase, MODES, ALT,
-} from '../anim/mission.js?v=2bbbd396';
-import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=2bbbd396';
-import { buildActuators } from '../control/actuators.js?v=2bbbd396';
-import { allocate, demoWrench } from '../control/allocator.js?v=2bbbd396';
-import { massState } from '../physics/mass.js?v=2bbbd396';
-import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=2bbbd396';
-import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=2bbbd396';
-import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=2bbbd396';
-import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=2bbbd396';
-import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=2bbbd396';
-import { CSS } from '../render/styles.js?v=2bbbd396';
+} from '../anim/mission.js?v=9f64fc33';
+import { CLIPS, CLIP_BY_ID, MASTER_SEQUENCE, resolveClip, CLIP_GROUPS } from '../anim/clips.js?v=9f64fc33';
+import { buildActuators } from '../control/actuators.js?v=9f64fc33';
+import { allocate, demoWrench } from '../control/allocator.js?v=9f64fc33';
+import { massState } from '../physics/mass.js?v=9f64fc33';
+import { createDriver, updateDriver, clearFailures } from '../anim/driver.js?v=9f64fc33';
+import { createHose, updateHose, hoseCurve, podDepthM } from '../anim/hose.js?v=9f64fc33';
+import { viewStyle, VIEW_MODES, VIEW_LABELS, capGeom } from '../render/views.js?v=9f64fc33';
+import { staticFigureSVG, scaleComparisonSVG, FIGURE_VIEWS } from '../render/svg.js?v=9f64fc33';
+import { CATEGORY_TONE, MATERIALS, CLAIM_TONE } from '../render/palette.js?v=9f64fc33';
+import { CSS } from '../render/styles.js?v=9f64fc33';
 import {
   fromMonitorState, adaptMission, adoptAssumptions, describeMapping, checkHostState,
   REQUIRED_HOST_FIELDS,
-} from '../adapter/fable.js?v=2bbbd396';
-import { walk } from '../core/nodes.js?v=2bbbd396';
-import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=2bbbd396';
+} from '../adapter/fable.js?v=9f64fc33';
+import { walk } from '../core/nodes.js?v=9f64fc33';
+import { PRESETS, PRESET_IDS, createCamera, goToPreset, updateCamera, orbit, cameraEye } from '../render/camera.js?v=9f64fc33';
 
 /* ---------- state -------------------------------------------------------------------------- */
 
@@ -342,7 +342,13 @@ test('exterior hides the interior and the cutaways clip', () => {
   const b = build('P100', { tier: 2 });
   const ext = viewStyle(b, 'exterior', {});
   assert.equal(ext.clips.length, 0);
-  assert.ok(ext.styleFor(b.index.get('WaterTanks')).hidden, 'tanks must not show through the skin');
+  // The undercarriage ruling (operator, 08-13): the tanks ride the raft BELOW
+  // the keel now, so the exterior view must SHOW them — hiding them was the
+  // bug report ("only two lines down"). The lattice is still interior.
+  const tankStyle = ext.styleFor(b.index.get('WaterTanks'));
+  assert.ok(!tankStyle || !tankStyle.hidden, 'raft tanks are exterior and must draw');
+  const lat = ext.styleFor(b.index.get('VacuumLattice'));
+  assert.ok(lat && lat.hidden, 'the lattice is interior and must stay hidden');
   assert.equal(ext.styleFor(b.index.get('OuterFairing')), null, 'the fairing is the exterior');
 
   const cut = viewStyle(b, 'cutaway-longitudinal', { cutFrac: 0.5, cameraAzimuth: 1.0 });

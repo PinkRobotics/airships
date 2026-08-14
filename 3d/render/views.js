@@ -11,11 +11,11 @@
  * which is why this cutaway has no stencil pass and no z-fighting along the cut.
  */
 
-import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=2bbbd396';
-import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=2bbbd396';
-import { solid } from '../model/geom.js?v=2bbbd396';
-import { node } from '../core/nodes.js?v=2bbbd396';
-import { clamp01 } from '../core/math.js?v=2bbbd396';
+import { hullR, stationX, stationT, sectionScale, profileR } from '../model/config.js?v=9f64fc33';
+import { resolveMaterial, MATERIALS, CATEGORY_TONE, STATE_TONE, TOKENS, mix } from './palette.js?v=9f64fc33';
+import { solid } from '../model/geom.js?v=9f64fc33';
+import { node } from '../core/nodes.js?v=9f64fc33';
+import { clamp01 } from '../core/math.js?v=9f64fc33';
 
 export const VIEW_MODES = [
   'exterior', 'ghost', 'cutaway-longitudinal', 'cutaway-transverse', 'vacuum', 'lattice',
@@ -53,7 +53,12 @@ const EXTERNAL = new Set([
   'MediumThrusterFans', 'LocalTrimFanBlades',
   'PortSurrounds', 'SolarPortSurrounds', 'UndersidePortSurrounds',
 ]);
-const EXTERNAL_PREFIX = ['PrimaryRotor', 'TailSurface', 'Hose_', 'PumpPod_'];
+// THE UNDERCARRIAGE (operator, 08-13): the raft and everything it carries is
+// EXTERIOR now — the allow-list must say so or the exterior view shows a bare
+// hull with two lines and nothing they hang from (exactly the bug report).
+const EXTERNAL_PREFIX = ['PrimaryRotor', 'TailSurface', 'Hose_', 'PumpPod_',
+  'RaftFrame', 'BridleLines', 'WaterTank', 'LN2Tank', 'Generator', 'BatteryModule',
+  'CryoCompressor', 'CryoColdBox', 'CryoExpander', 'VehicleMindCompute', 'SafetyKernel'];
 
 export function isExternal(n) {
   if (EXTERNAL.has(n.id)) return true;

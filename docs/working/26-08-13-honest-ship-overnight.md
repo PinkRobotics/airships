@@ -673,3 +673,28 @@ the folded blower tests), deployed from clean worktree, purged, live-verified (l
 tiers x2, explorer colour code x3, badges in served worked.js + shipviz.js). The next
 slice (raft undercarriage / vacuum void / solar decking / single-source shipviz) is
 fully designed above — start THERE.
+
+## Part 20 — THE UNDERCARRIAGE SHIPPED (airships@0cd91a1 + pink-sites@98c29f6, CHAIN26 EXIT=0)
+
+- Layout post-pass (end of buildLayout): water/LN2/generators/batteries/cryo(-intakes)/
+  mind/pumps/reels → TWO-DECK RAFT below keel (deckZ = −R − 0.34R − wR; boxes lower);
+  winch at stern; manifolds/pipes/dropOutlets EMPTIED; layout.raft{xHalf,yHalf,zTop,
+  zBot,pendantX}. Consumers followed automatically (fills incl.) — placement-as-one-
+  module proved itself.
+- build.js: RaftFrame (3 axis-aligned cylGeom instance nodes) + BridleLines (8 pendants,
+  hand-built kind:'lines' geom, material 'cable'); VacuumVoid = hullBandGeom full
+  revolve, s 0.985, material voidBlack (palette) — views.js vacuum shows VOID only,
+  balls never build (viewer ensureVacuumFill no-ops); SolarSkin = instanced boxGeom(1,1,1)
+  DECKING with exact ZYX euler extraction from [meridian|hoop|normal] (m4compose is
+  Rz·Ry·Rx: rx=atan2(hoop_z,nrm_z), ry=asin(−tm_z), rz=atan2(tm_y,tm_x)), proud + hoop
+  sagitta; solarG/solarGeom band retired.
+- Tests: containment flipped (raft groups OUTSIDE + below keel); breach-audit
+  EXTERNAL_PREFIXES grew the raft cargo (interference still applies — and CAUGHT two
+  real bugs: LN2 3.4:1 vs 3.1 row pitch, then cross-row gap sized to the water radius;
+  both fixed); vacuum browser test = "one black void, not a field of cells"; raft bars
+  + solar plates selectable:false (pick space clean); DropOutlet left the pick list;
+  captions de-balled. Badges follow-up shipped earlier (f4502ec era): roster rows +
+  cockpit headers + fallback generator + goldens.
+- REMAINING from the operator batch: shipviz derives from resolveClass/buildLayout
+  (single-source step F — direction recorded, avatar hand-matched for now); wash
+  particles #97 (reproduce-first); hero #98.
