@@ -792,3 +792,30 @@ sections are numbered by position and a new section must not shift them.
 **Naming settled:** /airships/ship/ (the viewer — object-named, matches "Inspect the
 ship"), /airships/ (the fleet), /airships/engineering/ (the story). cell/ = the gated
 working pages only.
+
+## Part 23 — front page v2: the free ship, figures first, currency sweep (operator round, 08-14)
+
+Operator's morning notes, all landed + deployed (airships@2e2c4fd, pink-sites@0ceed3a):
+- HERO REFRAMED: pose gains tg (applied after boot setLevel); hero aims [0,0,-17]
+  at 172 m — the whole machine (hull top to bucket at the water) tight in a ~1.3
+  frame. UNBOXED on the page: slightly wider than the prose measure, pushed right,
+  edges feathered by PAINTED OVERLAY GRADIENTS (mask-image on the accelerated
+  canvas was dropped by the compositor — paint over, never mask). Doors deleted;
+  ridge nav carries the three entries; See the engineering scrolls to #lift again;
+  the engineering PAGE is linked below the figures.
+- ORDER: ridge → free ship → fig 1 → fig 2 → merged honest-pair prose → reviewed
+  rest. Section numbers are CSS counters — reordering renumbers itself.
+- FIG 1: capsules everywhere (_capsule/_capsule_edge in robotics.py — the leader
+  dots needed a ray-cast to the capsule outline, the ellipse maths left them
+  floating); rule marker = "ship 0" at 52 m DIAMETER (the envelope's own axis).
+- FIG 2: legend "orange is the human technological boundary" on TWO lines (one
+  line clipped the 880 viewBox mid-word); caption 90 m → 96 m (matches the roster
+  prose and the lens).
+- CURRENCY SWEEP (operator: "-4.3 mentioned several times and outdated"): model
+  VERIFIED current (vacuum-cell.json ship0.worldsFramePractice.s1450_sf12
+  .residualSLT = -4.3); every mention is token-/live-bound and said once per
+  page. Stale copy fixed: fig-1 caption "scoping" → gated model; status section
+  ditto; water section lost the hose-era copy AND the previous-generation render
+  (its caption claimed the sim still flies the old hull — false since the capsule
+  landed); control section now says beam pylons + raft; monitor section dropped
+  its rot-prone embedded screenshot (a live app's screenshot is stale by design).
