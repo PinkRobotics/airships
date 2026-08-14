@@ -938,3 +938,31 @@ FIXED, and every part of it is gated now:
   sane, three tabs up, opens on controls, all three floating boxes in the deck, fov
   widened. Touch itself was proven with real CDP touch events: one finger moved
   azimuth -1.18 -> -2.00, two fingers spreading took distance 244.8 -> 94.2.
+
+## Part 28 — the viewer's controls tell the truth (operator, 08-14)
+
+Eight corrections after living with the phone build. All in ship/, all gated:
+- THE BUILD ANIMATION IS IN THE PHONE'S TRAY, and first in it (order:-1 on the flex
+  deck), with its own label. SIMPLIFIED, not shrunk: components scrubber, ASSEMBLE,
+  step back, pause, step forward at 38 px; the per-part scrubber and the
+  reverse/loop/bounce/pace refinements hide on a phone. Desktop keeps all of it.
+- PARTS (all / joinery / pipes) NOW BELONGS TO ALL FOUR CELL-SCALE LEVELS, not just
+  the cell: they are one scene graph at four framings, so the filter always worked —
+  it simply was not offered. Measured on each: joinery drops ~35 k triangles of pipe,
+  pipes-only keeps just those. That is the operator's "connector can't hide pipes",
+  "skin can't hide pipes" and "tubes can't turn off joinery", all one missing data-lv.
+- THE SHIP LEVEL'S 'fly through it' VIEW IS GONE — the tour of that name is in the row
+  above it, and one control under two headings is a control you cannot trust.
+- THE VOID SKIN IS RETIRED, from the model and from the deck. It drew a glass lathe one
+  sandwich depth inside the wall, a terminal surface closing the vacuum from within;
+  the two-wall design has no such thing — the inner wall IS the boundary. Its two deep
+  links (levels.html, engineering) drop it from their layer lists.
+- THE FLY PIVOT. Operator: "when flying, the point of rotation can be very far away."
+  Looking around was never the problem — yaw/pitch turn about flight.pos and the eye
+  does not move. The rig's TARGET was 0.6 radii ahead, and flight ends silently on any
+  dive or named view, so the next drag orbited a point tens of metres out and swung the
+  world. L is 0.35 radii now (and exitFlight enforces it however the flight ended),
+  which also halves the near plane. It must stay above minDistance (0.25 r) or the
+  first scroll after landing reads as a dive.
+- THE HEADER LOSES ITS LINKS, gated and public: they are one tap from the front door,
+  and on a phone they cost two lines of the model's sky to say where you just were.

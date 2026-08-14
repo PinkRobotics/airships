@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=5f420769';
-import * as G from './explorer-geom.js?v=5f420769';
+import * as CELL from './model.js?v=5b5d6413';
+import * as G from './explorer-geom.js?v=5b5d6413';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=5f420769';
+} from './nodes.generated.js?v=5b5d6413';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
@@ -41,17 +41,17 @@ import {
  * mounts, which is the same ordering the old static import enforced. */
 let NODEMESHES = null;
 export function loadNodemeshes() {
-  return import('./nodemeshes.generated.js?v=5f420769')
+  return import('./nodemeshes.generated.js?v=5b5d6413')
     .then((m) => { NODEMESHES = m.NODEMESHES; return NODEMESHES; });
 }
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=5f420769';
+import { SKIN } from './skin.generated.js?v=5b5d6413';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5f420769';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5b5d6413';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=e8cd84c3';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=e8cd84c3';
 import {
@@ -2318,15 +2318,11 @@ function buildShip() {
   // The spokes are CORDS, not pipes — drawn as the tension lines they are.
   lineNode(root, 'ShipSpokes', segLines(bones.spokes),
     { kind: 'line', color: TOKENS.warm, weight: 0.9, opacity: 0.4 });
-  // The void's terminal skin, glass, one depth in.
-  const prof = [];
-  const NP = 40;
-  for (let i = 0; i <= NP; i++) {
-    const st = shipStation(D, D.total * i / NP);
-    const off = GRID.depthM;
-    prof.push([st.x - st.nx * off, Math.max(0.01, st.r - st.nr * off)]);
-  }
-  solidNode(root, 'ShipVoidSkin', latheWithScale(prof, 48, () => 1), XM.kelvinGhost);
+  // (THE VOID SKIN IS RETIRED — operator, 08-14. It drew a glass lathe one sandwich
+  // depth inside the wall, a "terminal skin" closing the vacuum off from the inside.
+  // The two-wall design has no such surface: the inner wall IS the boundary, and a
+  // second membrane behind it described a ship we no longer draw. Its layer switch
+  // went with it.)
   const px = -SHIP.lenM / 2 - 2;
   lineNode(root, 'ShipPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]], XM.scaleTick);
   return {
@@ -2897,7 +2893,8 @@ const LEVEL_VIEWS = {
     { k: 'gear', n: 'the water gear', tg: [0, 0, -SHIPVIEW.D.R * 2.3], az: -0.9, el: 0.05, d: 20 },
   ],
   ship: [
-    { k: 'fly', n: 'fly through it', fly: true },
+    // (No 'fly through it' here: the tour of that name sits in the row above, and one
+    // control appearing twice under two headings is a control the reader cannot trust.)
     { k: 'whole', n: 'the whole ship', tg: [0, 0, 0], az: -1.15, el: 0.18, d: 211 },
     { k: 'bow', n: 'bow-on', tg: [0, 0, 0], az: -2.75, el: 0.10, d: 150 },
     { k: 'skim', n: 'skim the wall', tg: [0, 0, SHIPVIEW.D.R], az: -0.85, el: 0.10, d: 15 },
@@ -3307,7 +3304,7 @@ export function mountExplorer(opts) {
     tourStop: null,              // its key, so a probe and a label can read it back
     // The ship level's own controls: every layer starts ON; the wall hides the skeleton
     // until the viewer opens it, which is what a sealed wall does.
-    shipLayers: { wall: true, skeleton: true, webs: true, spokes: true, voidskin: true,
+    shipLayers: { wall: true, skeleton: true, webs: true, spokes: true,
                   pods: true, module: true, lines: true, env: false },
     flyQueue: null,              // a path tour's remaining legs (any level)
     tourKey: null,               // which tour the queue belongs to
@@ -3629,7 +3626,7 @@ export function mountExplorer(opts) {
                        ShipRings: 'skeleton', ShipBars: 'skeleton',
                        ShipLongs: 'skeleton', ShipInnerRings: 'skeleton',
                        ShipWebs: 'webs', ShipTheta: 'webs', ShipJunction: 'webs',
-                       ShipSpokes: 'spokes', ShipVoidSkin: 'voidskin' };
+                       ShipSpokes: 'spokes' };
   const VESSEL_LAYER = { VesselWrap: 'wall', VesselSolar: 'wall',
                          VesselPylons: 'pods', VesselPods: 'pods',
                          VesselRotors: 'pods',
@@ -4325,7 +4322,16 @@ export function mountExplorer(opts) {
     const cp = Math.cos(flight.pitch);
     const d = [cp * Math.cos(flight.yaw), cp * Math.sin(flight.yaw),
                Math.sin(flight.pitch)];
-    const L = cam.radius * 0.6;
+    // THE NOSE POINT SITS CLOSE (operator, 08-14: "when flying, the point of rotation
+    // can be very far away"). Looking around IS eye-centred — yaw and pitch turn about
+    // flight.pos and the eye never moves — but the rig's TARGET is this far ahead, and
+    // flight ends silently on any dive or named view. The next drag is then an orbit
+    // about a point 0.6 radii out, which swings the whole world and is exactly the
+    // complaint. At 0.35 radii the pivot is what you are looking at, and the near plane
+    // (distance/100) halves with it, which is what flying close needs. It must stay
+    // clear of minDistance (0.25 radii) or the first scroll after landing would read as
+    // a dive rather than a zoom.
+    const L = cam.radius * 0.35;
     cam.maxDistance = Math.max(cam.maxDistance, L);
     cam.distance = L;
     cam.azimuth = flight.yaw + Math.PI;
@@ -4379,8 +4385,20 @@ export function mountExplorer(opts) {
     if (!flight.on) return;
     flight.on = false;
     flight.keys.clear();
-    // The pose stays where the flight left it — an ordinary orbit about the
-    // point just ahead of the nose; the views row re-frames on demand.
+    // The pose stays where the flight left it — an ordinary orbit about the point just
+    // ahead of the nose. "Just ahead" is enforced here as well as in flightApply,
+    // because a flight can also end from a path leg or a view that left the distance
+    // wherever it liked; the eye is held and only the pivot is pulled in.
+    if (cam.distance > cam.radius * 0.35) {
+      const ce = Math.cos(cam.elevation), se = Math.sin(cam.elevation);
+      const eye = [cam.target[0] + cam.distance * ce * Math.cos(cam.azimuth),
+                   cam.target[1] + cam.distance * ce * Math.sin(cam.azimuth),
+                   cam.target[2] + cam.distance * se];
+      cam.distance = cam.radius * 0.35;
+      cam.target = [eye[0] - cam.distance * ce * Math.cos(cam.azimuth),
+                    eye[1] - cam.distance * ce * Math.sin(cam.azimuth),
+                    eye[2] - cam.distance * se];
+    }
     dirty = true;
     if (opts.onFlight) opts.onFlight(false);
   }

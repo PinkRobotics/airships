@@ -275,6 +275,8 @@
        border-radius:var(--r-sm);padding:5px 14px;cursor:pointer;white-space:nowrap;
        transition:filter .15s,box-shadow .15s}
   #asmPlay:hover{filter:brightness(1.15);box-shadow:0 0 14px var(--warm-glow)}
+  /* The deck label the assembly box wears only inside the phone's tray. */
+  .asmlab{display:none}
   #wallchip{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
   #wallchip .line1{font:var(--t-12) var(--mono);color:var(--bone)}
   #wallchip .line2{font:var(--t-11) var(--mono);color:var(--faint)}
@@ -362,6 +364,20 @@
     /* Moved into the tray by the script: they lay out in flow now, not in corners. */
     #controls #flybox,#controls #cutbox,#controls #asmbox{position:static;inset:auto;
         transform:none;width:auto;max-width:none;box-shadow:none;z-index:auto}
+    /* THE BUILD ANIMATION IS THE CELL LEVEL'S HERO CONTROL, so on a phone it goes to
+       the TOP of the deck rather than the end of a scroll — order:-1, since the deck
+       is a flex column and the script appends. SIMPLIFIED, NOT SHRUNK: the components
+       scrubber, play, step and pause survive at thumb size; the per-part scrubber and
+       the reverse/loop/bounce/pace refinements are hidden, because a reader who cannot
+       find the play button will never want the pace. Desktop keeps all of it. */
+    .asmlab{display:block}
+    #controls #asmbox{order:-1;border-color:var(--warm-dim);padding:var(--s3)}
+    #controls .asmfine,#controls #asmRev,#controls #asmLoop,
+    #controls #asmBounce,#controls #asmSpeed{display:none}
+    #controls #asmrow{flex-wrap:wrap;justify-content:flex-start;gap:8px}
+    #controls #asmrow .tbtn,#controls #asmPlay{height:38px;padding:0 14px}
+    #controls #asmbox .asmbar label{min-width:0}
+    #controls #asmCap1,#controls #asmCap2{white-space:normal;text-align:left}
     #controls #flybox{flex-direction:row;align-items:center;gap:var(--s3);flex-wrap:wrap}
     #controls #cutbox{margin-top:var(--s2)}
     #controls #cutbox input[type=range]{flex:1;width:auto}
@@ -394,11 +410,12 @@
 <header id="head">
   <div class="kicker">Pink Robotics · airship structures</div>
   <h1>From the joint to the ship</h1>
+  <!-- No navigation here (operator, 08-14): every one of these pages is a click away
+       from the front door, and on a phone the row cost two lines of the model's sky to
+       say what the reader had just come from. What stays is how to drive this page. -->
   <p><span class="penonly">Eight scales of one structure. Drag to orbit · scroll to
      dive</span><span class="touchonly">Drag to turn · pinch to zoom, and keep
-     pinching to change scale</span> ·
-     <a href="../engineering/">the engineering</a> · <a href="../">the fleet</a> ·
-     <span style="opacity:.75"><a href="../cell/levels.html">the blueprint</a> · <a href="../cell/ship.html">the checks</a></span></p>
+     pinching to change scale</span></p>
 </header>
 
 <nav id="rail" aria-label="Scale ladder"></nav>
@@ -1694,13 +1711,17 @@
       <button class="sbtn on" data-layer="skeleton" data-lv="ship">skeleton</button>
       <button class="sbtn on" data-layer="webs" data-lv="ship">webs</button>
       <button class="sbtn on" data-layer="spokes" data-lv="ship">spokes</button>
-      <button class="sbtn on" data-layer="voidskin" data-lv="ship">void skin</button>
     </div>
     <div class="segrow" data-lv="strut wall track cell"><span class="seglab">skin</span>
       <div class="seg" id="skinSeg"><button data-v="solid">solid</button><button
         data-v="transparent">glass</button><button data-v="off">off</button></div>
     </div>
-    <div class="segrow" data-lv="cell"><span class="seglab">parts</span>
+    <!-- PARTS BELONGS TO EVERY LEVEL THAT SHOWS THE ARTICLE (operator, 08-14). The four
+         finest levels are one scene graph — the cell's — seen at four framings, so
+         "hide the pipes" and "hide the joinery" work identically on all of them. The
+         control was scoped to the cell alone, which left the connector, tube and skin
+         levels showing a switch-less article the reader could not take apart. -->
+    <div class="segrow" data-lv="cell strut wall track"><span class="seglab">parts</span>
       <div class="seg" id="partsSeg"><button data-v="all">all</button><button
         data-v="joinery">joinery</button><button data-v="pipes">pipes</button></div>
     </div>
@@ -1746,12 +1767,16 @@
      the part in flight with the joints it lands between, off the same generated data the
      animation flies. -->
 <div id="asmbox" hidden>
+  <!-- The tray gives this box no context of its own, so it carries a deck label that
+       only the phone shows — everywhere else it is the wide bar across the top and
+       needs no introduction. -->
+  <div class="glab asmlab">build it, part by part</div>
   <div class="asmbar">
     <label for="asmComp">components</label>
     <input id="asmComp" type="range" min="-1" max="216" step="1" value="216">
     <output id="asmCompOut"></output>
   </div>
-  <div class="asmbar">
+  <div class="asmbar asmfine">
     <label for="asmR">this part</label>
     <input id="asmR" type="range" min="0" max="1000" step="1" value="1000">
     <output id="asmROut"></output>
@@ -1862,9 +1887,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=5f420769';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5f420769';
-import * as CELL from './model.js?v=5f420769';
+import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=5b5d6413';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=5b5d6413';
+import * as CELL from './model.js?v=5b5d6413';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

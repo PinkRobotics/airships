@@ -15,7 +15,7 @@
  * deliberate, the right move is to delete the field from one side, not to loosen this.
  */
 import { describe, it, eq } from '../harness.js';
-import { CLASSES, CLASS_ORDER, DEFAULTS } from '../../sim/index.js?v=5f420769';
+import { CLASSES, CLASS_ORDER, DEFAULTS } from '../../sim/index.js?v=5b5d6413';
 import { ASSUMPTIONS, resolveClass } from '../../3d/model/config.js?v=e8cd84c3';
 
 /** sim field -> 3D field, for every quantity both files claim to know. */
