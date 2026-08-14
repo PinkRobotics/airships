@@ -13,7 +13,7 @@
  * (ctx.envRing), so the ship has company from every azimuth as it turns.
  * prefers-reduced-motion gets a still ship; a machine without WebGL2 keeps
  * whatever fallback the hosting section painted behind the canvas. */
-import { mountExplorer, LEVELS } from './explorer.js?v=2e5ac7dc';
+import { mountExplorer, LEVELS } from './explorer.js?v=173e4858';
 
 export function mountShipHero(canvas) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -27,10 +27,27 @@ export function mountShipHero(canvas) {
     startLevel: LEVELS.findIndex((l) => l.id === 'vessel'),
     // Tight framing (operator, 08-14): the whole machine fills the frame — hull
     // top to the bucket at the water, raft and lines included — with minimal
-    // margin. Target sits mid-stack (hull top +26 m, water -60 m); 32-degree
-    // vertical fov at ~172 m covers the ~95 m stack. The shore ring reads at the
-    // frame's edges as it turns, which is what the watchers are for.
-    pose: { tg: [0, 0, -17], el: 0.05, d: 172 },
+    // margin. Target sits mid-stack (hull top +26 m, water -60 m); the vertical
+    // fov at ~172 m covers the ~95 m stack. The shore ring reads at the frame's
+    // edges as it turns, which is what the watchers are for.
+    //
+    // WHY 34.4 AND NOT 32 (operator, 08-14 round 2: the crown was flattening).
+    // A turning capsule is not a constant silhouette. Bow-on, the nose cap is
+    // 52 m nearer the eye than the hull's centre, so perspective throws the
+    // crown HIGHER than it ever gets broadside — 3.5% of the half-height past a
+    // 32-degree frame, which the canvas edge sliced flat once per turn. The fix
+    // keeps the ship exactly where and how big it was: the canvas grows 8%
+    // taller and the fov grows 8% in tangent WITH it (tan(17.2) = 1.08 x
+    // tan(16)), and since pixels per metre are tan(fov/2) / canvas height, the
+    // two cancel. Horizontal is untouched for the same reason — tan(hfov/2) is
+    // tan(vfov/2) x aspect, and aspect falls by exactly the 8% the fov gained.
+    // All of it becomes frame, half above and half below, so the host's pull
+    // (see .shipfree in the front page) grows by half the added height to keep
+    // the canvas CENTRE — and with it the ship — on the same line of the page.
+    // Worst case now clears by 4%: hull top 0.2969 against a half-height of
+    // 0.3097, gear bottom 0.2731. Recompute if the pose, the hull or the gear
+    // moves; the sweep that found these lives in the working doc, part 26.
+    pose: { tg: [0, 0, -17], el: 0.05, d: 172, fov: 34.4 },
   });
   if (api) canvas.classList.add('live');
   // Spin only while the banner is actually on screen — a hero scrolled past should

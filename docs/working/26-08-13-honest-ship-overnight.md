@@ -867,3 +867,32 @@ deployed + purged + verified):
 - NOTICED, NOT FIXED (operator's call): the lake lathe's profile starts at r=1.0,
   so there is a ~2 m hole at the lake's centre — a small dark dot on the water in
   the hero. Pre-existing, one number to close.
+
+## Part 26 — the hero's headroom: a wider fov is not a zoom (operator, 08-14)
+
+Operator: "the top of the spinning hero render gets flattened/cut off at its largest
+turn" — then, precisely: "keep in spot and size, just raise the top of the bounding
+box so the model doesn't cut." Landed (airships@<this>, pink-sites@<this>):
+- THE CAUSE IS PERSPECTIVE, NOT SIZE. A turning capsule has no constant silhouette.
+  BOW-ON the nose cap is 52 m nearer the eye than the hull's middle, so the crown
+  projects HIGHER than it ever does broadside. Swept over azimuth (scratch script,
+  the viewer's own camera math): hull top ratio 0.2969 at az ±180 against a 32°
+  half-height of tan16 = 0.28675 — over by 3.5%, ≈9 px of a 660 px canvas, sliced
+  flat once per 126 s turn. Gear bottom 0.2731, inside by 4.75%. Broadside never
+  clips, which is why it looked like "only at the largest turn".
+- THE FIX KEEPS SPOT AND SIZE BY CONSTRUCTION. Pixels per metre = tan(fov/2) /
+  canvas height, so scaling BOTH by 1.08 cancels exactly: canvas 660 → 713 px
+  (88vw → 95vw), fov 32 → 34.4° (tan 17.2° = 1.08 × tan 16°). Horizontal is
+  untouched for free — tan(hfov/2) = tan(vfov/2) × aspect, and aspect falls by the
+  same 8%. All 8% becomes frame, half above and half below, so the host's pull grew
+  by half the added height (0.48 → 0.52 of the OLD canvas height = min(45.8vw,
+  343px)) to hold the canvas CENTRE, and with it the ship, on the same page line.
+- NEW pose field: `pose.fov` in mountExplorer (one line beside tg/az/el/d).
+- PROVEN, not eyeballed: a throwaway harness (ship/_frame.html, deleted) mounted the
+  hero at a FIXED azimuth so the worst case could be shot. Old: 466 lit pixels in
+  the canvas's top 3 rows (the slice). New: 0. And new-onto-old best-aligns at
+  exactly 27 px — the predicted (713−660)/2 = 26.5 — with |diff| flat across
+  top/mid/bottom and left/right (0.5–1.0 mean, edges only). A scale change would
+  have grown the error toward the frame's edges; it does not. Same size, same spot.
+- IF THE POSE, THE HULL OR THE GEAR MOVES, re-run the sweep: the two numbers (fov
+  and canvas height) are one ratio and must move together or neither moves.

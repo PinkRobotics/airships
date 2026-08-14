@@ -24,31 +24,31 @@ export {
   DEFAULTS, CFG, setConfig, resetConfig, REFERENCE_CLASS,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
   TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
-} from './config.js?v=2e5ac7dc';
+} from './config.js?v=173e4858';
 
 export {
   ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
-} from './atmosphere.js?v=2e5ac7dc';
+} from './atmosphere.js?v=173e4858';
 
-export { SEED, setSeed, hashFrac } from './rng.js?v=2e5ac7dc';
+export { SEED, setSeed, hashFrac } from './rng.js?v=173e4858';
 
 export {
   R_EARTH, havKm, moveToward, bez, bezBearing, easeTrap, easeSm, lerpAng, trackBearing,
-} from './geo.js?v=2e5ac7dc';
+} from './geo.js?v=173e4858';
 
-export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=2e5ac7dc';
-export { planCycle } from './plan.js?v=2e5ac7dc';
-export { findSource, intakePoint } from './water.js?v=2e5ac7dc';
-export { CITIES } from './communities.js?v=2e5ac7dc';
+export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=173e4858';
+export { planCycle } from './plan.js?v=173e4858';
+export { findSource, intakePoint } from './water.js?v=173e4858';
+export { CITIES } from './communities.js?v=173e4858';
 
 export {
   insideFire, dropSeg, planTargets, tIdx, segAt, legKmFor, stationFor, deliveryPoint,
   arrivalCurve,
-} from './targets.js?v=2e5ac7dc';
+} from './targets.js?v=173e4858';
 
-export { sizeTier, assign } from './assign.js?v=2e5ac7dc';
-export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=2e5ac7dc';
-export { buildMission } from './mission.js?v=2e5ac7dc';
-export { anchorHang, stateAt } from './state.js?v=2e5ac7dc';
-export { narrate, srcName } from './narrate.js?v=2e5ac7dc';
-export { selftest } from './selftest.js?v=2e5ac7dc';
+export { sizeTier, assign } from './assign.js?v=173e4858';
+export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=173e4858';
+export { buildMission } from './mission.js?v=173e4858';
+export { anchorHang, stateAt } from './state.js?v=173e4858';
+export { narrate, srcName } from './narrate.js?v=173e4858';
+export { selftest } from './selftest.js?v=173e4858';
