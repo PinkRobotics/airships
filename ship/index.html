@@ -1728,9 +1728,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS } from './explorer.js?v=7ffb54da';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=7ffb54da';
-import * as CELL from './model.js?v=7ffb54da';
+import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=4b042085';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4b042085';
+import * as CELL from './model.js?v=4b042085';
 
 window.CELL = CELL;   // the parity probe drives this page too
 
@@ -1852,6 +1852,11 @@ const canvas = document.getElementById('stage');
 // `const` that first call is a temporal-dead-zone ReferenceError inside the boot, which
 // shows up as a blank page and a watchdog message about the module not starting.
 let api = null;
+// The joint display meshes are a lazy 6.5 MB module now (the front-page hero skips
+// them); this page draws every level, so it waits for them exactly as the old static
+// import did. Top-level await holds the boot, and the watchdog timing is unchanged —
+// the same bytes gated the first frame before, as part of the module graph.
+await loadNodemeshes();
 api = mountExplorer({
   canvas,
   labelLayer: document.getElementById('labels'),

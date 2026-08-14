@@ -24,26 +24,34 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=7ffb54da';
-import * as G from './explorer-geom.js?v=7ffb54da';
+import * as CELL from './model.js?v=4b042085';
+import * as G from './explorer-geom.js?v=4b042085';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=7ffb54da';
+} from './nodes.generated.js?v=4b042085';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
-import { NODEMESHES } from './nodemeshes.generated.js?v=7ffb54da';
+/* The display meshes are 6.5 MB — the joint-scale levels' data, not the ship's. They
+ * load on demand so a page that never leaves The Ship (the front-page hero mounts in
+ * lite mode) never fetches them. The viewer page awaits loadNodemeshes() before it
+ * mounts, which is the same ordering the old static import enforced. */
+let NODEMESHES = null;
+export function loadNodemeshes() {
+  return import('./nodemeshes.generated.js?v=4b042085')
+    .then((m) => { NODEMESHES = m.NODEMESHES; return NODEMESHES; });
+}
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=7ffb54da';
+import { SKIN } from './skin.generated.js?v=4b042085';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
 // docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=7ffb54da';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=4b042085';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=9f64fc33';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=9f64fc33';
 import {
@@ -664,6 +672,9 @@ const norm = (p) => { const l = Math.hypot(p[0], p[1], p[2]) || 1;
 
 /* L3 — the cell: the printable demonstrator, 354 mm, 44 litres of nothing. */
 function buildCell(ctx) {
+  // The meshes arrive by loadNodemeshes(); a mount that builds this level without them
+  // is a wiring bug, and a quiet one — joints would simply not draw. Fail loudly instead.
+  if (!NODEMESHES) throw new Error('buildCell before loadNodemeshes() resolved — await it before mounting (lite mounts never build the cell)');
   const root = node({ id: 'L_cell', category: 'vacuum', selectable: false });
   const p = CELL.DEMO_PITCH_PINNED_M;         // the BUILT article's pitch, pinned
   const L = CELL.DEMO_STRUT_PINNED_M;         // (the chain's live optimum may move)
@@ -2341,7 +2352,7 @@ function buildShip() {
  * bearing and friction, never a bolt through film. The bucket lives on a line
  * below. Equipment is NAMED, NOT WEIGHED [SCOPING] — the ledger's declared
  * payload axis; Mission 0 (112 m) wears this same fit. */
-function buildVessel() {
+function buildVessel(ctx) {
   const root = node({ id: 'L_vessel', category: 'vacuum', selectable: false });
   const D = shipDims();
   const wrap = solidNode(root, 'VesselWrap', wrapGeomShared(D), XM.sealedWall);
@@ -2645,8 +2656,12 @@ function buildVessel() {
       G.beadGeom(1.0, 0.7, 0.9, 10), XM.pipe);
   }
   const px = -SHIP.lenM / 2 - 2;
-  lineNode(root, 'VesselPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]],
-    XM.scaleTick);
+  // The 1.8 m person at the bow is the viewer's scale reference. The hero ring
+  // variant drops it (operator, #100): the watchers on the shore ARE the scale
+  // there, and a lone tick floating off the bow of a turning ship reads as debris.
+  if (!(ctx && ctx.envRing))
+    lineNode(root, 'VesselPerson', [[[px, 0, -D.R * 0.1], [px, 0, -D.R * 0.1 + 1.8]]],
+      XM.scaleTick);
 
   // THE ENVIRONMENT v2 (operator, round 9): the ship DIPPING INTO A LAKE —
   // the working end reaching down to the water, trees and people at the
@@ -2708,10 +2723,19 @@ function buildVessel() {
     // north arc facing the default camera, radii 112-127 — all on sand.
     const ringAt = (aDeg, r2) => [LC[0] + Math.cos(aDeg * Math.PI / 180) * r2,
                                   LC[1] + Math.sin(aDeg * Math.PI / 180) * r2];
-    const TR = [[18, 118], [34, 124], [50, 114], [62, 126], [74, 116],
-                [86, 122], [95, 113], [104, 125], [116, 115], [128, 121],
-                [142, 113], [156, 124], [42, 119], [80, 127], [110, 120],
-                [148, 118]];
+    let TR = [[18, 118], [34, 124], [50, 114], [62, 126], [74, 116],
+              [86, 122], [95, 113], [104, 125], [116, 115], [128, 121],
+              [142, 113], [156, 124], [42, 119], [80, 127], [110, 120],
+              [148, 118]];
+    if (ctx && ctx.envRing) {
+      // THE HERO RING (public arc, 08-13): the front page's ship turns with no controls,
+      // so the treeline must close the full circle — in view from any azimuth. Same
+      // shore band, same radii as the dip scene; positions are index-hashed (no
+      // randomness — a hero that redraws differently on each visit reads as noise).
+      TR = [];
+      for (let i2 = 0; i2 < 30; i2++)
+        TR.push([i2 * 12 + ((i2 * 47) % 11) - 5, 112 + ((i2 * 53) % 16)]);
+    }
     {
       const xf = new Float32Array(TR.length * 16);
       TR.forEach(([a2, r2], i2) => {
@@ -2725,10 +2749,21 @@ function buildVessel() {
     // People v2 (operator: "more detail to the human"): a shouldered body
     // and a separate head, 1.8 m all in — knots of watchers at the
     // waterline, feet on the beach (radius just past the fade's start).
-    const PP = [[86, 98.5], [88.5, 100.1], [91, 98.9], [94, 100.7],
-                [70, 99.3], [72.5, 100.5], [75, 99.1], [60, 100.9],
-                [62.4, 99.5], [105, 100.3], [107.5, 99.7], [118, 100.5],
-                [45, 100.1], [132, 99.9]];
+    let PP = [[86, 98.5], [88.5, 100.1], [91, 98.9], [94, 100.7],
+              [70, 99.3], [72.5, 100.5], [75, 99.1], [60, 100.9],
+              [62.4, 99.5], [105, 100.3], [107.5, 99.7], [118, 100.5],
+              [45, 100.1], [132, 99.9]];
+    if (ctx && ctx.envRing) {
+      // The watchers close the circle with the trees: knots of two and three at the
+      // waterline every thirty degrees, feet on the beach, same 1.8 m people.
+      PP = [];
+      for (let k2 = 0; k2 < 12; k2++) {
+        const a0 = k2 * 30 + ((k2 * 29) % 7);
+        PP.push([a0, 98.6 + (k2 % 3) * 0.8],
+                [a0 + 2.6, 100.2 - (k2 % 2) * 0.6],
+                [a0 + 5.1, 99.4]);
+      }
+    }
     {
       const xf = new Float32Array(PP.length * 16);
       PP.forEach(([a2, r2], i2) => {
@@ -3237,7 +3272,7 @@ function buildTour(levelId, cell, ctx) {
 /* ---------- mount -------------------------------------------------------------------------------- */
 
 export function mountExplorer(opts) {
-  const { canvas, labelLayer, onLevelChange, reducedMotion } = opts;
+  const { canvas, labelLayer, onLevelChange, reducedMotion, lite, envRing, layers } = opts;
   if (!isWebGL2Available()) return null;
   const renderer = createRenderer(canvas, { maxPixelRatio: 2 });
   if (!renderer) return null;
@@ -3280,12 +3315,22 @@ export function mountExplorer(opts) {
     turntable: !reducedMotion,
     reduced: !!reducedMotion,
   };
+  // Layer overrides land BEFORE anything builds or frames, so a hero boot can open with
+  // the environment already on — no toggle, no eased zoom-out, no transition to wait on.
+  if (layers) Object.assign(state.shipLayers, layers);
   let ctx = computeCtx(state.matKey, state.altM);
+  ctx.envRing = !!envRing;
 
   // Build all levels once; they are small. A stage level's builder returns an empty shell:
   // built[STAGE_LEVEL] holds the one scene graph they all display.
+  // LITE MOUNT (the front-page hero): only The Ship builds. Every other level gets the
+  // same empty shell a stage level gets — enough shape for the loops below, no geometry,
+  // no data, and the 6.5 MB of joint meshes never load. Nothing can navigate there: a
+  // lite page wires no controls.
   const built = LEVELS.map((lv) => {
-    const b = lv.build(ctx);
+    const b = (lite && lv.id !== 'vessel')
+      ? { root: node({ id: `LiteShell_${lv.id}`, selectable: false }), labels: [] }
+      : lv.build(ctx);
     walk(b.root, (n) => { n._fadeRoot = b; });
     b.fade = 0;
     b.claim = 0;
@@ -3300,7 +3345,7 @@ export function mountExplorer(opts) {
   // Per-level tours, generated from the stage's own parts. Held here, not on LEVELS: they
   // depend on the built geometry, and LEVELS is exported and shared.
   const tours = new Map();
-  for (const lv of LEVELS) {
+  if (!lite) for (const lv of LEVELS) {          // lite: the stage is a shell; no tours
     const t = buildTour(lv.id, built[STAGE_LEVEL], ctx);
     if (t) tours.set(lv.id, t);
   }
@@ -4368,13 +4413,13 @@ export function mountExplorer(opts) {
     setLevel,
     setMaterial(k) {
       state.matKey = k;
-      ctx = computeCtx(state.matKey, state.altM);
+      ctx = computeCtx(state.matKey, state.altM); ctx.envRing = !!envRing;
       if (opts.onCtx) opts.onCtx(ctx);
       dirty = true;
     },
     setAltitude(a) {
       state.altM = a;
-      ctx = computeCtx(state.matKey, state.altM);
+      ctx = computeCtx(state.matKey, state.altM); ctx.envRing = !!envRing;
       if (opts.onCtx) opts.onCtx(ctx);
       dirty = true;
     },
@@ -4888,6 +4933,16 @@ export function mountExplorer(opts) {
   };
 
   setLevel(state.levelIdx, true);
+  // A hosting page may pin the opening pose AFTER the boot setLevel has framed the
+  // level's default (the front-page hero letterboxes ship + shore ring; the viewer's
+  // default suits its side-panel stage). maxDistance first, or the distance is capped.
+  if (opts.pose) {
+    const po = opts.pose;
+    if (po.az !== undefined) cam.azimuth = po.az;
+    if (po.el !== undefined) cam.elevation = po.el;
+    if (po.d) { cam.maxDistance = Math.max(cam.maxDistance, po.d * 1.05); cam.distance = po.d; }
+    dirty = true;
+  }
   return api;
 }
 
