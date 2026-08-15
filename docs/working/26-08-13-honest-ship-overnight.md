@@ -995,3 +995,29 @@ is untouched; it works through ids that never moved):
   the page is. Header: two lines, not four.
 Gates: interaction (25/25), fallbackcheck. Desktop verified untouched at 1440x900 —
 grid 300/764/320, tab bar display:none, no body class.
+
+## Part 30 — how much cord the spoke net is (operator, 08-14)
+
+Operator: "we never calculated how much cord we need for the internal spokes." True, and
+the reason is instructive: the stability model bills the spokes as a SMEARED AREA —
+cross-section per square metre of hull — which prices their 4.6 t without ever saying how
+long the cord is or how many there are. A mass with no length is not a purchase.
+- THE LAYOUT, COUNTED (`shipSpokeNet` in ship/model.js, `ship_spoke_net` in the Python
+  mirror): one plane at every bay ring (the same 68 the inner rings use), nLong/2 = 36
+  DIAMETRAL cords per plane so every column is an anchor and no cord is counted twice,
+  and planes whose inner radius falls under 6 m skipped — the drawing's own polar
+  cut-off, since near the pole a diametral cord is shorter than its end fittings.
+  Radius follows the capsule: rIn·sin(a) round the caps, rIn along the barrel.
+- SHIP 0: **2,160 cords, 84,780 m — 85 km of cord, more than the 68 km of carbon pipe.**
+  Mean cord 39.3 m. Dividing the ledger's 4.57 t over that length gives a **7.38 mm**
+  cord at the spoke material's own density, which is the first time the spokes have had
+  a diameter at all.
+- HELD THREE WAYS: cellparity now covers all seven spokeNet fields (352 values, was 345);
+  the Python rounds them like every other summary field because the gate holds the
+  browser to the published number; and check_explorer compares the DRAWN net (a new
+  `api.shipSpokeDrawn()` summing the very segments the ship level renders) against the
+  model's analytic length — 84,780 m both ways, 2,160 cords both ways. A "layout
+  concept" and a purchased length can only be called the same thing if something checks.
+- The front page's figure 1 gains its fourth input line: ≈85 km spoke cord.
+- STILL OPEN, unchanged: SHIP-3 (the chordal net that would engage the odd modes a
+  diametral cord cannot see). This counts the net as drawn; it does not redesign it.

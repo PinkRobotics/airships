@@ -368,6 +368,12 @@ def main() -> None:
         for k in ("longerons", "innerRings", "fanWebsPerColPerBay", "thetaWebs"):
             cmp(f"ship0.skeletonCounts.{k}", psh["skeletonCounts"][k],
                 jsh["skeletonCounts"][k], 0)
+        # The spoke net (2026-08-14): a length and a count, not a smeared area. Both
+        # mirrors walk the same bay planes with the same polar cut-off, so a drift in
+        # either one is a drift in the layout itself.
+        for k, dp in (("planes", 0), ("planesTotal", 0), ("cords", 0),
+                      ("lengthM", 0), ("meanCordM", 2), ("cordMm", 2), ("massT", 2)):
+            cmp(f"ship0.spokeNet.{k}", psh["spokeNet"][k], jsh["spokeNet"][k], dp)
         for i, prow in enumerate(psh["floatWindow"]["curve"]):
             jrow = jsh["floatWindow"]["curve"][i]
             cmp(f"ship0.window[{i}].diaM", prow["diaM"], jrow["diaM"], 1)

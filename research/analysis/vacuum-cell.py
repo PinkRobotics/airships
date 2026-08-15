@@ -1327,6 +1327,48 @@ def ship_geom(dia_m: float = None) -> dict:
                 nLong=n_long, braceM=2.0 * math.pi * r / n_long)
 
 
+def ship_spoke_net(g: dict) -> dict:
+    """HOW MUCH CORD THE SPOKE NET IS (operator, 08-14: "we never calculated how
+    much cord we need"). The stability model bills the spokes as a SMEARED area —
+    cross-section per square metre of hull — which prices mass without ever saying
+    how long the cord is or how many there are. This is the layout the viewer
+    draws, counted:
+
+      - one plane at every bay ring (the same n_inner planes the inner rings use),
+      - nLong/2 DIAMETRAL cords in each plane, each spanning the full inner
+        diameter, so every column is an anchor and no cord is drawn twice,
+      - planes whose inner radius falls under 6 m are skipped: at the poles a
+        diametral cord is shorter than its own end fittings.
+
+    The inner-wall radius follows the capsule: rIn*sin(a) around the caps, rIn
+    along the barrel. A LENGTH, not a mass — the mass is the ledger's spokes row,
+    and dividing one by the other is what gives the cord its diameter."""
+    bay = SHIP0["bayM"]
+    n_bays = max(2, round(g["meridianM"] / bay))
+    s_cap = math.pi * g["R"] / 2.0
+
+    def r_at(s: float) -> float:
+        if s <= s_cap:
+            return g["rIn"] * math.sin(s / g["R"])
+        if s <= s_cap + g["cylL"]:
+            return g["rIn"]
+        return g["rIn"] * math.cos((s - s_cap - g["cylL"]) / g["R"])
+
+    planes = 0
+    r_sum = 0.0
+    for i in range(n_bays + 1):
+        r = r_at(g["meridianM"] * i / n_bays)
+        if r < 6.0:                      # the drawing's own polar cut-off
+            continue
+        planes += 1
+        r_sum += r
+    cords = planes * round(g["nLong"] / 2)
+    length_m = g["nLong"] * r_sum        # (nLong/2 cords) x (2r) per plane
+    return dict(planes=planes, planesTotal=n_bays + 1, cords=cords,
+                lengthM=length_m,
+                meanCordM=(length_m / cords) if cords else 0.0)
+
+
 def ship_section(od_mm: float, wall_mm: float) -> dict:
     ro = od_mm / 2000.0
     ri = ro - wall_mm / 1000.0
@@ -1744,6 +1786,20 @@ def ship0(sigma_key: str = None, sf: float = None, dia_m: float = None,
     )
 
 
+def _ship_spoke_net_summary(mid: dict) -> dict:
+    """The net's geometry plus the cord diameter its billed tonnage implies."""
+    net = ship_spoke_net(mid["geom"])
+    vol_m3 = mid["ledgerT"]["spokes"] * 1000.0 / (
+        SHIP0["rhoSpoke"] * SHIP0["spokeFitting"])
+    area_m2 = vol_m3 / net["lengthM"] if net["lengthM"] > 0 else 0.0
+    # Rounded here, like every other summary field: the parity gate holds the
+    # browser to THESE numbers, so the rounding is part of the contract.
+    return dict(net, lengthM=round(net["lengthM"]),
+                meanCordM=round(net["meanCordM"], 2),
+                cordMm=round(2000.0 * math.sqrt(area_m2 / math.pi), 2),
+                massT=round(mid["ledgerT"]["spokes"], 2))
+
+
 def ship_neutral_ceiling_m(mass_t: float, lift_sl_t: float) -> float:
     """Highest ISA altitude where mass_t is neutrally buoyant. Lift scales
     exactly with rho (the film-sag debit scales with it too, so lift(h) =
@@ -1898,6 +1954,10 @@ def ship0_summary() -> dict:
         skeletonCounts=dict(
             longerons=SHIP0["nLong"], innerRings=s["nInnerRings"],
             fanWebsPerColPerBay=2 * SHIP0["kFan"], thetaWebs=s["nThetaWebs"]),
+        # The spoke net as a purchase: how many cords, how long all of them are,
+        # and what diameter the ledger's own spoke tonnage spreads to over that
+        # length (fittings excluded — spokeFitting is the allowance for the ends).
+        spokeNet=_ship_spoke_net_summary(mid),
         floatWindow=dict(curve=window,
                          loM=min(floats) if floats else None,
                          hiM=max(floats) if floats else None),

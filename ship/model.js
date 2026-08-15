@@ -789,6 +789,42 @@ export function shipGeom(diaM = null) {
   };
 }
 
+/* HOW MUCH CORD THE SPOKE NET IS (operator, 08-14: "we never calculated how much cord
+ * we need"). The stability model bills the spokes as a SMEARED area — cross-section per
+ * square metre of hull, which prices mass without ever saying how long the cord is or
+ * how many of them there are. This is the layout the viewer draws, counted:
+ *
+ *   - one plane at every bay ring (the same nInner planes the inner rings use),
+ *   - nLong/2 DIAMETRAL cords in each plane, each spanning the full inner diameter,
+ *     so every one of the nLong columns is an anchor and no cord is drawn twice,
+ *   - planes whose inner radius falls under 6 m are skipped: at the poles a diametral
+ *     cord is shorter than its own end fittings and the columns have converged.
+ *
+ * The inner-wall radius follows the capsule: rIn * sin(a) around the caps, rIn along
+ * the barrel. A LENGTH, not a mass — the mass is the ledger's spokes row, and dividing
+ * one by the other is what gives the cord its diameter (see ship0Summary.spokeNet). */
+export function shipSpokeNet(g) {
+  const bay = SHIP0.bayM;
+  const nBays = Math.max(2, Math.round(g.meridianM / bay));
+  const sCap = Math.PI * g.R / 2;
+  const rAt = (s) => {
+    if (s <= sCap) return g.rIn * Math.sin(s / g.R);
+    if (s <= sCap + g.cylL) return g.rIn;
+    return g.rIn * Math.cos((s - sCap - g.cylL) / g.R);
+  };
+  let planes = 0, rSum = 0;
+  for (let i = 0; i <= nBays; i++) {
+    const r = rAt(g.meridianM * i / nBays);
+    if (r < 6.0) continue;                  // the drawing's own polar cut-off
+    planes++;
+    rSum += r;
+  }
+  const cords = planes * Math.round(g.nLong / 2);
+  const lengthM = g.nLong * rSum;           // (nLong/2 cords) x (2r) per plane
+  return { planes, planesTotal: nBays + 1, cords, lengthM,
+           meanCordM: cords ? lengthM / cords : 0 };
+}
+
 export function shipSection(odMm, wallMm) {
   const ro = odMm / 2000.0;
   const ri = ro - wallMm / 1000.0;
@@ -1301,6 +1337,17 @@ export function ship0Summary() {
       longerons: SHIP0.nLong, innerRings: s.nInnerRings,
       fanWebsPerColPerBay: 2 * SHIP0.kFan, thetaWebs: s.nThetaWebs,
     },
+    // The spoke net as a purchase: how many cords, how long all of them are, and
+    // what diameter the ledger's own spoke tonnage spreads to over that length
+    // (fittings excluded — spokeFitting is the allowance for the ends).
+    spokeNet: (() => {
+      const net = shipSpokeNet(mid.geom);
+      const volM3 = mid.ledgerT.spokes * 1000.0
+        / (SHIP0.rhoSpoke * SHIP0.spokeFitting);
+      const areaM2 = net.lengthM > 0 ? volM3 / net.lengthM : 0;
+      return { ...net, cordMm: 2000.0 * Math.sqrt(areaM2 / Math.PI),
+               massT: mid.ledgerT.spokes };
+    })(),
     floatWindow: {
       curve: window,
       loM: floats.length ? Math.min(...floats) : null,

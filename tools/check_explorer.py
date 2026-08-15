@@ -60,6 +60,16 @@ PROBE = r"""(() => {
     out.levels.push({ id: E.levels[i].id, draws: s.drawCalls,
                       tris: s.triangles, lines: s.lines });
   }
+  // THE SPOKE NET: the drawn layout against the model's analytic length (2026-08-14).
+  // The stability model bills the spokes as a smeared area; the cord LENGTH is a
+  // separate claim, and it is only true if the net the viewer draws is the net the
+  // model counted. Both sides here, so a change to either one has to move both.
+  {
+    const drawn = E.shipSpokeDrawn();
+    const modelled = C.ship0Summary().spokeNet;
+    out.spokeNet = { drawnCords: drawn.cords, drawnM: drawn.lengthM,
+                     modelCords: modelled.cords, modelM: modelled.lengthM };
+  }
   // The page's displayed numbers, against the model's own arithmetic.
   const wall = C.rhoAir(2500);
   out.checks = [];
@@ -1254,6 +1264,13 @@ def main() -> None:
                    f"against radius {fl.get('radius')}")
 
 
+    sn = res.get("spokeNet") or {}
+    if sn.get("drawnCords") != sn.get("modelCords"):
+        bad.append(f"spoke net: the viewer draws {sn.get('drawnCords')} cords, the model "
+                   f"counts {sn.get('modelCords')} — the layout and the bill disagree")
+    if abs((sn.get("drawnM") or 0) - (sn.get("modelM") or 0)) > 1.0:
+        bad.append(f"spoke net: {sn.get('drawnM')} m drawn against {sn.get('modelM')} m "
+                   "modelled — the cord length on the front page is not the net on screen")
     bad += check_phone()
     if bad:
         print("EXPLORER CHECK FAILED:\n")
@@ -1298,6 +1315,9 @@ def main() -> None:
           f"{st.get('dishPct')}% displacement debit, clearance "
           f"{st.get('clearanceMm')} mm — numbers held to loaded-skin.json, "
           f"frame restored exactly.")
+    print(f"          the spoke net agrees with the model it is billed from: "
+          f"{sn.get('drawnCords')} diametral cords, {sn.get('drawnM'):,.0f} m of cord "
+          f"drawn against {sn.get('modelM'):,.0f} m counted.")
     print(f"          {figs} figures on those levels recomputed — the manifest of the "
           f"{res['partCount']} printed joints ({res['memberEnds']} member-ends), the "
           f"{res['memberKinds'] and sum(res['memberKinds'].values())}-member cut schedule, "
