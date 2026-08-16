@@ -502,9 +502,11 @@ async def session(websockets, port, url, settle, verbose) -> int:
         await run.click_control("3D custom: switch off a system category", "[data-m3cat]", 0)
 
         # 6. The split flips the map and the model between stacked and side by side, which
-        #    resizes the map canvas under the running loop.
-        await run.click_control("layout: split to side-by-side", "#btnSplit")
-        await run.click_control("layout: split back to stacked", "#btnSplit")
+        #    resizes the map canvas under the running loop. Which one it starts in depends
+        #    on the window's shape (main.js), so the steps are named for the flip, not for
+        #    the arrangement they land in.
+        await run.click_control("layout: flip the map and the model", "#btnSplit")
+        await run.click_control("layout: flip them back", "#btnSplit")
 
         # 7. The clock. `S.lastFrame` advances while paused — the loop still runs, it just
         #    stops adding to sim time — so the survival check means the same thing here.

@@ -15,9 +15,9 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=e8cd84c3';
-import { segPointDist } from '../core/math.js?v=e8cd84c3';
-import { streamFor, jitter } from '../core/prng.js?v=e8cd84c3';
+} from './config.js?v=6e20b6c4';
+import { segPointDist } from '../core/math.js?v=6e20b6c4';
+import { streamFor, jitter } from '../core/prng.js?v=6e20b6c4';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 
@@ -766,7 +766,30 @@ export function buildLayout(cls) {
     layout.waterManifolds = [];
     layout.waterPipes = [];
     layout.ln2Pipes = [];
+    /* THE WATER STILL HAS TO LEAVE. Retiring the KEEL outlets was right — a hole through
+     * the wall is the one thing the doctrine forbids — but clearing the array and stopping
+     * there left the drop run with nothing to draw at all: build.js only makes the spray
+     * curtain `if (layout.dropOutlets.length)`, so the fleet model released a hundred
+     * tonnes in complete silence, and the metadata went on claiming outlets that no longer
+     * existed. They come back where the water now is: a line under the RAFT's lower deck,
+     * spanning the water tanks it carries. Same count the class declares and still
+     * symmetric about the centre, so release stays torque-neutral — and nothing touches
+     * the hull. Alternating a little in y gives the curtain width rather than a seam. */
     layout.dropOutlets = [];
+    if (layout.waterTanks.length) {
+      const x0 = Math.min(...layout.waterTanks.map((t) => t.p[0] - wOf(t) / 2));
+      const x1 = Math.max(...layout.waterTanks.map((t) => t.p[0] + wOf(t) / 2));
+      const zOut = lowZ - boxH * 0.75;
+      const nOut = cls.dropOutlets;
+      for (let i = 0; i < nOut; i++) {
+        const u = nOut === 1 ? 0.5 : (i + 0.5) / nOut;
+        layout.dropOutlets.push({
+          id: `DropOutlet_${pad(i)}`, index: i,
+          p: [x0 + (x1 - x0) * u, (i % 2 ? 1 : -1) * Math.max(0.8, R * 0.03), zOut],
+          radius: Math.max(0.7, R * 0.028),
+        });
+      }
+    }
     const xh = Math.max(up.len, lo.len) / 2 + Math.max(3, R * 0.10);
     const yh = Math.max(wR * 1.3, up.yExt + wR * 1.2, lo.yExt + boxH);
     layout.raft = {

@@ -344,7 +344,8 @@
        that has slipped off the bottom of the page. Sizing the canvas to what can
        actually be seen also feeds the real aspect to the fov fit, so the framing
        is right in both states, and the label layer must track it exactly or every
-       leader line lands somewhere the part is not. */
+       leader line lands somewhere the part is not.
+
        NEVER height:auto HERE. A canvas with an auto CSS height takes its INTRINSIC
        size — the width/height attributes — and this renderer writes those attributes
        from the measured box every frame, so the two chase each other: one resize
@@ -1887,9 +1888,9 @@ setTimeout(() => {
 }, 3000);
 </script>
 <script type="module">
-import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=485b43c9';
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=485b43c9';
-import * as CELL from './model.js?v=485b43c9';
+import { mountExplorer, computeCtx, LEVELS, loadNodemeshes } from './explorer.js?v=a67fca39';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=a67fca39';
+import * as CELL from './model.js?v=a67fca39';
 
 window.CELL = CELL;   // the parity probe drives this page too
 

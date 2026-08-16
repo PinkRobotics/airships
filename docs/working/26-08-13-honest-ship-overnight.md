@@ -1021,3 +1021,81 @@ long the cord is or how many there are. A mass with no length is not a purchase.
 - The front page's figure 1 gains its fourth input line: ≈85 km spoke cord.
 - STILL OPEN, unchanged: SHIP-3 (the chordal net that would engage the odd modes a
   diametral cord cannot see). This counts the net as drawn; it does not redesign it.
+
+## 31 — The desktop cockpit, after the phone (operator, 08-15)
+
+"On the airship inspector, on website view the airship viewer and map are super squished,
+make sure that the viewer is still good for desktop viewing after the improvement for
+mobile use." The inspect page turned out to be untouched — 1512x945 gives it a full-bleed
+1512x945 stage, a 430 px reading panel and no body class. The fleet monitor was not.
+
+- THE REGRESSION, AND IT WAS MINE. The phone round added two hint cards for the empty
+  states behind the tab bar and hid them only INSIDE `@media (max-width:900px)`. On a
+  desktop they were live. `#dtHint3d` is a flex child of `.cp-map`, so stacked it stole
+  38 px of height from the map and the model and printed a sentence that can never be
+  true there (a desktop always has a ship selected); side by side it became a THIRD
+  COLUMN whose max-content width is the whole sentence, which collapsed the map to
+  **183 px**. `#dtHintShip` added 79 px of dead text to the ship column and was what
+  pushed that column past its own "no scrolling on one screen" contract (1148 against
+  1044; it is 1061 now). All three phone-only elements are hidden at the top level now.
+- WHAT WAS LEFT WAS NOT A REGRESSION, IT WAS THE ARRANGEMENT. Measured on production at
+  1512x945: map canvas 834x220, model view **802x175**, and the ship a ~90 px speck in
+  it. The centre column has to hold two views plus three rows of chrome in one
+  non-scrolling viewport, and there was nothing to take: the ops strip's content is
+  301 px inside a 227 px box, so it is already scrolling — it cannot donate.
+- SO THE FIX IS SHAPE, NOT SPACE. The 3D panel frames a TALL subject — 110 m of ship over
+  350 m of hanging hose — so its drawn size is set by the box's HEIGHT and barely at all
+  by its width. Stacked, the two views split the height; side by side, each gets all of
+  it out of the same area. 1920x1080: map 597x686 and model 599x635 against 1242x357 and
+  1210x312. The ship draws about three times larger.
+- SO THE DEFAULT NOW FOLLOWS THE WINDOW'S SHAPE (`app/main.js`): a saved choice always
+  wins; without one, `(min-width:1360px) and (min-aspect-ratio:7/5)` picks side by side.
+  The aspect test catches "wide and short", where stacking hurts most; the width test
+  asks whether two halves are still usable — 1360 leaves each about 345, near the width
+  the map already works at on a phone. 1280x800 stays stacked: its halves would be 302
+  and the legend alone is 168 of that. The SPLIT button still flips it, and still saves.
+- THE HALVES HAD TO BE MADE TO WORK. The nine-chip systems row is one unbreakable `.seg`
+  pill 539 px wide, so at 429 it clipped "Custom…" clean off; below 1740 px the pill
+  becomes a rounded block and wraps. The ten map controls stacked FIVE rows deep under a
+  379 px map (135 px of chrome); tighter chips put them in three (96 px). The legend
+  stops floating inside a 320 px map for the same reason the phone moved it. And the
+  model's header stopped saying "conceptual reference vehicle" a second time — the view's
+  own caption already says it, and it was costing a line.
+- `.ctlbtn` was six IDENTICAL inline style attributes, which is why none of this could be
+  overridden without `!important`. One class rule now, same declarations.
+- The intro overlay's five call-outs are pinned to the stacked layout, so the two that
+  point into the centre column moved into the stylesheet (an inline style cannot be
+  overridden) and take split-aware positions. Verified: at 1920 all five land inside
+  their subjects — map 384-674 inside 328-927, model 998-1288 inside 956-1555.
+- GATES. Interaction 25/25 (its two split steps are named for the flip now, not for the
+  arrangement they land in, because which one is first depends on the window). The UI
+  golden moved by exactly one field — `"map":"922x~250"` → `"437x~550"` — with roster,
+  fires, focus, forces, dials, bars and avatar byte-identical, which is the proof that
+  the layout changed and nothing else did. Phone re-verified unchanged at 390x844, and
+  both hint cards still appear in their empty states.
+- Also fixed while in there: `ship/index.html` had a stray `*/` that CLOSED the canvas
+  comment early, so the four lines of warning after it parsed as a selector and swallowed
+  the `#stage,#labels` rule that follows. The phone gate never caught it because the tray
+  opens on the controls tab, where the second rule applies.
+
+## 32 — The water comes back out (operator, 08-15)
+
+"The water spraying animation needs to be added back into the fleet model thing when
+dumping." It had not been switched off — it had been made impossible to build.
+
+- The undercarriage rewrite retired the interior and cleared `layout.dropOutlets` with the
+  rest of the interior plumbing. That was right about the hull — a hole through the wall
+  is the one thing the doctrine forbids — but it stopped one line short: build.js only
+  makes the spray curtain `if (layout.dropOutlets.length)`, so with no outlets the fleet
+  model released a hundred tonnes in complete silence, and `metadata.js` went on claiming
+  outlets that no longer existed anywhere in the tree.
+- The outlets come back where the water now is: a line under the RAFT's lower deck,
+  spanning the water tanks it carries, at the raft's own underside (z = −45.1 m on a
+  P-100, against a 27.6 m hull radius — clear of the hull entirely). Same count the class
+  declares, still symmetric about the centre so release stays torque-neutral, alternating
+  a little in y so the curtain has width instead of being a seam.
+- VERIFIED IN THE LIBRARY, NOT BY EYE: all three classes build exactly the outlets they
+  claim (12 / 24 / 48), and driving the model into WATER_RELEASE lights **168 of 168**
+  droplets where OUTBOUND_TRANSIT lights 0. Then verified by eye as well, at 60x on the
+  dashboard: the curtain falls from under the raft through the drop run.
+- The metadata description said "along the keel". It says what is now true.

@@ -315,10 +315,42 @@ nav.estate .est-rb{margin-right:auto}
 #model3d{flex:1 1 0;min-height:0;min-width:0;display:flex;flex-direction:column}
 #model3d[hidden]{display:none}
 #m3dView{flex:1;min-height:0}
-/* The split button flips the centre: map above model, or map beside model. */
+/* The split button flips the centre: map above model, or map beside model.
+   WHY EITHER IS EVER RIGHT. Stacked, the two views share the column's height and each
+   ends up a letterbox — at 1512x945 that was a 834x220 map over an 802x175 model, and
+   the model is the one that suffers, because the subject it frames is TALL: 110 m of
+   ship over 350 m of hanging hose. Its drawn size is set by the box's HEIGHT and barely
+   by its width. Side by side, the same total area gives each view the full column
+   height, and the ship draws about three times larger. On a tall window the reverse is
+   true and stacking wins, which is why main.js picks by the window's shape. */
 .cp-map.split-h{flex-direction:row}
 .cp-map.split-h .mapcol{flex:1 1 0}
 .cp-map.split-h #model3d{flex:1 1 0}
+/* Half a column is ~600 px at 1920 and ~410 at 1512, and the systems row is nine chips
+   in one unbreakable pill — a `.seg` cannot wrap inside itself, so at full padding it
+   ran off the panel edge and clipped "Custom…". The chips get tighter, not fewer. */
+.cp-map.split-h .monctl{gap:var(--s2) var(--s3)}
+.cp-map.split-h .seg button{padding:6px 8px;letter-spacing:.06em}
+.cp-map.split-h .seg-speed button{padding:8px 11px;letter-spacing:.08em}
+/* Below ~1740 px the halves are under 520 and even the tightened row does not fit — the
+   nine chips need 539. The pill becomes a rounded block and wraps rather than clipping
+   its last chips, which is what a control that cannot be reached is. */
+@media (max-width:1740px){
+  .cp-map.split-h .monctl .seg{flex-wrap:wrap;border-radius:var(--r-sm)}
+  .cp-map.split-h .monctl .seg button{border-left:1px solid var(--line)}
+  /* Ten map controls in a 340-400 px column stacked FIVE rows deep — 135 px of chrome
+     under a 379 px map. Tighter chips put them in three. */
+  .cp-map.split-h .ctlbtn{padding:6px 10px;letter-spacing:.08em}
+  /* The same call the phone made, for the same reason: a 168 px legend pinned inside a
+     320 px map covers half its width, and the corner it covers is where the ships are.
+     Underneath it costs two short lines and hides nothing. */
+  .cp-map.split-h .maplegend{position:static;background:none;border:0;padding:0;
+    margin-top:2px;display:flex;flex-wrap:wrap;gap:1px var(--s3);font-size:10px;
+    line-height:1.6}
+  .cp-map.split-h .maplegend br{display:none}
+}
+.cp-map.split-h .hud .chip{max-width:100%;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
 /* FIXED height, not max-height: the operation text refreshes every 1.5 s, and a strip that
    grows and shrinks with its words resizes the whole centre cell — and therefore the map
    canvas — on every refresh. That was the recurring flicker. */
@@ -331,6 +363,12 @@ nav.estate .est-rb{margin-right:auto}
 #introOv .io b{display:block;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;
   text-transform:uppercase;color:var(--warm);margin-bottom:6px}
 #introOv .io p{margin:0;font-size:var(--t-13);line-height:1.55;color:var(--muted)}
+/* The two centre call-outs follow the arrangement: stacked, the map is the upper band
+   and the model the lower one; side by side, they are left and right halves. */
+#introOv .io-map{left:26%;top:15%}
+#introOv .io-3d{left:46%;top:60%}
+body.split-h #introOv .io-map{left:20%;top:18%}
+body.split-h #introOv .io-3d{left:52%;top:18%}
 #introOv .io-tap{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
   text-align:center;border:0;background:none;max-width:none}
 #introOv .io-tap b{font-size:var(--t-16);letter-spacing:.18em;color:var(--text)}
@@ -438,6 +476,13 @@ nav.estate .est-rb{margin-right:auto}
 .seg-speed{border-color:var(--warm-dim)}
 .seg-speed button{font-size:var(--t-12);padding:8px 15px;font-weight:600}
 .seg button:focus-visible{outline:2px solid var(--warm);outline-offset:-2px}
+/* The map's own controls. This was six identical inline style attributes until the
+   side-by-side arrangement needed to tighten them — and an inline style cannot be
+   overridden by anything but !important, which is a worse thing to leave behind than a
+   class. Identical declarations, one place. */
+.ctlbtn{background:none;border:1px solid var(--line-strong);border-radius:999px;
+  padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint)}
 .monctl label.tog{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--faint)}
 .monctl label.tog:hover{color:var(--muted)}
 .monctl input[type="checkbox"]{accent-color:var(--warm)}
@@ -575,7 +620,15 @@ nav.estate .est-rb{margin-right:auto}
    a time behind a sticky tab bar — fleet, ship, 3D, operation — which is the same
    shape the viewer's tray took, so the two pages feel like one instrument. A tap on a
    ship (map or roster) opens its cockpit, because that is what the tap meant. */
-#dtabs{display:none}
+/* All three belong to the phone and NOTHING here may leak onto a desktop. The tab bar
+   was hidden from the first version; the two hint cards were not, and both leaked:
+   #dtHint3d is a flex child of .cp-map, so on a desktop it stole 38 px of height from
+   the map and the model — and in the side-by-side arrangement it became a THIRD column
+   whose max-content width is the whole sentence, which collapsed the map to 183 px.
+   #dtHintShip added 79 px of dead text to the ship column and was what pushed that
+   column past its "no scrolling on one screen" contract. Neither can ever be true on a
+   desktop anyway: a ship is always selected there. */
+#dtabs,#dtHint3d,#dtHintShip{display:none}
 @media (max-width:900px){
   .monitor{padding:var(--s2) var(--s3) 0}
   .monitor>.kicker{font-size:var(--t-11);line-height:1.4;gap:var(--s1) var(--s3)}
@@ -729,24 +782,18 @@ nav.estate .est-rb{margin-right:auto}
           <div class="mapscale" id="scalebar">100 km<i style="width:60px"></i></div>
         </div>
         <div class="monctl" role="group" aria-label="Simulation controls">
-          <button class="ctlbtn" id="btnPause" type="button" aria-pressed="false"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Pause</button>
+          <button class="ctlbtn" id="btnPause" type="button" aria-pressed="false">Pause</button>
           <span class="seg seg-speed" role="group" aria-label="Simulation speed">
             <button type="button" data-speed="1">1×</button>
             <button type="button" data-speed="5" aria-pressed="true">5×</button>
             <button type="button" data-speed="20">20×</button>
             <button type="button" data-speed="60">60×</button>
           </span>
-          <button class="ctlbtn" id="btnLayers" type="button"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Layers ▾</button>
-          <button class="ctlbtn" id="btnFitFleet" type="button"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Fit fleet</button>
-          <button class="ctlbtn" id="btnFitFires" type="button"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Fit fires</button>
-          <button class="ctlbtn" id="btnSplit" type="button" title="Flip the map/model split between stacked and side-by-side"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Split ⬒</button>
-          <button class="ctlbtn" id="btnFS" type="button"
-            style="background:none;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 var(--t-11)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Fullscreen</button>
+          <button class="ctlbtn" id="btnLayers" type="button">Layers ▾</button>
+          <button class="ctlbtn" id="btnFitFleet" type="button">Fit fleet</button>
+          <button class="ctlbtn" id="btnFitFires" type="button">Fit fires</button>
+          <button class="ctlbtn" id="btnSplit" type="button" title="Flip the map/model split between stacked and side-by-side">Split ⬒</button>
+          <button class="ctlbtn" id="btnFS" type="button">Fullscreen</button>
         </div>
         <div id="layersPanel" style="display:none;border:1px solid var(--line);border-radius:var(--r-sm);padding:var(--s3) var(--s4);flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center;font:var(--t-12) var(--mono);color:var(--faint)">
           <span class="seg" role="group" aria-label="Fire filter" style="margin-right:var(--s3)">
@@ -777,8 +824,11 @@ nav.estate .est-rb{margin-right:auto}
           <button data-dtab="ops">operation</button>
         </nav>
         <div class="cpanel" id="model3d" hidden>
+          <!-- The view's own caption already says "conceptual reference vehicle"; saying it
+               twice cost this header a second line, and in the side-by-side arrangement a
+               third — height the model view wants more than the words do. -->
           <h4 class="cp-h">The airship, live · <b id="m3dTitle">—</b> ·
-            <span style="color:var(--faint);text-transform:none;letter-spacing:0">conceptual reference vehicle, driven by the same state as everything else here</span></h4>
+            <span style="color:var(--faint);text-transform:none;letter-spacing:0">driven by the same state as everything else here</span></h4>
           <div style="position:relative;flex:1;min-height:0;display:flex">
             <div id="m3dView" style="flex:1;min-height:0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:#08080a"></div>
           </div>
@@ -848,12 +898,15 @@ nav.estate .est-rb{margin-right:auto}
     they fly here to find where the arithmetic breaks.
           Click any row to open its cockpit.</p>
       </div>
-      <div class="io" style="left:26%;top:15%">
+      <!-- These two point INTO the centre column, so their positions are in the stylesheet
+           rather than inline: the side-by-side arrangement moves them, and an inline style
+           cannot be overridden. The three column call-outs never move. -->
+      <div class="io io-map">
         <b>The map · live</b>
         <p>Today's real BC fires and satellite heat. The moving ships are simulated — drag,
           zoom, click anything for its record.</p>
       </div>
-      <div class="io" style="left:46%;top:60%">
+      <div class="io io-3d">
         <b>The ship in 3D</b>
         <p>The selected airship, driven by the same simulation. Buttons highlight each
           system; drag to look around.</p>
@@ -1091,6 +1144,6 @@ nav.estate .est-rb{margin-right:auto}
 <!-- The whole application is app/main.js. This page is markup: everything it does,
      it does from there, and there is no build step between the two — the browser
      loads the same modules you read on GitHub. -->
-<script type="module" src="./app/main.js?v=485b43c9"></script>
+<script type="module" src="./app/main.js?v=a67fca39"></script>
 </body>
 </html>

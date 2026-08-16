@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=485b43c9';
-import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=485b43c9';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=485b43c9';
-import { renderDrawer } from './cockpit/panels.js?v=485b43c9';
-import { renderStats, renderTable } from './cockpit/tables.js?v=485b43c9';
-import { $, esc } from './dom.js?v=485b43c9';
-import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=485b43c9';
-import { rebuildMissions, replanAll } from './fleet.js?v=485b43c9';
-import { frame } from './loop.js?v=485b43c9';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=485b43c9';
-import { resize } from './map/projection.js?v=485b43c9';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=485b43c9';
-import { S } from './store.js?v=485b43c9';
-import { DIALS, renderWorked } from './worked.js?v=485b43c9';
+import * as SIM from '../sim/index.js?v=a67fca39';
+import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=a67fca39';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=a67fca39';
+import { renderDrawer } from './cockpit/panels.js?v=a67fca39';
+import { renderStats, renderTable } from './cockpit/tables.js?v=a67fca39';
+import { $, esc } from './dom.js?v=a67fca39';
+import { REPLAY, fetchHeat, fetchWind, loadLive } from './feeds.js?v=a67fca39';
+import { rebuildMissions, replanAll } from './fleet.js?v=a67fca39';
+import { frame } from './loop.js?v=a67fca39';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=a67fca39';
+import { resize } from './map/projection.js?v=a67fca39';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=a67fca39';
+import { S } from './store.js?v=a67fca39';
+import { DIALS, renderWorked } from './worked.js?v=a67fca39';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {
@@ -51,11 +51,25 @@ export function wire() {
   $("btnFitFleet").addEventListener("click", fitFleet);
   $("btnFitFires").addEventListener("click", fitFires);
   // The split button flips the centre column between map-over-model and map-beside-model.
-  // v2 key: vertical is THE default again for everyone; only a fresh explicit toggle
-  // re-saves horizontal.
-  S.split = storeGet("airshipsSplit2") === "h" ? "h" : "v";
+  // A SAVED CHOICE ALWAYS WINS. Without one, the arrangement follows the shape of the
+  // window, for the reason written beside .cp-map.split-h in the stylesheet: stacking two
+  // views in a wide, short column makes both of them letterboxes, and the 3D panel is the
+  // one that pays, because it frames a tall subject (110 m of ship over 350 m of hose) and
+  // is therefore sized by its box's HEIGHT. Measured on the deployed page at 1512x945:
+  // stacked gave the model an 802x175 slot, side by side gives it ~410x570 and the ship
+  // draws about three times larger, out of exactly the same area. The aspect test is what
+  // catches "wide and short", where stacking hurts most; the width test asks whether two
+  // halves are still usable views — 1360 px leaves each about 345, near the width the map
+  // already works at on a phone. Under either test it stacks, and a taller window is where
+  // the same argument runs the other way.
+  const stored = storeGet("airshipsSplit2");
+  S.split = stored === "h" || stored === "v" ? stored
+    : (matchMedia("(min-width:1360px) and (min-aspect-ratio:7/5)").matches ? "h" : "v");
   const applySplit = () => {
     $("cpMap").classList.toggle("split-h", S.split === "h");
+    // The body carries it too: the intro overlay's call-outs point into the centre column
+    // and are not inside it, so they need the arrangement from an ancestor they share.
+    document.body.classList.toggle("split-h", S.split === "h");
     $("btnSplit").textContent = S.split === "h" ? "Split ◨" : "Split ⬒";
   };
   applySplit();

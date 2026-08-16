@@ -21,8 +21,8 @@
  * not weights.
  */
 
-import { CATEGORIES } from '../core/nodes.js?v=e8cd84c3';
-import { ASSUMPTIONS } from './config.js?v=e8cd84c3';
+import { CATEGORIES } from '../core/nodes.js?v=6e20b6c4';
+import { ASSUMPTIONS } from './config.js?v=6e20b6c4';
 
 /** Fraction of the dry mass allowance each system gets. Sums to 1. */
 export const MASS_SHARE = {
@@ -159,9 +159,10 @@ const TEMPLATES = [
     prefix: 'DropOutlet', label: 'Distributed drop outlet', category: 'water',
     claim: CLAIM.layout, share: 'water', n: (cls) => cls.dropOutlets,
     desc: (cls) =>
-      `One of ${cls.dropOutlets} outlets along the keel, arranged symmetrically about the centre ` +
-      'of buoyancy. Release is spread across them so mass leaves without a large unbalanced ' +
-      'moment. There is no bomb bay.',
+      `One of ${cls.dropOutlets} outlets along the underside of the raft, spanning the water ` +
+      'tanks and arranged symmetrically about the centre of buoyancy. Release is spread across ' +
+      'them so mass leaves without a large unbalanced moment. There is no bomb bay — and no ' +
+      'outlet through the hull, which nothing is allowed to pierce.',
     state: 'waterReleaseProgress',
   },
   {
