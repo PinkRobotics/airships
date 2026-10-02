@@ -505,9 +505,6 @@ The simulator assumes dry structure equals payload. A fleet buoyancy surplus is 
 
 The budget’s case named “demonstrated” cites a numerical shell study; it is not a measured vehicle.
 
-| Class | Committed field | Old | Fresh |
-| --- | --- | --- | --- |
-
 | Object and basis | Mass (or density) | SF | Lift ÷ mass at sea level | Margin at sea level (mass unit) | Lift ÷ mass at 2,500 m | Margin at 2,500 m (mass unit) | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | P100, empty structure allowance | 100.0 t | — | 2.695 | +169.5 | 2.105 | +110.5 | assumed basis |

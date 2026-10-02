@@ -1384,13 +1384,16 @@ def d_fleet(F, K):
                 'Measured component masses and structural validation. The budget’s case names are not evidence classes.',
                 'The equipment budget contains assumed and literature inputs; it does not define a tested hull.'))
     F.stale=stale
-    F.findings.append(dict(id='stale-budget',finding='The committed mass budget differs from a fresh run. '
-        'The ledger uses the fresh run and leaves the committed budget for its owner to update with its prose.', changes=stale))
+    note='The budget’s case named “demonstrated” cites a numerical shell study; it is not a measured vehicle.'
+    # The finding and its table are written only while the committed budget lags a fresh run.
+    if stale:
+        F.findings.append(dict(id='stale-budget',finding='The committed mass budget differs from a fresh run. '
+            'The ledger uses the fresh run and leaves the committed budget for its owner to update with its prose.', changes=stale))
+        note+='\n\n' + table(['Class','Committed field','Old','Fresh'],
+            [[quote(r['design']),quote(r['field']),fmt(r['old']),fmt(r['fresh'])] for r in stale])
     return section(F,'fleet','Fleet allowances and equipment budgets',
         'The simulator assumes dry structure equals payload. A fleet buoyancy surplus is conditional on '
-        'that allowance; it is not evidence of a buildable vacuum hull.',cases,
-        'The budget’s case named “demonstrated” cites a numerical shell study; it is not a measured vehicle.\n\n' +
-        table(['Class','Committed field','Old','Fresh'],[[quote(r['design']),quote(r['field']),fmt(r['old']),fmt(r['fresh'])] for r in stale]))
+        'that allowance; it is not evidence of a buildable vacuum hull.',cases,note)
 
 
 def d_literature(F,K):
