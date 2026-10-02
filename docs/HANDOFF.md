@@ -1,5 +1,7 @@
 # Handoff — the vacuum cell
 
+Dated record, 2026-08-11; current float figures and their basis are in the [float ledger](FLOAT-LEDGER.md).
+
 Written 2026-08-11 at the end of a long session, for someone picking this up cold. Everything
 below is verified rather than remembered: `make check` exits 0, the tree is clean, the site is
 live. Where a number appears it came from running the code, not from recollection.

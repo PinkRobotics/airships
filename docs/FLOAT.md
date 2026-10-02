@@ -1,31 +1,35 @@
 # Making the cell float
 
-> **SHIP-ERA NOTE, 2026-08-13 — the fight moved one scale up and this brief now has a
-> sibling.** The wall is film-on-rings (no cells in it), the ship physics is gated in
-> `ship/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
-> and the honest verdict is **nothing floats at 52 m as drawn**. The hull of record has
-> a 3.0 m wall and is sized for full vacuum against sea-level pressure (101,325 Pa).
-> With SF 1.2, assumed general-instability knockdown γ = 0.30 and 1,050 MPa chords,
-> its 403.1 t mass gives lift/mass **0.558 at sea level and 0.436 at 2,500 m**:
-> deficits **178.3 t and 227.5 t**, respectively. With assumed γ = 0.65 and the
-> unverified 1,450 MPa carbon-laminate ceiling, it gives **0.981 at sea level and
-> 0.766 at 2,500 m**: deficits **4.3 t and 53.6 t**. Altitude changes lift only.
-> The former “within two percent” wording described sea level; it did not describe the
-> working altitude. These are computed scenarios, not test results. The scoping tool's
-> default 4.0 m wall is a different hull, despite its printed name. See the generated
-> [float ledger](FLOAT-LEDGER.md) for the side-by-side rows and their input status.
-> Round two found the diametral spokes
-> carry nothing at odd circumferential n (the governing mode) and the Bryant membrane
-> term needs an in-surface shear system the wall lacks. Two named test campaigns — the
-> GI knockdown tests and the chord coupons — would test the favourable inputs. The two
-> SHIP-3 moves (chordal spoke nets, in-surface shear) remain bounds, with three
-> [TO VERIFY] carriers (spoke creep, eta, drape two-way credit). Even crediting both moves
-> does not close the working-altitude deficit at the declared factor. The full
-> record: `tools/ship_scoping.py` (self-checking study layer),
-> `cell/ship.html` (the checks page), and
-> `docs/working/26-08-13-honest-ship-overnight.md` (the night that corrected it TWICE —
-> eleven refuted bugs, then the two round-two reversals). THIS document remains the BENCH CELL's own mass brief — the
-> 0.709 m article, the process coupon — and everything below still governs that object.
+> **Hull of record, 2026-10-02.** As drawn, the 52 m hull does not float.
+> On the record basis, lift is **0.558 of mass at sea level and 0.436 at 2,500 m**.
+> That basis assumes knockdown 0.30 and 1,050 MPa chords, with structural safety factor 1.2 against full sea-level pressure.
+> The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate ceiling, both unverified, at the same pressure and factor.
+> Its lift/mass is **0.981 at sea level and 0.766 at 2,500 m**, short by **4.3 t and 53.6 t**, respectively.
+> Altitude changes lift only. These are computed scenarios, not test results.
+
+The bill and the drawing disagree in the end caps, in both directions.
+Across five readings, favourable lift/mass ranges from **0.751 to 0.998 at sea level** and **0.586 to 0.780 at 2,500 m**.
+No reading reaches 1 on either basis at either altitude.
+These are readings of an accounting disagreement, not checked designs: the sizing checks use smeared areas at full radius, without station lengths or resolved connections.
+See the [cap readings](../research/analysis/cap-readings.md).
+
+The drawing and the bill disagree in **20 places**, recorded in the [member census](MEMBER-CENSUS.md) behind this float comparison.
+
+Closing the float deficit would require a checked cap structure, validated knockdowns and chord properties, and a complete mass bill for joints, terminations, skin and equipment.
+The [ledger](FLOAT-LEDGER.md) also identifies wall depth, ring pitch and joint mass as variables to investigate.
+Chordal spoke nets and in-surface shear remain bounds: their geometry and terminations need definition, and the shear system's own mass remains unpriced.
+Even crediting both moves leaves a working-altitude deficit at the declared factor.
+The model's “crush floor” is greedy sizing without a safety factor, not a proven minimum or a design.
+
+**Correction to the ship-era note.** Diametral spokes provide no credit at odd circumferential modes, but the current governing mode is even on both published bases.
+The Bryant membrane term requires an in-surface shear system the drawn wall lacks.
+A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case.
+No person checked the arithmetic.
+The model paths are `ship/model.js` and `research/analysis/vacuum-cell.py`; the study is `tools/ship_scoping.py`.
+The [ship checks](../cell/ship.html) and [dated account](working/26-08-13-honest-ship-overnight.md) retain the development record.
+
+The bench-cell brief below concerns article A, the process coupon.
+The scoping tool's default hull has a different wall from the hull of record; its figures belong to separate [ledger rows](FLOAT-LEDGER.md).
 
 Written 2026-08-11. This is the standing brief for continuous work on the vacuum cell's
 mass. It began as a study of retargeting the cell to one metre; the answer to that turned
@@ -148,9 +152,10 @@ leak problem, which is a different document (#63).
 - **The bench article is a process coupon, not a floater.** `floats: false` is deliberate.
   Its job is to prove print → assemble → wrap → evacuate → **seal** → hold for months. Do
   not optimise its mass; that is not what it is for.
-- **Local wall buckling is modelled**, with a NASA SP-8007 knockdown (`K_LOCAL = 0.3`) and
-  an orthotropy penalty. It is the binding constraint on thin walls and it is why you cannot
-  simply specify a thinner tube.
+- **Local wall buckling belongs to the closed-form lattice route**, with an assumed
+  knockdown (`K_LOCAL = 0.3`) and an orthotropy penalty.
+  Article A has pinned Euler, material and film-bending checks, but no local-wall buckling check.
+  A thinner bench tube therefore needs a separate local-wall assessment.
 
 ---
 

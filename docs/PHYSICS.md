@@ -11,6 +11,8 @@ assumptions can be attacked. Six defects were found by audit; five are open, one
 at sea level — was fixed on 2026-08-09 and is written up as fixed rather than deleted. They
 have their own section and they are not hidden anywhere else in the document.
 
+The flight model assumes a hull that floats; no drawn hull does, as the [float case](FLOAT.md) and [ledger](FLOAT-LEDGER.md) explain.
+
 Symbol-to-function references are in [`../sim/README.md`](../sim/README.md), which indexes
 every published number to the line that computes it.
 
@@ -58,8 +60,8 @@ troposphere, anchored at ρ_SL so the page's sea-level dial scales the whole col
 
 The dry mass is set equal to the payload — one tonne of vehicle per tonne of water — and the
 model is explicit that this is the ledger's bet, not a mass estimate. The three classes are
-geometrically similar (fineness ratio 4, displacement matching a prolate spheroid to better
-than 0.2%), so their ledgers are the same ledger scaled.
+assumed to be geometrically similar capsules with fineness ratio 2; their configured
+dimensions are listed below.
 
 **FAIL-SAFE FLOAT-UP SETS THE DISPLACEMENT.** The requirement, decided 2026-08-09, is that a
 hull be positively buoyant at its working altitude *while fully loaded with water and unable

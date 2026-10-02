@@ -26,12 +26,12 @@ stopped being a list of doubts and started being a list of results:
 
 | | question | the short answer |
 |---|---|---|
-| `mass-budget` | Does `dryT = payloadT` close? | Not as specified — but the hull is free to grow, so the real go/no-go is one number: a shell must mass under 0.957 kg/m³ of enclosed volume. |
+| `mass-budget` | Does `dryT = payloadT` close? | Not as specified. Growth alone does not establish a floating structure; the [float case](../docs/FLOAT.md) states the missing structural checks and mass terms. |
 | `water-availability` | Do the fires have water? | All of them, median 4.71 km. Depth, not area, is the open question. |
 | `air-ballast` | Does a vacuum hull need a cryogenic plant? | **Yes — this one is a retraction.** Sealed cells cannot ballast with air. Kept in place, because a fix that erases its own argument cannot be audited. |
 | `descent` | What does getting down cost? | 30–54× what the ledger says. |
 | `delivery` | Does the water arrive? | Not from 450 m. And tonnes is the wrong metric — line is. |
-| `vacuum-cell` | Can the shell exist? | The architecture arguments hold — cells, hollow struts, tube proportion. **The number does not: the reference design is 50% too heavy.** Five optimisms compounded, all in the same direction. |
+| `vacuum-cell` | Can the shell exist? | No drawn hull floats. The [float ledger](../docs/FLOAT-LEDGER.md) separates the bench article, closed-form bounds and hull of record. |
 | `helium` | Why not helium? | **The decision is vacuum; this note keeps it honest.** Vacuum never wins on pure lift (break-even against hydrogen: 0.067 kg/m³), so the case is what the mission needs: no feedstock at fleet scale, no gas logistics tail at remote bases, crush-safe fixed displacement over a fire, and the array being the airframe. The challenge that buys is structural — and it is the rest of this repository. |
 
 Same rule as `figures.json`: the numbers are computed, not typed. `make analysis` regenerates
