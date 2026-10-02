@@ -129,6 +129,7 @@ none is a choice:
   cell, 178 litres**. Of the 216 members, 166 are CLOSING members that drop between two
   nodes already fixed in space: their 332 ends carry a 2 mm pilot inside a 2 mm cup, which is
   what `tools/check_assembly.py` proves against the swing-in bound end by end.
+
 - **THE BOUNDARY IS SIZED BY THE FILM, NOT BY CRUSH, and that is new.** Writing the
   film-edge load model for the first time showed the rim failing at
   **0.44 atmospheres** with the hexagon faces unbraced — the
@@ -141,6 +142,7 @@ none is a choice:
   12-tube nodes (nodes *carry load* in every measured discrete-lattice assembly, whatever
   the model's 15% dead-mass line assumes); strut strain under a full atmosphere against the
   model's 3p/φ; creep; months of pressure log; breach of an instrumented sub-volume.
+
 - **Build sequence, which is itself under test.** Print → dry/anneal (PAHT-CF is
   hygroscopic and its numbers are dry-state; absorbed water alone can exceed a naive
   vacuum budget, so **bake-out under vacuum is a hard gate, not a nicety**) → assemble →

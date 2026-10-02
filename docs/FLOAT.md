@@ -168,6 +168,9 @@ predate that correction and must be recomputed before they are combined with it.
 |---|---|---|---|
 | **R1** | subdivide the lattice so the film needs no separate frame | **11.24× the wall** | film bending priced; not designed |
 | **R2** | lighten the joints | up to ~2× on the total | not started |
+
+| # | route | takes it to | status |
+|---|---|---|---|
 | **R3** | source the right tube | catalogue-dependent; R1 still uses an invented sweep | not started |
 | **R4** | put the right material in the right member | must be repriced against R1 bending | not started |
 

@@ -863,6 +863,144 @@
       "reason": "The dated decision preserves the fleet resize and recovery-tank assumptions, including payload-equals-dry-mass; it is not a current drawn-hull claim.",
       "text": "The hulls were then resized to a requirement rather than to the defect: FAIL-SAFE FLOAT-UP, positively buoyant at the working altitude while fully loaded with water it cannot drop, with a stated 5% margin. Nitrogen is excluded from that mass because it vents in seconds; water is the load a ship can be stuck with. Displacement is 2,200 m³ per tonne of payload, +22.2%, and the margin comes out at +5.25% identically on all three classes because dry mass is set equal to payload on all three. The `ln2CapT` tanks were resized on the same principle — enough nitrogen to LAND an empty hull with no rotor authority, checked at the ground where the air is densest rather than at the ceiling where the descent starts.",
       "date": "2026-08-09"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "a3ec55b9312dca9d",
+      "line": 152,
+      "class": "deferred",
+      "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the dated hand-figure correction below is retained.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "2010dc2be6f33fd2",
+      "line": 327,
+      "class": "deferred",
+      "reason": "It claims a changed delivered-water rate and descent-authority result; retain for the energy/delivery revision rather than classing it as a water quantity.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "a09a7f2b099e6ea8",
+      "line": 362,
+      "class": "deferred",
+      "reason": "Default cruise powers and the causal resize comparison are stale in the supplied physics audit. The float-up wording also prevents a quantity-only disposition.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "de7a9079090706ca",
+      "line": 456,
+      "class": "deferred",
+      "reason": "It asserts the cryogenic fraction, cycle-energy share and discarded recovery result; the energy revision must reconcile those old outputs.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "c330c41ca50355df",
+      "line": 516,
+      "class": "deferred",
+      "reason": "It attributes a rotor-power reduction and descent closure to the anchor. This is a performance result, not merely a ballast mass.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "20dd41bb15510a4c",
+      "line": 698,
+      "class": "deferred",
+      "reason": "This states drag and power errors under the old constant-density energy model; its performance percentages belong to that revision.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "ac5b813011355ef0",
+      "line": 705,
+      "class": "deferred",
+      "reason": "This asserts disagreement between two cycle-energy calculations and its cause; it is more than a list of energy quantities.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "1bbbc3561858d467",
+      "line": 794,
+      "class": "deferred",
+      "reason": "The bag paragraph claims that anchor sizing closes descent and removes the authority stretch; keep it for the energy/delivery revision.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "9c80b557a5630683",
+      "line": 45,
+      "class": "method",
+      "reason": "This regeneration protocol distinguishes reproduced current calculations from historical tables and physical evidence.",
+      "context": []
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "9325aca8a3922752",
+      "line": 439,
+      "class": "method",
+      "reason": "The table derives geometric scaling exponents for load, stress and Euler margin; its numbers are algebraic context.",
+      "context": [
+        "1",
+        "2",
+        "8"
+      ]
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "70559ac51f55b891",
+      "line": 88,
+      "class": "conditional",
+      "reason": "The definition of done specifies the required complete bill and load factors; it does not claim the required article exists."
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "d4ae4ccdbb8c30e0",
+      "line": 402,
+      "class": "conditional",
+      "reason": "Retargeting is an optional handling and barrier proposal whose own words deny a route to floating."
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "8a6dd9c7dc24087d",
+      "line": 140,
+      "class": "deferred",
+      "reason": "The list interleaves scaling results, a source pointer, a pressure derivation, the current bench verdict and a check-scope explanation.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "e0142dcb4b1c3218",
+      "line": 128,
+      "class": "deferred",
+      "reason": "One paragraph combines gas fractions, an assumed structural share, a generated hierarchy comparison and the mission rationale.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "f7d310e9a77f501d",
+      "line": 220,
+      "class": "deferred",
+      "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "research/README.md",
+      "key": "7fd53798bda44f34",
+      "line": 27,
+      "class": "deferred",
+      "reason": "Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "6d988ead164ea911",
+      "line": 167,
+      "class": "deferred",
+      "reason": "The 11.24 subdivision multiple and the earlier twofold joint-saving estimate have no matching current generated fields.",
+      "owner": "hand-arithmetic"
     }
   ]
 }
