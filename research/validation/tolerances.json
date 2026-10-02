@@ -1,0 +1,39 @@
+{
+  "set_before_first_model_run": true,
+  "policy": "Written before evaluating the project functions. Bounds and incompatible models never acquire an agreement verdict from a numerical tolerance. A MISS is published, not a gate failure.",
+  "atmosphere": {
+    "temperature_K": 0.000001,
+    "pressure_Pa": 1.0,
+    "density_kg_m3": 0.00005,
+    "reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+    "implementation_parity": {"temperature_K": 1e-9, "pressure_Pa": 1e-7, "density_kg_m3": 1e-10},
+    "parity_reason": "Numerical roundoff only, independently of agreement with the coarser external table."
+  },
+  "hindenburg": {
+    "relative": 0.01,
+    "reason": "One percent is a declared screening tolerance for the report's approximate about-70-lb rule, not a measurement uncertainty. Only comparable hydrogen gross lift could earn agreement."
+  },
+  "cl415": {
+    "cycle_minutes": 0.5,
+    "scoop_seconds": 1.0,
+    "scoop_midpoint_seconds": 11.0,
+    "reason": "Half a minute reflects the whole-minute planning list, not flight-test accuracy. The stated 10-12 seconds is represented by 11 +/- 1 seconds. Transit plus fill is only a partial-cycle bound; the fill time is an input replay, not independent validation."
+  },
+  "rotor": {
+    "agreement": null,
+    "reason": "Bound only: no measured out-of-ground-effect shaft power was found. Publish power, installed-rating ratios and transmission-limit ratio without awarding agreement."
+  },
+  "vacuum": {
+    "akhmeteli_mass_kg": 0.05,
+    "akhmeteli_payload_kg": 0.05,
+    "jenett_half_last_printed_place": true,
+    "reason": "Half the last printed kilogram place: 0.05 kg for each one-decimal example; for Jenett 0.0005, 0.05 or 0.5 kg according to the printed row. These apply only to the same architecture, air and material. Incompatible terms mean not comparable."
+  },
+  "helium": {
+    "density_relative": 0.0003,
+    "derived_lift_kg_m3": 0.0001,
+    "handbook_lift_kg_m3": 0.0001,
+    "zeppelin_agreement": null,
+    "reason": "NIST states 0.03 percent density uncertainty; do not inflate it for ideal-gas departure. Lift allows 0.0001 kg/m3 for the air/table precision and conversion. Maximum takeoff weight is not measured gross lift: the Zeppelin comparison can only be a capacity bound at matching conditions."
+  }
+}

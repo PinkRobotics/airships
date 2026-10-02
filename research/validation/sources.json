@@ -1,0 +1,973 @@
+{
+  "order": "9a",
+  "lane": "sources",
+  "date": "2026-10-01",
+  "rule": "Every value below was read in the cited document, or is explicitly marked derived from two such values. Nothing here was filled from memory or from a search snippet. Printed table digits are not rounded.",
+  "records": [
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "sea-level temperature, pressure and density at geopotential altitude 0 m",
+      "value": {
+        "H_m": "0",
+        "Z_m": "0",
+        "T_K": "288.150",
+        "t_C": "15.000",
+        "T_M_K": "288.150",
+        "P": "1.01325 × 10^3",
+        "P_unit_as_printed": "mb",
+        "P_over_P0": "1.00000 × 10^0",
+        "rho": "1.2250 × 10^0",
+        "rho_unit": "kg/m^3",
+        "rho_over_rho0": "1.0000 × 10^0"
+      },
+      "unit": "K, mb, kg/m^3",
+      "conditions": "U.S. Standard Atmosphere, 1976, Table I, geopotential altitude, metric units. Argument is geopotential height H, not geometric height Z. Pressure is a five-digit mantissa times a power of ten, in millibar. The same row's P0 in the constants section is 1.013250 × 10^5 Pa, so 1 mb = 100 Pa in this document.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+        "year": 1976,
+        "report_numbers": [
+          "NOAA-S/T 76-1562",
+          "NASA-TM-X-74335"
+        ]
+      },
+      "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "NTRS record, opened: Work of the US Gov. Public Use Permitted.",
+      "quote": "0  0  288.150  15.000  288.150  1.01325 × 10^3 mb  1.2250 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "The geopotential table on document page 52 was read from a page image. The sea-level row was read again from a second crop of the same page.",
+      "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "temperature, pressure and density at geopotential altitude 1000 m",
+      "value": {
+        "H_m": "1000",
+        "Z_m": "1000",
+        "T_K": "281.650",
+        "t_C": "8.500",
+        "P": "8.9874 × 10^2 mb",
+        "P_over_P0": "8.8699 × 10^-1",
+        "rho": "1.1116 × 10^0 kg/m^3",
+        "rho_over_rho0": "9.0746 × 10^-1"
+      },
+      "unit": "K, mb, kg/m^3",
+      "conditions": "Same table and column definitions as the sea-level row. Z is printed as 1000 m.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table I, geopotential, document page 52",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "1000  1000  281.650  8.500  8.9874 × 10^2 mb  1.1116 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Read from the page-52 image. An ideal-gas recomputation with the page-3 prose constants gives 898.746 mb and 1.11164 kg/m^3, which rounds onto these printed digits except that the pressure mantissa is the truncation 8.9874 rather than half-up 8.9875.",
+      "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "temperature, pressure and density at geopotential altitude 2000 m",
+      "value": {
+        "H_m": "2000",
+        "Z_m": "2001",
+        "T_K": "275.150",
+        "t_C": "2.000",
+        "P": "7.9495 × 10^2 mb",
+        "P_over_P0": "7.8455 × 10^-1",
+        "rho": "1.0065 × 10^0 kg/m^3",
+        "rho_over_rho0": "8.2162 × 10^-1"
+      },
+      "unit": "K, mb, kg/m^3",
+      "conditions": "Same geopotential table. Geometric height on this row is 2001 m, not 2000 m.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table I, geopotential, document page 52",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "2000  2001  275.150  2.000  7.9495 × 10^2 mb  1.0065 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Read from the page-52 image. Recomputation gives 794.952 mb and 1.00649 kg/m^3.",
+      "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "temperature, pressure and density at geopotential altitude 2500 m",
+      "value": {
+        "H_m": "2500",
+        "Z_m": "2501",
+        "T_K": "271.900",
+        "t_C": "-1.250",
+        "P": "7.4682 × 10^2 mb",
+        "P_torr": "5.6016 × 10^2",
+        "P_over_P0": "7.3705 × 10^-1",
+        "rho": "9.5686 × 10^-1 kg/m^3",
+        "rho_over_rho0": "7.8111 × 10^-1"
+      },
+      "unit": "K, mb, kg/m^3",
+      "conditions": "Same geopotential table, document page 52. This is not the geometric-altitude row on document page 53, where Z = 2500 m has H = 2499 m, T = 271.906 K and a different pressure.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table I, geopotential, document page 52, row H = 2500",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "2500  2501  271.900  -1.250  7.4682 × 10^2 mb  9.5686 × 10^-1 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Read from the full page-52 image. Recomputation gives 746.825 mb and 0.95686 kg/m^3. The density matches the printed digits. The pressure mantissa 7.4682 is the truncation of 746.825, not half-up 746.83.",
+      "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "temperature, pressure and density at geopotential altitude 3000 m",
+      "value": {
+        "H_m": "3000",
+        "Z_m": "3001",
+        "T_K": "268.650",
+        "t_C": "-4.500",
+        "P": "7.0108 × 10^2 mb",
+        "P_torr": "5.2585 × 10^2",
+        "P_over_P0": "6.9191 × 10^-1",
+        "rho": "9.0912 × 10^-1 kg/m^3",
+        "rho_over_rho0": "7.4214 × 10^-1"
+      },
+      "unit": "K, mb, kg/m^3",
+      "conditions": "Continuation of the geopotential table. Document page 54, not page 53.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "3000  3001  268.650  -4.500  7.0108 × 10^2 mb  9.0912 × 10^-1 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image of document page 54. Recomputation gives 701.085 mb and 0.90912 kg/m^3.",
+      "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "universal gas constant R-star, prose value",
+      "value": "8.31432 × 10^3",
+      "unit": "N·m/(kmol·K)",
+      "conditions": "Adopted constant of the 1976 standard. The prose says this value is consistent with the carbon-12 scale and is the value used in the 1962 Standard, and is not exactly consistent with the cited k and N_A.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Document page 3, section Defining Constants and Equations, symbol R*",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "The gas constant, R* = 8.31432 × 10^3 N·m/(kmol·K)",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image of document page 3.",
+      "limits": "Table 2 on document page 2 prints R* as 8.31432 × 10^-3 in the same unit. That exponent is a typesetting error. Use the page-3 prose."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "Table 2 printed R-star (do not use)",
+      "value": "8.31432 × 10^-3",
+      "unit": "N·m/(kmol·K) as printed",
+      "conditions": "Table 2, Category I, as printed. Disagrees with the page-3 prose by a factor of 10^6.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table 2, Adopted constants, document page 2",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "R*  8.31432 × 10^-3 N·m/(kmol·K)",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image of Table 2.",
+      "limits": "Recorded so it is not silently corrected. A model that uses this printed exponent will miss the Table I densities by orders of magnitude. The adopted value is the page-3 prose."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "sea-level pressure P0, sea-level temperature T0, and g0",
+      "value": {
+        "P0": "1.013250 × 10^5 Pa",
+        "T0": "288.15 K",
+        "g0": "9.80665 m/s^2",
+        "g0_prime": "9.80665 m^2/(s^2·m')"
+      },
+      "unit": "Pa, K, m/s^2",
+      "conditions": "Adopted constants. g0 is the sea-level standard acceleration of gravity. g0' is defined so that one standard geopotential metre corresponds numerically to lifting one kilogram through one metre at 9.80665 J.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "P0 and g0 prose, document page 3; T0 and g0' also in Table 2, document page 2, and T0 is the H = 0 temperature in Table I",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "The standard sea-level atmospheric pressure P0 equal to 1.013250 × 10^5 Pa",
+      "confidence": "high",
+      "confidence_reason": "P0 and g0 were read from the page-3 image. T0 = 288.15 K and g0' = 9.80665 were read from the Table 2 image and agree with the H = 0 temperature.",
+      "limits": "Table 2 also prints r0 as 6.356766 × 10^6 km and sigma as 3.65 × 10^-1 m. Those two units or exponents are inconsistent with a terrestrial radius and a molecular diameter. They are not needed to check density against Table I. Sutherland's S = 110 K is printed in Table 2 and is a viscosity constant, not a density constant."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "tropospheric temperature gradient",
+      "value": {
+        "b": "0",
+        "H_b_km_prime": "0",
+        "L_M_b_K_per_km_prime": "-6.5",
+        "form": "Linear",
+        "next_break_km_prime": "11"
+      },
+      "unit": "K/km'",
+      "conditions": "Lowest layer of the defined temperature-height profile, from the surface to 11 geopotential kilometres. Temperature in this layer is linear in geopotential height.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table 4, document page 3, row b = 0, and the following row b = 1 at 11 km'",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "b = 0, H_b = 0 km', gradient -6.5 K/km', Linear",
+      "confidence": "high",
+      "confidence_reason": "Read from the page-3 image of Table 4. Table I temperatures at 0, 1000, 2000, 2500 and 3000 m are exactly 288.15 plus this gradient.",
+      "limits": "The gradient is per standard geopotential kilometre. It does not apply above 11 km'."
+    },
+    {
+      "check": "1-atmosphere",
+      "class": "equation",
+      "quantity": "molecular weights of helium and hydrogen as constituents of dry air, and the geopotential definition",
+      "value": {
+        "He_kg_per_kmol": "4.0026",
+        "He_fractional_volume": "0.00000524",
+        "H2_kg_per_kmol": "2.01594",
+        "H2_fractional_volume": "0.0000005"
+      },
+      "unit": "kg/kmol",
+      "conditions": "Table 3 is the composition of sea-level dry air, not the molar mass of a pure lifting gas. The fractional volumes are trace abundances.",
+      "document": {
+        "title": "U.S. Standard Atmosphere, 1976",
+        "authors": "NOAA, NASA, and United States Air Force",
+        "year": 1976
+      },
+      "locator": "Table 3, document page 3. Equation (18), relating geopotential H to geometric Z, was read on its page image: H = (g0/g0') · (r0·Z)/(r0+Z).",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "He  4.0026 kg/kmol  fractional volume .00000524",
+      "confidence": "high",
+      "confidence_reason": "Table 3 and equation (18) were read from page images.",
+      "limits": "Do not use the helium fractional volume as a purity. The dry-air mean molar mass that recovers the sea-level density from P0, T0 and the prose R* is 28.9644 kg/kmol. That sentence was not re-opened on a page image in the final pass, so it is not given a page quote here. Table I, not a recomputed molar mass, is the check."
+    },
+    {
+      "check": "2-hindenburg",
+      "class": "measured",
+      "quantity": "LZ 129 total gas volume and normal gas volume",
+      "value": {
+        "total_gas_volume_ft3": "7063000",
+        "normal_volume_ft3": "6710000"
+      },
+      "unit": "cubic feet",
+      "conditions": "Specification paragraph headed Dimension, Capacities, Other Characteristics, in the airship section of the 1938 comparative digest. Length about 803.8 feet, height 147 feet, maximum diameter 135 feet, fineness ratio about 6, on the same paragraph.",
+      "document": {
+        "title": "The Hindenburg Accident: A Comparative Digest of the Investigations and Findings, With the American and Translated German Reports Included",
+        "authors": "R. W. Knight, Bureau of Air Commerce, U.S. Department of Commerce, Safety and Planning Division, Report No. 11",
+        "year": 1938
+      },
+      "locator": "Airship specification section, printed page -6- of that section; NTRS-style scan stamp 12729; PDF page 62 of the ROSAP scan",
+      "url": "https://rosap.ntl.bts.gov/view/dot/81236",
+      "licence": "United States government report, 1938. The ROSAP landing page returned HTTP 403 on a later check; the PDF itself was opened.",
+      "quote": "total gas volume, 7,063,000 cubic feet; normal volume, 6,710,000 cubic feet",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image. The scan's text layer mis-reads these digits and was not used.",
+      "limits": "Gross lift in the same paragraph matches the normal volume, not the total gas volume, at the report's own approximate hydrogen rule. A check that multiplies total gas volume by a lift per cubic foot is the wrong comparison. An empty weight is not in this paragraph."
+    },
+    {
+      "check": "2-hindenburg",
+      "class": "measured",
+      "quantity": "total lift under standard conditions, weight with equipment and fuel, maximum fuel, and total payload",
+      "value": {
+        "total_lift_lb": "472940",
+        "weight_with_equipment_and_fuel_lb": "430950",
+        "maximum_fuel_lb": "143650",
+        "total_payload_lb": "41990"
+      },
+      "unit": "pounds",
+      "conditions": "Same specification paragraph. The report names the lift condition only as 'under standard conditions'. The weight figure includes necessary equipment and fuel; it is not an empty weight. Rated cruise about 75 statute miles per hour; maximum slightly over 84.",
+      "document": {
+        "title": "Report No. 11, The Hindenburg Accident (comparative digest)",
+        "authors": "R. W. Knight, Bureau of Air Commerce",
+        "year": 1938
+      },
+      "locator": "Same specification paragraph, printed page -6-, PDF page 62 of the ROSAP scan",
+      "url": "https://rosap.ntl.bts.gov/view/dot/81236",
+      "licence": "United States government report, 1938.",
+      "quote": "total lift (under standard conditions) was 472,940 pounds",
+      "confidence": "high",
+      "confidence_reason": "Read from the page image, which overrides a bad text-layer reading of the same digits.",
+      "limits": "472,940 lb divided by the normal volume 6,710,000 ft^3 is about 70.5 lb per 1000 ft^3, in line with the report's own 'about 70 pounds per 1000 cubic feet' for pure hydrogen. That division is a cross-check, not a second measured lift. Empty or dead weight was not found in this report. Secondary empty-weight figures were not used."
+    },
+    {
+      "check": "2-hindenburg",
+      "class": "measured",
+      "quantity": "lifting gas, and the report's approximate densities",
+      "value": {
+        "gas": "hydrogen",
+        "hydrogen_density": "approximately 5 pounds per 1000 cubic feet",
+        "air_density": "about 75 pounds per 1000 cubic feet",
+        "pure_hydrogen_lifting_power": "about 70 pounds per 1000 cubic feet",
+        "cell_pressure": "somewhere between half an inch and one inch of water"
+      },
+      "unit": "pounds per 1000 cubic feet; inches of water",
+      "conditions": "The report's own approximate rule, 'depending on the temperature and pressure'. Not a laboratory measurement and not tied to a named standard temperature. Cell pressure is described as an opinion that was advanced.",
+      "document": {
+        "title": "Report No. 11, The Hindenburg Accident (comparative digest)",
+        "authors": "R. W. Knight, Bureau of Air Commerce",
+        "year": 1938
+      },
+      "locator": "Section headed Lifting Gas, printed page -13- of that section; PDF page 69 of the ROSAP scan",
+      "url": "https://rosap.ntl.bts.gov/view/dot/81236",
+      "licence": "United States government report, 1938.",
+      "quote": "Assuming pure hydrogen, its lifting power would therefore be about 70 pounds per 1000 cubic feet.",
+      "confidence": "high",
+      "confidence_reason": "The lifting-gas paragraph was read from a page image.",
+      "limits": "These are round rules of thumb. They are the right companion to the 472,940 lb figure. They are not a substitute for a standards-grade hydrogen density. A later sentence on that page about a temperature of the corresponding air was not clear enough on the scan to quote."
+    },
+    {
+      "check": "2-hindenburg",
+      "class": "measured",
+      "quantity": "gas purity on 28 April 1937",
+      "value": "no numerical purity; 'uniformly good' in all gas cells",
+      "unit": "none",
+      "conditions": "German investigation text, purity check dated 28 April 1937, before the last flight. The same paragraph gives a cell-wall permeability, which was not clear enough on the scan to quote as a number.",
+      "document": {
+        "title": "Report No. 11, The Hindenburg Accident (comparative digest)",
+        "authors": "translated German report, included by the Bureau of Air Commerce",
+        "year": 1938
+      },
+      "locator": "Printed page -9- of that section; PDF page 37 of the ROSAP scan",
+      "url": "https://rosap.ntl.bts.gov/view/dot/81236",
+      "licence": "United States government report, 1938, including the translated German text.",
+      "quote": "the purity in all gas cells was uniformly good",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image. No percentage appears in the paragraph.",
+      "limits": "A purity percentage was not found. Do not insert one. The gross-lift check should state that purity is unquantified in this primary report."
+    },
+    {
+      "check": "2-hindenburg",
+      "class": "equation",
+      "quantity": "normal-hydrogen density at ISA sea-level temperature and pressure, for the model's gas side of the lift ledger",
+      "value": "0.0852051",
+      "unit": "kg/m^3",
+      "conditions": "NIST Chemistry WebBook isothermal output, T = 288.150 K, P = 101325 Pa, phase vapor. Digits requested: 6. Equation of state: Leachman, Jacobsen, Penoncello and Lemmon, J. Phys. Chem. Ref. Data 38(3):721-748, 2009. Density uncertainty stated on the page: 0.04% between 250 and 450 K up to 300 MPa.",
+      "document": {
+        "title": "NIST Chemistry WebBook, Standard Reference Database 69, normal hydrogen",
+        "authors": "equation of state of Leachman, Jacobsen, Penoncello and Lemmon",
+        "year": 2009
+      },
+      "locator": "Isothermal data table at T = 288.15 K and P = 101325 Pa",
+      "url": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C1333740&Type=IsoTherm&Digits=6&PLow=101325&PHigh=101325&PInc=1&T=288.15&RefState=DEF&TUnit=K&PUnit=Pa&DUnit=kg/m3&HUnit=kJ/kg&WUnit=m/s&VisUnit=uPa*s&STUnit=N/m",
+      "licence": "NIST Standard Reference Database 69. The page says NIST makes no warranty. Copyright for NIST Standard Reference Data is governed by the Standard Reference Data Act. The page footer is the U.S. Secretary of Commerce, 2026.",
+      "quote": "288.150 K, 101325 Pa, density 0.0852051 kg/m3, phase vapor",
+      "confidence": "high",
+      "confidence_reason": "The WebBook page was opened at exactly 101325 Pa. An earlier bar-unit query had displayed a rounded pressure and is not used.",
+      "limits": "This is a modern standard density at 15 °C and 101325 Pa. It is not what the 1938 report measured, and it is not the report's 5 lb per 1000 ft^3 rule. Use it as the model's gas density. Use the report's volumes and 472,940 lb as the measured comparison. Ideal-gas density from the 1976 constants and M = 2.01594 kg/kmol is 0.085261 kg/m^3, which is close and is not the NIST value."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "CL-415 certificated water-tank capacity",
+      "value": {
+        "inboard_two_tanks_L": "3173",
+        "inboard_US_gal": "838",
+        "inboard_kg": "3167",
+        "inboard_lb": "6980",
+        "outboard_two_tanks_L": "2964",
+        "outboard_US_gal": "783",
+        "outboard_kg": "2957",
+        "outboard_lb": "6520",
+        "all_four_L": "6137",
+        "all_four_Imp_gal": "1350",
+        "all_four_US_gal": "1621",
+        "all_four_kg": "6124",
+        "all_four_lb": "13500"
+      },
+      "unit": "L, US gal, kg, lb",
+      "conditions": "Model CL-215-6B11, CL-415 variants, water bomber configuration, four tanks. Not the CL-215T two-tank figures on the same page (706 gallons / 2673 L and 6000 lb each).",
+      "document": {
+        "title": "EASA Type Certificate Data Sheet No. EASA.IM.A.643, CL-215",
+        "authors": "European Union Aviation Safety Agency; type certificate holder De Havilland Aircraft of Canada Limited",
+        "year": 2024
+      },
+      "locator": "Issue 02, 15 December 2024, Section 2, item 21, printed page 26 of 29",
+      "url": "https://www.easa.europa.eu/en/downloads/23419/en",
+      "licence": "Proprietary document. Copies are not controlled. © European Union Aviation Safety Agency, 2024. All rights reserved. Short quotation for this technical comparison.",
+      "quote": "All tanks (4)  6137 L  1350 Imp Gal  1621 US Gal  6124 kg  13500 lb",
+      "confidence": "high",
+      "confidence_reason": "Read from the TCDS text of the opened PDF, on the page marked 26 of 29, under the CL-415 variants heading.",
+      "limits": "This is the certificated tank volume and the corresponding certificated water weight. It is not a measured scooped mass. The Forest Service plan's 6,056.66 litres for the same 1,621 US gallons disagrees with this table and should not replace it."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "CL-415 airspeed limits relevant to scooping and dropping",
+      "value": {
+        "VMO_KIAS": "187",
+        "VMO_KCAS": "190",
+        "VMO_band": "sea level to 20,000 feet",
+        "VWD_KIAS": "129",
+        "VWD_KCAS": "130",
+        "max_speed_on_water_with_probes_extended_kt": "80",
+        "footnote_speed_kt": "90"
+      },
+      "unit": "knots",
+      "conditions": "CL-215-6B11, CL-215T and CL-415 variants, restricted category. VWD is the maximum speed at which water doors may be opened or operated in flight. The 90 knot footnote refers to aircraft serial number 1051 and subsequent and aircraft which embody Service Bulletin CL215-203.",
+      "document": {
+        "title": "EASA Type Certificate Data Sheet No. EASA.IM.A.643",
+        "authors": "European Union Aviation Safety Agency",
+        "year": 2024
+      },
+      "locator": "Issue 02, 15 December 2024, Section 2, item 10, printed page 22 of 29",
+      "url": "https://www.easa.europa.eu/en/downloads/23419/en",
+      "licence": "Proprietary. © EASA 2024. Short quotation.",
+      "quote": "VWD 129 knots IAS; maximum speed on water with probes extended 80 knots",
+      "confidence": "high",
+      "confidence_reason": "Read from the opened TCDS, page 22 of 29.",
+      "limits": "These are limits, not the cruise or drop speeds used in a cycle. The Forest Service plan's drop speed is 105 to 110 knots, which is below VWD. Water pick-up altitude on the following page is printed as both 8000 feet (starred) and 5000 feet, with the footnote 'A/C incorporating Canadair Service Bulletin CL215-203' on the 8000 foot line. Both numbers are printed; which serials get which altitude is not resolved beyond that footnote."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "CL-415 land and water takeoff weights in the type certificate",
+      "value": {
+        "CL415_takeoff_land_kg": "19890",
+        "CL415_takeoff_land_lb": "43850",
+        "CL415_takeoff_water_kg": "17168",
+        "CL415_takeoff_water_lb": "37850"
+      },
+      "unit": "kg and lb",
+      "conditions": "The CL-415 column of the weight table. The adjacent CL-215T land takeoff is 19731 kg / 43500 lb. Water takeoff is 17168 kg / 37850 lb in both columns. Several other weights say 'see AFM'.",
+      "document": {
+        "title": "EASA Type Certificate Data Sheet No. EASA.IM.A.643",
+        "authors": "European Union Aviation Safety Agency",
+        "year": 2024
+      },
+      "locator": "Issue 02, Section 2, weights table, printed page 25 of 29",
+      "url": "https://www.easa.europa.eu/en/downloads/23419/en",
+      "licence": "Proprietary. © EASA 2024. Short quotation.",
+      "quote": "Take-off (Land Operation), CL-415 column, 19890 kg, 43850 lb",
+      "confidence": "medium",
+      "confidence_reason": "Read from the extracted text of the opened PDF. The two variant columns sit side by side; the 43850 lb figure is the one that also appears in the Forest Service plan.",
+      "limits": "Not a measured liftoff weight after a scoop. The FAA usage report, opened separately, says aircraft weight can reach 47,000 pounds at the end of the fill, above this water takeoff figure. That 47,000 lb is a recorded peak in the usage study, not a certificated limit."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "typical CL-415 turnaround time against distance from water to fire",
+      "value": {
+        "next_to_fire": "90-second turnaround possible",
+        "1_mile": "3 minutes",
+        "3_miles": "4 minutes",
+        "6_miles": "6 minutes",
+        "10_miles": "9 minutes",
+        "15_miles": "12 minutes"
+      },
+      "unit": "minutes",
+      "conditions": "U.S. Forest Service operations plan. Typical turnaround times in flat terrain for the CL-415. The 90-second figure is for water sources located next to the fire. Drops into the wind or crosswind need a longer circuit. The plan cites IASG 2011 Chapter 9 for the usual circuit pattern.",
+      "document": {
+        "title": "Amphibious Water Scooper Aircraft, Operations Plan 2016",
+        "authors": "United States Department of Agriculture, Forest Service; prepared by Kevin Merrill, AWSA Program Specialist, 1 April 2016",
+        "year": 2016
+      },
+      "locator": "Introduction, Concept of Operations, printed page 1",
+      "url": "https://www.fs.usda.gov/sites/default/files/media_wysiwyg/amphibious_water_scooper_aircraft_operations_plan_final_2016-_041316.pdf",
+      "licence": "U.S. government work. No restrictive licence was printed on the pages read.",
+      "quote": "1 mile – 3 minutes; 3 miles – 4 minutes; 6 miles – 6 minutes; 10 miles – 9 minutes",
+      "confidence": "medium",
+      "confidence_reason": "The list was read from a page image of printed page 1 of the opened PDF. The quote is the printed list through 10 miles. The same line continues 15 miles – 12 minutes, stored in the value. These are planning typical times, not a flight-test table with a sample size.",
+      "limits": "A miss is treating this list as a measured regression. It is an agency planning figure. It is still the published cycle-versus-distance series, and it is not a brochure claim. A later user guide that was not opened is not used."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "CL-415 scoop speed, time on the water, source length and minimum depth",
+      "value": {
+        "scoop_speed": "80 knots",
+        "time_on_water": "approximately 10 to 12 seconds",
+        "minimum_source_length": "1 mile",
+        "minimum_scooping_depth": "6 feet",
+        "preferred_depth_to_land": "10 feet"
+      },
+      "unit": "knots, seconds, mile, feet",
+      "conditions": "Forest Service operations plan. The path need not be straight. Less than a full load can be scooped on slightly smaller lakes. Ocean scooping is described as undesirable.",
+      "document": {
+        "title": "Amphibious Water Scooper Aircraft, Operations Plan 2016",
+        "authors": "USDA Forest Service",
+        "year": 2016
+      },
+      "locator": "Printed page 10",
+      "url": "https://www.fs.usda.gov/sites/default/files/media_wysiwyg/amphibious_water_scooper_aircraft_operations_plan_final_2016-_041316.pdf",
+      "licence": "U.S. government work.",
+      "quote": "The CL-415 scoops at 80 knots and is on the water for approximately 10 to 12 seconds.",
+      "confidence": "medium",
+      "confidence_reason": "Read from the text layer of the opened PDF on the page whose footer is 10. The PDF is born-digital. The sentence was not separately re-read as an image.",
+      "limits": "Scoop distance in metres was not found in this plan. At 80 knots, 10 to 12 seconds is about 410 to 490 metres of water run; that product is a derivation, not a printed distance. Brochure figures of about 350 m and 12 s were not opened and are not used. The 80 knot scoop speed matches the un-modified TCDS water speed, not the 90 knot footnote."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "CL-415 cruise speed, drop speed, tank capacity and tank count as printed in the operations-plan appendix",
+      "value": {
+        "maximum_cruise": "223 miles/hour (185 knots/hour)",
+        "drop_speed": "121 to 127 miles/hour (105-110 knots/hour)",
+        "capacity": "1,621 U.S. gallons (6,056.66 liters)",
+        "tanking": "2 Tanks/4 Doors",
+        "maximum_takeoff_weight": "43,850 pounds (19,890.36 kilograms)",
+        "engines": "Twin Pratt & Whitney Turboprop (PW123AF), 2,380 HP"
+      },
+      "unit": "mixed, as printed",
+      "conditions": "Appendix E of the 2016 operations plan, presented as aircraft parameters and specifications. No test condition or sample is stated.",
+      "document": {
+        "title": "Amphibious Water Scooper Aircraft, Operations Plan 2016",
+        "authors": "USDA Forest Service",
+        "year": 2016
+      },
+      "locator": "Appendix E, printed page 33",
+      "url": "https://www.fs.usda.gov/sites/default/files/media_wysiwyg/amphibious_water_scooper_aircraft_operations_plan_final_2016-_041316.pdf",
+      "licence": "U.S. government work.",
+      "quote": "Capacity 1,621 U.S. gallons (6,056.66 liters). Tanking 2 Tanks/4 Doors.",
+      "confidence": "high",
+      "confidence_reason": "Read from a page image of printed page 33. The digits are what the plan printed. Several of them disagree with the type certificate.",
+      "limits": "Disagreements, kept as printed. The 1,621 US gallons matches the TCDS. The 6,056.66 litres does not match 6137 L, and 1621 US gallons is about 6136 L, so the litre conversion in the plan looks wrong. '2 Tanks/4 Doors' disagrees with the TCDS four tanks. 43,850 lb matches the TCDS CL-415 land takeoff weight. 185 knots cruise and 105-110 knots drop are plan figures, not the TCDS VMO of 187 KIAS or VWD of 129 KIAS. Use the TCDS for capacity and the plan for the cycle times and the drop-speed band."
+    },
+    {
+      "check": "3-cl415-cycle",
+      "class": "measured",
+      "quantity": "recorded tank capacity, fill overshoot, one short cycle, and drop height, from flight-data usage",
+      "value": {
+        "tank_capacity_gal": "1621",
+        "recorded_level_end_of_fill_up_to_gal": "2000",
+        "one_example_fill_entry_to_drop_exit_s": "45",
+        "drop_height_ft": "100-150",
+        "weight_end_of_fill_lb": "47000"
+      },
+      "unit": "US gallons, seconds, feet, pounds",
+      "conditions": "Usage study of four USFS CL-415s, flight data 2015-2019, about 4,700 hours. The 45 seconds is one illustrated example when the water source is close to the fire, from the beginning of fill entry to the end of drop exit, not a mean. Drop height is cited by the authors to U.S. Forest Service Fire and Aviation Management, 2018. Bay-door limit stated as 129 KIAS.",
+      "document": {
+        "title": "Flight Loads and Airframe Usage Analysis of Next-Generation Airtankers – CL-415",
+        "authors": "Linda K. Kliment and Kamran Rokhsaz, Wichita State University",
+        "year": 2026,
+        "report_number": "DOT/FAA/TC-26/03"
+      },
+      "locator": "Section 2.2 and section 2.3. The 1,621 gallon sentence is on printed page 2. The 45-second example follows the page marked 5.",
+      "url": "https://rosap.ntl.bts.gov/view/dot/91143",
+      "licence": "U.S. Department of Transportation report. The documentation page says reproduction of the completed page is authorized. The ROSAP landing page returned HTTP 403 on a later check; the PDF was opened. The report number is printed on the document.",
+      "quote": "four internal water tanks with total capacity of 1,621 gallons",
+      "confidence": "high",
+      "confidence_reason": "Read from the text layer of the opened report. A gallons-per-hour delivery rate was searched for in this PDF and was not found.",
+      "limits": "This report confirms the tank capacity and shows that recorded fill levels overshoot and then overflow. It does not publish litres per hour or drops per hour against distance. The 45-second case is one example. Do not cite an unverified figure of about 5,500 gallons per flight hour; that number was not in this report."
+    },
+    {
+      "check": "4-helicopter-hover",
+      "class": "measured",
+      "quantity": "CH-47D rotor radius, blade count, tip speed, solidity and disk loading, as tabulated for the NASA model",
+      "value": {
+        "configuration": "tandem",
+        "radius_ft": "30",
+        "blades_per_rotor": "3",
+        "solidity_thrust_weighted": "0.0849",
+        "tip_speed_ft_per_s": "707",
+        "disk_loading_lb_per_ft2": "6.62",
+        "hover_download_DL_over_T": "0.056",
+        "rotor_separation": "x/D = 0.352"
+      },
+      "unit": "ft, ft/s, lb/ft^2",
+      "conditions": "Table 1, principal aircraft parameters, CH-47D column. Sea-level standard is defined in the nomenclature as SLS. The table does not state a hover altitude on this row.",
+      "document": {
+        "title": "NDARC — NASA Design and Analysis of Rotorcraft Validation and Demonstration",
+        "authors": "Wayne Johnson, NASA Ames Research Center",
+        "year": 2010,
+        "report_number": "ARC-E-DAA-TN1109"
+      },
+      "locator": "Table 1, printed page 10. Presented at the American Helicopter Society Aeromechanics Specialists' Conference, San Francisco, 20-22 January 2010.",
+      "url": "https://ntrs.nasa.gov/citations/20110002948",
+      "licence": "The paper says it is a work of the U.S. Government and is not subject to copyright protection. NTRS record, opened: Work of the US Gov. Public Use Permitted.",
+      "quote": "CH-47D radius 30 ft, 3 blades, tip speed 707 ft/sec, disk loading 6.62 lb/ft^2",
+      "confidence": "high",
+      "confidence_reason": "Read from the text layer of the opened NASA PDF. The same table's UH-60A radius and disk loading are internally consistent with a single rotor, which supports reading the CH-47D column as printed.",
+      "limits": "Diameter is 60 ft for each rotor. Disk loading 6.62 lb/ft^2 is not equal to design gross weight divided by two isolated disks; the tandem overlap is in the table as x/D = 0.352. Do not correct the printed disk loading. Hover download DL/T = 0.056 is the CH-47D cell of the same table, read from the text layer. A power-loading cell in that column was not used: its header unit was not confirmed from a page image."
+    },
+    {
+      "check": "4-helicopter-hover",
+      "class": "measured",
+      "quantity": "CH-47D engines, installed power, transmission limit and weights in the same NASA table",
+      "value": {
+        "engines": "2 × T55-L-712",
+        "takeoff_power": "MRP = 4204 hp",
+        "MCP_power": "3006 hp",
+        "drive_system_limit_hp": "7533",
+        "design_gross_weight_lb": "33000",
+        "structural_design_gross_weight_lb": "33000",
+        "maximum_takeoff_weight_lb": "50000",
+        "weight_empty_lb": "23263"
+      },
+      "unit": "hp, lb",
+      "conditions": "Table 1. Takeoff power is printed as MRP = 4204 hp in the same column style as the UH-60A entry IRP = 1560 hp, next to number of engines = 2. This file does not double or halve 4204. MCP is maximum continuous power. MRP is maximum rated power, from the paper's nomenclature.",
+      "document": {
+        "title": "NDARC — NASA Design and Analysis of Rotorcraft Validation and Demonstration",
+        "authors": "Wayne Johnson, NASA Ames Research Center",
+        "year": 2010
+      },
+      "locator": "Table 1, printed page 10",
+      "url": "https://ntrs.nasa.gov/citations/20110002948",
+      "licence": "Work of the U.S. Government. Public use permitted on the NTRS record.",
+      "quote": "T55-L-712, number of engines 2, takeoff power MRP = 4204 hp, weight empty 23263 lb",
+      "confidence": "high",
+      "confidence_reason": "Read from the opened PDF's Table 1.",
+      "limits": "These are the aircraft parameters of a design code that the author then compares with flight test. They are not a hover-power measurement. Installed takeoff power is not the power required to hover. The drive-system limit, 7533 hp, is below 2 × 4204 hp."
+    },
+    {
+      "check": "4-helicopter-hover",
+      "class": "equation",
+      "quantity": "CH-47D induced-power factor used in the NASA model, not a measured figure of merit",
+      "value": "1.15",
+      "unit": "dimensionless, K_hover in Pi = K · P_ideal",
+      "conditions": "Table 3a, hover column, CH-47D. The paper defines K as the induced power factor, Pi = K times ideal induced power.",
+      "document": {
+        "title": "NDARC — NASA Design and Analysis of Rotorcraft Validation and Demonstration",
+        "authors": "Wayne Johnson",
+        "year": 2010
+      },
+      "locator": "Table 3a, printed page 11",
+      "url": "https://ntrs.nasa.gov/citations/20110002948",
+      "licence": "Work of the U.S. Government.",
+      "quote": "hover K_hover for the CH-47D is 1.15",
+      "confidence": "high",
+      "confidence_reason": "Read from the opened PDF.",
+      "limits": "This is a model coefficient. Using it as a measured figure of merit is a miss of category. Figure of merit is 1/K only in the ideal-induced-power definition the paper uses, and only if profile power is excluded. The paper does not present 1.15 as a flight-measured figure of merit."
+    },
+    {
+      "check": "4-helicopter-hover",
+      "class": "measured",
+      "quantity": "where the CH-47D flight-test hover data are cited, and the datum that was not found",
+      "value": "not found as a single tabulated out-of-ground-effect shaft horsepower at a stated gross weight, altitude and temperature",
+      "unit": "n/a",
+      "conditions": "The opened paper says flight-test measurements of CH-47D hover and forward-flight performance are given in its reference 11, and shows the correlation in Figure 17. Reference 11, as read in the opened paper, is the Airworthiness and Flight Characteristics Test of the CH-47D Helicopter, USAAEFA Project No. 82-07, February 1984. That report was not opened. A CH-54B limited-performance report (DTIC AD0910263) was requested and the server returned a block page, not the PDF. Search-index extracts of that abstract were not used as values.",
+      "document": {
+        "title": "NDARC validation paper, citing USAAEFA Project No. 82-07",
+        "authors": "Wayne Johnson; the cited report is named in the reference list",
+        "year": 2010
+      },
+      "locator": "Body text on the CH-47D section, and reference 11. Figure 17 is the hover correlation plot and was not digitized.",
+      "url": "https://ntrs.nasa.gov/citations/20110002948",
+      "licence": "Work of the U.S. Government.",
+      "quote": "Flight test measurements of CH-47D hover and forward flight performance are given in reference 11",
+      "confidence": "high",
+      "confidence_reason": "The citation was read. The absence of a single hover-power number was confirmed by reading Table 1 and the CH-47D prose. The figure was not converted into a number.",
+      "limits": "Do not invent a hover horsepower. A model output in the same paper, maximum takeoff weight at sea level standard and 100 percent MRP of 54,382 lb, is a calibrated-code result and is not a measured hover power. Sikorsky S-64, CH-53K and Mi-26 flight-manual charts were not opened."
+    },
+    {
+      "check": "5-vacuum-shell-akhmeteli",
+      "class": "reproduction",
+      "quantity": "sandwich vacuum-balloon design, materials and the air they displaced",
+      "value": {
+        "shell": "evacuated spherical three-layer sandwich",
+        "face": "boron carbide ceramic",
+        "face_density_kg_m3": "2500",
+        "face_modulus_GPa": "460",
+        "face_compressive_strength_MPa": "3200",
+        "face_poisson": "0.17",
+        "core": "PLASCORE PAMG-XR1-3.1-1/8-7-N-5056 aluminum honeycomb",
+        "cell": "1/8 inch (3.2 mm)",
+        "foil": "0.0007 inch (18 μm)",
+        "core_density": "3.1 pcf (50 kg/m^3)",
+        "core_bare_compressive_strength": "340 psi (2.3 MPa)",
+        "core_modulus": "97 ksi (670 MPa)",
+        "air_pressure": "101 kPa",
+        "air_density_kg_m3": "1.29",
+        "air_temperature": "0 °C",
+        "payload_fraction_q": "0.1"
+      },
+      "unit": "as printed",
+      "conditions": "Commercially available material cards as used by the authors. Air is 0 °C and 101 kPa, density 1.29 kg/m^3, not the 15 °C standard-atmosphere value 1.2250 kg/m^3. Payload fraction q is payload mass over displaced-air mass, at zero buoyancy.",
+      "document": {
+        "title": "Vacuum Balloon–A 350-Year-Old Dream",
+        "authors": "Andrey Akhmeteli and Andrew V. Gavrilin",
+        "year": 2021,
+        "journal": "Eng 2021, 2, 480–491",
+        "received": "20 September 2021",
+        "accepted": "25 October 2021",
+        "published": "29 October 2021"
+      },
+      "locator": "Section 2.1, journal page 483, for the material card. Section 2.2 summary, journal pages 487–488, for 101 kPa, 1.29 kg/m^3 and 0 °C.",
+      "url": "https://doi.org/10.3390/eng2040030",
+      "licence": "Copyright © 2021 by the authors. Licensee MDPI, Basel, Switzerland. Creative Commons Attribution (CC BY) 4.0.",
+      "quote": "air pressure of 101 kPa and density of 1.29 kg/m^3 at 0 °C",
+      "confidence": "high",
+      "confidence_reason": "The material paragraph was read from a page image of journal page 483. The 101 kPa and 1.29 kg/m^3 sentence was read in the journal PDF.",
+      "limits": "Recompute with their air, not with ISA sea-level density. Their analytical optimum before the finite-element adjustment is h3/R ≈ 3.9 × 10^-3 and h1/R ≈ 3.9 × 10^-5, from equations (11) and (12). The design they finally state is slightly different and is the next record."
+    },
+    {
+      "check": "5-vacuum-shell-akhmeteli",
+      "class": "reproduction",
+      "quantity": "stated shell proportions, example mass, payload, buckling safety factor and knockdown",
+      "value": {
+        "minimum_radius_m": "2.11",
+        "face_thickness_over_R": "4.23 × 10^-5",
+        "core_thickness_over_R": "3.52 × 10^-3",
+        "example_R_m": "2.5",
+        "example_face_um": "106",
+        "example_honeycomb_mm": "8.8",
+        "example_shell_mass_kg": "75.7",
+        "example_payload_at_zero_buoyancy_kg": "8.7",
+        "payload_fraction": "0.1",
+        "fea_buckling_safety_factor": "2.65",
+        "knockdown_they_call_conservative": "0.2",
+        "experimental_knockdowns_often_above": "0.4",
+        "compression_loss_of_buoyancy": "less than 0.4%"
+      },
+      "unit": "m, kg, dimensionless",
+      "conditions": "Linear eigenvalue buckling in a 2D axisymmetric ANSYS model (ANSYS Mechanical Enterprise R19.0). The safety factor is the lowest eigenvalue, a load multiplier on the applied atmospheric pressure. Imperfections were not put into the finite-element model. They say a knockdown of 0.2 is recommended in their reference 20 for hemispherical sandwich domes, and that experimental knockdowns for homogeneous spherical shells often exceed 0.4. Intracell buckling gives R > 2.11 m. Adhesive mass is not included. Face wrinkling uses k2 = 0.82 and K = 0.95.",
+      "document": {
+        "title": "Vacuum Balloon–A 350-Year-Old Dream",
+        "authors": "Akhmeteli and Gavrilin",
+        "year": 2021,
+        "journal": "Eng 2021, 2, 480–491"
+      },
+      "locator": "Discussion, journal page 489, for the example. Figure 6 caption, journal page 485, for the safety factor 2.65. Knockdown discussion, journal pages 486–487.",
+      "url": "https://doi.org/10.3390/eng2040030",
+      "licence": "CC BY 4.0.",
+      "quote": "if R = 2.5 m, the mass of the shell is 75.7 kg, and the payload is 8.7 kg",
+      "confidence": "high",
+      "confidence_reason": "The example sentence, including 4.23 × 10^-5, 3.52 × 10^-3, 106 μm, 8.8 mm, 75.7 kg and 8.7 kg, was read from a page image of journal page 489. The 2.65 safety factor was read from the PDF text of the Figure 6 caption.",
+      "limits": "A reproduction misses if, with these inputs and their air density, the shell mass is not 75.7 kg or the zero-buoyancy payload is not 8.7 kg. Their analytical thicknesses (3.9 × 10^-5 and 3.9 × 10^-3) are a different, earlier estimate. The finite-element text also says h3 ≈ 3.53 × 10^-3 at the eigenvalue peak; the discussion rounds the design to 3.52 × 10^-3. Use 3.52 × 10^-3 for the stated example. The body text points to Figure 7 for that 2.65 peak. A coarse 3D mesh gave a minimum eigenvalue of 3.0, which the authors say is subject to adjustment with a better mesh. This is a calculation, not a built balloon."
+    },
+    {
+      "check": "5-vacuum-shell-jenett",
+      "class": "reproduction",
+      "quantity": "lattice vacuum-airship assumptions, material and design rules",
+      "value": {
+        "geometry": "sphere",
+        "Patm": "101 KPa",
+        "rho_air_kg_m3": "1.225",
+        "ideal_lattice": "alpha = 1, beta = 1, A = 0.1, B = 0.1",
+        "poisson": "0.3",
+        "buckling": "ideal thin-shell critical pressure; imperfections left to a later safety factor",
+        "material_example": "Toray M60JB",
+        "tensile_strength_GPa": "3.82",
+        "tensile_modulus_GPa": "588",
+        "density": "1.93 g/cc",
+        "thickness_over_radius": "1/10",
+        "lattice_pitch_over_thickness": "1/10",
+        "tube": "hollow circular, radius-to-wall 10 to 1",
+        "governing_limit": "strength, not stability"
+      },
+      "unit": "as printed",
+      "conditions": "Sea level standard atmospheric conditions as the authors state them: 101 KPa and 1.225 kg/m^3. They spell the pressure unit 'KPa'. The ideal lattice is isotropic. At relative densities below about 0.001 they note beta can shift from 1 to 2; they keep beta = 1 above that.",
+      "document": {
+        "title": "Discrete Lattice Material Vacuum Airship",
+        "authors": "Benjamin E. Jenett, Christine E. Gregg and Kenneth C. Cheung",
+        "year": 2019,
+        "report_number": "ARC-E-DAA-TN64902",
+        "meeting": "AIAA Science and Technology Forum and Exposition, San Diego, 7-11 January 2019"
+      },
+      "locator": "Section IV, for 101 KPa, 1.225 kg/m^3, alpha, beta, A, B and Poisson ratio. Figure 2 caption, printed page 7, for Toray M60JB. Section D, for the 1:10 rules and E = 588 GPa.",
+      "url": "https://ntrs.nasa.gov/citations/20190001133",
+      "licence": "NTRS record, opened: Work of the US Gov. Public Use Permitted. The PDF text layer does not itself print an AIAA paper number; that number is not cited here.",
+      "quote": "Patm of 101 KPa and air density ρair of 1.225 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Read from the text layer of the opened NTRS PDF. Page images of pages 4 and 12 match that text layer. The Toray sentence is on printed page 7 of the same text layer.",
+      "limits": "Their 101 kPa is not 101325 Pa, and 1.225 is not the 1976 table's 1.2250, but it is the same four figures. Reproduce their inputs. They explicitly defer imperfection knockdown to a later safety factor and use the ideal buckling pressure. There is no single closed-form mass-to-displaced-air ratio; the stated results are the net-lift table and the part counts."
+    },
+    {
+      "check": "5-vacuum-shell-jenett",
+      "class": "reproduction",
+      "quantity": "stated net lift of the discrete-lattice sphere, and part counts",
+      "value": {
+        "radius_m": [
+          "0.1",
+          "1",
+          "5",
+          "10",
+          "20",
+          "40",
+          "100"
+        ],
+        "lift_kg": [
+          "0.003",
+          "3.0",
+          "375",
+          "3005",
+          "24040",
+          "192327",
+          "3005114"
+        ],
+        "voxels": "1460192",
+        "skin_panels": "125600"
+      },
+      "unit": "kg net lift",
+      "conditions": "Table 2, spherical vacuum airship lift scaling. The text says net lift is displaced-air mass minus shell mass, using hollow tubes, and that it scales as the cube of radius. Table 1 gives one design's part count and does not say at which radius.",
+      "document": {
+        "title": "Discrete Lattice Material Vacuum Airship",
+        "authors": "Jenett, Gregg and Cheung",
+        "year": 2019
+      },
+      "locator": "Table 1 and Table 2, printed page 12",
+      "url": "https://ntrs.nasa.gov/citations/20190001133",
+      "licence": "Work of the US Gov. Public Use Permitted.",
+      "quote": "Radius 10 m, lift 3005 kg; radius 20 m, lift 24040 kg",
+      "confidence": "high",
+      "confidence_reason": "Both tables were read from a page image of printed page 12.",
+      "limits": "A reproduction misses if the net lift at these radii, with their inputs, is not these numbers. Do not convert the table into a buoyancy margin they did not print. The conclusion says the design studies show viable designs with large margins for skin mass penalties, without a percentage. Simulation in the paper is a planar section, not a full sphere. Specific-strength threshold they print for the ideal lattice is 1.22 MPa·m^3/kg, equal to 1220 kN·m/kg, in equation (28); Toray M60JB at 3.82 GPa and 1930 kg/m^3 is their example that meets it."
+    },
+    {
+      "check": "6-helium",
+      "class": "measured",
+      "quantity": "helium density at ISA sea-level temperature and pressure",
+      "value": "0.169195",
+      "unit": "kg/m^3",
+      "conditions": "NIST Chemistry WebBook, T = 288.150 K, P = 101325 Pa, phase vapor, volume 5.91033 m^3/kg. Digits requested: 6. Equation of state: Ortiz-Vega, Hall, Holste, Arp, Harvey and Lemmon, described on the page as a final equation of state to be submitted to J. Phys. Chem. Ref. Data, 2018. Density uncertainty stated on the page: 0.03% between 200 K and 500 K up to 40 MPa.",
+      "document": {
+        "title": "NIST Chemistry WebBook, Standard Reference Database 69, helium",
+        "authors": "equation of state of Ortiz-Vega, Hall, Holste, Arp, Harvey and Lemmon",
+        "year": 2018
+      },
+      "locator": "Isothermal data table at 288.15 K and 101325 Pa",
+      "url": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7440597&Type=IsoTherm&Digits=6&PLow=101325&PHigh=101325&PInc=1&T=288.15&RefState=DEF&TUnit=K&PUnit=Pa&DUnit=kg/m3&HUnit=kJ/kg&WUnit=m/s&VisUnit=uPa*s&STUnit=N/m",
+      "licence": "NIST Standard Reference Database 69, no-warranty notice, Standard Reference Data Act. Page footer: U.S. Secretary of Commerce, 2026.",
+      "quote": "288.150 K, 101325 Pa, density 0.169195 kg/m3, phase vapor",
+      "confidence": "high",
+      "confidence_reason": "The page was opened at 101325 Pa. A query at 199 to 201 bar was discarded. A query in bar units displayed a rounded pressure and a density 0.16920 kg/m^3; the pascal query is the one to use.",
+      "limits": "Ideal-gas density from the 1976 prose constants and M = 4.0026 kg/kmol is 0.169283 kg/m^3. The difference is real-gas departure. Do not replace the NIST value with the ideal-gas value. Viscosity on the same page is a different model and is not part of this check."
+    },
+    {
+      "check": "6-helium",
+      "class": "equation",
+      "quantity": "helium mass lift per cubic metre against 1976 sea-level air, derived",
+      "value": "1.055805",
+      "unit": "kg/m^3",
+      "conditions": "Difference of two opened values at 288.15 K and 101325 Pa: U.S. Standard Atmosphere 1976 Table I density 1.2250 kg/m^3 minus NIST helium density 0.169195 kg/m^3. Neither document prints this difference.",
+      "document": {
+        "title": "Difference of U.S. Standard Atmosphere, 1976, Table I, and NIST WebBook helium",
+        "authors": "derived",
+        "year": 1976
+      },
+      "locator": "Not a printed locator. Arithmetic only.",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "licence": "Both source documents permit public use, as recorded on their own records.",
+      "quote": "1.2250 minus 0.169195 equals 1.055805 kg/m^3",
+      "confidence": "high",
+      "confidence_reason": "Both inputs were read. The subtraction was done explicitly and is labelled derived.",
+      "limits": "This is not a measured lift and not a quoted lift. It ignores humidity, purity and superheat. The FAA handbook prints a different lift number at the same standard sea-level temperature and pressure, in the next record."
+    },
+    {
+      "check": "6-helium",
+      "class": "measured",
+      "quantity": "handbook gross lift of a 1000 m^3 envelope at sea level",
+      "value": {
+        "helium_gross_lift_lb": "2329.35",
+        "hydrogen_gross_lift_lb": "2513.37",
+        "pressure_in_hg": "29.92",
+        "temperature_F": "59.00",
+        "envelope_m3": "1000"
+      },
+      "unit": "pounds per 1000 cubic metres",
+      "conditions": "Altitude 0 in the handbook table. Notes on the same page: pressures and temperatures from U.S. Standard Atmosphere Supplements, 1966, Table 5.2, geometric altitudes, English units; no superheat; no impurities; envelope assumed completely full. Separate STP densities on the same page: helium 0.01056 lb/ft^3, hydrogen 0.00535 lb/ft^3, air 0.07651 lb/ft^3. Those STP densities are not the 59 °F row.",
+      "document": {
+        "title": "Balloon Flying Handbook, Appendix F: Lift Table for Helium and Hydrogen at Standard Temperatures and Pressures",
+        "authors": "Federal Aviation Administration",
+        "year": 2024
+      },
+      "locator": "Appendix F, page F-1, sea-level row",
+      "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/Balloon_Flying_Handbook",
+      "licence": "U.S. government work. The appendix PDF was opened. The handbook number is not printed on that one-page appendix, so it is not stated here.",
+      "quote": "At 29.92 in. Hg and 59.00 °F, helium gross lift is 2,329.35 lb",
+      "confidence": "high",
+      "confidence_reason": "The appendix table was read from the opened PDF text.",
+      "limits": "2,329.35 lb per 1000 m^3 is 1.0566 kg per m^3 if divided by 2.2046226218 lb/kg, and that quotient is close to 1.055805 but is not identical. Keep both numbers. The STP densities on the same page are a third statement and must not be mixed into the 59 °F row. The 1966 supplements are not the 1976 table."
+    },
+    {
+      "check": "6-helium",
+      "class": "measured",
+      "quantity": "Zeppelin NT certificated envelope volume, lifting gas and static-weight limits",
+      "value": {
+        "easa_issue_10_both_models_envelope_m3": "8425",
+        "easa_length_m": "75.1",
+        "easa_height_m": "19.4",
+        "faa_N07-100_envelope_m3": "8450",
+        "faa_N07-100_envelope_ft3": "298409",
+        "faa_N07-101_envelope_m3": "8425",
+        "faa_N07-101_envelope_ft3": "297490",
+        "gas": "helium",
+        "faa_minimum_purity_percent": "94",
+        "max_gondola_mass_kg": "2690",
+        "N07-100_landing_gear_limit": "400 kg",
+        "N07-101_landing_gear_limit": "400 daN",
+        "N07-101_gondola_full_fwd_fuel_kg": "2690",
+        "N07-101_gondola_with_190kg_fwd_fuel_kg": "3100",
+        "max_static_heaviness_inflight_kg": "500",
+        "max_static_heaviness_takeoff_landing_kg": "400",
+        "max_static_lightness_kg": "-200",
+        "max_envelope_pressure_Pa": "600",
+        "min_envelope_pressure_Pa": "300"
+      },
+      "unit": "m^3, kg, Pa",
+      "conditions": "EASA.AS.001 Issue 10, 20 October 2025, models LZ N07-100 and LZ N07-101, both list envelope volume 8 425 m^3 and lifting gas Helium. EASA labels the external length 75.1 m and height 19.4 m as approximate. FAA TCDS AS1CE Revision 3, 8 March 2021, lists 8450 m^3 for LZ N07-100 and 8425 m^3 for LZ N07-101, and a recommended minimum helium purity of 94 percent. EASA maximum payload is printed as 'reserved'. Empty mass and gross lift are not in either data sheet.",
+      "document": {
+        "title": "EASA Type Certificate Data Sheet EASA.AS.001, Zeppelin LZ N07, Issue 10; and FAA Type Certificate Data Sheet AS1CE, Revision 3",
+        "authors": "European Union Aviation Safety Agency; Federal Aviation Administration. Holder: ZLT Zeppelin Luftschifftechnik GmbH & Co KG",
+        "year": 2025
+      },
+      "locator": "EASA Issue 10, section III.4.1 and III.8, pages 5 and 10 of 14. FAA AS1CE Revision 3, 8 March 2021, envelope lines for each model.",
+      "url": "https://www.easa.europa.eu/en/downloads/7533/en",
+      "licence": "EASA sheet: proprietary, copies not controlled, © EASA 2025. FAA sheet: U.S. government type certificate data. An official FAA download URL was not confirmed in this pass; the revision and date were read from the opened PDF. The PDF metadata title still says 'AS1CE Rev 2' while the page header says Revision 3.",
+      "quote": "Envelope: 8 425 m^3. Lifting gas: Helium (He).",
+      "confidence": "high",
+      "confidence_reason": "Both data sheets were opened. EASA Issue 10 states 8425 m^3, length 75.1 m and height 19.4 m for both models. The FAA sheet states 8450 m^3 for N07-100 and 8425 m^3 for N07-101. The landing-gear lines were read in the opened EASA text: 400 kg on N07-100 and 400 daN on N07-101.",
+      "limits": "The 8450 versus 8425 disagreement is between the 2021 FAA sheet and the 2025 EASA sheet, by variant. Do not average them. N07-101 prints the landing-gear limit as 400 daN and N07-100 prints 400 kg. Do not convert one into the other. N07-101 gondola mass is 2690 kg with full forward fuel and 3100 kg with 190 kg of forward fuel. Static heaviness is not useful lift and is not empty mass. Maximum payload reserved means the payload was not found. Gondola mass is not the airship empty mass."
+    },
+    {
+      "check": "6-helium",
+      "class": "measured",
+      "quantity": "manufacturer's published N07-101 weights, where the type certificate is silent",
+      "value": {
+        "model": "LZ N07-101",
+        "envelope_m3": "8425",
+        "max_takeoff_weight_kg": "8050",
+        "loading_capacity_kg": "1900",
+        "internal_structure_kg": "about 1100",
+        "length_m": "75",
+        "height_m": "17.4"
+      },
+      "unit": "kg, m^3, m",
+      "conditions": "Manufacturer's English technical page for the Zeppelin NT N07-101. The page writes 8.425 m^3, 8.050 kg and 1.900 kg with a thousands separator. Read as 8425 m^3, 8050 kg and 1900 kg, which matches the certificated volume. The structure sentence says 'at around 1,100 kg'.",
+      "document": {
+        "title": "Technical data of the Zeppelin NT, Zeppelin N07-101",
+        "authors": "Zeppelin Luftschifftechnik, operator page zeppelinflug.de",
+        "year": 2026
+      },
+      "locator": "Technical data block on the Technik page. No page number.",
+      "url": "https://zeppelinflug.de/en/zeppelin-nt/technik",
+      "licence": "Operator's public web page. No licence statement was on the fetched text. Short factual quotation of the specification block.",
+      "quote": "Envelope volume 8.425 m^3. Max. take-off weight 8.050 kg. Loading capacity 1.900 kg.",
+      "confidence": "medium",
+      "confidence_reason": "The page was opened. These weights are not in the type certificate. The thousands-separator reading is required for the volume to match the certificate.",
+      "limits": "Empty mass was not found. Do not subtract 1900 kg from 8050 kg and call the result empty mass. The page's height, 17.4 m, disagrees with the EASA external height of 19.4 m. Length 75 m disagrees with the EASA length 75.1 m. Gross lift was not found. This page is the baseline a vacuum comparison may use for maximum take-off mass, labelled as the manufacturer's figure, with the certificated volume taken from the type certificate."
+    }
+  ]
+}

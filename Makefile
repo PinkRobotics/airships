@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static clean
+        firstparty firstparty-static labelledcheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -67,7 +67,7 @@ firstparty: firstparty-static  ## Record browser requests on every served page i
 	node --test tests/firstparty/wind.test.mjs
 	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
 
-check: ciparity lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
+check: ciparity lint stampcheck figfresh fallbackcheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
 
 ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
 	$(PY) tools/check_ci_parity.py
@@ -84,6 +84,9 @@ fallback:  ## Regenerate index.html's static fallback block (and its map poster)
 
 fallbackcheck:  ## The fallback block must match a fresh regeneration from the snapshot
 	$(PY) tools/gen_fallback.py --check
+
+labelledcheck:  ## Recompute six external comparisons and refuse stale reports (a MISS stays published)
+	$(PY) research/validation/check.py
 
 analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
 	$(PY) tools/check_analysis.py
