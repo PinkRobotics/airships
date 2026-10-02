@@ -107,7 +107,7 @@
       "line": 25,
       "text": "| architecture | gas | structure | net | |---|---|---|---| | vacuum, ideal massless shell | 0 | 0 | +0.957 | | vacuum, single-level lattice (demonstrable) | 0 | 1.306 | **-0.349** | | vacuum, level-2",
       "class": "bound",
-      "reason": "Each gas, shell and net density is the helium analysis row at the atmosphere stated immediately above; the hierarchy remains a target.",
+      "reason": "Each gas, shell and net density is the helium analysis row at the atmosphere stated in the line that introduces this table; the hierarchy remains a target.",
       "bindings": [
         {
           "source": "research/analysis/helium.json",
@@ -995,7 +995,7 @@
       "line": 948,
       "text": "THE BAND, BY HULL: greedy sizing (the SF-1.0 ledger) vs sink boundary (sea-level lift), in tonnes. The SF-1.0 result is greedy sizing, not a proven minimum. A positive float band is an unchecked mass",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1005,7 +1005,7 @@
       "line": 971,
       "text": "FLOATS below means mass below sea-level lift only. It does not establish a drawn floating design.",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1015,7 +1015,7 @@
       "line": 992,
       "text": "FLOATS",
       "class": "calculator",
-      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1025,7 +1025,7 @@
       "line": 1000,
       "text": "MID-BAND DESIGN POINTS — mass target halfway crush->sink at the widest hull; float reserve and emergent SF split the band, and the margin is an output:",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1035,7 +1035,7 @@
       "line": 1021,
       "text": "t: float reserve",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1045,7 +1045,7 @@
       "line": 1052,
       "text": "t, float reserve",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "band_study",
       "gate": "analysisfresh"
     },
@@ -1055,7 +1055,7 @@
       "line": 1170,
       "text": "positive float margin",
       "class": "calculator",
-      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
     },
@@ -1065,7 +1065,7 @@
       "line": 1170,
       "text": "negative float margin",
       "class": "calculator",
-      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
     },
@@ -1075,7 +1075,7 @@
       "line": 1176,
       "text": "THE FLOAT WINDOW (chosen config, geometric scaling; the old closure map inverts — the band's diluting mass is gone):",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
     },
@@ -1085,7 +1085,7 @@
       "line": 1184,
       "text": "MPa: floats",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
     },
@@ -1095,7 +1095,7 @@
       "line": 1188,
       "text": "MPa: floats nowhere 40-80 m (52 m:",
       "class": "calculator",
-      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
     },

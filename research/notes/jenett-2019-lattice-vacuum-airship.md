@@ -36,7 +36,9 @@ joint mass, no valve, no vacuum plant.
 
 The simulation is a planar quarter-section of beam elements in Oasys GSA, and the paper says full
 3D work is "later work" — so the global buckling mode of a complete shell is not tested here.
-Everything is a sphere at sea level; the model’s largest nominal hull is a 512 × 256 m capsule whose assumed buoyancy does not establish pressure capacity.
+Everything is a sphere at sea level; the model’s largest nominal hull is a 512 × 256 m capsule. The
+sphere is the optimum shape for external pressure, so the drawn geometry is worse, and its assumed
+buoyancy does not establish pressure capacity.
 
 Altitude does not rescue us either. The governing requirement (equation 36) reduces to
 `15 · P/ρ`, and `P/ρ` for air is `R·T` — a function of temperature alone. At 2,500 m ISA the

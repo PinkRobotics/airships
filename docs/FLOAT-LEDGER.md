@@ -153,8 +153,9 @@ separate bill.
 **The object.** The same 52 m capsule with its wall 4.0 m deep instead of 3.0 m. Run with no arguments, the scoping tool re-derives its
 configuration from its own sweep and takes the lightest ruled row; today that row has
 the deeper wall. It writes the result to `research/analysis/ship-scoping.json`, a
-committed file that no gate and no page reads. Its `--band` study uses a separately
-committed plan that matches the record above, and guards only that plan.
+committed file that no page reads; the full check holds it to a fresh run through
+analysisfresh. Its `--band` study uses a separately committed plan that matches the
+record above, and guards only that plan.
 
 **This is where two much-quoted figures come from.** On the harsh basis this hull reads
 0.587 at sea level — and 0.459 at
@@ -168,7 +169,7 @@ carbon-laminate compressive ceiling from a datasheet, not an alloy and not a tes
 factors.
 **Code path.** `tools/ship_scoping.py`: `ship_ledger()`, the tool's own implementation, at the
 configuration `main()` picks.
-**Evidence.** *unreviewed or [TO VERIFY]* — an ungated output for a wall the record does not
+**Evidence.** *unreviewed or [TO VERIFY]* — an output for a wall the record does not
 have. The deeper wall helps the harsh basis and hurts the best world, which is why
 neither hull dominates the other.
 

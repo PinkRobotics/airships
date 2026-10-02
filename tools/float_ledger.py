@@ -1062,8 +1062,9 @@ def d_tool_default(F, K):
 **The object.** {design["object"]} Run with no arguments, the scoping tool re-derives its
 configuration from its own sweep and takes the lightest ruled row; today that row has
 the deeper wall. It writes the result to `research/analysis/ship-scoping.json`, a
-committed file that no gate and no page reads. Its `--band` study uses a separately
-committed plan that matches the record above, and guards only that plan.
+committed file that no page reads; the full check holds it to a fresh run through
+analysisfresh. Its `--band` study uses a separately committed plan that matches the
+record above, and guards only that plan.
 
 **This is where two much-quoted figures come from.** On the harsh basis this hull reads
 {a(ct, "seaLevel", "liftToMass")} at sea level — and {a(ct, "target", "liftToMass")} at
@@ -1077,7 +1078,7 @@ carbon-laminate compressive ceiling from a datasheet, not an alloy and not a tes
 factors.
 **Code path.** `{SCOPING}`: `{NO}ship_ledger(){NC}`, the tool's own implementation, at the
 configuration `main()` picks.
-**Evidence.** *{ev("to-verify")}* — an ungated output for a wall the record does not
+**Evidence.** *{ev("to-verify")}* — an output for a wall the record does not
 have. The deeper wall helps the harsh basis and hurts the best world, which is why
 neither hull dominates the other.
 
