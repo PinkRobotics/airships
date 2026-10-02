@@ -128,6 +128,15 @@ PROBE = r"""(() => {
                      s0.mid.ratioSL.toFixed(3)]);
     out.checks.push(['shipBestWorld', shown('[data-n="ship.bestWorldRatio"]'),
                      s0.worldsFramePractice.s1450_sf12.ratioSL.toFixed(3)]);
+    const best = C.ship0('s1450', C.SHIP0.sfDeclared, null, C.SHIP0.giKnockdownFrame);
+    out.checks.push(['shipRatioTarget', shown('[data-n="ship.ratioTarget"]'),
+                     s0.mid.ratio2500.toFixed(3)]);
+    out.checks.push(['shipBestWorldTarget', shown('[data-n="ship.bestWorldRatioTarget"]'),
+                     best.ratio2500.toFixed(3)]);
+    out.checks.push(['shipBestShortfall', shown('[data-n="ship.bestWorldShortfallT"]'),
+                     (-best.residualSLT).toFixed(1)]);
+    out.checks.push(['shipBestShortfallTarget', shown('[data-n="ship.bestWorldShortfallTargetT"]'),
+                     (-best.residual2500T).toFixed(1)]);
     out.checks.push(['shipMassT', shown('[data-n="ship.massT"]'),
                      s0.mid.totalT.toFixed(1)]);
     out.checks.push(['wallPanels', shown('[data-n="w.panels"]'),

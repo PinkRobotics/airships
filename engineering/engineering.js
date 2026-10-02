@@ -21,6 +21,7 @@ const WALLS = {
 };
 const VALUES = {
   ship: SHIP, wall: WALL, grid: GRID, article: ARTICLE, walls: WALLS,
+  scale: { first: S.floatWindow.curve[0], last: S.floatWindow.curve.at(-1) },
   inputs: {
     tiT: S.mid.ledgerT.tiJoints,
     filmM2: SHIP.hullM2,

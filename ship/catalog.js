@@ -20,7 +20,7 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0Summary } from './model.js?v=787aaec5';
+         SHIP0, ship0, ship0Summary } from './model.js?v=787aaec5';
 
 const sb = stockBuild();
 /* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,
@@ -30,6 +30,7 @@ const sb = stockBuild();
  * what is genuinely unverified: the sigma worlds themselves (the coupon
  * campaign), eta, the Ti fitting masses — carried as [TO VERIFY] in the model. */
 const S0 = ship0Summary();
+const bestWorld = ship0('s1450', SHIP0.sfDeclared, null, SHIP0.giKnockdownFrame);
 
 /* Linear masses from section geometry x the laminate density the model bills with. */
 const linKgPerM = (odMm, wallMm, rho) => {
@@ -70,6 +71,10 @@ export const SHIP = {
   worldsFrame: S0.worldsFramePractice,
   giKnockdown: S0.giKnockdown, giKnockdownFrame: S0.giKnockdownFrame,
   giMarginHarsh: S0.checks.giMarginHarsh, giMarginFrame: S0.checks.giMarginFrame,
+  ratioTarget: S0.mid.ratio2500,
+  bestWorldRatioTarget: bestWorld.ratio2500,
+  bestWorldShortfallT: -S0.worldsFramePractice.s1450_sf12.residualSLT,
+  bestWorldShortfallTargetT: -bestWorld.residual2500T,
   bestWorldRatio: S0.worldsFramePractice.s1450_sf12.ratioSL,
   bestWorldResidualT: S0.worldsFramePractice.s1450_sf12.residualSLT,
   floatWindow: S0.floatWindow,
