@@ -32,15 +32,13 @@ the structure.
 
 ## Where it cuts against us
 
-Our ledger sets dry mass equal to payload. At the working altitude the P-10000 displaces 21,051 t
-and masses 10,000 t empty, so our structural W/B is **0.475** — half of Metlen's only
-real-materials design. Loaded with 10,000 t of water we are at 0.950, which is to say that the
-entire lift we allocate to hull plus water is what Metlen's hull consumes on its own, carrying
-nothing.
+The fleet model assumes dry mass equals payload; it has not sized a fleet hull.
+The [float ledger](../../docs/FLOAT-LEDGER.md) compares that allowance at sea level and 2,500 m.
+Nothing floats today as drawn. Material and load tests, plus a complete structure and equipment bill, would have to establish closure.
 
 Two further points make his number optimistic for us rather than pessimistic. Every design he
 found workable is a sphere; the sphere is the best possible shape against external pressure and our
-hulls are 876 × 219 m bodies of revolution with a fineness ratio of four. And W/B counts structure
+largest nominal hull is a 512 × 256 m capsule. And W/B counts structural mass
 only — no rotors, no 2,000 MWh of batteries, no 15,500 t nitrogen tank, no pumps, no 850 m anchor
 cable.
 

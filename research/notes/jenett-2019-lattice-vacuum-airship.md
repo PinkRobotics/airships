@@ -24,8 +24,7 @@ lattice sphere can produce. Table 2 gives net lift against radius: 3,005,114 kg 
 That table also convicts us. A sphere of R = 100 m displaces 5,131 t at 1.225 kg/m³, so the shell
 is 2,126 t, or **0.508 kg per m³ of enclosed volume** — and because the design rules are ratios
 (`R/t = 10`, lattice pitch `t/10`), the same fraction holds at every radius in the table. Our whole
-dry allowance is 10,000 t in 22,000,000 m³, or **0.455 kg/m³**. Jenett's bare lattice shell is 12%
-heavier than everything we have budgeted for structure, rotors, tanks, batteries, pumps and the
+dry allowance is 10,000 t in 22,000,000 m³, or **0.455 kg/m³**. Jenett's bare lattice shell is 1.12 times as heavy as everything the model has budgeted for structure, rotors, tanks, batteries, pumps and the
 cryogenic plant combined.
 
 ## Where it does not support us

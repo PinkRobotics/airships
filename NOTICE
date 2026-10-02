@@ -2326,11 +2326,11 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Source:** Author-supplied project document; no public source address recorded.
 
-**SHA-256:** 6eb0c41c1ec2a1e3940d4319842d9a7f1ea28c5d581eefb8543e2175d7228c56
+**SHA-256:** b80f13acde197388bef5badd8c6daf1aecb69bf71fd56e814c47c5a21a8555a2
 
 **Decision reason:** Binding release rehearsal decision: keep out of the public tree pending author review.
 
-**Processing and caveats:** This record establishes an exclusion, not permission. The original bytes remain unchanged in the working tree.
+**Processing and caveats:** A dated status notice was added; the earlier document body is preserved. This exclusion grants no redistribution permission.
 
 **Measured contents:** Not a bundled data measurement
 

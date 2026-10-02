@@ -1,4 +1,6 @@
 # Energy as Cargo
+
+> Dated concept study, 2026-08-09; retained as written. See the [current float ledger](../../docs/FLOAT-LEDGER.md).
 ## A technical concept report on standardized battery exchange, autonomous energy tenders, and grid-connected airship base stations
 
 **Project:** Pink Robotics autonomous vacuum-airship network  

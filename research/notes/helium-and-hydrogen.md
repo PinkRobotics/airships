@@ -112,8 +112,10 @@ single-sourced**, and they are; before the useful-fraction comparison hardens, t
 re-based to primary references (Burgess's *Airship Design*, the Navy's ZR-3 records). Not
 redistributable; catalogued only.
 
-The comparison built on them — vacuum level-2 at 55.3% useful fraction vs 49%/41% demonstrated
-— is fair arithmetic on unfair vintages: 1930s duralumin and cotton against a target laminate.
+The comparison uses an unbuilt level-2 M60J hierarchy formula, not a drawn hull.
+At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.6867 kg/m³ at sea level and 0.4186 kg/m³ at 2,500 m.
+It assumes local-wall knockdown 0.30 and node mass 15%; material properties, joint mass, film convention and a drawn, tested structure remain unverified.
+Comparing that formula with the historical 49%/41% useful fractions remains arithmetic on unequal evidence: 1930s duralumin and cotton against a target laminate.
 The number a modern helium rigid would achieve, **0.3–0.45 kg/m³ in the draft, is an invented
 OOM guess** (audit: invented); no modern transport-scale rigid exists to measure, and nothing
 published by LTA Research yet fills the gap.

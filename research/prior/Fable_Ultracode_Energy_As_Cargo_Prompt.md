@@ -1,4 +1,6 @@
 # Fable Ultracode implementation brief
+
+> Dated implementation brief, 2026-08-09; retained as written. See the [current float ledger](../../docs/FLOAT-LEDGER.md).
 ## Add “Energy as Cargo” battery exchange, P-E1000/P-E10000 logistics, and grid-connected base stations to the Pink Robotics airship model
 
 You are working in the existing Pink Robotics website repository and its current staging implementation:

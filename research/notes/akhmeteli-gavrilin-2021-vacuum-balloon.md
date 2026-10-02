@@ -30,8 +30,8 @@ a vacuum hull costs, and it is the number our ledger has to beat.
 ## Where it does not support us
 
 It does not support us anywhere. On their numbers the shell alone is 0.9 × 1.29 = **1.16 kg per m³**
-of enclosed volume. Our entire dry mass — structure, rotors, batteries, cryogenic plant, pumps,
-tanks — is 0.455 kg/m³. Their shell is 2.6 times heavier than all of it.
+of enclosed volume. The fleet model's entire dry-mass allowance, covering structure, rotors, batteries, cryogenic plant, pumps and tanks, is 0.455 kg/m³.
+Their shell alone is 2.55 times that assumed allowance.
 
 Worse, and this is our arithmetic rather than theirs: a shell massing 90% of sea-level air density
 is neutrally buoyant *empty* at roughly 0.6–1.1 km in the ISA column, depending on whether you

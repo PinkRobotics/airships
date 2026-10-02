@@ -71,11 +71,21 @@ something anyone is proposing to build first.
 
 <!--tex:fig charts/scale.pdf | True relative scale. \textbf{The reference ship is smaller than the Hindenburg} --- 110 m against 245 --- and the two larger classes are the same arithmetic extrapolated, not a plan. | 0.92-->
 
-## Why it is possible now, and was not before
+## What the structural model says
 
-A conventional airship floats because it is full of helium. This one floats because it is full of
-*nothing* — a rigid shell holding a vacuum, about 14% more buoyant than helium, and impossible to
-embargo, to corner, or to leak. Francesco Lana de Terzi published the idea in 1670 and was right
+A conventional airship floats because it is full of helium. This concept proposes vacuum lift; nothing floats today as drawn.
+The separate 52 m hull of record uses structural safety factor 1.2 against full sea-level pressure.
+On the record basis, knockdown 0.30 and 1,050 MPa chords, its lift is 0.558 of its mass at sea level and 0.436 at 2,500 m.
+The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
+Its lift-to-mass ratios are 0.981 at sea level and 0.766 at 2,500 m, short by 4.3 t and 53.6 t respectively.
+Closure needs tested knockdowns and chord properties, a cap load-path assessment, and a complete structure and equipment bill that fits the lift budget.
+
+The separate 52 m structural drawing and its bill disagree in the end caps, in both directions.
+Across five readings, the favourable lift-to-mass ratio ranges from 0.751 to 0.998 at sea level and from 0.586 to 0.780 at 2,500 m.
+No reading reaches one; none is a checked design because the sizing checks do not resolve station lengths or connections.
+The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements between the drawing and the bill.
+
+Francesco Lana de Terzi published the idea in 1670 and was right
 about everything except the metal: thin the shell enough to float and the atmosphere crushes it.
 Akhmeteli and Gavrilin put a number on that in 2021 — floating and surviving together demand a
 stiffness-to-density ratio **no solid substance possesses**, diamond included.
@@ -168,7 +178,7 @@ be right in private.
 
 <!--tex:headline WHERE THIS GOES | If a shell this light can be built, what falls out of it is not only a firefighting machine. Moving ten thousand tonnes of water for four and a half kilowatt-hours a tonne is a capability nothing currently has, at any price. Fire is where it would start: the need is loudest there, and the round trip is shortest.-->
 
-**Live model** pinkrobotics.ca/airships<br>**The evidence** pinkrobotics.ca/research<br>**Repository, defect list and 73 catalogued sources** github.com/pinkrobotics/airships
+**Live model** pinkrobotics.ca/airships<br>**The evidence** pinkrobotics.ca/research<br>**Repository, defect list and source catalogue** github.com/pinkrobotics/airships
 
 *Figures here are generated from the model at defaults — balanced mode,
 15 km<!--f:worked.oneWayKm--> one way — and checked against it on every build.*

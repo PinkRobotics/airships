@@ -10,9 +10,11 @@
 This is a diligence report on a **concept**, not on a company, a product, or a prototype. Nothing
 has been built. There is no revenue, no letter of intent, no flight article, and no test rig.
 
-What exists is a simulation and its supporting apparatus: a physics model, 309 tests, a 151-case
-deterministic golden baseline, a 73-source catalogue with 12 written notes, an audit of all 89
-published claims, and a defect list of seventeen items, two of them closed. That apparatus is the asset under
+The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.
+
+What exists is a simulation and its supporting apparatus: a physics model, 309 tests and a 151-case deterministic golden baseline.
+The source catalogue’s entry count is generated in the [repository README](../../README.md); written notes accompany it.
+The apparatus also includes an audit of all 89 published claims and a defect list of seventeen items, two of them closed. That apparatus is the asset under
 examination. **The correct question for a reader is not "do these numbers work" but "is this the
 kind of work that would find out if they didn't".**
 
@@ -99,12 +101,17 @@ Displacement is not chosen to make the numbers work. It is set by a fail-safe re
 > A hull must be positively buoyant at its working altitude while **fully loaded with water and
 > unable to release it.**
 
-A ship whose outlets jam rises. For an uncrewed vehicle over a fire, that turns a stuck valve from
-a crash into an inconvenience. It costs displacement — 2,200 m³ per tonne of payload, giving
-+5.25%<!--f:P10000.lift.floatUpMarginPct--> margin, 21,050.9 t<!--f:P10000.lift.atWorkAltT--> of
-lift against 20,000 t<!--f:P10000.lift.loadedMassT--> loaded — and the project pays it rather than
-trading it away. That is the correct instinct for a vehicle of this size operating autonomously
-over people.
+The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water.
+In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t loaded mass.
+The corresponding lift-to-mass ratios are 1.348 and 1.053.
+No structural safety factor, pressure sizing or knockdown establishes this allowance.
+A complete hull and equipment bill must fit the assumed mass and pass load tests before this becomes a vehicle.
+
+The separate 52 m structural drawing and its bill disagree in the end caps, in both directions.
+These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
+Across five readings, the favourable lift-to-mass ratio ranges from 0.751 to 0.998 at sea level and from 0.586 to 0.780 at 2,500 m.
+No reading reaches one; none is a checked design because the sizing checks do not resolve station lengths or connections.
+The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements between the drawing and the bill.
 
 ### 2.2 The cycle is timed, not asserted
 

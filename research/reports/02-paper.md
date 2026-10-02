@@ -13,6 +13,8 @@
 > and unjustified assumptions the project has found in itself — fifteen open, two corrected on
 > 2026-08-09 and kept in place with what they cost.
 
+The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.
+
 ---
 
 ## 1. The problem, and why an airship is a plausible shape for it
@@ -105,12 +107,17 @@ An uncrewed vehicle whose outlets jam must not sink into the fire it is fighting
 sizing constraint rather than a design goal means the failure mode of a stuck valve is an
 inconvenient ascent rather than a crash.
 
-The arithmetic is identical per tonne of payload across the classes because dry mass equals
-payload. Loaded mass is 2 t per tonne of payload; air at the 2,500 m<!--f:atmosphere.workAltMslM-->
-MSL working ceiling is 0.9569 kg/m³<!--f:atmosphere.rhoAtWorkAlt-->; a 5% margin therefore wants
-2,194.7 m³ of displaced air per tonne. Published: 2,200 m³/t, giving
-+5.25%<!--f:P10000.lift.floatUpMarginPct--> — 21,050.9 t<!--f:P10000.lift.atWorkAltT--> of lift
-against 20,000 t<!--f:P10000.lift.loadedMassT--> of loaded ship.
+The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water.
+In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t loaded mass.
+The corresponding lift-to-mass ratios are 1.348 and 1.053.
+No structural safety factor, pressure sizing or knockdown establishes this allowance.
+A complete hull and equipment bill must fit the assumed mass and pass load tests before this becomes a vehicle.
+
+The separate 52 m structural drawing and its bill disagree in the end caps, in both directions.
+These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
+Across five readings, the favourable lift-to-mass ratio ranges from 0.751 to 0.998 at sea level and from 0.586 to 0.780 at 2,500 m.
+No reading reaches one; none is a checked design because the sizing checks do not resolve station lengths or connections.
+The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements between the drawing and the bill.
 
 **This is where a correction made on 2026-08-09 belongs.** The ledger previously bought its lift at
 sea-level density and spent it at altitude, which overstated lift by 22%. Correcting it grew every
@@ -524,8 +531,8 @@ still open should be read in that light: the list is what has been checked, not 
 
 Model, tests, sources and defect list: `github.com/pinkrobotics/airships`. Live simulation:
 `pinkrobotics.ca/airships`. The literature and the nine sources against us, written for a reader
-who has not cloned anything: `pinkrobotics.ca/research`. Source catalogue: `research/sources.json` — 73 entries, 29
-redistributable PDFs with provenance, 12 written notes, 9 sources that contradict us. Claim audit:
+who has not cloned anything: `pinkrobotics.ca/research`. Source catalogue: `research/sources.json`; its current entry count is generated in the [repository README](../../README.md).
+The collection includes PDFs with provenance, written notes and sources that contradict the project. Claim audit:
 `research/evidence-map.md`.
 
 ---
