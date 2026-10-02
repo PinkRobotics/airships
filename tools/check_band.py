@@ -25,7 +25,7 @@ from browser_scratch import browser_scratch
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REL_TOL = 1e-9
 
-PROBE = """(() => {
+PROBE = """(async () => {
   const B = window.BAND;
   if (!B || !B.ready) return { err: 'window.BAND missing — page did not boot' };
   const out = { dom: {}, samples: {} };
@@ -37,6 +37,26 @@ PROBE = """(() => {
   for (const id of ['crushT', 'sinkSL', 'sinkAlt', 'bandV', 'structT',
                     'ceilEmpty', 'ceilLoaded', 'payAlt'])
     out.dom[id] = document.getElementById(id).textContent;
+  out.altitudes = [];
+  for (const world of ['harsh', 'frame']) {
+    for (const moves of [false, true]) {
+      for (const altitude of [0, 2500]) {
+        for (const [id, value] of Object.entries({dia: 52, alt: altitude,
+             world, sigma: 's1450', sf: 1.2}))
+          document.getElementById(id).value = value;
+        for (const id of ['chordal', 'membrane'])
+          document.getElementById(id).checked = moves;
+        document.getElementById('alt').dispatchEvent(new Event('input'));
+        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        const text = id => document.getElementById(id).textContent;
+        out.altitudes.push({world, moves, altitude, band: text('bandV'),
+          label: text('bandK'), sf: text('sfFloat'), sfLabel: text('sfFloatK'),
+          chartLabel: text('chartNote'),
+          shaded: [...document.querySelectorAll('#chart path')].filter(
+            p => p.getAttribute('fill') === 'rgba(80,200,120,0.16)').length});
+      }
+    }
+  }
   return out;
 })()"""
 
@@ -103,6 +123,36 @@ def main() -> None:
             bad.append(f"page: #{el} rendered '{text}' — the calculator did "
                        "not solve on boot")
 
+    for reading in js["altitudes"]:
+        altitude = reading["altitude"]
+        where = f"{reading['world']}, moves={reading['moves']}, altitude={altitude}"
+        gi = vc.SHIP0["giKnockdownFrame"] if reading["world"] == "frame" else None
+        result = vc.ship0("s1450", 1.0, 52.0, gi, reading["moves"], reading["moves"])
+        lift = result["liftSLT"] if altitude == 0 else result["lift2500T"]
+        band = lift - result["totalT"]
+        want = f"{'+' if band >= 0 else '−'}{abs(band):,.1f} t"
+        checked += 1
+        if reading["band"] != want:
+            bad.append(f"{where}: selected-altitude band {reading['band']!r}, expected {want!r}")
+        label = "sea level" if altitude == 0 else "2,500 m"
+        for field in ("label", "sfLabel", "chartLabel"):
+            checked += 1
+            if label not in reading[field]:
+                bad.append(f"{where}: {field} missing altitude label {label!r}: {reading[field]!r}")
+        checked += 1
+        if "a design exists" in reading["label"].lower():
+            bad.append(f"{where}: a mass band does not establish that a design exists")
+        checked += 1
+        if band <= 0 and ("closed" not in reading["label"] or reading["sf"] != "closed"):
+            bad.append(f"{where}: closed band was labelled open or given a float factor")
+        if band > 0 and ("open" not in reading["label"] or reading["sf"] == "closed"):
+            bad.append(f"{where}: positive band did not exercise the open branch")
+        checked += 1
+        if altitude == 2500 and reading["shaded"]:
+            bad.append(f"{where}: chart shades a sea-level band under the 2,500 m selection")
+        if altitude == 0 and reading["world"] == "frame" and not reading["shaded"]:
+            bad.append(f"{where}: positive sea-level chart band was not shaded")
+
     if bad:
         print("check_band: MISMATCH — the calculator is not the model:")
         for b in bad:
@@ -110,7 +160,7 @@ def main() -> None:
         sys.exit(1)
     print(f"band calculator: page boots, {checked} values solved live in the "
           "browser match the Python mirror at off-record hulls, SF 1.0, and "
-          "the bound view.")
+          "the bound view; eight altitude selections keep band values, labels, verdicts and shading consistent.")
 
 
 if __name__ == "__main__":

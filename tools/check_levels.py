@@ -47,9 +47,12 @@ PAGES = [
               "fig-webs", "fig-closure", "fig-ledger", "fig-equip"]},
     {"url": "engineering/index.html", "pane": False,
      "figs": ["fig-wall", "fig-walls", "fig-gear"]},
+    {"url": "cell/index.html", "pane": False, "figs": []},
+    {"url": "cell/ship.html", "pane": False, "figs": []},
+    {"url": "concept/index.html", "pane": False, "figs": []},
 ]
 
-PROBE = r"""(() => {
+PROBE = r"""(async () => {
   const out = { errors: window.__errs || [], figs: [], miss: [], overflow: [], paneSvg: false };
   const sweep = (svg, where) => {
     const vb = svg.viewBox.baseVal;
@@ -71,9 +74,32 @@ PROBE = r"""(() => {
   const pane = document.querySelector('#pane-a svg');
   if (pane) { out.paneSvg = true; sweep(pane, 'catalog pane'); }
   out.fignos = [...document.querySelectorAll('figure.lvl-fig .figno')].map(e => e.textContent);
-  for (const el of document.querySelectorAll('[data-cat]'))
-    if (el.classList.contains('miss') || el.textContent.trim() === '—')
-      out.miss.push(el.dataset.cat);
+  for (const el of document.querySelectorAll('[data-cat], [data-n], [data-class-length]'))
+    if (el.classList.contains('miss') || ['', '—', '-'].includes(el.textContent.trim()))
+      out.miss.push(el.dataset.cat || el.dataset.n || el.dataset.classLength);
+  out.cellCases = [];
+  if (document.querySelector('#mat') && window.CELL) {
+    for (const altitude of [0, 2500]) {
+      for (const material of Object.keys(window.CELL.MATERIALS)) {
+        document.querySelector('#mat').value = material;
+        document.querySelector('#alt').value = altitude;
+        document.querySelector('#mat').dispatchEvent(new Event('change'));
+        document.querySelector('#alt').dispatchEvent(new Event('input'));
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        const result = window.CELL.evaluate(material, 'tubeStrut', altitude, 1);
+        out.cellCases.push({material, altitude, positive: result.floats,
+          verdict: document.querySelector('#verdict').textContent,
+          breach: document.querySelector('#breachNote').textContent,
+          table: document.querySelector('#matTable').textContent});
+      }
+    }
+  }
+  out.classLengths = [...document.querySelectorAll('[data-class-length]')].map(el =>
+    ({key: el.dataset.classLength, value: el.textContent}));
+  if (out.classLengths.length) {
+    const {CLASSES} = await import('/sim/config.js');
+    for (const entry of out.classLengths) entry.expected = CLASSES[entry.key].lenM;
+  }
   return out;
 })()"""
 
@@ -105,7 +131,18 @@ def check_page(page, td) -> tuple[list[str], int]:
         bad.append(f"figure numbers read {res.get('fignos')} — every figure carries "
                    "'fig N' in document order, or the operator cannot name what he sees")
     for path in res.get("miss", []):
-        bad.append(f"data-cat=\"{path}\" resolved to nothing — the binder shows a dash")
+        bad.append(f"number binding {path!r} resolved to nothing")
+    for case in res.get("cellCases", []):
+        label = "Formula below air density" if case["positive"] else "Formula above air density"
+        if label not in case["verdict"] or f"{case['altitude']:,} m" not in case["verdict"]:
+            bad.append(f"cell calculator {case['material']} at {case['altitude']}: wrong formula label or altitude")
+        if "floats" in (case["verdict"] + case["breach"] + case["table"]).lower():
+            bad.append(f"cell calculator {case['material']}: sizing formula presented as a floating cell")
+        if "do not establish" not in case["breach"]:
+            bad.append(f"cell calculator {case['material']}: breach estimate missing its limitation")
+    for entry in res.get("classLengths", []):
+        if float(entry["value"].replace(",", "")) != round(entry["expected"]):
+            bad.append(f"class length {entry['key']} does not match its configured capsule")
     for o in res.get("overflow", []):
         bad.append(f"text clipped by its viewBox in {o['where']}: \"{o['text']}\" spans "
                    f"x {o['x']}..{o['right']} of {o['vbw']}, "

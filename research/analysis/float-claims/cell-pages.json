@@ -1,0 +1,623 @@
+{
+  "schema": "float-claims/1",
+  "files": [
+    "cell/index.html",
+    "cell/levels.html",
+    "cell/ship.html",
+    "cell/band.html",
+    "concept/index.html"
+  ],
+  "entries": [
+    {
+      "file": "cell/index.html",
+      "key": "d2cda7c363c77cae",
+      "line": 125,
+      "text": "Every vacuum-balloon study in the literature analyses a single sphere, and reaches the same negative result: a shell thin enough to float buckles under one atmosphere. Akhmeteli & Gavrilin showed a perfect diamond sphere collapses at about 0.2 atm. The collapse is scale-free. No change of material engineers around it.",
+      "class": "literature",
+      "reason": "This paragraph attributes shell collapse to the single-sphere literature, specifically Akhmeteli and Gavrilin, rather than to this project’s drawn hull.",
+      "source": "research/sources.json; Akhmeteli and Gavrilin, vacuum balloon shell study"
+    },
+    {
+      "file": "cell/index.html",
+      "key": "dcd888aaffd39175",
+      "line": 275,
+      "text": "No drawn cell floats. A printed cell is still the experiment worth running, because it tests the model rather than the vehicle. It asks whether a cell of this architecture holds one atmosphere at the relative density predicted, and whether it fails where predicted.",
+      "class": "bound",
+      "reason": "The printed bench experiment tests vacuum loads; the ledger has no drawn cell with positive lift margin.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/index.html",
+      "key": "3727dd44c6ab44a9",
+      "line": 278,
+      "text": "printable material shell mass short of floating by what a printed cell is good for",
+      "class": "other-quantity",
+      "reason": "Column headings for printed-material shell density and the experiment each material could support; no result is stated in this header."
+    },
+    {
+      "file": "cell/index.html",
+      "key": "bc0fef1d372c0890",
+      "line": 365,
+      "text": "$('#verdict').innerHTML = e.floats",
+      "class": "calculator",
+      "reason": "render uses evaluate and breach at the selected material and altitude; a density comparison is only a formula result, not proof of a drawn floating cell.",
+      "function": "render",
+      "gate": "levelscheck"
+    },
+    {
+      "file": "cell/index.html",
+      "key": "00baad2d158b5797",
+      "line": 429,
+      "text": "$('#breachNote').textContent = br.every(r => r.floats)",
+      "class": "calculator",
+      "reason": "render uses evaluate and breach at the selected material and altitude; a density comparison is only a formula result, not proof of a drawn floating cell.",
+      "function": "render",
+      "gate": "levelscheck"
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "a1ea7ce7849a4227",
+      "line": 134,
+      "text": "No drawn hull floats. The ship is the goal.",
+      "class": "bound",
+      "reason": "The heading denies float for drawn hulls, matching the ledger verdict.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "769f9ff89a5ac36e",
+      "line": 137,
+      "text": "As drawn, the 52 m hull does not float. The record basis uses structural safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords. Its lift is [data-cat=\"ship.worlds.s1050_sf12.ratioSL\" data-f=\"3\"] of its mass at sea level and [data-cat=\"ship.worlds.s1050_sf12.ratio2500\" data-f=\"3\"] at 2,500 m. The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified, at the same safety factor. Its lift-to-mass ratios are [data-cat=\"ship.worldsFrame.s1450_sf12.ratioSL\" data-f=\"3\"] at sea level and 0.766 at 2,500 m: short by 4.3 t and 53.6 t respectively.",
+      "class": "bound",
+      "reason": "The drawn hull stays below its lift on both stated bases at both altitudes; structural pressure and the unverified favourable inputs are explicit.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.worlds.s1050_sf12.ratioSL"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.worlds.s1050_sf12.ratio2500"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.worldsFrame.s1450_sf12.ratioSL"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.766"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "shown": "4.3",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "shown": "53.6",
+          "abs": true
+        }
+      ],
+      "context": [
+        "52",
+        "1.2",
+        "0.30",
+        "1050",
+        "2500",
+        "0.65",
+        "1450"
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "3b388ae156cbbd9d",
+      "line": 141,
+      "text": "Closing the gap needs knockdown tests, chord coupons and a complete mass bill. The chordal net and in-surface shear credits are bounds, with geometry or hardware still unpriced; neither establishes a drawn floating hull.",
+      "class": "conditional",
+      "reason": "The required tests and complete mass bill are still prerequisites; the two design credits are explicitly bounds."
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "fa390f06656ed11b",
+      "line": 142,
+      "text": "The bill and the drawing disagree in the end caps, in both directions. Across five readings the favourable lift-to-mass ratio spans 0.751–0.998 at sea level and 0.586–0.780 at 2,500 m. No reading reaches 1; none is a checked design.",
+      "class": "bound",
+      "reason": "The full census range includes heavy and light cap readings; none proves a structure or reaches unit lift-to-mass.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        }
+      ],
+      "context": [
+        "2500",
+        "1"
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "3146cf2cb96ddeee",
+      "line": 143,
+      "text": "The drawing and the bill disagree in 20 places, recorded for the float ledger in the member census .",
+      "class": "bound",
+      "reason": "The census counts disagreements rather than claiming the bill and drawing match.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        }
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "ceb84ba90becb8b0",
+      "line": 146,
+      "text": "[data-cat=\"article.totalKg\" data-f=\"2\"] kg one cell, as built & billed",
+      "class": "live-model",
+      "reason": "The cell mass is rendered from the model bill; this chip makes no float verdict."
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "d92a56c84cc7e7e5",
+      "line": 148,
+      "text": "[data-cat=\"article.kgPerM3\" data-f=\"1\"] kg/m³ its density — over the wall, on purpose",
+      "class": "live-model",
+      "reason": "This is the modelled bench-cell density, displayed through the catalog binder."
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "782cc5587471264e",
+      "line": 152,
+      "text": "[data-cat=\"ship.residualT\" data-f=\"1\"] t sea-level margin, record basis · declared SF",
+      "class": "bound",
+      "reason": "The headline residual is the negative record-basis sea-level margin, without a misleading plus sign.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "route": "ship.residualT"
+        }
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "3d410798a3e3ea02",
+      "line": 197,
+      "text": "density [data-cat=\"article.kgPerM3\" data-f=\"1\"] kg/m³",
+      "class": "live-model",
+      "reason": "This is the modelled bench-cell density, displayed through the catalog binder."
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "ea2f3e19b02dea07",
+      "line": 220,
+      "text": "film [data-cat=\"wall.filmGM2\"] g/m² — priced one-way until the drape licenses two-way",
+      "class": "live-model",
+      "reason": "The film areal mass is computed by the model under the stated one-way convention."
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "bbb0e5e1e7489090",
+      "line": 261,
+      "text": "The drawn hull remains heavier than its displaced air. Closing its mass bill is still a requirement, before equipment or payload.",
+      "class": "bound",
+      "reason": "The closure section now reports the mass deficit of the drawn hull rather than claiming it weighs less than air.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "36ddc48f4bf928f7",
+      "line": 267,
+      "text": "sea-level lift [data-cat=\"ship.liftT\" data-f=\"1\"] t gated",
+      "class": "bound",
+      "reason": "The lift chip names the altitude of the displaced air.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.lift",
+          "route": "ship.liftT"
+        }
+      ]
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "f1cb9a0fae2138fa",
+      "line": 268,
+      "text": "float ratios and both altitudes: the comparison above",
+      "class": "bound",
+      "reason": "This pointer refers to the bound comparison above without repeating the deficits.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "01a9ce9c51d90da5",
+      "line": 75,
+      "text": "Does it stand? Every named structural check, margin by margin, at the declared safety factor. That includes the operator's requirement that the wall stand as a structure before it is ever pumped down. Does it float? The whole component ledger against the air the hull displaces, at both altitudes, across every world the record cannot yet choose between.",
+      "class": "bound",
+      "reason": "These are the two questions for the drawn hull; the adjacent comparison answers the float question with the ledger’s negative verdict.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "8c05c11f90cb15e5",
+      "line": 76,
+      "text": "As drawn, the 52 m hull does not float. The record basis uses structural safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords. Its lift is [data-n=\"ship.worlds.s1050_sf12.ratioSL\" data-f=\"3\"] of its mass at sea level and [data-n=\"ship.worlds.s1050_sf12.ratio2500\" data-f=\"3\"] at 2,500 m. The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified, at the same safety factor. Its lift-to-mass ratios are [data-n=\"ship.worldsFrame.s1450_sf12.ratioSL\" data-f=\"3\"] at sea level and 0.766 at 2,500 m: short by 4.3 t and 53.6 t respectively.",
+      "class": "bound",
+      "reason": "The drawn hull stays below its lift on both stated bases at both altitudes; structural pressure and the unverified favourable inputs are explicit.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.worlds.s1050_sf12.ratioSL"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.worlds.s1050_sf12.ratio2500"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.worldsFrame.s1450_sf12.ratioSL"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.766"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "shown": "4.3",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "shown": "53.6",
+          "abs": true
+        }
+      ],
+      "context": [
+        "52",
+        "1.2",
+        "0.30",
+        "1050",
+        "2500",
+        "0.65",
+        "1450"
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "3b388ae156cbbd9d",
+      "line": 80,
+      "text": "Closing the gap needs knockdown tests, chord coupons and a complete mass bill. The chordal net and in-surface shear credits are bounds, with geometry or hardware still unpriced; neither establishes a drawn floating hull.",
+      "class": "conditional",
+      "reason": "Knockdown tests, chord coupons and a complete bill remain prerequisites; the two credits are explicitly limited to bounds."
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "fa390f06656ed11b",
+      "line": 81,
+      "text": "The bill and the drawing disagree in the end caps, in both directions. Across five readings the favourable lift-to-mass ratio spans 0.751–0.998 at sea level and 0.586–0.780 at 2,500 m. No reading reaches 1; none is a checked design.",
+      "class": "bound",
+      "reason": "The full census range includes heavy and light cap readings; none proves a structure or reaches unit lift-to-mass.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        }
+      ],
+      "context": [
+        "2500",
+        "1"
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "3146cf2cb96ddeee",
+      "line": 82,
+      "text": "The drawing and the bill disagree in 20 places, recorded for the float ledger in the member census .",
+      "class": "bound",
+      "reason": "The census counts disagreements rather than claiming the bill and drawing match.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "ff204327af6670d0",
+      "line": 90,
+      "text": "Between those two cells sit exactly two test campaigns. One is the general-instability knockdown tests: is a built-up frame shell a 0.3-knockdown object or a 0.65 one? The other is the chord compressive coupons: 742 verified-class today, 1,050 the working estimate, 1,450 the sourced ceiling. They are the float decision itself, and this page refuses to hide it inside an average.",
+      "class": "bound",
+      "reason": "The two campaigns distinguish assumed knockdown and chord inputs, not a measured floating hull.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ],
+      "context": [
+        "0.3",
+        "0.65",
+        "742",
+        "1050",
+        "1450"
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "e5864dde1a3e8130",
+      "line": 141,
+      "text": "The verdict gates : a positive sea-level margin is reported only when the model's float condition passes. That condition does not establish a buildable hull.",
+      "class": "bound",
+      "reason": "A model condition cannot establish buildability; the ledger records no drawn hull floating today.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "40cdbef2b819d031",
+      "line": 144,
+      "text": "The float window",
+      "class": "bound",
+      "reason": "This heading names the following sampled-hull search, whose current drawn configurations stay below unit lift-to-mass.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "5d0c719730c5a019",
+      "line": 145,
+      "text": "The table compares sea-level lift-to-mass ratios across the model's sampled hull sizes. The record-basis ratio falls as the hull grows. Neither basis reaches the float line anywhere in this sweep.",
+      "class": "bound",
+      "reason": "The two generated curves support the sea-level sweep statement; the first comparison already gives both altitudes for the record hull.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "64aab69e62e1e213",
+      "line": 165,
+      "text": "SF_float is the largest factor this sizing search places below the sea-level sink wall; a closed band has no such factor. This is an arithmetic bound, not a floating design. At the 2,500 m working altitude the sink wall drops to [data-n=\"band25\" data-f=\"1\"] t and every world's band as drawn is negative — the altitude ladder is a design input, not a detail. Both SHIP-3 moves and every hull from 32 to 112 m are explorable in the band calculator ↗ , on this same gated model.",
+      "class": "live-model",
+      "reason": "The altitude sink-wall value is computed as S.band.harshMid.lift2500T; this block calls the sizing search an arithmetic bound and denies a floating design.",
+      "context": [
+        "2500",
+        "3",
+        "32",
+        "112"
+      ]
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "454a2c145bdce2b5",
+      "line": 175,
+      "text": "SHIP-3's two named design moves land : the chordal spoke net (odd modes at fibre weight) and an in-surface shear system (licenses the membrane term the honest model currently zeroes). If adopted, both credits would remain bounds: the chordal geometry is undrawn and the shear hardware is unpriced. Neither establishes a floating hull at the working altitude.",
+      "class": "conditional",
+      "reason": "The proposed net and shear changes are explicitly bounds with missing geometry or hardware; neither is a claimed working-altitude design."
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "f58a32c1b07862b3",
+      "line": 212,
+      "text": ": `below the sea-level float line`;",
+      "class": "calculator",
+      "reason": "verdictCell chooses this negative sea-level label when world.floats is false; the positive branch is labelled model only.",
+      "function": "verdictCell",
+      "gate": "shipcheck"
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "42b671b73296b352",
+      "line": 237,
+      "text": "${r.floats ? 'positive margin; model only' : 'short'} `);",
+      "class": "calculator",
+      "reason": "worldRows prints positive margin only when the model’s r.floats condition passes; it labels the result model only and otherwise prints short.",
+      "function": "worldRows",
+      "gate": "shipcheck"
+    },
+    {
+      "file": "concept/index.html",
+      "key": "9939ce05722fb2a1",
+      "line": 597,
+      "text": "The flight model assumes a hull that floats; no drawn hull does. See the float case .",
+      "class": "bound",
+      "reason": "The flight cycle assumes buoyancy; the ledger establishes that no drawn hull currently supplies it.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "concept/index.html",
+      "key": "af0ceda1ce4eb974",
+      "line": 601,
+      "text": "Vacuum lift One membrane laid straight on carbon hoop rings, wrapped around an empty two-walled truss. The drawn hull does not float. The ship comparison gives both bases and altitudes, beside the tests and missing mass lines that could change them. No gas to buy or leak; a breach costs one compartment of vacuum, caught by membranes across the void. The render is the first generation, kept for the comparison: a hull filled with cells.",
+      "class": "bound",
+      "reason": "The concept caption now points to the two-altitude structural comparison and denies float for the drawn hull, without treating the earlier cell render as a new design.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "concept/index.html",
+      "key": "5833d3512428c35c",
+      "line": 693,
+      "text": "As water is pushed up the hose, the ship gets heavier and its net positive buoyancy falls. The downforce it was spending to hold itself low is progressively handed over to the payload itself. It only ever needs to force itself into hose range; incoming water does the rest of the pulling down.",
+      "class": "flight-model",
+      "reason": "This describes payload mass replacing downforce in the assumed-buoyant flight cycle, conditional on the explicit structural assumption.",
+      "assumption": "9939ce05722fb2a1"
+    },
+    {
+      "file": "concept/index.html",
+      "key": "20eded69e88a8d24",
+      "line": 702,
+      "text": "The Mind chooses the post-drop buoyancy in advance, through retained water, nitrogen ballast already aboard, thrust and release timing. The climb is controlled, not ballistic. A full emergency dump produces a much larger climb than a normal delivery, and that too is a planned case.",
+      "class": "flight-model",
+      "reason": "This is the simulated post-drop buoyancy scenario, not proof of a constructed vehicle’s climb control.",
+      "assumption": "9939ce05722fb2a1"
+    },
+    {
+      "file": "concept/index.html",
+      "key": "d775674ac21b379a",
+      "line": 780,
+      "text": "Three reference scales, named for their payload in tonnes of water. These configured fleet classes use geometric and equipment assumptions. The separate structural hull does not validate their mass or payload capacity. Its record-basis lift-to-mass ratio falls across the sampled sizes. Every number on these cards uses same-proportion scaling from the published assumptions in section 04 . Changing a dial there recomputes every card. All three are conceptual: their dimensions are geometric scaling, and their pump, cryogenic, propulsion and generator systems have not been designed as integrated aircraft.",
+      "class": "conditional",
+      "reason": "The fleet classes are explicitly configured geometric and equipment assumptions; the separate structural hull does not validate their payload capacity."
+    },
+    {
+      "file": "concept/index.html",
+      "key": "b0491fc0f7758007",
+      "line": 820,
+      "text": "The first generation, kept for the comparison: a lifting volume filled end to end with printed, independently sealed vacuum voids. The current design keeps the vacuum and gives up the filling twice over. A deep two-walled truss with nothing in the middle is wrapped in ONE membrane laid on hoop rings and pressed on by the atmosphere. Breach containment is compartment membranes across the void. No drawn hull floats. The ship comparison states both bases and altitudes, the unresolved cap accounting and the tests still needed. What survives from this figure is everything around the lattice: machinery inside the load paths, tanks about the centre of buoyancy, solar skin above, vectorable rotors outboard. The damage rule survives too: a cell fails, and the loss is that one cell's own small lift. The structural research this rests on is cited on the research page .",
+      "class": "bound",
+      "reason": "The old render remains as comparison; its current structural clause denies float and sends readers to the hull ledger rather than repeating a small-margin claim.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "concept/index.html",
+      "key": "656c76c23c6584d2",
+      "line": 919,
+      "text": "How much power it costs rotors of a given total disk area to push down with force T, divided by an overall efficiency. It is used whenever the ship must descend while still buoyant. This is the ideal momentum-theory floor. The model quotes it explicitly so the margin to real installed performance is visible rather than absorbed.",
+      "class": "other-quantity",
+      "reason": "This defines the ideal induced-power quantity and its efficiency divisor; it gives no structural closure or delivered-payload result."
+    },
+    {
+      "file": "concept/index.html",
+      "key": "be5007616452bdcb",
+      "line": 1087,
+      "text": "The first physical gate is the sealed bench article A, intended to test joints, films, seals and a months-long vacuum hold. That drawn article does not float. The ledger keeps its bill separate from the hull and fleet assumptions.",
+      "class": "bound",
+      "reason": "Article A is a nonfloating bench experiment for seals and load paths; its ledger row is distinct from the hull and fleet.",
+      "bindings": [
+        {
+          "case": "bench-nominal",
+          "field": "floatsToday",
+          "equals": false
+        }
+      ]
+    }
+  ]
+}
