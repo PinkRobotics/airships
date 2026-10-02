@@ -1,8 +1,7 @@
 # The whole contributor interface. `make` on its own prints it.
 #
-# Nothing here needs node except `test-node`. This repository is developed on a machine that
-# has none, and an interface that only works on the maintainer's box is not an interface.
-# Python 3 and a Chromium are the entire toolchain; CI adds node and runs the rest as-is.
+# Checks need Python dependencies from requirements.txt, Chromium, and the PDF toolchain
+# (latexmk, pdfLaTeX, TeX Gyre fonts, poppler). CI also installs Node 22 for test-node.
 
 PY     ?= python3
 CHROME ?= chromium
@@ -11,7 +10,7 @@ PORT   ?= 8875
 .DEFAULT_GOAL := help
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck clean
+        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -41,7 +40,7 @@ test-node:  ## Run the node unit tests — falls back to a browser shim when nod
 	   echo 'test-node: no node here — running the same files in a browser instead.'; \
 	   echo '           `node --test` in CI stays the authority; see tools/node_tests_in_browser.py.'; \
 	   $(PY) tools/node_tests_in_browser.py; \
-	 else set -x; \
+	 else set -ex; \
 	   if [ -f tests/node/run.mjs ]; then node tests/node/run.mjs; else node --test tests/node/*.mjs; fi; \
 	   node --test 3d/tests/*.test.mjs; \
 	 fi
@@ -59,7 +58,11 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+check: ciparity lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+
+ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
+	$(PY) tools/check_ci_parity.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_*green.py'
 
 # The monitor page's no-script/crawler fallback: the FALLBACK regions in index.html, written
 # from the bundled snapshot by replaying it headless (`?seed=7&data=snapshot`, the golden

@@ -146,7 +146,7 @@ test('adjacent rotor discs never overlap each other', () => {
   }
 });
 
-test('every layout item sits inside the hull', () => {
+test('layout items follow their hull or undercarriage mounting', () => {
   for (const id of CLASS_IDS) {
     const c = resolveClass(id);
     const L = buildLayout(c);
@@ -165,7 +165,7 @@ test('every layout item sits inside the hull', () => {
     // Skin-mounted units sit ON the surface, within a band about it — not adrift inside or out.
     // Trim fans are deliberately PROUD (they are smaller than one skin grid cell, so no aperture
     // is cut for them); medium thrusters are recessed into an aperture that IS cut.
-    for (const g of ['trimFans', 'mediumThrusters', 'dropOutlets']) {
+    for (const g of ['trimFans', 'mediumThrusters']) {
       for (const item of L[g]) {
         const th = Math.atan2(item.p[2], -item.p[1]);
         const skin = hullR(c, item.p[0]) * sectionScale(th, c.hull);
@@ -175,6 +175,27 @@ test('every layout item sits inside the hull', () => {
           `${id}: ${item.id} is ${(r - skin).toFixed(1)} m off the skin, outside the ±${band.toFixed(1)} m band`);
       }
     }
+    // The final undercarriage pass replaces the old keel outlets with a release line
+    // under the raft (model/layout.js). They must stay attached to that deck, outside
+    // the vacuum skin. A skin-band assertion here tested the retired interior layout.
+    assert.equal(L.dropOutlets.length, c.dropOutlets, `${id}: declared outlet count`);
+    const centroid = [0, 0];
+    for (const item of L.dropOutlets) {
+      const [x, y, z] = item.p;
+      assert.ok(item.p.every(Number.isFinite), `${id}: ${item.id} finite position`);
+      assert.ok(!insideHull(c, item.p), `${id}: ${item.id} must not pierce the hull`);
+      assert.ok(z + item.radius < -c.maxRadiusM, `${id}: ${item.id} clears the keel`);
+      assert.ok(Math.abs(z - L.raft.zBot) < 1e-9, `${id}: ${item.id} attaches to the raft bottom`);
+      assert.ok(Math.abs(x) + item.radius < L.raft.xHalf &&
+        Math.abs(y) + item.radius < L.raft.yHalf, `${id}: ${item.id} lies within the raft footprint`);
+      for (const tank of L.waterTanks) {
+        assert.ok(z + item.radius < tank.p[2] - tank.radius,
+          `${id}: ${item.id} releases below ${tank.id}`);
+      }
+      centroid[0] += x;
+      centroid[1] += y;
+    }
+    assert.ok(centroid.every((v) => Math.abs(v) < 1e-9), `${id}: release line stays symmetric`);
   }
 });
 

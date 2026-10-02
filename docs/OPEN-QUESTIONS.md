@@ -61,8 +61,8 @@ reproduces `tests/golden/seed7-snapshot.json` exactly.
 Items 2 and 3 have a test in `tests/cases/` marked `knownFail`. Those tests run. They fail.
 If one starts passing without this document changing, the suite fails on that too — a
 defect should not be able to lose its excuse quietly. There are three `knownFail` markers
-left; the third is an unrelated flag bug, `plan · windUsed is false when the wind was not
-applied`, which is too small to have an entry here. Item 1 had the fourth. It started
+left; the third is the flag bug in #17, `plan · windUsed is false when the wind was not
+applied`. Item 1 had the fourth. It started
 passing on 2026-08-09, which is what a fix looks like from the suite's side, and the marker
 was converted into two ordinary tests that assert the corrected behaviour rather than
 deleted: `physics · FAIL-SAFE FLOAT-UP` and `physics · UNPOWERED RECOVERY`.
@@ -849,6 +849,25 @@ file has, and it cannot see a derived quantity. Found by audit:
 on any name that resolves to a number and has no declared partner or explicit exemption, and ban
 `||` defaults for spec fields.
 
+
+---
+
+## 17. `windUsed` claims wind without a route bearing
+
+**Reproduced 2026-10-01. Open: the fix is one line, and it lands with the energy model change,
+which rewrites the same function.** For P-1000, balanced mode, 40 km and
+`{ spd: 40, dir: 270, bearing: null }`, `planCycle` returns the same ground speeds as still air
+(110 km/h each) and `tailOut: 0`, but `windUsed: true`. The guard that applies the wind in
+`sim/plan.js` requires a speed and a bearing; the returned flag checks only the speed. The
+executable case is `plan · windUsed is false when the wind was not applied` in
+`tests/cases/sim-plan.cases.js`, marked `knownFail`.
+
+It is harmless on the live page today, because the mission code always sets a bearing before
+planning. It is still a flag that can lie, and the cockpit reads it to decide whether to say that
+wind was applied.
+
+The correction is `!!(wind && wind.spd != null && wind.bearing != null)`, matching the guard, after
+which the known failure becomes an ordinary test.
 
 ---
 

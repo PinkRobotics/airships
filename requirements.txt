@@ -1,4 +1,4 @@
-# Python dependencies. Three, and two of them are only for regenerating data.
+# Python dependencies. Four, and two of them are only for regenerating data.
 #
 # The pages themselves need none of this. They are static files: HTML, ES modules and the
 # JSON in data/. Python is here for the tooling — the headless drivers that run the tests,
@@ -15,6 +15,8 @@
 # Chrome DevTools Protocol over a websocket, for tools/js_eval.py and tools/screenshot.py.
 # These drive a real Chromium, which is the only way to test code whose output is a page.
 websockets>=12
+# Read the actual workflow structure for the CI/make gate parity check.
+PyYAML>=6
 
 # --- needed only to REGENERATE the data in data/, which is committed ---
 #

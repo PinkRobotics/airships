@@ -1,20 +1,6 @@
 name: CI
 
-# Four independent gates. They are separate jobs so that a failure names itself in the
-# checks list: "golden" failing means the model's outputs moved, which is a different
-# conversation from "lint" failing, and you should be able to tell which without opening
-# a log.
-#
-# NOTHING IS CACHED. There is nothing here worth caching — no build, no node_modules, a
-# three-line requirements.txt — and a cache that survives a broken commit is a cache that
-# can hide it. The claim this repository makes is that the numbers are checkable, so the
-# check starts from the repository every time.
-#
-# The two browser jobs each start the development server themselves and then call the same
-# make target a contributor would. A runner that needs a server must REUSE one already
-# listening on AIRSHIPS_PORT rather than binding its own; 3d/scripts/browser-tests.sh shows
-# the pattern (curl the port, start a server only if nothing answers).
-
+# No caches: each run installs its tools and checks the committed source.
 on:
   push:
   pull_request:
@@ -26,125 +12,47 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  AIRSHIPS_PORT: '8875'
-
 jobs:
-  lint:
-    name: boundaries and published figures
+  checks:
     runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      A3D_TEST_TIMEOUT: '1800'
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: sim/ and 3d/ depend on nothing outside themselves
-        run: python3 tools/check_boundaries.py
-      # Both of these are pure Python against committed files — no browser, no node, a second
-      # each. They were only running locally, which meant the one gate this project actually
-      # advertises (a report may not quote a number the model does not produce) was not enforced
-      # on the remote. A stale report is the artefact most likely to be forwarded to someone.
-      - name: every figure cited in a report matches the model
-        run: python3 tools/check_figures.py
-      - name: the reports still convert to LaTeX
-        run: python3 tools/md2tex.py
-
-  node-tests:
-    name: unit tests (node)
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      # Through make, so CI and a contributor's terminal run the same command. The target's
-      # "no node here" branch is unreachable after setup-node, so a runner without node
-      # fails this job instead of passing it empty.
-      - name: make test-node
-        run: make test-node
-
-  browser-tests:
-    name: browser suites
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: browser-actions/setup-chrome@v2
+        id: chromium
         with:
-          python-version: '3.12'
-      - name: Install Python dependencies
-        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
-
-      - name: Put a binary named `chromium` on PATH
+          chrome-version: latest
+          install-dependencies: true
+      - name: Install Python and PDF dependencies
         run: |
-          # Every headless driver in this repository spawns a binary called `chromium`.
-          # The runner image ships some Chromium-family browser but not always under that
-          # name, so give it the name rather than teaching each driver a new one.
-          bin="$(command -v chromium || command -v chromium-browser || command -v google-chrome || true)"
-          if [ -z "$bin" ]; then echo "no Chromium-family browser on this runner"; exit 1; fi
-          mkdir -p "$HOME/.local/bin"
-          ln -sf "$bin" "$HOME/.local/bin/chromium"
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          "$bin" --version
-
-      - name: Serve the repository
-        run: |
-          # Backgrounded with its output redirected to a file: a background process holding
-          # the step's stdout pipe open makes the step hang instead of finishing.
-          nohup python3 tools/serve.py --port "$AIRSHIPS_PORT" --quiet \
-            > "$RUNNER_TEMP/serve.log" 2>&1 &
-          for _ in $(seq 40); do
-            if curl -sf -o /dev/null "http://127.0.0.1:$AIRSHIPS_PORT/sim/index.js"; then
-              echo "server up on $AIRSHIPS_PORT"; exit 0
-            fi
-            sleep 0.25
-          done
-          echo "the development server never came up:"; cat "$RUNNER_TEMP/serve.log"; exit 1
-
-      - name: make test
-        run: make test
+          python3 -m pip install --disable-pip-version-check -r requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended tex-gyre poppler-utils
+      - name: Prepare browser and scratch directories
         env:
-          # The 3D suite's hang guard. 600 s was not enough and the RUN log said why: most checks
-          # are about 7x slower here than on a workstation, but "the vacuum view packs the free
-          # volume" is 200x — it fills the hull with thousands of instanced spheres, and
-          # SwiftShader pays for every one of them on a CPU it shares. Nothing is stuck; the
-          # renderer is simply doing a GPU's work without a GPU, so the guard has to clear the
-          # slowest legitimate run rather than the typical one.
-          A3D_TEST_TIMEOUT: '1800'
-
-  golden:
-    name: golden (behaviour regression)
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-      - name: Install Python dependencies
-        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
-
-      - name: Put a binary named `chromium` on PATH
+          CHROMIUM_BINARY: ${{ steps.chromium.outputs.chrome-path }}
         run: |
-          bin="$(command -v chromium || command -v chromium-browser || command -v google-chrome || true)"
-          if [ -z "$bin" ]; then echo "no Chromium-family browser on this runner"; exit 1; fi
-          mkdir -p "$HOME/.local/bin"
-          ln -sf "$bin" "$HOME/.local/bin/chromium"
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          "$bin" --version
-
-      - name: Serve the repository
-        run: |
-          nohup python3 tools/serve.py --port "$AIRSHIPS_PORT" --quiet \
-            > "$RUNNER_TEMP/serve.log" 2>&1 &
-          for _ in $(seq 40); do
-            if curl -sf -o /dev/null "http://127.0.0.1:$AIRSHIPS_PORT/sim/index.js"; then
-              echo "server up on $AIRSHIPS_PORT"; exit 0
-            fi
-            sleep 0.25
-          done
-          echo "the development server never came up:"; cat "$RUNNER_TEMP/serve.log"; exit 1
-
-      # Replays the model at ?seed=7&data=snapshot and diffs every output against
-      # tests/golden/. Any difference fails the job. If the change was intended, the diff
-      # belongs in the pull request with each moved number explained.
-      - name: make golden
-        run: make golden
+          mkdir -p "$RUNNER_TEMP/bin" "$RUNNER_TEMP/scratch" "$HOME/tmp"
+          ln -s "$CHROMIUM_BINARY" "$RUNNER_TEMP/bin/chromium"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+          echo "TMPDIR=$RUNNER_TEMP/scratch" >> "$GITHUB_ENV"
+          echo "AIRSHIPS_TMPDIR=$RUNNER_TEMP/scratch" >> "$GITHUB_ENV"
+          echo "A3D_CHROME_PROFILE=$RUNNER_TEMP/scratch/3d-profile" >> "$GITHUB_ENV"
+          node --version
+          "$CHROMIUM_BINARY" --version
+      # check_ci_parity.py reads this command as YAML and compares its ordered goals
+      # to Makefile's check prerequisites. Keep it a literal make invocation.
+      - name: Every make check gate
+        id: check-gates
+        run: >-
+          make --keep-going ciparity lint stampcheck figfresh fallbackcheck figcheck
+          analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck
+          nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction

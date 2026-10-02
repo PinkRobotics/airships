@@ -140,11 +140,12 @@ describe('plan · wind', () => {
 
   knownFail(
     'windUsed is false when the wind was not applied',
-    'windUsed tests only wind.spd, while the legs also require wind.bearing — the flag can claim a wind the plan ignored',
+    'open question #17: windUsed tests only wind.spd, while the legs also require wind.bearing — the flag can claim a wind the plan ignored',
     () => {
       // Harmless today: mission.js always sets m.wind.bearing before planning, so the two
       // conditions never come apart on the live page. It is still a flag that can lie, and
-      // the cockpit reads it to decide whether to say "wind applied".
+      // the cockpit reads it to decide whether to say "wind applied". docs/OPEN-QUESTIONS.md
+      // #17 has the reproduction and the one-line fix.
       resetConfig();
       const p = planCycle(CLASSES.P1000, MODES.balanced, 40, { spd: 40, dir: 270, bearing: null });
       eq(p.windUsed, false, 'windUsed');
