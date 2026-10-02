@@ -180,15 +180,12 @@ on partitions rated for zero differential, not the steady state after it.
 
 ### E5 — the level-2 coefficient, A/B
 
-**The single number that decides whether anything floats.** The design target of 0.428 kg/m³
-rests on hierarchy improving the strength exponent — **a prediction of this project's model,
-supported by Lakes' 1993 exponent argument and by no published measurement of a structure
-like this one.** Measured knockdowns for hierarchical lattices in the literature straddle the
-2.24× margin. The test is cheap: print two struts of equal mass and length — one plain tube,
-one whose wall is a row of tubes between skins — and crush both. The ratio of their failure
-loads, against the model's predicted ratio, is the coefficient the whole ladder is standing
-on. Hundreds of dollars, a week, and it moves the go/no-go more than anything else on this
-page.
+**What would test the level-2 prediction?** The M60J formula gives 0.5383 kg/m³ with outer-envelope film and a node allowance.
+Its structural safety factor is 1.5 against full sea-level pressure, with assumed local-wall knockdown 0.30.
+This is a formula without a drawn hierarchical strut, as the [float ledger](FLOAT-LEDGER.md) records.
+Lakes’ 1993 exponent argument does not supply a measurement of this structure.
+Which measured knockdowns apply to this geometry?
+Could equal-mass, equal-length compression tests of a plain tube and a tube whose wall contains smaller tubes establish the model’s failure-load ratio?
 
 ### E6 — the barrier stack
 

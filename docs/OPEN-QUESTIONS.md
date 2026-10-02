@@ -932,23 +932,30 @@ the six as drawing-only where the buttons are.
 
 ## 20. "Scale is the lever" is not what the model says across ship sizes
 
-**Reproduced 2026-10-01. Open: the sentence is rewritten when the float ledger lands.** The
-engineering page says that structure per litre falls as the vessel grows, and that scale is the
-lever. From a bench cell to a ship that is true: the bench article carries 15.1 kg of structure per
-cubic metre enclosed, and Ship 0 carries 2.19 on the record basis and 1.25 in the best defensible
-world, against 1.225 kg of sea-level air.
+**Reproduced 2026-10-01. Open: what does scale buy, and where does it stop?**
+The bench article carries 15.1 kg of structure per cubic metre enclosed.
+The 52 m hull carries 2.190 on the record basis and 1.245 on the favourable basis; neither is a floating design.
+The [float ledger](FLOAT-LEDGER.md) separates those objects and their load cases.
 
-Across ship sizes the model says the opposite. `SHIP.floatWindow` and `SHIP.floatWindowFrame` in
-`ship/catalog.js`, both computed by `ship0Summary()` in `ship/model.js`, give lift over mass at
-sea level by hull diameter:
+The hull comparisons use safety factor 1.2 against full sea-level pressure.
+The record basis assumes knockdown 0.30 and 1,050 MPa chords.
+The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
+Knockdown tests, chord coupons, drawn load paths and a complete joint bill would have to support any closing case.
 
-| basis | 40 m | 44 m | 48 m | 52 m | 56 m | 60 m | 68 m | 80 m |
+Across sampled ship sizes the record-basis lift-to-mass ratio falls as diameter grows.
+Each table cell gives sea level / 2,500 m for the same hull and mass, sized by `ship0()`:
+
+| Lift-to-mass ratio: sea level / 2,500 m | 40 m | 44 m | 48 m | 52 m | 56 m | 60 m | 68 m | 80 m |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| record | 0.585 | 0.582 | 0.577 | 0.558 | 0.543 | 0.532 | 0.508 | 0.455 |
-| best defensible world | 0.956 | 0.987 | 0.953 | 0.981 | 0.969 | 0.969 | 0.957 | 0.916 |
+| record | 0.585 / 0.457 | 0.582 / 0.454 | 0.577 / 0.451 | 0.558 / 0.436 | 0.543 / 0.424 | 0.532 / 0.416 | 0.508 / 0.397 | 0.455 / 0.356 |
+| favourable | 0.956 / 0.747 | 0.987 / 0.771 | 0.953 / 0.744 | 0.981 / 0.766 | 0.969 / 0.757 | 0.969 / 0.757 | 0.957 / 0.748 | 0.916 / 0.715 |
 
-On the record basis the ratio falls at every step as the hull grows. In the best defensible world
-it wanders between 0.953 and 0.987 up to 60 m and falls above it. Nothing in the range floats.
+No sampled hull floats as drawn on either basis at either altitude.
+For the 52 m hull, the bill and drawing disagree in the end caps in both directions.
+Across five readings, favourable lift-to-mass ratios span 0.751 to 0.998 at sea level and 0.586 to 0.780 at 2,500 m.
+No reading reaches 1; none is a checked design.
+
+The [member census](MEMBER-CENSUS.md) records 20 drawing/bill disagreements behind these float comparisons.
 
 The page keeps its sentence until the float ledger generates this table from the model. The
 rewrite then says what scale buys, which is the step from a bench cell to a ship, and where it
@@ -1017,6 +1024,29 @@ Which seals, coatings, bonds, seams and equipment attachments belong in a comple
 What calculation, load case and material basis support the physics note’s 0.162 kg/m³ tension and 3.59 kg/m³ compression figures?
 They are hand figures without a generator. What would make that breach comparison reproducible and applicable to the proposed cellular architecture?
 <!-- structure-questions:end -->
+
+### Sag debit and enclosed volume
+
+Why does removing the sag debit alone take the lightest favourable cap reading to a sea-level lift-to-mass ratio of 1.001, while the drawn mesh encloses less volume than the billed lift basis?
+What measured membrane shape would settle this sign change on the same safety factor and material basis?
+
+### Reserve omitted on the favourable basis
+
+Should the favourable figure include the stability reserve it currently leaves out?
+What justifies `ship/model.js` gating that purchase on the record knockdown, when the same purchased increments cost 68.6 t at drawn lengths?
+Which imperfection allowance should govern that comparison?
+
+### Retired void skin still charged
+
+Should the 0.170 t retired void skin remain in the mass bill, when removing it still leaves the lightest favourable reading 0.186 t short at sea level?
+
+### Greedy reserve increments
+
+What station-aware stiffness and connection checks should replace the reserve solver’s greedy area steps of 0.0004, 0.00004, 0.0002 and 0.0000002 m² before their mass enters a float comparison?
+
+### Outfit named but not weighed
+
+What measured mass belongs to the outfit’s 622 solar pieces, 6 pods and 12 module pieces, and to the remaining equipment named in the census but absent from the bare-hull float comparison?
 
 ---
 
