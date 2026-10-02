@@ -1,5 +1,6 @@
 /* The mission trace in prose: last, now, next, plan.
  */
+import { ENERGY_NOTE } from './energy-label.js?v=26282d19';
 import { CFG, PHASES } from './config.js?v=26282d19';
 import { fmt, fmtMin, fmtT } from './format.js?v=26282d19';
 
@@ -38,13 +39,13 @@ export function narrate(m, st) {
   };
   return {
     last: `Completed: ${prev}.`,
-    now: lines[st.phase] || st.label,
+    now: (lines[st.phase] || st.label) + (st.phase === "RETURN_TRANSIT" ? " " + ENERGY_NOTE : ""),
     next: `Next: ${next}.`,
     plan: `Cycle ${st.cycleN}: ${fmtT(p.deliveredT)} delivered per drop` +
       (p.retainedT > 1 ? ` (${fmtT(p.retainedT)} held back as descent ballast)` : "") +
       `, ${fmtMin(p.cycleMin)} per cycle — ` +
       `${fmt(p.tph)} t/h to this fire if every cycle ran as modelled. Current constraint: ${p.bottleneck}. ` +
-      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne.`,
+      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne. ${ENERGY_NOTE}`,
   };
 }
 

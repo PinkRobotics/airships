@@ -1,6 +1,6 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=26282d19';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=26282d19';
 import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=26282d19';
 import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=26282d19';
 import { shipViz } from '../cockpit/shipviz.js?v=26282d19';
@@ -142,10 +142,11 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     gGen = makeDualGauge(sd, "anchor cable", "intake hose",
       Math.max(1, m.cls.anchorM || 0, m.cls.hoseM), v => fmt(v), "m");
     gStore = makeGauge(sd, "storage", m.cls.battMWh, v => fmt(v, v < 10 ? 1 : 0) + " MWh");
+    sd.insertAdjacentHTML('beforeend', `<small class="energy-tag" style="grid-column:1/-1">${ENERGY_TAG}</small>`);
     const barRow = ([lab, id, col]) =>
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
       `<span class="b-tr"><span class="b-fill" id="${id}" style="width:0%;background:${col}"></span></span>` +
-      `<span class="b-val" id="${id}v">–</span></div>`;
+      `<span class="b-val" id="${id}v">–</span><small class="energy-tag" style="grid-column:1/-1">${ENERGY_TAG}</small></div>`;
     /* The two headings take the DIAL'S colours — green for generation, warm for consumption —
      * because they label the same two quantities the dual gauge above them plots against each
      * other (gauges.js: #46d06e and #d98b80). Both were `--faint` grey, which left the reader
@@ -186,7 +187,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
-      `<p class="cycnote">${fmt(m.plan.tph)} t/h to this fire · ${m.plan.eCycleMWh.toFixed(1)} MWh per cycle · ${m.plan.kwhPerTonne.toFixed(0)} kWh/t</p>`;
+      `<p class="cycnote">${fmt(m.plan.tph)} t/h to this fire · ${m.plan.eCycleMWh.toFixed(1)} MWh per cycle · ${m.plan.kwhPerTonne.toFixed(0)} kWh/t · <small class="energy-tag">${ENERGY_TAG}</small></p><p class="cycnote">${ENERGY_NOTE}</p>`;
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
@@ -309,7 +310,7 @@ export function updateCockpit() {
       netEl.innerHTML = st.stopped
         ? '<b style="color:var(--red)">power exhausted</b> — holding position; energy import is the next iteration'
         : `net <b style="color:${net < 0 ? "var(--red)" : "#46d06e"}">${net < 0 ? "−" : "+"}${fmt(Math.abs(net), 1)} MW</b>` +
-          (net < 0 ? " — storage depleting, no refills yet" : " — storage recovering");
+          (net < 0 ? " — storage depleting, no refills yet" : " — storage recovering") + `<small class="energy-tag">${ENERGY_TAG}</small>`;
     }
     const tf = 1000 * 9.81, put = (id, v) => { const el = $(id); if (el) el.innerHTML = v; };
     // ONE SIGN CONVENTION: down is positive. Buoyancy pulls up, so it is a negative number,

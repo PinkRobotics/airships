@@ -13,6 +13,8 @@
 <meta property="og:url" content="https://pinkrobotics.ca/airships/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
 <style>
+.energy-tag{display:block;font-size:10px;line-height:1.4;font-weight:400;color:var(--muted);white-space:normal}
+
 /*DESIGN*/:root{
   --bg:#0a0a0c; --panel:#111114; --line:#232329; --line-strong:#33333c;
   --text:#eceef2; --muted:#9a9aa5; --faint:#74747f;
@@ -771,6 +773,8 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
              with labelled force arrows says which way the rotors are pushing and how hard,
              which a rendered vehicle cannot. Both are driven by the same state. -->
         <canvas id="shipviz" aria-label="Rotating schematic of the selected airship with live force vectors: buoyancy up, weight down, rotor thrust and drag"></canvas>
+        <small class="energy-tag" id="shipvizEnergy">earlier model · under review</small>
+        <p class="cycnote" data-energy-note>These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
         <div id="cpForces" style="margin-top:var(--s3)"></div>
         <!-- No follow/zoom buttons: selecting a ship follows it, dragging the map stops.
              The saved rows belong to the dials — the whole column is instrument space. -->

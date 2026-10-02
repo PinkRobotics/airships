@@ -953,6 +953,12 @@ stops.
 
 ---
 
+## Interim energy figures: earlier model, under review
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
+The figures will be published old and new, with the reason for each change, when the corrected model lands. The interim labels change no calculation.
+
 ## What is not on this list
 
 The model does not attempt weather beyond a single wind vector, turbulence, fire behaviour,

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import Counter
 import html
+import re
 from pathlib import PurePosixPath
 
 INTRO = (
@@ -12,6 +13,14 @@ INTRO = (
     "works retain the terms recorded below. The Information in the map layers was modified. "
     "No information provider endorses this project or its uses. For real emergencies use the official service."
 )
+ENERGY_NOTE = (
+    "These energy figures come from the earlier flight model, which understates the force "
+    "needed to hold an empty hull down. Corrected figures will be higher, and some cycles "
+    "may not be flyable as drawn."
+)
+ENERGY_TAG = "earlier model · under review"
+ENERGY_UNITS = re.compile(r"\b(?:MWh|kWh|MW|kW)\b")
+
 DECISIONS = (
     "redistributed: included under the recorded terms; link-only: the public repository retains "
     "the source and hash, not the file; withheld: excluded pending author review; to-confirm: "
@@ -79,13 +88,21 @@ def markdown(recs: list[dict], title: str) -> str:
 
 def page(recs: list[dict]) -> str:
     rows = []
+    has_energy = False
     for r in ordered(recs):
         p = PurePosixPath(r['path'])
         fields = [('Attribution', r['attribution']), ('Statement', r['licenceStatement']),
                   ('Source', '\n'.join(sources(r))), ('SHA-256', r['sha256'] or 'Unbundled service'),
                   ('Reason', r['licenceReason']), ('Processing and caveats', r['notes']),
                   ('Measured contents', measurements(r)), ('Sidecar', r['sidecar'])]
-        more = ''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k, v in fields)
+        more = ''
+        for k, v in fields:
+            tag = ''
+            if ENERGY_UNITS.search(str(v)):
+                has_energy = True
+                tag = (f'<small class="energy-tag">Model figures mentioned here: {ENERGY_TAG}. '
+                       'Cited source measurements retain their cited basis.</small>')
+            more += f'<dt>{esc(k)}</dt><dd>{esc(v)}{tag}</dd>'
         rows.append(f'<tr><th scope="row"><span class="folder">{esc(p.parent)}/</span>{esc(p.name)}</th>'
                     f'<td data-label="Publisher">{esc(r["publisher"])}</td>'
                     f'<td data-label="Licence"><span>{esc(r["licence"])}</span>'
@@ -93,6 +110,11 @@ def page(recs: list[dict]) -> str:
                     f'<a href="{esc(r["licenceUrl"])}">Terms reference</a>'
                     f'<details><summary>Credit and source record</summary><dl>{more}</dl></details></td>'
                     f'<td data-label="Decision"><strong>{esc(r["decision"])}</strong></td></tr>')
+    energy_note = (
+        '<aside><h2>Model energy comparisons</h2><p>Processing notes compare source '
+        'measurements with model figures. The following notice applies to the model figures; '
+        'source measurements retain their cited basis.</p>'
+        f'<p data-energy-note>{ENERGY_NOTE}</p></aside>' if has_energy else '')
     return '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data, licences and notices — Pink Robotics</title>
@@ -106,13 +128,14 @@ th:nth-child(1){width:24%}th:nth-child(2){width:21%}th:nth-child(3){width:41%}th
 tbody th{font-weight:500}.folder{display:block;color:var(--muted)}.evidence{font-size:14px;color:var(--muted)}
 details{margin-top:14px}summary{cursor:pointer;color:var(--warm)}dt{font-weight:600;margin-top:12px}dd{margin:0;white-space:pre-wrap}
 footer{border-top:1px solid var(--line)}
+.energy-tag{display:block;margin-top:8px;color:var(--muted);font-size:13px}
 @media(max-width:900px){thead{position:absolute;clip-path:inset(50%);height:1px;width:1px;overflow:hidden}
 caption{display:block;width:100%}table,tbody,tr,td,tbody th{display:block;width:100%!important}tr{padding:16px 0;border-top:1px solid var(--line)}
 th,td{border:0;padding:8px 0}td[data-label]::before{content:attr(data-label);display:block;font-size:13px;color:var(--muted);font-weight:600}
 main,header,footer{padding:20px}tbody th{font-size:18px}details{margin-top:12px}}
 </style></head><body><header><a href="./">← Fleet monitor</a></header>
 <main><h1>Data, licences and notices</h1>
-''' + f'<p>{esc(INTRO)}</p><p>{esc(DECISIONS)}</p><p>{esc(totals(recs))}</p>\n' + '''
+''' + energy_note + f'<p>{esc(INTRO)}</p><p>{esc(DECISIONS)}</p><p>{esc(totals(recs))}</p>\n' + '''
 <p>Generated from provenance sidecars. Read <a href="NOTICE">NOTICE</a>, <a href="DATA-SOURCES.md">DATA-SOURCES.md</a> and the <a href="LICENSE">code licence</a>. Repository paths below are references, not links to files served by this website.</p>
 <table><caption>Per-file decisions — unresolved terms first</caption><thead><tr><th scope="col">Folder / file</th><th scope="col">Publisher</th><th scope="col">Licence and evidence</th><th scope="col">Decision</th></tr></thead><tbody>
 ''' + '\n'.join(rows) + '''

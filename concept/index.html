@@ -13,6 +13,8 @@
 <meta property="og:url" content="https://pinkrobotics.ca/airships/concept/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
 <style>
+.energy-tag{display:block;font-size:11px;line-height:1.4;font-weight:400;color:var(--muted)}
+
 /*DESIGN*/:root{
   --bg:#0a0a0c; --panel:#111114; --line:#232329; --line-strong:#33333c;
   --text:#eceef2; --muted:#9a9aa5; --faint:#74747f;
@@ -747,7 +749,7 @@ nav.estate .wrap{display:block}
             cost is already priced into the 0.45 kWh/kg dial in
             <a href="#arithmetic">section 04</a>. The modest discount liquid air offers is the price of not flying a slowly concentrating oxidizer through a fire in a flammable airframe — a bad trade at any efficiency. (Argon would be denser ballast still, and
             just as inert, but air offers only one percent of it; nitrogen is what the sky
-            actually stocks.)</p>
+            actually stocks.) These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
         </div>
       </details>
       <details class="d">
@@ -791,6 +793,7 @@ nav.estate .wrap{display:block}
       </p>
     </div>
 
+    <p class="small" data-energy-note>These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
     <div class="classes" id="classcards">
       <noscript><p class="small">The class cards, monitor and calculators on this page are
         rendered by JavaScript. The concept, physics case and research citations live on
@@ -906,7 +909,7 @@ nav.estate .wrap{display:block}
         <div class="dbody">
           <div class="eq">P_pump = ρ · g · Q · h / η</div>
           <p class="eqwhy">Lifting water hundreds of metres up a hose is honest work. The P-100's 0.5 m³/s through a 300 m head at 75% efficiency takes about 2.0 MW while it fills. The pumps live at the bottom of the hose because no pump at the top could
-            suction-lift that column.</p>
+            suction-lift that column. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
         </div>
       </details>
       <details class="d">
@@ -934,7 +937,7 @@ nav.estate .wrap{display:block}
             In endurance mode the cryogenic plant is usually the cycle's bottleneck. The
             monitor flags it when it is. Why the working fluid is nitrogen rather than
             cheaper-to-liquefy air is a safety argument, made in
-            <a href="#cycle">section 02</a>.</p>
+            <a href="#cycle">section 02</a>. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
         </div>
       </details>
     </div>
@@ -1208,7 +1211,7 @@ nav.estate .wrap{display:block}
  * both are wrong, which is the only honest arrangement.
  */
 import {
-  CFG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
+  CFG, ENERGY_NOTE, ENERGY_TAG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
   ledger, planCycle, fmt, fmtHa, fmtMin, fmtT,
 } from '../sim/index.js?v=26282d19';
 import * as SIM from '../sim/index.js?v=26282d19';
@@ -1221,7 +1224,7 @@ const $ = id => document.getElementById(id);
 const S = { exampleCls: "P100", modeId: "balanced" };
 function kvRows(rows) {
   return '<dl class="kv">' + rows.map(([k, v, cls]) =>
-    `<dt>${k}</dt><dd class="${cls || ""}">${v}</dd>`).join("") + "</dl>";
+    `<dt>${k}</dt><dd class="${cls || ""}">${v}${/\b(?:MWh|kWh|MW|kW)\b/.test(v) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</dd>`).join("") + "</dl>";
 }
 function replanAll() { renderWorked(); }
 
@@ -1241,7 +1244,7 @@ function renderAsm() {
   $("asmpanel").innerHTML = DIALS.map(dd =>
     `<div class="a-row"><label>${dd.label}<output id="o_${dd.k}">${CFG[dd.k].toFixed(dd.d)}${dd.unit}</output></label>` +
     `<input type="range" id="i_${dd.k}" min="${dd.min}" max="${dd.max}" step="${dd.step}" value="${CFG[dd.k]}" aria-label="${dd.label}">` +
-    `<div class="a-note">${dd.note}</div></div>`).join("");
+    `<div class="a-note">${dd.note}${/kWh/.test(dd.unit+dd.note) ? " · " + ENERGY_TAG : ""}</div></div>`).join("");
   for (const dd of DIALS) {
     $("i_" + dd.k).addEventListener("input", e => {
       setConfig({ [dd.k]: parseFloat(e.target.value) });
@@ -1260,12 +1263,12 @@ function renderWorked() {
     [p.eCycleMWh.toFixed(1) + " MWh", "energy per cycle"],
     [fmt(p.kwhPerTonne) + " kWh", "per delivered tonne"],
     [p.bottleneck, "current bottleneck", true],
-  ].map(([b, s, word]) => `<div class="stat"><b style="font-size:var(--t-${word ? 16 : 22})">${b}</b><span>${s}</span></div>`).join("");
+  ].map(([b, s, word]) => `<div class="stat"><b style="font-size:var(--t-${word ? 16 : 22})">${b}</b><span>${s}${/\b(?:MWh|kWh)\b/.test(b) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</span></div>`).join("");
   $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +
     (p.retainedT > 1 ? `delivers ${fmt(p.deliveredT)} t per drop, retaining ${fmt(p.retainedT)} t as descent ballast · ` : "") +
     `still air (the live map applies current winds per mission) · sea-level ledger: ` +
     `${fmt(p.led.liftT)} t displaced = ${fmt(p.led.dryT)} t structure + ${fmt(cls.payloadT)} t water + ${fmt(p.led.reserveT, 1)} t reserve. ` +
-    `All values are demonstration assumptions; water delivered is not fire extinguished.`;
+    `All values are demonstration assumptions; water delivered is not fire extinguished. ${ENERGY_NOTE}`;
 }
 function renderClassCards() {
   $("classcards").innerHTML = CLASS_ORDER.map(id => {

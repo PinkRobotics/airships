@@ -56,3 +56,5 @@ export { buildMission } from './mission.js?v=26282d19';
 export { anchorHang, stateAt } from './state.js?v=26282d19';
 export { narrate, srcName } from './narrate.js?v=26282d19';
 export { selftest } from './selftest.js?v=26282d19';
+
+export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=26282d19';

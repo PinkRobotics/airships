@@ -88,6 +88,8 @@ is about what that extrapolation runs into.
 | Fill rate | 0.5 m³/s<!--f:P100.spec.fillM3s--> | 3 m³/s<!--f:P1000.spec.fillM3s--> | 15 m³/s<!--f:P10000.spec.fillM3s--> |
 | Descent bag | 125 t<!--f:P100.spec.anchorBagT--> | 1,250 t<!--f:P1000.spec.anchorBagT--> | 12,400 t<!--f:P10000.spec.anchorBagT--> |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 Dry mass is set equal to payload in every class. That is an assumption, not a result, and §8.1 is
 about it.
 
@@ -193,6 +195,8 @@ thing that bites as the hull grows.
 3. **Never enter the dense air.** Hover at 1,350 m and fill through a long hose. Costed at
    **44 MWh** a cycle in pump work, with a 2 m bore at 140 bar at the pod.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 ### 6.3 What was actually chosen: borrow the lake
 
 Lower a cable with a collapsible bag, fill it, winch it clear of the surface. Water hanging on a
@@ -205,10 +209,14 @@ line is downward force at the cost of the lift needed to break the surface — 1
 | Pull | 1.2 MN<!--f:P100.descent.anchorPullMN--> | 12.3 MN<!--f:P1000.descent.anchorPullMN--> | 121.6 MN<!--f:P10000.descent.anchorPullMN--> |
 | Energy cost | 0.006 MWh<!--f:P100.energy.ledgerMWh.anchor--> | 0.060 MWh<!--f:P1000.energy.ledgerMWh.anchor--> | 0.596 MWh<!--f:P10000.energy.ledgerMWh.anchor--> |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 **The leverage is in the exponent.** Induced rotor power goes as thrust^1.5, so moving load off
 the rotors pays superlinearly: carrying 90% of the hold on the bag drops the required rotor power
 from 1,748 MW to 52.3 MW<!--f:P10000.energy.downMW-->, a 97% reduction, and the letdown term from
 34.20 MWh to 1.420 MWh<!--f:P10000.energy.ledgerMWh.letdown-->.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 That is why the bag is sized to do the *whole* descent rather than to cover the 1,056 t shortfall
 that revealed the problem. The shortfall was the symptom; the exponent was the finding.
@@ -223,6 +231,8 @@ Three consequences worth stating plainly:
   ceiling.
 - **A cable is a much better thing to hang than a hose.** 121.6 MN is about 440 mm of UHMWPE
   massing 125 t — 1.25% of payload in rope, and **not charged as dry mass anywhere in this model.**
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 6.4 What the anchor forces on the flight profile
 
@@ -250,19 +260,29 @@ transcribed:
 | `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
 | **total** | **54.325<!--f:P10000.cycle.eCycleMWh-->** |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 Shares are on the figure rather than in the table. They were in both, and the table's column was
 still dividing by the pre-correction 43.0 MWh cycle — so the same seven numbers carried two sets
 of percentages on one page. A share is derived and has no figure key, which means the citation
 gate cannot see it; the chart computes it from the ledger, so the chart is where it belongs.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 <!--tex:fig charts/ledger.pdf | The reference ship's cycle ledger, printed from the model rather than transcribed. Three quarters of it is the return leg; the anchor is the smallest positive line and it is the reason the letdown is the second smallest.-->
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 <!--tex:fig charts/ledger-limit.pdf | The same ledger at the limit case. The proportions invert: pumping and water handling dominate where flying did, which is the square-cube law seen from the other side.-->
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 13.91 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
 8.45<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43<!--f:P10000.cycle.kwhPerTonne--> for
 the largest. Larger is cheaper per tonne, as the square-cube law demands — which is the reason to
 model the larger classes at all, and §6 is the reason not to assume you can build them.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 Note what dominates on the reference ship and does not at the limit: **the return leg is 75% of a
 P-100's cycle** and 32% of a P-10000's. The small ship spends its energy flying; the large one
@@ -274,6 +294,8 @@ recovery exceeded the pumping and the excess was *deleted*, taking the whole pum
 Splitting them moved the P-100 from 1.308 to 1.005 MWh. **The lesson generalises: the two most
 consequential errors found in this model were both accounting, not physics.**
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 ### 7.2 What the cryogenic plant is actually for
 
 The cryogenic plant is not cycle ballast. It is a rescue system, and the two get confused because
@@ -281,12 +303,16 @@ they share a tank. As cycle ballast it makes 21.12 t<!--f:P10000.energy.ln2MakeT
 15,500 t<!--f:P10000.spec.ln2CapT--> tank — three orders of magnitude short, and saying so is more
 useful than defending it.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 Its real job is unpowered recovery. The tank is sized so that an empty hull can be made heavy
 enough to **land with no rotor authority at all**, at ground level rather than at the ceiling —
 14,456.1 t<!--f:P10000.lift.ln2ToSinkEmptyAtGroundT--> of ballast to sink an empty P-10000 at
 1,000 m<!--f:atmosphere.terrainMslM--> MSL. Filling it costs about 6,505 MWh: 2.7 days at rated
 plant power, 12.9 days on solar. That is a rescue that takes days, and it should stop being
 confused with a cycle that takes an hour.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 7.3 Generation, and the deficit
 
@@ -296,7 +322,11 @@ confused with a cycle that takes an hour.
 | P-1000 | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 8.454<!--f:P1000.cycle.eCycleMWh--> | 7.71<!--f:P1000.energy.deficitPerCycleMWh--> | 9.2 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 54.325<!--f:P10000.cycle.eCycleMWh--> | 50.23<!--f:P10000.energy.deficitPerCycleMWh--> | 30.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 <!--tex:fig charts/deficit.pdf | What each hull spends against what its skin makes, and how long a full battery lasts.-->
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 **Every hull runs a deficit every cycle, and this is the project's central public conclusion:
 without an energy import chain the fleet is a battery being spent.** It is not a perpetual machine
@@ -309,6 +339,8 @@ generation runs on the nitrogen store, which is storage rather than a source, an
 loses. Modelling it honestly moves the conclusion further in the direction it already points, not
 back. The solar half of the table was corrected on 2026-08-09 and the figures above are
 post-correction; §8.2 has what moved.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ## 8. What is wrong with this model
 
@@ -342,6 +374,8 @@ than a scaling limit.
   Lvovich (2020) sees no clear path past 500 Wh/kg at pack level, where the battery still consumes
   40% of the budget.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 Four sources, four different objections, one conclusion: **the mass premise is not supported by
 the literature this project itself cites.** Everything in §§5–7 is conditional on it.
 
@@ -351,6 +385,8 @@ the literature this project itself cites.** Everything in §§5–7 is condition
 NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across eight BC interior
 fire-belt towns — 264 W/m² incident, day-averaged. 200 out of 264 is **76% conversion**, three and
 a half times the best cell ever made in a laboratory.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 flexible module ×
 0.81 for curvature, cell temperature, soiling and conversion, applied to a *projected* area —
@@ -362,12 +398,16 @@ It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 fl
 | P-1000 | 5.60 → **1.26 MW<!--f:P1000.energy.solarMW-->** | 3.30 → **0.74 MWh<!--f:P1000.energy.solarPerCycleMWh-->** | 3.09 → **7.71<!--f:P1000.energy.deficitPerCycleMWh-->** | 22.9 → **9.2 h<!--f:P1000.energy.hoursOnBattery-->** |
 | P-10000 | 24.00 → **5.40 MW<!--f:P10000.energy.solarMW-->** | 18.20 → **4.10 MWh<!--f:P10000.energy.solarPerCycleMWh-->** | 24.81 → **50.23<!--f:P10000.energy.deficitPerCycleMWh-->** | 61.1 → **30.2 h<!--f:P10000.energy.hoursOnBattery-->** |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 **Three things this exposed are worth more than the correction.** The constant was duplicated five
 times and wrong in every copy — there is one now, plus one on the far side of the `3d/` boundary
 and a parity test that reads both. **No published figure moved**, because generation is not in
 `planCycle`'s ledger: cycle energy, throughput and kWh/t came out bit-identical across a 4.4×
 change to the vehicle's power supply, which is defect 6 in §8.5 stated as sharply as it can be.
 And the honest number strengthens the project's conclusion rather than weakening it.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 *Still open:* 45 W/m² is a 24-hour average — right for energy over a cycle, wrong for power at an
 instant. There is no sun at 03:00 and the storage gauge draws it anyway.
@@ -380,11 +420,15 @@ tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K 
 assumptions). The term returned 1.3× the work available in the liquid, before any turbine or
 generator efficiency. Not an optimistic efficiency — a violation, and it was on the page.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
 54.325<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
 copy of the constant, because a second law is not a tuning bound.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 8.4 The drop may not arrive, and tonnes may be the wrong metric
 
@@ -398,6 +442,8 @@ against 0.72 with it**, the modal outcome without ground crews being *not effect
 counts tonnes. This project's headline metric is tonnes per hour.
 
 <!--tex:fig charts/sensitivity.pdf | Every constant moved ±20%, measured rather than asserted. The top of the table is aerodynamics and speed; the two constants corrected on 2026-08-09 now move the headline by 0.8% and 0.0%.-->
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 8.5 The other nine, in one line each
 
@@ -414,10 +460,14 @@ counts tonnes. This project's headline metric is tonnes per hour.
 | 0 | The sizing requirement that ties #1, #4 and #6 together | the tank is sized to land a dead hull, not to ballast a cycle |
 | — | Rotor wash over a water surface is unmodelled — not a numbered entry | Suter (2005); a 121.6 MN anchor hangs in it |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 Defect 7 deserves a sentence of its own. The audit found that the constants nobody had questioned
 move the headline more than the defects everyone had: the two undocumented drag multipliers on the
 return and manoeuvring phases are worth 16.9 MWh a cycle, while defect 3 — flagged in the README
 since the first commit — is worth 1.4.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ## 9. How to check any of this
 
@@ -458,6 +508,8 @@ In descending order of how likely it is to kill the concept:
    9.2 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
    30.2<!--f:P10000.energy.hoursOnBattery-->. Nothing here changes that; §7.3 is where it is
    costed.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 If (1) fails, the rest is a well-tested model of a vehicle that cannot exist. That is why it is
 first on the list and why §8.1 is written the way it is.

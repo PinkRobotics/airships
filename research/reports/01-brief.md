@@ -42,6 +42,8 @@ Everything below is that ship unless it says otherwise.
 | **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** |
 | Energy per tonne delivered | 13.9 kWh<!--f:P100.cycle.kwhPerTonne--> |
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 175 tonnes an hour sounds modest beside a very large airtanker's seventy-tonne drop. It is not the
 same quantity. **The airtanker's number is one drop; this one is every hour, indefinitely, through
 the night.** Over a twelve-hour operational day one P-100 puts down about 2,100 tonnes against
@@ -59,6 +61,8 @@ delivered: 13.9 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
 8.5<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4<!--f:P10000.cycle.kwhPerTonne--> on
 a 10,000-tonne one delivering 13,183 t/h<!--f:P10000.cycle.tph-->. The square-cube law, which
 punishes almost every other kind of vehicle, is on this one's side.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 So the interesting question is what stops you. We modelled it to find out, and **the answer is not
 the structure or the power — it is getting back down.** That is the next section, and it is why
@@ -124,6 +128,8 @@ carries one — including the class whose rotors could manage without. The alter
 475 MWh, and filling from high up a 1,350 m hose is 44 MWh. When one mechanism is three orders of
 magnitude cheaper than another, that is usually the design telling you something.
 
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+
 ## What would have to be true
 
 This is arithmetic on a vehicle nobody has built, resting on assumptions we have gone looking for
@@ -141,6 +147,8 @@ evidence *against*. Four are load-bearing:
 - **An energy chain.** Every class runs a deficit every cycle. A P-100 has
   9.2 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
   fleet is a battery being spent, and the chain that recharges it is part of the design.
+
+These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 Seventeen such issues are tracked at `docs/OPEN-QUESTIONS.md`, fifteen still open. Two closed on
 2026-08-09, and both closed by making our own numbers *worse*.

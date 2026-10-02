@@ -472,6 +472,7 @@ def safe_error(text):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--update", action="store_true", help="regenerate report.json and report.md; review the diff")
+    parser.add_argument("--energy-only", action="store_true", help="check visitor energy notices without recomputing external comparisons")
     parser.add_argument("--schema-only", action="store_true", help="check all source records without running models")
     args = parser.parse_args()
     try:
@@ -479,6 +480,9 @@ def main():
             validate(json.loads((HERE / "sources.json").read_text()))
             print("labelledcheck: 36 normalised source records pass schema")
             return 0
+        from energy_labels import check_energy_labels
+        check_energy_labels()
+        if args.energy_only: return 0
         report = generate()
         outputs = {"report.json": json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
                    "report.md": markdown(report)}

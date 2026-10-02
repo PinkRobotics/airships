@@ -107,6 +107,14 @@ def bare(ax, left=True, bottom=True):
 
 def save(fig, name: str):
     path = OUT / f'{name}.pdf'
+    if name in {'ledger', 'ledger-limit', 'deficit', 'sensitivity'}:
+        import textwrap
+        fig.canvas.draw()
+        bottom = fig.get_tightbbox(fig.canvas.get_renderer()).y0 / fig.get_figheight()
+        note = 'These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.'
+        fig.text(.5, bottom-.04, "earlier model · under review\n" +
+                 "\n".join(textwrap.wrap(note, max(45, int(fig.get_figwidth()*17)))),
+                 ha='center', va='top', fontsize=6.5, color=MUTED)
     fig.savefig(path)
     plt.close(fig)
     print(f'    {name}.pdf')

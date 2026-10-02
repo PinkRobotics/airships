@@ -53,6 +53,7 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding:14px 0 40px;
 <div class="wrap">
 <header>
   <h1>Airship model lab</h1>
+  <p class="claimnote" data-energy-note>These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
   <p class="sub">Pink Robotics · drive the reference vehicle. Water loads, nitrogen liquefies, a mission phase runs, a system fails, and the mass, power and force budget answers. A scale comparison sets the vehicle beside real aircraft at its real configured dimensions. The live fleet monitor flies the same model.</p>
   <p class="warn">Conceptual vehicle; the first physical gate is one sealed, positively buoyant evacuated cell. Delivering water is not a prediction of fire suppression.</p>
 </header>
@@ -397,7 +398,15 @@ function apply() {
 
 function rows(host, list) {
   host.innerHTML = '';
-  for (const [k, v] of list) { host.append(el('b', null, v), el('span', null, k)); }
+  for (const [k, v] of list) {
+    const value=el('b',null,v);
+    if (/\b(?:MWh|kWh|MW|kW)\b/.test(v)) {
+      const tag=el('small',null,'earlier model · under review');
+      tag.style.cssText='display:block;font-size:10px;font-weight:400;white-space:normal';
+      value.append(tag);
+    }
+    host.append(value,el('span',null,k));
+  }
 }
 
 function renderState(cls, vs, wrench) {
