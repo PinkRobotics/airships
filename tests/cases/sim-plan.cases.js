@@ -9,7 +9,7 @@ import { close, describe, eq, it, knownFail, ok } from '../harness.js';
 import {
   CFG, CLASSES, CLASS_ORDER, MODES, WORK_ALT_MSL,
   ledger, planCycle, resetConfig, setConfig,
-} from '../../sim/index.js?v=e3f50add';
+} from '../../sim/index.js?v=1c9cb41b';
 
 const MODE_IDS = Object.keys(MODES);
 const KMS = [2, 5, 15, 30, 60, 120, 400];
