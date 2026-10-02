@@ -65,3 +65,16 @@
 | Order | sha256 `c28dd95a406ba105…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 6 — Every statement about floating held to one ledger by a gate, and every view of the monitor named for what it shows
+
+| field | value |
+|---|---|
+| Landed | 2026-10-02 15:36:34 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `5a03514eecb5c49e48707a4b6271b0d6c8ad79ee` → `bad5dfe0dd56ac149984a836256a53a7ad27e426`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `bad5dfe0dd56ac149984a836256a53a7ad27e426`, tree `ca761ea81ff9df07bb7abe6ece8a21b007bc7ab8`, from `pr/batch-c` (source checkout redacted), parent `9fe8e27e12bc1bfc2073405d5f4f4b8931711d05`, governance `gov-f7d3a60ee98d` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py bad5dfe0d…` → rc=0, HONOURED-XO bad5dfe0dd56ac149984a836256a53a7ad27e426 — the last record for this sha is XO-SIGNED. (store redacted) |
+| Evidence before landing | `node --test tests/node/run.mjs 3d/tests/builder-line.test.mjs 3d/tests/control.test.mjs 3d/tests/model.test.mjs 3d/tests/parity-consumers.test.mjs 3d/tests/spec-required.test.mjs 3d/tests/state.test.mjs` rc=0 |
+| Tool | `ship/tools/land.py` sha256 `d4ad25b6e0d27bd0…` (informational) |
+| Order | sha256 `f5e4b317896f10ae…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
