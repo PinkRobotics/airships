@@ -49,6 +49,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             inserted = {
                 'module': '<script type="module" src="https://edge-module.invalid/beacon.js"></script>',
                 'fetch': '<script>fetch("https://edge-fetch.invalid/ping").catch(() => {});</script>',
+                # The browser's resource log is closed to new entries, then a foreign request is made
+                # after the note has rendered once. Only the observer's own entries can show it.
+                # The log is filled to its default size before the page's modules run: entries after that
+                # were dropped where the note cannot see them, so it must not say the log is clean.
+                'full': '<script>for(let i=0;i<260;i++){const x=new XMLHttpRequest();'
+                        'x.open("GET","/sim/version.json?fill="+i,false);x.send();}</script>',
+                'late': '<script>performance.setResourceTimingBufferSize(0);(function wait(){'
+                        'const n=document.getElementById("firstPartyNote");'
+                        'if(n&&n.textContent.indexOf("the site that served it")<0)'
+                        'fetch("https://edge-late.invalid/ping").catch(()=>{});'
+                        'else setTimeout(wait,50);})();</script>',
             }[self.note_variant]
             body = (ROOT / 'index.html').read_text().replace('</body>', inserted + '</body>').encode()
             self.send_response(200); self.send_header('Content-Type', 'text/html')
@@ -180,15 +191,16 @@ async def note_cases(page, origin, shot_dir):
 
     Handler.mode, Handler.wind_mode, Handler.note_variant = 'fixture', 'fresh', None
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
-    clean = await wait_note(f'This page talks only to {origin}.')
-    assert clean == f'This page talks only to {origin}.', clean
+    own = f"This page's own code talks only to {origin}."
+    clean = await wait_note('shows no other host.')
+    assert clean == f"{own} The browser's resource log for this page shows no other host.", clean
     print(f'note clean: {clean}')
     await screenshots('clean')
 
     Handler.note_variant = 'module'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     module = await wait_note('edge-module.invalid')
-    assert 'Added by the network in front of it: edge-module.invalid.' in module, module
+    assert module == f'{own} Also requested in this browser, not by that code: edge-module.invalid.', module
     assert any(r['url'].startswith('https://edge-module.invalid/') for r in page.requests), page.requests
     print(f'note injected module: {module}')
     await screenshots('edge')
@@ -196,9 +208,26 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'fetch'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     fetched = await wait_note('edge-fetch.invalid')
-    assert 'Added by the network in front of it: edge-fetch.invalid.' in fetched, fetched
+    assert fetched == f'{own} Also requested in this browser, not by that code: edge-fetch.invalid.', fetched
     assert any(r['url'].startswith('https://edge-fetch.invalid/') for r in page.requests), page.requests
     print(f'note injected fetch: {fetched}')
+
+    Handler.note_variant = 'late'
+    await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+    late = await wait_note('edge-late.invalid')
+    assert late == f'{own} Also requested in this browser, not by that code: edge-late.invalid.', late
+    assert any(r['url'].startswith('https://edge-late.invalid/') for r in page.requests), page.requests
+    full = await page.evaluate(
+        "performance.getEntriesByType('resource').some(e => e.name.includes('edge-late.invalid'))")
+    assert full is False, 'the fixture did not close the resource log: the case proves nothing'
+    print(f'note late request, resource log closed: {late}')
+
+    Handler.note_variant = 'full'
+    await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+    filled = await wait_note('is full')
+    assert filled == (f"{own} The browser's resource log for this page is full; "
+                      'other requests cannot be confirmed.'), filled
+    print(f'note with the resource log full at start: {filled}')
 
     Handler.note_variant = None
     await page.send('Emulation.setScriptExecutionDisabled', {'value': True})

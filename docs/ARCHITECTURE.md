@@ -357,9 +357,12 @@ The repository's `make firstparty` gate checks loading URLs in the served files 
 browser requests against a local fixture server. It establishes what this code asks the browser
 to load. The network serving the public site can alter the response after this code leaves the
 repository. The monitor's first-party note therefore scans load-bearing elements and the browser's
-resource log. It keeps the code-only statement until that check runs, names any other observed
-hosts, and says when the resource log is unavailable. The note does not make a request. A browser
-can still omit entries from its resource log; this is a visible audit, not a complete network trace.
+resource log for the page, and is handed each later log entry as the browser records it, so a log
+that fills up cannot hide a later request. It always states the code's own claim, names any other
+host it sees, and says when the log is unavailable or was already full when the note started. The
+note does not make a request. It claims only what it checks: a WebSocket, a connection that has not
+finished, and what a frame loads inside itself are outside the log. This is a visible audit, not a
+complete network trace.
 
 After each deploy, run `python3 tools/check_first_party.py <address>` for each published page.
 It sends one browser-like HTML request per address, reports foreign loads in the returned HTML
