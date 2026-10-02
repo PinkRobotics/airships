@@ -10,7 +10,8 @@ PORT   ?= 8875
 .DEFAULT_GOAL := help
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity clean
+        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
+        firstparty firstparty-static clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -58,7 +59,15 @@ interaction:  ## Click through the page headless and check it survives every int
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
-check: ciparity lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node interaction  ## Everything CI checks
+firstparty-static:  ## Refuse external loading URLs in every served source file
+	$(PY) tests/firstparty/static.py
+	$(PY) -m unittest discover -s tests/firstparty -p 'test_*.py'
+
+firstparty: firstparty-static  ## Record browser requests on every served page in three mirror modes
+	node --test tests/firstparty/wind.test.mjs
+	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
+
+check: ciparity lint stampcheck figfresh fallbackcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
 
 ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
 	$(PY) tools/check_ci_parity.py

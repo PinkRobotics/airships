@@ -45,7 +45,7 @@ export function wire() {
     for (const dd of DIALS) { $("i_" + dd.k).value = CFG[dd.k]; $("o_" + dd.k).textContent = CFG[dd.k].toFixed(dd.d) + dd.unit; }
     replanAll();
   });
-  ["Terrain", "Sat", "Hot", "Wind", "Places", "Perims", "Water", "Routes", "Labels"].forEach(nm => {
+  ["Terrain", "Hot", "Wind", "Places", "Perims", "Water", "Routes", "Labels"].forEach(nm => {
     $("tg" + nm).addEventListener("change", e => { S.layers[nm.toLowerCase()] = e.target.checked; });
   });
   $("btnFitFleet").addEventListener("click", fitFleet);
@@ -204,28 +204,25 @@ export function renderStatus() {
     } else if (S.usingFallback) {
       hl.classList.add("warn");
       hl.innerHTML = `<b>DATA SNAPSHOT</b> · ${esc((S.snapshotDate || "").slice(0, 10))} · ` +
-        (S.tier === "replay" ? "replay mode" : "live feed unreachable");
+        (S.tier === "replay" ? "replay mode" : "mirror unavailable");
     } else {
       // Past two refresh intervals the page has demonstrably stopped updating, and the chip
       // stops looking healthy about it.
       hl.classList.toggle("warn", age > REFRESH_MS * 2);
       const t = S.fetchedAt.toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit" });
-      hl.innerHTML = `<b>BC FIRE DATA</b> · ${S.fires.length} fires · ` +
+      hl.innerHTML = `<b>BC FIRE DATA · MIRROR</b> · ${S.fires.length} fires · ` +
         `fetched ${t} (${ageWords(age)} ago)`;
     }
 
-    /* THE PROVENANCE PARAGRAPH IS GONE FROM THE PAGE, not from the project.
-     *
-     * It ran to four sentences across the bottom of the screen, most of it behind an ellipsis
-     * where nobody could read it anyway, and it repeated what the chip above already says in
-     * six words. The chip carries the tier, the count and the age — which is the part a reader
-     * acts on — and `concept/` carries the method, the sources and their licences in full.
-     *
-     * What is NOT dropped: the same conditions still reach the screen. `#hudLive` turns warn
-     * and says NO FIRE DATA or DATA SNAPSHOT, the map draws points-only when the perimeter
-     * layer fails, and `liveNote` announces a tier change to a screen reader. The paragraph was
-     * the least-read copy of that news, not the only one.
-     */
+    hl.title = note;
+    const wind = $("windNote");
+    if (wind) wind.textContent = S.windOk
+      ? "850 hPa wind · site mirror · fetched " + ageWords(Date.now() - S.windAt.getTime()) + " ago"
+      : "Still air · " + (S.windNote || "wind mirror unavailable");
+    const boundary = $("firstPartyNote");
+    if (boundary && location.hostname === "pinkrobotics.ca")
+      boundary.textContent = "This page talks only to pinkrobotics.ca.";
+
   };
   paint();
   // The age has to keep counting up on its own: nothing else redraws this line between

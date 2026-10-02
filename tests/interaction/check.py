@@ -155,8 +155,7 @@ def serve(port: int) -> Server:
 #
 # The listener is NOT registered with capture. A resource that fails to load fires an error
 # event at its element and does not bubble, so only uncaught script errors reach window this
-# way — which is what we want: the basemap's tiles come from a third-party host that a
-# headless run has no reason to reach, and a missing tile is not a defect in this page.
+# way. Resource-origin coverage belongs to tests/firstparty/check.py.
 TRAP = r"""
 window.__ierr = [];
 window.addEventListener('error', (e) => {

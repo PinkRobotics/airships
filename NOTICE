@@ -67,20 +67,17 @@ including retrieval URLs and processing steps, is in DATA-SOURCES.md.
      naturalearthdata.com.
 
 --------------------------------------------------------------------------------
-THIRD-PARTY SERVICES CALLED AT RUNTIME
+SERVER-SIDE FORECAST DATA AND REMOVED SERVICE
 --------------------------------------------------------------------------------
 
-These are not redistributed. They are network calls the page makes.
-
-6. Open-Meteo forecast API — 850 hPa wind, fetched by the visitor's browser.
-   Licence: CC BY 4.0 on the data; API free for non-commercial use.
+6. Open-Meteo forecast API — 850 hPa wind on a coarse BC grid, fetched server-side
+   at most once per hour and served to visitors as data/live/wind.json.
+   Licence: CC BY 4.0 on the data; API-use terms apply separately to the operator.
    Attribution: Weather data by Open-Meteo.com.
+   Missing or stale wind uses still air, labelled on the monitor.
 
-7. Esri World Imagery basemap tiles, fetched by the visitor's browser from
-   server.arcgisonline.com with no API key and no signed agreement.
-   This use is very likely outside Esri's terms of use. It is an unresolved
-   licensing problem, not a licensed dependency. See DATA-SOURCES.md, section 6,
-   for what the page does and the options for fixing it.
+7. Esri World Imagery — removed 2026-10-01. No tiles are loaded or redistributed.
+   The default backdrop is the first-party terrain hillshade listed in item 4.
 
 --------------------------------------------------------------------------------
 

@@ -1,5 +1,8 @@
 # Open questions
 
+> **2026-10-01: #5 is FIXED.** The Esri layer and toggle are removed; the monitor uses
+> the bundled first-party hillshade. The dated status notes below are historical.
+
 > **2026-08-10: SIX OF THESE NOW HAVE ANSWERS, and they are in `research/analysis/`.**
 >
 > This page says what is wrong. `docs/VERIFICATION-PLAN.md` says what would settle it, and
@@ -456,28 +459,16 @@ not purely decorative in the mass budget.
 
 ---
 
-## 5. Esri basemap tiles
+## 5. Esri basemap tiles — FIXED 2026-10-01
 
-`app/map/basemap.js` fetches satellite tiles directly from `server.arcgisonline.com` with
-no API key, from the visitor's browser. This sends every viewer's IP address and precise
-viewport to a third party with no consent step, and it is very likely outside Esri's terms
-of use for that endpoint.
+Removed the Esri tile loader and satellite toggle. The bundled first-party terrain hillshade
+is now the default backdrop, with outlined labels and markers and stronger water/perimeter
+contrast. No Esri tiles are fetched or redistributed. See `DATA-SOURCES.md` §6.
 
-It also sits oddly beside a stated principle of this project: the wildfire feeds are mirrored
-first-party precisely so that traffic to this page does not become traffic to someone
-else's service.
-
-This is the one item on this page that is not a defect in the model. It is here because it
-has to be decided before the repository is public, not because the arithmetic depends on it.
-
-**Options:** drop the imagery layer; obtain an Esri key and use it within terms; or switch
-to an openly-licensed basemap. See `DATA-SOURCES.md` §6.
-
-**DECISION: resolve before the repository is public.** Publishing the technique is worse
-than using it.
-
-**Recommendation.** Decide before the repository is public, because publishing the
-technique is worse than using it.
+The browser network gate (`tests/firstparty/check.py`, part of `make check`) records requests
+for every served page in fixture-live, snapshot and absent-mirror modes and refuses external
+hosts. The static gate checks loading positions separately. The server mirrors wind hourly;
+missing agency mirrors fall back only to the dated files in this repository.
 
 ---
 

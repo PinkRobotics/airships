@@ -60,8 +60,7 @@
     try {
       d = g.getImageData(0, 0, cv.width, cv.height).data;
     } catch (e) {
-      // The basemap tiles come from a third-party host, which taints the canvas and makes
-      // its pixels unreadable to us as well as to anyone else. Fall back to geometry.
+      // A canvas read failure is retained in the digest so it cannot appear as a match.
       return `${cv.width}x${cv.height}:tainted`;
     }
     let h = 0, lit = 0;

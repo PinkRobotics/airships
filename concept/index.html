@@ -1129,10 +1129,12 @@ nav.estate .wrap{display:block}
           <dd>Fire points and perimeters: BC Wildfire Service public feature layers
             (<a href="https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/BCWS_ActiveFires_PublicView/FeatureServer/0">active fires</a>,
             <a href="https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/BCWS_FirePerimeters_PublicView/FeatureServer/0">perimeters</a>),
-            fetched live by this page, refreshed from operational systems roughly every 15
-            minutes, joined by fire number. Statuses of <i>Out</i> are excluded. Satellite
+            read from this site’s server-side mirror, refreshed from operational systems roughly every 15
+            minutes, joined by fire number. An unavailable mirror uses the dated snapshot. Statuses of <i>Out</i> are excluded. Satellite
             hotspots: NRCan CWFIS last-24-h detections, drawn as a live overlay. Winds: Open-Meteo
-            850 hPa per route midpoint, applied to simulated transit times only. Each fire links
+            850 hPa, mirrored hourly on a coarse BC grid and interpolated to route midpoints,
+            applied to simulated transit times only. Missing or stale wind means still air.
+            Weather data by Open-Meteo.com (CC BY 4.0). Each fire links
             to its official BC Wildfire Service page, which remains the authoritative source.
             <b>For a real emergency use the BC Wildfire Service, not this page.</b>
             <span class="when">Open Government Licence – British Columbia</span></dd>
@@ -1145,7 +1147,7 @@ nav.estate .wrap{display:block}
             sewage basins, tailings ponds, dumps, canals and intermittent bodies are excluded
             by feature code. Coastline: Natural Earth (public domain). Terrain backdrop: a dark
             hillshade built from Mapzen/AWS Terrain Tiles — elevation from SRTM, GMTED2010,
-            ETOPO1 and other public sources (rebuild: tools/airships_terrain.py). A timestamped snapshot
+            ETOPO1 and other public sources (rebuild: pipeline/terrain.py). A timestamped snapshot
             of fires and perimeters is bundled as a fallback; when the live service is
             unreachable the map badge changes to <b>DATA SNAPSHOT</b> and the page says so.
             <span class="when">Rebuild: tools/airships_water.py</span></dd>

@@ -59,8 +59,7 @@ REPLAY_URL = f'http://127.0.0.1:{PORT}/index.html?seed=7&data=snapshot'
 CHECK = '--check' in sys.argv
 SHOOT = '--poster' in sys.argv
 
-# The poster cannot come from canvas.toDataURL: the basemap's remote imagery taints the
-# canvas. It is a CDP screenshot clipped to the map box instead, driven below.
+# The poster is a CDP screenshot clipped to the map box, including its data-age badge.
 POSTER_SETUP_JS = """
 (() => {
   const ov = document.getElementById('introOv');

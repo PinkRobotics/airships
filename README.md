@@ -20,10 +20,9 @@ python3 -m http.server 8875        # from the repository root
 
 Then open <http://127.0.0.1:8875/>. There is no build step, no bundler, no `package.json` and no
 dependency to install: every page is static HTML importing ES modules directly. A fresh clone has
-no `data/live/` mirror, so the page goes to the public feeds and falls back to the dated snapshot
-in `data/` if it cannot reach them. Append `?data=snapshot` to take every model input from files in
-the repository instead; the only thing still fetched then is the satellite basemap, which is a
-layer you can switch off.
+no `data/live/` mirror, so the page uses the dated snapshot in `data/` and states that fact.
+Append `?data=snapshot` to pin every model input to the repository, with still air. The default
+backdrop is the bundled terrain hillshade. Every browser load stays on the site that served it.
 
 ## Where the arithmetic is
 
@@ -278,8 +277,8 @@ The wildfire data is real, live and other people's work. Sources, their licences
 queries used are in [DATA-SOURCES.md](DATA-SOURCES.md), which is authoritative; this file does not
 restate them. In outline: fire points and perimeters from the BC Wildfire Service, hotspots from
 CWFIS, lakes and reservoirs from the BC Freshwater Atlas, 850 hPa winds from Open-Meteo, terrain
-from Mapzen/AWS Terrain Tiles, satellite imagery from Esri. `pipeline/live.py` mirrors the
-emergency feeds server-side on a timer so that page traffic never multiplies load on emergency
+from Mapzen/AWS Terrain Tiles, and map vectors from pinned Natural Earth v5.1.2.
+`pipeline/live.py` mirrors wind hourly and emergency feeds server-side on a timer so that page traffic never multiplies load on emergency
 infrastructure — one fetch per interval for the whole site, not one per viewer.
 
 The code licence is in [LICENSE](LICENSE).

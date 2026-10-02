@@ -2,7 +2,7 @@
 
 The wildfire data in this project is real and comes from public agencies. The fleet is
 imagined. This file states, for every dataset the repository redistributes and every
-service the page calls at runtime: what it is, who publishes it, the exact licence, the
+service the server-side mirror calls: what it is, who publishes it, the exact licence, the
 attribution sentence that licence requires, the URL it came from, how it was processed,
 and which file holds it.
 
@@ -29,8 +29,8 @@ Two blanket statements, required by the Open Government Licences and true of all
 | 3 | BC Freshwater Atlas lakes and reservoirs | `data/water-bc.json` | OGL – British Columbia |
 | 4 | Terrain hillshade from AWS Terrain Tiles | `data/terrain-bc.jpg` | per-source; see below |
 | 5 | Natural Earth roads and BC outline | `data/roads-bc.json`, `data/bc-outline.json` | public domain |
-| 6 | Esri World Imagery basemap tiles | none — fetched by the visitor's browser | **unresolved; see below** |
-| 7 | Open-Meteo 850 hPa wind forecast | none — fetched by the visitor's browser | CC BY 4.0 |
+| 6 | Former Esri basemap | removed; first-party hillshade instead | see section 4 |
+| 7 | Open-Meteo 850 hPa wind forecast | `data/live/wind.json` | CC BY 4.0 |
 | 8 | BC historical fire perimeters, 2006-2025 | `data/fire-history-bc.json` (+ `.prov.json`) | Open Government Licence – British Columbia |
 
 ---
@@ -85,7 +85,8 @@ responses, taken at one instant, placed side by side under `fires` and `perimete
 with a `retrievedAt` timestamp. `data/snapshot.json` holds 105 fires and 73 perimeters as
 retrieved at 2026-08-08T18:42:38Z.
 
-**Load discipline.** The page never sends a visitor to the BCWS service if it can avoid it.
+**Load discipline.** The browser never loads fire data from the BCWS service; an unavailable mirror uses
+the dated snapshot.
 `pipeline/live.py` runs on our server every ten minutes and refreshes the fire feeds only
 when the mirror is older than eight minutes, so upstream sees roughly six requests an hour
 regardless of how many people load the page. Traffic to this page must not become load on
@@ -240,149 +241,71 @@ the world bounds the page needs, which are hard-coded as `TERRAIN` in `app/map/b
 
 ## 5. Natural Earth — roads and the BC outline
 
-**What it is.** Two thin vector layers drawn for orientation only: highway centrelines
-(`data/roads-bc.json`, 294 polylines, 3032 vertices) and the British Columbia provincial
-boundary including its islands (`data/bc-outline.json`, 23 rings, 804 vertices). Neither is
-used by the model. They exist so that a reader can tell where they are looking.
-
-**Publisher.** Natural Earth — Tom Patterson, Nathaniel Vaughn Kelso, and contributors.
-<https://www.naturalearthdata.com/>
-
-**Licence.** Public domain. The terms of use
-(<https://www.naturalearthdata.com/about/terms-of-use/>) say:
-
-> All versions of Natural Earth raster + vector map data found on this website are in the
-> public domain. […] No permission is needed to use Natural Earth. Crediting the authors is
-> unnecessary.
-
-No attribution is required. Natural Earth requests the following credit if you wish to give
-one, and this project gives it:
+The map uses `data/roads-bc.json` (306 polylines, 4,823 vertices) and
+`data/bc-outline.json` (23 rings, 1,064 vertices) for orientation. The model does not
+read these layers. They are public-domain Natural Earth data, credited as requested:
 
 > Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
 
-**How the provenance was established.** These two files arrived in the repository with no
-generator script and no recorded source, which was a publication risk: if they had been
-OpenStreetMap-derived, ODbL share-alike would attach to the project. They are not. Every
-vertex was matched against Natural Earth, and the match is exact:
+**Reproducible source.** `pipeline/vectors.py` reads the tagged
+[v5.1.2 archive](https://codeload.github.com/nvkelso/natural-earth-vector/tar.gz/refs/tags/v5.1.2),
+and refuses any archive whose SHA-256 differs from
+`62b2ecf311e54b76e433c680c4e47a29ecffc87b0cadd014716cbff7c6daa54b`.
+It uses `geojson/ne_10m_roads.geojson` and the British Columbia feature of
+`geojson/ne_50m_admin_1_states_provinces.geojson`. The archive is about 1.5 GB;
+`--archive` reuses a local copy and still verifies its checksum.
 
-- `data/roads-bc.json` — all 3032 vertices are present, to the full three decimal places
-  they are stored at, in the `ne_10m_roads` layer of `nvkelso/natural-earth-vector` within
-  this bounding box. 3032 of 3032.
-- `data/bc-outline.json` — all 804 vertices are present in the `ne_50m_admin_1_states_provinces`
-  feature named "British Columbia", and the file's 23 rings correspond one-to-one with that
-  feature's 23 polygon parts. 804 of 804.
+Roads exclude ferries and are clipped to longitude −137.5°…−112°, latitude 47.3°…60.6°.
+Douglas–Peucker tolerances are 0.003° for roads and 0.005° for the outline's outer rings;
+holes and properties are discarded and coordinates rounded to three decimal places.
+This is a cartographic outline, not a legal or survey boundary.
 
-An identity match of that size is not coincidence. The comparison was made against
-`natural-earth-vector` at version 5.2.0-pre; the exact release the files were originally
-cut from is not recorded, and Natural Earth geometry does change between releases, so
-treat the version as "5.x" rather than a specific number.
-
-**How they were processed** (reconstructed from the match, since no script was committed):
-
-- Roads: clipped to roughly longitude −137.5°…−112°, latitude 47.3°…60.6°; `featurecla`
-  of `Ferry` dropped, so ferry routes are absent and only road classes remain (Major
-  Highway, Secondary Highway, Beltway, Road); Douglas–Peucker simplification, which removes
-  about half the in-box vertices; coordinates rounded to three decimal places (≈100 m);
-  properties discarded entirely, leaving a bare array of `[[lon,lat],…]` polylines.
-- Outline: the British Columbia feature's outer rings only, simplified and rounded the same
-  way, holes discarded.
-
-**Outstanding.** There is no `pipeline/` script that regenerates these two files, so the
-processing above is inferred rather than replayed. That is a documentation gap, not a
-licensing one. The recommendation is to add a `pipeline/vectors.py` that reproduces both
-from a pinned Natural Earth release, and delete this paragraph when it exists.
+**Numbers changed on 2026-10-01.** The earlier files had 294 road polylines / 3,032
+vertices and 23 outline rings / 804 vertices, with an inferred 5.x source and no generator.
+The explicit clipping and simplification above produce 306 / 4,823 and 23 / 1,064.
+The new geometry is not byte-identical; it preserves more road and coastline detail.
+Both sidecars now record the exact archive, checksum, processing and retrieval time.
+[Source terms](https://www.naturalearthdata.com/about/terms-of-use/).
 
 ---
 
-## 6. Esri World Imagery basemap tiles — an unresolved licensing problem
+## 6. Esri World Imagery — removed 2026-10-01
 
-**What the page does.** When the satellite layer is on, `app/map/basemap.js` builds tile
-URLs of the form
-
-```
-https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
-```
-
-and sets them as `<img>` sources. The requests come from **the visitor's browser**, not
-from our server. There is no API key, no token, no ArcGIS account and no signed agreement
-behind them. Up to 600 tiles are held in a client-side cache. The imagery is then
-brightness- and saturation-adjusted before being drawn.
-
-**What that means for the visitor.** Every tile request sends the visitor's IP address,
-user agent, `Referer` and — through the tile coordinates themselves — exactly where on the
-map they are looking, to a third party the visitor has not been told about. No consent is
-asked. This is a privacy fact about the page, independent of the licensing question.
-
-**What that means legally.** Esri's World Imagery service composites commercial satellite
-and aerial imagery (Maxar, Earthstar Geographics, and national and regional providers) that
-Esri licenses in; it is not open data. Access is governed by the Esri Master Agreement and
-the ArcGIS Online terms of use
-(<https://www.esri.com/en-us/legal/terms/full-master-agreement>), which contemplate use
-through a licensed ArcGIS account, generally require the "Powered by Esri" attribution and
-the source list, and prohibit accessing the service other than through Esri's own APIs and
-licensed channels. Unkeyed direct tile fetching from `server.arcgisonline.com` by an
-arbitrary web page is very likely outside those terms. The endpoint answering with HTTP 200
-is not permission. The page does not currently display Esri's required attribution beyond
-the word "Esri" in a status line, which would be insufficient even if the access itself
-were licensed.
-
-**This has not been resolved, and it should be resolved before publication.** Three
-options, in the order they are recommended:
-
-1. **Replace the layer** with an openly-licensed source and attribute it properly. The
-   candidate for this footprint is Sentinel-2 cloudless or ESA Sentinel-2 L2A imagery
-   (CC BY / open), self-hosted or served from an operator with terms that permit it. This
-   costs work and some visual quality, and it ends the problem.
-2. **Key it.** Obtain an ArcGIS Location Platform account, use an API key, respect the
-   basemap tile quota, and render Esri's full attribution string in the map frame. This
-   keeps the imagery, introduces a credential and a bill, and still sends visitor IPs to
-   Esri — so the privacy note above stays true and should be disclosed.
-3. **Drop the satellite layer.** The terrain hillshade in section 4 is our own render of
-   openly-licensed elevation, it is already the default backdrop, and the page reads
-   perfectly well without imagery. This is the zero-risk option and the one to take if
-   nobody wants to own the decision.
-
-Doing nothing is not on the list.
+The tile loader and satellite toggle have been removed. No Esri images are loaded or
+redistributed. The default backdrop is the first-party `data/terrain-bc.jpg` hillshade
+in section 4, with outlined labels and fire markers, brighter water and stronger perimeters.
+The former unkeyed tile access is no longer a dependency or a publication blocker.
 
 ---
 
-## 7. Open-Meteo — 850 hPa wind forecast
+## 7. Open-Meteo — mirrored 850 hPa wind forecast
 
-**What it is.** Wind speed and direction at the 850 hPa pressure level, roughly the band
-the imagined ships cruise in, sampled at the midpoint of each active mission's route and
-applied to transit times. When the fetch fails, or when `?data=snapshot` is set, the model
-runs in still air and the page says so.
+**Source and credit.** Weather data by Open-Meteo.com. Data is licensed under
+[CC BY 4.0](https://open-meteo.com/en/license); underlying forecasts come from national
+meteorological services. This forecast is an input to simulated transit times, not an
+aviation weather product.
 
-**Publisher.** Open-Meteo (Patrick Zippenfenig). Underlying numerical weather prediction
-comes from national meteorological services.
+`pipeline/live.py` makes at most one batch request per hour to
+`https://api.open-meteo.com/v1/forecast`, using the hourly `wind_speed_850hPa` and
+`wind_direction_850hPa` variables, `forecast_hours=1`, `wind_speed_unit=kmh` and `timezone=UTC`.
+The fixed 5×5 grid has latitudes 47.5, 50.75, 54, 57.25, 60.5 and longitudes −140,
+−133.25, −126.5, −119.75, −113. One request serves all visitors. Failed attempts also
+consume that hour's request; a failed fetch preserves the previous successful timestamp.
 
-**Licence.** Data is provided under CC BY 4.0. <https://open-meteo.com/en/license>
+The mirror writes `data/live/wind.json` with `fetchedAt`, the forecast hour, grid axes and
+east/north velocity components in km/h. The browser reads that file from its own origin
+and bilinearly interpolates the components at each mission midpoint, then converts them
+back to speed and meteorological direction. Averaging components handles the 0°/360° seam.
+No visitor coordinates or IP addresses are sent to the forecast provider by this page.
 
-**Required attribution.** CC BY 4.0 requires credit to the source:
+Missing, malformed or stale wind means still air, stated on the monitor. The fetch-age
+limit is 90 minutes, and the forecast-hour limit is two hours. The page clears previously
+applied wind on failure and at expiry. `?data=snapshot` always uses still air.
 
-> Weather data by Open-Meteo.com
-
-**Where it came from.** Called live from the visitor's browser by `app/feeds.js`:
-
-```
-https://api.open-meteo.com/v1/forecast
-  ?latitude=<lat,lat,…>&longitude=<lon,lon,…>
-  &hourly=wind_speed_850hPa,wind_direction_850hPa
-  &forecast_hours=1&wind_speed_unit=kmh&timezone=UTC
-```
-
-One request covers all active missions as a comma-separated batch, and responses are cached
-in the page for 20 minutes.
-
-**Two things to be honest about.** First, like the Esri tiles, this call is made by the
-visitor's browser, so it sends the visitor's IP address and the approximate coordinates
-they are looking at to a third party. Second, Open-Meteo's free tier is limited to
-non-commercial use and to 10,000 calls per day, 5,000 per hour and 600 per minute; those
-limits are consumed per visitor, not per server, so they scale with traffic. A page hosted
-on a company domain is at least arguably commercial use. If this project attracts real
-traffic, move the wind fetch behind the same server-side mirror that already fronts the
-fire feeds (`pipeline/live.py`), which fixes the rate limit, the privacy leak and the
-commercial-use question at once.
+**API terms remain the operator's responsibility.** Moving requests to a mirror reduces
+traffic and removes browser contact with the provider; it does not change Open-Meteo's
+API-use terms or grant commercial-use permission. Configure an appropriately licensed
+service before commercial operation. The server URL is contained in `pipeline/live.py`.
 
 ---
 

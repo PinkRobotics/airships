@@ -22,9 +22,11 @@ fi
 # A dedicated profile, because Chromium refuses to share one with a running interactive instance.
 # A sandboxed install can only write inside its own confinement, and a snap in particular cannot
 # see hidden directories in $HOME at all — a profile under ~/.cache silently produces an empty
-# DOM rather than an error. Prefer the confinement directory when one is present.
+# DOM rather than an error. Honour explicit scratch first; otherwise prefer confinement.
 if [ -z "${A3D_CHROME_PROFILE:-}" ]; then
-  if [ -d "$HOME/snap/chromium/common" ]; then
+  if [ -n "${TMPDIR:-}" ]; then
+    A3D_CHROME_PROFILE="$TMPDIR/airship3d/chrome-profile"
+  elif [ -d "$HOME/snap/chromium/common" ]; then
     A3D_CHROME_PROFILE="$HOME/snap/chromium/common/a3d-profile"
   else
     A3D_CHROME_PROFILE="${XDG_CACHE_HOME:-$HOME/.cache}/airship3d/chrome-profile"

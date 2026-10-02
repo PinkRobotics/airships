@@ -1,12 +1,13 @@
 # pipeline/ — the data generators
 
-Four standalone Python 3 scripts. None of them is needed to run the page: everything they
-produce is committed under `data/`. They exist so that the committed data can be rebuilt
+Standalone Python 3 scripts. None is needed to run the page: static inputs are committed
+under `data/`, and an absent live mirror falls back to the dated snapshot. They exist so that the committed data can be rebuilt
 from its sources by anyone, rather than taken on trust.
 
 | Script | Produces | Run it when |
 |---|---|---|
-| `live.py` | `data/live/*.json` (gitignored) | continuously, from a timer, if you host the page |
+| `live.py` | fire, perimeter, heat and hourly wind mirrors (gitignored) | continuously, from a timer, if you host the page |
+| `vectors.py` | pinned Natural Earth roads, outline and provenance sidecars | to reproduce the map vectors |
 | `water.py` | `data/water-bc.json` | the BC freshwater atlas is updated — rarely |
 | `terrain.py` | `data/terrain-bc.jpg` | never, in practice; the hillshade is static |
 | `figures.py` | the SVG diagrams inlined into `concept/index.html` | after editing a diagram |
@@ -31,9 +32,11 @@ unauthenticated and free, and both sit in front of systems that matter during a 
 A page that fetches them directly turns every visitor into upstream load, and a page that
 gets linked somewhere busy turns into a small denial-of-service attempt on an emergency
 service. So `live.py` fetches once per interval on the server, writes the result under
-`data/live/`, and the page reads that. `app/net.js` falls back to the upstream feeds only if
-the mirror is missing or stale, and to the committed `data/snapshot.json` if that also fails
-— and says on the page which of the three it is showing.
+`data/live/`, and the page reads that. The browser falls back only to the dated `data/snapshot.json` if the fire mirror is missing
+or stale, and says which tier answered. Heat snapshots accompany snapshot fires; an absent
+heat mirror beside live fires means no heat overlay. Wind uses a fixed 5×5 grid, with one
+server request an hour (failed attempts included). Missing or stale wind means labelled
+still air. Run a single mirror timer; the script locks concurrent invocations.
 
 Run it from a timer every ten minutes. The freshness rules are inside the script, not in the
 timer, so running it more often costs upstream nothing.
@@ -91,7 +94,8 @@ are not recorded anywhere in this repository.
 
 ## Determinism
 
-None of these scripts is deterministic — they fetch live data from services that change.
+`vectors.py` is deterministic for its checksum-pinned archive and recorded retrieval time.
+The live feed scripts read services that change.
 That is exactly why the page ships `data/snapshot.json` and `data/snapshot-heat.json`, and
 why `?data=snapshot` exists: the tests compare model output against pinned inputs, never
 against whatever the wildfire feeds happen to say today.
