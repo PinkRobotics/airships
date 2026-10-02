@@ -10,8 +10,8 @@
  * it answers it transparently enough to be argued with.
  */
 
-import { ASSUMPTIONS } from '../model/config.js?v=6e20b6c4';
-import { cross, norm, sub, len } from '../core/math.js?v=6e20b6c4';
+import { ASSUMPTIONS } from '../model/config.js?v=b7ca2f95';
+import { cross, norm, sub, len } from '../core/math.js?v=b7ca2f95';
 
 /** Thrust available from a disc of area A at power P: T = (2 rho A P^2)^(1/3) for an ideal disc. */
 export function idealDiscThrust(areaM2, powerW, rho = ASSUMPTIONS.rhoAir) {

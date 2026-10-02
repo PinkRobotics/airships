@@ -9,11 +9,11 @@
  * working-altitude density. Everything else is the dry allowance plus what is currently aboard.
  */
 
-import { RHO_WORK, ASSUMPTIONS, RHO_LN2, RHO_WATER, G, specNumber } from '../model/config.js?v=6e20b6c4';
-import { clamp01 } from '../core/math.js?v=6e20b6c4';
+import { RHO_WORK, ASSUMPTIONS, RHO_LN2, RHO_WATER, G, specNumber } from '../model/config.js?v=b7ca2f95';
+import { clamp01 } from '../core/math.js?v=b7ca2f95';
 
 // Compatibility exports: packaging and mass arithmetic read the same declarations.
-export { RHO_LN2, RHO_WATER } from '../model/config.js?v=6e20b6c4';
+export { RHO_LN2, RHO_WATER } from '../model/config.js?v=b7ca2f95';
 
 /**
  * Full mass state for a class at a given fill condition.

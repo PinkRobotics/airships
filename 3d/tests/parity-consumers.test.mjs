@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CLASS_IDS, resolveClass, ALT, ASSUMPTIONS } from '../model/config.js?v=6e20b6c4';
-import { idealDiscThrust, idealDiscPower, buildActuators } from '../control/actuators.js?v=6e20b6c4';
-import { build } from '../model/build.js?v=6e20b6c4';
-import { createDriver, updateDriver } from '../anim/driver.js?v=6e20b6c4';
-import { phaseShape } from '../anim/mission.js?v=6e20b6c4';
-import { defaultState } from '../physics/state.js?v=6e20b6c4';
-import { pumpPowerMW } from '../physics/energy.js?v=6e20b6c4';
-import { templateFor } from '../model/metadata.js?v=6e20b6c4';
+import { CLASS_IDS, resolveClass, ALT, ASSUMPTIONS } from '../model/config.js?v=b7ca2f95';
+import { idealDiscThrust, idealDiscPower, buildActuators } from '../control/actuators.js?v=b7ca2f95';
+import { build } from '../model/build.js?v=b7ca2f95';
+import { createDriver, updateDriver } from '../anim/driver.js?v=b7ca2f95';
+import { phaseShape } from '../anim/mission.js?v=b7ca2f95';
+import { defaultState } from '../physics/state.js?v=b7ca2f95';
+import { pumpPowerMW } from '../physics/energy.js?v=b7ca2f95';
+import { templateFor } from '../model/metadata.js?v=b7ca2f95';
 
 for (const id of CLASS_IDS) {
   test(`${id}: driver lines stay stowed at both old and corrected release altitudes`, () => {
