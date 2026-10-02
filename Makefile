@@ -96,15 +96,15 @@ capturecheck:  ## The season-capture tool: fixture-server tests, no network beyo
 	$(PY) tests/capture/check.py
 
 # The monitor page's no-script/crawler fallback: the FALLBACK regions in index.html, written
-# from the bundled snapshot by replaying it headless (`?seed=7&data=snapshot`, the golden
+# from the invented exercise by replaying it headless (`?view=exercise`, the golden
 # suite's own pinned run). `fallback` re-shoots the map poster too; the check does not — a
 # canvas capture is not byte-stable — but it DOES re-run the replay and diff every region,
 # for the same reason figfresh and skincheck regenerate: this repository has twice shipped a
 # gate that lied by comparing a stale file.
-fallback:  ## Regenerate index.html's static fallback block (and its map poster) from the snapshot
+fallback:  ## Regenerate index.html's static fallback block (and its map poster) from the exercise
 	$(PY) tools/gen_fallback.py --poster
 
-fallbackcheck:  ## The fallback block must match a fresh regeneration from the snapshot
+fallbackcheck:  ## The fallback block must match a fresh regeneration from the exercise
 	$(PY) tools/gen_fallback.py --check
 
 labelledcheck:  ## Recompute six external comparisons and refuse stale reports (a MISS stays published)

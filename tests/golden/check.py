@@ -7,8 +7,9 @@ repository, drives a headless browser at
 
     /?view=exercise
 
-— the seed pins every choice the model makes, the snapshot pins every external input — and
-compares two dumps against the files committed in this directory:
+— the invented exercise is a committed file that carries its own seed and every fire, so
+the run makes no unpinned choice and reads no live feed — and compares two dumps against
+the files committed in this directory:
 
     seed7-snapshot.json      every model output: class table, ledger, a grid of planCycle
                              results, the allocated fleet, 240 samples of the state machine

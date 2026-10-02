@@ -98,7 +98,7 @@ EXTRA = r"""
     const envelope = S.regions.find(e=>e.who===r.who && e.kind===r.kind);
     return !envelope || (r.edge || [r.ll]).some(p=>sim.havKm(p,envelope.ll)+r.rKm>envelope.rKm+1e-8);
   }).length;
-  const {select} = await import('/app/map/interact.js?v=78946b28');
+  const {select} = await import('/app/map/interact.js?v=787aaec5');
   out.drawerFailures=[];
   for (const f of S.fires) {
     select({type:'fire',f,m:null});
@@ -123,7 +123,7 @@ EXTRA = r"""
   // The canvas is its own channel: capture the text actually painted, including its
   // exercise watermark and labelled fire markers (there is no separate hover tooltip).
   document.getElementById('btnFitFires').click(); S.layers.labels=true;
-  const {draw}=await import('/app/map/render.js?v=78946b28');
+  const {draw}=await import('/app/map/render.js?v=787aaec5');
   const ctx=document.getElementById('map').getContext('2d'), original=ctx.fillText;
   const painted=[]; ctx.fillText=function(s,...args){painted.push(s);return original.call(this,s,...args);};
   try {draw();} finally {ctx.fillText=original;}

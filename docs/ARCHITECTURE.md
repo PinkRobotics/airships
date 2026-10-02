@@ -325,7 +325,9 @@ Together they fully determine a run. That buys a link that shows another person 
 what you were looking at, a page that works with no network, and tests that compare
 numbers rather than screenshots.
 
-`tests/golden/` holds two recorded runs at `seed=7&data=snapshot`:
+`tests/golden/` holds two recorded runs of the invented exercise (`?view=exercise`), a
+committed scene that carries its own seed and its own fires. The file names keep the
+earlier scene's words:
 
 | File | Produced by | What it pins |
 |---|---|---|

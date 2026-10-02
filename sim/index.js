@@ -24,37 +24,37 @@ export {
   DEFAULTS, CFG, setConfig, resetConfig, REFERENCE_CLASS,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
   TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
-} from './config.js?v=78946b28';
+} from './config.js?v=787aaec5';
 
 export {
   ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
-} from './atmosphere.js?v=78946b28';
+} from './atmosphere.js?v=787aaec5';
 
-export { SEED, setSeed, hashFrac } from './rng.js?v=78946b28';
+export { SEED, setSeed, hashFrac } from './rng.js?v=787aaec5';
 
 export {
   R_EARTH, havKm, moveToward, bez, bezBearing, easeTrap, easeSm, lerpAng, trackBearing,
-} from './geo.js?v=78946b28';
+} from './geo.js?v=787aaec5';
 
-export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=78946b28';
-export { planCycle } from './plan.js?v=78946b28';
-export { findSource, intakePoint } from './water.js?v=78946b28';
-export { CITIES } from './communities.js?v=78946b28';
+export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=787aaec5';
+export { planCycle } from './plan.js?v=787aaec5';
+export { findSource, intakePoint } from './water.js?v=787aaec5';
+export { CITIES } from './communities.js?v=787aaec5';
 
 export {
   insideFire, dropSeg, planTargets, tIdx, segAt, legKmFor, stationFor, deliveryPoint,
   arrivalCurve,
-} from './targets.js?v=78946b28';
+} from './targets.js?v=787aaec5';
 
-export { sizeTier, assign } from './assign.js?v=78946b28';
+export { sizeTier, assign } from './assign.js?v=787aaec5';
 export {
   loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, fireNumber, guardedFire, missionBlocked, keepOutsFor, pointBlocked,
   pathBlocked, noteKm,
-} from './guard.js?v=78946b28';
-export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=78946b28';
-export { buildMission } from './mission.js?v=78946b28';
-export { anchorHang, stateAt } from './state.js?v=78946b28';
-export { narrate, srcName } from './narrate.js?v=78946b28';
-export { selftest } from './selftest.js?v=78946b28';
+} from './guard.js?v=787aaec5';
+export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=787aaec5';
+export { buildMission } from './mission.js?v=787aaec5';
+export { anchorHang, stateAt } from './state.js?v=787aaec5';
+export { narrate, srcName } from './narrate.js?v=787aaec5';
+export { selftest } from './selftest.js?v=787aaec5';
 
-export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=78946b28';
+export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=787aaec5';

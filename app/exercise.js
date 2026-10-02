@@ -1,8 +1,8 @@
 /* The invented view is separate from the dated-day and mirror fallback routes.
  * Every historical keep-out is retained, regardless of its date. */
-import { havKm, keepOutsFor, setSeed } from '../sim/index.js?v=78946b28';
-import { fetchJSON } from './net.js?v=78946b28';
-import { S } from './store.js?v=78946b28';
+import { havKm, keepOutsFor, setSeed } from '../sim/index.js?v=787aaec5';
+import { fetchJSON } from './net.js?v=787aaec5';
+import { S } from './store.js?v=787aaec5';
 
 export const EXERCISE_MODE = 'Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.';
 export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026.';

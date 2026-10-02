@@ -3,8 +3,8 @@
  * One entry per part the ship is made of, grouped tubes / connectors / skins. Everything
  * the committed cell model already knows is READ from it (stockBuild, MATERIALS, the saw
  * table); nothing the model computes is retyped here. Ship-scale entries carry numbers
- * from the verified scoping analysis (~/data/airships-reviews/analysis/
- * 26-08-12-ship-scale-analysis-v2.md) and say so in their `prov` line — they swap to
+ * from the verified scoping analysis (the ship-scale analysis of 12 August 2026,
+ * version 2) and say so in their `prov` line — they swap to
  * ship.js imports when that module lands under the gates (see docs/HANDOFF.md, the
  * seven-levels section). Status vocabulary:
  *
@@ -20,7 +20,7 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0Summary } from './model.js?v=78946b28';
+         SHIP0, ship0Summary } from './model.js?v=787aaec5';
 
 const sb = stockBuild();
 /* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,

@@ -1,16 +1,16 @@
 // Runtime reproduction for OPEN-QUESTIONS #16; no feeds, browser or generated inputs.
-import * as sim from '../../sim/config.js?v=78946b28';
-import { buildMission, findSource, setSeed, stateAt } from '../../sim/index.js?v=78946b28';
-import { buildActuators } from '../../3d/control/actuators.js?v=331c3257';
-import { planCycle } from '../../sim/plan.js?v=78946b28';
-import { airDensity } from '../../sim/atmosphere.js?v=78946b28';
-import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=78946b28';
-import * as viz from '../../3d/model/config.js?v=331c3257';
-import * as mission from '../../3d/anim/mission.js?v=331c3257';
-import * as mass from '../../3d/physics/mass.js?v=331c3257';
-import { pumpPowerMW, derivePower } from '../../3d/physics/energy.js?v=331c3257';
-import { buildLayout } from '../../3d/model/layout.js?v=331c3257';
-import { createHose, updateHose } from '../../3d/anim/hose.js?v=331c3257';
+import * as sim from '../../sim/config.js?v=787aaec5';
+import { buildMission, findSource, setSeed, stateAt } from '../../sim/index.js?v=787aaec5';
+import { buildActuators } from '../../3d/control/actuators.js?v=5bcbf32c';
+import { planCycle } from '../../sim/plan.js?v=787aaec5';
+import { airDensity } from '../../sim/atmosphere.js?v=787aaec5';
+import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=787aaec5';
+import * as viz from '../../3d/model/config.js?v=5bcbf32c';
+import * as mission from '../../3d/anim/mission.js?v=5bcbf32c';
+import * as mass from '../../3d/physics/mass.js?v=5bcbf32c';
+import { pumpPowerMW, derivePower } from '../../3d/physics/energy.js?v=5bcbf32c';
+import { buildLayout } from '../../3d/model/layout.js?v=5bcbf32c';
+import { createHose, updateHose } from '../../3d/anim/hose.js?v=5bcbf32c';
 
 const reads = new Set();
 function traced(obj, label) {
