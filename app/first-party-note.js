@@ -1,7 +1,11 @@
 /* Report what this browser requested, beside the repository's first-party claim. No network calls.
    The note claims only what it checks: the elements in the document, and the browser's Resource Timing
-   log for this document. It cannot see a WebSocket, a connection that has not finished, or what a frame
-   loads inside itself, so it never says "nothing else was contacted": it says what the log shows. */
+   log for this document. It cannot see a WebSocket, a connection that has not finished, a request that
+   failed, a form post, a service worker's own requests, what a frame loads inside itself, or a request
+   to this site that the server redirects to another. A page that shrinks the log hides entries too, and
+   every port of this site's hostname counts as this site. So the note never says "nothing else was
+   contacted": it says what the log shows. It cannot tell who asked for a host it lists, so it names
+   the host and does not say. */
 const LOG_DEFAULT_SIZE = 250;   // Resource Timing keeps this many entries by default, then drops new ones
 let resourceLogFull = false;
 const noteRenderers = new Set();
@@ -59,11 +63,12 @@ export function auditFirstPartyNote(note) {
       const gap = logState === "full"
         ? "The browser's resource log for this page is full; other requests cannot be confirmed."
         : "Resource log unavailable; other requests cannot be confirmed.";
-      // A host listed here was requested by something other than this page's code: the repository's
-      // gate holds that code to its own site. Who added it (the network in front of the site, or the
-      // browser itself) cannot be told from inside the page, so the note does not say.
+      // A host listed here was requested in this browser while the page was open. The repository's
+      // gate holds the published code to its own site. Who asked (code changed after it left the
+      // repository, the network in front of the site, or the browser itself) cannot be told from
+      // inside the page, so the note does not say.
       const message = other.length
-        ? `${own} Also requested in this browser, not by that code: ${other.join(", ")}.` +
+        ? `${own} Also requested in this browser: ${other.join(", ")}.` +
           (logState === "ok" ? "" : ` ${gap}`)
         : logState === "ok"
           ? `${own} The browser's resource log for this page shows no other host.`

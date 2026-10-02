@@ -219,7 +219,7 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'module'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     module = await wait_note('edge-module.invalid')
-    assert module == f'{own} Also requested in this browser, not by that code: edge-module.invalid.', module
+    assert module == f'{own} Also requested in this browser: edge-module.invalid.', module
     assert any(r['url'].startswith('https://edge-module.invalid/') for r in page.requests), page.requests
     print(f'note injected module: {module}')
     await screenshots('edge')
@@ -227,14 +227,14 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'fetch'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     fetched = await wait_note('edge-fetch.invalid')
-    assert fetched == f'{own} Also requested in this browser, not by that code: edge-fetch.invalid.', fetched
+    assert fetched == f'{own} Also requested in this browser: edge-fetch.invalid.', fetched
     assert any(r['url'].startswith('https://edge-fetch.invalid/') for r in page.requests), page.requests
     print(f'note injected fetch: {fetched}')
 
     Handler.note_variant = 'late'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     late = await wait_note('edge-late.invalid')
-    assert late == (f'{own} Also requested in this browser, not by that code: edge-late.invalid. '
+    assert late == (f'{own} Also requested in this browser: edge-late.invalid. '
                     "The browser's resource log for this page is full; other requests cannot be confirmed."), late
     assert any(r['url'].startswith('https://edge-late.invalid/') for r in page.requests), page.requests
     full = await page.evaluate(

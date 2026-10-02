@@ -359,10 +359,13 @@ to load. The network serving the public site can alter the response after this c
 repository. The monitor's first-party note therefore scans load-bearing elements and the browser's
 resource log for the page, and is handed each later log entry as the browser records it, so a log
 that fills up cannot hide a later request. It always states the code's own claim, names any other
-host it sees, and says when the log is unavailable or was already full when the note started. The
-note does not make a request. It claims only what it checks: a WebSocket, a connection that has not
-finished, and what a frame loads inside itself are outside the log. This is a visible audit, not a
-complete network trace.
+host it sees, and says when the log is unavailable or was already full when the note started. It
+does not say who asked for a host it names: changed code, the network in front of the site and the
+browser itself look the same from inside the page. The note does not make a request. It claims only
+what it checks. Outside the log are a WebSocket, a connection that has not finished, a request that
+failed, a form post, a service worker's own requests, what a frame loads inside itself, and a
+request to this site that the server redirects to another. A page that shrinks the log hides
+entries too. This is a visible audit, not a complete network trace.
 
 After each deploy, run `python3 tools/check_first_party.py <address>` for each published page.
 It sends one browser-like HTML request per address, reports foreign loads in the returned HTML
