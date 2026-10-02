@@ -108,8 +108,8 @@ def fleet_sentence(day):
 GUARD_NOTE = re.compile(
     r"^The simulated fleet never works a fire that was a wildfire of note or led to an "
     rf"evacuation order or alert, and it keeps {PIN['noteKm']} km from those that forced "
-    r"people out\. Fires ever under an evacuation order or alert are held out by the "
-    r"province's own public record of orders and alerts\. The list and its sources are in "
+    r"people out\. Fires under an evacuation order or alert on any captured day are held out "
+    r"by the province's own public record of orders and alerts\. The list and its sources are in "
     r"data/season/2026\.guard\.json\.$")
 # The one place "would have" is allowed is inside the mandated fleet sentence itself, whose
 # whole point is to refuse the claim. The sentence is stripped before the scan.
@@ -259,7 +259,7 @@ def the_static_fallback_carries_the_ruled_sentences():
     # The exercise moves only the static reference to the exercise. The live fallback
     # remains SAMPLE_DAY, checked on the page below; all other guard pins stay intact.
     mode = "Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real."
-    note = "No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026."
+    note = "No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every 2026 fire on the guard list and from every wildfire of note in the season record."
     same(joined.count(mode), 1, "the exact exercise mode sentence, once")
     assert note in joined, "the static exercise does not carry the ruled note"
     return "exercise sentence once, exercise note present, no refused words"

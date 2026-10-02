@@ -170,13 +170,13 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Source:** data/bc-outline.json<br>data/season/2026.days.json<br>data/season/2026.guard.json<br>data/season/2026.json<br>data/season/days/2026-08-08/fires.json<br>data/season/days/2026-08-08/perims.json<br>data/season/days/2026-08-09/fires.json<br>data/season/days/2026-08-09/perims.json<br>data/season/days/2026-08-10/fires.json<br>data/season/days/2026-08-10/perims.json<br>data/season/days/2026-08-11/fires.json<br>data/season/days/2026-08-11/perims.json<br>data/season/days/2026-08-12/fires.json<br>data/season/days/2026-08-12/perims.json<br>data/season/days/2026-08-13/fires.json<br>data/season/days/2026-08-13/perims.json<br>data/season/days/2026-08-14/fires.json<br>data/season/days/2026-08-14/perims.json<br>data/season/days/2026-08-15/fires.json<br>data/season/days/2026-08-15/perims.json<br>data/season/days/2026-09-20/fires.json<br>data/season/days/2026-09-20/perims.json<br>data/season/days/2026-09-22/fires.json<br>data/season/days/2026-09-22/perims.json<br>data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/terrain-bc.jpg<br>data/water-bc.json<br>sim/communities.js
 
-**SHA-256:** b12b1c61fe7a9e608b2fc3e259b53c2cf290206b00d186b5431588a173fdccc1
+**SHA-256:** 46a4ea516c46a083b3f38cff269da5157dd0737691b4a623cc37303e66b7db83
 
 **Decision reason:** Project-authored synthetic data, describing no real fire.
 
 **Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to enclosing discs of every guard and season-note observation and captured perimeter, on every captured date; guard places on all dates. Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
 
-**Measured contents:** 174,505 bytes
+**Measured contents:** 174,557 bytes
 
 **Record:** data/exercise/exercise.prov.json
 

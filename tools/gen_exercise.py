@@ -19,8 +19,10 @@ SEED = 7
 REGION = {"name": "Northern interior of British Columbia", "bbox": [-125.5, 57.0, -121.5, 59.8]}
 LIMITS = {"guardKm": 150, "seasonNoteKm": 150, "communityKm": 25}
 MODE = "Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real."
+assert LIMITS["guardKm"] == LIMITS["seasonNoteKm"], "the note states one distance for both limits"
 NOTE = ("No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses "
-        "under load, on ground far from every community that was under an evacuation order in 2026.")
+        f"under load. Its ground was chosen at least {LIMITS['guardKm']} km from every 2026 fire on the guard "
+        "list and from every wildfire of note in the season record.")
 
 
 def read(path):

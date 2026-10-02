@@ -455,8 +455,8 @@ export function guardNoteWords() {
     : "";
   return "The simulated fleet never works a fire that was a wildfire of note or led to an " +
     "evacuation order or alert, and it keeps " + noteKm(S.guard) + " km from those that " +
-    "forced people out. Fires ever under an evacuation order or alert are held out by the " +
-    "province's own public record of orders and alerts" + clause +
+    "forced people out. Fires under an evacuation order or alert on any captured day are " +
+    "held out by the province's own public record of orders and alerts" + clause +
     ". The list and its sources are in data/season/2026.guard.json.";
 }
 

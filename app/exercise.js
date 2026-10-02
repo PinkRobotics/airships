@@ -5,7 +5,7 @@ import { fetchJSON } from './net.js?v=787aaec5';
 import { S } from './store.js?v=787aaec5';
 
 export const EXERCISE_MODE = 'Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.';
-export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026.';
+export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every 2026 fire on the guard list and from every wildfire of note in the season record.';
 
 export async function loadExercise(normalize, fetchDayFile) {
   S.exercise = true; S.day = null; S.daySource = 'exercise'; S.tier = 'exercise';

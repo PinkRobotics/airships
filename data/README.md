@@ -13,7 +13,7 @@ Recompute every current count without network access: `python3 tools/noticecheck
 | File | Bytes | Measured contents | Generator |
 |---|---:|---|---|
 | `bc-outline.json` | 18,949 | 23 rings, 1,064 vertices | pipeline/vectors.py |
-| `exercise/exercise.json` | 174,505 | See source record | tools/gen_exercise.py |
+| `exercise/exercise.json` | 174,557 | See source record | tools/gen_exercise.py |
 | `fire-history-bc.json` | 1,037,475 | 3,286 perimeters | pipeline/firehistory.py |
 | `roads-bc.json` | 86,265 | 306 polylines, 4,823 vertices | pipeline/vectors.py |
 | `season/2026.evac.json` | 10,641 | See source record | pipeline/season.py |

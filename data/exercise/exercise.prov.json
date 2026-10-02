@@ -66,14 +66,14 @@
     "seasonNoteKm": 150
   },
   "measurements": {
-    "bytes": 174505
+    "bytes": 174557
   },
   "minimumDistancesKm": {
     "communityKm": 45.137,
     "guardKm": 561.237,
     "seasonNoteKm": 561.237
   },
-  "note": "No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026.",
+  "note": "No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every 2026 fire on the guard list and from every wildfire of note in the season record.",
   "notes": "This invented scene describes no real fire. 32-vertex radial polygons at >=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to enclosing discs of every guard and season-note observation and captured perimeter, on every captured date; guard places on all dates. Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.",
   "placementCommunityClearanceKm": 45,
   "publisher": "Pink Robotics",
@@ -87,7 +87,7 @@
     "name": "Northern interior of British Columbia"
   },
   "seed": 7,
-  "sha256": "b12b1c61fe7a9e608b2fc3e259b53c2cf290206b00d186b5431588a173fdccc1",
+  "sha256": "46a4ea516c46a083b3f38cff269da5157dd0737691b4a623cc37303e66b7db83",
   "source": [
     "data/bc-outline.json",
     "data/season/2026.days.json",
