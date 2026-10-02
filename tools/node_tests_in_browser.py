@@ -69,6 +69,7 @@ SHIM_ASSERT = (
 # Explicit exclusions only: new import failures remain failures. These source scans
 # use recursive directory enumeration and synchronous reads, which a browser lacks.
 NODE_ONLY = {
+    'builder-line.test.mjs': 'requires node:child_process and Git history; run make buildercheck',
     'spec-required.test.mjs': 'requires node:fs directory enumeration and synchronous source-file reads',
 }
 # The remaining suites currently register 106 tests. Keep a lower bound so a broken

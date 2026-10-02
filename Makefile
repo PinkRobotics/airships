@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck clean
+        firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -80,6 +80,10 @@ mutationcheck:  ## Require every parity mutation to fail, then verify the restor
 
 readmecheck:  ## Refuse README figures that differ from generated model records
 	$(PY) tools/gen_readme.py --check
+
+buildercheck:  ## Require a named builder on recorded changes; exempt only attestation files
+	$(PY) tools/check_builder_line.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_builder_line.py'
 
 ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
 	$(PY) tools/check_ci_parity.py
