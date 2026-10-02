@@ -432,7 +432,7 @@ class RecordContracts(unittest.TestCase):
         import check_float_ledger as gate
         file = 'ship/example.html'
         self.write(file, '<p>The flight model assumes a hull that floats; no drawn hull does. '
-                   '<a href="../docs/FLOAT.md">The float case</a>.</p>')
+                   '<a href="../float/">The float case</a>.</p>')
         with patch.object(gate, 'ROOT', self.root):
             line, text, raw = list(gate.source_blocks(self.root / file))[0]
         h, e = self.block(text, 'bound', file=file, bindings=[{
@@ -444,8 +444,66 @@ class RecordContracts(unittest.TestCase):
         result, errors = self.apply([h, flight], [e, fe])
         self.assertEqual(errors, [])
         self.assertEqual(result[1]['status'], 'ALLOW', result[1]['reason'])
-        h['raw'] = raw.replace('../docs/FLOAT.md', '../docs/elsewhere.md')
+        h['raw'] = raw.replace('../float/', '../docs/elsewhere.md')
         result, errors = self.apply([h, flight], [e, fe])
+        self.assertEqual(result[1]['status'], 'FAIL')
+        self.assertIn('no bound block', result[1]['reason'])
+
+    def html_assumption(self, href, file='ship/example.html'):
+        """An HTML assumption block and the flight block that names it, read as the gate reads."""
+        import check_float_ledger as gate
+        self.write(file, '<p>The flight model assumes a hull that floats; no drawn hull does. '
+                   f'<a href="{href}">The float case</a>.</p>')
+        with patch.object(gate, 'ROOT', self.root):
+            line, text, raw = list(gate.source_blocks(self.root / file))[0]
+        self.assertIn(f'href="{href}"', raw)
+        h, e = self.block(text, 'bound', file=file, bindings=[{
+            'source': claims.LEDGER_PATH, 'pointer': '/verdict',
+            'equals': 'Nothing floats today as drawn.'}])
+        h['raw'] = raw
+        flight, fe = self.block('The simulated ship floats after releasing its water.',
+                                'flight-model', file=file, assumption=e['key'])
+        result, errors = self.apply([h, flight], [e, fe])
+        self.assertEqual(errors, [])
+        return result[1]
+
+    def test_html_assumption_that_links_the_document_is_not_an_assumption(self):
+        # The site does not publish docs/, so on a page that link is dead.
+        for file, href in (('ship/example.html', '../docs/FLOAT.md'),
+                           ('index.html', 'docs/FLOAT.md'),
+                           ('ship/example.html', '../docs/FLOAT.md#the-verdict')):
+            with self.subTest(file=file, href=href):
+                flight = self.html_assumption(href, file)
+                self.assertEqual(flight['status'], 'FAIL')
+                self.assertIn('no bound block', flight['reason'])
+
+    def test_html_assumption_that_links_the_published_float_case_passes(self):
+        for file, href in (('ship/example.html', '../float/'),
+                           ('ship/example.html', '../float/index.html'),
+                           ('ship/example.html', '../float/#the-verdict'),
+                           ('index.html', 'float/'),
+                           ('index.html', 'float/index.html')):
+            with self.subTest(file=file, href=href):
+                flight = self.html_assumption(href, file)
+                self.assertEqual(flight['status'], 'ALLOW', flight['reason'])
+        # The ledger page and the census page are not the float case; nor is ship/float/.
+        for href in ('../float/ledger.html', '../float/census.html', 'float/', '../floats/'):
+            with self.subTest(href=href):
+                flight = self.html_assumption(href)
+                self.assertEqual(flight['status'], 'FAIL')
+                self.assertIn('no bound block', flight['reason'])
+
+    def test_markdown_assumption_links_the_document_as_before(self):
+        a, ae = self.assumption()
+        h, e = self.block('The simulated hull floats upward.', 'flight-model', assumption=ae['key'])
+        result, errors = self.apply([a, h], [ae, e])
+        self.assertEqual((errors, result[1]['status']), ([], 'ALLOW'))
+        # A document links the document; the published page does not stand in for it.
+        a, ae = self.block('The flight model assumes a hull that floats; no drawn hull does. '
+                           'See [the float case](../float/index.html).', 'bound',
+                           bindings=ae['bindings'])
+        h, e = self.block('The simulated hull floats upward.', 'flight-model', assumption=ae['key'])
+        result, errors = self.apply([a, h], [ae, e])
         self.assertEqual(result[1]['status'], 'FAIL')
         self.assertIn('no bound block', result[1]['reason'])
 

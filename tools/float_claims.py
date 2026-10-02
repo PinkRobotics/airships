@@ -63,7 +63,10 @@ Each cap-range binding names the altitude encoded in its source pointer.
 The same checks apply to ledger-case and JSON-pointer bindings. Every bound binder route
 must be covered, and a live-model binder must resolve. A flight assumption explicitly
 names the flight model, withholds buoyancy from drawn hulls, binds the ledger verdict,
-and links docs/FLOAT.md. Dated notices name their date as well as linking the ledger.
+and links the float case where its reader can open it: an HTML page links the published
+page (float/index.html; a link to the directory counts), and a Markdown document links
+docs/FLOAT.md. An HTML block that links docs/FLOAT.md is not an assumption block: the site
+does not publish docs/. Dated notices name their date as well as linking the ledger.
 
 Usage:
   python3 tools/float_claims.py --propose FILE [FILE ...]   # a shard skeleton, class UNREVIEWED
@@ -184,6 +187,15 @@ def links_to(text, file, target):
     links = re.findall(r'\]\(([^\s)]+)(?:\s+[^)]*)?\)|href=[\"\']([^\"\']+)', text)
     return any((ROOT / file).parent.joinpath((md or html).split('#')[0]).resolve()
                == (ROOT / target).resolve() for md, html in links)
+
+
+def links_float_case(text, file):
+    """Whether a block links the float case where its reader can open it.
+
+    A page links the published page; a link to its directory counts. A document links the
+    document. The site does not publish docs/, so on a page that link would be dead."""
+    targets = ('float', 'float/index.html') if file.endswith('.html') else ('docs/FLOAT.md',)
+    return any(links_to(text, file, target) for target in targets)
 
 
 def squash(text: str) -> str:
@@ -485,7 +497,7 @@ def apply(hits, ledger):
                 and re.search(r'hull.*float', assumption_text, re.I)
                 and re.search(r'no drawn hull|nothing floats today as drawn|no.*hull.*(?:drawn|float)',
                               assumption_text, re.I)
-                and links_to(hit.get('raw', hit['sentence']), name, 'docs/FLOAT.md')):
+                and links_float_case(hit.get('raw', hit['sentence']), name)):
             assumptions.setdefault(name, set()).add(key)
         if entry['class'] == 'bound':
             fields = {field for b in entry.get('bindings', []) if (field := sources.ratio_field(b))}
