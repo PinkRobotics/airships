@@ -16,7 +16,7 @@
  * (ctx.envRing), so the ship has company from every azimuth as it turns.
  * prefers-reduced-motion gets a still ship; a machine without WebGL2 keeps
  * whatever fallback the hosting section painted behind the canvas. */
-import { mountExplorer, LEVELS } from './explorer.js?v=787aaec5';
+import { mountExplorer, LEVELS } from './explorer.js?v=762fdcfd';
 
 export function mountShipHero(canvas) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;

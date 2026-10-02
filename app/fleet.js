@@ -1,12 +1,12 @@
 /* Allocating sixteen hulls to the fires that most need them — and keeping them off the
  * fires and places the guard holds (sim/guard.js, data/season/2026.guard.json).
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, planCycle } from '../sim/index.js?v=787aaec5';
-import { renderDrawer } from './cockpit/panels.js?v=787aaec5';
-import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=787aaec5';
-import { needsShip } from './feeds.js?v=787aaec5';
-import { S } from './store.js?v=787aaec5';
-import { renderWorked } from './worked.js?v=787aaec5';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, planCycle } from '../sim/index.js?v=762fdcfd';
+import { renderDrawer } from './cockpit/panels.js?v=762fdcfd';
+import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=762fdcfd';
+import { needsShip } from './feeds.js?v=762fdcfd';
+import { S } from './store.js?v=762fdcfd';
+import { renderWorked } from './worked.js?v=762fdcfd';
 
 /* The fleet is FIXED: ten P-100s, five P-1000s, one P-10000 — sixteen hulls for the whole
    province, allocated largest-first to the fires that fit them best (priority, class fit,
