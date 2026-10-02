@@ -8,9 +8,9 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction capturecheck lint check stamp figures pdf pdfcheck figfresh \
+.PHONY: help serve test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
-        assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
+        assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
@@ -185,8 +185,11 @@ contractcheck:  ## The frozen connection contract must exist and cover this arti
 # makes the coming weight optimisation safe: shrink a node, lose 3 mm of engagement on nine
 # arms, and this goes red with those nine arms named rather than passing on an unchanged
 # triangle count. Nothing in this file re-freezes it — see `contractfreeze`.
-assemblycheck:  ## Measure all 432 member-ends from the joint SDF against the frozen contract
+assemblycheck:  ## Measure connections, compare the frozen contract and recorded report
 	$(PY) tools/check_assembly.py
+
+assemblygenerate:  ## Generate the measured assembly report; inspect every changed physical value
+	$(PY) tools/check_assembly.py --json research/geometry/nodes/assembly.json
 
 # NOT IN `check`, AND IT NEVER WILL BE. Re-freezing is a decision, not a build step: it says
 # "these connections are different now and I have read how". The script prints every property
@@ -203,12 +206,13 @@ stampcheck:  ## Fail if any import is stamped at a version other than the curren
 	@$(PY) 3d/scripts/stamp-version.py --check
 	@$(PY) tools/stamp_site.py --check
 
-pdf:  ## Build the three report PDFs from research/reports/ into research/pdf/out/
+pdf: pdfgenerate  ## Generate the three report PDFs from their source documents
+
+pdfgenerate:  ## Generate charts and report PDFs into research/pdf/out/
 	$(PY) research/pdf/build.py
 
-pdfcheck:  ## Fail if the reports no longer convert, or the PDFs no longer set cleanly
-	$(PY) tools/md2tex.py >/dev/null
-	$(PY) research/pdf/build.py --fast --strict
+pdfcheck:  ## Build in scratch; compare PDF content and refuse layout errors
+	$(PY) research/pdf/build.py --check --fast --strict
 
 # THE MOST IMPORTANT CHECK HERE. `figcheck` compares the reports against
 # research/figures.json and prints "N cited figures match the model" — but figures.json is a

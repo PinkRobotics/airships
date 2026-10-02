@@ -1951,6 +1951,14 @@ def contract_coverage(frozen, g, topo, manifest, prm):
 
 
 # ------------------------------------------------------------------------------ the gate --
+def comparable_report(report):
+    """Compare every physical result; omit only the two host-duration measurements."""
+    clean = json.loads(json.dumps(report))
+    for key in ('runtimeS', 'fieldS'):
+        del clean['verdict'][key]
+    return json.dumps(clean, sort_keys=True, separators=(',', ':'))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(
         description="Measure all 432 member-ends out of the joint SDF and hold them to a "
@@ -1978,7 +1986,7 @@ def main() -> None:
                          "exist, is it this prover's schema, and does it cover this article? "
                          "Measures nothing — `make contractcheck` runs it ahead of the full "
                          "property diff, which rides in the normal run")
-    ap.add_argument("--json", default=str(REPORT))
+    ap.add_argument("--json", help="explicitly generate the measured report at this path")
     args = ap.parse_args()
     if args.freeze and args.contract_only:
         sys.exit("check_assembly: --freeze needs the measurement and --contract-only skips it.")
@@ -4220,7 +4228,23 @@ def main() -> None:
                     "runtimeS": round(time.time() - t_start, 1),
                     "fieldS": round(field_s, 1)},
     }
-    pathlib.Path(args.json).write_text(json.dumps(report, indent=1))
+    report_drift = False
+    if args.json:
+        pathlib.Path(args.json).write_text(json.dumps(report, indent=1))
+    elif not args.freeze:
+        # Elapsed time measures the host, not the article. All other recorded values,
+        # including known failures and the contract, must still match the generated report.
+        try:
+            recorded = json.loads(REPORT.read_text())
+            report_drift = comparable_report(recorded) != comparable_report(report)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            print(f"assembly report cannot be compared: {type(exc).__name__}")
+            report_drift = True
+        if report_drift:
+            print("assembly report differs beyond verdict.runtimeS and verdict.fieldS; "
+                  "inspect the change before running make assemblygenerate")
+        else:
+            print("assembly report content matches; ignored only elapsed runtimeS and fieldS")
 
     # ====================================================================== THE VOICE ==
     # THE EXIT CODE IS THE CONTRACT. A frozen row that still measures its frozen value is a
@@ -4228,7 +4252,7 @@ def main() -> None:
     # it must not red the repo's only CI entry point every day until someone fixes it. Anything
     # that is news exits 1: an unfrozen failure, a row that moved in either direction, a broken
     # calibration, a sentence that no longer matches the geometry.
-    failed = bool(bad) or n_unfrozen_fail > 0
+    failed = bool(bad) or n_unfrozen_fail > 0 or report_drift
     if cap_drift and not args.freeze:
         # ABOVE EVERYTHING, and not folded into the `bad` list, because a moved connection
         # property is the one failure whose whole value is in the detail. `bad` carries the
@@ -4287,7 +4311,7 @@ def main() -> None:
             print(f"  {a['id']} {a['name']}:")
             for line in a["lines"]:
                 print("      " + wrap_text(line))
-        print(f"  ledger: {len(KNOWN)} frozen defects; report {args.json}; "
+        print(f"  ledger: {len(KNOWN)} frozen defects; report {args.json or 'compared in memory'}; "
               f"{report['verdict']['runtimeS']:.1f} s "
               f"({report['verdict']['fieldS']:.1f} s in the field), params from "
               f"{params_source}, mode {report['sampling']['mode']}.")
@@ -4303,6 +4327,9 @@ def main() -> None:
                   f"moves in either direction, a new one appears, or a published sentence stops "
                   f"matching the geometry.")
         sys.exit(1 if failed else 0)
+
+    if report_drift:
+        sys.exit(1)
 
     print(f"{2 * E} connections proven: {V} nodes, {E} members, {topo['cycleRank']} closing "
           f"(E-V+C), {len(end_class_rows)} end classes, "

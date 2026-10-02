@@ -3,11 +3,12 @@
 
     python3 research/pdf/build.py            # charts, tex, pdfs
     python3 research/pdf/build.py --fast     # skip the charts
+    python3 research/pdf/build.py --check --fast --strict  # compare in TMPDIR
 
 The Markdown in research/reports/ is the source; tools/md2tex.py converts it and this drives
-lualatex over the result. Nothing here contains a sentence of the reports, on purpose.
+pdfLaTeX over the result. Nothing here contains a sentence of the reports, on purpose.
 """
-import argparse, pathlib, re, shutil, subprocess, sys
+import argparse, hashlib, pathlib, re, shutil, subprocess, sys, tempfile
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -43,13 +44,76 @@ def run(cmd, **kw):
     return r
 
 
+def pdf_content(path, scratch):
+    """Text, links, document/page properties and visible pixels, independent of PDF encoding."""
+    def output(cmd):
+        return subprocess.run(cmd, check=True, capture_output=True).stdout
+    info = output(['pdfinfo', '-box', str(path)]).decode('utf-8', errors='replace')
+    pages = int(re.search(r'^Pages:\s+(\d+)', info, re.M)[1])
+    info = output(['pdfinfo', '-box', '-f', '1', '-l', str(pages), str(path)]).decode('utf-8', errors='replace')
+    # These describe the build/container, not the document. Page geometry, title, author,
+    # permissions and tagging remain compared. PDF object IDs/compression are never decoded
+    # into a content claim; the rendered pages and extracted text are compared instead.
+    ignored = {'CreationDate', 'ModDate', 'Creator', 'Producer', 'File size', 'PDF version',
+               'Optimized', 'Custom Metadata', 'Metadata Stream'}
+    properties = [line for line in info.splitlines() if line.split(':', 1)[0] not in ignored]
+    text = output(['pdftotext', '-layout', str(path), '-'])
+    links = output(['pdfinfo', '-url', str(path)])
+    scratch.mkdir()
+    output(['pdftoppm', '-r', '96', '-png', str(path), str(scratch / 'page')])
+    pixels = [hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(scratch.glob('page-*.png'))]
+    if pages < 1 or len(pixels) != pages:
+        raise ValueError('PDF page raster count does not match its page count')
+    return {'properties': properties, 'text': text, 'links': links, 'pages': pixels}
+
+
+def check(stems, fast, strict):
+    """Rebuild in TMPDIR and compare with the recorded PDFs without touching the source tree."""
+    with tempfile.TemporaryDirectory(prefix='pdf-check-') as tmp:
+        root = pathlib.Path(tmp)
+        here = root / 'research' / 'pdf'
+        shutil.copytree(HERE, here, ignore=shutil.ignore_patterns('out', '__pycache__'))
+        shutil.copytree(ROOT / 'research' / 'reports', root / 'research' / 'reports')
+        shutil.copy2(ROOT / 'research' / 'figures.json', root / 'research' / 'figures.json')
+        (root / 'tools').mkdir()
+        shutil.copy2(ROOT / 'tools' / 'md2tex.py', root / 'tools' / 'md2tex.py')
+        cmd = [sys.executable, str(here / 'build.py')]
+        if fast: cmd.append('--fast')
+        if strict: cmd.append('--strict')
+        r = run(cmd + stems, cwd=root)
+        print(r.stdout.strip())
+        if r.returncode: return 1
+        different = False
+        for stem in stems:
+            recorded = pdf_content(HERE / 'out' / f'{stem}.pdf', root / (stem + '-recorded'))
+            rebuilt = pdf_content(here / 'out' / f'{stem}.pdf', root / (stem + '-rebuilt'))
+            moved = [key for key in recorded if recorded[key] != rebuilt[key]]
+            if moved:
+                different = True
+                print(f'pdfcheck: {stem}: content differs in {", ".join(moved)}; '
+                      'inspect before make pdfgenerate')
+            else:
+                print(f'pdfcheck: {stem}: text, links, properties and all '
+                      f'{len(recorded["pages"])} page rasters match')
+        print('pdfcheck ignores build dates, creator/producer metadata, PDF IDs and container '
+              'encoding; page rasters are compared at 96 dpi and extracted text exactly')
+        return 1 if different else 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--fast', action='store_true')
+    ap.add_argument('--check', action='store_true', help='build in TMPDIR and compare recorded PDF content')
     ap.add_argument('--strict', action='store_true',
                     help='fail on an overfull box wide enough to leave the page')
     ap.add_argument('which', nargs='*')
     a = ap.parse_args()
+    if a.check:
+        try:
+            return check(a.which or list(META), a.fast, a.strict)
+        except (OSError, subprocess.SubprocessError, ValueError) as exc:
+            print(f'pdfcheck: could not compare PDF content ({type(exc).__name__})', file=sys.stderr)
+            return 1
 
     if not a.fast:
         for chart in sorted((HERE / 'charts').glob('*.py')):
