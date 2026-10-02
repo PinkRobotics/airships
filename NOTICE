@@ -6,7 +6,7 @@ The fleet is simulated and never flew. The fire data is real; nothing here says 
 
 redistributed: included under the recorded terms; link-only: the public repository retains the source and hash, not the file; withheld: excluded pending author review; to-confirm: excluded until a person confirms the terms. Excluded records are an audit trail, not a redistribution notice or a claim of permission. The wind record describes an unbundled server service, not a repository file.
 
-77 file records: 61 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
+78 file records: 62 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
 
 ## Per-file decisions
 
@@ -18,6 +18,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 | data/live/wind.json | Open-Meteo, with underlying national weather services | CC BY 4.0 for the forecast data; API-use terms separately govern the operator | link-only | data/wind.prov.json; recorded reference https://open-meteo.com/en/license. One request on 2026-10-02 returned no readable text; prior wording retained, not freshly verified. |
 | data/roads-bc.json | Natural Earth | public domain | redistributed | https://www.naturalearthdata.com/about/terms-of-use/; publisher Terms of Use, read 2026-10-02. |
 | data/season/2026.days.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
+| data/season/2026.guard.json | Pink Robotics | Apache-2.0, the code licence (see LICENSE): this is the project&#x27;s own editorial file, not agency data | redistributed | LICENSE; project-authored list compiled by hand, not agency data. |
 | data/season/2026.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/2026.summary.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/days/2026-08-08/fires.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
@@ -46,7 +47,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 | data/snapshot.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. |
 | data/terrain-bc.jpg | AWS Open Data / Tilezen Terrain Tiles, compositing CDEM (Natural Resources Canada) over Canada, SRTM (NASA/USGS) over the United States portion, GMTED2010 (USGS) north of 60 degrees, and ETOPO1 (NOAA) in the ocean | Per-source, not a single licence. Canada: Open Government Licence - Canada. SRTM and GMTED2010: United States public domain, credit requested. ETOPO1: United States public domain, credit requested. | redistributed | data/terrain-bc.prov.json; previously recorded terms reference: https://github.com/tilezen/joerd/blob/master/docs/attribution.md (publisher page not re-read in this repair). |
 | data/water-bc.json | Province of British Columbia, GeoBC Branch - Freshwater Atlas | Open Government Licence - British Columbia, version 2.0 | redistributed | data/water-bc.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. |
-| media/map-snapshot.jpg | Pink Robotics, from the sources listed in derivedFrom | Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (heat and CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply. | redistributed | Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant. |
+| media/map-snapshot.jpg | Pink Robotics, from the sources listed in derivedFrom | Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply. | redistributed | Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant. |
 | research/papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf | MDPI, Eng 2021, 2(4), 480-491 | Creative Commons Attribution (CC BY) license | redistributed | research/papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf, PDF page 1; read locally with pdftotext (line wraps joined). |
 | research/papers/ardema-1984-lta-missions.pdf | NASA Ames Research Center, NASA TM-86672 | Public domain / government public use permitted. NTRS records this item&#x27;s copyright determinationType as GOV_PUBLIC_USE_PERMITTED and its distribution as PUBLIC. | redistributed | research/papers/ardema-1984-lta-missions.pdf.prov.json; previously recorded terms reference: https://ntrs.nasa.gov/api/citations/19850008448 (publisher page not re-read in this repair). |
 | research/papers/arnaiz-del-pozo-2020-nitrogen-liquefaction.pdf | MDPI, Entropy 2020, 22(9), 959 | Creative Commons Attribution (CC BY) license | redistributed | research/papers/arnaiz-del-pozo-2020-nitrogen-liquefaction.pdf, PDF page 18; read locally with pdftotext (line wraps joined). |
@@ -260,6 +261,34 @@ redistributed: included under the recorded terms; link-only: the public reposito
 **Measured contents:** 13,868 bytes
 
 **Record:** data/season/2026.prov.json
+
+### data/season/2026.guard.json
+
+**Decision:** redistributed
+
+**Publisher:** Pink Robotics
+
+**Licence:** Apache-2.0, the code licence (see LICENSE): this is the project&#x27;s own editorial file, not agency data
+
+**Licence statement:** Apache License, Version 2.0
+
+**Statement evidence:** LICENSE; project-authored list compiled by hand, not agency data.
+
+**Terms address:** LICENSE
+
+**Attribution:** Pink Robotics. Licensed under Apache-2.0.
+
+**Source:** the public reporting and official releases cited entry by entry in the file itself
+
+**SHA-256:** 803f6879c4aaad24865623a762250a39420da424811d41905a44d4b72f948626
+
+**Decision reason:** The project owns this editorial list.
+
+**Processing and caveats:** generator is null because no script produces this file: it was written by hand from research reading, and every entry carries exactly one source link to the reporting it rests on. It quotes nothing and names nobody. The fire numbers and names were resolved against season/2026.json; the two entries the season record has no incident name for carry the geographic description the day files use. Nothing here has official status and no provider endorses it. The file&#x27;s canonical digest (json.dumps of the parsed file, sort_keys, compact separators) is pinned in tests/guard/check.py, so changing a window, an entry or a distance is a deliberate two-place edit.
+
+**Measured contents:** 6,382 bytes
+
+**Record:** data/season/2026.guard.prov.json
 
 ### data/season/2026.json
 
@@ -1051,25 +1080,25 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Publisher:** Pink Robotics, from the sources listed in derivedFrom
 
-**Licence:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (heat and CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
+**Licence:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
 
-**Licence statement:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (heat and CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
+**Licence statement:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
 
 **Statement evidence:** Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant.
 
 **Terms address:** DATA-SOURCES.md
 
-**Attribution:** Contains information licensed under the Open Government Licence - British Columbia. Contains information licensed under the Open Government Licence - Canada. Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+**Attribution:** Contains information licensed under the Open Government Licence - British Columbia. Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
 
-**Source:** data/snapshot.json<br>data/snapshot-heat.json<br>data/water-bc.json<br>data/terrain-bc.jpg<br>data/roads-bc.json<br>data/bc-outline.json
+**Source:** data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/water-bc.json<br>data/terrain-bc.jpg<br>data/roads-bc.json<br>data/bc-outline.json
 
-**SHA-256:** 120e8a5803a50fe0c9a639a59f596b32cd66977040a95da1c68b3c977b1669a1
+**SHA-256:** d3f9414317428d82992797185bc50263096c5b66691a580558991e15c96f418d
 
 **Decision reason:** Existing bundled data decision retained; this repair records attribution and verifies local bytes.
 
-**Processing and caveats:** This is the static no-script poster of the rendered map, not an agency image. Its component licences and attribution travel with the poster.
+**Processing and caveats:** This is the static no-script poster of the rendered map, not an agency image. Its component licences and attribution travel with the poster. This rendering uses the dated season replay for 1 October 2026, with simulated fleet positions and no heat or wind forecast.
 
-**Measured contents:** 83,403 bytes
+**Measured contents:** 87,614 bytes
 
 **Record:** media/map-snapshot.prov.json
 

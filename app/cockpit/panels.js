@@ -6,7 +6,7 @@ import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=
 import { shipViz } from '../cockpit/shipviz.js?v=26282d19';
 import { updateRoster } from '../cockpit/tables.js?v=26282d19';
 import { $, cycleBar, esc, kvRows } from '../dom.js?v=26282d19';
-import { needsShip } from '../feeds.js?v=26282d19';
+import { guardNoteWords, modeWords, needsShip } from '../feeds.js?v=26282d19';
 import { S } from '../store.js?v=26282d19';
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
@@ -69,7 +69,11 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   O.hidden = false;
   phaseDialObj = null;
   if (!S.sel || (!S.sel.m && !S.sel.f)) {
-    O.innerHTML = '<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">Nothing selected. Click a <b style="color:var(--warm)">ship</b> to open the cockpit — the airship and its forces on the left, the helm dials on the right, the operation down here — or click a fire or water source for its record.</div>';
+    // On a record-only day there is no fleet to point at, so the empty state points at the
+    // record instead, and carries the mode sentence rather than cockpit instructions.
+    O.innerHTML = S.recordOnly
+      ? `<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">No fleet is simulated for this day. Click a <b style="color:var(--warm)">fire</b> for its published record — status, size, cause, perimeter — as British Columbia reported it.<br><br>${esc(modeWords())}</div>`
+      : '<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">Nothing selected. Click a <b style="color:var(--warm)">ship</b> to open the cockpit — the airship and its forces on the left, the helm dials on the right, the operation down here — or click a fire or water source for its record.</div>';
     noteSelection();
     return;
   }
@@ -162,7 +166,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       : "";
     requestAnimationFrame(sizeAvatar);
     O.innerHTML = `<div class="ops3">
-      <div><h4>Operation · live incident</h4>` + kvRows([
+      <div><h4>Operation · ${S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id) + " <small>" + esc(f.id) + "</small>", "live"],
         ["status", esc(f.status) + (f.note ? " · NOTE" : ""), "live"],
         ["mapped size", fmtHa(f.sizeHa), "live"],
@@ -171,7 +175,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       <div><h4>Attack route · simulated</h4>` + kvRows([
         ["water source", esc(srcName(m)) + " <small>" + fmt(m.water[2]) + " ha</small>", "sim"],
         ["one-way", m.oneWayKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) + " hose stations", "sim"],
-        ["delivery", m.targets.length + " planned lines" + (m.heat ? " on satellite heat" : ""), "sim"],
+        ["release", m.targets.length + " planned lines" + (m.heat ? " on satellite heat" : ""), "sim"],
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],
         ["protecting", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no community within 40 km", "sim"],
       ]) + `<details class="d" style="border:0;margin-top:var(--s2)"><summary style="padding:4px 0 4px 22px;font-size:var(--t-12);color:var(--faint)">why this tasking</summary>
@@ -197,7 +201,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   } else if (S.sel.type === "fire") {
     const f = S.sel.f || (S.sel.m && S.sel.m.fire), mm = S.sel.m;
     O.innerHTML = `<div class="ops3">
-      <div><h4>Live incident · BC Wildfire Service</h4>` + kvRows([
+      <div><h4>${S.daySource === "live" ? "Live incident" : "Published record · " + esc(S.day)} · BC Wildfire Service</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id), "live"],
         ["number", esc(f.id), "live"],
         ["status", esc(f.status) + (f.note ? " · FIRE OF NOTE" : ""), "live"],
@@ -207,9 +211,17 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ["perimeter", f.ring ? "current polygon shown" : "none published — point only", "live"],
       ]) + (f.url ? `<p style="margin-top:var(--s3);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a></p>` : "") + `</div>
       <div><h4 style="color:var(--warm)">Simulated response</h4>` +
-      (!mm ? (needsShip(f)
-        ? `<p style="font-size:var(--t-13);color:var(--muted)">None: the allocator gave this fire no ship. The demonstration fleet is sixteen hulls (ten P-100, five P-1000, one P-10000), each sent to the fire it fits best, and the allocator counts every fire left without one. Any finite fleet faces the same arithmetic.</p>`
-        : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}, so the simulated fleet leaves it to the crews who already have it.</p>`)
+      (S.recordOnly
+        ? `<p style="font-size:var(--t-13);color:var(--muted)">None. No fleet is simulated for this day, so there is no simulated response to describe.</p>`
+        : !mm ? (f.guarded
+          // The guard's own reason, never an allocator's: on these fires the fleet was never
+          // a candidate, and "queued" or "no ship" would say the opposite.
+          ? `<p style="font-size:var(--t-13);color:var(--muted)">None. ${esc(guardNoteWords())}</p>`
+          : f.heldOut
+          ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(f.heldOut)}.</p>`
+          : needsShip(f)
+          ? `<p style="font-size:var(--t-13);color:var(--muted)">None: the allocator gave this fire no ship. The demonstration fleet is sixteen hulls (ten P-100, five P-1000, one P-10000), each sent to the fire it fits best, and the allocator counts every fire left without one. Any finite fleet faces the same arithmetic.</p>`
+          : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}, so the simulated fleet leaves it to the crews who already have it.</p>`)
         : mm.idle ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(mm.why)}</p>`
         : kvRows([
             ["assigned class", mm.cls.name, "sim"],
@@ -218,7 +230,8 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
             ["cycle", fmtMin(mm.plan.cycleMin), "sim"],
             ["per hour", fmt(mm.plan.tph) + " t <small>(" + fmt(mm.plan.tph * 1000) + " L)</small>", "sim"],
           ]) + `<p style="margin-top:var(--s3)"><button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:6px 12px;background:none;color:var(--faint);cursor:pointer" onclick="APP.selShip()">Open the cockpit →</button></p>`) +
-      `<p style="margin-top:var(--s3);font-size:var(--t-11);color:var(--faint)">Nothing under “Simulated response” is an operational recommendation, and none of it says whether this fire grows or is contained.</p></div>
+      (S.recordOnly ? "" :
+      `<p style="margin-top:var(--s3);font-size:var(--t-11);color:var(--faint)">Nothing under “Simulated response” is an operational recommendation, and none of it says whether this fire grows or is contained.</p>`) + `</div>
     </div>`;
   } else {
     const mm = S.sel.m, w = mm.water;
@@ -366,14 +379,18 @@ function noteChanges() {
     }
   }
   // Which feed the fires came from. This flips at most once per fifteen-minute refetch, and
-  // usually never — but it changes what the whole page means, so it is worth saying.
-  const srcKey = S.fetchedAt ? (S.usingFallback ? "snapshot" : "live") : "";
+  // usually never — but it changes what the whole page means, so it is worth saying. A
+  // dated view is never announced as a snapshot that "could not be reached": the visitor
+  // asked for that day, or the day was named in the link they followed.
+  const srcKey = S.fetchedAt ? S.daySource + ":" + (S.day || "") + ":" + S.fires.length : "";
   if (srcKey && srcKey !== lastSrcKey) {
     const first = lastSrcKey === "";
     lastSrcKey = srcKey;
-    announce(S.usingFallback
-      ? `Fire data: bundled snapshot from ${(S.snapshotDate || "").slice(0, 10)} — the live BC Wildfire Service feed could not be reached.`
-      : `Fire data: live BC Wildfire Service feed, ${S.fires.length} fires${first ? "" : " — refreshed"}.`);
+    announce(S.daySource === "live"
+      ? `Fire data: live BC Wildfire Service feed, ${S.fires.length} fires${first ? "" : " — refreshed"}.`
+      : S.fires.length
+      ? `Fire data: the record of ${S.day || (S.snapshotDate || "").slice(0, 10)}, ${S.fires.length} fires as published.`
+      : `Fire data: nothing is shown for ${S.unknownDay || S.day || "this view"}.`);
   }
 }
 

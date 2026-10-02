@@ -47,6 +47,9 @@ export {
 } from './targets.js?v=26282d19';
 
 export { sizeTier, assign } from './assign.js?v=26282d19';
+export {
+  loadGuard, dayKind, guardedFire, keepOutsFor, pointBlocked, pathBlocked, noteKm,
+} from './guard.js?v=26282d19';
 export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=26282d19';
 export { buildMission } from './mission.js?v=26282d19';
 export { anchorHang, stateAt } from './state.js?v=26282d19';

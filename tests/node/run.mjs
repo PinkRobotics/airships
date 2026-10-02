@@ -25,6 +25,7 @@ await import('../cases/sim-geo.cases.js');
 await import('../cases/spec-parity.cases.js');
 await import('../cases/anchor-parity.cases.js');
 await import('../cases/sim-heat.cases.js');
+await import('../cases/guard.cases.js');
 
 const suites = collect();
 if (!suites.length) throw new Error('no tests were collected — check the import list in tests/node/run.mjs');

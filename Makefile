@@ -285,3 +285,13 @@ clean:  ## Delete generated output: rasterised figures and __pycache__
 .PHONY: seasoncheck
 seasoncheck:  ## The season files must match a regeneration and their pinned totals must hold
 	$(PY) tests/season/check.py
+
+# The guard gate (order 3b-1): the no-fleet window and the guarded fires are data, pinned
+# by digest, and the page holds the ruling on every kind of day — record-only days carry no
+# fleet figure anywhere in their text, fleet days fly only unguarded fires and every
+# simulated position stays outside every keep-out, a date with no day file stands down in
+# words, and the ruled sentences appear exactly as ruled. Loads the page headless twelve
+# times (chromium + websockets, same as the golden check); about two and a half minutes.
+.PHONY: guardcheck
+guardcheck:  ## The no-fleet window and the guarded fires must hold, on file and on the page
+	$(PY) tests/guard/check.py

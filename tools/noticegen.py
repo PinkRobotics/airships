@@ -151,7 +151,7 @@ def outputs(recs: list[dict]) -> dict[str, str]:
             'notices.html': page(recs), 'data/README.md': data_readme(recs)}
 
     # Preserve source-specific methodology and measured tables in the source record.
-    for r in sorted(recs, key=lambda item: item['path']):
+    for r in sorted(recs, key=lambda item: (item['path'].endswith('.evac.json'), item['path'].endswith('.guard.json'), item['path'])):
         for name, content in r.get('documentation', {}).items():
             if name in generated:
                 generated[name] += '\n' + content

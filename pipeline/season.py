@@ -1223,9 +1223,19 @@ def table(season):
 
 # ---- writing and checking ------------------------------------------------------------------
 def on_disk(year, out_dir):
-    """This season's files under out_dir, so that a stray one is seen and named."""
+    """This season's files under out_dir, so that a stray one is seen and named.
+
+    The no-fleet guard (<year>.guard.json and its provenance sidecar) is not the season
+    generator's to write: it is a ruling ABOUT the data — which days and fires the
+    simulated fleet must not touch — not data derived from the agency feeds, and it is
+    pinned by its own digest test (tests/guard/check.py) so a deliberate edit is a
+    two-place change. Excluded here by name so it is neither flagged as stray nor
+    silently regenerated away.
+    """
     out_dir = pathlib.Path(out_dir)
-    found = {p.name for p in out_dir.glob(f"{year}.*") if p.is_file()}
+    guard = {f"{year}.guard.json", f"{year}.guard.prov.json"}
+    found = {p.name for p in out_dir.glob(f"{year}.*")
+             if p.is_file() and p.name not in guard}
     found |= {p.relative_to(out_dir).as_posix()
               for p in out_dir.glob(f"days/{year}-*/*") if p.is_file()}
     return found

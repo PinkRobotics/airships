@@ -1,6 +1,7 @@
-/* Allocating sixteen hulls to the fires that most need them.
+/* Allocating sixteen hulls to the fires that most need them — and keeping them off the
+ * fires and places the guard holds (sim/guard.js, data/season/2026.guard.json).
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, legKmFor, planCycle } from '../sim/index.js?v=26282d19';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, pathBlocked, planCycle, pointBlocked } from '../sim/index.js?v=26282d19';
 import { renderDrawer } from './cockpit/panels.js?v=26282d19';
 import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=26282d19';
 import { needsShip } from './feeds.js?v=26282d19';
@@ -13,7 +14,20 @@ import { renderWorked } from './worked.js?v=26282d19';
 export const FLEET = [["P10000", 1], ["P1000", 5], ["P100", 10]];
 
 export function rebuildMissions() {
-  for (const f of S.fires) f.mission = null;
+  for (const f of S.fires) { f.mission = null; f.heldOut = null; }
+  // A record-only day builds no mission objects at all (R1): nothing of the fleet exists
+  // on those views — no ships, no tracks, no figures — and deciding that here, before any
+  // mission could exist, is what keeps it true everywhere downstream.
+  if (S.recordOnly) {
+    S.missions = []; S.uncovered = 0; S.regions = [];
+    renderRoster(); renderFires();
+    return;
+  }
+  // The day's keep-out regions (R4): a band around every guarded fire that carries a
+  // distance, and around any place entry dated this day. Computed once per rebuild;
+  // dispatch checks every mission against them, and the page-level gate in tests/guard/
+  // samples the ships' own positions against the same regions every frame.
+  S.regions = keepOutsFor(S.guard, S.fires, { seasonOfNote: S.seasonOfNote }, S.day);
   const cand = S.fires.filter(needsShip);
   const pri = f => (f.note ? 2 : 0) + Math.log10(Math.max(10, f.sizeHa));
   const srcMemo = {};
@@ -38,12 +52,27 @@ export function rebuildMissions() {
     if (clsId === "P100" && f.sizeHa > 5000) v -= 1.5;
     return v;
   };
+  // R4: a mission flies only if nothing it does enters a keep-out region — not its water
+  // pickup or its hose stations, not either leg (the S-bend's control points included),
+  // not a drop line on the fire's edge. Returns the region that forbids it, for the fire's
+  // record on the page, or null when the mission is clear.
+  const blockedBy = pt => pt && pointBlocked(S.regions, pt);
+  const forbiddenBy = m => {
+    if (m.idle) return null;
+    let r = blockedBy(m.intake);
+    if (!r) for (const st of m.stations) { r = blockedBy(st); if (r) return r; }
+    if (!r) r = blockedBy(m.ctlOut) || blockedBy(m.ctlRet);
+    if (!r) r = pathBlocked(S.regions, m.intake, m.delivery);
+    if (!r) for (const t of m.targets) { r = blockedBy(t); if (r) return r; }
+    return r;
+  };
   let open = cand.slice();
+  const heldOut = new Set();
   S.missions = [];
   const rankOf = new Map(cand.slice().sort((a, b) => pri(b) - pri(a)).map((f, i) => [f.id, i + 1]));
   for (const [clsId, count] of FLEET) {
     for (let k = 1; k <= count; k++) {
-      if (!open.length) open = cand.slice();          // more hulls than fires: double up
+      if (!open.length) open = cand.filter(f => !heldOut.has(f.id));  // more hulls than fires: double up
       if (!open.length) break;
       let bi = -1, bs = -Infinity;
       for (let i = 0; i < open.length; i++) {
@@ -60,6 +89,17 @@ export function rebuildMissions() {
       // rule 3 in the boundary linter requires it — a call that passes live data is the
       // shape we want, even where the data does not yet change the answer.
       const m = buildMission(f, S.water, S.modeId, clsId, so, S.heat);
+      const noFly = forbiddenBy(m);
+      if (noFly) {
+        // A fire whose water line or drop line cannot avoid a keep-out distance is not
+        // flown, and no hull retries it this rebuild: the map keeps the fire, the panel
+        // keeps the reason, and this hull stays free for the next candidate.
+        heldOut.add(f.id);
+        f.heldOut = "not flown: its water line or drop line would enter the " +
+          noFly.rKm.toFixed(0) + " km kept clear around " + noFly.who +
+          " (a fire the guard holds)";
+        continue;
+      }
       m.hullNo = k;
       m.name = (HULL_NAMES[clsId] || [])[k - 1] || CLASSES[clsId].name + " #" + k;
       m.shipId = m.name;                              // unique across the fleet; keys the ledger
