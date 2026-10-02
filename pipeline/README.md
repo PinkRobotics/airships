@@ -8,6 +8,7 @@ from its sources by anyone, rather than taken on trust.
 |---|---|---|
 | `live.py` | fire, perimeter, heat and hourly wind mirrors (gitignored) | continuously, from a timer, if you host the page |
 | `vectors.py` | pinned Natural Earth roads, outline and provenance sidecars | to reproduce the map vectors |
+| `capture.py` | dated raw captures under a root you name | once a day during the season, from a timer |
 | `water.py` | `data/water-bc.json` | the BC freshwater atlas is updated — rarely |
 | `terrain.py` | `data/terrain-bc.jpg` | never, in practice; the hillshade is static |
 | `figures.py` | the SVG diagrams inlined into `concept/index.html` | after editing a diagram |
@@ -41,6 +42,73 @@ still air. Run a single mirror timer; the script locks concurrent invocations.
 Run it from a timer every ten minutes. The freshness rules are inside the script, not in the
 timer, so running it more often costs upstream nothing.
 
+## The daily season capture, and why it is daily
+
+`capture.py` saves one dated, complete copy of BC Wildfire Service's two public
+current-season layers — fire incidents and fire perimeters — raw, as the service returns
+them. It captures the *whole* layer, out fires included, which is exactly what `live.py`
+deliberately does not do: the mirror keeps only what a visitor wants to see on the map
+right now, while the capture keeps what the season actually looked like that day.
+
+The reason it must run every day is that the province's public layer carries only each
+fire's CURRENT status, and a season moves into the historical layer only on April 1. The
+day-by-day history of a season — when each fire went Out, how long each was held — exists
+nowhere unless someone captures the whole layer each day and keeps the copies. A capture
+of 2026-10-01 answers questions no later fetch can.
+
+Each run writes `<out>/<America-Vancouver date>/` — the date is the day a replay of that
+folder would show, not UTC — holding every raw response plus a `MANIFEST.json` with each
+request's URL, byte count, duration and sha256, each layer's own count, the number
+fetched, and `complete`. A folder that already holds anything is never written into; the
+run takes a timestamped sibling name instead. If what was fetched does not match the
+layer's own count, the run says `INCOMPLETE`, keeps the raw responses, records
+`complete: false`, and exits 1 — an honest capture that knows it is short, not a green
+exit on a gap.
+
+**The request budget of one run, plainly: nine requests** on 2026-10-01 (five for
+incidents, four for perimeters) — three fixed requests per layer (description, count,
+status tally) plus one per page at the layer's own page size of 1000 features. It grows
+by one for each additional page a busy season adds, and by nothing else.
+
+Politeness to the service is in the tool, not left to the caller: a 1.5 s pause between
+requests (`--pause` to change it), one retry after a pause when a request fails, and a
+full stop — exit 1, nothing further asked — when it fails twice. The User-Agent carries
+`AIRSHIPS_CONTACT` exactly as `live.py` does (see below); unset, the header says how to
+set it and carries no address.
+
+```sh
+python3 pipeline/capture.py --out /srv/airships-captures/bcws
+#   --base URL     another ArcGIS REST services base (default: BCWS's public one)
+#   --pause SECS   pause between requests (default 1.5)
+```
+
+`--out` has no default on purpose: this repository must not decide where on a stranger's
+machine a season archive grows. Schedule it once a day — the exact minute does not matter,
+only that each Vancouver day gets exactly one folder. As text only (nothing here is
+installed by this repository):
+
+```ini
+# /etc/systemd/system/airships-season-capture.service
+[Service]
+Type=oneshot
+Environment=AIRSHIPS_CONTACT=https://your-operators-page.example/contacts
+ExecStart=/usr/bin/python3 /srv/airships/checkout/pipeline/capture.py --out /srv/airships-captures/bcws
+```
+
+```ini
+# /etc/systemd/system/airships-season-capture.timer
+[Timer]
+OnCalendar=*-*-* 19:30:00 America/Vancouver
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+`make capturecheck` runs the tool's tests against trimmed copies of the 2026-10-01
+capture served from a fixture server on 127.0.0.1 — the tests never touch the service
+the tool is polite about.
+
 ## Configuration
 
 Both settings are environment variables and both are optional. Neither has a default that
@@ -48,7 +116,8 @@ does anything to anybody else's machine.
 
 ### `AIRSHIPS_CONTACT`
 
-A contact address or URL, sent in the `User-Agent` header of every request `live.py` makes.
+A contact address or URL, sent in the `User-Agent` header of every request `live.py` and
+`capture.py` make.
 
 Sending a contact when you scrape a public feed is a courtesy with a practical point: if
 your fetcher misbehaves — a stuck loop, a timer that fires every second, a bug that requests

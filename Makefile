@@ -8,7 +8,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
+.PHONY: help serve test test-node golden interaction capturecheck lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
@@ -88,6 +88,12 @@ buildercheck:  ## Require a named builder on recorded changes; exempt only attes
 ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
 	$(PY) tools/check_ci_parity.py
 	$(PY) -m unittest discover -s tools/tests -p 'test_*green.py'
+
+# The daily season capture (pipeline/capture.py), checked against trimmed copies of the
+# raw responses the stop-gap captured on 2026-10-01, served from a fixture server on
+# 127.0.0.1 — the gate must never itself be load on the agency it is polite about.
+capturecheck:  ## The season-capture tool: fixture-server tests, no network beyond 127.0.0.1
+	$(PY) tests/capture/check.py
 
 # The monitor page's no-script/crawler fallback: the FALLBACK regions in index.html, written
 # from the bundled snapshot by replaying it headless (`?seed=7&data=snapshot`, the golden
