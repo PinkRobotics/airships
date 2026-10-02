@@ -1,10 +1,12 @@
 # Goals
 
 This file says what Pink Robotics is working toward and in what proportion. The work is done by an
-AI crew; one person directs it by editing this file. A daily planner, which is being built, will
-read the table below and propose work in proportion to the weights. It cannot add an objective,
-and it cannot change a weight: those change only by the director's edit, and every edit is a commit
-in this repository's history.
+AI crew, directed by one person. A daily planner, not built yet, will read the table below and
+propose work in proportion to the weights. It will not be able to add an objective or change a
+weight: those change only on the director's word, and every change is a commit in this repository's
+history.
+
+Where this file describes something that is not true yet, it says so.
 
 Last change of direction: 2026-10-01, the opening weights.
 
@@ -16,11 +18,11 @@ Last change of direction: 2026-10-01, the opening weights.
 The aim is for this repository to be the most checkable open study of that question: every number
 regenerating from source, the model tested against aircraft that flew and against the fire season it
 replays, and the float verdict published as it stands, including that nothing floats today. The
-table below says how far that is from done.
+objectives below say what done means, and the milestones say when.
 
 ## The north star: the Ten-Minute Test
 
-A sceptical stranger with ten minutes can:
+A sceptical stranger with ten minutes should be able to:
 
 1. clone the repository and get green checks;
 2. reproduce a published number of their choosing, change an assumption, and see why the result
@@ -36,7 +38,7 @@ check.
 
 The weights sum to 100. Work is spent in that proportion.
 
-<!-- goals:v1 — the planner parses the rows of this table. Only the director edits it. -->
+<!-- goals:v1: the planner will parse the rows of this table. It changes only on the director's word. -->
 
 | id | Objective | Weight | Done means |
 |---|---|---:|---|
@@ -51,6 +53,8 @@ The weights sum to 100. Work is spent in that proportion.
 
 ## Milestones
 
+These are targets. A row is met when everything in it is true.
+
 | Target | Done means |
 |---|---|
 | 2026-10-04: the front door is true | Site and source merged, and the publish check clean. Every check green from a clean environment. No visitor's browser calls any host but ours. The 2026 season replay live, with the feed contract fixed. A claims register. One energy model, with old and new figures published together. A public log of landings. |
@@ -61,7 +65,7 @@ The weights sum to 100. Work is spent in that proportion.
 ## The objection loop
 
 This is the demonstration, and from the day the repository is public it is how to change a number
-here.
+here. No outside objection has been through it yet.
 
 1. Someone disputes a figure, with the file and the value they expect.
 2. The crew reproduces the objection.
@@ -73,20 +77,32 @@ here.
 
 | Track | State | Unparks when |
 |---|---|---|
-| Animals (a welfare-gated control architecture) | Parked. The pages are labelled as vision, and sentences the code does not back are corrected. | An executable propose/decide kernel exists in the simulator with property tests, or the director orders the single formal note. |
+| Animals (a welfare-gated control architecture) | Parked. Its page, which lives in the site's repository, is to be labelled as vision, and its sentences the code does not back are to be corrected. Neither is done yet. | An executable propose/decide kernel exists in the simulator with property tests, or the director orders the single formal note. |
 | Energy as cargo (a battery-exchange chain) | Parked until the energy model lands. | The one energy model has landed; then one supply-chain analysis, and either outcome is a result. |
 | New vehicle design | Frozen. | An outside structures engineer has reviewed the current design. |
-| The 3D viewer | Features frozen. Bugs that make it disagree with the model are fixed. | The director's word. |
+| The 3D viewer | Features frozen. Bugs that make it disagree with the model get fixed; some are open today (`docs/OPEN-QUESTIONS.md`, item 16). | The director's word. |
 
-## What this project will not do
+## Rules the project holds itself to
 
-- Replay a tragedy with a better ending. The fires in the replay were real; the fleet is simulated
-  and never flew, and nothing here says any fire would have burned differently.
-- Feed satellite hotspot estimates to the dispatch model.
-- Send a visitor's browser to an emergency agency's servers, or to any third party.
-- Fix a defect quietly. A moved number is published old and new, with the reason.
-- Headline token counts, line counts or agent counts.
-- Let the crew speak for the director. The crew drafts; a person sends.
+Where a rule does not hold yet, it says so.
+
+- **Never replay a tragedy with a better ending.** The season replay being built shows real fires
+  and a simulated fleet that never flew. It must not say or imply that any fire would have burned
+  differently. No replay is published yet.
+- **No hindsight in the replay.** The replayed fleet may see only what was on record that day: each
+  fire's status and size as known then. It never sees a fire's final size, and it never reads
+  outlines drawn after the fact. This binds the replay being built. It is not a rule against
+  satellite data: the live monitor uses the last day's satellite hotspots to help choose where
+  along a fire's edge to drop (`sim/targets.js`), and a test holds it to that.
+- **A visitor's browser talks only to this site.** Not true yet. Today the page loads satellite
+  imagery and wind from third parties, and it falls back to the agencies' own feeds when the mirror
+  is unavailable; `SECURITY.md` lists the four origins. Ending that is part of the 2026-10-04
+  milestone.
+- **No quiet fixes.** A number that moves is published old and new, with the reason. This is the
+  practice from 2026-10-01; earlier history was not held to it.
+- **Cost is accounting, not a headline.** When the public log exists, token, line and agent counts
+  appear in it as the cost of a change, counting abandoned work, and never as a boast.
+- **The crew does not speak for the director.** The crew drafts; a person sends.
 
 ## How direction changes
 
@@ -94,6 +110,8 @@ A change of direction is one sentence from the director. It becomes an edit to t
 order superseding the affected work. Work in flight stops at its next boundary, and the next daily
 report opens with what changed.
 
-Reserved to the director: the weights and objectives; anything published or sent outward; a changed
-headline figure; money and physical work; accepting a finding unfixed; parking a track.
-The crew's: sequencing, routing between models, reviews, and landings inside the mission.
+Reserved to the director: the weights and objectives; making a repository public; anything sent to
+people outside; a changed headline figure; money and physical work; accepting a finding unfixed;
+parking a track.
+The crew's: sequencing, routing between models, reviews, and landings and site deploys inside the
+mission.
