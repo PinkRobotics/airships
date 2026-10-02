@@ -43,8 +43,7 @@ unloading rather than by transit, which is precisely where a buoyant vehicle win
 
 ## 2. Why vacuum rather than helium
 
-A vacuum displaces the same air as helium and weighs nothing instead of 0.169 kg/m³, so it is
-about 14% more buoyant at sea level. It also cannot leak away, cannot be embargoed, and cannot be
+At sea level, with air at 1.225 kg/m³ and helium at 0.169 kg/m³, a vacuum is about 16% more buoyant than helium. Helium lifts about 14% less than vacuum at that reference state. It also cannot leak away, cannot be embargoed, and cannot be
 priced by a supply chain with two producers of consequence.
 
 The reason nobody flies one is structural. A gas envelope is in tension and can be a fabric; a

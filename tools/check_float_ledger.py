@@ -56,7 +56,8 @@ LIVE={
 
 
 def dig(d,p):
-    for k in p.split('.'):d=d[k]
+    for k in p.split('.'):
+        d = d[int(k)] if isinstance(d, list) else d[k]
     return d
 
 

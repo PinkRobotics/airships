@@ -70,6 +70,12 @@ class RecordContracts(unittest.TestCase):
         errors = claims.apply(result, self.ledger)
         return result, errors
 
+    def test_catalog_array_route_matches_page_binder(self):
+        import check_float_ledger as gate
+        self.assertEqual(gate.dig({'ladder': [{'exponent': 2}]}, 'ladder.0.exponent'), 2)
+        with self.assertRaises((KeyError, TypeError, ValueError)):
+            gate.dig({'ladder': [{'exponent': 2}]}, 'ladder.no.exponent')
+
     def test_bound_figure_and_hand_changed_ledger(self):
         self.assertEqual(self.check(), [])
         self.ledger['designs'][0]['cases'][0]['mass'] = 404.1

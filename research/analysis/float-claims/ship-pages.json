@@ -720,11 +720,43 @@
     },
     {
       "file": "ship/index.html",
-      "key": "83013879dd0a4cdc",
+      "key": "a8fd94aa9220704a",
       "line": 1200,
-      "class": "deferred",
-      "reason": "The served paragraph joins closed-form densities with an unsupported local-wall assertion for the bought bench tube; its correction remains open.",
-      "owner": "mixed-block"
+      "class": "bound",
+      "reason": "The closed-form hierarchy comparison names its working altitude and denies a drawn structure; the bench path explicitly lacks a local-wall check.",
+      "bindings": [
+        {
+          "case": "hierarchy-M60J_LAM-0",
+          "field": "extras.exponent",
+          "route": "ladRef.0.exponent"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "extras.exponent",
+          "route": "ladRef.1.exponent"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "extras.exponent",
+          "route": "ladRef.2.exponent"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "mass",
+          "route": "level1.total"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "mass",
+          "route": "level2.total"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.liftToMass",
+          "route": "level2.margin"
+        }
+      ],
+      "context": []
     }
   ]
 }

@@ -1163,11 +1163,38 @@
   },
   {
    "file": "research/reports/02-paper.md",
-   "key": "feba7813a63da08c",
+   "key": "e340d1ac782d82a7",
    "line": 46,
-   "class": "deferred",
-   "reason": "The helium density lacks a reference state, and the printed vacuum advantage uses the wrong percentage basis; the gas comparison needs correction.",
-   "owner": "source-needed"
+   "class": "method",
+   "reason": "The paragraph compares displaced-air lift at a stated sea-level reference density; it is a physical comparison, not a project design result.",
+   "context": [
+    "0.169",
+    "1.225",
+    "14",
+    "16"
+   ]
+  },
+  {
+   "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
+   "key": "48d916c52446a3f8",
+   "line": 37,
+   "class": "bound",
+   "reason": "The largest nominal capsule dimensions come from the configured fleet; its buoyancy assumption does not transfer the paper’s spherical pressure analysis.",
+   "bindings": [
+    {
+     "source": "research/figures.json",
+     "pointer": "/classes/P10000/spec/lenM",
+     "shown": "512"
+    },
+    {
+     "source": "research/figures.json",
+     "pointer": "/classes/P10000/spec/diaM",
+     "shown": "256"
+    }
+   ],
+   "context": [
+    "3"
+   ]
   }
  ]
 }
