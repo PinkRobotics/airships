@@ -162,7 +162,7 @@ Required/available ratios: CH-47D required / two-engine takeoff rating: 0.357179
 
 The sandwich mass balance is askable and can miss. Its finite-layer geometric diagnostic is shown separately. Jenett's local member-sizing method is askable, but the published net-lift table lacks the member inventory needed to complete the mass calculation.
 
-**Called:** research/analysis/reproductions.py:22 (akhmeteli); research/analysis/reproductions.py:61 (jenett); research/analysis/reproductions.py:50 (euler_load); research/analysis/vacuum-cell.py:1372 (ship_section); research/analysis/vacuum-cell.py:1386 (_ship_sigma_euler)
+**Called:** research/analysis/reproductions.py:22 (akhmeteli); research/analysis/reproductions.py:61 (jenett); research/analysis/reproductions.py:50 (euler_load); research/analysis/vacuum-cell.py:1374 (ship_section); research/analysis/vacuum-cell.py:1388 (_ship_sigma_euler)
 
 **Tolerance:** Half the last printed kilogram place: 0.05 kg for each one-decimal example; for Jenett 0.0005, 0.05 or 0.5 kg according to the printed row. These apply only to the same architecture, air and material. Incompatible terms mean not comparable.
 
