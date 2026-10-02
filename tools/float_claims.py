@@ -54,6 +54,12 @@ a design exists, within N percent, lighter than air).
 Page rules, for every file that binds a lift-to-mass ratio of a hull:
   P1  the first such block states the sea-level and the working-altitude ratio together;
   P2  one block is bound to `research/analysis/cap-readings.json` (the range of readings).
+Ratios print to three decimals; a value below one never rounds up to one.
+Each cap-range binding names the altitude encoded in its source pointer.
+The same checks apply to ledger-case and JSON-pointer bindings. Every bound binder route
+must be covered, and a live-model binder must resolve. A flight assumption explicitly
+names the flight model, withholds buoyancy from drawn hulls, binds the ledger verdict,
+and links docs/FLOAT.md. Dated notices name their date as well as linking the ledger.
 
 Usage:
   python3 tools/float_claims.py --propose FILE [FILE ...]   # a shard skeleton, class UNREVIEWED
@@ -117,6 +123,7 @@ def numbers(text: str) -> list[str]:
 
 def pointer(doc, path: str):
     for part in [p for p in path.split('/') if p != '']:
+        part = part.replace('~1', '/').replace('~0', '~')
         doc = doc[int(part)] if isinstance(doc, list) else doc[part]
     return doc
 
@@ -148,11 +155,16 @@ def check_targets() -> set:
     return set()
 
 
-def file_lines(rel: str, cache={}) -> list:
-    if rel not in cache:
-        path = ROOT / rel
-        cache[rel] = path.read_text(encoding='utf-8').splitlines() if path.is_file() else []
-    return cache[rel]
+def file_lines(rel: str) -> list:
+    path = ROOT / rel
+    return path.read_text(encoding='utf-8').splitlines() if path.is_file() else []
+
+
+def links_to(text, file, target):
+    """Require a local Markdown or HTML link resolving to the named document."""
+    links = re.findall(r'\]\(([^\s)]+)(?:\s+[^)]*)?\)|href=[\"\']([^\"\']+)', text)
+    return any((ROOT / file).parent.joinpath((md or html).split('#')[0]).resolve()
+               == (ROOT / target).resolve() for md, html in links)
 
 
 def squash(text: str) -> str:
@@ -178,6 +190,21 @@ class Sources:
                 raise KeyError(f'source {rel!r} is not a JSON file in this repository')
             self.docs[rel] = json.loads(path.read_text(encoding='utf-8'))
         return pointer(self.docs[rel], b['pointer'])
+
+    def ratio_field(self, b):
+        """Canonical identity for case and JSON-pointer spellings of hull ratios."""
+        if b.get('field', '') in ('at.seaLevel.liftToMass', 'at.target.liftToMass'):
+            return b.get('case'), b['field']
+        rel, ptr = b.get('source', LEDGER_PATH), b.get('pointer', '')
+        match = re.search(r'/(?:at/(seaLevel|target)/liftToMass|(ratioSL|ratio2500))$', ptr)
+        if not match:
+            return None
+        parent = ptr[:match.start()]
+        identity = (rel, parent)
+        if rel == LEDGER_PATH:
+            identity = pointer(self.ledger, parent)['id']
+        altitude = match[1] or ('seaLevel' if match[2] == 'ratioSL' else 'target')
+        return identity, f'at.{altitude}.liftToMass'
 
 
 def shown_matches(value, shown: str, scale=1.0, absolute=False) -> bool:
@@ -219,22 +246,30 @@ def check_entry(entry, hit, sources, ledger):
         errors.append(f'bindings are checked only on bound, question and calculator blocks, not {cls}')
     routes = {f['route']: f for f in hit.get('dynamicFigures', [])}
     shown = set()
+    bound_routes = set()
     need = set()
     for b in bindings:
+        if sum(k in b for k in ('shown', 'route', 'equals')) != 1:
+            errors.append('a binding carries exactly one of: shown, route, equals')
+            continue
         try:
             value = sources.value(b)
+            ratio = sources.ratio_field(b)
         except (KeyError, IndexError, TypeError, ValueError) as exc:
             errors.append(f'binding does not resolve: {exc}')
             continue
         if b.get('field', '').startswith('at.'):
             need.add(b['field'].split('.')[1])
+        if ratio:
+            need.add(ratio[1].split('.')[1])
         if b.get('altitude'):
             need.add(b['altitude'])
         scale = float(b.get('scale', 1))
         if 'equals' in b:
-            if value != b['equals']:
+            if value != b['equals'] or isinstance(value, bool) != isinstance(b['equals'], bool):
                 errors.append(f"source value {value!r} is not {b['equals']!r}")
         elif 'route' in b:
+            bound_routes.add(b['route'])
             fig = routes.get(b['route'])
             if fig is None:
                 errors.append(f"route {b['route']!r} is not displayed in this block")
@@ -251,6 +286,18 @@ def check_entry(entry, hit, sources, ledger):
                 errors.append(f"bound figure {b['shown']!r} differs from its source field ({value!r})")
         else:
             errors.append('a binding carries one of: shown, route, equals')
+        is_range = (b.get('source') == CAP_READINGS and
+                    re.fullmatch(r'/ranges/[^/]+/(seaLevel|target)/(?:min|max)', b.get('pointer', '')))
+        if is_range:
+            need.add(is_range[1])
+            if b.get('altitude') != is_range[1]:
+                errors.append('range altitude must match its source pointer')
+        display = b.get('shown') if 'shown' in b else routes.get(b.get('route'), {}).get('display')
+        if (ratio or is_range) and display not in (None, 'unresolved'):
+            if len(norm(str(display)).partition('.')[2]) != 3:
+                errors.append('lift-to-mass ratios print to three decimals')
+            if isinstance(value, (int, float)) and value < 1 <= float(norm(str(display))):
+                errors.append('a ratio below one must not be rounded up to one')
     heading = entry.get('heading', '')
     if heading:
         above = file_lines(hit['file'])[max(0, int(hit['line']) - 1 - HEADING_LINES):int(hit['line']) - 1]
@@ -269,6 +316,12 @@ def check_entry(entry, hit, sources, ledger):
             errors.append('numbers neither bound nor listed as context: ' + ', '.join(loose))
     if cls == 'live-model' and not routes:
         errors.append('a live-model block displays at least one figure through the page binder')
+    if cls == 'live-model':
+        for route, fig in routes.items():
+            if fig.get('display') in (None, 'unresolved'):
+                errors.append(f"route {route!r} did not resolve when the page's catalog was executed")
+    if cls == 'bound' and routes.keys() - bound_routes:
+        errors.append('routes without bindings: ' + ', '.join(sorted(routes.keys() - bound_routes)))
     if cls == 'calculator':
         function = entry.get('function', '')
         if not function or function not in '\n'.join(file_lines(hit['file'])):
@@ -328,9 +381,10 @@ def load_record():
                 errors.append(f'{rel}: {name}: reason must say why, in 8 to 240 characters')
             elif not file_lines(name):
                 errors.append(f'{rel}: dated file {name} does not exist')
-            elif not any('FLOAT-LEDGER.md' in line for line in file_lines(name)[:NOTICE_LINES]):
+            elif not (entry['date'] in '\n'.join(file_lines(name)[:NOTICE_LINES]) and
+                      links_to('\n'.join(file_lines(name)[:NOTICE_LINES]), name, 'docs/FLOAT-LEDGER.md')):
                 errors.append(f'{rel}: {name}: a dated file carries, in its first {NOTICE_LINES} lines, a notice that '
-                              'links docs/FLOAT-LEDGER.md')
+                              'names its date and links docs/FLOAT-LEDGER.md')
             else:
                 dated[name] = dict(entry, _shard=rel)
         for entry in doc.get('entries', []):
@@ -364,7 +418,7 @@ def apply(hits, ledger):
         entry = owned.get(name, {}).get(key)
         if entry is not None:
             seen[name].add(key)
-        if hit['status'] != 'FAIL':
+        if hit['status'] == 'ALLOW' or (hit['status'] == 'PASS' and entry is None):
             continue
         if entry is None and name in dated:
             hit['status'] = 'ALLOW'
@@ -377,6 +431,7 @@ def apply(hits, ledger):
             continue
         problems = check_entry(entry, hit, sources, ledger)
         if problems:
+            hit['status'] = 'FAIL'
             hit['reason'] = '; '.join(problems)
             continue
         hit['status'] = 'PASS' if entry['class'] == 'bound' else 'ALLOW'
@@ -384,11 +439,19 @@ def apply(hits, ledger):
         hit['reason'] = f"{entry['class']}: {entry['reason']}"
         if entry['class'] == 'flight-model':
             flights.append((hit, entry))
-        if entry['class'] == 'bound' and ASSUMES.search(visible(hit['sentence'])):
+        assumption_text = visible(hit['sentence'])
+        verdict_bound = any(b.get('source') == LEDGER_PATH and b.get('pointer') == '/verdict'
+                            and b.get('equals') == 'Nothing floats today as drawn.'
+                            for b in entry.get('bindings', []))
+        if (entry['class'] == 'bound' and verdict_bound and ASSUMES.search(assumption_text)
+                and re.search(r'flight (?:model|simulation)', assumption_text, re.I)
+                and re.search(r'hull.*float', assumption_text, re.I)
+                and re.search(r'no drawn hull|nothing floats today as drawn|no.*hull.*(?:drawn|float)',
+                              assumption_text, re.I)
+                and links_to(hit.get('raw', hit['sentence']), name, 'docs/FLOAT.md')):
             assumptions.setdefault(name, set()).add(key)
         if entry['class'] == 'bound':
-            fields = {(b.get('case'), b.get('field')) for b in entry.get('bindings', [])
-                      if str(b.get('field', '')).endswith('liftToMass')}
+            fields = {field for b in entry.get('bindings', []) if (field := sources.ratio_field(b))}
             capped = any(b.get('source') == CAP_READINGS for b in entry.get('bindings', []))
             ratio_blocks.setdefault(name, []).append((int(hit['line']), fields, capped))
     for hit, entry in flights:

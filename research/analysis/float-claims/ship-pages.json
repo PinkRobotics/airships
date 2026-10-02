@@ -211,12 +211,14 @@
       "key": "d84640ace1b8e3e5",
       "line": 615,
       "text": "[data-n=\"edge.totalSurfaceLoadTf\" data-f=\"1\"] tf squeezing the whole surface [data-n=\"edge.hexFaceLoadN\" data-mul=\"0.000102\" data-f=\"1\"] tf on each of 8 hexagons [data-n=\"stock.pipeKg\" data-f=\"2\"] kg carbon tube, billed at the saw table [data-n=\"stock.nodesKg\" data-f=\"2\"] kg printed joints, weighed [data-n=\"edge.rows.2.failsAtAtm\" data-f=\"2\"] atm what the braced boundary holds — it is asked for 1 [data-n=\"demo.hexSpokeStruts\" data-f=\"0\"] spokes six per hexagon face, at the primary cut length",
-      "class": "live-model",
-      "reason": "Bench loads, component masses, pressure capacity and spoke count are computed displays; the printed-joint mass comes from mesh geometry.",
+      "class": "calculator",
+      "reason": "fillNumbers renders computeCtx loads, component masses and brace capacity; explorercheck executes the array-indexed capacity and component displays.",
       "context": [
         "1",
         "8"
-      ]
+      ],
+      "function": "fillNumbers",
+      "gate": "explorercheck"
     },
     {
       "file": "ship/index.html",

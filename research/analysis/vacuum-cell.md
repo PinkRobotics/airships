@@ -8,21 +8,18 @@ Computed by `research/analysis/vacuum-cell.py`; the same physics runs live on `/
 two are held identical by `tools/check_cell_parity.py`.
 
 > ## Where this landed, and where it goes
-> **A single-level tubular lattice comes up short — 1.306 kg/m³ against a wall of 0.957, with
-> the barrier priced only where it is needed and the classical 0.605 buckling coefficient
-> applied at last (audit O1, landed 2026-08-12).** Not close, and on the wrong side.
+> The single-level formula with outer-envelope film gives **1.306 kg/m³**.
+> Its lattice uses safety factor 1.5, full sea-level pressure, and local-wall knockdown 0.30.
+> Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m.
+> The classical buckling coefficient is 0.605.
+> The level-two formula gives **0.538 kg/m³**; no higher-level strut is drawn or tested.
+> The crush coupon in `docs/VERIFICATION-PLAN.md` (E5) tests the hierarchy assumption.
+> A drawn structure also needs joints, film, connections and load checks, as the [ledger](../../docs/FLOAT-LEDGER.md) explains.
 >
-> **One more level of hierarchy clears it: 0.538 kg/m³, 1.78× over the wall.** Structure inside
-> structure improves the strength-density *exponent*, and the exponent is the only thing this
-> problem turns on. That is not a rescue bolted on afterwards — it is the same answer the
-> literature reaches, and it is what makes Jenett's linear-scaling assumption true rather than
-> assumed. **The 0.538 is a prediction of this project's model** — supported by Lakes' exponent
-> argument and by no published measurement of a structure like this one; the A/B crush coupon
-> in `docs/VERIFICATION-PLAN.md` (E5) is the cheapest test that would move it.
->
-> This page is a map of the path, not a verdict on the idea. What follows is ordered as: the
-> single number that governs, what the architecture buys, where a one-level design falls short
-> and by how much, and which lever closes each gap.
+> The hull's bill and drawing disagree in the end caps in both directions.
+> Across the [cap readings](cap-readings.md), the favourable ratio spans 0.751 to 0.998 at sea level and 0.586 to 0.780 at 2,500 m.
+> This basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate ceiling, both unverified, with structural safety factor 1.2 against full sea-level pressure.
+> No reading reaches one. The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements.
 
 ## The one number
 
@@ -123,7 +120,7 @@ first pump-down.
 
 ## Where every material lands
 
-Lattice + nodes + film, at 2 m cells, against a wall of 0.957 kg/m³:
+Lattice + nodes + film, at 2 m cells, against air at 0.957 kg/m³ at 2,500 m:
 
 | material | index E^⅔/ρ | lattice | +nodes | +film | **total** | margin |
 |---|---|---|---|---|---|---|
@@ -193,13 +190,13 @@ applied.
 Each level of self-similar structure improves the strength-density exponent: (n+2)/(n+1),
 tending to linear. Lakes, *Materials with structural hierarchy*, Nature 361 (1993).
 
-| levels | exponent | total | margin | |
-|---|---|---|---|---|
-| 0 — solid rod | 2.000 | 7.986 | 0.12× | |
-| 1 — hollow tube | 1.500 | 1.306 | 0.73× | where this design is |
-| **2 — tube of tubes** | **1.333** | **0.538** | **1.78×** | **floats** |
-| 3 — third order | 1.250 | 0.403 | 2.37× | floats — **yield-capped** |
-| 4 — fourth order | 1.200 | 0.403 | 2.37× | floats — **yield-capped** |
+| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status |
+|---|---|---|---|---|---|
+| 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only |
+| 1 | 1.500 | 1.306 | 0.938 | 0.733 | formula only |
+| 2 | 1.333 | 0.538 | 2.276 | 1.778 | formula only |
+| 3 | 1.250 | 0.403 | 3.037 | 2.372 | formula only; yield-capped |
+| 4 | 1.200 | 0.403 | 3.037 | 2.372 | formula only; yield-capped |
 
 **The ladder ends where the material's strength begins** — a correction a review caught.
 Buckling permits ever-lower solid fractions, but the solid still carries 3p/φ, so φ can never
@@ -223,7 +220,7 @@ Each gap below has a lever, and none of them is a physics objection:
 
 | gap | size | lever |
 |---|---|---|
-| single-level lattice is short of the wall | 0.86× | **a second level of hierarchy** → 2.13× |
+| single-level lattice is short of the wall | see both altitudes in the hierarchy table above | **a second level of hierarchy**, conditional on drawn members and load tests |
 | interior films, if sized to hold an atmosphere | −0.35 kg/m³ | evacuate and seal at *every* scale, so no single partition ever faces a full atmosphere |
 | membrane strain at the assumed bulge | 3.7× on film mass | **pre-form the membrane to its loaded dome** rather than installing it flat |
 | node mass, asserted at 15% | ±0.14 kg/m³ | the largest unsourced number left; a real joint design settles it |
@@ -546,22 +543,17 @@ redesign is still 24% of the wall to the good and the joints stand 20 g below th
 replaced, so the direction of travel holds; but a wall budget that a single socket diameter
 can move by an eighth is the measure of how little slack there is at this cell size.
 
-None of that makes this article fly, and it was never meant to. The demonstrator is
-**15.13 kg/m³** — 15.8× the wall it has to beat — and its joints alone are 4.0 kg/m³, four
-walls on their own since the sunken frame bought their sockets whole. The all-printed
-variant, which exists to prove the printer chain rather than to fly, is
-7.48 kg, ~34x its displaced air.
+None of that makes this article fly, and it was never meant to.
+The bench article is **15.13 kg/m³**: its mass is 12.4 times displaced air at sea level and 15.8 times at 2,500 m.
+Its structural sizing uses safety factor 1.5 against full sea-level pressure; the stock-tube path does not apply the closed-form local-wall check.
+The all-printed variant is 7.48 kg, about 34 times its sea-level displaced air; it tests the printer chain.
 
-**Could the article weigh zero? Only in the right rod, and parity decides the size.** At
-sea level, single article: **M60J-class at level 2 is 1.203 kg/m3**,
-still under the 1.225 sea-level wall but by less than two percent now that the classical
-0.605 buckling coefficient is applied; T700 2.236; printed
-continuous fibre 2.269. The useful discovery is structural,
-not material: **at ODD n the hexagon planes contain no lattice sites at all**, so the
-article must carry its own rim, hub, spokes and ties — while at EVEN n those planes are
-full of sites, the film bonds straight to the octet, and the entire boundary apparatus
-disappears. The floater should be an n = 2 article; n = 1 is the awkward case, and it is
-the one on the bench.
+**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **1.203 kg/m³**.
+Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m.
+The corresponding T700 density is 2.236 kg/m³; printed continuous fibre is 2.269 kg/m³.
+The sizing uses safety factor 1.5 against full sea-level pressure and local-wall knockdown 0.30.
+Odd subdivision counts need boundary members because the hexagon planes contain no lattice sites; even counts have sites in those planes.
+Boundary joints, the membrane and the higher-level struts still need a drawn and tested design.
 
 **The joints are now grown, not modelled.** `tools/gen_nodes.py` builds every joint in
 the article from one rule — a signed distance field that smooth-min-blends a capsule
@@ -689,14 +681,16 @@ had already converged on it without saying so: **144 of the 216 members are the 
 and **roll-wrapped CF tube is the T700 laminate row as a catalogue item** — stock delivers
 true laminate properties, which no chopped-fibre print does.
 
-The hybrid article: **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**,
-the octet carrying 3,372 N per strut — safety factor already inside — with **×1.8 Euler
-margin even pinned, ×4.3 with socket fixity**, and ×21 on stress; every other family has
-its own demand and its own margin in the table above. All 51 printed joints are now
-weighed rather than budgeted, and the ties are carbon too, so the printed mass is the
-nodes alone. Film skin, 21 g at its halved span. **2.69 kg all-in against 218 g displaced:
-the crush pathfinder, not a floater** —
-identical geometry to the floater, whose primaries become three-rod wound booms
-(level 2 hierarchy from catalogue rod) instead of single pipes. The 10×8 choice is
-deliberate: margins that hold *pinned* make socket fixity bonus rather than assumption,
-and E5's coupon crushes exactly one pipe-plus-sockets to verify that fixity claim.
+The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**.
+The octet demand is 3,372 N per strut, with safety factor already included.
+Its Euler margins are ×1.8 pinned and ×4.3 with socket fixity; the stress margin is ×21.
+Every other family has its own demand and margin in the table above.
+All 51 joint masses are computed from geometry; none has been physically weighed.
+The ties are carbon, so the printed mass is the nodes alone.
+Film skin is 28 g at its halved span.
+The computed total is **2.69 kg**, against 218 g of displaced air at sea level and 170 g at 2,500 m.
+It does not float at either altitude.
+Structural sizing uses safety factor 1.5 against full sea-level pressure; see the [ledger](../../docs/FLOAT-LEDGER.md) for the nominal-volume basis and missing adhesive, seams, barrier and hardware.
+A prospective level-two alternative would replace the primary pipes with three-rod wound booms; that alternative still needs drawn struts, joints and load tests.
+The 10×8 choice is deliberate: margins that hold pinned make socket fixity a bonus rather than an assumption.
+E5's coupon crushes one pipe-plus-sockets to test that fixity claim.

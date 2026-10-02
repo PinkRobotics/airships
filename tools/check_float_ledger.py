@@ -75,6 +75,11 @@ class Blocks(HTMLParser):
         if tag in ('section','table','p','li','tr','h1','h2','h3','div','span','text','figcaption'):
             self.stack.append({'tag':tag,'line':self.getpos()[0],'pieces':[],'attrs':dict(attrs)})
         token=' '.join(f'{k}="{v}"' for k,v in attrs)
+        if tag=='a' and 'href' in dict(attrs):
+            # Keep the destination for record checks; clean() removes this markup
+            # from the visible text and therefore from its review key.
+            link='<a href="'+html.escape(dict(attrs)['href'],quote=True)+'">'
+            for frame in self.stack:frame['pieces'].append(link)
         if 'data-n' in dict(attrs) or 'data-cat' in dict(attrs):
             for frame in self.stack:frame['pieces'].append('['+token+']')
     def handle_data(self,data):
@@ -133,9 +138,10 @@ def source_blocks(path):
         tree=ast.parse(body)
         for n in ast.walk(tree):
             if isinstance(n,ast.Constant) and isinstance(n.value,str) and interesting(n.value):
-                yield n.lineno,clean(n.value),n.value
+                yield n.lineno,re.sub(r'\s+',' ',n.value).strip(),n.value
         for i,line in enumerate(body.splitlines(),1):
-            if line.lstrip().startswith('#') and interesting(line):yield i,clean(line),line
+            if line.lstrip().startswith('#') and interesting(line):
+                yield i,re.sub(r'\s+',' ',line).strip(),line
 
 
 def paths():
@@ -221,7 +227,7 @@ def catalog_values():
 
 def inspect_block(path,line,text,raw,rows,ledger,cat):
     kind=interpretation(text)
-    hit=dict(file=path,line=line,figure=NUM.findall(re.sub(r'\[data-[^]]+\]','',text)),sentence=text,meaning=kind,
+    hit=dict(file=path,line=line,figure=NUM.findall(re.sub(r'\[data-[^]]+\]','',text)),sentence=text,raw=raw,meaning=kind,
              status='FAIL',reason='No explicit binding to a named ledger field.',
              proposedWording=proposal(kind,rows,ledger))
     hit['dynamicFigures']=[]

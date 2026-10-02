@@ -1,5 +1,7 @@
 # Does the water arrive?
 
+The flight model assumes a hull that floats; no drawn hull does. See [the float case](../../docs/FLOAT.md).
+
 `docs/OPEN-QUESTIONS.md` #12, in two halves: the US Forest Service says a load released
 1,000 ft above the vegetation "would completely dissipate", and `ALT.drop` is 450 m — 1,476 ft;
 and AFUE, the largest field study of aerial suppression ever run, never counts tonnes at all.

@@ -1,0 +1,1103 @@
+{
+  "schema": "float-claims/1",
+  "files": [
+    "docs/MEMBER-CENSUS.md",
+    "research/analysis/air-ballast.md",
+    "research/analysis/cap-readings.md",
+    "research/analysis/delivery.md",
+    "research/analysis/descent.md",
+    "research/analysis/helium.md",
+    "research/analysis/mass-budget.md",
+    "research/analysis/reproductions.md",
+    "research/analysis/vacuum-cell.md",
+    "research/analysis/water-availability.md",
+    "research/validation/report.md",
+    "tools/ship_scoping.py"
+  ],
+  "entries": [
+    {
+      "file": "docs/MEMBER-CENSUS.md",
+      "key": "f4de71ec6a2e8f38",
+      "line": 6,
+      "text": "gpt-6-astra executed the census and regeneration. muse-spark-1.3 and a second gpt-6 run examined the float case. claude-opus-5-5 ruled the publication basis. A person directs the project; no person ch",
+      "class": "generated",
+      "reason": "The census generator supplies the attribution paragraph and explicitly says no person checked the arithmetic.",
+      "generator": "research/analysis/member-census.py"
+    },
+    {
+      "file": "research/analysis/air-ballast.md",
+      "key": "8c5405bd02148a7c",
+      "line": 30,
+      "text": "- **A fail-open valve on a dead ship is a crash, not a landing.** A fully flooded hull weighs its structure with no buoyancy at all — about 13 m/s terminal broadside, 34 m/s nose-down. A 6 m/s descent",
+      "class": "history",
+      "reason": "The retraction dated 2026-08-10 records why the abandoned admission-valve and pump proposal failed.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/analysis/cap-readings.md",
+      "key": "82bbbc952d13ac4b",
+      "line": 18,
+      "text": "| Reading | Basis | Mass t | Change t | Sea-level lift/mass | Sea-level margin t | Lift/mass at 2,500 m | Margin t at 2,500 m | | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | | As billed | re",
+      "class": "generated",
+      "reason": "The cap generator prints all five accounting readings on both bases; none is a checked structure.",
+      "generator": "research/analysis/cap-readings.py"
+    },
+    {
+      "file": "research/analysis/delivery.md",
+      "key": "825a11694ea5056f",
+      "line": 3,
+      "text": "The flight model assumes a hull that floats; no drawn hull does. See [the float case](../../docs/FLOAT.md).",
+      "class": "bound",
+      "reason": "The delivery calculation assumes buoyancy; the ledger withholds that property from every drawn hull.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "research/analysis/delivery.md",
+      "key": "2c9ef1cd33d06099",
+      "line": 75,
+      "text": "**A buoyant hull holds station by thrusting downward, so its rotors accelerate air *upward*.** That is the opposite sign to a helicopter, and it happens directly over the release.",
+      "class": "flight-model",
+      "reason": "Rotor upwash follows the simulated downward thrust on an assumed buoyant hull; this is not a built-aircraft result.",
+      "assumption": "825a11694ea5056f"
+    },
+    {
+      "file": "research/analysis/descent.md",
+      "key": "1b06a42085b66f6c",
+      "line": 68,
+      "text": "| | bag pull | cable | as fitted | full-descent cable | extra mass | |---|---|---|---|---|---| | P-100 | 1.2 MN | 1.84 kg/m | 350 m, 0.64 t | 1,500 m, 2.76 t | **+2.12 t** | | P-1000 | 12.3 MN | 18.39",
+      "class": "other-quantity",
+      "reason": "This table prices cable mass and bag pull for three assumed rope lengths; it makes no structural float claim."
+    },
+    {
+      "file": "research/analysis/descent.md",
+      "key": "a0976fc737bbd806",
+      "line": 146,
+      "text": "| question | discipline | what would settle it | |---|---|---| | Is a 1,200 m cable with a 125 t bag under a 190 m hull dynamically stable? | flight dynamics / marine towing | a pendulum and vortex-sh",
+      "class": "conditional",
+      "reason": "These are proposed towing and descent studies, including an unchosen long cable; the table asks what would settle them."
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "bae55a5edfb6f7fe",
+      "line": 23,
+      "text": "At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:",
+      "class": "bound",
+      "reason": "The gas comparison uses the helium analysis atmosphere at the stated working altitude.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/atmosphere/rhoAirKgPerM3",
+          "shown": "0.9569",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "2500"
+      ]
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "ce01ce14271f9324",
+      "line": 25,
+      "text": "| architecture | gas | structure | net | |---|---|---|---| | vacuum, ideal massless shell | 0 | 0 | +0.957 | | vacuum, single-level lattice (demonstrable) | 0 | 1.306 | **-0.349** | | vacuum, level-2",
+      "class": "bound",
+      "reason": "Each gas, shell and net density is the helium analysis row at the atmosphere stated immediately above; the hierarchy remains a target.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/structure",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/net",
+          "shown": "0.957"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/structure",
+          "shown": "1.306"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/net",
+          "shown": "-0.349"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/structure",
+          "shown": "0.538"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/net",
+          "shown": "0.419"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/hydrogen/gas",
+          "shown": "0.067"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/hydrogen/net",
+          "shown": "0.890"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium/gas",
+          "shown": "0.132"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium/net",
+          "shown": "0.825"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium97/gas",
+          "shown": "0.157"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium97/net",
+          "shown": "0.800"
+        }
+      ],
+      "context": [
+        "-2",
+        "2",
+        "97"
+      ],
+      "heading": "At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:"
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "cff89e96ebc9429e",
+      "line": 34,
+      "text": "**The break-even structure to tie hydrogen is 0.067 kg/m³** — out of reach at any hierarchy level this project has modelled. The demonstrable single-level design does not float at all, while a helium",
+      "class": "bound",
+      "reason": "The hydrogen break-even is the generated gas density; the paragraph distinguishes the nonfloating single-level formula from existing gas ships.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+          "shown": "0.067"
+        }
+      ],
+      "context": [
+        "-2",
+        "2"
+      ]
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "4d4c441a48ebffe0",
+      "line": 42,
+      "text": "**Structure double-duty.** A gas ship's gas is not its only overhead — it needs an envelope and, at scale, a frame that the cell array already is. Structure-included useful fractions: the level-2 vacu",
+      "class": "bound",
+      "reason": "The useful-fraction comparison uses the generated hierarchy prediction and the two historical gas-airship fractions, with the omitted loads stated.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/vacuumLevel2Pct",
+          "shown": "43.7"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgH2Pct",
+          "shown": "49"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgDeadKgPerM3",
+          "shown": "0.590"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/zr3HeliumPct",
+          "shown": "41"
+        }
+      ],
+      "context": [
+        "-08",
+        "-12",
+        "-126",
+        "-2",
+        "0.605",
+        "08",
+        "12",
+        "126",
+        "2",
+        "2026"
+      ]
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "3eec66729fbc3617",
+      "line": 94,
+      "text": "1. FAA-P-8110-2 (or its successor) read, not remembered. 2. The ~1 L/m²/day envelope-permeability spec traced to a readable source (Liao & Pasternak 2009 is paywalled; the figure here is order-of-magn",
+      "class": "bound",
+      "reason": "The proposed hierarchy test now cites the current level-two density, replacing the pre-correction coefficient.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "0.538"
+        }
+      ],
+      "context": [
+        "-2",
+        "1",
+        "2",
+        "2009",
+        "3",
+        "4",
+        "8110"
+      ]
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "8d7c8825b02b9858",
+      "line": 53,
+      "text": "**The cryogenic line is now the second-largest item in the vehicle and the worst-supported.** Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg), and NASA's ow",
+      "class": "other-quantity",
+      "reason": "These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "9b4f8c182bf3f3ca",
+      "line": 74,
+      "text": "> ## A vacuum shell must mass less than 0.957 kg per m³ of enclosed volume. > That is ISA air density at the 2,500 m working altitude. Above it there is no net lift at > any size, at any scale, ever.",
+      "class": "bound",
+      "reason": "The shell-density requirement is the budget analysis air-density limit at its stated working altitude.",
+      "bindings": [
+        {
+          "source": "research/analysis/mass-budget.json",
+          "pointer": "/classes/P100/shellDensityWallKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "2500"
+      ]
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "1b499ca8da5e6296",
+      "line": 80,
+      "text": "| source | shell | verdict | |---|---|---| | Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes, with 47% margin** | | Jenett + 50% for joints and skin | 0.75 kg/m³ | passes, with 22% | | M",
+      "class": "literature",
+      "reason": "These densities and margins refer to Jenett, Metlen and Akhmeteli shell studies, plus the explicitly added allowance, not the drawn project hull.",
+      "source": "research/analysis/mass-budget.py EVIDENCE; Jenett 2019, Metlen 2013, Akhmeteli and Gavrilin 2021"
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "f56e261377ae00a3",
+      "line": 146,
+      "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
+      "class": "other-quantity",
+      "reason": "This lists unpriced cryogenic and thermal equipment masses and heat rejection quantities; it does not establish a structural float result."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "ecf313cd35581cdc",
+      "line": 169,
+      "text": "`barrier_floor()` sizes a film that only has to **seal**, with load-carrying left to the lattice under it: a film bulging into a lattice cell carries the atmosphere as membrane tension, σ = pR/2t. At",
+      "class": "other-quantity",
+      "reason": "The membrane law estimates barrier areal mass and its component mass on the assumed hull; it does not size the load-carrying hull."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "a7ba68c7cfd96080",
+      "line": 174,
+      "text": "Metlen measured 3.45 kg/m² for a real membrane, eighty times more, because his membrane was *also* the structure. That gap is the whole question of whether the two functions separate, and it is a mate",
+      "class": "literature",
+      "reason": "The membrane areal mass is attributed to Metlen and compared with the separate barrier component, not a project hull density.",
+      "source": "Metlen 2013; research/analysis/mass-budget.py EVIDENCE"
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "3911cda2eb237df7",
+      "line": 180,
+      "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
+      "class": "conditional",
+      "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
+    },
+    {
+      "file": "research/analysis/reproductions.md",
+      "key": "a03ff8b00328054f",
+      "line": 17,
+      "text": "Jenett, Gregg and Cheung's equation (33) gives membrane stress. Section IV.D divides the load among lattice elements, then sizes tubes by Euler buckling at a fixed radius/wall ratio. The reproduction",
+      "class": "literature",
+      "reason": "This describes the Jenett equation and the material rescaling used to reproduce its local tube sizing, not a project hull verdict.",
+      "source": "research/analysis/reproductions.py; Jenett, Gregg and Cheung, equation (33) and section IV.D"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "bce63b20375510e7",
+      "line": 10,
+      "text": "> ## Where this landed, and where it goes > The single-level formula with outer-envelope film gives **1.306 kg/m³**. > Its lattice uses safety factor 1.5, full sea-level pressure, and local-wall knock",
+      "class": "bound",
+      "reason": "The first comparison distinguishes closed-form cell densities from a drawn structure and gives both atmospheric limits, then the unchecked cap range and census count.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/totalIfOuterEnvelopeOnly",
+          "shown": "1.306"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "0.538"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoSeaLevel",
+          "shown": "1.225",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        }
+      ],
+      "context": [
+        "1.5",
+        "0.30",
+        "2500",
+        "0.605",
+        "0.65",
+        "1450",
+        "1.2"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "b63183a0e7d7775b",
+      "line": 29,
+      "text": "> **A vacuum shell must mass less than 0.9569 kg per m³ of enclosed volume** — air density at > the 2,500 m working altitude. Heavier and there is no net lift at any size, ever. Lighter and > the hull",
+      "class": "bound",
+      "reason": "This is the air-density requirement at the stated working altitude, not a sized or drawn structure.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.9569",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "2500"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "8ecf68ea14aa6a6a",
+      "line": 60,
+      "text": "At floating densities lattice members are slender enough that **Euler buckling governs, not yield** — by more than an order of magnitude for every material tested. Solid rods therefore give strength ∝",
+      "class": "bound",
+      "reason": "The discussion contrasts the solid-rod branch with the hollow-tube exponent; its no-float statement concerns that closed-form solid-rod branch.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/exponent",
+          "shown": "1.5"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+          "equals": 7.9859
+        }
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "b71022074f407881",
+      "line": 73,
+      "text": "| | effect on the reference shell | |---|---| | **1. Fibre properties used as laminate properties.** M60J's 588 GPa / 3.82 GPa / 1930 is the *fibre*. A laminate at 60% fibre volume is ~354 / 2.29 / 16",
+      "class": "history",
+      "reason": "This is the recorded sequence of five corrections to the earlier reference-shell calculation, including the discarded film accounting.",
+      "date": "2026-08-12"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "c0e16a9f019fcce8",
+      "line": 86,
+      "text": "| cell size | 0.5 m | 1 m | 2 m | 4 m | |---|---|---|---|---| | film sized to hold an atmosphere | 0.347 | 0.347 | 0.347 | 0.347 kg/m³ | | minimum-gauge foil laminate instead | 0.300 | 0.150 | 0.075 |",
+      "class": "other-quantity",
+      "reason": "The table compares the interior film component under two barrier assumptions; these are not complete shell densities or a float verdict."
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "e7d5c1b5cf90fb2f",
+      "line": 105,
+      "text": "The envelope-only figure was 0.002 in an earlier version — an unsourced 17 g/m² film assigned to a surface that must hold a full atmosphere over 2 m spans. A review priced it with the model's own memb",
+      "class": "history",
+      "reason": "This records the earlier unpriced envelope film and the membrane recalculation that replaced it, preserving the old and replacement figures.",
+      "date": "2026-08-12"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "069530d9e7c01329",
+      "line": 112,
+      "text": "**That trade — containment against 0.35 kg/m³ — is the sharpest unresolved question in the design.** It is worth a third of the shortfall, and the earlier version of this page paid for it without clai",
+      "class": "bound",
+      "reason": "The containment trade quotes the generated interior-film density rounded to two decimals.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/designPoint/buildUp/interiorFilm",
+          "shown": "0.35"
+        }
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "9dc27a03a9cc2912",
+      "line": 123,
+      "text": "Lattice + nodes + film, at 2 m cells, against air at 0.957 kg/m³ at 2,500 m:",
+      "class": "bound",
+      "reason": "The material table compares its fixed cell-size calculations against the working-altitude air density.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "2",
+        "2500"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "292ba211c3cb29fd",
+      "line": 193,
+      "text": "| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status | |---|---|---|---|---|---| | 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only | | 1 | 1.500 | 1.306 | 0.93",
+      "class": "bound",
+      "reason": "The hierarchy table compares formula densities at both altitudes; replacing floats with formula only prevents an undrawn higher-level strut being presented as a vehicle.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/exponent",
+          "shown": "2.000"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+          "shown": "7.986"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-0",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.153"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-0",
+          "field": "at.target.liftToMass",
+          "shown": "0.120"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/exponent",
+          "shown": "1.500"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+          "shown": "1.306"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.938"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "at.target.liftToMass",
+          "shown": "0.733"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/exponent",
+          "shown": "1.333"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "0.538"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "2.276"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.liftToMass",
+          "shown": "1.778"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/exponent",
+          "shown": "1.250"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+          "shown": "0.403"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-3",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "3.037"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-3",
+          "field": "at.target.liftToMass",
+          "shown": "2.372"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/exponent",
+          "shown": "1.200"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+          "shown": "0.403"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-4",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "3.037"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-4",
+          "field": "at.target.liftToMass",
+          "shown": "2.372"
+        }
+      ],
+      "context": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "2500"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "2773f904088426bf",
+      "line": 318,
+      "text": "How the membrane meshes with the structure — corrected once, and the correction recorded: an earlier version claimed every face was node-supported, from a lattice generator that admitted **two interle",
+      "class": "history",
+      "reason": "This records the correction from two interleaved octets to FCC sites and the resulting boundary-node topology.",
+      "date": "2026-08-11"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "3ac6d363e075961b",
+      "line": 517,
+      "text": "**Two SKUs, and the designer was right for the wrong reason.** He proposed the secondaries be a *smaller* carbon pipe. Carbon yes; smaller no — sized against the load they actually react, the ties com",
+      "class": "history",
+      "reason": "This records the dated saw-table correction, retained old span billing and the material replacement in the hybrid article.",
+      "date": "2026-08-12"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "a2502f4bccb5e023",
+      "line": 528,
+      "text": "The 51 printed joints are **weighed, not budgeted**: gen_nodes.py integrates each one from its own field and the article reads the manifest — **0.71 kg** since the sunken boundary frame (2026-08-11).",
+      "class": "history",
+      "reason": "This records the successive generated joint-mass estimates through the dated sunken-frame change, not a physical weighing.",
+      "date": "2026-08-11"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "18bd439f85b88e7d",
+      "line": 538,
+      "text": "**Then 21 g of that came back, and it is worth naming what bought it.** Giving the 36 rim members the 14×12 socket the stock build specifies — instead of the 10×8 every other member gets — pushed the",
+      "class": "history",
+      "reason": "This preserves the socket-diameter change and its signed joint-mass increments from the recorded article geometry revision.",
+      "date": "2026-08-12"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "75d491eb35d75d43",
+      "line": 546,
+      "text": "None of that makes this article fly, and it was never meant to. The bench article is **15.13 kg/m³**: its mass is 12.4 times displaced air at sea level and 15.8 times at 2,500 m. Its structural sizing",
+      "class": "bound",
+      "reason": "The bench comparison gives the nominal displaced-air mass multiples at both altitudes and keeps the all-printed printer test distinct.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/kgPerM3",
+          "shown": "15.13"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.seaLevel.massToLift",
+          "shown": "12.4"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.massToLift",
+          "shown": "15.8"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/demonstrator/totalKg",
+          "shown": "7.48"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/demonstrator/massOverDisplaced",
+          "shown": "34"
+        }
+      ],
+      "context": [
+        "2500",
+        "1.5"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "8f5537908a41d50a",
+      "line": 551,
+      "text": "**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **1.203 kg/m³**. Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m. The cor",
+      "class": "bound",
+      "reason": "The unit-subdivision article formula is compared with air at both altitudes; its material variants do not establish a floating design.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/M60J_LAM/densityAtN1",
+          "shown": "1.203"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/T700_LAM/densityAtN1",
+          "shown": "2.236"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/CFF/densityAtN1",
+          "shown": "2.269"
+        },
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoSeaLevel",
+          "shown": "1.225",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "2500",
+        "1.5",
+        "0.30"
+      ]
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "beebb7b516280293",
+      "line": 684,
+      "text": "The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**. The octet demand is 3,372 N per strut, with safety factor already included. Its Euler margins are ×1.8 pinn",
+      "class": "bound",
+      "reason": "The hybrid article has computed joint mass and insufficient displaced-air mass at both altitudes; higher-level booms are explicitly prospective, with drawings and load tests still needed.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/perStrutDemandN",
+          "shown": "3372"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/eulerMarginPinned",
+          "shown": "1.8"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/eulerMarginSocketed",
+          "shown": "4.3"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/stressMargin",
+          "shown": "21"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/printed/nodes",
+          "shown": "51"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/skinKg",
+          "shown": "28",
+          "scale": 1000
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/totalKg",
+          "shown": "2.69"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.seaLevel.lift",
+          "shown": "218",
+          "scale": 1000
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.lift",
+          "shown": "170",
+          "scale": 1000
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.seaLevel.floats",
+          "equals": false
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.floats",
+          "equals": false
+        }
+      ],
+      "context": [
+        "180",
+        "10",
+        "8",
+        "36",
+        "14",
+        "12",
+        "2500",
+        "1.5"
+      ]
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "793a9b3b231227b3",
+      "line": 5,
+      "text": "| Check | Class | Verdict | Scope | | --- | --- | --- | --- | | Air density with altitude | equation | MISS | 45 labelled rows | | Hindenburg gross lift | measured | agrees | 1 labelled rows | | CL-41",
+      "class": "generated",
+      "reason": "The generated summary retains measured misses and reproduction limits for the six labelled checks.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "06c76759c0912e72",
+      "line": 20,
+      "text": "**Tolerance:** Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed",
+      "class": "generated",
+      "reason": "The generated tolerance paragraph preserves printed atmosphere precision without inflating the allowed errors.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "c6fd453c5733c48b",
+      "line": 22,
+      "text": "| Comparison | Model | Reference | Difference | Tolerance | Verdict | | --- | ---: | ---: | ---: | ---: | --- | | sim, H=0 m, temperature_K (K) | 288.15 | 288.15 [source 0](sources.json) | 0 | 1e-06 |",
+      "class": "generated",
+      "reason": "The generated atmosphere table compares three implementations against the stored source rows and retains every miss.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "ca22135fd693c341",
+      "line": 72,
+      "text": "| H (m) | sim | vacuum-cell | helium | All T/P/density agree to roundoff | | ---: | ---: | ---: | ---: | --- | | 0 | 1.22500031685 | 1.22501226599 | 1.22501226599 | False | | 1000 | 1.11164273888 | 1.",
+      "class": "generated",
+      "reason": "The generated cross-model density table reports numerical disagreement rather than asserting parity.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "4dea07f87c99ab27",
+      "line": 127,
+      "text": "**Limits:** Climb-out, circuit, approach, acceleration, deceleration and drop run are unmapped. The sum is a lower bound on turnaround, never a complete aircraft cycle. No wind; the printed maximum cr",
+      "class": "generated",
+      "reason": "The generated aircraft-cycle limit paragraph explicitly withholds operational capability and excludes the airship assumptions.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "d928bedb7a3ca718",
+      "line": 149,
+      "text": "XH-59A comparison state: pressure altitude -40.2336 m, temperature 280.45 K, density 1.26464921 kg/m3; equivalent ISA density altitude -333.044015 m (derived). Unchanged effective efficiency: 0.7.",
+      "class": "generated",
+      "reason": "The generated rotor comparison names the recorded flight-test atmosphere and the derived ISA density altitude.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "94b4b02c0f118497",
+      "line": 169,
+      "text": "| Comparison | Model | Reference | Difference | Tolerance | Verdict | | --- | ---: | ---: | ---: | ---: | --- | | Akhmeteli shell mass, literal thin-layer Eq.(7) (kg) | 76.0854471 | 75.7 [source 27](s",
+      "class": "generated",
+      "reason": "The generated shell reproduction table preserves the mass and payload misses and unavailable member inventory.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "bf46b12b8f20bb06",
+      "line": 191,
+      "text": "**Limits:** Every paper-specific term is listed below and in reproductions.py; these are not validations of the project's volume-filling lattice or its dry-mass allowance. Akhmeteli uses the final Dis",
+      "class": "generated",
+      "reason": "The generated reproduction limits distinguish paper-specific geometry from the project hull and retain excluded stability checks.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "11f51c35f816fdec",
+      "line": 205,
+      "text": "**Tolerance:** NIST states 0.03 percent density uncertainty; do not inflate it for ideal-gas departure. Lift allows 0.0001 kg/m3 for the air/table precision and conversion. Maximum takeoff weight is n",
+      "class": "generated",
+      "reason": "The generated helium tolerance paragraph preserves the source uncertainty and the maximum-weight comparison limit.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "4b580d15da77e77f",
+      "line": 207,
+      "text": "| Comparison | Model | Reference | Difference | Tolerance | Verdict | | --- | ---: | ---: | ---: | ---: | --- | | helium density at NIST state (kg/m3) | 0.169293617 | 0.169195 [source 30](sources.json",
+      "class": "generated",
+      "reason": "The generated helium table retains density and handbook lift misses against the stored sources.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "research/validation/report.md",
+      "key": "d67fe3f3bdd65ccb",
+      "line": 214,
+      "text": "Requested Zeppelin comparison: 8425 m3 versus 8050 kg maximum takeoff mass.",
+      "class": "generated",
+      "reason": "The generated Zeppelin statement names volume and maximum takeoff mass as the requested capacity comparison.",
+      "generator": "research/validation/check.py",
+      "gate": "labelledcheck"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "5de4fa932a9aa0e3",
+      "line": 762,
+      "text": "v2 ratio @SF1.2",
+      "class": "history",
+      "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.2; it is not the selected hull verdict.",
+      "date": "2026-08-13"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "7b4b7076283e11ea",
+      "line": 764,
+      "text": "v2 ratio @SF1.5",
+      "class": "history",
+      "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.5; it is not the selected hull verdict.",
+      "date": "2026-08-13"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "9173694a51193a63",
+      "line": 765,
+      "text": "v2 ratio @SF1.5 s1450",
+      "class": "history",
+      "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.5 with the ceiling chord allowable; it is not the selected hull verdict.",
+      "date": "2026-08-13"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "837cac974f4a343c",
+      "line": 873,
+      "text": "# float, farthest from crush) and let the margin be an OUTPUT of materials and",
+      "class": "history",
+      "reason": "This comment quotes the dated question that introduced the band study, not an assertion that a drawn hull is weightless.",
+      "date": "2026-08-13"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "828584b014d47888",
+      "line": 948,
+      "text": "THE BAND, BY HULL: greedy sizing (the SF-1.0 ledger) vs sink boundary (sea-level lift), in tonnes. The SF-1.0 result is greedy sizing, not a proven minimum. A positive float band is an unchecked mass",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "249c8beb45cab99a",
+      "line": 971,
+      "text": "FLOATS below means mass below sea-level lift only. It does not establish a drawn floating design.",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "a138cf96eba3f96c",
+      "line": 992,
+      "text": "FLOATS",
+      "class": "calculator",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "04dd1b14ff493aba",
+      "line": 1000,
+      "text": "MID-BAND DESIGN POINTS — mass target halfway crush->sink at the widest hull; float reserve and emergent SF split the band, and the margin is an output:",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "3c5e87602865f82a",
+      "line": 1021,
+      "text": "t: float reserve",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "ded571c0bd4b96e3",
+      "line": 1052,
+      "text": "t, float reserve",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "band_study",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "cd380916af21145f",
+      "line": 1170,
+      "text": "positive float margin",
+      "class": "calculator",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "function": "main",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "d3b697673cee0910",
+      "line": 1170,
+      "text": "negative float margin",
+      "class": "calculator",
+      "reason": "The display condition uses the computed sea-level mass/lift comparison; analysisfresh executes the scoping output but is not yet wired into check.",
+      "function": "main",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "69cddcf72a7a7526",
+      "line": 1176,
+      "text": "THE FLOAT WINDOW (chosen config, geometric scaling; the old closure map inverts — the band's diluting mass is gone):",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "main",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "bc722093e5bd480a",
+      "line": 1184,
+      "text": "MPa: floats",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "main",
+      "gate": "analysisfresh"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "1ba3ea93442721f0",
+      "line": 1188,
+      "text": "MPa: floats nowhere 40-80 m (52 m:",
+      "class": "calculator",
+      "reason": "This is computed scoping output, qualified as a sea-level bound; analysisfresh executes it but is not yet wired into check.",
+      "function": "main",
+      "gate": "analysisfresh"
+    }
+  ]
+}

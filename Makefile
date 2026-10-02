@@ -336,3 +336,7 @@ census:  ## Regenerate the drawing/bill record and five cap readings
 censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 	$(PY) tools/check_member_census.py --self-test
 	$(PY) tools/check_member_census.py
+
+.PHONY: ledgercheck-selftest
+ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'

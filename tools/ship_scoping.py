@@ -7,7 +7,8 @@ The operator's 08-12/08-13 cascade replaced the Kelvin band with a wall that is 
 but structure and one membrane: hoop rings at panel pitch, continuous meridional
 cross-bars one diameter outboard, film laid straight on them, split-Ti clamps at one
 crossing in four. This tool is the cascade's bill. It answers the two questions the
-project exists to answer, at ship 0's plan of record (52 m x 104 m, sea level):
+project exists to answer for the selected hull. Its configuration is compared
+with the hull of record before it is named:
 
     DOES IT STAND?  — every named check, margin by margin, at the declared SF 1.2
                       with SF 1.5 always beside it (house display rule), including
@@ -693,8 +694,8 @@ def ship_ledger(sigma_key: str, sf: float, s_r: float = RING_PITCH,
         "ratioSL": lift_sl / total_t, "residualSLT": lift_sl - total_t,
         "ratio2500": lift_25 / total_t, "residual2500T": lift_25 - total_t,
         "arealKgM2": total_t * 1000 / AREA_M2,
-        # [REF-8] FLOATS only if it also STANDS: every named margin >= 1 at
-        # this SF (the frame-practice GI world is reported, never gated on).
+        # The floats flag compares sea-level mass and lift only. Structural checks
+        # are recorded separately; the frame-practice basis remains unverified.
         "checksPassInclErection": (wall["ring"]["marginAtSF"] >= 1
                        and wall["bar"]["marginAtSF"] >= 1
                        and skel["longeron"]["marginAtSF"] >= 1
@@ -872,10 +873,10 @@ def sensitivity(cfg: dict, sigma_key: str, sf: float) -> list:
 # asking for a set safety factor, put ourselves in the middle of the band (best
 # float, farthest from crush) and let the margin be an OUTPUT of materials and
 # design." The two boundaries at every hull:
-#   CRUSH = the ledger the solver writes at SF exactly 1.0 — every capacity
-#           meets its demand at nominal pressure, zero margin anywhere;
+#   CRUSH = the greedy sizing ledger at SF exactly 1.0;
+#           neither minimum mass nor zero margin at every check is established;
 #   SINK  = displacement lift.
-# Every design that both stands and floats lives between them. The emergent
+# A positive float band is an unchecked allowance, not a design. The emergent
 # safety factor of a design at mass m is the SF whose ledger hits m — so the
 # margin becomes a consequence of the band, not a declaration. Honest limits:
 # the crush boundary is the STATIC nominal-pressure boundary (gusts, thermal
@@ -944,10 +945,11 @@ def band_study() -> None:
     sigmas = ("s1050", "s1450")
     grid = {}
 
-    print("THE BAND, BY HULL — crush boundary (the SF-1.0 ledger) vs sink "
-          "boundary (lift),\ntonnes. A design exists wherever the band is "
-          "positive; SF_float is the LARGEST\nemergent factor that still "
-          "floats there (the whole band, spent on margin):\n")
+    print("THE BAND, BY HULL: greedy sizing (the SF-1.0 ledger) vs sink "
+          "boundary (sea-level lift), in tonnes.\n"
+          "The SF-1.0 result is greedy sizing, not a proven minimum.\n"
+          "A positive float band is an unchecked mass allowance, not a design.\n"
+          "SF_float is the emergent factor at that sea-level allowance:\n")
     for wname, gamma in worlds:
         GI_ACTIVE = gamma
         for key in sigmas:
@@ -960,12 +962,14 @@ def band_study() -> None:
                 band = lift - m1
                 sff = emergent_sf(d, key, lift) if (band > 0 and ok) else None
                 sfs = f"{sff:9.2f}" if sff else "        -"
-                note = "" if ok else "   [solver hit its guard - crush is a floor]"
+                note = "" if ok else "   [solver hit its guard; sizing is incomplete]"
                 print(f"    {d:6.0f} {m1:9.1f} {lift:9.1f} {band:+9.1f}"
                       f"{sfs}{note}")
             print()
     GI_ACTIVE = GI_KNOCKDOWN
 
+    print("FLOATS below means mass below sea-level lift only. "
+          "It does not establish a drawn floating design.")
     print("THE TWO DESIGN MOVES AS BOUNDS at 52 m (chordal net: cord mass "
           "priced, geometry\n[SCOPING]; in-surface shear: stiffness credited, "
           "its own mass UNPRICED - outer\nbound). crush = SF-1.0 ledger; "
@@ -1060,6 +1064,34 @@ def band_study() -> None:
 
 
 # ---------------------------------------------------------------------------------
+def hull_label(cfg: dict) -> str:
+    """Name the selected configuration only after comparing it with the record."""
+    selected = dict(
+        diaM=DIA_M, fineness=LEN_M / DIA_M, sfDeclared=SF_DECL,
+        sigmaWorldsMPa={key: value / 1e6 for key, value in SIGMA_WORLDS.items()},
+        sigmaMid=SIGMA_MID, ringPitchM=cfg["sR"], barPitchM=cfg["sB"],
+        nLong=cfg["nLong"], kFan=cfg["kFan"], depthM=cfg["depth"], bayM=BAY_M,
+        clampEvery=CLAMP_EVERY, clampKgAt130=CLAMP_KG_AT_130, etaMass=ETA_MASS,
+        voidSkinKgM2=VOID_SKIN_KGM2, jacketKgM2=JACKET_KGM2,
+        junctionAdder=JUNCTION_ADDER, clampCapN=CLAMP_CAP_N,
+        giKnockdown=GI_ACTIVE, giKnockdownFrame=GI_KNOCKDOWN_FRAME,
+        padKg=PAD_KG, strapSigma=STRAP_SIGMA, eSpoke=E_SPOKE,
+        rhoSpoke=RHO_SPOKE, spokeFitting=SPOKE_FITTING)
+    differences = [f"{key} {value} versus {vc.SHIP0[key]}"
+                   for key, value in selected.items() if value != vc.SHIP0[key]]
+    if BOUND_CHORDAL or BOUND_MEMBRANE:
+        differences.append("undrawn design credits enabled")
+    if differences:
+        return (f"scoping tool's default hull (wall {cfg['depth']:.1f} m); "
+                "differs from the hull of record: " + "; ".join(differences))
+    actual = ship_ledger(SIGMA_MID, SF_DECL, cfg["sR"], cfg["sB"])
+    expected = vc.ship0()
+    for field in ("totalT", "ratioSL", "ratio2500"):
+        if not math.isclose(actual[field], expected[field], rel_tol=1e-10, abs_tol=1e-10):
+            raise ValueError(f"hull of record does not reproduce: {field}")
+    return "hull of record"
+
+
 def main() -> None:
     global GI_ACTIVE
     ap = argparse.ArgumentParser()
@@ -1102,13 +1134,14 @@ def main() -> None:
     bestr = min(ruled, key=lambda r: r["totalT"]) if ruled else b
     cfg = {"sR": 0.5, "sB": 0.5, "nLong": bestr["nLong"],
            "kFan": bestr["kFan"], "depth": bestr["depth"]}
-    print(f"  PLAN OF RECORD keeps the ruled 0.5 m squares: "
+    print(f"  SELECTED CONFIGURATION keeps the ruled 0.5 m squares: "
           f"{cfg['nLong']} longerons x fan {cfg['kFan']} "
           f"(ring brace {2 * math.pi * 26 / cfg['nLong']:.2f} m), "
           f"depth {cfg['depth']:.0f} m -> {bestr['totalT']} t")
 
     configure(n_long=cfg["nLong"], k_fan=cfg["kFan"], depth=cfg["depth"])
-    print(f"\nSHIP 0 — {DIA_M:.0f} m x {LEN_M:.0f} m, V = {V_M3:,.0f} m3, "
+    label = hull_label(cfg)
+    print(f"\n{label}\n{DIA_M:.0f} m x {LEN_M:.0f} m, V = {V_M3:,.0f} m3, "
           f"hull {AREA_M2:,.0f} m2, sea level.\n")
 
     results = {}
@@ -1117,10 +1150,11 @@ def main() -> None:
             configure(n_long=cfg["nLong"], k_fan=cfg["kFan"], depth=cfg["depth"])
             r = ship_ledger(key, sf, cfg["sR"], cfg["sB"])
             results[f"{key}_sf{sf}"] = r
-            tag = "FLOATS" if r["floats"] else "sinks"
+            tag = "positive float margin" if r["floats"] else "negative float margin"
             print(f"  {sf_name:>16} @ {key[1:]:>4} MPa: total {r['totalT']:6.1f} t"
                   f" vs {r['liftSLT']:.1f} t -> ratio {r['ratioSL']:.3f} "
-                  f"({r['residualSLT']:+.1f} t)  {tag}")
+                  f"({r['residualSLT']:+.1f} t) at sea level; "
+                  f"ratio {r['ratio2500']:.3f} ({r['residual2500T']:+.1f} t) at 2,500 m. {tag} at sea level")
 
     # THE DECISION TABLE: the same six worlds under the frame-practice GI
     # knockdown — reported, never used for sizing until SHIP-2's tests land.
@@ -1133,9 +1167,10 @@ def main() -> None:
             configure(n_long=cfg["nLong"], k_fan=cfg["kFan"], depth=cfg["depth"])
             r = ship_ledger(key, sf, cfg["sR"], cfg["sB"])
             frame_results[f"{key}_sf{sf}"] = r
-            tag = "FLOATS" if r["floats"] else "sinks"
+            tag = "positive float margin" if r["floats"] else "negative float margin"
             print(f"  {sf_name:>16} @ {key[1:]:>4} MPa: total {r['totalT']:6.1f} t"
-                  f" -> ratio {r['ratioSL']:.3f} ({r['residualSLT']:+.1f} t)  {tag}")
+                  f" -> ratio {r['ratioSL']:.3f} ({r['residualSLT']:+.1f} t) at sea level; "
+                  f"ratio {r['ratio2500']:.3f} ({r['residual2500T']:+.1f} t) at 2,500 m. {tag} at sea level")
     GI_ACTIVE = GI_KNOCKDOWN
 
     print("\nTHE FLOAT WINDOW (chosen config, geometric scaling; the old "

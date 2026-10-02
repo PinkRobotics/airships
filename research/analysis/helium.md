@@ -96,4 +96,4 @@ current IEA/DOE figure.
    2009 is paywalled; the figure here is order-of-magnitude).
 3. Hydrogen $/kg pinned to a current IEA/DOE figure.
 4. The level-2 coefficient demonstrated — the useful-fraction argument stands on
-   0.450 kg/m³, a prediction of this project's model; E5 is the test.
+   0.538 kg/m³, a prediction of this project's model; E5 is the test.

@@ -488,14 +488,16 @@
       "key": "64aab69e62e1e213",
       "line": 165,
       "text": "SF_float is the largest factor this sizing search places below the sea-level sink wall; a closed band has no such factor. This is an arithmetic bound, not a floating design. At the 2,500 m working altitude the sink wall drops to [data-n=\"band25\" data-f=\"1\"] t and every world's band as drawn is negative — the altitude ladder is a design input, not a detail. Both SHIP-3 moves and every hull from 32 to 112 m are explorable in the band calculator ↗ , on this same gated model.",
-      "class": "live-model",
-      "reason": "The altitude sink-wall value is computed as S.band.harshMid.lift2500T; this block calls the sizing search an arithmetic bound and denies a floating design.",
+      "class": "calculator",
+      "reason": "The page computes band25 from ship0Summary, then dig renders it; shipcheck compares this displayed working-altitude lift with that model field.",
       "context": [
         "2500",
         "3",
         "32",
         "112"
-      ]
+      ],
+      "function": "ship0Summary",
+      "gate": "shipcheck"
     },
     {
       "file": "cell/ship.html",
