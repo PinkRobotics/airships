@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed</title>
-<meta name="description" content="Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.">
+<title>Exercise · invented fires · Pink Robotics fleet monitor</title>
+<meta name="description" content="Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.">
 <link rel="canonical" href="https://pinkrobotics.ca/airships/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Live fires. A simulated fleet. Arithmetic you can check.">
-<meta property="og:description" content="Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines would have to do and what each cycle would cost — not a promise that any fire goes out.">
+<meta property="og:title" content="Exercise: invented fires, real terrain, a simulated fleet.">
+<meta property="og:description" content="Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.">
 <meta property="og:url" content="https://pinkrobotics.ca/airships/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
 <style>
@@ -741,7 +741,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
     <p class="kicker" style="margin:0;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:baseline">
       <a href="../" style="color:var(--faint)">← Pink Robotics</a>
       <span><span class="m-hide">Autonomous fleet monitor —</span>
-        <span style="color:#c9c3b6">live BC fires</span> ·
+        <span id="fireModeLabel" style="color:#c9c3b6">exercise · invented fires</span> ·
         <span style="color:var(--warm)">simulated fleet</span> ·
         <span style="color:#d98b80">not for emergency use</span></span>
       <a href="concept/" style="margin-left:auto;color:var(--warm)"><span class="m-hide">How it works · </span>sources →</a></p>
@@ -749,23 +749,19 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
       <div class="cp-leftcol">
       <div class="cpanel" id="cpFleet">
         <h4 class="cp-h" id="fleetH" title="Hulls are named for water birds: diving birds fly the P-100s, the big scoopers fly the P-1000s, and the single P-10000 is named for the largest wingspan alive.">The fleet · <b>16 hulls</b> · shared</h4>
-        <!-- The static roster below is generated from the built-in sample (the latest
-             fleet day in data/season/) by tools/gen_fallback.py, for crawlers and
+        <!-- The static roster below is generated from the invented exercise
+             by tools/gen_fallback.py, for crawlers and
              no-script visitors. renderRoster() replaces this container's markup
              wholesale, exactly as it replaced it empty. -->
-        <div id="roster"><!--FALLBACK-ROSTER--><table class="fleettab" aria-label="Fleet roster from the dated record of 2026-10-01, grouped by class: hull, the fire it serves, and its simulated release rate"><tbody><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-10000 ×1 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Condor</td><td>Creham Creek Muskwa Junction</td><td class="ph">6,208 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-1000 ×5 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Osprey</td><td>Creham Creek Muskwa Junction</td><td class="ph">1,446 kL/h</td></tr><tr class="r-ship"><td class="r-name">Pelican</td><td>Creham Creek Muskwa Junction</td><td class="ph">1,446 kL/h</td></tr><tr class="r-ship"><td class="r-name">Heron</td><td>Creham Creek Muskwa Junction</td><td class="ph">1,446 kL/h</td></tr><tr class="r-ship"><td class="r-name">Albatross</td><td>Creham Creek Muskwa Junction</td><td class="ph">1,446 kL/h</td></tr><tr class="r-ship"><td class="r-name">Skimmer</td><td>Creham Creek Muskwa Junction</td><td class="ph">1,446 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-100 ×10</span></td></tr><tr class="r-ship"><td class="r-name">Kingfisher</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Tern</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Merganser</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Dipper</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Grebe</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Loon</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Swift</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Petrel</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Kestrel</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr><tr class="r-ship"><td class="r-name">Auklet</td><td>Creham Creek Muskwa Junction</td><td class="ph">144 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Allocation over the fires of 2026-10-01 that the guard allows the fleet to serve. This printed copy is the dated record bundled with this page.</p><!--/FALLBACK-ROSTER--></div>
+        <div id="roster"><!--FALLBACK-ROSTER--><table class="fleettab" aria-label="Fleet roster from the invented exercise, grouped by class: hull, the fire it serves, and its simulated release rate"><tbody><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-10000 ×1 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Condor</td><td>Exercise 034</td><td class="ph">10,277 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-1000 ×5 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Osprey</td><td>Exercise 090</td><td class="ph">780 kL/h</td></tr><tr class="r-ship"><td class="r-name">Pelican</td><td>Exercise 094</td><td class="ph">1,761 kL/h</td></tr><tr class="r-ship"><td class="r-name">Heron</td><td>Exercise 044</td><td class="ph">1,126 kL/h</td></tr><tr class="r-ship"><td class="r-name">Albatross</td><td>Exercise 057</td><td class="ph">1,055 kL/h</td></tr><tr class="r-ship"><td class="r-name">Skimmer</td><td>Exercise 039</td><td class="ph">1,171 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-100 ×10</span></td></tr><tr class="r-ship"><td class="r-name">Kingfisher</td><td>Exercise 074</td><td class="ph">147 kL/h</td></tr><tr class="r-ship"><td class="r-name">Tern</td><td>Exercise 116</td><td class="ph">147 kL/h</td></tr><tr class="r-ship"><td class="r-name">Merganser</td><td>Exercise 106</td><td class="ph">159 kL/h</td></tr><tr class="r-ship"><td class="r-name">Dipper</td><td>Exercise 049</td><td class="ph">305 kL/h</td></tr><tr class="r-ship"><td class="r-name">Grebe</td><td>Exercise 045</td><td class="ph">277 kL/h</td></tr><tr class="r-ship"><td class="r-name">Loon</td><td>Exercise 097</td><td class="ph">184 kL/h</td></tr><tr class="r-ship"><td class="r-name">Swift</td><td>Exercise 058</td><td class="ph">232 kL/h</td></tr><tr class="r-ship"><td class="r-name">Petrel</td><td>Exercise 022</td><td class="ph">155 kL/h</td></tr><tr class="r-ship"><td class="r-name">Kestrel</td><td>Exercise 013</td><td class="ph">310 kL/h</td></tr><tr class="r-ship"><td class="r-name">Auklet</td><td>Exercise 078</td><td class="ph">319 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Allocation over invented exercise fires. This printed copy is the fixed exercise bundled with this page.</p><!--/FALLBACK-ROSTER--></div>
 
       </div>
       <div class="cpanel" id="cpFires">
-        <h4 class="cp-h" id="firesH">Top fires · <b>live</b> · served or queued</h4>
+        <h4 class="cp-h" id="firesH">Exercise fires · <b>invented</b> · served or queued</h4>
         <!-- Generated snapshot stand-in; renderFires() replaces it like the empty state. -->
-        <div id="firesTop"><!--FALLBACK-FIRES--><table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires waiting for or receiving a hull, from the dated record of 2026-10-01"><tbody><tr class="r-ship"><td>Creham Creek Muskwa Junction</td><td style="text-align:right">21 ha</td><td style="text-align:right">Condor</td><td style="text-align:right">6,208 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Sizes as British Columbia published them for 2026-10-01. This printed copy is the dated record bundled with this page.</p><!--/FALLBACK-FIRES--></div>
+        <div id="firesTop"><!--FALLBACK-FIRES--><table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires waiting for or receiving a hull, from the invented exercise"><tbody><tr class="r-ship"><td>Exercise 090</td><td style="text-align:right">146,864 ha</td><td style="text-align:right">Osprey</td><td style="text-align:right">780 kL/h</td></tr><tr class="r-ship"><td>Exercise 034</td><td style="text-align:right">42,240 ha</td><td style="text-align:right">Condor</td><td style="text-align:right">10,277 kL/h</td></tr><tr class="r-ship"><td>Exercise 022</td><td style="text-align:right">6,748 ha</td><td style="text-align:right">Petrel</td><td style="text-align:right">155 kL/h</td></tr><tr class="r-ship"><td>Exercise 057</td><td style="text-align:right">2,782 ha</td><td style="text-align:right">Albatross</td><td style="text-align:right">1,055 kL/h</td></tr><tr class="r-ship"><td>Exercise 044</td><td style="text-align:right">2,402 ha</td><td style="text-align:right">Heron</td><td style="text-align:right">1,126 kL/h</td></tr><tr class="r-ship"><td>Exercise 039</td><td style="text-align:right">2,007 ha</td><td style="text-align:right">Skimmer</td><td style="text-align:right">1,171 kL/h</td></tr><tr class="r-ship"><td>Exercise 094</td><td style="text-align:right">1,744 ha</td><td style="text-align:right">Pelican</td><td style="text-align:right">1,761 kL/h</td></tr><tr class="r-ship"><td>Exercise 074</td><td style="text-align:right">1,675 ha</td><td style="text-align:right">Kingfisher</td><td style="text-align:right">147 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Invented exercise sizes, fitted to aggregate season quantiles. This printed copy is the fixed exercise bundled with this page.</p><!--/FALLBACK-FIRES--></div>
         <p class="small" id="firesNote" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">
-          Last drop and kL/hour are simulation; sizes are as British Columbia published them
-          for the day in view. A fire marked queued has no ship: the allocator counts every
-          fire the sixteen hulls leave without one. A fire the guard holds — a wildfire of
-          note, or one that led to evacuation orders or alerts — is never listed and never
-          worked.</p>
+          Exercise: every fire is invented. Sizes and stages of control are drawn from aggregate season distributions. The ships and their releases are simulated.</p>
       </div>
       </div>
       <div class="cp-rightcol">
@@ -804,7 +800,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
           <div class="hud">
             <!-- Pre-boot text is generated from the bundled snapshot (tools/gen_fallback.py);
                  renderStatus() overwrites it the moment real data is on screen. -->
-            <span class="chip" id="hudLive"><!--FALLBACK-HUD--><b>DATA SNAPSHOT</b> · 2026-10-01 · 86 fires · the dated record of one day, not a live feed<!--/FALLBACK-HUD--></span>
+            <span class="chip" id="hudLive"><!--FALLBACK-HUD--><b>EXERCISE</b> · 117 invented fires · simulated fleet<!--/FALLBACK-HUD--></span>
             <span class="chip" id="hudSim"><span class="sim">SIMULATED FLEET</span> · <span id="hudClock">–</span></span>
           </div>
           <!-- The mode sentence (the guard's ruling fixes its words): which day this view
@@ -842,6 +838,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
                choosing a URL. Populated by populateDaySel() once the season index loads. -->
           <select class="ctlbtn" id="daySel" aria-label="Which day to show">
             <option value="">Today (live)</option>
+            <option value="exercise">Exercise: invented fires</option>
           </select>
           <button class="ctlbtn" id="btnFS" type="button">Fullscreen</button>
         </div>
@@ -1003,28 +1000,28 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
   body{overflow:auto;display:block;height:auto}
   .monitor{display:block}
   .monbody{display:block}
-  .cp-leftcol{overflow:visible}
+  .cp-leftcol{display:block;overflow:visible}
   .cp-map,.cp-rightcol,.cp-ops,#introOv{display:none}
   #fallback{display:block}
 </style></noscript>
-<section id="fallback" aria-label="Static snapshot of the fleet monitor">
-  <p class="kicker">STATIC SNAPSHOT · 2026-10-01</p>
-  <h2>The monitor, standing still: the 2026-10-01 record</h2>
-  <p>This page is an instrument over BC wildfire data: real fires, a simulated fleet of sixteen conceptual vacuum airships, every number computed in the open. It ships a complete no-script fallback: this printed copy is the same monitor, computed from the dated record of <time datetime="2026-10-02T06:41:18Z">2026-10-01</time> bundled with this site, with the fleet roster, the top fires and one worked mission rendered as text. With scripts on, the identical panels run and name whichever feed answered — this site's own mirror of the current feed, or a dated record like this one.</p>
-  <p style="color:var(--text)">Replay of 2026-10-01: the fires as British Columbia published them at 23:41 on October 1, 2026. The fleet is simulated and never flew. Its drops are water released, not water arrived, and nothing here says any fire would have burned differently.</p>
-  <p>The simulated fleet never works a fire that was a wildfire of note or led to an evacuation order or alert, and it keeps 25 km from those that forced people out. The list and its sources are in data/season/2026.guard.json.</p>
-  <p>One colour rule governs the whole page: <span style="color:var(--bone)">bone is live public fire data</span>, <span style="color:var(--warm)">pink is the simulated fleet</span>. Nothing on this map mixes the two. The fleet is simulated. The fires are real, and the BC Wildfire Service remains the authority for them. Sources, licences and the arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
-  <h3>The fires: real, as published that day</h3>
-  <p>The 2026-10-01 record holds 86 active fires from the BC Wildfire Service: 1 out of control, 0 flagged as fires of note, 13 of them held by the guard. The top-fires panel above lists the largest out-of-control fires the guard allows the fleet to serve; a fire the guard holds never appears there, whatever its size.</p>
+<section id="fallback" aria-label="Static exercise: invented fires">
+  <p style="color:var(--text)">Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.</p>
+  <p class="kicker">EXERCISE · INVENTED FIRES</p>
+  <h2>The monitor, standing still: an exercise</h2>
+  <p>No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026.</p>
+  <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its 117 fires have invented positions, sizes and stages of control; 43 are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
+  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
+  <h3>The exercise fires: all invented</h3>
+  <p>The top-fires panel lists the largest invented out-of-control fires. 27 exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: simulated, sixteen hulls</h3>
-  <p>A fixed demonstration fleet is shared across the worst fires it may work. It has 10 P-100s at 100 t of water and 110 m each, 5 P-1000s at 1,000 t and 238 m, and one P-10000 at 10,000 t and 512 m. In this day's allocation all 16 hulls are flying. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>A fixed demonstration fleet is shared across the worst fires it may work. It has 10 P-100s at 100 t of water and 110 m each, 5 P-1000s at 1,000 t and 238 m, and one P-10000 at 10,000 t and 512 m. In this exercise allocation all 16 hulls are flying. The full roster, hull by hull, is in the fleet panel above.</p>
   <figure>
     <img src="media/map-snapshot.jpg" width="924" height="467"
-      alt="Map of British Columbia with the 2026-10-01 record's fires drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
-    <figcaption>This still shows the monitor's map from the 2026-10-01 record. Fires are circles coloured by status, water is blue, and the simulated fleet is pink; a dated day carries no satellite-heat layer. When the page runs this is a draggable canvas over whichever feed answered, named in its status line.</figcaption>
+      alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
+    <figcaption>Exercise: every fire in this still is invented. The terrain and lakes are real; the fleet is simulated. No satellite heat or invented wind is used. The label is part of the image.</figcaption>
   </figure>
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">Kingfisher</b>, a P-100, is assigned to Creham Creek Muskwa Junction (G92299: 21 ha, out of control). It fills from Kluachesi Lake (221 ha of mapped surface), a 19.8 km leg from the fire. One cycle takes about 42 minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It releases 100 t of water over its planned lines, sustaining 144 kL/h against this one fire. The cycle is computed end to end from real fire and water data. Simulation, not operations: no such aircraft exists.</p>
+  <p><b style="color:var(--warm)">Petrel</b>, a P-100, is assigned to Exercise 022 (EX022: 6,748 ha, out of control). It fills from Aline Lake (74 ha of mapped surface), a 17.9 km leg from the fire. One cycle takes about 39 minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It releases 100 t of water over its planned lines, sustaining 155 kL/h against this one fire. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists.</p>
   <figure>
     <img src="media/intake.jpg" width="1920" height="1080" loading="eager" fetchpriority="high"
       alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">

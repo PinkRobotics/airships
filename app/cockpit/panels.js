@@ -166,11 +166,11 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       : "";
     requestAnimationFrame(sizeAvatar);
     O.innerHTML = `<div class="ops3">
-      <div><h4>Operation · ${S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
+      <div><h4>Operation · ${S.exercise ? "exercise · invented fire" : S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id) + " <small>" + esc(f.id) + "</small>", "live"],
         ["status", esc(f.status) + (f.note ? " · NOTE" : ""), "live"],
         ["mapped size", fmtHa(f.sizeHa), "live"],
-        ["perimeter", f.ring ? "current polygon" : "point only", "live"],
+        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? "current polygon" : "point only", "live"],
       ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· live data; all else simulated</span></p>` : "") + `</div>
       <div><h4>Attack route · simulated</h4>` + kvRows([
         ["water source", esc(srcName(m)) + " <small>" + fmt(m.water[2]) + " ha</small>", "sim"],
@@ -179,7 +179,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],
         ["protecting", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no community within 40 km", "sim"],
       ]) + `<details class="d" style="border:0;margin-top:var(--s2)"><summary style="padding:4px 0 4px 22px;font-size:var(--t-12);color:var(--faint)">why this tasking</summary>
-        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${m.plan.windUsed ? "wind-informed legs, nominal altitudes." : "still-air — live wind unavailable."}</p></div></details></div>
+        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${S.exercise ? "exercise in still air; no forecast invented." : m.plan.windUsed ? "wind-informed legs, nominal altitudes." : "still-air — live wind unavailable."}</p></div></details></div>
       <div><h4>Cycle · simulated</h4><div id="opsCycle"></div></div>
       <div><h4>The Mind — live trace</h4><div class="narr" id="opsNarr"></div></div>
     </div>`;
@@ -201,14 +201,14 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   } else if (S.sel.type === "fire") {
     const f = S.sel.f || (S.sel.m && S.sel.m.fire), mm = S.sel.m;
     O.innerHTML = `<div class="ops3">
-      <div><h4>${S.daySource === "live" ? "Live incident" : "Published record · " + esc(S.day)} · BC Wildfire Service</h4>` + kvRows([
+      <div><h4>${S.exercise ? "Exercise · invented fire" : (S.daySource === "live" ? "Live incident" : "Published record · " + esc(S.day)) + " · BC Wildfire Service"}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id), "live"],
         ["number", esc(f.id), "live"],
         ["status", esc(f.status) + (f.note ? " · FIRE OF NOTE" : ""), "live"],
         ["mapped size", fmtHa(f.sizeHa), "live"],
         ["ignition", f.ignited ? f.ignited.toLocaleDateString("en-CA") : "—", "live"],
         ["cause", esc(f.cause || "—"), "live"],
-        ["perimeter", f.ring ? "current polygon shown" : "none published — point only", "live"],
+        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? "current polygon shown" : "none published — point only", "live"],
       ]) + (f.url ? `<p style="margin-top:var(--s3);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a></p>` : "") + `</div>
       <div><h4 style="color:var(--warm)">Simulated response</h4>` +
       (S.recordOnly
@@ -221,7 +221,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
           ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(f.heldOut)}.</p>`
           : needsShip(f)
           ? `<p style="font-size:var(--t-13);color:var(--muted)">None: the allocator gave this fire no ship. The demonstration fleet is sixteen hulls (ten P-100, five P-1000, one P-10000), each sent to the fire it fits best, and the allocator counts every fire left without one. Any finite fleet faces the same arithmetic.</p>`
-          : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}, so the simulated fleet leaves it to the crews who already have it.</p>`)
+          : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}${S.exercise ? " in this exercise, so it is not a candidate for a simulated ship." : ", so the simulated fleet leaves it to the crews who already have it."}</p>`)
         : mm.idle ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(mm.why)}</p>`
         : kvRows([
             ["assigned class", mm.cls.name, "sim"],

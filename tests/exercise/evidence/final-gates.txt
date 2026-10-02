@@ -1,0 +1,20 @@
+python3 tests/exercise/check.py
+  ok   regenerated_bytes_and_seed: seed 7; both files byte-identical
+  ok   invented_identity_and_no_calendar: 117 EX-numbered, named and labelled invented fires; no dates
+  ok   geography_from_the_committed_file: guardKm >= 561.238; seasonNoteKm >= 561.238; communityKm >= 45.139 km; every footprint on bundled land
+  ok   page_labels_and_guard_at_three_widths: 1440/834/390: labels, all fire drawers and map labels; 16 ships, 27 queued; 3975 positions per view across three cycles, no violations
+  ok   exercise_is_explicit_and_never_the_failure_fallback: default mirror failure and explicit snapshot remain replay of 2026-10-01
+  ok   static_reference_is_labelled: fallback opens with exact exercise sentence; poster exists; both reference generators use exercise
+exercise: 6 passed, 0 failed
+python3 tests/guard/check.py
+  ok    the_guard_file_is_pinned_by_its_canonical_digest: digest d8fa369f…38f3c15 holds
+  ok    the_window_and_the_distances_are_the_file_s_to_say: window 2026-08-08 to 2026-08-27, 22 fires (8+7+7), 2 places, and no date or distance literal in sim/guard.js
+  ok    the_static_fallback_names_its_exercise_and_no_guarded_fire: 4 regions checked against 22 guarded fires
+  ok    the_static_fallback_carries_the_ruled_sentences: exercise sentence once, exercise note present, no refused words
+  ok    record_only_days_carry_the_record_and_nothing_of_the_fleet: 3 window days: record only, zero fleet, ruled sentences
+  ok    fleet_days_fly_and_keep_every_rule: 3 fleet days, 48 hull-days flown, 12,134 sampled positions, no violation
+  ok    the_sample_routes_land_on_a_fleet_day_never_a_window_day: mirror failure → 2026-10-01, flown, called a replay
+  ok    a_date_with_no_day_file_stands_the_fleet_down_in_words: 2026-07-01 and 2026-08-27 (the window's last day, uncaptured): stood down, in words
+  ok    the_orientation_cards_and_roster_rows_fit_at_four_widths: 1440/1100/834/390: cards apart, rows whole
+  ok    the_guard_s_own_counts_for_the_hand_up: 2026-08-08  record only  105 fires  14 held in view   0 hulls  no fleet; 2026-08-11  record only  103 fires  14 held in view   0 hulls  no fleet; 2026-08-15  record only  131 fires  13 held in view   0 hulls  no fleet; 2026-09-20  fleet         96 fires  13 held in view  16 hulls   3607 positions swept; 2026-09-22  fleet        103 fires  14 held in view  16 hulls   3967 positions swept; 2026-10-01  fleet         86 fires  13 held in view  16 hulls   4560 positions swept; 2026-08-27  record only    0 fires   0 held in view   0 hulls  no fleet
+guard: 10 passed, 0 failed

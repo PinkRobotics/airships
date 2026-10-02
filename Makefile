@@ -295,3 +295,7 @@ seasoncheck:  ## The season files must match a regeneration and their pinned tot
 .PHONY: guardcheck
 guardcheck:  ## The no-fleet window and the guarded fires must hold, on file and on the page
 	$(PY) tests/guard/check.py
+
+.PHONY: exercisecheck
+exercisecheck:  ## Invented exercise: deterministic geography, labels and all-date guard
+	$(PY) tests/exercise/check.py

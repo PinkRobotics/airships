@@ -1,7 +1,7 @@
 /* The data this page shows: which view it is, what it asks for, how it falls back, and how
  * the feeds become model input.
  *
- * A VIEW IS ONE OF THREE KINDS, and the guard decides which (data/season/2026.guard.json,
+ * DATED AND LIVE VIEWS have three routes, and the guard decides their mode (data/season/2026.guard.json,
  * read through sim/guard.js — the ruling is data, not code):
  *
  *   a dated day   ?day=YYYY-MM-DD — one of the status days in data/season/, loaded through
@@ -17,10 +17,13 @@
  *                 no-fleet window.
  *
  * The mirror exists so that traffic to this page does not become traffic to an emergency
- * service. Whichever tier answered is named on the page — the status line never implies
+ * service. The separate ?view=exercise route loads invented fires through normalize,
+ * with no date, and keeps every historical guard region.
+ * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
 import { dropSeg, dayKind, guardedFire, havKm, insideFire, loadGuard, noteKm, planTargets, pointBlocked } from '../sim/index.js?v=26282d19';
+import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=26282d19';
 import { renderDrawer } from './cockpit/panels.js?v=26282d19';
 import { vancouverClock, vancouverDate } from './dates.js?v=26282d19';
 import { replanAll } from './fleet.js?v=26282d19';
@@ -28,6 +31,7 @@ import { renderStatus } from './main.js?v=26282d19';
 import { fetchJSON, mirrorJSON } from './net.js?v=26282d19';
 import { S } from './store.js?v=26282d19';
 import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=26282d19';
+
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to a dated copy bundled with the
  * repository — now the latest fleet day in data/season/, with its fires and perimeters and
@@ -40,6 +44,7 @@ import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=26282d19'
  * with no network at all. A ?day= parameter wins over it: a link that names a day is asking
  * for that day, not for the sample. */
 const QP = new URLSearchParams(location.search);
+export const EXERCISE = QP.get("view") === "exercise";
 export const DAY = QP.get("day");
 export const REPLAY = QP.get("data") === "snapshot" && !DAY;
 
@@ -285,6 +290,7 @@ async function loadSample(tier, notes) {
 
 export async function loadLive() {
   await loadSeason();
+  if (EXERCISE) return loadExercise(normalize, fetchDayFile);
 
   /* A dated status day, through the same code path as live data. */
   if (DAY) {
@@ -372,6 +378,7 @@ export function needsShip(f) {
  * place writes it so the status line, the tests and the fallback generator all quote the
  * same source. The record-day sentence names the window in the guard file's own dates. */
 export function modeWords() {
+  if (S.exercise) return EXERCISE_MODE + (S.standDown ? " " + S.standDown : "");
   if (S.unknownDay)
     return S.unknownDay + " has no dated copy in this repository: nothing is shown for that " +
       "day, and no fleet is simulated for it.";
@@ -395,6 +402,7 @@ export function modeWords() {
  * the data note, and the cockpit gives a guarded fire this same reason — never "queued",
  * never "the allocator gave this fire no ship", because neither is true. */
 export function guardNoteWords() {
+  if (S.exercise) return EXERCISE_NOTE;
   return "The simulated fleet never works a fire that was a wildfire of note or led to an " +
     "evacuation order or alert, and it keeps " + noteKm(S.guard) + " km from those that " +
     "forced people out. The list and its sources are in data/season/2026.guard.json.";
@@ -409,6 +417,7 @@ export async function fetchWind() {
   // The wind mirror describes today's air. A dated day has no forecast to replay honestly
   // and no fleet to carry one, so day and sample views fly in still air, labelled as such.
   S.windNote = S.daySource === "live" ? "mirror unavailable"
+    : S.exercise ? "exercise; no forecast is invented"
     : S.recordOnly ? "no fleet is simulated" : "a dated day replays no forecast";
   if (S.daySource !== "live" || !act.length) { renderStatus(); return; }
   try {

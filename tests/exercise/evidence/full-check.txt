@@ -1,0 +1,27 @@
+python3 tools/check_ci_parity.py
+CI parity PASS: 25 ordered gates: ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction
+python3 -m unittest discover -s tools/tests -p 'test_*green.py'
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.184s
+
+OK
+python3 tools/check_boundaries.py
+boundaries clean: 85 modules, 29 linter self-tests
+  sim/ and 3d/ name nothing outside themselves — static import, re-export or dynamic import;
+  sim/ additionally touches no DOM, network, storage, wall clock or location.
+stamp: all module URLs carry ?v=331c3257
+stamp-site: 56 file(s) are not stamped at 6f102d99:
+  app/anchorview.js
+  app/bridge/viz3d.js
+  app/cockpit/gauges.js
+  app/cockpit/panels.js
+  app/cockpit/shipviz.js
+  app/cockpit/tables.js
+  app/dom.js
+  app/exercise.js
+  app/feeds.js
+  app/fleet.js
+  app/loop.js
+  app/main.js
+make: *** [Makefile:188: stampcheck] Error 1

@@ -5,7 +5,7 @@ The unit tests in tests/cases assert that the model still makes sense. This asse
 something narrower and harder: that it still produces THE SAME NUMBERS. It serves the
 repository, drives a headless browser at
 
-    /?seed=7&data=snapshot
+    /?view=exercise
 
 — the seed pins every choice the model makes, the snapshot pins every external input — and
 compares two dumps against the files committed in this directory:
@@ -52,7 +52,7 @@ TARGETS = [
     ("dump.js", "seed7-snapshot.json", 16),
     ("ui-dump.js", "ui-seed7-snapshot.json", 18),
 ]
-QUERY = "?seed=7&data=snapshot"
+QUERY = "?view=exercise"
 
 
 def free_port() -> int:

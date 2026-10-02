@@ -5,25 +5,11 @@
     tools/gen_fallback.py --check    regenerate into scratch and diff; exit 1 on any drift
     tools/gen_fallback.py --poster   also re-capture media/map-snapshot.jpg from the page
 
-WHY THIS EXISTS. The monitor is one big application: with scripts off — a crawler, a
-reader-mode fetch, a broken CDN day — the page used to be a labelled empty shell whose only
-words about the data were "loading…". The fallback regions give that visitor the real story
-from the repository's own built-in sample (the latest fleet day in data/season/, loaded
-through the season's day files — the same view the mirror's failure falls back to): the
-fires, the fleet, one worked mission, and two captioned stills. When the page runs, the
-application overwrites every one of these regions exactly the way it already overwrote the
-empty ones. The block names its day in its heading and notes and never calls itself live:
-"live" is a word this page earns only when its mirror answered.
-
-WHY GENERATED, NEVER TYPED. Every number in the block is read out of the page itself,
-running the snapshot replay (`?seed=7&data=snapshot`) headless — the same deterministic run
-the golden suite compares — via tools/fallback_dump.js. Hand-typed copies of model output
-are the exact class of defect check_figures_fresh.py exists for.
-
-WHY --check RE-RUNS THE BROWSER. This repository has twice shipped a gate that lied by
-comparing a committed cache to itself. The check therefore REGENERATES the regions from a
-fresh replay and byte-compares them against what index.html carries; a snapshot swap, a
-model change, or a hand edit between the markers all go red with the region named.
+The static reference scene is the invented exercise (?view=exercise), not the newest
+captured day. Live and mirror-failure routing are independent of this generator. Every
+number is read from the running page via tools/fallback_dump.js; --check repeats that
+read and compares the generated regions byte for byte. --poster captures the same
+exercise with a large label inside the captured map box, legible when reduced to 390 px.
 
 The regions, each between `<!--NAME-->` and `<!--/NAME-->` markers (the concept page's
 marker idiom — see SCALE3/CUTAWAY there):
@@ -56,7 +42,7 @@ INDEX = ROOT / 'index.html'
 POSTER = ROOT / 'media' / 'map-snapshot.jpg'
 VEHICLE = ROOT / 'media' / 'intake.jpg'
 PORT = 8871
-REPLAY_URL = f'http://127.0.0.1:{PORT}/index.html?seed=7&data=snapshot'
+REPLAY_URL = f'http://127.0.0.1:{PORT}/index.html?view=exercise'
 
 CHECK = '--check' in sys.argv
 SHOOT = '--poster' in sys.argv
@@ -67,6 +53,10 @@ POSTER_SETUP_JS = """
   const ov = document.getElementById('introOv');
   if (ov && !ov.hidden) ov.click();
   document.getElementById('btnFitFires').click();
+  const label = document.createElement('div');
+  label.textContent = 'EXERCISE · INVENTED FIRES';
+  label.style.cssText = 'position:absolute;bottom:48px;left:0;right:0;text-align:center;background:#08080a;color:#ffb9da;font:bold 38px monospace;padding:10px;z-index:5';
+  document.querySelector('.mapbox').appendChild(label);
   return true;
 })()
 """
@@ -118,20 +108,13 @@ def img_size(path: pathlib.Path):
 
 
 def render(d: dict) -> dict[str, str]:
-    # THE DAY, not the capture instant. d['day'] is the date the view shows in America/
-    # Vancouver; d['snapshotAt'] is when that day's files were captured (UTC, often the
-    # next day's small hours). The block names the day everywhere a reader reads a date,
-    # and the <time> element carries the capture instant at full resolution — quoting
-    # snapshotAt[:10] here would say 2026-10-02 for the 2026-10-01 day.
-    date = d['day']
-    iso = d['snapshotAt'] or ''
+    date = "exercise"
     fires, fleet, ex = d['fires'], d['fleet'], d['example']
     top = d['topFires']
     mode = d['mode']            # the page's own mode sentence, the ruling's fixed words
     guard = d['guard']          # the page's own guard note, likewise
 
-    hud = (f'<b>DATA SNAPSHOT</b> · {esc(date)} · {fmt(fires["active"])} fires · '
-           'the dated record of one day, not a live feed')
+    hud = (f'<b>EXERCISE</b> · {fmt(fires["active"])} invented fires · simulated fleet')
 
     rows = []
     for grp in d['roster']:
@@ -146,12 +129,12 @@ def render(d: dict) -> dict[str, str]:
             rate = f'{fmt(s["tph"])} kL/h' if s['tph'] else '—'
             rows.append(f'<tr class="r-ship"><td class="r-name">{esc(s["hull"])}</td>'
                         f'<td>{fire}</td><td class="ph">{rate}</td></tr>')
-    roster = (f'<table class="fleettab" aria-label="Fleet roster from the dated record of '
+    roster = (f'<table class="fleettab" aria-label="Fleet roster from the invented '
               f'{esc(date)}, grouped by class: hull, the fire it serves, and its simulated release rate">'
               '<tbody>' + ''.join(rows) + '</tbody></table>'
               f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
-              f'Allocation over the fires of {esc(date)} that the guard allows the fleet to serve. '
-              f'This printed copy is the dated record bundled with this page.</p>')
+              f'Allocation over invented exercise fires. '
+              f'This printed copy is the fixed exercise bundled with this page.</p>')
 
     frows = []
     for f in top:
@@ -166,11 +149,11 @@ def render(d: dict) -> dict[str, str]:
                      f'<td style="text-align:right">{hull}</td>'
                      f'<td style="text-align:right">{rate}</td></tr>')
     firestab = (f'<table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires '
-                f'waiting for or receiving a hull, from the dated record of {esc(date)}">'
+                f'waiting for or receiving a hull, from the invented {esc(date)}">'
                 '<tbody>' + ''.join(frows) + '</tbody></table>'
                 f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
-                f'Sizes as British Columbia published them for {esc(date)}. This printed copy is '
-                f'the dated record bundled with this page.</p>')
+                f'Invented exercise sizes, fitted to aggregate season quantiles. This printed copy is '
+                f'the fixed exercise bundled with this page.</p>')
 
     p100, p1000, p10000 = fleet
     total = sum(g['count'] for g in fleet)
@@ -183,7 +166,7 @@ def render(d: dict) -> dict[str, str]:
     if ex:
         mission = f'''
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It releases {fmt(ex['releasedT'])} t of water over its planned lines, sustaining {fmt(ex['tph'])} kL/h against this one fire. The cycle is computed end to end from real fire and water data. Simulation, not operations: no such aircraft exists.</p>'''
+  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It releases {fmt(ex['releasedT'])} t of water over its planned lines, sustaining {fmt(ex['tph'])} kL/h against this one fire. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists.</p>'''
 
     main = f'''
 <style>
@@ -199,25 +182,25 @@ def render(d: dict) -> dict[str, str]:
   body{{overflow:auto;display:block;height:auto}}
   .monitor{{display:block}}
   .monbody{{display:block}}
-  .cp-leftcol{{overflow:visible}}
+  .cp-leftcol{{display:block;overflow:visible}}
   .cp-map,.cp-rightcol,.cp-ops,#introOv{{display:none}}
   #fallback{{display:block}}
 </style></noscript>
-<section id="fallback" aria-label="Static snapshot of the fleet monitor">
-  <p class="kicker">STATIC SNAPSHOT · {esc(date)}</p>
-  <h2>The monitor, standing still: the {esc(date)} record</h2>
-  <p>This page is an instrument over BC wildfire data: real fires, a simulated fleet of sixteen conceptual vacuum airships, every number computed in the open. It ships a complete no-script fallback: this printed copy is the same monitor, computed from the dated record of <time datetime="{esc(iso)}">{esc(date)}</time> bundled with this site, with the fleet roster, the top fires and one worked mission rendered as text. With scripts on, the identical panels run and name whichever feed answered — this site's own mirror of the current feed, or a dated record like this one.</p>
+<section id="fallback" aria-label="Static exercise: invented fires">
   <p style="color:var(--text)">{esc(mode)}</p>
+  <p class="kicker">EXERCISE · INVENTED FIRES</p>
+  <h2>The monitor, standing still: an exercise</h2>
   <p>{esc(guard)}</p>
-  <p>One colour rule governs the whole page: <span style="color:var(--bone)">bone is live public fire data</span>, <span style="color:var(--warm)">pink is the simulated fleet</span>. Nothing on this map mixes the two. The fleet is simulated. The fires are real, and the BC Wildfire Service remains the authority for them. Sources, licences and the arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
-  <h3>The fires: real, as published that day</h3>
-  <p>The {esc(date)} record holds {fmt(fires['active'])} active fires from the BC Wildfire Service: {fmt(fires['outOfControl'])} out of control, {fmt(fires['ofNote'])} flagged as fires of note, {fmt(fires['guarded'])} of them held by the guard. The top-fires panel above lists the largest out-of-control fires the guard allows the fleet to serve; a fire the guard holds never appears there, whatever its size.</p>
+  <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its {fmt(fires['active'])} fires have invented positions, sizes and stages of control; {fmt(fires['outOfControl'])} are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
+  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
+  <h3>The exercise fires: all invented</h3>
+  <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: simulated, sixteen hulls</h3>
-  <p>A fixed demonstration fleet is shared across the worst fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t of water and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t and {fmt(p10000['lenM'])} m. In this day's allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>A fixed demonstration fleet is shared across the worst fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t of water and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
   <figure>
     <img src="media/map-snapshot.jpg" width="{pw}" height="{ph}"
-      alt="Map of British Columbia with the {esc(date)} record's fires drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
-    <figcaption>This still shows the monitor's map from the {esc(date)} record. Fires are circles coloured by status, water is blue, and the simulated fleet is pink; a dated day carries no satellite-heat layer. When the page runs this is a draggable canvas over whichever feed answered, named in its status line.</figcaption>
+      alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
+    <figcaption>Exercise: every fire in this still is invented. The terrain and lakes are real; the fleet is simulated. No satellite heat or invented wind is used. The label is part of the image.</figcaption>
   </figure>{mission}
   <figure>
     <img src="media/intake.jpg" width="{vw}" height="{vh}" loading="eager" fetchpriority="high"
@@ -361,8 +344,8 @@ def main() -> int:
         import shutil
         shutil.rmtree(scratch, ignore_errors=True)
 
-    if d['tier'] != 'replay':
-        raise SystemExit(f'gen_fallback: expected the replay tier, page reports {d["tier"]!r}')
+    if d['tier'] != 'exercise':
+        raise SystemExit(f'gen_fallback: expected the exercise tier, page reports {d["tier"]!r}')
 
     regions = render(d)
     text = INDEX.read_text()
@@ -395,7 +378,7 @@ def main() -> int:
     if out != text:
         INDEX.write_text(out)
         print('gen_fallback: index.html fallback regions regenerated '
-              f'(the {d["day"]} record, {d["fires"]["active"]} fires, '
+              f'(exercise, {d["fires"]["active"]} invented fires, '
               f'{d["flying"]} hulls flying)')
     else:
         print('gen_fallback: index.html already current')

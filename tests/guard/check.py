@@ -199,11 +199,11 @@ def fallback_regions():
 
 
 @test
-def the_static_fallback_names_its_day_and_no_guarded_fire():
+def the_static_fallback_names_its_exercise_and_no_guarded_fire():
     doc = load_guard()
     plain = " ".join(text for _, text in fallback_regions())
     squeezed = " ".join(plain.split())
-    assert SAMPLE_DAY in squeezed, "the fallback does not name the day it is a record of"
+    assert "EXERCISE" in squeezed and "every fire on this map is invented" in squeezed, "the fallback does not label its exercise"
     for e in doc["fires"]:
         assert e["fire"] not in plain, f"the fallback names the guarded fire {e['fire']}"
         # a name match is only a hit where it is the fire being named, not a shared word:
@@ -223,11 +223,13 @@ def the_static_fallback_carries_the_ruled_sentences():
     for what, pat in REFUSED:
         m = pat.search(stripped)
         assert not m, f"the static fallback says {what!r}: …{stripped[max(0, m.start()-60):m.end()+40]}…"
-    same(len(MANDATED_FLEET.findall(joined)), 1, "the exact fleet sentence, once")
-    assert "never flew" in joined, "the fallback does not say the fleet never flew"
-    assert re.search(r"The simulated fleet never works a fire that was a wildfire of note", joined), (
-        "the fallback does not carry the guard note")
-    return "fleet sentence once, guard note present, no refused words"
+    # The exercise moves only the static reference to the exercise. The live fallback
+    # remains SAMPLE_DAY, checked on the page below; all other guard pins stay intact.
+    mode = "Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real."
+    note = "No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load, on ground far from every community that was under an evacuation order in 2026."
+    same(joined.count(mode), 1, "the exact exercise mode sentence, once")
+    assert note in joined, "the static exercise does not carry the ruled note"
+    return "exercise sentence once, exercise note present, no refused words"
 
 
 # ============================================================================================

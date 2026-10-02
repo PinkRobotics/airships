@@ -27,7 +27,7 @@ export function rebuildMissions() {
   // distance, and around any place entry dated this day. Computed once per rebuild;
   // dispatch checks every mission against them, and the page-level gate in tests/guard/
   // samples the ships' own positions against the same regions every frame.
-  S.regions = keepOutsFor(S.guard, S.fires, { seasonOfNote: S.seasonOfNote }, S.day);
+  S.regions = S.exercise ? S.exerciseRegions : keepOutsFor(S.guard, S.fires, { seasonOfNote: S.seasonOfNote }, S.day);
   const cand = S.fires.filter(needsShip);
   const pri = f => (f.note ? 2 : 0) + Math.log10(Math.max(10, f.sizeHa));
   const srcMemo = {};

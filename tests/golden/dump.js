@@ -16,7 +16,7 @@
   const R = (x, n = 6) => (typeof x === 'number' && isFinite(x) ? +x.toFixed(n) : x);
   const RO = (o, n = 6) => { const q = {}; for (const k of Object.keys(o || {}).sort()) q[k] = R(o[k], n); return q; };
 
-  const out = { version: 1, note: 'golden characterisation dump; seed=7 data=snapshot' };
+  const out = { version: 1, note: 'golden characterisation dump; seed=7 view=exercise' };
 
   // 1. the class table and the tunable defaults
   out.classes = {};

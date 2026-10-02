@@ -93,7 +93,9 @@ export function wire() {
   if (daySel) daySel.addEventListener("change", () => {
     const p = new URLSearchParams(location.search);
     p.delete("data");                       // a named day is not the sample
-    if (daySel.value) p.set("day", daySel.value); else p.delete("day");
+    p.delete("view");
+    if (daySel.value === "exercise") { p.set("view", "exercise"); p.delete("day"); }
+    else if (daySel.value) p.set("day", daySel.value); else p.delete("day");
     location.search = p.toString();
   });
   $("btnFS").addEventListener("click", () => {
@@ -212,7 +214,10 @@ export function renderStatus() {
     // obey: say what is on screen, name the day and the mode in words, and never let a
     // fallback wear the live label. The mode outranks the tier — a record-only day is that
     // even when the data under it arrived by the mirror.
-    if (S.unknownDay) {
+    if (S.exercise) {
+      hl.classList.toggle("warn", S.recordOnly);
+      hl.innerHTML = `<b>EXERCISE</b> · invented fires · ${S.recordOnly ? "unavailable" : "fleet simulated"}`;
+    } else if (S.unknownDay) {
       hl.classList.add("warn");
       hl.innerHTML = `<b>NO DATED COPY</b> · ${esc(S.unknownDay)} · nothing shown for it`;
     } else if (S.recordOnly) {
@@ -251,17 +256,21 @@ export function renderStatus() {
     if (gn) gn.textContent = S.guard && S.guard.ok ? guardNoteWords()
       : "The guard file did not load, so no fleet is simulated anywhere on this page.";
     const heat = $("heatNote");
-    if (heat) heat.textContent = S.daySource === "live" ? "" :
+    if (heat) heat.textContent = S.exercise ? "No satellite hotspots are used in the exercise." : S.daySource === "live" ? "" :
       "Satellite hotspots are a live layer and are not part of a status day.";
     // The map's own description says what this view is: on a dated day there is no
     // "today's" about it, and on a record-only day there are no airships to task.
     const mc = $("map"), mh = $("mapHelp");
-    if (mc) mc.setAttribute("aria-label", S.recordOnly
+    if (mc) mc.setAttribute("aria-label", S.exercise
+      ? "Exercise: invented fires on real British Columbia terrain, with a simulated fleet"
+      : S.recordOnly
       ? `Map of British Columbia: the wildfires published for ${S.day}, with no fleet simulated`
       : S.daySource === "live"
       ? "Map of British Columbia: today's wildfires and the simulated airships tasked to them"
       : `Map of British Columbia: the wildfires published for ${S.day} and the simulated airships tasked to them`);
-    if (mh) mh.textContent = S.recordOnly
+    if (mh) mh.textContent = S.exercise
+      ? "Exercise: every fire is invented. Arrow keys pan, plus and minus zoom, Escape clears the selection. Choose an exercise fire on the map or in the table to read its invented size and status. Real lakes supply the simulated fleet."
+      : S.recordOnly
       ? `Arrow keys pan, plus and minus zoom, Escape clears the selection. Every fire published that day is on the map; the largest are listed as text in the fires panel, and clicking any fire or a row opens its published record. No fleet is simulated for this day, so there are no ships, routes or drops. The map also draws the published perimeters, water bodies and places, which are not listed as text anywhere on this page.`
       : S.daySource === "live"
       ? "Arrow keys pan, plus and minus zoom, Escape clears the selection. Every simulated airship is also listed as text in the fleet roster panel. The largest fires waiting for or receiving one are listed in the top fires panel. Selecting a row in either selects the same thing here, and the selected ship's full record is written out in the operation panel. The map also draws every fire in the provincial feed, satellite hotspots, water bodies, and routes, which are not listed as text anywhere on this page."
@@ -338,13 +347,13 @@ export async function refresh() {
 function populateDaySel() {
   const sel = $("daySel");
   if (!sel || !S.dayList) return;
-  const opts = [`<option value="">Today (live)</option>`];
+  const opts = [`<option value="">Today (live)</option>`, `<option value="exercise">Exercise: invented fires</option>`];
   for (const d of S.dayList) {
     const fleet = dayKind(S.guard, d.date).fleet;
     opts.push(`<option value="${d.date}">${d.date} · ${fleet ? "fleet simulated" : "record only"}</option>`);
   }
   sel.innerHTML = opts.join("");
-  sel.value = S.daySource === "day" && S.day ? S.day : "";
+  sel.value = S.exercise ? "exercise" : S.daySource === "day" && S.day ? S.day : "";
 }
 
 /* ---------- boot -------------------------------------------------------------------------------- */
@@ -393,6 +402,29 @@ export async function boot() {
   }
   S.fires = await loadLive();
   populateDaySel();
+  const fireModeLabel = $("fireModeLabel");
+  if (fireModeLabel) fireModeLabel.textContent = S.exercise ? "exercise · invented fires" : "live BC fires";
+  if (!S.exercise) {
+    document.querySelector('meta[property="og:title"]').content = "Live fires. A simulated fleet. Arithmetic you can check.";
+    document.querySelector('meta[property="og:description"]').content = "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines would have to do and what each cycle would cost — not a promise that any fire goes out.";
+    document.title = "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed";
+    document.querySelector('meta[name="description"]').content = "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.";
+  }
+  if (S.exercise) {
+    S.layers.places = false;
+    // Keep the ruled sentence in the chip flow: a fixed top offset overlaps the
+    // second chip when the exercise labels wrap on a phone.
+    const mode = $("modeNote");
+    document.querySelector('.hud').appendChild(mode);
+    mode.style.cssText = "position:static;flex-basis:100%;max-width:100%;background:rgba(8,8,10,.92);padding:4px 6px;border-radius:4px";
+    document.title = "Exercise · invented fires · Pink Robotics fleet monitor";
+    document.querySelector('meta[name="description"]').content = modeWords();
+    const mapIntro = document.querySelector('#introOv .io-map');
+    if (mapIntro) mapIntro.innerHTML = '<b>The map · exercise</b><p>Every fire is invented. Real terrain and lakes; a simulated fleet. Drag, zoom, select an exercise fire.</p>';
+    const fleetIntro = document.querySelector('#introOv .io-fleet p');
+    if (fleetIntro) fleetIntro.textContent = fleetIntro.textContent.replace('the live fires they serve', 'the invented exercise fires they serve');
+    const wd = $("waterDate"); if (wd) wd.textContent = "bundled lakes";
+  }
   rebuildMissions();
   for (const m of S.missions) if (!m.idle) S.water[m.waterIdx].used = true;
   renderStats(); renderTable(); renderWorked(); renderStatus();

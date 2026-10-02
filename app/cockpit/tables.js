@@ -87,11 +87,15 @@ export function renderFires() {
   // The panel's title says which day and which mode it is listing: a record-only day lists
   // the published record and nothing of the fleet, and the columns follow the mode.
   const h = $("firesH");
-  if (h) h.innerHTML = S.recordOnly
+  if (h) h.innerHTML = S.exercise
+    ? `Exercise fires · <b>invented</b> · served or queued`
+    : S.recordOnly
     ? `The fires · <b>${esc(S.day)}</b> · as published`
     : `Top fires · <b>${S.daySource === "live" ? "live" : esc(S.day)}</b> · served or queued`;
   const fn = $("firesNote");
-  if (fn) fn.textContent = S.recordOnly
+  if (fn) fn.textContent = S.exercise
+    ? `Exercise: sizes and stages of control are invented. Queued fires have no ship; the sixteen simulated hulls are shared by the allocator.`
+    : S.recordOnly
     ? `Sizes and statuses are the record as British Columbia published it that day. No fleet is simulated for this day, so nothing here is simulation.`
     : S.daySource === "live"
     ? `Last drop and kL/hour are simulation; sizes are live. A fire marked queued has no ship: the allocator counts every fire the sixteen hulls leave without one. A fire marked not flown had its water line or drop line cross a keep-out distance, so it is left alone.`

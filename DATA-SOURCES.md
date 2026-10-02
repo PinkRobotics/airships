@@ -6,7 +6,7 @@ The fleet is simulated and never flew. The fire data is real; nothing here says 
 
 redistributed: included under the recorded terms; link-only: the public repository retains the source and hash, not the file; withheld: excluded pending author review; to-confirm: excluded until a person confirms the terms. Excluded records are an audit trail, not a redistribution notice or a claim of permission. The wind record describes an unbundled server service, not a repository file.
 
-78 file records: 62 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
+79 file records: 63 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
 
 ## Per-file decisions
 
@@ -14,6 +14,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 |---|---|---|---|---|
 | research/papers/easa-2023-ai-roadmap-2.pdf | European Union Aviation Safety Agency | © European Union Aviation Safety Agency, 2023. Reproduction is authorised provided the source is acknowledged. | to-confirm | research/papers/easa-2023-ai-roadmap-2.pdf, PDF page 2, Copyright; read locally with pdftotext (line wraps joined). |
 | data/bc-outline.json | Natural Earth | public domain | redistributed | https://www.naturalearthdata.com/about/terms-of-use/; publisher Terms of Use, read 2026-10-02. |
+| data/exercise/exercise.json | Pink Robotics | Apache-2.0 | redistributed | LICENSE; invented scene produced by the project generator. |
 | data/fire-history-bc.json | Province of British Columbia, BC Wildfire Service | Open Government Licence - British Columbia, version 2.0 | redistributed | data/fire-history-bc.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. |
 | data/live/wind.json | Open-Meteo, with underlying national weather services | CC BY 4.0 for the forecast data; API-use terms separately govern the operator | link-only | data/wind.prov.json; recorded reference https://open-meteo.com/en/license. One request on 2026-10-02 returned no readable text; prior wording retained, not freshly verified. |
 | data/roads-bc.json | Natural Earth | public domain | redistributed | https://www.naturalearthdata.com/about/terms-of-use/; publisher Terms of Use, read 2026-10-02. |
@@ -47,7 +48,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 | data/snapshot.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. |
 | data/terrain-bc.jpg | AWS Open Data / Tilezen Terrain Tiles, compositing CDEM (Natural Resources Canada) over Canada, SRTM (NASA/USGS) over the United States portion, GMTED2010 (USGS) north of 60 degrees, and ETOPO1 (NOAA) in the ocean | Per-source, not a single licence. Canada: Open Government Licence - Canada. SRTM and GMTED2010: United States public domain, credit requested. ETOPO1: United States public domain, credit requested. | redistributed | data/terrain-bc.prov.json; previously recorded terms reference: https://github.com/tilezen/joerd/blob/master/docs/attribution.md (publisher page not re-read in this repair). |
 | data/water-bc.json | Province of British Columbia, GeoBC Branch - Freshwater Atlas | Open Government Licence - British Columbia, version 2.0 | redistributed | data/water-bc.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. |
-| media/map-snapshot.jpg | Pink Robotics, from the sources listed in derivedFrom | Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply. | redistributed | Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant. |
+| media/map-snapshot.jpg | Pink Robotics, from the sources listed in derivedFrom | Apache-2.0 (invented exercise); Open Government Licence - British Columbia 2.0 (water); Open Government Licence - Canada 2.0 and United States public domain (terrain); Natural Earth public domain (roads and outline). Component attribution and change terms apply. | redistributed | Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant. |
 | research/papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf | MDPI, Eng 2021, 2(4), 480-491 | Creative Commons Attribution (CC BY) license | redistributed | research/papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf, PDF page 1; read locally with pdftotext (line wraps joined). |
 | research/papers/ardema-1984-lta-missions.pdf | NASA Ames Research Center, NASA TM-86672 | Public domain / government public use permitted. NTRS records this item&#x27;s copyright determinationType as GOV_PUBLIC_USE_PERMITTED and its distribution as PUBLIC. | redistributed | research/papers/ardema-1984-lta-missions.pdf.prov.json; previously recorded terms reference: https://ntrs.nasa.gov/api/citations/19850008448 (publisher page not re-read in this repair). |
 | research/papers/arnaiz-del-pozo-2020-nitrogen-liquefaction.pdf | MDPI, Entropy 2020, 22(9), 959 | Creative Commons Attribution (CC BY) license | redistributed | research/papers/arnaiz-del-pozo-2020-nitrogen-liquefaction.pdf, PDF page 18; read locally with pdftotext (line wraps joined). |
@@ -149,6 +150,34 @@ redistributed: included under the recorded terms; link-only: the public reposito
 **Measured contents:** 18,949 bytes, 23 rings, 1,064 vertices
 
 **Record:** data/bc-outline.prov.json
+
+### data/exercise/exercise.json
+
+**Decision:** redistributed
+
+**Publisher:** Pink Robotics
+
+**Licence:** Apache-2.0
+
+**Licence statement:** Apache License, Version 2.0
+
+**Statement evidence:** LICENSE; invented scene produced by the project generator.
+
+**Terms address:** LICENSE
+
+**Attribution:** Pink Robotics. Licensed under Apache-2.0.
+
+**Source:** data/bc-outline.json<br>data/season/2026.days.json<br>data/season/2026.guard.json<br>data/season/2026.json<br>data/season/days/2026-08-08/fires.json<br>data/season/days/2026-08-08/perims.json<br>data/season/days/2026-08-09/fires.json<br>data/season/days/2026-08-09/perims.json<br>data/season/days/2026-08-10/fires.json<br>data/season/days/2026-08-10/perims.json<br>data/season/days/2026-08-11/fires.json<br>data/season/days/2026-08-11/perims.json<br>data/season/days/2026-08-12/fires.json<br>data/season/days/2026-08-12/perims.json<br>data/season/days/2026-08-13/fires.json<br>data/season/days/2026-08-13/perims.json<br>data/season/days/2026-08-14/fires.json<br>data/season/days/2026-08-14/perims.json<br>data/season/days/2026-08-15/fires.json<br>data/season/days/2026-08-15/perims.json<br>data/season/days/2026-09-20/fires.json<br>data/season/days/2026-09-20/perims.json<br>data/season/days/2026-09-22/fires.json<br>data/season/days/2026-09-22/perims.json<br>data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/terrain-bc.jpg<br>data/water-bc.json<br>sim/communities.js
+
+**SHA-256:** b12b1c61fe7a9e608b2fc3e259b53c2cf290206b00d186b5431588a173fdccc1
+
+**Decision reason:** Project-authored synthetic data, describing no real fire.
+
+**Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to enclosing discs of every guard and season-note observation and captured perimeter, on every captured date; guard places on all dates. Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
+
+**Measured contents:** 174,505 bytes
+
+**Record:** data/exercise/exercise.prov.json
 
 ### data/fire-history-bc.json
 
@@ -1080,25 +1109,25 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Publisher:** Pink Robotics, from the sources listed in derivedFrom
 
-**Licence:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
+**Licence:** Apache-2.0 (invented exercise); Open Government Licence - British Columbia 2.0 (water); Open Government Licence - Canada 2.0 and United States public domain (terrain); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
 
-**Licence statement:** Open Government Licence - British Columbia 2.0 (fire and water); Open Government Licence - Canada 2.0 (CDEM terrain); US public domain (SRTM, GMTED2010 and painted-over ETOPO1); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
+**Licence statement:** Apache-2.0 (invented exercise); Open Government Licence - British Columbia 2.0 (water); Open Government Licence - Canada 2.0 and United States public domain (terrain); Natural Earth public domain (roads and outline). Component attribution and change terms apply.
 
 **Statement evidence:** Component sidecars listed in derivedFrom; derived map capture, not an independent publisher grant.
 
 **Terms address:** DATA-SOURCES.md
 
-**Attribution:** Contains information licensed under the Open Government Licence - British Columbia. Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+**Attribution:** Pink Robotics. Licensed under Apache-2.0. Contains information licensed under the Open Government Licence - British Columbia. Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration. Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
 
-**Source:** data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/water-bc.json<br>data/terrain-bc.jpg<br>data/roads-bc.json<br>data/bc-outline.json
+**Source:** data/exercise/exercise.json<br>data/water-bc.json<br>data/terrain-bc.jpg<br>data/roads-bc.json<br>data/bc-outline.json
 
-**SHA-256:** d3f9414317428d82992797185bc50263096c5b66691a580558991e15c96f418d
+**SHA-256:** c6229df099fdcc0629b3cb64d078c3efc624e16be2e2faba3dbd7dfadb516deb
 
 **Decision reason:** Existing bundled data decision retained; this repair records attribution and verifies local bytes.
 
-**Processing and caveats:** This is the static no-script poster of the rendered map, not an agency image. Its component licences and attribution travel with the poster. This rendering uses the dated season replay for 1 October 2026, with simulated fleet positions and no heat or wind forecast.
+**Processing and caveats:** This static no-script poster depicts an invented exercise, not an agency image or a real fire. The fleet is simulated and never flew. Component licences and attribution travel with the poster; no heat or wind forecast is used.
 
-**Measured contents:** 87,614 bytes
+**Measured contents:** 93,924 bytes
 
 **Record:** media/map-snapshot.prov.json
 
@@ -2305,6 +2334,34 @@ redistributed: included under the recorded terms; link-only: the public reposito
 **Measured contents:** Not a bundled data measurement
 
 **Record:** research/prior/PHRN_Technical_Concept_Paper.pdf.prov.json
+
+## Invented exercise — `data/exercise/`
+
+`exercise.json` is a synthetic exercise, not an agency record or a day of the season.
+Every fire is named “Exercise NNN” and numbered `EXNNN`. Positions, sizes and outlines
+are generated; dates, causes, incident URLs and real fire names are absent. Its provenance
+sidecar records seed 7, the northern interior region (longitude −125.5 to −121.5,
+latitude 57.0 to 59.8), source digests, fitted distributions and achieved clearances.
+
+`tools/gen_exercise.py` fits the captured days at or above the 75th percentile of active
+counts: 2026-08-12, 2026-08-14 and 2026-08-15. Count and size use type-7 quantiles; stage
+uses pooled proportions. “Fire of Note” is not a control stage: its rows inform count and
+size but are excluded from the stage fit. Draws interpolate quantiles, never sample an
+incident. Larger outlines are area-scaled, sinusoidally perturbed 32-vertex polygons.
+
+The generator rejects footprints outside the bundled provincial outline, over bundled
+water, within 150 km of any guard entry or season fire of note, or within 25 km of a
+listed community. It applies a further 45 km community clearance for placement so the
+model's 40 km community-naming logic cannot name a real community in the exercise.
+Historical outlines are enclosed conservatively for these distance checks. These are
+checks against the repository's dated data and named community list, not a complete
+settlement inventory or a survey of terrain. The terrain image is a hillshade, not an
+altitude field. Real water comes from `water-bc.json`; no wind or satellite heat is invented.
+
+The generated files use the project's Apache-2.0 licence. The statistical inputs remain
+under OGL–British Columbia; bundled outline, terrain and lake attribution and limitations
+remain as documented above. No source is fetched by the generator or gate. Regenerate with
+`python3 tools/gen_exercise.py`; verify with `make exercisecheck`.
 
 ---
 

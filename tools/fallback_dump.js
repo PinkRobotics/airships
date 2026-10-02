@@ -1,16 +1,5 @@
-/* Everything the static fallback block quotes, read out of the running page itself.
- *
- * The block baked into index.html between the FALLBACK markers is what a crawler or a
- * no-script visitor gets instead of "loading…". Its numbers must not be typed by hand:
- * they come from this dump, taken from the page running the built-in sample
- * (`?seed=7&data=snapshot` — the same pinned run the golden tests compare). Since the
- * guard, that sample is the latest fleet day in data/season/, loaded through the
- * season's own day files: there is no second copy of the data behind this block, and
- * 8 August 2026 — inside the guard's no-fleet window — is not reachable with a fleet by
- * any route, this one included. Everything read here is settled at rebuildMissions() and
- * is deterministic under that URL; nothing time-dependent (phases, clocks, ages) may be
- * added, or `gen_fallback.py --check` stops being reproducible.
- */
+/* Static reference scene: the invented exercise, with its own deterministic seed.
+ * Only settled allocation output belongs here, never wall-clock phase or feed age. */
 (() => {
   const A = window.AIRSHIPS, S = A.app, SIM = A.sim;
   const { CLASSES, CLASS_ORDER, HULL_NAMES, REFERENCE_CLASS, srcName } = SIM;
@@ -71,7 +60,7 @@
 
   return {
     generated: { by: 'tools/fallback_dump.js via tools/gen_fallback.py',
-                 inputs: 'the latest fleet day in data/season/, replayed at seed=7' },
+                 inputs: 'data/exercise/exercise.json; invented fires; seed from the file' },
     day: S.day,                     // the day the view shows (America/Vancouver)
     snapshotAt: S.snapshotDate,     // when that day's files were captured (UTC)
     tier: S.tier,
@@ -86,6 +75,7 @@
       needingShip: S.fires.filter(needsShip).length,
       guarded: S.fires.filter(f => f.guarded).length,
     },
+    uncovered: S.uncovered,
     flying: S.missions.filter(m => !m.idle).length,
     fleet, roster, topFires, example,
   };

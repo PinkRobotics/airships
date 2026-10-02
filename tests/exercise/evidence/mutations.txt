@@ -1,0 +1,57 @@
+
+MUTATION: real-looking number
+$ python3 tests/exercise/check.py invented_identity
+  FAIL invented_identity_and_no_calendar: AssertionError: exercise number 'K51234' is not EX followed by three digits
+exercise: 0 passed, 1 failed
+exit 1
+RESTORED: exact original bytes
+$ python3 tests/exercise/check.py invented_identity
+  ok   invented_identity_and_no_calendar: 117 EX-numbered, named and labelled invented fires; no dates
+exercise: 1 passed, 0 failed
+exit 0
+
+MUTATION: within 100 km of guard
+$ python3 tests/exercise/check.py geography
+  FAIL geography_from_the_committed_file: AssertionError: EX001: guardKm 20.865 < 150
+exercise: 0 passed, 1 failed
+exit 1
+RESTORED: exact original bytes
+$ python3 tests/exercise/check.py geography
+  ok   geography_from_the_committed_file: guardKm >= 561.238; seasonNoteKm >= 561.238; communityKm >= 45.139 km; every footprint on bundled land
+exercise: 1 passed, 0 failed
+exit 0
+
+MUTATION: remove EXERCISE chip
+$ python3 tests/exercise/check.py page_labels
+  FAIL page_labels_and_guard_at_three_widths: AssertionError: 1440: missing EXERCISE status chip
+exercise: 0 passed, 1 failed
+exit 1
+RESTORED: exact original bytes
+$ python3 tests/exercise/check.py page_labels
+  ok   page_labels_and_guard_at_three_widths: 1440/834/390: labels, all fire drawers and map labels; 16 ships, 27 queued; 3975 positions per view across three cycles, no violations
+exercise: 1 passed, 0 failed
+exit 0
+
+MUTATION: remove exercise from fires heading
+$ python3 tests/exercise/check.py page_labels
+  FAIL page_labels_and_guard_at_three_widths: AssertionError: 1440: fires heading lost exercise
+exercise: 0 passed, 1 failed
+exit 1
+RESTORED: exact original bytes
+$ python3 tests/exercise/check.py page_labels
+  ok   page_labels_and_guard_at_three_widths: 1440/834/390: labels, all fire drawers and map labels; 16 ships, 27 queued; 3975 positions per view across three cycles, no violations
+exercise: 1 passed, 0 failed
+exit 0
+
+MUTATION: change seed without regeneration
+$ python3 tests/exercise/check.py regenerated_bytes
+  FAIL regenerated_bytes_and_seed: AssertionError: exercise.json: differs from seeded regeneration
+exercise: 0 passed, 1 failed
+exit 1
+RESTORED: exact original bytes
+$ python3 tests/exercise/check.py regenerated_bytes
+  ok   regenerated_bytes_and_seed: seed 7; both files byte-identical
+exercise: 1 passed, 0 failed
+exit 0
+
+mutations: 5 red, 5 restored green

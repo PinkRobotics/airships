@@ -17,6 +17,8 @@ export const S = {
    * a date no day file exists for; S.regions is the day's keep-out regions (sim/guard.js),
    * rebuilt with the missions; S.seasonNote is the words for a season file that did not
    * load. */
+  // An exercise has no date and keeps the union of all historical guard regions.
+  exercise: false, exerciseRegions: [], exerciseHistoricalRegions: [],
   day: null, daySource: "live", recordOnly: false, recordWindow: false, standDown: null,
   unknownDay: null, dayList: null, guard: null, seasonNumbers: null, seasonOfNote: null,
   regions: [], seasonNote: null,
