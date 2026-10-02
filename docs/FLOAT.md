@@ -3,15 +3,24 @@
 > **SHIP-ERA NOTE, 2026-08-13 — the fight moved one scale up and this brief now has a
 > sibling.** The wall is film-on-rings (no cells in it), the ship physics is gated in
 > `ship/model.js` + `research/analysis/vacuum-cell.py` (`ship0_summary`, parity-held),
-> and the honest verdict, after BOTH review rounds, is: **nothing floats at 52 m as
-> drawn — 0.558 on the house-harsh basis (178 t short at declared SF 1.2, mid coupons);
-> 0.981 even in the best defensible world (frame-practice GI knockdown + 1,450 MPa
-> coupons — 4.3 t short, within two percent).** Round two found the diametral spokes
+> and the honest verdict is **nothing floats at 52 m as drawn**. The hull of record has
+> a 3.0 m wall and is sized for full vacuum against sea-level pressure (101,325 Pa).
+> With SF 1.2, assumed general-instability knockdown γ = 0.30 and 1,050 MPa chords,
+> its 403.1 t mass gives lift/mass **0.558 at sea level and 0.436 at 2,500 m**:
+> deficits **178.3 t and 227.5 t**, respectively. With assumed γ = 0.65 and the
+> unverified 1,450 MPa carbon-laminate ceiling, it gives **0.981 at sea level and
+> 0.766 at 2,500 m**: deficits **4.3 t and 53.6 t**. Altitude changes lift only.
+> The former “within two percent” wording described sea level; it did not describe the
+> working altitude. These are computed scenarios, not test results. The scoping tool's
+> default 4.0 m wall is a different hull, despite its printed name. See the generated
+> [float ledger](FLOAT-LEDGER.md) for the side-by-side rows and their input status.
+> Round two found the diametral spokes
 > carry nothing at odd circumferential n (the governing mode) and the Bryant membrane
-> term needs an in-surface shear system the wall lacks. The float decision is two named
-> test campaigns — the GI knockdown tests and the chord coupons — plus two SHIP-3
-> design moves (chordal spoke nets, in-surface shear) and three [TO VERIFY] carriers
-> (spoke creep, eta, drape two-way credit). The full
+> term needs an in-surface shear system the wall lacks. Two named test campaigns — the
+> GI knockdown tests and the chord coupons — would test the favourable inputs. The two
+> SHIP-3 moves (chordal spoke nets, in-surface shear) remain bounds, with three
+> [TO VERIFY] carriers (spoke creep, eta, drape two-way credit). Even crediting both moves
+> does not close the working-altitude deficit at the declared factor. The full
 > record: `tools/ship_scoping.py` (self-checking study layer),
 > `cell/ship.html` (the checks page), and
 > `docs/working/26-08-13-honest-ship-overnight.md` (the night that corrected it TWICE —
@@ -29,14 +38,16 @@ the "design point" is a closed-form sizing law with no geometry, and the "n = 2 
 is that same formula with one exponent changed. Neither has a part in it. They are useful
 as bounds and are cited as such below, never as designs.
 
-Every figure here is computed by a tool in this repository that first reproduces the
-published article before it evaluates anything else. If a self-check line fails, the model
+The current figures bound in [FLOAT-LEDGER.md](FLOAT-LEDGER.md) are computed by tools
+that reproduce the published article before evaluating alternatives. Historical tables
+below are labelled where they no longer reproduce; they are not current gated figures. If a self-check line fails, the model
 moved and the numbers below are stale — re-run before trusting them:
 
     python3 tools/scale_study.py         # spans and SKUs, self-checks 14 published figures
     python3 tools/subdivision_study.py   # finer lattices; reproduces n=1 film loads first
 
-Figures marked MEASURED came from running the real generator or the real page. Figures
+Legacy “MEASURED” labels here mean computed geometry or renderer readings, not weighed
+parts or physical load tests. The float ledger classifies those as computed. Figures
 marked TO VERIFY are supplier or shop-floor questions no calculation here can settle.
 
 > **CORRECTION 2026-08-11, evening — the joints got heavier and every figure below that
@@ -67,7 +78,7 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 |---|---|
 | the target: air at 2,500 m | **0.9569** |
 | (at sea level, if you prefer the easier bar) | 1.2250 |
-| the measured article as built | **~15.1 — that is 15.8×** |
+| the computed article, nominal volume | **~15.1 — that is 15.8×** |
 | best checked R1 configuration (§3) | **10.76 — 11.24×** |
 
 **Definition of done.** A bill of materials, computed by this repository's own model and
@@ -85,8 +96,17 @@ in this project at least once. Write down what you dropped.
 
 ## 1. Where the mass is
 
-Sized optimally at every span against real thin-wall tube, holding Euler, local wall
-buckling and film bending, at the model's own 1.5 factor:
+> **Historical, unreproduced table.** The four rows below were introduced in the
+> commit identified in the [ledger history](FLOAT-LEDGER.md#the-history-of-being-wrong)
+> as “Where the mass is, and the routes to a cell that floats”. Neither current
+> `tools/scale_study.py` nor `tools/subdivision_study.py` emits these totals. They remain
+> here as the published record, not as evidence of today's optimum. The independent
+> physics audit's O5 challenges this exact table. No claim is made that every historical
+> tool version has been exhaustively searched. The live bench density is 15.13 kg/m³;
+> the corrected subdivision and scale-study rows are generated in the ledger.
+
+The historical table claimed optimal sizing against “real thin-wall tube”, Euler, local
+wall buckling and film bending at SF 1.5. Its catalogue was invented; this claim is unverified:
 
 | span | tube | joints | film | total | × the wall |
 |---|---|---|---|---|---|
@@ -120,8 +140,11 @@ leak problem, which is a different document (#63).
 - **What size DOES buy** is manufacturability (§3, R3), 64% fewer joints per m³ from 0.7 to
   1.3 m, and a 41% wider permeation budget. All real, none of it buoyancy.
 - **Vacuum, not helium.** Gated in `research/analysis/helium.md`.
-- **Full vacuum, not partial.** Shell mass goes as Δp^(2/3) while lift goes as Δp, so
-  partial vacuum degrades as Δp^(-1/3). In `nullResults.partialVacuum`.
+- **Full vacuum in the closed-form lattice study.** `nullResults.partialVacuum` gives
+  shell mass proportional to Δp^(2/3) and lift proportional to Δp; reducing evacuation
+  worsens that ratio. This is not a computation of a ship partly evacuated at sea level
+  and fully evacuated only at altitude. The [ledger pressure question](FLOAT-LEDGER.md#pressure-schedule--not-computed)
+  records the existing analysis and the missing staged-pressure model without resizing a hull.
 - **The bench article is a process coupon, not a floater.** `floats: false` is deliberate.
   Its job is to prove print → assemble → wrap → evacuate → **seal** → hold for months. Do
   not optimise its mass; that is not what it is for.
@@ -234,7 +257,11 @@ is overhead. Options, roughly in order of expected value:
   whether n = 2 concentrates or spreads the arm count before assuming either.
 
 **Target to aim at:** the model's own design point allows joints at **15% of lattice mass**.
-The real measured article came in at **19.5%**. The even-n valence-specific joint has not yet
+The published **19.5%** was 0.465 kg of joints divided by 2.390 kg of tube.
+The current computed article is **36.7%**: 0.715 kg of mesh-integrated joints divided
+by 1.948 kg of saw-table tube (`stock_build()`). The intermediate **29.9%** used the
+corrected joint mass but the old tube bill. The change is geometry and billing, not a
+physical weighing; the 15% allowance has not been demonstrated. The even-n valence-specific joint has not yet
 been generated, so the OD-cubed R1 price is an estimate rather than a measured fraction.
 
 ### R3 — source the tube (and this is a standing, incremental job)
@@ -446,6 +473,21 @@ The sweep minimises TOTAL mass (tube + joints + film) over 25 catalogue SKUs sub
 holding **every** margin the 0.709 article holds: four Euler margins, the rim's bending
 capacity in atmospheres, and the spoke and square-tie bending margins.
 
+**Current run of `python3 tools/scale_study.py`.** The joint correction raises the
+four totals; it does not alter their selected tube sections. These are study scenarios,
+not tested articles. Air is 1.2250 kg/m³ at sea level and 0.9569 kg/m³ at 2,500 m;
+all four miss both. The sizing basis and factors are in the
+[ledger's one-metre rows](FLOAT-LEDGER.md#one-metre-study--catalogue-sweep).
+
+| span | target | main | rim | tube | joints | film | total | kg/m³ |
+|---|---|---|---|---|---|---|---|---|
+| 1.000 | PARITY with today | 16x14 | 24x22 | 5.71 kg | 2.93 kg | 79 g | **8.72 kg** | 17.43 |
+| 1.000 | +30% on every margin | 18x16 | 26x24 | 6.40 kg | 4.17 kg | 79 g | **10.65 kg** | 21.30 |
+| 0.980 | PARITY with today | 16x14 | 22x20 | 5.47 kg | 2.93 kg | 75 g | **8.47 kg** | 18.00 |
+| 0.980 | +30% on every margin | 18x16 | 25x23 | 6.21 kg | 4.17 kg | 75 g | **10.45 kg** | 22.22 |
+
+<details><summary>Published old table, retained to show the change</summary>
+
 | span | target | main | rim | tube | joints | film | total | kg/m³ |
 |---|---|---|---|---|---|---|---|---|
 | 1.000 | parity with today | **16 × 14** | **24 × 22** | 5.71 kg | 1.90 kg | 79 g | **7.69 kg** | 15.38 |
@@ -453,23 +495,24 @@ capacity in atmospheres, and the spoke and square-tie bending margins.
 | 0.980 | parity with today | 16 × 14 | 22 × 20 | 5.47 kg | 1.90 kg | 75 g | 7.45 kg | 15.83 |
 | 0.980 | +30% on every margin | 18 × 16 | 25 × 23 | 6.21 kg | 2.71 kg | 75 g | 9.00 kg | 19.12 |
 
+</details>
+
 Achieved margins at the recommended 1.000 m parity point — every one above today's:
 
     octet 2.11 (was 1.82)   spoke 3.19 (2.75)   tie 2.83 (2.45)   rim 5.73 (4.12)
     rim bending fails at 3.25 atm (2.84)
 
-**Stock tube beats geometric scaling.** 15.38 kg/m³ against the scale-invariant density
-(16.21 as this appendix was computed, on the old centre-to-centre bill),
-because a 16 mm tube with a 1 mm wall buys more `I` per gram than a 14.1 mm tube with a
-1.4 mm wall. The lesson generalises: *thin wall, big diameter*, right up to the local
-buckling limit — which is **NOT CHECKED ANYWHERE IN THIS MODEL** and wants checking before
-anyone buys 24 × 22. At `R/t = 12` the classical shell-buckling stress is far above the
-axial demand here, but "far above" is not a number in the repository.
+**The old “stock tube beats geometric scaling” comparison no longer holds for the
+reported parity row.** The old table gave 15.38 kg/m³; the fresh tool gives 17.43 kg/m³,
+above the current article's 15.13 kg/m³. The joint estimate changed from a 0.465 kg base
+to 0.715 kg after the full-socket geometry correction; the current article also bills
+saw cuts instead of centre spans. At the one-metre parity point, 2.93 kg of joints is
+33.6% of the 8.72 kg study total, replacing the old “25%” comparison.
 
-The joints column is `joint mass × (od/10)³` (0.465 kg when computed; 0.715 kg since the
-sunken frame — see the head-of-document correction), and that cube law is MEASURED, not
-assumed
-(§6). At 1 m the joints are 25% of the article by mass instead of 16%.
+This catalogue study does not qualify the combined local-shell/bending interaction or
+any purchased tube. The joint column is an OD-cubed estimate from integrated geometry,
+not a physically measured scale law. Passing separate margins is not a complete structural proof.
+
 
 ---
 

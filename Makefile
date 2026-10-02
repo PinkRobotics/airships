@@ -316,3 +316,10 @@ exercisecheck:  ## Invented exercise: deterministic geography, labels and all-da
 .PHONY: evaccheck
 evaccheck:  ## The derived evacuation record must regenerate and publish nothing it may not
 	$(PY) tests/evac/check.py
+
+.PHONY: ledger ledgercheck
+ledger:  ## Regenerate the float figures and their complete basis
+	$(PY) tools/float_ledger.py
+
+ledgercheck:  ## Fresh ledger equality and explicit altitude/basis binding in prose
+	$(PY) tools/check_float_ledger.py
