@@ -351,16 +351,32 @@ reservoir outlines from the BC Freshwater Atlas), `roads-bc.json`, `bc-outline.j
 the dated `snapshot.json` / `snapshot-heat.json` that replay mode and the golden tests use.
 `data/live/` is the first-party mirror and is gitignored.
 
+### First-party boundary
+
+The repository's `make firstparty` gate checks loading URLs in the served files and records
+browser requests against a local fixture server. It establishes what this code asks the browser
+to load. The network serving the public site can alter the response after this code leaves the
+repository. The monitor's first-party note therefore scans load-bearing elements and the browser's
+resource log. It keeps the code-only statement until that check runs, names any other observed
+hosts, and says when the resource log is unavailable. The note does not make a request. A browser
+can still omit entries from its resource log; this is a visible audit, not a complete network trace.
+
+After each deploy, run `python3 tools/check_first_party.py <address>` for each published page.
+It sends one browser-like HTML request per address, reports foreign loads in the returned HTML
+and the `report-to` and `nel` headers, and exits nonzero for foreign loads. A plain HTTP request
+may receive different HTML. This check inspects returned HTML, not requests made later by scripts;
+the page's live note and the browser network panel provide that later view. The live result is
+measured at the time of the request and is not asserted by this repository.
+
 `pipeline/` holds the Python that produced them: `water.py`, `terrain.py`, `figures.py`, and
 `live.py`, which is the server-side job that refreshes `data/live/`. They are not run by the
 page; they are run by hand or on a timer, and their outputs are committed so that cloning
 the repository gives a working page.
 
-Feeds are read in three tiers, in order: the first-party mirror, then the public feed
-directly, then the committed snapshot. The mirror exists so that traffic to this page does
-not become traffic to an emergency service. Every remote source is additionally cached in
-`localStorage` with a TTL matched to how often the source really updates, and cached data
-reports its true fetch age rather than the reload time.
+Feeds are read in two tiers, in order: the first-party mirror and then the committed snapshot.
+The mirror exists so that traffic to this page does not become traffic to an emergency service.
+The page reports the age of the data it actually shows rather than treating a reload as a new
+source reading.
 
 ---
 

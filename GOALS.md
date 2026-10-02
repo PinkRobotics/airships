@@ -97,8 +97,9 @@ Where a rule does not hold yet, it says so.
   along a fire's edge to drop (`sim/targets.js`), and a test holds it to that.
 - **A visitor's browser talks only to this site.** True in this repository since 2026-10-01. The
   map is drawn from bundled terrain; fires, satellite heat and wind come through the site's own
-  server-side mirror; no tier sends a browser to an agency's feed. `make firstparty` holds every
-  served page to it, and the published site carries it from its next publish.
+  server-side mirror; no tier sends a browser to an agency's feed. `make firstparty` checks the
+  served repository pages. The live site is checked separately after each deploy with
+  `python3 tools/check_first_party.py <address>`; network-added loads can change without a commit.
 - **No quiet fixes.** A number that moves is published old and new, with the reason. This is the
   practice from 2026-10-01; earlier history was not held to it.
 - **Cost is accounting, not a headline.** When the public log exists, token, line and agent counts

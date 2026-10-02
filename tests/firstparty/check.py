@@ -36,6 +36,7 @@ def free_port():
 class Handler(http.server.SimpleHTTPRequestHandler):
     mode = 'fixture'
     wind_mode = 'fresh'
+    note_variant = None
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -44,6 +45,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         path = urlsplit(self.path).path
+        if path == '/index.html' and self.note_variant:
+            inserted = {
+                'module': '<script type="module" src="https://edge-module.invalid/beacon.js"></script>',
+                'fetch': '<script>fetch("https://edge-fetch.invalid/ping").catch(() => {});</script>',
+            }[self.note_variant]
+            body = (ROOT / 'index.html').read_text().replace('</body>', inserted + '</body>').encode()
+            self.send_response(200); self.send_header('Content-Type', 'text/html')
+            self.send_header('Content-Length', str(len(body))); self.end_headers(); self.wfile.write(body); return
         if path == '/__external_probe.html':
             body = b'<img src="https://firstparty-test.invalid/probe.png">'
             self.send_response(200); self.send_header('Content-Type', 'text/html'); self.end_headers(); self.wfile.write(body); return
@@ -136,7 +145,73 @@ BOOT = """(async () => {
 })()"""
 
 
-async def session(ws_url, origin, records, evidence):
+async def note_cases(page, origin, shot_dir):
+    async def note():
+        return await page.evaluate("document.getElementById('firstPartyNote').textContent")
+
+    async def wait_note(needle):
+        for _ in range(100):
+            value = await note()
+            if needle in value: return value
+            await asyncio.sleep(.1)
+        raise AssertionError(f'first-party note did not say {needle!r}: {value!r}')
+
+    async def screenshots(state):
+        if not shot_dir: return
+        import base64
+        shot_dir.mkdir(parents=True, exist_ok=True)
+        for width, height in ((1440, 900), (390, 844)):
+            await page.send('Emulation.setDeviceMetricsOverride', {'width': width, 'height': height,
+                            'deviceScaleFactor': 1, 'mobile': width == 390})
+            await page.evaluate("""(() => {
+              document.getElementById('introOv')?.click();
+              document.getElementById('layersPanel').style.display = 'flex';
+              document.getElementById('firstPartyNote').scrollIntoView({block:'center'});
+            })()""")
+            await asyncio.sleep(.2)
+            visible = await page.evaluate("""(() => {
+              const r = document.getElementById('firstPartyNote').getBoundingClientRect();
+              return r.width > 0 && r.height > 0 && r.top >= 0 && r.bottom <= innerHeight;
+            })()""")
+            assert visible, f'{state} note is outside {width}px screenshot'
+            result = await page.send('Page.captureScreenshot', {'format': 'png', 'captureBeyondViewport': False})
+            (shot_dir / f'note-{state}-{width}.png').write_bytes(base64.b64decode(result['data']))
+        await page.send('Emulation.clearDeviceMetricsOverride')
+
+    Handler.mode, Handler.wind_mode, Handler.note_variant = 'fixture', 'fresh', None
+    await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+    clean = await wait_note(f'This page talks only to {origin}.')
+    assert clean == f'This page talks only to {origin}.', clean
+    print(f'note clean: {clean}')
+    await screenshots('clean')
+
+    Handler.note_variant = 'module'
+    await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+    module = await wait_note('edge-module.invalid')
+    assert 'Added by the network in front of it: edge-module.invalid.' in module, module
+    assert any(r['url'].startswith('https://edge-module.invalid/') for r in page.requests), page.requests
+    print(f'note injected module: {module}')
+    await screenshots('edge')
+
+    Handler.note_variant = 'fetch'
+    await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+    fetched = await wait_note('edge-fetch.invalid')
+    assert 'Added by the network in front of it: edge-fetch.invalid.' in fetched, fetched
+    assert any(r['url'].startswith('https://edge-fetch.invalid/') for r in page.requests), page.requests
+    print(f'note injected fetch: {fetched}')
+
+    Handler.note_variant = None
+    await page.send('Emulation.setScriptExecutionDisabled', {'value': True})
+    try:
+        await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
+        static = await note()
+        assert static == "This page's own code talks only to the site that served it.", static
+        print(f'note scripts off: {static}')
+    finally:
+        await page.send('Emulation.setScriptExecutionDisabled', {'value': False})
+
+
+async def session(ws_url, origin, records, evidence, note_evidence, note_only=False):
     import websockets
     async with websockets.connect(ws_url, max_size=64_000_000) as ws:
         page = Page(ws, origin)
@@ -151,6 +226,9 @@ async def session(ws_url, origin, records, evidence):
             await asyncio.sleep(.2)
             assert any(r['external'] for r in page.requests), f'network detector missed its external probe: {page.requests}'
             print('CDP detector control: external image recorded and blocked before transmission')
+            if note_only:
+                await note_cases(page, origin, note_evidence)
+                return
             pages = [str(rel) for _, rel in served_files() if rel.suffix == '.html']
             for mode in ('fixture', 'snapshot', 'absent'):
                 Handler.mode, Handler.wind_mode = mode, 'fresh'
@@ -202,6 +280,7 @@ async def session(ws_url, origin, records, evidence):
                         shot = await page.send('Page.captureScreenshot', {'format': 'png'})
                         evidence.with_suffix('.png').write_bytes(base64.b64decode(shot['data']))
             print(f'first-party browser: {len(records)} page/mode visits; zero third-party requests')
+            await note_cases(page, origin, note_evidence)
         finally:
             page.reader.cancel()
             with contextlib.suppress(asyncio.CancelledError): await page.reader
@@ -210,6 +289,8 @@ async def session(ws_url, origin, records, evidence):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--evidence', type=Path, help='write the recorded request log and monitor screenshot')
+    parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440 and 390 px')
+    parser.add_argument('--note-only', action='store_true', help='run only the four note cases')
     args = parser.parse_args()
     records = []
     server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
@@ -234,7 +315,7 @@ def main():
                         break
                     except Exception: time.sleep(.2)
                 else: raise RuntimeError('Chromium did not expose a page')
-                asyncio.run(session(ws_url, origin, records, args.evidence))
+                asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only))
             finally:
                 proc.terminate()
                 try: proc.wait(timeout=8)

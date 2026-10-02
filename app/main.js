@@ -220,8 +220,11 @@ export function renderStatus() {
       ? "850 hPa wind · site mirror · fetched " + ageWords(Date.now() - S.windAt.getTime()) + " ago"
       : "Still air · " + (S.windNote || "wind mirror unavailable");
     const boundary = $("firstPartyNote");
-    if (boundary && location.hostname === "pinkrobotics.ca")
-      boundary.textContent = "This page talks only to pinkrobotics.ca.";
+    if (boundary && !renderStatus._firstPartyNote) {
+      renderStatus._firstPartyNote = true;
+      import("./first-party-note.js?v=e3f50add").then(({ auditFirstPartyNote }) => auditFirstPartyNote(boundary))
+        .catch(() => { boundary.textContent = "This page's own code talks only to the site that served it. Resource check unavailable."; });
+    }
 
   };
   paint();
