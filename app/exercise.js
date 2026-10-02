@@ -55,7 +55,8 @@ export async function loadExercise(normalize, fetchDayFile) {
     S.dataNote = EXERCISE_NOTE;
     return normalize(doc.fires, doc.perimeters);
   } catch (e) {
-    S.recordOnly = true; S.standDown = 'Exercise unavailable: ' + e.message;
+    // A clause that ends "..., because": the page's sentences for an empty view are built on it.
+    S.recordOnly = true; S.standDown = 'the exercise could not be read (' + e.message + ')';
     S.dataNote = S.standDown; S.perimsOk = false;
     S.exerciseRegions = []; S.exerciseHistoricalRegions = [];
     return [];

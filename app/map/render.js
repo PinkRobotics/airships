@@ -360,7 +360,8 @@ export function draw() {
   }
   if (S.exercise) {
     ctx.save(); ctx.font = "bold 14px ui-monospace,monospace";
-    const label = "EXERCISE · INVENTED FIRES", width = ctx.measureText(label).width;
+    // An exercise that did not load has no fleet and no fires: the label says that instead.
+    const label = S.recordOnly ? "EXERCISE UNAVAILABLE" : "EXERCISE · INVENTED FIRES", width = ctx.measureText(label).width;
     ctx.fillStyle = "#08080a"; ctx.fillRect((W-width)/2-9, H-29, width+18, 25);
     ctx.fillStyle = "#ffb9da"; ctx.fillText(label, (W-width)/2, H-11); ctx.restore();
   }

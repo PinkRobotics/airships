@@ -4,12 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Exercise · invented fires · Pink Robotics fleet monitor</title>
-<meta name="description" content="Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.">
+<!-- This head is what a link preview and a reader without scripts get on EVERY address of
+     the page, so it names no one view. With scripts on, each view names itself: the title,
+     the three description tags and the header strip are written by viewLabels() (app/feeds.js). -->
+<title>Pink Robotics fleet monitor: BC wildfires, a simulated fleet</title>
+<meta name="description" content="British Columbia wildfire data and a simulated fleet of autonomous vacuum airships. A view is the fires as published, a dated replay, the record with no fleet, or a labelled exercise of invented fires, and says which. No aircraft has flown.">
 <link rel="canonical" href="https://pinkrobotics.ca/airships/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Exercise: invented fires, real terrain, a simulated fleet.">
-<meta property="og:description" content="Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.">
+<meta property="og:title" content="BC wildfires. A simulated fleet. Arithmetic you can check.">
+<meta property="og:description" content="Real fires from public data or a labelled exercise of invented ones, and a simulated fleet of vacuum airships. The monitor shows what the proposed machines are modelled to do and what each cycle would cost. It is not a promise that any fire goes out.">
 <meta property="og:url" content="https://pinkrobotics.ca/airships/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
 <style>
@@ -457,21 +460,24 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
 .mapbox canvas.drag{cursor:grabbing}
 .mapbox canvas:focus-visible{outline:2px solid var(--warm);outline-offset:-2px}
 
-/* HUD chips live ON the map so a screenshot of the map alone still carries provenance. */
-.hud{position:absolute;top:var(--s3);left:var(--s3);right:var(--s3);display:flex;
-  justify-content:space-between;gap:var(--s2);pointer-events:none;flex-wrap:wrap}
+/* HUD chips live ON the map so a screenshot of the map alone still carries provenance.
+   The column holds the chips and, under them, the mode sentence. */
+.hudcol{position:absolute;top:var(--s3);left:var(--s3);right:var(--s3);pointer-events:none}
+.hud{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap}
 .hud .chip{font:600 var(--t-11)/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;
   background:rgba(10,10,12,.82);border:1px solid var(--line-strong);border-radius:var(--r-sm);
   padding:5px 9px;color:var(--muted);backdrop-filter:blur(2px)}
 .hud .chip b{color:var(--bone);font-weight:600}
 .hud .chip .sim{color:var(--warm)}
 .hud .chip.warn{color:var(--red);border-color:var(--red)}
-/* The mode sentence sits under the chips it belongs with, over the map's quiet top-left.
-   It is the one line that names the day and the mode in words, so it is never clipped:
-   it wraps, and the map reads around it. */
-#modeNote{position:absolute;top:calc(var(--s3) + 32px);left:var(--s3);margin:0;
-  max-width:min(72ch, 86%);font:500 var(--t-11)/1.5 var(--mono);color:#c9c3b6;
-  text-shadow:0 1px 3px #08080a,0 0 6px rgba(8,8,10,.8);pointer-events:none}
+/* The mode sentence sits under the chips it belongs with, in the same column: a fixed
+   offset put it under ONE row of chips, and a second row (a phone, a narrow map) covered
+   it. It is the one line that names the day and the mode in words, so it is never
+   clipped: it wraps, on its own ground, and the map reads around it. */
+#modeNote{margin:var(--s2) 0 0;width:fit-content;max-width:min(72ch,100%);box-sizing:border-box;
+  font:500 var(--t-11)/1.5 var(--mono);color:#c9c3b6;background:rgba(8,8,10,.92);
+  padding:4px 6px;border-radius:4px}
+#modeNote:empty{display:none}
 body.record-only .lg-ship,body.no-heat .lg-heat{display:none}
 .maplegend{position:absolute;left:var(--s3);bottom:var(--s3);font:var(--t-11)/1.7 var(--mono);
   color:var(--muted);background:rgba(10,10,12,.82);border:1px solid var(--line);
@@ -516,9 +522,10 @@ footer.noticefooter{position:absolute;right:var(--s3);bottom:2px;z-index:20;
 select.ctlbtn{text-transform:none;letter-spacing:.05em;padding:6px 10px;color:var(--muted)}
 select.ctlbtn:focus-visible{outline:2px solid var(--warm);outline-offset:-2px}
 /* A record-only day has no fleet: the controls that exist to drive one leave with it, so
-   nothing on the page offers a pause to a thing that is not running. */
+   nothing on the page offers a pause to a thing that is not running. The fleet note leaves
+   too: "The fleet is simulated" under a roster that says no fleet is simulated. */
 body.record-only #btnPause,body.record-only .seg-speed,body.record-only #btnFitFleet,
-body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
+body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fleetNote{display:none}
 .monctl label.tog{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--faint)}
 .monctl label.tog:hover{color:var(--muted)}
 .monctl input[type="checkbox"]{accent-color:var(--warm)}
@@ -690,7 +697,8 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
   .maplegend{position:static;background:none;border:0;padding:0;margin-top:2px;
     display:flex;flex-wrap:wrap;gap:1px var(--s3);font-size:10px;line-height:1.6}
   .maplegend br{display:none}
-  .hud{top:var(--s2);left:var(--s2);right:var(--s2);gap:var(--s2)}
+  .hudcol{top:var(--s2);left:var(--s2);right:var(--s2)}
+  .hud{gap:var(--s2)}
   .hud .chip{font-size:10px;padding:3px 7px;max-width:100%;overflow:hidden;
     text-overflow:ellipsis;white-space:nowrap}
   .mapscale{display:none}          /* the legend strip carries the reading now */
@@ -744,7 +752,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
       <a href="../" style="color:var(--faint)">← Pink Robotics</a>
       <span><span class="m-hide">Autonomous fleet monitor —</span>
         <span id="fireModeLabel" style="color:#c9c3b6">exercise · invented fires</span> ·
-        <span style="color:var(--warm)">simulated fleet</span> ·
+        <span id="fleetModeLabel" style="color:var(--warm)">simulated fleet</span> ·
         <span style="color:#d98b80">not for emergency use</span></span>
       <a href="concept/" style="margin-left:auto;color:var(--warm)"><span class="m-hide">How it works · </span>sources →</a></p>
     <div class="monbody has-ship" id="cockpit">
@@ -804,6 +812,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
             aria-label="Map of British Columbia: today's wildfires and the simulated airships tasked to them"></canvas>
           <p id="mapHere" class="vh"></p>
           <p id="mapHelp" class="vh">Arrow keys pan, plus and minus zoom, Escape clears the selection. Every simulated airship is also listed as text in the fleet roster panel. The largest fires waiting for or receiving one are listed in the top fires panel. Selecting a row in either selects the same thing here, and the selected ship's full record is written out in the operation panel. The map also draws every fire in the provincial feed, satellite hotspots, water bodies, and routes, which are not listed as text anywhere on this page.</p>
+          <div class="hudcol">
           <div class="hud">
             <!-- Pre-boot text is generated from the bundled snapshot (tools/gen_fallback.py);
                  renderStatus() overwrites it the moment real data is on screen. -->
@@ -812,8 +821,10 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
           </div>
           <!-- The mode sentence (the guard's ruling fixes its words): which day this view
                shows, at what time the record was published, and in words whether a fleet is
-               simulated on it. renderStatus() writes it on every view, under the chips. -->
+               simulated on it. renderStatus() writes it on every view. It follows the chips
+               in one column, so it sits under them however many rows they wrap to. -->
           <p id="modeNote" role="status"></p>
+          </div>
           <div class="maplegend" id="legend">
             <i style="background:#d98b80"></i>out of control<br>
             <i style="background:#e3a94e"></i>being held<br>
@@ -887,7 +898,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
           <!-- The view's own caption already says "conceptual reference vehicle"; saying it
                twice cost this header a second line, and in the side-by-side arrangement a
                third — height the model view wants more than the words do. -->
-          <h4 class="cp-h">The airship, live · <b id="m3dTitle">—</b> ·
+          <h4 class="cp-h">The airship, simulated · <b id="m3dTitle">—</b> ·
             <span style="color:var(--faint);text-transform:none;letter-spacing:0">driven by the same state as everything else here</span></h4>
           <div style="position:relative;flex:1;min-height:0;display:flex">
             <div id="m3dView" style="flex:1;min-height:0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:#08080a"></div>
@@ -947,17 +958,20 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
 
     </div>
 
+    <!-- Three phrases here name the view: the fires the fleet serves, the map card and the
+         tap line. app/main.js writes them from introWords() (app/feeds.js) before the screen
+         is shown, for the view it opens on. What is typed below is true of every view. -->
     <div id="introOv" hidden>
       <div class="io io-fleet">
         <b>The fleet</b>
-        <p>Sixteen simulated hulls and the live fires they serve, named for water birds. Divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The crush envelope closes near 96 m of hull diameter, and the two larger classes live outside it. Figure 2 on the front page shows where. They fly here to find where the arithmetic breaks. Click any row to open its cockpit.</p>
+        <p>Sixteen simulated hulls and <span id="introFires">the fires</span> they serve, named for water birds. Divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The crush envelope closes near 96 m of hull diameter, and the two larger classes live outside it. Figure 2 on the front page shows where. They fly here to find where the arithmetic breaks. Click any row to open its cockpit.</p>
       </div>
       <!-- These two point INTO the centre column, so their positions are in the stylesheet
            rather than inline: the side-by-side arrangement moves them, and an inline style
            cannot be overridden. The three column call-outs never move. -->
       <div class="io io-map">
-        <b>The map · live</b>
-        <p>Today's real BC fires and satellite heat. The moving ships are simulated. Drag, zoom, click anything for its record.</p>
+        <b id="introMapH">The map</b>
+        <p id="introMapP">The fires this view shows, real or invented as its label says. The moving ships are simulated. Drag, zoom, click anything for its record.</p>
       </div>
       <div class="io io-3d">
         <b>The ship in 3D</b>
@@ -966,15 +980,14 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"]{display:none}
       </div>
       <div class="io io-ship" style="right:2%;top:18%">
         <b>The selected ship</b>
-        <p>Forces, phase, and what is hanging under the ship: the anchor cable and the intake hose in metres, plus the power bars and the storage
-</p>
+        <p>Forces, phase, and what is hanging under the ship: the anchor cable and the intake hose in metres, plus the power bars and the storage gauge.</p>
       </div>
       <div class="io io-ops" style="left:38%;bottom:4%">
         <b>The operation</b>
         <p>Why the allocator was allowed this fire, this water, this line.</p>
       </div>
       <div class="io io-tap">
-        <b>Live BC fires · a simulated fleet drawn over them</b>
+        <b id="introTapH">Pink Robotics fleet monitor</b>
         <p>tap anywhere to open the monitor</p>
       </div>
     </div>

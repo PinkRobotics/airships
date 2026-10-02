@@ -6,8 +6,12 @@ import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=
 import { shipViz } from '../cockpit/shipviz.js?v=787aaec5';
 import { updateRoster } from '../cockpit/tables.js?v=787aaec5';
 import { $, cycleBar, esc, kvRows } from '../dom.js?v=787aaec5';
-import { guardNoteWords, modeWords, needsShip } from '../feeds.js?v=787aaec5';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=787aaec5';
 import { S } from '../store.js?v=787aaec5';
+
+/* A fire's outline is "current" only on the live feed; on a dated view it is the one in
+ * that day's record. */
+const polygonWords = () => S.daySource === "live" ? "current polygon" : "published polygon";
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
@@ -71,7 +75,11 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   if (!S.sel || (!S.sel.m && !S.sel.f)) {
     // On a record-only day there is no fleet to point at, so the empty state points at the
     // record instead, and carries the mode sentence rather than cockpit instructions.
-    O.innerHTML = S.recordOnly
+    // An empty view has neither: it carries the mode sentence, which says why, and points
+    // at the day control only when the control has dated days to offer.
+    O.innerHTML = nothingShown()
+      ? `<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">${esc(modeWords())}${S.dayList && S.dayList.length ? " The day control lists the days this repository holds." : ""}</div>`
+      : S.recordOnly
       ? `<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">No fleet is simulated for this day. Click a <b style="color:var(--warm)">fire</b> for its published record — status, size, cause, perimeter — as British Columbia reported it.<br><br>${esc(modeWords())}</div>`
       : '<div class="empty" style="padding:var(--s3);color:var(--faint);font-size:var(--t-14);line-height:1.7">Nothing selected. Click a <b style="color:var(--warm)">ship</b> to open the cockpit — the airship and its forces on the left, the helm dials on the right, the operation down here — or click a fire or water source for its record.</div>';
     noteSelection();
@@ -172,18 +180,18 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ...(!S.exercise && f.geo ? [["record description", esc(f.geo), "live"]] : []),
         ["status", esc(f.status) + (f.note ? " · NOTE" : ""), "live"],
         ["reported size", fmtHa(f.sizeHa), "live"],
-        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? "current polygon" : "point only", "live"],
-      ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· live data; all else simulated</span></p>` : "") + `</div>
+        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? polygonWords() : "point only", "live"],
+      ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· ${S.daySource === "live" ? "live data" : "the record as published"}; all else simulated</span></p>` : "") + `</div>
       <div><h4>Attack route · simulated</h4>` + kvRows([
         ["water source", esc(srcName(m)) + " <small>" + fmt(m.water[2]) + " ha</small>", "sim"],
         ["one-way", m.oneWayKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) + " hose stations", "sim"],
         ["release", m.targets.length + " planned lines" + (m.heat ? " on satellite heat" : ""), "sim"],
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],
-        ["nearby community", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no community within 40 km", "sim"],
+        ["nearby community", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no listed community within 40 km", "sim"],
       ]) + `<details class="d" style="border:0;margin-top:var(--s2)"><summary style="padding:4px 0 4px 22px;font-size:var(--t-12);color:var(--faint)">why this tasking</summary>
-        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${S.exercise ? "exercise in still air; no forecast invented." : m.plan.windUsed ? "wind-informed legs, nominal altitudes." : "still-air — live wind unavailable."}</p></div></details></div>
+        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${S.exercise ? "exercise in still air; no forecast invented." : m.plan.windUsed ? "wind-informed legs, nominal altitudes." : S.daySource === "live" ? "still-air — live wind unavailable." : "still air; a dated day replays no forecast."}</p></div></details></div>
       <div><h4>Cycle · simulated</h4><div id="opsCycle"></div></div>
-      <div><h4>The Mind — live trace</h4><div class="narr" id="opsNarr"></div></div>
+      <div><h4>The Mind — running trace</h4><div class="narr" id="opsNarr"></div></div>
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
@@ -211,7 +219,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ["reported size", fmtHa(f.sizeHa), "live"],
         ["ignition", f.ignited ? f.ignited.toLocaleDateString("en-CA") : "—", "live"],
         ["cause", esc(f.cause || "—"), "live"],
-        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? "current polygon shown" : "none published — point only", "live"],
+        ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? polygonWords() + " shown" : "none published — point only", "live"],
       ]) + (f.url ? `<p style="margin-top:var(--s3);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a></p>` : "") + `</div>
       <div><h4 style="color:var(--warm)">Simulated response</h4>` +
       (S.recordOnly

@@ -23,6 +23,15 @@ gate holds both halves to the ruling, R by R:
                  R7 — the mode sentence and the guard note match the ruled sentences
                  exactly (only the braces filled), and no other visible string on any view
                  says a fire would have burned differently.
+    the labels   what a view calls itself outside the map — tab title, description tags,
+                 header strip, day control, the map's own label — agrees with the mode
+                 sentence: only a live view says "live", a view with no fleet promises
+                 none, a view with nothing on it describes no published record, the
+                 static head (what a link preview and a reader without scripts get on
+                 every address) names no one view, no string anywhere on a view that
+                 is not live says live, current or today outside ten named uses, and
+                 a view that could not be read (a file gone from the deployment, four
+                 ways) says that nothing is shown and why.
     the layout   the orientation cards and the roster at three widths — the two defects
                  the guard work found at 1440 px (cards overlapping, class rows clipping),
                  held so they stay fixed.
@@ -309,8 +318,15 @@ class Server(socketserver.ThreadingTCPServer):
     daemon_threads = True
 
 
-def serve(port: int) -> Server:
-    httpd = Server(("127.0.0.1", port), Handler)
+def serve(port: int, missing=()) -> Server:
+    """`missing`: path fragments this server answers 404 for — a deployment with a file gone."""
+    class Broken(Handler):
+        def do_GET(self):
+            if any(m in self.path for m in missing):
+                self.send_error(404)
+                return
+            super().do_GET()
+    httpd = Server(("127.0.0.1", port), Broken if missing else Handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     for _ in range(100):
         if answers(port):
@@ -333,6 +349,7 @@ PROBE = r"""
   await new Promise(r => setTimeout(r, 1200));
   S.paused = true;
   const txt = id => { const e = document.getElementById(id); return e ? e.textContent.replace(/\s+/g,' ').trim() : null; };
+  const meta = sel => { const e = document.querySelector(sel); return e ? e.content : null; };
   const guardedInView = S.fires.filter(f => f.guarded).map(f => ({ id: f.id, name: f.name || null, why: f.guarded.why }));
   const out = {
     url: location.search, day: S.day, daySource: S.daySource,
@@ -348,9 +365,29 @@ PROBE = r"""
     uncovered: S.uncovered,
     regions: (S.regions || []).map(r => ({ kind: r.kind, who: r.who, rKm: +r.rKm.toFixed(1) })),
     sweep: null,
-    panels: { roster: txt('roster'), firesTop: txt('firesTop'), stats: txt('stats'),
-              ops: txt('ops'), mode: txt('modeNote'), guardNote: txt('guardNote'),
+    // `ops` is the operation panel (#cpOps) and `heads` the two panel headings with the
+    // fires panel's note. An earlier probe read #ops and #stats, ids the page no longer
+    // has, so every assertion on those two keys held on an empty string.
+    panels: { roster: txt('roster'), firesTop: txt('firesTop'),
+              heads: [txt('fleetH'), txt('firesH'), txt('firesNote')].join(' | '),
+              ops: txt('cpOps'), mode: txt('modeNote'), guardNote: txt('guardNote'),
               heat: txt('heatNote'), hud: txt('hudLive') },
+    labels: {
+      title: document.title,
+      description: meta('meta[name="description"]'),
+      ogTitle: meta('meta[property="og:title"]'),
+      ogDescription: meta('meta[property="og:description"]'),
+      fires: txt('fireModeLabel'), fleet: txt('fleetModeLabel'),
+      day: (() => { const s = document.getElementById('daySel'), o = s && s.selectedOptions[0];
+                    return o ? o.textContent.replace(/\s+/g, ' ').trim() : null; })(),
+      map: document.getElementById('map').getAttribute('aria-label'),
+      mapHelp: txt('mapHelp'),
+      // The first-visit screen's four phrases that name the view, and whether the fleet
+      // note under the roster ("The fleet is simulated…") is laid out.
+      intro: ['introTapH', 'introMapH', 'introMapP', 'introFires'].map(txt).join(' | '),
+      fleetNote: (() => { const e = document.getElementById('fleetNote');
+                          return e ? getComputedStyle(e).display !== 'none' : null; })(),
+    },
     visible: [],
   };
   // R4 in the page: the mission's fixed points, and the ships' own positions sampled
@@ -435,9 +472,20 @@ LAYOUT = r"""
     || c.x + c.w > innerWidth || c.y + c.h > innerHeight).map(c => c.cls);
   const rows = [...document.querySelectorAll('#roster .r-cls')].map(e => ({
     text: e.textContent.slice(0, 34), over: e.scrollWidth - e.clientWidth }));
+  // The mode sentence against the chips it sits with: it must be on screen, inside the
+  // map's box, and under no chip, however many rows the chips wrap to.
+  const note = document.getElementById('modeNote'), nr = note.getBoundingClientRect();
+  const box = document.getElementById('map').getBoundingClientRect();
+  const chipsOver = [...document.querySelectorAll('.hud .chip')].filter(e => {
+    const r = e.getBoundingClientRect();
+    return r.width > 0 && Math.min(r.right, nr.right) > Math.max(r.left, nr.left) + 1
+      && Math.min(r.bottom, nr.bottom) > Math.max(r.top, nr.top) + 1;
+  }).map(e => e.id || e.textContent.slice(0, 20));
   return JSON.stringify({
     vw: innerWidth, vh: innerHeight, overlay: visible, cards: cards.length,
     overlaps, outside,
+    note: { text: note.textContent.length, w: Math.round(nr.width), h: Math.round(nr.height),
+            chipsOver, outsideMap: nr.left < box.left - 1 || nr.right > box.right + 1 || nr.top < box.top - 1 },
     clsRows: rows.length,
     clipped: rows.filter(r => r.over > 1),
   });
@@ -470,7 +518,8 @@ def load_views(port: int):
     plan = [(d, f"?day={d}&seed=7", 9) for d in RECORD_DAYS]
     plan += [(d, f"?day={d}&seed=7", 9) for d in FLEET_DAYS]
     plan += [("sample", "?seed=7", 9), ("unknown", f"?day={UNKNOWN_DAY}", 9),
-             ("no-day-in-window", f"?day={NO_DAY_IN_WINDOW}", 9)]
+             ("no-day-in-window", f"?day={NO_DAY_IN_WINDOW}", 9),
+             ("exercise", "?view=exercise&seed=7", 9)]
     for name, query, wait in plan:
         VIEWS[name] = probe_once(port, query, PROBE, wait)
     # 1440: the side-by-side split, all five call-outs up. 1100: the stacked split, still
@@ -635,10 +684,14 @@ def record_only_days_carry_the_record_and_nothing_of_the_fleet():
         # no fleet figure may survive in the rendered text
         assert "No fleet is simulated for this day" in (v["panels"]["roster"] or ""), (
             f"{day}: the roster does not say why it is empty")
-        for panel in ("roster", "stats", "ops", "firesTop"):
+        for panel in ("roster", "heads", "ops", "firesTop"):
             t = v["panels"][panel] or ""
+            assert t, f"{day}: the probe read nothing for the {panel} panel"
             for gone in BANNED_ON_RECORD_DAYS:
                 assert gone not in t, f"{day}: the {panel} panel still says {gone!r}"
+        ops = v["panels"]["ops"]
+        assert "No fleet is simulated for this day" in ops and "Click a ship" not in ops, (
+            f"{day}: the operation panel still offers a cockpit: {ops[:120]!r}")
         m = record_sentence(day).match(v["panels"]["mode"] or "")
         assert m, f"{day}: the mode sentence is not the ruled one: {v['panels']['mode']!r}"
         assert GUARD_NOTE.match(v["panels"]["guardNote"] or ""), (
@@ -726,7 +779,207 @@ def the_orientation_cards_and_roster_rows_fit_at_four_widths():
         same(v["outside"], [], f"{w} px: an orientation card is off-screen")
         assert v["clsRows"] >= 3, f"{w} px: the roster has no class rows to clip"
         same(v["clipped"], [], f"{w} px: a roster class row is clipped")
-    return "1440/1100/834/390: cards apart, rows whole"
+        n = v["note"]
+        assert n["text"] > 80 and n["w"] > 100 and n["h"] > 10, f"{w} px: the mode sentence is not on screen: {n}"
+        same(n["chipsOver"], [], f"{w} px: a chip covers the mode sentence")
+        same(n["outsideMap"], False, f"{w} px: the mode sentence leaves the map's box")
+    return "1440/1100/834/390: cards apart, rows whole, the mode sentence under no chip"
+
+
+# What a view calls itself outside the map. A view is "live" only when the mirror answered,
+# and no view this gate loads is: it runs with no network beyond 127.0.0.1, so every one of
+# them is a dated day, the sample replay or a day with nothing to show.
+LIVE_WORDS = re.compile(r"\b(live|current|currently|today|today's)\b", re.I)
+HEAD_KEYS = ("title", "description", "ogTitle", "ogDescription")
+
+
+@page_pass
+def every_view_names_itself_in_its_title_tags_strip_and_day_control():
+    """The labels a reader meets before the map: the tab title, the three description tags
+    (a link preview made with scripts on), the header strip and the day control. Red on the
+    page as landed, where every view but the exercise called itself "live BC fires" with "a
+    simulated fleet", record-only days and empty days included, and a day with nothing on
+    the map still described "the record as British Columbia published it"."""
+    dated = [(d, d) for d in RECORD_DAYS + FLEET_DAYS] + [("sample", SAMPLE_DAY)]
+    empty = [("unknown", UNKNOWN_DAY), ("no-day-in-window", NO_DAY_IN_WINDOW)]
+    for name, day in dated + empty:
+        v = VIEWS[name]; lab = v["labels"]
+        for k in HEAD_KEYS + ("fires", "fleet", "day", "map", "mapHelp"):
+            assert lab[k], f"{name}: the probe read nothing for {k}"
+        for k in HEAD_KEYS + ("fires", "map"):
+            m = LIVE_WORDS.search(lab[k])
+            assert not m, f"{name}: {k} says {m.group(0)!r} on a view that is not live: {lab[k]!r}"
+        # the fleet, promised only where one is simulated
+        if v["recordOnly"]:
+            same(lab["fleet"], "no fleet simulated", f"{name}: the header strip's fleet label")
+            for k in ("title", "ogTitle", "fires"):
+                assert "simulated fleet" not in lab[k].lower(), (
+                    f"{name}: {k} promises a simulated fleet on a view with none: {lab[k]!r}")
+            assert "no fleet" in lab["title"].lower() or (name, day) in empty, (
+                f"{name}: the title does not say there is no fleet: {lab['title']!r}")
+        else:
+            same(lab["fleet"], "simulated fleet", f"{name}: the header strip's fleet label")
+        # "The fleet is simulated" stands under the roster only where there is a fleet
+        same(lab["fleetNote"], not v["recordOnly"], f"{name}: the fleet note is laid out")
+        # the description tags are the mode sentence itself, so they cannot drift from it
+        same(lab["description"], v["panels"]["mode"], f"{name}: the description tag")
+        same(lab["ogDescription"], v["panels"]["mode"], f"{name}: the og:description tag")
+    for name, day in dated:
+        lab = VIEWS[name]["labels"]
+        same(lab["fires"], f"BC fires of {day}", f"{name}: the header strip's fires label")
+        for k in ("title", "ogTitle", "map"):
+            assert day in lab[k], f"{name}: {k} does not name its day: {lab[k]!r}"
+        assert lab["day"].startswith(day + " · "), (
+            f"{name}: the day control shows {lab['day']!r} while the view shows {day}")
+        # the first-visit screen opens only over a fleet, and each of its four phrases
+        # that name the view names this day
+        if not VIEWS[name]["recordOnly"]:
+            same(lab["intro"].count(day), 4, f"{name}: first-visit phrases that name the day ({lab['intro']!r})")
+    for name, day in empty:
+        v = VIEWS[name]; lab = v["labels"]; p = v["panels"]
+        same(v["fires"], 0, f"{name}: fires on the map")
+        same(lab["fires"], f"no dated copy of {day}", f"{name}: the header strip's fires label")
+        assert lab["title"].startswith(f"No dated copy of {day}"), f"{name}: title {lab['title']!r}"
+        same(lab["day"], f"{day} · no dated copy", f"{name}: the day control")
+        same(p["firesTop"], "", f"{name}: the fires table")
+        # nothing was published for this view, so nothing on it may describe a record
+        for where, text in (("map label", lab["map"]), ("map help", lab["mapHelp"]),
+                            ("roster", p["roster"]), ("headings", p["heads"]),
+                            ("operation panel", p["ops"]), ("mode sentence", p["mode"])):
+            assert text, f"{name}: the probe read nothing for the {where}"
+            assert "published" not in text and "the record" not in text, (
+                f"{name}: the {where} describes a published record over an empty map: {text[:140]!r}")
+        assert "Click a ship" not in p["ops"], f"{name}: the operation panel offers a cockpit"
+    return (f"{len(dated)} dated views named by day, {len(empty)} empty views named as empty; "
+            "no view says live, none without a fleet promises one")
+
+
+# Uses of "live", "current" and "today" that claim nothing about the fire data on screen.
+# Whole phrases, so that a new label with one of these words fails here until someone has
+# read it and ruled on it.
+NOT_A_LIVE_CLAIM = (
+    "Today (live)",                                     # the day control's entry for the live view
+    "With scripts on, live remains the default view",   # the no-script note, about that control
+    "If the live mirror fails",                         # the same note, about the fallback
+    "hotspots are a live layer and are not part of a status day",   # why a dated view has none
+    "with live force vectors",                          # the schematic follows the simulation
+    "the two larger classes live outside it",           # the verb
+    "Nothing floats today as drawn",                    # the float ledger's verdict
+    "Currently in frame:",                              # what the map frame holds
+    "Current constraint:",                              # the simulated cycle's binding limit
+    "its current phase",                                # the roster's third column
+)
+
+
+@page_pass
+def no_string_on_a_view_that_is_not_live_says_live():
+    """Every string the page holds, on every view that is not the live feed: none says
+    "live", "current" or "today" outside the ten named uses above. Red on the page as
+    landed, where a dated replay's first-visit screen said "Live BC fires", "The map ·
+    live" and "Today's real BC fires and satellite heat", its operation panel said "live
+    data", "current polygon" and "live wind unavailable", and two headings on every view
+    called a simulated airship and its trace "live"."""
+    names = RECORD_DAYS + FLEET_DAYS + ["sample", "unknown", "no-day-in-window", "exercise"]
+    used, strings = set(), 0
+    for name in names:
+        v = VIEWS[name]
+        assert v["daySource"] != "live", f"{name}: the probe loaded the live feed"
+        assert len(v["visible"]) > 100, f"{name}: the probe read only {len(v['visible'])} strings"
+        for s in v["visible"]:
+            strings += 1
+            t = s
+            for ok in NOT_A_LIVE_CLAIM:
+                if ok.lower() in t.lower():
+                    used.add(ok)
+                    t = re.sub(re.escape(ok), "", t, flags=re.I)
+            m = LIVE_WORDS.search(t)
+            assert not m, (f"{name}: says {m.group(0)!r} on a view that is not live: "
+                           f"…{t[max(0, m.start() - 70):m.end() + 50]}…")
+    stale = [ok for ok in NOT_A_LIVE_CLAIM if ok not in used]
+    assert not stale, f"named uses that no view shows any more (remove them): {stale}"
+    return f"{len(names)} views, {strings:,} strings, {len(NOT_A_LIVE_CLAIM)} named uses, each one met"
+
+
+@test
+def the_static_head_names_no_one_view():
+    """index.html's own <head>, before any script runs. A link preview fetched without
+    scripts and a reader without scripts get it on every address, so it may claim none of
+    them: not live, not a date, not the exercise."""
+    html = (ROOT / "index.html").read_text()
+    head = html[:html.index("</head>")]
+    title = re.search(r"<title>(.*?)</title>", head, re.S).group(1)
+    tags = {k: re.search(pat, head).group(1) for k, pat in (
+        ("description", r'<meta name="description" content="([^"]*)">'),
+        ("og:title", r'<meta property="og:title" content="([^"]*)">'),
+        ("og:description", r'<meta property="og:description" content="([^"]*)">'))}
+    for where, text in [("title", title)] + sorted(tags.items()):
+        m = LIVE_WORDS.search(text)
+        assert not m, f"the static {where} says {m.group(0)!r}: {text!r}"
+        assert not re.search(r"\d{4}-\d{2}-\d{2}", text), f"the static {where} names a date: {text!r}"
+    for word in ("exercise", "invented"):
+        for where in ("title", "og:title"):
+            text = title if where == "title" else tags[where]
+            assert word not in text.lower(), f"the static {where} claims the exercise: {text!r}"
+    assert "No aircraft has flown" in tags["description"], "the static description lost its denial"
+    return "title and three tags: no live claim, no date, no single view"
+
+
+# A deployment with a file gone, four ways: (name, address, what answers 404, how the title
+# opens, the reason every panel must give).
+BROKEN = [
+    ("nothing readable", "?seed=7",
+     ("data/live/", "data/season/2026.days.json", "data/snapshot.json"),
+     "No fire data", "nothing could be read"),
+    ("the season index gone, a day asked", f"?day={FLEET_DAYS[1]}&seed=7",
+     ("data/season/2026.days.json",), "No fire data", "the season index did not load"),
+    ("a day's fire file gone", f"?day={FLEET_DAYS[1]}&seed=7",
+     (f"data/season/days/{FLEET_DAYS[1]}/fires.json",),
+     "No fire data", "the day's own files failed their checks"),
+    ("the exercise file gone", "?view=exercise&seed=7", ("data/exercise/exercise.json",),
+     "Exercise unavailable", "the exercise could not be read"),
+]
+# What the view it failed to be would have said.
+LEFTOVERS = ("published", "the record", "Click a ship", "Click a fire", "simulated hulls",
+             "simulated fleet", "invented")
+
+
+@test
+def a_view_that_could_not_be_read_says_nothing_is_shown_and_why():
+    """Each broken deployment ends in a view with no fire and no fleet that names itself
+    as empty, gives the reason in every panel, and keeps no sentence of the view it failed
+    to be. Red before this test existed: a listed day whose fire file was gone kept the
+    day control on "fleet simulated", and an exercise that could not be read described
+    "the record as British Columbia published it" over an empty map."""
+    for name, query, missing, title, why in BROKEN:
+        port = free_port()
+        httpd = serve(port, missing)
+        try:
+            v = probe_once(port, query, PROBE, 9)
+        finally:
+            httpd.shutdown()
+        lab, p = v["labels"], v["panels"]
+        same(v["fires"], 0, f"{name}: fires on the map")
+        same(v["missions"], 0, f"{name}: hulls")
+        assert lab["title"].startswith(title + " · "), f"{name}: the title is {lab['title']!r}"
+        same(lab["fleet"], "no fleet simulated", f"{name}: the header strip's fleet label")
+        same(lab["fleetNote"], False, f"{name}: the fleet note is laid out")
+        assert lab["day"].endswith(" · nothing shown"), f"{name}: the day control shows {lab['day']!r}"
+        same(p["firesTop"], "", f"{name}: the fires table")
+        says_why = [("mode sentence", p["mode"]), ("description tag", lab["description"]),
+                    ("map label", lab["map"]), ("map help", lab["mapHelp"]), ("roster", p["roster"]),
+                    ("headings", p["heads"]), ("operation panel", p["ops"])]
+        for where, text in says_why:
+            assert text and why in text, f"{name}: the {where} does not say why: {str(text)[:160]!r}"
+        for where, text in says_why + [("chip", p["hud"]), ("title", lab["title"]),
+                                       ("og:title", lab["ogTitle"]), ("day control", lab["day"]),
+                                       ("header strip", lab["fires"])]:
+            for word in LEFTOVERS:
+                assert word not in text, f"{name}: the {where} still says {word!r}: {text[:160]!r}"
+        if "view=exercise" in query:
+            # The exercise has no calendar day, read or unread.
+            for text in v["visible"]:
+                assert "this day" not in text, f"{name}: an exercise has no day, yet: {text[:160]!r}"
+    return f"{len(BROKEN)} broken deployments: no fire, no fleet, the reason in seven places, nothing left over"
 
 
 @page_pass

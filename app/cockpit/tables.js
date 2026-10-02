@@ -3,7 +3,7 @@
 import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=787aaec5';
 import { timeSinceDrop } from '../cockpit/panels.js?v=787aaec5';
 import { $, SHORT, esc } from '../dom.js?v=787aaec5';
-import { needsShip } from '../feeds.js?v=787aaec5';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=787aaec5';
 import { FLEET } from '../fleet.js?v=787aaec5';
 import { select } from '../map/interact.js?v=787aaec5';
 import { S } from '../store.js?v=787aaec5';
@@ -87,19 +87,26 @@ export function renderFires() {
   // The panel's title says which day and which mode it is listing: a record-only day lists
   // the published record and nothing of the fleet, and the columns follow the mode.
   const h = $("firesH");
-  if (h) h.innerHTML = S.exercise
+  // An empty view lists nothing and says why; it has no published record to head.
+  const none = nothingShown();
+  if (h) h.innerHTML = none
+    ? `Largest fires · <b>nothing shown</b>`
+    : S.exercise
     ? `Largest exercise fires · <b>invented sizes</b> · assigned or waiting (rates simulated)`
     : S.recordOnly
     ? `Largest fires · <b>${esc(S.day)}</b> · as published`
     : `Largest fires · <b>${S.daySource === "live" ? "live sizes" : esc(S.day)}</b> · assigned or waiting (rates simulated)`;
   const fn = $("firesNote");
-  if (fn) fn.textContent = S.exercise
+  if (fn) fn.textContent = none
+    ? `No fire is listed, because ${nothingWhy()}.`
+    : S.exercise
     ? `Exercise: sizes and stages of control are invented. Queued fires have no ship; the sixteen simulated hulls are shared by the allocator.`
     : S.recordOnly
     ? `Sizes and statuses are the record as British Columbia published it that day. No fleet is simulated for this day, so nothing here is simulation.`
     : S.daySource === "live"
     ? `Last drop and kL/hour are simulation; sizes are live. A fire marked queued has no ship: the allocator counts every fire the sixteen hulls leave without one. A fire marked not flown had its water line or drop line cross a keep-out distance, so it is left alone.`
     : `Last drop and kL/hour are simulation; sizes are the record as published that day. A fire marked queued has no ship: the allocator counts every fire the sixteen hulls leave without one. A fire marked not flown had its water line or drop line cross a keep-out distance, so it is left alone.`;
+  if (none) { el.innerHTML = ""; return; }   // no table with no rows under a label that names a record
   if (S.recordOnly) {
     // R1: the record alone — no hull, no rate, no queue. The largest fires as published,
     // clickable like every other fire on the map, opening the same published record.
@@ -170,10 +177,13 @@ export function renderRoster() {
     // R1: nothing of the fleet on a record-only day. The panel keeps its place so the page
     // does not reflow between modes, and says in words why it is empty.
     const fh = $("fleetH");
-    if (fh) fh.innerHTML = `The fleet · <b>none this day</b>`;
+    // An exercise that could not be read has no day to name.
+    if (fh) fh.innerHTML = `The fleet · <b>${S.exercise ? "none simulated" : "none this day"}</b>`;
     el.innerHTML = `<p style="font-size:var(--t-13);color:var(--muted);line-height:1.7;margin:0">` +
-      `No fleet is simulated for this day. The fires and their outlines on the map are the ` +
-      `record as British Columbia published it; click any fire for that record.</p>`;
+      (nothingShown()
+        ? `No fleet is simulated, and no fire is on the map: ${esc(nothingWhy())}.</p>`
+        : `No fleet is simulated for this day. The fires and their outlines on the map are the ` +
+          `record as British Columbia published it; click any fire for that record.</p>`);
     return;
   }
   const fh = $("fleetH");

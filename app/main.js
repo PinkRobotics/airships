@@ -6,7 +6,7 @@ import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, 
 import { renderDrawer } from './cockpit/panels.js?v=787aaec5';
 import { renderStats, renderTable } from './cockpit/tables.js?v=787aaec5';
 import { $, esc } from './dom.js?v=787aaec5';
-import { fetchHeat, fetchWind, guardNoteWords, loadLive, modeWords } from './feeds.js?v=787aaec5';
+import { fetchHeat, fetchWind, guardNoteWords, introWords, loadLive, modeWords, nothingShown, nothingWhy, viewLabels } from './feeds.js?v=787aaec5';
 import { rebuildMissions, replanAll } from './fleet.js?v=787aaec5';
 import { frame } from './loop.js?v=787aaec5';
 import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=787aaec5';
@@ -216,10 +216,16 @@ export function renderStatus() {
     // even when the data under it arrived by the mirror.
     if (S.exercise) {
       hl.classList.toggle("warn", S.recordOnly);
-      hl.innerHTML = `<b>EXERCISE</b> · invented fires · ${S.recordOnly ? "unavailable" : "fleet simulated"}`;
+      hl.innerHTML = S.recordOnly ? `<b>EXERCISE UNAVAILABLE</b> · nothing shown`
+        : `<b>EXERCISE</b> · invented fires · fleet simulated`;
     } else if (S.unknownDay) {
       hl.classList.add("warn");
       hl.innerHTML = `<b>NO DATED COPY</b> · ${esc(S.unknownDay)} · nothing shown for it`;
+    } else if (S.tier === "none") {
+      // Nothing was read at all. The stand-down that follows must not dress an empty map as
+      // a record-only day: there is no record on screen.
+      hl.classList.add("warn");
+      hl.innerHTML = `<b>NO FIRE DATA</b> · nothing could be read`;
     } else if (S.recordOnly) {
       hl.classList.add("warn");
       hl.innerHTML = `<b>RECORD ONLY</b> · ${esc(S.day)} · no fleet this day`;
@@ -247,6 +253,18 @@ export function renderStatus() {
     // the fallback generator quote one source.
     const mode = $("modeNote");
     if (mode) mode.textContent = modeWords();
+    // What the view calls itself outside the map (viewLabels in feeds.js): the header
+    // strip, the tab title and the description tags, from the same state as the chip. A
+    // label is written only when it changes, so a suffix added to the title after boot
+    // (the self-test's) survives the half-minute repaint.
+    const lab = viewLabels();
+    const put = (el, key, v) => { if (el && el[key] !== v) el[key] = v; };
+    put($("fireModeLabel"), "textContent", lab.fires);
+    put($("fleetModeLabel"), "textContent", lab.fleet);
+    if (renderStatus._title !== lab.title) { renderStatus._title = lab.title; document.title = lab.title; }
+    put(document.querySelector('meta[name="description"]'), "content", lab.description);
+    put(document.querySelector('meta[property="og:title"]'), "content", lab.ogTitle);
+    put(document.querySelector('meta[property="og:description"]'), "content", lab.ogDescription);
     // The day the fleet controls describe must not outlive the mode: a record-only view
     // has no fleet to pause, speed up or frame.
     document.body.classList.toggle("record-only", S.recordOnly);
@@ -259,16 +277,21 @@ export function renderStatus() {
     if (heat) heat.textContent = S.exercise ? "No satellite hotspots are used in the exercise." : S.daySource === "live" ? "" :
       "Satellite hotspots are a live layer and are not part of a status day.";
     // The map's own description says what this view is: on a dated day there is no
-    // "today's" about it, and on a record-only day there are no airships to task.
+    // "today's" about it, on a record-only day there are no airships to task, and on an
+    // empty view there is no published record to describe.
     const mc = $("map"), mh = $("mapHelp");
-    if (mc) mc.setAttribute("aria-label", S.exercise
+    if (mc) mc.setAttribute("aria-label", nothingShown()
+      ? `Map of British Columbia: no fires are shown, because ${nothingWhy()}`
+      : S.exercise
       ? "Exercise: invented fires on real British Columbia terrain, with a simulated fleet"
       : S.recordOnly
       ? `Map of British Columbia: the wildfires published for ${S.day}, with no fleet simulated`
       : S.daySource === "live"
       ? "Map of British Columbia: today's wildfires and the simulated airships tasked to them"
       : `Map of British Columbia: the wildfires published for ${S.day} and the simulated airships tasked to them`);
-    if (mh) mh.textContent = S.exercise
+    if (mh) mh.textContent = nothingShown()
+      ? `Arrow keys pan, plus and minus zoom, Escape clears the selection. No fire is on the map, because ${nothingWhy()}. No fleet is simulated, so there are no ships, routes or drops. The map still draws water bodies and places, which are not listed as text anywhere on this page.`
+      : S.exercise
       ? "Exercise: every fire is invented. Arrow keys pan, plus and minus zoom, Escape clears the selection. Choose an exercise fire on the map or in the table to read its invented size and status. Real lakes supply the simulated fleet."
       : S.recordOnly
       ? `Arrow keys pan, plus and minus zoom, Escape clears the selection. Every fire published that day is on the map; the largest are listed as text in the fires panel, and clicking any fire or a row opens its published record. No fleet is simulated for this day, so there are no ships, routes or drops. The map also draws the published perimeters, water bodies and places, which are not listed as text anywhere on this page.`
@@ -310,6 +333,8 @@ export async function refresh() {
   refreshing = true;
   try {
     S.fires = await loadLive();
+    // The mirror stopped answering: the view is now a replay, and the day control says so.
+    if (S.daySource !== "live") populateDaySel();
     const selFire = S.sel ? (S.sel.f || S.sel.m.fire).id : null;
     const selType = S.sel ? S.sel.type : null;
     // Which HULL was being watched, not just which fire. A rebuild re-runs the whole
@@ -352,8 +377,20 @@ function populateDaySel() {
     const fleet = dayKind(S.guard, d.date).fleet;
     opts.push(`<option value="${d.date}">${d.date} · ${fleet ? "fleet simulated" : "record only"}</option>`);
   }
+  // The control shows the view that is on screen, not the one that was asked for: a replay
+  // standing in for a mirror that did not answer selects its own day, and a day this
+  // repository holds no copy of gets an entry of its own that says so.
+  const shown = S.exercise ? "exercise" : S.daySource === "live" && !nothingShown() ? "" : S.unknownDay || S.day || "";
+  // An empty view never selects an entry that promises a fleet or a record: a listed day
+  // whose files failed, or an exercise that did not load, gets an entry of its own too.
+  const listed = opts.some(o => o.startsWith(`<option value="${shown}"`));
+  const own = shown && (!listed || nothingShown());
+  const value = own && listed ? "none:" + shown : shown;
+  if (own)
+    opts.push(`<option value="${esc(value)}" disabled>${S.exercise ? "Exercise" : esc(shown)} · ${S.unknownDay ? "no dated copy"
+      : nothingShown() ? "nothing shown" : S.recordOnly ? "record only" : "fleet simulated"}</option>`);
   sel.innerHTML = opts.join("");
-  sel.value = S.exercise ? "exercise" : S.daySource === "day" && S.day ? S.day : "";
+  sel.value = value;
 }
 
 /* ---------- boot -------------------------------------------------------------------------------- */
@@ -402,29 +439,10 @@ export async function boot() {
   }
   S.fires = await loadLive();
   populateDaySel();
-  const fireModeLabel = $("fireModeLabel");
-  if (fireModeLabel) fireModeLabel.textContent = S.exercise ? "exercise · invented fires" : "live BC fires";
-  if (!S.exercise) {
-    document.querySelector('meta[property="og:title"]').content = "Live fires. A simulated fleet. Arithmetic you can check.";
-    document.querySelector('meta[property="og:description"]').content = "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines are modelled to do and what each cycle would cost — not a promise that any fire goes out.";
-    document.title = "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed";
-    document.querySelector('meta[name="description"]').content = "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the largest out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.";
-  }
+  // The header strip, the tab title and the description tags are written by renderStatus(),
+  // on every view, from viewLabels(): nothing here names the view a second time.
   if (S.exercise) {
     S.layers.places = false;
-    // Keep the ruled sentence in the chip flow: a fixed top offset overlaps the
-    // second chip when the exercise labels wrap on a phone.
-    const mode = $("modeNote");
-    document.querySelector('.hud').appendChild(mode);
-    mode.style.cssText = "position:static;flex-basis:100%;max-width:100%;background:rgba(8,8,10,.92);padding:4px 6px;border-radius:4px";
-    document.title = "Exercise · invented fires · Pink Robotics fleet monitor";
-    document.querySelector('meta[name="description"]').content = modeWords();
-    const introTitle = document.querySelector('#introOv .io-tap b');
-    if (introTitle) introTitle.textContent = 'Invented fires · a simulated fleet';
-    const mapIntro = document.querySelector('#introOv .io-map');
-    if (mapIntro) mapIntro.innerHTML = '<b>The map · exercise</b><p>Every fire is invented. Real terrain and lakes; a simulated fleet. Drag, zoom, select an exercise fire.</p>';
-    const fleetIntro = document.querySelector('#introOv .io-fleet p');
-    if (fleetIntro) fleetIntro.textContent = fleetIntro.textContent.replace('the live fires they serve', 'the invented exercise fires they serve');
     const wd = $("waterDate"); if (wd) wd.textContent = "bundled lakes";
   }
   rebuildMissions();
@@ -455,6 +473,9 @@ export async function boot() {
   }
   pick = pick || anyShip;
   if (pick) { S.sel = { type: "ship", m: pick }; S.follow = true; renderDrawer(); focusMission(pick); }
+  // No ship to open on (a record-only day, an empty view, a quiet feed): the operation panel
+  // still gets the empty state that fits the view, not the static text it was served with.
+  else renderDrawer();
   fetchWind(); fetchHeat();
   S.ready = true;   // resize() may now repaint synchronously
   // First visit: one orientation screen, one tap to dismiss, remembered per browser. With
@@ -463,6 +484,10 @@ export async function boot() {
   // screen orients a visitor to a fleet, and on those days there is none to orient to.
   if (!S.recordOnly && !storeGet("airshipsIntroSeen")) {
     const ov = $("introOv");
+    // The screen names the view it opens on: the exercise, the live feed or a dated replay.
+    const iw = introWords();
+    for (const [id, words] of [["introTapH", iw.tap], ["introMapH", iw.mapHead], ["introMapP", iw.mapBody], ["introFires", iw.fires]])
+      $(id).textContent = words;
     ov.hidden = false;
     // Any first gesture dismisses it, and it lets go on its own after twelve seconds: a
     // reader who scrolls past, a keyboard user, and anything that reads the page without a

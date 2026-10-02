@@ -422,10 +422,16 @@ export function needsShip(f) {
  * place writes it so the status line, the tests and the fallback generator all quote the
  * same source. The record-day sentence names the window in the guard file's own dates. */
 export function modeWords() {
-  if (S.exercise) return EXERCISE_MODE + (S.standDown ? " " + S.standDown : "");
+  // An exercise that did not load shows nothing, and says so instead of describing a map.
+  if (S.exercise)
+    return S.recordOnly ? "No exercise is shown, because " + nothingWhy() + ". No fleet is simulated."
+      : EXERCISE_MODE;
   if (S.unknownDay)
     return S.unknownDay + " has no dated copy in this repository: nothing is shown for that " +
       "day, and no fleet is simulated for it.";
+  // Nothing was read at all: there is no record on screen for the record sentence to name.
+  if (S.tier === "none")
+    return "No fire data is shown, because " + nothingWhy() + ". No fleet is simulated.";
   const date = S.day || vancouverDate(Date.now());
   const time = S.fetchedAt ? vancouverClock(S.fetchedAt.getTime()) : "an unstated time";
   if (S.recordOnly) {
@@ -440,6 +446,74 @@ export function modeWords() {
   return lead + ": the fires as British Columbia published them at " + time + ". The fleet is " +
     "simulated and never flew. Its drops are water released, not water arrived, and " +
     "nothing here says any fire would have burned differently.";
+}
+
+/* True when no fire record is on screen at all: a day this repository holds no copy of, or
+ * a view where nothing could be read. Every sentence that describes "the record" asks this
+ * first, because an empty map has no record to describe. */
+export function nothingShown() {
+  // The exercise has one stand-down, in exercise.js: it could not be read.
+  return S.exercise ? S.recordOnly : !!S.unknownDay || S.tier === "none";
+}
+
+/* Why nothing is shown, as a clause that ends a sentence. */
+export function nothingWhy() {
+  return S.unknownDay ? "this repository holds no dated copy of " + S.unknownDay
+    : S.standDown || "nothing could be read";
+}
+
+/* What the view calls itself outside the map: the header strip, the tab title and the
+ * description tags. Written here, from the same state as the chip and the mode sentence,
+ * so that a replay never wears the live label, a view with no fleet never promises one and
+ * an empty view never names a record. The static head in index.html names no one view: a
+ * link preview and a reader without scripts get it on every address. */
+/* The first-visit screen's phrases that name the view. It opens only where a fleet is
+ * simulated, so there are three cases: the exercise, the live feed, a dated replay. */
+export function introWords() {
+  if (S.exercise)
+    return { tap: "Invented fires · a simulated fleet", mapHead: "The map · exercise",
+      mapBody: "Every fire is invented. Real terrain and lakes; a simulated fleet. Drag, zoom, select an exercise fire.",
+      fires: "the invented exercise fires" };
+  if (S.daySource === "live")
+    return { tap: "Live BC fires · a simulated fleet drawn over them", mapHead: "The map · live",
+      mapBody: "Today's real BC fires and satellite heat. The moving ships are simulated. Drag, zoom, click anything for its record.",
+      fires: "the live fires" };
+  return { tap: "BC fires of " + S.day + " · a simulated fleet drawn over them", mapHead: "The map · " + S.day,
+    mapBody: "The real BC fires of " + S.day + ", as published. The moving ships are simulated. Drag, zoom, click anything for its record.",
+    fires: "the fires of " + S.day };
+}
+
+export function viewLabels() {
+  const site = "Pink Robotics fleet monitor";
+  const mode = modeWords();
+  if (S.exercise && !S.recordOnly)
+    return { fires: "exercise · invented fires", fleet: "simulated fleet",
+      title: "Exercise · invented fires · " + site,
+      ogTitle: "Exercise: invented fires, real terrain, a simulated fleet.",
+      description: mode, ogDescription: mode };
+  if (nothingShown()) {
+    const what = S.exercise ? "exercise unavailable"
+      : S.unknownDay ? "no dated copy of " + S.unknownDay : "no fire data";
+    const What = what[0].toUpperCase() + what.slice(1);
+    return { fires: what, fleet: "no fleet simulated", title: What + " · " + site,
+      ogTitle: What + ". Nothing is shown.", description: mode, ogDescription: mode };
+  }
+  const live = S.daySource === "live";
+  const fires = live ? "live BC fires" : "BC fires of " + S.day;
+  if (S.recordOnly)
+    return { fires, fleet: "no fleet simulated",
+      title: (live ? "Live BC fires" : fires) + " · no fleet simulated · " + site,
+      ogTitle: (live ? "Live BC fires" : "The fires of " + S.day) + ", as published. No fleet is simulated.",
+      description: mode, ogDescription: mode };
+  if (live)
+    return { fires, fleet: "simulated fleet",
+      title: "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed",
+      ogTitle: "Live fires. A simulated fleet. Arithmetic you can check.",
+      description: "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the largest out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.",
+      ogDescription: "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines are modelled to do and what each cycle would cost — not a promise that any fire goes out." };
+  return { fires, fleet: "simulated fleet", title: fires + " · simulated fleet · " + site,
+    ogTitle: "The fires of " + S.day + ". A simulated fleet. Arithmetic you can check.",
+    description: mode, ogDescription: mode };
 }
 
 /* The guard note (R7), in the words the ruling fixed: the layers panel carries it beside
