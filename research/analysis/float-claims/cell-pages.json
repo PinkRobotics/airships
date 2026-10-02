@@ -544,11 +544,11 @@
     },
     {
       "file": "concept/index.html",
-      "key": "af0ceda1ce4eb974",
-      "line": 601,
-      "text": "Vacuum lift One membrane laid straight on carbon hoop rings, wrapped around an empty two-walled truss. The drawn hull does not float. The ship comparison gives both bases and altitudes, beside the tests and missing mass lines that could change them. No gas to buy or leak; a breach costs one compartment of vacuum, caught by membranes across the void. The render is the first generation, kept for the comparison: a hull filled with cells.",
+      "key": "0e46c32e7fc40979",
+      "line": 602,
+      "text": "Vacuum lift One membrane laid straight on carbon hoop rings, wrapped around an empty two-walled truss. The drawn hull does not float. The ship comparison gives both bases and altitudes, beside the tests and missing mass lines that could change them. No lifting gas is required; compartment membranes are intended to limit a breach. The render is the first generation, kept for the comparison: a hull filled with cells.",
       "class": "bound",
-      "reason": "The concept caption now points to the two-altitude structural comparison and denies float for the drawn hull, without treating the earlier cell render as a new design.",
+      "reason": "The caption denies float for the drawn hull and identifies compartment containment as intended, with its arrangement still unresolved.",
       "bindings": [
         {
           "source": "research/analysis/float-ledger.json",
@@ -568,28 +568,19 @@
     },
     {
       "file": "concept/index.html",
-      "key": "20eded69e88a8d24",
-      "line": 702,
-      "text": "The Mind chooses the post-drop buoyancy in advance, through retained water, nitrogen ballast already aboard, thrust and release timing. The climb is controlled, not ballistic. A full emergency dump produces a much larger climb than a normal delivery, and that too is a planned case.",
-      "class": "flight-model",
-      "reason": "This is the simulated post-drop buoyancy scenario, not proof of a constructed vehicle’s climb control.",
-      "assumption": "9939ce05722fb2a1"
-    },
-    {
-      "file": "concept/index.html",
-      "key": "d775674ac21b379a",
-      "line": 780,
-      "text": "Three reference scales, named for their payload in tonnes of water. These configured fleet classes use geometric and equipment assumptions. The separate structural hull does not validate their mass or payload capacity. Its record-basis lift-to-mass ratio falls across the sampled sizes. Every number on these cards uses same-proportion scaling from the published assumptions in section 04 . Changing a dial there recomputes every card. All three are conceptual: their dimensions are geometric scaling, and their pump, cryogenic, propulsion and generator systems have not been designed as integrated aircraft.",
+      "key": "c92580efdabefc42",
+      "line": 773,
+      "text": "Three reference scales, named for their payload in tonnes of water. These configured fleet classes use geometric and equipment assumptions. The separate structural hull does not validate their mass or payload capacity. Its record-basis lift-to-mass ratio falls across the sampled sizes. These cards read the fixed class configuration. The dials change the worked example, not these cards. All three are conceptual: their dimensions are geometric scaling, and their pump, cryogenic, propulsion and generator systems have not been designed as integrated aircraft.",
       "class": "conditional",
-      "reason": "The fleet classes are explicitly configured geometric and equipment assumptions; the separate structural hull does not validate their payload capacity."
+      "reason": "The configured fleet capacities are assumptions; fixed class cards do not change with the worked-example dials or establish structural capacity."
     },
     {
       "file": "concept/index.html",
-      "key": "b0491fc0f7758007",
-      "line": 820,
-      "text": "The first generation, kept for the comparison: a lifting volume filled end to end with printed, independently sealed vacuum voids. The current design keeps the vacuum and gives up the filling twice over. A deep two-walled truss with nothing in the middle is wrapped in ONE membrane laid on hoop rings and pressed on by the atmosphere. Breach containment is compartment membranes across the void. No drawn hull floats. The ship comparison states both bases and altitudes, the unresolved cap accounting and the tests still needed. What survives from this figure is everything around the lattice: machinery inside the load paths, tanks about the centre of buoyancy, solar skin above, vectorable rotors outboard. The damage rule survives too: a cell fails, and the loss is that one cell's own small lift. The structural research this rests on is cited on the research page .",
+      "key": "cfc91e9af09677bc",
+      "line": 809,
+      "text": "The first generation, kept for the comparison: a lifting volume filled end to end with printed, independently sealed vacuum voids. The current design keeps the vacuum and gives up the filling twice over. A deep two-walled truss with nothing in the middle is wrapped in ONE membrane laid on hoop rings and pressed on by the atmosphere. Breach containment is compartment membranes across the void. No drawn hull floats. The ship comparison states both bases and altitudes, the unresolved cap accounting and the tests still needed. The newer structural drawing puts machinery on a raft outside the vacuum, with solar panels above and rotors on pylons. Compartment membranes are intended to limit damage; their arrangement remains open. The structural research this rests on is cited on the research page .",
       "class": "bound",
-      "reason": "The old render remains as comparison; its current structural clause denies float and sends readers to the hull ledger rather than repeating a small-margin claim.",
+      "reason": "The historical render is distinguished from the external equipment raft and unresolved compartment arrangement; the drawn hull still does not float.",
       "bindings": [
         {
           "source": "research/analysis/float-ledger.json",
@@ -631,11 +622,12 @@
     },
     {
       "file": "concept/index.html",
-      "key": "99e41c5d87f30d75",
-      "line": 700,
+      "key": "2f4bc08d1b805d5a",
+      "line": 696,
       "class": "deferred",
-      "reason": "Released water and surplus lift are claimed to carry the hull out of the fire environment; the structural record establishes no controlled escape performance.",
-      "owner": "energy-model"
+      "reason": "The targeting description now matches the model, but controlled escape from released payload remains dependent on the unresolved energy and delivery assumptions.",
+      "owner": "energy-model",
+      "text": "Avoiding severe convection remains a design requirement. Geometric targets start from the fire edge; available satellite detections can replace them on the live view. Water leaves from many distributed tanks, symmetrically, around the centre of buoyancy. Dropping a full payload instantly makes the ship payload-weight buoyant. The design uses the resulting surplus lift: the surplus lift becomes a deliberate, pre-planned climb away from the dangerous low-altitude environment."
     },
     {
       "file": "concept/index.html",
