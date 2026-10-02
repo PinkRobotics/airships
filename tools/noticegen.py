@@ -131,8 +131,8 @@ def data_readme(recs: list[dict]) -> str:
              '| File | Bytes | Measured contents | Generator |', '|---|---:|---|---|']
     for r in data:
         m = r['measurements']
-        counts = ', '.join(f'{v:,} {k}' for k, v in m.items() if k != 'bytes') or 'Image; see source record'
-        lines.append(f'| `{PurePosixPath(r["path"]).name}` | {m["bytes"]:,} | {counts} | {md(r.get("generator") or "Pinned capture; no generator")} |')
+        counts = ', '.join(f'{v:,} {k}' for k, v in m.items() if k != 'bytes') or 'See source record'
+        lines.append(f'| `{PurePosixPath(r["path"]).relative_to("data")}` | {m["bytes"]:,} | {counts} | {md(r.get("generator") or "Pinned capture; no generator")} |')
     lines += ['', '## Count correction', '',
               'The earlier README said six files; it omitted the historical-fire dataset. It also described the',
               'pre-regeneration Natural Earth vectors: 294 road polylines / 3,032 vertices and 23 outline rings /',

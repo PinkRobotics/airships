@@ -7,6 +7,8 @@ Three tiers, answering three different questions.
 | unit | does the model still make sense? | `cases/*.cases.js` | a browser, or node 18+ |
 | golden | does the model still produce the same numbers? | `golden/check.py` | python3 + chromium |
 | shipped selftest | can a reader check the numbers from the page itself? | `../sim/selftest.js` | the live page |
+| season | do the season files match a regeneration, and do their pinned totals hold? | `season/check.py` (`make seasoncheck`) | python3 |
+| capture | does the daily capture tool behave against recorded responses? | `capture/check.py` (`make capturecheck`) | python3; a fixture server on 127.0.0.1 |
 
 The unit tier is written once and run twice. The assertions live in `cases/`, import nothing
 but the code under test and `harness.js`, and are executed by two runners: `browser/index.html`

@@ -73,7 +73,7 @@ noticecheck:  ## Publish to empty scratch and verify third-party records, notice
 	  trap 'rm -rf "$$d"' EXIT; \
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
-check: ciparity lint stampcheck figfresh fallbackcheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
+check: ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs

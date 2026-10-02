@@ -446,21 +446,17 @@ def hindsight_cannot_reach_the_dispatch_model_by_accident():
 
 
 def live_feeds():
-    """ARC and FEEDS out of pipeline/live.py: those two assignments are evaluated on their
-    own. The fetcher is not imported and nothing else in it runs."""
+    """ARC and FEEDS out of pipeline/live.py, with the wind grid the wind feed's address is
+    built from: those five assignments are evaluated on their own, with `str` as the only
+    builtin. The fetcher is not imported and nothing else in it runs."""
     tree = ast.parse((ROOT / "pipeline" / "live.py").read_text())
+    names = (["WIND_LATS"], ["WIND_LONS"], ["WIND_POINTS"], ["ARC"], ["FEEDS"])
     wanted = [node for node in tree.body if isinstance(node, ast.Assign)
-              and [getattr(t, "id", None) for t in node.targets] in (["ARC"], ["FEEDS"])]
-    same(len(wanted), 2, "the ARC and FEEDS assignments in pipeline/live.py")
-    # Only the two fire feeds are under test. Unrelated forecast expressions may depend
-    # on other constants; retain the fire expressions without importing the fetcher.
-    feeds = wanted[1].value
-    pairs = [(k, v) for k, v in zip(feeds.keys, feeds.values)
-             if isinstance(k, ast.Constant) and k.value in ("fires", "perims")]
-    same([k.value for k, _ in pairs], ["fires", "perims"], "the two fire feeds")
-    feeds.keys, feeds.values = [k for k, _ in pairs], [v for _, v in pairs]
-    scope = {}
-    exec(compile(ast.Module(wanted, []), "pipeline/live.py", "exec"), {"__builtins__": {}}, scope)
+              and [getattr(t, "id", None) for t in node.targets] in names]
+    same(len(wanted), 5, "the ARC, FEEDS and wind-grid assignments in pipeline/live.py")
+    # One dictionary for globals and locals: a comprehension's inner scope reads globals.
+    scope = {"__builtins__": {"str": str}}
+    exec(compile(ast.Module(wanted, []), "pipeline/live.py", "exec"), scope)
     return scope["FEEDS"]
 
 

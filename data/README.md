@@ -14,34 +14,34 @@ Recompute every current count without network access: `python3 tools/noticecheck
 | `bc-outline.json` | 18,949 | 23 rings, 1,064 vertices | pipeline/vectors.py |
 | `fire-history-bc.json` | 1,037,475 | 3,286 perimeters | pipeline/firehistory.py |
 | `roads-bc.json` | 86,265 | 306 polylines, 4,823 vertices | pipeline/vectors.py |
-| `2026.json` | 489,027 | Image; see source record | pipeline/season.py |
-| `2026.days.json` | 13,868 | Image; see source record | pipeline/season.py |
-| `2026.summary.json` | 22,548 | Image; see source record | pipeline/season.py |
-| `fires.json` | 48,626 | Image; see source record | pipeline/season.py |
-| `perims.json` | 60,148 | Image; see source record | pipeline/season.py |
-| `fires.json` | 47,707 | Image; see source record | pipeline/season.py |
-| `perims.json` | 64,254 | Image; see source record | pipeline/season.py |
-| `fires.json` | 46,792 | Image; see source record | pipeline/season.py |
-| `perims.json` | 64,974 | Image; see source record | pipeline/season.py |
-| `fires.json` | 47,653 | Image; see source record | pipeline/season.py |
-| `perims.json` | 66,301 | Image; see source record | pipeline/season.py |
-| `fires.json` | 50,387 | Image; see source record | pipeline/season.py |
-| `perims.json` | 67,215 | Image; see source record | pipeline/season.py |
-| `fires.json` | 49,477 | Image; see source record | pipeline/season.py |
-| `perims.json` | 67,878 | Image; see source record | pipeline/season.py |
-| `fires.json` | 55,801 | Image; see source record | pipeline/season.py |
-| `perims.json` | 69,128 | Image; see source record | pipeline/season.py |
-| `fires.json` | 60,379 | Image; see source record | pipeline/season.py |
-| `perims.json` | 68,012 | Image; see source record | pipeline/season.py |
-| `fires.json` | 44,494 | Image; see source record | pipeline/season.py |
-| `perims.json` | 74,073 | Image; see source record | pipeline/season.py |
-| `fires.json` | 47,661 | Image; see source record | pipeline/season.py |
-| `perims.json` | 75,372 | Image; see source record | pipeline/season.py |
-| `fires.json` | 39,945 | Image; see source record | pipeline/season.py |
-| `perims.json` | 72,184 | Image; see source record | pipeline/season.py |
+| `season/2026.json` | 489,027 | See source record | pipeline/season.py |
+| `season/2026.days.json` | 13,868 | See source record | pipeline/season.py |
+| `season/2026.summary.json` | 22,548 | See source record | pipeline/season.py |
+| `season/days/2026-08-08/fires.json` | 48,626 | See source record | pipeline/season.py |
+| `season/days/2026-08-08/perims.json` | 60,148 | See source record | pipeline/season.py |
+| `season/days/2026-08-09/fires.json` | 47,707 | See source record | pipeline/season.py |
+| `season/days/2026-08-09/perims.json` | 64,254 | See source record | pipeline/season.py |
+| `season/days/2026-08-10/fires.json` | 46,792 | See source record | pipeline/season.py |
+| `season/days/2026-08-10/perims.json` | 64,974 | See source record | pipeline/season.py |
+| `season/days/2026-08-11/fires.json` | 47,653 | See source record | pipeline/season.py |
+| `season/days/2026-08-11/perims.json` | 66,301 | See source record | pipeline/season.py |
+| `season/days/2026-08-12/fires.json` | 50,387 | See source record | pipeline/season.py |
+| `season/days/2026-08-12/perims.json` | 67,215 | See source record | pipeline/season.py |
+| `season/days/2026-08-13/fires.json` | 49,477 | See source record | pipeline/season.py |
+| `season/days/2026-08-13/perims.json` | 67,878 | See source record | pipeline/season.py |
+| `season/days/2026-08-14/fires.json` | 55,801 | See source record | pipeline/season.py |
+| `season/days/2026-08-14/perims.json` | 69,128 | See source record | pipeline/season.py |
+| `season/days/2026-08-15/fires.json` | 60,379 | See source record | pipeline/season.py |
+| `season/days/2026-08-15/perims.json` | 68,012 | See source record | pipeline/season.py |
+| `season/days/2026-09-20/fires.json` | 44,494 | See source record | pipeline/season.py |
+| `season/days/2026-09-20/perims.json` | 74,073 | See source record | pipeline/season.py |
+| `season/days/2026-09-22/fires.json` | 47,661 | See source record | pipeline/season.py |
+| `season/days/2026-09-22/perims.json` | 75,372 | See source record | pipeline/season.py |
+| `season/days/2026-10-01/fires.json` | 39,945 | See source record | pipeline/season.py |
+| `season/days/2026-10-01/perims.json` | 72,184 | See source record | pipeline/season.py |
 | `snapshot-heat.json` | 193,828 | 2,000 hotspots | Pinned capture; no generator |
 | `snapshot.json` | 117,591 | 105 fires, 73 perimeters | Pinned capture; no generator |
-| `terrain-bc.jpg` | 621,849 | Image; see source record | pipeline/terrain.py |
+| `terrain-bc.jpg` | 621,849 | See source record | pipeline/terrain.py |
 | `water-bc.json` | 1,004,192 | 13,617 lakes, 29 reservoirs | pipeline/water.py |
 
 ## Count correction

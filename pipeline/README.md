@@ -9,6 +9,8 @@ from its sources by anyone, rather than taken on trust.
 | `live.py` | fire, perimeter, heat and hourly wind mirrors (gitignored) | continuously, from a timer, if you host the page |
 | `vectors.py` | pinned Natural Earth roads, outline and provenance sidecars | to reproduce the map vectors |
 | `capture.py` | dated raw captures under a root you name | once a day during the season, from a timer |
+| `season.py` | `data/season/`: one record per fire and the dated status days | after a new dated capture; it reads files and never the network |
+| `firehistory.py` | `data/fire-history-bc.json` | to refresh the twenty-season history; rarely |
 | `water.py` | `data/water-bc.json` | the BC freshwater atlas is updated — rarely |
 | `terrain.py` | `data/terrain-bc.jpg` | never, in practice; the hillshade is static |
 | `figures.py` | the SVG diagrams inlined into `concept/index.html` | after editing a diagram |
