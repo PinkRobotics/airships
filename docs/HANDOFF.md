@@ -570,7 +570,7 @@ data* will keep missing faults in *what is drawn*.
 
 ```
 make stamp && make check                 # or make explorercheck for explorer-only work
-python3 tools/publish.py                 # -> pink-sites/pinkrobotics/airships
+python3 tools/publish.py --dest "$AIRSHIPS_SITE_DEST"   # the website tree's airships/ directory; no default
 cd ../pink-sites && git add -A pinkrobotics/airships && git commit
 ./deploy.sh pinkrobotics                 # refuses a dirty tree, exit 65
 # purge Cloudflare: token ~/.config/cloudflare/token-dns, zone ec339e336294deb8339928dcb4919dcd

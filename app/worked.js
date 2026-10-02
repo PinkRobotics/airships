@@ -65,7 +65,7 @@ export function renderClassCards() {
   if (!$("classcards")) return; // class cards render on the concept page
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];
-    return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· currently impossible</span>'}</span>
+    return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span>'}</span>
       <h3>${fmt(c.payloadT)} t of water</h3>
       <p class="one">${c.use}.</p>` + kvRows([
       ["payload", fmt(c.payloadT * 1000) + " L"],

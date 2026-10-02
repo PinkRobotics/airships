@@ -86,14 +86,14 @@ export function renderFires() {
   if (!el) return;
   const top = S.fires.filter(needsShip).slice().sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8);
   el.innerHTML = `<table class="fleettab" role="grid" aria-describedby="firesNote" ` +
-    `aria-label="Largest fires waiting for or receiving a hull: fire, mapped size, time since the last drop, delivery rate">` +
+    `aria-label="Largest fires served or queued: fire, mapped size, time since the last drop, delivery rate">` +
     `<tbody>` + top.map(f => {
     const m = f.mission;
     return `<tr class="r-ship" aria-selected="false" data-fid="${esc(f.id)}">` +
       `<td>${esc(f.name || f.geo || f.id)}</td>` +
-      `<td style="text-align:right">${fmt(f.sizeHa)} ha</td>` +
+      `<td style="text-align:right">${f.sizeHa > 0 ? fmt(f.sizeHa) + " ha" : "size unmapped"}</td>` +
       `<td class="dropt" style="text-align:right">…</td>` +
-      `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h" : "waits"}</td></tr>`;
+      `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h" : "queued"}</td></tr>`;
   }).join("") + "</tbody></table>";
   const pick = tr => {
     const f = S.fires.find(x => x.id === tr.dataset.fid);
@@ -134,7 +134,7 @@ export function renderRoster() {
     // P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
     // the crush envelope closes near 96 m of hull and both live outside it.
     const impossible = clsId === "P100" ? "" :
-      ` <span style="color:#d98b80;font-weight:600" title="the crush envelope closes near 96 m of hull diameter — this class is outside it (front page, Figure 2)">· currently impossible</span>`;
+      ` <span style="color:#d98b80;font-weight:600" title="the crush envelope closes near 96 m of hull diameter — this class lives outside it, and flies here to find where the arithmetic breaks (front page, Figure 2)">· outside the 96 m envelope</span>`;
     const head = `<tr class="r-clsrow"><td colspan="3"><button class="r-cls" data-hl="${clsId}" ` +
       `aria-pressed="${S.hlClass === clsId}">${CLASSES[clsId].name} ×${count}${impossible}</button></td></tr>`;
     const rows = ships.map(({ m, i }) =>

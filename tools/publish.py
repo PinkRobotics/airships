@@ -1,9 +1,24 @@
 #!/usr/bin/env python3
 """Copy the served subset of this repository into the website that deploys it.
 
-    tools/publish.py            copy, reporting what changed
-    tools/publish.py --check    change nothing; exit non-zero if the copy has drifted
-    tools/publish.py --dest DIR publish somewhere else
+    tools/publish.py --dest DIR            copy, reporting what changed
+    tools/publish.py --dest DIR --check    change nothing; exit non-zero if the copy has drifted
+    AIRSHIPS_SITE_DEST=DIR tools/publish.py [--check]    the same, destination from the environment
+
+WHERE IT PUBLISHES is never built in. DIR is the published copy: the `airships/` directory
+of the website tree that deploys these pages. Name it with `--dest`, or once per shell in
+AIRSHIPS_SITE_DEST; `--dest` wins when both are given, and with neither the tool stops and
+says so. A public repository has no business knowing where one maintainer keeps a website,
+and a default that points at somebody's machine is wrong on every other one. (This is not
+AIRSHIPS_PUBLISH_DEST: that one belongs to pipeline/live.py and names where the live-data
+mirror is pushed, a directory this tool must never be aimed at.)
+
+PUBLISHING PRUNES. Every file in DIR that the manifest does not list is removed, so that a
+page deleted here stops being served. That makes a wrong DIR destructive, and the tool
+therefore refuses two shapes outright: a DIR that is this repository, sits inside it or
+contains it; and a DIR that already holds files but is not a published copy (it has no
+index.html beside a sim/version.json). An empty or missing DIR is created. `--check` writes
+nothing and only needs DIR to exist.
 
 WHY A COPY AND NOT A BUILD. There is no build. The modules the browser executes are the
 modules in this repository, byte for byte, which is the only version of "you can check our
@@ -24,12 +39,13 @@ from __future__ import annotations
 
 import argparse
 import filecmp
+import os
 import pathlib
 import shutil
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-DEFAULT_DEST = pathlib.Path('/home/tyler/dev/pink-sites/pinkrobotics/airships')
+DEST_ENV = 'AIRSHIPS_SITE_DEST'
 
 
 def read_manifest() -> tuple[set[str], set[str], set[str]]:
@@ -76,13 +92,59 @@ def wanted_files(served: set[str], partial: set[str]):
             yield p, rel
 
 
+def resolve_dest(arg: pathlib.Path | None, check: bool) -> pathlib.Path:
+    """The published copy: `--dest`, else the environment, and never a guess.
+
+    Raises ValueError with a message fit to print. The refusals are here rather than at the
+    point of writing because publishing prunes, and the prune is the dangerous half."""
+    raw = str(arg) if arg is not None else os.environ.get(DEST_ENV, '').strip()
+    if not raw:
+        raise ValueError(
+            f'no destination. Pass --dest DIR, or set {DEST_ENV}, to the directory that '
+            'holds the published copy\n(the airships/ directory of the website tree). '
+            'There is no built-in default.')
+    dest = pathlib.Path(raw).expanduser()
+    real = dest.resolve()
+    if real == ROOT or ROOT in real.parents or real in ROOT.parents:
+        raise ValueError(
+            f'{dest} is this repository, inside it, or contains it. The published copy '
+            'lives in the website tree,\nand publishing removes every file the manifest '
+            'does not list.')
+    if check:
+        if not dest.is_dir():
+            raise ValueError(f'{dest} is not a directory, so there is no published copy '
+                             'to compare against.')
+        return dest
+    if dest.exists():
+        if not dest.is_dir():
+            raise ValueError(f'{dest} exists and is not a directory.')
+        published = (dest / 'index.html').is_file() and (dest / 'sim' / 'version.json').is_file()
+        # The live mirror may arrive before the first publish: the server owns data/live/,
+        # and a directory holding only that is as good as empty.
+        foreign = any(q.is_file() and not str(q.relative_to(dest)).startswith('data/live/')
+                      for q in dest.rglob('*'))
+        if foreign and not published:
+            raise ValueError(
+                f'{dest} holds files but is not a published copy of this site (no '
+                'index.html beside a sim/version.json).\nPublishing removes every file '
+                'the manifest does not list, so it will not start there.')
+    return dest
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--check', action='store_true',
                     help='report drift between this repository and the published copy')
-    ap.add_argument('--dest', type=pathlib.Path, default=DEFAULT_DEST)
+    ap.add_argument('--dest', type=pathlib.Path, default=None, metavar='DIR',
+                    help=f'the published copy; defaults to ${DEST_ENV}, and to nothing else')
     args = ap.parse_args()
+
+    try:
+        dest = resolve_dest(args.dest, args.check)
+    except ValueError as e:
+        print(f'publish.py: {e}', file=sys.stderr)
+        return 2
 
     served, excluded, partial = read_manifest()
     unclassified = check_complete(served, excluded)
@@ -92,7 +154,6 @@ def main() -> int:
         return 2
 
     files = list(wanted_files(served, partial))
-    dest = args.dest
 
     if args.check:
         missing, differing = [], []

@@ -319,7 +319,7 @@ export const shipViz = (() => {
     c2.fillText(rlab, Math.max(8, w - rw - 8), h - 36);
     c2.fillStyle = "#74747f";
     c2.fillText(m.cls.name + " · " + fmt(m.cls.lenM) + " m · schematic, not the design"
-      + (m.cls.id === "P100" ? "" : " · currently impossible"), 8, h - 8);
+      + (m.cls.id === "P100" ? "" : " · outside the 96 m envelope"), 8, h - 8);
   }
   return { draw, snap() { snapNext = true; } };
 })();

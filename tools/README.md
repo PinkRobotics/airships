@@ -98,8 +98,9 @@ screenshot is optional and off unless you name an output file.
 
 ## `publish.py` — copy the served subset into the deploying website
 
-    python3 tools/publish.py            # copy, reporting what changed
-    python3 tools/publish.py --check    # change nothing; fail if the deployed copy drifted
+    python3 tools/publish.py --dest DIR            # copy, reporting what changed
+    python3 tools/publish.py --dest DIR --check    # change nothing; fail if the deployed copy drifted
+    export AIRSHIPS_SITE_DEST=DIR                  # or name DIR once, and drop --dest
 
 **Maintainers only; you do not need this to contribute.** There is no build step, so
 publishing is a file copy plus the cache-busting stamp. What gets copied is decided by
@@ -107,8 +108,24 @@ publishing is a file copy plus the cache-busting stamp. What gets copied is deci
 error, because both defaults are wrong: serving something by accident puts a test harness
 on a public host, and omitting something by accident ships a page whose imports 404.
 
-`--check` is the useful half day to day. It catches an edit made directly in the deployed
-tree, where it would otherwise quietly become the truth.
+**The destination is always yours to name.** `DIR` is the published copy, the `airships/`
+directory of the website tree that deploys these pages. Pass it as `--dest`, or set
+`AIRSHIPS_SITE_DEST`; `--dest` wins when both are given. With neither, the tool exits 2 and
+says so: the repository carries no default, because a default would name one maintainer's
+machine. `AIRSHIPS_SITE_DEST` is not `AIRSHIPS_PUBLISH_DEST`, which belongs to
+`pipeline/live.py` and names where the live-data mirror is pushed.
+
+Publishing also removes every file in `DIR` that the manifest does not list, so a page
+deleted here stops being served. A wrong `DIR` would therefore lose files, and the tool
+refuses a `DIR` that is this repository, lies inside it or contains it, and a `DIR` that
+already holds files without being a published copy (no `index.html` beside a
+`sim/version.json`). `data/live/` is never touched: the server owns it.
+
+`--check` is the useful half day to day. It writes nothing, and it catches an edit made
+directly in the deployed tree, where it would otherwise quietly become the truth. When it
+reports drift, read both sides before copying either way. A drift found in 2026 held newer
+wording on the deployed side and honesty labels on this side; a copy in either direction
+would have lost one of them.
 
 ## `migrate/` — the one-time extraction scripts
 

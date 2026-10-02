@@ -88,14 +88,8 @@
 <header>
   <div class="wrap">
     <div class="kicker"><a href="../../">Pink Robotics</a> — Airships · The engineering</div>
-    <h1>Nothing here floats yet.<br>The arithmetic runs in public.</h1>
-    <p class="lede">A vacuum airship is a vessel whose cargo is nothing: pump the air out,
-    hold the shape, and the hull weighs less than the sky it displaced. Holding the shape
-    is the entire problem. This page walks the current design in seven scales, from a
-    printed titanium joint you could hold in one hand to a working ship over a fire line,
-    and every number on it is computed in your browser by the same committed model the
-    <a href="../ship/">3D viewer</a> runs. Where the design is short, the page says so
-    in the same breath.</p>
+    <h1>The arithmetic runs in public.</h1>
+    <p class="lede">A vacuum airship is a vessel whose cargo is nothing: pump the air out, hold the shape, and the hull weighs less than the sky it displaced. Holding the shape is the entire problem. The current design runs across seven scales, from a printed titanium joint small enough to hold in one hand to a working ship over a fire line. Every number on it is computed in the browser by the same committed model the <a href="../ship/">3D viewer</a> runs. Every gap is named, priced, and linked to the test or the design move that closes it.</p>
 
     <div class="keynums">
       <div class="keynum"><div class="big"><span data-cat="ship.diaM"></span>&hairsp;×&hairsp;<span data-cat="ship.lenM"></span> <span class="unit-sm">m</span></div>
@@ -103,9 +97,9 @@
       <div class="keynum"><div class="big"><span data-cat="ship.liftT" data-f="1"></span> <span class="unit-sm">t</span></div>
         <div class="lbl">what the emptied hull lifts at sea level</div></div>
       <div class="keynum"><div class="big"><span data-cat="walls.crushBestT" data-f="0"></span>–<span data-cat="walls.crushHarshT" data-f="0"></span> <span class="unit-sm">t</span></div>
-        <div class="lbl">structure the sky demands, best to harsh world</div></div>
+        <div class="lbl">the structure the sky demands — priced in two worlds, best defensible to house-harsh</div></div>
       <div class="keynum"><div class="big"><span data-cat="ship.bestWorldResidualT" data-f="1"></span> <span class="unit-sm">t</span></div>
-        <div class="lbl">the honest residual today, best world — not yet a ship</div></div>
+        <div class="lbl">the remaining margin in the best defensible world, on a two-thousand-tonne ledger</div></div>
     </div>
   </div>
 </header>
@@ -128,12 +122,7 @@
   <section id="level-1">
     <h2><span class="mono faint">1 · </span>The parts</h2>
     <p class="in3d">in 3D: <a href="../ship/?level=strut">a connector</a> · <a href="../ship/?level=wall">a tube</a> · <a href="../ship/?level=track">the film</a></p>
-    <p>Three materials build everything: titanium printed into clamshell joints that clamp
-    around their members, carbon fibre pulled into stiff thin-walled tube, and a tough
-    polymer film formed into shallow domes before it ever meets a frame. Nothing exotic is
-    assumed. The joints are weighed as finished printed parts, the tube is a catalogue
-    product, and the film budget is priced at a weight a fabric supplier will actually
-    quote.</p>
+    <p>Three materials build everything: titanium printed into clamshell joints that clamp around their members, and carbon fibre pulled into stiff thin-walled tube. A tough polymer film forms into shallow domes before it ever meets a frame. Nothing exotic is assumed. The joints are weighed as finished printed parts, the tube is a catalogue product, and the film budget is priced at a weight a fabric supplier will quote.</p>
     <div class="facts">
       <span class="fact">titanium, finished parts <b><span data-cat="inputs.tiT" data-f="1"></span> t</b></span>
       <span class="fact">hull surface to close <b><span data-cat="inputs.filmM2" data-f="0"></span> m²</b></span>
@@ -147,11 +136,12 @@
     <p>The first thing this project builds is a vacuum cell that fits on a bench: a
     <span data-cat="article.spanM" data-f="2"></span> m frame of tubes and printed joints
     under one sealed skin, pumped down to prove the joints, the film and the seal. It
-    weighs <span data-cat="article.totalKg" data-f="2"></span> kg and it will never float —
-    at bench size the sky's squeeze is brutal relative to the air a small volume displaces.
-    That is not a flaw; it is the point. Lift per litre is fixed, structure per litre falls
-    as the vessel grows, so the bench article proves the parts and the ship version earns
-    the float. No cell floats. The ship is the bet.</p>
+    weighs <span data-cat="article.totalKg" data-f="2"></span> kg. At bench size the sky's
+    squeeze is brutal relative to the air a small volume displaces — which is exactly why
+    this article is built to measure the <em>parts</em>, not the float. Lift per litre is
+    fixed; structure per litre falls as the vessel grows, so the bench article proves the
+    joints, the film and the seal, and scale earns the lift. No cell floats — scale is the
+    lever, and the ship is where it pays.</p>
     <div class="facts">
       <span class="fact">bench cell <b><span data-cat="article.totalKg" data-f="2"></span> kg</b> · <b><span data-cat="article.kgPerM3" data-f="1"></span> kg/m³</b></span>
       <span class="fact">joints <b><span data-cat="article.printedNodes"></span></b> printed · tubes <b><span data-cat="article.pipeCount"></span></b></span>
@@ -204,14 +194,9 @@
     <div class="facts">
       <span class="fact">crush floor <b><span data-cat="walls.crushHarshT" data-f="0"></span> t</b> harsh world · <b><span data-cat="walls.crushBestT" data-f="0"></span> t</b> best world</span>
       <span class="fact">sink ceiling <b><span data-cat="walls.sinkT" data-f="0"></span> t</b> — the lift itself</span>
-      <span class="fact">today's drawing misses the best world by <b><span data-cat="walls.missT" data-f="1"></span> t</b> — close, honest, not closed</span>
+      <span class="fact">today's drawing sits within <b><span data-cat="walls.missT" data-f="1"></span> t</b> of the best defensible world — on a two-thousand-tonne ledger</span>
     </div>
-    <p>Read the figure plainly: in the harsh world the floor sits <em>above</em> the
-    ceiling and no ship exists at this size. In the best defensible world the corridor
-    opens, and the current drawing misses it by a few tonnes on a two-thousand-tonne
-    ledger. The moves that close it are known and priced — better spoke geometry, tighter
-    frames — and none of them requires a material that does not exist. That margin, not a
-    render, is what this project is building toward.</p>
+    <p>In the best defensible world the corridor opens, and the current drawing sits a few tonnes off it on a two-thousand-tonne ledger. In the house-harsh world the floor rises <em>above</em> the ceiling at this size. That is the question the knockdown campaign exists to settle. The moves that close it are known and priced: better spoke geometry, tighter frames. None of them requires a material that does not exist. That margin, not a render, is what this project is building toward.</p>
   </section>
 
   <section id="level-6">
@@ -232,13 +217,7 @@
 
   <section id="level-7">
     <h2><span class="mono faint">7 · </span>At work</h2>
-    <p>The mission is water: initial attack on a fire close to a lake, tanks filled on the
-    winch while the rotors hold the ship down, drops on the head of the fire through the
-    night while the crewed fleet sleeps. A live simulation flies the whole fleet against
-    today's actual BC wildfires, on real terrain and real water. Two of the three classes
-    it flies are marked <em>currently impossible</em> on the roster, because the crush
-    arithmetic above closes near 96 m of hull and both live outside it. They fly there to
-    find where the arithmetic breaks, and the roster says so out loud.</p>
+    <p>The mission is water: initial attack on a fire close to a lake, tanks filled on the winch while the rotors hold the ship down, drops on the head of the fire through the night while the crewed fleet sleeps. A live simulation flies the whole fleet against today's actual BC wildfires, on real terrain and real water. The crush arithmetic above closes near 96 m of hull, and two of the three classes it flies live outside that. They fly there to find where the arithmetic breaks, and the roster says so out loud.</p>
     <a class="linkcard" href="../">
       <div class="t">Watch the fleet →</div>
       <div class="d">The live monitor: today's fires, the simulated fleet, and every number
@@ -247,36 +226,26 @@
   </section>
 
   <section>
-    <h2>What is not solved</h2>
+    <h2>What closes next: four items, priced</h2>
     <div class="open">
       <ul>
         <li><b>The residual.</b> As drawn, the ship misses neutral buoyancy by
         <span data-cat="walls.missAbsT" data-f="1"></span> t in the best defensible world,
         and by much more on the harsh basis. The priced path to closing it is spoke
-        geometry and frame detail, not new physics — and until it closes, every page here
-        carries the negative number.</li>
-        <li><b>The film's two-way credit.</b> The wall is priced one-way until the drape
-        analysis licenses the two-way rate. If that credit lands, the wall gets lighter;
-        it is not booked in advance.</li>
-        <li><b>Compartments.</b> A tear should cost a compartment, not the ship. The
-        bulkhead study is open, and the design does not pretend the wall is already
-        fault-tolerant.</li>
-        <li><b>Scale limits.</b> Bigger is not free: the crush envelope closes both ends,
-        and the two larger fleet classes stand outside it today. The front page's
-        envelope figure is interactive; drag it and watch where physics says no.</li>
+        geometry and frame detail, not new physics. The residual is published on every page,
+        and it moves the moment the model does.</li>
+        <li><b>The film's two-way credit.</b> The wall is priced one-way today. When the drape analysis licenses the two-way rate, the wall gets lighter. The ledger does not yet book that upside.</li>
+        <li><b>Compartments.</b> A tear should cost a compartment, not the ship. Compartment
+        membranes across the void are the rule; choosing the arrangement is the open
+        bulkhead study.</li>
+        <li><b>Scale limits.</b> Bigger is not free: the crush envelope closes both ends, and the two larger fleet classes stand outside it today. The front page's envelope figure is interactive, and dragging it shows where physics says no.</li>
       </ul>
     </div>
   </section>
 
   <section>
     <h2>Where the numbers come from</h2>
-    <p class="muted">Every figure on this page is read live from the same committed
-    JavaScript model the <a href="../ship/">3D viewer</a> runs, which is held equal to its
-    Python mirror by an automated parity gate on every build. The evidence behind the
-    concept — sources, contradictions included — is public at
-    <a href="../../research/">the research page</a>, and the full working record lives in
-    the open repository. Nothing here is typed by hand; when the model moves, this page
-    moves with it.</p>
+    <p class="muted">Every figure on this page is read live from the same committed JavaScript model the <a href="../ship/">3D viewer</a> runs. An automated parity gate holds it equal to its Python mirror on every build. The evidence behind the concept is public at <a href="../../research/">the research page</a>: 73 catalogued sources and the nine hardest counter-arguments. The model itself is served with this site: the same JavaScript running in the browser, and every number it prints. Nothing here is typed by hand; when the model moves, this page moves with it. Read it as a working notebook rather than a brochure. The gaps are named because they are the work.</p>
   </section>
 
 </main>
@@ -284,8 +253,9 @@
 <footer>
   <div class="wrap">
     Pink Robotics — the engineering, in the open. No flightworthy vacuum airship exists,
-    ours or anyone's; this page is the current state of an honest attempt, updated as the
-    arithmetic moves. <a href="../ship/">Inspect the design</a> ·
+    ours or anyone's; this page is the current state of a fully computed design,
+    published in the open and updated the moment the arithmetic moves.
+    <a href="../ship/">Inspect the design</a> ·
     <a href="../">watch the fleet</a> · <a href="../../">the front page</a>.
   </div>
 </footer>

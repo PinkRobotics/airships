@@ -54,7 +54,7 @@
 <body>
 <header>
   <p class="crumb">Pink Robotics · airship structures · behind the door</p>
-  <h1>Ship 0 — the checks, the ledger, and the two verdicts</h1>
+  <h1>Ship 0: the checks, the ledger, and the two verdicts</h1>
   <p class="lead">Every number on this page is computed by <code>cell/model.js</code>'s
   ship port — mirrored in the Python analysis and held identical by the parity gate —
   at the moment the page loads. Nothing is typed. Where a number is honest but its
@@ -68,11 +68,7 @@
 </header>
 
 <h2>The two questions</h2>
-<p><b>Does it stand?</b> Every named structural check, margin by margin, at the declared
-safety factor — including the operator's requirement that the wall stand as a structure
-before it is ever pumped down. <b>Does it float?</b> The whole component ledger against
-the air the hull displaces, at sea level, across every world we cannot yet choose
-between.</p>
+<p><b>Does it stand?</b> Every named structural check, margin by margin, at the declared safety factor. That includes the operator's requirement that the wall stand as a structure before it is ever pumped down. <b>Does it float?</b> The whole component ledger against the air the hull displaces, at sea level, across every world the record cannot yet choose between.</p>
 
 <div class="bigpair">
   <div><div class="v" id="vMid"><span data-n="mid.ratioSL" data-f="3"></span></div>
@@ -80,11 +76,7 @@ between.</p>
   <div><div class="v" id="vBest"><span data-n="best.ratioSL" data-f="3"></span></div>
     <div class="k">the best defensible world: frame-practice knockdown + ceiling coupons — <span id="vBestWord"></span></div></div>
 </div>
-<p class="note">Between those two cells sit exactly two test campaigns: the
-general-instability knockdown tests (is a built-up frame shell a 0.3-knockdown object or
-a 0.65 one?) and the chord compressive coupons (742 verified-class today; 1,050 the
-working estimate; 1,450 the sourced ceiling). They are not details of the design. They
-are the float decision, and this page refuses to hide that inside an average.</p>
+<p class="note">Between those two cells sit exactly two test campaigns. One is the general-instability knockdown tests: is a built-up frame shell a 0.3-knockdown object or a 0.65 one? The other is the chord compressive coupons: 742 verified-class today, 1,050 the working estimate, 1,450 the sourced ceiling. They are the float decision itself, and this page refuses to hide it inside an average.</p>
 
 <h2>The worlds, both safety factors</h2>
 <p>The house-harsh basis sizes the record: γ<sub>GI</sub> =
@@ -98,17 +90,15 @@ never used for sizing until the tests land.</p>
     <th class="num">residual t</th><th>verdict</th></tr></thead>
   <tbody id="worldsHarsh"></tbody>
 </table>
-<p class="note">— and the same six worlds if the frame-practice knockdown verifies:</p>
+<p class="note">The same six worlds if the frame-practice knockdown verifies:</p>
 <table>
   <thead><tr><th>world</th><th class="num">total t</th><th class="num">ratio</th>
     <th class="num">residual t</th><th>verdict</th></tr></thead>
   <tbody id="worldsFrame"></tbody>
 </table>
 
-<h2>The ledger — where the mass is</h2>
-<p>Mid coupons, declared SF, house-harsh stability. The film — the one part of the ship
-that touches the sky — is the thin sliver near the bottom; the stability system is the
-story.</p>
+<h2>The ledger: where the mass is</h2>
+<p>Mid coupons, declared SF, house-harsh stability. The film, the one part of the ship that touches the sky, is the thin sliver near the bottom. The stability system carries the mass.</p>
 <table>
   <thead><tr><th>line</th><th class="num">t</th><th style="width:42%"></th></tr></thead>
   <tbody id="ledger"></tbody>
@@ -121,53 +111,33 @@ story.</p>
 priced on top of the γ 0.3 sizing — the deficit is real on either reading, and the
 split is shown so no one has to take an average on faith.</p>
 
-<h2>The checks — does it stand?</h2>
+<h2>The checks: does it stand?</h2>
 <table>
   <thead><tr><th>check</th><th class="num">margin</th><th>at</th></tr></thead>
   <tbody id="checks"></tbody>
 </table>
-<p class="note">Margins are capacity over factored demand at the declared SF; ≥ 1.00
-stands. Independent checks only — combined axial-plus-bending interaction is modelled
-nowhere in this repository (audit U4), and this page does not pretend otherwise. The
-unpressurised verdict is the operator's own requirement: the wall must be buildable and
-structured before the sky is let in.</p>
+<p class="note">Margins are capacity over factored demand at the declared SF; ≥ 1.00 stands. Independent checks only. Combined axial-plus-bending interaction is modelled nowhere in this repository (audit U4), and this page does not. The unpressurised verdict is the operator's own requirement: the wall must be buildable and structured before the sky is let in.</p>
 
-<h2>The night the checks fought back — twice</h2>
-<p>This page's first draft said the ship floats (+6.4 t at the declared factor). Three
-adversarial reviewers were set on the physics before any page quoted it, and they
-confirmed eleven bugs — a missing divisor in the general-instability law, a shear
-stiffness built on the wrong leg of a triangle, a brace pitch the drawn fan cannot
-produce, caps that escaped two of their duties. Fixed, the ship sank on the harsh basis
-but still floated in the best defensible world. A second panel then killed that too:
-a diametral spoke has no first-order stiffness against the odd out-of-round modes —
-exactly the mode that governed — and the membrane term needs an in-surface shear path
-this wall does not have. Both fixes are in, and the best world now misses by under two
-percent. Three things survived the whole fight the honest way:</p>
+<h2>The two review rounds</h2>
+<p>This page's first draft said the ship floats (+6.4 t at the declared factor). Three adversarial reviewers were set on the physics before any page quoted it, and they confirmed eleven bugs. Among them: a missing divisor in the general-instability law, a shear stiffness built on the wrong leg of a triangle, a brace pitch the drawn fan cannot produce, and caps that escaped two of their duties. Fixed, the ship sank on the harsh basis but still floated in the best defensible world. A second panel rejected that remaining float verdict: a diametral spoke has no first-order stiffness against the odd out-of-round modes, exactly the mode that governed. The membrane term needs an in-surface shear path this wall does not. Both fixes are in, and the best world now misses by under two percent. Three things survived the whole fight the honest way:</p>
 <ul>
-  <li><b>The ring-plane X-webs</b> — a member class no drawing had, without which the two
-  walls cannot act as one deep ring. Now drawn, priced, gated.</li>
+  <li><b>The ring-plane X-webs</b> are a member class no drawing had, without which the two walls cannot act as one deep ring. They are now drawn, priced, and gated.</li>
   <li><b>The spokes</b> — the fallback the record had already licensed: pretensioned
   cords across the void, a Winkler foundation against the EVEN out-of-round modes.
   <span data-n="led.spokes" data-f="1"></span> t of cord in the ledger today; the
   chordal layout that would also work the odd modes is SHIP-3's named design move.</li>
-  <li><b>The verdict gates</b> — FLOATS is only printed when the structure also stands;
-  a failing check now fails the sentence, not just a row in a table.</li>
+  <li><b>The verdict gates</b>: FLOATS is only printed when the structure also stands. A failing check now fails the sentence, not just a row in a table.</li>
 </ul>
 
 <h2>The float window</h2>
-<p>With the old band's fixed per-area mass gone, almost every line scales with lift and
-the old closure map inverts: bigger is no longer better. The table shows both bases at
-every hull; a dash under a window edge means that basis floats nowhere in the swept
-range — which, since the second review round, is where even the best defensible world
-sits at every diameter. The gap it has to close at the plan of record is under two
-percent.</p>
+<p>With the old band's fixed per-area mass gone, almost every line scales with lift and the old closure map inverts: bigger is no longer better. The table shows both bases at every hull; a dash under a window edge means that basis floats nowhere in the swept range. Since the second review round, even the best defensible world sits there at every diameter. The gap it has to close at the plan of record is under two percent.</p>
 <table>
-  <thead><tr><th>diameter m</th><th class="num">ratio — harsh basis</th>
-    <th class="num">ratio — best world</th></tr></thead>
+  <thead><tr><th>diameter m</th><th class="num">ratio, harsh basis</th>
+    <th class="num">ratio, best world</th></tr></thead>
   <tbody id="window"></tbody>
 </table>
 
-<h2>The two walls — crush and sink</h2>
+<h2>The two walls: crush and sink</h2>
 <p>The operator's ruling (08-13): these are the numbers that define the project. The
 <b>crush wall</b> is the ledger this same model writes at a safety factor of exactly
 1.0 — every capacity meets its demand at nominal pressure with zero margin anywhere,
@@ -197,8 +167,7 @@ and every hull from 32 to 112 m are explorable in
 
 <h2>What would have to be true</h2>
 <ul>
-  <li><b>The GI knockdown lands near frame practice.</b> SHIP-2's test campaign; the
-  single biggest lever on the ship — worth roughly two hundred tonnes of verdict.</li>
+  <li><b>The GI knockdown lands near frame practice.</b> SHIP-2's test campaign, the single biggest lever on the ship, worth roughly two hundred tonnes of verdict.</li>
   <li><b>SHIP-3's two named design moves land</b>: the chordal spoke net (odd modes at
   fibre weight) and an in-surface shear system (licenses the membrane term the honest
   model currently zeroes). Together they are what turns −2% into a float.</li>
@@ -207,8 +176,7 @@ and every hull from 32 to 112 m are explorable in
   <li><b>The spokes hold their premise</b>: pretension without creep-walk (Dyneema-class
   cord at near-zero mean load, or a stiffer fibre), terminations at
   <span data-n="sk.thetaWebs" data-f="0"></span>-scale part counts.</li>
-  <li><b>The drape licenses the two-way film credit</b> — the model prices the film
-  one-way until it does.</li>
+  <li><b>The drape licenses the two-way film credit</b>. The model prices the film one-way until it does.</li>
   <li><b>η holds at <span data-n="etaPct" data-f="0"></span>%</b> at ship joint counts,
   and the Ti fitting masses price at their estimates.</li>
 </ul>

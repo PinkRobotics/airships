@@ -78,7 +78,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     m3p.hidden = !m;
     if (m) {
       $("m3dTitle").textContent = (m.name ? m.name + " · " : "") + m.cls.name
-        + (m.cls.id === "P100" ? "" : " · currently impossible");
+        + (m.cls.id === "P100" ? "" : " · outside the 96 m envelope");
       ensureM3D(m);
     }
   }
@@ -92,7 +92,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       setCamera({ azimuth: null });
     }
     $("cpShip").textContent = (m.name || m.cls.name) + " · " + m.cls.name
-      + (m.cls.id === "P100" ? "" : " · currently impossible") + " · " +
+      + (m.cls.id === "P100" ? "" : " · outside the 96 m envelope") + " · " +
       (f.name || f.geo || f.id);
     phaseDialObj = makePhaseDial($("phaseDial"), m);
     const sd = $("sysDials");
@@ -208,8 +208,8 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ]) + (f.url ? `<p style="margin-top:var(--s3);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a></p>` : "") + `</div>
       <div><h4 style="color:var(--warm)">Simulated response</h4>` +
       (!mm ? (needsShip(f)
-        ? `<p style="font-size:var(--t-13);color:var(--muted)">None yet: all sixteen hulls of the demonstration fleet (ten P-100, five P-1000, one P-10000) are tasked on higher-priority fires. This fire waits for a release — a real fleet would face exactly this arithmetic.</p>`
-        : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}, so the imagined fleet leaves it to the crews who already have it.</p>`)
+        ? `<p style="font-size:var(--t-13);color:var(--muted)">None yet: all sixteen hulls of the demonstration fleet (ten P-100, five P-1000, one P-10000) are tasked on higher-priority fires. This fire is queued for the next release — the allocator counts every fire it cannot reach, and a real fleet would face exactly this arithmetic.</p>`
+        : `<p style="font-size:var(--t-13);color:var(--muted)">None. This incident is ${esc(f.status.toLowerCase())}, so the simulated fleet leaves it to the crews who already have it.</p>`)
         : mm.idle ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(mm.why)}</p>`
         : kvRows([
             ["assigned class", mm.cls.name, "sim"],

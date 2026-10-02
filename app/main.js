@@ -359,10 +359,19 @@ export async function boot() {
   if (!storeGet("airshipsIntroSeen")) {
     const ov = $("introOv");
     ov.hidden = false;
-    ov.addEventListener("click", () => {
+    // Any first gesture dismisses it, and it lets go on its own after twelve seconds: a
+    // reader who scrolls past, a keyboard user, and anything that reads the page without a
+    // hand (a static render, an agent) must all reach the monitor underneath.
+    let done = false;
+    const dismiss = () => {
+      if (done) return; done = true;
       ov.hidden = true;
       storeSet("airshipsIntroSeen", "1");
-    }, { once: true });
+      for (const [t, ev] of listeners) t.removeEventListener(ev, dismiss);
+    };
+    const listeners = [[ov, "click"], [window, "scroll"], [window, "wheel"], [window, "keydown"], [window, "touchmove"]];
+    for (const [t, ev] of listeners) t.addEventListener(ev, dismiss, { passive: true });
+    setTimeout(dismiss, 12000);
   }
   requestAnimationFrame(frame);
   setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);

@@ -112,19 +112,12 @@
   Behind that barrier everything is already vacuum, so nothing back there is sealed: no
   interior films, no per-cell pump-down. Breach containment is compartment membranes at a
   coarser pitch.</p>
-  <p>What survives here unchanged: the shared-wall arithmetic (an interior wall with vacuum
-  on both sides carries nothing), the wall density that decides the whole project, and the
-  sealed cell itself as <b>the bench article</b> — the coupon that proves clamps, films,
-  seals and a months-long hold. See <a href="./levels.html">the blueprint</a> and
-  <a href="../ship/?level=ship">the ship in 3D</a>.</p>
+  <p>Three things survive here unchanged. The shared-wall arithmetic: an interior wall with vacuum on both sides carries nothing. The wall density that decides the whole project. And the sealed cell itself as <b>the bench article</b>, the coupon that proves clamps, films, seals and a months-long hold. See <a href="./levels.html">the blueprint</a> and <a href="../ship/?level=ship">the ship in 3D</a>.</p>
 </div>
 
 <h2>Why cells, and not one big envelope</h2>
 
-<p>Every vacuum-balloon study in the literature analyses a single sphere, and reaches the same
-negative result: a shell thin enough to float buckles under one atmosphere. Akhmeteli &amp;
-Gavrilin showed a perfect <em>diamond</em> sphere collapses at about 0.2&nbsp;atm. That is not a
-materials problem you can engineer around — it is scale-free.</p>
+<p>Every vacuum-balloon study in the literature analyses a single sphere, and reaches the same negative result: a shell thin enough to float buckles under one atmosphere. Akhmeteli &amp; Gavrilin showed a perfect <em>diamond</em> sphere collapses at about 0.2 atm. The collapse is scale-free. No change of material engineers around it.</p>
 
 <figure>
   <svg viewBox="0 0 900 260" role="img" aria-label="A single envelope carries one atmosphere across its whole shell; a cell array carries it only at the boundary.">
@@ -151,10 +144,7 @@ materials problem you can engineer around — it is scale-free.</p>
       <text x="596" y="248" fill="#46d06e" font-size="11">interior walls: vacuum both sides, zero load</text>
     </g>
   </svg>
-  <figcaption>The shared wall between two sealed vacuum cells has vacuum on both sides. It
-  carries no pressure differential at all. The atmosphere is held only at the outside of the
-  array — and behind that outside sits an enormously deep cellular core, so there is no thin
-  shell left to buckle.</figcaption>
+  <figcaption>The shared wall between two sealed vacuum cells has vacuum on both sides. It carries no pressure differential at all. The atmosphere is held only at the outside of the array. Behind that outside sits a deep cellular core, so there is no thin shell left to buckle.</figcaption>
 </figure>
 
 <div class="note">
@@ -165,17 +155,11 @@ materials problem you can engineer around — it is scale-free.</p>
   answer.
 </div>
 
-<h2>But the struts are absurdly slender, and that is the catch</h2>
+<h2>Struts slender past the point a lattice survives</h2>
 
-<p>To float, the solid fraction of the hull must be a few parts in <em>ten thousand</em>. At
-that density the members of any lattice are so thin that they <strong>buckle long before the
-material yields</strong> — which means strength scales as the square of density, not linearly,
-and the arithmetic collapses.</p>
+<p>To float, the solid fraction of the hull must be a few parts in <em>ten thousand</em>. At that density the members of any lattice are so thin that they <strong>buckle long before the material yields</strong>. Strength then scales as the square of density, not linearly, and the arithmetic collapses.</p>
 
-<p>Unless the struts are <strong>hollow</strong>. A tube puts its material where the bending
-stiffness is, and sizing the tube so that Euler buckling and local wall buckling fail together
-changes the exponent from φ² to φ<sup>1.5</sup>. That single change is the difference between a
-vehicle and an impossibility.</p>
+<p>Unless the struts are <strong>hollow</strong>. A tube puts its material where the bending stiffness is. Sizing the tube so that Euler buckling and local wall buckling fail together changes the exponent from φ² to φ<sup>1.5</sup>. That change determines whether the vehicle is possible.</p>
 
 <figure>
   <svg viewBox="0 0 900 200" role="img" aria-label="Solid rod versus hollow tube of the same mass.">
@@ -197,7 +181,7 @@ vehicle and an impossibility.</p>
   is not governing.</figcaption>
 </figure>
 
-<h2>So: which materials can actually do it?</h2>
+<h2>Candidate materials</h2>
 
 <div class="panel">
   <div class="grid two">
@@ -227,18 +211,11 @@ vehicle and an impossibility.</p>
   </tr></thead>
   <tbody></tbody>
 </table>
-<p class="faint" style="font-size:var(--t-13)">Shell mass in kg per m³ of enclosed volume.
-Specific strength in MN·m/kg. Every entry is <em>buckling</em>-governed, not strength-governed
-— which is the finding: the linear strength-versus-density assumption the literature leans on
-is only true if the struts are hollow.</p>
+<p class="faint" style="font-size:var(--t-13)">Shell mass in kg per m³ of enclosed volume. Specific strength in MN·m/kg. Every entry is <em>buckling</em>-governed, not strength-governed. The linear strength-versus-density assumption the literature leans on holds only if the struts are hollow.</p>
 
 <h2>The scale ladder</h2>
 
-<p>The tube wall thickness is a fixed fraction of the strut length — about
-<span class="mono" id="wallFrac">1.8×10⁻⁴</span>. That is a manufacturing instruction hiding
-inside a stress calculation: <strong>you cannot make the lattice small.</strong> A wall you can
-actually lay down sets a floor on how long the struts must be, and therefore on how big one
-cell is.</p>
+<p>The tube wall thickness is a fixed fraction of the strut length, about <span class="mono" id="wallFrac">1.8×10⁻⁴</span>. That is a manufacturing instruction hiding inside a stress calculation: <strong>you cannot make the lattice small.</strong> A wall you can actually lay down sets a floor on how long the struts must be, and therefore on how big one cell is.</p>
 
 <figure>
   <svg viewBox="0 0 900 220" role="img" aria-label="Scale ladder from hull to cell to strut to tube wall.">
@@ -257,38 +234,31 @@ cell is.</p>
 </table>
 
 <h2>What one flooded cell costs its neighbours</h2>
-<p>In normal operation an interior wall carries nothing. Flood one cell and its shared walls
-suddenly have an atmosphere pushing <em>into the vacuum next door</em> — and the neighbouring
-lattice has to react that on top of the global load. It is a contingency, it is local, and it
-is what sizes the interior structure, because it is the only time the interior sees pressure
-at all.</p>
+<p>In normal operation an interior wall carries nothing. Flood one cell and its shared walls have an atmosphere pushing <em>into the vacuum next door</em>. The neighbouring lattice reacts that on top of the global load. This local contingency sizes the interior structure because it is the only time the interior sees pressure.</p>
 <table id="breachTable">
   <thead><tr><th>local load factor</th><th class="num">shell</th>
     <th class="num">margin</th><th></th></tr></thead><tbody></tbody></table>
 <p class="muted" id="breachNote" style="font-size:var(--t-14)"></p>
 
-<h2>Would aerogel inside the struts help?</h2>
-<p>It is the obvious next idea — a core stabilises a tube wall against wrinkling, which is what
-a sandwich does, so the wall could be thinner. Against that, the core is mass carrying no load.
-Aerogel stiffness falls as roughly the <em>cube</em> of its density, so the two effects race
-each other.</p>
+<h2>Aerogel inside the struts</h2>
+<p>It is the obvious next idea. A core stabilises a tube wall against wrinkling, which is what a sandwich does, so the wall could be thinner. Against that, the core is mass carrying no load. Aerogel stiffness falls as roughly the <em>cube</em> of its density, so the two effects race each other.</p>
 <table id="aeroTable">
   <thead><tr><th>core density</th><th class="num">wrinkling stress it supports</th>
     <th class="num">mass vs the wall</th><th>beats a bare tube?</th></tr></thead><tbody></tbody></table>
 <p class="muted" id="aeroNote" style="font-size:var(--t-14)"></p>
 
-<h2>Two levers that look real and are not</h2>
+<h2>Two levers that fail</h2>
 <div class="grid two">
   <div class="panel">
     <span class="tag">null result</span>
-    <h3>Partial vacuum doesn't help</h3>
+    <h3>Partial vacuum does not help</h3>
     <p style="margin-bottom:0">Lift goes as (p<sub>outside</sub> − p<sub>inside</sub>). So does
     the load the shell carries. The ratio is unchanged, exactly. Running the cells at half a
     vacuum halves the lift <em>and</em> halves the load, and buys nothing at all.</p>
   </div>
   <div class="panel">
     <span class="tag">null result</span>
-    <h3>Altitude doesn't help either</h3>
+    <h3>Altitude does not help either</h3>
     <p style="margin-bottom:0">The requirement is ρ<sub>shell</sub> &lt; ρ<sub>air</sub>, and
     ρ<sub>shell</sub> scales with pressure — so what matters is ρ/p = 1/RT, a function of
     <strong>temperature alone</strong>. Thin air lifts less in exactly the proportion it presses
@@ -296,11 +266,8 @@ each other.</p>
   </div>
 </div>
 
-<h2>What you can build this month</h2>
-<p>Nothing printable floats — that is not close, and it is worth being plain about. But a
-printed cell is still the experiment worth running, because it tests the <em>model</em> rather
-than the vehicle: does a cell of this architecture hold one atmosphere at the relative density
-predicted, and does it fail where predicted?</p>
+<h2>What is buildable this month</h2>
+<p>Nothing printable floats, and it is not close. A printed cell is still the experiment worth running, because it tests the <em>model</em> rather than the vehicle. It asks whether a cell of this architecture holds one atmosphere at the relative density predicted, and whether it fails where predicted.</p>
 
 <table id="demoTable">
   <thead><tr><th>printable material</th><th class="num">shell mass</th>
@@ -320,8 +287,7 @@ predicted, and does it fail where predicted?</p>
   <p>Every number on this page is computed live by <code>cell/model.js</code>, which is held
   against <code>research/analysis/vacuum-cell.py</code> by a parity test. Material properties
   are the only inputs; each carries its source in the Python.</p>
-  <p>This describes a vehicle nobody has built. It is arithmetic on stated assumptions,
-  published so the assumptions can be attacked.</p>
+  <p>This describes a vehicle nobody has built. It is arithmetic on stated assumptions, published so the assumptions can be checked by anyone who cares to and corrected where they fail. That is the invitation.</p>
 </footer>
 </div>
 

@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Pink Robotics — autonomous fleet monitor, a concept demonstration</title>
-<meta name="description" content="Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, energy budgets and honest limits of the idea shown in the open. No such aircraft exists.">
+<title>Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed</title>
+<meta name="description" content="Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.">
 <link rel="canonical" href="https://pinkrobotics.ca/airships/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Live fires. Imagined machines. Testable arithmetic.">
+<meta property="og:title" content="Live fires. A simulated fleet. Arithmetic you can check.">
 <meta property="og:description" content="Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines would have to do and what each cycle would cost — not a promise that any fire goes out.">
 <meta property="og:url" content="https://pinkrobotics.ca/airships/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
@@ -697,6 +697,8 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
 }
 
 </style>
+<style>/* Wide screens: the measure grows and the type with it, so a 4k viewport is not a phone column in a dark field. */
+@media (min-width:2400px){:root{--wrap:1180px}html{font-size:125%}}</style>
 </head>
 <body>
 
@@ -715,15 +717,16 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
         <!-- The static roster below is generated from the bundled snapshot by
              tools/gen_fallback.py, for crawlers and no-script visitors. renderRoster()
              replaces this container's markup wholesale, exactly as it replaced it empty. -->
-        <div id="roster"><!--FALLBACK-ROSTER--><table class="fleettab" aria-label="Fleet roster from the bundled snapshot, grouped by class: hull, the fire it serves, and its simulated delivery rate"><tbody><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-10000 ×1 <span style="color:#d98b80;font-weight:600">· currently impossible</span></span></td></tr><tr class="r-ship"><td class="r-name">Condor</td><td>Pear Lake</td><td class="ph">7,009 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-1000 ×5 <span style="color:#d98b80;font-weight:600">· currently impossible</span></span></td></tr><tr class="r-ship"><td class="r-name">Osprey</td><td>Bald Range</td><td class="ph">2,505 kL/h</td></tr><tr class="r-ship"><td class="r-name">Pelican</td><td>Ainslie Creek</td><td class="ph">740 kL/h</td></tr><tr class="r-ship"><td class="r-name">Heron</td><td>Bradley Creek FSR</td><td class="ph">2,826 kL/h</td></tr><tr class="r-ship"><td class="r-name">Albatross</td><td>Brunswick Creek</td><td class="ph">892 kL/h</td></tr><tr class="r-ship"><td class="r-name">Skimmer</td><td>Bonanza Creek</td><td class="ph">1,387 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-100 ×10</span></td></tr><tr class="r-ship"><td class="r-name">Kingfisher</td><td>Rim Lake</td><td class="ph">277 kL/h</td></tr><tr class="r-ship"><td class="r-name">Tern</td><td>Twin Two Creek</td><td class="ph">409 kL/h</td></tr><tr class="r-ship"><td class="r-name">Merganser</td><td>Border 2</td><td class="ph">392 kL/h</td></tr><tr class="r-ship"><td class="r-name">Dipper</td><td>Matthew Creek</td><td class="ph">206 kL/h</td></tr><tr class="r-ship"><td class="r-name">Grebe</td><td>Quilpituk Creek</td><td class="ph">381 kL/h</td></tr><tr class="r-ship"><td class="r-name">Loon</td><td>Riley Creek</td><td class="ph">224 kL/h</td></tr><tr class="r-ship"><td class="r-name">Swift</td><td>French Bar Creek</td><td class="ph">270 kL/h</td></tr><tr class="r-ship"><td class="r-name">Petrel</td><td>Tower Creek </td><td class="ph">298 kL/h</td></tr><tr class="r-ship"><td class="r-name">Kestrel</td><td>Jumbo Creek</td><td class="ph">265 kL/h</td></tr><tr class="r-ship"><td class="r-name">Auklet</td><td>Palmer Creek</td><td class="ph">206 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Snapshot allocation of 2026-08-08; the live page reallocates over today’s fires.</p><!--/FALLBACK-ROSTER--></div>
+        <div id="roster"><!--FALLBACK-ROSTER--><table class="fleettab" aria-label="Fleet roster from the bundled snapshot, grouped by class: hull, the fire it serves, and its simulated delivery rate"><tbody><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-10000 ×1 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Condor</td><td>Pear Lake</td><td class="ph">7,009 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-1000 ×5 <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span></span></td></tr><tr class="r-ship"><td class="r-name">Osprey</td><td>Bald Range</td><td class="ph">2,505 kL/h</td></tr><tr class="r-ship"><td class="r-name">Pelican</td><td>Ainslie Creek</td><td class="ph">740 kL/h</td></tr><tr class="r-ship"><td class="r-name">Heron</td><td>Bradley Creek FSR</td><td class="ph">2,826 kL/h</td></tr><tr class="r-ship"><td class="r-name">Albatross</td><td>Brunswick Creek</td><td class="ph">892 kL/h</td></tr><tr class="r-ship"><td class="r-name">Skimmer</td><td>Bonanza Creek</td><td class="ph">1,387 kL/h</td></tr><tr class="r-clsrow"><td colspan="3"><span class="r-cls">P-100 ×10</span></td></tr><tr class="r-ship"><td class="r-name">Kingfisher</td><td>Rim Lake</td><td class="ph">277 kL/h</td></tr><tr class="r-ship"><td class="r-name">Tern</td><td>Twin Two Creek</td><td class="ph">409 kL/h</td></tr><tr class="r-ship"><td class="r-name">Merganser</td><td>Border 2</td><td class="ph">392 kL/h</td></tr><tr class="r-ship"><td class="r-name">Dipper</td><td>Matthew Creek</td><td class="ph">206 kL/h</td></tr><tr class="r-ship"><td class="r-name">Grebe</td><td>Quilpituk Creek</td><td class="ph">381 kL/h</td></tr><tr class="r-ship"><td class="r-name">Loon</td><td>Riley Creek</td><td class="ph">224 kL/h</td></tr><tr class="r-ship"><td class="r-name">Swift</td><td>French Bar Creek</td><td class="ph">270 kL/h</td></tr><tr class="r-ship"><td class="r-name">Petrel</td><td>Tower Creek </td><td class="ph">298 kL/h</td></tr><tr class="r-ship"><td class="r-name">Kestrel</td><td>Jumbo Creek</td><td class="ph">265 kL/h</td></tr><tr class="r-ship"><td class="r-name">Auklet</td><td>Palmer Creek</td><td class="ph">206 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Live allocation over today’s fires. This printed copy is the bundled 2026-08-08 snapshot.</p><!--/FALLBACK-ROSTER--></div>
 
       </div>
       <div class="cpanel" id="cpFires">
-        <h4 class="cp-h">Top fires · <b>live</b> · served or waiting</h4>
+        <h4 class="cp-h">Top fires · <b>live</b> · served or queued</h4>
         <!-- Generated snapshot stand-in; renderFires() replaces it like the empty state. -->
-        <div id="firesTop"><!--FALLBACK-FIRES--><table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires waiting for or receiving a hull, from the bundled snapshot"><tbody><tr class="r-ship"><td>Pear Lake</td><td style="text-align:right">136,485 ha</td><td style="text-align:right">Condor</td><td style="text-align:right">7,009 kL/h</td></tr><tr class="r-ship"><td>Ainslie Creek</td><td style="text-align:right">48,537 ha</td><td style="text-align:right">Pelican</td><td style="text-align:right">740 kL/h</td></tr><tr class="r-ship"><td>French Bar Creek</td><td style="text-align:right">39,044 ha</td><td style="text-align:right">Swift</td><td style="text-align:right">270 kL/h</td></tr><tr class="r-ship"><td>Bonanza Creek</td><td style="text-align:right">26,823 ha</td><td style="text-align:right">Skimmer</td><td style="text-align:right">1,387 kL/h</td></tr><tr class="r-ship"><td>Bald Range</td><td style="text-align:right">9,500 ha</td><td style="text-align:right">Osprey</td><td style="text-align:right">2,505 kL/h</td></tr><tr class="r-ship"><td>Brunswick Creek</td><td style="text-align:right">8,691 ha</td><td style="text-align:right">Albatross</td><td style="text-align:right">892 kL/h</td></tr><tr class="r-ship"><td>Lessard Lake</td><td style="text-align:right">5,476 ha</td><td style="text-align:right">—</td><td style="text-align:right">waits</td></tr><tr class="r-ship"><td>Rim Lake</td><td style="text-align:right">4,795 ha</td><td style="text-align:right">Kingfisher</td><td style="text-align:right">277 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">From the 2026-08-08 snapshot — these sizes were live then; the running page fetches today’s.</p><!--/FALLBACK-FIRES--></div>
+        <div id="firesTop"><!--FALLBACK-FIRES--><table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires waiting for or receiving a hull, from the bundled snapshot"><tbody><tr class="r-ship"><td>Pear Lake</td><td style="text-align:right">136,485 ha</td><td style="text-align:right">Condor</td><td style="text-align:right">7,009 kL/h</td></tr><tr class="r-ship"><td>Ainslie Creek</td><td style="text-align:right">48,537 ha</td><td style="text-align:right">Pelican</td><td style="text-align:right">740 kL/h</td></tr><tr class="r-ship"><td>French Bar Creek</td><td style="text-align:right">39,044 ha</td><td style="text-align:right">Swift</td><td style="text-align:right">270 kL/h</td></tr><tr class="r-ship"><td>Bonanza Creek</td><td style="text-align:right">26,823 ha</td><td style="text-align:right">Skimmer</td><td style="text-align:right">1,387 kL/h</td></tr><tr class="r-ship"><td>Bald Range</td><td style="text-align:right">9,500 ha</td><td style="text-align:right">Osprey</td><td style="text-align:right">2,505 kL/h</td></tr><tr class="r-ship"><td>Brunswick Creek</td><td style="text-align:right">8,691 ha</td><td style="text-align:right">Albatross</td><td style="text-align:right">892 kL/h</td></tr><tr class="r-ship"><td>Lessard Lake</td><td style="text-align:right">5,476 ha</td><td style="text-align:right">—</td><td style="text-align:right">queued</td></tr><tr class="r-ship"><td>Rim Lake</td><td style="text-align:right">4,795 ha</td><td style="text-align:right">Kingfisher</td><td style="text-align:right">277 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Live sizes over today’s fires. This printed copy is the bundled 2026-08-08 snapshot.</p><!--/FALLBACK-FIRES--></div>
         <p class="small" id="firesNote" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">
-          Last drop and kL/hour are simulation; sizes are live. Unserved fires wait for a hull.</p>
+          Last drop and kL/hour are simulation; sizes are live. The allocator counts every
+          fire it cannot reach, and queues it.</p>
       </div>
       </div>
       <div class="cp-rightcol">
@@ -758,13 +761,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
           <canvas id="map" tabindex="0" role="application" aria-describedby="mapHere mapHelp"
             aria-label="Map of British Columbia: today's wildfires and the simulated airships tasked to them"></canvas>
           <p id="mapHere" class="vh"></p>
-          <p id="mapHelp" class="vh">Arrow keys pan, plus and minus zoom, Escape clears the
-            selection. Every simulated airship is also listed as text in the fleet roster panel,
-            and the largest fires waiting for or receiving one are listed in the top fires panel;
-            selecting a row in either selects the same thing here, and the selected ship's full
-            record is written out in the operation panel. The map additionally draws every fire
-            in the provincial feed, satellite hotspots, water bodies and routes, which are not
-            listed as text anywhere on this page.</p>
+          <p id="mapHelp" class="vh">Arrow keys pan, plus and minus zoom, Escape clears the selection. Every simulated airship is also listed as text in the fleet roster panel. The largest fires waiting for or receiving one are listed in the top fires panel. Selecting a row in either selects the same thing here, and the selected ship's full record is written out in the operation panel. The map also draws every fire in the provincial feed, satellite hotspots, water bodies, and routes, which are not listed as text anywhere on this page.</p>
           <div class="hud">
             <!-- Pre-boot text is generated from the bundled snapshot (tools/gen_fallback.py);
                  renderStatus() overwrites it the moment real data is on screen. -->
@@ -875,8 +872,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
             <span id="m3cCats"></span>
           </div>
         </div>
-        <p id="dtHint3d" class="dthint">Pick a ship — tap one on the map, or a row in the
-          fleet list — and it is drawn here, flying the same simulation.</p>
+        <p id="dtHint3d" class="dthint">Pick a ship: tap one on the map, or a row in the fleet list. It is drawn here, flying the same simulation.</p>
 
       </div>
 
@@ -896,20 +892,14 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
     <div id="introOv" hidden>
       <div class="io" style="left:2%;top:12%">
         <b>The fleet</b>
-        <p>Sixteen simulated hulls and the live fires they serve, named for water birds —
-          divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The two
-    larger classes are currently impossible — the crush envelope closes near 96 m of hull
-    diameter and both live outside it (Figure 2 on the front page shows exactly where);
-    they fly here to find where the arithmetic breaks.
-          Click any row to open its cockpit.</p>
+        <p>Sixteen simulated hulls and the live fires they serve, named for water birds. Divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The two crush envelope closes near 96 m of hull diameter, and the two larger classes live outside it. Figure 2 on the front page shows where. They fly here to find where the arithmetic breaks. Click any row to open its cockpit.</p>
       </div>
       <!-- These two point INTO the centre column, so their positions are in the stylesheet
            rather than inline: the side-by-side arrangement moves them, and an inline style
            cannot be overridden. The three column call-outs never move. -->
       <div class="io io-map">
         <b>The map · live</b>
-        <p>Today's real BC fires and satellite heat. The moving ships are simulated — drag,
-          zoom, click anything for its record.</p>
+        <p>Today's real BC fires and satellite heat. The moving ships are simulated. Drag, zoom, click anything for its record.</p>
       </div>
       <div class="io io-3d">
         <b>The ship in 3D</b>
@@ -918,8 +908,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
       </div>
       <div class="io" style="right:2%;top:18%">
         <b>The selected ship</b>
-        <p>Forces, phase, and what is hanging under the ship — the anchor cable and the intake
-          hose in metres — plus the power bars and the storage
+        <p>Forces, phase, and what is hanging under the ship: the anchor cable and the intake hose in metres, plus the power bars and the storage
 </p>
       </div>
       <div class="io" style="left:38%;bottom:4%">
@@ -967,52 +956,24 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
 <section id="fallback" aria-label="Static snapshot of the fleet monitor">
   <p class="kicker">STATIC SNAPSHOT · 2026-08-08</p>
   <h2>The monitor, standing still</h2>
-  <p>This page is a live instrument: current BC wildfire data run through a simulated fleet of
-    sixteen conceptual vacuum airships. Scripts are off or still loading, so what follows is
-    the same monitor as a still, computed from the data snapshot bundled with this site on
-    <time datetime="2026-08-08T18:42:38+00:00">2026-08-08</time>.
-    <b style="color:var(--text)">Live data replaces this when the page runs.</b></p>
-  <p>The colour split is the page's honesty mechanism and it holds here too:
-    <span style="color:var(--bone)">bone for real public fire data</span>,
-    <span style="color:var(--warm)">pink for the imagined machines</span>. Nothing on this
-    page is a real aircraft and none of it is for emergency use; sources, licences and the
-    arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
-  <h3>The fires — real, as of the snapshot</h3>
-  <p>The snapshot holds 105 active fires from the BC Wildfire Service feed:
-    45 out of control, 5 flagged as fires of
-    note. The largest out-of-control fires are listed in the top-fires panel above; the
-    largest of all is Pear Lake at
-    136,485 ha.</p>
-  <h3>The fleet — simulated, sixteen hulls</h3>
-  <p>A fixed demonstration fleet shared across the worst fires:
-    10 P-100s (100 t of water each,
-    110 m long), 5 P-1000s
-    (1,000 t, 238 m) and a single P-10000
-    (10,000 t, 512 m). In this snapshot's allocation
-    all 16 hulls are flying. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>This page is a live instrument: current BC wildfire data run through a simulated fleet of sixteen conceptual vacuum airships. It ships a complete no-script fallback: the same monitor, computed from the snapshot bundled with this site on <time datetime="2026-08-08T18:42:38+00:00">2026-08-08</time>, with the fleet roster, the top fires and one worked mission rendered as text. With scripts on, the identical panels run over the live feed. <b style="color:var(--text)">Live data replaces this when the page runs.</b></p>
+  <p>One colour rule governs the whole page: <span style="color:var(--bone)">bone is live public fire data</span>, <span style="color:var(--warm)">pink is the simulated fleet</span>. Nothing on this map mixes the two. The fleet is simulated. The fires are real, and the BC Wildfire Service remains the authority for them. Sources, licences and the arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
+  <h3>The fires: real, as of the snapshot</h3>
+  <p>The snapshot holds 105 active fires from the BC Wildfire Service feed: 45 out of control, 5 flagged as fires of note. The top-fires panel above lists the largest out-of-control fires. Pear Lake is the largest fire at 136,485 ha.</p>
+  <h3>The fleet: simulated, sixteen hulls</h3>
+  <p>A fixed demonstration fleet is shared across the worst fires. It has 10 P-100s at 100 t of water and 110 m each, 5 P-1000s at 1,000 t and 238 m, and one P-10000 at 10,000 t and 512 m. In this snapshot's allocation all 16 hulls are flying. The full roster, hull by hull, is in the fleet panel above.</p>
   <figure>
     <img src="media/map-snapshot.jpg" width="924" height="475"
       alt="Map of British Columbia with the snapshot's fires drawn as status-coloured circles,
       satellite heat, water bodies, and the simulated airships as pink markers">
-    <figcaption>A still of the monitor's map, drawn from the 2026-08-08 snapshot: fires as
-      circles coloured by status, satellite heat in orange, water in blue, the simulated fleet
-      in pink. When the page runs this is a live, draggable canvas over current data.</figcaption>
+    <figcaption>This still shows the monitor's map from the 2026-08-08 snapshot. Fires are circles coloured by status, satellite heat is orange, water is blue, and the simulated fleet is pink. When the page runs this is a live, draggable canvas over current data.</figcaption>
   </figure>
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">Swift</b>, a P-100, is assigned to
-    French Bar Creek (K70748 — 39,044 ha, out of control),
-    filling from Schraeder Lake (24 ha of mapped surface),
-    a 7.3 km leg from the fire. One cycle — approach the water, pump aboard,
-    transit, drop along the fire, escape on the surplus buoyancy the drop just created, return
-    while making nitrogen ballast — takes about 22 minutes and delivers
-    100 t of water: a sustained 270 kL/h against this one
-    fire. Simulation, not operations: no such aircraft exists.</p>
+  <p><b style="color:var(--warm)">Swift</b>, a P-100, is assigned to French Bar Creek (K70748: 39,044 ha, out of control). It fills from Schraeder Lake (24 ha of mapped surface), a 7.3 km leg from the fire. One cycle takes about 22 minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It delivers 100 t of water, sustaining 270 kL/h against this one fire. The cycle is computed end to end from real fire and water data. Simulation, not operations: no such aircraft exists.</p>
   <figure>
-    <img src="media/intake.jpg" width="1920" height="1080" loading="lazy"
+    <img src="media/intake.jpg" width="1920" height="1080" loading="eager" fetchpriority="high"
       alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">
-    <figcaption>The reference concept vehicle at a lake intake — a still render of the same 3D
-      model the running monitor animates beside the map, hoses down, pumping while it hovers.
-      No such aircraft exists.</figcaption>
+    <figcaption>The reference concept vehicle at a lake intake, hoses down, pumping while it hovers. A still render of the same 3D model the running monitor animates beside the map.</figcaption>
   </figure>
 </section><!--/FALLBACK-->
 

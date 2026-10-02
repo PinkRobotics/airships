@@ -129,7 +129,7 @@ def render(d: dict) -> dict[str, str]:
         # P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
         # the crush envelope closes near 96 m of hull and both live outside it.
         badge = ("" if grp["cls"] == "P-100" else
-                 ' <span style="color:#d98b80;font-weight:600">· currently impossible</span>')
+                 ' <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span>')
         rows.append(f'<tr class="r-clsrow"><td colspan="3">'
                     f'<span class="r-cls">{esc(grp["cls"])} ×{grp["count"]}{badge}</span></td></tr>')
         for s in grp['ships']:
@@ -141,12 +141,15 @@ def render(d: dict) -> dict[str, str]:
               'grouped by class: hull, the fire it serves, and its simulated delivery rate">'
               '<tbody>' + ''.join(rows) + '</tbody></table>'
               f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
-              f'Snapshot allocation of {esc(date)}; the live page reallocates over today’s fires.</p>')
+              f'Live allocation over today’s fires. This printed copy is the bundled {esc(date)} snapshot.</p>')
 
     frows = []
     for f in top:
         hull = esc(f['hull']) if f['hull'] else '—'
-        rate = f'{fmt(f["tph"])} kL/h' if f['tph'] else 'waits'
+        # "queued", with no reason attached: the allocator leaves a fire without a hull when
+        # the sixteen hulls are spent on higher-priority fires (app/fleet.js), and it has no
+        # notion of a hull's range, so the cell does not name one.
+        rate = f'{fmt(f["tph"])} kL/h' if f['tph'] else 'queued'
         frows.append(f'<tr class="r-ship"><td>{esc(f["name"])}</td>'
                      f'<td style="text-align:right">{fmt(f["sizeHa"])} ha</td>'
                      f'<td style="text-align:right">{hull}</td>'
@@ -155,8 +158,7 @@ def render(d: dict) -> dict[str, str]:
                 'waiting for or receiving a hull, from the bundled snapshot">'
                 '<tbody>' + ''.join(frows) + '</tbody></table>'
                 f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
-                f'From the {esc(date)} snapshot — these sizes were live then; the running page '
-                'fetches today’s.</p>')
+                f'Live sizes over today’s fires. This printed copy is the bundled {esc(date)} snapshot.</p>')
 
     p100, p1000, p10000 = fleet
     total = sum(g['count'] for g in fleet)
@@ -169,14 +171,7 @@ def render(d: dict) -> dict[str, str]:
     if ex:
         mission = f'''
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned to
-    {esc(ex['fire'])} ({esc(ex['fireId'])} — {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}),
-    filling from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface),
-    a {fmt1(ex['legKm'])} km leg from the fire. One cycle — approach the water, pump aboard,
-    transit, drop along the fire, escape on the surplus buoyancy the drop just created, return
-    while making nitrogen ballast — takes about {fmt(ex['cycleMin'])} minutes and delivers
-    {fmt(ex['deliveredT'])} t of water: a sustained {fmt(ex['tph'])} kL/h against this one
-    fire. Simulation, not operations: no such aircraft exists.</p>'''
+  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It delivers {fmt(ex['deliveredT'])} t of water, sustaining {fmt(ex['tph'])} kL/h against this one fire. The cycle is computed end to end from real fire and water data. Simulation, not operations: no such aircraft exists.</p>'''
 
     main = f'''
 <style>
@@ -199,43 +194,22 @@ def render(d: dict) -> dict[str, str]:
 <section id="fallback" aria-label="Static snapshot of the fleet monitor">
   <p class="kicker">STATIC SNAPSHOT · {esc(date)}</p>
   <h2>The monitor, standing still</h2>
-  <p>This page is a live instrument: current BC wildfire data run through a simulated fleet of
-    sixteen conceptual vacuum airships. Scripts are off or still loading, so what follows is
-    the same monitor as a still, computed from the data snapshot bundled with this site on
-    <time datetime="{esc(iso)}">{esc(date)}</time>.
-    <b style="color:var(--text)">Live data replaces this when the page runs.</b></p>
-  <p>The colour split is the page's honesty mechanism and it holds here too:
-    <span style="color:var(--bone)">bone for real public fire data</span>,
-    <span style="color:var(--warm)">pink for the imagined machines</span>. Nothing on this
-    page is a real aircraft and none of it is for emergency use; sources, licences and the
-    arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
-  <h3>The fires — real, as of the snapshot</h3>
-  <p>The snapshot holds {fmt(fires['active'])} active fires from the BC Wildfire Service feed:
-    {fmt(fires['outOfControl'])} out of control, {fmt(fires['ofNote'])} flagged as fires of
-    note. The largest out-of-control fires are listed in the top-fires panel above; the
-    largest of all is {esc(top[0]['name']) if top else '—'} at
-    {fmt(top[0]['sizeHa']) if top else 0} ha.</p>
-  <h3>The fleet — simulated, sixteen hulls</h3>
-  <p>A fixed demonstration fleet shared across the worst fires:
-    {fmt(p100['count'])} {esc(p100['name'])}s ({fmt(p100['payloadT'])} t of water each,
-    {fmt(p100['lenM'])} m long), {fmt(p1000['count'])} {esc(p1000['name'])}s
-    ({fmt(p1000['payloadT'])} t, {fmt(p1000['lenM'])} m) and a single {esc(p10000['name'])}
-    ({fmt(p10000['payloadT'])} t, {fmt(p10000['lenM'])} m). In this snapshot's allocation
-    {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>This page is a live instrument: current BC wildfire data run through a simulated fleet of sixteen conceptual vacuum airships. It ships a complete no-script fallback: the same monitor, computed from the snapshot bundled with this site on <time datetime="{esc(iso)}">{esc(date)}</time>, with the fleet roster, the top fires and one worked mission rendered as text. With scripts on, the identical panels run over the live feed. <b style="color:var(--text)">Live data replaces this when the page runs.</b></p>
+  <p>One colour rule governs the whole page: <span style="color:var(--bone)">bone is live public fire data</span>, <span style="color:var(--warm)">pink is the simulated fleet</span>. Nothing on this map mixes the two. The fleet is simulated. The fires are real, and the BC Wildfire Service remains the authority for them. Sources, licences and the arithmetic are on the <a href="concept/">how-it-works page</a>.</p>
+  <h3>The fires: real, as of the snapshot</h3>
+  <p>The snapshot holds {fmt(fires['active'])} active fires from the BC Wildfire Service feed: {fmt(fires['outOfControl'])} out of control, {fmt(fires['ofNote'])} flagged as fires of note. The top-fires panel above lists the largest out-of-control fires. {esc(top[0]['name']) if top else '—'} is the largest fire at {fmt(top[0]['sizeHa']) if top else 0} ha.</p>
+  <h3>The fleet: simulated, sixteen hulls</h3>
+  <p>A fixed demonstration fleet is shared across the worst fires. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t of water and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t and {fmt(p10000['lenM'])} m. In this snapshot's allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
   <figure>
     <img src="media/map-snapshot.jpg" width="{pw}" height="{ph}"
       alt="Map of British Columbia with the snapshot's fires drawn as status-coloured circles,
       satellite heat, water bodies, and the simulated airships as pink markers">
-    <figcaption>A still of the monitor's map, drawn from the {esc(date)} snapshot: fires as
-      circles coloured by status, satellite heat in orange, water in blue, the simulated fleet
-      in pink. When the page runs this is a live, draggable canvas over current data.</figcaption>
+    <figcaption>This still shows the monitor's map from the {esc(date)} snapshot. Fires are circles coloured by status, satellite heat is orange, water is blue, and the simulated fleet is pink. When the page runs this is a live, draggable canvas over current data.</figcaption>
   </figure>{mission}
   <figure>
-    <img src="media/intake.jpg" width="{vw}" height="{vh}" loading="lazy"
+    <img src="media/intake.jpg" width="{vw}" height="{vh}" loading="eager" fetchpriority="high"
       alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">
-    <figcaption>The reference concept vehicle at a lake intake — a still render of the same 3D
-      model the running monitor animates beside the map, hoses down, pumping while it hovers.
-      No such aircraft exists.</figcaption>
+    <figcaption>The reference concept vehicle at a lake intake, hoses down, pumping while it hovers. A still render of the same 3D model the running monitor animates beside the map.</figcaption>
   </figure>
 </section>'''
 
