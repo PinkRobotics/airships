@@ -2787,7 +2787,7 @@ function buildVessel(ctx) {
       { p: point(podS[1], 0, -0.38).slice(0, 3).map((v, i) => i === 2 ? v + ROTOR_R + 9 : v), t: 'thrust stands off on pylons', s: 'the pylon is longer than the rotor radius so the disc clears the skin — the dashboard model’s own law. The load enters at a strap hardpoint and spreads over many rings; nothing is drilled' },
       { p: [xMid - ML * 2.6, 0, mz0 + 2.0], t: 'the works, suspended', s: 'one water tank with its N2 ballast pair on a raft under the keel, hung from a wide bridle: every pendant meets the hull as a near-tangential pull on a circumferential strap. A hard-mounted gondola would put its moments straight into a 4 mm wall; the pendulum is the price, and ops owns it [SCOPING]' },
       { p: [xMid + 16, 0, bucketZ + 2.5], t: 'the bucket rides a line', s: 'scoop, climb, drop — the water cycle never touches the hull. Drop the water and the ship is ~100 t light: the rotors are what hold it down while it refills, wash thrown upward' },
-      { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. We build this 52 m hull first; the spec is what it graduates into' },
+      { p: [-SHIP.lenM * 0.37, 0, -D.R * 0.62], t: 'Mission 0 wears this same fit', s: 'the spec ship is this architecture at 112 m — 100 t of water and 19 t of equipment, neutral at sea level in the certified world. This 52 m hull is the one drawn first; the spec ship is the design it scales up to.' },
     ],
   };
 }

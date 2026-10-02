@@ -91,9 +91,9 @@ export function rebuildMissions() {
       m.hullNo = k;
       m.name = (HULL_NAMES[clsId] || [])[k - 1] || CLASSES[clsId].name + " #" + k;
       m.shipId = m.name;                              // unique across the fleet; keys the ledger
-      m.why = `${m.name} (${CLASSES[clsId].name}) tasked by the fleet allocator: ${fmtHa(f.sizeHa)}` +
-        (f.note ? ", a fire of note" : ", out of control") +
-        `, priority ${rankOf.get(f.id)} of ${cand.length} qualifying fires; the selected source is ` +
+      m.why = `${m.name} (${CLASSES[clsId].name}) considered by the fleet allocator: ${fmtHa(f.sizeHa)}` +
+        (f.note ? ", a wildfire of note" : ", out of control") +
+        `, order ${rankOf.get(f.id)} of ${cand.length} fires it could reach; the selected source is ` +
         `${so.src.km.toFixed(1)} km away.` +
         (so.relaxed ? " Smaller-than-preferred water accepted for proximity." : "");
       if (!f.mission) f.mission = m;

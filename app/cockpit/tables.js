@@ -88,10 +88,10 @@ export function renderFires() {
   // the published record and nothing of the fleet, and the columns follow the mode.
   const h = $("firesH");
   if (h) h.innerHTML = S.exercise
-    ? `Exercise fires · <b>invented</b> · served or queued`
+    ? `Largest exercise fires · <b>invented sizes</b> · assigned or waiting (rates simulated)`
     : S.recordOnly
-    ? `The fires · <b>${esc(S.day)}</b> · as published`
-    : `Top fires · <b>${S.daySource === "live" ? "live" : esc(S.day)}</b> · served or queued`;
+    ? `Largest fires · <b>${esc(S.day)}</b> · as published`
+    : `Largest fires · <b>${S.daySource === "live" ? "live sizes" : esc(S.day)}</b> · assigned or waiting (rates simulated)`;
   const fn = $("firesNote");
   if (fn) fn.textContent = S.exercise
     ? `Exercise: sizes and stages of control are invented. Queued fires have no ship; the sixteen simulated hulls are shared by the allocator.`
@@ -105,7 +105,7 @@ export function renderFires() {
     // clickable like every other fire on the map, opening the same published record.
     const top = S.fires.slice().sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8);
     el.innerHTML = `<table class="fleettab" role="grid" aria-describedby="firesNote" ` +
-      `aria-label="Largest fires as published on ${esc(S.day)}: fire, mapped size, status">` +
+      `aria-label="Largest fires as published on ${esc(S.day)}: fire, reported size, status">` +
       `<tbody>` + top.map(f =>
       `<tr class="r-ship" aria-selected="false" data-fid="${esc(f.id)}">` +
       `<td>${esc(f.name || f.geo || f.id)}</td>` +
@@ -123,14 +123,14 @@ export function renderFires() {
   }
   const top = S.fires.filter(needsShip).slice().sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8);
   el.innerHTML = `<table class="fleettab" role="grid" aria-describedby="firesNote" ` +
-    `aria-label="Largest fires served or queued: fire, mapped size, time since the last drop, release rate">` +
+    `aria-label="Largest fires assigned or waiting: fire, reported size, time since the last drop, release rate">` +
     `<tbody>` + top.map(f => {
     const m = f.mission;
     return `<tr class="r-ship" aria-selected="false" data-fid="${esc(f.id)}">` +
       `<td>${esc(f.name || f.geo || f.id)}</td>` +
       `<td style="text-align:right">${f.sizeHa > 0 ? fmt(f.sizeHa) + " ha" : "size unmapped"}</td>` +
       `<td class="dropt" style="text-align:right">…</td>` +
-      `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h" : f.heldOut ? "not flown" : "queued"}</td></tr>`;
+      `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h <small>sim</small>" : f.heldOut ? "not flown" : "queued"}</td></tr>`;
   }).join("") + "</tbody></table>";
   const pick = tr => {
     const f = S.fires.find(x => x.id === tr.dataset.fid);
@@ -177,7 +177,7 @@ export function renderRoster() {
     return;
   }
   const fh = $("fleetH");
-  if (fh) fh.innerHTML = `The fleet · <b>16 hulls</b> · shared`;
+  if (fh) fh.innerHTML = `The fleet · <b>${FLEET.reduce((n, [, count]) => n + count, 0)} simulated hulls</b> · shared`;
   const body = FLEET.map(([clsId, count]) => {
     const ships = S.missions.map((m, i) => ({ m, i })).filter(x => x.m.cls && x.m.cls.id === clsId);
     // P-1000 and P-10000 wear the truth beside their names (operator, 08-13):

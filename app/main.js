@@ -408,7 +408,7 @@ export async function boot() {
     document.querySelector('meta[property="og:title"]').content = "Live fires. A simulated fleet. Arithmetic you can check.";
     document.querySelector('meta[property="og:description"]').content = "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines are modelled to do and what each cycle would cost — not a promise that any fire goes out.";
     document.title = "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed";
-    document.querySelector('meta[name="description"]').content = "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.";
+    document.querySelector('meta[name="description"]').content = "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the largest out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.";
   }
   if (S.exercise) {
     S.layers.places = false;
@@ -419,6 +419,8 @@ export async function boot() {
     mode.style.cssText = "position:static;flex-basis:100%;max-width:100%;background:rgba(8,8,10,.92);padding:4px 6px;border-radius:4px";
     document.title = "Exercise · invented fires · Pink Robotics fleet monitor";
     document.querySelector('meta[name="description"]').content = modeWords();
+    const introTitle = document.querySelector('#introOv .io-tap b');
+    if (introTitle) introTitle.textContent = 'Invented fires · a simulated fleet';
     const mapIntro = document.querySelector('#introOv .io-map');
     if (mapIntro) mapIntro.innerHTML = '<b>The map · exercise</b><p>Every fire is invented. Real terrain and lakes; a simulated fleet. Drag, zoom, select an exercise fire.</p>';
     const fleetIntro = document.querySelector('#introOv .io-fleet p');

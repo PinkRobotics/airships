@@ -79,7 +79,7 @@ export function normalize(firesGJ, perimsGJ) {
     fires.push({
       id: fireNumber(p.FIRE_NUMBER) || p.FIRE_NUMBER || null,
       exercise: S.exercise && p.EXERCISE === true,
-      name: p.INCIDENT_NAME && p.INCIDENT_NAME !== p.FIRE_NUMBER ? p.INCIDENT_NAME : null,
+      name: S.exercise && p.EXERCISE === true ? p.INCIDENT_NAME : fireNumber(p.FIRE_NUMBER),
       geo: p.GEOGRAPHIC_DESCRIPTION || null,
       status: p.FIRE_STATUS, cause: p.FIRE_CAUSE || null,
       sizeHa: p.CURRENT_SIZE || 0,
@@ -413,7 +413,7 @@ export function needsShip(f) {
   // evacuation orders or alerts, is never a candidate whatever its status — those fires are
   // about people, and the page does not replay them with a fleet in the picture. Beyond
   // that, the demonstration responds only to fires actually out of control; held and
-  // under-control fires stay on the map as monitored-only: crews have them.
+  // under-control fires stay on the map with no simulated allocation.
   if (!f || f.guarded) return false;
   return f.status === "Out of Control";
 }
