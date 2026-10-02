@@ -197,6 +197,25 @@ async def note_cases(page, origin, shot_dir):
     print(f'note clean: {clean}')
     await screenshots('clean')
 
+    await page.evaluate("performance.dispatchEvent(new Event('resourcetimingbufferfull'))")
+    overflowed = await wait_note('is full')
+    assert overflowed == (f"{own} The browser's resource log for this page is full; "
+                          'other requests cannot be confirmed.'), overflowed
+    await page.evaluate('performance.clearResourceTimings()')
+    assert await note() == overflowed, 'clearing the log must not erase an observed overflow'
+    print(f'note after buffer-full event: {overflowed}')
+
+    before_mount = await page.evaluate("""(async () => {
+      const {auditFirstPartyNote} = await import('./app/first-party-note.js?before-mount-test');
+      performance.dispatchEvent(new Event('resourcetimingbufferfull'));
+      performance.clearResourceTimings();
+      const probe = document.createElement('p');
+      auditFirstPartyNote(probe);
+      return probe.textContent;
+    })()""")
+    assert before_mount == overflowed, before_mount
+    print(f'note with event before mounting: {before_mount}')
+
     Handler.note_variant = 'module'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     module = await wait_note('edge-module.invalid')
@@ -215,7 +234,8 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'late'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     late = await wait_note('edge-late.invalid')
-    assert late == f'{own} Also requested in this browser, not by that code: edge-late.invalid.', late
+    assert late == (f'{own} Also requested in this browser, not by that code: edge-late.invalid. '
+                    "The browser's resource log for this page is full; other requests cannot be confirmed."), late
     assert any(r['url'].startswith('https://edge-late.invalid/') for r in page.requests), page.requests
     full = await page.evaluate(
         "performance.getEntriesByType('resource').some(e => e.name.includes('edge-late.invalid'))")
@@ -319,7 +339,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--evidence', type=Path, help='write the recorded request log and monitor screenshot')
     parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440 and 390 px')
-    parser.add_argument('--note-only', action='store_true', help='run only the four note cases')
+    parser.add_argument('--note-only', action='store_true', help='run only the note cases')
     args = parser.parse_args()
     records = []
     server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)

@@ -3,6 +3,13 @@
    log for this document. It cannot see a WebSocket, a connection that has not finished, or what a frame
    loads inside itself, so it never says "nothing else was contacted": it says what the log shows. */
 const LOG_DEFAULT_SIZE = 250;   // Resource Timing keeps this many entries by default, then drops new ones
+let resourceLogFull = false;
+const noteRenderers = new Set();
+// Keep the loss of entries even if the log is cleared before the note is first mounted.
+globalThis.performance?.addEventListener?.('resourcetimingbufferfull', () => {
+  resourceLogFull = true;
+  for (const render of noteRenderers) render();
+});
 export function auditFirstPartyNote(note) {
   const hosts = new Set();
   const ownHost = location.hostname.toLowerCase();
@@ -44,6 +51,7 @@ export function auditFirstPartyNote(note) {
   };
   const render = () => {
     try {
+      if (resourceLogFull) logState = "full";
       scanElements();
       scanLog();
       const other = [...hosts].sort();
@@ -65,6 +73,7 @@ export function auditFirstPartyNote(note) {
       note.textContent = "This page's own code talks only to the site that served it. Resource check unavailable.";
     }
   };
+  noteRenderers.add(render);
   render();
   try {
     const observer = new MutationObserver(render);
@@ -73,7 +82,7 @@ export function auditFirstPartyNote(note) {
     if (typeof PerformanceObserver === "function" &&
         PerformanceObserver.supportedEntryTypes?.includes("resource")) {
       // A log that is already full has dropped entries nobody can recover: say so. From here on the
-      // observer is handed every entry itself, whether or not the log has room to keep it.
+      // observer also sees new entries; a buffer-full event still makes the note incomplete.
       const held = scanLog();
       new PerformanceObserver(list => {
         for (const entry of list.getEntries()) add(entry.name);
