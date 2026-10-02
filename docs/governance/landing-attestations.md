@@ -52,3 +52,16 @@
 | Order | sha256 `fed617364ba1b56c…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 5 — The 2026 fire season as a record, a guard on where the fleet is simulated, and an invented exercise for the reference scene
+
+| field | value |
+|---|---|
+| Landed | 2026-10-02 08:33:31 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `d64dedcd75dd9692bde74b14d941f4bf224a3e6f` → `a7d047426d852beaab012184568ea33ea60b438a`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `a7d047426d852beaab012184568ea33ea60b438a`, tree `1370bdb32599a3897e02df56c770c916f2b5e982`, from `pr/batch-b` (source checkout redacted), parent `bad81c650831d56cca8187436fc6b73c8a580e83`, governance `gov-01de49d092fc` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py a7d047426…` → rc=0, HONOURED-XO a7d047426d852beaab012184568ea33ea60b438a — the last record for this sha is XO-SIGNED. (store redacted) |
+| Evidence before landing | `node --test tests/node/run.mjs 3d/tests/builder-line.test.mjs 3d/tests/control.test.mjs 3d/tests/model.test.mjs 3d/tests/parity-consumers.test.mjs 3d/tests/spec-required.test.mjs 3d/tests/state.test.mjs` rc=0 |
+| Tool | `ship/tools/land.py` sha256 `d4ad25b6e0d27bd0…` (informational) |
+| Order | sha256 `c28dd95a406ba105…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
