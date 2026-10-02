@@ -14,7 +14,7 @@ compares two dumps against the files committed in this directory:
                              results, the allocated fleet, 240 samples of the state machine
                              per class, the narration, the built-in selftest
     ui-seed7-snapshot.json   what the page RENDERS: panel text, table text, dial counts,
-                             a pixel digest of the map canvas
+                             visible, nonzero, drawn map canvas
 
 Any difference at all is a failure, including one that is an improvement. Regenerate
 deliberately, read the diff, and commit the new baseline in the same change as the code:

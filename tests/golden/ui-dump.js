@@ -2,8 +2,7 @@
  *
  * The model has a golden file of its own; this covers the half a numeric dump cannot —
  * that the panels, tables, instruments and map still render the same thing. Text is
- * compared exactly; the canvases are compared by a cheap pixel digest, which is enough to
- * catch a layer that stopped drawing or moved. */
+ * compared exactly; the map must remain visible, nonzero and drawn with varied pixels. */
 (async () => {
   const ov = document.getElementById('introOv'); if (ov) ov.click();
   await new Promise(r => setTimeout(r, 4000));
@@ -52,24 +51,6 @@
     const e = document.querySelector(sel);
     return e ? e.textContent.replace(/\s+/g, ' ').trim() : null;
   };
-  const digest = (cv) => {
-    if (!cv || !cv.width) return null;
-    const g = cv.getContext('2d');
-    if (!g) return 'webgl';
-    let d;
-    try {
-      d = g.getImageData(0, 0, cv.width, cv.height).data;
-    } catch (e) {
-      // A canvas read failure is retained in the digest so it cannot appear as a match.
-      return `${cv.width}x${cv.height}:tainted`;
-    }
-    let h = 0, lit = 0;
-    for (let i = 0; i < d.length; i += 4 * 97) {          // every 97th pixel: fast, stable
-      h = (h * 31 + d[i] + d[i + 1] * 3 + d[i + 2] * 7) | 0;
-      if (d[i + 3]) lit++;
-    }
-    return `${cv.width}x${cv.height}:${h}:${lit}`;
-  };
   return JSON.stringify({
     title: document.title,
     roster: txt('#roster'),
@@ -82,16 +63,28 @@
     stats: txt('#stats'),
     dialCount: document.querySelectorAll('.dialgrid svg, #phaseDial svg').length,
     bars: txt('#pwrBars'),
-    /* The map's exact pixel height is not a fact about this application: it varies with
-       the browser's flag set (a sandboxed local run and a CI runner differ by 22 px) and
-       with when the 3D panel finishes mounting. What the gate needs to catch is a canvas
-       that vanished, collapsed, or stopped being drawn into — so the height is recorded to
-       the nearest 50 px and the exact number is left out of the comparison. */
+    /* Height is layout, not a model fact: browser modes can settle at different heights.
+       Still require a visible, nonzero canvas with varied, opaque pixels. A 2D context
+       alone says nothing about whether a map was drawn into it. Width remains pinned. */
     map: (() => {
       const c = document.getElementById('map');
       if (!c) return null;
-      return `${c.width}x~${Math.round(c.height / 50) * 50}:`
-        + (c.getContext('2d') ? 'drawn' : 'no context');
+      const rect = c.getBoundingClientRect();
+      if (!c.width || !c.height || !rect.width || !rect.height) return 'collapsed';
+      if (getComputedStyle(c).visibility === 'hidden') return 'hidden';
+      const g = c.getContext('2d');
+      if (!g) return 'no context';
+      let pixels;
+      try { pixels = g.getImageData(0, 0, c.width, c.height).data; }
+      catch (_) { return 'unreadable'; }
+      let first = null, varied = false;
+      for (let i = 0; i < pixels.length; i += 4 * 97) {
+        if (!pixels[i + 3]) continue;
+        const color = (pixels[i] << 16) | (pixels[i + 1] << 8) | pixels[i + 2];
+        if (first === null) first = color;
+        else if (color !== first) { varied = true; break; }
+      }
+      return `${c.width}:${varied ? 'drawn' : 'blank'}`;
     })(),
     m3dMounted: !!document.querySelector('#m3dView canvas'),
     avatar: (() => { const c = document.getElementById('shipviz');
