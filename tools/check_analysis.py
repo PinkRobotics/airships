@@ -333,6 +333,10 @@ def main() -> None:
         if expected not in row:
             bad.append(f"air-ballast.md: {cid} current share differs from {expected}")
 
+    result = subprocess.run([sys.executable, 'tools/check_member_census.py'], cwd=ROOT)
+    if result.returncode:
+        bad.append('member census and cap readings differ from fresh generation')
+
     if bad:
         print("ANALYSIS GATE FAILED — the notes disagree with their own generated data:\n")
         for b in bad:

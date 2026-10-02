@@ -66,6 +66,8 @@ def main():
         output = scratch / 'ship-scoping.json'
         run([sys.executable, 'tools/ship_scoping.py', '--json', str(output)])
         compare(ANALYSIS / output.name, output)
+        # Measure both new analyses and their paired notes without writing baselines.
+        run([sys.executable, 'tools/check_member_census.py'])
         # The ledger generator owns its paired Markdown/JSON atomic write contract.
         run([sys.executable, 'tools/float_ledger.py', '--check'])
     if stale:

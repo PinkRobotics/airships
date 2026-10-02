@@ -327,3 +327,12 @@ ledgercheck:  ## Fresh ledger equality and explicit altitude/basis binding in pr
 .PHONY: analysisfresh
 analysisfresh:  ## Recompute each analysis in scratch and refuse any changed artifact
 	$(PY) research/analysis/analysis-fresh.py
+
+.PHONY: census censuscheck
+census:  ## Regenerate the drawing/bill record and five cap readings
+	$(PY) research/analysis/member-census.py
+	$(PY) research/analysis/cap-readings.py
+
+censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
+	$(PY) tools/check_member_census.py --self-test
+	$(PY) tools/check_member_census.py
