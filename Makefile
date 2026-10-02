@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static labelledcheck readmecheck clean
+        firstparty firstparty-static labelledcheck readmecheck noticecheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -66,6 +66,12 @@ firstparty-static:  ## Refuse external loading URLs in every served source file
 firstparty: firstparty-static  ## Record browser requests on every served page in three mirror modes
 	node --test tests/firstparty/wind.test.mjs
 	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
+
+noticecheck:  ## Publish to empty scratch and verify third-party records, notices and links
+	$(PY) -m unittest -v tools.tests.test_noticecheck
+	@d=$$(mktemp -d "$${TMPDIR:?set TMPDIR to project scratch}/noticecheck.XXXXXX"); \
+	  trap 'rm -rf "$$d"' EXIT; \
+	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
 check: ciparity lint stampcheck figfresh fallbackcheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
 

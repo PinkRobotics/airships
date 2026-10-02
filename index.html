@@ -462,6 +462,14 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
   color:var(--faint);background:rgba(10,10,12,.82);padding:5px 8px;border-radius:var(--r-sm);
   border:1px solid var(--line);pointer-events:none}
 .mapscale i{display:block;height:2px;background:var(--faint);margin-top:4px}
+.mapcredit{position:absolute;right:var(--s3);bottom:48px;max-width:38ch;
+  padding:6px 8px;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:rgba(10,10,12,.9);color:var(--muted);font:9px/1.32 var(--mono)}
+.mapcredit a{color:var(--text);border-color:var(--warm)}
+footer.noticefooter{position:absolute;right:var(--s3);bottom:2px;z-index:20;
+  padding:0 3px;border:0;background:var(--bg);font:9px/1.3 var(--mono)}
+@media (max-width:1100px){footer.noticefooter{position:static;padding:16px 24px;
+  border-top:1px solid var(--line);font-size:12px}}
 
 /* Monitor controls: quiet segmented rows in the estate's button voice. */
 .monctl{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center;
@@ -658,6 +666,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
   .hud .chip{font-size:10px;padding:3px 7px;max-width:100%;overflow:hidden;
     text-overflow:ellipsis;white-space:nowrap}
   .mapscale{display:none}          /* the legend strip carries the reading now */
+  .mapcredit{position:static;max-width:none;margin:3px var(--s2);font-size:9px}
   /* One scrolling row of chips instead of six stacked lines. */
   .monctl{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
     scrollbar-width:none;gap:var(--s2);margin-top:var(--s2);padding-bottom:2px}
@@ -776,6 +785,8 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
             <i style="background:#ff8c46"></i>satellite heat, 24 h<br>
             <i style="background:#ff4fa3"></i>simulated airship
           </div>
+          <!-- NOTICE-CREDIT START -->
+<!-- NOTICE-CREDIT END -->
           <div class="mapscale" id="scalebar">100 km<i style="width:60px"></i></div>
         </div>
         <div class="monctl" role="group" aria-label="Simulation controls">
@@ -1109,5 +1120,6 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
      it does from there, and there is no build step between the two — the browser
      loads the same modules you read on GitHub. -->
 <script type="module" src="./app/main.js?v=1c9cb41b"></script>
+<footer class="noticefooter"><a href="notices.html">Data, licences and notices</a></footer>
 </body>
 </html>

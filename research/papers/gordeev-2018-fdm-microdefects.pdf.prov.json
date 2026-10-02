@@ -4,10 +4,20 @@
   "source": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0198370&type=printable",
   "catalogue": "https://doi.org/10.1371/journal.pone.0198370",
   "publisher": "PLOS ONE 13(6): e0198370, Public Library of Science",
-  "licence": "Creative Commons Attribution License (CC BY 4.0). The article's own copyright statement: open access, distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+  "licence": "Creative Commons Attribution License",
   "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
   "attribution": "Gordeev EG, Galushko AS, Ananikov VP (2018) Improvement of quality of 3D printed objects by elimination of microscopic structural defects in fused deposition modeling. PLoS ONE 13(6): e0198370. https://doi.org/10.1371/journal.pone.0198370",
   "retrievedAt": "2026-08-10T15:58:00Z",
   "generator": null,
-  "notes": "The only open-access measurement found of gas flow through as-printed FDM walls, and the basis for this project's position that the printed strut is structure, not the vacuum barrier. Caveats that ride on every number taken from it: the test articles are PLA printed through a 0.30 mm nozzle (not CF-nylon through 0.6 mm); the sealing test is a bubble/volumetric test at about 0.5 bar overpressure, sensitive to roughly mL/s flows - 9-10 orders of magnitude coarser than a vacuum leak budget in the 1e-5 mbar.L/s class, so 'completely blocked' in this paper does not mean vacuum-tight; the k = 0.98 threshold and the wall-thickness series (~0.5 mm perimeter-only walls often untenable at any k; >= 1.1 mm walls seal via a homogeneous inner layer) are from one lab, one printer, one slicer. Retrieved with curl -sL from the publisher; 18410846 bytes, sha256 d6c71ffaf7500051b19147086b7110ac8ece376191ee10d8ae6c5b90295d7066. generator is null because no script in pipeline/ produces this file."
+  "notes": "The only open-access measurement found of gas flow through as-printed FDM walls, and the basis for this project's position that the printed strut is structure, not the vacuum barrier. Caveats that ride on every number taken from it: the test articles are PLA printed through a 0.30 mm nozzle (not CF-nylon through 0.6 mm); the sealing test is a bubble/volumetric test at about 0.5 bar overpressure, sensitive to roughly mL/s flows - 9-10 orders of magnitude coarser than a vacuum leak budget in the 1e-5 mbar.L/s class, so 'completely blocked' in this paper does not mean vacuum-tight; the k = 0.98 threshold and the wall-thickness series (~0.5 mm perimeter-only walls often untenable at any k; >= 1.1 mm walls seal via a homogeneous inner layer) are from one lab, one printer, one slicer. Retrieved with curl -sL from the publisher; 18410846 bytes, sha256 d6c71ffaf7500051b19147086b7110ac8ece376191ee10d8ae6c5b90295d7066. generator is null because no script in pipeline/ produces this file.",
+  "decision": "redistributed",
+  "licenceStatement": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+  "licenceEvidence": "research/papers/gordeev-2018-fdm-microdefects.pdf, PDF page 1; read locally with pdftotext (line wraps joined).",
+  "licenceReason": "Release rehearsal retained this paper; this repair does not re-adjudicate that decision.",
+  "redistributed": true,
+  "publicationStatus": "KEEP: redistribution decision inherited from the release rehearsal.",
+  "sha256": "d6c71ffaf7500051b19147086b7110ac8ece376191ee10d8ae6c5b90295d7066",
+  "measurements": {
+    "bytes": 18410846
+  }
 }

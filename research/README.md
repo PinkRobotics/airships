@@ -14,10 +14,10 @@ anyone's word for it.
 research/
   figures.json        every published figure, GENERATED from the model — never hand-edited
   sources.json        the catalogue: one entry per source, with its licence and what we take
-  papers/            source PDFs we are allowed to redistribute, plus a .prov.json each
+  papers/            source PDFs and per-file provenance / release decisions
   notes/             one note per source: what it says, what we used, where we disagree
   analysis/          questions about the VEHICLE, worked: a script and a note each
-  prior/             this project's own earlier documents, kept as written
+  prior/             earlier project documents; some withheld pending author review
   reports/           the three documents written from all of the above
 ```
 
@@ -51,18 +51,18 @@ should not claim it.
 record — authors, venue, year, DOI, licence, and *what we take from it* — for every source,
 including the ones behind a paywall. What varies is whether a PDF sits in `papers/`.
 
-**3. Only redistributable PDFs are stored.** This repository is going public, and a folder of
-scraped paywalled papers is both a licence breach and an embarrassment in front of exactly the
-readers we are asking to check our work. The test is per-item and recorded in the entry's
-`redistributable` field with the reason:
+**3. Each file has a release decision in its sidecar.** Working-tree presence is not a
+redistribution grant. The release rehearsal's decisions are recorded as `redistributed`,
+`link-only`, `withheld`, or `to-confirm`. Public releases keep only `redistributed` files;
+excluded originals leave their hashes and source records behind. Nonstandard terms need
+a person's confirmation. The generated `NOTICE`, `DATA-SOURCES.md`, and `notices.html`
+carry all file records, clearly distinguishing credits from exclusions.
 
-- **Yes** — public domain (US Government works: NASA NTRS, USGS, DOE, NIST, USDA FS), Crown/Open
-  Government Licence works with attribution, and explicit open licences (CC BY, CC0).
-- **No** — everything else: AIAA, Elsevier, Springer, Wiley, Science, most of Nature. Catalogued
-  with a DOI and a note, never copied.
-
-An arXiv posting is not automatically redistributable: the default arXiv licence grants arXiv a
-licence to distribute, not us. Check the item's own licence line.
+`research/papers/README.md` documents the exact folder rule, project-owned exceptions,
+and sidecar schema. `make noticecheck` checks records, hashes, notices and the served copy;
+`python3 tools/noticecheck.py --public` also refuses excluded originals still present.
+The sidecar decision is authoritative for release, not a catalogue's older permission claim.
+An arXiv posting or a freely accessible government-hosted manuscript is not itself a grant.
 
 **4. A note is written from the source, not from its abstract.** `notes/` says what the source
 actually establishes, which of our numbers touch it, and — the useful part — where it does *not*
@@ -71,8 +71,8 @@ citation, because it launders an assumption into a fact.
 
 **5. Our own earlier documents are evidence too, and are kept as written.** `prior/` holds the
 project's previous concept papers unedited, including the parts later work contradicts. They are
-dated and superseded, not corrected in place: the record of what was believed and when is part of
-what makes the current numbers checkable.
+dated and superseded, not corrected in place. The two documents identified in `prior/README.md`
+are withheld from the public tree pending author review; their sidecars retain the record.
 
 ## Where this is published
 

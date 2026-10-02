@@ -22,6 +22,7 @@ served    model-lab           the 3D development lab (noindex; linked from the 3
 served    sim                 the model — the whole point of publishing source
 served    app                 the monitor application
 served    data                terrain, water, outline, offline snapshots
+served    data/live/README.md server-owned mirror contract; feed JSON remains excluded
 served    media               vehicle renders used by the pages
 
 # 3d/ is served, but not all of it: see PARTIAL below.
@@ -43,16 +44,20 @@ excluded  GOALS.md            what the project is working toward, and in what pr
 excluded  CONTRIBUTING.md     —
 excluded  CODE_OF_CONDUCT.md  —
 excluded  SECURITY.md         —
-excluded  LICENSE             —
-excluded  NOTICE              —
-excluded  DATA-SOURCES.md     —
+served    LICENSE             Apache-2.0 licence for the source code
+served    NOTICE              redistribution notices for third-party material
+served    DATA-SOURCES.md     source, transformation and licence details for bundled data
+served    notices.html        generated data, licences and notices page
 excluded  CHANGELOG.md        —
 excluded  .editorconfig       —
 excluded  .claude             local agent tooling settings; machine-specific and never tracked
+excluded  inputs              read-only audit inputs from another desk
+excluded  HANDUP.md           lane hand-up, not site content
 
 # Paths inside a served directory that stay behind anyway. A test page and a probe harness
 # on a production hostname are an invitation, and the raster exports are regenerable bulk.
 PARTIAL   3d/tests            test harness
+PARTIAL   ship/_hero_test.html private hero test harness
 PARTIAL   3d/scripts          build and probe scripts
 PARTIAL   3d/assets/raster    regenerable exports
 PARTIAL   3d/assets/renders   GPU captures of the vehicle. Nothing in the served tree imports

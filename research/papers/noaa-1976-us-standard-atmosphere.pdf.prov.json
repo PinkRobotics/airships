@@ -9,5 +9,15 @@
   "attribution": "U.S. Standard Atmosphere, 1976, NOAA-S/T 76-1562, NOAA / NASA / USAF, Washington DC, October 1976.",
   "retrievedAt": "2026-08-09T00:54:00Z",
   "generator": null,
-  "notes": "18 MB is by far the largest file in this folder and the project uses perhaps six numbers from it - 1.225 kg/m3, 288.15 K, 101,325 Pa, 6.5 K/km, 9.80665 m/s2 and R = 287.053 J/kg.K. It is stored whole anyway, because sim/atmosphere.js now decides every published lift figure and the constants in it should be traceable to the document rather than to a web page that quotes it. A scanned government publication is also exactly the kind of thing that quietly disappears behind a redesign. If this repository ever needs to shed weight, this is the first file to reconsider. Retrieved unmodified with curl -sL; 18101069 bytes, sha256 23eb6b68346d4abc6071fc598872d51c40cf8c613d1a5d1006c6261bcd09dcea. generator is null because no script in pipeline/ produces this file."
+  "notes": "18 MB is by far the largest file in this folder and the project uses perhaps six numbers from it - 1.225 kg/m3, 288.15 K, 101,325 Pa, 6.5 K/km, 9.80665 m/s2 and R = 287.053 J/kg.K. It is stored whole anyway, because sim/atmosphere.js now decides every published lift figure and the constants in it should be traceable to the document rather than to a web page that quotes it. A scanned government publication is also exactly the kind of thing that quietly disappears behind a redesign. If this repository ever needs to shed weight, this is the first file to reconsider. Retrieved unmodified with curl -sL; 18101069 bytes, sha256 23eb6b68346d4abc6071fc598872d51c40cf8c613d1a5d1006c6261bcd09dcea. generator is null because no script in pipeline/ produces this file.",
+  "decision": "redistributed",
+  "licenceStatement": "Public domain / government public use permitted. NTRS records this item's copyright determinationType as GOV_PUBLIC_USE_PERMITTED and its distribution as PUBLIC.",
+  "licenceEvidence": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json; previously recorded terms reference: https://ntrs.nasa.gov/api/citations/19770009539 (publisher page not re-read in this repair).",
+  "licenceReason": "Release rehearsal retained this paper; this repair does not re-adjudicate that decision.",
+  "redistributed": true,
+  "publicationStatus": "KEEP: redistribution decision inherited from the release rehearsal.",
+  "sha256": "23eb6b68346d4abc6071fc598872d51c40cf8c613d1a5d1006c6261bcd09dcea",
+  "measurements": {
+    "bytes": 18101069
+  }
 }
