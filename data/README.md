@@ -16,7 +16,7 @@ Recompute every current count without network access: `python3 tools/noticecheck
 | `roads-bc.json` | 86,265 | 306 polylines, 4,823 vertices | pipeline/vectors.py |
 | `season/2026.guard.json` | 6,382 | See source record | Pinned capture; no generator |
 | `season/2026.json` | 489,027 | See source record | pipeline/season.py |
-| `season/2026.days.json` | 13,868 | See source record | pipeline/season.py |
+| `season/2026.days.json` | 13,930 | See source record | pipeline/season.py |
 | `season/2026.summary.json` | 22,548 | See source record | pipeline/season.py |
 | `season/days/2026-08-08/fires.json` | 48,626 | See source record | pipeline/season.py |
 | `season/days/2026-08-08/perims.json` | 60,148 | See source record | pipeline/season.py |
@@ -143,7 +143,7 @@ gave it at that moment, and the mapped perimeters.
 | 2026-08-15 | mirror history | 2026-08-16T05:10:01Z | 131 | 74 |
 | 2026-09-20 | mirror history | 2026-09-20T22:37:14Z | 96 | 69 |
 | 2026-09-22 | mirror history | 2026-09-22T20:02:55Z | 103 | 74 |
-| 2026-10-01 | capture | 2026-10-02T02:01:28Z | 86 | 67 |
+| 2026-10-01 | capture | 2026-10-02T06:41:18Z | 86 | 67 |
 
 The copy for 9 August was taken at 05:48 UTC on the 10th, which is 22:48 on the 9th in
 British Columbia. The local date is the key, here and in the season file: the source stores
@@ -320,6 +320,10 @@ history is looked for at `../../mirror-history` from the capture folder, or wher
 `--mirror-history` says. `--through` adds every complete sibling capture up to that date as
 a status day and leaves the season record pinned to its own capture. Pointing the command at
 a newer capture folder re-pins the season record instead, and the totals above move.
+The provenance sidecar records every capture folder used and a digest of all its files,
+including superseded captures. Raw checks use exactly those folders: additional captures
+are named as information and ignored; a missing or changed recorded folder fails.
+Regeneration without `--check` deliberately adopts eligible new captures.
 
 What `--check` can prove without the raw inputs: that every derived value (the local dates,
 the flags, the placements, the summary, the index, the provenance) is what the generator

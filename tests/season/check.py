@@ -87,7 +87,7 @@ PINS = {
     # that can be checked on a machine that does not have them.
     "captureManifestSha256": "0545dd49269aab70af6b57232b6038329e1198be40b5a537ed8bf0b284634842",
     "recordsSha256": "3d25125d372b31709ec14ad913645c2e2c08856a1c959078b076190fc8424992",
-    "dayFilesSha256": "11d0b77f9e69490e302f5bbe78b93260cfb081be0b5d1c23effd1f0b9c5d4d73",
+    "dayFilesSha256": "9e523a0f0844de2f46b082d36ef5adbf13347d30508370fa20da013dc14c9a9c",
     # Facts only the raw inputs can show. Checked when SEASON_CAPTURE is set.
     "generalisation": {"mirrorHistory": 97, "snapshot": 24},
     "everyDatedRecord": {"fires": 251, "inSeasonFile": 249,
