@@ -174,7 +174,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Decision reason:** Project-authored synthetic data, describing no real fire.
 
-**Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to enclosing discs of every guard and season-note observation and captured perimeter, on every captured date; guard places on all dates. Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
+**Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the fires on the guard list and of the season&#x27;s wildfires of note, on every captured date; guard places on all dates. Fires on neither list reject nothing: the nearest captured outline of one is 3.1 km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
 
 **Measured contents:** 174,557 bytes
 
@@ -2382,7 +2382,9 @@ The generator rejects footprints outside the bundled provincial outline, over bu
 water, within 150 km of any guard entry or season fire of note, or within 25 km of a
 listed community. It applies a further 45 km community clearance for placement so the
 model's 40 km community-naming logic cannot name a real community in the exercise.
-Historical outlines are enclosed conservatively for these distance checks. These are
+Historical outlines of those fires are enclosed conservatively for these distance checks.
+Fires on neither list reject nothing: the sidecar records how near the nearest captured
+outline of one comes to an exercise footprint (`nearestOtherFire`). These are
 checks against the repository's dated data and named community list, not a complete
 settlement inventory or a survey of terrain. The terrain image is a hillshade, not an
 altitude field. Real water comes from `water-bc.json`; no wind or satellite heat is invented.

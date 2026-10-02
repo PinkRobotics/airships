@@ -76,7 +76,14 @@ def geography_from_the_committed_file():
             minima[k]=min(minima[k],v)
         assert -125.5<=ll[0]<=-121.5 and 57<=ll[1]<=59.8, 'outside stated region'
         assert gen.on_land(c,ll,radius), f"{p['FIRE_NUMBER']}: footprint crosses the outline or bundled water"
-    return '; '.join(f'{k} >= {v:.3f}' for k,v in minima.items())+' km; every footprint on bundled land'
+    # The record says in words that fires on neither list reject nothing, and how near the
+    # nearest one is. Held here: that fire really is on neither list, and the sentence
+    # carries the recorded distance (--check holds the distance itself to the generator).
+    prov=gen.read('data/exercise/exercise.prov.json'); near=prov['nearestOtherFire']
+    assert near['fire'] not in c['excluded'], f"{near['fire']} is on an exclusion list, so it is not 'another fire'"
+    assert f"is {near['km']:.1f} km from an exercise footprint" in prov['distanceBasis'], 'the stated distance is not the recorded one'
+    assert 'Fires on neither list reject nothing' in prov['notes'], 'the notice lost the sentence about other fires'
+    return '; '.join(f'{k} >= {v:.3f}' for k,v in minima.items())+f" km; every footprint on bundled land; nearest fire on neither list {near['km']:.3f} km"
 
 
 EXTRA = r"""

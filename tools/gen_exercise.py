@@ -74,6 +74,9 @@ def context():
     # Centres and enclosing discs for EVERY captured outline, not just the latest view.
     # The conservative bound keeps the entire invented footprint 150 km away.
     discs = {n: [] for n in guarded | noted}
+    # Outlines of fires on NEITHER list. They reject nothing; they are kept so the record can
+    # say how near the nearest one comes (nearest_other), instead of leaving it unsaid.
+    others = []
     for f in season:
         if f['fire'] in discs:
             discs[f['fire']].append(([f['lon'], f['lat']], math.sqrt(max(f['hindsightSizeHa'] or 0, 10)/math.pi)/10))
@@ -91,16 +94,18 @@ def context():
                 discs[n].append((f['geometry']['coordinates'][:2], math.sqrt(max(p['CURRENT_SIZE'] or 0, 10)/math.pi)/10))
         for f in perims:
             n = f['properties']['FIRE_NUMBER']; g = f['geometry']
-            if n not in discs or not g: continue
+            if not g: continue
             polys = g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]
             for poly in polys:
-                ring = poly[0]; ll = ring[0]
-                discs[n].append((ll, max(hav(ll,p) for p in ring)))
+                ring = poly[0]; ll = ring[0]; reach = max(hav(ll,p) for p in ring)
+                if n in discs: discs[n].append((ll, reach))
+                else: others.append((n, d['date'], ring, reach))
     assert all(discs[n] for n in guarded | noted), 'unresolved exclusion entry'
     communities = json.loads(re.sub(r',\s*]', ']', re.search(r'export const CITIES = (\[.*?\]);', (ROOT/'sim/communities.js').read_text(), re.S)[1]))
     water = read('data/water-bc.json')['water']
     return dict(days=days, guard=[d for n in sorted(guarded) for d in discs[n]] + [(p['ll'],0) for p in guard['places']],
                 note=[d for n in sorted(noted) for d in discs[n]], communities=[c[:2] for c in communities],
+                excluded=sorted(guarded | noted), others=others,
                 outline=read('data/bc-outline.json'), water=water,
                 sources={p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
@@ -109,6 +114,26 @@ def distances(c, ll, radius=0):
     return {"guardKm": min(hav(ll,p)-r-radius for p,r in c['guard']),
             "seasonNoteKm": min(hav(ll,p)-r-radius for p,r in c['note']),
             "communityKm": min(hav(ll,p)-radius for p in c['communities'])}
+
+
+def nearest_other(c, footprints):
+    """How near the exercise comes to a captured outline of a fire on neither exclusion list.
+
+    A record, not a rule: those fires reject no candidate. footprints is (number, centre, ring
+    or None, radius in km). The distance is edge to edge and errs low (edge_km takes 2% off);
+    it is zero where two footprints touch."""
+    best = math.inf; who = None
+    for n, date, ring, reach in c['others']:
+        for num, ll, own, radius in footprints:
+            if .98 * (hav(ll, ring[0]) - reach - radius) >= best: continue
+            if own:
+                km = 0.0 if any(inside(p, ring) for p in own) or any(inside(p, own) for p in ring) else \
+                    min(min(edge_km(p, ring) for p in own), min(edge_km(p, own) for p in ring))
+            else:
+                km = 0.0 if inside(ll, ring) else max(0.0, edge_km(ll, ring) - radius)
+            if km < best: best = km; who = {'fire': n, 'captured': date, 'exerciseFire': num}
+    assert who, 'no captured outline of a fire outside the exclusion lists'
+    return {**who, 'km': round(best, 3)}
 
 
 def on_land(c, ll, radius):
@@ -159,7 +184,7 @@ def draw_quantiles(rng, qs, log=False):
 def generate():
     c=context(); prepare_water(c); fitted=fit(c); rng=random.Random(SEED)
     count=round(draw_quantiles(rng,fitted['countQuantiles']))
-    bbox=REGION['bbox']; fires=[]; perims=[]; minima={k:math.inf for k in LIMITS}; attempts=0
+    bbox=REGION['bbox']; fires=[]; perims=[]; minima={k:math.inf for k in LIMITS}; attempts=0; footprints=[]
     while len(fires)<count:
         # Size and stage are drawn once per fire; geography rejection does not bias their mix.
         size=round(draw_quantiles(rng,fitted['sizeHaQuantiles'],True),3)
@@ -181,18 +206,21 @@ def generate():
         i=len(fires)+1; number=f'EX{i:03d}'; name=f'Exercise {i:03d}'
         props={'FIRE_NUMBER':number,'INCIDENT_NAME':name,'FIRE_STATUS':status,'CURRENT_SIZE':size,'EXERCISE':True}
         fires.append({'type':'Feature','geometry':{'type':'Point','coordinates':ll},'properties':props})
+        footprints.append([number,ll,None,radius+.002])
         if size>=80:
             ring=[[round(ll[0]+x*scale/(111.195*math.cos(math.radians(ll[1]))),6),round(ll[1]+y*scale/111.195,6)] for x,y in unit]
-            ring.append(ring[0])
+            ring.append(ring[0]); footprints[-1][2]=ring
             perims.append({'type':'Feature','geometry':{'type':'Polygon','coordinates':[ring]},
                            'properties':{'FIRE_NUMBER':number,'INCIDENT_NAME':name,'EXERCISE':True,'FIRE_SIZE_HECTARES':size}})
+    near=nearest_other(c,footprints)
     doc={'kind':'exercise','seed':SEED,'label':MODE,'note':NOTE,'region':REGION,
          'fires':{'type':'FeatureCollection','features':fires},'perimeters':{'type':'FeatureCollection','features':perims}}
     prov={'file':'exercise.json','kind':'file','dataKind':'exercise','generator':'tools/gen_exercise.py','seed':SEED,'region':REGION,'count':count,
           'label':MODE,'note':NOTE,'fit':fitted,'minimumDistancesKm':{k:round(v,3) for k,v in minima.items()},
           'limitsKm':LIMITS,'placementCommunityClearanceKm':45,'attempts':attempts,'sourcesSha256':c['sources'],
           'geometry':'32-vertex radial polygons at >=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field.',
-          'distanceBasis':'Conservative minimum clearances from the whole exercise footprint to enclosing discs of every guard and season-note observation and captured perimeter, on every captured date; guard places on all dates. Communities are exactly sim/communities.js, not a complete settlement inventory.',
+          'distanceBasis':'Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the fires on the guard list and of the season\'s wildfires of note, on every captured date; guard places on all dates. Fires on neither list reject nothing: the nearest captured outline of one is '+format(near['km'],'.1f')+' km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory.',
+          'nearestOtherFire':near,
           'wind':'Still air; no invented forecast.','authorship':'Project-generated synthetic data; source licences remain in data/README.md and DATA-SOURCES.md.'}
     prov.update(source=list(c['sources']), publisher='Pink Robotics',
                 licence='Apache-2.0', licenceUrl='LICENSE',
