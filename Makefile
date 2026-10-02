@@ -73,7 +73,7 @@ noticecheck:  ## Publish to empty scratch and verify third-party records, notice
 	  trap 'rm -rf "$$d"' EXIT; \
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
-check: ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
+check: ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -340,3 +340,11 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 .PHONY: ledgercheck-selftest
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
+
+.PHONY: floatpages floatpagecheck
+floatpages:
+	$(PY) tools/gen_float_pages.py --write
+
+floatpagecheck:  ## Float pages equal a fresh render of their documents (write them: make floatpages)
+	$(PY) tools/gen_float_pages.py --check
+	$(PY) -m unittest discover -s tools/tests -p 'test_float_pages.py'

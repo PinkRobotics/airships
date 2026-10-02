@@ -74,6 +74,10 @@ A missing owner or anchor is a record error; an edited block loses its dispositi
 The gate also refuses a stale generated deferred list.
 The gate itself is `make ledgercheck`, which calls `apply()` below. A block that fits no
 class is a question for whoever rules the wording: it is left failing, never forced.
+
+The three pages under float/ are not inventoried, exactly as the generated
+docs/FLOAT-LEDGER.md is not: `make floatpagecheck` holds each to a fresh render of its
+document, whose review it inherits.
 """
 from __future__ import annotations
 import argparse

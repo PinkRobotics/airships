@@ -11,6 +11,10 @@ not pass by matching an unrelated number. A prose block can bind explicitly with
 The stated value must occur in the visible text, match that exact field at its printed
 precision, and have an altitude in the sentence/table/block, plus factors or a ledger
 link. A ledger link does NOT replace an explicit altitude for a float ratio.
+
+The three pages under float/ are not inventoried, exactly as the generated
+docs/FLOAT-LEDGER.md is not: `make floatpagecheck` holds each to a fresh render of its
+document, whose review it inherits.
 """
 from __future__ import annotations
 import argparse
