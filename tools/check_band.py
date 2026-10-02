@@ -20,7 +20,7 @@ import json
 import pathlib
 import subprocess
 import sys
-import tempfile
+from browser_scratch import browser_scratch
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REL_TOL = 1e-9
@@ -56,7 +56,7 @@ def main() -> None:
     vc = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(vc)
 
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+    with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
         probe.write_text(PROBE)
         out = pathlib.Path(td) / "out.json"

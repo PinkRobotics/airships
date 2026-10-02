@@ -6,7 +6,7 @@ This repository studies whether an evacuated hull could carry water to a fire, u
 
 ## Four checks: about 20 minutes with the full gate
 
-From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The checks need those installed; the pages themselves need only a local HTTP server. These are measured times on one prepared machine, not a promise for a cold machine. The full check took the stranger 11m32s; the four steps together take about 20 minutes on that prepared machine.
+From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The full check needs Node; the browser fallback skips filesystem-dependent suites. The checks need those installed; the pages themselves need only a local HTTP server. These are measured times on one prepared machine, not a promise for a cold machine. The full check took the stranger 11m32s; the four steps together take about 20 minutes on that prepared machine.
 
 1. **Run the gates (about 12 minutes; browser and PDF tools required).**
 

@@ -77,16 +77,16 @@ class StrangerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             run = Path(td)
             env = stranger.clean_environment(run)
-            self.assertEqual(list((run / 'home').iterdir()), [run / 'home/tmp'])
-            self.assertEqual(list((run / 'home/tmp').iterdir()), [])
+            self.assertEqual(list((run / 'home').iterdir()), [])
             (run / 'Makefile').write_text(
                 'red:\n\t@echo intentional-red; exit 7\n'
                 'green:\n\t@test -z "$$STRANGER_TEST_SECRET"\n'
-                '\t@test -d "$$HOME/tmp"\n\t@test -d "$$TMPDIR"\n\t@echo green-after-red\n')
+                '\t@test ! -e "$$HOME/tmp"\n\t@test -d "$$TMPDIR"\n\t@echo green-after-red\n')
             with patch.dict(os.environ, {'STRANGER_TEST_SECRET': 'must-not-leak'}), redirect_stdout(io.StringIO()):
                 gates = stranger.run_gates(run, ['red', 'green'], env, [], 10, lambda s: s)
             self.assertEqual([g['status'] for g in gates], ['fail', 'pass'])
             self.assertTrue(any('green-after-red' in line for line in gates[1]['output_tail']))
+            self.assertEqual(list((run / 'home').iterdir()), [])
             self.assertNotEqual(stranger.report_exit({'errors': [], 'gates': gates}), 0)
             self.assertEqual(stranger.report_exit({'errors': [], 'gates': gates[1:]}), 0)
             for gate in gates:

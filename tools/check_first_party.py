@@ -13,6 +13,9 @@ from urllib.request import Request, build_opener, HTTPRedirectHandler
 LOAD_LINK_RELS = {'stylesheet', 'icon', 'preload', 'modulepreload', 'prefetch',
                   'preconnect', 'dns-prefetch', 'manifest'}
 CSS_URL = re.compile(r'url\(\s*["\']?([^"\')\s]+)', re.I)
+# Textual references, not proof of a request. Include non-loading strings and
+# comments deliberately; the report must not vouch for what a script will do.
+INLINE_ADDRESS = re.compile(r'''(?<![\w:/])(?:[a-z][a-z0-9+.-]*:)?//[^\s"'`<>()[\]{};,]+''', re.I)
 
 
 def browser_user_agent():
@@ -34,6 +37,11 @@ class Loads(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.address, self.base, self.loads = address, address, []
         self.in_style = False
+        self.in_script = False
+
+    def inline_addresses(self, source, text):
+        for match in INLINE_ADDRESS.finditer(text):
+            self.add(source, match.group())
 
     def add(self, source, value):
         if value and not value.lstrip().startswith(('#', 'data:', 'blob:', 'javascript:')):
@@ -45,6 +53,8 @@ class Loads(HTMLParser):
             self.base = urljoin(self.address, attrs['href'])
         if tag == 'style':
             self.in_style = True
+        if tag == 'script':
+            self.in_script = True
         if tag == 'link':
             if set(attrs.get('rel', '').lower().split()) & LOAD_LINK_RELS:
                 self.add('link[href]', attrs.get('href'))
@@ -65,15 +75,21 @@ class Loads(HTMLParser):
             if match:
                 self.add('meta[refresh]', match.group(1))
         for value in [attrs.get('style', '')]:
+            self.inline_addresses('named in an inline style', value)
             for match in CSS_URL.finditer(value):
                 self.add(f'{tag}[style]', match.group(1))
 
     def handle_endtag(self, tag):
         if tag == 'style':
             self.in_style = False
+        if tag == 'script':
+            self.in_script = False
 
     def handle_data(self, data):
+        if self.in_script:
+            self.inline_addresses('named in an inline script', data)
         if self.in_style:
+            self.inline_addresses('named in an inline style', data)
             for match in CSS_URL.finditer(data):
                 self.add('style[url]', match.group(1))
             for match in re.finditer(r'@import\s+["\']([^"\']+)', data, re.I):
@@ -85,7 +101,7 @@ class Loads(HTMLParser):
         for source, raw in self.loads:
             absolute = urljoin(self.base, raw)
             parts = urlsplit(absolute)
-            if parts.scheme in {'http', 'https', 'ws', 'wss'} and parts.hostname != own:
+            if parts.hostname and parts.hostname != own:
                 found.add((parts.hostname, source, absolute))
         return sorted(found)
 
@@ -129,7 +145,7 @@ def main(argv=None):
                 print(f'  FOREIGN {host} {source} {url}')
             failed = True
         else:
-            print('  foreign HTML loads: none')
+            print('  foreign HTML loads or inline addresses: none')
     return int(failed)
 
 

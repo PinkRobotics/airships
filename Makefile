@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static labelledcheck readmecheck noticecheck clean
+        firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -74,6 +74,9 @@ noticecheck:  ## Publish to empty scratch and verify third-party records, notice
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
 check: ciparity lint stampcheck figfresh fallbackcheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
+
+mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
+	node tests/parity/mutations.mjs
 
 readmecheck:  ## Refuse README figures that differ from generated model records
 	$(PY) tools/gen_readme.py --check

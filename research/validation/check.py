@@ -261,7 +261,7 @@ def generate():
                    "This tests the default propEta as an effective aircraft figure of merit, not rotor-only merit.",
                    "Equivalent density altitude is derived from printed pressure altitude and temperature, not reported as measured. "
                    "The low-resolution primary scan warrants medium confidence. One point is not validation of an envelope.",
-                   "Re-run after the energy-model worker changes the public sim/physics.js:diskMW function."],
+                   "Re-run when the public sim/physics.js:diskMW function changes."],
                   "Call the public diskMW at a measured OGE state from Arents' 1977 flight test, leaving its "
                   "efficiency assumption unchanged. Keep the older CH-47D power-rating bounds separately labelled.")
 

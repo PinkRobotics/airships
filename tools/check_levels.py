@@ -31,7 +31,7 @@ import json
 import pathlib
 import subprocess
 import sys
-import tempfile
+from browser_scratch import browser_scratch
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PORT = "8911"          # explorer's in-check server uses 8909, the Makefile's 8899
@@ -115,7 +115,7 @@ def check_page(page, td) -> tuple[list[str], int]:
 
 def main() -> int:
     bad, figs = [], []
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+    with browser_scratch() as td:
         srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
                                 "--port", PORT, "--quiet"], cwd=ROOT)
         try:

@@ -70,9 +70,7 @@ def clean_environment(run):
     home, scratch, bin_dir = run / "home", run / "tmp", run / "bin"
     for path in (home, scratch, bin_dir):
         path.mkdir()
-    # Legacy gates create TemporaryDirectory(dir=Path.home() / 'tmp'). No user state
-    # is seeded: HOME contains only this empty scratch directory before tools start.
-    (home / "tmp").mkdir()
+    # Leave HOME empty: gates must create and clean up their own scratch.
     return {
         "PATH": f"{bin_dir}:{SYSTEM_PATH}", "HOME": str(home), "TMPDIR": str(scratch),
         "AIRSHIPS_TMPDIR": str(scratch), "A3D_CHROME_PROFILE": str(scratch / "3d-profile"),
@@ -270,7 +268,7 @@ def main():
             report["isolation"] = {
                 "environment": "env -i with an explicit allowlist",
                 "environment_keys": sorted(env), "fresh_home": True,
-                "home_seed": "one empty tmp directory; no user configuration copied",
+                "home_seed": "empty; no directories or user configuration seeded",
                 "real_home_hidden": bool(prefix), "bwrap_probes": probes, "container": False,
                 "tool_path": "disposable Node copy plus system executable directories",
                 "scratch": "new directory under caller TMPDIR; removed after report",

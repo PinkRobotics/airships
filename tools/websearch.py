@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""A search-and-fetch helper, for when the assistant's own web tooling is unavailable.
+"""A command-line search-and-fetch helper for reference research.
 
     python3 tools/websearch.py search "query"        # ranked results
     python3 tools/websearch.py get URL [OUT]         # fetch, follow, save
     python3 tools/websearch.py text URL              # fetch and strip to readable text
 
-Uses DuckDuckGo's HTML endpoint, which needs no key. It exists because a session can run
-out of hosted search budget in the middle of a research task, and the research should not
-stop for that. Nothing here is used by the site or by any gate — it is a tool for a person
-(or an assistant) doing the reading.
+Uses DuckDuckGo's HTML endpoint, which needs no key. Nothing here is used by the site
+or by any gate. Search and retrieval are explicit commands; tests use captured references.
 
 Be polite: one request at a time, a real User-Agent, and a short pause between calls.
 """

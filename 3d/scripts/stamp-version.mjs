@@ -4,7 +4,7 @@
  *   node scripts/stamp-version.mjs --check    # fail if the stamp is stale
  *   node scripts/stamp-version.mjs --strip    # remove the stamps
  *
- * WHY THIS EXISTS. pink-edge sits behind Cloudflare, which caches .js for four hours. A no-build
+ * WHY THIS EXISTS. The deployed site sits behind Cloudflare, which caches .js for four hours. A no-build
  * ES-module site cannot cache-bust from the entry point, because a relative specifier resolves
  * against the importing module's URL with the query string DROPPED — so `index.js?v=2` still
  * pulls a stale `model/build.js`. Requesting revalidation does not help either: Cloudflare answers
@@ -40,7 +40,7 @@ const strip = args.includes('--strip');
 /** Every .js in the module tree, plus the HTML entry points that import from it. */
 function walkFiles(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
+    if (name === '.browser-scratch' || name === 'node_modules' || name === 'assets' || name === '.git') continue;
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) walkFiles(p, out);
@@ -59,16 +59,16 @@ const modules = walkFiles(ROOT).filter((p) => !p.includes(`${'scripts'}/`));
  * safety property here, so the set of files it covers cannot be something a person must remember
  * to update.
  *
- * It was still half-listed, and the listed half was wrong. `walkHtml(ROOT)` plus a literal
- * `<site>/airships/model-lab/index.html` — the path the lab page had inside the private website
- * repository. Here the lab is at `model-lab/index.html`, so nothing was at the listed path, the
- * lab was never stamped, and `--check` exited 0 while the lab imported `?v=41bc1f51` against a
+ * It was still half-listed, and the listed half was wrong: `walkHtml(ROOT)` plus a former
+ * deployment path for the lab. Here the lab is at `model-lab/index.html`, so nothing was at
+ * the listed path. The lab was never stamped, and `--check` exited 0 while it imported
+ * `?v=41bc1f51` against a
  * tree that hashed to `f3cb948e`. Discovery is now by RESOLVING each specifier: every HTML page
  * in the repository whose imports land inside this tree is an entry point, wherever it moves.
  */
 function walkHtml(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
+    if (name === '.browser-scratch' || name === 'node_modules' || name === 'assets' || name === '.git') continue;
     const q = join(dir, name);
     let st;
     try { st = statSync(q); } catch { continue; }
@@ -115,7 +115,7 @@ const htmlEntries = walkHtml(SITE).filter(importsTree);
  */
 function walkJs(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === 'assets' || name === '.git') continue;
+    if (name === '.browser-scratch' || name === 'node_modules' || name === 'assets' || name === '.git') continue;
     const q = join(dir, name);
     let st;
     try { st = statSync(q); } catch { continue; }
@@ -162,12 +162,12 @@ for (const p of [...modules, ...htmlEntries, ...jsEntries]) {
 }
 
 /* Pages elsewhere on the site that import this tree are REPORTED, never edited — they belong to
- * another session. An unstamped import there is a stale-cache failure waiting to happen. */
+ * a separate module tree. An unstamped import there is a stale-cache failure waiting to happen. */
 {
   const foreign = [];
   const scan = (dir) => {
     for (const name of readdirSync(dir)) {
-      if (name === 'node_modules' || name === 'assets' || name === '3d') continue;
+      if (name === '.browser-scratch' || name === 'node_modules' || name === 'assets' || name === '3d') continue;
       const q = join(dir, name);
       let st;
       try { st = statSync(q); } catch { continue; }

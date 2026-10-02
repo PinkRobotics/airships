@@ -4,24 +4,13 @@
     python3 tools/node_tests_in_browser.py            # run them
     python3 tools/node_tests_in_browser.py --keep     # leave the harness in place to debug
 
-WHY THIS EXISTS. `make test-node` prints "SKIPPED — no node here" and says the tests are not
-optional, which is honest and completely useless: this repository is developed on a machine
-without node, so those three files are only ever executed by CI, and a break in them is
-discovered by a red badge minutes after a push. That has now happened twice — a pump figure
-pinned at 1.635 MW after the head moved to 300 m, and a test asserting `rtLN2 = 0.50` after
-the round trip was cut to 0.20 for exceeding the exergy of liquid nitrogen. Both were found
-by CI. Both should have been found here.
+This fallback runs browser-compatible 3D suites with a small import-map shim for
+node:test and node:assert. Suites requiring filesystem access are named as skipped;
+a browser cannot enumerate and read the source tree as Node does. The full check
+requires Node, and `make test-node` with Node installed always runs every suite.
 
-Nothing about `3d/tests/*.test.mjs` actually needs node. They import three things node
-provides — `node:test`, `node:assert`, `node:assert/strict` — and everything else from the
-library, which is browser code. So this shims those three specifiers with an import map and
-runs the same files, unmodified, in the Chromium that is already the toolchain.
-
-WHAT THIS IS NOT. It is not a replacement for the CI job. The shim implements the assertions
-the suite actually uses and nothing else; `node --test` remains the authority, and an
-assertion helper added to a test tomorrow may need adding here too — it will fail loudly as
-`A.foo is not a function` rather than passing silently. Treat a green run here as "CI will
-probably be green", which is exactly the signal that was missing.
+Only the assertion helpers used by these tests are implemented. An unsupported
+helper or an unexpected import failure fails the run rather than silently passing.
 
 CHECK THE COUNT. The first version of this file ran 22 of 103 tests and reported green,
 because it reset the registry between files while the cached shim module kept pushing into
@@ -38,7 +27,7 @@ import shutil
 import socket
 import subprocess
 import sys
-import tempfile
+from browser_scratch import browser_scratch
 import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -77,11 +66,14 @@ SHIM_ASSERT = (
     "doesNotThrow=A.doesNotThrow;"
 )
 
-# What `node --test 3d/tests/*.test.mjs` reports. A harness that runs a subset and says green is
-# worse than none: the first version of this file ran 22 and passed. Raise this when the suite
-# grows — in a diff, on purpose.
-EXPECTED_MIN = 101   # was 103: the thruster retirement (2026-08-13) folded three
-                     # blower-behaviour tests into one absence guard (net -2)
+# Explicit exclusions only: new import failures remain failures. These source scans
+# use recursive directory enumeration and synchronous reads, which a browser lacks.
+NODE_ONLY = {
+    'spec-required.test.mjs': 'requires node:fs directory enumeration and synchronous source-file reads',
+}
+# The remaining suites currently register 106 tests. Keep a lower bound so a broken
+# harness cannot silently omit tests, even when a module loads without registering.
+EXPECTED_MIN = 106
 
 # The host div is on screen and sized, because the viewer stops rendering when it is not
 # intersecting and several of these tests build a real scene.
@@ -136,6 +128,10 @@ def main() -> int:
     if not files:
         print('node_tests_in_browser: no 3d/tests/*.test.mjs found', file=sys.stderr)
         return 1
+    for name in files:
+        if name in NODE_ONLY:
+            print(f'SKIP 3d/tests/{name}: {NODE_ONLY[name]} (run with Node).')
+    files = [name for name in files if name not in NODE_ONLY]
     HARNESS.write_text(HARNESS_HTML % {
         't': SHIM_TEST, 'a': SHIM_ASSERT,
         'files': '[' + ','.join(f'"./{f}"' for f in files) + ']',
@@ -144,22 +140,21 @@ def main() -> int:
     port = free_port()
     server = subprocess.Popen([sys.executable, str(ROOT / 'tools' / 'serve.py'), '--port', str(port)],
                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=ROOT)
-    profile = tempfile.mkdtemp(prefix='node-shim-', dir=pathlib.Path.home() / 'tmp'
-                               if (pathlib.Path.home() / 'tmp').is_dir() else None)
     try:
-        time.sleep(1.5)
-        # swiftshader, unsafe explicitly allowed: several of these build a real GL scene and a
-        # headless runner has no GPU. --dump-dom rather than a screenshot because the answer is
-        # text, and the virtual time budget is what lets the whole suite finish before the dump.
-        proc = subprocess.run(
-            [args.chrome, '--headless', '--no-sandbox', '--use-gl=angle',
-             '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
-             f'--user-data-dir={profile}', '--virtual-time-budget=45000', '--dump-dom',
-             f'http://127.0.0.1:{port}/3d/tests/{HARNESS.name}'],
-            capture_output=True, text=True, timeout=300)
+        with browser_scratch(args.chrome) as profile:
+            time.sleep(1.5)
+            # swiftshader, unsafe explicitly allowed: several of these build a real GL scene and a
+            # headless runner has no GPU. --dump-dom rather than a screenshot because the answer is
+            # text, and the virtual time budget is what lets the whole suite finish before the dump.
+            proc = subprocess.run(
+                [args.chrome, '--headless', '--no-sandbox', '--use-gl=angle',
+                 '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
+                 f'--user-data-dir={profile}', '--virtual-time-budget=45000', '--dump-dom',
+                 f'http://127.0.0.1:{port}/3d/tests/{HARNESS.name}'],
+                capture_output=True, text=True, timeout=300)
     finally:
         server.terminate()
-        shutil.rmtree(profile, ignore_errors=True)
+        server.wait()
         if not args.keep:
             HARNESS.unlink(missing_ok=True)
 
@@ -174,10 +169,10 @@ def main() -> int:
     ran = sum(int(n) for n in re.findall(r'(?:pass|fail)=(\d+)', head))
     if ran < EXPECTED_MIN:
         print(f'\nnode_tests_in_browser: only {ran} of {EXPECTED_MIN} tests ran. The harness is '
-              'not seeing the whole suite — fix that before trusting this result.', file=sys.stderr)
+              'not seeing all browser-compatible tests — fix that before trusting this result.', file=sys.stderr)
         return 1
     if not head.startswith('RESULT') or ' fail=0' not in head:
-        print('\nnode_tests_in_browser: CI runs these on every push and will fail the same way.',
+        print('\nnode_tests_in_browser: browser-compatible tests failed; see diagnostics above.',
               file=sys.stderr)
         return 1
     return 0

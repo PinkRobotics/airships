@@ -18,7 +18,7 @@ import json
 import pathlib
 import subprocess
 import sys
-import tempfile
+from browser_scratch import browser_scratch
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PY_JSON = ROOT / "research" / "analysis" / "vacuum-cell.json"
@@ -102,7 +102,7 @@ def main() -> None:
         sys.exit("check_cell_parity: run `make analysis` first — vacuum-cell.json is missing.")
     py = json.loads(PY_JSON.read_text())
 
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+    with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
         # The graded-pressure comparison must use the SAME wall value the Python used —
         # figures.json's, not a fresh rhoAir(2500) that rounds differently in the last digit.

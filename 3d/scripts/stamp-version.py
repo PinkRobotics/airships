@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Faithful port of stamp-version.mjs for machines without node (this box has none).
+"""Faithful port of stamp-version.mjs for machines without node.
 
 Same algorithm, same regexes, same output: the version is sha256 over the STRIPPED contents
 of every module (sorted by absolute path), truncated to 8 hex chars; every relative .js/.mjs
@@ -26,7 +26,7 @@ SITE = ROOT.parent
 check = "--check" in sys.argv
 strip = "--strip" in sys.argv
 
-SKIP_DIRS = {"node_modules", "assets", ".git"}
+SKIP_DIRS = {".browser-scratch", "node_modules", "assets", ".git"}
 
 
 def walk(dir_, suffixes):
@@ -66,8 +66,8 @@ def imports_tree(page):
 
 
 # HTML entry points are DISCOVERED by resolving their import specifiers, not listed by path.
-# The list was `walk(ROOT)` plus a literal <site>/airships/model-lab/index.html — the path the
-# lab page had inside the private website repository. Nothing is at that path here, so the lab
+# The list once combined `walk(ROOT)` with a former deployment path for the lab.
+# Nothing is at that path here, so the lab
 # was neither stamped nor checked: it imported `?v=41bc1f51` while the tree hashed to
 # `f3cb948e`, and `--check` still exited 0. Resolving the specifier finds the page wherever it
 # is, which is the only form of this list that a later move cannot silently empty.

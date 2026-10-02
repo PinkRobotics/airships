@@ -1,4 +1,4 @@
-# Hover measurement search, order 9c
+# Hover measurement search
 
 Read-only web search on 2026-10-01, confined to a primary hover flight test. No emergency
 feed was requested. Search queries, in order (three batches after the initial batch):
@@ -42,4 +42,4 @@ The prewritten 5% screening tolerance is not test-instrument uncertainty. Compar
 weight-supported ideal power divided by the project's unchanged efficiency to total
 engine power tests an **effective aircraft** figure of merit. It includes losses the
 model does not separately represent. It is not a rotor-only efficiency measurement.
-Re-run when the energy-model worker changes sim/physics.js:diskMW.
+Re-run when sim/physics.js:diskMW changes.

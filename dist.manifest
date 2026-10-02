@@ -51,8 +51,8 @@ served    notices.html        generated data, licences and notices page
 excluded  CHANGELOG.md        —
 excluded  .editorconfig       —
 excluded  .claude             local agent tooling settings; machine-specific and never tracked
-excluded  inputs              read-only audit inputs from another desk
-excluded  HANDUP.md           lane hand-up, not site content
+excluded  inputs              local audit inputs, not site content
+excluded  HANDUP.md           local verification record, not site content
 
 # Paths inside a served directory that stay behind anyway. A test page and a probe harness
 # on a production hostname are an invitation, and the raster exports are regenerable bulk.
@@ -67,3 +67,6 @@ PARTIAL   3d/assets/renders   GPU captures of the vehicle. Nothing in the served
 PARTIAL   data/live           written on the server every ten minutes by pipeline/live.py;
                               publishing the repository's copy would push stale fire data
                               over a fresh mirror
+
+excluded  .browser-scratch    disposable browser profiles and probes, including interrupted runs
+excluded  .xo-evidence        local verification commands and outputs, not site content

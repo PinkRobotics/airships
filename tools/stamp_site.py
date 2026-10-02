@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # cell/ joined sim/ and app/ on 2026-08-11: its pages go through the same CDN, and its
 # hand-typed ?v=1 / ?v=3 stamps were exactly the manual versioning this tool exists to end.
 OWNED = ("sim", "app", "cell", "ship", "engineering")
-SKIP_DIRS = {"node_modules", "assets", ".git", "3d", "data", "pipeline", "tools", "docs"}
+SKIP_DIRS = {".browser-scratch", "node_modules", "assets", ".git", "3d", "data", "pipeline", "tools", "docs"}
 
 check = "--check" in sys.argv
 strip = "--strip" in sys.argv

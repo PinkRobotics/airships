@@ -3,6 +3,11 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../../', import.meta.url));
+const { version } = JSON.parse(readFileSync(new URL('../../sim/version.json', import.meta.url), 'utf8'));
+if (typeof version !== 'string' || !/^[0-9a-f]{8}$/.test(version)) {
+  throw new Error('sim/version.json must contain an eight-digit hexadecimal version stamp');
+}
+const configURL = `./sim/config.js?v=${version}`;
 const parity = ['tests/parity/run.mjs'];
 const required = ['--test','3d/tests/spec-required.test.mjs'];
 let count = 0;
@@ -21,9 +26,9 @@ function change(name,path,from,to,expected,args=parity) {
   finally { writeFileSync(full,before); }
 }
 function modelMutation(name,mutation,expected) {
-  // In-memory mutation exercises the sim side without touching the other worker's files.
+  // In-memory mutation exercises the sim side without writing model source files.
   run(['--input-type=module','-e',
-    `const m = await import('./sim/config.js?v=a67fca39'); ${mutation}; await import('./tests/parity/run.mjs');`],expected,name);
+    `const m = await import(${JSON.stringify(configURL)}); ${mutation}; await import('./tests/parity/run.mjs');`],expected,name);
 }
 modelMutation('new sim scalar','m.CLASSES.P100.unreviewed = 17','unpaired sim.unreviewed');
 modelMutation('new sim numeric table','m.CLASSES.P100.unreviewed = {row:[17,18]}','unpaired sim.unreviewed.row.0');

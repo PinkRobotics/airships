@@ -22,21 +22,21 @@ shapes, short quotations and public-safe text. The same public-text check guards
 The reference conventions follow [the research guide](../README.md); the local atmosphere and
 shell papers retain their catalogue, document and provenance links in the report JSON.
 
-Order 9c adds callable gas-state questions without changing the old class lift or helium ledger.
+The gas-state comparisons use callable state APIs without changing the old class lift or helium ledger.
 `sim/physics.js:grossLiftKg` is the implementation used by `ledger`; optional calibrated air
 density preserves the existing density dial and bit-level arithmetic. Helium's `gas_density`
 and `net_lift` are also used by its unchanged-output main program. CL-415 compares only the
 cruise-speed quotient and scoop replay; climb-out, circuit and drop run are unmapped. The hover
 comparison calls public `diskMW`, with its efficiency unchanged, at the primary XH-59A state.
 The CH-47D ratings and Zeppelin static capacity remain inequalities, not measurements of lift
-or hover power. Re-run after the energy-model worker's changes.
+or hover power. Re-run when `sim/physics.js:diskMW` changes.
 
 [The shell reproduction note](../analysis/reproductions.md) distinguishes paper terms from
 project primitives. A literal sandwich mass calculation can miss; the miss is retained.
 Jenett's local member sizing runs, but Table 2 stays not comparable because its member inventory
 and geometry/end-condition conventions are not fully specified. No constant is fitted.
 
-Every order-9b tolerance is unchanged. The `order_9c_before_first_comparison` section was written
+Every original comparison tolerance is unchanged. The `order_9c_before_first_comparison` section was written
 before implementing or evaluating any new comparison, including the 5% hover screen before
 selecting the flight-test point. A bound uses its stated inequality and allowance; it never
 becomes agreement simply because its numbers happen to be close.

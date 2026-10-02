@@ -34,7 +34,7 @@ import os
 import pathlib
 import subprocess
 import sys
-import tempfile
+from browser_scratch import browser_scratch
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -721,7 +721,7 @@ def check_phone() -> list:
     writes from the measured box every frame — the two chased each other out to a
     33,554,432 px square and the model vanished, with no page error to show for it.
     A bound on the backing store is the cheapest way to never repeat that."""
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+    with browser_scratch() as td:
         probe = pathlib.Path(td) / "phone.js"
         probe.write_text(PHONE_PROBE)
         out = pathlib.Path(td) / "phone.json"
@@ -790,7 +790,7 @@ def main() -> None:
                  "`python3 tools/gen_display_meshes.py`, then `make stamp`.")
     meshes = GDM.parse_module()
 
-    with tempfile.TemporaryDirectory(dir=str(pathlib.Path.home() / "tmp")) as td:
+    with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
         probe.write_text(PROBE)
         out = pathlib.Path(td) / "out.json"
