@@ -385,6 +385,8 @@ def main():
     record_errors=float_claims.apply(hits,ledger)
     if args.inventory:print(json.dumps(hits,ensure_ascii=False,indent=2));return 0
     if args.report:print(markdown(hits));return 0
+    record_errors.extend(float_claims.check_deferred(hits))
+    deferred=float_claims.deferred_counts(hits)
     failed=[h for h in hits if h['status']=='FAIL']
     for h in failed:print(f"{h['file']}:{h['line']}: {h['reason']}\n  {h['sentence']}\n  Proposed: {h['proposedWording']}")
     for e in record_errors:print('float-claims record: '+e)
@@ -394,7 +396,9 @@ def main():
               'python3 tools/float_claims.py --help lists the classes; --propose FILE writes the skeleton.')
     print(f'ledgercheck: {len(hits)} inventoried blocks; {len(failed)} FAIL; '
           f'{sum(h["status"]=="ALLOW" for h in hits)} explicit allowances; '
-          f'{sum(h["status"]=="PASS" for h in hits)} bound blocks; {len(record_errors)} record errors')
+          f'{sum(h["status"]=="PASS" for h in hits)} bound blocks; {len(record_errors)} record errors; '
+          f'{sum(deferred.values())} deferred (' + ', '.join(
+              f'{owner}={deferred.get(owner, 0)}' for owner in float_claims.DEFERRED_OWNERS) + ')')
     return 1 if failed or record_errors else 0
 
 

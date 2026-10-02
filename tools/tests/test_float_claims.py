@@ -457,6 +457,96 @@ class RecordContracts(unittest.TestCase):
         self.assertIn('verdict words', result[0]['reason'])
 
 
+    def test_method_comma_before_metre_symbol(self):
+        h, e = self.block('The method names pressure, mass, m and force.', 'method')
+        self.assertEqual(self.check(e, h), [])
+
+    def test_method_context_and_unlisted_mass(self):
+        h, e = self.block('To float, displaced air must exceed mass; use factor 1.2.',
+                          'method', context=['1.2'])
+        self.assertEqual(self.check(e, h), [])
+        h['sentence'] += ' The mass is 403.1 t.'
+        self.rejects('numbers neither bound nor listed as context: 403.1', e, h)
+
+    def test_method_does_not_license_other_classes(self):
+        h, e = self.block('To float, displaced air must exceed mass.', 'method')
+        self.assertEqual(self.check(e, h), [])
+        for cls in ('other-quantity', 'conditional', 'live-model'):
+            e['class'] = cls
+            self.rejects('verdict words', e, h)
+
+    def test_definition_of_done_requires_its_words(self):
+        h, e = self.block('The definition of done is unchanged from FLOAT.md: a gated bill under the air density.',
+                          'conditional')
+        self.assertEqual(self.check(e, h), [])
+        h['sentence'] += ' The hull floats today.'
+        self.rejects('verdict words', e, h)
+        h['sentence'] = 'The bill is under the air density.'
+        self.rejects('a conditional block says', e, h)
+
+    def test_retargeting_proposal_requires_denial(self):
+        h, e = self.block('Retargeting the span may still be wanted for handling. '
+                          'It is **not** a route to floating.', 'conditional')
+        self.assertEqual(self.check(e, h), [])
+        h['sentence'] = 'Retargeting the span may still be wanted for handling. It is a route to floating.'
+        self.rejects('a conditional block says', e, h)
+        h['sentence'] = 'Retargeting the span is a route to floating.'
+        self.rejects('a conditional block says', e, h)
+
+    def deferred_fixture(self):
+        h, e = self.block('The cycle claims a buoyant escape and delivery closure.',
+                          'deferred', owner='energy-model')
+        e['reason'] = 'Escape and delivery closure require the cycle calculation.'
+        self.write('docs/OPEN-QUESTIONS.md', '<a id="float-deferred-energy-model"></a>\n')
+        return h, e
+
+    def test_deferred_is_separate_and_preserves_inventory(self):
+        h, e = self.deferred_fixture()
+        result, errors = self.apply([h], [e])
+        self.assertEqual(errors, [])
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['sentence'], h['sentence'])
+        self.assertEqual(result[0]['status'], 'DEFERRED')
+        self.assertEqual(claims.deferred_counts(result), {'energy-model': 1})
+        self.assertEqual(set(claims.DEFERRED_OWNERS),
+                         {'energy-model', 'mixed-block', 'hand-arithmetic', 'source-needed'})
+        result, errors = self.apply([dict(h, sentence=h['sentence']+' Revised.')], [e])
+        self.assertEqual(result[0]['status'], 'FAIL')
+        self.assertTrue(any('stale entry' in x for x in errors), errors)
+
+    def test_deferred_unknown_removed_owner_and_missing_anchor(self):
+        h, e = self.deferred_fixture()
+        result, errors = self.apply([h], [e])
+        self.assertEqual(errors, [])
+        e['owner'] = 'unknown-owner'
+        result, errors = self.apply([h], [e])
+        self.assertTrue(any('unknown deferred owner' in x for x in errors), errors)
+        e['owner'] = 'energy-model'
+        with patch.dict(claims.DEFERRED_OWNERS, {}, clear=True):
+            result, errors = self.apply([h], [e])
+            self.assertTrue(any('unknown deferred owner' in x for x in errors), errors)
+        self.write('docs/OPEN-QUESTIONS.md', 'The open item was removed.\n')
+        result, errors = self.apply([h], [e])
+        self.assertTrue(any('missing open-item anchor' in x for x in errors), errors)
+
+    def test_deferred_list_freshness_and_content(self):
+        h, e = self.deferred_fixture()
+        result, errors = self.apply([h], [e])
+        self.assertEqual(errors, [])
+        rendered = claims.deferred_markdown(result)
+        self.assertIn('docs/example.md:1', rendered)
+        self.assertIn('energy-model', rendered)
+        self.assertIn(e['reason'], rendered)
+        self.assertTrue(claims.check_deferred(result))
+        self.write(claims.DEFERRED_PATH, rendered)
+        self.assertEqual(claims.check_deferred(result), [])
+        self.write(claims.DEFERRED_PATH, rendered+'Edited by hand.\n')
+        self.assertTrue(claims.check_deferred(result))
+        self.write(claims.DEFERRED_PATH, rendered)
+        result[0]['line'] = 9
+        self.assertTrue(claims.check_deferred(result))
+
+
 class ScopingLabels(unittest.TestCase):
     def test_record_name_requires_same_configuration_and_mass(self):
         import ship_scoping as scope

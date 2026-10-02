@@ -43,9 +43,13 @@ Classes (a block has exactly one):
   flight-model    a statement of the simulated flight cycle; it names the block of the same
                   file that says the flight model assumes a hull that floats
   question        an open question; only in the two question documents
+  method          a computation, definition, principle or requirement naming no design result;
+                  every printed number is listed as context and verdict words remain visible
+  deferred        unreviewed by this record; owner names an anchored open item and reason
+                  explains this block; counted separately, never as a bound pass
 
 Verdict words (floats, neutrally buoyant, a design exists, within N percent, lighter than
-air) may appear only in a block classed bound, calculator, literature, history or question.
+air) may appear only in a block classed bound, calculator, literature, history, question, method or deferred.
 A flight-model block may say that the simulated ship floats or is buoyant, because its file
 states the assumption once; it may not carry the structural verdicts (neutrally buoyant,
 a design exists, within N percent, lighter than air).
@@ -63,7 +67,11 @@ and links docs/FLOAT.md. Dated notices name their date as well as linking the le
 
 Usage:
   python3 tools/float_claims.py --propose FILE [FILE ...]   # a shard skeleton, class UNREVIEWED
-  python3 tools/float_claims.py --stats                     # counts by class and by file
+  python3 tools/float_claims.py --stats                     # counts by class, file and owner
+  python3 tools/float_claims.py --write-deferred            # regenerate docs/FLOAT-DEFERRED.md
+Deferred owners are declared in DEFERRED_OWNERS with their open-question anchors.
+A missing owner or anchor is a record error; an edited block loses its disposition.
+The gate also refuses a stale generated deferred list.
 The gate itself is `make ledgercheck`, which calls `apply()` below. A block that fits no
 class is a question for whoever rules the wording: it is left failing, never forced.
 """
@@ -82,9 +90,16 @@ SCHEMA = 'float-claims/1'
 LEDGER_PATH = 'research/analysis/float-ledger.json'
 CAP_READINGS = 'research/analysis/cap-readings.json'
 CLASSES = ('bound', 'live-model', 'calculator', 'generated', 'literature', 'history',
-           'other-quantity', 'conditional', 'flight-model', 'question')
-VERDICT_OK = ('bound', 'calculator', 'literature', 'history', 'question')
+           'other-quantity', 'conditional', 'flight-model', 'question', 'method', 'deferred')
+VERDICT_OK = ('bound', 'calculator', 'literature', 'history', 'question', 'method', 'deferred')
 QUESTION_FILES = ('docs/OPEN-QUESTIONS.md', 'docs/VERIFICATION-PLAN.md')
+DEFERRED_PATH = 'docs/FLOAT-DEFERRED.md'
+DEFERRED_OWNERS = {
+    'energy-model': 'float-deferred-energy-model',
+    'mixed-block': 'float-deferred-mixed-block',
+    'hand-arithmetic': 'float-deferred-hand-arithmetic',
+    'source-needed': 'float-deferred-source-needed',
+}
 NOTICE_LINES = 12
 HEADING_LINES = 60
 VERDICT = re.compile(r'\bfloat(?:s|ed)?\b(?!\s+(?:ratio|ledger|window|case|claim|gate|result|verdict))'
@@ -141,7 +156,7 @@ def altitudes(text: str, ledger) -> set:
     target = ledger['atmosphere']['targetM']
     if re.search(r'working altitude|target altitude', text, re.I):
         found.add('target')
-    for m in re.finditer(r'([\d,]+)\s*m\b', text):
+    for m in re.finditer(r'(\d[\d,]*)\s*m\b', text):
         if float(m[1].replace(',', '')) == float(target):
             found.add('target')
     return found
@@ -223,19 +238,24 @@ def check_entry(entry, hit, sources, ledger):
     text = hit['sentence']
     plain = visible(text)
     cls = entry.get('class')
+    definition = re.search(r'\bdefinition of done\b', plain, re.I)
+    proposal = (re.search(r'\bretargeting\b.*\bmay still be wanted\b', plain, re.I) and
+                re.search(r'\bnot\b\W+a route to floating\b', plain, re.I))
+    verdict_text = re.sub(r'\bFLOAT\.md\b', '', plain) if cls == 'conditional' and definition else plain
     if cls not in CLASSES:
         return [f'class {cls!r} is not one of: ' + ', '.join(CLASSES)]
     reason = entry.get('reason', '')
     if not isinstance(reason, str) or not 8 <= len(reason) <= 240:
         errors.append('reason must say why, in 8 to 240 characters')
+    if cls == 'deferred' and entry.get('owner') not in DEFERRED_OWNERS:
+        errors.append('unknown deferred owner')
     if cls == 'flight-model':
         if STRUCTURAL.search(plain):
             errors.append('a flight-model block carries a structural verdict; bind it or reword it')
         if not entry.get('assumption'):
             errors.append('a flight-model block names the key of the block that states the float assumption')
-    elif VERDICT.search(plain) and cls not in VERDICT_OK:
-        errors.append(f'verdict words in a block classed {cls}; class it ' + ', '.join(VERDICT_OK[:-1])
-                      + ' or question, or reword it')
+    elif VERDICT.search(verdict_text) and cls not in VERDICT_OK:
+        errors.append(f'verdict words in a block classed {cls}; permitted classes: ' + ', '.join(VERDICT_OK))
     if BANNED.search(plain) and cls != 'history':
         errors.append('"certified world" outside a dated record: nothing in the evidence is certified')
     is_page = hit['file'].endswith('.html')
@@ -309,7 +329,7 @@ def check_entry(entry, hit, sources, ledger):
         words = {'seaLevel': 'sea level', 'target': f"{ledger['atmosphere']['targetM']:,} m"}
         errors.append('the block does not name the altitude of its bound figure: '
                       + ', '.join(words.get(a, a) for a in sorted(missing)))
-    if cls in ('bound', 'live-model'):
+    if cls in ('bound', 'live-model', 'method'):
         context = {norm(str(c)) for c in entry.get('context', [])}
         loose = sorted({n for n in numbers(text) if n not in shown and n not in context})
         if loose:
@@ -341,7 +361,7 @@ def check_entry(entry, hit, sources, ledger):
             errors.append('a history block names its date as YYYY-MM or YYYY-MM-DD')
         if is_page:
             errors.append('history is for dated documents; a served page states the present')
-    if cls == 'conditional' and not CONDITION.search(plain):
+    if cls == 'conditional' and not (CONDITION.search(plain) or definition or proposal):
         errors.append('a conditional block says in its own words that it is an assumption, a requirement or a scenario')
     if cls == 'question' and hit['file'] not in QUESTION_FILES:
         errors.append('question is for ' + ' and '.join(QUESTION_FILES))
@@ -394,6 +414,15 @@ def load_record():
                 continue
             if key in owned[name]:
                 errors.append(f'{rel}: {name} has two entries with key {key}')
+            if entry.get('class') == 'deferred':
+                owner = entry.get('owner')
+                if owner not in DEFERRED_OWNERS:
+                    errors.append(f'{rel}: {name}: unknown deferred owner {owner!r}')
+                else:
+                    questions = '\n'.join(file_lines('docs/OPEN-QUESTIONS.md'))
+                    anchor = re.escape(DEFERRED_OWNERS[owner])
+                    if not re.search(r'<a\s+id=[\"\']' + anchor + r'[\"\']\s*>', questions):
+                        errors.append(f'{rel}: {name}: missing open-item anchor for {owner}')
             owned[name][key] = dict(entry, _shard=rel)
     return owned, dated, errors
 
@@ -434,7 +463,11 @@ def apply(hits, ledger):
             hit['status'] = 'FAIL'
             hit['reason'] = '; '.join(problems)
             continue
-        hit['status'] = 'PASS' if entry['class'] == 'bound' else 'ALLOW'
+        hit['status'] = ('PASS' if entry['class'] == 'bound' else
+                         'DEFERRED' if entry['class'] == 'deferred' else 'ALLOW')
+        if entry['class'] == 'deferred':
+            hit['owner'] = entry['owner']
+            hit['deferredReason'] = entry['reason']
         hit['disposition'] = entry['class']
         hit['reason'] = f"{entry['class']}: {entry['reason']}"
         if entry['class'] == 'flight-model':
@@ -480,16 +513,83 @@ def apply(hits, ledger):
     return errors
 
 
+def deferred_counts(hits):
+    """Count inventoried occurrences, including repeated text, separately from passes."""
+    counts = {}
+    for hit in hits:
+        if hit.get('status') == 'DEFERRED':
+            owner = hit['owner']
+            counts[owner] = counts.get(owner, 0) + 1
+    return dict(sorted(counts.items()))
+
+
+def deferred_markdown(hits):
+    """Render the public list from current locations and recorded reasons."""
+    rows = sorted((h for h in hits if h.get('status') == 'DEFERRED'),
+                  key=lambda h: (h['file'], h['line'], h['key']))
+    def escape(value):
+        return str(value).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('|', '&#124;').replace('\n', ' ')
+    out = ['# Deferred statements', '',
+           'This record has not reviewed the blocks listed here. '
+           'Deferral assigns an open item; it does not approve a claim or count as a bound pass.', '',
+           'Generated by `python3 tools/float_claims.py --write-deferred`.', '',
+           '| File and line | Open item | Reason |', '| --- | --- | --- |']
+    for h in rows:
+        owner = h['owner']
+        out.append(f"| {escape(h['file'])}:{h['line']} | "
+                   f"[{owner}](OPEN-QUESTIONS.md#{DEFERRED_OWNERS[owner]}) | "
+                   f"{escape(h['deferredReason'])} |")
+    if not rows:
+        out += ['', 'No blocks are currently deferred.']
+    return '\n'.join(out) + '\n'
+
+
+def check_deferred(hits):
+    path = ROOT / DEFERRED_PATH
+    try:
+        current = path.read_text(encoding='utf-8')
+    except OSError:
+        return [f'{DEFERRED_PATH}: generated list unavailable; run --write-deferred']
+    if current != deferred_markdown(hits):
+        return [f'{DEFERRED_PATH}: stale generated list; run --write-deferred']
+    return []
+
+
+def write_deferred(hits):
+    """Write the list and its metadata dispositions without excluding it from inventory."""
+    import check_float_ledger as gate
+    path = ROOT / DEFERRED_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(deferred_markdown(hits), encoding='utf-8')
+    entries = []
+    for line, text, raw in gate.source_blocks(path):
+        entries.append(dict(file=DEFERRED_PATH, line=line, key=key_of(text),
+                            **{'class': 'method'}, context=sorted(set(numbers(text))),
+                            reason='Generated review metadata lists unresolved source requirements; it approves no quoted design result.'))
+    RECORD.mkdir(parents=True, exist_ok=True)
+    doc = dict(schema=SCHEMA, files=[DEFERRED_PATH], entries=entries)
+    (RECORD / 'deferred-list.json').write_text(json.dumps(doc, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--propose', nargs='+', metavar='FILE')
     ap.add_argument('--stats', action='store_true')
+    ap.add_argument('--write-deferred', action='store_true', help='regenerate the public list and its metadata record')
     args = ap.parse_args()
     sys.path.insert(0, str(ROOT / 'tools'))
     import check_float_ledger as gate
     ledger = json.loads((ROOT / LEDGER_PATH).read_text(encoding='utf-8'))
     hits = gate.inventory(ledger)
     errors = apply(hits, ledger)
+    if args.write_deferred:
+        if errors:
+            for error in errors:
+                print('record: ' + error)
+            return 1
+        write_deferred(hits)
+        print('deferred list: generated ' + DEFERRED_PATH)
+        return 0
     if args.propose:
         wanted = [pathlib.Path(f).as_posix() for f in args.propose]
         entries, done = [], set()
@@ -513,6 +613,8 @@ def main():
                 by_file[hit['file']] = by_file.get(hit['file'], 0) + 1
         for label, n in sorted(by_class.items(), key=lambda kv: (-kv[1], kv[0])):
             print(f'{n:5d}  {label}')
+        for owner in DEFERRED_OWNERS:
+            print(f'{deferred_counts(hits).get(owner, 0):5d}  deferred to {owner}')
         for name, n in sorted(by_file.items(), key=lambda kv: (-kv[1], kv[0])):
             print(f'{n:5d}  undisposed in {name}')
         for e in errors:

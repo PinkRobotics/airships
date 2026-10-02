@@ -1219,3 +1219,33 @@ and we would rather be shown one than not.
 
 If you have one of these, [CONTRIBUTING.md](../CONTRIBUTING.md) explains the one thing we ask: bring
 the number you computed and how you computed it.
+
+## Claims awaiting review
+
+<a id="float-deferred-energy-model"></a>
+### Energy, delivery and descent
+
+Which flight-model energy, delivery and descent results replace the deferred claims? The float record does not review those performance results. Closure needs regenerated outputs, reconciled prose and replacement dispositions.
+
+`python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
+
+<a id="float-deferred-mixed-block"></a>
+### Mixed statements
+
+How should each mixed block distinguish current structural results, historical claims, outside designs and operational assumptions? The float record leaves inseparable statements unreviewed. Closure needs independently supported statements and new dispositions without discarding history.
+
+`python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
+
+<a id="float-deferred-hand-arithmetic"></a>
+### Arithmetic without generated records
+
+Which generated calculations support the deferred hand arithmetic and probe figures? The float record has no reproducible source for these comparisons. Closure needs named generated fields, their stated bases and freshness checks before binding the figures.
+
+`python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
+
+<a id="float-deferred-source-needed"></a>
+### Outside quantities without sources
+
+Which sources and reference states support the deferred figures for outside aircraft, materials and measurements? The float record leaves these quantities unreviewed. Closure needs traceable quantitative sources and dispositions tied to those sources.
+
+`python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
