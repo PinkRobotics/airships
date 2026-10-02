@@ -373,14 +373,23 @@ def main():
         if p.returncode:return p.returncode
     if not LEDGER.exists():print('ledgercheck: no ledger',file=sys.stderr);return 1
     ledger=json.loads(LEDGER.read_text());hits=inventory(ledger)
+    # A failing block passes only through its reviewed disposition in the float-claims record.
+    sys.path.insert(0,str(ROOT/'tools'))
+    import float_claims
+    record_errors=float_claims.apply(hits,ledger)
     if args.inventory:print(json.dumps(hits,ensure_ascii=False,indent=2));return 0
     if args.report:print(markdown(hits));return 0
     failed=[h for h in hits if h['status']=='FAIL']
     for h in failed:print(f"{h['file']}:{h['line']}: {h['reason']}\n  {h['sentence']}\n  Proposed: {h['proposedWording']}")
+    for e in record_errors:print('float-claims record: '+e)
+    if failed or record_errors:
+        print('ledgercheck: every block above needs one reviewed disposition in research/analysis/float-claims/. '
+              'Reword a sentence the ledger contradicts; class the rest. '
+              'python3 tools/float_claims.py --help lists the classes; --propose FILE writes the skeleton.')
     print(f'ledgercheck: {len(hits)} inventoried blocks; {len(failed)} FAIL; '
           f'{sum(h["status"]=="ALLOW" for h in hits)} explicit allowances; '
-          f'{sum(h["status"]=="PASS" for h in hits)} bound blocks')
-    return 1 if failed else 0
+          f'{sum(h["status"]=="PASS" for h in hits)} bound blocks; {len(record_errors)} record errors')
+    return 1 if failed or record_errors else 0
 
 
 if __name__=='__main__':sys.exit(main())
