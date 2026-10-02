@@ -14,7 +14,7 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
    make check
    ```
 
-   This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `make readmecheck` separately checks the generated figures below; it is not yet in `make check` or CI.
+   This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `make check` and CI also run `readmecheck`, `noticecheck`, `mutationcheck` and `buildercheck`; `readmecheck` verifies the generated figures below.
 
 2. **Reproduce and move a number (about one minute; Node only).** This example uses balanced mode and a one-way distance in kilometres. It makes no feed request.
 
