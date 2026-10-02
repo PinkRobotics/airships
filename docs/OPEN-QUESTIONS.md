@@ -1,5 +1,7 @@
 # Open questions
 
+Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
+
 > **2026-10-01: #16 is PARTLY FIXED, and #18 to #20 are new.** The 3D viewer now reads the model's
 > constants through a checked boundary, and the rotor count is decided: the model counts stations.
 > Three atmosphere implementations disagree in the sixth digit (#18), six failure buttons in the
@@ -50,7 +52,7 @@ sunlight and the other returned more work than the liquid it drew on contained. 
 model's numbers worse and its conclusions stronger.
 
 **The list grew from six to seventeen over 2026-08-09 and 08-10, and where the new ones came from matters.**
-Items 0–6 were found by the people who wrote the model, looking at it. Items 7 and 8 came from an
+Items 0–6 were found by the PinkAI infrastructure that wrote the model, looking at it. Items 7 and 8 came from an
 adversarial audit of all 89 published claims (`research/evidence-map.md`), which found that the
 constants nobody had thought to question moved the headline more than the defects everyone had.
 Items 9–12 came from reading the sources — the catalogue in `research/sources.json` was built by

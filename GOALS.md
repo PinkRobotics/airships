@@ -1,7 +1,6 @@
 # Goals
 
-This file says what Pink Robotics is working toward and in what proportion. The work is done by an
-AI crew, directed by one person. A daily planner, not built yet, will read the table below and
+This file says what Pink Robotics is working toward and in what proportion. Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record. A daily planner, not built yet, will read the table below and
 propose work in proportion to the weights. It will not be able to add an objective or change a
 weight: those change only on the director's word, and every change is a commit in this repository's
 history.

@@ -12,6 +12,8 @@ Live: **<https://pinkrobotics.ca/airships/>** — the monitor. Also
 the [vacuum cell explainer](https://pinkrobotics.ca/airships/cell/),
 and the [3D model lab](https://pinkrobotics.ca/airships/model-lab/).
 
+Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
+
 ## Run it yourself
 
 ```sh
