@@ -16,7 +16,7 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
 
    This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `make check` and CI also run `readmecheck`, `noticecheck`, `mutationcheck` and `buildercheck`; `readmecheck` verifies the generated figures below.
 
-2. **Reproduce and move a number (about one minute; Node only).** This example uses balanced mode and a one-way distance in kilometres. It makes no feed request.
+2. **Reproduce and move a number (about one minute; Node only).** This example uses balanced mode and a one-way distance in kilometres. It makes no feed request. What it prints comes from the earlier flight model: read "Model output and limits" below before quoting it.
 
    ```sh
    node --input-type=module -e "import {planCycle} from './sim/plan.js'; import {CLASSES, MODES} from './sim/config.js'; for (const km of [15, 45]) { const r = planCycle(CLASSES.P10000, MODES.balanced, km); console.log(km, r.tph.toFixed(0), r.cycleMin.toFixed(1), r.eCycleMWh.toFixed(2), r.kwhPerTonne.toFixed(2)); }"
@@ -44,7 +44,7 @@ Known model defects, deliberate failing tests and the decisions still open are r
 
 ## Model output and limits
 
-This table describes the simulated cycle under the model defaults. It is a calculation, not a performance claim. The energy model has a documented disagreement between planned and integrated draw in [the open questions](docs/OPEN-QUESTIONS.md); its figures may move when that is corrected. The P-100 is the reference class. Nobody is proposing to build a P-10000.
+This table describes the simulated cycle under the model defaults. It is a calculation, not a performance claim. Its energy and delivery figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected energy figures will be higher and delivery lower, and some cycles may not be flyable as drawn. That model also has a documented disagreement between planned and integrated draw in [the open questions](docs/OPEN-QUESTIONS.md). The P-100 is the reference class. Nobody is proposing to build a P-10000.
 
 <!-- readme:headline:start -->
 | Model output, balanced mode, 15 km one way | P-100 | P-1000 | P-10000 |
