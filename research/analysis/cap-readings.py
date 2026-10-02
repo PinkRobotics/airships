@@ -69,6 +69,24 @@ def readings(measured=None):
             noGridStiffnessCapMargin=no_grid['capBuckle']['marginAtSF'],
             junctionBillM=r['bill']['junctionShear']['quantity'],junctionDrawnM=r['bill']['junctionShear']['drawn'],
             longeronBillM=r['bill']['longerons']['quantity'],longeronDrawnM=r['bill']['longerons']['drawn'])
+    result['sensitivities'] = {}
+    for basis, measured_basis in measured['record'].items():
+        original = measured_basis['model']
+        lightest = min(result['readings'], key=lambda code: result['readings'][code]['byBasis'][basis]['massT'])
+        base = result['readings'][lightest]['byBasis'][basis]
+        removed_skin = v.SHIP0['voidSkinKgM2'] * original['geom']['areaM2'] / 1000
+        cases = {}
+        for name, removed_mass in (('withoutSagDebit', 0), ('withoutRetiredVoidSkin', removed_skin)):
+            mass = base['massT'] - removed_mass
+            at = {}
+            for altitude, row in base['at'].items():
+                recovered_lift = (original['liftDebitT'] * v.rho_air(row['altitudeM']) / v.rho_air(0)
+                                  if name == 'withoutSagDebit' else 0)
+                lift = row['liftT'] + recovered_lift
+                at[altitude] = dict(altitudeM=row['altitudeM'], liftT=lift,
+                                    liftToMass=lift / mass, marginT=lift - mass)
+            cases[name] = dict(reading=lightest, massT=mass, removedMassT=removed_mass, at=at)
+        result['sensitivities'][basis] = cases
     result['noneReachesOne']=all(q['max']<1 for basis in result['ranges'].values() for q in basis.values())
     return result
 

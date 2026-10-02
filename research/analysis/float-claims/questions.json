@@ -1109,22 +1109,6 @@
       "owner": "mixed-block"
     },
     {
-      "file": "docs/OPEN-QUESTIONS.md",
-      "key": "d6c715d49083654f",
-      "line": 1030,
-      "class": "deferred",
-      "reason": "The no-sag ratio comes from a probe; no named generated sensitivity currently pairs its sea-level and working-altitude results.",
-      "owner": "hand-arithmetic"
-    },
-    {
-      "file": "docs/OPEN-QUESTIONS.md",
-      "key": "d89d89324277a457",
-      "line": 1041,
-      "class": "deferred",
-      "reason": "The retired-skin mass and residual deficit were computed by a probe; the generated record does not yet carry that sensitivity at both altitudes.",
-      "owner": "hand-arithmetic"
-    },
-    {
       "file": "research/evidence-map.md",
       "key": "312989712d118005",
       "line": 450,
@@ -1146,6 +1130,55 @@
       "class": "deferred",
       "reason": "These adjacent items combine earlier rim capacity, the nylon-study mass comparison, a present article description and experimental requirements.",
       "owner": "mixed-block"
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "d44099141ec8ad7e",
+      "line": 1030,
+      "class": "question",
+      "reason": "The no-sag sensitivity asks how membrane geometry changes the lift basis; both altitude results come from the cap-reading generator.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/sensitivities/favourable/withoutSagDebit/at/seaLevel/liftToMass",
+          "shown": "1.001",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/sensitivities/favourable/withoutSagDebit/at/target/liftToMass",
+          "shown": "0.782",
+          "altitude": "target"
+        }
+      ]
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "6d8128a737fea19e",
+      "line": 1042,
+      "class": "question",
+      "reason": "The retired-skin question names the removed mass and both residual deficits from the generated sensitivity; it changes no baseline bill.",
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/sensitivities/favourable/withoutRetiredVoidSkin/removedMassT",
+          "shown": "0.170"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/sensitivities/favourable/withoutRetiredVoidSkin/at/seaLevel/marginT",
+          "shown": "0.186",
+          "altitude": "seaLevel",
+          "abs": true
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/sensitivities/favourable/withoutRetiredVoidSkin/at/target/marginT",
+          "shown": "49.398",
+          "altitude": "target",
+          "abs": true
+        }
+      ]
     }
   ]
 }

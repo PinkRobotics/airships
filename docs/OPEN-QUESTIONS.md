@@ -1027,7 +1027,8 @@ They are hand figures without a generator. What would make that breach compariso
 
 ### Sag debit and enclosed volume
 
-Why does removing the sag debit alone take the lightest favourable cap reading to a sea-level lift-to-mass ratio of 1.001, while the drawn mesh encloses less volume than the billed lift basis?
+Why does removing sag alone give the lightest favourable cap reading a lift-to-mass ratio of 1.001 at sea level and 0.782 at 2,500 m?
+How should the drawn mesh’s smaller enclosed volume change the billed lift basis?
 What measured membrane shape would settle this sign change on the same safety factor and material basis?
 
 ### Reserve omitted on the favourable basis
@@ -1038,7 +1039,8 @@ Which imperfection allowance should govern that comparison?
 
 ### Retired void skin still charged
 
-Should the 0.170 t retired void skin remain in the mass bill, when removing it still leaves the lightest favourable reading 0.186 t short at sea level?
+Should the 0.170 t retired void skin remain in the mass bill?
+Removing it alone leaves the lightest favourable reading 0.186 t short at sea level and 49.398 t short at 2,500 m.
 
 ### Greedy reserve increments
 
