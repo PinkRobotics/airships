@@ -956,3 +956,160 @@ The model does not attempt weather beyond a single wind vector, turbulence, fire
 water's actual effect on a fire, air traffic, airspace, regulation, manufacturing or cost.
 Those are not defects; they are the boundary of the thing. `docs/PHYSICS.md` says where
 that boundary is drawn and why.
+
+## Archived README wording before the generated front door
+
+The passages below are retained verbatim as the historical README account. Their old dimensions and energy figures are not current; use the generated README table and current model records for present values. The live questions and decisions are in the sections above.
+
+**The P-100 is the reference vehicle** — the smallest of the three, 190 m long, which is smaller
+than the Hindenburg. The other two are the same arithmetic extrapolated, kept because energy per
+tonne falls with size and because we wanted to know what stops you. It is the descent: a large
+enough hull cannot push itself back down into the dense air over a lake. Nobody is proposing to
+build a P-10000.
+
+```js
+AIRSHIPS.sim.ledger(AIRSHIPS.sim.CLASSES.P100, AIRSHIPS.sim.WORK_ALT_MSL)
+// {rho: 0.9569, altMslM: 2500, liftT: 210.5, dryT: 100, reserveT: 10.5, surplusT: 110.5}
+// the altitude is required: call it without one and it throws rather than assume sea level
+```
+
+## Known defects
+
+All six are DECIDED. One is done: **#1, lift bought at sea level, was fixed on 2026-08-09**
+and its numbers are published below. The other five are awaiting implementation, each with a
+test that fails on purpose. The decision, its reasoning and its interactions are written up in
+[docs/OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) — what it costs, the options, and a
+recommendation. They are open because fixing them means choosing what the vehicle is,
+not just correcting a line.
+
+These were found by audit. They are listed here rather than fixed quietly because a model that
+hides its faults is worth less than one that publishes them, and the one that is fixed stays on
+the list with its old and new numbers for the same reason.
+
+**1. Sea-level lift, 1,500 m cruise — FIXED 2026-08-09.** `ledger()` in `sim/physics.js` computed
+displacement lift at `CFG.rhoSL` = 1.225 kg/m³ and used it at every altitude, while the ships cruise
+1,500 m above a plateau that is itself around 1,000 m up. Loaded break-even was 1.111 kg/m³, ISA at
+1,005 m, so a full P-10000 was 860 t heavy on its drop run and 2,209 t heavy at its ceiling — the
+sign of the net force reversed inside one cycle, against a page that says the rotors only ever push
+down. `sim/atmosphere.js` now computes ISA density against altitude; `ledger()` takes an altitude in
+metres MSL and throws without one; and the hulls were resized to a stricter requirement than the
+defect asked for — FAIL-SAFE FLOAT-UP, buoyant at the working altitude while fully loaded with water
+it cannot drop. Displacement grew 22.2% to 220,000 / 2.2M / 22M m³, the P-10000 from 820 to 876 m,
+and the margin is +5.25% on all three classes. Cruise drag rose 14%.
+
+The same correction has a second half. Lift depends on where the ship IS, and a cycle crosses
+1,200 m of atmosphere, so float-up and descent do not share a worst case: float-up is hardest at the
+ceiling, descent is hardest down at the lake where the air is 16% denser and the hull is 24% more
+buoyant. `planCycle` was checking the descent balance at the ceiling — the easy end. Checked at the
+source instead, the two larger classes could not hold themselves down on rotors and had to keep
+water back as ballast, costing about 10% of the delivered figure.
+
+Which raised the obvious question: what actually holds a buoyant ship down? Not ballast it has to
+carry, make, or keep back. **It borrows the lake.** The larger classes lower a cable with a bag on
+it, fill the bag, and winch it just clear of the surface — 12,400 t of water hanging on a line is
+12,400 t of downward force, and it costs the 15 m of lift needed to break the surface, or
+0.60 MWh.
+When the tanks hold more than the shortfall, the bag is dumped back where it came from. It is a
+Bambi bucket, the collapsible helicopter bucket in service since 1983, at a scale nobody has built:
+the largest ever made is 9,800 litres, so ours is 1,265 times that.
+
+Retention returns to zero and the whole load is delivered. Then the bag turned out to be worth far
+more than the shortfall it was built for. Rotor power goes as thrust^1.5, so moving load onto the
+lake pays superlinearly: sized to take 90% of the hold rather than the 8% the descent strictly
+needed, it cuts `downMW` from 1,748 to 52 MW and the P-10000's cycle from 79.2 to **45.2 MWh** —
+4.3 kWh per delivered tonne, against 7.6 before any of this. Every class carries one for that
+reason, including the P-100, whose descent closes on rotors alone and which still saves 29%.
+
+Two changes to how the cycle is flown followed from looking at the animation. The drop is **one
+run, flown slowly** rather than three passes over the same line — every turn was an 876 m hull
+reversing over the fire it was dropping on, the water lands on the same line either way, and the
+turns were 4.3 minutes of pure overhead. And the approach now comes to a **dead stop before it
+descends**: a bag of several thousand tonnes cannot be dipped from a ship still making 30 km/h.
+Nothing yaws while there is line in the water, so the turn onto the outbound track waits until the
+pod is clear.
+
+An earlier attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet
+the dense air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at
+the pod. A cable is a much better thing to hang than a pipe: 12,400 t is 122 MN, which is about
+440 mm of UHMWPE massing 125 t — and that rope is **not** charged as dry mass anywhere yet.
+
+**2. Two power models that disagree by 2.8×.** `planCycle` builds an energy budget from five terms
+and reports 90.2 MWh for the sampled P-10000 mission. Integrating `stateAt`'s per-system draw over
+the same cycle gives 255.5 MWh. Both are shipped; the page shows the first as the headline energy
+figure and the second on the instruments. At least one is wrong and they cannot both be right, and
+fixing #1 widened the gap rather than closing it.
+
+**3. An unexplained window still has no derivation, but no longer decides anything.** The letdown
+term is `E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60` in `sim/plan.js`, and
+neither the 6-minute cap nor the 0.2 fraction has a stated justification. It used to be 45% of the
+P-10000's published cycle — an unexplained constant setting the headline number. The descent anchor
+did not explain it; it made it small, because rotor power goes as thrust^1.5 and the bag took the
+thrust away. It is now 1.4 MWh of 45.2, or 3.1%, and the test that tracked this defect has come off
+its known-failure marker. The constants are still unjustified and still worth deleting.
+
+Also, and in the same spirit:
+
+- **Retained descent ballast — FIXED 2026-08-09, and the fix is a bucket.** `retainedT` used to
+  be 0 for every class, mode, distance and wind in the grid, while the copy, the `bottleneck`
+  string and the narration all described retained ballast as a live constraint. It was not one.
+  The cause was an altitude: the balance was struck at the ceiling, where the air is thinnest,
+  when the letdown ends 1,200 m lower in air 16% denser. Struck where the descent happens, the
+  P-1000 was 49 t short and the P-10000 1,056 t. The descent anchor pays that with lake water on
+  a cable instead of with delivered payload, so retention is back to zero — but the mechanism is
+  no longer dead code, and a test removes the anchor and watches the water go back in the tanks.
+- **The cryogenic plant is numerically inert in the cycle.** For the same reason, `ln2MakeT` never
+  changes how much water is delivered; it only moves energy between two terms, at the round-trip
+  loss. The copy describes it as load-bearing. Its TANK is load-bearing as of 2026-08-09: at
+  155 / 1,550 / 15,500 t it holds enough nitrogen to bring a dead, empty hull down and land it
+  with no rotor authority, which takes 2.6 / 5.7 / 12.9 days on solar alone.
+- **The generators supply thrust but never energy.** Each class advertises 8/40/150 MW, and
+  `rotorMaxT` in `sim/plan.js` spends it when sizing how hard the rotors can push down. Nothing
+  credits it as energy: `stateAt` reports only solar and nitrogen recovery, and the loop drains
+  the rest from the battery. That generation is the nitrogen plant — expansion of what was
+  liquefied earlier — so it is storage rather than a source, and modelling it honestly should
+  make the deficit *larger*, not close it. Today it is doing neither.
+
+All six are decided and none is implemented yet. The decisions matter as much as the defects,
+because two of them are choices about what the vehicle is rather than corrections to arithmetic —
+the hull is to be sized for fail-safe float-up when fully loaded, and the nitrogen plant, the
+ballast doctrine and the generators all stay and must be made to bind. The reasoning, the options
+that were rejected and the order the fixes have to happen in are in
+[docs/OPEN-QUESTIONS.md](OPEN-QUESTIONS.md).
+
+
+## What would change our minds
+
+The concept rests on a small number of load-bearing claims. Each has a result that would sink it,
+and we would rather be shown one than not.
+
+- **Shell mass.** The ledger assumes structure mass equals payload mass — that a P-10000 hull
+  enclosing 18 million m³ of vacuum weighs 10,000 t. A buckling analysis showing that no plausible
+  material and geometry gets the evacuated shell below the mass of the air it displaces would end
+  the concept, not amend it. This is the single most likely place for it to be wrong.
+- **Lift at altitude.** If defect 1 is fixed honestly and the classes cannot be made net buoyant at
+  a working altitude that clears BC terrain, then the aircraft is a helicopter with an expensive
+  balloon attached, and the energy argument goes with it.
+- **Energy per tonne.** If the honest per-cycle energy — once defects 2 and 3 are resolved — puts
+  kWh per delivered tonne above what conventional air tankers and ground crews achieve, there is no
+  case. The current 4.6–12.5 kWh/t is the number to attack; the comparison should be against real
+  suppression logistics, not against nothing.
+- **Sustainment.** Every class already runs a per-cycle deficit on these assumptions: solar at
+  45 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and
+  `selftest()` asserts that this stays visibly true. The intended answer is battery tender ships
+  swapping charged cells for discharged ones at mechanical speed — named, but deliberately not
+  modelled here. If no plausible energy import chain closes the gap at the cycle rates claimed,
+  the throughput figures are fiction. A related limit, which we would rather state than hide: a
+  hull that runs its storage down may be unable to descend until solar, nitrogen expansion or a
+  swap restores it.
+- **What arrives.** Tonnes delivered is not fire extinguished. Evidence that 10,000 t released from
+  450 m over a convective column arrives as drift rather than as water on fuel would make the
+  headline metric the wrong metric.
+- **Downwash.** Nothing in this model accounts for what an 876 m hull trimming on rotors 450 m above
+  a fire does to the fire's own air. A credible estimate that the downwash spreads more fire than
+  the water suppresses would invert the whole idea.
+- **Water.** Surface area is used as a proxy for a lake being drawable. Evidence that repeated
+  full-payload draws from the mapped bodies are hydrologically, ecologically or legally impossible
+  breaks the logistics chain regardless of whether the aircraft flies.
+
+If you have one of these, [CONTRIBUTING.md](../CONTRIBUTING.md) explains the one thing we ask: bring
+the number you computed and how you computed it.

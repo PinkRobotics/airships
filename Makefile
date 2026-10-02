@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve test test-node golden interaction lint check stamp figures pdf pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static labelledcheck clean
+        firstparty firstparty-static labelledcheck readmecheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -68,6 +68,9 @@ firstparty: firstparty-static  ## Record browser requests on every served page i
 	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
 
 check: ciparity lint stampcheck figfresh fallbackcheck labelledcheck figcheck analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction  ## Everything CI checks
+
+readmecheck:  ## Refuse README figures that differ from generated model records
+	$(PY) tools/gen_readme.py --check
 
 ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
 	$(PY) tools/check_ci_parity.py
