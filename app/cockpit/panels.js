@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=bbf23861';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=bbf23861';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=bbf23861';
-import { shipViz } from '../cockpit/shipviz.js?v=bbf23861';
-import { updateRoster } from '../cockpit/tables.js?v=bbf23861';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=bbf23861';
-import { needsShip } from '../feeds.js?v=bbf23861';
-import { S } from '../store.js?v=bbf23861';
+import { CFG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=26282d19';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=26282d19';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=26282d19';
+import { shipViz } from '../cockpit/shipviz.js?v=26282d19';
+import { updateRoster } from '../cockpit/tables.js?v=26282d19';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=26282d19';
+import { needsShip } from '../feeds.js?v=26282d19';
+import { S } from '../store.js?v=26282d19';
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
