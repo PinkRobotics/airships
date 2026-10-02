@@ -4196,7 +4196,8 @@ def main() -> None:
         # The file's OWN stamps, which on a --freeze run are the ones just written and on any
         # other run are the ones being held to. Reading them off `frozen` unconditionally would
         # date a fresh freeze with the timestamp of the contract it replaced.
-        "contract": {"path": str(CONTRACT), "schemaVersion": CONTRACT_SCHEMA,
+        # Relative to the repository root: an absolute path would publish the checkout's location.
+        "contract": {"path": CONTRACT.relative_to(ROOT).as_posix(), "schemaVersion": CONTRACT_SCHEMA,
                      "onDisk": args.freeze or frozen is not None,
                      "frozenAtUtc": (contract if args.freeze else frozen or contract)
                      .get("frozenAtUtc"),
