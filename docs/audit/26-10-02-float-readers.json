@@ -1,0 +1,51 @@
+[
+  {
+    "file": "concept/index.html",
+    "line": 807,
+    "old": "              <!--SCALE3--><svg viewBox=\"0 0 880 644\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"ui-monospace,SFMono-Regular,Menlo,monospace\" role=\"img\" aria-label=\"All three conceptual airships and four references drawn to one scale, one per row: the 876-metre P-10000, the 472-metre Lions Gate Bridge main span, the 404-metre P-1000, the 245-metre Hindenburg, the 190-metre P-100, a Boeing 747, and a person, who is about one pixel.\"><text x=\"16\" y=\"26\" fill=\"#ff4fa3\" font-size=\"11.5\" font-weight=\"600\">P-10000</text><text x=\"74\" y=\"26\" fill=\"#74747f\" font-size=\"10.5\">10,000 t of water · conceptual</text><ellipse cx=\"287.6\" cy=\"105.9\" rx=\"271.6\" ry=\"67.9\" fill=\"#ff4fa3\" fill-opacity=\".08\" stroke=\"#ff4fa3\" stroke-width=\"1.6\"/><text x=\"16\" y=\"201.78\" fill=\"#74747f\" font-size=\"11.5\" font-weight=\"600\">Lions Gate Bridge</text><text x=\"146\" y=\"201.78\" fill=\"#74747f\" font-size=\"10.5\">main span 472 m · Vancouver</text><line x1=\"16\" y1=\"282.6\" x2=\"308.6\" y2=\"282.6\" stroke=\"#74747f\" stroke-width=\"2\"/><line x1=\"20\" y1=\"282.6\" x2=\"20\" y2=\"213.8\" stroke=\"#74747f\" stroke-width=\"2\"/><line x1=\"304.6\" y1=\"282.6\" x2=\"304.6\" y2=\"213.8\" stroke=\"#74747f\" stroke-width=\"2\"/><path d=\"M16 283 Q162 218 309 283\" fill=\"none\" stroke=\"#74747f\" stroke-opacity=\".4\"/><path d=\"M20 214 Q162 309 305 214\" fill=\"none\" stroke=\"#74747f\" stroke-opacity=\".7\"/><text x=\"16\" y=\"310.6\" fill=\"#ff4fa3\" font-size=\"11.5\" font-weight=\"600\">P-1000</text><text x=\"67\" y=\"310.6\" fill=\"#74747f\" font-size=\"10.5\">1,000 t of water · conceptual</text><ellipse cx=\"141.2\" cy=\"354.2\" rx=\"125.2\" ry=\"31.6\" fill=\"#ff4fa3\" fill-opacity=\".08\" stroke=\"#ff4fa3\" stroke-width=\"1.6\"/><text x=\"16\" y=\"413.84000000000003\" fill=\"#74747f\" font-size=\"11.5\" font-weight=\"600\">LZ 129 Hindenburg</text><text x=\"146\" y=\"413.84000000000003\" fill=\"#74747f\" font-size=\"10.5\">the largest airship ever flown</text><ellipse cx=\"92.0\" cy=\"438.6\" rx=\"76.0\" ry=\"12.7\" fill=\"#74747f\" fill-opacity=\".12\" stroke=\"#74747f\"/><path d=\"M154 423 l14 5 v31 l-14 5 z\" fill=\"#74747f\" fill-opacity=\".3\"/><text x=\"16\" y=\"479.26000000000005\" fill=\"#ff4fa3\" font-size=\"11.5\" font-weight=\"600\">P-100</text><text x=\"60\" y=\"479.26000000000005\" fill=\"#74747f\" font-size=\"10.5\">100 t · the homepage ledger vehicle</text><ellipse cx=\"74.9\" cy=\"505.8\" rx=\"58.9\" ry=\"14.6\" fill=\"#ff4fa3\" fill-opacity=\".08\" stroke=\"#ff4fa3\" stroke-width=\"1.6\"/><text x=\"16\" y=\"548.4000000000001\" fill=\"#9a9aa5\" font-size=\"11.5\" font-weight=\"600\">Boeing 747-400</text><text x=\"125\" y=\"548.4000000000001\" fill=\"#74747f\" font-size=\"10.5\">70.7 m</text><path d=\"M16 570 Q19 564 26 563 L46 563 L52 552 L56 552 L55 563 Q60 565 57 569 L24 571 Z\" fill=\"#9a9aa5\" fill-opacity=\".35\" stroke=\"#9a9aa5\" stroke-opacity=\".8\"/><path d=\"M32 566 L38 566 L50 573 L44 573 Z\" fill=\"#9a9aa5\" fill-opacity=\".5\"/><text x=\"16\" y=\"608.4000000000001\" fill=\"#c9c3b6\" font-size=\"11.5\" font-weight=\"600\">a person</text><text x=\"82\" y=\"608.4000000000001\" fill=\"#74747f\" font-size=\"10.5\">1.1 px at this scale</text><rect x=\"16\" y=\"620\" width=\"1.5\" height=\"2\" fill=\"#c9c3b6\"/><text x=\"26\" y=\"625\" fill=\"#74747f\" font-size=\"10.5\">← everything else on this figure is why the milestone is one small cell</text></svg><!--/SCALE3-->",
+    "new": "              <svg id=\"classScale\" viewBox=\"0 0 880 700\" width=\"100%\" role=\"img\" aria-label=\"Configured capsule lengths and reference objects, generated from the fleet configuration\"></svg>",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "concept/index.html",
+    "line": 810,
+    "old": "              One scale throughout. The P-100 is already in the Hindenburg's class; the P-1000 is a machine with no built precedent at all; the P-10000 would be nearly twice the Lions Gate Bridge's main span, among the largest objects humans have ever made move. A person is about one pixel tall in this figure. That is the size of the ambition, and it is why the first build is one sealed cell on a bench. The article proves the joints, the film and the seal, and it can be built this year.",
+    "new": "              Configured capsules at one scale: <span data-class-length=\"P100\"></span>, <span data-class-length=\"P1000\"></span> and <span data-class-length=\"P10000\"></span> m long. These dimensions are assumptions in the fleet model. A person is about one pixel tall in this figure. That is the size of the ambition, and it is why the first build is one sealed cell on a bench. The article proves the joints, the film and the seal, and it can be built this year.",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "concept/index.html",
+    "line": 1269,
+    "old": "",
+    "new": "function renderClassScale() {\n  for (const el of document.querySelectorAll('[data-class-length]')) {\n    el.textContent = fmt(CLASSES[el.dataset.classLength].lenM);\n  }\n  const rows = [\n    [CLASSES.P10000.name, CLASSES.P10000.lenM, CLASSES.P10000.diaM],\n    ['Lions Gate Bridge main span', 472, 0],\n    [CLASSES.P1000.name, CLASSES.P1000.lenM, CLASSES.P1000.diaM],\n    ['LZ 129 Hindenburg', 245, 41],\n    [CLASSES.P100.name, CLASSES.P100.lenM, CLASSES.P100.diaM],\n    ['Boeing 747-400', 70.7, 0],\n    ['A person', 1.8, 0],\n  ];\n  let y = 20;\n  const drawing = rows.map(([name, length, diameter]) => {\n    const width = length * .9, height = Math.max(diameter * .9, 2);\n    const row = `<text x=\"16\" y=\"${y}\" fill=\"currentColor\" font-size=\"14\">${name}: ${fmt(length, Number.isInteger(length) ? 0 : 1)} m</text>` +\n      `<rect x=\"16\" y=\"${y + 12}\" width=\"${width}\" height=\"${height}\" rx=\"${height / 2}\" fill=\"none\" stroke=\"currentColor\"/>`;\n    y += height + 60;\n    return row;\n  }).join('');\n  const svg = $('classScale');\n  svg.setAttribute('viewBox', `0 0 880 ${y}`);\n  svg.setAttribute('aria-label', rows.map(([name, length]) => `${name}: ${fmt(length, Number.isInteger(length) ? 0 : 1)} metres`).join('; '));\n  svg.innerHTML = drawing;\n}\nrenderClassScale();",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "line": 81,
+    "old": "That displacement is +22.2% on the 180,000 / 1.8×10⁶ / 1.8×10⁷ m³ the hulls carried while\nthe ledger bought its lift at sea level, and the published sizes grew with it: 177 × 44 →\n**190 × 47 m**, 380 × 95 → **404 × 102 m**, 820 × 205 → **876 × 219 m**.",
+    "new": "The first study increased displacement from 180,000 / 1.8×10⁶ / 1.8×10⁷ m³ after accounting for altitude.\nIts spheroids grew from 177 × 44 to 190 × 47 m, 380 × 95 to 404 × 102 m, and 820 × 205 to 876 × 219 m.\nThose are historical dimensions, replaced by capsules on 2026-08-13.\n\nCorrection, 2026-10-02: the simulation now uses the configured capsule dimensions below.\nThese are fleet assumptions, not structurally checked ships.\n\n<!-- fleet-dimensions:start -->\n| Class | Capsule length × diameter (m) |\n| --- | ---: |\n| P-100 | 110 × 55 |\n| P-1000 | 238 × 119 |\n| P-10000 | 512 × 256 |\n<!-- fleet-dimensions:end -->",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "line": 154,
+    "old": "  is a sphere because a sphere is optimal against external pressure, and these hulls are\n  fineness-4 bodies of revolution. On a monocoque that penalty is severe enough to be fatal",
+    "new": "  is a sphere because a sphere is optimal against external pressure, and the first study used\n  fineness-4 spheroids. The current configured hulls are capsules. On a monocoque that penalty is severe enough to be fatal",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "line": 175,
+    "old": "",
+    "new": "\n  Correction, 2026-10-02: 0.162 kg/m³ and 3.59 kg/m³ are hand figures with no generator.\n  Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing.",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  },
+  {
+    "file": "research/analysis/air-ballast.md",
+    "line": 54,
+    "old": "| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **52.5%** |\n| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 36.4% |\n| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 16.6% |",
+    "new": "| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **47.3%** |\n| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 31.9% |\n| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 14.0% |\n\nCorrection, 2026-10-02: the regenerated shares replace 52.5%, 36.4% and 16.6%.\nThe cycle energy used as the denominator comes from the earlier flight model.\nThe historical argument below has not been recomputed here.",
+    "cause": "Current capsule configuration and regenerated cycle denominator; breach figures explicitly lack a generator."
+  }
+]

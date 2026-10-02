@@ -51,9 +51,13 @@ number in the vehicle (`mass-budget.md` carries it at 12 to 120 t across three c
 
 | | LN₂ made per cycle | energy | net of recovery | share of the published cycle |
 |---|---|---|---|---|
-| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **52.5%** |
-| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 36.4% |
-| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 16.6% |
+| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **47.3%** |
+| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 31.9% |
+| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 14.0% |
+
+Correction, 2026-10-02: the regenerated shares replace 52.5%, 36.4% and 16.6%.
+The cycle energy used as the denominator comes from the earlier flight model.
+The historical argument below has not been recomputed here.
 
 Over half of a P-100's published cycle energy is liquefaction, and it is invisible: `plan.js`
 adds `eCryo` to `E.RETURN_TRANSIT`, so a ledger reporting 0.938 MWh against "return transit" is

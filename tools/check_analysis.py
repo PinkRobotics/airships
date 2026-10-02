@@ -26,6 +26,7 @@ import json
 import pathlib
 import re
 import sys
+import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 A = ROOT / "research" / "analysis"
@@ -312,6 +313,25 @@ def main() -> None:
         checked += 1
         if not re.search(rf"(?<![\d.,]){re.escape(want)}(?![\d])", physics):
             bad.append(f"docs/PHYSICS.md: missing {cid} lift per capsule area {want}")
+
+    # Current capsule dimensions are bound to the configuration, not a historical table.
+    fleet = json.loads(subprocess.check_output(
+        ['node', '--input-type=module', '-e',
+         "import {CLASSES} from './sim/config.js'; console.log(JSON.stringify(CLASSES));"],
+        cwd=ROOT, text=True))
+    block = physics.split('<!-- fleet-dimensions:start -->', 1)[-1].split('<!-- fleet-dimensions:end -->', 1)[0]
+    for cid, spec in fleet.items():
+        checked += 1
+        expected = f"| {spec['name']} | {spec['lenM']} × {spec['diaM']} |"
+        if expected not in block:
+            bad.append(f"docs/PHYSICS.md: configured dimensions differ for {cid}")
+    air = (A / 'air-ballast.md').read_text()
+    for cid, spec in fleet.items():
+        checked += 1
+        row = next((line for line in air.splitlines() if line.startswith(f"| {spec['name']} |")), '')
+        expected = f"{budget[cid]['descentWithoutNitrogen']['cycleSavingPct']:.1f}%"
+        if expected not in row:
+            bad.append(f"air-ballast.md: {cid} current share differs from {expected}")
 
     if bad:
         print("ANALYSIS GATE FAILED — the notes disagree with their own generated data:\n")

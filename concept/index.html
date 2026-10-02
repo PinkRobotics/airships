@@ -807,10 +807,10 @@ nav.estate .wrap{display:block}
         <div class="dbody">
           <figure>
             <div class="panel">
-              <!--SCALE3--><svg viewBox="0 0 880 644" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" role="img" aria-label="All three conceptual airships and four references drawn to one scale, one per row: the 876-metre P-10000, the 472-metre Lions Gate Bridge main span, the 404-metre P-1000, the 245-metre Hindenburg, the 190-metre P-100, a Boeing 747, and a person, who is about one pixel."><text x="16" y="26" fill="#ff4fa3" font-size="11.5" font-weight="600">P-10000</text><text x="74" y="26" fill="#74747f" font-size="10.5">10,000 t of water · conceptual</text><ellipse cx="287.6" cy="105.9" rx="271.6" ry="67.9" fill="#ff4fa3" fill-opacity=".08" stroke="#ff4fa3" stroke-width="1.6"/><text x="16" y="201.78" fill="#74747f" font-size="11.5" font-weight="600">Lions Gate Bridge</text><text x="146" y="201.78" fill="#74747f" font-size="10.5">main span 472 m · Vancouver</text><line x1="16" y1="282.6" x2="308.6" y2="282.6" stroke="#74747f" stroke-width="2"/><line x1="20" y1="282.6" x2="20" y2="213.8" stroke="#74747f" stroke-width="2"/><line x1="304.6" y1="282.6" x2="304.6" y2="213.8" stroke="#74747f" stroke-width="2"/><path d="M16 283 Q162 218 309 283" fill="none" stroke="#74747f" stroke-opacity=".4"/><path d="M20 214 Q162 309 305 214" fill="none" stroke="#74747f" stroke-opacity=".7"/><text x="16" y="310.6" fill="#ff4fa3" font-size="11.5" font-weight="600">P-1000</text><text x="67" y="310.6" fill="#74747f" font-size="10.5">1,000 t of water · conceptual</text><ellipse cx="141.2" cy="354.2" rx="125.2" ry="31.6" fill="#ff4fa3" fill-opacity=".08" stroke="#ff4fa3" stroke-width="1.6"/><text x="16" y="413.84000000000003" fill="#74747f" font-size="11.5" font-weight="600">LZ 129 Hindenburg</text><text x="146" y="413.84000000000003" fill="#74747f" font-size="10.5">the largest airship ever flown</text><ellipse cx="92.0" cy="438.6" rx="76.0" ry="12.7" fill="#74747f" fill-opacity=".12" stroke="#74747f"/><path d="M154 423 l14 5 v31 l-14 5 z" fill="#74747f" fill-opacity=".3"/><text x="16" y="479.26000000000005" fill="#ff4fa3" font-size="11.5" font-weight="600">P-100</text><text x="60" y="479.26000000000005" fill="#74747f" font-size="10.5">100 t · the homepage ledger vehicle</text><ellipse cx="74.9" cy="505.8" rx="58.9" ry="14.6" fill="#ff4fa3" fill-opacity=".08" stroke="#ff4fa3" stroke-width="1.6"/><text x="16" y="548.4000000000001" fill="#9a9aa5" font-size="11.5" font-weight="600">Boeing 747-400</text><text x="125" y="548.4000000000001" fill="#74747f" font-size="10.5">70.7 m</text><path d="M16 570 Q19 564 26 563 L46 563 L52 552 L56 552 L55 563 Q60 565 57 569 L24 571 Z" fill="#9a9aa5" fill-opacity=".35" stroke="#9a9aa5" stroke-opacity=".8"/><path d="M32 566 L38 566 L50 573 L44 573 Z" fill="#9a9aa5" fill-opacity=".5"/><text x="16" y="608.4000000000001" fill="#c9c3b6" font-size="11.5" font-weight="600">a person</text><text x="82" y="608.4000000000001" fill="#74747f" font-size="10.5">1.1 px at this scale</text><rect x="16" y="620" width="1.5" height="2" fill="#c9c3b6"/><text x="26" y="625" fill="#74747f" font-size="10.5">← everything else on this figure is why the milestone is one small cell</text></svg><!--/SCALE3-->
+              <svg id="classScale" viewBox="0 0 880 700" width="100%" role="img" aria-label="Configured capsule lengths and reference objects, generated from the fleet configuration"></svg>
             </div>
             <figcaption class="small">
-              One scale throughout. The P-100 is already in the Hindenburg's class; the P-1000 is a machine with no built precedent at all; the P-10000 would be nearly twice the Lions Gate Bridge's main span, among the largest objects humans have ever made move. A person is about one pixel tall in this figure. That is the size of the ambition, and it is why the first build is one sealed cell on a bench. The article proves the joints, the film and the seal, and it can be built this year.
+              Configured capsules at one scale: <span data-class-length="P100"></span>, <span data-class-length="P1000"></span> and <span data-class-length="P10000"></span> m long. These dimensions are assumptions in the fleet model. A person is about one pixel tall in this figure. That is the size of the ambition, and it is why the first build is one sealed cell on a bench. The article proves the joints, the film and the seal, and it can be built this year.
             </figcaption>
           </figure>
         </div>
@@ -1270,6 +1270,33 @@ function renderWorked() {
     `${fmt(p.led.liftT)} t displaced = ${fmt(p.led.dryT)} t structure + ${fmt(cls.payloadT)} t water + ${fmt(p.led.reserveT, 1)} t reserve. ` +
     `All values are demonstration assumptions; water delivered is not fire extinguished. ${ENERGY_NOTE}`;
 }
+function renderClassScale() {
+  for (const el of document.querySelectorAll('[data-class-length]')) {
+    el.textContent = fmt(CLASSES[el.dataset.classLength].lenM);
+  }
+  const rows = [
+    [CLASSES.P10000.name, CLASSES.P10000.lenM, CLASSES.P10000.diaM],
+    ['Lions Gate Bridge main span', 472, 0],
+    [CLASSES.P1000.name, CLASSES.P1000.lenM, CLASSES.P1000.diaM],
+    ['LZ 129 Hindenburg', 245, 41],
+    [CLASSES.P100.name, CLASSES.P100.lenM, CLASSES.P100.diaM],
+    ['Boeing 747-400', 70.7, 0],
+    ['A person', 1.8, 0],
+  ];
+  let y = 20;
+  const drawing = rows.map(([name, length, diameter]) => {
+    const width = length * .9, height = Math.max(diameter * .9, 2);
+    const row = `<text x="16" y="${y}" fill="currentColor" font-size="14">${name}: ${fmt(length, Number.isInteger(length) ? 0 : 1)} m</text>` +
+      `<rect x="16" y="${y + 12}" width="${width}" height="${height}" rx="${height / 2}" fill="none" stroke="currentColor"/>`;
+    y += height + 60;
+    return row;
+  }).join('');
+  const svg = $('classScale');
+  svg.setAttribute('viewBox', `0 0 880 ${y}`);
+  svg.setAttribute('aria-label', rows.map(([name, length]) => `${name}: ${fmt(length, Number.isInteger(length) ? 0 : 1)} metres`).join('; '));
+  svg.innerHTML = drawing;
+}
+renderClassScale();
 function renderClassCards() {
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];

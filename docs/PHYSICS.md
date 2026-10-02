@@ -78,9 +78,20 @@ displacement with a 5% margin; the classes carry 2,200 m³ per tonne of payload:
 The margin is identical for all three classes because m_dry = m_pay for all three, so no
 class needs an exception to the fail-safe requirement and none is granted one.
 
-That displacement is +22.2% on the 180,000 / 1.8×10⁶ / 1.8×10⁷ m³ the hulls carried while
-the ledger bought its lift at sea level, and the published sizes grew with it: 177 × 44 →
-**190 × 47 m**, 380 × 95 → **404 × 102 m**, 820 × 205 → **876 × 219 m**.
+The first study increased displacement from 180,000 / 1.8×10⁶ / 1.8×10⁷ m³ after accounting for altitude.
+Its spheroids grew from 177 × 44 to 190 × 47 m, 380 × 95 to 404 × 102 m, and 820 × 205 to 876 × 219 m.
+Those are historical dimensions, replaced by capsules on 2026-08-13.
+
+Correction, 2026-10-02: the simulation now uses the configured capsule dimensions below.
+These are fleet assumptions, not structurally checked ships.
+
+<!-- fleet-dimensions:start -->
+| Class | Capsule length × diameter (m) |
+| --- | ---: |
+| P-100 | 110 × 55 |
+| P-1000 | 238 × 119 |
+| P-10000 | 512 × 256 |
+<!-- fleet-dimensions:end -->
 
 **Lift is not a constant, and the ledger no longer pretends it is.** The same envelope in
 the same cycle:
@@ -140,8 +151,8 @@ Four consequences, and they are not small:
   can expel an atmosphere once it is admitted. Ballast therefore has to be *made* — which is
   what the cryogenic plant is for, and why it cannot be deleted.
 - **The buckling radius is the cell's, not the hull's.** Every vacuum design in the literature
-  is a sphere because a sphere is optimal against external pressure, and these hulls are
-  fineness-4 bodies of revolution. On a monocoque that penalty is severe enough to be fatal
+  is a sphere because a sphere is optimal against external pressure, and the first study used
+  fineness-4 spheroids. The current configured hulls are capsules. On a monocoque that penalty is severe enough to be fatal
   (see `research/analysis/mass-budget.md`). With small cells the outer body becomes a fairing
   and the penalty largely goes away. **This is the reason the shape of the ship and the shape
   of its pressure vessels are allowed to differ.**
@@ -161,6 +172,9 @@ Four consequences, and they are not small:
   in compression (3.59 kg/m³ monolithic, which fails by 3.7× and is exactly why a lattice or
   sandwich is needed rather than a skin). Breach stops being a safety test and becomes the
   sizing load case for the ship.
+
+  Correction, 2026-10-02: 0.162 kg/m³ and 3.59 kg/m³ are hand figures with no generator.
+  Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing.
 
 Everything below treats the shell as a single sphere, because that is what the sources do and
 because it is the conservative reading for stability. The cellular case is better, and nobody
