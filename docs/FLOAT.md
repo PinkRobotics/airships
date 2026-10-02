@@ -89,7 +89,7 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 held by a gate, that comes in under 0.9569 kg/m³ *including* tube, joints, film, barrier and
 seams, with at least the model's 1.5 factor on every failure mode — Euler, local wall
 buckling, film bending, and joint bearing — and whose every part can be bought from a named
-supplier or made on hardware we have. Under 1.2250 at sea level is a real milestone worth
+supplier or made on hardware already at hand. Under 1.2250 at sea level is a real milestone worth
 declaring on the way.
 
 **Definition of not-done.** A number that floats because a mass line was omitted, a margin

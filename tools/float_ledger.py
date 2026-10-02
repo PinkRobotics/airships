@@ -1404,7 +1404,7 @@ def d_literature(F,K):
                    'Original altitude, safety factor and knockdown are not established by the budget citation.'})
         c['sizingPressure']={'valuePa':None,'basis':'Not established by this secondary citation; not resized by the ledger.'}
         cases.append(c)
-    return section(F,'literature','Literature densities — not our hulls',
+    return section(F,'literature','Literature densities — not the drawn hulls',
         'These are the budget tool’s cited inputs. Their original load cases are not imported as '
         'validated ship cases. The altitude columns compare density only.',cases,
         '\n\n'.join(quote(c['extras']['source']) for c in cases))

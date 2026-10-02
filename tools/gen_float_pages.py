@@ -553,7 +553,7 @@ def frame(doc: str, page: str, title: str, body: str) -> str:
         f'{STYLE}</style></head><body><header><a href="../">← Fleet monitor</a>',
         f'<nav aria-label="Float case pages">{row}</nav>',
         f'<p class="from">This page is rendered from <code>{doc}</code>. '
-        'Paths printed in code style name files of the project’s source.</p></header>',
+        'Paths printed in code style refer to the project’s source.</p></header>',
         '<main>',
         body,
         '</main><footer><a href="../">Fleet monitor</a> · '

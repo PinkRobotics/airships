@@ -537,7 +537,7 @@ What would move it: An actual structural and equipment mass budget; the simulato
 What would move it: Measured component masses and structural validation. The budget’s case names are not evidence classes.
 
 
-## Literature densities — not our hulls
+## Literature densities — not the drawn hulls
 
 These are the budget tool’s cited inputs. Their original load cases are not imported as validated ship cases. The altitude columns compare density only.
 
