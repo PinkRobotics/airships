@@ -1,0 +1,86 @@
+{
+  "base": "84717cdb2b1c3256787cbdb2ab2fa4f0e2195808",
+  "before": {
+    "FAIL": 510,
+    "ALLOW": 899,
+    "PASS": 0
+  },
+  "after": {
+    "FAIL": 411,
+    "ALLOW": 1003,
+    "PASS": 0
+  },
+  "logs": [
+    {
+      "file": "analysis-step0.log",
+      "command": "make analysis",
+      "exitCode": 0,
+      "sha256": "fa4f80f502a8aed035f1907a74f302b52a57a7c1eb3d7b5f9af1b632b6920993",
+      "qualification": ""
+    },
+    {
+      "file": "vacuum-step0.log",
+      "command": "python3 research/analysis/vacuum-cell.py --json research/analysis/vacuum-cell.json",
+      "exitCode": 0,
+      "sha256": "18f7b5f51dc0724ceba85275f7528c25aa1d7990895fbf5c6b6b0a5f23911970",
+      "qualification": ""
+    },
+    {
+      "file": "ledger-step0.log",
+      "command": "python3 tools/float_ledger.py",
+      "exitCode": 0,
+      "sha256": "9adf6a354b55cf1a511ff7b8048fbae2c3467290270bf724ef0b0d585c03c9ab",
+      "qualification": ""
+    },
+    {
+      "file": "analysischeck-step0.log",
+      "command": "make analysischeck",
+      "exitCode": 2,
+      "sha256": "ab01ed02540190d0e9b2511be4584c7e719e3780b85e700fae08f56f8230830f",
+      "qualification": ""
+    },
+    {
+      "file": "parity-step0.log",
+      "command": "make cellparity",
+      "exitCode": 0,
+      "sha256": "96048b93144bcbcb2e5af8c3ee30976bd80afdb070237d4d2675aa43ae8d1e82",
+      "qualification": "Not accepted as lane evidence: fixed port was occupied."
+    },
+    {
+      "file": "parity-rounding-red.log",
+      "command": "make cellparity (one mirror temporarily uses ties-to-even)",
+      "exitCode": 2,
+      "sha256": "38bf2dc2b2f4647c36801e9540eed2ca16580184e4c06fc418510f4e668dda4a",
+      "qualification": ""
+    },
+    {
+      "file": "parity-restored.log",
+      "command": "make cellparity (restored)",
+      "exitCode": 0,
+      "sha256": "e530200501493a00fb9399c3b5d774e9cf6eeb6dacaff3ea6bd188de10363895",
+      "qualification": ""
+    },
+    {
+      "file": "analysisfresh-red.log",
+      "command": "make analysisfresh (delivery median temporarily increased)",
+      "exitCode": 2,
+      "sha256": "6447fe70c6e3ca05abccb4c999a4f9be8875c2a2c4c0bb394c993c4242b8a294",
+      "qualification": ""
+    },
+    {
+      "file": "analysischeck-final.log",
+      "command": "make analysischeck",
+      "exitCode": 2,
+      "sha256": "34696866e0fce767518281812a3dbe06cdb311b147d6c3b25000338db2d6b0e3",
+      "qualification": ""
+    },
+    {
+      "file": "full-check.log",
+      "command": "flock \"$HOME/data/pinkrobotics/locks/make-check.lock\" make --keep-going check ledgercheck analysisfresh",
+      "exitCode": 2,
+      "sha256": "b2db2e4db4fc3294f48f059abbdf749024dfad9384a56556c559bfaae79c7fa5",
+      "qualification": ""
+    }
+  ],
+  "fullCheckLast30": "  floats\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:1136: No explicit binding to a named ledger field.\n  floats\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:988: No explicit binding to a named ledger field.\n  floats\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:1048: No explicit binding to a named ledger field.\n  t, float reserve\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:1149: No explicit binding to a named ledger field.\n  MPa: floats\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:1153: No explicit binding to a named ledger field.\n  MPa: floats nowhere 40-80 m (52 m:\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:696: No explicit binding to a named ledger field.\n  # [REF-8] FLOATS only if it also STANDS: every named margin >= 1 at\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:873: No explicit binding to a named ledger field.\n  # float, farthest from crush) and let the margin be an OUTPUT of materials and\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\ntools/ship_scoping.py:878: No explicit binding to a named ledger field.\n  # Every design that both stands and floats lives between them. The emergent\n  Proposed: This passage has no checked binding to a current float result. Its figures remain unverified here until the named object, altitude, sizing pressure, safety factor and knockdown basis are supplied; a hypothetical result is not a demonstrated floating vehicle.\nledgercheck: 1414 inventoried blocks; 411 FAIL; 1003 explicit allowances; 0 bound blocks\nmake: *** [Makefile:260: ledgercheck] Error 1\npython3 research/analysis/analysis-fresh.py\nanalysisfresh: every analysis equals fresh generation"
+}

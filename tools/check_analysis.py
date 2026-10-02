@@ -194,6 +194,97 @@ MANIFEST = [
     ("helium.md", "helium", "heliumMarket/price2021UsdPerM3", ".2f"),
 ]
 
+# Capsule-area readers repaired on 2026-10-02, each tied to its generated field.
+MANIFEST += [
+    ('mass-budget.md', 'mass-budget', 'classes/P100/requiredKgPerM2', '.3f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/hullAreaM2', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/floor/lines/1/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/credible/lines/1/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/demonstrated/lines/1/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/floor/lines/15/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/credible/lines/15/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/demonstrated/lines/15/tonnes', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/floor/totalT', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/floor/overBy', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/credible/totalT', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/credible/overBy', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/demonstrated/totalT', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/cases/demonstrated/overBy', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/totalT', '.1f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.264/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.264/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.264/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.264/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.350/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.350/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.350/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.350/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.600/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.600/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.600/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.600/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/timesBaseline', '.2f'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.264/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.264/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.264/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.508/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.508/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.508/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.264/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.264/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.264/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.508/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.508/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.508/diaM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.750/volumeM3', ',d'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.750/lenM', 'd'),
+    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.750/diaM', 'd'),
+]
+MANIFEST = list(dict.fromkeys(MANIFEST))
+
+MANIFEST += [
+    ("water-availability.md", "water-availability", "geometry/P100/hullStationDiscHa", ".2f"),
+    ("water-availability.md", "water-availability", "geometry/P10000/hullStationDiscHa", ".2f"),
+    ("water-availability.md", "water-availability", "geometry/P100/conservatismVsHullDisc", ".1f"),
+    ("water-availability.md", "water-availability", "geometry/P10000/conservatismVsHullDisc", ".1f"),
+]
+
+# Other permitted readers of the capsule correction. Dated notes retain their old
+# text and place the current correction beside it.
+MANIFEST += [
+    ("../../docs/OPEN-QUESTIONS.md", "mass-budget", "classes/P100/rightSized/floor/hullThatCloses/0.508/volumeM3", ",d"),
+    ("../../docs/OPEN-QUESTIONS.md", "mass-budget", "classes/P100/rightSized/floor/hullThatCloses/0.508/lenM", "d"),
+    ("../../docs/VERIFICATION-PLAN.md", "mass-budget", "classes/P100/rightSized/floor/hullThatCloses/0.508/volumeM3", ",d"),
+    ("../../docs/VERIFICATION-PLAN.md", "mass-budget", "classes/P100/rightSized/floor/hullThatCloses/0.508/lenM", "d"),
+]
+for cid in ("P100", "P1000", "P10000"):
+    MANIFEST += [
+        ("../../docs/PHYSICS.md", "mass-budget", f"classes/{cid}/hullAreaM2", ",d"),
+        ("../../docs/PHYSICS.md", "mass-budget", f"classes/{cid}/requiredKgPerM2", ".2f"),
+    ]
+
 
 def main() -> None:
     cache: dict[str, dict] = {}
@@ -212,6 +303,15 @@ def main() -> None:
         if not re.search(rf"(?<![\d.,]){re.escape(want)}(?![\d])", text):
             bad.append(f"{md}: does not contain {want!r} "
                        f"(from {jname}.json {path}) — the prose has drifted")
+
+    # Lift per nominal surface is explicitly an allowance, not a hull mass.
+    budget = cache["mass-budget"]["classes"]
+    physics = (ROOT / "docs/PHYSICS.md").read_text()
+    for cid, row in budget.items():
+        want = format(row["shellDensityWallKgPerM3"] * row["displacementM3"] / row["hullAreaM2"], ".2f")
+        checked += 1
+        if not re.search(rf"(?<![\d.,]){re.escape(want)}(?![\d])", physics):
+            bad.append(f"docs/PHYSICS.md: missing {cid} lift per capsule area {want}")
 
     if bad:
         print("ANALYSIS GATE FAILED — the notes disagree with their own generated data:\n")

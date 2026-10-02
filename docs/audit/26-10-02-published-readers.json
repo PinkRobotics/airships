@@ -1,0 +1,170 @@
+[
+  {
+    "file": "docs/PHYSICS.md",
+    "oldLine": 153,
+    "newLine": 153,
+    "old": "  2 m cells a P-100 has ~330,000 m² of interior wall against 22,592 m² of array boundary —",
+    "new": "  2 m cells the first study’s dated 190 × 47 m spheroid reference has\n  ~330,000 m² of interior wall against 22,592 m² of array boundary —",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "oldLine": 205,
+    "newLine": 206,
+    "old": "| P-100 | 22,592 m² | 100 t | 4.43 kg/m² | 5.07 kg/m² on 19,707 m² |\n| P-1000 | 104,349 m² | 1,000 t | 9.58 kg/m² | 10.94 kg/m² on 91,372 m² |\n| P-10000 | 485,575 m² | 10,000 t | 20.59 kg/m² | 23.50 kg/m² on 425,477 m² |",
+    "new": "| P-100 | 19,007 m² | 100 t | 5.26 kg/m² | 5.07 kg/m² on 19,707 m² |\n| P-1000 | 88,976 m² | 1,000 t | 11.24 kg/m² | 10.94 kg/m² on 91,372 m² |\n| P-10000 | 411,775 m² | 10,000 t | 24.29 kg/m² | 23.50 kg/m² on 425,477 m² |\n\n**2026-10-02 correction:** the table now prices each nominal capsule on its own surface.\nThe former spheroid areas and allowances are retained in\n[the regeneration audit](audit/26-10-02-analysis-regeneration.md).",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "oldLine": 210,
+    "newLine": 215,
+    "old": "budget allows at most σ_max = ρ_work V / S_wet — 9.32, 20.17 and 43.35 kg/m² for the three",
+    "new": "budget allows at most σ_max = ρ_work V / S_wet — 11.08, 23.66 and 51.12 kg/m² for the three",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/PHYSICS.md",
+    "oldLine": 356,
+    "newLine": 361,
+    "old": "",
+    "new": "\n**2026-10-02 correction:** this hand calculation used the former spheroid’s surface.\nThe nominal capsule now has 411,775 m² of surface, as recorded in the regeneration audit.\nThe force estimate has not been rerun; its precise air-density and speed basis was not recorded here.",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/OPEN-QUESTIONS.md",
+    "oldLine": 30,
+    "newLine": 30,
+    "old": "",
+    "new": ">\n> **2026-10-02 correction to #11:** the conditional capsule budget now gives 355,499 m³ and 129 m length. This is equipment-budget closure under an assumed shell density, not a checked design.\n> See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/VERIFICATION-PLAN.md",
+    "oldLine": 34,
+    "newLine": 34,
+    "old": "| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes with 47% margin** — hull closes at 353,975 m³, a 223 m ship, shorter than the Hindenburg |",
+    "new": "| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes with 47% margin** — hull closes at 355,499 m³, a 129 m ship, shorter than the Hindenburg |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 13,
+    "newLine": 13,
+    "old": "",
+    "new": "**2026-10-02 correction:** nominal fleet areas now use the model’s capsule surface.\nThe [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) records every old and new number and its cause.\nThese conditional equipment budgets do not validate a drawn hull.\n",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 16,
+    "newLine": 20,
+    "old": "**0.4545 kg per m³** enclosed, or **4.426 kg per m²** of the 22,592 m² skin.",
+    "new": "**0.4545 kg per m³** enclosed, or **5.261 kg per m²** of the 19,007 m² capsule skin.",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 28,
+    "newLine": 32,
+    "old": "| Gas barrier skin | 1.0 | 9.8 | 77.9 |",
+    "new": "| Gas barrier skin | 0.8 | 8.2 | 65.6 |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 42,
+    "newLine": 46,
+    "old": "| Sundries and margin | 19.7 | 61.1 | 187.2 |\n| **TOTAL** | **216.3** | 468.1 | 1123.1 |\n| × the 100 t allowance | **2.16×** | 4.68× | 11.23× |",
+    "new": "| Sundries and margin | 19.6 | 60.8 | 184.7 |\n| **TOTAL** | **216.1** | 466.4 | 1108.3 |\n| × the 100 t allowance | **2.16×** | 4.66× | 11.08× |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 47,
+    "newLine": 51,
+    "old": "floor to **180.5 t, 1.81×**. The cryogenic plant stays: see the retraction in `air-ballast.md`.",
+    "new": "floor to **181.3 t, 1.81×**. The cryogenic plant stays: see the retraction in `air-ballast.md`.",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 87,
+    "newLine": 91,
+    "old": "| 0.264 kg/m³ | 227,571 m³ | 1.03× | 192 × 48 m |\n| 0.350 | 260,368 m³ | 1.18× | 201 × 50 m |\n| **0.508 (Jenett, published)** | **353,975 m³** | **1.61×** | **223 × 55 m** |\n| 0.600 | 447,479 m³ | 2.03× | 241 × 60 m |\n| 0.750 | 784,115 m³ | 3.56× | 290 × 72 m |\n| 0.900 | 3,062,477 m³ | 13.92× | 457 × 113 m |\n\n**At the best published shell density the reference ship closes at 223 × 55 m — still shorter",
+    "new": "| 0.264 kg/m³ | 228,644 m³ | 1.04× | 111 × 56 m |\n| 0.350 | 261,566 m³ | 1.19× | 117 × 58 m |\n| **0.508 (Jenett, published)** | **355,499 m³** | **1.62×** | **129 × 65 m** |\n| 0.600 | 449,285 m³ | 2.04× | 140 × 70 m |\n| 0.750 | 786,622 m³ | 3.58× | 168 × 84 m |\n| 0.900 | 3,060,477 m³ | 13.91× | 265 × 132 m |\n\n**At the best published shell density the reference ship closes at 129 × 65 m — still shorter",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 124,
+    "newLine": 128,
+    "old": "| hull at shell 0.264 | 357,865 m³ — 223 × 55 m | 288,126 m³ — 208 × 51 m | 227,571 m³ — 192 × 48 m |\n| hull at shell 0.508 | 811,637 m³ — 294 × 73 m | 525,039 m³ — 254 × 63 m | 353,975 m³ — 223 × 55 m |\n| hull at shell 0.750 | **never** | 2,725,986 m³ — 440 × 109 m | 784,115 m³ — 290 × 72 m |",
+    "new": "| hull at shell 0.264 | 359,402 m³, 130 × 65 m | 289,426 m³, 121 × 60 m | 228,644 m³, 111 × 56 m |\n| hull at shell 0.508 | 814,181 m³, 170 × 85 m | 527,049 m³, 147 × 74 m | 355,499 m³, 129 × 65 m |\n| hull at shell 0.750 | **never** | 2,725,487 m³, 255 × 127 m | 786,622 m³, 168 × 84 m |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/mass-budget.md",
+    "oldLine": 188,
+    "newLine": 192,
+    "old": "concept closes at 1.61× the reference volume — a 223 m hull — and the true go/no-go is a single",
+    "new": "concept closes at 1.62× the reference volume, a 129 m hull — and the true go/no-go is a single",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/vacuum-cell.md",
+    "oldLine": 96,
+    "newLine": 96,
+    "old": "meets atmosphere: the outer envelope, 22,592 m² against 660,000 m² of interior wall at 1 m\ncells — a factor of **29**. So the film has exactly two possible jobs, and the model was paying",
+    "new": "meets atmosphere. The dated 190 × 47 m spheroid reference from the first study has\n22,592 m² of envelope against 660,000 m² of interior wall at 1 m cells, a factor of **29**. So the film has exactly two possible jobs, and the model was paying",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/FLOAT-LEDGER.md",
+    "oldLine": 509,
+    "newLine": 509,
+    "old": "| P100 | hullAreaM2 | 22,592.000 | 16,243.000 |\n| P100 | requiredKgPerM2 | 4.426 | 6.156 |\n| P1000 | hullAreaM2 | 104,349.000 | 76,039.000 |\n| P1000 | requiredKgPerM2 | 9.583 | 13.151 |\n| P10000 | hullAreaM2 | 485,575.000 | 351,903.000 |\n| P10000 | requiredKgPerM2 | 20.594 | 28.417 |",
+    "new": "",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/FLOAT-LEDGER.md",
+    "oldLine": 520,
+    "newLine": 514,
+    "old": "| P100, equipment budget floor, loaded | 316.0 t | — | 0.853 | −46.5 | 0.666 | −105.5 | assumed basis |\n| P100, equipment budget credible, loaded | 565.0 t | — | 0.477 | −295.5 | 0.373 | −354.5 | assumed basis |\n| P100, equipment budget demonstrated, loaded | 1,196.8 t | — | 0.225 | −927.3 | 0.176 | −986.3 | assumed basis |",
+    "new": "| P100, equipment budget floor, loaded | 316.1 t | — | 0.853 | −46.6 | 0.666 | −105.6 | assumed basis |\n| P100, equipment budget credible, loaded | 566.4 t | — | 0.476 | −296.9 | 0.372 | −355.9 | assumed basis |\n| P100, equipment budget demonstrated, loaded | 1,208.3 t | — | 0.223 | −938.8 | 0.174 | −997.8 | assumed basis |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/FLOAT-LEDGER.md",
+    "oldLine": 525,
+    "newLine": 519,
+    "old": "| P1000, equipment budget floor, loaded | 2,802.3 t | — | 0.962 | −107.3 | 0.751 | −697.2 | assumed basis |\n| P1000, equipment budget credible, loaded | 4,489.0 t | — | 0.600 | −1,794.0 | 0.469 | −2,383.9 | assumed basis |\n| P1000, equipment budget demonstrated, loaded | 8,336.8 t | — | 0.323 | −5,641.8 | 0.253 | −6,231.7 | assumed basis |",
+    "new": "| P1000, equipment budget floor, loaded | 2,803.6 t | — | 0.961 | −108.6 | 0.751 | −698.5 | assumed basis |\n| P1000, equipment budget credible, loaded | 4,502.9 t | — | 0.599 | −1,807.9 | 0.467 | −2,397.8 | assumed basis |\n| P1000, equipment budget demonstrated, loaded | 8,390.4 t | — | 0.321 | −5,695.4 | 0.251 | −6,285.3 | assumed basis |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "docs/FLOAT-LEDGER.md",
+    "oldLine": 530,
+    "newLine": 524,
+    "old": "| P10000, equipment budget floor, loaded | 29,511.0 t | — | 0.913 | −2,561.0 | 0.713 | −8,460.1 | assumed basis |\n| P10000, equipment budget credible, loaded | 43,590.9 t | — | 0.618 | −16,640.9 | 0.483 | −22,540.0 | assumed basis |\n| P10000, equipment budget demonstrated, loaded | 72,731.8 t | — | 0.371 | −45,781.8 | 0.289 | −51,680.9 | assumed basis |",
+    "new": "| P10000, equipment budget floor, loaded | 29,524.2 t | — | 0.913 | −2,574.2 | 0.713 | −8,473.3 | assumed basis |\n| P10000, equipment budget credible, loaded | 43,729.5 t | — | 0.616 | −16,779.5 | 0.481 | −22,678.6 | assumed basis |\n| P10000, equipment budget demonstrated, loaded | 72,979.6 t | — | 0.369 | −46,029.6 | 0.288 | −51,928.7 | assumed basis |",
+    "cause": "Capsule budget correction or explicit dated film reference; generated ledger follows fresh inputs"
+  },
+  {
+    "file": "research/analysis/water-availability.md",
+    "oldLine": 81,
+    "newLine": 81,
+    "old": "",
+    "new": "**2026-10-02 correction:** the station-disc calculation now uses the capsule-era fleet lengths.\nThe [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) retains the former figures.\n",
+    "cause": "regenerated capsule-era fleet lengths"
+  },
+  {
+    "file": "research/analysis/water-availability.md",
+    "oldLine": 82,
+    "newLine": 85,
+    "old": "holding station needs a disc it fits inside — 2.84 ha for a P-100, 60.27 ha for a P-10000.\nThe shipped thresholds are 3.5× and 16.6× that. Loosening the P-10000 to 500 ha would roughly",
+    "new": "holding station needs a disc it fits inside — 0.95 ha for a P-100, 20.59 ha for a P-10000.\nThe shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 ha would roughly",
+    "cause": "regenerated capsule-era fleet lengths"
+  }
+]

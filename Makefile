@@ -323,3 +323,7 @@ ledger:  ## Regenerate the float figures and their complete basis
 
 ledgercheck:  ## Fresh ledger equality and explicit altitude/basis binding in prose
 	$(PY) tools/check_float_ledger.py
+
+.PHONY: analysisfresh
+analysisfresh:  ## Recompute each analysis in scratch and refuse any changed artifact
+	$(PY) research/analysis/analysis-fresh.py

@@ -14,9 +14,12 @@ every material.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import pathlib
+import socket
 import subprocess
+import time
 import sys
 from browser_scratch import browser_scratch
 
@@ -93,6 +96,14 @@ PROBE = """(() => {
   // SHIP 0 — the film-on-rings port. The whole summary the pages bind, raw; the
   // Python record carries the published rounding and this gate holds them together.
   out.ship0 = C.ship0Summary();
+  // Directed half-way counts from the independent refutation, plus both neighbours.
+  out.offGrid = [];
+  for (const n of [44, 50, 60, 72, 90, 120]) {
+    for (const delta of [-1e-10, 0, 1e-10]) {
+      const dia = (n + 0.5) * 52 / 72 + delta;
+      out.offGrid.push(C.ship0('s1050', 1.2, dia, 0.3));
+    }
+  }
   return out;
 })()"""
 
@@ -109,11 +120,24 @@ def main() -> None:
         probe.write_text(PROBE.replace(
             "__WALL__", repr(py["theWall"]["rhoAirAtWorkAltKgPerM3"])))
         out = pathlib.Path(td) / "out.json"
+        with socket.socket() as sock:
+            sock.bind(("127.0.0.1", 0))
+            port = sock.getsockname()[1]
         srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", "8907", "--quiet"], cwd=ROOT)
+                                "--port", str(port), "--quiet"], cwd=ROOT)
         try:
+            for _ in range(100):
+                if srv.poll() is not None:
+                    raise RuntimeError("parity server failed to start")
+                try:
+                    with socket.create_connection(("127.0.0.1", port), timeout=.1):
+                        break
+                except OSError:
+                    time.sleep(.05)
+            else:
+                raise RuntimeError("parity server did not become ready")
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            "http://127.0.0.1:8907/cell/index.html", str(probe),
+                            f"http://127.0.0.1:{port}/cell/index.html", str(probe),
                             str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL)
             js = json.loads(out.read_text())
@@ -436,6 +460,37 @@ def main() -> None:
                 if wname not in pb:
                     bad.append(f"ship0.band.{wname}: present in JS, missing "
                                "from Python")
+
+    spec = importlib.util.spec_from_file_location("parity_model", ROOT / "research/analysis/vacuum-cell.py")
+    model = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(model)
+
+    def compare_raw(want, got, path):
+        nonlocal checked
+        if isinstance(want, dict):
+            if not isinstance(got, dict) or want.keys() != got.keys():
+                bad.append(f"{path}: fields differ")
+                return
+            for key in want:
+                compare_raw(want[key], got[key], path + "." + key)
+        elif isinstance(want, list):
+            if not isinstance(got, list) or len(want) != len(got):
+                bad.append(f"{path}: lengths differ")
+                return
+            for i, (a, b) in enumerate(zip(want, got)):
+                compare_raw(a, b, f"{path}.{i}")
+        else:
+            checked += 1
+            if isinstance(want, (int, float)) and not isinstance(want, bool):
+                ok = isinstance(got, (int, float)) and abs(want-got) <= TOL*max(1, abs(want), abs(got))
+            else:
+                ok = want == got
+            if not ok:
+                bad.append(f"{path}: python {want}, js {got}")
+
+    directed = [model.ship0('s1050', 1.2, (n + 0.5) * 52 / 72 + delta, 0.3)
+                for n in [44, 50, 60, 72, 90, 120] for delta in [-1e-10, 0, 1e-10]]
+    compare_raw(directed, js.get("offGrid"), "ship0.offGrid")
 
     if bad:
         print("CELL PARITY FAILED — the page and the analysis disagree:\n")

@@ -93,8 +93,8 @@ third review showed the model was incoherent about whether it does.
 
 **Interior partitions have vacuum on both sides, so there is no partial-pressure gradient and
 no permeation driving force across them.** A permeation barrier is only needed where vacuum
-meets atmosphere: the outer envelope, 22,592 m² against 660,000 m² of interior wall at 1 m
-cells — a factor of **29**. So the film has exactly two possible jobs, and the model was paying
+meets atmosphere. The dated 190 × 47 m spheroid reference from the first study has
+22,592 m² of envelope against 660,000 m² of interior wall at 1 m cells, a factor of **29**. So the film has exactly two possible jobs, and the model was paying
 for one while its own notes said it did the other:
 
 | architecture | film cost | total | margin | what you get |

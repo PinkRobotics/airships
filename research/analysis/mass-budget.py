@@ -33,13 +33,17 @@ P_ATM = 101325.0          # Pa, the load the shell carries
 ATMOSPHERE: dict = {}     # filled from figures.json in main(); see air_ballast()
 
 
-def spheroid_area(len_m: float, dia_m: float) -> float:
-    """Surface area of a prolate spheroid — the hull's actual skin area."""
-    a, b = len_m / 2.0, dia_m / 2.0
-    if a <= b:
-        return 4.0 * math.pi * a * a
-    e = math.sqrt(1.0 - (b * b) / (a * a))
-    return 2.0 * math.pi * b * b * (1.0 + (a / (b * e)) * math.asin(e))
+def capsule_area(len_m: float, dia_m: float) -> float:
+    """Price the nominal fleet on the existing model's capsule surface."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "area_model", ROOT / "research/analysis/vacuum-cell.py")
+    model = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(model)
+    geom = model.ship_geom(dia_m)
+    if not math.isclose(geom["lenM"], len_m):
+        raise ValueError("Fleet dimensions are not this capsule family")
+    return geom["areaM2"]
 
 
 # ---------------------------------------------------------------------------------------
@@ -272,7 +276,7 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     again in the field. The plant is the emergency ballast source and it stays in the budget.
     See research/analysis/air-ballast.md, which is kept as a retraction.
     """
-    area = spheroid_area(spec["lenM"], spec["diaM"])
+    area = capsule_area(spec["lenM"], spec["diaM"])
     batt_mwh = cycle["eCycleMWh"] * 2.0 * 1.5 if rightsize else spec["battMWh"]
     lines = []
 
@@ -434,7 +438,7 @@ def main() -> None:
 
     for cid, cd in fig["classes"].items():
         spec, lift, energy, cycle = cd["spec"], cd["lift"], cd["energy"], cd["cycle"]
-        area = spheroid_area(spec["lenM"], spec["diaM"])
+        area = capsule_area(spec["lenM"], spec["diaM"])
         rec = {
             "allowanceT": spec["payloadT"],
             "hullAreaM2": round(area),

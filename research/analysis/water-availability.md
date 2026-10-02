@@ -78,9 +78,12 @@ nearest adequate water on **45.4% / 43.0% / 31.5%** of fires, with a p90 detour 
 large enough to halve throughput. The size preference is an unjustified constant of the kind
 `OPEN-QUESTIONS` #7 counts, and it now has a measured cost.
 
+**2026-10-02 correction:** the station-disc calculation now uses the capsule-era fleet lengths.
+The [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) retains the former figures.
+
 **The adequacy thresholds are far more conservative than the ship's own geometry.** A hull
-holding station needs a disc it fits inside — 2.84 ha for a P-100, 60.27 ha for a P-10000.
-The shipped thresholds are 3.5× and 16.6× that. Loosening the P-10000 to 500 ha would roughly
+holding station needs a disc it fits inside — 0.95 ha for a P-100, 20.59 ha for a P-10000.
+The shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 ha would roughly
 double its qualifying bodies and cut its median leg from 23.95 to 19.01 km.
 
 Volume is a non-issue: a P-100 working flat out for twelve hours draws 2,106 t, which is

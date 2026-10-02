@@ -1,0 +1,417 @@
+{
+  "headlineRows": [
+    {
+      "id": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+      "old": {
+        "id": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+        "label": "52 m hull, as drawn, harsh stability basis (\u03b3 0.30), chords at 1,050 MPa, SF 1.2",
+        "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+        "massUnit": "t",
+        "mass": 403.1,
+        "safetyFactor": {
+          "value": 1.2,
+          "kind": "declared \u2014 applied to every member check"
+        },
+        "knockdowns": [
+          {
+            "id": "gi-harsh",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "gi-reserve",
+            "value": 0.2,
+            "status": "assumed"
+          },
+          {
+            "id": "classical",
+            "value": 0.605,
+            "status": "literature"
+          },
+          {
+            "id": "local-wall",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "ortho",
+            "value": 0.5699,
+            "status": "assumed"
+          },
+          {
+            "id": "joint-mass",
+            "value": 0.85,
+            "status": "assumed"
+          }
+        ],
+        "inputs": [
+          {
+            "name": "chord axial-compressive allowable",
+            "value": 1050,
+            "unit": "MPa",
+            "status": "assumed",
+            "basis": "The scoping tool calls it the [0/90] working estimate. [TO VERIFY \u2014 coupon campaign]."
+          }
+        ],
+        "designStatus": "as drawn",
+        "evidence": "reviewed-model",
+        "sizingPressure": {
+          "valuePa": 101325,
+          "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+        },
+        "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+        "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+        "at": {
+          "seaLevel": {
+            "altitudeM": 0,
+            "rhoAirKgPerCubicM": 1.225,
+            "lift": 224.8,
+            "liftToMass": 0.558,
+            "massToLift": 1.793,
+            "margin": -178.3,
+            "floats": false
+          },
+          "target": {
+            "altitudeM": 2500,
+            "rhoAirKgPerCubicM": 0.9569,
+            "lift": 175.6,
+            "liftToMass": 0.436,
+            "massToLift": 2.295,
+            "margin": -227.5,
+            "floats": false
+          }
+        },
+        "readsOneOrMore": false,
+        "floatsToday": false,
+        "extras": {
+          "hullDiameterM": 52.0,
+          "wallDepthM": 3.0,
+          "enclosedCubicM": 184055,
+          "hullAreaSqM": 16990,
+          "arealKgPerSqM": 23.73,
+          "structureKgPerCubicMEnclosed": 2.19,
+          "memberChecksPass": true
+        },
+        "filmSizing": {
+          "safetyFactor": 4.0,
+          "efficiency": 0.5,
+          "efficiencyStatus": "assumed",
+          "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+          "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+        }
+      },
+      "new": {
+        "id": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+        "label": "52 m hull, as drawn, harsh stability basis (\u03b3 0.30), chords at 1,050 MPa, SF 1.2",
+        "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+        "massUnit": "t",
+        "mass": 403.1,
+        "safetyFactor": {
+          "value": 1.2,
+          "kind": "declared \u2014 applied to every member check"
+        },
+        "knockdowns": [
+          {
+            "id": "gi-harsh",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "gi-reserve",
+            "value": 0.2,
+            "status": "assumed"
+          },
+          {
+            "id": "classical",
+            "value": 0.605,
+            "status": "literature"
+          },
+          {
+            "id": "local-wall",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "ortho",
+            "value": 0.5699,
+            "status": "assumed"
+          },
+          {
+            "id": "joint-mass",
+            "value": 0.85,
+            "status": "assumed"
+          }
+        ],
+        "inputs": [
+          {
+            "name": "chord axial-compressive allowable",
+            "value": 1050,
+            "unit": "MPa",
+            "status": "assumed",
+            "basis": "The scoping tool calls it the [0/90] working estimate. [TO VERIFY \u2014 coupon campaign]."
+          }
+        ],
+        "designStatus": "as drawn",
+        "evidence": "reviewed-model",
+        "sizingPressure": {
+          "valuePa": 101325,
+          "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+        },
+        "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+        "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+        "at": {
+          "seaLevel": {
+            "altitudeM": 0,
+            "rhoAirKgPerCubicM": 1.225,
+            "lift": 224.8,
+            "liftToMass": 0.558,
+            "massToLift": 1.793,
+            "margin": -178.3,
+            "floats": false
+          },
+          "target": {
+            "altitudeM": 2500,
+            "rhoAirKgPerCubicM": 0.9569,
+            "lift": 175.6,
+            "liftToMass": 0.436,
+            "massToLift": 2.295,
+            "margin": -227.5,
+            "floats": false
+          }
+        },
+        "readsOneOrMore": false,
+        "floatsToday": false,
+        "extras": {
+          "hullDiameterM": 52.0,
+          "wallDepthM": 3.0,
+          "enclosedCubicM": 184055,
+          "hullAreaSqM": 16990,
+          "arealKgPerSqM": 23.73,
+          "structureKgPerCubicMEnclosed": 2.19,
+          "memberChecksPass": true
+        },
+        "filmSizing": {
+          "safetyFactor": 4.0,
+          "efficiency": 0.5,
+          "efficiencyStatus": "assumed",
+          "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+          "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+        }
+      },
+      "equal": true
+    },
+    {
+      "id": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+      "old": {
+        "id": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+        "label": "52 m hull, as drawn, frame-practice stability basis (\u03b3 0.65), chords at 1,450 MPa, SF 1.2",
+        "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+        "massUnit": "t",
+        "mass": 229.2,
+        "safetyFactor": {
+          "value": 1.2,
+          "kind": "declared \u2014 applied to every member check"
+        },
+        "knockdowns": [
+          {
+            "id": "gi-frame",
+            "value": 0.65,
+            "status": "assumed"
+          },
+          {
+            "id": "classical",
+            "value": 0.605,
+            "status": "literature"
+          },
+          {
+            "id": "local-wall",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "ortho",
+            "value": 0.5699,
+            "status": "assumed"
+          },
+          {
+            "id": "joint-mass",
+            "value": 0.85,
+            "status": "assumed"
+          }
+        ],
+        "inputs": [
+          {
+            "name": "chord axial-compressive allowable",
+            "value": 1450,
+            "unit": "MPa",
+            "status": "literature",
+            "basis": "The scoping tool cites a Toray zero-degree datasheet ceiling (SACMA SRM 1R-94, sixty percent fibre volume): a unidirectional coupon value, not a test of this chord. [TO VERIFY \u2014 coupon campaign]."
+          }
+        ],
+        "designStatus": "as drawn",
+        "evidence": "to-verify",
+        "sizingPressure": {
+          "valuePa": 101325,
+          "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+        },
+        "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+        "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+        "at": {
+          "seaLevel": {
+            "altitudeM": 0,
+            "rhoAirKgPerCubicM": 1.225,
+            "lift": 224.8,
+            "liftToMass": 0.981,
+            "massToLift": 1.019,
+            "margin": -4.3,
+            "floats": false
+          },
+          "target": {
+            "altitudeM": 2500,
+            "rhoAirKgPerCubicM": 0.9569,
+            "lift": 175.6,
+            "liftToMass": 0.766,
+            "massToLift": 1.305,
+            "margin": -53.6,
+            "floats": false
+          }
+        },
+        "readsOneOrMore": false,
+        "floatsToday": false,
+        "extras": {
+          "hullDiameterM": 52.0,
+          "wallDepthM": 3.0,
+          "enclosedCubicM": 184055,
+          "hullAreaSqM": 16990,
+          "arealKgPerSqM": 13.49,
+          "structureKgPerCubicMEnclosed": 1.245,
+          "memberChecksPass": true
+        },
+        "filmSizing": {
+          "safetyFactor": 4.0,
+          "efficiency": 0.5,
+          "efficiencyStatus": "assumed",
+          "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+          "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+        }
+      },
+      "new": {
+        "id": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+        "label": "52 m hull, as drawn, frame-practice stability basis (\u03b3 0.65), chords at 1,450 MPa, SF 1.2",
+        "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+        "massUnit": "t",
+        "mass": 229.2,
+        "safetyFactor": {
+          "value": 1.2,
+          "kind": "declared \u2014 applied to every member check"
+        },
+        "knockdowns": [
+          {
+            "id": "gi-frame",
+            "value": 0.65,
+            "status": "assumed"
+          },
+          {
+            "id": "classical",
+            "value": 0.605,
+            "status": "literature"
+          },
+          {
+            "id": "local-wall",
+            "value": 0.3,
+            "status": "assumed"
+          },
+          {
+            "id": "ortho",
+            "value": 0.5699,
+            "status": "assumed"
+          },
+          {
+            "id": "joint-mass",
+            "value": 0.85,
+            "status": "assumed"
+          }
+        ],
+        "inputs": [
+          {
+            "name": "chord axial-compressive allowable",
+            "value": 1450,
+            "unit": "MPa",
+            "status": "literature",
+            "basis": "The scoping tool cites a Toray zero-degree datasheet ceiling (SACMA SRM 1R-94, sixty percent fibre volume): a unidirectional coupon value, not a test of this chord. [TO VERIFY \u2014 coupon campaign]."
+          }
+        ],
+        "designStatus": "as drawn",
+        "evidence": "to-verify",
+        "sizingPressure": {
+          "valuePa": 101325,
+          "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+        },
+        "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+        "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+        "at": {
+          "seaLevel": {
+            "altitudeM": 0,
+            "rhoAirKgPerCubicM": 1.225,
+            "lift": 224.8,
+            "liftToMass": 0.981,
+            "massToLift": 1.019,
+            "margin": -4.3,
+            "floats": false
+          },
+          "target": {
+            "altitudeM": 2500,
+            "rhoAirKgPerCubicM": 0.9569,
+            "lift": 175.6,
+            "liftToMass": 0.766,
+            "massToLift": 1.305,
+            "margin": -53.6,
+            "floats": false
+          }
+        },
+        "readsOneOrMore": false,
+        "floatsToday": false,
+        "extras": {
+          "hullDiameterM": 52.0,
+          "wallDepthM": 3.0,
+          "enclosedCubicM": 184055,
+          "hullAreaSqM": 16990,
+          "arealKgPerSqM": 13.49,
+          "structureKgPerCubicMEnclosed": 1.245,
+          "memberChecksPass": true
+        },
+        "filmSizing": {
+          "safetyFactor": 4.0,
+          "efficiency": 0.5,
+          "efficiencyStatus": "assumed",
+          "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+          "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+        }
+      },
+      "equal": true
+    }
+  ],
+  "sourceArtifacts": [
+    {
+      "path": "research/analysis/vacuum-cell.json",
+      "freshSha": "ba0e5d646029c54ce8899eef685ce5a4fe118f119878d972158f67f9a2c5ff1b",
+      "committedSha": "ba0e5d646029c54ce8899eef685ce5a4fe118f119878d972158f67f9a2c5ff1b",
+      "committedEqualsFresh": true,
+      "changedNumbers": []
+    },
+    {
+      "path": "research/analysis/ship-scoping.json",
+      "freshSha": "a2240360b87c12d6cefbeaf1e11bcdf12338b65743593b710c6e265e6266a7da",
+      "committedSha": "a2240360b87c12d6cefbeaf1e11bcdf12338b65743593b710c6e265e6266a7da",
+      "committedEqualsFresh": true,
+      "changedNumbers": []
+    },
+    {
+      "path": "research/analysis/mass-budget.json",
+      "freshSha": "ea22be6590a38f2893245236e421e9918d23fe1a49fcd4ac2a6e68e44b97021a",
+      "committedSha": "ea22be6590a38f2893245236e421e9918d23fe1a49fcd4ac2a6e68e44b97021a",
+      "committedEqualsFresh": true,
+      "changedNumbers": []
+    }
+  ]
+}

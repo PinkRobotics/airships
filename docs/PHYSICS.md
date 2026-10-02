@@ -150,7 +150,8 @@ Four consequences, and they are not small:
   A space-filling cell drives the geometric part of that to 1; the bays are a real deduction.
   The number has never been chosen.
 - **MOST WALL AREA CARRIES NO PRESSURE AT ALL.** An interior wall has vacuum on both sides. At
-  2 m cells a P-100 has ~330,000 m² of interior wall against 22,592 m² of array boundary —
+  2 m cells the first study’s dated 190 × 47 m spheroid reference has
+  ~330,000 m² of interior wall against 22,592 m² of array boundary —
   **93.6% of the wall area sits at zero differential** in normal operation, and the atmosphere
   is carried only at the boundary. That is a fundamentally different problem from N independent
   pressure vessels, which is what the entire literature models and what
@@ -202,12 +203,16 @@ What the model does instead is assert an areal density and get on with the arith
 
 | | wetted area | dry allowance | implied σ | was, before the 2026-08-09 resize |
 |---|---:|---:|---:|---:|
-| P-100 | 22,592 m² | 100 t | 4.43 kg/m² | 5.07 kg/m² on 19,707 m² |
-| P-1000 | 104,349 m² | 1,000 t | 9.58 kg/m² | 10.94 kg/m² on 91,372 m² |
-| P-10000 | 485,575 m² | 10,000 t | 20.59 kg/m² | 23.50 kg/m² on 425,477 m² |
+| P-100 | 19,007 m² | 100 t | 5.26 kg/m² | 5.07 kg/m² on 19,707 m² |
+| P-1000 | 88,976 m² | 1,000 t | 11.24 kg/m² | 10.94 kg/m² on 91,372 m² |
+| P-10000 | 411,775 m² | 10,000 t | 24.29 kg/m² | 23.50 kg/m² on 425,477 m² |
+
+**2026-10-02 correction:** the table now prices each nominal capsule on its own surface.
+The former spheroid areas and allowances are retained in
+[the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
 σ rises with size because dry mass scales as V while area scales as V^(2/3). The lift
-budget allows at most σ_max = ρ_work V / S_wet — 9.32, 20.17 and 43.35 kg/m² for the three
+budget allows at most σ_max = ρ_work V / S_wet — 11.08, 23.66 and 51.12 kg/m² for the three
 classes — and the assumed values are 47.5% of that in every case, identically, because
 m_dry = m_pay = L/2.1051 by construction. So the shell, the machinery, the batteries and the
 rotors together are given a little under half of what buoyancy would permit. That is a
@@ -353,6 +358,10 @@ cruise the P-10000 sits at Re ≈ 2 × 10⁹, giving a flat-plate C_f of about 0
 skin friction over 485,575 m² of wetted area comes to 505 kN against the model's total
 drag of 1,351 kN. Friction is 37% of the assumed total, leaving 63% for form drag and
 everything else, which is generous for a fineness-4 hull.
+
+**2026-10-02 correction:** this hand calculation used the former spheroid’s surface.
+The nominal capsule now has 411,775 m² of surface, as recorded in the regeneration audit.
+The force estimate has not been rerun; its precise air-density and speed basis was not recorded here.
 
 Generous for a *bare* hull. The model charges nothing at all for 14 rotor installations
 of 120 m diameter, for fins, for the hose pod, or for the interference between them. On a

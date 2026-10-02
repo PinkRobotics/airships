@@ -506,30 +506,24 @@ The budget’s case named “demonstrated” cites a numerical shell study; it i
 
 | Class | Committed field | Old | Fresh |
 | --- | --- | --- | --- |
-| P100 | hullAreaM2 | 22,592.000 | 16,243.000 |
-| P100 | requiredKgPerM2 | 4.426 | 6.156 |
-| P1000 | hullAreaM2 | 104,349.000 | 76,039.000 |
-| P1000 | requiredKgPerM2 | 9.583 | 13.151 |
-| P10000 | hullAreaM2 | 485,575.000 | 351,903.000 |
-| P10000 | requiredKgPerM2 | 20.594 | 28.417 |
 
 | Object and basis | Mass (or density) | SF | Lift ÷ mass at sea level | Margin at sea level (mass unit) | Lift ÷ mass at 2,500 m | Margin at 2,500 m (mass unit) | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | P100, empty structure allowance | 100.0 t | — | 2.695 | +169.5 | 2.105 | +110.5 | assumed basis |
 | P100, loaded structure plus payload | 200.0 t | — | 1.347 | +69.5 | 1.053 | +10.5 | assumed basis |
-| P100, equipment budget floor, loaded | 316.0 t | — | 0.853 | −46.5 | 0.666 | −105.5 | assumed basis |
-| P100, equipment budget credible, loaded | 565.0 t | — | 0.477 | −295.5 | 0.373 | −354.5 | assumed basis |
-| P100, equipment budget demonstrated, loaded | 1,196.8 t | — | 0.225 | −927.3 | 0.176 | −986.3 | assumed basis |
+| P100, equipment budget floor, loaded | 316.1 t | — | 0.853 | −46.6 | 0.666 | −105.6 | assumed basis |
+| P100, equipment budget credible, loaded | 566.4 t | — | 0.476 | −296.9 | 0.372 | −355.9 | assumed basis |
+| P100, equipment budget demonstrated, loaded | 1,208.3 t | — | 0.223 | −938.8 | 0.174 | −997.8 | assumed basis |
 | P1000, empty structure allowance | 1,000.0 t | — | 2.695 | +1,695.0 | 2.105 | +1,105.1 | assumed basis |
 | P1000, loaded structure plus payload | 2,000.0 t | — | 1.347 | +695.0 | 1.053 | +105.1 | assumed basis |
-| P1000, equipment budget floor, loaded | 2,802.3 t | — | 0.962 | −107.3 | 0.751 | −697.2 | assumed basis |
-| P1000, equipment budget credible, loaded | 4,489.0 t | — | 0.600 | −1,794.0 | 0.469 | −2,383.9 | assumed basis |
-| P1000, equipment budget demonstrated, loaded | 8,336.8 t | — | 0.323 | −5,641.8 | 0.253 | −6,231.7 | assumed basis |
+| P1000, equipment budget floor, loaded | 2,803.6 t | — | 0.961 | −108.6 | 0.751 | −698.5 | assumed basis |
+| P1000, equipment budget credible, loaded | 4,502.9 t | — | 0.599 | −1,807.9 | 0.467 | −2,397.8 | assumed basis |
+| P1000, equipment budget demonstrated, loaded | 8,390.4 t | — | 0.321 | −5,695.4 | 0.251 | −6,285.3 | assumed basis |
 | P10000, empty structure allowance | 10,000.0 t | — | 2.695 | +16,950.0 | 2.105 | +11,050.9 | assumed basis |
 | P10000, loaded structure plus payload | 20,000.0 t | — | 1.348 | +6,950.0 | 1.053 | +1,050.9 | assumed basis |
-| P10000, equipment budget floor, loaded | 29,511.0 t | — | 0.913 | −2,561.0 | 0.713 | −8,460.1 | assumed basis |
-| P10000, equipment budget credible, loaded | 43,590.9 t | — | 0.618 | −16,640.9 | 0.483 | −22,540.0 | assumed basis |
-| P10000, equipment budget demonstrated, loaded | 72,731.8 t | — | 0.371 | −45,781.8 | 0.289 | −51,680.9 | assumed basis |
+| P10000, equipment budget floor, loaded | 29,524.2 t | — | 0.913 | −2,574.2 | 0.713 | −8,473.3 | assumed basis |
+| P10000, equipment budget credible, loaded | 43,729.5 t | — | 0.616 | −16,779.5 | 0.481 | −22,678.6 | assumed basis |
+| P10000, equipment budget demonstrated, loaded | 72,979.6 t | — | 0.369 | −46,029.6 | 0.288 | −51,928.7 | assumed basis |
 
 Repository structural-model rows are sized for full vacuum against sea-level pressure (101,325 Pa); altitude changes lift only. Literature inputs and fleet allowances are not resized structures.
 

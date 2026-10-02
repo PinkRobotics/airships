@@ -27,6 +27,9 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > | #12 | **`ALT.drop` = 450 m does not deliver water** — and the ship's own rotors push air *upward* at 86× the mass flow of the water. The answer is sprayer leads. Measured in line rather than tonnes, one P-100 could wet the perimeter of 91.4% of BC campaign fires daily. | `delivery.md` |
 >
 > Regenerate all of it with `make analysis`.
+>
+> **2026-10-02 correction to #11:** the conditional capsule budget now gives 355,499 m³ and 129 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
+> See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
 > **DECIDED 2026-08-09.** All six are to be fixed. The decisions are recorded at the top of
 > each entry as **DECISION**, and they change what "correct" means, so read them before

@@ -635,8 +635,9 @@ def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
     return out
 
 
-# The reference hull the film arithmetic uses throughout: the right-sized P-100 from
-# mass-budget.py. 220,000 m3 of enclosed volume behind 22,592 m2 of outer envelope.
+# Dated film reference from the first study (2026-08-11): the 190 x 47 m
+# prolate spheroid, 22,592 m2 rounded area. Volume below is the nominal
+# normalization, not exact geometry. This is not the current fleet capsule.
 HULL_VOLUME_M3 = 220000.0
 HULL_ENVELOPE_M2 = 22592.0
 
@@ -1214,7 +1215,7 @@ def graded_pressure(m: dict, wall: float) -> dict:
             "envelopeDeltaKgPerM3": round(envelope_delta, 4),
             "netCostKgPerM3": round(net_cost, 4),
             "costPctOfNetLift": round(100.0 * net_cost / ref["netLiftKgPerM3"], 1),
-            "geometryNote": "5% of this hull behind 22,592 m2 of envelope is a band about "
+            "geometryNote": "5% of the dated 190 x 47 m spheroid reference behind 22,592 m2 of envelope is a band about "
                             "half a metre deep, so its ten steps are sub-cell-scale layers "
                             "— which is the seal-at-every-scale doctrine anyway, and film "
                             "mass is span-proportional so thinner layers cost no more.",
@@ -1319,7 +1320,8 @@ def ship_geom(dia_m: float = None) -> dict:
     r = dia / 2.0
     cyl_l = SHIP0["fineness"] * dia - dia
     depth = SHIP0["depthM"] * scale
-    n_long = max(24, round(SHIP0["nLong"] * scale))
+    # Positive counts round half upward, matching Math.round in ship/model.js.
+    n_long = max(24, math.floor(SHIP0["nLong"] * scale + 0.5))
     return dict(diaM=dia, lenM=SHIP0["fineness"] * dia, R=r, cylL=cyl_l,
                 vM3=math.pi * r * r * cyl_l + 4.0 / 3.0 * math.pi * (r * r * r),
                 areaM2=2.0 * math.pi * r * cyl_l + 4.0 * math.pi * r * r,
@@ -2066,7 +2068,7 @@ def main() -> None:
             "permeationNote": "An interior partition has vacuum on BOTH sides, so there is no "
                               "partial-pressure gradient and no permeation driving force at "
                               "all. A permeation barrier is only needed where vacuum meets "
-                              "atmosphere — the outer envelope, which is 22,592 m2 against "
+                              "atmosphere — the dated 190 x 47 m spheroid reference envelope, 22,592 m2 against "
                               "660,000 m2 of interior wall at 1 m cells, a factor of 29.",
             "outerEnvelopeOnlyKgPerM3": round(envelope_film_kg_per_m3(2.0), 5),
             "containingPartitionsKgPerM3": round(barrier_kg_per_m3(2.0), 4),
