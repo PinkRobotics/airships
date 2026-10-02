@@ -68,3 +68,10 @@ The notice HTML makes no foreign requests. Source and terms addresses are citati
 repository-only paper paths are plain text so a served copy has no broken paper links.
 The data and paper notices apply to the public repository even though the web manifest
 excludes the research directory.
+
+A record may also name an `outputs` list of relative file names, byte counts and SHA-256
+digests. Each named file is checked independently and rendered as a file in the notices;
+duplicates, escaping paths, missing redistributed files and mismatching bytes fail. The
+primary file must appear in that list. Optional `documentation` carries source-specific
+methodology for the generated documents; the season's measured tables remain independently
+checked against the data. Generators retain these recorded terms alongside new output hashes.

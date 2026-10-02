@@ -146,6 +146,13 @@ def data_readme(recs: list[dict]) -> str:
 
 
 def outputs(recs: list[dict]) -> dict[str, str]:
-    return {'NOTICE': markdown(recs, 'Third-party notices'),
+    generated = {'NOTICE': markdown(recs, 'Third-party notices'),
             'DATA-SOURCES.md': markdown(recs, 'Data sources, licences and attribution'),
             'notices.html': page(recs), 'data/README.md': data_readme(recs)}
+
+    # Preserve source-specific methodology and measured tables in the source record.
+    for r in sorted(recs, key=lambda item: item['path']):
+        for name, content in r.get('documentation', {}).items():
+            if name in generated:
+                generated[name] += '\n' + content
+    return generated

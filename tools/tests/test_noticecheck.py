@@ -56,6 +56,32 @@ class NoticeContracts(unittest.TestCase):
         errors = noticecheck.check(self.root, **kwargs)
         self.assertTrue(any(part in e for e in errors), errors)
 
+    def test_every_named_output_is_verified(self):
+        child = self.file.with_name('second.pdf')
+        child.write_bytes(b'%PDF-1.4\nsecond synthetic work\n')
+        self.rec['outputs'] = [dict(file=p.name, bytes=p.stat().st_size,
+                                   sha256=hashlib.sha256(p.read_bytes()).hexdigest())
+                               for p in (self.file, child)]
+        self.save()
+        self.generate()
+        self.assertEqual(noticecheck.check(self.root), [])
+        original = child.read_bytes()
+        child.write_bytes(original.replace(b'second', b'edited'))
+        self.assert_error('second.pdf: hash mismatch')
+        child.write_bytes(original)
+        child.unlink()
+        self.assert_error('redistributed file missing: research/papers/second.pdf')
+        child.write_bytes(original)
+        for bad in ('../second.pdf', '/second.pdf', 'second.pdf/../other.pdf'):
+            with self.subTest(path=bad):
+                self.rec['outputs'][1]['file'] = bad
+                self.save()
+                self.assert_error('invalid output')
+        self.rec['outputs'][1]['file'] = 'second.pdf'
+        self.rec['outputs'].append(dict(self.rec['outputs'][1]))
+        self.save()
+        self.assert_error('duplicate output')
+
     def test_missing_decision_and_invalid_decision(self):
         for value in (None, [], 'yes'):
             with self.subTest(value=value):

@@ -180,6 +180,47 @@ def records(root: Path) -> tuple[list[dict], list[str]]:
         if item['path'] in FIRST_PARTY:
             errors.append(f"{rel}: third-party record conflicts with first-party exception")
         found.append(item)
+        if "outputs" in item:
+            outputs = item["outputs"]
+            if not isinstance(outputs, list) or not outputs or service:
+                errors.append(f"{rel}: invalid outputs")
+                continue
+            seen = set()
+            for output in outputs:
+                if (not isinstance(output, dict) or not safe_path(output.get("file")) or
+                        not isinstance(output.get("sha256"), str) or
+                        not re.fullmatch(r"[0-9a-f]{64}", output["sha256"]) or
+                        type(output.get("bytes")) is not int or output["bytes"] < 0):
+                    errors.append(f"{rel}: invalid output")
+                    continue
+                name = output["file"]
+                if name in seen:
+                    errors.append(f"{rel}: duplicate output: {name}")
+                    continue
+                seen.add(name)
+                output_rel = (PurePosixPath(rel).parent / name).as_posix()
+                output_path = root / output_rel
+                if name == item["file"]:
+                    if output["sha256"] != item["sha256"]:
+                        errors.append(f"{rel}: primary output hash disagrees")
+                if output_path.is_symlink() or any(p.is_symlink() for p in output_path.parents if p != root):
+                    errors.append(f"{rel}: symlink asset refused: {output_rel}")
+                    continue
+                if output_path.is_file():
+                    data = output_path.read_bytes()
+                    if hashlib.sha256(data).hexdigest() != output["sha256"]:
+                        errors.append(f"{output_rel}: hash mismatch")
+                    if len(data) != output["bytes"]:
+                        errors.append(f"{output_rel}: output byte count mismatch")
+                elif item["decision"] == "redistributed":
+                    errors.append(f"redistributed file missing: {output_rel}")
+                if name != item["file"]:
+                    child = {k: v for k, v in item.items() if k not in ("outputs", "documentation")}
+                    child.update(file=name, path=output_rel, sha256=output["sha256"],
+                                 measurements={"bytes": output["bytes"]})
+                    found.append(child)
+            if item["file"] not in seen:
+                errors.append(f"{rel}: outputs omit primary file")
     by_path = {r["path"]: r for r in found}
     if len(by_path) != len(found):
         errors.append("duplicate records for one file")
