@@ -43,7 +43,7 @@ def sections():
         row("Retained ballast", lambda c: c["descent"]["retainedT"], " t"),
         row("Energy per cycle", decimal("eCycleMWh", 2), " MWh"),
         row("Energy per delivered tonne", decimal("kwhPerTonne", 2), " kWh/t"),
-        "| Binding constraint | " + " | ".join(
+        "| What sets the cycle time | " + " | ".join(
             classes[name]["cycle"]["bottleneck"] for name in names
         ) + " |",
     ]

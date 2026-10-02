@@ -44,7 +44,7 @@ Known model defects, deliberate failing tests and the decisions still open are r
 
 ## Model output and limits
 
-This table describes the simulated cycle under the model defaults. It is a calculation, not a performance claim. Its energy and delivery figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected energy figures will be higher and delivery lower, and some cycles may not be flyable as drawn. That model also has a documented disagreement between planned and integrated draw in [the open questions](docs/OPEN-QUESTIONS.md). The P-100 is the reference class. Nobody is proposing to build a P-10000.
+This table describes the simulated cycle under the model defaults. It is a calculation, not a performance claim. Its energy and delivery figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected energy figures will be higher, and some cycles may not be flyable as drawn. That model also has a documented disagreement between planned and integrated draw in [the open questions](docs/OPEN-QUESTIONS.md). The P-100 is the reference class. Nobody is proposing to build a P-10000.
 
 <!-- readme:headline:start -->
 | Model output, balanced mode, 15 km one way | P-100 | P-1000 | P-10000 |
@@ -57,14 +57,14 @@ This table describes the simulated cycle under the model defaults. It is a calcu
 | Retained ballast | 0 t | 0 t | 0 t |
 | Energy per cycle | 1.39 MWh | 8.45 MWh | 54.33 MWh |
 | Energy per delivered tonne | 13.91 kWh/t | 8.45 kWh/t | 5.43 kWh/t |
-| Binding constraint | transit distance | transit distance | transit distance |
+| What sets the cycle time | transit distance | transit distance | transit distance |
 <!-- readme:headline:end -->
 
-It is the descent: a large enough hull cannot push itself back down into the dense air over a lake. The descent anchor in the model is a proposed water bag, not demonstrated hardware.
+The table names the limit on cycle time in the current calculation. The unresolved physical problem is descent: a large enough hull cannot push itself back down into the dense air over a lake. The descent anchor in the model is a proposed water bag, not demonstrated hardware.
 
 ## Where to inspect the calculation
 
-[`sim/config.js`](sim/config.js) names the classes, modes and defaults. [`sim/plan.js`](sim/plan.js) computes cycle duration, water delivered, energy and binding constraint; [`sim/physics.js`](sim/physics.js) contains the lift and power equations. Run `make figfresh` to compare the generated figure record with the model, and `make readmecheck` to compare this page with that record. Regenerate this page after model records change with `python3 tools/gen_readme.py`.
+[`sim/config.js`](sim/config.js) names the classes, modes and defaults. [`sim/plan.js`](sim/plan.js) computes cycle duration, water delivered, energy and the limit on cycle time; [`sim/physics.js`](sim/physics.js) contains the lift and power equations. Run `make figfresh` to compare the generated figure record with the model, and `make readmecheck` to compare this page with that record. Regenerate this page after model records change with `python3 tools/gen_readme.py`.
 
 For a pinned browser run, serve the repository root and open the snapshot URL. The snapshot is committed data; it does not fetch a live emergency feed.
 
