@@ -411,7 +411,7 @@ seat-rail-at-cell-pitch grid requirement.** This section stays as the short vers
 The operator's direction, midday 2026-08-12, verbatim intent: stop presenting the cell as the
 thing that floats; reorganize the site as the BUILD of the ship, in seven levels. This arc
 develops on **guppi.ca staging only** (`cd ~/dev/pink-sites && ./deploy.sh stage pinkrobotics`),
-behind the same tyler/copper realm (a `@guppi_cell` basic-auth block was added to the LIVE
+behind the same basic-auth realm (a `@guppi_cell` basic-auth block was added to the LIVE
 pink-edge Caddyfile 2026-08-12 — note the helm `ops/pink-edge/files/.../Caddyfile` governed copy
 is STALE, three arcs behind the live file; do not "restore" from it). Production pinkrobotics.ca
 keeps the current site until the operator says otherwise — do NOT run a bare
@@ -578,5 +578,6 @@ cd ../pink-sites && git add -A pinkrobotics/airships && git commit
 
 The viewer is **public** at `pinkrobotics.ca/airships/ship/` (the 2026-08-13 public arc moved
 it out of `cell/`). The working pages that stayed in `cell/` — the flat explainer, the
-blueprint, the checks page and the band calculator — remain behind Caddy basic auth
-**tyler/copper**; the gate matches the `/airships/cell/*` path, so nothing in `ship/` is gated.
+blueprint, the checks page and the band calculator — remain behind Caddy basic auth (the
+credentials are not kept in this repository); the gate matches the `/airships/cell/*` path, so
+nothing in `ship/` is gated.

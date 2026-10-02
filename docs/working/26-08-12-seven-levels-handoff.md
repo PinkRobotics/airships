@@ -101,7 +101,7 @@ from memory).
 | ship.js port contract | `~/data/airships-reviews/handoff/26-08-12-viz-agent-handoff.md` (§3 reconcile, §4 gate values, §6 port order) |
 | runnable ship physics prototype | `~/data/airships-reviews/prototype/ship.js` (+ selfchecks; predates v2 in places — reconcile per §3) |
 | in-house production plan | `~/data/airships-reviews/26-08-12-production-machinery-note.md` |
-| staged site | https://guppi.ca/airships/cell/levels.html — basic auth tyler/copper |
+| staged site | https://guppi.ca/airships/cell/levels.html — behind basic auth |
 
 ## 3. What is built (state at this commit)
 
@@ -261,7 +261,7 @@ colour swap):**
 - when unsure which side an edit falls on, that uncertainty IS the answer: full chain.
 
 **PRODUCTION RULING (operator, 08-12 late): this arc now deploys DIRECT TO PRODUCTION**
-(`./deploy.sh pinkrobotics`) — the cell pages are behind the tyler/copper realm on
+(`./deploy.sh pinkrobotics`) — the cell pages are behind the basic-auth realm on
 pinkrobotics.ca (verified: `/airships/cell/*` answers 401 unauthenticated; the monitor
 root stays public by design), so guppi staging is retired for this work. Two cautions
 survive the ruling: production's dirty-tree gate is REAL (a co-session's uncommitted
