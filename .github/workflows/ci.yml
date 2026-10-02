@@ -55,7 +55,7 @@ jobs:
       - name: Every make check gate
         id: check-gates
         run: >-
-          make --keep-going ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck
+          make --keep-going ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck
           labelledcheck figcheck
           analysischeck cellparity skincheck explorercheck levelscheck shipcheck bandcheck
           nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty
