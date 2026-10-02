@@ -337,6 +337,9 @@ def main() -> None:
     if result.returncode:
         bad.append('member census and cap readings differ from fresh generation')
 
+    if subprocess.run([sys.executable, 'docs/audit/26-10-02-structure-questions.py', '--check'], cwd=ROOT).returncode:
+        bad.append('outside-structures questions differ from their measured records')
+
     if bad:
         print("ANALYSIS GATE FAILED — the notes disagree with their own generated data:\n")
         for b in bad:

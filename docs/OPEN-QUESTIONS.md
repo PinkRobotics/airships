@@ -956,6 +956,70 @@ stops.
 
 ---
 
+<!-- structure-questions:start -->
+## Questions for an outside structures engineer
+
+**Recorded 2026-10-02. Open.** These questions do not select a cap, a laminate or a new vehicle.
+The [member census](MEMBER-CENSUS.md) and [cap readings](../research/analysis/cap-readings.md) preserve the measured disagreement.
+
+### Cap members, directions and connections
+
+What physical members, sections and connections make up the 52 m hull’s caps?
+The drawing contains 16,905.361 m of cap hoops without a hoop bill line.
+The grid is charged by 8,494.867 m² of area: 45.107 t record and 33.220 t favourable.
+Do its membrane directions coincide with the drawn hoops or bars, and which sections and connections carry each load?
+The drawn cap bars total 24,888.412 m; the grid also includes a bending-bar allowance.
+
+### Station-aware cap and shoulder checks
+
+What check would resolve station radius, member length, connection stiffness and the load transfer across each shoulder?
+Inner rings total 9,826.902 m in the bill and 7,508.594 m in the drawing.
+Shoulder diagonals total 610.940 m billed and 1,307.772 m drawn.
+Their unchanged-section price increases by 8.885819 t record and 6.434558 t favourable, before the separate joint allowance.
+Removing the grid stiffness returns cap margin 0 on both bases.
+Which analysis and physical measurements would establish the applicability of a replacement check?
+
+### Conditional laminate-stiffness sensitivity
+
+What measured axial, hoop and shear properties, layup, coupling terms and compression allowables should describe the discrete tubes?
+The code’s co-critical effective-modulus factor is 0.569876764239; the stated fibre-only 75/25 fixed-tube idealisation gives 0.433012701892.
+Their local-capacity ratio is 1.316074013.
+The executed sensitivity also uses consistent axial and global moduli under that same idealisation.
+**This is conditional arithmetic, not measured laminate data or a corrected prediction.**
+
+| Basis | Original mass t | Conditional mass t | Original sea-level / 2,500 m ratios | Conditional sea-level / 2,500 m ratios |
+| --- | ---: | ---: | --- | --- |
+| record | 403.101266 | 504.389381 | 0.558 / 0.436 | 0.446 / 0.348 |
+| favourable | 229.161609 | 266.800490 | 0.981 / 0.766 | 0.843 / 0.658 |
+
+Which laminate measurements would settle this difference before those moduli are used in a physical member check?
+Execution record: [conditional sensitivity](audit/26-10-02-stiffness-sensitivity.json).
+
+### Odd-column spoke anchors and polar stations
+
+How should diametral spokes attach when the scaled model has 165 columns at 119 m diameter?
+The Python bill counts 11,972 cords and the drawing contains 12,118.
+The formula length is 1,030,187.784 m against 1,036,431.346 m drawn.
+Which polar stations are physical members when 68 inner stations are billed but 64 rings are drawn?
+What sections, anchors and terminations belong at those stations?
+
+### Fittings, torsion straps and retired skin
+
+What whole-hull fitting manifest replaces the area-derived 16,989.733 clamps and 50,969.199 pads?
+Which physical joints support the 46.450 t record allowance and 32.945 t favourable allowance?
+Where are the helical torsion straps charged at 0.256 t, distinct from the outfit’s circumferential straps?
+What does the 1.019 t skin line represent after the inner void skin was retired from the drawing?
+Which seals, coatings, bonds, seams and equipment attachments belong in a complete bill?
+
+<a id="breach-hand-figures"></a>
+### Breach hand figures without a generator
+
+What calculation, load case and material basis support the physics note’s 0.162 kg/m³ tension and 3.59 kg/m³ compression figures?
+They are hand figures without a generator. What would make that breach comparison reproducible and applicable to the proposed cellular architecture?
+<!-- structure-questions:end -->
+
+---
+
 ## Interim energy figures: earlier model, under review
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
