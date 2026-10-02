@@ -599,17 +599,18 @@ Most of the confusion in this project's history came from numbers that had drift
 from their object.</li>
 </ul>
 <h3 id="how-the-loop-actually-runs">How the loop actually runs</h3>
-<p>From 2026-08-11 this brief is drained by a <strong>work-order loop</strong> (helm's devworker), one order
-at a time, in parallel with whatever else is happening in this repository. The rules above
-are unchanged — this section only says how a pass physically happens, so that a pass written
-by a person and a pass written by the loop are the same shape.</p>
+<p>Since 2026-08-11 this brief has been drained by <strong>work orders</strong> carried out by AI models, in
+parallel with whatever else is happening in this repository. The rules above are unchanged —
+this section only says how a pass physically happens, so that a pass written by a person and
+a pass written by a model are the same shape.</p>
 <ul>
 <li><strong>An order never edits this repository.</strong> Each one runs in its own clone with the origin
 remote <em>deleted</em>, so the agent cannot write here even if it tries. Whatever the working
 tree holds while an order runs, the order cannot see it or disturb it.</li>
-<li><strong>The deliverable comes back as a branch and a report</strong>, never as a commit on <code>main</code>.
-Nothing merges without a human reading it first. A <code>devworker/*</code> ref appearing here is the
-loop handing something over; deleting it discards that pass and costs nothing else.</li>
+<li><strong>The deliverable comes back as a change and a report</strong>, never as a commit on <code>main</code>.
+Until October 2026 the rule was that a person read each one before it merged. Since then a
+desk other than the builder signs the exact commit before it lands; the project's public log
+shows each change's builder and each landing's signature.</li>
 <li><strong>One order changes one number.</strong> Orders are sized to a single route from §3 or a single
 question from the list below. An order that touches two is mis-scoped — split it.</li>
 <li><strong>The gate is this repository's own checks, and the loop may not soften them.</strong> <code>make check</code>

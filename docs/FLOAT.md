@@ -352,17 +352,18 @@ over an unchecked number that is better.
 
 ### How the loop actually runs
 
-From 2026-08-11 this brief is drained by a **work-order loop** (helm's devworker), one order
-at a time, in parallel with whatever else is happening in this repository. The rules above
-are unchanged — this section only says how a pass physically happens, so that a pass written
-by a person and a pass written by the loop are the same shape.
+Since 2026-08-11 this brief has been drained by **work orders** carried out by AI models, in
+parallel with whatever else is happening in this repository. The rules above are unchanged —
+this section only says how a pass physically happens, so that a pass written by a person and
+a pass written by a model are the same shape.
 
 - **An order never edits this repository.** Each one runs in its own clone with the origin
   remote *deleted*, so the agent cannot write here even if it tries. Whatever the working
   tree holds while an order runs, the order cannot see it or disturb it.
-- **The deliverable comes back as a branch and a report**, never as a commit on `main`.
-  Nothing merges without a human reading it first. A `devworker/*` ref appearing here is the
-  loop handing something over; deleting it discards that pass and costs nothing else.
+- **The deliverable comes back as a change and a report**, never as a commit on `main`.
+  Until October 2026 the rule was that a person read each one before it merged. Since then a
+  desk other than the builder signs the exact commit before it lands; the project's public log
+  shows each change's builder and each landing's signature.
 - **One order changes one number.** Orders are sized to a single route from §3 or a single
   question from the list below. An order that touches two is mis-scoped — split it.
 - **The gate is this repository's own checks, and the loop may not soften them.** `make check`
