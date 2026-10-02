@@ -36,6 +36,7 @@ import argparse
 import decimal
 import json
 import pathlib
+import posixpath
 import re
 import sys
 
@@ -43,6 +44,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 REPORTS = ROOT / 'research' / 'reports'
 PDFDIR = ROOT / 'research' / 'pdf'
 FIGURES = ROOT / 'research' / 'figures.json'
+
+# Where a report's source and its PDF live, from the repository root. A relative link in a
+# report is written for the source's folder, and the PDF sits one folder deeper. These are
+# fixed names, not the folders of this run: the PDF gate builds in a scratch folder and has
+# to get the same links.
+SOURCE_DIR = 'research/reports'
+PDF_DIR = 'research/pdf/out'
 
 CITE = re.compile(r'([-−]?[\d][\d,]*(?:\.\d+)?)(\s*(?:[^\d<]{0,24}?))<!--\s*f:([A-Za-z0-9_.]+)\s*-->')
 DIRECTIVE = re.compile(r'^<!--\s*tex:(\w+)\s*(.*?)-->\s*$', re.S)
@@ -109,6 +117,20 @@ def texify(s: str) -> str:
 VALUES: dict = {}
 
 
+def link_target(target: str) -> str:
+    """A Markdown link target as the PDF has to carry it.
+
+    An address with a scheme, a rooted path and a bare anchor pass through. A relative path
+    is re-based from the report's folder to the PDF's: copied as written, `../../README.md`
+    opened research/README.md from the PDF, and `../../docs/FLOAT.md` opened nothing.
+    """
+    if re.match(r'[A-Za-z][A-Za-z0-9+.-]*:', target) or target.startswith(('#', '/')):
+        return target
+    path, sep, fragment = target.partition('#')
+    there = posixpath.normpath(posixpath.join(SOURCE_DIR, path))
+    return posixpath.relpath(there, PDF_DIR) + sep + fragment
+
+
 def inline(s: str, keys: set[str], src: str) -> str:
     """Inline markup -> LaTeX. Figure markers become \\F{} and keep their unit."""
     slots: list[str] = []
@@ -164,7 +186,7 @@ def inline(s: str, keys: set[str], src: str) -> str:
 
     s = re.sub(r'`([^`]+)`', code, s)
     s = re.sub(r'\[([^\]]+)\]\(([^)]+)\)',
-               lambda m: stash(r'\href{' + m.group(2).replace('%', r'\%').replace('#', r'\#')
+               lambda m: stash(r'\href{' + link_target(m.group(2)).replace('%', r'\%').replace('#', r'\#')
                                + '}{' + esc(m.group(1)) + '}'), s)
     s = re.sub(r'\*\*([^*]+)\*\*', lambda m: stash(r'\textbf{' + uni(esc(m.group(1))) + '}'), s)
     s = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', lambda m: stash(r'\emph{' + uni(esc(m.group(1))) + '}'), s)

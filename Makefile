@@ -213,6 +213,7 @@ pdfgenerate:  ## Generate charts and report PDFs into research/pdf/out/
 
 pdfcheck:  ## Build in scratch; compare PDF content and refuse layout errors
 	$(PY) research/pdf/build.py --check --fast --strict
+	$(PY) -m unittest discover -s tools/tests -p 'test_report_links.py'
 
 # THE MOST IMPORTANT CHECK HERE. `figcheck` compares the reports against
 # research/figures.json and prints "N cited figures match the model" — but figures.json is a
