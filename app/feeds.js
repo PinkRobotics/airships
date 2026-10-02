@@ -22,8 +22,9 @@
  * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
-import { dropSeg, dayKind, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, noteKm, planTargets, pointBlocked } from '../sim/index.js?v=26282d19';
+import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=26282d19';
 import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=26282d19';
+import { renderFires, renderRoster } from './cockpit/tables.js?v=26282d19';
 import { renderDrawer } from './cockpit/panels.js?v=26282d19';
 import { vancouverClock, vancouverDate } from './dates.js?v=26282d19';
 import { replanAll } from './fleet.js?v=26282d19';
@@ -51,7 +52,7 @@ export const REPLAY = QP.get("data") === "snapshot" && !DAY;
 export function normalize(firesGJ, perimsGJ) {
   const rings = {};
   for (const f of (perimsGJ && perimsGJ.features) || []) {
-    const num = f.properties.FIRE_NUMBER;
+    const num = fireNumber(f.properties.FIRE_NUMBER) || f.properties.FIRE_NUMBER;
     const g = f.geometry; if (!g || !num) continue;
     const polys = g.type === "MultiPolygon" ? g.coordinates : [g.coordinates];
     let best = null, ba = -1;
@@ -76,7 +77,8 @@ export function normalize(firesGJ, perimsGJ) {
     const p = f.properties, g = f.geometry;
     if (!g || p.FIRE_STATUS === "Out") continue;
     fires.push({
-      id: p.FIRE_NUMBER || String(p.OBJECTID),
+      id: fireNumber(p.FIRE_NUMBER) || p.FIRE_NUMBER || null,
+      exercise: S.exercise && p.EXERCISE === true,
       name: p.INCIDENT_NAME && p.INCIDENT_NAME !== p.FIRE_NUMBER ? p.INCIDENT_NAME : null,
       geo: p.GEOGRAPHIC_DESCRIPTION || null,
       status: p.FIRE_STATUS, cause: p.FIRE_CAUSE || null,
@@ -85,7 +87,7 @@ export function normalize(firesGJ, perimsGJ) {
       url: p.FIRE_URL || null,
       note: p.FIRE_STATUS === "Fire of Note" || p.FIRE_OF_NOTE_IND === "Y" || p.FIRE_OF_NOTE_IND === "Yes",
       ll: [g.coordinates[0], g.coordinates[1]],
-      ring: rings[p.FIRE_NUMBER] || null,
+      ring: rings[fireNumber(p.FIRE_NUMBER) || p.FIRE_NUMBER] || null,
     });
   }
   fires.sort((a, b) => b.sizeHa - a.sizeHa);
@@ -201,8 +203,12 @@ async function mirrorEvac(maxAgeMin) {
  * when the fleet may never work that fire; needsShip, the map, the tables and the cockpit
  * all read it, so the reason shown is the reason enforced. */
 export function applyGuard(fires) {
-  for (const f of fires) f.guarded = guardedFire(S.guard, f, { seasonOfNote: S.seasonOfNote });
-  return fires;
+  for (const f of fires) {
+    const g = guardedFire(S.guard, f, { seasonOfNote: S.seasonOfNote });
+    if (g && g.why === "invalid-fire") setView(S.day, g.reason);
+    if (f) f.guarded = g;
+  }
+  return fires.filter(Boolean);
 }
 
 /* Is this date inside a no-fleet window? (dayKind answers the same question with the
@@ -408,7 +414,7 @@ export function needsShip(f) {
   // about people, and the page does not replay them with a fleet in the picture. Beyond
   // that, the demonstration responds only to fires actually out of control; held and
   // under-control fires stay on the map as monitored-only: crews have them.
-  if (f.guarded) return false;
+  if (!f || f.guarded) return false;
   return f.status === "Out of Control";
 }
 
@@ -432,8 +438,8 @@ export function modeWords() {
   // "Live" only when the mirror answered; every dated view is a replay of its day.
   const lead = S.daySource === "live" ? "Live " + date : "Replay of " + date;
   return lead + ": the fires as British Columbia published them at " + time + ". The fleet is " +
-    "simulated and never flew. Its drops are water released, not water arrived, and nothing " +
-    "here says any fire would have burned differently.";
+    "simulated and never flew. Its drops are water released, not water arrived, and " +
+    "nothing here says any fire would have burned differently.";
 }
 
 /* The guard note (R7), in the words the ruling fixed: the layers panel carries it beside
@@ -515,14 +521,20 @@ export function applyHeat() {
       if (picks.length >= 8) break;
     }
     if (picks.length >= 1) {
-      // R4: a hotspot line inside a keep-out distance is never aimed at. The geometry
-      // targets stand and the heat simply does not refine this mission.
-      if (S.regions.length && picks.some(p => pointBlocked(S.regions, p))) continue;
       m.targets = picks;
       m.segs = picks.map(t => dropSeg(m, t, true));
       m.heat = true;
       planTargets(m, S.heat);
+      const hit = missionBlocked(S.regions, m);
+      if (hit) {
+        m.refused = true;
+        f.heldOut = "not flown: the heat-refined release line or track enters the keep-out around " + hit.who;
+      }
     }
   }
-  renderDrawer();
+  if (S.sel?.m?.refused) S.sel = {type:"fire", f:S.sel.m.fire};
+  S.missions = S.missions.filter(m => !m.refused);
+  for (const f of S.fires) f.mission = S.missions.find(m => m.fire === f) || null;
+  S.uncovered = S.fires.filter(f => needsShip(f) && !f.mission).length;
+  renderRoster(); renderFires(); replanAll();
 }

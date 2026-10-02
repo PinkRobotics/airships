@@ -48,7 +48,7 @@ export {
 
 export { sizeTier, assign } from './assign.js?v=26282d19';
 export {
-  loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, guardedFire, keepOutsFor, pointBlocked,
+  loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, fireNumber, guardedFire, missionBlocked, keepOutsFor, pointBlocked,
   pathBlocked, noteKm,
 } from './guard.js?v=26282d19';
 export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=26282d19';

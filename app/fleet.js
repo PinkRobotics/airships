@@ -1,7 +1,7 @@
 /* Allocating sixteen hulls to the fires that most need them — and keeping them off the
  * fires and places the guard holds (sim/guard.js, data/season/2026.guard.json).
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, pathBlocked, planCycle, pointBlocked } from '../sim/index.js?v=26282d19';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, planCycle } from '../sim/index.js?v=26282d19';
 import { renderDrawer } from './cockpit/panels.js?v=26282d19';
 import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=26282d19';
 import { needsShip } from './feeds.js?v=26282d19';
@@ -52,20 +52,8 @@ export function rebuildMissions() {
     if (clsId === "P100" && f.sizeHa > 5000) v -= 1.5;
     return v;
   };
-  // R4: a mission flies only if nothing it does enters a keep-out region — not its water
-  // pickup or its hose stations, not either leg (the S-bend's control points included),
-  // not a drop line on the fire's edge. Returns the region that forbids it, for the fire's
-  // record on the page, or null when the mission is clear.
-  const blockedBy = pt => pt && pointBlocked(S.regions, pt);
-  const forbiddenBy = m => {
-    if (m.idle) return null;
-    let r = blockedBy(m.intake);
-    if (!r) for (const st of m.stations) { r = blockedBy(st); if (r) return r; }
-    if (!r) r = blockedBy(m.ctlOut) || blockedBy(m.ctlRet);
-    if (!r) r = pathBlocked(S.regions, m.intake, m.delivery);
-    if (!r) for (const t of m.targets) { r = blockedBy(t); if (r) return r; }
-    return r;
-  };
+  // Refuse the whole route, including release ends, all cycle jitter and the actual bows.
+  const forbiddenBy = m => missionBlocked(S.regions, m);
   let open = cand.slice();
   const heldOut = new Set();
   S.missions = [];

@@ -97,7 +97,7 @@ export function planTargets(m, heat = []) {
       if (rr > risk) { risk = rr; riskCity = ct; riskDw = dw; }
     }
     sc += Math.min(3.5, risk * 12);
-    if (riskCity && risk * 12 > 1) why.push("shields " + riskCity[2]);
+    if (riskCity && risk * 12 > 1) why.push("near " + riskCity[2]);
     if (riskCity) {
       const dK = havKm([riskCity[0], riskCity[1]], t);
       if (!m.protect || risk > m.protect.risk)

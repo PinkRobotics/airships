@@ -177,7 +177,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ["one-way", m.oneWayKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) + " hose stations", "sim"],
         ["release", m.targets.length + " planned lines" + (m.heat ? " on satellite heat" : ""), "sim"],
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],
-        ["protecting", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no community within 40 km", "sim"],
+        ["nearby community", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no community within 40 km", "sim"],
       ]) + `<details class="d" style="border:0;margin-top:var(--s2)"><summary style="padding:4px 0 4px 22px;font-size:var(--t-12);color:var(--faint)">why this tasking</summary>
         <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${S.exercise ? "exercise in still air; no forecast invented." : m.plan.windUsed ? "wind-informed legs, nominal altitudes." : "still-air — live wind unavailable."}</p></div></details></div>
       <div><h4>Cycle · simulated</h4><div id="opsCycle"></div></div>

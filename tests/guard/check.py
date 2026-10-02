@@ -117,7 +117,16 @@ MANDATED_FLEET = re.compile(
     rf"(Replay|Live) of \d{{4}}-\d{{2}}-\d{{2}}: the fires as British Columbia published them "
     rf"at {TIME}\. The fleet is simulated and never flew\. Its drops are water released, not "
     r"water arrived, and nothing here says any fire would have burned differently\.")
-REFUSED = [("would have", re.compile(r"\bwould have\b")),
+DENIALS = [
+    "water released is not fire extinguished",
+    "none of it says whether this fire grows or is contained",
+    "nothing here says any fire would have burned differently",
+]
+REFUSED = [("protecting", re.compile(r"\bprotecting\b", re.I)),
+           ("shields", re.compile(r"\bshields\b", re.I)),
+           ("fire extinguished", re.compile(r"fire extinguished", re.I)),
+           ("is contained", re.compile(r"is contained", re.I)),
+           ("would have", re.compile(r"\bwould have\b")),
            ("could have", re.compile(r"\bcould have\b")),
            ("saved", re.compile(r"\bsaved\b")),
            ("prevented", re.compile(r"\bprevented\b")),
@@ -150,13 +159,30 @@ def load_guard():
 # ============================================================================================
 @test
 def the_guard_file_is_pinned_by_its_canonical_digest():
-    doc = load_guard()
+    check_digest(load_guard())
+    return "digest d8fa369f…38f3c15 holds"
+
+
+def check_digest(doc):
     canon = json.dumps(doc, sort_keys=True, separators=(",", ":")).encode()
     import hashlib
     same(hashlib.sha256(canon).hexdigest(), PIN["canonicalSha256"],
          "the canonical digest of data/season/2026.guard.json (R8: edit the file on purpose, "
          "then change this pin in the same commit and say why)")
-    return "digest d8fa369f…38f3c15 holds"
+
+
+@test
+def meaning_preserving_guard_edits_fail_the_pin():
+    for label, edit in [("empty fires", lambda d: d.update(fires=[])),
+                        ("zero keep-out", lambda d: d["fires"][0].update(keepOutKm=0))]:
+        doc = load_guard(); edit(doc)
+        try:
+            check_digest(doc)
+        except AssertionError as e:
+            assert "canonical digest" in str(e)
+        else:
+            raise AssertionError(label + ": weakened guard passed")
+    return "empty fires and zero keep-out both fail the unchanged canonical pin"
 
 
 @test
@@ -352,6 +378,10 @@ PROBE = r"""
         samples++; const hit = hitAt(p);
         if (hit) bad.push({ hull: m.shipId || m.name, where: 'station ' + i, who: hit.who });
       }
+      for (const [i, p] of (m.segs || []).flat().entries()) {
+        samples++; const hit = hitAt(p);
+        if (hit) bad.push({ hull: m.shipId || m.name, where: 'release endpoint ' + i, who: hit.who });
+      }
       for (const [i, p] of (m.targets || []).entries()) {
         samples++; const hit = hitAt(p);
         if (hit) bad.push({ hull: m.shipId || m.name, where: 'target ' + i, who: hit.who });
@@ -372,6 +402,7 @@ PROBE = r"""
     }
   }
   seen.push(document.title);
+  for (const meta of document.querySelectorAll("meta[content]")) seen.push(meta.content);
   out.visible = seen;
   return JSON.stringify(out);
 })()
@@ -479,11 +510,113 @@ def refuse_words(name, strings):
     hits = []
     for s in strings:
         t = MANDATED_FLEET.sub("", s)
+        for denial in DENIALS:
+            t = re.sub(re.escape(denial), "", t, flags=re.I)
         for what, pat in REFUSED:
             m = pat.search(t)
             if m:
                 hits.append(f"{name} says {what!r}: …{t[max(0, m.start()-50):m.end()+30]}…")
     assert not hits, "\n          ".join(hits[:6])
+
+
+@test
+def all_served_scripts_and_meta_tags_refuse_effect_claims():
+    from html.parser import HTMLParser
+    class Sources(HTMLParser):
+        def __init__(self):
+            super().__init__(); self.src = []; self.meta = []; self.inline = []; self.script = False
+        def handle_starttag(self, tag, attrs):
+            a = dict(attrs)
+            if tag == "script":
+                self.script = True
+                if a.get("src"): self.src.append(a["src"])
+            if tag == "meta": self.meta.append(a.get("content", ""))
+        def handle_endtag(self, tag):
+            if tag == "script": self.script = False
+        def handle_data(self, data):
+            if self.script: self.inline.append(data)
+    page = Sources(); page.feed((ROOT/"index.html").read_text())
+    refuse_words("meta tags", page.meta)
+    pending = [(ROOT/rel.split("?")[0]).resolve() for rel in page.src]
+    visited = set()
+    # Scan literals, including template strings, not variable names or comments.
+    tokens = re.compile(r"//[^\n]*|/\*.*?\*/|(?:'(?:(?:\\.)|[^'\\])*'|\"(?:(?:\\.)|[^\"\\])*\"|`(?:(?:\\.)|[^`\\])*`)", re.S)
+    def scan(name, code):
+        strings = [m.group(0)[1:-1] for m in tokens.finditer(code) if m.group(0)[0] in "'\"`"]
+        refuse_words(name, strings)
+    for code in page.inline: scan("inline script", code)
+    while pending:
+        path = pending.pop()
+        if path in visited: continue
+        assert path.is_relative_to(ROOT), "served script escapes the repository"
+        visited.add(path); code = path.read_text()
+        scan(str(path.relative_to(ROOT)), code)
+        specs = re.findall(r"(?:from\s*|import\s*\(?\s*)['\"]([^'\"]+)['\"]", code)
+        # The 3D bridge stamps a URL before dynamic import; its literal path is served too.
+        specs += re.findall(r"new URL\(\s*['\"]([^'\"]+\.js(?:\?[^'\"]*)?)['\"]", code)
+        for spec in specs:
+            if spec.startswith("."):
+                pending.append((path.parent/spec.split("?")[0]).resolve())
+            else:
+                assert not re.match(r"https?://", spec), "foreign served script"
+    return f"{len(visited)} served scripts, inline scripts and {len(page.meta)} meta tags scanned"
+
+
+@test
+def effect_scan_refuses_claims_but_accepts_specific_denials():
+    for text in ["protecting a town", "shields a town", "would have to do"]:
+        try: refuse_words("fixture", [text])
+        except AssertionError: pass
+        else: raise AssertionError("missed " + text)
+    refuse_words("denials", DENIALS)
+    return "three claims refused; only the complete denial sentences accepted"
+
+
+HEAT_AND_NULL = r"""
+(async () => {
+  for (let i=0; i<160 && !(window.AIRSHIPS && AIRSHIPS.app.ready); i++)
+    await new Promise(r=>setTimeout(r,250));
+  document.getElementById('introOv').click();
+  const S=AIRSHIPS.app, sim=AIRSHIPS.sim;
+  S.paused=true;
+  const stamp = new URL(document.querySelector('script[src*="app/main.js"]').src).search;
+  const feeds=await import('/app/feeds.js'+stamp), fleet=await import('/app/fleet.js'+stamp);
+  const source=S.missions[0];
+  const f={...source.fire, ll:source.delivery.slice(), ring:null, sizeHa:1000, mission:null};
+  const m={...source, fire:f}; f.mission=m;
+  S.fires=[f]; S.missions=[m]; S.sel=null;
+  const before=JSON.stringify([f.id,f.ll,f.sizeHa,f.status,f.ring]);
+  const end=sim.dropSeg(m,f.ll,true)[1];
+  S.regions=[{ll:end,rKm:.01,who:'invented endpoint exclusion',edge:null,ring:null}];
+  S.heat=[{ll:f.ll.slice(),temp:400}];
+  const centreClear=!sim.pointBlocked(S.regions,f.ll);
+  feeds.applyHeat();
+  const heat={centreClear, missions:S.missions.length, reason:f.heldOut,
+    unchanged:before===JSON.stringify([f.id,f.ll,f.sizeHa,f.status,f.ring])};
+  let nullFire;
+  try { S.fires=feeds.applyGuard([null]); fleet.rebuildMissions();
+    nullFire={recordOnly:S.recordOnly,missions:S.missions.length,reason:S.standDown};
+  } catch(e) { nullFire={error:String(e)}; }
+  return JSON.stringify({heat,nullFire});
+})()
+"""
+
+
+@test
+def heat_retargets_and_null_input_stand_down_in_words():
+    port=free_port(); httpd=serve(port)
+    try: result=probe_once(port,"?view=exercise&seed=7",HEAT_AND_NULL,5)
+    finally: httpd.shutdown()
+    h=result["heat"]
+    same(h["centreClear"],True,"heat target centre was clear")
+    same(h["missions"],0,"blocked heat-refined hull is unassigned")
+    assert "heat-refined" in (h["reason"] or ""), h
+    same(h["unchanged"],True,"heat does not rewrite a fire's record")
+    n=result["nullFire"]
+    same(n["recordOnly"],True,"null stands the fleet down")
+    same(n["missions"],0,"null leaves no fleet")
+    assert "fire number" in n["reason"], n
+    return "clear centre, blocked heat endpoint: hull unassigned; null: fleet down, in words"
 
 
 # --------------------------------------------------------------------------------------------

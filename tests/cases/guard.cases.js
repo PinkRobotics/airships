@@ -14,6 +14,8 @@
  * list, that an order area is keep-out ground on its own, and that a record which cannot
  * be read is a refusal with the fleet down — never a quiet "no fires under order".
  */
+import * as guardModel from '../../sim/guard.js?v=26282d19';
+const missionBlocked = (...args) => guardModel.missionBlocked(...args);
 import { close, deepEq, describe, eq, it, ok } from '../harness.js';
 import {
   dayKind, guardedFire, keepOutsFor, loadEvac, loadGuard, liveEvac, mergeEvac, noteKm,
@@ -31,7 +33,7 @@ const DOC = () => ({
       source: 'https://example.test/alpha' },
     { fire: 'X10002', name: 'Beta', tier: 2, basis: 'order', keepOutKm: 20,
       source: 'https://example.test/beta' },
-    { name: 'The Nameless Fire', tier: 3, basis: 'alert', keepOutKm: 0,
+    { fire: 'X10006', name: 'The Nameless Fire', tier: 3, basis: 'alert', keepOutKm: 0,
       source: 'https://example.test/nameless' },
   ],
   places: [
@@ -39,7 +41,7 @@ const DOC = () => ({
       source: 'https://example.test/town' },
   ],
 });
-const CTX = { seasonNumbers: ['X10001', 'X10002'] };
+const CTX = { seasonNumbers: ['X10001', 'X10002', 'X10006'] };
 
 /* Normalized fires in the shape app/feeds.js hands the model. */
 const fire = (over = {}) => Object.assign(
@@ -54,7 +56,7 @@ describe('guard · loadGuard', () => {
     eq(G.fires.length, 3, 'three fire entries');
     eq(G.places.length, 1, 'one place');
     eq(G.byNumber.get('X10001').keepOutKm, 30, 'by number');
-    ok(G.byName.has('the nameless fire'), 'by name, lower-cased');
+    eq(G.byNumber.get('X10006').keepOutKm, 0, 'alert by number');
   });
 
   it('refuses a file that is not an object, or has no default distance', () => {
@@ -105,9 +107,9 @@ describe('guard · loadGuard', () => {
     }
     ok(!bend(1, e => { e.fire = 'X10001'; }).ok, 'a number listed twice is refused');
     const doc = DOC();
-    doc.fires.push({ name: 'the nameless fire', tier: 3, basis: 'alert', keepOutKm: 0,
+    doc.fires.push({ fire: 'X10006', name: 'the nameless fire', tier: 3, basis: 'alert', keepOutKm: 0,
                      source: 'https://example.test/two' });
-    ok(!loadGuard(doc, CTX).ok, 'a name listed twice is refused');
+    ok(!loadGuard(doc, CTX).ok, 'a number listed twice is refused');
   });
 
   it('refuses a listed number that no season record and no view carries (R6)', () => {
@@ -116,7 +118,7 @@ describe('guard · loadGuard', () => {
     // without seasonNumbers the resolution check is skipped: the guard still loads
     ok(loadGuard(DOC(), {}).ok, 'no season context: the check is skipped, not failed');
     const G2 = loadGuard(DOC(), { seasonNumbers: ['X99999'],
-                                  viewFires: [fire({ id: 'X10001' }), fire({ id: 'X10002' })] });
+                                  viewFires: [fire({ id: 'X10001' }), fire({ id: 'X10002' }), fire({ id: 'X10006' })] });
     ok(G2.ok, 'fires in view satisfy resolution even when the season record lacks them');
   });
 
@@ -162,11 +164,11 @@ describe('guard · dayKind', () => {
 
 describe('guard · guardedFire', () => {
   const G = loadGuard(DOC(), CTX);
-  it('holds a listed fire by number or by name, at the entry\'s own distance', () => {
+  it('holds a listed fire by number, at the entry\'s own distance', () => {
     eq(guardedFire(G, fire({ id: 'X10001', name: 'Alpha' })).why, 'listed', 'by number');
     eq(guardedFire(G, fire({ id: 'X10001', name: 'Alpha' })).keepOutKm, 30, 'tier 1 distance');
-    const byName = guardedFire(G, fire({ id: 'X77777', name: 'THE NAMELESS FIRE' }));
-    eq(byName.why, 'listed', 'matched by name, case-insensitively');
+    const byName = guardedFire(G, fire({ id: 'X10006', name: 'THE NAMELESS FIRE' }));
+    eq(byName.why, 'listed', 'matched by number');
     eq(byName.keepOutKm, 0, 'tier 3 holds the fire but claims no air');
   });
   it('holds a fire the day itself flags of note, at the file default', () => {
@@ -212,7 +214,7 @@ describe('guard · keepOutsFor', () => {
   });
   it('a tier-3 fire is held but claims no air, and a place claims air only on its date', () => {
     const day = '2030-09-01';
-    const fires = [fire({ name: 'The Nameless Fire' }), fire({ id: 'X10002', name: 'Beta' })];
+    const fires = [fire({ id: 'X10006', name: 'The Nameless Fire' }), fire({ id: 'X10002', name: 'Beta' })];
     const r = keepOutsFor(G, fires, {}, day);
     eq(r.length, 2, 'the tier-3 fire contributed no region');
     ok(r.some(x => x.kind === 'place' && x.who === 'A Town' && x.rKm === 15), 'the place, on its day');
@@ -318,7 +320,7 @@ const WITH_EVAC = () => {
                    source: 'https://example.test/epsilon' });
   return doc;
 };
-const CTX4 = { seasonNumbers: ['X10001', 'X10002', 'X10004', 'X10005'] };
+const CTX4 = { seasonNumbers: ['X10001', 'X10002', 'X10004', 'X10005', 'X10006'] };
 
 describe('guard · loadEvac', () => {
   it('accepts a well-formed record and carries its orders', () => {
@@ -340,7 +342,6 @@ describe('guard · loadEvac', () => {
       ['no fires list', d => { delete d.fires; }],
       ['an entry that is not an object', d => { d.fires[0] = null; }],
       ['a number that is not a string', d => { d.fires[0].fire = 10001; }],
-      ['a lowercase letter', d => { d.fires[0].fire = 'x10001'; }],
       ['digits with no letter', d => { d.fires[0].fire = '10001'; }],
       ['an empty number', d => { d.fires[0].fire = ''; }],
       ['a number listed twice', d => { d.fires[1].fire = 'X10001'; }],
@@ -489,5 +490,56 @@ describe('guard · mergeEvac and liveEvac', () => {
     const r = liveEvac(season(), liveDoc());
     deepEq([r.from, r.state.ok, r.state.byNumber.has('X10050')], ['live', true, true],
            'merged, from the live copy');
+  });
+});
+
+describe('guard · identity regressions', () => {
+  it('normalises numbers on both sides of the join', () => {
+    ok(loadGuard(DOC(), {seasonNumbers:new Set(CTX.seasonNumbers),seasonOfNote:new Set()}).ok, 'set context');
+    const doc = DOC(); doc.fires[0].fire = ' x10001 ';
+    const g = loadGuard(doc, CTX);
+    ok(g.ok, g.reason);
+    for (const id of ['X10001', 'x10001', ' X10001 '])
+      eq(guardedFire(g, fire({id})).why, 'listed', id);
+    const evac = EVAC(); evac.fires[0].fire = ' x10001 ';
+    ok(loadEvac(evac).byNumber.has('X10001'), 'evacuation load normalises too');
+    eq(guardedFire(g, fire({id:' va1981 '})), null, 'two-letter record identity is valid');
+    for (const id of ['12345', 'X1', 'X100001', '', null])
+      eq(guardedFire(g, fire({id})).why, 'invalid-fire', String(id));
+  });
+  it('null refuses in words instead of throwing', () => {
+    const r = guardedFire(loadGuard(DOC(), CTX), null);
+    eq(r.why, 'invalid-fire'); ok(r.reason.includes('fire number'), r.reason);
+  });
+  it('has no name fallback and refuses a nameless-number entry', () => {
+    const doc = DOC(); delete doc.fires[0].fire;
+    ok(!loadGuard(doc, CTX).ok, 'a name alone is not an identity');
+    const g = loadGuard(DOC(), CTX);
+    ok(!('byName' in g), 'no dead fallback index');
+    eq(guardedFire(g, fire({id:'X99999',name:'Alpha'})), null, 'a shared name grants no match');
+  });
+});
+
+describe('guard · every flown position', () => {
+  const region = (ll,rKm=1) => [{kind:'test',who:'invented exclusion',ll,rKm,edge:null,ring:null}];
+  const m = () => ({intake:[-120,50],delivery:[-119,50],stations:[[-120,50]],
+    targets:[[-119,50]],segs:[[[-119,49.98],[-119,50.02]]],heat:false});
+  it('refuses a drop endpoint even when the centre clears', () => {
+    const x=m(), rs=region(x.segs[0][1],.2);
+    eq(pointBlocked(rs,x.delivery),null,'centre clear');
+    ok(missionBlocked(rs,x),'endpoint blocks');
+  });
+  it('refuses the widest point of the bowed outbound track', () => {
+    const x=m(); x.segs=[[x.delivery,x.delivery]];
+    const rs=region([-119.5,50.045],.2);
+    eq(pathBlocked(rs,x.intake,x.delivery),null,'straight line clear');
+    ok(missionBlocked(rs,x),'actual bow blocks');
+  });
+  it('covers the whole cycle jitter envelope without changing the mission', () => {
+    const x=m(), before=JSON.stringify(x), rs=region([-118.996,50.026],.15);
+    eq(pointBlocked(rs,x.segs[0][1]),null,'base endpoint clear');
+    ok(missionBlocked(rs,x),'future shifted endpoint blocks');
+    eq(JSON.stringify(x),before,'no clipping or nudging');
+    eq(missionBlocked(region([-122,50]),x),null,'clear mission passes');
   });
 });

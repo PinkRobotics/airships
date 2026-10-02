@@ -406,7 +406,7 @@ export async function boot() {
   if (fireModeLabel) fireModeLabel.textContent = S.exercise ? "exercise · invented fires" : "live BC fires";
   if (!S.exercise) {
     document.querySelector('meta[property="og:title"]').content = "Live fires. A simulated fleet. Arithmetic you can check.";
-    document.querySelector('meta[property="og:description"]').content = "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines would have to do and what each cycle would cost — not a promise that any fire goes out.";
+    document.querySelector('meta[property="og:description"]').content = "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines are modelled to do and what each cycle would cost — not a promise that any fire goes out.";
     document.title = "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed";
     document.querySelector('meta[name="description"]').content = "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the worst out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.";
   }

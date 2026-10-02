@@ -33,7 +33,7 @@
  * as the guard file: one that cannot be read is a refusal said in words — the fleet stands
  * down — never a quiet emptiness that would fly what it failed to read.
  */
-import { havKm } from './geo.js?v=26282d19';
+import { bez, havKm } from './geo.js?v=26282d19';
 
 /* Dates here are America/Vancouver calendar dates, YYYY-MM-DD, and they ARRIVE as strings:
  * sim/ touches no clock, so the epoch→date conversion (app/dates.js) is the caller's job.
@@ -49,7 +49,11 @@ function isDate(s) {
 /* A fire number the way every season file writes it: one capital letter, then digits.
  * This is the join key between the evacuation record and everything else the guard
  * knows, so a value that could not match a fire is a refusal, not a shrug. */
-const EVAC_NUMBER = /^[A-Z][0-9]{1,6}$/;
+export function fireNumber(value) {
+  if (typeof value !== "string") return null;
+  const n = value.trim().toUpperCase();
+  return /^(?:[A-Z][0-9]{5}|[A-Z]{2}[0-9]{4})$/.test(n) ? n : null;
+}
 
 /* An outline as the derived record publishes it: a closed ring of lon/lat pairs, at
  * least a triangle plus its closing point, every coordinate a finite number. */
@@ -81,10 +85,11 @@ export function loadEvac(doc) {
     return bad("the evacuation record is missing or not an object");
   if (!Array.isArray(doc.fires)) return bad("the evacuation record has no fires list");
   const byNumber = new Map(), orders = [];
-  for (const f of doc.fires) {
+  for (let f of doc.fires) {
     if (!f || typeof f !== "object") return bad("an evacuation entry is not an object");
-    if (typeof f.fire !== "string" || !EVAC_NUMBER.test(f.fire))
+    if (!fireNumber(f.fire))
       return bad(`an evacuation entry's number ${JSON.stringify(f.fire) ?? ""} is not a fire number`);
+    f = { ...f, fire: fireNumber(f.fire) };
     if (byNumber.has(f.fire)) return bad(`${f.fire}: listed twice`);
     if (typeof f.everOrder !== "boolean" || typeof f.everAlert !== "boolean")
       return bad(`${f.fire}: everOrder and everAlert must each be true or false`);
@@ -180,28 +185,23 @@ export function loadGuard(doc, ctx = {}) {
   }
 
   if (!Array.isArray(doc.fires)) return bad("fires is missing");
-  const seasonNumbers = ctx.seasonNumbers ? new Set(ctx.seasonNumbers) : null;
-  const viewIds = new Set((ctx.viewFires || []).map((f) => f.id));
-  const viewNames = new Set((ctx.viewFires || []).map((f) => (f.name || "").toLowerCase()));
-  const byNumber = new Map(), byName = new Map(), fires = [];
-  for (const e of doc.fires) {
+  const seasonNumbers = ctx.seasonNumbers ? new Set([...ctx.seasonNumbers].map(fireNumber)) : null;
+  const viewIds = new Set((ctx.viewFires || []).map((f) => fireNumber(f && f.id)));
+  const byNumber = new Map(), fires = [];
+  for (let e of doc.fires) {
     if (!e || typeof e !== "object") return bad("a fire entry is not an object");
-    const hasNumber = e.fire != null;
-    if (hasNumber && typeof e.fire !== "string") return bad(`a fire entry's number is not a string`);
-    if (!hasNumber && typeof e.name !== "string") return bad("a fire entry with no number has no name");
+    const number = fireNumber(e.fire);
+    if (!number) return bad("a fire entry has no valid fire number (one letter and five digits, or two letters and four digits)");
+    e = { ...e, fire: number };
     if (typeof e.name !== "string" || !e.name) return bad("a fire entry has no name");
     if (![1, 2, 3].includes(e.tier)) return bad(`${e.name}: tier must be 1, 2 or 3`);
     if (!BASES.includes(e.basis)) return bad(`${e.name}: basis must be one of ${BASES.join(", ")}`);
     if (typeof e.keepOutKm !== "number" || e.keepOutKm < 0) return bad(`${e.name}: keepOutKm is not a distance`);
     if (typeof e.source !== "string" || !/^https?:\/\//.test(e.source))
       return bad(`${e.name}: no source link`);
-    if (hasNumber) {
-      if (byNumber.has(e.fire)) return bad(`${e.fire}: listed twice`);
-      byNumber.set(e.fire, e);
-    } else if (byName.has(e.name.toLowerCase())) {
-      return bad(`${e.name}: listed twice by name`);
-    } else byName.set(e.name.toLowerCase(), e);
-    if (seasonNumbers && hasNumber && !seasonNumbers.has(e.fire) && !viewIds.has(e.fire))
+    if (byNumber.has(e.fire)) return bad(`${e.fire}: listed twice`);
+    byNumber.set(e.fire, e);
+    if (seasonNumbers && !seasonNumbers.has(e.fire) && !viewIds.has(e.fire))
       return bad(`${e.fire} (${e.name}) is in no season record and no view: it cannot be resolved`);
     fires.push(e);
   }
@@ -233,8 +233,8 @@ export function loadGuard(doc, ctx = {}) {
 
   return {
     ok: true, reason: null, doc,
-    defaultKeepOutKm: doc.defaultKeepOutKm, noFleet, fires, places, byNumber, byName, evac,
-    seasonOfNote: ctx.seasonOfNote ? new Set(ctx.seasonOfNote) : null,
+    defaultKeepOutKm: doc.defaultKeepOutKm, noFleet, fires, places, byNumber, evac,
+    seasonOfNote: ctx.seasonOfNote ? new Set([...ctx.seasonOfNote].map(fireNumber)) : null,
   };
 }
 
@@ -253,13 +253,17 @@ export function dayKind(G, date) {
  *  name, note (the day's own of-note flag), ring and sizeHa carry the geometry. */
 export function guardedFire(G, fire, ctx = {}) {
   if (!G || !G.ok) return { why: "guard-down", tier: null, basis: null, keepOutKm: 0 };
-  let e = fire.id && G.byNumber.get(fire.id) || null;
-  if (!e && fire.name) e = G.byName.get(fire.name.toLowerCase()) || null;
+  const id = fireNumber(fire && fire.id);
+  // Invented identifiers are accepted only on a fire explicitly marked as an exercise.
+  if (!id && !(fire && fire.exercise === true && /^EX[0-9]{3}$/.test(fire.id)))
+    return { why: "invalid-fire", reason: "a fire number is missing or is not one letter and five digits, or two letters and four digits",
+             tier: null, basis: null, keepOutKm: 0 };
+  const e = G.byNumber.get(id) || null;
   // The derived evacuation record, by number only. An order carries the file's default
   // distance; an alert alone holds the fire and claims no air. Where a hand entry and the
   // record both speak, the stricter keep-out wins (data tightens the hand list, never
   // loosens it), and a tie keeps the hand entry so a hand-written tier and basis stand.
-  const d = fire.id && G.evac ? G.evac.byNumber.get(fire.id) || null : null;
+  const d = id && G.evac ? G.evac.byNumber.get(id) || null : null;
   const dKm = d ? (d.everOrder ? G.defaultKeepOutKm : 0) : -1;
   if (e && e.keepOutKm >= dKm)
     return { why: "listed", tier: e.tier, basis: e.basis, keepOutKm: e.keepOutKm, entry: e };
@@ -271,9 +275,8 @@ export function guardedFire(G, fire, ctx = {}) {
   // Coerced rather than trusted: a caller handing an array here (a test, a future page)
   // would otherwise crash on .has, and a crash in this function is a refusal that forgot
   // to say so. Sets pass through untouched.
-  const season = ctx.seasonOfNote instanceof Set ? ctx.seasonOfNote
-    : new Set(ctx.seasonOfNote || G.seasonOfNote || []);
-  if (fire.id && season.has(fire.id))
+  const season = new Set([...(ctx.seasonOfNote || G.seasonOfNote || [])].map(fireNumber));
+  if (id && season.has(id))
     return { why: "season-of-note", tier: null, basis: "of note", keepOutKm: G.defaultKeepOutKm };
   return null;
 }
@@ -362,8 +365,7 @@ export function pointBlocked(regions, pt) {
 }
 
 /** Does the straight path a→b enter a keep-out region? Sampled every `stepKm` (the drawn
- *  track bows a few percent off the straight leg; the dispatch check that calls this keeps
- *  a margin, and the page-level gate samples the ships' own positions besides). */
+ *  dispatch uses missionBlocked below for the actual bowed track and release line). */
 export function pathBlocked(regions, a, b, stepKm = 1) {
   const d = havKm(a, b), n = Math.max(2, Math.ceil(d / stepKm) + 1);
   for (let k = 0; k < n; k++) {
@@ -383,4 +385,59 @@ export function noteKm(G) {
   for (const p of (G && G.places) || [])
     if ((p.basis === "loss" || p.basis === "order") && p.keepOutKm > km) km = p.keepOutKm;
   return km;
+}
+
+/** Refuse a complete mission, without changing its geometry. stateAt flies two quadratic
+ * curves per release line. Check every line with every possible current/next station;
+ * never rely on a few observed cycles to cover the seeded jitter in segAt.
+ *
+ * Each curve is sampled at most 0.5 km apart in a deliberately overestimated metric
+ * (112 km per degree on either axis). The region is expanded by half that gap, plus
+ * the entire jitter envelope (including its effect on the bow controls), and by 1.1 km
+ * for a polygon's sampled 2 km edge. This is conservative: a near miss may be refused.
+ * Neither a path nor a policy distance is clipped, nudged or rewritten.
+ */
+export function missionBlocked(regions, m) {
+  if (!regions.length || m.idle) return null;
+  const stations = m.stations && m.stations.length ? m.stations : [m.intake];
+  const metric = (a, b) => 112 * Math.hypot(b[0] - a[0], b[1] - a[1]);
+  for (const [a, b] of m.segs || [[m.delivery, m.delivery]]) {
+    // Same coordinate transform as segAt, with both independent offsets at their bounds.
+    const L = havKm(a, b), kx = 111.32 * Math.cos(a[1] * Math.PI / 180), ky = 110.57;
+    const dx = (b[0] - a[0]) * kx, dy = (b[1] - a[1]) * ky;
+    let jitter = 0;
+    if (L >= 0.05) for (const perp of [-1, 1]) for (const par of [-1, 1]) {
+      const jp = perp * (m.heat ? .15 : .075) * L, ja = par * .125 * L;
+      jitter = Math.max(jitter, 112 * Math.hypot((-dy * jp + dx * ja) / L / kx,
+                                               (dx * jp + dy * ja) / L / ky));
+    }
+    // A control moves at most (0.5 + 0.09) times the endpoint displacement;
+    // the convex quadratic weights keep the entire curve within this padded envelope.
+    const padded = regions.map(r => ({ ...r, rKm: r.rKm + jitter * 1.2 + .25 + (r.edge ? 1.1 : 0) }));
+    const curve = (p, c, q) => {
+      const lengthBound = metric(p,c) + metric(c,q);
+      const near = padded.filter(r => r.ring || havKm(p,r.ll) <= r.rKm + lengthBound);
+      if (!near.length) return null;
+      const n = Math.max(2, Math.ceil(4 * Math.max(metric(p, c), metric(c, q))));
+      for (let i = 0; i <= n; i++) {
+        const hit = pointBlocked(near, bez(p, c, q, i / n));
+        if (hit) return regions[padded.indexOf(hit)];
+      }
+      return null;
+    };
+    let hit = curve(a, [(a[0]+b[0])/2, (a[1]+b[1])/2], b);
+    if (hit) return hit;
+    for (const st of stations) {
+      const dX = a[0] - st[0], dY = a[1] - st[1];
+      const out = [(st[0]+a[0])/2 - .09*dY, (st[1]+a[1])/2 + .09*dX];
+      hit = curve(st, out, a);
+      if (hit) return hit;
+      for (const next of stations) {
+        const back = [(next[0]+b[0])/2 + .09*dY, (next[1]+b[1])/2 - .09*dX];
+        hit = curve(b, back, next);
+        if (hit) return hit;
+      }
+    }
+  }
+  return null;
 }
