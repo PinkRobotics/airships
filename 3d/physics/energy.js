@@ -10,7 +10,7 @@
  * mass. Nothing here should let it look free.
  */
 
-import { ASSUMPTIONS } from '../model/config.js?v=6e20b6c4';
+import { ASSUMPTIONS, RHO_WATER, G, sourceAltM, specNumber } from '../model/config.js?v=6e20b6c4';
 import { clamp01 } from '../core/math.js?v=6e20b6c4';
 
 /** Source nodes and sink nodes of the electrical graph. */
@@ -50,8 +50,8 @@ const PHASE_SHAPE = {
 
 /** Pump shaft power for a class: rho g Q H / eta, in MW. Same arithmetic as the /airships page. */
 export function pumpPowerMW(cls, a = ASSUMPTIONS) {
-  const Q = cls.fillRateM3s;
-  return (1000 * 9.81 * Q * a.hoseHead) / a.pumpEta / 1e6;
+  const Q = specNumber(cls, 'fillRateM3s');
+  return (RHO_WATER * G * Q * sourceAltM(cls)) / a.pumpEta / 1e6;
 }
 
 /**

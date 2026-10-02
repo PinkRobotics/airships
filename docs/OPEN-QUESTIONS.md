@@ -820,26 +820,45 @@ invented for.
 
 ## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong
 
-`spec-parity.cases.js` compares the fields both files *declare*. It cannot see a field only one
-file has, and it cannot see a derived quantity. Found by audit:
+**PARTLY FIXED — 2026-10-01.** The model remains authoritative. The import rule in
+`tools/check_boundaries.py` keeps `3d/` standalone, so its model constants live in
+`3d/model/config.js` as declared, checked copies; the animation and physics import that file.
+`spec-parity.cases.js` now enumerates numeric keys on **both** sides, including numeric tables,
+and requires a partner or a one-sentence exemption for each. It also compares evaluated drag,
+pump power, cruise, hose timing, release altitude and working-density lift. Missing required
+class fields throw, and the node suite rejects numeric defaults on spec reads throughout `3d/`.
 
-- **`ALT.drop` is already divergent** — 450 m in `sim/config.js`, 250 m in `3d/anim/mission.js`,
-  whose comment claims "the same three bands the /airships page uses".
-- **`cruiseKph` is absent from the 3D class specs entirely**, so five call sites read
-  `cls.cruiseKph || 90` and the lab flies every class at 90 km/h. A `||` default made a missing
-  field silently authoritative, and a parity test comparing declared fields can never see it.
-- Also unchecked: `hoseDeployMin`/`hoseRetractMin`, `fillM3s` ↔ `fillRateM3s`, `MODES` (a
-  byte-identical duplicate), `RHO_WORK` (a hard-coded copy of a derived value), `RHO_LN2` and
-  `RHO_WATER` (duplicated *inside* `3d/`), and rotor counts that differ 4/6/14 against 8/12/28.
-- **`Cd` is pinned identical in both files and applied to two different reference areas** — sim
-  uses frontal area, `3d/physics/mass.js` uses `displacementM3^(2/3)`. The drag differs by a
-  factor of **2.08** on every class. The constant matches and the physics does not, which is
-  what makes it invisible.
+**What changed.** Drop altitude was 250 m against the model's 450 m; it now starts at 450 m
+and finishes at 580 m, where escape begins. Missing cruise speeds made every standalone class
+fly at 90 km/h; they are now 90 / 110 / 130. Missing hose timings made every class deploy/retract
+in 4 / 3 minutes; they are now 4 / 3, 6 / 5 and 10 / 8. Fill rates and every mode-table entry
+are checked, and standalone airspeed now applies the selected mode multiplier as its timeline
+already did. The rotor helpers also read the shared air density instead of literal 1.10.
+Source altitude, pump head, hose geometry, camera framing and pump-pod metadata
+now read each class's 300 m hose, removing the remaining 250 m defaults. Liquid densities have
+one declaration inside `3d/`. Working density is derived from checked ISA inputs rather than
+rounded to 0.95686, and the resolved class lift ledger uses that density too.
 
-**DECISION: none yet**, but the test should be inverted: enumerate the keys on *both* sides, fail
-on any name that resolves to a number and has no declared partner or explicit exemption, and ban
-`||` defaults for spec fields.
+The identical `Cd` used to multiply frontal area in the model and volume to the two-thirds
+power in the viewer. Both now use the published nominal frontal area. **The original audit's
+2.08× claim is not reproduced on this tree:** executing both formulas gives **1.533910× /
+1.520891× / 1.525382×** for P-100 / P-1000 / P-10000, at equal speed and density. Those ratios
+are now 1. Tests mutate declarations, missing partners, tables, formulas, defaults and required
+field validation, require failures, then restore the files (`tests/parity/mutations.mjs`).
 
+**Still open — the drawing is not a rotor-count decision.** The model declares 4 / 6 / 14
+rotors; the viewer draws that many stations with two rotors each, or 8 / 12 / 28. The drawing's
+aggregate disc areas remain 2,513 / 12,215 / 158,886 m² against the model's 2,500 / 12,000 /
+160,000 m², within the existing 10% illustration allowance. The discrepancy is explicitly
+exempted and the current station/pair counts are tested, not silently reinterpreted. Decide
+whether the public count means physical rotors or stations before changing the drawing.
+
+The standalone eleven-phase cycle and its illustrative power shares still differ from the
+host's six-phase mission; sharing constants does not make those two simulations identical.
+Host-supplied mission state continues to take precedence. Raising the release does not deploy
+or lengthen a hose or anchor: both are stowed at 250 and 450 m in the driver checks. The drawn
+spray remains a short hull-relative curtain (30.4 / 65.4 / 140.9 m), without a ground plane
+or a simulation of water reaching the ground; it has not been stretched to disguise the height.
 
 ---
 

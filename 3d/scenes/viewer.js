@@ -74,7 +74,7 @@ export function createViewer(container, props = {}) {
     // Full pod depth in metres. The monitor passes its displayed 45 m through mountForMission;
     // the standalone default is the pumping-head assumption. This must reach the DRIVER (the
     // hose pays out to it) and the source-filling camera preset (which frames for it).
-    hoseDepthM: props.hoseDepthM || 250,
+    hoseDepthM: props.hoseDepthM,
   };
 
   /* ---- DOM ------------------------------------------------------------------------------------ */
@@ -512,7 +512,7 @@ export function createViewer(container, props = {}) {
       if (p.visualState) state.visualState = sanitizeState(p.visualState);
       if (p.viewMode && VIEW_MODES.includes(p.viewMode)) state.viewMode = p.viewMode;
       if (p.hoseDepthM !== undefined && p.hoseDepthM !== state.hoseDepthM) {
-        state.hoseDepthM = p.hoseDepthM || 250;
+        state.hoseDepthM = p.hoseDepthM;
         // The hoses bake headM at creation; a new depth needs a fresh driver (hose state resets,
         // which is correct — the old payout was against a different depth).
         if (ok && b) driver = createDriver(b, { reduced: state.reducedMotion, headM: state.hoseDepthM });

@@ -190,7 +190,7 @@ const TEMPLATES = [
       'The robust water-contact end: redundant pump elements, intake screens, cameras and sonar, ' +
       'and small positioning thrusters. The pump is HERE, at the bottom, pushing water up — an ' +
       'onboard suction pump cannot lift water more than about 10 m of head no matter how powerful ' +
-      `it is, and the working head on this class is ${cls.hull ? 250 : 250} m. The pod can be ` +
+      `it is, and the working head on this class is ${cls.hoseLengthM} m. The pod can be ` +
       'released in an emergency.',
     state: 'pumpPodDepthM',
   },

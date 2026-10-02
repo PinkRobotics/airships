@@ -113,7 +113,7 @@ export function mountForMission(container, opts = {}) {
     // a foreshortened hose is a pump hanging in mid-air above it. The monitor used to pass 45 m
     // to keep the spike inside a small panel; that was defensible while there was no water to
     // measure it against and is not any more.
-    hoseDepthM: (opts.adapt && opts.adapt.headM) || first.cls.hoseLengthM || undefined,
+    hoseDepthM: opts.adapt?.headM ?? first.cls.hoseLengthM,
     ...(opts.props || {}),
   });
   let lastClass = first.classId;

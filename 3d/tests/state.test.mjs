@@ -148,7 +148,7 @@ test('the mission cycle obeys the physical consistency rules', () => {
     // can only be out over the water. This is what caught the outbound wind-up ramp that had been
     // copied across from the monitor: it re-deployed the hose at 1,500 m.
     if (s.hoseProgress > 0.02) {
-      assert.ok(s.altitudeM <= ALT.source + 1e-6,
+      assert.ok(s.altitudeM <= cls.hoseLengthM + 1e-6,
         `hose ${s.hoseProgress.toFixed(2)} out at ${s.altitudeM.toFixed(0)} m during ${s.phase}`);
     }
   }
@@ -585,11 +585,11 @@ test('adaptMission picks the class and produces a mass state', () => {
 
 test('adopting the host assumptions replaces ours rather than adding a second source', () => {
   const before = ASSUMPTIONS.eLN2;
-  adoptAssumptions({ eLN2: 0.62, rtLN2: 0.41, hoseHead: 300, pumpEta: 0.8, propEta: 0.7,
+  adoptAssumptions({ eLN2: 0.62, rtLN2: 0.41, pumpEta: 0.8, propEta: 0.7,
     Cd: 0.05, rhoAir: 1.1, rhoSL: 1.225 });
   assert.equal(ASSUMPTIONS.eLN2, 0.62);
   assert.equal(ASSUMPTIONS.rtLN2, 0.41);
-  setAssumptions({ eLN2: before, rtLN2: 0.5, hoseHead: 300, pumpEta: 0.75 });
+  setAssumptions({ eLN2: before, rtLN2: 0.5, pumpEta: 0.75 });
 });
 
 test('the mapping is documented as data', () => {

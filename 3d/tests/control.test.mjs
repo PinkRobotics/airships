@@ -304,9 +304,7 @@ test('pump power matches the published arithmetic', () => {
   //
   // The head is 300 m, not 250: the monitor's hose stopped being one global figure on 2026-08-09
   // and became a per-class length that IS the fill altitude (sim/config.js CLASSES[*].hoseM), and
-  // this library's ASSUMPTIONS.hoseHead follows it. All three classes are 300 m today, which is
-  // why one number still serves here; CLASSES[*].hoseLengthM is the checked copy and
-  // tests/cases/spec-parity.cases.js compares it with the monitor's.
+  // the standalone pump reads that same per-class hose length, checked by spec-parity.
   const cls = resolveClass('P100');
   const mw = pumpPowerMW(cls);
   assert.ok(Math.abs(mw - 1.962) < 0.01, `pump power ${mw.toFixed(3)} MW`);
