@@ -23,9 +23,6 @@ links. On any other construct the tool stops and prints the file and the line. I
 guesses, because a guess is a changed word. Where two readers of Markdown would disagree, it
 stops as well.
 
-One malformed shape is measured and allowed: a table whose rule line is one cell longer than
-its header and its rows. The table is rendered by its header, and every run prints the line.
-
 LINKS. A link among the three documents becomes a link among the three pages. A link to a
 file that dist.manifest serves stays a link. A link to any other file becomes its own words
 followed by the path in code style, and is counted. Heading ids follow GitHub's scheme, so a
@@ -103,7 +100,6 @@ class Page:
     html: str
     kept: int               # links that stayed links
     as_text: int            # links rendered as their words and a path
-    long_rules: tuple = ()  # lines of a table rule one cell longer than its table
 
 
 @dataclass
@@ -193,7 +189,6 @@ class Document:
         self.ids: list[str] = []
         self.bases: dict[str, int] = {}
         self.fragments: list[tuple[int, str, str]] = []
-        self.long_rules: list[int] = []
 
     def stop(self, line: int, what: str):
         raise Unknown(self.doc, line, what)
@@ -376,12 +371,6 @@ class Document:
         if i + 1 >= len(lines) or not RULE_LINE.fullmatch(lines[i + 1]):
             self.stop(line, 'a table row with no rule line under it')
         rules = self.cells(lines[i + 1], line + 1)
-        if len(rules) == len(header) + 1 and re.fullmatch(r'-+', rules[-1]):
-            # Measured once: a rule line one cell longer than its header and its rows. The
-            # cell holds no word and no alignment, so the table is rendered by its header,
-            # and every run names the line until the document is corrected.
-            self.long_rules.append(line + 1)
-            rules.pop()
         if len(rules) != len(header):
             self.stop(line + 1, 'a rule line whose cell count differs from the row above it')
         right = []
@@ -585,7 +574,7 @@ def render(root: Path = ROOT) -> dict[str, Page]:
             if fragment not in parsed[target][0].ids:
                 document.stop(line, f'a link to #{fragment}; {DOC_OF[target]} has no such heading')
     return {page: Page(frame(document.doc, page, document.title, body), document.kept,
-                       document.as_text, tuple(document.long_rules))
+                       document.as_text)
             for page, (document, body) in parsed.items()}
 
 
@@ -654,9 +643,6 @@ def main(argv: list[str] | None = None) -> int:
         state = ' (written)' if page in written else ''
         print(f'{page} from {DOC_OF[page]}: {result.kept} links kept, '
               f'{result.as_text} rendered as text{state}')
-        for line in result.long_rules:
-            print(f'  {DOC_OF[page]}:{line}: the rule line is one cell longer than its table; '
-                  'rendered by the header row')
     print(f'float pages: {len(written)} of {len(rendered)} written' if args.write else
           f'floatpagecheck: {len(rendered)} pages equal a fresh render of their documents')
     return 0

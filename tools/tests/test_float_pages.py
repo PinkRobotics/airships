@@ -419,6 +419,7 @@ class Rendering(ScratchTrees):
             'list item that opens a block': ('- > quoted\n', 3),
             'empty list item': ('-\n', 3),
             'table without its pipes': ('a | b\n--- | ---\n', 4),
+            'rule line one cell too long': ('| a | b |\n|---|---|---|\n| 1 | 2 |\n', 4),
             'rule line two cells too long': ('| a |\n| --- | --- | --- |\n', 4),
             'longer rule line with an alignment': ('| a |\n| --- | ---: |\n', 4),
             'rule line one cell too short': ('| a | b |\n| --- |\n', 4),
@@ -445,23 +446,6 @@ class Rendering(ScratchTrees):
         self.assertIn('<p>A [b <code>c](FLOAT-LEDGER.md) d</code> e and '
                       '<a href="ledger.html">the [0/90] rows</a> and '
                       '<strong><a href="census.html">bold</a></strong>.</p>', body)
-
-    def test_rule_line_one_cell_too_long_is_rendered_by_its_header_and_named(self):
-        root = self.tree(**{'FLOAT.md': '# Float case\n\n| a | b |\n|---|---|---|\n| 1 | 2 |\n'})
-        page = pages.render(root)['float/index.html']
-        self.assertEqual(page.long_rules, (4,))
-        self.assertIn('<th scope="col">a</th>\n<th scope="col">b</th>\n</tr>', page.html)
-        self.assertIn('<td>1</td>\n<td>2</td>\n</tr>', page.html)
-        pages.write(root)
-        result = self.run_check(root)
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn('docs/FLOAT.md:4: the rule line is one cell longer than its table',
-                      result.stdout)
-        # One measured table uses the allowance. When its document is corrected this count
-        # falls to zero, and the allowance can be deleted from the generator.
-        used = {name: len(page.long_rules) for name, page in pages.render(ROOT).items()
-                if page.long_rules}
-        self.assertEqual(used, {'float/index.html': 1})
 
     def test_a_short_cell_stays_on_one_line_and_a_long_cell_wraps(self):
         short, long = 'x' * pages.WRAP, 'x' * (pages.WRAP + 1)
