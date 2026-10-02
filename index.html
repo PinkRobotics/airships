@@ -809,6 +809,12 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
           <label class="tog"><input type="checkbox" id="tgWater" checked>water</label>
           <label class="tog"><input type="checkbox" id="tgRoutes" checked>routes</label>
           <label class="tog"><input type="checkbox" id="tgLabels">labels</label>
+          <p class="data-note" style="flex-basis:100%;margin:0;color:var(--muted)">
+            <span id="firstPartyNote">This page talks only to the site that served it.</span>
+            <span id="windNote">Still air · wind mirror not loaded.</span><br>
+            Weather data by Open-Meteo.com · CC BY 4.0. Terrain: Mapzen/AWS; vectors: Natural Earth.
+            <a href="concept/#sources">Data sources and method</a>.
+          </p>
         </div>
         </div>
 
@@ -1010,12 +1016,10 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
   </figure>
 </section><!--/FALLBACK-->
 
-    <p class="data-note" style="color:var(--muted);font:var(--t-12) var(--mono);margin:var(--s3) 0">
-      <span id="firstPartyNote">This page talks only to the site that served it.</span>
-      <span id="windNote">Still air · wind mirror not loaded.</span><br>
-      Weather data by Open-Meteo.com · CC BY 4.0. Terrain: Mapzen/AWS; vectors: Natural Earth.
-      <a href="concept/#sources">Data sources and method</a>.
-    </p>
+    <!-- Nothing sits here: on a desktop the cockpit fills the viewport, so any block in this flow
+         takes its height from the map. The data note (which hosts this page talks to, the state of
+         the wind mirror, attribution) is in the Layers panel above; sources and licences are stated
+         in full on the method page, which the header links to, and in DATA-SOURCES.md. -->
 <script>
 /*DESIGNJS*/
 /* One handler for every selector on the page. Roving tabindex so a keyboard user gets one stop
