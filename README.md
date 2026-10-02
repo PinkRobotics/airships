@@ -2,8 +2,6 @@
 
 This repository studies whether an evacuated hull could carry water to a fire, using a simulated fleet, published assumptions and code a reader can run. **Nothing here has flown:** the aircraft are imagined, and the replay must never imply that a real fire would have burned differently.
 
-<!-- Float-wording batch: insert the ledger-bound headline finding here after its figures are verified. -->
-
 ## Four checks: about 20 minutes with the full gate
 
 From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The full check needs Node; the browser fallback skips filesystem-dependent suites. The checks need those installed; the pages themselves need only a local HTTP server. These are measured times on one prepared machine, not a promise for a cold machine. The full check took the stranger 11m32s; the four steps together take about 20 minutes on that prepared machine.
@@ -33,14 +31,37 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
 
 4. **Read the float case (about four minutes).** Start with [the ship float brief](docs/FLOAT.md) for the present design, then [the cell calculation](research/analysis/vacuum-cell.md) and [the mass budget](research/analysis/mass-budget.md) for their separate assumptions. Those documents state the basis and [verification plan](docs/VERIFICATION-PLAN.md) names the experiments that could change it. You can inspect the records without a browser:
 
+   <!-- readme:float:start -->
+   **Nothing floats today as drawn.**
+   Both bases use structural safety factor 1.2 against full sea-level pressure.
+   The record basis assumes knockdown 0.30 and 1,050 MPa chords.
+   Its 52 m hull’s lift is 0.558 of its mass at sea level and 0.436 at 2,500 m.
+   The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate ceiling, both unverified.
+   Its lift-to-mass ratio is 0.981 at sea level and 0.766 at 2,500 m.
+   The bill and the drawing disagree in 20 places.
+   Across 5 readings of the end caps, the favourable ratio runs from 0.751 to 0.998 at sea level and from 0.586 to 0.780 at 2,500 m.
+   No reading reaches 1.
+   The [float ledger](docs/FLOAT-LEDGER.md) gives every case and what would have to be true to close it.
+   <!-- readme:float:end -->
+
    ```sh
-   python3 -c "import json; x=json.load(open('research/analysis/vacuum-cell.json')); print('ship0.worlds.s1050_sf12 ratioSL:', x['ship0']['worlds']['s1050_sf12']['ratioSL'], 'ship0.worldsFramePractice.s1450_sf12 ratioSL:', x['ship0']['worldsFramePractice']['s1450_sf12']['ratioSL'])"
-   python3 research/analysis/mass-budget.py
+   python3 - <<'PYCODE'
+   import json
+   x = json.load(open('research/analysis/cap-readings.json'))
+   for basis, row in x['readings']['R']['byBasis'].items():
+       for altitude, result in row['at'].items():
+           print(basis, altitude, result['altitudeM'], result['liftToMass'], result['marginT'])
+   for basis, altitudes in x['ranges'].items():
+       for altitude, result in altitudes.items():
+           print('range', basis, altitude, result['min'], result['max'])
+   PYCODE
+   make analysischeck analysisfresh censuscheck
    ```
 
-   The first command prints `ship0.worlds.s1050_sf12 ratioSL: 0.558` and `ship0.worldsFramePractice.s1450_sf12 ratioSL: 0.981` from the committed record.
+   The columns are basis, altitude name, altitude in metres, lift/mass and margin in tonnes; range rows give the minimum and maximum over all readings.
+   These are computations with unresolved structural questions.
 
-Known model defects, deliberate failing tests and the decisions still open are recorded in [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md). The committed mass-budget JSON and prose currently lag a fresh run of its Python source; use the command above for its current calculation. The [objection loop](GOALS.md) says how a disputed number should be reproduced and corrected. The assembly gate can exit successfully with frozen failed proofs; a green suite is not evidence that the craft is buildable.
+Known model defects, deliberate failing tests and the decisions still open are recorded in [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md). The mass-budget record now uses the configured capsule areas; `make analysisfresh` checks it against fresh generation. The cycle-energy context still comes from the earlier flight model. The [objection loop](GOALS.md) says how a disputed number should be reproduced and corrected. The assembly gate can exit successfully with frozen failed proofs; a green suite is not evidence that the craft is buildable.
 
 ## Model output and limits
 

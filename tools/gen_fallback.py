@@ -109,6 +109,7 @@ def img_size(path: pathlib.Path):
 
 
 def render(d: dict) -> dict[str, str]:
+    float_verdict = json.loads((ROOT / 'research/analysis/float-ledger.json').read_text())['verdict']
     date = "exercise"
     fires, fleet, ex = d['fires'], d['fleet'], d['example']
     top = d['topFires']
@@ -194,6 +195,7 @@ def render(d: dict) -> dict[str, str]:
   <p>{esc(guard)}</p>
   <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its {fmt(fires['active'])} fires have invented positions, sizes and stages of control; {fmt(fires['outOfControl'])} are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
   <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
+  <p>The flight model assumes a hull that floats. {esc(float_verdict)} The <a href="docs/FLOAT.md">float case</a> explains the unresolved structural requirements.</p>
   <h3>The exercise fires: all invented</h3>
   <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: {fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</h3>

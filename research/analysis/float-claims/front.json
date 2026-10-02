@@ -4,5 +4,121 @@
   "README.md",
   "index.html"
  ],
- "entries": []
+ "entries": [
+  {
+   "file": "README.md",
+   "key": "44067179cff88447",
+   "line": 32,
+   "class": "method",
+   "reason": "This reading protocol points to the structural evidence and the experiments that could change its basis.",
+   "context": [
+    "4"
+   ]
+  },
+  {
+   "file": "README.md",
+   "key": "d6b5c798cf1ab59c",
+   "line": 34,
+   "class": "bound",
+   "reason": "The generated float region reads both hull bases, both altitudes, cap ranges and census; readmecheck holds all figures, including the reading count and inputs.",
+   "bindings": [
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/verdict",
+     "equals": "Nothing floats today as drawn."
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "shown": "52"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/seaLevel/min",
+     "shown": "0.751",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/seaLevel/max",
+     "shown": "0.998",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/target/min",
+     "shown": "0.586",
+     "altitude": "target"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/target/max",
+     "shown": "0.780",
+     "altitude": "target"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/disagreementCount",
+     "shown": "20"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/noneReachesOne",
+     "equals": true
+    }
+   ],
+   "context": [
+    "1",
+    "5",
+    "1.2",
+    "0.30",
+    "1050",
+    "0.65",
+    "1450",
+    "2500"
+   ]
+  },
+  {
+   "file": "index.html",
+   "key": "22491643fb810667",
+   "line": 973,
+   "class": "bound",
+   "reason": "The static simulation explanation names its float assumption and binds the drawn-hull verdict to the ledger.",
+   "bindings": [
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/verdict",
+     "equals": "Nothing floats today as drawn."
+    }
+   ]
+  },
+  {
+   "file": "index.html",
+   "key": "95152d35cce366c8",
+   "line": 985,
+   "class": "flight-model",
+   "reason": "This worked mission uses the flight model’s assumed floating hull; its simulated delivery and buoyancy do not establish structural feasibility.",
+   "assumption": "22491643fb810667"
+  }
+ ]
 }
