@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""The season-capture gate: pipeline/capture.py against the trimmed 2026-10-01 capture.
+"""The season-capture gate: pipeline/capture.py against the trimmed capture fixtures.
 
 The capture tool's whole point is politeness to an emergency-information service, so the
 tests never leave this machine: every run points --base at a fixture server this file
 starts on 127.0.0.1, which serves the trimmed copies in fixtures/ of the raw responses
-the stop-gap captured on 2026-10-01. The one thing that cannot be faked locally — that
-the tool really would hit the agency — is exactly the thing these tests must not do.
+the stop-gap captured (the fire layers on 2026-10-01, the evacuation layer on
+2026-10-02). The one thing that cannot be faked locally — that the tool really would hit
+the agency — is exactly the thing these tests must not do.
 
 Covered, one test per behaviour the tool promises:
 
@@ -14,7 +15,10 @@ Covered, one test per behaviour the tool promises:
     exit 1, said plainly, when the fetched count misses the layer's own count
     one transient failure is retried once after a pause; a second failure stops the run
     the User-Agent carries AIRSHIPS_CONTACT, read as pipeline/live.py reads it
-    the file set and manifest keys match the stop-gap's 2026-10-01 capture folder
+    the file set and manifest keys match the stop-gap's capture folders
+    the evacuation layer: three requests (no status field, so no by-status request),
+    its manifest entry carrying no byStatus, and a capture that is complete only when
+    all three layers are
 
 Run from anywhere: make capturecheck, or python3 tests/capture/check.py directly.
 """
@@ -41,18 +45,22 @@ FIXTURES = HERE / "fixtures"
 sys.path.insert(0, str(REPO / "pipeline"))
 import capture  # noqa: E402  (path set up just above)
 
-# The stop-gap's 2026-10-01 folder held exactly these files; the fixture set mirrors it,
-# so a passing "file set" assertion here is the comparison against the real capture.
+# The stop-gap's folders held exactly these files (fire layers 2026-10-01, evacuation
+# layer 2026-10-02); the fixture set mirrors them, so a passing "file set" assertion here
+# is the comparison against the real captures.
 STOPGAP_FILE_SET = {
     "MANIFEST.json",
     "incidents.layer.json", "incidents.count.json", "incidents.by-status.json",
     "incidents.page-000.geojson", "incidents.page-001.geojson",
     "perimeters.layer.json", "perimeters.count.json", "perimeters.by-status.json",
     "perimeters.page-000.geojson",
+    "evacuations.layer.json", "evacuations.count.json", "evacuations.page-000.geojson",
 }
 MANIFEST_KEYS = {"capturedAt", "localDate", "layers", "requests"}
 LAYER_KEYS = {"url", "where", "countOnly", "byStatus", "featuresFetched",
               "pages", "pageSize", "complete"}
+# the evacuation layer has no status field, so its manifest entry names no tally
+EVAC_LAYER_KEYS = LAYER_KEYS - {"byStatus"}
 REQUEST_KEYS = {"file", "url", "bytes", "seconds", "sha256"}
 DATE_DIR = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 DATE_DIR_RETRY = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{6}(-\d+)?$")
@@ -63,6 +71,8 @@ CAPTURED_AT = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 EMPTY_PAGE = b'{"type":"FeatureCollection","features":[]}'
 INCIDENT_PAGES = {"0": "incidents.page-000.geojson", "3": "incidents.page-001.geojson"}
 PERIMETER_PAGES = {"0": "perimeters.page-000.geojson"}
+# the evacuation layer's real maxRecordCount is 1000 and the day held 16 features: one page
+EVAC_PAGES = {"0": "evacuations.page-000.geojson"}
 
 
 class Fixtures:
@@ -82,7 +92,8 @@ class Fixtures:
     def route(self, path, query):
         """Name a request the way `fail` keys them: '<layer>/<kind>'."""
         layer = ("incidents" if "BCWS_ActiveFires" in path else
-                 "perimeters" if "BCWS_FirePerimeters" in path else path)
+                 "perimeters" if "BCWS_FirePerimeters" in path else
+                 "evacuations" if "Evacuation_Orders_and_Alerts" in path else path)
         if not path.endswith("/query"):
             return f"{layer}/layer"
         if "returnCountOnly" in query:
@@ -101,7 +112,8 @@ class Fixtures:
                 else (FIXTURES / f"{layer}.count.json").read_bytes()
         if kind == "stats":
             return (FIXTURES / f"{layer}.by-status.json").read_bytes()
-        pages = INCIDENT_PAGES if layer == "incidents" else PERIMETER_PAGES
+        pages = {"incidents": INCIDENT_PAGES, "perimeters": PERIMETER_PAGES,
+                 "evacuations": EVAC_PAGES}[layer]
         name = pages.get(kind.removeprefix("page-"))
         return (FIXTURES / name).read_bytes() if name else EMPTY_PAGE
 
@@ -191,9 +203,11 @@ class CaptureToolTests(unittest.TestCase):
     # -- the five behaviours, plus the format ---------------------------------------
 
     def test_01_complete_two_page_capture(self):
-        """A complete run: 9 requests (the stop-gap's 2026-10-01 count — three fixed per
-        layer plus one per page), the stop-gap's file set, the stop-gap's manifest keys,
-        every URL on the fixture base, hashes that match the files on disk."""
+        """A complete run: 12 requests (three fixed per fire layer plus one per page, and
+        three for the evacuation layer — definition, count, its one page, and no
+        by-status request, because that layer has no status field to tally), the
+        stop-gap's file set, the stop-gap's manifest keys, every URL on the fixture
+        base, hashes that match the files on disk."""
         code, out, _, recorder = self.run_tool(sleep=Recorder())
         self.assertEqual(code, 0, out)
         self.assertIn("COMPLETE", out)
@@ -209,8 +223,8 @@ class CaptureToolTests(unittest.TestCase):
         self.assertRegex(manifest["capturedAt"], CAPTURED_AT)
         self.assertEqual(manifest["localDate"], day.name,
                          "the folder is named for the Vancouver date, and only for it")
-        self.assertEqual(set(manifest["layers"]), {"incidents", "perimeters"})
-        self.assertEqual(len(manifest["requests"]), 9)
+        self.assertEqual(set(manifest["layers"]), {"incidents", "perimeters", "evacuations"})
+        self.assertEqual(len(manifest["requests"]), 12)
         for request in manifest["requests"]:
             self.assertEqual(set(request), REQUEST_KEYS)
             self.assertTrue(request["url"].startswith(self.base),
@@ -227,18 +241,25 @@ class CaptureToolTests(unittest.TestCase):
         self.assertEqual((per["countOnly"], per["featuresFetched"], per["pages"],
                           per["pageSize"], per["complete"]), (3, 3, 1, 1000, True))
         self.assertEqual(per["byStatus"], {"Being Held": 1, "Out": 1, "Under Control": 1})
+        eva = manifest["layers"]["evacuations"]
+        self.assertEqual(set(eva), EVAC_LAYER_KEYS, "no byStatus: nothing to tally")
+        self.assertEqual((eva["countOnly"], eva["featuresFetched"], eva["pages"],
+                          eva["pageSize"], eva["complete"]), (16, 16, 1, 1000, True))
         self.assertEqual(self.fixtures.hits_on("incidents/page-0"), 1)
         self.assertEqual(self.fixtures.hits_on("incidents/page-3"), 1)
-        self.assertEqual(len(self.fixtures.hits), 9,
-                         "the whole run was nine requests, as the 2026-10-01 capture was")
-        self.assertEqual(len(recorder.calls), 8,
-                         "eight pauses between nine requests, none before the first")
+        self.assertEqual(self.fixtures.hits_on("evacuations/page-0"), 1)
+        self.assertEqual(self.fixtures.hits_on("evacuations/stats"), 0,
+                         "the evacuation layer was never asked for a by-status tally")
+        self.assertEqual(len(self.fixtures.hits), 12,
+                         "the whole run was twelve requests, as the budget says")
+        self.assertEqual(len(recorder.calls), 11,
+                         "eleven pauses between twelve requests, none before the first")
         self.assertEqual(set(recorder.calls), {0},
                          "--pause 0 was honoured, so the test really did not sleep")
 
     def test_02_incomplete_capture_exits_1_and_says_so(self):
         """The layer's own count says 6, the pages hold 5: exit 1, the mismatch said in
-        plain words, the manifest honest, and the other layer still captured."""
+        plain words, the manifest honest, and the other layers still captured."""
         self.fixtures.count_override = {"incidents": 6}
         code, out, _, _ = self.run_tool()
         self.assertEqual(code, 1)
@@ -248,6 +269,28 @@ class CaptureToolTests(unittest.TestCase):
         manifest = json.loads((self.dated_dirs()[0] / "MANIFEST.json").read_text())
         self.assertFalse(manifest["layers"]["incidents"]["complete"])
         self.assertTrue(manifest["layers"]["perimeters"]["complete"])
+        self.assertTrue(manifest["layers"]["evacuations"]["complete"])
+
+    def test_02b_a_capture_is_complete_only_with_the_evacuation_layer(self):
+        """Both fire layers fetched all they counted and the evacuation layer did not:
+        exit 1 anyway, the evacuation layer named in the mismatch, fire layers complete,
+        and the raw evacuation responses still kept. A capture is complete only when
+        every layer is."""
+        self.fixtures.count_override = {"evacuations": 17}
+        code, out, _, _ = self.run_tool()
+        self.assertEqual(code, 1)
+        self.assertIn("INCOMPLETE", out)
+        self.assertIn("evacuations: fetched 16", out)
+        self.assertIn("count 17", out)
+        manifest = json.loads((self.dated_dirs()[0] / "MANIFEST.json").read_text())
+        eva = manifest["layers"]["evacuations"]
+        self.assertEqual((eva["countOnly"], eva["featuresFetched"], eva["complete"]),
+                         (17, 16, False))
+        self.assertTrue(manifest["layers"]["incidents"]["complete"])
+        self.assertTrue(manifest["layers"]["perimeters"]["complete"])
+        kept = self.snapshot(self.dated_dirs()[0])
+        self.assertIn("evacuations.page-000.geojson", kept,
+                      "the incomplete layer's raw responses are still kept")
 
     def test_03_never_overwrites_an_existing_capture(self):
         """Two runs, one root: the second takes a timestamped sibling name, and every
@@ -276,10 +319,10 @@ class CaptureToolTests(unittest.TestCase):
         self.assertEqual(code, 0, out)
         self.assertEqual(self.fixtures.hits_on("incidents/layer"), 2,
                          "one attempt, one retry, and no more")
-        self.assertEqual(len(self.fixtures.hits), 10,
-                         "the failed attempt plus the nine of a clean run, and nothing else")
-        self.assertEqual(len(recorder.calls), 9,
-                         "8 between-request pauses + 1 before the retry")
+        self.assertEqual(len(self.fixtures.hits), 13,
+                         "the failed attempt plus the twelve of a clean run, and no more")
+        self.assertEqual(len(recorder.calls), 12,
+                         "11 between-request pauses + 1 before the retry")
         self.assertEqual(set(recorder.calls), {1.5}, "every pause is the full default")
 
     def test_05_second_failure_stops_the_run_exit_1(self):
@@ -300,7 +343,7 @@ class CaptureToolTests(unittest.TestCase):
         injected sleep proves it without the test ever really sleeping."""
         code, out, _, recorder = self.run_tool(pause="default", sleep=Recorder())
         self.assertEqual(code, 0, out)
-        self.assertEqual(len(recorder.calls), 8)
+        self.assertEqual(len(recorder.calls), 11)
         self.assertEqual(set(recorder.calls), {1.5})
 
     def test_07_user_agent_carries_the_contact_from_the_environment(self):

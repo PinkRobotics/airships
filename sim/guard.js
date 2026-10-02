@@ -13,14 +13,25 @@
  * the parsed object to loadGuard(); tests hand it invented objects with the same shape, and
  * deliberately broken ones, because a guard that fails open is worse than no guard.
  *
- * THE THREE WAYS A FIRE IS GUARDED (in this order, first match wins):
- *   listed      it is in the guard file, by fire number — or by name, for the rare entry
- *               written before anyone knew its number. The entry's own keep-out wins.
+ * THE WAYS A FIRE IS GUARDED. Two records are read together: the guard file's hand
+ * entries, and the derived evacuation record (which fires were ever under an order or
+ * alert, by number, from the province's own public layer). Where both hold an entry for
+ * one fire, the stricter keep-out wins — the data may tighten a hand entry, never loosen
+ * it — and a tie keeps the hand entry, so what was written by hand keeps its own tier and
+ * its own words. A fire held by an order takes the file's default distance; a fire held
+ * by an alert alone is never worked and claims no air, exactly as the hand list's own
+ * alert entries do. Beyond those two records, in this order:
  *   of-note     the day's own data flags it a wildfire of note (`note` on the fire). An
  *               unlisted fire of note gets the file's default distance.
  *   season-note the season record marked it a fire of note then or earlier. The season file
  *               is hindsight, and hindsight is not allowed to send the fleet anywhere —
  *               but it is allowed to refuse. This use only ever subtracts.
+ *
+ * An order AREA is ground in its own right: every outline the evacuation record carries is
+ * a keep-out region on every view, whether or not the fire it belongs to is in view, in
+ * addition to the fire's own distance. And the evacuation record is held to the same rule
+ * as the guard file: one that cannot be read is a refusal said in words — the fleet stands
+ * down — never a quiet emptiness that would fly what it failed to read.
  */
 import { havKm } from './geo.js?v=26282d19';
 
@@ -35,14 +46,122 @@ function isDate(s) {
   return typeof s === "string" && DATE.test(s);
 }
 
+/* A fire number the way every season file writes it: one capital letter, then digits.
+ * This is the join key between the evacuation record and everything else the guard
+ * knows, so a value that could not match a fire is a refusal, not a shrug. */
+const EVAC_NUMBER = /^[A-Z][0-9]{1,6}$/;
+
+/* An outline as the derived record publishes it: a closed ring of lon/lat pairs, at
+ * least a triangle plus its closing point, every coordinate a finite number. */
+function isRing(ring) {
+  return Array.isArray(ring) && ring.length >= 4 && ring.every((p) => Array.isArray(p)
+    && p.length === 2 && typeof p[0] === "number" && isFinite(p[0])
+    && typeof p[1] === "number" && isFinite(p[1]))
+    && ring[0][0] === ring[ring.length - 1][0]
+    && ring[0][1] === ring[ring.length - 1][1];
+}
+
+/**
+ * Parse and validate the derived evacuation record (data/season/<year>.evac.json, or the
+ * live mirror's reduced copy of the same shape). Returns a state object; check `.ok`
+ * first. `byNumber` maps each fire to its entry; `orders` is one {who, ring} per order
+ * outline, every ever-order fire's, in record order. The outlines are kept exactly as
+ * given — the record's own stated tolerance did the simplifying, and this module does no
+ * geometry beyond reading them.
+ *
+ * A record that fails any check is a refusal in words. An unreadable record must not
+ * become "no fires under order": that is the one answer that would fly what it failed
+ * to read.
+ *
+ * @param {object} doc the parsed derived evacuation record
+ */
+export function loadEvac(doc) {
+  const bad = (reason) => ({ ok: false, reason, byNumber: new Map(), orders: [] });
+  if (!doc || typeof doc !== "object" || Array.isArray(doc))
+    return bad("the evacuation record is missing or not an object");
+  if (!Array.isArray(doc.fires)) return bad("the evacuation record has no fires list");
+  const byNumber = new Map(), orders = [];
+  for (const f of doc.fires) {
+    if (!f || typeof f !== "object") return bad("an evacuation entry is not an object");
+    if (typeof f.fire !== "string" || !EVAC_NUMBER.test(f.fire))
+      return bad(`an evacuation entry's number ${JSON.stringify(f.fire) ?? ""} is not a fire number`);
+    if (byNumber.has(f.fire)) return bad(`${f.fire}: listed twice`);
+    if (typeof f.everOrder !== "boolean" || typeof f.everAlert !== "boolean")
+      return bad(`${f.fire}: everOrder and everAlert must each be true or false`);
+    if (!f.everOrder && !f.everAlert)
+      return bad(`${f.fire}: under neither an order nor an alert, so no record holds it`);
+    if (!isDate(f.firstSeen) || !isDate(f.lastSeen) || f.firstSeen > f.lastSeen)
+      return bad(`${f.fire}: firstSeen and lastSeen must be dates, in order`);
+    if (!Array.isArray(f.orderOutlines))
+      return bad(`${f.fire}: orderOutlines is missing`);
+    if (!f.everOrder && f.orderOutlines.length)
+      return bad(`${f.fire}: carries order outlines without ever being under an order`);
+    for (const ring of f.orderOutlines)
+      if (!isRing(ring))
+        return bad(`${f.fire}: an order outline is not a closed ring of at least four points`);
+    byNumber.set(f.fire, { fire: f.fire, everOrder: f.everOrder, everAlert: f.everAlert,
+                           firstSeen: f.firstSeen, lastSeen: f.lastSeen,
+                           orderOutlines: f.orderOutlines });
+    for (const ring of f.orderOutlines)
+      orders.push({ who: `${f.fire}'s evacuation order area`, ring });
+  }
+  return { ok: true, reason: null, byNumber, orders };
+}
+
+/** The union of two evacuation states — the season's ever-record widened by the live
+ *  mirror's copy. EVER only grows: a rescinded order cannot un-order a fire the captured
+ *  days already hold, so nothing narrows and nothing is dropped. Rings the two records
+ *  carry identically are kept once; a ring only one holds is kept on its own. A state
+ *  that is not ok is returned untouched: the refusal stands and merges with nothing. */
+export function mergeEvac(base, add) {
+  if (!base || !base.ok) return base;
+  if (!add || !add.ok) return add;
+  const byNumber = new Map();
+  const put = (f) => {
+    const have = byNumber.get(f.fire);
+    if (!have) { byNumber.set(f.fire, f); return; }
+    have.everOrder = have.everOrder || f.everOrder;
+    have.everAlert = have.everAlert || f.everAlert;
+    if (f.firstSeen < have.firstSeen) have.firstSeen = f.firstSeen;
+    if (f.lastSeen > have.lastSeen) have.lastSeen = f.lastSeen;
+    for (const ring of f.orderOutlines)
+      if (!have.orderOutlines.some((r) => JSON.stringify(r) === JSON.stringify(ring)))
+        have.orderOutlines = have.orderOutlines.concat([ring]);
+  };
+  for (const f of base.byNumber.values()) put({ ...f, orderOutlines: f.orderOutlines.slice() });
+  for (const f of add.byNumber.values()) put({ ...f, orderOutlines: f.orderOutlines.slice() });
+  const orders = [];
+  for (const f of byNumber.values())
+    for (const ring of f.orderOutlines) orders.push({ who: `${f.fire}'s evacuation order area`, ring });
+  return { ok: true, reason: null, byNumber, orders };
+}
+
+/** The evacuation state a LIVE view guards by: the season's ever-record, widened by the
+ *  live mirror's copy when that answered — the mirror sees orders the captured days have
+ *  not, and the captured days hold orders the mirror has since seen rescinded. A mirror
+ *  copy that is missing does not narrow the season record, still less does it become "no
+ *  orders": the view keeps what it has and `from` says which record it is showing, so the
+ *  page can say so. A copy that is present but unreadable is not an operational silence
+ *  to fall back from but a corrupted record: the refusal comes back and the fleet stands
+ *  down by it. */
+export function liveEvac(base, doc) {
+  if (doc == null) return { state: base, from: "season" };
+  const live = loadEvac(doc);
+  if (!live.ok) return { state: live, from: "unreadable" };
+  return { state: mergeEvac(base, live), from: "live" };
+}
+
 /**
  * Parse and validate the guard file. Returns a state object; check `.ok` first.
  *
  * @param {object}  doc  the parsed data/season/2026.guard.json
- * @param {object?} ctx  {seasonNumbers?, seasonOfNote?, viewFires?} — the season record's
- *                       fire numbers, the numbers it flags as fires of note, and the fires
- *                       in view, so an entry that resolves to no fire at all can be named.
- *                       Without seasonNumbers the resolution check is skipped (tests).
+ * @param {object?} ctx  {seasonNumbers?, seasonOfNote?, viewFires?, evac?} — the season
+ *                       record's fire numbers, the numbers it flags as fires of note, and
+ *                       the fires in view, so an entry that resolves to no fire at all can
+ *                       be named (without seasonNumbers that check is skipped, in tests);
+ *                       and `evac`, loadEvac's state for the derived evacuation record,
+ *                       carried on the guard state for guardedFire and keepOutsFor. An
+ *                       `evac` that did not load fails the whole guard: see above.
  */
 export function loadGuard(doc, ctx = {}) {
   const bad = (reason) => ({ ok: false, reason, fires: [], places: [], noFleet: [] });
@@ -100,9 +219,21 @@ export function loadGuard(doc, ctx = {}) {
     places.push(p);
   }
 
+  // The derived evacuation record rides with the guard file (loadEvac's state, not the
+  // raw doc): present but unreadable, it stands the whole guard down — a malformed
+  // evacuation record is a refusal said in words, not a fleet over unread ground. Absent
+  // (no ctx.evac), the guard is exactly what it was: the hand list and the day's flags.
+  let evac = null;
+  if ("evac" in ctx) {
+    evac = ctx.evac;
+    if (!evac || typeof evac !== "object" || typeof evac.ok !== "boolean")
+      return bad("ctx.evac is not an evacuation record state (loadEvac's result)");
+    if (!evac.ok) return bad(`the evacuation record cannot be read: ${evac.reason}`);
+  }
+
   return {
     ok: true, reason: null, doc,
-    defaultKeepOutKm: doc.defaultKeepOutKm, noFleet, fires, places, byNumber, byName,
+    defaultKeepOutKm: doc.defaultKeepOutKm, noFleet, fires, places, byNumber, byName, evac,
     seasonOfNote: ctx.seasonOfNote ? new Set(ctx.seasonOfNote) : null,
   };
 }
@@ -124,7 +255,17 @@ export function guardedFire(G, fire, ctx = {}) {
   if (!G || !G.ok) return { why: "guard-down", tier: null, basis: null, keepOutKm: 0 };
   let e = fire.id && G.byNumber.get(fire.id) || null;
   if (!e && fire.name) e = G.byName.get(fire.name.toLowerCase()) || null;
-  if (e) return { why: "listed", tier: e.tier, basis: e.basis, keepOutKm: e.keepOutKm, entry: e };
+  // The derived evacuation record, by number only. An order carries the file's default
+  // distance; an alert alone holds the fire and claims no air. Where a hand entry and the
+  // record both speak, the stricter keep-out wins (data tightens the hand list, never
+  // loosens it), and a tie keeps the hand entry so a hand-written tier and basis stand.
+  const d = fire.id && G.evac ? G.evac.byNumber.get(fire.id) || null : null;
+  const dKm = d ? (d.everOrder ? G.defaultKeepOutKm : 0) : -1;
+  if (e && e.keepOutKm >= dKm)
+    return { why: "listed", tier: e.tier, basis: e.basis, keepOutKm: e.keepOutKm, entry: e };
+  if (d)
+    return { why: "evac", tier: d.everOrder ? 2 : 3, basis: d.everOrder ? "order" : "alert",
+             keepOutKm: dKm, entry: d };
   if (fire.note)
     return { why: "of-note", tier: null, basis: "of note", keepOutKm: G.defaultKeepOutKm };
   // Coerced rather than trusted: a caller handing an array here (a test, a future page)
@@ -168,10 +309,13 @@ function insideRing(ring, pt) {
 }
 
 /**
- * The keep-out regions for one view: every guarded fire in it that carries a distance, and
- * every place entry whose date this is. A guarded fire with keepOutKm 0 guards against
- * being worked but claims no air. A fire flagged of note by the day itself and missing from
- * the file gets the default distance (R4's default rule).
+ * The keep-out regions for one view: every guarded fire in it that carries a distance,
+ * every place entry whose date this is, and every order area the evacuation record
+ * carries. A guarded fire with keepOutKm 0 guards against being worked but claims no air.
+ * A fire flagged of note by the day itself and missing from the file gets the default
+ * distance (R4's default rule). The order areas answer to no view and no date: the record
+ * is of orders the season itself saw, so each outline is keep-out ground on every view —
+ * and the outline is the boundary, no buffer beyond it (rKm 0).
  *
  * @param {object}  G     the guard state
  * @param {Array}   fires the normalized fires in view
@@ -199,6 +343,10 @@ export function keepOutsFor(G, fires, ctx = {}, date = null) {
       if (p.date === date && p.keepOutKm > 0)
         out.push({ kind: "place", who: p.name, why: "place", rKm: p.keepOutKm,
                    ll: p.ll.slice(), edge: null, ring: null });
+  if (G.evac)
+    for (const o of G.evac.orders)
+      out.push({ kind: "evac-order", who: o.who, why: "evac-order", rKm: 0,
+                 ll: null, ring: o.ring, edge: ringPoints(o.ring) });
   return out;
 }
 

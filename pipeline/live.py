@@ -11,8 +11,12 @@ emergency infrastructure.
 
 Cadence guidance (enforced here, not by the caller): fires/perimeters refresh when older
 than 8 minutes (upstream cadence is ~15), hotspots when older than 25 (satellites pass a
-handful of times a day). Wind is one batch request per hour for a 5×5 BC grid. Run it every
-10 minutes from a timer; the effective rate does not depend on visitor count.
+handful of times a day). Wind is one batch request per hour for a 5×5 BC grid. The public
+evacuation layer is one request per hour, fire events only, reduced to the derived
+evacuation record's own minimal fields (fire number, order/alert, the local date this fetch
+saw it, and order outlines) before it is written: no homes or population counts, no issuing
+agency, no free text. Run it every 10 minutes from a timer; the effective rate does not
+depend on visitor count.
 
 File format: {"fetchedAt": iso8601-utc, "source": url, "data": <upstream json>} — the page
 checks fetchedAt and falls back to its dated snapshot (wind: still air) if this mirror
@@ -36,6 +40,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LIVE = ROOT / "data" / "live"
+sys.path.insert(0, str(ROOT / "pipeline"))
+import season  # noqa: E402  (the derived record's own validation, tolerance and rings)
+
 WIND_LATS = [47.5, 50.75, 54, 57.25, 60.5]
 WIND_LONS = [-140, -133.25, -126.5, -119.75, -113]
 WIND_POINTS = [(lat, lon) for lat in WIND_LATS for lon in WIND_LONS]
@@ -69,11 +76,25 @@ FEEDS = {
     },
     "wind": {
         "maxAgeMin": 60,
+        "attempt": ".wind-attempt.json",
         "url": "https://api.open-meteo.com/v1/forecast?latitude="
                + ",".join(str(p[0]) for p in WIND_POINTS)
                + "&longitude=" + ",".join(str(p[1]) for p in WIND_POINTS)
                + "&hourly=wind_speed_850hPa,wind_direction_850hPa"
                "&forecast_hours=1&wind_speed_unit=kmh&timezone=UTC",
+    },
+    # The public evacuation orders-and-alerts layer, fire events only. Geometry comes at
+    # full resolution and is simplified here by the derived record's own code and tolerance,
+    # so a live outline equals the season's outline for the same order and the page's union
+    # keeps it once. One request per hour, attempt-gated like wind: orders change by the day,
+    # not the minute.
+    "evac": {
+        "maxAgeMin": 60,
+        "attempt": ".evac-attempt.json",
+        "url": ARC + "/Evacuation_Orders_and_Alerts/FeatureServer/0/query"
+               "?where=EVENT_TYPE%3D%27Fire%27"
+               "&outFields=EVENT_NUMBER,ORDER_ALERT_STATUS"
+               "&returnGeometry=true&outSR=4326&f=geojson",
     },
 }
 
@@ -133,18 +154,51 @@ def wind_grid(body, lats=WIND_LATS, lons=WIND_LONS):
     return {"lats": lats, "lons": lons, "vectors": vectors, "forecastAt": forecast_at}
 
 
+def evac_record(body, fetched_at):
+    """Reduce the live evacuation layer to the derived record's own minimal shape — the
+    fields data/season/<year>.evac.json publishes and no others: fire numbers, order/alert,
+    the local date this fetch saw each fire, and order outlines simplified by the derived
+    record's own code and tolerance. A layer that says something the derived record's reader
+    would refuse raises here, so the mirror keeps its previous copy instead of publishing an
+    unreadable one. An empty answer is kept as an empty list: a live copy that holds no
+    orders is a fact about the layer, and the page unions it with the season's ever-record
+    rather than reading it as "no orders in force"."""
+    day = season.local_date(season.parse_utc(fetched_at))
+    fires = {}
+    for f in (body or {}).get("features", []):
+        p = f.get("properties") or {}
+        if p.get("EVENT_TYPE") != "Fire":
+            continue                       # the derived record keeps fire events only
+        n, status = p.get("EVENT_NUMBER"), p.get("ORDER_ALERT_STATUS")
+        if (not isinstance(n, str) or not season.FIRE_NUMBER.fullmatch(n)
+                or n[0] not in season.LETTER_CENTRE):
+            raise ValueError(f"a fire event carries {n!r}, which is not a fire number")
+        if status not in ("Order", "Alert"):
+            raise ValueError(f"fire {n} carries {status!r}, neither an order nor an alert")
+        rec = fires.setdefault(n, {"fire": n, "everOrder": False, "everAlert": False,
+                                   "firstSeen": day, "lastSeen": day, "orderOutlines": []})
+        if status == "Order":
+            rec["everOrder"] = True
+            rec["orderOutlines"] += season.evac_rings(f.get("geometry"))
+        else:
+            rec["everAlert"] = True
+    return {"fires": sorted(fires.values(),
+                            key=lambda r: (season.sequence(r["fire"]), r["fire"]))}
+
+
 def fetch(name, feed):
     out = LIVE / f"{name}.json"
     a = age_min(out)
     if a < feed["maxAgeMin"]:
         print(f"{name}: fresh ({a:.0f} min), skipped")
         return False
-    # Even a failed wind attempt consumes this hour's request. fetchedAt remains the
-    # successful-data age; the separate attempt file is never sent to browsers.
-    if name == "wind":
-        attempt = LIVE / ".wind-attempt.json"
+    # Even a failed hourly attempt consumes its hour (wind grid, evacuation layer).
+    # fetchedAt remains the successful-data age; the separate attempt file is never sent
+    # to browsers.
+    if feed.get("attempt"):
+        attempt = LIVE / feed["attempt"]
         if age_min(attempt) < 60:
-            print("wind: hourly request already attempted, skipped")
+            print(f"{name}: hourly request already attempted, skipped")
             return False
         attempt.write_text(json.dumps({"fetchedAt": datetime.now(timezone.utc).isoformat()}))
     req = urllib.request.Request(feed["url"], headers={
@@ -154,18 +208,22 @@ def fetch(name, feed):
     t0 = time.time()
     with urllib.request.urlopen(req, timeout=45) as r:
         body = json.load(r)
+    fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     if name == "wind":
         body = wind_grid(body)
+    elif name == "evac":
+        body = evac_record(body, fetched_at)
     n = len(body.get("features", [])) if isinstance(body, dict) else 0
     wrapped = {
-        "fetchedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "fetchedAt": fetched_at,
         "source": feed["url"].split("?")[0],
         "data": body,
     }
     tmp = out.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(wrapped, separators=(",", ":")))
     tmp.replace(out)                      # atomic: readers never see a half-written file
-    count = f"{len(body['vectors'])} grid points" if name == "wind" else f"{n} features"
+    count = (f"{len(body['vectors'])} grid points" if name == "wind"
+             else f"{len(body['fires'])} fire events" if name == "evac" else f"{n} features")
     print(f"{name}: {count}, {time.time() - t0:.1f}s -> {out.relative_to(ROOT)}")
     return True
 

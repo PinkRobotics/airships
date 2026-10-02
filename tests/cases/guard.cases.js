@@ -7,10 +7,17 @@
  * the window and the distances answer to the file, not to the code. The real file's own
  * pins (its digest, its window, its counts) are held by tests/guard/check.py, which is
  * where a deliberate edit to data/season/2026.guard.json is made to hurt.
+ *
+ * The derived evacuation record gets the same treatment: an invented record of X-numbers
+ * holds the rule that an order takes the default distance and an alert only holds the
+ * fire, that the stricter of a hand entry and the record wins and data never loosens the
+ * list, that an order area is keep-out ground on its own, and that a record which cannot
+ * be read is a refusal with the fleet down — never a quiet "no fires under order".
  */
 import { close, deepEq, describe, eq, it, ok } from '../harness.js';
 import {
-  dayKind, guardedFire, keepOutsFor, loadGuard, noteKm, pathBlocked, pointBlocked,
+  dayKind, guardedFire, keepOutsFor, loadEvac, loadGuard, liveEvac, mergeEvac, noteKm,
+  pathBlocked, pointBlocked,
 } from '../../sim/index.js?v=26282d19';
 
 /* A well-formed guard file, small enough to check by hand. X-prefixed numbers are not
@@ -267,5 +274,220 @@ describe('guard · noteKm', () => {
     quiet.places = [];
     eq(noteKm(loadGuard(quiet, { seasonNumbers: ['X10003'] })), 10, 'an alert claims no widening');
     eq(noteKm(null), 0, 'no guard, no promise of distance');
+  });
+});
+
+/* ---------- the derived evacuation record: same rules, invented record ------ */
+
+/* Order-area outlines, far from every fixture fire above. RING_A spans roughly
+   [-121.4, -121.3] × [50.9, 51.0]; RING_B is a small patch around [-120.15, 50.15]. */
+const RING_A = [[-121.4, 50.9], [-121.4, 51.0], [-121.3, 51.0], [-121.3, 50.9], [-121.4, 50.9]];
+const RING_B = [[-120.2, 50.1], [-120.2, 50.2], [-120.1, 50.2], [-120.1, 50.1], [-120.2, 50.1]];
+
+const EVAC = () => ({
+  season: 2030,
+  fires: [
+    // on the hand list at 30 km (loss): the record's order must not loosen it
+    { fire: 'X10001', everOrder: true, everAlert: false, firstSeen: '2030-08-01',
+      lastSeen: '2030-08-09', orderOutlines: [RING_A] },
+    // on the hand list at 20 km (order): the record holds only an alert, 0 km
+    { fire: 'X10002', everOrder: false, everAlert: true, firstSeen: '2030-08-02',
+      lastSeen: '2030-08-03', orderOutlines: [] },
+    // in the record only, under an order that published no geometry
+    { fire: 'X10003', everOrder: true, everAlert: false, firstSeen: '2030-08-04',
+      lastSeen: '2030-08-04', orderOutlines: [] },
+    // on the hand list at 5 km: the record's order at the 10 km default tightens it
+    { fire: 'X10004', everOrder: true, everAlert: true, firstSeen: '2030-08-05',
+      lastSeen: '2030-08-06', orderOutlines: [RING_B] },
+    // on the hand list at exactly the default: a tie, and the hand entry keeps its words
+    { fire: 'X10005', everOrder: true, everAlert: false, firstSeen: '2030-08-07',
+      lastSeen: '2030-08-08', orderOutlines: [RING_A] },
+    // in the record only, alert alone: held, and claims no air
+    { fire: 'X19999', everOrder: false, everAlert: true, firstSeen: '2030-09-01',
+      lastSeen: '2030-09-02', orderOutlines: [] },
+  ],
+});
+
+/* The hand list of DOC() plus the two entries the precedence cases need: Delta at 5 km
+   (the record widens it to the default) and Epsilon at exactly the default (the tie). */
+const WITH_EVAC = () => {
+  const doc = DOC();
+  doc.fires.push({ fire: 'X10004', name: 'Delta', tier: 2, basis: 'order', keepOutKm: 5,
+                   source: 'https://example.test/delta' });
+  doc.fires.push({ fire: 'X10005', name: 'Epsilon', tier: 2, basis: 'order', keepOutKm: 10,
+                   source: 'https://example.test/epsilon' });
+  return doc;
+};
+const CTX4 = { seasonNumbers: ['X10001', 'X10002', 'X10004', 'X10005'] };
+
+describe('guard · loadEvac', () => {
+  it('accepts a well-formed record and carries its orders', () => {
+    const E = loadEvac(EVAC());
+    ok(E.ok, `expected ok, got reason: ${E.reason}`);
+    eq(E.byNumber.size, 6, 'one entry per fire');
+    eq(E.orders.length, 3, 'one per order outline: X10001, X10004, X10005');
+    deepEq(E.orders.map(o => o.who), ["X10001's evacuation order area",
+                                      "X10004's evacuation order area",
+                                      "X10005's evacuation order area"], 'each names its fire');
+    deepEq(E.orders[0].ring, RING_A, 'the outline is carried as given, unsimplified');
+    eq(E.byNumber.get('X10003').orderOutlines.length, 0, 'an order with no geometry is fine');
+  });
+  it('refuses a record that is not what it says', () => {
+    const bend = (fn) => { const doc = EVAC(); fn(doc); return loadEvac(doc); };
+    for (const [name, fn] of [
+      ['not an object', () => null],
+      ['an array', () => []],
+      ['no fires list', d => { delete d.fires; }],
+      ['an entry that is not an object', d => { d.fires[0] = null; }],
+      ['a number that is not a string', d => { d.fires[0].fire = 10001; }],
+      ['a lowercase letter', d => { d.fires[0].fire = 'x10001'; }],
+      ['digits with no letter', d => { d.fires[0].fire = '10001'; }],
+      ['an empty number', d => { d.fires[0].fire = ''; }],
+      ['a number listed twice', d => { d.fires[1].fire = 'X10001'; }],
+      ['everOrder as a string', d => { d.fires[0].everOrder = 'true'; }],
+      ['under neither an order nor an alert', d => { d.fires[2].everOrder = false; }],
+      ['dates out of order', d => { d.fires[0].lastSeen = '2030-07-31'; }],
+      ['a date that is not YYYY-MM-DD', d => { d.fires[0].firstSeen = '2030-8-1'; }],
+      ['orderOutlines missing', d => { delete d.fires[0].orderOutlines; }],
+      ['outlines without ever an order', d => { d.fires[1].orderOutlines = [RING_A]; }],
+      ['a ring that is not closed', d => { d.fires[0].orderOutlines = [[[-121.4, 50.9],
+        [-121.4, 51.0], [-121.3, 51.0], [-121.3, 50.9]]]; }],
+      ['a ring of three points', d => { d.fires[0].orderOutlines = [[[-121.4, 50.9],
+        [-121.35, 51.0], [-121.4, 50.9]]]; }],
+      ['a ring with a string coordinate', d => { d.fires[0].orderOutlines = [[[-121.4, '50.9'],
+        [-121.4, 51.0], [-121.3, 51.0], [-121.3, 50.9], [-121.4, 50.9]]]; }],
+    ]) {
+      const E = typeof fn === 'function' && fn.length === 1 ? bend(fn) : loadEvac(fn());
+      ok(!E.ok, `${name}: expected a refusal`);
+      eq(E.byNumber.size, 0, `${name}: a refused record holds nothing`);
+      eq(E.orders.length, 0, `${name}: and claims no orders`);
+    }
+  });
+  it('a malformed record stands the guard down and says so in words, not a fleet', () => {
+    const broken = loadEvac({ fires: 3 });
+    const G = loadGuard(DOC(), { ...CTX4, evac: broken });
+    ok(!G.ok && /evacuation record cannot be read/.test(G.reason), G.reason);
+    const k = dayKind(G, '2030-09-01');
+    ok(!k.fleet && /evacuation record/.test(k.reason), k.reason);
+    deepEq(keepOutsFor(G, [fire()]), [], 'no regions are drawn from a refused record');
+    eq(guardedFire(G, fire()).why, 'guard-down', 'and every fire answers guard-down');
+    ok(!loadGuard(DOC(), { evac: {} }).ok, 'ctx.evac that is not a loadEvac state is refused');
+  });
+  it('a guard with no evacuation record is the guard it always was', () => {
+    const G = loadGuard(DOC(), CTX);
+    ok(G.ok && !G.evac, 'no ctx.evac, no evac on the state');
+    eq(guardedFire(G, fire({ id: 'X10001', name: 'Alpha' })).why, 'listed', 'unchanged');
+  });
+});
+
+describe('guard · guardedFire with the evacuation record', () => {
+  const G = loadGuard(WITH_EVAC(), { ...CTX4, evac: loadEvac(EVAC()) });
+  const read = (over) => {
+    const g = guardedFire(G, fire(over));
+    return g && [g.why, g.tier, g.basis, g.keepOutKm];
+  };
+  it('an order takes the default distance; an alert alone holds the fire and claims no air', () => {
+    deepEq(read({ id: 'X10003', name: 'Nowhere' }), ['evac', 2, 'order', 10],
+           'a fire the record holds under an order, on no hand list');
+    deepEq(read({ id: 'X19999', name: 'Nowhere' }), ['evac', 3, 'alert', 0],
+           'a fire the record holds under an alert alone');
+  });
+  it('the stricter of the hand entry and the record wins, and a tie keeps the hand entry', () => {
+    deepEq(read({ id: 'X10004', name: 'Delta' }), ['evac', 2, 'order', 10],
+           'the record tightened a 5 km hand entry to the default');
+    deepEq(read({ id: 'X10001', name: 'Alpha' }), ['listed', 1, 'loss', 30],
+           'the record never loosens a 30 km hand entry');
+    deepEq(read({ id: 'X10002', name: 'Beta' }), ['listed', 2, 'order', 20],
+           'an alert in the record, 0 km, does not loosen a 20 km hand entry');
+    deepEq(read({ id: 'X10005', name: 'Epsilon' }), ['listed', 2, 'order', 10],
+           'a tie at the default keeps the hand entry, its tier and its words');
+  });
+  it('the record outranks the day\'s own of-note flag, as the hand list does', () => {
+    deepEq(read({ id: 'X19999', note: true }), ['evac', 3, 'alert', 0],
+           'held by the record before of-note is even asked');
+    deepEq(read({ id: 'X10003', note: true }), ['evac', 2, 'order', 10],
+           'same, under an order');
+    deepEq(read({ id: 'X18888' }), null, 'a fire in neither record and flagged by nothing is free');
+  });
+});
+
+describe('guard · keepOutsFor order areas', () => {
+  const G = loadGuard(WITH_EVAC(), { ...CTX4, evac: loadEvac(EVAC()) });
+  const areas = keepOutsFor(G, [], {}, null);
+  it('carries every order outline on every view, whatever is in it', () => {
+    eq(areas.length, 3, 'three outlines: X10001, X10004 and X10005');
+    ok(areas.every(r => r.kind === 'evac-order' && r.rKm === 0 && r.ring && r.edge),
+       'each is its own ground: the outline is the boundary, no buffer');
+  });
+  it('blocks a point inside an area and a path crossing it, and frees what is outside', () => {
+    eq(pointBlocked(areas, [-121.35, 50.95]).who, "X10001's evacuation order area",
+       'inside RING_A');
+    eq(pointBlocked(areas, [-120.15, 50.15]).who, "X10004's evacuation order area",
+       'inside RING_B');
+    eq(pointBlocked(areas, [-121.45, 50.95]), null,
+       'about 4 km outside the outline is free: the outline itself is the boundary');
+    eq(pathBlocked(areas, [-121.6, 50.95], [-121.0, 50.95]).who,
+       "X10001's evacuation order area", 'a leg through the area');
+    eq(pathBlocked(areas, [-121.6, 51.5], [-121.0, 51.5]), null, 'a leg well north');
+  });
+  it('a data-order fire in view carries its band beside its order area; an alert claims no air', () => {
+    const withFire = keepOutsFor(G, [fire({ id: 'X10003', ll: [-119.5, 49.5] })], {}, null);
+    eq(withFire.length, 4, 'the fire\'s own band and three order areas');
+    const band = withFire.find(r => r.kind === 'fire');
+    deepEq([band.why, band.rKm > 10], ['evac', true],
+           'held by the record, at the default plus its radius');
+    eq(keepOutsFor(G, [fire({ id: 'X19999' })], {}, null).length, 3,
+       'an alert-only fire contributes no band of its own');
+  });
+});
+
+describe('guard · mergeEvac and liveEvac', () => {
+  const seasonDoc = { fires: [{ fire: 'X10003', everOrder: true, everAlert: false,
+                                firstSeen: '2030-08-04', lastSeen: '2030-08-05',
+                                orderOutlines: [RING_A] }] };
+  const season = () => loadEvac(seasonDoc);
+  const liveDoc = () => ({ fires: [
+    { fire: 'X10003', everOrder: false, everAlert: true, firstSeen: '2030-09-01',
+      lastSeen: '2030-09-01', orderOutlines: [] },
+    { fire: 'X10050', everOrder: true, everAlert: false, firstSeen: '2030-09-01',
+      lastSeen: '2030-09-01', orderOutlines: [RING_B] }] });
+  it('unions two records, and only ever widens', () => {
+    const m = mergeEvac(season(), loadEvac(liveDoc()));
+    ok(m.ok, m.reason);
+    const x = m.byNumber.get('X10003');
+    deepEq([x.everOrder, x.everAlert], [true, true],
+           'the live alert is added; the order the record already held is not rescinded away');
+    deepEq([x.firstSeen, x.lastSeen], ['2030-08-04', '2030-09-01'], 'first and last across both');
+    eq(m.byNumber.get('X10050').orderOutlines.length, 1, 'a fire only the live copy names is kept');
+    eq(m.orders.length, 2, 'RING_A and RING_B');
+  });
+  it('keeps a ring both records carry identically once, and never narrows', () => {
+    const live = liveDoc();
+    live.fires[0].everOrder = true;        // a live copy that repeats the order, same outline
+    live.fires[0].orderOutlines = [RING_A];
+    const m = mergeEvac(season(), loadEvac(live));
+    eq(m.byNumber.get('X10003').orderOutlines.length, 1, 'the same outline, once');
+    const shrunk = mergeEvac(loadEvac(liveDoc()), season());   // either way round
+    eq(shrunk.byNumber.get('X10003').everOrder, true, 'the union is order-independent');
+  });
+  it('a state that did not load merges with nothing: the refusal stands', () => {
+    const bad = loadEvac({ fires: 3 });
+    eq(mergeEvac(season(), bad), bad, 'a bad live copy is returned untouched');
+    eq(mergeEvac(bad, season()), bad, 'a bad base is returned untouched');
+  });
+  it('a missing live copy keeps the season record — never "no orders"', () => {
+    const r = liveEvac(season(), null);
+    deepEq([r.from, r.state.ok, r.state.byNumber.has('X10003')], ['season', true, true],
+           'the season state, exactly as it was');
+  });
+  it('an unreadable live copy is a refusal, not a fallback', () => {
+    const r = liveEvac(season(), { fires: 3 });
+    deepEq([r.from, r.state.ok], ['unreadable', false], 'the refusal comes back');
+    ok(/evacuation record/.test(r.state.reason), r.state.reason);
+  });
+  it('a good live copy widens the season record and says where it came from', () => {
+    const r = liveEvac(season(), liveDoc());
+    deepEq([r.from, r.state.ok, r.state.byNumber.has('X10050')], ['live', true, true],
+           'merged, from the live copy');
   });
 });

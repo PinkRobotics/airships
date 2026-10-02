@@ -42,7 +42,8 @@ export async function loadExercise(normalize, fetchDayFile) {
       groups.get(key).push(r);
     }
     S.exerciseRegions = [...groups.values()].map(rs => {
-      const ll = rs[0].ll.slice();
+      // Order areas have an outline, with no centre in the evacuation record.
+      const ll = (rs[0].ll || rs[0].edge[0]).slice();
       const rKm = Math.max(...rs.flatMap(r => (r.edge || [r.ll]).map(p => havKm(ll,p) + r.rKm))) + .01;
       return {...rs[0], ll, rKm, ring:null, edge:null};
     });

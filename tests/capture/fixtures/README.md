@@ -1,8 +1,14 @@
-# fixtures — the 2026-10-01 capture, trimmed
+# fixtures — the 2026-10-01 fire capture and the 2026-10-02 evacuation capture, trimmed
 
-Every file here is a trimmed copy of a raw response in the dated capture the stop-gap
-script made on 2026-10-01, so the tests replay the exact shapes the real service returns
-without asking it for anything. `check.py` serves these from a fixture server on 127.0.0.1.
+Every file here is a trimmed copy of a raw response the stop-gap captured, so the tests
+replay the exact shapes the real service returns without asking it for anything.
+`check.py` serves these from a fixture server on 127.0.0.1.
+
+The two fire layers (`incidents.*`, `perimeters.*`) are trimmed from the dated capture
+of 2026-10-01; the evacuation layer (`evacuations.*`) is trimmed from the hand capture of
+the public evacuation layer taken 2026-10-02T07:08:47Z (16 features, one page). The two
+days are mixed in one fixture set because the capture tool treats every layer the same
+way and cares only about each layer's own shape.
 
 What was kept and what was adjusted:
 
@@ -24,3 +30,23 @@ What was kept and what was adjusted:
 - **Page shape is the real one**: page-000 of a multi-page layer carries
   `properties.exceededTransferLimit: true` and the last page carries no `properties` at
   all, which is what the service actually did on 2026-10-01.
+
+The evacuation layer (`evacuations.*`), trimmed from the 2026-10-02 capture:
+
+- **All 16 features are real, with their `OBJECTID`, `EVENT_TYPE`, `EVENT_NUMBER`,
+  `ORDER_ALERT_STATUS`, `DATE_MODIFIED` and `EVENT_START_DATE` values unaltered.** Six
+  are fire events (by number: one alert-only, one order-and-alert, three order-only with
+  multiple order features or multi-patch areas); ten are landslide and flood events with
+  no fire number.
+- **Geometry is kept for exactly two features** — `OBJECTID` 8 (a fire order whose 35
+  rings are many small disjoint patches) and 9 (a fire alert whose first ring is one
+  patch of fourteen) — so the multi-patch shape the layer really serves is exercised.
+  Every other feature carries `geometry: null`.
+- **The homes-count, population-count, issuing-agency, order-name, centre-code and
+  internal-id attributes were removed**, and with them the event's free-text name (which
+  carries road addresses and community names). The capture tool does not read them; the
+  derivation that runs on the capture (pipeline/season.py) is barred from publishing
+  them, and a fixture that carried them would put them in this repository.
+- **`evacuations.layer.json` keeps the real `maxRecordCount` (1000) and the real
+  `copyrightText` (empty)**, with the field list trimmed to the six attributes above; the
+  count file is the captured bytes, unmodified (16).

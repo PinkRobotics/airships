@@ -7,10 +7,12 @@ a season into its historical layer only on April 1. The live mirror (pipeline/li
 asks only for fires that are not out. So the day-by-day history of a season exists nowhere
 unless somebody captures the whole layer every day — that is this tool's one job.
 
-Load discipline, enforced here and not left to the caller: one run a day, nine requests on
-a 2026-10-01-shaped day (see pipeline/README.md for the budget), a pause between requests,
-one retry after a pause when a request fails and a full stop when it fails twice, and an
-honest User-Agent.
+Load discipline, enforced here and not left to the caller: one run a day, twelve requests on
+a 2026-10-02-shaped day — three per fire layer (definition, count, by-status, pages) and
+three for the evacuation layer when it fits one page (definition, count, page; it has no
+status field to tally, so no by-status request) — see pipeline/README.md for the budget.
+A pause between requests, one retry after a pause when a request fails and a full stop
+when it fails twice, and an honest User-Agent.
 
 Usage:
     python3 pipeline/capture.py --out DIR [--base URL] [--pause SECONDS]
@@ -37,9 +39,13 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ARC_BASE = "https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services"
+# Each layer is (service path, the field a status tally is grouped by, or None). The
+# evacuation layer has no FIRE_STATUS field to group by, so it asks for no by-status
+# request at all: definition, count, pages — three requests on a day it fits one page.
 LAYERS = {
-    "incidents": "/BCWS_ActiveFires_PublicView/FeatureServer/0",
-    "perimeters": "/BCWS_FirePerimeters_PublicView/FeatureServer/0",
+    "incidents": ("/BCWS_ActiveFires_PublicView/FeatureServer/0", "FIRE_STATUS"),
+    "perimeters": ("/BCWS_FirePerimeters_PublicView/FeatureServer/0", "FIRE_STATUS"),
+    "evacuations": ("/Evacuation_Orders_and_Alerts/FeatureServer/0", None),
 }
 PAUSE_S = 1.5          # between requests, and again before the single retry
 TIMEOUT_S = 120
@@ -145,7 +151,7 @@ class Capture:
                 return candidate
         raise CaptureError(f"no free capture folder under {root}")
 
-    def capture_layer(self, key, service_path):
+    def capture_layer(self, key, service_path, status_field="FIRE_STATUS"):
         base = self.base + service_path
 
         url = base + "?f=json"
@@ -160,15 +166,19 @@ class Capture:
         if not isinstance(total, int):
             raise CaptureError(f"{key}.count.json: no count in the response")
 
-        stats = json.dumps([{"statisticType": "count", "onStatisticField": "OBJECTID",
-                             "outStatisticFieldName": "n"}])
-        url = q(base, where="1=1", groupByFieldsForStatistics="FIRE_STATUS",
-                outStatistics=stats, f="json")
-        raw, seconds = self.get(url)
-        self.save(f"{key}.by-status.json", url, raw, seconds)
-        body = parse_body(raw, f"{key}.by-status.json")
-        by_status = {f["attributes"]["FIRE_STATUS"]: f["attributes"]["n"]
-                     for f in body.get("features", [])}
+        # Only a layer that carries a status field is asked for the tally. The evacuation
+        # layer has none, and asking would be a wasted request against the day's budget.
+        by_status = None
+        if status_field is not None:
+            stats = json.dumps([{"statisticType": "count", "onStatisticField": "OBJECTID",
+                                 "outStatisticFieldName": "n"}])
+            url = q(base, where="1=1", groupByFieldsForStatistics=status_field,
+                    outStatistics=stats, f="json")
+            raw, seconds = self.get(url)
+            self.save(f"{key}.by-status.json", url, raw, seconds)
+            body = parse_body(raw, f"{key}.by-status.json")
+            by_status = {f["attributes"][status_field]: f["attributes"]["n"]
+                         for f in body.get("features", [])}
 
         fetched, offset, pages = 0, 0, 0
         while True:
@@ -190,12 +200,15 @@ class Capture:
             if pages > MAX_PAGES:
                 raise CaptureError(f"{key}: paging did not terminate within {MAX_PAGES} pages")
 
-        self.manifest["layers"][key] = {
-            "url": base, "where": "1=1", "countOnly": total, "byStatus": by_status,
-            "featuresFetched": fetched, "pages": pages, "pageSize": page_size,
-            "complete": fetched == total,
+        layer = {
+            "url": base, "where": "1=1", "countOnly": total, "featuresFetched": fetched,
+            "pages": pages, "pageSize": page_size, "complete": fetched == total,
         }
-        print(f"{key}: countOnly={total} fetched={fetched} pages={pages} byStatus={by_status}")
+        if by_status is not None:
+            layer["byStatus"] = by_status
+        self.manifest["layers"][key] = layer
+        print(f"{key}: countOnly={total} fetched={fetched} pages={pages}"
+              + (f" byStatus={by_status}" if by_status is not None else ""))
 
     def run(self):
         """Returns the process exit code: 0 complete, 1 not."""
@@ -209,8 +222,8 @@ class Capture:
             "layers": {},
             "requests": [],
         }
-        for key, service_path in LAYERS.items():
-            self.capture_layer(key, service_path)
+        for key, (service_path, status_field) in LAYERS.items():
+            self.capture_layer(key, service_path, status_field)
         (self.out / "MANIFEST.json").write_text(json.dumps(self.manifest, indent=1))
         incomplete = {key: layer for key, layer in self.manifest["layers"].items()
                       if not layer["complete"]}
@@ -227,8 +240,9 @@ def parse_args(argv):
     parser = argparse.ArgumentParser(
         prog="capture.py",
         description="Capture today's whole BC Wildfire Service current-season layers, "
-                    "raw, into a dated folder. One run is nine requests on a day when "
-                    "incidents fit in two pages and perimeters in one.")
+                    "raw, into a dated folder. One run is twelve requests on a day when "
+                    "incidents fit in two pages, perimeters in one and the evacuation "
+                    "layer in one (three for it: no status field, so no by-status).")
     parser.add_argument("--base", metavar="URL", default=ARC_BASE,
                         help="the ArcGIS REST services base URL "
                              f"(default: {ARC_BASE})")

@@ -25,7 +25,9 @@ Three tiers. The first two run anywhere.
 3. THE RAW INPUTS. With SEASON_CAPTURE set, the season is regenerated from the capture and
    must match the committed files byte for byte, and the perimeter generalisation is held
    against every perimeter the server itself generalised. Without it those tests SKIP, loudly,
-   naming the folders they need. They never pass quietly.
+   naming the folders they need. They never pass quietly. SEASON_EVAC, set alongside it, names
+   a captured day of the evacuation layer, so the regeneration covers the derived evacuation
+   record too; without it that pair is left to its own gate and named in the test's return.
 
 Exit status is non-zero on any failure. A skip is not a failure and is never silent.
 Python 3 and its standard library; no browser, no node, no network.
@@ -596,10 +598,14 @@ def provenance_names_every_file_and_every_raw_input():
     # The guard file and its sidecar are a ruling about the season, not season output:
     # they are pinned by their own digest test (tests/guard/check.py), so the provenance
     # must not claim to cover them and must not flag them as missing from its outputs.
-    guard = {f"{YEAR}.guard.json", f"{YEAR}.guard.prov.json"}
+    # The derived evacuation record is season output, but it carries its own sidecar —
+    # {YEAR}.evac.prov.json covers {YEAR}.evac.json — so this one covers the fire files
+    # only; that pair is pinned by its own gate, tests/evac/check.py.
+    held_out = {f"{YEAR}.guard.json", f"{YEAR}.guard.prov.json",
+                f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
     on_disk = sorted(p.relative_to(SEASON).as_posix() for p in SEASON.rglob("*")
                      if p.is_file() and p.name != f"{YEAR}.prov.json"
-                     and p.name not in guard)
+                     and p.name not in held_out)
     same(sorted(out), on_disk, "files the provenance covers")
     for name, o in out.items():
         data = (SEASON / name).read_bytes()
@@ -1347,6 +1353,251 @@ def synthetic_inputs_that_are_not_what_they_say_stop_the_run():
     return f"{len(refused)} inputs that are not what they say, {len(refused)} refusals"
 
 
+# ---- the derived evacuation record, on invented captures small enough to check by hand ----
+EVAC_PATCH = [[-120.0, 50.0], [-120.0, 50.2], [-119.8, 50.2], [-119.8, 50.0], [-120.0, 50.0]]
+
+
+def evac_feature(oid, number, status, geometry=None, kind="Fire"):
+    return {"type": "Feature", "id": oid, "geometry": geometry,
+            "properties": {"OBJECTID": oid, "EVENT_TYPE": kind, "EVENT_NUMBER": number,
+                           "ORDER_ALERT_STATUS": status,
+                           "DATE_MODIFIED": ms("2019-07-06T00:00:00Z"),
+                           "EVENT_START_DATE": ms("2019-07-05T00:00:00Z")}}
+
+
+def write_evac(folder, captured, features, count=None, fetched=None, base=season.EVAC_LAYER_URL,
+               zone="UTC", local_date=False, tool=False, complete=True):
+    """An evacuation capture folder: the flat hand-captured shape by default, or the shape
+    pipeline/capture.py writes (`tool=True`). Every file is real-shaped; nothing is fetched."""
+    folder.mkdir(parents=True)
+    prefix = "evacuations" if tool else "evac"
+    n = len(features) if fetched is None else fetched
+    files = {
+        f"{prefix}.layer.json": json.dumps(
+            {"dateFieldsTimeReference": {"timeZone": zone}, "maxRecordCount": 1000}).encode(),
+        f"{prefix}.count.json": json.dumps(
+            {"count": len(features) if count is None else count}).encode(),
+        f"{prefix}.page-000.geojson": json.dumps(
+            {"type": "FeatureCollection", "features": features}).encode()}
+    for name, data in files.items():
+        (folder / name).write_bytes(data)
+    manifest = {"capturedAt": captured,
+                "requests": [{"file": name, "url": base + "/" + name, "bytes": len(data),
+                              "sha256": hashlib.sha256(data).hexdigest()}
+                             for name, data in files.items()]}
+    if tool:
+        manifest["localDate"] = season.local_date(ms(captured))
+        manifest["layers"] = {"evacuations": {
+            "url": base, "where": "1=1", "countOnly": len(features) if count is None else count,
+            "featuresFetched": n, "pages": 1, "pageSize": 1000, "complete": complete}}
+    else:
+        if local_date:
+            manifest["localDate"] = season.local_date(ms(captured))
+        manifest.update(base=base, count=len(features) if count is None else count, fetched=n)
+    (folder / "MANIFEST.json").write_text(json.dumps(manifest))
+    return folder
+
+
+@test
+def synthetic_the_derived_evacuation_record():
+    """The derived evacuation record from invented captures: both manifest shapes read the
+    same, the EVER semantics, first and last seen, other event types counted and left out,
+    the last capture of a local date, the --through gate on discovered captures, and the
+    two ways of building the pair — raw captures and committed facts — agreeing on bytes."""
+    with scratch() as tmp:
+        tmp = pathlib.Path(tmp)
+        capture, snapshot = synthetic_world(tmp)
+        one = write_evac(tmp / "evac" / "hand", "2019-07-10T20:00:00Z", [
+            evac_feature(1, "N10001", "Alert"),
+            evac_feature(2, "K10002", "Order",
+                         {"type": "Polygon", "coordinates": [EVAC_PATCH]}),
+            evac_feature(3, "C20003", "Order"),
+            evac_feature(4, None, "Order", kind="Flood"),
+            evac_feature(5, None, "Alert", kind="Landslide")])
+        two = write_evac(tmp / "evac" / "tool", "2019-07-11T20:00:00Z", [
+            evac_feature(6, "K10002", "Order",
+                         {"type": "MultiPolygon", "coordinates": [[EVAC_PATCH], [EVAC_PATCH]]}),
+            evac_feature(7, "V10004", "Alert")], tool=True)
+        # a second capture of the 11th's local date (19:00 local): it supersedes the one above
+        two_again = write_evac(tmp / "evac" / "again", "2019-07-12T02:00:00Z", [
+            evac_feature(8, "V10004", "Alert")], tool=True)
+        # later than --through and only DISCOVERED, never named: not read at all — and its
+        # one feature is a number this cannot read, so a run that read it would stop loudly
+        too_late = write_evac(capture.parent / "evac-late", "2019-07-13T20:00:00Z", [
+            evac_feature(9, "Z99999", "Order")], tool=True)
+        state = season.read_raw(capture, None, snapshot, "2019-07-11", [one, two, two_again])
+        files = season.build(state)
+        same(files, season.build(season.read_raw(capture, None, snapshot, "2019-07-11",
+                                                 [one, two, two_again])),
+             "two runs, same bytes")
+        # a capture NAMED by --evac is read as named, date gate and all: the deliberately
+        # unreadable number stops the run, proving the bytes were read
+        raises(lambda: season.read_raw(capture, None, snapshot, "2019-07-11",
+                                       [one, two, too_late]),
+               "not a fire number this knows how to read")
+        plain = season.build(season.read_raw(capture, None, snapshot, "2019-07-11"))
+        same({k: v for k, v in files.items() if ".evac." not in k}, plain,
+             "the fire files are untouched by the evacuation record")
+        doc = json.loads(files[f"{SYN}.evac.json"])
+        prov = json.loads(files[f"{SYN}.evac.prov.json"])
+        facts = state["evac"]
+        same([d["date"] for d in doc["days"]], ["2019-07-10", "2019-07-11"],
+             "one day per local date")
+        same(doc["days"][1]["supersededAt"], ["2019-07-11T20:00:00Z"],
+             "the earlier capture of the 11th is named on the day that superseded it")
+        same([f["fire"] for f in doc["fires"]], ["N10001", "K10002", "C20003", "V10004"],
+             "fires, by sequence")
+        by_number = {f["fire"]: f for f in doc["fires"]}
+        same((by_number["N10001"]["everOrder"], by_number["N10001"]["everAlert"],
+              by_number["N10001"]["orderOutlines"]), (False, True, []), "alert only")
+        same((by_number["C20003"]["everOrder"], by_number["C20003"]["orderOutlines"]),
+             (True, []), "an order with no geometry is kept, with no outline")
+        same((by_number["K10002"]["firstSeen"], by_number["K10002"]["lastSeen"],
+              len(by_number["K10002"]["orderOutlines"])), ("2019-07-10", "2019-07-11", 3),
+             "first and last seen, one outline per ring across every day")
+        same((by_number["V10004"]["firstSeen"], by_number["V10004"]["lastSeen"]),
+             ("2019-07-11", "2019-07-11"), "seen on the kept day of its date")
+        same("Z99999" in by_number, False, "a capture later than --through was never read")
+        same(doc["counts"], {"features": 6, "fireFeatures": 6, "fireNumbers": 4,
+                             "everOrderFires": 2, "everAlertFires": 2, "orderFeatures": 3,
+                             "alertFeatures": 3, "orderOutlines": 3, "ordersWithoutGeometry": 1,
+                             "otherEventTypes": {"Flood": 1, "Landslide": 1}}, "counts")
+        blob = json.dumps(doc) + prov["notes"]
+        for phrase in ("Open Government Licence - British Columbia", "Not for emergency use",
+                       "does not endorse", "The Information was modified",
+                       "homes and population counts", "dropped"):
+            assert phrase in blob, f"the pair must say {phrase!r}"
+        same([i["sha256"] for i in prov["inputs"]],
+             [h for d in facts["days"] for h in [d["manifest"]["sha256"]]
+              + [f["sha256"] for f in d["files"]]], "every raw input named by sha256")
+        out = tmp / "out"
+        season.write(files, SYN, out)
+        same(quietly(["--check", "--snapshot", snapshot, "--out", out]), 0,
+             "the gate from the written files alone")
+        before = tree(out)
+        same(quietly(["--evac", one, "--evac", two, "--evac", two_again,
+                      "--snapshot", snapshot, "--out", out]), 0,
+             "the refresh command against the committed season")
+        same(tree(out), before, "the refresh rewrote nothing: every byte already stood")
+    return ("both manifest shapes, EVER, first/last seen, other events, last capture of a date, "
+            "the --through gate, and the pair rebuilding byte for byte three ways")
+
+
+@test
+def synthetic_evacuation_inputs_that_are_not_what_they_say_stop_the_run():
+    refused = []
+    with scratch() as tmp:
+        tmp = pathlib.Path(tmp)
+        capture, snapshot = synthetic_world(tmp)
+        good = write_evac(tmp / "evac" / "good", "2019-07-10T20:00:00Z",
+                          [evac_feature(1, "N10001", "Alert")])
+
+        def refuse(fn, fragment):
+            refused.append(raises(fn, fragment))
+
+        def derive(folder):
+            """The full read: one capture folder through the reader and the derivation."""
+            return season.evac_facts([season.read_evac_capture(folder)])
+
+        def broken(mutate, manifest=None):
+            folder = tmp / "evac" / f"bad{len(refused):02d}"
+            shutil.copytree(good, folder)
+            mutate(folder)
+            man = json.loads((folder / "MANIFEST.json").read_text())
+            for change in manifest or []:
+                change(man)
+            for r in man["requests"]:
+                data = (folder / r["file"]).read_bytes()
+                r["bytes"], r["sha256"] = len(data), hashlib.sha256(data).hexdigest()
+            (folder / "MANIFEST.json").write_text(json.dumps(man))
+            return folder
+
+        refuse(lambda: season.read_evac_capture(tmp / "nowhere"), "no MANIFEST.json")
+        write_capture(tmp / "fire", "2019-07-11T02:00:00Z",
+                      [incident("K10001", "2019-07-01T20:00:00Z", None,
+                                "Under Control", 1, 5)], [])
+        refuse(lambda: season.read_evac_capture(tmp / "fire"), "no evacuation layer in it")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: (f / "evac.count.json").write_bytes(b'{"count":2}'),
+            [lambda m: m.update(count=2)])), "do not match the layer's own count")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: None, [lambda m: m.update(fetched=2)])), "do not match")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: (f / "evac.layer.json").write_bytes(
+                (f / "evac.layer.json").read_bytes().replace(b'"UTC"', b'"PST"')))),
+            "will not guess")
+        refuse(lambda: derive(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [evac_feature(1, "10001", "Alert")]}).encode()))),
+            "is not a fire number")
+        refuse(lambda: derive(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [evac_feature(1, "N10001", "Warning")]}).encode()))),
+            "neither an order nor an alert")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [evac_feature(1, "N10001", "Alert"),
+                              evac_feature(1, "N10001", "Alert")]}).encode()))),
+            "appears twice")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [{"type": "Feature", "geometry": None,
+                               "properties": {"OBJECTID": 1, "EVENT_TYPE": "Fire",
+                                              "ORDER_ALERT_STATUS": "Alert"}}]}).encode()))),
+            "holds a feature with no")
+        refuse(lambda: derive(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [evac_feature(1, "N10001", "Order", {"type": "Polygon",
+                 "coordinates": [[[0, 0], [0, 1], [1, 1], [1, 0]]]})]}).encode()))),
+            "not a closed outline")
+        refuse(lambda: derive(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(json.dumps(
+                {"features": [evac_feature(1, "N10001", "Order",
+                                           {"type": "LineString", "coordinates": [[0, 0], [1, 1]]})]}
+                ).encode()))), "not a polygon")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: None, [lambda m: m.pop("base")])), "names no layer URL")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: None, [lambda m: m.update(localDate="2019-07-09")])),
+            "its manifest says")
+        refuse(lambda: season.read_evac_capture(broken(
+            lambda f: (f / "evac.page-000.geojson").write_bytes(b"{}"))),
+            "do not match the layer's own count")
+        # a tampered file that the manifest still describes: caught by its sha256
+        folder = tmp / "evac" / "tampered"
+        shutil.copytree(good, folder)
+        (folder / "evac.page-000.geojson").write_bytes(b"{}")
+        refuse(lambda: season.read_evac_capture(folder), "not the file its manifest describes")
+        # an incomplete tool-shaped layer, and a missing page, both stop the run
+        refuse(lambda: season.read_evac_capture(write_evac(
+            tmp / "evac" / "incomplete", "2019-07-10T20:00:00Z",
+            [evac_feature(1, "N10001", "Alert")], tool=True, complete=False)),
+            "not marked complete")
+        short = write_evac(tmp / "evac" / "short", "2019-07-10T20:00:00Z",
+                           [evac_feature(1, "N10001", "Alert")], tool=True)
+        (short / "evacuations.page-000.geojson").unlink()
+        refuse(lambda: season.read_evac_capture(short), "cannot read evacuations.page-000")
+        # a malformed evacuation layer discovered as a SIBLING stops the run: only a folder
+        # with no evacuation layer at all may be passed over
+        series = capture.parent
+        shutil.copytree(good, series / "2019-07-10x")
+        layer = series / "2019-07-10x" / "evac.layer.json"
+        layer.write_bytes(layer.read_bytes().replace(b'"UTC"', b'"PST"'))
+        man = json.loads((series / "2019-07-10x" / "MANIFEST.json").read_text())
+        for r in man["requests"]:
+            if r["file"] == layer.name:
+                r["bytes"] = len(layer.read_bytes())
+                r["sha256"] = hashlib.sha256(layer.read_bytes()).hexdigest()
+        (series / "2019-07-10x" / "MANIFEST.json").write_text(json.dumps(man))
+        refuse(lambda: season.read_raw(capture, None, snapshot), "will not guess")
+        # and the wrong folder named by --evac is refused in its own words, not skipped
+        refuse(lambda: season.read_raw(capture, None, snapshot, None,
+                                       [tmp / "fire"]), "no evacuation layer in it")
+        refuse(lambda: season.read_raw(capture, None, snapshot, None,
+                                       [tmp / "nowhere"]), "no MANIFEST.json")
+    return f"{len(refused)} evacuation inputs that are not what they say, {len(refused)} refusals"
+
+
 @test
 def generalisation_small_cases():
     square = [[0, 0], [0, 0.5], [0, 1], [0.5, 1], [1, 1], [1, 0.5], [1, 0], [0.5, 0], [0, 0]]
@@ -1409,18 +1660,44 @@ def mirror_copies(mirror, name):
 def raw_regeneration_is_byte_for_byte():
     """python3 pipeline/season.py <capture folder>, against what is committed."""
     capture, mirror, through = raw_inputs()
-    folders = load(f"{YEAR}.prov.json")["captureFolders"]
-    state = season.read_raw(capture, mirror, through=through, capture_folders=folders)
+    # The derived evacuation record needs a captured day of the evacuation layer, a third
+    # raw input of its own. SEASON_EVAC points at it; set, the whole tree — that pair
+    # included — must come out byte for byte. Unset, the raw run cannot rebuild that
+    # pair, and exactly those two files, and only as "not produced", are left to its own
+    # gate (tests/evac/check.py) and to `pipeline/season.py --check`; anything else the
+    # raw run fails to rebuild still fails here.
+    evac_at = os.environ.get("SEASON_EVAC")
+    assert evac_at is None or (pathlib.Path(evac_at) / "MANIFEST.json").is_file(), (
+        "SEASON_EVAC names a folder with no MANIFEST.json")
+    kwargs = {"evac_dirs": [evac_at]} if evac_at else {}
+    kwargs["capture_folders"] = load(f"{YEAR}.prov.json")["captureFolders"]
+    state = season.read_raw(capture, mirror, through=through, **kwargs)
     same(state["capture"]["manifest"]["sha256"], PINS["captureManifestSha256"],
          "SEASON_CAPTURE is not the pinned capture")
     files = season.build(state)
     problems = season.drift(files, YEAR, SEASON)
+    evac_pair = {f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
+    if evac_at is None:
+        left = sorted(p.split(":", 1)[0] for p in problems
+                      if p.split(":", 1)[0] in evac_pair)
+        same(left, sorted(evac_pair), "without SEASON_EVAC, the only files not rebuilt")
+        assert all(p.endswith("not produced by the generator") for p in problems
+                   if p.split(":", 1)[0] in evac_pair), (
+            "the evacuation pair was not simply left unbuilt; look at: "
+            + "; ".join(problems))
+        problems = [p for p in problems if p.split(":", 1)[0] not in evac_pair]
     assert not problems, "; ".join(problems)
-    same(files, season.build(season.read_raw(capture, mirror, through=through, capture_folders=folders)), "two runs")
+    same(files, season.build(season.read_raw(capture, mirror, through=through, **kwargs)),
+         "two runs")
     committed = season.build(season.read_committed(YEAR, SEASON))
-    same(sorted(committed), sorted(files), "the two ways of building agree on the files")
-    same(committed, files, "the two ways of building agree on the bytes")
-    return f"{len(files)} files regenerated from the raw inputs, byte for byte, twice"
+    if evac_at:
+        same(committed, files, "the two ways of building agree on the bytes")
+        return (f"{len(files)} files regenerated from the raw inputs, byte for byte, twice, "
+                "evacuation record included")
+    same(sorted(set(committed) - evac_pair), sorted(files),
+         "the two ways of building agree on the fire files")
+    return (f"{len(files)} fire files regenerated from the raw inputs, byte for byte, twice "
+            "(the evacuation pair needs SEASON_EVAC=<evacuation capture folder>)")
 
 
 @test
@@ -1437,18 +1714,23 @@ def raw_capture_record_ignores_new_and_refuses_missing_or_changed():
         doc = json.loads(page.read_bytes())
         doc["features"][0]["properties"]["CURRENT_SIZE"] = 987654
         page.write_text(json.dumps(doc))
-        state = season.read_raw(selected, mirror, through=through, capture_folders=folders)
-        same(season.drift(season.build(state), YEAR, SEASON), [], "new capture is information")
+        state = season.read_raw(selected, mirror, through=through, capture_folders=folders, evac_dirs=([os.environ["SEASON_EVAC"]] if os.environ.get("SEASON_EVAC") else None))
+        problems = season.drift(season.build(state), YEAR, SEASON)
+        if not os.environ.get("SEASON_EVAC"):
+            problems = [p for p in problems if p not in (
+                f"{YEAR}.evac.json: not produced by the generator",
+                f"{YEAR}.evac.prov.json: not produced by the generator")]
+        same(problems, [], "new capture is information")
         victim = root / folders[-1]["folder"]
         manifest = victim / "MANIFEST.json"
         original = manifest.read_bytes()
         manifest.write_bytes(original + b" ")
         altered = raises(lambda: season.read_raw(selected, mirror, through=through,
-                         capture_folders=folders), f"capture '{victim.name}': contents changed")
+                         capture_folders=folders, evac_dirs=([os.environ["SEASON_EVAC"]] if os.environ.get("SEASON_EVAC") else None)), f"capture '{victim.name}': contents changed")
         manifest.write_bytes(original)
         shutil.rmtree(victim)
         missing = raises(lambda: season.read_raw(selected, mirror, through=through,
-                         capture_folders=folders), f"capture '{victim.name}': missing")
+                         capture_folders=folders, evac_dirs=([os.environ["SEASON_EVAC"]] if os.environ.get("SEASON_EVAC") else None)), f"capture '{victim.name}': missing")
     return f"{extra.name}: not in the record; green; {altered}; {missing}"
 
 

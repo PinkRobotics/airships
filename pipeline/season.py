@@ -5,6 +5,7 @@
     python3 pipeline/season.py <capture folder> --check   the same, in memory; exit 1 on any drift
     python3 pipeline/season.py --check                    the gate that needs no raw inputs
     python3 pipeline/season.py --table                    print the impossible-date table
+    python3 pipeline/season.py --evac DIR                 refresh the evacuation record (repeatable)
 
 NO NETWORK. Nothing here opens a socket. Every input is a file somebody already has: a capture
 folder (a complete copy of the BC Wildfire Service's two public layers, with a MANIFEST.json
@@ -29,6 +30,15 @@ Three kinds of copy become a status day. A copy of the live mirror recovered fro
 deploy history is kept byte for byte. The repository's own snapshot is reduced to the mirror's
 property names. A complete capture is filtered the way the mirror filters (status not Out) and
 its perimeters generalised the way the mirror's request generalises them.
+
+THE DERIVED EVACUATION RECORD is a third kind of output, from a third public layer: the
+province's evacuation orders and alerts. It answers one question and no other — which fires
+were EVER under an order or alert, by fire number — from the layer's captured days, with the
+order areas as simplified outlines. It is built by the same run (a captured day of the layer
+is read out of the capture folder, its dated siblings, or folders named by --evac) and carries
+its own provenance sidecar. Fire events only: the layer's other events are counted in the
+sidecar, and the counts of homes and population, the issuing agency and every free-text name
+are dropped on the way in and published nowhere. Open Government Licence - British Columbia is recorded by the provincial catalogue. Rescinded orders leave this current layer for a historical dataset, so a season built from this layer is incomplete by construction.
 
 IMPOSSIBLE DATES ARE KEPT, COUNTED AND FLAGGED: NEVER REPAIRED, NEVER DROPPED. The layer carries
 ignitions in 1429 and 2044, fires out before they started, and one fire a dated record lists two
@@ -87,6 +97,10 @@ PERIM_PROPS = ("FIRE_NUMBER", "FIRE_STATUS", "FIRE_SIZE_HECTARES", "TRACK_DATE")
 SERVICE = "https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/"
 FIRES_SOURCE = SERVICE + "BCWS_ActiveFires_PublicView/FeatureServer/0/query"
 PERIMS_SOURCE = SERVICE + "BCWS_FirePerimeters_PublicView/FeatureServer/0/query"
+# The public evacuation layer: orders and alerts over every kind of event. The derived
+# record below keeps its fire events only, by fire number.
+EVAC_SOURCE = SERVICE + "Evacuation_Orders_and_Alerts/FeatureServer/0/query"
+EVAC_LAYER_URL = EVAC_SOURCE[: -len("/query")]
 CRS = {"type": "name", "properties": {"name": "EPSG:4326"}}
 # What a capture's own status day and the season file both say about a fire that is not out.
 SHARED = ("FIRE_STATUS", "CURRENT_SIZE", "FIRE_CAUSE", "INCIDENT_NAME", "GEOGRAPHIC_DESCRIPTION",
@@ -114,10 +128,16 @@ ATTRIBUTION = "Contains information licensed under the Open Government Licence -
 PUBLISHER = "Province of British Columbia, BC Wildfire Service (Ministry of Forests)"
 CATALOGUE = ["https://catalogue.data.gov.bc.ca/dataset/bc-wildfire-fire-locations-current",
              "https://catalogue.data.gov.bc.ca/dataset/bc-wildfire-fire-perimeters-current"]
+# Recorded terms come from the supplied provincial catalogue, read without fetching.
+EVAC_TERMS = json.loads(pathlib.Path(__file__).with_name("evac-terms.json").read_text())
+EVAC_LICENCE = EVAC_TERMS["licence"]
+EVAC_PUBLISHER = EVAC_TERMS["publisher"]
 NO_ENDORSEMENT = ("The Province of British Columbia does not endorse this project and nothing "
                   "here has official status.")
 NOT_FOR_EMERGENCY = ("Not for emergency use. This is a dated copy of a public record, kept for a "
                      "labelled replay. For a real fire, use the BC Wildfire Service.")
+EVAC_NOT_FOR_EMERGENCY = ("Not for emergency use. For whether an evacuation order or alert is in "
+                          "force, the authority is the agency that issued it, never this file.")
 
 # ---- RULES: the impossible-date policy, in one place ---------------------------------------
 DATE_FLAGS = {
@@ -351,6 +371,200 @@ def read_capture(folder):
     return capture
 
 
+# ---- reading the evacuation captures --------------------------------------------------------
+# The evacuation layer is captured by pipeline/capture.py into the same dated folder as
+# the fire layers (manifest key layers.evacuations, files evacuations.*). The one capture
+# this record was first built from was taken by hand and shaped differently: a flat
+# manifest (no localDate, no layers) with the layer, the count and one page as evac.*.
+# Both shapes are the same requests, so both are read, checked and counted the same way;
+# neither is rewritten on disk, ever.
+EVAC_FILE = re.compile(r"(evacuations|evac)\.(layer\.json|count\.json|page-\d+\.geojson)")
+
+
+def read_evac_capture(folder):
+    """One evacuation capture folder, either shape, checked against its own manifest before
+    a byte of it is believed. Raises SeasonError for a folder that is not one, so callers
+    can distinguish 'not an evacuation capture' by catching it."""
+    folder = pathlib.Path(folder)
+    name = folder.name
+    where = f"evacuation capture '{name}'"
+    manifest = folder / "MANIFEST.json"
+    if not manifest.is_file():
+        raise SeasonError(f"{where}: no MANIFEST.json; is this a capture folder?")
+    raw = manifest.read_bytes()
+    try:
+        man = json.loads(raw)
+        captured = parse_utc(man["capturedAt"])
+    except (KeyError, TypeError, ValueError) as e:
+        raise SeasonError(f"{where}: the manifest does not say when it was taken "
+                          f"({type(e).__name__}: {e})") from None
+    listed = {r["file"]: r for r in man["requests"]}
+    mine = sorted(f for f in listed if EVAC_FILE.fullmatch(f))
+    info = (man.get("layers") or {}).get("evacuations")
+    if info is None and not any(f.startswith("evac.") for f in mine):
+        raise SeasonError(f"{where}: no evacuation layer in it")
+    prefix = "evacuations" if info is not None else "evac"
+    used = []
+
+    def load(file):
+        row = listed.get(file)
+        if row is None:
+            raise SeasonError(f"{where}: MANIFEST.json lists no {file}")
+        data = read_checked(folder / file, row["bytes"], row["sha256"], where)
+        used.append({"name": file, "url": row["url"], "bytes": row["bytes"],
+                     "sha256": row["sha256"]})
+        return json.loads(data)
+
+    meta = load(f"{prefix}.layer.json")
+    zone = (meta.get("dateFieldsTimeReference") or {}).get("timeZone")
+    if zone != "UTC":
+        raise SeasonError(f"{where}: the layer stores dates in {zone!r}; this reads them as "
+                          "UTC and will not guess")
+    count = load(f"{prefix}.count.json").get("count")
+    pages = sorted(f for f in mine if re.fullmatch(re.escape(prefix) + r"\.page-\d+\.geojson", f))
+    features, ids = [], set()
+    for file in pages:
+        for f in load(file).get("features", []):
+            try:
+                oid = f["properties"]["OBJECTID"]
+                f["properties"]["EVENT_TYPE"], f["properties"]["ORDER_ALERT_STATUS"]
+                f["properties"]["EVENT_NUMBER"]
+            except (KeyError, TypeError) as e:
+                raise SeasonError(f"{where}: {file} holds a feature with no {e}") from None
+            if oid in ids:
+                raise SeasonError(f"{where}: OBJECTID {oid} appears twice")
+            ids.add(oid)
+            features.append(f)
+    if info is not None:
+        if info.get("complete") is not True:
+            raise SeasonError(f"{where}: the layer is not marked complete")
+        said = info.get("featuresFetched")
+    else:
+        said = man.get("fetched")
+    if not isinstance(count, int) or len(features) != count or said != len(features):
+        raise SeasonError(f"{where}: {len(features)} features (manifest says {said!r} fetched) "
+                          f"do not match the layer's own count {count!r}")
+    said_day = man.get("localDate")
+    if said_day is None:
+        said_day = local_date(captured)
+    elif said_day != local_date(captured):
+        raise SeasonError(f"{where}: taken {man['capturedAt']}, which is "
+                          f"{local_date(captured)} in {ZONE_NAME}, but its manifest says "
+                          f"{said_day}")
+    url = (info or {}).get("url") or man.get("base")
+    if not isinstance(url, str) or not url.startswith("http"):
+        raise SeasonError(f"{where}: the manifest names no layer URL")
+    return {"name": name, "capturedMs": captured, "localDate": said_day, "url": url.rstrip("/"),
+            "features": features, "manifest": {"bytes": len(raw), "sha256": digest(raw)},
+            "files": used}
+
+
+def evac_rings(geometry):
+    """Every ring of an order area, as a flat list of simplified outlines.
+
+    The layer stores a multi-patch order area as ONE Polygon whose later rings are
+    disjoint patches, not holes — on the 2026-10-02 capture, no ring of either multi-ring
+    order falls inside the first (measured in tests/evac/check.py's fixture). Rather than
+    decide hole-or-patch per feature, every ring becomes its own keep-out patch: where a
+    ring really is a hole that adds area inside an outline that is already held out, and
+    where it is a patch it must be held out on its own. Simplified exactly as the perimeter
+    days are: Douglas-Peucker at GENERALISE_DEG degrees, four decimal places."""
+    if geometry is None:
+        return []
+    kind = geometry.get("type")
+    if kind == "Polygon":
+        polys = [geometry["coordinates"]]
+    elif kind == "MultiPolygon":
+        polys = geometry["coordinates"]
+    else:
+        raise SeasonError(f"an evacuation order area is a {kind}, not a polygon")
+    out = []
+    for poly in polys:
+        for ring in poly:
+            if len(ring) < 4 or ring[0] != ring[-1] or not all(
+                    isinstance(x, (int, float)) and isinstance(y, (int, float))
+                    for x, y in ring):
+                raise SeasonError("an evacuation order area holds a ring that is not a "
+                                  "closed outline of at least four points")
+            out.append([[round(x, COORD_DECIMALS), round(y, COORD_DECIMALS)]
+                        for x, y in generalise_ring(ring)])
+    return out
+
+
+def evac_facts(captures):
+    """The derived evacuation record's facts from the captures: the days, one row per fire
+    number, and the counts. A pure function of what the captures say; build() only adds
+    the words around it, so the committed files rebuild these bytes exactly."""
+    days, fires, other = [], {}, {}
+    order_features = alert_features = order_rings_count = orders_without_geometry = 0
+    for capture in sorted(captures, key=lambda c: (c["localDate"], c["capturedMs"])):
+        where = f"evacuation capture '{capture['name']}'"
+        seen = {}
+        for f in capture["features"]:
+            p = f["properties"]
+            if p["EVENT_TYPE"] != "Fire":
+                other[p["EVENT_TYPE"]] = other.get(p["EVENT_TYPE"], 0) + 1
+                continue
+            n = p["EVENT_NUMBER"]
+            if not isinstance(n, str) or not FIRE_NUMBER.fullmatch(n) or n[0] not in LETTER_CENTRE:
+                raise SeasonError(f"{where}: a fire event carries {n!r}, which is not a fire "
+                                  "number this knows how to read")
+            status = p["ORDER_ALERT_STATUS"]
+            if status not in ("Order", "Alert"):
+                raise SeasonError(f"{where}: fire {n} carries the status {status!r}, which is "
+                                  "neither an order nor an alert")
+            rec = fires.setdefault(n, {"fire": n, "everOrder": False, "everAlert": False,
+                                       "firstSeen": capture["localDate"],
+                                       "lastSeen": capture["localDate"], "orderOutlines": []})
+            rec["firstSeen"] = min(rec["firstSeen"], capture["localDate"])
+            rec["lastSeen"] = max(rec["lastSeen"], capture["localDate"])
+            if status == "Order":
+                order_features += 1
+                rec["everOrder"] = True
+                rings = evac_rings(f.get("geometry"))
+                if not rings:
+                    orders_without_geometry += 1
+                rec["orderOutlines"] += rings
+                order_rings_count += len(rings)
+            else:
+                alert_features += 1
+                rec["everAlert"] = True
+            seen[n] = seen.get(n, 0) + 1
+        days.append({"date": capture["localDate"], "capturedAt": iso_utc(capture["capturedMs"]),
+                     "features": len(capture["features"]),
+                     "url": capture["url"], "manifest": capture["manifest"],
+                     "files": capture["files"]})
+    # the last capture of each local date is the day; anything it superseded is named on it.
+    # Fires are read from EVERY capture, superseded ones included: a later copy of the same
+    # date cannot unsee what an earlier one saw.
+    by_date, superseded = {}, {}
+    for day in days:
+        if day["date"] in by_date:
+            superseded.setdefault(day["date"], []).append(by_date[day["date"]]["capturedAt"])
+        by_date[day["date"]] = day
+    kept = []
+    for date in sorted(by_date):
+        if date in superseded:
+            by_date[date]["supersededAt"] = superseded[date]
+        kept.append(by_date[date])
+    return {
+        "days": kept,
+        "fires": sorted(fires.values(), key=lambda r: (sequence(r["fire"]), r["fire"])),
+        "counts": {
+            "features": sum(d["features"] for d in kept),
+            "fireFeatures": order_features + alert_features,
+            "fireNumbers": len(fires),
+            "everOrderFires": sum(r["everOrder"] for r in fires.values()),
+            "everAlertFires": sum(r["everAlert"] for r in fires.values()),
+            "orderFeatures": order_features,
+            "alertFeatures": alert_features,
+            "orderOutlines": order_rings_count,
+            "ordersWithoutGeometry": orders_without_geometry,
+            "otherEventTypes": dict(sorted(other.items())),
+        },
+    }
+
+
 def yes_no(value, what):
     if value in ("Y", "Yes"):
         return True
@@ -502,7 +716,27 @@ def recorded_captures(root, record):
     return [root / entry["folder"] for entry in record]
 
 
-def read_raw(capture_dir, mirror_dir=None, snapshot=SNAPSHOT, through=None, capture_folders=None):
+def evac_probe(folder):
+    """(the folder's local date or None, does it hold an evacuation layer), from the
+    manifest alone, without validating anything. A capture later than --through is not
+    read at all, on either side of this file, so its completeness is nobody's business
+    yet."""
+    try:
+        man = json.loads((pathlib.Path(folder) / "MANIFEST.json").read_bytes())
+    except (OSError, ValueError):
+        return None, False
+    has = ("evacuations" in (man.get("layers") or {})) or any(
+        EVAC_FILE.fullmatch(r.get("file", "")) for r in man.get("requests") or [])
+    date = man.get("localDate")
+    if date is None and isinstance(man.get("capturedAt"), str):
+        try:
+            date = local_date(parse_utc(man["capturedAt"]))
+        except (SeasonError, ValueError):
+            date = None
+    return date, has
+
+
+def read_raw(capture_dir, mirror_dir=None, snapshot=SNAPSHOT, through=None, evac_dirs=None, capture_folders=None):
     """Everything that cannot be rebuilt without the raw inputs, and nothing else."""
     capture_dir = pathlib.Path(capture_dir)
     siblings = (recorded_captures(capture_dir.parent, capture_folders)
@@ -533,6 +767,25 @@ def read_raw(capture_dir, mirror_dir=None, snapshot=SNAPSHOT, through=None, capt
             if said is not None and said <= through:
                 candidates.append(day_from_capture(read_capture(sibling)))
                 used.append(capture_fingerprint(sibling))
+    # The evacuation captures: the season capture's own folder (once capture.py writes the
+    # third layer into it) and any sibling that holds one, both probed and gated by
+    # --through like every other sibling, so a capture taken tomorrow cannot move today's
+    # files. A folder named by --evac is read as named — no probe, no date gate, because
+    # the capture it names is deliberately later than the season's own (the evacuation
+    # record's first capture is dated after the last status day) — and if it is not an
+    # evacuation capture its own refusal says so, in words.
+    evac = []
+    for folder in [pathlib.Path(d) for d in (evac_dirs or [])]:
+        evac.append(read_evac_capture(folder))
+    for folder in siblings:
+        date, has = evac_probe(folder)
+        if not has or (date is not None and date > through):
+            continue
+        try:
+            evac.append(read_evac_capture(folder))
+        except SeasonError as e:
+            if "no evacuation layer in it" not in str(e):
+                raise
     days = {}
     for day in sorted(candidates, key=lambda d: d["ms"]):
         if day["date"] > through:
@@ -554,6 +807,7 @@ def read_raw(capture_dir, mirror_dir=None, snapshot=SNAPSHOT, through=None, capt
         "captureFolders": used,
         "days": [days[d] for d in sorted(days)],
         "mirrorHistory": history,
+        "evac": evac_facts(evac) if evac else None,
     }
 
 
@@ -605,11 +859,19 @@ def read_committed(year, season_dir=SEASON_DIR, snapshot=SNAPSHOT):
                        "perims": committed(entry["perims"]["file"])}
             days.append(day)
         capture = season["capture"]
+        # The derived evacuation record rebuilds from its own published facts, exactly as
+        # the fire records do: the days, one row per fire number, and the counts. Nothing
+        # derived is read back — build() makes the file again around them.
+        evac = None
+        if (season_dir / f"{year}.evac.json").is_file():
+            doc = json.loads(committed(f"{year}.evac.json"))
+            evac = {"days": doc["days"], "fires": doc["fires"], "counts": doc["counts"]}
         return {"year": season["season"],
                 "capture": {"capturedAt": capture["capturedAt"], "layer": capture["layer"],
                             "manifest": capture["manifest"], "files": capture["files"]},
                 "records": records, "days": days, "mirrorHistory": index.get("mirrorHistory"),
-                "captureFolders": json.loads(committed(f"{year}.prov.json"))["captureFolders"]}
+                "captureFolders": json.loads(committed(f"{year}.prov.json"))["captureFolders"],
+                "evac": evac}
     except (KeyError, TypeError, ValueError) as e:
         raise SeasonError(f"the {year} season files are not in the shape the generator "
                           f"writes ({type(e).__name__}: {e})") from None
@@ -721,6 +983,124 @@ def centre_of(number):
 
 def under_1ha(size):
     return size is not None and size < 1
+
+
+def build_evac_files(year, facts):
+    """The derived evacuation record and its provenance sidecar, from the facts evac_facts()
+    produces. A pure function of the facts: read_raw() and read_committed() must hand it the
+    same facts or the gate is red."""
+    days, fires, counts = facts["days"], facts["fires"], facts["counts"]
+    other = ", ".join(f"{v} {k}" for k, v in counts["otherEventTypes"].items()) or "none"
+    doc = {
+        "season": year,
+        "what": f"Which fires of British Columbia's {year} wildfire season were ever under an "
+                "evacuation order or an evacuation alert, by fire number, reduced from the "
+                "captured days of the province's public evacuation layer. Generated, never "
+                "typed: pipeline/season.py --check recomputes this file from committed files. "
+                "Read the notes before using a value.",
+        "timeZone": ZONE_NAME,
+        "toleranceDeg": GENERALISE_DEG,
+        "toleranceNote":
+            f"orderOutlines are simplified outlines (Douglas-Peucker at {GENERALISE_DEG} "
+            f"degrees, {COORD_DECIMALS} decimal places), one outline per patch of the order "
+            "area. The layer stores a multi-patch area as one polygon whose later rings are "
+            "disjoint patches rather than holes; every ring is kept as its own outline, which "
+            "where a ring really is a hole only adds ground already inside the order area.",
+        "days": days,
+        "fires": fires,
+        "counts": counts,
+        "fields": {
+            "fire": "FIRE-reading of EVENT_NUMBER: the fire's own number, the same key every "
+                    "other season file sorts by. Fires are sorted by that sequence.",
+            "everOrder": "True when any captured day showed the fire under an evacuation "
+                         "order. EVER: a rescinded order still counts.",
+            "everAlert": "True when any captured day showed the fire under an evacuation "
+                         "alert, order or not.",
+            "firstSeen": "The first captured day on which the fire appears in the layer as a "
+                         "fire event, under an order or an alert.",
+            "lastSeen": "The last captured day on which it so appears.",
+            "orderOutlines": "The simplified outlines of the ORDER areas for this fire, one "
+                             "per patch, across every captured day; empty when it was never "
+                             "under an order. An alert carries no outline.",
+        },
+        "notes": [
+            "EVER. everOrder and everAlert are over every captured day in days, and a fire "
+            "that was under an order on any of them carries everOrder true for good: the "
+            "layer moves fires out when orders are rescinded, and this record keeps what the "
+            "captured days showed. The question this file answers is which fires were ever "
+            "under an order or alert, never whether one is in force now.",
+            EVAC_TERMS["scope"],
+            "fire events only. The layer also carries evacuation orders and alerts for other "
+            f"kinds of event ({other} on the captured days); they are counted in "
+            "counts.otherEventTypes and otherwise left out.",
+            "NOT PUBLISHED: the layer's counts of homes and population, the issuing agency, "
+            "the order's own name and the event's free-text name are dropped on the way in, "
+            "and appear in no file this project carries.",
+            "days is every captured day of the layer this record was built from, the last "
+            "capture of each local date, with the manifest and file hashes that let anyone "
+            "holding the same bytes prove theirs are these. A captured day adds no status "
+            "day to the season's day index: it holds evacuation features only.",
+            f"The Information was modified: fire events reduced to number, statuses and "
+            f"dates, order areas simplified to {GENERALISE_DEG} degrees. " + NO_ENDORSEMENT,
+        ],
+        "publisher": EVAC_PUBLISHER,
+        "licence": EVAC_LICENCE,
+        "notForEmergencyUse": EVAC_NOT_FOR_EMERGENCY,
+    }
+    data = render(doc)
+    last = days[-1]
+    inputs = []
+    for day in days:
+        inputs.append({"what": f"evacuation capture {day['date']}: the manifest naming each "
+                               "request and its sha256",
+                       "retrievedAt": day["capturedAt"], **day["manifest"]})
+        inputs += [{"what": f"evacuation capture {day['date']}: capture file {f['name']}",
+                    "retrievedAt": day["capturedAt"], "bytes": f["bytes"],
+                    "sha256": f["sha256"]} for f in day["files"]]
+    prov = {
+        "file": f"{year}.evac.json",
+        "description":
+            f"British Columbia's {year} wildfire season as data: the fires ever under an "
+            f"evacuation order or alert, by fire number. {year}.evac.json: {counts['fireNumbers']} "
+            f"fires ({counts['everOrderFires']} ever under an order, "
+            f"{counts['everAlertFires']} ever under an alert of any kind), reduced from "
+            f"{counts['features']} features on {len(days)} captured day(s) of the province's "
+            "public evacuation layer. This sidecar covers that file.",
+        "source": sorted({f["url"] for day in days for f in day["files"]}),
+        "catalogue": ["https://catalogue.data.gov.bc.ca/dataset/evacuation-orders-and-alerts"],
+        "publisher": EVAC_PUBLISHER,
+        "licence": EVAC_LICENCE,
+        "licenceUrl": EVAC_TERMS["licenceUrl"],
+        "attribution": ATTRIBUTION,
+        "retrievedAt": last["capturedAt"],
+        "generator": "pipeline/season.py",
+        "notes":
+            "Regenerate with: python3 pipeline/season.py --evac <evacuation capture folder> "
+            "(no network). The raw inputs are not in the repository: evacuation capture "
+            "folders with a MANIFEST.json, either the shape pipeline/capture.py writes "
+            "(layers.evacuations, files evacuations.*) or the flat hand-captured shape "
+            "(files evac.*), and every raw input is named under inputs by sha256 and size. "
+            f"Counts, as the derived file also states them: {counts['features']} features, "
+            f"{counts['fireFeatures']} of them fire events on {counts['fireNumbers']} fire "
+            f"numbers ({counts['orderFeatures']} order features, {counts['alertFeatures']} "
+            f"alert features, {counts['ordersWithoutGeometry']} order features with no "
+            f"geometry); the other event types are {other}. "
+            + EVAC_TERMS["scope"] + " " +
+            "Modifications: fire events reduced to number, order/alert status and first and "
+            "last captured day; order areas simplified per the derived file's toleranceNote "
+            "with every ring kept as its own patch; homes and population counts, the issuing "
+            "agency and free-text names dropped, never carried into any file. The Information "
+            "was modified. " + NO_ENDORSEMENT + " " + EVAC_NOT_FOR_EMERGENCY,
+        "inputs": inputs,
+        "outputs": [{"file": f"{year}.evac.json", "bytes": len(data), "sha256": digest(data)}],
+    }
+    prov.update(decision="redistributed", licenceStatement=EVAC_LICENCE,
+                licenceEvidence=EVAC_TERMS["evidence"],
+                licenceReason="Redistribution under the recorded provincial catalogue terms.",
+                sha256=digest(data), measurements={"bytes": len(data)},
+                documentation=json.loads(pathlib.Path(__file__).with_name("evac-notes.json").read_text()))
+    return {f"{year}.evac.json": data,
+            f"{year}.evac.prov.json": (json.dumps(prov, indent=2) + "\n").encode("ascii")}
 
 
 def build(state):
@@ -1090,6 +1470,10 @@ def build(state):
         files[f"days/{d['date']}/fires.json"] = d["fires"]
         files[f"days/{d['date']}/perims.json"] = d["perims"]
     files[f"{year}.prov.json"] = provenance(year, cap, state, days, summary, files)
+    if state.get("evac"):
+        # added after the fire provenance is built, so that sidecar covers the fire files
+        # only and the evacuation pair, like the guard files, carries its own
+        files.update(build_evac_files(year, state["evac"]))
     return files
 
 
@@ -1278,6 +1662,13 @@ def main(argv=None):
     ap.add_argument("--mirror-history", metavar="DIR",
                     help="recovered live-mirror copies (default: ../../mirror-history from "
                          "the capture folder)")
+    ap.add_argument("--evac", metavar="DIR", action="append",
+                    help="an evacuation capture folder (raw input; repeatable), either the "
+                         "shape pipeline/capture.py writes or the flat hand-captured shape. "
+                         "With no capture folder: refresh the derived evacuation record "
+                         "against the committed season files. Without this flag, a raw run "
+                         "reads the evacuation layer out of the capture folder and its "
+                         "dated siblings")
     ap.add_argument("--through", metavar="YYYY-MM-DD",
                     help="last status day to produce (default: the capture's own local date)")
     ap.add_argument("--check", action="store_true",
@@ -1297,14 +1688,21 @@ def main(argv=None):
                 record = read_committed(year, args.out, args.snapshot)
                 folders = record["captureFolders"]
                 through = through or record["days"][-1]["date"]
-            states = [read_raw(args.capture, args.mirror_history, args.snapshot, through, folders)]
+            states = [read_raw(args.capture, args.mirror_history, args.snapshot, through, args.evac, capture_folders=folders)]
         else:
-            if not (args.check or args.table):
-                ap.error("give a capture folder to regenerate from, or --check, or --table")
+            if not (args.check or args.table or args.evac):
+                ap.error("give a capture folder to regenerate from, or --evac, or --check, "
+                         "or --table")
             years = committed_years(args.out)
             if not years:
                 raise SeasonError(f"no season file under {pathlib.Path(args.out).name}/")
             states = [read_committed(y, args.out, args.snapshot) for y in years]
+            if args.evac:
+                # a refresh of the evacuation record alone: the committed season supplies
+                # everything else, byte for byte as it stands
+                evac = evac_facts([read_evac_capture(d) for d in args.evac])
+                for state in states:
+                    state["evac"] = evac
         status = 0
         for state in states:
             year = state["year"]
@@ -1326,7 +1724,7 @@ def main(argv=None):
                     print(f"season: {year}: {len(files)} files match a regeneration from "
                           f"{basis} ({season['total']:,} fires, "
                           f"{len(state['days'])} status days)")
-            elif args.capture:
+            elif args.capture or args.evac:
                 changed, strays = write(files, year, args.out)
                 print(f"season: {year}: {len(files)} files, {changed} written "
                       f"({season['total']:,} fires, {len(state['days'])} status days: "

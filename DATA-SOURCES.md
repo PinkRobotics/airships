@@ -6,7 +6,7 @@ The fleet is simulated and never flew. The fire data is real; nothing here says 
 
 redistributed: included under the recorded terms; link-only: the public repository retains the source and hash, not the file; withheld: excluded pending author review; to-confirm: excluded until a person confirms the terms. Excluded records are an audit trail, not a redistribution notice or a claim of permission. The wind record describes an unbundled server service, not a repository file.
 
-79 file records: 63 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
+80 file records: 64 redistributed, 13 link-only, 2 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
 
 ## Per-file decisions
 
@@ -19,6 +19,7 @@ redistributed: included under the recorded terms; link-only: the public reposito
 | data/live/wind.json | Open-Meteo, with underlying national weather services | CC BY 4.0 for the forecast data; API-use terms separately govern the operator | link-only | data/wind.prov.json; recorded reference https://open-meteo.com/en/license. One request on 2026-10-02 returned no readable text; prior wording retained, not freshly verified. |
 | data/roads-bc.json | Natural Earth | public domain | redistributed | https://www.naturalearthdata.com/about/terms-of-use/; publisher Terms of Use, read 2026-10-02. |
 | data/season/2026.days.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
+| data/season/2026.evac.json | GeoBC Branch | Open Government Licence - British Columbia | redistributed | The supplied provincial catalogue record, title &quot;Evacuation Orders and Alerts&quot;, organisation &quot;GeoBC Branch&quot;, licence &quot;Open Government Licence - British Columbia&quot;, licence URL https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61, record modified 2026-10-01 (metadata modified 2026-10-02T00:00:39.401558); SHA-256 06ab9bf2904251cd9eaff9f5f76d28bb2f9672d68e93b2a9177d0ff977ed0759. The lead read this record on 2 October 2026 with one request. The supplied filename records no retrieval time. |
 | data/season/2026.guard.json | Pink Robotics | Apache-2.0, the code licence (see LICENSE): this is the project&#x27;s own editorial file, not agency data | redistributed | LICENSE; project-authored list compiled by hand, not agency data. |
 | data/season/2026.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/2026.summary.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
@@ -290,6 +291,34 @@ redistributed: included under the recorded terms; link-only: the public reposito
 **Measured contents:** 13,930 bytes
 
 **Record:** data/season/2026.prov.json
+
+### data/season/2026.evac.json
+
+**Decision:** redistributed
+
+**Publisher:** GeoBC Branch
+
+**Licence:** Open Government Licence - British Columbia
+
+**Licence statement:** Open Government Licence - British Columbia
+
+**Statement evidence:** The supplied provincial catalogue record, title &quot;Evacuation Orders and Alerts&quot;, organisation &quot;GeoBC Branch&quot;, licence &quot;Open Government Licence - British Columbia&quot;, licence URL https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61, record modified 2026-10-01 (metadata modified 2026-10-02T00:00:39.401558); SHA-256 06ab9bf2904251cd9eaff9f5f76d28bb2f9672d68e93b2a9177d0ff977ed0759. The lead read this record on 2 October 2026 with one request. The supplied filename records no retrieval time.
+
+**Terms address:** https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61
+
+**Attribution:** Contains information licensed under the Open Government Licence - British Columbia.
+
+**Source:** https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/Evacuation_Orders_and_Alerts/FeatureServer/0/query?where=1%3D1&amp;outFields=%2A&amp;returnGeometry=true&amp;outSR=4326&amp;orderByFields=OBJECTID&amp;resultOffset=0&amp;resultRecordCount=1000&amp;f=geojson<br>https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/Evacuation_Orders_and_Alerts/FeatureServer/0/query?where=1%3D1&amp;returnCountOnly=true&amp;f=json<br>https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/Evacuation_Orders_and_Alerts/FeatureServer/0?f=json
+
+**SHA-256:** 8c8318d86a467581d26f2ba5d9550e874f0bb9cc8efa4fc4be53e0118b4cecc3
+
+**Decision reason:** Redistribution under the recorded provincial catalogue terms.
+
+**Processing and caveats:** Regenerate with: python3 pipeline/season.py --evac &lt;evacuation capture folder&gt; (no network). The raw inputs are not in the repository: evacuation capture folders with a MANIFEST.json, either the shape pipeline/capture.py writes (layers.evacuations, files evacuations.*) or the flat hand-captured shape (files evac.*), and every raw input is named under inputs by sha256 and size. Counts, as the derived file also states them: 16 features, 10 of them fire events on 6 fire numbers (5 order features, 5 alert features, 0 order features with no geometry); the other event types are 2 Flood, 4 Landslide. Rescinded orders leave this current layer for a historical dataset, so a season built from this layer is incomplete by construction. Modifications: fire events reduced to number, order/alert status and first and last captured day; order areas simplified per the derived file&#x27;s toleranceNote with every ring kept as its own patch; homes and population counts, the issuing agency and free-text names dropped, never carried into any file. The Information was modified. The Province of British Columbia does not endorse this project and nothing here has official status. Not for emergency use. For whether an evacuation order or alert is in force, the authority is the agency that issued it, never this file.
+
+**Measured contents:** 10,641 bytes
+
+**Record:** data/season/2026.evac.prov.json
 
 ### data/season/2026.guard.json
 
@@ -2457,3 +2486,39 @@ ending — is enforced in code (`sim/guard.js`) but carried as data, so that wid
 window or softening a distance is an edit anyone can see. `tests/guard/` pins the file's
 canonical digest, which makes that edit a deliberate two-place change, and the monitor
 stands its fleet down rather than flying when the file cannot be read.
+
+## 11. GeoBC Branch — public evacuation orders and alerts, the derived ever-record
+
+**What it is.** `data/season/2026.evac.json`: which fires of the 2026 season were ever
+under an evacuation order or an evacuation alert, by fire number, with each order's area as
+a simplified outline. It is generated by `pipeline/season.py --evac` from captured days of
+the province's public evacuation orders and alerts layer — the same ArcGIS host as the
+fire layers of section 1 — and `make evaccheck` regenerates it byte for byte. The monitor's
+guard reads it beside the hand list of section 10, and the stricter of the two always wins.
+
+**Publisher.** GeoBC Branch, Province of British Columbia.
+
+**Licence.** Open Government Licence - British Columbia. The supplied provincial catalogue record, title "Evacuation Orders and Alerts", organisation "GeoBC Branch", licence "Open Government Licence - British Columbia", licence URL https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61, record modified 2026-10-01 (metadata modified 2026-10-02T00:00:39.401558); SHA-256 06ab9bf2904251cd9eaff9f5f76d28bb2f9672d68e93b2a9177d0ff977ed0759. The lead read this record on 2 October 2026 with one request. The supplied filename records no retrieval time. Rescinded orders leave this current layer for a historical dataset, so a season built from this layer is incomplete by construction.
+
+**Where it came from.** One capture of the layer, taken once at 2026-10-02T07:08:47Z
+(16 features, three requests: layer definition, count, one page of features). The raw
+copy is not in the repository; `2026.evac.prov.json` names each input file by sha256 and
+size. A committed trim of the capture, carrying only what the derivation reads, sits at
+`tests/evac/fixtures/` so the gate can regenerate the record without the raw inputs.
+`pipeline/live.py` also mirrors this layer once an hour for the live view — fire events
+only, the same minimal fields, reduced before it is written.
+
+**How it was processed.** The Information was modified. Fire events only (the layer's
+flood and landslide events are counted in the sidecar and otherwise left out); reduced to
+the fire number, order/alert, the first and last captured day each fire was seen, and the
+order areas simplified to 0.002 degrees with every ring kept as its own patch. The layer's
+counts of homes and population, the issuing agency, the order's own name and the event's
+free-text name are dropped on the way in and appear in no file this project carries;
+`tests/evac/check.py` refuses them anywhere in the tracked tree.
+
+**No endorsement.** The Province of British Columbia does not endorse this project or any
+use made of this layer, and nothing here has official status.
+
+**Not for emergency use.** This is a dated record of what captured days showed, and
+"ever" is its question — never whether an order is in force now. For whether an evacuation
+order or alert is in force, the authority is the agency that issued it, never this file.

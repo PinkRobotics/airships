@@ -22,7 +22,7 @@
  * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
-import { dropSeg, dayKind, guardedFire, havKm, insideFire, loadGuard, noteKm, planTargets, pointBlocked } from '../sim/index.js?v=26282d19';
+import { dropSeg, dayKind, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, noteKm, planTargets, pointBlocked } from '../sim/index.js?v=26282d19';
 import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=26282d19';
 import { renderDrawer } from './cockpit/panels.js?v=26282d19';
 import { vancouverClock, vancouverDate } from './dates.js?v=26282d19';
@@ -141,13 +141,18 @@ export function loadSeason() {
   if (seasonOnce) return seasonOnce;
   seasonOnce = (async () => {
     const fail = [];
-    let daysIdx = null, guardDoc = null, seasonDoc = null;
+    let daysIdx = null, guardDoc = null, seasonDoc = null, evacDoc = null;
     try { daysIdx = await fetchJSON("data/season/2026.days.json", 20000); }
     catch (e) { fail.push("season index: " + why(e)); }
     try { guardDoc = await fetchJSON("data/season/2026.guard.json", 20000); }
     catch (e) { fail.push("guard file: " + why(e)); }
     try { seasonDoc = await fetchJSON("data/season/2026.json", 30000); }
     catch (e) { fail.push("season record: " + why(e)); }
+    // The derived evacuation record is guard data like the guard file itself: read by
+    // loadEvac, which fails closed in words. A fetch that failed hands loadEvac a null doc,
+    // which refuses — a missing record is not "no fires under order".
+    try { evacDoc = await fetchJSON("data/season/2026.evac.json", 20000); }
+    catch (e) { fail.push("evacuation record: " + why(e)); }
     const seasonNumbers = new Set(), seasonOfNote = new Set();
     if (seasonDoc && Array.isArray(seasonDoc.fires))
       for (const f of seasonDoc.fires) {
@@ -160,12 +165,36 @@ export function loadSeason() {
     S.dayList = daysIdx && Array.isArray(daysIdx.days)
       ? daysIdx.days.filter(d => d && typeof d.date === "string" && d.fires && d.fires.file && d.perims && d.perims.file)
       : [];
+    S.evacSeason = loadEvac(evacDoc);
+    S.evacFrom = "season";
+    S.guardDoc = guardDoc;
+    S.guardCtx = seasonDoc ? { seasonNumbers, seasonOfNote } : {};
     // loadGuard never throws: a malformed or missing file becomes {ok:false, reason} in
     // words, and every caller below reads that as "the fleet stands down".
-    S.guard = loadGuard(guardDoc, seasonDoc ? { seasonNumbers, seasonOfNote } : {});
+    S.guard = loadGuard(guardDoc, { ...S.guardCtx, evac: S.evacSeason });
     S.seasonNote = fail.length ? fail.join("; ") : null;
   })();
   return seasonOnce;
+}
+
+/* The live evacuation mirror. pipeline/live.py writes it in the mirror's wrapping but
+ * reduced — {fetchedAt, source, data: {fires: [...]}} — so it is read here with the same
+ * staleness gate as the other mirrors (net.mirrorJSON guards a feature collection; this
+ * copy is not one). Any failure of the ENVELOPE — not answering, stale, not a mirror
+ * document — is the fall-back case: the season's captured record keeps governing and the
+ * guard note says which copy was read. A copy that parses but cannot be READ (loadEvac's
+ * own checks) is a refusal, not a fall-back. */
+async function mirrorEvac(maxAgeMin) {
+  const j = await fetchJSON("data/live/evac.json?ts=" + Math.floor(Date.now() / 300000), 12000);
+  if (!j || typeof j !== "object" || Array.isArray(j) || !j.data || typeof j.data !== "object")
+    throw new Error("the evacuation mirror is not a mirror document");
+  const at = Date.parse(j.fetchedAt);
+  const age = Date.now() - at;
+  if (!Number.isFinite(at) || age < -600000)
+    throw new Error("the evacuation mirror has no usable fetchedAt");
+  if (age >= maxAgeMin * 60000)
+    throw new Error("the evacuation mirror is " + Math.round(age / 60000) + " min old, past its " + maxAgeMin + " min gate");
+  return j.data;
 }
 
 /* R3 on one line: mark every guarded fire in view. f.guarded is the reason object exactly
@@ -344,6 +373,15 @@ export async function loadLive() {
     // answered: an empty collection draws nothing and must not be described as perimeters.
     S.perimsOk = usable(perims && perims.data);
     S.unknownDay = null;
+    // The evacuation record a live view is guarded by: the season's ever-record, widened by
+    // the mirror's copy when it answered (V4). A mirror copy that is missing or stale keeps
+    // the season's record and the note says so; a copy that answered but cannot be read
+    // stands the whole guard down, by loadEvac's own words.
+    let evacDoc = null;
+    try { evacDoc = await mirrorEvac(90); } catch (e) { /* the season's copy answers */ }
+    const joined = liveEvac(S.evacSeason, evacDoc);
+    S.evacFrom = joined.from;
+    S.guard = loadGuard(S.guardDoc, { ...S.guardCtx, evac: joined.state });
     // R2: live is a fleet view unless today, in Vancouver, is inside a no-fleet window.
     setView(null, null);
     return applyGuard(normalize(got.data, perims && perims.data));
@@ -400,12 +438,20 @@ export function modeWords() {
 
 /* The guard note (R7), in the words the ruling fixed: the layers panel carries it beside
  * the data note, and the cockpit gives a guarded fire this same reason — never "queued",
- * never "the allocator gave this fire no ship", because neither is true. */
+ * never "the allocator gave this fire no ship", because neither is true. The evacuation
+ * sentence names the province's own public record as the reason those fires are held out
+ * (V5: one sentence, plain words, no community named); on a live view reading the season's
+ * captured copy because the mirror's is missing or stale, the sentence says that too. */
 export function guardNoteWords() {
   if (S.exercise) return EXERCISE_NOTE;
+  const clause = S.daySource === "live" && S.evacFrom !== "live"
+    ? ", read here from the season's captured copy because the live copy is missing or stale"
+    : "";
   return "The simulated fleet never works a fire that was a wildfire of note or led to an " +
     "evacuation order or alert, and it keeps " + noteKm(S.guard) + " km from those that " +
-    "forced people out. The list and its sources are in data/season/2026.guard.json.";
+    "forced people out. Fires ever under an evacuation order or alert are held out by the " +
+    "province's own public record of orders and alerts" + clause +
+    ". The list and its sources are in data/season/2026.guard.json.";
 }
 
 export async function fetchWind() {

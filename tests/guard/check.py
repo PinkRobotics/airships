@@ -100,10 +100,17 @@ def fleet_sentence(day):
         r"not water arrived, and nothing here says any fire would have burned differently\.$")
 
 
+# The guard note carries one more sentence, plain words naming the province's own
+# public record of orders and alerts as what holds those fires out — no community, no count
+# of homes, no person, nothing counterfactual. On a live view reading the season's captured
+# copy because the mirror's is missing or stale, that sentence gains one trailing clause
+# instead of a second sentence; the views pinned here are day views, which never carry it.
 GUARD_NOTE = re.compile(
     r"^The simulated fleet never works a fire that was a wildfire of note or led to an "
     rf"evacuation order or alert, and it keeps {PIN['noteKm']} km from those that forced "
-    r"people out\. The list and its sources are in data/season/2026\.guard\.json\.$")
+    r"people out\. Fires ever under an evacuation order or alert are held out by the "
+    r"province's own public record of orders and alerts\. The list and its sources are in "
+    r"data/season/2026\.guard\.json\.$")
 # The one place "would have" is allowed is inside the mandated fleet sentence itself, whose
 # whole point is to refuse the claim. The sentence is stripped before the scan.
 MANDATED_FLEET = re.compile(

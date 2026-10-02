@@ -6,10 +6,10 @@ from its sources by anyone, rather than taken on trust.
 
 | Script | Produces | Run it when |
 |---|---|---|
-| `live.py` | fire, perimeter, heat and hourly wind mirrors (gitignored) | continuously, from a timer, if you host the page |
+| `live.py` | fire, perimeter, heat, hourly wind and evacuation mirrors (gitignored) | continuously, from a timer, if you host the page |
 | `vectors.py` | pinned Natural Earth roads, outline and provenance sidecars | to reproduce the map vectors |
-| `capture.py` | dated raw captures under a root you name | once a day during the season, from a timer |
-| `season.py` | `data/season/`: one record per fire and the dated status days | after a new dated capture; it reads files and never the network |
+| `capture.py` | dated raw captures of the fire, perimeter and evacuation layers under a root you name | once a day during the season, from a timer |
+| `season.py` | `data/season/`: one record per fire, the dated status days, and (`--evac`) the fires ever under an evacuation order or alert | after a new dated capture; it reads files and never the network |
 | `firehistory.py` | `data/fire-history-bc.json` | to refresh the twenty-season history; rarely |
 | `water.py` | `data/water-bc.json` | the BC freshwater atlas is updated — rarely |
 | `terrain.py` | `data/terrain-bc.jpg` | never, in practice; the hillshade is static |
@@ -38,7 +38,11 @@ service. So `live.py` fetches once per interval on the server, writes the result
 `data/live/`, and the page reads that. The browser falls back only to the dated `data/snapshot.json` if the fire mirror is missing
 or stale, and says which tier answered. Heat snapshots accompany snapshot fires; an absent
 heat mirror beside live fires means no heat overlay. Wind uses a fixed 5×5 grid, with one
-server request an hour (failed attempts included). Missing or stale wind means labelled
+server request an hour (failed attempts included). The public evacuation orders and alerts
+layer is one request an hour too — fire events only, reduced to the derived record's own
+minimal fields before it is written, because orders change by the day, not the minute. A
+missing or stale evacuation copy leaves the page guarded by the season's captured record,
+and the page says so. Missing or stale wind means labelled
 still air. Run a single mirror timer; the script locks concurrent invocations.
 
 Run it from a timer every ten minutes. The freshness rules are inside the script, not in the
@@ -46,11 +50,12 @@ timer, so running it more often costs upstream nothing.
 
 ## The daily season capture, and why it is daily
 
-`capture.py` saves one dated, complete copy of BC Wildfire Service's two public
-current-season layers — fire incidents and fire perimeters — raw, as the service returns
-them. It captures the *whole* layer, out fires included, which is exactly what `live.py`
-deliberately does not do: the mirror keeps only what a visitor wants to see on the map
-right now, while the capture keeps what the season actually looked like that day.
+`capture.py` saves one dated, complete copy of BC Wildfire Service's public
+current-season layers — fire incidents, fire perimeters, and evacuation orders and alerts —
+raw, as the service returns them. It captures the *whole* layer, out fires included, which
+is exactly what `live.py` deliberately does not do: the mirror keeps only what a visitor
+wants to see on the map right now, while the capture keeps what the season actually looked
+like that day. A capture is complete only when all three layers are.
 
 The reason it must run every day is that the province's public layer carries only each
 fire's CURRENT status, and a season moves into the historical layer only on April 1. The
@@ -67,10 +72,11 @@ layer's own count, the run says `INCOMPLETE`, keeps the raw responses, records
 `complete: false`, and exits 1 — an honest capture that knows it is short, not a green
 exit on a gap.
 
-**The request budget of one run, plainly: nine requests** on 2026-10-01 (five for
-incidents, four for perimeters) — three fixed requests per layer (description, count,
-status tally) plus one per page at the layer's own page size of 1000 features. It grows
-by one for each additional page a busy season adds, and by nothing else.
+**The request budget of one run, plainly: twelve requests** on 2026-10-02 (five for
+incidents, four for perimeters, three for the evacuation layer) — three fixed requests per
+fire layer (description, count, status tally) plus one per page at the layer's own page
+size of 1000 features, and for the evacuation layer its description, count and pages. It
+grows by one for each additional page a busy season adds, and by nothing else.
 
 Politeness to the service is in the tool, not left to the caller: a 1.5 s pause between
 requests (`--pause` to change it), one retry after a pause when a request fails, and a

@@ -299,3 +299,16 @@ guardcheck:  ## The no-fleet window and the guarded fires must hold, on file and
 .PHONY: exercisecheck
 exercisecheck:  ## Invented exercise: deterministic geography, labels and all-date guard
 	$(PY) tests/exercise/check.py
+
+# The evacuation gate: the ever-under-order-or-alert record is generated data,
+# not a hand list. The committed pair data/season/2026.evac.json + .prov.json must
+# regenerate byte for byte — from the committed trimmed capture when the raw one is not
+# here, and from inputs/evac-capture/ (untracked, taken by the lead) when it is; that one
+# test reports itself SKIPPED, by name, on machines without the capture. The published
+# record carries only its minimal fields, the layer's homes/population/agency fields are
+# refused in every tracked file, every fire number resolves in the season record, the
+# hand-vs-data tier cross-check is computed a second way, and the live mirror is held to
+# the same minimal fields and the same reduction. No browser, no node, no network.
+.PHONY: evaccheck
+evaccheck:  ## The derived evacuation record must regenerate and publish nothing it may not
+	$(PY) tests/evac/check.py
