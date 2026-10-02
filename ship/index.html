@@ -397,9 +397,6 @@
     .lbl{transition:none}
   }
   .bplink{color:#7aa2c8;text-decoration:none;border-bottom:1px dotted #47637d}
-  /* The working pages under ../cell/ sit behind the working password. A public
-   * visitor deserves to know that BEFORE the browser throws a login prompt. */
-  a[href^="../cell/"]::after{content:" (gated)";color:#74747f;font-size:.82em}
   .bplink:hover{color:#ff4fa3}
 </style>
 </head>
@@ -1727,9 +1724,8 @@ api = mountExplorer({
     document.getElementById('cutOut').textContent = dc ? dc.toFixed(2) : 'off';
     canvas.setAttribute('aria-label',
       `3D view, level: ${lv.name}. All information is in the text panel.`);
-    // URL sync is a nicety and must never kill the boot: replaceState throws a
-    // SecurityError when the document URL carries embedded credentials (which is how the
-    // headless test harness authenticates through the basic_auth gate).
+    // URL sync is a nicety and must never kill the boot: replaceState can throw a
+    // SecurityError (for one, when the document URL carries embedded credentials).
     try {
       const u = new URL(location);
       u.searchParams.set('level', lv.id);

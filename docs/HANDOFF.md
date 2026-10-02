@@ -419,6 +419,9 @@ is STALE, three arcs behind the live file; do not "restore" from it). Production
 keeps the current site until the operator says otherwise — do NOT run a bare
 `./deploy.sh pinkrobotics` for this work.
 
+(Note of 2026-10-02: the realm described above is gone, on staging and on production, and the
+live web-server file equals its governed copy. No page of this site is behind a login.)
+
 **Framing (operator, second ruling same day): the page is a VISUALIZATION of the design and
 the blueprint/iteration surface the explorer's levels will be rebuilt to match — NOT a build
 timeline.** All schedule language (planned/live chips, "for the next agent" notes) was removed
@@ -580,6 +583,6 @@ cd ../pink-sites && git add -A pinkrobotics/airships && git commit
 
 The viewer is **public** at `pinkrobotics.ca/airships/ship/` (the 2026-08-13 public arc moved
 it out of `cell/`). The working pages that stayed in `cell/` — the flat explainer, the
-blueprint, the checks page and the band calculator — remain behind Caddy basic auth (the
-credentials are not kept in this repository); the gate matches the `/airships/cell/*` path, so
-nothing in `ship/` is gated.
+blueprint, the checks page and the band calculator — are public as well. The login gate that
+once matched `/airships/cell/*` is gone: it has been off since 2026-09-28 at the latest, and
+the decision of 2026-10-02 is that no page of this site is behind a login.
