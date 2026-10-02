@@ -61,6 +61,27 @@ def isa(alt_m: float) -> tuple[float, float, float]:
     return t, p, rho
 
 
+def gas_density(temperature_K: float, pressure_Pa: float, gas: str = "helium") -> float:
+    """Ideal-gas density in kg/m3 at a stated common gas/air state; no superheat."""
+    constants = {"air": R_AIR, "helium": R_HE, "hydrogen": R_H2}
+    if (not math.isfinite(temperature_K) or temperature_K <= 0 or
+            not math.isfinite(pressure_Pa) or pressure_Pa <= 0 or gas not in constants):
+        raise ValueError("gas_density: invalid state or gas")
+    return pressure_Pa / (constants[gas] * temperature_K)
+
+
+def net_lift(temperature_K: float, pressure_Pa: float, gas_kg_m3: float,
+             structure_kg_m3: float = 0.0) -> float:
+    """Lift mass per volume, kg/m3, after the stated gas and structure densities.
+
+    With structure=0 this is gross gas lift, not a ship's useful payload.
+    A caller may supply a mixture density; no purity or fill is inferred.
+    """
+    if any(not math.isfinite(x) or x < 0 for x in (gas_kg_m3, structure_kg_m3)):
+        raise ValueError("net_lift: densities must be finite and nonnegative")
+    return gas_density(temperature_K, pressure_Pa, "air") - gas_kg_m3 - structure_kg_m3
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", metavar="OUT")
@@ -70,13 +91,13 @@ def main() -> None:
     ladder = cell["hierarchy"]["ladder"]
 
     t, p, rho_air = isa(2500.0)
-    rho_he = p / (R_HE * t)
-    rho_h2 = p / (R_H2 * t)
+    rho_he = gas_density(t, p, "helium")
+    rho_h2 = gas_density(t, p, "hydrogen")
     # 97% He / 3% air by volume — the practical operating purity.
     rho_he97 = 0.97 * rho_he + 0.03 * rho_air
 
     def net(gas: float, structure: float) -> float:
-        return rho_air - gas - structure
+        return net_lift(t, p, gas, structure)
 
     ledger = {
         "vacuumIdeal": {"gas": 0.0, "structure": 0.0, "net": round(rho_air, 4)},
@@ -87,13 +108,13 @@ def main() -> None:
         "vacuumLevel3": {"gas": 0.0, "structure": ladder["3"]["totalKgPerM3"],
                          "net": round(net(0, ladder["3"]["totalKgPerM3"]), 4)},
         "hydrogen": {"gas": round(rho_h2, 4), "structure": None,
-                     "net": round(rho_air - rho_h2, 4),
+                     "net": round(net(rho_h2, 0), 4),
                      "note": "before envelope and frame"},
         "helium": {"gas": round(rho_he, 4), "structure": None,
-                   "net": round(rho_air - rho_he, 4),
+                   "net": round(net(rho_he, 0), 4),
                    "note": "before envelope and frame"},
         "helium97": {"gas": round(rho_he97, 4), "structure": None,
-                     "net": round(rho_air - rho_he97, 4),
+                     "net": round(net(rho_he97, 0), 4),
                      "note": "97% purity, the practical operating point"},
     }
 

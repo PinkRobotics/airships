@@ -2,11 +2,15 @@
   "set_before_first_model_run": true,
   "policy": "Written before evaluating the project functions. Bounds and incompatible models never acquire an agreement verdict from a numerical tolerance. A MISS is published, not a gate failure.",
   "atmosphere": {
-    "temperature_K": 0.000001,
+    "temperature_K": 1e-06,
     "pressure_Pa": 1.0,
-    "density_kg_m3": 0.00005,
+    "density_kg_m3": 5e-05,
     "reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
-    "implementation_parity": {"temperature_K": 1e-9, "pressure_Pa": 1e-7, "density_kg_m3": 1e-10},
+    "implementation_parity": {
+      "temperature_K": 1e-09,
+      "pressure_Pa": 1e-07,
+      "density_kg_m3": 1e-10
+    },
     "parity_reason": "Numerical roundoff only, independently of agreement with the coarser external table."
   },
   "hindenburg": {
@@ -35,5 +39,43 @@
     "handbook_lift_kg_m3": 0.0001,
     "zeppelin_agreement": null,
     "reason": "NIST states 0.03 percent density uncertainty; do not inflate it for ideal-gas departure. Lift allows 0.0001 kg/m3 for the air/table precision and conversion. Maximum takeoff weight is not measured gross lift: the Zeppelin comparison can only be a capacity bound at matching conditions."
+  },
+  "order_9c_before_first_comparison": {
+    "sequence": "Added before implementing or evaluating the new state APIs and paper reproductions. All order-9b entries are unchanged.",
+    "hindenburg": {
+      "uses": "hindenburg.relative",
+      "reason": "Retain 1% screening tolerance at the declared 288.15 K, 101325 Pa, full normal volume and 100% hydrogen. Unknown historical purity and fill are limits, never fitted inputs."
+    },
+    "helium": {
+      "uses": [
+        "helium.density_relative",
+        "helium.derived_lift_kg_m3",
+        "helium.handbook_lift_kg_m3"
+      ],
+      "reason": "Apply the existing limits at the references’ states, with ideal gas and constants unchanged. Convert the handbook’s printed 29.92 inHg using 3386.389 Pa/inHg and 59 F using the exact Fahrenheit conversion."
+    },
+    "vacuum": {
+      "uses": [
+        "vacuum.akhmeteli_mass_kg",
+        "vacuum.akhmeteli_payload_kg",
+        "vacuum.jenett_half_last_printed_place"
+      ],
+      "reason": "Use printed thickness ratios for the final Akhmeteli design and equation (7), not rounded micrometres or a fitted payload fraction. Jenett uses its own method; absent member/count inputs remain named, not inferred from target lift."
+    },
+    "cl415": {
+      "uses": [
+        "cl415.cycle_minutes",
+        "cl415.scoop_seconds"
+      ],
+      "reason": "The cruise-only round trip plus scoop is a lower bound on the listed turnaround. Existing half-minute planning allowance applies to the upper limit; scoop compares to the printed interval as an input replay."
+    },
+    "bounds": {
+      "numerical_slack": 0,
+      "reason": "Except for the existing CL-415 half-minute planning allowance, bounds test the stated inequality without added tolerance. Full pure-helium lift >= maximum mass is only a conditional static capacity screen, not a requirement on a dynamically supported airship."
+    },
+    "hover_measurement": {
+      "relative": 0.05,
+      "reason": "If a primary OGE flight-test point with stated weight and atmosphere can be read, use 5% total-power screening tolerance, declared before selecting/evaluating a point. This is not a measurement uncertainty and does not tune the unchanged figure-of-merit assumption. Do not extract a point whose plot resolution exceeds this allowance."
+    }
   }
 }

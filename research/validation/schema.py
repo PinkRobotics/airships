@@ -5,7 +5,7 @@ import re
 REQUIRED = {'check', 'class', 'quantity', 'value', 'unit', 'conditions', 'document',
             'locator', 'url', 'licence', 'quote', 'confidence', 'confidence_reason', 'limits'}
 CHECKS = {'1-atmosphere': 10, '2-hindenburg': 5, '3-cl415-cycle': 7,
-          '4-helicopter-hover': 4, '5-vacuum-shell-akhmeteli': 2,
+          '4-helicopter-hover': 5, '5-vacuum-shell-akhmeteli': 2,
           '5-vacuum-shell-jenett': 2, '6-helium': 5}
 
 
@@ -39,8 +39,8 @@ def validate(data):
     if not isinstance(data, dict) or not {'order', 'lane', 'date', 'rule', 'records'} <= data.keys():
         raise ValueError('missing source metadata or records')
     records = data['records']
-    if not isinstance(records, list) or len(records) != 35:
-        raise ValueError('expected all 35 source records, including do not use')
+    if not isinstance(records, list) or len(records) != 36:
+        raise ValueError('expected 35 original records and the primary hover record, including do not use')
     counts = dict.fromkeys(CHECKS, 0)
     for i, r in enumerate(records):
         if not isinstance(r, dict) or not REQUIRED <= r.keys():

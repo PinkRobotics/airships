@@ -1,58 +1,58 @@
 # Labelled comparisons
 
-Run with Python 3 and Node 22 (no package installation or network access):
+Run with Python 3 and Node 22:
 
     make labelledcheck
-    python3 research/validation/check.py --update
-    python3 research/validation/check.py --schema-only
+    python3 -B research/validation/check.py --update
+    python3 -B research/validation/check.py --schema-only
     python3 -B -m unittest discover -s research/validation -p 'test_*.py' -v
+    node --test research/validation/test_lift.mjs
 
-For tests, set TMPDIR to an explicit writable scratch directory first. The checker imports the
-project functions and runs the existing helium executable unchanged. Its temporary output is
-removed. When CI does not set TMPDIR, the target uses a temporary directory inside
-research/validation; it never falls back to the operating system's implicit scratch location.
-The default target regenerates both reports in memory and compares bytes. A missing dependency,
-failed function, bad source schema or stale report is a failure. A numerical MISS is a result,
-and stays in the report; it never makes the target fail by itself.
+Set TMPDIR to an explicit writable scratch directory before tests. The checker imports actual
+project functions; its adapter follows stamped dependencies so it changes the model's actual
+configuration singleton. It does not fetch references or emergency feeds. The default target
+regenerates JSON and Markdown in memory and compares bytes. A broken model, schema failure or
+stale report fails. A numerical MISS or failed bound remains published and is not a gate error.
 
-The source hand-up supplied 35 records. The copy on disk was already normalized when read;
-every record, quotation and printed digit is retained. No missing measurement has been filled.
-schema.py checks required fields, allowed classes, normalized value/document shapes, printed
-digits as strings, source coverage, quotations under 25 words, and absence of personal paths
-and email addresses. The same public-text check runs on generated output.
+The original 35 source records and their printed digits are retained, including record 6's
+excluded gas-constant exponent. One primary hover-flight-test record was added as record 35;
+[hover-search.md](hover-search.md) records the search, successful and failed retrievals, and
+selection of the point before its comparison. `schema.py` checks source coverage, normalized
+shapes, short quotations and public-safe text. The same public-text check guards generated output.
+The reference conventions follow [the research guide](../README.md); the local atmosphere and
+shell papers retain their catalogue, document and provenance links in the report JSON.
 
-Record 6 is deliberately retained: Table 2's gas-constant exponent is marked **do not use**.
-Preserving it makes the source disagreement visible. The checker does not use it in any
-calculation. Full source-file hashing records changes to contextual records as well as inputs;
-the gate also reruns every model function and compares actual numerical outputs.
+Order 9c adds callable gas-state questions without changing the old class lift or helium ledger.
+`sim/physics.js:grossLiftKg` is the implementation used by `ledger`; optional calibrated air
+density preserves the existing density dial and bit-level arithmetic. Helium's `gas_density`
+and `net_lift` are also used by its unchanged-output main program. CL-415 compares only the
+cruise-speed quotient and scoop replay; climb-out, circuit and drop run are unmapped. The hover
+comparison calls public `diskMW`, with its efficiency unchanged, at the primary XH-59A state.
+The CH-47D ratings and Zeppelin static capacity remain inequalities, not measurements of lift
+or hover power. Re-run after the energy-model worker's changes.
 
-The citation conventions follow [the research guide](../README.md). Each comparison carries
-its source record, document, locator, URL, confidence and limits. The three documents already
-held here link to their catalogue entries and provenance:
+[The shell reproduction note](../analysis/reproductions.md) distinguishes paper terms from
+project primitives. A literal sandwich mass calculation can miss; the miss is retained.
+Jenett's local member sizing runs, but Table 2 stays not comparable because its member inventory
+and geometry/end-condition conventions are not fully specified. No constant is fitted.
 
-| Source | Catalogue id in research/sources.json | Local document and provenance |
-| --- | --- | --- |
-| U.S. Standard Atmosphere, 1976, NOAA/NASA/USAF | noaa-1976-us-standard-atmosphere | [PDF](../papers/noaa-1976-us-standard-atmosphere.pdf), [provenance](../papers/noaa-1976-us-standard-atmosphere.pdf.prov.json) |
-| Akhmeteli and Gavrilin, Eng 2021, 2, 480–491; DOI 10.3390/eng2040030; CC BY 4.0 | akhmeteli-gavrilin-2021-vacuum-balloon | [PDF](../papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf), [provenance](../papers/akhmeteli-gavrilin-2021-vacuum-balloon.pdf.prov.json) |
-| Jenett, Gregg and Cheung, ARC-E-DAA-TN64902, 2019; NTRS 20190001133 | jenett-2019-lattice-vacuum-airship | [PDF](../papers/jenett-2019-lattice-vacuum-airship.pdf), [provenance](../papers/jenett-2019-lattice-vacuum-airship.pdf.prov.json) |
+Every order-9b tolerance is unchanged. The `order_9c_before_first_comparison` section was written
+before implementing or evaluating any new comparison, including the 5% hover screen before
+selecting the flight-test point. A bound uses its stated inequality and allowance; it never
+becomes agreement simply because its numbers happen to be close.
 
-New source records are catalogued here with licences and short quotations; no additional
-documents are copied. The supplied hand-up's not-found list controls these comparisons even
-where older project notes assert more. In particular, no Jenett paper number, missing empty
-weight, Hindenburg purity percentage or measured hover horsepower is supplied from older notes.
+`test_check.py` perturbs reference inputs and actual model functions in disposable copies, runs
+the real Make target, verifies changed numerical rows/diagnostics, restores and proves green.
+`test_apis.py` exercises state behavior and both directions of inequalities. `test_lift.mjs`
+compares complete ledgers with the previous arithmetic over the altitude/density domain.
 
-tolerances.json was written before the first model evaluation. Neither its thresholds nor
-its reasons have been changed after observing results. A not-comparable row means the current
-public function cannot express the requested conditions or uses a different architecture;
-an execution failure cannot be excused with that label. Such rows still call the closest
-available function and retain its diagnostic output, so changes remain visible.
+For the unlanded constant counterfactual, run:
 
-The six source mutations and six model mutations in test_check.py exercise the real Makefile
-target in a minimal disposable copy, restoring the changed bytes and proving green after each.
-Model mutations never touch the lane's protected directories. The tests check changed row values
-or model diagnostics as well as the red target, so a source hash alone cannot satisfy them.
-They also prove schema rejection, failed execution, both report drift paths, and publication
-of a fresh MISS through --update.
+    python3 -B research/validation/constant_study.py --out "$TMPDIR/constant-study.json"
 
-The gate is intentionally a standalone target in this lane. The lead owns adding labelledcheck
-to the ordered make check prerequisites and matching CI gate list, then running CI parity.
+This takes two disposable copies of HEAD, regenerates the published figures, six analyses,
+skin outputs and the original validation report, and lists every changed field. Only those
+copies unify dry-air R to the 1976 prose constant divided by the dry-air molar mass. Existing
+density dials and gas-specific constants stay unchanged. Its output includes any baseline
+regeneration drift, so pre-existing cache differences cannot be mistaken for constant effects.
+It serves bundled snapshot data on loopback, starts its own browser, and never runs `make stamp`.

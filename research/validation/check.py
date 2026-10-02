@@ -13,7 +13,6 @@ from pathlib import Path
 import re
 import subprocess
 import sys
-import tempfile
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -27,7 +26,8 @@ MILE_KM = 1.609344
 KNOT_KPH = 1.852
 HP_MW = 745.6998715822702 / 1e6  # mechanical horsepower
 NC = "not comparable"
-BOUND = "bound only"
+BOUND = "bound holds"
+BOUND_FAIL = "bound fails"
 
 LOCAL_SOURCES = {
     "1-atmosphere": "noaa-1976-us-standard-atmosphere",
@@ -91,30 +91,17 @@ def row(label, model, ref, unit, tolerance, reason, verdict=None, difference=Tru
 
 def check(check_id, title, category, calls, inputs, rows, tolerance, limits, paragraph):
     verdicts = {r["verdict"] for r in rows}
-    verdict = "MISS" if "MISS" in verdicts else NC if NC in verdicts else \
-        BOUND if BOUND in verdicts else "agrees"
+    verdict = BOUND_FAIL if BOUND_FAIL in verdicts else "MISS" if "MISS" in verdicts else \
+        NC if NC in verdicts else BOUND if BOUND in verdicts else "agrees"
     return {"id": check_id, "title": title, "class": category, "model_functions": calls,
             "inputs": inputs, "rows": rows, "tolerance": tolerance, "verdict": verdict,
             "limits": limits, "interpretation": paragraph}
 
 
-def helium_output():
-    # main() has no gas-density API or altitude parameter. Run it unchanged, with its own
-    # committed auxiliary inputs; select only its atmosphere and gas outputs, not caches.
-    # CI need not configure a system temporary directory: the explicit fallback stays
-    # inside this generated-file directory and is cleaned on success or failure.
-    scratch = os.environ.get("TMPDIR") or str(HERE)
-    with tempfile.TemporaryDirectory(prefix="labelled-helium-", dir=scratch) as tmp:
-        out = Path(tmp) / "helium.json"
-        p = subprocess.run([sys.executable, "-B", "research/analysis/helium.py",
-                            "--json", str(out)], cwd=ROOT, capture_output=True, text=True,
-                           timeout=60, env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
-        if p.returncode:
-            raise ValueError("helium.main could not run: " + safe_error(p.stderr))
-        generated = json.loads(out.read_text())
-    return {"atmosphere": generated["atmosphere"],
-            "helium": generated["ledger"]["helium"],
-            "hydrogen": generated["ledger"]["hydrogen"]}
+def bound_row(label, model, ref, unit, tolerance, reason, direction="<=", **details):
+    holds = model <= ref["value"] + tolerance if direction == "<=" else model >= ref["value"] - tolerance
+    return row(label, model, ref, unit, tolerance, reason,
+               BOUND if holds else BOUND_FAIL, inequality=f"model {direction} reference", **details)
 
 
 def generate():
@@ -128,6 +115,9 @@ def generate():
     distances = [number(k.split("_")[0]) for k in v(18) if k.endswith("_mile") or k.endswith("_miles")]
     # Select the source's knot reading, preserving the inconsistent mph reading in the data.
     cruise = number(re.search(r"\((\d+) knots", v(20, "maximum_cruise"))[1])
+    scoop_range = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", v(19, "time_on_water"))]
+    if len(scoop_range) != 2 or not 0 < scoop_range[0] <= scoop_range[1]:
+        raise ValueError("cannot read the printed scoop interval")
     # Geometry and force-unit conversion for the public diskMW inputs, no power equation.
     args = {"heights": heights, "hindenburg_m3": n(10, "normal_volume_ft3") * FT_M ** 3,
             "tank_m3": n(15, "all_four_L") / 1000,
@@ -136,7 +126,12 @@ def generate():
             "distances_km": [d * MILE_KM for d in distances],
             "rotor_density": n(0, "rho"),
             "disk_m2": 2 * math.pi * (n(22, "radius_ft") * FT_M) ** 2,
-            "thrust_N": n(23, "design_gross_weight_lb") * LB_KG * n(7, "g0")}
+            "thrust_N": n(23, "design_gross_weight_lb") * LB_KG * n(7, "g0"),
+            "standard_pressure_Pa": n(0, "P") * 100, "standard_temperature_K": n(0, "T_K"),
+            "hover": {"pressure_altitude_m": n(35, "pressure_altitude_ft") * FT_M,
+                      "temperature_K": n(35, "temperature_C") + 273.15,
+                      "disk_m2": n(35, "rotor_disk_area_ft2") * FT_M**2,
+                      "thrust_N": n(35, "gross_weight_lb") * LB_KG * n(7, "g0")}}
     p = subprocess.run(["node", "research/validation/model.mjs"], input=json.dumps(args),
                        text=True, capture_output=True, cwd=ROOT, timeout=60)
     if p.returncode:
@@ -184,187 +179,195 @@ def generate():
     atmosphere["implementation_comparison"] = parity
 
     hind_ref = reference(refs, 11, "total_lift_lb", n(11, "total_lift_lb") * LB_KG, "kg")
+    purity = hind_ref["value"] / js["hindenburg"]
     hind = check("2-hindenburg", "Hindenburg gross lift", "measured",
-                 [function("sim/physics.js", "ledger")],
-                 {"ledger_class": {"dispM3": args["hindenburg_m3"], "payloadT": 0}, "altMslM": 0,
-                  "requested_gas": "hydrogen", "gas_reference": reference(refs, 14),
-                  "volume_reference": reference(refs, 10)},
-                 [row("evacuated displacement; hydrogen term unavailable", js["hindenburg"]["liftT"] * 1000,
-                      hind_ref, "kg", hind_ref["value"] * t["hindenburg"]["relative"],
-                      t["hindenburg"]["reason"], NC,
-                      difference_meaning="evacuated displacement minus reported hydrogen gross lift; not model error")],
+                 [function("sim/physics.js", "grossLiftKg"), function("sim/physics.js", "ledger")],
+                 {"volume_m3": args["hindenburg_m3"], "temperature_K": args["standard_temperature_K"],
+                  "pressure_Pa": args["standard_pressure_Pa"], "gas": "hydrogen", "purity": 1,
+                  "fill_fraction": 1, "volume_reference": reference(refs, 10),
+                  "purity_needed_at_full_volume": purity},
+                 [row("full normal volume, 100% hydrogen", js["hindenburg"], hind_ref, "kg",
+                      hind_ref["value"] * t["hindenburg"]["relative"], t["hindenburg"]["reason"])],
                  t["hindenburg"],
-                 ["The model cannot be asked this question: ledger has no lifting-gas density, purity or fill-fraction argument.",
-                  "Normal volume is used, not total volume. The report does not quantify purity or tie a fill fraction "
-                  "to total lift; its standard temperature is unspecified.",
-                  "No empty mass is inferred. The NIST hydrogen datum is retained but cannot be plumbed into ledger."],
-                 "The callable ledger reports evacuated displacement at the report's normal gas volume. "
-                 "That is not hydrogen gross lift. The diagnostic difference is shown without an agreement or "
-                 "MISS claim; subtracting hydrogen in this checker would create a new buoyancy implementation.")
+                 ["The report does not specify purity, fill fraction or the temperature meant by standard conditions. "
+                  "288.15 K and 101325 Pa are declared comparison assumptions, not recovered historical conditions.",
+                  f"At that state, matching the printed lift would require purity {purity:.9g} "
+                  "at full normal volume with dry-air contamination; equivalently this is the full-purity fill fraction. "
+                  "This limit is reported, never passed back into the comparison.",
+                  "Ideal hydrogen, no humidity or superheat; no empty mass or useful payload is inferred."],
+                 "The new public grossLiftKg computes gas lift before structure. The existing class ledger calls "
+                 "the same function for vacuum, retaining its density dial and multiplication order exactly. "
+                 "The hydrogen row is now a conditional comparison with the report's total lift.")
 
     cycle_rows = []
     for miles, output in zip(distances, js["cycles"]):
         key = f"{miles:g}_mile" if miles == 1 else f"{miles:g}_miles"
-        cycle_rows.append(row(f"{miles:g} miles: transit + fill + return only", output["mapped_minutes"],
+        cycle_rows.append(bound_row(f"{miles:g} miles: cruise round trip + scoop lower bound",
+                              output["mapped_minutes"],
                               reference(refs, 18, key, number(v(18, key)), "min"), "min",
-                              t["cl415"]["cycle_minutes"], t["cl415"]["reason"], NC,
-                              difference_meaning="partial airship duration minus whole aircraft planning cycle",
-                              full_airship_cycle_minutes=output["cycle_minutes"],
-                              phase_minutes=output["duration_minutes"],
-                              retained_t=output["retained_t"], delivered_t=output["delivered_t"]))
-    cycle_rows.append(row("fill replay at input rate", js["cycles"][0]["duration_minutes"]["WATER_FILL"] * 60,
-                          reference(refs, 19, "time_on_water", t["cl415"]["scoop_midpoint_seconds"], "s"),
-                          "s", t["cl415"]["scoop_seconds"], t["cl415"]["reason"], BOUND,
-                          note="Comparison to the printed interval only; the midpoint was supplied as an input."))
+                              t["cl415"]["cycle_minutes"], t["cl415"]["reason"],
+                              ground_speed_out_kph=output["ground_speed_out_kph"],
+                              ground_speed_return_kph=output["ground_speed_return_kph"]))
+    cycle_rows.append(row("scoop duration input replay (not an independent validation)",
+                          js["cycles"][0]["duration_minutes"]["WATER_FILL"] * 60,
+                          reference(refs, 19, "time_on_water", sum(scoop_range) / 2, "s"),
+                          "s", t["cl415"]["scoop_seconds"], t["cl415"]["reason"]))
     cycle = check("3-cl415-cycle", "CL-415 scooping cycle", "measured",
-                  [function("sim/plan.js", "planCycle"), function("sim/physics.js", "ledger"),
-                   function("sim/physics.js", "diskMW"), function("sim/physics.js", "dragMW"),
-                   function("sim/physics.js", "pumpMW")],
+                  [function("sim/plan.js", "planCycle")],
                   {"one_way_miles": distances, "one_way_km": args["distances_km"],
-                   **js["cycle_inputs"], "capacity_source": reference(refs, 15),
-                   "speed_source": reference(refs, 20), "scoop_source": reference(refs, 19),
-                   "mapping": "Only cruise speed, water volume (model convention 1 tonne/m3), and fill-rate "
-                              "plumbing replace P100 balanced defaults. Remaining class fields are airship assumptions.",
-                   "unmapped_speeds": {"scoop": v(19, "scoop_speed"), "drop": v(20, "drop_speed")}},
+                   **js["cycle_inputs"], "speed_source": reference(refs, 20),
+                   "scoop_source": reference(refs, 19), "source_interval_seconds": scoop_range,
+                   "mapping": "distance / public planCycle ground speed for each leg, plus WATER_FILL only; "
+                              "no complete-cycle or energy comparison"},
                   cycle_rows, t["cl415"],
-                  ["Agency planning times, medium confidence; not a measured regression.",
-                   "Transit and filling map as kinematics, but the transit durations include airship hose/minimum-time "
-                   "floors and a 15-percent acceleration ramp. Their sum is not a validated aircraft lower bound.",
-                   "The model cannot be asked for an aircraft cycle: source approach, hose handling, drop run, "
-                   "buoyancy escape, cryogenic return and descent authority do not map. Separate scoop/drop "
-                   "airspeeds and aircraft turns are not parameters. Energy and throughput are not compared.",
-                   "6137 L is used; the certificate also prints 6124 kg. The model's one-tonne/m3 convention "
-                   "does not reproduce that certificated mass. The plan's inconsistent litre conversion is retained.",
-                   "The 90-second next-to-fire possibility is retained in sources.json, not treated as a zero-distance fit."],
-                  "The table compares the callable transit/fill subset with the whole planning list at 1, 3, 6, "
-                  "10 and 15 miles, explicitly as different quantities. Complete airship cycles and individual "
-                  "phases remain in JSON. An 11-second fill replays the supplied midpoint and is not validation "
-                  "of scooping. The code cannot accept the printed independent scoop and drop speeds.")
+                  ["Climb-out, circuit, approach, acceleration, deceleration and drop run are unmapped. "
+                   "The sum is a lower bound on turnaround, never a complete aircraft cycle.",
+                   "No wind; the printed maximum cruise 185 knots is used. The source's 223 mph is inconsistent "
+                   "with it and remains preserved. Constant maximum speed understates transit time.",
+                   "The public planCycle speed and fill outputs are used; its airship ramp, hose floors, "
+                   "buoyancy escape, descent and retained-water assumptions are not aircraft evidence.",
+                   "Scoop 11 seconds replays the supplied midpoint of 10-12 seconds. Agreement proves plumbing only. "
+                   "The planning table's half-minute allowance is retained; no operational capability is established."],
+                  "Only straight-line cruise transit and the printed scoop duration map. "
+                  "The necessary inequality is partial time <= listed turnaround (plus the predeclared "
+                  "0.5-minute planning tolerance). Shorter mapped times do not validate the missing phases.")
 
     power = js["rotor_MW"]
     mrp = number(v(23, "takeoff_power").split("=")[1])
     installed = 2 * mrp
-    rotor_rows = [row("required / two-engine takeoff rating", power,
+    rotor_rows = [bound_row("CH-47D required / two-engine takeoff rating", power,
                       reference(refs, 23, "takeoff_power", installed * HP_MW, "MW"),
-                      "MW", None, t["rotor"]["reason"], BOUND,
-                      ratio=power / (installed * HP_MW),
-                      conversion="2 engines times the printed 4204 hp rating; interpretation stated, not a measured power"),
-                  row("required / drive-system limit", power,
+                      "MW", 0, t["rotor"]["reason"], ratio=power / (installed * HP_MW)),
+                  bound_row("CH-47D required / drive-system limit", power,
                       reference(refs, 23, "drive_system_limit_hp", n(23, "drive_system_limit_hp") * HP_MW, "MW"),
-                      "MW", None, t["rotor"]["reason"], BOUND,
-                      ratio=power / (n(23, "drive_system_limit_hp") * HP_MW))]
-    rotor = check("4-helicopter-hover", "CH-47D hover power bound", "measured",
-                  [function("sim/physics.js", "diskMW")],
-                  {"diskM2": args["disk_m2"], "thrustN": args["thrust_N"],
-                   "rotors": 2, "diameter_m_each": 2 * n(22, "radius_ft") * FT_M,
-                   "config": js["rotor_config"], "rotor_source": reference(refs, 22),
-                   "weight_power_source": reference(refs, 23),
-                   "per_printed_4204_hp_ratio": power / (mrp * HP_MW)},
-                  rotor_rows, t["rotor"],
-                  ["No tabulated measured out-of-ground-effect shaft power was found.",
-                   "Missing measurement: Airworthiness and Flight Characteristics Test of the CH-47D Helicopter, "
-                   "USAAEFA Project No. 82-07, February 1984; Johnson reference 11. Not opened. Figure 17 not digitized.",
-                   "Two isolated disk areas are argument plumbing. Tandem overlap, profile power, download, "
-                   "transmission losses and ground effect are not represented; the printed disk loading is not recalculated.",
-                   "CFG.rhoAir is set to the Table I sea-level density. CFG.propEta remains the model default; "
-                   "K_hover=1.15 is not a measured efficiency and is not substituted.",
-                   "Re-run after the energy-model worker changes the public diskMW function."],
-                  "Public diskMW is called at the printed design gross weight and two 60-foot rotors, using "
-                  "sea-level density. Required power is compared to an explicitly interpreted two-engine installed "
-                  "rating and the lower transmission limit, with both ratios. This bounds a simplified model; "
-                  "it does not reproduce a measured hover power or certify hover capability.")
+                      "MW", 0, t["rotor"]["reason"], ratio=power / (n(23, "drive_system_limit_hp") * HP_MW))]
+    hover_t = t["order_9c_before_first_comparison"]["hover_measurement"]
+    hover_ref = reference(refs, 35, "engine_power_hp", n(35, "engine_power_hp") * HP_MW, "MW")
+    rotor_rows.append(row("XH-59A measured OGE total engine power", js["hover"]["power_MW"],
+                         hover_ref, "MW", hover_ref["value"] * hover_t["relative"], hover_t["reason"]))
+    rotor = check("4-helicopter-hover", "Rotor hover power: flight test and CH-47D bounds", "measured",
+                  [function("sim/physics.js", "diskMW"), function("sim/atmosphere.js", "isaPressurePa"),
+                   function("sim/atmosphere.js", "altitudeForDensity")],
+                  {"ch47d": {"diskM2": args["disk_m2"], "thrustN": args["thrust_N"],
+                             "config": js["rotor_config"]},
+                   "xh59a": {**args["hover"], **js["hover"], "source": reference(refs, 35)}},
+                  rotor_rows, {"reason": "CH-47D retains power-rating bounds with zero slack. XH-59A: " + hover_t["reason"]},
+                  ["CH-47D inequalities test required power <= installed power and <= transmission limit; "
+                   "neither rating is measured hover power or proof of hover capability.",
+                   "The named 1984 CH-47D report was opened; its crowded nondimensional Figure 10 was not digitized. "
+                   "The alternative primary XH-59A Table 2 supplies a dimensional point. Search/fetch record: hover-search.md.",
+                   "XH-59A uses its printed 1018 ft2 coaxial footprint once, not two independent disks. "
+                   "Thrust is weight; total engine horsepower includes download, coaxial interference and accessories. "
+                   "This tests the default propEta as an effective aircraft figure of merit, not rotor-only merit.",
+                   "Equivalent density altitude is derived from printed pressure altitude and temperature, not reported as measured. "
+                   "The low-resolution primary scan warrants medium confidence. One point is not validation of an envelope.",
+                   "Re-run after the energy-model worker changes the public sim/physics.js:diskMW function."],
+                  "Call the public diskMW at a measured OGE state from Arents' 1977 flight test, leaving its "
+                  "efficiency assumption unchanged. Keep the older CH-47D power-rating bounds separately labelled.")
 
-    boron = {"name": v(26, "face"), "E": n(26, "face_modulus_GPa") * 1e9,
-             "rho": n(26, "face_density_kg_m3"), "sigma": n(26, "face_compressive_strength_MPa") * 1e6,
-             "orthotropic": False}
-    toray = {"name": v(28, "material_example"), "E": n(28, "tensile_modulus_GPa") * 1e9,
-             "rho": n(28, "density") * 1000, "sigma": n(28, "tensile_strength_GPa") * 1e9,
-             "orthotropic": False}
-    monolithic = cell.arch_monolithic(boron, p=n(26, "air_pressure") * 1000)
-    lattice = cell.arch_tube_strut(toray, p=n(28, "Patm") * 1000)
+    rep = load_model("research/analysis/reproductions.py")
+    ak_inputs = dict(radius_m=n(27, "example_R_m"), face_ratio=n(27, "face_thickness_over_R"),
+                     core_ratio=n(27, "core_thickness_over_R"), face_density=n(26, "face_density_kg_m3"),
+                     core_density=50.0, air_density=n(26, "air_density_kg_m3"),
+                     face_modulus=n(26, "face_modulus_GPa") * 1e9)
+    ak = rep.akhmeteli(**ak_inputs)
+    je_inputs = dict(pressure_Pa=n(28, "Patm") * 1000, air_density=n(28, "rho_air_kg_m3"),
+                     modulus_Pa=n(28, "tensile_modulus_GPa") * 1e9, material_density=n(28, "density") * 1000)
+    je = [rep.jenett(number(radius), **je_inputs) for radius in v(29, "radius_m")]
     vacuum_rows = [
-        row("Akhmeteli shell mass (unavailable)", None,
+        row("Akhmeteli shell mass, literal thin-layer Eq.(7)", ak["thin_shell_mass_kg"],
             reference(refs, 27, "example_shell_mass_kg", n(27, "example_shell_mass_kg"), "kg"),
-            "kg", t["vacuum"]["akhmeteli_mass_kg"], t["vacuum"]["reason"], NC),
-        row("Akhmeteli payload (unavailable)", None,
+            "kg", t["vacuum"]["akhmeteli_mass_kg"], t["vacuum"]["reason"]),
+        row("Akhmeteli payload, literal thin-layer Eq.(7)", ak["thin_payload_kg"],
             reference(refs, 27, "example_payload_at_zero_buoyancy_kg",
                       n(27, "example_payload_at_zero_buoyancy_kg"), "kg"),
-            "kg", t["vacuum"]["akhmeteli_payload_kg"], t["vacuum"]["reason"], NC)]
-    for radius, lift in zip(v(29, "radius_m"), v(29, "lift_kg")):
+            "kg", t["vacuum"]["akhmeteli_payload_kg"], t["vacuum"]["reason"])]
+    for radius, lift, out in zip(v(29, "radius_m"), v(29, "lift_kg"), je):
         half_place = 0.5 * 10 ** (-len(lift.split(".")[1]) if "." in lift else 0)
         r = reference(refs, 29, "lift_kg", number(lift), "kg")
         r.update(printed_value=lift, radius_m=radius)
-        vacuum_rows.append(row(f"Jenett R={radius} m net lift (unavailable)", None,
-                               r, "kg", half_place, t["vacuum"]["reason"], NC))
+        vacuum_rows.append(row(f"Jenett R={radius} m net lift", out["net_lift_kg"],
+                               r, "kg", half_place, t["vacuum"]["reason"], NC,
+                               missing_inputs=out["missing_inputs"]))
+    paper_terms = {
+        "akhmeteli": ["Eq.(7): two-face/honeycomb mass balance at the paper's air density",
+                      "Eq.(9): semi-empirical sandwich buckling pressure (diagnostic, not FEA)",
+                      "Discussion p.489: final face/core thickness ratios and material card",
+                      "Concentric finite-layer volumes: explicit geometric expansion, not a printed paper equation; diagnostic only"],
+        "jenett": ["Eq.(33): spherical membrane stress and IV.D force per lattice cell",
+                   "IV.D: shell/radius=0.1, pitch/thickness=0.1, tube radius/wall=10",
+                   "Figure 4 regular-octahedron force resolution with stated diagnostic pitch and pinned-end conventions",
+                   "VI: displaced mass minus member inventory mass; inventory unavailable"]}
     vacuum = check("5-vacuum-shells", "Two vacuum-shell calculations", "reproduction",
-                   [function("research/analysis/vacuum-cell.py", "arch_monolithic"),
-                    function("research/analysis/vacuum-cell.py", "arch_tube_strut")],
-                   {"akhmeteli": {"material": boron, "p_Pa": n(26, "air_pressure") * 1000,
-                                  "requested_air_density_kg_m3": n(26, "air_density_kg_m3"),
-                                  "reference_design": reference(refs, 27)},
-                    "jenett": {"material": toray, "p_Pa": n(28, "Patm") * 1000,
-                               "requested_air_density_kg_m3": n(28, "rho_air_kg_m3"),
-                               "reference_design": reference(refs, 28)},
-                    "unavailable_arguments": "Neither function accepts air density, sphere radius, "
-                                             "sandwich thicknesses or fixed lattice tube proportions."},
-                   vacuum_rows, t["vacuum"],
-                   ["The model cannot be asked this question: the callable branches are different architectures.",
-                    "Akhmeteli: arch_monolithic uses a single-layer shell with nu=0.3 and K_SHELL=0.2. "
-                    "The paper uses two boron-carbide faces (nu=0.17) and a honeycomb core; sandwich stiffness "
-                    "and intracell buckling are absent from this function. Its FEA did not apply the 0.2 knockdown.",
-                    "Jenett: arch_tube_strut is a volume-filling octet, with Euler/local co-critical optimized "
-                    "R/t, K_CLASSICAL*K_LOCAL and LATTICE_SF. The paper uses a spherical lattice shell, "
-                    "thickness/R=0.1, pitch/thickness=0.1 and fixed tube R/t=10; it defers imperfection factors.",
-                    "Each paper's material and 101 kPa are passed unchanged. Its own air density is recorded "
-                    "but cannot be passed to either architecture function. No ISA density is substituted.",
-                    "The diagnostic kg/m3 outputs are not shell mass or net lift; their differences from "
-                    "the paper's kg values are undefined."],
-                   "Both candidate architecture functions run with the paper's material and pressure, but "
-                   "neither can calculate that paper's design. Their raw outputs are retained in JSON; the "
-                   "requested mass and lift rows remain unavailable. This is a documented limit of reproduction, "
-                   "not a failed replication of either paper.")
-    vacuum["model_diagnostics"] = {"akhmeteli_monolithic": monolithic, "jenett_tube_strut": lattice}
+                   [function("research/analysis/reproductions.py", "akhmeteli"),
+                    function("research/analysis/reproductions.py", "jenett"),
+                    function("research/analysis/reproductions.py", "euler_load"),
+                    function("research/analysis/vacuum-cell.py", "ship_section"),
+                    function("research/analysis/vacuum-cell.py", "_ship_sigma_euler")],
+                   {"akhmeteli": ak_inputs, "jenett": je_inputs}, vacuum_rows, t["vacuum"],
+                   ["Every paper-specific term is listed below and in reproductions.py; these are not validations "
+                    "of the project's volume-filling lattice or its dry-mass allowance.",
+                    "Akhmeteli uses the final Discussion ratios, not the earlier analytical optimum. "
+                    "The table applies printed Eq.(7) literally. Finite concentric layers are a separate geometric "
+                    "diagnostic, not a post-result replacement of a MISS. Adhesives and joints remain excluded. "
+                    "No FEA eigenvalue, face wrinkling or intracell buckling result is claimed.",
+                    "Jenett IV.D local sizing calls the project's Euler and tube-section functions, rescaling the "
+                    "bound T700 modulus algebraically to the paper's 588 GPa. No material table is changed. "
+                    "The project's corrected laminate properties cannot replace the paper's fibre card.",
+                    "Missing for Table 2: equivalent member inventory with shared-edge/boundary counting, "
+                    "and explicit pitch/member-length and Euler end-condition conventions. Table 1 supplies "
+                    "1,460,192 voxels without the radius or member-sharing rule. No count is fitted to net lift. "
+                    "The local diagnostic assumes a regular octahedron and pinned struts; it cannot establish global stability.",
+                    "The paper densities 1.29 and 1.225 kg/m3 are used as printed; no ISA is substituted."],
+                   "The sandwich mass balance is askable and can miss. Its finite-layer geometric diagnostic "
+                   "is shown separately. Jenett's local member-sizing method is askable, but the published "
+                   "net-lift table lacks the member inventory needed to complete the mass calculation.")
+    vacuum["model_diagnostics"] = {"akhmeteli": ak, "jenett": je}
+    vacuum["paper_terms"] = paper_terms
 
-    he = helium_output()
+    he_T, he_P = n(0, "T_K"), n(0, "P") * 100
+    density = gas.gas_density(he_T, he_P, "helium")
+    lift = gas.net_lift(he_T, he_P, density)
+    handbook_T = (n(32, "temperature_F") - 32) * 5/9 + 273.15
+    handbook_P = n(32, "pressure_in_hg") * 3386.389
+    handbook_lift = gas.net_lift(handbook_T, handbook_P, gas.gas_density(handbook_T, handbook_P))
+    volume = n(33, "easa_issue_10_both_models_envelope_m3")
     he_rows = [
-        row("helium density: model at 2500 m / NIST at sea level", he["helium"]["gas"],
+        row("helium density at NIST state", density,
             reference(refs, 30, value=n(30), unit="kg/m3"), "kg/m3",
-            n(30) * t["helium"]["density_relative"], t["helium"]["reason"], NC, difference=False),
-        row("helium net lift: model at 2500 m / derived sea-level difference", he["helium"]["net"],
+            n(30) * t["helium"]["density_relative"], t["helium"]["reason"]),
+        row("gross gas lift at NIST state / derived air-minus-helium", lift,
             reference(refs, 31, value=n(31), unit="kg/m3"), "kg/m3",
-            t["helium"]["derived_lift_kg_m3"], t["helium"]["reason"], NC, difference=False,
+            t["helium"]["derived_lift_kg_m3"], t["helium"]["reason"],
             reference_class="equation; derived, not measured"),
-        row("helium net lift: model at 2500 m / FAA sea-level lift", he["helium"]["net"],
+        row("gross helium lift at the FAA handbook's printed state", handbook_lift,
             reference(refs, 32, "helium_gross_lift_lb",
                       n(32, "helium_gross_lift_lb") * LB_KG / n(32, "envelope_m3"), "kg/m3"),
-            "kg/m3", t["helium"]["handbook_lift_kg_m3"], t["helium"]["reason"], NC, difference=False),
-        row("Zeppelin envelope capacity at standard conditions (unavailable)", None,
+            "kg/m3", t["helium"]["handbook_lift_kg_m3"], t["helium"]["reason"]),
+        bound_row("Zeppelin full pure-helium static capacity >= maximum weight", volume * lift,
             reference(refs, 34, "max_takeoff_weight_kg", n(34, "max_takeoff_weight_kg"), "kg"),
-            "kg", None, t["helium"]["reason"], NC)]
+            "kg", 0, t["helium"]["reason"], direction=">=")]
     helium = check("6-helium", "Helium and a modern airship", "measured",
-                   [function("research/analysis/helium.py", "main"),
-                    function("research/analysis/helium.py", "isa")],
-                   {"main_arguments": [], "model_atmosphere": he["atmosphere"],
-                    "requested_conditions": {"temperature_K": n(0, "T_K"), "pressure_Pa": n(0, "P") * 100},
-                    "zeppelin_volume": reference(refs, 33, "easa_issue_10_both_models_envelope_m3",
-                                                  n(33, "easa_issue_10_both_models_envelope_m3"), "m3"),
+                   [function("research/analysis/helium.py", "gas_density"),
+                    function("research/analysis/helium.py", "net_lift")],
+                   {"nist_state": {"temperature_K": he_T, "pressure_Pa": he_P},
+                    "handbook_state": {"temperature_K": handbook_T, "pressure_Pa": handbook_P},
+                    "zeppelin_volume": reference(refs, 33, "easa_issue_10_both_models_envelope_m3", volume, "m3"),
                     "zeppelin_maximum_mass": reference(refs, 34, "max_takeoff_weight_kg",
                                                        n(34, "max_takeoff_weight_kg"), "kg")},
                    he_rows, t["helium"],
-                   ["The model cannot be asked this question: helium.main fixes altitude to 2500 m and "
-                    "the hull volume; density and net lift are local expressions, not parameterized functions.",
-                    "The executable main is run unchanged. Its gas outputs are rounded to four decimals. "
-                    "isa is callable at sea level but returns air, not helium; replacing it or copying gas "
-                    "expressions here would manufacture a new model.",
-                    "No difference is reported across unlike atmospheric conditions. Zeppelin 8425 m3 and "
-                    "8050 kg are retained side by side; maximum weight is not measured gross lift.",
-                    "Manufacturer weight has medium confidence. Neither empty mass nor printed gross lift "
-                    "was found. Purity, ballonets, superheat, static heaviness and dynamic lift are not inferred.",
-                    "The FAA handbook and the derived NIST/1976 lift remain separate references."],
-                   "The existing helium executable runs, but only supplies its fixed 2500 m gas ledger. "
-                   "It cannot supply helium density at the NIST state or standard-condition capacity for the "
-                   "8425 m3 Zeppelin against the manufacturer's 8050 kg maximum mass. Those comparisons are "
-                   "not comparable until the model exposes suitable inputs; the checker does not copy its equations.")
+                   ["Density is ideal-gas with unchanged R_HE=2077.1, R_AIR=287.05. "
+                    "NIST is a real-gas equation of state; its tolerance is not expanded to hide that difference.",
+                    "The handbook's rounded 29.92 inHg is converted literally, not silently replaced by 101325 Pa. "
+                    "Its 1966 reference atmosphere and printed lift remain separate from the NIST-derived difference.",
+                    "Zeppelin: full envelope, pure helium, no superheat, at the declared NIST state. "
+                    "For wholly static support, gross gas lift must be >= supported total mass. This screen holds "
+                    "or fails only under those conditions; maximum takeoff weight is not measured gross lift. "
+                    "Real fill, purity, ballonets, overpressure, static heaviness and dynamic lift are not inferred.",
+                    "No empty mass or payload is derived from maximum weight. Main's fixed-altitude "
+                    "published gas ledger is byte-compared separately."],
+                   "Public state-parameterized gas_density and net_lift now answer both helium references. "
+                   "The modern airship is a conditional capacity bound, not an agreement claim about measured lift.")
     report = {"schema_version": 1, "generated_by": "research/validation/check.py",
               "sources_sha256": hashlib.sha256((HERE / "sources.json").read_bytes()).hexdigest(),
               "tolerances": t, "excluded_reference": {
@@ -428,12 +431,22 @@ def markdown(report):
                 lines.append(f"| {p['H_m']:g} | " + " | ".join(f"{v:.12g}" for v in values) +
                              f" | {p['agree_to_roundoff']} |")
         if c["id"] == "4-helicopter-hover":
+            h = c["inputs"]["xh59a"]
+            lines += ["", f"XH-59A comparison state: pressure altitude {h['pressure_altitude_m']:.9g} m, "
+                      f"temperature {h['temperature_K']:.9g} K, density {h['density_kg_m3']:.9g} kg/m3; "
+                      f"equivalent ISA density altitude {h['density_altitude_m']:.9g} m (derived). "
+                      f"Unchanged effective efficiency: {h['config']['propEta']:.9g}."]
             lines += ["", "Required/available ratios: " +
-                      "; ".join(f"{r['label']}: {r['ratio']:.9g}" for r in c["rows"]) + "."]
+                      "; ".join(f"{r['label']}: {r['ratio']:.9g}" for r in c["rows"] if "ratio" in r) + "."]
         if c["id"] == "5-vacuum-shells":
-            lines += ["", "Callable diagnostic outputs (different architectures; no kilogram comparison): " +
-                      "; ".join(f"{name}: {value['latticeKgPerM3']:.9g} kg/m3"
-                                for name, value in c["model_diagnostics"].items()) + "."]
+            ak = c["model_diagnostics"]["akhmeteli"]
+            lines += ["", f"Finite-layer geometric diagnostic only: shell {ak['shell_mass_kg']:.9g} kg, "
+                      f"payload {ak['payload_kg']:.9g} kg. The literal Eq.(7) rows above remain unchanged.",
+                      "", "**The paper's terms, not the project's:**"]
+            for paper, terms in c["paper_terms"].items():
+                lines += ["", f"- {paper}: " + "; ".join(terms) + "."]
+            lines += ["", "Jenett's missing Table 2 inputs: " +
+                      "; ".join(c["model_diagnostics"]["jenett"][0]["missing_inputs"]) + "."]
         if c["id"] == "6-helium":
             lines += ["", f"Requested Zeppelin comparison: {c['inputs']['zeppelin_volume']['value']:g} m3 "
                       f"versus {c['inputs']['zeppelin_maximum_mass']['value']:g} kg maximum takeoff mass."]
@@ -447,7 +460,7 @@ def markdown(report):
                 seen.add(key)
                 lines += ["", f"- {key[0]}. {key[1]}"]
     lines += ["", "The excluded Table 2 gas-constant record is preserved as printed and never used. "
-              "This report uses only the supplied source set; missing measurements remain missing.", ""]
+              "The original source set is retained and one primary hover measurement added; see hover-search.md.", ""]
     return "\n".join(lines)
 
 
@@ -464,7 +477,7 @@ def main():
     try:
         if args.schema_only:
             validate(json.loads((HERE / "sources.json").read_text()))
-            print("labelledcheck: 35 normalised source records pass schema")
+            print("labelledcheck: 36 normalised source records pass schema")
             return 0
         report = generate()
         outputs = {"report.json": json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
@@ -487,7 +500,7 @@ def main():
         if drift:
             print("Run python3 research/validation/check.py --update and review every moved number.", file=sys.stderr)
             return 1
-        print("labelledcheck: 6 checks computed; 35 source records valid; reports " +
+        print("labelledcheck: 6 checks computed; 36 source records valid; reports " +
               ("updated" if args.update else "match"))
         print("; ".join(f"{c['id']}: {c['verdict']}" for c in report["checks"]))
         return 0

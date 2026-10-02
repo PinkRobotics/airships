@@ -56,7 +56,7 @@ class Gate(unittest.TestCase):
                         ignore=shutil.ignore_patterns("__pycache__"))
         analysis = cls.root / "research/analysis"
         analysis.mkdir()
-        for name in ("helium.py", "vacuum-cell.py", "vacuum-cell.json"):
+        for name in ("helium.py", "vacuum-cell.py", "vacuum-cell.json", "reproductions.py"):
             shutil.copy(ROOT / "research/analysis" / name, analysis / name)
 
     @classmethod
@@ -97,6 +97,16 @@ class Gate(unittest.TestCase):
             ("4-helicopter-hover", 23, "takeoff_power", "MRP = 4300 hp"),
             ("5-vacuum-shells", 27, "example_shell_mass_kg", "76.0"),
             ("6-helium", 30, None, "0.170000"),
+            ("6-helium", 31, None, "1.1"),
+            ("6-helium", 32, "helium_gross_lift_lb", "2500"),
+            ("6-helium", 34, "max_takeoff_weight_kg", "9500"),
+            ("4-helicopter-hover", 35, "engine_power_hp", "1500"),
+            ("5-vacuum-shells", 27, "example_payload_at_zero_buoyancy_kg", "9.7"),
+            ("3-cl415-cycle", 18, "1_mile", "1 minute"),
+            ("3-cl415-cycle", 18, "6_miles", "1 minute"),
+            ("3-cl415-cycle", 18, "10_miles", "1 minute"),
+            ("3-cl415-cycle", 18, "15_miles", "1 minute"),
+            ("3-cl415-cycle", 19, "time_on_water", "approximately 20 to 22 seconds"),
         ]
         for name, index, field, value in mutations:
             with self.subTest(check=name):
@@ -129,8 +139,10 @@ class Gate(unittest.TestCase):
         old = next(c for c in json.loads((self.root / "research/validation/report.json").read_text())["checks"]
                    if c["id"] == check_id)
         changed = set()
-        for previous, current in zip(old["rows"], fresh["rows"]):
+        for index, (previous, current) in enumerate(zip(old["rows"], fresh["rows"])):
             changed.update(key for key in current if previous.get(key) != current[key])
+            if previous["model_value"] != current["model_value"]:
+                changed.add(f"model_row_{index}")
         if old.get("model_diagnostics") != fresh.get("model_diagnostics"):
             changed.add("model_diagnostics")
         return changed
@@ -140,16 +152,26 @@ class Gate(unittest.TestCase):
             ("1-atmosphere", "sim/atmosphere.js",
              "return densityRatio(hM) * rho0;", "return densityRatio(hM) * rho0 * 1.01;", "model_value"),
             ("2-hindenburg", "sim/physics.js",
-             "const liftT = cls.dispM3 * rho / 1000;", "const liftT = cls.dispM3 * rho / 1000 * 1.01;", "model_value"),
+             "return volumeM3 * (purity * (rho - gasDensity));",
+             "return 1.01 * volumeM3 * (purity * (rho - gasDensity));", "model_value"),
             ("3-cl415-cycle", "sim/plan.js",
-             "const cycleMin = Object.values(dur)", "dur.OUTBOUND_TRANSIT += 1; const cycleMin = Object.values(dur)", "model_value"),
+             "gsOut, gsRet, tailOut, windUsed:", "gsOut: gsOut * 0.5, gsRet, tailOut, windUsed:", "model_value"),
             ("4-helicopter-hover", "sim/physics.js",
              "return Math.pow(thrustN, 1.5)", "return 1.01 * Math.pow(thrustN, 1.5)", "model_value"),
+            ("5-vacuum-shells", "research/analysis/reproductions.py",
+             "thin_mass = 4 * math.pi", "thin_mass = 4.1 * math.pi", "model_value"),
             ("5-vacuum-shells", "research/analysis/vacuum-cell.py",
-             '"latticeKgPerM3": 3.0 * m["rho"] * t_over_r',
-             '"latticeKgPerM3": 3.1 * m["rho"] * t_over_r', "model_diagnostics"),
+             'MATERIALS["T700_LAM"]["E"] * s["I"]',
+             '1.01 * MATERIALS["T700_LAM"]["E"] * s["I"]', "model_diagnostics"),
             ("6-helium", "research/analysis/helium.py",
-             "rho_he = p / (R_HE * t)", "rho_he = 1.01 * p / (R_HE * t)", "model_value"),
+             "return pressure_Pa / (constants[gas] * temperature_K)",
+             "return 1.01 * pressure_Pa / (constants[gas] * temperature_K)", "model_value"),
+            ("6-helium", "research/analysis/helium.py",
+             'return gas_density(temperature_K, pressure_Pa, "air") - gas_kg_m3 - structure_kg_m3',
+             'return gas_density(temperature_K, pressure_Pa, "air") - gas_kg_m3 - structure_kg_m3 + 0.01', "model_value"),
+            ("3-cl415-cycle", "sim/plan.js",
+             'dur.WATER_FILL = deliveredT / fill / 60;',
+             'dur.WATER_FILL = deliveredT / fill / 30;', "model_value"),
         ]
         for name, path, old, new, changed_field in mutations:
             with self.subTest(check=name):
@@ -159,7 +181,16 @@ class Gate(unittest.TestCase):
                 with self.mutated(path, transform):
                     result = self.run_gate(2)
                     self.assertIn("report.json is stale", result.stderr)
-                    self.assertIn(changed_field, self.render_changed_fields(name))
+                    changed = self.render_changed_fields(name)
+                    self.assertIn(changed_field, changed)
+                    expected_rows = []
+                    if name == "2-hindenburg": expected_rows = [0]
+                    if name == "3-cl415-cycle": expected_rows = list(range(6 if "WATER_FILL" in old else 5))
+                    if name == "4-helicopter-hover": expected_rows = [0, 1, 2]
+                    if name == "5-vacuum-shells" and "thin_mass" in old: expected_rows = [0, 1]
+                    if name == "6-helium": expected_rows = [1, 2, 3] if "return gas_density" in old else [0, 1, 2, 3]
+                    for index in expected_rows:
+                        self.assertIn(f"model_row_{index}", changed)
                     print(f"model {name} {path}: exit 2; report.json is stale; "
                           f"computed {changed_field} changed")
                 self.run_gate(0)
@@ -208,14 +239,14 @@ class Gate(unittest.TestCase):
                 (self.root / "research/validation" / name).write_bytes(content)
         self.run_gate(0)
 
-    def test_07_target_without_tmpdir_uses_owned_directory(self):
+    def test_07_target_without_tmpdir_needs_no_runtime_scratch(self):
         env = {k: v for k, v in os.environ.items() if k != "TMPDIR"}
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         p = subprocess.run(["make", "--no-print-directory", "labelledcheck"],
                            cwd=self.root, capture_output=True, text=True, env=env, timeout=60)
         self.assertEqual(p.returncode, 0, p.stderr)
         self.assertEqual(list((self.root / "research/validation").glob("labelled-helium-*")), [])
-        print("no TMPDIR: explicit repository scratch fallback; exit 0; temporary directory removed")
+        print("no TMPDIR: checker needs no runtime scratch; exit 0; no temporary directory created")
 
 
 if __name__ == "__main__":

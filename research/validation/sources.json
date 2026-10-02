@@ -968,6 +968,37 @@
       "confidence": "medium",
       "confidence_reason": "The page was opened. These weights are not in the type certificate. The thousands-separator reading is required for the volume to match the certificate.",
       "limits": "Empty mass was not found. Do not subtract 1900 kg from 8050 kg and call the result empty mass. The page's height, 17.4 m, disagrees with the EASA external height of 19.4 m. Length 75 m disagrees with the EASA length 75.1 m. Gross lift was not found. This page is the baseline a vacuum comparison may use for maximum take-off mass, labelled as the manufacturer's figure, with the certificated volume taken from the type certificate."
+    },
+    {
+      "check": "4-helicopter-hover",
+      "class": "measured",
+      "quantity": "XH-59A measured OGE total engine hover power; Flight 6 first 75-foot row",
+      "value": {
+        "gross_weight_lb": "10600",
+        "engine_power_hp": "1291",
+        "pressure_altitude_ft": "-132",
+        "temperature_C": "7.3",
+        "wheel_height_ft": "75",
+        "rotor_speed_rpm": "315.7",
+        "rotor_disk_area_ft2": "1018",
+        "rotor_radius_ft": "18.0",
+        "rotors": "2 (coaxial)"
+      },
+      "unit": "as printed",
+      "conditions": "Table 2, Flight 6, seventh row: first at 75 ft wheel height, designated OGE. Pressure altitude and free-air temperature are printed; density altitude is derived by the checker. Table 1 gives the single overlapping coaxial disk area. No altitude or efficiency fit.",
+      "document": {
+        "title": "An Assessment of the Hover Performance of the XH-59A Advancing Blade Concept Demonstration Helicopter",
+        "authors": "Donald N. Arents, U.S. Army Air Mobility Research and Development Laboratory",
+        "year": 1977,
+        "report_number": "USAAMRDL-TN-25; AD-A042063"
+      },
+      "locator": "Table 2, printed p.10, Flight 6 first 75 ft row (seventh); Table 1 and Test Techniques p.8; OGE classification p.9.",
+      "url": "https://www.scribd.com/document/61264277/Advancing-Blade-Concept-Demonstration-Helicopter-Xh-59-A",
+      "licence": "U.S. Government technical report. Cover: approved for public release, distribution unlimited. Mirror user metadata is not the report licence.",
+      "quote": "Power was measured by standard engine torquemeters",
+      "confidence": "medium",
+      "confidence_reason": "Primary report text and small Table 2 page image opened; OCR digits cross-checked against the image. DTIC PDF fetch failed. No high-resolution scan available.",
+      "limits": "Measured total engine power, not isolated rotor shaft power. Download, coaxial interference, transmission and accessory losses remain inside effective aircraft merit. The report labels 75 ft data OGE. One positional row only, not validation across the flight envelope. Search and failed fetches are in hover-search.md."
     }
   ]
 }
