@@ -20,7 +20,10 @@ The same browser harness tests the monitor's note with clean HTML, a foreign mod
 appended by the fixture server, an injected foreign fetch, a foreign request made after the
 browser's resource log has stopped taking entries, a log already full when the note starts, and
 scripts disabled. All foreign requests are intercepted and blocked. `--note-evidence tests/firstparty/evidence` writes the
-clean and injected note screenshots at 1440 and 390 px. The live HTML inspector is
+clean and injected note screenshots at 1440, 834 and 390 px. When another host is listed,
+the note says: "Requested in this browser besides <site>: <hosts>. The repository's code
+names only its own site; this page cannot tell who asked for the others." The existing
+resource-log qualification follows when entries may be missing. The live HTML inspector is
 `tools/check_first_party.py`; its unit tests use a loopback edge imitation that injects
 only for browser-like requests.
 

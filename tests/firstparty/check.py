@@ -157,6 +157,16 @@ BOOT = """(async () => {
 
 
 async def note_cases(page, origin, shot_dir):
+    failures = []
+
+    def other_note(actual, host, suffix=""):
+        expected = (f"Requested in this browser besides {origin}: {host}. "
+                    "The repository's code names only its own site; "
+                    "this page cannot tell who asked for the others." + suffix)
+        if actual != expected:
+            failures.append(f"{host}: {actual!r} != {expected!r}")
+            print(f"FAIL note {host}: {actual!r} != {expected!r}", flush=True)
+
     async def note():
         return await page.evaluate("document.getElementById('firstPartyNote').textContent")
 
@@ -171,7 +181,7 @@ async def note_cases(page, origin, shot_dir):
         if not shot_dir: return
         import base64
         shot_dir.mkdir(parents=True, exist_ok=True)
-        for width, height in ((1440, 900), (390, 844)):
+        for width, height in ((1440, 900), (834, 1112), (390, 844)):
             await page.send('Emulation.setDeviceMetricsOverride', {'width': width, 'height': height,
                             'deviceScaleFactor': 1, 'mobile': width == 390})
             await page.evaluate("""(() => {
@@ -219,7 +229,7 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'module'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     module = await wait_note('edge-module.invalid')
-    assert module == f'{own} Also requested in this browser: edge-module.invalid.', module
+    other_note(module, 'edge-module.invalid')
     assert any(r['url'].startswith('https://edge-module.invalid/') for r in page.requests), page.requests
     print(f'note injected module: {module}')
     await screenshots('edge')
@@ -227,15 +237,15 @@ async def note_cases(page, origin, shot_dir):
     Handler.note_variant = 'fetch'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     fetched = await wait_note('edge-fetch.invalid')
-    assert fetched == f'{own} Also requested in this browser: edge-fetch.invalid.', fetched
+    other_note(fetched, 'edge-fetch.invalid')
     assert any(r['url'].startswith('https://edge-fetch.invalid/') for r in page.requests), page.requests
     print(f'note injected fetch: {fetched}')
 
     Handler.note_variant = 'late'
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     late = await wait_note('edge-late.invalid')
-    assert late == (f'{own} Also requested in this browser: edge-late.invalid. '
-                    "The browser's resource log for this page is full; other requests cannot be confirmed."), late
+    other_note(late, 'edge-late.invalid',
+               " The browser's resource log for this page is full; other requests cannot be confirmed.")
     assert any(r['url'].startswith('https://edge-late.invalid/') for r in page.requests), page.requests
     full = await page.evaluate(
         "performance.getEntriesByType('resource').some(e => e.name.includes('edge-late.invalid'))")
@@ -258,6 +268,7 @@ async def note_cases(page, origin, shot_dir):
         print(f'note scripts off: {static}')
     finally:
         await page.send('Emulation.setScriptExecutionDisabled', {'value': False})
+    assert not failures, '\n'.join(failures)
 
 
 async def session(ws_url, origin, records, evidence, note_evidence, note_only=False):
@@ -338,7 +349,7 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--evidence', type=Path, help='write the recorded request log and monitor screenshot')
-    parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440 and 390 px')
+    parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440, 834 and 390 px')
     parser.add_argument('--note-only', action='store_true', help='run only the note cases')
     args = parser.parse_args()
     records = []
