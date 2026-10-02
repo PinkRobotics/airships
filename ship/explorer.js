@@ -2123,7 +2123,7 @@ function buildGrid() {
     // "some hoops have them, some don't" — the model puts the crossed pair at
     // every inner ring, so the drawing does too), and EVERY landing wears a
     // connector: web ends on their rings, X ends on theirs, and the crossing
-    // itself. Joints are PRICED SMEARED (the eta line, 15% of member mass),
+    // itself. Joints are PRICED SMEARED (the eta line, 15% of members plus joints),
     // so the beads are instanced truth about where fittings live, not a new
     // mass line — and minimizing that count is named daylight work.
     const tx = [];
@@ -2206,7 +2206,7 @@ function buildGrid() {
       { p: at(-3.2 * ROW, -2.8 * CROSS, -1.2), t: 'cross-bars, and what they are for', s: 'the film pulls adjacent rings together; these hold them apart — and tie the rings into one flange so the webs can serve them all' },
       { p: at(3.0 * ROW, 0, GRID.depthM + 1.3), t: 'every web lands on a ring', s: `the fan reaches the inner wall ≈${GRID.depthM} m in, where the bays and all the longerons live` },
       { p: at(0.5 * ROW, 2.0 * CROSS, GRID.depthM + 0.6), t: 'the X in the ring plane, at every bay', s: 'the member the checks found missing: without it the two walls cannot bend as one deep ring — the fan lives in meridional planes and cannot carry this shear' },
-      { p: at(-2.2 * ROW, -1.2 * CROSS, GRID.depthM * 0.5), t: 'a connector at every landing', s: 'web ends, X ends, the crossing itself — the ledger prices joints smeared (the η line, 15% of member mass), and the render instances them for free. Getting that count DOWN is named daylight work; the count is why η matters' },
+      { p: at(-2.2 * ROW, -1.2 * CROSS, GRID.depthM * 0.5), t: 'a connector at every landing', s: 'web ends, X ends, the crossing itself — the ledger prices joints smeared (the η line, 15% of members plus joints), and the render instances them for free. Getting that count DOWN is named daylight work; the count is why η matters' },
       { p: at(0, -1.5 * CROSS, GRID.depthM + 8), t: 'spokes, crossing the void', s: 'the licensed fallback: pretensioned cords against the EVEN out-of-round modes at fibre weight — a diametral cord cannot see the odd ones, and the record says so; the chordal net that could is SHIP-3' },
     ],
   };

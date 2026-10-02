@@ -1,5 +1,11 @@
 # Open questions
 
+> **2026-10-01: #16 is PARTLY FIXED, and #18 to #20 are new.** The 3D viewer now reads the model's
+> constants through a checked boundary, and the rotor count is decided: the model counts stations.
+> Three atmosphere implementations disagree in the sixth digit (#18), six failure buttons in the
+> model lab change only the drawing (#19), and the engineering page's sentence about scale is not
+> what the model says across ship sizes (#20).
+
 > **2026-10-01: #5 is FIXED.** The Esri layer and toggle are removed; the monitor uses
 > the bundled first-party hillshade. The dated status notes below are historical.
 
@@ -818,7 +824,7 @@ invented for.
 
 ---
 
-## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong
+## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong — PARTLY FIXED 2026-10-01
 
 **PARTLY FIXED — 2026-10-01.** The model remains authoritative. The import rule in
 `tools/check_boundaries.py` keeps `3d/` standalone, so its model constants live in
@@ -846,12 +852,14 @@ power in the viewer. Both now use the published nominal frontal area. **The orig
 are now 1. Tests mutate declarations, missing partners, tables, formulas, defaults and required
 field validation, require failures, then restore the files (`tests/parity/mutations.mjs`).
 
-**Still open — the drawing is not a rotor-count decision.** The model declares 4 / 6 / 14
-rotors; the viewer draws that many stations with two rotors each, or 8 / 12 / 28. The drawing's
-aggregate disc areas remain 2,513 / 12,215 / 158,886 m² against the model's 2,500 / 12,000 /
-160,000 m², within the existing 10% illustration allowance. The discrepancy is explicitly
-exempted and the current station/pair counts are tested, not silently reinterpreted. Decide
-whether the public count means physical rotors or stations before changing the drawing.
+**Decided 2026-10-01 — the model counts stations.** The model declares 4 / 6 / 14 rotors; the
+viewer draws that many stations with two rotors each, or 8 / 12 / 28. The drawing's aggregate disc
+areas remain 2,513 / 12,215 / 158,886 m² against the model's 2,500 / 12,000 / 160,000 m², within
+the existing 10% illustration allowance, and the model's power reads the disc area, never the
+count. The two do not disagree on physics: the model's count means vectoring stations, each drawn
+as a pair. No mesh is halved and no rotor resized; the exemption and the station and pair counts
+stay tested. **Still open:** public copy that prints the count still says rotors. It is to say
+rotor stations, two rotors each, and that wording lands with the README.
 
 The standalone eleven-phase cycle and its illustrative power shares still differ from the
 host's six-phase mission; sharing constants does not make those two simulations identical.
@@ -878,6 +886,65 @@ wind was applied.
 
 The correction is `!!(wind && wind.spd != null && wind.bearing != null)`, matching the guard, after
 which the known failure becomes an ordinary test.
+
+---
+
+## 18. Three atmosphere implementations that do not agree to the last digit
+
+**Reproduced 2026-10-01. Open.** Run `make labelledcheck` and read the density rows at 1,000 m in
+`research/validation/report.md`. `sim/atmosphere.js` returns 1.111642738880746 kg/m³;
+`research/analysis/vacuum-cell.py` and `research/analysis/helium.py` both return
+1.111652281952491 kg/m³; Table I of the 1976 standard prints 1.1116. With the tolerance written
+before the first run (0.00005 kg/m³) the browser model agrees, and the two Python copies MISS by
+about 0.0000023 kg/m³ beyond it.
+
+The cause is the gas constant for dry air: `sim/atmosphere.js` uses 287.0528 J/(kg·K) and the two
+Python files use 287.05. All three also treat their argument as geopotential height, although the
+JavaScript interface describes it as height above mean sea level: at a geometric 2,500 m the
+standard's temperature is 271.906 K against the functions' 271.900 K.
+
+It stays a MISS. The constant feeds the cell parity mirror and the generated analysis figures, so
+it is not changed quietly. Decide the altitude contract and the constant together, publish what
+moves, old and new, then move the row.
+
+---
+
+## 19. Six of the model lab's failure buttons change only the drawing
+
+**Reproduced 2026-10-01. Open.** The model lab offers a failure button for each of up to six rotor
+stations, then for an HVDC bus, a generator, a pump pod, a vacuum cell, a sensor cluster and a tail
+surface. Failing a rotor makes the allocator re-solve the wrench, and the page says so. The other
+six reach no physics module: the drawing code reads them (`3d/anim/driver.js`) and nothing else
+does. With any of them failed, the allocation is identical to the allocation with nothing failed.
+
+The page does not claim otherwise, and it does not say so either. Wire each to the model, or label
+the six as drawing-only where the buttons are.
+
+---
+
+## 20. "Scale is the lever" is not what the model says across ship sizes
+
+**Reproduced 2026-10-01. Open: the sentence is rewritten when the float ledger lands.** The
+engineering page says that structure per litre falls as the vessel grows, and that scale is the
+lever. From a bench cell to a ship that is true: the bench article carries 15.1 kg of structure per
+cubic metre enclosed, and Ship 0 carries 2.19 on the record basis and 1.25 in the best defensible
+world, against 1.225 kg of sea-level air.
+
+Across ship sizes the model says the opposite. `SHIP.floatWindow` and `SHIP.floatWindowFrame` in
+`ship/catalog.js`, both computed by `ship0Summary()` in `ship/model.js`, give lift over mass at
+sea level by hull diameter:
+
+| basis | 40 m | 44 m | 48 m | 52 m | 56 m | 60 m | 68 m | 80 m |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| record | 0.585 | 0.582 | 0.577 | 0.558 | 0.543 | 0.532 | 0.508 | 0.455 |
+| best defensible world | 0.956 | 0.987 | 0.953 | 0.981 | 0.969 | 0.969 | 0.957 | 0.916 |
+
+On the record basis the ratio falls at every step as the hull grows. In the best defensible world
+it wanders between 0.953 and 0.987 up to 60 m and falls above it. Nothing in the range floats.
+
+The page keeps its sentence until the float ledger generates this table from the model. The
+rewrite then says what scale buys, which is the step from a bench cell to a ship, and where it
+stops.
 
 ---
 

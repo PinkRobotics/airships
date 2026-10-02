@@ -725,8 +725,8 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
         <!-- Generated snapshot stand-in; renderFires() replaces it like the empty state. -->
         <div id="firesTop"><!--FALLBACK-FIRES--><table class="fleettab" aria-describedby="firesNote" aria-label="Largest fires waiting for or receiving a hull, from the bundled snapshot"><tbody><tr class="r-ship"><td>Pear Lake</td><td style="text-align:right">136,485 ha</td><td style="text-align:right">Condor</td><td style="text-align:right">7,009 kL/h</td></tr><tr class="r-ship"><td>Ainslie Creek</td><td style="text-align:right">48,537 ha</td><td style="text-align:right">Pelican</td><td style="text-align:right">740 kL/h</td></tr><tr class="r-ship"><td>French Bar Creek</td><td style="text-align:right">39,044 ha</td><td style="text-align:right">Swift</td><td style="text-align:right">270 kL/h</td></tr><tr class="r-ship"><td>Bonanza Creek</td><td style="text-align:right">26,823 ha</td><td style="text-align:right">Skimmer</td><td style="text-align:right">1,387 kL/h</td></tr><tr class="r-ship"><td>Bald Range</td><td style="text-align:right">9,500 ha</td><td style="text-align:right">Osprey</td><td style="text-align:right">2,505 kL/h</td></tr><tr class="r-ship"><td>Brunswick Creek</td><td style="text-align:right">8,691 ha</td><td style="text-align:right">Albatross</td><td style="text-align:right">892 kL/h</td></tr><tr class="r-ship"><td>Lessard Lake</td><td style="text-align:right">5,476 ha</td><td style="text-align:right">—</td><td style="text-align:right">queued</td></tr><tr class="r-ship"><td>Rim Lake</td><td style="text-align:right">4,795 ha</td><td style="text-align:right">Kingfisher</td><td style="text-align:right">277 kL/h</td></tr></tbody></table><p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">Live sizes over today’s fires. This printed copy is the bundled 2026-08-08 snapshot.</p><!--/FALLBACK-FIRES--></div>
         <p class="small" id="firesNote" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">
-          Last drop and kL/hour are simulation; sizes are live. The allocator counts every
-          fire it cannot reach, and queues it.</p>
+          Last drop and kL/hour are simulation; sizes are live. A fire marked queued has no
+          ship: the allocator counts every fire the sixteen hulls leave without one.</p>
       </div>
       </div>
       <div class="cp-rightcol">
@@ -892,7 +892,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
     <div id="introOv" hidden>
       <div class="io" style="left:2%;top:12%">
         <b>The fleet</b>
-        <p>Sixteen simulated hulls and the live fires they serve, named for water birds. Divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The two crush envelope closes near 96 m of hull diameter, and the two larger classes live outside it. Figure 2 on the front page shows where. They fly here to find where the arithmetic breaks. Click any row to open its cockpit.</p>
+        <p>Sixteen simulated hulls and the live fires they serve, named for water birds. Divers fly the P-100s, scoopers the P-1000s, and Condor is the one P-10000. The crush envelope closes near 96 m of hull diameter, and the two larger classes live outside it. Figure 2 on the front page shows where. They fly here to find where the arithmetic breaks. Click any row to open its cockpit.</p>
       </div>
       <!-- These two point INTO the centre column, so their positions are in the stylesheet
            rather than inline: the side-by-side arrangement moves them, and an inline style

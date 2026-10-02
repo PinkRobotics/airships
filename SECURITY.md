@@ -22,15 +22,16 @@ unvalidated upstream responses, and any way the mirror could be made to serve so
 mirrored data. `pipeline/water.py` and `pipeline/terrain.py` are run by hand and commit their output,
 so a problem there is a supply-chain problem in the committed data rather than a live one.
 
-**The mirror and the feed chain.** The page tries three tiers in order: our mirror at `data/live/`,
-then the upstream feeds directly, then the dated snapshot committed to the repository. The upstream
-origins the browser can be made to contact are `services6.arcgis.com` (BC Wildfire Service),
-`cwfis.cfs.nrcan.gc.ca` (CWFIS hotspots), `api.open-meteo.com` (winds) and
-`server.arcgisonline.com` (satellite tiles). A way to make the page contact something else, or to
-make an untrusted response drive rendering, is in scope. So is anything that would cause the page to
-hammer an emergency service's feed: the mirror exists specifically so that traffic to this site does
-not multiply load on emergency infrastructure, and a defect that defeats that is a real defect even
-though it harms someone else's servers rather than ours.
+**The mirror and the feed chain.** The page tries two tiers in order: our mirror at `data/live/`,
+then the dated snapshot committed to the repository. No tier sends a browser to an agency's feed,
+and the served source names no other host: the map is the bundled hillshade, and fires,
+perimeters, satellite heat and wind all come through the mirror. `make firstparty` scans every
+served file for a loading URL on another host and records every request a browser makes on every
+served page. A way to make the page contact anything but this site, or to make an untrusted
+response drive rendering, is in scope. So is anything that would cause the mirror to hammer an
+emergency service's feed: it exists specifically so that traffic to this site does not multiply
+load on emergency infrastructure, and a defect that defeats that is a real defect even though it
+harms someone else's servers rather than ours.
 
 **Data that becomes markup.** Fire names, geographic descriptions and source names come from
 third-party feeds and are rendered into the page. They are escaped through `esc()` in `app/dom.js`.

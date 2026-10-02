@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Pink Robotics the fleet monitor, how it works</title>
+<title>Pink Robotics: the fleet monitor, how it works</title>
 <meta name="description" content="The physics, mission cycle, energy budgets, sources and limits behind the autonomous airship fleet monitor — one cycle end to end, the machines, the arithmetic and its assumptions, all adjustable. No flightworthy vacuum airship exists.">
 <link rel="canonical" href="https://pinkrobotics.ca/airships/concept/">
 <meta property="og:type" content="website">
@@ -765,7 +765,7 @@ nav.estate .wrap{display:block}
           <p>The routing question underneath all three is the project's central one:
             <b style="color:var(--text)">which three-dimensional atmospheric trajectory costs
             the least energy while keeping this aircraft within its structural envelope?</b>
-            Routes are nominal today and transit legs already carry a live 850 hPa wind sample per leg; three-dimensional trajectory optimization is the next thing the monitor gets.</p>
+            Routes are nominal today and transit legs carry one 850 hPa wind per route when the mirror has it; three-dimensional trajectory optimization is not active.</p>
         </div>
       </details>
     </div>
@@ -913,7 +913,7 @@ nav.estate .wrap{display:block}
         <summary>Transit: drag power at airship speeds.</summary>
         <div class="dbody">
           <div class="eq">P_drag = ½ · ρ · C_d · A · v³ / η_prop</div>
-          <p class="eqwhy">Cube law: the reason these are 90–130 km/h vehicles and not 300 km/h vehicles. First-order drag from a configured C_d and frontal area, both shown in the panel above — which is why these are 90–130 km/h vehicles and not 300 km/h vehicles.</p>
+          <p class="eqwhy">Cube law: the reason these are 90–130 km/h vehicles and not 300 km/h vehicles. C_d and frontal area are configured assumptions, both shown in the panel above; the model is an idealized first-order estimate, not aerodynamics.</p>
         </div>
       </details>
       <details class="d">
@@ -958,7 +958,8 @@ nav.estate .wrap{display:block}
         software layer that exists</a> is governed. Applied to the fleet, it becomes a hierarchy: humans hold objectives, boundaries and stop authority. A strategic Mind allocates the fleet and escalates uncertainty. Regional Minds deconflict airspace and shared water. Each Vehicle Mind routes, budgets mass and energy, and explains itself. None of them, at any layer, addresses an actuator directly. A verified deterministic
         kernel enforces the flight and structural envelope, terrain and water clearance,
         convection exclusion, communications-loss behaviour, emergency release, and a human
-        stop that cannot be silently overridden.
+        stop that cannot be silently overridden. No part of this control stack has been built
+        for the fleet: it is the architecture the fleet is designed around.
       </p>
     </div>
     <div class="dlist" style="margin-top:var(--s6)">

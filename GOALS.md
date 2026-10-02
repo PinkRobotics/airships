@@ -31,8 +31,10 @@ A sceptical stranger with ten minutes should be able to:
 4. read the float figures, each with its basis, and what would move them.
 
 The target is a nightly run that does all four from a clean environment and publishes the result.
-That run does not exist yet. On 2026-10-01 the test fails at step 1: `make check` stops at a red
-check.
+That run does not exist yet. Step 1 can be run by hand: `tools/stranger_run.py` clones a commit,
+clears the environment and runs every gate. It was red until 2026-10-01, when `make check` stopped
+at one check, and is green since. Step 3 is the public work log at pinkrobotics.ca/log/. Steps 2
+and 4 are not demonstrated yet.
 
 ## Objectives and weights
 
@@ -77,7 +79,7 @@ here. No outside objection has been through it yet.
 
 | Track | State | Unparks when |
 |---|---|---|
-| Animals (a welfare-gated control architecture) | Parked. Its page, which lives in the site's repository, is to be labelled as vision, and its sentences the code does not back are to be corrected. Neither is done yet. | An executable propose/decide kernel exists in the simulator with property tests, or the director orders the single formal note. |
+| Animals (a welfare-gated control architecture) | Parked. Its page lives in the site's repository. The sentences the code does not back were corrected there on 2026-10-01: it now says that no controller has been built. A plain label as vision is still owed. | An executable propose/decide kernel exists in the simulator with property tests, or the director orders the single formal note. |
 | Energy as cargo (a battery-exchange chain) | Parked until the energy model lands. | The one energy model has landed; then one supply-chain analysis, and either outcome is a result. |
 | New vehicle design | Frozen. | An outside structures engineer has reviewed the current design. |
 | The 3D viewer | Features frozen. Bugs that make it disagree with the model get fixed; some are open today (`docs/OPEN-QUESTIONS.md`, item 16). | The director's word. |
@@ -94,10 +96,10 @@ Where a rule does not hold yet, it says so.
   outlines drawn after the fact. This binds the replay being built. It is not a rule against
   satellite data: the live monitor uses the last day's satellite hotspots to help choose where
   along a fire's edge to drop (`sim/targets.js`), and a test holds it to that.
-- **A visitor's browser talks only to this site.** Not true yet. Today the page loads satellite
-  imagery and wind from third parties, and it falls back to the agencies' own feeds when the mirror
-  is unavailable; `SECURITY.md` lists the four origins. Ending that is part of the 2026-10-04
-  milestone.
+- **A visitor's browser talks only to this site.** True in this repository since 2026-10-01. The
+  map is drawn from bundled terrain; fires, satellite heat and wind come through the site's own
+  server-side mirror; no tier sends a browser to an agency's feed. `make firstparty` holds every
+  served page to it, and the published site carries it from its next publish.
 - **No quiet fixes.** A number that moves is published old and new, with the reason. This is the
   practice from 2026-10-01; earlier history was not held to it.
 - **Cost is accounting, not a headline.** When the public log exists, token, line and agent counts
