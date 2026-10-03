@@ -8,6 +8,10 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import check_ports
 
+# The gate scans this file too. Its http.server commands are assembled at run time, so that the
+# file's own text holds no command for the gate to read and no second layer of escaping.
+SERVER = 'http.' + 'server'
+
 BAD = {
     'loopback_address': 'url = "http://127.0.0.1:9001/page"',
     'zero_address': 'url = "http://127.0.0.1:0/page"',
@@ -17,16 +21,6 @@ BAD = {
     'quoted_argument': 'args = ["--port", "9001"]',
     'equals_argument': 'python3 tools/serve.py --port=9001',
     'argparse_default': 'parser.add_argument("--port", type=int, default=9001)',
-    'http_server': 'python3 -m http.server 9001',
-    'http_server_bind_first': 'python3 -m http.server --bind 127.0.0.1 9001',
-    'http_server_continued': 'python3 -m http.server \\\n    --bind 127.0.0.1 9001',
-    'http_server_list': 'subprocess.Popen(["python3", "-m", "http.server", "9001"])',
-    'http_server_list_bind': 'subprocess.Popen(["python3", "-m", "http.server", "--bind", "127.0.0.1", "9001"])',
-    'http_server_list_lines': 'subprocess.Popen([\n    "python3", "-m", "http.server",\n    "-d", ".", "9001",\n])',
-    'http_server_prose': 'Run python3 -m http.server 9001. Then open the page.',
-    'http_server_escaped': 'script.write_text("python3 -m http.server 9001\\n")',
-    'http_server_escaped_quotes': 'command = "python3 -m http.server \\"9001\\""',
-    'js_http_server_spawn': 'spawn("python3", ["-m", "http.server", "9001"]);',
     'assignment': 'PORT = 9001',
     'typed_assignment': 'port: int = 9001',
     'make_default': 'PORT ?= 9001',
@@ -56,6 +50,77 @@ BAD = {
     'js_env_index': 'const number = process.env["AIRSHIPS_PORT"];',
 }
 
+# Each http.server command and the one shape the gate reads from it: the port CPython 3.14's own
+# parser binds for those words (8000 when none is named), argument:unreadable when that parser
+# would refuse a word, and nothing when the port is computed or zero or only help is asked for.
+SERVER_COMMANDS = {
+    f'python3 -m {SERVER} 9001': 'argument:9001',
+    f'python3 -m {SERVER} --bind 127.0.0.1 9001': 'argument:9001',
+    f'python3 -m {SERVER} \\\n    --bind 127.0.0.1 9001': 'argument:9001',
+    f'subprocess.Popen(["python3", "-m", "{SERVER}", "9001"])': 'argument:9001',
+    f'subprocess.Popen(["python3", "-m", "{SERVER}", "--bind", "127.0.0.1", "9001"])':
+        'argument:9001',
+    f'subprocess.Popen([\n    "python3", "-m", "{SERVER}",\n    "-d", ".", "9001",\n])':
+        'argument:9001',
+    f'script.write_text("python3 -m {SERVER} 9001\\n")': 'argument:9001',
+    f'command = "python3 -m {SERVER} \\"9001\\""': 'argument:9001',
+    f'spawn("python3", ["-m", "{SERVER}", "9001"]);': 'argument:9001',
+    # Long options by unique prefix, as argparse accepts them.
+    f'python3 -m {SERVER} --dir site 9001': 'argument:9001',
+    f'subprocess.Popen(["python3", "-m", "{SERVER}", "--prot", "HTTP/1.1", "9001"])':
+        'argument:9001',
+    # An expansion, a call or a quoted value is one word.
+    f'python3 -m {SERVER} --directory $(SITE) 9001': 'argument:9001',
+    f'subprocess.Popen([sys.executable, "-m", "{SERVER}", "--directory", str(root), "9001"])':
+        'argument:9001',
+    f'python3 -m {SERVER} -d "$(pwd)/site" 9001': 'argument:9001',
+    f'python3 -m {SERVER} -d "my site" 9001': 'argument:9001',
+    f'subprocess.Popen(("python3", "-m", "{SERVER}", "-d", os.fspath(root), "9001"))':
+        'argument:9001',
+    # Attached values, the end of options, joined switches, a string, a redirection, a comment.
+    f'python3 -m {SERVER} -dsite --bind=127.0.0.1 -- 9001': 'argument:9001',
+    f'python3 -Bm{SERVER} 9001': 'argument:9001',
+    f'subprocess.Popen(["python3", "-m{SERVER}", "9001"])': 'argument:9001',
+    f'subprocess.run("python3 -m {SERVER} --dir site 9001", shell=True)': 'argument:9001',
+    f'python3 -m {SERVER} 9001 > server.log 2>&1 &': 'argument:9001',
+    f'python3 -m {SERVER} 9001 2>server.log': 'argument:9001',
+    f'command = [\n    sys.executable, "-m", "{SERVER}",\n    "--bind", "127.0.0.1",  # loopback\n'
+    '    "9001",\n]': 'argument:9001',
+    # The module name after a quote, a quoted switch, a continuation, a comment or a +.
+    f'python3 -m "{SERVER}" 9001': 'argument:9001',
+    f'os.system("python3 -m \'{SERVER}\' 9001")': 'argument:9001',
+    f'command = "python3 -m \\"{SERVER}\\" 9001"': 'argument:9001',
+    f'python3 "-m" {SERVER} 9001': 'argument:9001',
+    f'python3 -m \\\n    {SERVER} 9001': 'argument:9001',
+    f'subprocess.Popen([\n    sys.executable, "-m",  # stdlib\n    "{SERVER}", "9001",\n])':
+        'argument:9001',
+    f'os.system("python3 -m " + "{SERVER} 9001")': 'argument:9001',
+    f'command = ("python3 -m "\n           "{SERVER} 9001")': 'argument:9001',
+    # No port named: the parser's default.
+    f'python3 -m {SERVER}': 'argument:8000',
+    f'subprocess.Popen(["python3", "-m", "{SERVER}"])': 'argument:8000',
+    f'python3 -m {SERVER} --bind 127.0.0.1 &': 'argument:8000',
+    f'Prose names `python3 -m {SERVER}` in passing.': 'argument:8000',
+    # A word the parser refuses, or a second positional word.
+    f'python3 -m {SERVER} --verbose 9001': 'argument:unreadable',
+    f'python3 -m {SERVER} --tls x 9001': 'argument:unreadable',
+    f'python3 -m {SERVER} --cgi=yes 9001': 'argument:unreadable',
+    f'python3 -m {SERVER} --bind': 'argument:unreadable',
+    f'python3 -m {SERVER} "$port" 9001': 'argument:unreadable',
+    f'Run python3 -m {SERVER} 9001. Then open the page.': 'argument:unreadable',
+    f'# python3 -m {SERVER} mostly works': 'argument:unreadable',
+    f'subprocess.Popen(["python3", "-m", "{SERVER}", *extra])': 'argument:unreadable',
+    # Nothing fixed: zero, a computed port, help, or no command at all.
+    f'python3 -m {SERVER} 0': None,
+    f'chosen_by_system = ["python3", "-m", "{SERVER}", "0"]': None,
+    f'command = ["python3", "-m", "{SERVER}", "--bind", "127.0.0.1", str(chosen)]': None,
+    f'python3 -m {SERVER} "$port" --bind 127.0.0.1': None,
+    f'python3 -m {SERVER} --help': None,
+    f'import {SERVER}\nfrom {SERVER} import BaseHTTPRequestHandler': None,
+    f'class Handler({SERVER}.SimpleHTTPRequestHandler):\n    pass': None,
+    f"Python's own {SERVER} mostly works.": None,
+}
+
 
 class PortRules(unittest.TestCase):
     def setUp(self):
@@ -83,20 +148,25 @@ class PortRules(unittest.TestCase):
                    'transport = 9001\nprofile = os.environ.get("TMPDIR")')
         self.assertEqual(self.errors(), [])
 
-    def test_http_server_without_a_literal_port_passes(self):
-        self.plant('import http.server\n'
-                   'from http.server import BaseHTTPRequestHandler\n'
-                   'class Handler(http.server.SimpleHTTPRequestHandler):\n    pass\n'
-                   'command = ["python3", "-m", "http.server", "--bind", "127.0.0.1", str(chosen)]\n'
-                   'chosen_by_system = ["python3", "-m", "http.server", "0"]\n'
-                   '# python3 -m http.server mostly works')
-        self.assertEqual(self.errors(), [])
+    def test_http_server_commands_are_read_as_their_parser_reads_them(self):
+        for text, shape in SERVER_COMMANDS.items():
+            with self.subTest(text=text):
+                self.plant(text)
+                shapes = [found for found, _ in check_ports.scan('tools/probe.py', text + '\n')]
+                self.assertEqual(shapes, [shape] if shape else [])
+                self.assertEqual(bool(self.errors()), bool(shape))
 
     def test_http_server_port_is_counted_once_per_command(self):
-        self.plant('python3 -m http.server 8875\n'
-                   'command = ["python3", "-m", "http.server", "--bind", "127.0.0.1", "8875"]')
+        self.plant(f'python3 -m {SERVER} 8875\n'
+                   f'command = ["python3", "-m", "{SERVER}", "--bind", "127.0.0.1", "8875"]')
         self.allow.write_text('tools/probe.py | argument:8875 | 2 | Person-facing example\n')
         self.assertEqual(self.errors(), [])
+
+    def test_unreadable_command_cannot_be_allowed(self):
+        self.plant(f'python3 -m {SERVER} --verbose 9001')
+        self.allow.write_text('tools/probe.py | argument:unreadable | 1 | Person-facing example\n')
+        with self.assertRaises(ValueError):
+            self.errors()
 
     def test_socket_read_is_confined_to_serving_module(self):
         self.plant('port = server.server_address[1]', 'tools/serve.py')

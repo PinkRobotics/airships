@@ -7,9 +7,10 @@ Comments and string examples are included. Nothing under docs is scanned.
 
 Recognized shapes, drawn from the port inventory (decimal literals):
 - address: a numeric port in an HTTP/WebSocket URL or a loopback host:port;
-- argument: a numeric port option, its argparse default, the port of an http.server
-  command (shell words or list elements, after any options), or a JavaScript
-  listen/bind argument;
+- argument: a numeric port option, its argparse default, the port an http.server
+  command binds (8000 when it names none), or a JavaScript listen/bind argument.
+  An http.server command with a word its own parser would refuse is
+  argument:unreadable, which no allowance can excuse;
 - assignment: a numeric value/list assigned to port, PORT, *_port(s), *_PORT(S)
   or a camel-case *Port(s) name, including Makefile defaults;
 - bind: a nonzero literal in a bind/HTTPServer/TCPServer/Server address tuple;
@@ -26,13 +27,15 @@ positive count and row-specific reason; obsolete rows fail too.
 
 Limits: this is a syntax guard, not dataflow analysis. Constructed strings, aliased
 APIs, computed or nondecimal numbers and ports hidden behind differently named variables can
-escape it. Files outside the scope, untracked files, installed dependencies and
-external services are not inspected. `make portproof` checks the actual isolation
-of the eight browser gates independently of these patterns.
+escape it. An http.server command is read only where Python runs it by its module switch,
+and a computed port is trusted to be chosen at run time. Files outside the scope, untracked
+files, installed dependencies and external services are not inspected. `make portproof`
+checks the actual isolation of the eight browser gates independently of these patterns.
 """
 from __future__ import annotations
 
 import argparse
+import ast
 from collections import defaultdict
 from pathlib import Path
 import re
@@ -69,33 +72,218 @@ ENVIRONMENT = (
 )
 ENV_LOOP = re.compile(r'for\s+\w+\s+in\s*\([^)]*[\x22\x27](?:PORT|AIRSHIPS_PORT)[\x22\x27]'
                       r'[^)]*\)\s*:[\s\S]{0,160}?\benviron(?:\.get|\[)')
-# http.server takes its port as the first positional argument, after any options: as shell
-# words, or as list elements when the module name is itself a quoted element.
-HTTP_SERVER = re.compile(r'\bhttp\.server\b(?![\w.])')
-HTTP_SERVER_VALUED = {'-b', '--bind', '-d', '--directory', '-p', '--protocol',
-                      '--tls-cert', '--tls-key', '--tls-password-file'}
-WORD = re.compile(r'[^\s\x22\x27,\[\]()\\]+')
+# An http.server command is found where the module name follows Python's module switch with
+# only whitespace, quotes, commas, a +, backslashes or comments to the line's end between
+# them, as shell words or as list elements. It is read to its end: a shell separator, the
+# close of the string that holds it, or its list's closing bracket. Its words are read as
+# CPython 3.14's parser reads them: long options by exact name or unique prefix, with or
+# without =value; short options with the value next, attached or after =; then at most one
+# positional port. $VAR, $(...), a call or a name is one computed value, and a computed port
+# is not a fixed one.
+HTTP_SERVER = re.compile(r'(?<![\w-])-[A-Za-z]*m(?P<gap>(?:[\s\x22\x27\\,+]|#[^\n]*\n)*?)'
+                         r'http\.server(?![\w.])')
+SERVER_OPTIONS = {'--bind': True, '--directory': True, '--protocol': True, '--tls-cert': True,
+                  '--tls-key': True, '--tls-password-file': True, '--cgi': False, '--help': False}
+SERVER_SHORT = {'-b': '--bind', '-d': '--directory', '-p': '--protocol', '-h': '--help'}
+SHELL_END = re.compile(r'[\n;&|)`#<>]|[0-9]+[<>]')
+ESCAPES = {'n': '\n', 'r': '\n', 't': ' ', '\n': '', '\\': '\\', '\x22': '\x22', '\x27': '\x27',
+           '`': '`'}
+UNREADABLE = object()
+
+
+def closing(text, i):
+    """The index of the quote that closes the one at i (or the end); escapes are skipped."""
+    j = i + 1
+    while j < len(text) and text[j] != text[i]:
+        j += 2 if text[j] == '\\' else 1
+    return min(j, len(text))
+
+
+def bracket_end(text, i):
+    """The index after the bracket that closes the one at i; quoted text is skipped."""
+    depth = 0
+    while i < len(text):
+        if text[i] in '\x22\x27`':
+            i = closing(text, i) + 1
+            continue
+        depth += (text[i] in '([{') - (text[i] in ')]}')
+        i += 2 if text[i] == '\\' else 1
+        if depth == 0:
+            break
+    return i
+
+
+def open_quote(prefix):
+    """The quote still open at the end of a line's prefix, and where it opened."""
+    quote, opened, i = None, -1, 0
+    while i < len(prefix):
+        if prefix[i] == '\\':
+            i += 1
+        elif quote is None and prefix[i] in '\x22\x27`':
+            quote, opened = prefix[i], i
+        elif prefix[i] == quote:
+            quote = None
+        i += 1
+    return quote, opened
+
+
+def string_body(text, i, quote):
+    """The rest of the string holding a command, unescaped: to its closing quote or line end."""
+    end = i
+    while end < len(text) and text[end] not in (quote, '\n'):
+        end += 2 if text[end] == '\\' else 1
+    return re.sub(r'\\(.)', lambda m: ESCAPES.get(m.group(1), m.group()), text[i:end], flags=re.S)
+
+
+def shell_word(text, i):
+    """The shell word at i, or None if any part of it is expanded; and the index after it."""
+    parts, computed = [], False
+    while i < len(text) and text[i] not in ' \t\r\n;&|)`<>':
+        if text[i] == '\\':
+            parts.append(text[i + 1:i + 2].strip('\n'))
+            i += 2
+        elif text[i] == '\x27':
+            end = text.find('\x27', i + 1)
+            end = len(text) if end < 0 else end
+            parts.append(text[i + 1:end])
+            i = end + 1
+        elif text[i] == '\x22':
+            end = closing(text, i)
+            computed = computed or bool(re.search(r'(?<!\\)[$`]', text[i + 1:end]))
+            parts.append(re.sub(r'\\(.)', r'\1', text[i + 1:end], flags=re.S))
+            i = end + 1
+        elif text[i] == '$':
+            computed = True
+            i = bracket_end(text, i + 1) if text[i + 1:i + 2] in ('(', '{') else i + 1
+        else:
+            parts.append(text[i])
+            i += 1
+    return (None if computed else ''.join(parts)), i
+
+
+def shell_words(text, i=0):
+    """The words of a shell command from i to its end."""
+    words = []
+    while i < len(text):
+        if text[i] in ' \t\r' or text.startswith('\\\n', i):
+            i += 2 if text[i] == '\\' else 1
+        elif SHELL_END.match(text, i):
+            break
+        else:
+            word, i = shell_word(text, i)
+            words.append(word)
+    return words
+
+
+def list_element(source):
+    """A literal string or number as its text; another expression (computed) as None."""
+    if source.startswith(('*', '...')):
+        return UNREADABLE
+    if source.startswith('`'):
+        return None if '${' in source else source.strip('`')
+    try:
+        value = ast.literal_eval(source)
+    except ValueError:
+        return None
+    except (SyntaxError, TypeError, MemoryError, RecursionError):
+        return UNREADABLE
+    return str(value) if type(value) in (str, int) else UNREADABLE
+
+
+def list_words(text, i):
+    """The elements of an argument list from i to its closing bracket at depth 0."""
+    words, depth, piece = [], 0, []
+    while i < len(text):
+        if text[i] in '\x22\x27`':
+            end = closing(text, i) + 1
+            piece.append(text[i:end])
+            i = end
+            continue
+        if text[i] == '#':
+            end = text.find('\n', i)
+            i = len(text) if end < 0 else end
+            continue
+        if text[i] in ',)]}' and depth == 0:
+            element = re.sub(r'\s*\n\s*', ' ', ''.join(piece)).strip()
+            if element:
+                words.append(list_element(element))
+            if text[i] != ',':
+                break
+            piece = []
+        else:
+            depth += (text[i] in '([{') - (text[i] in ')]}')
+            piece.append(text[i])
+        i += 1
+    return words
+
+
+def server_option(word):
+    """The option a word names and its attached value, or (None, None) if the parser refuses
+    the word: unknown, an ambiguous prefix, or a value given to a flag."""
+    if word.startswith('--'):
+        name, equals, value = word.partition('=')
+        prefixed = [option for option in SERVER_OPTIONS if option.startswith(name)]
+        names = [name] if name in SERVER_OPTIONS else prefixed
+        if len(names) != 1 or (equals and not SERVER_OPTIONS[names[0]]):
+            return None, None
+        return names[0], value if equals else None
+    option, value = SERVER_SHORT.get(word[:2]), word[2:]
+    if option is None:
+        return None, None
+    if value.startswith('='):
+        value = value[1:]
+    return option, value if word[2:] else None
+
+
+def server_port(words):
+    """The port an argument list binds (8000 if it names none); None for a computed port or a
+    help request; UNREADABLE for a word the parser refuses or a second positional word."""
+    words, positional, options = iter(words), [], True
+    for word in words:
+        if word is UNREADABLE:
+            return UNREADABLE
+        if options and word is not None and word.startswith('-') and word != '-':
+            if word == '--':
+                options = False
+                continue
+            option, value = server_option(word)
+            if option is None:
+                return UNREADABLE
+            if option == '--help':
+                return None
+            if SERVER_OPTIONS[option] and value is None and next(words, UNREADABLE) is UNREADABLE:
+                return UNREADABLE
+        else:
+            positional.append(word)
+    if len(positional) > 1:
+        return UNREADABLE
+    port = positional[0] if positional else '8000'
+    if port is None:
+        return None
+    return int(port) if re.fullmatch(r'[0-9]{1,5}', port) else UNREADABLE
 
 
 def http_server_ports(text):
-    """Yield (port, offset) for each http.server command that names a literal port."""
+    """Yield (port, offset) for each http.server command whose port is fixed or unreadable."""
     for match in HTTP_SERVER.finditer(text):
-        rest = text[match.end():]
-        if rest[:1] in ('\x22', '\x27'):
-            end = re.search(r'[\])]', rest)
-            command = rest[:end.start() if end else len(rest)]
+        line = text.rfind('\n', 0, match.start()) + 1
+        quote, opened = open_quote(text[line:match.start()])
+        element = quote and line + opened == match.start() - 1  # the switch opens an element
+        opener = re.search(r'\\?[\x22\x27]$', match.group('gap'))
+        closer = opener.group() if opener else quote if element else None
+        end = match.end()
+        closed = closer is not None and text.startswith(closer, end)
+        if closed:
+            end += len(closer)  # past the quote closing the module's word or element
+        if element and closed:
+            words = list_words(text, end)
+        elif quote:
+            words = shell_words(string_body(text, end, quote))
         else:
-            end = re.search(r'(?<!\\)\n', rest)
-            command = rest[:end.start() if end else len(rest)].replace('\\\n', ' ')
-        words = iter(WORD.findall(command))
-        for word in words:
-            if word in HTTP_SERVER_VALUED:
-                next(words, None)
-            elif not word.startswith('-'):
-                port = re.match(r'[0-9]{1,5}\b', word)
-                if port:
-                    yield int(port.group()), match.start()
-                break
+            words = shell_words(text, end)
+        port = server_port(words)
+        if port is not None:
+            yield port, match.start()
 
 
 def in_scope(path):
@@ -114,7 +302,9 @@ def scan(path, text):
             if (kind == 'address' and value == 0) or 0 < value <= 65535:
                 hit(f'{kind}:{value}', match.start())
     for value, offset in http_server_ports(text):
-        if 0 < value <= 65535:
+        if value is UNREADABLE:
+            hit('argument:unreadable', offset)
+        elif 0 < value <= 65535:
             hit(f'argument:{value}', offset)
     if path.endswith(('.js', '.mjs')):
         for match in re.finditer(r'\.(?:listen|bind)\s*\(\s*([0-9]{1,5})\b', text):
