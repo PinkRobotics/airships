@@ -8,7 +8,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve portproof test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
+.PHONY: help serve portproof portcheck test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
@@ -73,7 +73,7 @@ noticecheck:  ## Publish to empty scratch and verify third-party records, notice
 	  trap 'rm -rf "$$d"' EXIT; \
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
-check: ciparity lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
+check: ciparity portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -350,3 +350,8 @@ floatpagecheck:  ## Float pages equal a fresh render of their documents (write t
 
 portproof:  ## Bind eight fixed ports to prove tree isolation; run alone
 	$(PY) tests/ports/proof.py $(PORTPROOF_ARGS)
+
+portcheck:  ## Refuse fixed gate ports and test owned server lifetimes
+	$(PY) tools/check_ports.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_check_ports.py'
+	$(PY) -m unittest discover -s tools/tests -p 'test_serve.py'

@@ -1,0 +1,36 @@
+# Exact matching-occurrence counts. A changed count or a stale row fails portcheck.
+# path | shape | count | reason
+CONTRIBUTING.md | address:8875 | 3 | Local development, print preview and mobile inspection instructions use the person's server.
+CONTRIBUTING.md | argument:8875 | 1 | The contributor's manual http.server command retains the documented development address.
+Makefile | address:8875 | 1 | The serve help line advertises the person's development address.
+Makefile | assignment:8875 | 1 | The serve target retains its human-facing default; gates do not read this variable.
+README.md | address:8875 | 1 | The generated getting-started example opens the person's development server.
+README.md | argument:8875 | 1 | The generated getting-started command starts the person's development server.
+tests/README.md | address:8875 | 2 | Manual browser and test-page inspection uses the person's development server.
+tests/README.md | argument:8875 | 1 | The manual test-page server command is for interactive use.
+tests/ports/proof.py | assignment:8791 | 1 | The isolation proof deliberately occupies the retired viewer-test port with a logging decoy.
+tests/ports/proof.py | assignment:8871 | 1 | The isolation proof deliberately occupies the retired fallback port with a logging decoy.
+tests/ports/proof.py | assignment:8898 | 1 | The isolation proof deliberately occupies the retired figure-freshness port with a logging decoy.
+tests/ports/proof.py | assignment:8899 | 1 | The isolation proof deliberately occupies the retired generator port with a logging decoy.
+tests/ports/proof.py | assignment:8907 | 1 | The isolation proof deliberately occupies the retired render port with a logging decoy.
+tests/ports/proof.py | assignment:8909 | 1 | The isolation proof deliberately occupies the retired explorer desktop port with a logging decoy.
+tests/ports/proof.py | assignment:8911 | 1 | The isolation proof deliberately occupies the retired shared explorer and cell port with a logging decoy.
+tests/ports/proof.py | assignment:8913 | 1 | The isolation proof deliberately occupies the retired ship gate port with a logging decoy.
+tools/README.md | address:8875 | 2 | The interactive server examples retain the person's development address.
+tools/check_ports.py | debug | 1 | The recognizer contains the debugging flag's spelling so it can reject unsafe arguments.
+tools/review_joints.py | address:8010 | 2 | This optional vision client names an external service; it neither serves a tree nor runs in check.
+tools/serve.py | address:8875 | 1 | The CLI docstring advertises its unchanged manual development default.
+tools/serve.py | argument:8875 | 1 | The CLI argparse default remains the person's development port; serve_tree always binds zero.
+tools/tests/test_check_ports.py | address:0 | 1 | The negative URL fixture proves that an unbound zero address is refused.
+tools/tests/test_check_ports.py | address:443 | 1 | The negative remote-host fixture proves numeric ports are recognized beyond loopback.
+tools/tests/test_check_ports.py | address:8875 | 3 | Exact-allowance, wrong-count and same-line tests plant the manual address as fixture text.
+tools/tests/test_check_ports.py | address:9001 | 3 | Negative URL and changed-port fixtures test refusal without opening these addresses.
+tools/tests/test_check_ports.py | argument:9001 | 6 | Negative CLI fixtures cover split, equals, default, http.server and debugging arguments.
+tools/tests/test_check_ports.py | assignment:9001 | 12 | Negative assignment and scope fixtures exercise names, types, quoting and included files.
+tools/tests/test_check_ports.py | assignment:9002 | 1 | The list-assignment fixture checks every value in a literal port list.
+tools/tests/test_check_ports.py | bind:9001 | 3 | Negative bind and server-constructor fixtures are scanned as text, never executed.
+tools/tests/test_check_ports.py | debug | 3 | Negative debugging fixtures exercise numeric, interpolated and split arguments.
+tools/tests/test_check_ports.py | environment:AIRSHIPS_PORT | 3 | Negative environment fixtures cover indexed Python, shell defaults and indexed JavaScript reads.
+tools/tests/test_check_ports.py | environment:PORT | 4 | Negative environment fixtures cover Python getters, shell expansion and JavaScript reads.
+tools/tests/test_check_ports.py | environment:loop | 1 | A negative fixture reproduces the former loop over environment variable names.
+tools/tests/test_check_ports.py | socket | 6 | Negative socket-read fixtures and the module-boundary test enforce the sole serving-module exception.
