@@ -1,6 +1,6 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle } from '../sim/index.js?v=acbad6ee';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText } from '../sim/index.js?v=acbad6ee';
 import { $, kvRows } from './dom.js?v=acbad6ee';
 import { replanAll } from './fleet.js?v=acbad6ee';
 import { S } from './store.js?v=acbad6ee';
@@ -41,12 +41,13 @@ export function renderWorked() {
   if (!$("worked")) return;     // worked example renders on the concept page
   const cls = CLASSES[S.exampleCls], mode = MODES[S.modeId];
   const p = planCycle(cls, mode, CFG.exampleKm);
+  const fav = energyComparison(cls, mode, CFG.exampleKm, null, p).favourable;
   $("worked").innerHTML = [
     [fmtMin(p.cycleMin), "per conceptual cycle"],
     [p.dropsPerHour.toFixed(1), "drops per hour"],
     [fmt(p.tph) + " t", "water per hour — " + fmt(p.tph * 1000) + " litres"],
-    [p.eCycleMWh.toFixed(1) + " MWh", "energy per cycle"],
-    [fmt(p.kwhPerTonne) + " kWh", "per released tonne"],
+    [p.eCycleMWh.toFixed(1) + " MWh", `record: ${feasibilityText(p)}; favourable ${fav.eCycleMWh.toFixed(1)} MWh: ${feasibilityText(fav)}`],
+    [fmt(p.kwhPerTonne) + " kWh", `per planned tonne, record; favourable ${fmt(fav.kwhPerTonne)} kWh. States shown above.`],
     [p.bottleneck, "current bottleneck"],
   ].map(([b, s]) => `<div class="stat"><b style="font-size:var(--t-22)">${b}</b><span>${s}${/\b(?:MWh|kWh)\b/.test(b) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</span></div>`).join("");
   $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +

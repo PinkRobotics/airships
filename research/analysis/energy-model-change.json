@@ -1,0 +1,1096 @@
+{
+  "generated": {
+    "by": "research/analysis/energy-model-change.mjs",
+    "oldFigures": "09b9c0e:research/figures.json",
+    "newFigures": "research/figures.json",
+    "worked": {
+      "oneWayKm": 15,
+      "mode": "balanced"
+    },
+    "planSteps": 96
+  },
+  "summary": {
+    "what": "One energy model: planCycle's budget is the integral of the same drawAt the instruments show (sim/power.js). Rotor power is Glauert momentum theory with the airspeed and the rate of descent in it; the anchor is credited before the rotors; the letdown is read out of the flown descent with no window constant; the generators are LN2 storage bounded by what the cryo plant made, not a source.",
+    "defects": {
+      "2": "forward flight in the rotor model, and one model",
+      "3": "the min(6, 0.2 x return) window and the 1.12 stretch",
+      "6": "generators as storage, honest bus",
+      "14": "the anchor credited before the rotors",
+      "15": "hold-down priced over the whole flown descent"
+    }
+  },
+  "classes": {
+    "P100": {
+      "published": [
+        {
+          "key": "cycle.eCycleMWh",
+          "old": 1.391,
+          "new": 2.023,
+          "changePct": 45.4,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the budget is now the integral of the flown cycle; see attribution"
+        },
+        {
+          "key": "cycle.kwhPerTonne",
+          "old": 13.91,
+          "new": 20.23,
+          "changePct": 45.4,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "eCycleMWh over the same delivered tonnes"
+        },
+        {
+          "key": "energy.deficitPerCycleMWh",
+          "old": 1.24,
+          "new": 1.87,
+          "changePct": 50.8,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the cycle grew; solar did not"
+        },
+        {
+          "key": "energy.hoursOnBattery",
+          "old": 9.2,
+          "new": 6.1,
+          "changePct": -33.7,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit, times the cycle"
+        },
+        {
+          "key": "energy.cyclesOnBattery",
+          "old": 16.2,
+          "new": 10.7,
+          "changePct": -34,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit"
+        },
+        {
+          "key": "energy.downMW",
+          "old": 0.3,
+          "new": 11.8,
+          "changePct": 3833.3,
+          "defect": "15, 14, 6",
+          "why": "was the anchor-assisted hold-down at the fill altitude; is now the rotors' peak draw over the flown cycle, which falls in the approach before the bag is in"
+        },
+        {
+          "key": "energy.ledgerMWh.letdown -> energy.letdownMWh",
+          "old": 0.012,
+          "new": 0.39,
+          "changePct": 3150,
+          "defect": "3, 15",
+          "why": "was downMW x min(6, 0.2 x return)/60; is the rotor energy integrated over the return leg's descent and the approach"
+        },
+        {
+          "key": "energy.ledgerMWh.anchor -> energy.anchorHoistMWh",
+          "old": 0.006,
+          "new": 0.003,
+          "changePct": -50,
+          "defect": "-",
+          "why": "the same m g h / eta, now priced as winch power in the integral (delivered at the winch speed)"
+        },
+        {
+          "key": "descent.rotorCapT",
+          "old": 267.2,
+          "new": 227.8,
+          "changePct": -14.7,
+          "defect": "6",
+          "why": "rotorMaxT on BUS_CEILING x (battMW + regen during the approach), over SHARE_MAX"
+        },
+        {
+          "key": "descent.anchorFromAglM",
+          "old": 300,
+          "new": 300,
+          "changePct": 0,
+          "defect": "6",
+          "why": "the altitude below which the rotors cannot hold the hull alone, on the honest bus; capped at the cable top"
+        },
+        {
+          "key": "descent.battLimited",
+          "old": false,
+          "new": false,
+          "changePct": null,
+          "defect": "3, 6",
+          "why": "now means the bus clamp held the rotors during the letdown (letdownClipMin > 0); the 0.92 threshold is gone"
+        },
+        {
+          "key": "cycle.bottleneck",
+          "old": "transit distance",
+          "new": "transit distance",
+          "changePct": null,
+          "defect": "6",
+          "why": "follows battLimited"
+        },
+        {
+          "key": "cycle.cycleMin",
+          "old": 34.2,
+          "new": 34.2,
+          "changePct": 0,
+          "defect": "-",
+          "why": "durations are kinematic and did not move; the 1.12 stretch never fired at the worked example"
+        },
+        {
+          "key": "cycle.tph",
+          "old": 175,
+          "new": 175,
+          "changePct": 0,
+          "defect": "-",
+          "why": "delivered tonnes and cycle minutes did not move"
+        }
+      ],
+      "ledgerOld": {
+        "WATER_FILL": 0.109,
+        "recovery": -0.165,
+        "OUTBOUND_TRANSIT": 0.286,
+        "RETURN_TRANSIT": 0.981,
+        "letdown": 0.012,
+        "anchor": 0.006,
+        "other": 0.162
+      },
+      "ledgerNew": {
+        "byPhase": {
+          "SOURCE_APPROACH": 0.126,
+          "WATER_FILL": 0.143,
+          "OUTBOUND_TRANSIT": 0.332,
+          "WATER_RELEASE": 0.239,
+          "BUOYANCY_ESCAPE": 0.021,
+          "RETURN_TRANSIT": 1.326,
+          "recovery": -0.165
+        },
+        "byChannel": {
+          "hotel": 0.091,
+          "prop": 0.49,
+          "winch": 0.011,
+          "rotors": 0.62,
+          "pumps": 0.109,
+          "fans": 0.043,
+          "cryo": 0.824
+        }
+      },
+      "attribution": {
+        "steps": [
+          {
+            "step": 0,
+            "label": "the old budget as published",
+            "eCycleMWh": 1.391,
+            "defect": null
+          },
+          {
+            "step": 1,
+            "label": "ONE model: the budget becomes the integral of the flown cycle, still with hover-priced rotors, blind to the bag, on the nameplate bus (defects 3 and 15: hold-down priced wherever the ship is, no window, no 1.12 stretch)",
+            "eCycleMWh": 2.175,
+            "defect": "3+15",
+            "letdownMWh": 0.414,
+            "downMW": 13,
+            "deltaMWh": 0.784,
+            "deltaPctOfOld": 56.4
+          },
+          {
+            "step": 2,
+            "label": "rotor power by Glauert momentum theory: airspeed through the disks, rate of descent in the axial term (defect 2)",
+            "eCycleMWh": 2.037,
+            "defect": "2",
+            "letdownMWh": 0.393,
+            "downMW": 11.8,
+            "deltaMWh": -0.138,
+            "deltaPctOfOld": -10
+          },
+          {
+            "step": 3,
+            "label": "the anchor credited before the rotors (defect 14)",
+            "eCycleMWh": 2.023,
+            "defect": "14",
+            "letdownMWh": 0.39,
+            "downMW": 11.8,
+            "deltaMWh": -0.014,
+            "deltaPctOfOld": -1
+          },
+          {
+            "step": 4,
+            "label": "the bus the rotors are clamped to is the battery plus what the nitrogen store returns, not the nameplate (defect 6, the clamp)",
+            "eCycleMWh": 2.023,
+            "defect": "6",
+            "letdownMWh": 0.39,
+            "downMW": 11.8,
+            "deltaMWh": 0,
+            "deltaPctOfOld": 0
+          },
+          {
+            "step": 5,
+            "label": "the descent closure struck on the same honest bus: rotorMaxT falls, the altitude where the rotors stop managing alone rises, and the hold altitude with it (defect 6, the closure)",
+            "eCycleMWh": 2.023,
+            "defect": "6",
+            "letdownMWh": 0.39,
+            "downMW": 11.8,
+            "deltaMWh": 0,
+            "deltaPctOfOld": 0
+          }
+        ],
+        "telescopes": true
+      },
+      "oldClosureReplicated": {
+        "busMW": 38,
+        "rotorMaxT": 160.3,
+        "rotorCapT": 267.2,
+        "anchorFromAglM": 300
+      },
+      "newClosure": {
+        "busMW": 31.48,
+        "rotorMaxT": 136.7,
+        "rotorCapT": 227.8,
+        "anchorFromAglM": 300,
+        "busCeiling": 0.95,
+        "shareMax": 0.6,
+        "letdownClipMin": 0,
+        "rotorClipMWh": 0
+      },
+      "agreement": {
+        "integratedStateAtMWh": 2.023,
+        "budgetMWh": 2.023,
+        "ratio": 1.00009,
+        "letdownIntegratedMWh": 0.39,
+        "letdownBudgetMWh": 0.39
+      },
+      "solar": {
+        "perCycleMWh": 0.154,
+        "deficitPerCycleMWh": 1.87
+      },
+      "theBagsTrade": {
+        "note": "What the bag buys is water, not energy: a bare hull keeps lake water aboard as ballast and is heavier on every phase.",
+        "withBag": {
+          "eCycleMWh": 2.023,
+          "kwhPerTonne": 20.23,
+          "deliveredT": 100,
+          "retainedT": 0
+        },
+        "withoutBag": {
+          "eCycleMWh": 2.034,
+          "kwhPerTonne": 20.34,
+          "deliveredT": 100,
+          "retainedT": 0,
+          "bottleneck": "transit distance"
+        }
+      }
+    },
+    "P1000": {
+      "published": [
+        {
+          "key": "cycle.eCycleMWh",
+          "old": 8.454,
+          "new": 18.149,
+          "changePct": 114.7,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the budget is now the integral of the flown cycle; see attribution"
+        },
+        {
+          "key": "cycle.kwhPerTonne",
+          "old": 8.45,
+          "new": 18.15,
+          "changePct": 114.8,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "eCycleMWh over the same delivered tonnes"
+        },
+        {
+          "key": "energy.deficitPerCycleMWh",
+          "old": 7.71,
+          "new": 17.41,
+          "changePct": 125.8,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the cycle grew; solar did not"
+        },
+        {
+          "key": "energy.hoursOnBattery",
+          "old": 9.2,
+          "new": 4.1,
+          "changePct": -55.4,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit, times the cycle"
+        },
+        {
+          "key": "energy.cyclesOnBattery",
+          "old": 15.6,
+          "new": 6.9,
+          "changePct": -55.8,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit"
+        },
+        {
+          "key": "energy.downMW",
+          "old": 5,
+          "new": 146.3,
+          "changePct": 2826,
+          "defect": "15, 14, 6",
+          "why": "was the anchor-assisted hold-down at the fill altitude; is now the rotors' peak draw over the flown cycle, which falls in the approach before the bag is in"
+        },
+        {
+          "key": "energy.ledgerMWh.letdown -> energy.letdownMWh",
+          "old": 0.161,
+          "new": 4.279,
+          "changePct": 2557.8,
+          "defect": "3, 15",
+          "why": "was downMW x min(6, 0.2 x return)/60; is the rotor energy integrated over the return leg's descent and the approach"
+        },
+        {
+          "key": "energy.ledgerMWh.anchor -> energy.anchorHoistMWh",
+          "old": 0.06,
+          "new": 0.059,
+          "changePct": -1.7,
+          "defect": "-",
+          "why": "the same m g h / eta, now priced as winch power in the integral (delivered at the winch speed)"
+        },
+        {
+          "key": "descent.rotorCapT",
+          "old": 1318.1,
+          "new": 1107.5,
+          "changePct": -16,
+          "defect": "6",
+          "why": "rotorMaxT on BUS_CEILING x (battMW + regen during the approach), over SHARE_MAX"
+        },
+        {
+          "key": "descent.anchorFromAglM",
+          "old": 500,
+          "new": 900,
+          "changePct": 80,
+          "defect": "6",
+          "why": "the altitude below which the rotors cannot hold the hull alone, on the honest bus; capped at the cable top"
+        },
+        {
+          "key": "descent.battLimited",
+          "old": false,
+          "new": true,
+          "changePct": null,
+          "defect": "3, 6",
+          "why": "now means the bus clamp held the rotors during the letdown (letdownClipMin > 0); the 0.92 threshold is gone"
+        },
+        {
+          "key": "cycle.bottleneck",
+          "old": "transit distance",
+          "new": "descent authority",
+          "changePct": null,
+          "defect": "6",
+          "why": "follows battLimited"
+        },
+        {
+          "key": "cycle.cycleMin",
+          "old": 35.36,
+          "new": 35.36,
+          "changePct": 0,
+          "defect": "-",
+          "why": "durations are kinematic and did not move; the 1.12 stretch never fired at the worked example"
+        },
+        {
+          "key": "cycle.tph",
+          "old": 1697,
+          "new": 1697,
+          "changePct": 0,
+          "defect": "-",
+          "why": "delivered tonnes and cycle minutes did not move"
+        }
+      ],
+      "ledgerOld": {
+        "WATER_FILL": 1.09,
+        "recovery": -0.674,
+        "OUTBOUND_TRANSIT": 2,
+        "RETURN_TRANSIT": 4.469,
+        "letdown": 0.161,
+        "anchor": 0.06,
+        "other": 1.349
+      },
+      "ledgerNew": {
+        "byPhase": {
+          "SOURCE_APPROACH": 2.189,
+          "WATER_FILL": 1.779,
+          "OUTBOUND_TRANSIT": 2.257,
+          "WATER_RELEASE": 5.018,
+          "BUOYANCY_ESCAPE": 0.276,
+          "RETURN_TRANSIT": 7.303,
+          "recovery": -0.674
+        },
+        "byChannel": {
+          "hotel": 0.471,
+          "prop": 3.748,
+          "winch": 0.115,
+          "rotors": 9.432,
+          "pumps": 1.09,
+          "fans": 0.598,
+          "cryo": 3.369
+        }
+      },
+      "attribution": {
+        "steps": [
+          {
+            "step": 0,
+            "label": "the old budget as published",
+            "eCycleMWh": 8.454,
+            "defect": null
+          },
+          {
+            "step": 1,
+            "label": "ONE model: the budget becomes the integral of the flown cycle, still with hover-priced rotors, blind to the bag, on the nameplate bus (defects 3 and 15: hold-down priced wherever the ship is, no window, no 1.12 stretch)",
+            "eCycleMWh": 21.592,
+            "defect": "3+15",
+            "letdownMWh": 5.806,
+            "downMW": 180.5,
+            "deltaMWh": 13.138,
+            "deltaPctOfOld": 155.4
+          },
+          {
+            "step": 2,
+            "label": "rotor power by Glauert momentum theory: airspeed through the disks, rate of descent in the axial term (defect 2)",
+            "eCycleMWh": 19.449,
+            "defect": "2",
+            "letdownMWh": 5.296,
+            "downMW": 171.2,
+            "deltaMWh": -2.143,
+            "deltaPctOfOld": -25.3
+          },
+          {
+            "step": 3,
+            "label": "the anchor credited before the rotors (defect 14)",
+            "eCycleMWh": 18.693,
+            "defect": "14",
+            "letdownMWh": 4.806,
+            "downMW": 171.2,
+            "deltaMWh": -0.756,
+            "deltaPctOfOld": -9
+          },
+          {
+            "step": 4,
+            "label": "the bus the rotors are clamped to is the battery plus what the nitrogen store returns, not the nameplate (defect 6, the clamp)",
+            "eCycleMWh": 18.6,
+            "defect": "6",
+            "letdownMWh": 4.713,
+            "downMW": 146.3,
+            "deltaMWh": -0.093,
+            "deltaPctOfOld": -1.1
+          },
+          {
+            "step": 5,
+            "label": "the descent closure struck on the same honest bus: rotorMaxT falls, the altitude where the rotors stop managing alone rises, and the hold altitude with it (defect 6, the closure)",
+            "eCycleMWh": 18.149,
+            "defect": "6",
+            "letdownMWh": 4.279,
+            "downMW": 146.3,
+            "deltaMWh": -0.451,
+            "deltaPctOfOld": -5.3
+          }
+        ],
+        "telescopes": true
+      },
+      "oldClosureReplicated": {
+        "busMW": 190,
+        "rotorMaxT": 790.9,
+        "rotorCapT": 1318.1,
+        "anchorFromAglM": 500
+      },
+      "newClosure": {
+        "busMW": 154.04,
+        "rotorMaxT": 664.5,
+        "rotorCapT": 1107.5,
+        "anchorFromAglM": 900,
+        "busCeiling": 0.95,
+        "shareMax": 0.6,
+        "letdownClipMin": 0.16,
+        "rotorClipMWh": 0.015
+      },
+      "agreement": {
+        "integratedStateAtMWh": 18.151,
+        "budgetMWh": 18.149,
+        "ratio": 1.00009,
+        "letdownIntegratedMWh": 4.279,
+        "letdownBudgetMWh": 4.279
+      },
+      "solar": {
+        "perCycleMWh": 0.743,
+        "deficitPerCycleMWh": 17.41
+      },
+      "theBagsTrade": {
+        "note": "What the bag buys is water, not energy: a bare hull keeps lake water aboard as ballast and is heavier on every phase.",
+        "withBag": {
+          "eCycleMWh": 18.149,
+          "kwhPerTonne": 18.15,
+          "deliveredT": 1000,
+          "retainedT": 0
+        },
+        "withoutBag": {
+          "eCycleMWh": 13.576,
+          "kwhPerTonne": 18.33,
+          "deliveredT": 740.7,
+          "retainedT": 259.3,
+          "bottleneck": "descent ballast — cryogenic capacity"
+        }
+      }
+    },
+    "P10000": {
+      "published": [
+        {
+          "key": "cycle.eCycleMWh",
+          "old": 54.325,
+          "new": 176,
+          "changePct": 224,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the budget is now the integral of the flown cycle; see attribution"
+        },
+        {
+          "key": "cycle.kwhPerTonne",
+          "old": 5.43,
+          "new": 17.6,
+          "changePct": 224.1,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "eCycleMWh over the same delivered tonnes"
+        },
+        {
+          "key": "energy.deficitPerCycleMWh",
+          "old": 50.23,
+          "new": 171.9,
+          "changePct": 242.2,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "the cycle grew; solar did not"
+        },
+        {
+          "key": "energy.hoursOnBattery",
+          "old": 30.2,
+          "new": 8.8,
+          "changePct": -70.9,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit, times the cycle"
+        },
+        {
+          "key": "energy.cyclesOnBattery",
+          "old": 39.8,
+          "new": 11.6,
+          "changePct": -70.9,
+          "defect": "2, 3, 6, 14, 15",
+          "why": "battery over the deficit"
+        },
+        {
+          "key": "energy.downMW",
+          "old": 52.3,
+          "new": 1157.3,
+          "changePct": 2112.8,
+          "defect": "15, 14, 6",
+          "why": "was the anchor-assisted hold-down at the fill altitude; is now the rotors' peak draw over the flown cycle, which falls in the approach before the bag is in"
+        },
+        {
+          "key": "energy.ledgerMWh.letdown -> energy.letdownMWh",
+          "old": 1.42,
+          "new": 35.398,
+          "changePct": 2392.8,
+          "defect": "3, 15",
+          "why": "was downMW x min(6, 0.2 x return)/60; is the rotor energy integrated over the return leg's descent and the approach"
+        },
+        {
+          "key": "energy.ledgerMWh.anchor -> energy.anchorHoistMWh",
+          "old": 0.596,
+          "new": 0.596,
+          "changePct": 0,
+          "defect": "-",
+          "why": "the same m g h / eta, now priced as winch power in the integral (delivered at the winch speed)"
+        },
+        {
+          "key": "descent.rotorCapT",
+          "old": 12666.2,
+          "new": 11474.6,
+          "changePct": -9.4,
+          "defect": "6",
+          "why": "rotorMaxT on BUS_CEILING x (battMW + regen during the approach), over SHARE_MAX"
+        },
+        {
+          "key": "descent.anchorFromAglM",
+          "old": 750,
+          "new": 1150,
+          "changePct": 53.3,
+          "defect": "6",
+          "why": "the altitude below which the rotors cannot hold the hull alone, on the honest bus; capped at the cable top"
+        },
+        {
+          "key": "descent.battLimited",
+          "old": false,
+          "new": false,
+          "changePct": null,
+          "defect": "3, 6",
+          "why": "now means the bus clamp held the rotors during the letdown (letdownClipMin > 0); the 0.92 threshold is gone"
+        },
+        {
+          "key": "cycle.bottleneck",
+          "old": "transit distance",
+          "new": "transit distance",
+          "changePct": null,
+          "defect": "6",
+          "why": "follows battLimited"
+        },
+        {
+          "key": "cycle.cycleMin",
+          "old": 45.51,
+          "new": 45.51,
+          "changePct": 0,
+          "defect": "-",
+          "why": "durations are kinematic and did not move; the 1.12 stretch never fired at the worked example"
+        },
+        {
+          "key": "cycle.tph",
+          "old": 13183,
+          "new": 13183,
+          "changePct": 0,
+          "defect": "-",
+          "why": "delivered tonnes and cycle minutes did not move"
+        }
+      ],
+      "ledgerOld": {
+        "WATER_FILL": 10.9,
+        "recovery": -1.9,
+        "OUTBOUND_TRANSIT": 12.926,
+        "RETURN_TRANSIT": 16.611,
+        "letdown": 1.42,
+        "anchor": 0.596,
+        "other": 13.772
+      },
+      "ledgerNew": {
+        "byPhase": {
+          "SOURCE_APPROACH": 27.323,
+          "WATER_FILL": 22.176,
+          "OUTBOUND_TRANSIT": 14.307,
+          "WATER_RELEASE": 82.045,
+          "BUOYANCY_ESCAPE": 1.849,
+          "RETURN_TRANSIT": 30.201,
+          "recovery": -1.9
+        },
+        "byChannel": {
+          "hotel": 2.276,
+          "prop": 29.469,
+          "winch": 0.975,
+          "rotors": 115.803,
+          "pumps": 10.9,
+          "fans": 8.975,
+          "cryo": 9.502
+        }
+      },
+      "attribution": {
+        "steps": [
+          {
+            "step": 0,
+            "label": "the old budget as published",
+            "eCycleMWh": 54.325,
+            "defect": null
+          },
+          {
+            "step": 1,
+            "label": "ONE model: the budget becomes the integral of the flown cycle, still with hover-priced rotors, blind to the bag, on the nameplate bus (defects 3 and 15: hold-down priced wherever the ship is, no window, no 1.12 stretch)",
+            "eCycleMWh": 220.927,
+            "defect": "3+15",
+            "letdownMWh": 55.187,
+            "downMW": 1472.5,
+            "deltaMWh": 166.602,
+            "deltaPctOfOld": 306.7
+          },
+          {
+            "step": 2,
+            "label": "rotor power by Glauert momentum theory: airspeed through the disks, rate of descent in the axial term (defect 2)",
+            "eCycleMWh": 192.173,
+            "defect": "2",
+            "letdownMWh": 46.821,
+            "downMW": 1305.7,
+            "deltaMWh": -28.754,
+            "deltaPctOfOld": -53
+          },
+          {
+            "step": 3,
+            "label": "the anchor credited before the rotors (defect 14)",
+            "eCycleMWh": 180.747,
+            "defect": "14",
+            "letdownMWh": 39.988,
+            "downMW": 1305.7,
+            "deltaMWh": -11.426,
+            "deltaPctOfOld": -21
+          },
+          {
+            "step": 4,
+            "label": "the bus the rotors are clamped to is the battery plus what the nitrogen store returns, not the nameplate (defect 6, the clamp)",
+            "eCycleMWh": 180.747,
+            "defect": "6",
+            "letdownMWh": 39.988,
+            "downMW": 1305.7,
+            "deltaMWh": 0,
+            "deltaPctOfOld": 0
+          },
+          {
+            "step": 5,
+            "label": "the descent closure struck on the same honest bus: rotorMaxT falls, the altitude where the rotors stop managing alone rises, and the hold altitude with it (defect 6, the closure)",
+            "eCycleMWh": 176,
+            "defect": "6",
+            "letdownMWh": 35.398,
+            "downMW": 1157.3,
+            "deltaMWh": -4.747,
+            "deltaPctOfOld": -8.7
+          }
+        ],
+        "telescopes": true
+      },
+      "oldClosureReplicated": {
+        "busMW": 1550,
+        "rotorMaxT": 7599.7,
+        "rotorCapT": 12666.2,
+        "anchorFromAglM": 750
+      },
+      "newClosure": {
+        "busMW": 1406.84,
+        "rotorMaxT": 6884.8,
+        "rotorCapT": 11474.6,
+        "anchorFromAglM": 1150,
+        "busCeiling": 0.95,
+        "shareMax": 0.6,
+        "letdownClipMin": 0,
+        "rotorClipMWh": 0
+      },
+      "agreement": {
+        "integratedStateAtMWh": 175.937,
+        "budgetMWh": 176,
+        "ratio": 0.99964,
+        "letdownIntegratedMWh": 35.405,
+        "letdownBudgetMWh": 35.398
+      },
+      "solar": {
+        "perCycleMWh": 4.096,
+        "deficitPerCycleMWh": 171.9
+      },
+      "theBagsTrade": {
+        "note": "What the bag buys is water, not energy: a bare hull keeps lake water aboard as ballast and is heavier on every phase.",
+        "withBag": {
+          "eCycleMWh": 176,
+          "kwhPerTonne": 17.6,
+          "deliveredT": 10000,
+          "retainedT": 0
+        },
+        "withoutBag": {
+          "eCycleMWh": 121.95,
+          "kwhPerTonne": 15.73,
+          "deliveredT": 7752.1,
+          "retainedT": 2247.9,
+          "bottleneck": "transit distance"
+        }
+      }
+    }
+  },
+  "modeOrderingP10000At60km": {
+    "note": "The eighth flip. Old values are the pins the test carried at the base commit (tests/cases/sim-plan.cases.js); new values are computed.",
+    "old": {
+      "rapid": 158,
+      "balanced": 143.1,
+      "endurance": 133.4,
+      "cheapest": "endurance"
+    },
+    "new": {
+      "rapid": 306.924,
+      "balanced": 302.894,
+      "endurance": 317.816,
+      "cheapest": "balanced",
+      "rotorsMWh": {
+        "rapid": 142.145,
+        "balanced": 157.088,
+        "endurance": 184.752
+      },
+      "propMWh": {
+        "rapid": 119.789,
+        "balanced": 89.574,
+        "endurance": 56.302
+      },
+      "cryoMWh": {
+        "rapid": 18.886,
+        "balanced": 38.009,
+        "endurance": 67.873
+      }
+    }
+  },
+  "sensitivityP10000": {
+    "propEta": {
+      "old": {
+        "lo": 15.2,
+        "hi": -10.1
+      },
+      "new": {
+        "lo": 21.8,
+        "hi": -12.9
+      }
+    },
+    "Cd": {
+      "old": {
+        "lo": -11.6,
+        "hi": 11.6
+      },
+      "new": {
+        "lo": -4.4,
+        "hi": 4.4
+      }
+    },
+    "rhoAir": {
+      "old": {
+        "lo": -11.3,
+        "hi": 11.4
+      },
+      "new": {
+        "lo": 5.2,
+        "hi": -1.4
+      }
+    },
+    "pumpEta": {
+      "old": {
+        "lo": 5,
+        "hi": -3.3
+      },
+      "new": {
+        "lo": 1.6,
+        "hi": -1.1
+      }
+    },
+    "hoseMul": {
+      "old": {
+        "lo": -3.6,
+        "hi": 3.6
+      },
+      "new": {
+        "lo": -1,
+        "hi": 1
+      }
+    },
+    "rhoSL": {
+      "old": {
+        "lo": -2.9,
+        "hi": 23.1
+      },
+      "new": {
+        "lo": -35.5,
+        "hi": 45.8
+      }
+    },
+    "rtLN2": {
+      "old": {
+        "lo": 0.7,
+        "hi": -0.7
+      },
+      "new": {
+        "lo": 0.2,
+        "hi": -0.2
+      }
+    },
+    "eLN2": {
+      "old": {
+        "lo": 0,
+        "hi": 0
+      },
+      "new": {
+        "lo": 0,
+        "hi": 0
+      }
+    },
+    "solarWPerM2": {
+      "old": {
+        "lo": 0,
+        "hi": 0
+      },
+      "new": {
+        "lo": 0,
+        "hi": 0
+      }
+    },
+    "cruiseKph": {
+      "old": {
+        "lo": -19.1,
+        "hi": 28.6
+      },
+      "new": {
+        "lo": -3.1,
+        "hi": 9.3
+      }
+    },
+    "anchorBagT": {
+      "old": {
+        "lo": 9.9,
+        "hi": -2.5
+      },
+      "new": {
+        "lo": 0.7,
+        "hi": -0.3
+      }
+    },
+    "fillM3s": {
+      "old": {
+        "lo": 3.8,
+        "hi": -2.5
+      },
+      "new": {
+        "lo": 15.3,
+        "hi": -10.2
+      }
+    },
+    "dispM3": {
+      "old": {
+        "lo": -2.9,
+        "hi": 23.1
+      },
+      "new": {
+        "lo": -35.5,
+        "hi": 45.8
+      }
+    },
+    "diskM2": {
+      "old": {
+        "lo": 0.3,
+        "hi": -0.2
+      },
+      "new": {
+        "lo": 9.6,
+        "hi": -5.8
+      }
+    },
+    "battMW": {
+      "old": {
+        "lo": 0,
+        "hi": 0
+      },
+      "new": {
+        "lo": -0.1,
+        "hi": 2.3
+      }
+    },
+    "solarM2": {
+      "old": {
+        "lo": 0,
+        "hi": 0
+      },
+      "new": {
+        "lo": 0,
+        "hi": 0
+      }
+    },
+    "oneWayKm": {
+      "old": {
+        "lo": -11,
+        "hi": 11
+      },
+      "new": {
+        "lo": -4.7,
+        "hi": 5.5
+      }
+    },
+    "dropKm": {
+      "old": {
+        "lo": 0,
+        "hi": 0
+      },
+      "new": {
+        "lo": 1.7,
+        "hi": -1.7
+      }
+    }
+  },
+  "closure7f": {
+    "reason": "Replace unowned hold/share with limited, priced force owners; whole-bus reservation; instantaneous drag; paid anchor inventory; seam-inclusive constraints.",
+    "steps": [
+      {
+        "class": "P100",
+        "km": 15,
+        "basis": "record",
+        "firstBuilderMWh": 2.02300479358911,
+        "closureMWh": 8.04219820542544,
+        "deltaMWh": 6.01919341183633,
+        "feasible": false
+      },
+      {
+        "class": "P100",
+        "km": 15,
+        "basis": "favourable",
+        "firstBuilderMWh": 2.02300479358911,
+        "closureMWh": 6.300367361284031,
+        "deltaMWh": 4.2773625676949205,
+        "feasible": false
+      },
+      {
+        "class": "P100",
+        "km": 60,
+        "basis": "record",
+        "firstBuilderMWh": 6.0937098038379105,
+        "closureMWh": 19.687357151597816,
+        "deltaMWh": 13.593647347759905,
+        "feasible": true
+      },
+      {
+        "class": "P100",
+        "km": 60,
+        "basis": "favourable",
+        "firstBuilderMWh": 6.0937098038379105,
+        "closureMWh": 14.346691325435918,
+        "deltaMWh": 8.252981521598008,
+        "feasible": true
+      },
+      {
+        "class": "P1000",
+        "km": 15,
+        "basis": "record",
+        "firstBuilderMWh": 18.14934122815764,
+        "closureMWh": 62.4999292037005,
+        "deltaMWh": 44.350587975542865,
+        "feasible": false
+      },
+      {
+        "class": "P1000",
+        "km": 15,
+        "basis": "favourable",
+        "firstBuilderMWh": 18.14934122815764,
+        "closureMWh": 61.19462691036294,
+        "deltaMWh": 43.045285682205304,
+        "feasible": false
+      },
+      {
+        "class": "P1000",
+        "km": 60,
+        "basis": "record",
+        "firstBuilderMWh": 43.193146099812175,
+        "closureMWh": 140.68687110500713,
+        "deltaMWh": 97.49372500519496,
+        "feasible": false
+      },
+      {
+        "class": "P1000",
+        "km": 60,
+        "basis": "favourable",
+        "firstBuilderMWh": 43.193146099812175,
+        "closureMWh": 138.70766266536418,
+        "deltaMWh": 95.51451656555201,
+        "feasible": false
+      },
+      {
+        "class": "P10000",
+        "km": 15,
+        "basis": "record",
+        "firstBuilderMWh": 176.00017471083115,
+        "closureMWh": 697.5856386907633,
+        "deltaMWh": 521.5854639799321,
+        "feasible": false
+      },
+      {
+        "class": "P10000",
+        "km": 15,
+        "basis": "favourable",
+        "firstBuilderMWh": 176.00017471083115,
+        "closureMWh": 762.3665248199436,
+        "deltaMWh": 586.3663501091124,
+        "feasible": false
+      },
+      {
+        "class": "P10000",
+        "km": 60,
+        "basis": "record",
+        "firstBuilderMWh": 302.89363045597133,
+        "closureMWh": 1111.3329124042511,
+        "deltaMWh": 808.4392819482798,
+        "feasible": false
+      },
+      {
+        "class": "P10000",
+        "km": 60,
+        "basis": "favourable",
+        "firstBuilderMWh": 302.89363045597133,
+        "closureMWh": 1329.620350401256,
+        "deltaMWh": 1026.7267199452847,
+        "feasible": false
+      }
+    ]
+  }
+}

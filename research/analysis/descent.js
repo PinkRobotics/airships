@@ -1,111 +1,107 @@
-/* OPEN-QUESTIONS #3, #14 and #15: what does the descent actually cost?
+/* What the descent costs, read out of the one energy model.
  *
- * Three entries, one fact. `E.letdown = downMW * min(6, RETURN_TRANSIT * 0.2) / 60` prices the
- * whole descent at the ANCHOR-ASSISTED residual power, over a window set by two constants
- * (`6` and `0.2`) that are justified nowhere. But the bag is in the water only for the last
- * few hundred metres — the cable is 350 / 600 / 850 m — and above that the rotors are alone
- * against a surplus that grows as the air thickens. Meanwhile `stateAt` computes rotor power
- * with no anchor term at all and over-reads by ~33x at the moment the mechanism is working.
- * Neither model prices the descent, and they disagree by 20-30x in the phase the anchor was
- * invented for.
+ * Until 2026-10-01 this file was the counter-argument: it integrated the letdown independently
+ * of the budget, because the budget priced it with a window nobody could derive and the state
+ * model priced it blind to the anchor (OPEN-QUESTIONS #3, #14, #15). Those three are closed by
+ * the same change — sim/power.js prices every instant of the flown cycle once, and planCycle's
+ * letdown is the rotor energy integrated over the descent the ship actually flies. So this is
+ * no longer an alternative integral. It is the model's own descent, laid out so a reader can
+ * see where the energy goes: the profile the ship flies down, what the rotors are asked for at
+ * each point, what the bus gives them, where the bag comes in, and what the bag buys.
  *
- * This integrates it, in 10 m steps, from cruise to the fill altitude, using the model's own
- * `ledger` for the surplus at each altitude and its own `diskMW` for the power to hold it.
- * No new physics and no new constants: the only inputs are the model's.
+ * Two counterfactuals are priced with the switches drawAt exposes for exactly this purpose —
+ * the rotors blind to the bag (#14's defect) and the whole bag removed (planCycle with
+ * anchorBagT 0, so the hull keeps lake water aboard instead) — and the second is the honest
+ * statement of what the anchor is for.
  *
- *   make descent
+ *   make analysis
  */
 (async () => {
   const S = window.AIRSHIPS.sim;
-  const { CLASSES, CLASS_ORDER, MODES, CFG, planCycle, ledger, diskMW,
-    TERRAIN_MSL, ALT, VZ_MAX, sourceAltM } = S;
-
+  const { CLASSES, CLASS_ORDER, MODES, CFG, PHASES, TERRAIN_MSL, BUS_CEILING, LETDOWN_FROM,
+    PLAN_STEPS, planCycle, ledger, drawAt, integrateCycle, cycleGeometry } = S;
   const r = (x, n = 3) => (Number.isFinite(x) ? Number(x.toFixed(n)) : null);
-  const STEP = 10;                          // m, the same step planCycle scans anchorFromAglM at
+  const G = 9.81;
 
-  // plan.js charges the rotors 0.6 of the force they are holding. The factor is undocumented
-  // and it is carried here unchanged so that this integral and the ledger differ ONLY in how
-  // they treat altitude and the anchor — one variable at a time.
-  const THRUST_SHARE = 0.6;
-
-  const out = { generated: { by: 'research/analysis/descent.js' }, classes: {} };
+  const out = { generated: { by: 'research/analysis/descent.js', worked: { oneWayKm: CFG.exampleKm, mode: 'balanced' } }, classes: {} };
 
   for (const id of CLASS_ORDER) {
     const cls = CLASSES[id];
-    const plan = planCycle(cls, MODES.balanced, CFG.exampleKm);
-    const srcAgl = sourceAltM(cls);
+    const mode = MODES.balanced;
+    const plan = planCycle(cls, mode, CFG.exampleKm);
+    const g = cycleGeometry(cls, plan);
     const cableM = cls.anchorM || 0;
-    const bagT = cls.anchorBagT || 0;
+    const reachAglM = Math.max(0, cableM - cls.diaM / 2);      // the bag touches the water here
 
-    // The descent the ship actually flies: from cruise down to the fill altitude, at the
-    // model's own climb/descent rate.
-    const fromAgl = ALT.cruise, toAgl = srcAgl;
-    const vz = VZ_MAX * MODES.balanced.climb;
+    /* THE PROFILE. The letdown is the last (1 - LETDOWN_FROM) of the return leg — the descent
+       from the ceiling to the hold altitude — and the approach: close the track, stop, then sink
+       onto the lake with the bag going in on the way. Sampled at every tenth of each. */
+    const sample = (phase, prog) => {
+      const d = drawAt(cls, mode, plan, phase, prog);
+      return {
+        phase, prog: r(prog, 2), aglM: r(d.alt, 0), gsKph: r(d.gs, 1), vzMps: r(d.vz, 2),
+        surplusT: r(d.led.liftT - d.massT, 1), bagT: r(d.anchor.tonnes, 1),
+        netAfterBagT: r(Math.max(0, d.led.liftT - d.massT - d.anchor.tonnes), 1),
+        owners: d.owners, unheldT: d.unheldT, feasible: d.feasible, thrustT: r(d.thrustN / G / 1000, 1),
+        askedMW: r(d.rotorAskMW, 1), rotorsMW: r(d.draw.rotors, 1), busMW: r(d.busMW, 1),
+        clipped: d.rotorAskMW > d.draw.rotors * (1 + 1e-9),
+      };
+    };
     const profile = [];
-    let eRotorOnly = 0, eWithAnchor = 0, peakAlone = 0, peakWith = 0;
-    // Scanning DOWNWARD, so the first altitude at which the bus cannot supply the rotors is
-    // the top of the band in which they fail — the ship cannot hold itself down BELOW it.
-    let rotorsFailBelowAgl = null, anchorReachAgl = null;
+    for (let i = 0; i <= 10; i++) profile.push(sample('RETURN_TRANSIT', LETDOWN_FROM + (1 - LETDOWN_FROM) * (i / 10) * 0.9999));
+    for (let i = 0; i <= 10; i++) profile.push(sample('SOURCE_APPROACH', Math.min(0.9999, i / 10)));
 
-    for (let a = fromAgl; a > toAgl; a -= STEP) {
-      const led = ledger(cls, TERRAIN_MSL + a);
-      const surplusT = led.surplusT;                       // empty hull, the letdown case
-      // The bag can only help when the cable reaches the water.
-      const reaches = a <= cableM;
-      if (reaches && anchorReachAgl === null) anchorReachAgl = a;
-      const heldByBag = reaches ? Math.min(bagT, surplusT) : 0;
-      const residT = Math.max(0, surplusT - heldByBag);
-
-      const mwAlone = diskMW(cls, surplusT * 1000 * 9.81 * THRUST_SHARE);
-      const mwWith = diskMW(cls, residT * 1000 * 9.81 * THRUST_SHARE);
-      const busMW = (cls.battMW + cls.genMW);
-      if (mwAlone > busMW && rotorsFailBelowAgl === null) rotorsFailBelowAgl = a;
-
-      const dt = STEP / vz / 3600;                          // hours
-      eRotorOnly += mwAlone * dt;
-      eWithAnchor += mwWith * dt;
-      if (mwAlone > peakAlone) peakAlone = mwAlone;
-      if (mwWith > peakWith) peakWith = mwWith;
-
-      if (a % 250 === 0 || a === fromAgl)
-        profile.push({ aglM: a, surplusT: r(surplusT, 1), bagT: r(heldByBag, 1),
-                       residT: r(residT, 1), rotorAloneMW: r(mwAlone, 1),
-                       withAnchorMW: r(mwWith, 2) });
+    /* WHERE THE ROTORS STOP MANAGING ALONE. Scanned upward from the fill altitude, as plan.js
+       does, with the honest bus: the surplus the empty hull has to be held down by, less the
+       nitrogen aboard, against what the rotors hold at full share. */
+    const rotorCapT = plan.rotorMaxT;
+    let crossingAglM = null;                                   // null: the rotors manage all the way up
+    for (let a = g.srcAlt; a <= 3000; a += 10) {
+      if (ledger(cls, TERRAIN_MSL + a).surplusT - plan.ln2MakeT > rotorCapT) crossingAglM = a;
     }
+    /* Between the crossing and the bag's reach neither the rotors at full share nor the bag can
+       hold the hull; the model's hold schedule hands the remainder to aero trim there, which is
+       the open assumption named at the end of descent.md. */
+    const bandNeitherM = crossingAglM === null ? 0 : Math.max(0, crossingAglM - reachAglM);
 
-    const descentMin = (fromAgl - toAgl) / vz / 60;
-    const ledgerWindowMin = Math.min(6, plan.dur.RETURN_TRANSIT * 0.2);
+    // The same flown cycle with the rotors blind to the bag (#14, as it was), and the bare hull.
+    const blind = integrateCycle(cls, mode, plan, PLAN_STEPS, { anchorCredit: false });
+    const bare = planCycle({ ...cls, anchorBagT: 0 }, mode, CFG.exampleKm);
+    const bareHoist = r(bare.anchorHoistMWh, 3);
 
     out.classes[id] = {
-      cableM, bagT, busMW: cls.battMW + cls.genMW,
-      descentFromAglM: fromAgl, toAglM: toAgl, descentMinutes: r(descentMin, 2),
-      anchorAvailableBelowAglM: anchorReachAgl,
-      anchorAvailableForPctOfDescent:
-        r(100 * (anchorReachAgl === null ? 0 : (anchorReachAgl - toAgl)) /
-          (fromAgl - toAgl), 1),
-      rotorsAloneFailBelowAglM: rotorsFailBelowAgl,
-      anchorReachesBeforeRotorsFail:
-        rotorsFailBelowAgl === null ? true : (anchorReachAgl >= rotorsFailBelowAgl),
-      peakRotorAloneMW: r(peakAlone, 1),
-      peakWithAnchorMW: r(peakWith, 2),
-      integratedMWh: {
-        rotorsAlone: r(eRotorOnly, 3),
-        withAnchorWhereItReaches: r(eWithAnchor, 3),
-        anchorSavingPct: r(100 * (1 - eWithAnchor / eRotorOnly), 1),
+      cableM, bagT: cls.anchorBagT || 0, reachAglM,
+      bus: { battMW: cls.battMW, genMW: cls.genMW, descentBusMW: r(plan.busMW, 2), rotorShareOfBus: BUS_CEILING,
+        rotorMaxT: r(plan.rotorMaxT, 1), rotorCapT: r(rotorCapT, 1), basis: plan.basis, feasible: plan.feasible },
+      hold: { surplusAtSourceT: r(plan.ledLow.surplusT, 1), ln2MakeT: r(plan.ln2MakeT, 2),
+        holdAtSourceT: r(plan.ledLow.surplusT - plan.ln2MakeT, 1), anchorT: r(plan.anchorT, 1),
+        leftToRotorsT: r(plan.ledLow.surplusT - plan.ln2MakeT - plan.anchorT, 1),
+        rotorsLeftDoingPctOfCapability: r(100 * (plan.ledLow.surplusT - plan.ln2MakeT - plan.anchorT) / rotorCapT, 1) },
+      basis: plan.basis, feasible: plan.feasible, bindingLimits: plan.bindingLimits,
+      geometry: { ceilingAglM: r(g.altTop, 0), holdAglM: r(g.holdAgl, 0), fillAglM: r(g.srcAlt, 0),
+        anchorFromAglM: plan.anchorFromAglM, rotorsAloneFailBelowAglM: crossingAglM,
+        bagInTheWaterBelowAglM: reachAglM, bandNeitherRotorsNorBagM: bandNeitherM,
+        letdownMinutes: r(plan.dur.RETURN_TRANSIT * (1 - LETDOWN_FROM) + plan.dur.SOURCE_APPROACH, 2) },
+      letdown: {
+        mwh: r(plan.letdownMWh, 3), pctOfCycle: r(100 * plan.letdownMWh / plan.eCycleMWh, 1),
+        peakRotorMW: r(plan.downMW, 1), peakPhase: plan.downMWPhase,
+        battLimited: plan.battLimited, clippedMinutes: r(plan.letdownClipMin, 2), clippedMWh: r(plan.rotorClipMWh, 3),
+        rotorsWholeCycleMWh: r(plan.Echan.rotors, 3), rotorsPctOfCycle: r(100 * plan.Echan.rotors / plan.eCycleMWh, 1),
       },
-      ledgerSays: {
-        letdownMWh: r(plan.E.letdown, 3),
-        downMW: r(plan.downMW, 2),
-        windowMinutes: r(ledgerWindowMin, 2),
-        // The two things #3 and #15 assert, now measured.
-        understatementVsIntegral: r(eWithAnchor / Math.max(1e-9, plan.E.letdown), 1),
-        windowVsActualDescent: r(ledgerWindowMin / descentMin, 2),
-      },
-      cycleContext: {
-        eCycleMWh: r(plan.eCycleMWh, 3),
-        honestLetdownPctOfCycle:
-          r(100 * eWithAnchor / (plan.eCycleMWh - plan.E.letdown + eWithAnchor), 1),
-      },
+      cycle: { eCycleMWh: r(plan.eCycleMWh, 3), kwhPerTonne: r(plan.kwhPerTonne, 2), deliveredT: r(plan.deliveredT, 1), bottleneck: plan.bottleneck },
+      /* THE BAG, PRICED TWO WAYS. Blind: the same flight with the rotors asked to hold the whole
+         surplus as if the bag were not pulling (what stateAt did until 2026-10-01). Bare: no bag at
+         all, so the plan keeps lake water aboard to close the descent and the hull is heavier on
+         every phase — cheaper to hold down everywhere, and it delivers less. */
+      rotorsBlindToTheBag: { letdownMWh: r(blind.letdownMWh, 3), eCycleMWh: r(blind.eCycleMWh, 3), peakRotorMW: r(blind.downMW, 1),
+        creditSavesMWh: r(blind.eCycleMWh - plan.eCycleMWh, 3), creditSavesPctOfCycle: r(100 * (blind.eCycleMWh - plan.eCycleMWh) / blind.eCycleMWh, 1) },
+      withoutTheBag: { retainedT: r(bare.retainedT, 1), deliveredT: r(bare.deliveredT, 1), eCycleMWh: r(bare.eCycleMWh, 3),
+        kwhPerTonne: r(bare.kwhPerTonne, 2), letdownMWh: r(bare.letdownMWh, 3), bottleneck: bare.bottleneck, battLimited: bare.battLimited,
+        anchorHoistMWh: bareHoist,
+        bagBuysDeliveredT: r(plan.deliveredT - bare.deliveredT, 1),
+        bagCostsCyclePct: r(100 * (plan.eCycleMWh - bare.eCycleMWh) / bare.eCycleMWh, 1),
+        bagCostsPerTonnePct: r(100 * (plan.kwhPerTonne - bare.kwhPerTonne) / bare.kwhPerTonne, 1) },
+      hoist: { mwh: r(plan.anchorHoistMWh, 3), formulaMgh: r(plan.anchorT * 1000 * G * 15 / 0.85 / 3.6e9, 3) },
       profile,
     };
   }

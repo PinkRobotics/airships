@@ -422,8 +422,8 @@ function renderState(cls, vs, wrench) {
     ['centre of mass', m.centreOfMass.map((v) => v.toFixed(1)).join(', ') + ' m'],
     ['altitude', `${Math.round(vs.altitudeM).toLocaleString()} m`],
     ['airspeed', `${vs.airspeedMps.toFixed(1)} m/s`],
-    ['supply / demand', `${e.supplyMW.toFixed(1)} / ${e.demandMW.toFixed(1)} MW`],
-    ['bus balance', `${e.balanceMW.toFixed(2)} MW`],
+    ['supply / demand', e.available === false ? 'Record and favourable energy unavailable; feasibility unknown' : `${e.supplyMW.toFixed(1)} / ${e.demandMW.toFixed(1)} MW · ${vs.energyBasis || 'basis unknown'} · ${vs.energyFeasible === true ? 'feasible in model' : vs.energyFeasible === false ? 'INFEASIBLE' : 'feasibility unknown'}`],
+    ['bus balance', e.available === false ? 'record and favourable unavailable' : `${e.balanceMW.toFixed(2)} MW`],
     ['LN₂ round trip', `${(ln2Ledger(cls).roundTrip * 100).toFixed(0)}%`],
   ]);
 
@@ -441,7 +441,7 @@ function renderState(cls, vs, wrench) {
       ['unwanted', al.crossAxis ? `${(al.crossAxis.forceFracOfWeight * 100).toFixed(2)}% of weight` : '—'],
       ['saturated', `${al.saturated.length}/${acts.filter((a) => a.enabled).length}`],
       ['utilisation', `${(al.utilisation * 100).toFixed(0)}%`],
-      ['electrical', `${al.powerMW.toFixed(1)} MW`],
+      ['electrical', 'No mission energy record for this actuator experiment'],
       ['solver rounds', String(al.rounds)],
     ]);
   } else {

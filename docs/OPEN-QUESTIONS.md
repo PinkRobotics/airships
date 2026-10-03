@@ -2,6 +2,21 @@
 
 Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
 
+> **2026-10-01, correction.** The one model now accounts for named force owners,
+> limits, actual-speed propulsion, induced drag, paid anchor inventory, the whole bus and
+> seam-inclusive peaks. Earlier “FIXED” entries below concern arithmetic and must not be
+> read as physical closure. The current record/favourable results, every moved number and
+> requirements are bound to [ENERGY-CLOSURE-2026-10.md](ENERGY-CLOSURE-2026-10.md) and
+> `research/analysis/energy-closure.json`. All default 15 km cycles are infeasible on both bases.
+>
+> Still open: measured C_L,max; an independent blade thrust rating (the model's hover-based
+> installed-thrust cap is unverified); broadside C_D=1; opposite-flow rotor operation;
+> acceleration-compatible trajectories and actual dry mass. The P100's 15 km loaded climb
+> needs upward authority, so ballast and more downward power cannot make that fixed profile
+> feasible. No new equipment is proposed. The legacy schematic anchor helper still depicts
+> geometric pickup potential; the force record and 3D host state use achieved, paid inventory.
+
+
 > **2026-10-01: #16 is PARTLY FIXED, and #18 to #20 are new.** The 3D viewer now reads the model's
 > constants through a checked boundary, and the rotor count is decided: the model counts stations.
 > Three atmosphere implementations disagree in the sixth digit (#18), six failure buttons in the
@@ -21,9 +36,9 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > |---|---|---|
 > | #11 | **The go/no-go is one number nobody had written down: a vacuum shell must mass less than 0.957 kg/m³ of enclosed volume.** Jenett's published 0.508 clears it with 47% margin and the hull is free to grow — 353,975 m³, a 223 m ship. What decides it is the shell density of one *sealed cell* and the *packing fraction*. | `mass-budget.md` |
 > | #13 | **Water is not a constraint.** 3,286 BC fires over 20 seasons; all have an adequate source in range; median 4.71 km. The binding unknown is lake *depth*, which the Freshwater Atlas does not carry. | `water-availability.md` |
-> | #0, #4 | **The cryogenic plant CANNOT be deleted** — a sealed-cell hull has no way to ballast with air, and an earlier claim that it could is retracted. But the ship makes nitrogen on every cycle it does not need, at **52.5%** of the P-100's cycle energy. | `air-ballast.md` |
-> | #3, #14, #15 | **The letdown is understated by 30–54×.** Corrected, cycle energy rises 50–92%. The anchor saves 4.7–49.2%, not the 96% claimed, because the cable is in the water for only 4–46% of the fall. | `descent.md` |
-> | #8 | **Re-opened with a purpose.** `diskM2` was retired as inert on a measurement taken against a letdown 53× too small. Doubling the disc saves 9.9% of the cycle. | `descent.md` |
+> | #0, #4 | **The cryogenic plant CANNOT be deleted** — a sealed-cell hull has no way to ballast with air, and an earlier claim that it could is retracted. But the ship makes nitrogen on every cycle it does not need, at **32.5%** of the P-100's cycle energy as the one model prices it since 2026-10-01 (52.5% of the smaller cycle published before). | `air-ballast.md` |
+> | #3, #14, #15 | **FIXED 2026-10-01 — one energy model.** The letdown is 0.390 / 4.279 / 35.398 MWh, a fifth of each cycle, against the 0.012 / 0.161 / 1.420 the window constant produced; cycle energy rose 45 / 115 / 224%. The bag's credit to the rotors is 0.7–5.2% of the cycle — not the 96% once claimed, nor the 27–49% this note then argued — and what it buys is water (2,248 t a cycle on the P-10000). | `descent.md`, `../docs/ENERGY-MODEL-2026-10.md` |
+> | #8 | **Re-opened, and now measurable.** `diskM2` was retired as inert on a measurement taken against a letdown too small to see it. With the rotors priced over the whole flight, ±20% on the disc moves the P-10000 cycle by +9.6% / −5.8% and `battMW` ±20% moves it −0.1% / +2.3% through the letdown clamp. | `descent.md` |
 > | #12 | **`ALT.drop` = 450 m does not deliver water** — and the ship's own rotors push air *upward* at 86× the mass flow of the water. The answer is sprayer leads. Measured in line rather than tonnes, one P-100 could wet the perimeter of 91.4% of BC campaign fires daily. | `delivery.md` |
 >
 > Regenerate all of it with `make analysis`.
@@ -42,7 +57,7 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > and every published figure that moved is listed in each entry. Two things did not happen
 > that this page predicted, and both are recorded below rather than quietly dropped: #4 got
 > *further* from binding rather than closer, and the cryogenic plant is no less inert in the
-> delivery cycle than it was. #2, #3, #5 and #6 are still open.
+> delivery cycle than it was. #2, #3 and #6 were closed on 2026-10-01 by one change (see each entry); #5 is still open.
 
 Seventeen things are wrong, or unjustified, or dead. They are written up here rather than quietly
 fixed because each one changes a number the site publishes or a decision it has to make before
@@ -72,14 +87,14 @@ Each entry gives the defect, what it costs, the options, and a recommendation. T
 were produced by re-running the model, and by an independent Python replication that
 reproduces `tests/golden/seed7-snapshot.json` exactly.
 
-Items 2 and 3 have a test in `tests/cases/` marked `knownFail`. Those tests run. They fail.
-If one starts passing without this document changing, the suite fails on that too — a
-defect should not be able to lose its excuse quietly. There are three `knownFail` markers
-left; the third is the flag bug in #17, `plan · windUsed is false when the wind was not
-applied`. Item 1 had the fourth. It started
-passing on 2026-08-09, which is what a fix looks like from the suite's side, and the marker
-was converted into two ordinary tests that assert the corrected behaviour rather than
-deleted: `physics · FAIL-SAFE FLOAT-UP` and `physics · UNPOWERED RECOVERY`.
+Items 2 and 3 had a test in `tests/cases/` marked `knownFail`. Those tests ran, and failed,
+until 2026-10-01, when the one energy model made them pass; the markers were converted into
+ordinary tests of the corrected behaviour rather than deleted — `energy · the budget is the
+integral of the flight` on every golden combination, and the `defects 3 and 15` suite that
+fails if a letdown window ever comes back. One `knownFail` marker is left, the unrelated flag
+bug `plan · windUsed is false when the wind was not applied`, recorded as #17 here. Item 1 had another. It started passing on 2026-08-09, which is what a fix looks
+like from the suite's side, and was converted the same way: `physics · FAIL-SAFE FLOAT-UP` and
+`physics · UNPOWERED RECOVERY`.
 
 Items 4, 5 and 6 have no such marker, and cannot have one. `retainedT` being zero is
 *enforced* by `selftest.js`, so a test that failed on it would be asserting the opposite of
@@ -285,11 +300,11 @@ different machine from the one described.
 
 ---
 
-## 2. Two power models that disagree by 2.5×
+## 2. Two power models that disagree by 2.5× — FIXED 2026-10-01
 
-`planCycle` builds an energy budget for a cycle. `stateAt` independently reports a
-per-system power draw at each instant, and the page integrates that draw to drain the
-batteries. They are separate implementations of the same quantity and they do not agree:
+**What it was.** `planCycle` built an energy budget for a cycle. `stateAt` independently
+reported a per-system power draw at each instant, and the page integrated that draw to drain
+the batteries. Two implementations of one quantity, and they did not agree. As first measured:
 
 | class | planned (MWh/cycle) | integrated (MWh/cycle) | ratio |
 |---|---|---|---|
@@ -297,15 +312,12 @@ batteries. They are separate implementations of the same quantity and they do no
 | P-1000 | 11.9 | 20.8 | 1.75× |
 | P-10000 | 82.5 | 211.2 | 2.56× |
 
-Of the integrated 211 MWh for a P-10000, **161 MWh is rotors**. Endurance therefore reads
-9.1 hours on the page and 27.2 hours in the plan.
+Re-measured at the base of the fix, after the 2026-08-09 resize had widened it: 1.55× / 2.43× /
+3.80× on the fixture missions. The root cause was the rotor terms applying **hover momentum
+theory at 36 m/s cruise** — 6.6× over the Glauert correction — in one model and no cruise trim
+at all in the other.
 
-The root cause is identified: the rotor power terms apply **hover momentum theory at
-36 m/s cruise**. Induced power falls with forward speed; using the hover expression at
-cruise overstates it by about **6.4×** against the standard Glauert correction. The planned
-budget avoids the error mostly by not modelling the same holds.
-
-**Options**
+**Options** (as decided)
 
 | | Effect |
 |---|---|
@@ -316,37 +328,55 @@ budget avoids the error mostly by not modelling the same holds.
 **DECISION: (c).** Fix the hover-at-cruise error first, then make the instruments and the
 budget the same code.
 
-**Recommendation: (c).** The disagreement is a symptom; the hover-at-cruise error is the
-disease, and it is a real physics error that a reader will find. Fix it, then make the
-instruments and the budget the same code — the project's own rule everywhere else.
+**DONE 2026-10-01.** `sim/power.js` is the one model: `drawAt` prices an instant with the
+rotors on Glauert momentum theory (airspeed through the disks, rate of descent in the axial
+term), `integrateCycle` is `planCycle`'s budget, and `stateAt` reads `drawAt` and adds only
+geometry. Both numbers moved towards each other and the published one moved most: 1.391 →
+2.023, 8.454 → 18.149, 54.325 → 176.000 MWh per cycle at 15 km (+45% / +115% / +224%), and
+the integral of the instruments agrees with the budget within 0.5% on all 135 golden
+combinations (measured worst 0.08%). Every figure that moved, with its attribution, is in
+`docs/ENERGY-MODEL-2026-10.md` and `research/analysis/energy-model-change.json`;
+`docs/PHYSICS.md` §9 has the new ledger.
+
+**What is still open.** The choreography the integral prices — the hold and share schedules,
+the phase speed profiles — is the one `stateAt` always flew and none of it is derived; the
+share schedule hands aero trim 40% of the surplus with the ship stopped, and it is the largest
+lever left on a channel that is now two thirds of the cycle (`research/analysis/descent.md`).
+`CFG.rhoAir` is still a flat 1.10 kg/m³. Wind enters the airspeed on the transit legs only.
 
 ---
 
-## 3. Half the energy comes from an unexplained constant
+## 3. Half the energy comes from an unexplained constant — FIXED 2026-10-01
 
-The letdown term in `planCycle` is
+**What it was.** The letdown term in `planCycle` was
 
 ```js
 E.letdown = downMW * Math.min(6, dur.RETURN_TRANSIT * 0.2) / 60;
 ```
 
-It is **52.9% of the P-10000's published cycle energy** at 15 km, and 61.3% at 45 km.
-Neither `6` nor `0.2` is justified anywhere. The `min` is inactive below roughly 55 km
-one-way, so in practice the term is a bare 20% of the return leg, and past 55 km the
-letdown energy simply stops growing with distance, which is not a physical behaviour.
-
-Worse, the `battLimited` branch stretches `RETURN_TRANSIT` by 1.12 to model "a longer,
-shallower letdown" — and because the term is proportional to duration, it **raises**
-letdown energy from 38.95 to 43.62 MWh. The code does the opposite of what its comment says.
+Once 52.9% of the P-10000's published cycle energy, then 2.6% after the anchor took the
+hold-down off the rotors — and wrong at both sizes, because neither `6` nor `0.2` was
+justified anywhere, the `min` was inactive below roughly 55 km one-way, and past 55 km the
+letdown energy simply stopped growing with distance. The `battLimited` branch stretched
+`RETURN_TRANSIT` by 1.12 to model "a longer, shallower letdown" and, the term being
+proportional to duration, **raised** the letdown energy instead.
 
 **DECISION: fix it.** Replace the constant with a descent model derived from the disk
 theory already in the file. No free constants, and the `battLimited` branch must reduce
 letdown energy rather than raise it, as its comment claims.
 
-**Recommendation.** Replace it with a descent model: the energy needed to push a buoyant
-hull down through a known height at a chosen rate is computable from the same disk theory
-already in the file, and it has no free constants. Until then the largest single line in
-the energy budget is a guess.
+**DONE 2026-10-01, with one deviation from the decision's letter.** The window, the `0.92`
+threshold and the `1.12` stretch are gone; `/usr/bin/grep -rn 'Math.min(6' sim/` prints nothing
+and a test fails if the implied window ever equals 6 minutes or 0.2 × the return leg again.
+The letdown is the rotor energy integrated over the flown descent, with the rate of descent in
+the disk model: 0.390 / 4.279 / 35.398 MWh at 15 km, 19.3 / 23.6 / 20.1% of the cycle. The
+deviation: the `battLimited` branch does not reduce letdown energy, because under disk theory
+stretching the leg makes the letdown cost MORE (a longer hold at a given thrust), so the branch
+was removed rather than inverted. The return leg stays kinematic whether or not the bus clips;
+`battLimited` now means the bus clamp held the rotors below what the hold asked for during the
+letdown, and the class reports `descent authority` when it does — the P-1000 does, for 0.16
+minutes and 0.015 MWh at 15 km, because its rotors-alone crossing (1,450 m AGL) is above its
+600 m cable's reach. That is a finding about the vehicle, and it is published as one.
 
 ---
 
@@ -483,9 +513,25 @@ missing agency mirrors fall back only to the dated files in this repository.
 
 ---
 
-## 6. The generators supply peak power but no energy
+## 6. The generators supply peak power but no energy — FIXED 2026-10-01
 
-Each class advertises onboard generation — 8, 40 and 150 MW — and `plan.js` counts it when
+> **DONE 2026-10-01**, per the revised decision below (storage, not a source). `sim/power.js →
+> drawAt` books the generators as `gen.regen`: the nitrogen store's energy (`ln2MakeT × eLN2 ×
+> rtLN2`, 0.165 / 0.674 / 1.900 MWh at 15 km) returned at a rate bounded by `genMW`, 30% in the
+> approach as the bag goes in and 70% in the fill; `eBack` can exceed neither the store nor
+> `genMW` × the venting time (asserted on all 135 golden combinations). The bus the rotors are
+> clamped to is `battMW + min(genMW, regen)` at every instant, and the descent closure in
+> `plan.js` is struck on that same bus with the same 0.95 ceiling. `rotorMaxT` fell 160.3 / 790.9
+> / 7,599.7 → 136.7 / 664.5 / 6,884.8 t; the scan cutoff and hold altitude changed on
+> the two larger classes (500 → 900 m, 750 → 1,150 m). **The per-cycle deficit got larger, not
+> smaller** — 1.24 / 7.71 / 50.23 → 1.87 / 17.41 / 171.9 MWh — as the revised decision predicted,
+> and in plain words: the generators return a fifth of what the plant spent, only when there is
+> nitrogen to expand, and cannot make the fleet's energy close. The deficit is not an artefact of
+> leaving them out. The P-1000's letdown now clips on the honest bus (#3). Still open: a hull out
+> of battery has only the store to descend on, and the model does not yet refuse a cycle it
+> cannot power.
+
+**What it was.** Each class advertises onboard generation — 8, 40 and 150 MW — and `plan.js` counts it when
 sizing rotor authority (`rotorMaxT` uses `battMW + genMW`). But nothing ever credits that
 generation as *energy*. `stateAt` reports only solar and nitrogen recovery under
 `gen`, and `app/loop.js` subtracts every remaining load straight from the battery.
@@ -611,7 +657,8 @@ is the list to work through.
 balance would close with nothing held back: the rotors alone pushing an emptied hull back down
 under its own buoyancy. That check was made at the CEILING. On 2026-08-09 it moved to the source,
 where the letdown actually ends and the air is 16% denser, and there it does not close —
-`rotorMaxT/0.6` is 12,666 t against a 13,723 t hold.
+`rotorMaxT/0.6` was 12,666 t against a 13,723 t hold, and is 11,475 t on the honest bus since
+2026-10-01 (#6).
 
 The descent is closed by the anchor now. These two numbers satisfy a superseded constraint.
 
@@ -620,9 +667,13 @@ for a property the model does not have: `sim/config.js` asserted closure in a co
 `docs/PHYSICS.md` §7 called it "the model's central structural boast" while computing its
 supporting table against the superseded ceiling ledger. Both are corrected as of this entry.
 
-And they are no longer load-bearing on anything. Measured: `diskM2` ±20% moves cycle energy by
-∓0.4%; `battMW` ±20% moves **every published figure by 0.0%**. Two of the most striking numbers on
-the class cards are inert.
+And — as this entry read until 2026-10-01 — they were no longer load-bearing on anything:
+`diskM2` ±20% moved cycle energy by ∓0.4% and `battMW` ±20% moved every published figure by
+0.0%. That measurement was taken against a letdown too small to see them, which
+`research/analysis/descent.md` argued at the time. With the rotors priced over the whole flight
+(#2), `diskM2` ±20% moves the P-10000's cycle by +9.6% / −5.8% and `battMW` by −0.1% / +2.3%
+through the letdown clamp; the rotors are two thirds of the cycle, and the question this entry
+asks — what are they for — now has the descent's answer. Still a design decision, not a re-tune.
 
 **DECISION: none yet.** Re-deriving them needs a decision about what the primary rotors are
 actually for now that the anchor does the descent — trim and cruise, or descent authority in
@@ -775,57 +826,48 @@ leaving the question unasked.
 
 ---
 
-## 14. The rotor power model cannot see the anchor
+## 14. The rotor power model cannot see the anchor — FIXED 2026-10-01
 
-`sim/plan.js` credits the bag: the residual the rotors must hold is `holdT − anchorT`, and
-`downMW` comes out at **52.3 MW**. `sim/state.js` does not. `draw.rotors` is built from
-`led.liftT − massT` with no anchor term at all, and `plan.anchorT` enters the function only
-*after* the rotors are computed — because `anchorHang` needs the ground speed, which is settled
-later. The ordering is the evidence it was never considered.
+**What it was.** `sim/plan.js` credited the bag: the residual the rotors must hold was
+`holdT − anchorT`, and `downMW` came out at 52.3 MW. `sim/state.js` did not. `draw.rotors` was
+built from `led.liftT − massT` with no anchor term at all, and `plan.anchorT` entered the
+function only *after* the rotors were computed — because `anchorHang` needed the ground speed,
+which was settled later. The ordering was the evidence it was never considered. Measured on
+the seed-7 P-10000 mission at `SOURCE_APPROACH` prog 0.90: 12,400 t of lake water pulling the
+hull down *and* 155 MW of rotor thrust also pushing it down, computed against the full 13,722 t
+surplus — the instrument over-read by about 33× at the moment the mechanism was doing its job.
 
-Measured on the seed-7 P-10000 mission, `SOURCE_APPROACH`:
-
-| prog | altitude AGL | anchor | `draw.rotors` | with the bag credited |
-|---|---|---|---|---|
-| 0.00 | 820 m | 0 t | **1,472.5 MW** (clamped at the bus) | — |
-| 0.90 | 329 m | 12,400 t | 155.3 MW | ~4.7 MW |
-
-At prog 0.90 the same returned object reports 121.6 MN of lake water pulling the hull down *and*
-155 MW of rotor thrust also pushing it down, computed against the full 13,722 t surplus. **The
-instrument over-reads by about 33× at the moment the mechanism is doing its job**, and the
-`Math.min(bus × 0.95, …)` clamp then hides the overflow behind a bus pinned at its limit.
-
-This is not #2's hover-formula error — the ship is at 0–39 km/h here, where momentum theory is
-the right model. It makes #2 worse than #2 says: that entry reports the P-10000 diverging 2.56×,
-and measured today it is **5.05×** (192.1 MWh integrated against 38.0 planned).
-
-**DECISION: none yet.** The fix is to compute the anchor before the rotors, which means
-restructuring how ground speed is settled in `stateAt`. It should be done with #2 rather than
-before it.
+**DONE 2026-10-01, with #2.** `sim/power.js → drawAt` computes `anchorHang` first and the
+rotors see the net: `netFrac = (liftT − massT − anchor.tonnes) / reserveT`, clamped to [0, 1],
+and the thrust asked is `|vert| × reserveT × g × share`. Tests assert the credited draw below
+the uncredited one wherever the bag hangs, the thrust bounded by `SHARE_MAX` × the net after
+the bag, and the P-10000's rotors at the start of the fill below 5% of what the uncredited ask
+would have been. Priced over the flown cycle, the credit is worth 0.014 / 0.556 / 9.588 MWh —
+0.7 / 3.0 / 5.2% of the cycle (`research/analysis/descent.json`, `rotorsBlindToTheBag`), not
+the 27–49% the earlier analysis claimed, because the bag is in the water only for the last part
+of the descent and the expensive part is the stop before it goes in.
 
 ---
 
-## 15. The letdown is priced at the anchor-assisted residual for the whole descent
+## 15. The letdown is priced at the anchor-assisted residual for the whole descent — FIXED 2026-10-01
 
-`E.letdown = downMW × window`, and `downMW` is the *bagged* residual — 52.3 MW. But the plan's own
-`anchorFromAglM` says the bag is not available above 750 m AGL, and the cable cannot reach the
-water above about 950 m. Priced with the model's own `ledger` and `diskMW`:
+**What it was.** `E.letdown = downMW × window`, and `downMW` was the *bagged* residual —
+52.3 MW — while the plan's own `anchorFromAglM` said the bag was not available above 750 m AGL
+and the cable could not reach the water above about 950 m. Priced with the model's own
+`ledger` and `diskMW`, the rotors alone needed 1,260 MW at 1,500 m AGL and 1,553 MW — over the
+1,550 MW bus — at 750 m, where the ledger charged 5.2 MW. `E.letdown` for the whole cycle was
+1.42 MWh, which is 1,451 MW for 3.5 seconds.
 
-| altitude AGL | hold | rotors alone | with the bag |
-|---|---|---|---|
-| 1,500 m | 11,030 t | 1,260 MW | 0 MW |
-| 1,000 m | 12,122 t | 1,451 MW | 0 MW |
-| 750 m | 12,684 t | **1,553 MW** — over the 1,550 MW bus | 5.2 MW |
-
-`E.letdown` for the whole cycle is 1.42 MWh, which is 1,451 MW for 3.5 seconds. `stateAt` agrees
-with the table rather than the ledger: its peak rotor draw in the return leg is 1,472.5 MW.
-
-Distinct from #3, which is about the undefined `6` and `0.2` constants: **even with a perfect
-window, `downMW` is the wrong power for most of the descent.** #14 and #15 are two halves of one
-fact — neither model prices the descent, and they disagree by 20–30× in the phase the anchor was
-invented for.
-
-**DECISION: none yet.**
+**DONE 2026-10-01, with #3.** There is no `downMW × window` any more. The hold-down is priced
+at every sample of the flown descent — the hull's surplus at the altitude it is at, less the
+bag where the bag hangs, on the honest bus — and `downMW` is now reported as what it is, the
+earlier midpoint rotor peaks: 11.8 / 146.3 / 1,157.3 MW (historical). The replay found seam-inclusive 12.032 / 146.341 / 1,179.984 MW at ground speeds 27 / 33 / 39 km/h; current peaks and feasibility are in the generated closure table
+before engagement. In the earlier model, the rotors-alone crossing is above the cable top for the two larger
+classes (1,450 m and 1,290 m AGL against 600 m and 850 m cables), so there is a band — 910 m
+and 568 m of it — where neither the rotors at full share nor the bag can hold the hull; the
+model flies through it on the share schedule's assumption that aero trim carries the rest,
+which is the open question that remains (`research/analysis/descent.md`, "what remains"). #14
+and #15 were two halves of one fact; both halves are in the one model.
 
 ---
 

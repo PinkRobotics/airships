@@ -257,6 +257,7 @@ export const VZ_MAX = 6;
 export const REFERENCE_CLASS = 'P100';
 
 export const CLASSES = {  P100: {
+    reversibleThrust: false, // Downward thrust only; upward authority is not demonstrated.
     id: "P100", name: "P-100", payloadT: 100, dispM3: 220000, lenM: 110, diaM: 55,
     cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,
     anchorM: 350, anchorBagT: 125,
@@ -264,6 +265,7 @@ export const CLASSES = {  P100: {
     minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: "Initial attack and small incidents close to water",
   },
   P1000: {
+    reversibleThrust: false, // Downward thrust only; upward authority is not demonstrated.
     id: "P1000", name: "P-1000", payloadT: 1000, dispM3: 2.2e6, lenM: 238, diaM: 119,
     cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,
     anchorM: 600, anchorBagT: 1250,
@@ -271,6 +273,7 @@ export const CLASSES = {  P100: {
     minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: "Sustained delivery on project fires and fires of note",
   },
   P10000: {
+    reversibleThrust: false, // Downward thrust only; upward authority is not demonstrated.
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 512, diaM: 256,
     cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
     anchorM: 850, anchorBagT: 12400,

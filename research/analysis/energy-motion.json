@@ -1,0 +1,2070 @@
+{
+  "source": {
+    "assumption": "Transverse added mass of a prolate spheroid with length twice its width.",
+    "citation": "Lamb coefficient as tabulated by Munk, NACA Report 184.",
+    "localPrimarySource": false,
+    "localBackgroundSource": "research/papers/hochstetler-2016-heavy-lift-airships.pdf, pages 3 and 13",
+    "qualification": "Local research discusses added mass and cites Munk, but no local copy of NACA Report 184 was found. The numerical coefficient remains a supplied assumption; the primary source was not fetched."
+  },
+  "coefficients": [
+    0.7,
+    1
+  ],
+  "samplesPerPhase": 2001,
+  "marginMeaning": "Additional downward rotor thrust at the sampled instant, holding aerodynamic force and other electrical loads fixed. Absolute omitted inertia is compared conservatively with that reserve.",
+  "massMeaning": "Hull dry-mass target, water and nitrogen aboard, plus coefficient times displaced local air mass. Hanging-bag dynamics are excluded.",
+  "rows": [
+    {
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 3.0133139584979394,
+              "worstMarginGapT": 1.4410985320387986,
+              "forceT": 3.0133139584979394,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 166.20520487734456,
+              "marginT": 60.50368672965497
+            },
+            {
+              "coefficient": 1,
+              "absT": 3.8157506060226667,
+              "worstMarginGapT": 1.824400145265558,
+              "forceT": 3.8157506060226667,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 237.43600696763508,
+              "marginT": 60.50368672965497
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 166.20520487734456,
+              "marginT": 56.77358160760711
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 237.43600696763508,
+              "marginT": 56.77358160760711
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 7.837677316602205,
+              "worstMarginGapT": 0,
+              "forceT": -7.837677316602205,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2213507626032019,
+              "onboardT": 200,
+              "addedAirT": 147.35644716841574,
+              "marginT": 142.55159668315406
+            },
+            {
+              "coefficient": 1,
+              "absT": 9.262642889132884,
+              "worstMarginGapT": 0,
+              "forceT": -9.262642889132884,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2213507626032019,
+              "onboardT": 200,
+              "addedAirT": 210.50921024059394,
+              "marginT": 142.55159668315406
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 23.675774723166597,
+              "worstMarginGapT": 18.842948119627764,
+              "forceT": 23.675774723166597,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 163.75335634389737,
+              "marginT": 9.71245386202861
+            },
+            {
+              "coefficient": 1,
+              "absT": 29.834509758279363,
+              "worstMarginGapT": 24.9552571324161,
+              "forceT": 29.834509758279363,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 233.9333662055677,
+              "marginT": 9.71245386202861
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 6.055525223064993,
+              "worstMarginGapT": 1.8157732473212072,
+              "forceT": 6.055525223064993,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 161.65101927429774,
+              "marginT": 4.239751975743786
+            },
+            {
+              "coefficient": 1,
+              "absT": 7.658885237153314,
+              "worstMarginGapT": 3.4191332614095273,
+              "forceT": 7.658885237153314,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 230.9300275347111,
+              "marginT": 4.239751975743786
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 5.001345028465597,
+              "worstMarginGapT": 4.046778581599091,
+              "forceT": -5.001345028465597,
+              "progress": 0.6705,
+              "accelerationMps2": -0.1973710965434823,
+              "onboardT": 101.22705882352942,
+              "addedAirT": 147.3564247182896,
+              "marginT": 43.77502753551673
+            },
+            {
+              "coefficient": 1,
+              "absT": 6.271939136345715,
+              "worstMarginGapT": 5.109039266203888,
+              "forceT": -6.271939136345715,
+              "progress": 0.6705,
+              "accelerationMps2": -0.1973710965434823,
+              "onboardT": 101.22705882352942,
+              "addedAirT": 210.50917816898513,
+              "marginT": 43.77502753551673
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P100",
+      "km": 15,
+      "basis": "favourable",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 3.0133139584979394,
+              "worstMarginGapT": 1.4410985320387986,
+              "forceT": 3.0133139584979394,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 166.20520487734456,
+              "marginT": 60.50368672965497
+            },
+            {
+              "coefficient": 1,
+              "absT": 3.8157506060226667,
+              "worstMarginGapT": 1.824400145265558,
+              "forceT": 3.8157506060226667,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 237.43600696763508,
+              "marginT": 60.50368672965497
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 166.20520487734456,
+              "marginT": 56.77358160760711
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 101.28104575163398,
+              "addedAirT": 237.43600696763508,
+              "marginT": 56.77358160760711
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 7.837677316602205,
+              "worstMarginGapT": 0,
+              "forceT": -7.837677316602205,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2213507626032019,
+              "onboardT": 200,
+              "addedAirT": 147.35644716841574,
+              "marginT": 147.67057438563722
+            },
+            {
+              "coefficient": 1,
+              "absT": 9.262642889132884,
+              "worstMarginGapT": 0,
+              "forceT": -9.262642889132884,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2213507626032019,
+              "onboardT": 200,
+              "addedAirT": 210.50921024059394,
+              "marginT": 147.67057438563722
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 23.675774723166597,
+              "worstMarginGapT": 18.842948119627764,
+              "forceT": 23.675774723166597,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 163.75335634389737,
+              "marginT": 15.172370229118158
+            },
+            {
+              "coefficient": 1,
+              "absT": 29.834509758279363,
+              "worstMarginGapT": 24.9552571324161,
+              "forceT": 29.834509758279363,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 233.9333662055677,
+              "marginT": 15.172370229118158
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 6.055525223064993,
+              "worstMarginGapT": 1.8157732473212072,
+              "forceT": 6.055525223064993,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 161.65101927429774,
+              "marginT": 4.239751975743786
+            },
+            {
+              "coefficient": 1,
+              "absT": 7.658885237153314,
+              "worstMarginGapT": 3.4191332614095273,
+              "forceT": 7.658885237153314,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 230.9300275347111,
+              "marginT": 4.239751975743786
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 5.001345028465597,
+              "worstMarginGapT": 0,
+              "forceT": -5.001345028465597,
+              "progress": 0.6705,
+              "accelerationMps2": -0.1973710965434823,
+              "onboardT": 101.22705882352942,
+              "addedAirT": 147.3564247182896,
+              "marginT": 84.78867745243844
+            },
+            {
+              "coefficient": 1,
+              "absT": 6.271939136345715,
+              "worstMarginGapT": 0,
+              "forceT": -6.271939136345715,
+              "progress": 0.6705,
+              "accelerationMps2": -0.1973710965434823,
+              "onboardT": 101.22705882352942,
+              "addedAirT": 210.50917816898513,
+              "marginT": 84.78867745243844
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "record",
+      "feasible": true,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 3.0566080684097137,
+              "worstMarginGapT": 0,
+              "forceT": 3.0566080684097137,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 166.20520487734456,
+              "marginT": 77.28832920491736
+            },
+            {
+              "coefficient": 1,
+              "absT": 3.8590447159344414,
+              "worstMarginGapT": 0,
+              "forceT": 3.8590447159344414,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 237.43600696763508,
+              "marginT": 77.28832920491736
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 166.20520487734456,
+              "marginT": 77.9525031026625
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 237.43600696763508,
+              "marginT": 77.9525031026625
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0.4898548322876378,
+              "worstMarginGapT": 0,
+              "forceT": -0.4898548322876378,
+              "progress": 0.3295,
+              "accelerationMps2": -0.01383442266270012,
+              "onboardT": 200,
+              "addedAirT": 147.35644716841574,
+              "marginT": 142.54968923428612
+            },
+            {
+              "coefficient": 1,
+              "absT": 0.5789151805708053,
+              "worstMarginGapT": 0,
+              "forceT": -0.5789151805708053,
+              "progress": 0.3295,
+              "accelerationMps2": -0.01383442266270012,
+              "onboardT": 200,
+              "addedAirT": 210.50921024059394,
+              "marginT": 142.54968923428612
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 23.675774723166597,
+              "worstMarginGapT": 18.842948119627764,
+              "forceT": 23.675774723166597,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 163.75335634389737,
+              "marginT": 9.71245386202861
+            },
+            {
+              "coefficient": 1,
+              "absT": 29.834509758279363,
+              "worstMarginGapT": 24.9552571324161,
+              "forceT": 29.834509758279363,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 233.9333662055677,
+              "marginT": 9.71245386202861
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 6.055525223064993,
+              "worstMarginGapT": 1.8157732473212072,
+              "forceT": 6.055525223064993,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 161.65101927429774,
+              "marginT": 4.239751975743786
+            },
+            {
+              "coefficient": 1,
+              "absT": 7.658885237153314,
+              "worstMarginGapT": 3.4191332614095273,
+              "forceT": 7.658885237153314,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 230.9300275347111,
+              "marginT": 4.239751975743786
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0.317213000546748,
+              "worstMarginGapT": 0,
+              "forceT": -0.317213000546748,
+              "progress": 0.6705,
+              "accelerationMps2": -0.012335693533967644,
+              "onboardT": 104.90823529411765,
+              "addedAirT": 147.3564247182896,
+              "marginT": 47.45772056018566
+            },
+            {
+              "coefficient": 1,
+              "absT": 0.3966251322892554,
+              "worstMarginGapT": 0,
+              "forceT": -0.3966251322892554,
+              "progress": 0.6705,
+              "accelerationMps2": -0.012335693533967644,
+              "onboardT": 104.90823529411765,
+              "addedAirT": 210.50917816898513,
+              "marginT": 47.45772056018566
+            }
+          ]
+        }
+      ],
+      "qualification": "closes only quasi-statically"
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "favourable",
+      "feasible": true,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 3.0566080684097137,
+              "worstMarginGapT": 0,
+              "forceT": 3.0566080684097137,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 166.20520487734456,
+              "marginT": 77.28832920491736
+            },
+            {
+              "coefficient": 1,
+              "absT": 3.8590447159344414,
+              "worstMarginGapT": 0,
+              "forceT": 3.8590447159344414,
+              "progress": 1,
+              "accelerationMps2": 0.11051263331612264,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 237.43600696763508,
+              "marginT": 77.28832920491736
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 166.20520487734456,
+              "marginT": 77.9525031026625
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 105.12418300653594,
+              "addedAirT": 237.43600696763508,
+              "marginT": 77.9525031026625
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0.4898548322876378,
+              "worstMarginGapT": 0,
+              "forceT": -0.4898548322876378,
+              "progress": 0.3295,
+              "accelerationMps2": -0.01383442266270012,
+              "onboardT": 200,
+              "addedAirT": 147.35644716841574,
+              "marginT": 147.66959489095083
+            },
+            {
+              "coefficient": 1,
+              "absT": 0.5789151805708053,
+              "worstMarginGapT": 0,
+              "forceT": -0.5789151805708053,
+              "progress": 0.3295,
+              "accelerationMps2": -0.01383442266270012,
+              "onboardT": 200,
+              "addedAirT": 210.50921024059394,
+              "marginT": 147.66959489095083
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 23.675774723166597,
+              "worstMarginGapT": 18.842948119627764,
+              "forceT": 23.675774723166597,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 163.75335634389737,
+              "marginT": 15.172370229118158
+            },
+            {
+              "coefficient": 1,
+              "absT": 29.834509758279363,
+              "worstMarginGapT": 24.9552571324161,
+              "forceT": 29.834509758279363,
+              "progress": 0.8505,
+              "accelerationMps2": 0.8608888886385553,
+              "onboardT": 106.036802525,
+              "addedAirT": 233.9333662055677,
+              "marginT": 15.172370229118158
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 6.055525223064993,
+              "worstMarginGapT": 1.8157732473212072,
+              "forceT": 6.055525223064993,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 161.65101927429774,
+              "marginT": 4.239751975743786
+            },
+            {
+              "coefficient": 1,
+              "absT": 7.658885237153314,
+              "worstMarginGapT": 3.4191332614095273,
+              "forceT": 7.658885237153314,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 100,
+              "addedAirT": 230.9300275347111,
+              "marginT": 4.239751975743786
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0.317213000546748,
+              "worstMarginGapT": 0,
+              "forceT": -0.317213000546748,
+              "progress": 0.6705,
+              "accelerationMps2": -0.012335693533967644,
+              "onboardT": 104.90823529411765,
+              "addedAirT": 147.3564247182896,
+              "marginT": 87.79176941395309
+            },
+            {
+              "coefficient": 1,
+              "absT": 0.3966251322892554,
+              "worstMarginGapT": 0,
+              "forceT": -0.3966251322892554,
+              "progress": 0.6705,
+              "accelerationMps2": -0.012335693533967644,
+              "onboardT": 104.90823529411765,
+              "addedAirT": 210.50917816898513,
+              "marginT": 87.79176941395309
+            }
+          ]
+        }
+      ],
+      "qualification": "closes only quasi-statically"
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "basis": "record",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 67.80030716393927,
+              "worstMarginGapT": 65.07605438203687,
+              "forceT": 67.80030716393927,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 563.1195596771503
+            },
+            {
+              "coefficient": 1,
+              "absT": 85.90657003671718,
+              "worstMarginGapT": 82.01020385204217,
+              "forceT": 85.90657003671718,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 563.1195596771503
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 533.4762892454506
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 533.4762892454506
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 102.13546322469446,
+              "worstMarginGapT": 0,
+              "forceT": -102.13546322469446,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2864539279763087,
+              "onboardT": 2000,
+              "addedAirT": 1497.7662946102785,
+              "marginT": 619.4061838833065
+            },
+            {
+              "coefficient": 1,
+              "absT": 120.87906472236313,
+              "worstMarginGapT": 0,
+              "forceT": -120.87906472236313,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2864539279763087,
+              "onboardT": 2000,
+              "addedAirT": 2139.666135157541,
+              "marginT": 619.4061838833065
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 85.23278900339979,
+              "worstMarginGapT": 85.23278899842133,
+              "forceT": 85.23278900339979,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 1637.5335634389737,
+              "marginT": 4.9784603106672876e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 107.40423512980576,
+              "worstMarginGapT": 107.4042351248273,
+              "forceT": 107.40423512980576,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 2339.333662055677,
+              "marginT": 4.9784603106672876e-9
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 47.186335071978796,
+              "worstMarginGapT": 47.18633506489724,
+              "forceT": 47.186335071978796,
+              "progress": 0,
+              "accelerationMps2": 0.17691425332107732,
+              "onboardT": 1000,
+              "addedAirT": 1616.5101927429776,
+              "marginT": 7.0815531216794625e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 59.680161796969394,
+              "worstMarginGapT": 59.68016178988784,
+              "forceT": 59.680161796969394,
+              "progress": 0,
+              "accelerationMps2": 0.17691425332107732,
+              "onboardT": 1000,
+              "addedAirT": 2309.300275347111,
+              "marginT": 7.0815531216794625e-9
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 26.68388372694778,
+              "worstMarginGapT": 26.68388372694778,
+              "forceT": -26.68388372694778,
+              "progress": 0.6705,
+              "accelerationMps2": -0.10459104838586604,
+              "onboardT": 1005.0197860962567,
+              "addedAirT": 1497.7651405412316,
+              "marginT": 0
+            },
+            {
+              "coefficient": 1,
+              "absT": 33.52760702467655,
+              "worstMarginGapT": 33.52760702467655,
+              "forceT": -33.52760702467655,
+              "progress": 0.6705,
+              "accelerationMps2": -0.10459104838586604,
+              "onboardT": 1005.0197860962567,
+              "addedAirT": 2139.664486487474,
+              "marginT": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "basis": "favourable",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 67.80030716393927,
+              "worstMarginGapT": 65.07605438203687,
+              "forceT": 67.80030716393927,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 563.1195596771503
+            },
+            {
+              "coefficient": 1,
+              "absT": 85.90657003671718,
+              "worstMarginGapT": 82.01020385204217,
+              "forceT": 85.90657003671718,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 563.1195596771503
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 533.4762892454506
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1005.24064171123,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 533.4762892454506
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 102.13546322469446,
+              "worstMarginGapT": 0,
+              "forceT": -102.13546322469446,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2864539279763087,
+              "onboardT": 2000,
+              "addedAirT": 1497.7662946102785,
+              "marginT": 686.5452987581971
+            },
+            {
+              "coefficient": 1,
+              "absT": 120.87906472236313,
+              "worstMarginGapT": 0,
+              "forceT": -120.87906472236313,
+              "progress": 0.3295,
+              "accelerationMps2": -0.2864539279763087,
+              "onboardT": 2000,
+              "addedAirT": 2139.666135157541,
+              "marginT": 686.5452987581971
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 85.23278900339979,
+              "worstMarginGapT": 83.10527133707859,
+              "forceT": 85.23278900339979,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 1637.5335634389737,
+              "marginT": 4.42865013639971
+            },
+            {
+              "coefficient": 1,
+              "absT": 107.40423512980576,
+              "worstMarginGapT": 105.10958378311659,
+              "forceT": 107.40423512980576,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 2339.333662055677,
+              "marginT": 4.42865013639971
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 47.186335071978796,
+              "worstMarginGapT": 47.18633506489724,
+              "forceT": 47.186335071978796,
+              "progress": 0,
+              "accelerationMps2": 0.17691425332107732,
+              "onboardT": 1000,
+              "addedAirT": 1616.5101927429776,
+              "marginT": 7.0815531216794625e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 59.680161796969394,
+              "worstMarginGapT": 59.68016178988784,
+              "forceT": 59.680161796969394,
+              "progress": 0,
+              "accelerationMps2": 0.17691425332107732,
+              "onboardT": 1000,
+              "addedAirT": 2309.300275347111,
+              "marginT": 7.0815531216794625e-9
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 26.68388372694778,
+              "worstMarginGapT": 26.681678055477956,
+              "forceT": -26.68388372694778,
+              "progress": 0.6705,
+              "accelerationMps2": -0.10459104838586604,
+              "onboardT": 1005.0197860962567,
+              "addedAirT": 1497.7651405412316,
+              "marginT": 0.0022056714698237556
+            },
+            {
+              "coefficient": 1,
+              "absT": 33.52760702467655,
+              "worstMarginGapT": 33.525401353206725,
+              "forceT": -33.52760702467655,
+              "progress": 0.6705,
+              "accelerationMps2": -0.10459104838586604,
+              "onboardT": 1005.0197860962567,
+              "addedAirT": 2139.664486487474,
+              "marginT": 0.0022056714698237556
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "basis": "record",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 68.19994510284087,
+              "worstMarginGapT": 65.59490424661317,
+              "forceT": 68.19994510284087,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 614.2616860142359
+            },
+            {
+              "coefficient": 1,
+              "absT": 86.3062079756188,
+              "worstMarginGapT": 82.52905371661848,
+              "forceT": 86.3062079756188,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 614.2616860142359
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 594.6558730899937
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 594.6558730899937
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 7.317584531704224,
+              "worstMarginGapT": 0,
+              "forceT": -7.317584531704224,
+              "progress": 0.3295,
+              "accelerationMps2": -0.020666236323292782,
+              "onboardT": 2000,
+              "addedAirT": 1473.5644716841575,
+              "marginT": 649.8595715719536
+            },
+            {
+              "coefficient": 1,
+              "absT": 8.647992203588577,
+              "worstMarginGapT": 0,
+              "forceT": -8.647992203588577,
+              "progress": 0.3295,
+              "accelerationMps2": -0.020666236323292782,
+              "onboardT": 2000,
+              "addedAirT": 2105.0921024059394,
+              "marginT": 649.8595715719536
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 85.23278900339979,
+              "worstMarginGapT": 85.23278899842133,
+              "forceT": 85.23278900339979,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 1637.5335634389737,
+              "marginT": 4.9784603106672876e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 107.40423512980576,
+              "worstMarginGapT": 107.4042351248273,
+              "forceT": 107.40423512980576,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 2339.333662055677,
+              "marginT": 4.9784603106672876e-9
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 60.555252230649955,
+              "worstMarginGapT": 60.5552522235684,
+              "forceT": 60.555252230649955,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 1000,
+              "addedAirT": 1616.5101927429776,
+              "marginT": 7.0815531216794625e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 76.58885237153315,
+              "worstMarginGapT": 76.5888523644516,
+              "forceT": 76.58885237153315,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 1000,
+              "addedAirT": 2309.300275347111,
+              "marginT": 7.0815531216794625e-9
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 2.3639543436953336,
+              "worstMarginGapT": 2.3639543436953336,
+              "forceT": -2.3639543436953336,
+              "progress": 0.6705,
+              "accelerationMps2": -0.009299806340369208,
+              "onboardT": 1020.0791443850268,
+              "addedAirT": 1473.563331908792,
+              "marginT": 0
+            },
+            {
+              "coefficient": 1,
+              "absT": 2.9626373326433884,
+              "worstMarginGapT": 2.9626373326433884,
+              "forceT": -2.9626373326433884,
+              "progress": 0.6705,
+              "accelerationMps2": -0.009299806340369208,
+              "onboardT": 1020.0791443850268,
+              "addedAirT": 2105.0904741554173,
+              "marginT": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "basis": "favourable",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 68.19994510284087,
+              "worstMarginGapT": 65.59490424661317,
+              "forceT": 68.19994510284087,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 614.2616860142359
+            },
+            {
+              "coefficient": 1,
+              "absT": 86.3062079756188,
+              "worstMarginGapT": 82.52905371661848,
+              "forceT": 86.3062079756188,
+              "progress": 1,
+              "accelerationMps2": 0.24936184006014903,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 614.2616860142359
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 1662.0520487734452,
+              "marginT": 594.6558730899937
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 1020.9625668449198,
+              "addedAirT": 2374.3600696763506,
+              "marginT": 594.6558730899937
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 7.317584531704224,
+              "worstMarginGapT": 0,
+              "forceT": -7.317584531704224,
+              "progress": 0.3295,
+              "accelerationMps2": -0.020666236323292782,
+              "onboardT": 2000,
+              "addedAirT": 1473.5644716841575,
+              "marginT": 700.3936221466179
+            },
+            {
+              "coefficient": 1,
+              "absT": 8.647992203588577,
+              "worstMarginGapT": 0,
+              "forceT": -8.647992203588577,
+              "progress": 0.3295,
+              "accelerationMps2": -0.020666236323292782,
+              "onboardT": 2000,
+              "addedAirT": 2105.0921024059394,
+              "marginT": 700.3936221466179
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 85.23278900339979,
+              "worstMarginGapT": 83.10527133707859,
+              "forceT": 85.23278900339979,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 1637.5335634389737,
+              "marginT": 4.42865013639971
+            },
+            {
+              "coefficient": 1,
+              "absT": 107.40423512980576,
+              "worstMarginGapT": 105.10958378311659,
+              "forceT": 107.40423512980576,
+              "progress": 0.8505,
+              "accelerationMps2": 0.30991999990988006,
+              "onboardT": 1060.3680252499998,
+              "addedAirT": 2339.333662055677,
+              "marginT": 4.42865013639971
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 60.555252230649955,
+              "worstMarginGapT": 60.5552522235684,
+              "forceT": 60.555252230649955,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 1000,
+              "addedAirT": 1616.5101927429776,
+              "marginT": 7.0815531216794625e-9
+            },
+            {
+              "coefficient": 1,
+              "absT": 76.58885237153315,
+              "worstMarginGapT": 76.5888523644516,
+              "forceT": 76.58885237153315,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 1000,
+              "addedAirT": 2309.300275347111,
+              "marginT": 7.0815531216794625e-9
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 2.3639543436953336,
+              "worstMarginGapT": 2.2711221840806886,
+              "forceT": -2.3639543436953336,
+              "progress": 0.6705,
+              "accelerationMps2": -0.009299806340369208,
+              "onboardT": 1020.0791443850268,
+              "addedAirT": 1473.563331908792,
+              "marginT": 3.6283908583196762
+            },
+            {
+              "coefficient": 1,
+              "absT": 2.9626373326433884,
+              "worstMarginGapT": 2.8462780770959064,
+              "forceT": -2.9626373326433884,
+              "progress": 0.6705,
+              "accelerationMps2": -0.009299806340369208,
+              "onboardT": 1020.0791443850268,
+              "addedAirT": 2105.0904741554173,
+              "marginT": 3.6283908583196762
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 336.0613483052385,
+              "worstMarginGapT": 317.51967745987173,
+              "forceT": 336.0613483052385,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5743.499494439652
+            },
+            {
+              "coefficient": 1,
+              "absT": 425.934253011449,
+              "worstMarginGapT": 399.4841252533929,
+              "forceT": 425.934253011449,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5743.499494439652
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5560.85440964071
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5560.85440964071
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 1215.4857169287975,
+              "worstMarginGapT": 0,
+              "forceT": -1215.4857169287975,
+              "progress": 0.3295,
+              "accelerationMps2": -0.33853646049676006,
+              "onboardT": 20000,
+              "addedAirT": 15221.951767247303,
+              "marginT": 5588.007908121752
+            },
+            {
+              "coefficient": 1,
+              "absT": 1440.613968267212,
+              "worstMarginGapT": 0,
+              "forceT": -1440.613968267212,
+              "progress": 0.3295,
+              "accelerationMps2": -0.33853646049676006,
+              "onboardT": 20000,
+              "addedAirT": 21745.645381781862,
+              "marginT": 5588.007908121752
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 213.0819725084995,
+              "worstMarginGapT": 213.08197243332157,
+              "forceT": 213.0819725084995,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 16375.335634389738,
+              "marginT": 7.517792255384848e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 268.5105878245144,
+              "worstMarginGapT": 268.5105877493365,
+              "forceT": 268.5105878245144,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 23393.33662055677,
+              "marginT": 7.517792255384848e-8
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 338.58553200469873,
+              "worstMarginGapT": 338.5855319434552,
+              "forceT": 338.58553200469873,
+              "progress": 0,
+              "accelerationMps2": 0.12694481673255117,
+              "onboardT": 10000,
+              "addedAirT": 16165.101927429778,
+              "marginT": 6.124355422798544e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 428.23498161765554,
+              "worstMarginGapT": 428.234981556412,
+              "forceT": 428.23498161765554,
+              "progress": 0,
+              "accelerationMps2": 0.12694481673255117,
+              "onboardT": 10000,
+              "addedAirT": 23093.00275347111,
+              "marginT": 6.124355422798544e-8
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 291.8902051081142,
+              "worstMarginGapT": 291.8902051081142,
+              "forceT": -291.8902051081142,
+              "progress": 0.3295,
+              "accelerationMps2": -0.11349852767357853,
+              "onboardT": 10006.957767722473,
+              "addedAirT": 15221.941415409268,
+              "marginT": 0
+            },
+            {
+              "coefficient": 1,
+              "absT": 367.3671792882112,
+              "worstMarginGapT": 367.3671792882112,
+              "forceT": -367.3671792882112,
+              "progress": 0.3295,
+              "accelerationMps2": -0.11349852767357853,
+              "onboardT": 10006.957767722473,
+              "addedAirT": 21745.630593441812,
+              "marginT": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "favourable",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 336.0613483052385,
+              "worstMarginGapT": 317.51967745987173,
+              "forceT": 336.0613483052385,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5743.499494439652
+            },
+            {
+              "coefficient": 1,
+              "absT": 425.934253011449,
+              "worstMarginGapT": 399.4841252533929,
+              "forceT": 425.934253011449,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5743.499494439652
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5560.85440964071
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10014.78129713424,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5560.85440964071
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 1215.4857169287975,
+              "worstMarginGapT": 0,
+              "forceT": -1215.4857169287975,
+              "progress": 0.3295,
+              "accelerationMps2": -0.33853646049676006,
+              "onboardT": 20000,
+              "addedAirT": 15221.951767247303,
+              "marginT": 6012.565670067618
+            },
+            {
+              "coefficient": 1,
+              "absT": 1440.613968267212,
+              "worstMarginGapT": 0,
+              "forceT": -1440.613968267212,
+              "progress": 0.3295,
+              "accelerationMps2": -0.33853646049676006,
+              "onboardT": 20000,
+              "addedAirT": 21745.645381781862,
+              "marginT": 6012.565670067618
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 213.0819725084995,
+              "worstMarginGapT": 207.76317829915683,
+              "forceT": 213.0819725084995,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 16375.335634389738,
+              "marginT": 6.365353301641335
+            },
+            {
+              "coefficient": 1,
+              "absT": 268.5105878245144,
+              "worstMarginGapT": 262.77395941425186,
+              "forceT": 268.5105878245144,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 23393.33662055677,
+              "marginT": 6.365353301641335
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 338.58553200469873,
+              "worstMarginGapT": 338.5855319434552,
+              "forceT": 338.58553200469873,
+              "progress": 0,
+              "accelerationMps2": 0.12694481673255117,
+              "onboardT": 10000,
+              "addedAirT": 16165.101927429778,
+              "marginT": 6.124355422798544e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 428.23498161765554,
+              "worstMarginGapT": 428.234981556412,
+              "forceT": 428.23498161765554,
+              "progress": 0,
+              "accelerationMps2": 0.12694481673255117,
+              "onboardT": 10000,
+              "addedAirT": 23093.00275347111,
+              "marginT": 6.124355422798544e-8
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 291.8902051081142,
+              "worstMarginGapT": 291.8898149904172,
+              "forceT": -291.8902051081142,
+              "progress": 0.3295,
+              "accelerationMps2": -0.11349852767357853,
+              "onboardT": 10006.957767722473,
+              "addedAirT": 15221.941415409268,
+              "marginT": 0.00039011769695207477
+            },
+            {
+              "coefficient": 1,
+              "absT": 367.3671792882112,
+              "worstMarginGapT": 367.36678917051427,
+              "forceT": -367.3671792882112,
+              "progress": 0.3295,
+              "accelerationMps2": -0.11349852767357853,
+              "onboardT": 10006.957767722473,
+              "addedAirT": 21745.630593441812,
+              "marginT": 0.00039011769695207477
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "basis": "record",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 336.6208414190865,
+              "worstMarginGapT": 318.2460672968495,
+              "forceT": 336.6208414190865,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5856.534316287928
+            },
+            {
+              "coefficient": 1,
+              "absT": 426.49374612529704,
+              "worstMarginGapT": 400.2105150903707,
+              "forceT": 426.49374612529704,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5856.534316287928
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5678.2890929951045
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5678.2890929951045
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 102.2042798229763,
+              "worstMarginGapT": 0,
+              "forceT": -102.2042798229763,
+              "progress": 0.3295,
+              "accelerationMps2": -0.028864412716003957,
+              "onboardT": 20000,
+              "addedAirT": 14735.644716841574,
+              "marginT": 6203.74284967057
+            },
+            {
+              "coefficient": 1,
+              "absT": 120.78600681045201,
+              "worstMarginGapT": 0,
+              "forceT": -120.78600681045201,
+              "progress": 0.3295,
+              "accelerationMps2": -0.028864412716003957,
+              "onboardT": 20000,
+              "addedAirT": 21050.921024059393,
+              "marginT": 6203.74284967057
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 213.0819725084995,
+              "worstMarginGapT": 213.08197243332157,
+              "forceT": 213.0819725084995,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 16375.335634389738,
+              "marginT": 7.517792255384848e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 268.5105878245144,
+              "worstMarginGapT": 268.5105877493365,
+              "forceT": 268.5105878245144,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 23393.33662055677,
+              "marginT": 7.517792255384848e-8
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 605.5525223064996,
+              "worstMarginGapT": 605.552522245256,
+              "forceT": 605.5525223064996,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 10000,
+              "addedAirT": 16165.101927429778,
+              "marginT": 6.124355422798544e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 765.8885237153315,
+              "worstMarginGapT": 765.888523654088,
+              "forceT": 765.8885237153315,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 10000,
+              "addedAirT": 23093.00275347111,
+              "marginT": 6.124355422798544e-8
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 22.76958377387219,
+              "worstMarginGapT": 22.76958377387219,
+              "forceT": -22.76958377387219,
+              "progress": 0.3295,
+              "accelerationMps2": -0.009020128969288322,
+              "onboardT": 10027.831070889895,
+              "addedAirT": 14735.630469650561,
+              "marginT": 0
+            },
+            {
+              "coefficient": 1,
+              "absT": 28.576367840277726,
+              "worstMarginGapT": 28.576367840277726,
+              "forceT": -28.576367840277726,
+              "progress": 0.3295,
+              "accelerationMps2": -0.009020128969288322,
+              "onboardT": 10027.831070889895,
+              "addedAirT": 21050.900670929375,
+              "marginT": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "basis": "favourable",
+      "feasible": false,
+      "phases": [
+        {
+          "phase": "SOURCE_APPROACH",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 336.6208414190865,
+              "worstMarginGapT": 318.2460672968495,
+              "forceT": 336.6208414190865,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5856.534316287928
+            },
+            {
+              "coefficient": 1,
+              "absT": 426.49374612529704,
+              "worstMarginGapT": 400.2105150903707,
+              "forceT": 426.49374612529704,
+              "progress": 1,
+              "accelerationMps2": 0.12377414956669479,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5856.534316287928
+            }
+          ]
+        },
+        {
+          "phase": "WATER_FILL",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 16620.52048773445,
+              "marginT": 5678.2890929951045
+            },
+            {
+              "coefficient": 1,
+              "absT": 0,
+              "worstMarginGapT": 0,
+              "forceT": 0,
+              "progress": 0,
+              "accelerationMps2": 0,
+              "onboardT": 10059.125188536953,
+              "addedAirT": 23743.600696763504,
+              "marginT": 5678.2890929951045
+            }
+          ]
+        },
+        {
+          "phase": "OUTBOUND_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 102.2042798229763,
+              "worstMarginGapT": 0,
+              "forceT": -102.2042798229763,
+              "progress": 0.3295,
+              "accelerationMps2": -0.028864412716003957,
+              "onboardT": 20000,
+              "addedAirT": 14735.644716841574,
+              "marginT": 6459.459882277513
+            },
+            {
+              "coefficient": 1,
+              "absT": 120.78600681045201,
+              "worstMarginGapT": 0,
+              "forceT": -120.78600681045201,
+              "progress": 0.3295,
+              "accelerationMps2": -0.028864412716003957,
+              "onboardT": 20000,
+              "addedAirT": 21050.921024059393,
+              "marginT": 6459.459882277513
+            }
+          ]
+        },
+        {
+          "phase": "WATER_RELEASE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 213.0819725084995,
+              "worstMarginGapT": 207.76317829915683,
+              "forceT": 213.0819725084995,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 16375.335634389738,
+              "marginT": 6.365353301641335
+            },
+            {
+              "coefficient": 1,
+              "absT": 268.5105878245144,
+              "worstMarginGapT": 262.77395941425186,
+              "forceT": 268.5105878245144,
+              "progress": 0.8505,
+              "accelerationMps2": 0.07747999997747002,
+              "onboardT": 10603.6802525,
+              "addedAirT": 23393.33662055677,
+              "marginT": 6.365353301641335
+            }
+          ]
+        },
+        {
+          "phase": "BUOYANCY_ESCAPE",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 605.5525223064996,
+              "worstMarginGapT": 605.552522245256,
+              "forceT": 605.5525223064996,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 10000,
+              "addedAirT": 16165.101927429778,
+              "marginT": 6.124355422798544e-8
+            },
+            {
+              "coefficient": 1,
+              "absT": 765.8885237153315,
+              "worstMarginGapT": 765.888523654088,
+              "forceT": 765.8885237153315,
+              "progress": 0,
+              "accelerationMps2": 0.22703791715785984,
+              "onboardT": 10000,
+              "addedAirT": 23093.00275347111,
+              "marginT": 6.124355422798544e-8
+            }
+          ]
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "peaks": [
+            {
+              "coefficient": 0.7,
+              "absT": 22.76958377387219,
+              "worstMarginGapT": 22.769206758396837,
+              "forceT": -22.76958377387219,
+              "progress": 0.3295,
+              "accelerationMps2": -0.009020128969288322,
+              "onboardT": 10027.831070889895,
+              "addedAirT": 14735.630469650561,
+              "marginT": 0.0003770154753510724
+            },
+            {
+              "coefficient": 1,
+              "absT": 28.576367840277726,
+              "worstMarginGapT": 28.575990824802375,
+              "forceT": -28.576367840277726,
+              "progress": 0.3295,
+              "accelerationMps2": -0.009020128969288322,
+              "onboardT": 10027.831070889895,
+              "addedAirT": 21050.900670929375,
+              "marginT": 0.0003770154753510724
+            }
+          ]
+        }
+      ],
+      "qualification": "does not close on the drawn hardware"
+    }
+  ]
+}

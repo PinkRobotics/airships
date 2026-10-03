@@ -1,155 +1,168 @@
-# What the descent actually costs
+> **2026-10-01 correction: record basis, INFEASIBLE.** The older discussion below is preserved as history. Current force ownership and both bases are in `docs/ENERGY-CLOSURE-2026-10.md`. These are supplied-effort figures, not feasible flights.
 
-`docs/OPEN-QUESTIONS.md` #3, #14 and #15 are three entries about one fact: **nobody has priced
-the letdown.** The ledger charges it at the anchor-assisted power over a window set by two
-undefined constants; `stateAt` charges it with no anchor term at all and over-reads by ~33×;
-and the two disagree by 20–30× in the phase the anchor was invented for.
+| Current quantity | Model value |
+|---|---:|
+| P100 letdown MWh | 2.296 |
+| P100 letdown percent of supplied effort | 28.5 |
+| P1000 rotor-only crossing AGL m | 3,000 |
+| P1000 letdown clipping min | 5.02 |
+| P10000 bag credit percent of supplied effort | 6.9 |
+| P10000 bare-bag supplied-effort cost change percent | -6.9 |
+| P10000 planned delivery change t (neither flight feasible) | 0.0 |
 
-`research/analysis/descent.js` integrates it, in 10 m steps from cruise down to the fill
-altitude, using the model's own `ledger` for the surplus at each altitude and its own `diskMW`
-for the power to hold it down. It changes exactly two things about the ledger's treatment: it
-respects **altitude** — the empty hull's surplus grows **24%** as it falls into denser air,
-110.5 t at 2,500 m MSL against 137.4 t at 1,300 m — and it
-respects **cable reach**, so the bag only helps where it can physically be in the water.
+# What the descent costs — read out of the one model
 
-## The result, and it is not good
+Until 2026-10-01 this note was the counter-argument. The ledger charged the letdown at an
+anchor-assisted power over a window set by two undefined constants, `stateAt` charged it blind
+to the anchor, and the two disagreed by 20–30× in the phase the anchor was invented for — so
+this file integrated the descent on its own and reported how far the budget was from it.
 
-| | ledger's letdown | honest integral | understated by | anchor saves | config claims |
+That budget no longer exists. `sim/power.js` prices every instant of the cycle once
+(`drawAt`), `planCycle`'s energy is the integral of it (`integrateCycle`), and `stateAt` shows
+the same draw. The letdown is whatever the rotors drew over the descent the ship actually
+flies: Glauert momentum theory with the airspeed through the disks and the rate of descent in
+the axial term, the surplus read from `ledger` at the altitude the ship is at, the bag's pull
+subtracted before the rotors are asked, and the rotors clamped to the bus that is really there.
+`docs/ENERGY-MODEL-2026-10.md` publishes every number that moved; `docs/OPEN-QUESTIONS.md` #3,
+#14 and #15 record the closure.
+
+So this is no longer an alternative integral. `research/analysis/descent.js` lays out the
+model's own descent — the profile the ship flies down, what the rotors are asked for at each
+point, what the bus gives them, where the bag comes in — and prices the two counterfactuals
+the model exposes switches for: the rotors blind to the bag, and the bag removed. Every number
+below is read from `descent.json`; the manifest in `tools/check_analysis.py` holds this prose
+to it.
+
+## The result
+
+Worked example, 15 km, balanced:
+
+| | letdown | of the cycle | peak rotor draw | clipped by the bus | rotors, whole cycle |
 |---|---|---|---|---|---|
-| P-100 | 0.012 MWh | **0.634 MWh** | **53.8×** | **4.7%** | 96% |
-| P-1000 | 0.161 MWh | **6.952 MWh** | **43.2×** | 27.6% | 96% |
-| P-10000 | 1.420 MWh | **42.245 MWh** | **29.8×** | 49.2% | 96% |
+| P-100 | **0.390 MWh** | **19.3%** | 11.8 MW, in the approach | no | 0.620 MWh, 30.7% |
+| P-1000 | 4.279 MWh | 23.6% | 146.3 MW, in the approach | **yes — 0.16 min, 0.015 MWh** | 9.432 MWh, 52.0% |
+| P-10000 | 35.398 MWh | 20.1% | 1,157.3 MW, in the approach | no | 115.803 MWh, 65.8% |
 
-Cycle energy, corrected for this line alone:
+"Letdown" is the last 28% of the return leg (the descent from the cruise ceiling to the hold
+altitude) plus the whole source approach (close the track, stop, sink onto the lake). The
+budget used to carry it at 0.012 / 0.161 / 1.420 MWh. It is a fifth of the cycle, and on the
+two larger classes the rotors are the largest channel in the budget.
 
-| | published | corrected | change | kWh/tonne |
-|---|---|---|---|---|
-| P-100 | 1.253 MWh | **1.875 MWh** | +50% | 12.53 → 18.75 |
-| P-1000 | 7.399 MWh | **14.190 MWh** | +92% | 7.40 → 14.19 |
-| P-10000 | 45.869 MWh | **86.694 MWh** | +89% | 4.59 → 8.67 |
+## Where it goes
 
-The honest letdown is **34% / 49% / 49%** of the corrected cycle. It is not a small term that
-was approximated; it is the largest single item in the budget and it was carried at 1%.
+The expensive part is not the sinking. It is the **stop at the hold altitude before the bag is
+in**: the ship slows from cruise to a hover with the bag still stowed, and as the airspeed
+through the disks falls the induced power rises — the rotors are holding the whole surplus at
+full share (`SHARE_MAX` 0.60) in still air. Ten points through each class's descent, from
+`descent.json` `profile`:
 
-## Why: the cable does not reach for most of the descent
+**P-100** (hold 430 m AGL, fill 300 m, cable 350 m). Return leg: 1,393 m → 430 m at up to 8.9 m/s
+down, rotors 1 → 12 MW as the share schedule ramps and the airspeed falls. Approach: 12 MW at
+the stop, falling to 1.3–1.5 MW as the ship sinks at ~2 m/s; the bag is in the water only below
+322 m, which is the last tenth of the approach, and it carries 57.4 t of its 125 t when the fill
+begins. The rotors never reach the bus ceiling (30 MW battery, 31.5 MW with regen).
 
-The letdown runs from 1,500 m AGL to the fill altitude at 300 m — 1,200 m of descent, 3.3
-minutes. The bag can only be in the water when the ship is within a cable length of the
-surface:
+**P-1000** (hold 960 m, cable 600 m). At the hold the surplus is 1,215.7 t and the rotors' cap
+on the honest bus is 1,107.5 t, so at full share they are asked 155.8 MW against a ceiling of
+142.5 MW (return leg, battery alone) and 146.3 MW (approach, battery plus the nitrogen store's
+return). That is the clip: **0.16** minutes, 0.015 MWh short, which is what `battLimited` now
+means and why the class's headline bottleneck reads `descent authority`. The bag reaches the
+water at 431 m, four fifths of the way through the approach; the rotors fall from 27 MW to 1 MW
+when it does.
 
-| | cable | covers | rotors alone fail below | anchor reaches first? |
-|---|---|---|---|---|
-| P-100 | 350 m | **4.2%** of the descent | never | n/a |
-| P-1000 | 600 m | 25.0% | 540 m AGL | yes |
-| P-10000 | 850 m | 45.8% | 760 m AGL | yes |
+**P-10000** (hold 1,210 m, cable 850 m). The hold altitude is *above* the cruise ceiling
+(1,180 m): the "letdown" quarter of the return leg is a 30 m climb at 130 km/h, and the whole
+descent happens in the approach. Stopped at 1,210 m the rotors hold 6,995 t at 1,180 MW on a
+1,407 MW bus — not clipped, but 84% of the ceiling. The bag goes in between 658 m (half) and
+480 m (full), and the rotors drop 217 → 92 → 9 MW.
 
-**The authority argument is sound and the energy argument is not.** In every class the cable
-reaches before the rotors run out of thrust, so the ship can always get down — that was the
-question `sim/config.js` was answering when it sized `anchorM`, and it answered it correctly.
-But the cable was sized to arrive *just in time*, and for 54–96% of the descent the ship is
-pushing its own buoyancy down on rotors alone at up to 14 / 202 / 1,747 MW.
+## Where the rotors stop managing alone, and where the bag can reach
 
-**The P-100's anchor is nearly ornamental.** It saves 4.7% of the descent energy — and the
-reason is sharper than "a short cable": the letdown *stops at 300 m AGL*, where the ship begins
-its fill, so a 350 m cable only has the bag in the water for the last **50 m** of a 1,200 m
-descent. 4.2% of the fall, 4.7% of the energy. `sim/config.js` keeps it on that class explicitly
-— "not because that class needs holding down but because a bucket is cheaper than thrust
-everywhere". On these numbers it is cheaper than thrust for 4% of the way down.
+| | cable | bag in the water below | rotors alone fail below | band where neither can hold | hold altitude | bag engages from (plan) |
+|---|---|---|---|---|---|---|
+| P-100 | 350 m | 322 m AGL | never | — | 430 m | 300 m |
+| P-1000 | 600 m | 540 m AGL | **1,450 m AGL** | 910 m | 960 m | 900 m (the cable top) |
+| P-10000 | 850 m | 722 m AGL | 1,290 m AGL | 568 m | 1,210 m | 1,150 m (the cable top) |
 
-## The constructive half: the cable is the cheap part
+"Rotors alone fail below" is the highest altitude at which the empty hull's surplus, less the
+nitrogen aboard, exceeds what the rotors can hold at full share on the honest bus; below it they
+cannot hold the hull by themselves. For the two larger classes that altitude is above the cable
+top, so there is a band — 910 m and 568 m of it — where neither the rotors at full share nor the
+bag can hold the ship. The model flies through that band because its hold schedule hands
+everything above the rotors' share to aero trim, including when the ship is stopped. That
+assumption is older than this change and it is the largest lever left on the rotor channel; it
+is named under "what remains" below, not settled here.
 
-Rotor power goes as thrust^1.5, which is why the bag pays superlinearly — and the same
-arithmetic says the bag should be in the water for *longer*, not that it should be bigger. The
-bag is already sized at 90% of the hold. The cable is not sized at all; it is sized to be just
-sufficient.
+## The bag, priced two ways
 
-UHMWPE at a realised 2.0 N/tex and a safety factor of 3:
+*Blind.* The same flight with the rotors asked to hold the whole surplus as if the bag were not
+pulling — what `stateAt` did until this change (OPEN-QUESTIONS #14):
 
-| | bag pull | cable | as fitted | full-descent cable | extra mass |
-|---|---|---|---|---|---|
-| P-100 | 1.2 MN | 1.84 kg/m | 350 m, 0.64 t | 1,500 m, 2.76 t | **+2.12 t** |
-| P-1000 | 12.3 MN | 18.39 kg/m | 600 m, 11.04 t | 1,500 m, 27.59 t | +16.55 t |
-| P-10000 | 121.6 MN | 182.47 kg/m | 850 m, 155.10 t | 1,500 m, 273.71 t | +118.61 t |
-
-**On the reference ship, about 2 tonnes of rope — 2% of the dry allowance — would put the bag
-in the water for the whole letdown instead of the last 4% of it.** The cable has to be 1,500 m,
-not 1,200: the bag must already be wet at the *top* of the descent, which is 1,500 m AGL. And
-the rope figure is the optimistic end of a band — realised UHMWPE rope tenacity falls from
-about 2.0 N/tex at small diameters to nearer 1.2 at the sizes a real tether uses, and a
-permanently-loaded tether is bound by creep rupture rather than by single-pull break.
-
-Even at the pessimistic end it is a few tonnes, and the saving is most of 0.634 MWh per cycle
-against a corrected cycle of 1.875. Nothing else in this project offers that ratio.
-
-There is a condition attached, and it is a real one: **the bag only works over water.** As
-modelled the ship descends while flying toward the lake, so a long cable would be dragging a
-bag over terrain. Taking this would mean flying the letdown as a vertical descent over the
-source instead of a gliding approach — 1,200 m at 6 m/s is 3.3 minutes, which is what the
-cycle already budgets, so it costs time only if the geometry forces a detour.
-
-## This reopens #8: the disc area is not inert after all
-
-Checked independently of the model — average surplus over the descent, momentum theory, the
-same 0.6 share and 0.70 propulsive efficiency — the P-100's letdown comes out at 0.667 MWh
-against the integral's 0.634. The 5% difference is the anchor's last 50 m. The number is
-real.
-
-What that hand check exposes is **where the energy goes**. The work actually done against
-buoyancy, charged at the same 0.6 thrust share the rotors are charged at, is 0.243 MWh; the
-rotors spend 0.634. The difference is induced loss, because a
-2,500 m² disc holding 0.73 MN is loaded at 292 N/m² and its induced velocity is 11.5 m/s.
-Hovering is expensive, and pushing a buoyant hull down is hovering.
-
-Induced power goes as 1/√A, so:
-
-| disc area | letdown | cycle | change |
+| | letdown, blind | letdown, credited | the credit is worth |
 |---|---|---|---|
-| as built, 2,500 m² | 0.634 MWh | 1.875 MWh | — |
-| ×2 | 0.448 MWh | 1.689 MWh | **−9.9%** |
-| ×4 | 0.317 MWh | 1.558 MWh | −16.9% |
+| P-100 | 0.393 MWh | 0.390 MWh | 0.014 MWh, 0.7% of the cycle |
+| P-1000 | 4.569 MWh | 4.279 MWh | 0.556 MWh, 3.0% |
+| P-10000 | 40.393 MWh | 35.398 MWh | 9.588 MWh, **5.2%** |
 
-`OPEN-QUESTIONS` #8 retired `diskM2` as inert on the measurement that ±20% moved cycle energy
-by ∓0.4%. **That measurement was taken against a letdown term 53× too small.** With the
-letdown at its honest size, disc area is a first-order design variable again, and #8's question
-— what are the primary rotors actually for — has an answer it did not have before: they are for
-the descent, and they should be sized for it.
+*Bare.* No bag at all. The plan then keeps lake water aboard as ballast to close the descent,
+and the hull is heavier on every phase — cheaper to hold down everywhere, and it delivers less:
 
-## What this analysis is still carrying that it should not
+| | kept aboard | delivered | cycle with bag → without | per tonne with → without | the bag |
+|---|---|---|---|---|---|
+| P-100 | 0 t | 100 t | 2.023 → 2.034 MWh | 20.23 → 20.34 kWh/t | saves 0.6%, buys nothing |
+| P-1000 | 259.3 t | 740.7 t | 18.149 → 13.576 MWh | 18.15 → 18.33 kWh/t | costs 33.7% of the cycle, 1.0% cheaper per tonne, buys 259.3 t |
+| P-10000 | 2,247.9 t | 7,752.1 t | 176.000 → 121.950 MWh | 17.60 → 15.73 kWh/t | costs 44.3% of the cycle and **11.9%** per tonne, buys **2,247.9 t** |
 
-Three things push the same way, and all three make the numbers above **optimistic**:
+That is the honest statement of what the anchor is for. The earlier version of this note said
+the bag saved 27.6% and 49.2% of the letdown on the two larger classes; the test suite carried
+the same claim. Under one model the bag's effect on the energy is a few percent and of either
+sign — what it buys is water. On the P-10000 it buys 2,248 t a cycle at 11.9% more energy per
+tonne delivered; on the P-1000 it buys 259 t at no cost per tonne; on the P-100 it is a 0.6%
+saving on a descent the rotors manage alone.
 
-1. **The 0.6 thrust share.** `plan.js` charges the rotors 60% of the force they are holding,
-   with no justification anywhere. It is carried here unchanged so that this integral differs
-   from the ledger in altitude and cable reach only. Since power goes as thrust^1.5, removing
-   it multiplies every figure above by 1/0.6^1.5 = **2.15×**.
-2. **`diskMW` is hover momentum theory.** The rotors move in the direction of their own
-   thrust, so this is the axial-climb case, P = T(V + v) with v = −V/2 + √((V/2)² + v_h²), and
-   hover theory understates it. Recomputing the integral with the true expression raises it by
-   **+29.6% / +20.4% / +24.8%** — the P-100's letdown goes 0.634 → 0.822 MWh.
-3. **`CFG.rhoAir` is a flat 1.10 kg/m³** for every rotor calculation, ISA at about 1,107 m,
-   while this descent runs from 2,500 m down to 1,300 m. Density is what the disc has to work
-   against.
+The hoist is what it always was — `m g h / η` for 15 m at 5 m/s — now priced as winch power in
+the integral: 0.003 / 0.059 / 0.596 MWh. The P-100 figure is half the formula's 0.006 because its
+bag is only half in the water when the fill begins.
 
-## Where this leaves the anchor
+## What the earlier note got right, and what it got wrong
 
-Not where the page currently puts it. The mechanism is real, its authority argument holds, and
-it is still the reason the larger classes can descend at all. But "reduces the letdown by 96%"
-is a statement about a bag that is in the water for the whole descent, and no class has a cable
-long enough for that. **The published figure describes a ship we have not specified.**
+Right, and now in the model: the cable does not reach for most of the descent; `diskMW` was
+hover theory and the descent is the axial case; the letdown was carried at a small fraction of
+its size. Right, and still open: the flat `CFG.rhoAir` for every rotor calculation; the 0.6
+share. Wrong: the "honest integral" of 0.634 / 6.952 / 42.245 MWh was itself blind to forward
+flight, to the hold before the bag goes in, and to the bus; and "the bag saves 27–49%" was a
+statement about a bag the rotors had been asked to ignore.
 
-The fix is cheap and it is a design change rather than a correction: lengthen the cables, fly
-the letdown over the water, and re-derive `E.letdown` as this integral instead of as
-`downMW × min(6, RETURN_TRANSIT × 0.2)`.
+The disc area, OPEN-QUESTIONS #8: it was retired as inert when ±20% moved the cycle by ∓0.4%,
+and the earlier note argued that measurement was taken against a letdown too small to see it.
+It was. With the rotors priced over the whole flight, ±20% on `diskM2` now moves the P-10000
+cycle by +9.6% / −5.8% (`research/figures.json`, `sensitivity.diskM2`). The rotors are for the
+descent, and they are now the largest channel in the budget.
+
+## What remains
+
+1. **The share schedule.** `sim/power.js` hands the rotors 12% of the surplus at cruise, rising
+   to 60% at the stop, and aero trim the rest — including 40% of the surplus with the ship
+   stopped. No derivation supports that; it is the pre-existing assumption that lets the model
+   fly through the band above. Removing it multiplies the rotor channel by up to 1/0.6^1.5.
+2. **The crossing is above the cable.** For the P-1000 and P-10000 the rotors stop managing alone
+   1,450 / 1,290 m AGL up, and the bag cannot reach the water until 540 / 722 m. Lengthening the
+   cable (the earlier note's suggestion) or lowering the hold would close the band; neither is
+   modelled.
+3. **The P-10000 holds above its ceiling.** `holdAgl` is the bag's engagement altitude plus
+   60 m, which lands above the cruise ceiling; the "letdown" is a climb. Harmless to the energy
+   and odd as choreography.
+4. `CFG.rhoAir` is a flat 1.10 kg/m³ for every rotor calculation while the descent runs through
+   the densest air the ship sees.
 
 ## What to verify, and by whom
 
 | question | discipline | what would settle it |
 |---|---|---|
-| Is a 1,200 m cable with a 125 t bag under a 190 m hull dynamically stable? | flight dynamics / marine towing | a pendulum and vortex-shedding analysis; deep-tow oceanography is the nearest prior art |
-| What does the winch cost at 1,200 m and 5 m/s? | mechanisms | a mass and power estimate for the drum and its cable stowage |
-| Is a vertical letdown over the source operationally acceptable? | operations | trajectory study against real lake geometry and airspace |
-| Is the 0.6 thrust share defensible at all? | rotor aerodynamics | a derivation, or its deletion |
+| Can aero trim carry 40% of the surplus at zero airspeed? | rotor aerodynamics / flight dynamics | a derivation of the share schedule, or its deletion and the rotors sized for the whole hold |
+| Is a long cable with the bag under the hull dynamically stable? | flight dynamics / marine towing | a pendulum and vortex-shedding analysis; deep-tow oceanography is the nearest prior art |
+| What does the winch cost at a longer cable and 5 m/s? | mechanisms | a mass and power estimate for the drum and its stowage |
+| Is a vertical letdown over the source operationally acceptable? | operations | a trajectory study against real lake geometry and airspace |
 
-None of these is a physics objection either. But unlike the rest of this analysis folder, this
-entry makes the concept **worse**, and it should be carried into the reports at its full size
-before anyone is asked to believe the rest.
+None of these is a physics objection. But this entry still makes the concept more expensive
+than the site says it is, and it should be carried into the reports at its full size.

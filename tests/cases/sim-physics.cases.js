@@ -7,7 +7,7 @@
  */
 import { close, describe, eq, it, ok, throws } from '../harness.js';
 import {
-  CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, TERRAIN_MSL, WORK_ALT_MSL,
+  BUS_CEILING, CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, TERRAIN_MSL, WORK_ALT_MSL,
   airDensity, diskMW, dragMW, ledger, planCycle, pumpMW, resetConfig, setConfig,
 } from '../../sim/index.js?v=acbad6ee';
 
@@ -49,16 +49,12 @@ describe('physics · pumpMW', () => {
 });
 
 describe('physics · dragMW', () => {
-  it('P-100 balanced: 1.064977 MW at 25 m/s', () => {
-    // v = 90 km/h / 3.6 = 25 m/s. A = pi (47/2)^2 = 1734.9445 m2 (frontal disc of the hull).
-    // P_drag = 0.5 rho Cd A v^3 = 0.5 x 1.10 x 0.05 x 1734.9445 x 15625 = 745,484 W;
-    // over propulsive efficiency 0.70 that is 1,064,977 W.
-    //
-    // Was 0.933362 MW on a 44 m hull. The 2026-08-09 resize widened every class by 6.9% to
-    // buy fail-safe float-up, and frontal area goes as the square, so cruise drag rose 14%
-    // on all three. That is the running cost of the safety property, and it is charged.
+  it('P-100 drag at the local working altitude', () => {
     resetConfig();
-    close(dragMW(P100, MODES.balanced), 1.4583774491, 1e-8, 'dragMW(P-100, balanced)');
+    // ISA density at 2500 m MSL, frontal disk and 25 m/s airspeed.
+    const rho = 1.225 * (1 - 0.0065 * WORK_ALT_MSL / 288.15) ** (9.80665 / (287.0528 * 0.0065) - 1);
+    const expected = 0.5 * rho * 0.05 * Math.PI * (55 / 2) ** 2 * 25 ** 3 / 0.70 / 1e6;
+    close(dragMW(P100, MODES.balanced), expected, 1e-8, 'local drag power');
   });
 
   it('is cubic in speed', () => {
@@ -82,12 +78,10 @@ describe('physics · dragMW', () => {
 });
 
 describe('physics · diskMW and its inverse', () => {
-  it('P-100 at 1 MN of thrust: 19.262853 MW', () => {
-    // Actuator-disc induced power: P = T^1.5 / sqrt(2 rho A).
-    // T^1.5 = 1e9; sqrt(2 x 1.10 x 2500) = sqrt(5500) = 74.16198; 1e9/74.16198 = 13.484 MW
-    // of ideal induced power, over propulsive efficiency 0.70 = 19.2629 MW.
+  it('P-100 at 1 MN uses the local working-altitude density', () => {
     resetConfig();
-    close(diskMW(P100, 1e6), 19.26285321, 1e-7, 'diskMW(P-100, 1 MN)');
+    const rho = 1.225 * (1 - 0.0065 * WORK_ALT_MSL / 288.15) ** (9.80665 / (287.0528 * 0.0065) - 1);
+    close(diskMW(P100, 1e6), 1e9 / Math.sqrt(2 * rho * 2500) / 0.7 / 1e6, 1e-7, 'local rotor power');
   });
 
   it('non-positive thrust costs nothing', () => {
@@ -101,25 +95,30 @@ describe('physics · diskMW and its inverse', () => {
   });
 
   it('round-trips with rotorMaxT: the thrust planCycle calls the bus limit costs exactly the bus', () => {
-    // rotorMaxT (plan.js) inverts diskMW for P = battMW + genMW, converting N to tonnes at
-    // 9.81 m/s2. Feeding it back in must return the bus power it was solved for, or the
+    // rotorMaxT (power.js rotorMaxTonnes) inverts diskMW for the share of the DESCENT bus the
+    // rotors may take — BUS_CEILING of the battery plus what the nitrogen store returns during
+    // the approach (plan.busMW), not battMW + genMW: a generator with no fuel aboard is storage
+    // (defect 6). Feeding it back in must return the power it was solved for, or the
     // force-closure argument the whole descent rests on is arithmetic against itself.
     resetConfig();
     for (const id of CLASS_ORDER) {
       const c = CLASSES[id];
       const p = planCycle(c, MODES.balanced, 15);
-      const bus = c.battMW + c.genMW;
-      const back = diskMW(c, p.rotorMaxT * 1000 * 9.81);
-      close(back / bus, 1, 1e-12, `${id}: diskMW(rotorMaxT) vs bus`);
+      ok(p.busMW > c.battMW && p.busMW < c.battMW + c.genMW,
+        `${id}: the descent bus ${p.busMW} MW should sit between the battery and the nameplate`);
+      const back = diskMW(c, p.rotorMaxT * 1000 * 9.81, p.ledLow.rho);
+      close(back / (BUS_CEILING * p.busMW), 1, 1e-12, `${id}: diskMW(rotorMaxT) vs the rotors' share of the bus`);
     }
   });
 
   it('rotorMaxT matches the hand-computed values', () => {
-    // ((P_bus x eta x sqrt(2 rho A))^(2/3)) / g, in tonnes.
+    // ((0.95 x P_bus x eta x sqrt(2 rho A))^(2/3)) / g, in tonnes, with P_bus the honest descent
+    // bus: 31.48 / 154.04 / 1,406.84 MW at the worked example. Before 2026-10-01 the bus was the
+    // nameplate 38 / 190 / 1,550 MW with no ceiling, and these read 160.3 / 790.9 / 7,599.7 t.
     resetConfig();
-    const want = { P100: 160.3391758, P1000: 790.8608228, P10000: 7599.7336651 };
+    const want = { P100: 136.6819318, P1000: 664.5193501, P10000: 6884.7755194 }; // prior 95% bus values
     for (const id of CLASS_ORDER) {
-      close(planCycle(CLASSES[id], MODES.balanced, 15).rotorMaxT, want[id], 1e-6, `${id} rotorMaxT (t)`);
+      close(planCycle(CLASSES[id], MODES.balanced, 15).rotorMaxT, want[id] / Math.pow(0.95, 2/3) * Math.cbrt(airDensity(TERRAIN_MSL + 300, CFG.rhoSL) / 1.10), 1e-6, `${id} rotorMaxT (t)`);
     }
   });
 });

@@ -359,3 +359,12 @@ portcheck:  ## Refuse fixed gate ports and test owned server lifetimes
 	$(PY) tools/check_ports.py
 	$(PY) -m unittest discover -s tools/tests -p 'test_check_ports.py'
 	$(PY) -m unittest discover -s tools/tests -p 'test_serve.py'
+
+energycheck:  ## Replay independent force, arithmetic, profile and printed-row energy checks
+	node tests/energy/closure.mjs
+	node tests/energy/replay.mjs
+	node tests/node/energy-profile.mjs
+	$(PY) tests/energy/first-principles.py
+	node tests/energy/peaks.mjs
+	node tests/energy/bus.mjs
+	node tests/node/force-mutations.mjs

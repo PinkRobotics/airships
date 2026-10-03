@@ -1,0 +1,137 @@
+{
+  "sources": {
+    "storage": "research/analysis/mass-budget.json#/evidence/battery_wh_per_kg",
+    "cable": "research/analysis/mass-budget.json#/evidence/rope_n_per_kg_per_m"
+  },
+  "rows": [
+    {
+      "class": "P100",
+      "dryTargetT": 100,
+      "beamWindMps": 10,
+      "beamCdAssumption": 1,
+      "beamSideForceT": 29.708817013308057,
+      "cableMassT": {
+        "floor": 0.64378125,
+        "credible": 1.4306250000000003,
+        "demonstrated": 2.1459375
+      },
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 0.6666666666666666,
+        "energyMWh": 20,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 40,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 66.66666666666667,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 134.2281879194631,
+            "exceedsDryTarget": true,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      },
+      "bagT": 125,
+      "cableM": 350,
+      "pendulumPeriodS": 37.53007107121037,
+      "hoistSpeedMps": 5,
+      "hoistMWh": 0.006011029411764706,
+      "solarMW": 0.27
+    },
+    {
+      "class": "P1000",
+      "dryTargetT": 1000,
+      "beamWindMps": 10,
+      "beamCdAssumption": 1,
+      "beamSideForceT": 139.07654800841502,
+      "cableMassT": {
+        "floor": 11.03625,
+        "credible": 24.525,
+        "demonstrated": 36.7875
+      },
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 0.8,
+        "energyMWh": 120,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 240,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 400,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 805.3691275167786,
+            "exceedsDryTarget": false,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      },
+      "bagT": 1250,
+      "cableM": 600,
+      "pendulumPeriodS": 49.13839757739828,
+      "hoistSpeedMps": 5,
+      "hoistMWh": 0.06011029411764706,
+      "solarMW": 1.26
+    },
+    {
+      "class": "P10000",
+      "dryTargetT": 10000,
+      "beamWindMps": 10,
+      "beamCdAssumption": 1,
+      "beamSideForceT": 643.6353824079858,
+      "cableMassT": {
+        "floor": 155.0961,
+        "credible": 344.658,
+        "demonstrated": 516.987
+      },
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 1.4285714285714286,
+        "energyMWh": 2000,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 4000,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 6666.666666666667,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 13422.818791946309,
+            "exceedsDryTarget": true,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      },
+      "bagT": 12400,
+      "cableM": 850,
+      "pendulumPeriodS": 58.48639156537886,
+      "hoistSpeedMps": 5,
+      "hoistMWh": 0.5962941176470589,
+      "solarMW": 5.4
+    }
+  ]
+}

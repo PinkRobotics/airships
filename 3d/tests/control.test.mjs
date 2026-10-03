@@ -259,25 +259,18 @@ test('the force set is internally consistent', () => {
 
 /* ---------- energy ------------------------------------------------------------------------------ */
 
-test('the energy graph balances in every phase', () => {
-  for (const id of CLASS_IDS) {
-    const cls = resolveClass(id);
-    for (const phase of ['WATER_FILL', 'OUTBOUND_TRANSIT', 'RETURN_TRANSIT', 'CONTROLLED_DESCENT',
-      'BUOYANCY_ESCAPE', 'SAFE_DRIFT', 'TOTAL_POWER_LOSS']) {
-      const e = energyFlows(cls, defaultState({ phase }));
-      assert.ok(Math.abs(e.balanceMW) < 1e-6,
-        `${id}/${phase}: bus is ${e.balanceMW.toFixed(3)} MW out of balance`);
-    }
+test('missing host energy remains unknown in every phase', () => {
+  for(const id of CLASS_IDS)for(const phase of ['WATER_FILL','RETURN_TRANSIT','TOTAL_POWER_LOSS']) {
+    const e=energyFlows(resolveClass(id),defaultState({phase}));
+    assert.equal(e.available,false);assert.equal(e.supplyMW,null);assert.equal(e.balanceMW,null);
+    assert.deepEqual(e.edges,[]);
   }
 });
-
-test('total power loss really is off', () => {
-  const cls = resolveClass('P100');
-  const p = derivePower(cls, defaultState({ phase: 'TOTAL_POWER_LOSS' }));
-  assert.equal(p.generatorPowerMW, 0);
-  assert.equal(p.propulsionPowerMW, 0);
-  assert.equal(p.cryogenicPowerMW, 0);
-  assert.equal(p.hotelPowerMW, 0);
+test('the energy graph preserves every supplied channel including winch and hotel',()=>{
+ const record={solarPowerMW:2,generatorPowerMW:0,batteryPowerMW:11,cryogenicPowerMW:3,
+  ln2RecoveryPowerMW:1,pumpPowerMW:4,propulsionPowerMW:5,winchPowerMW:1,hotelPowerMW:1};
+ const e=energyFlows(resolveClass('P100'),record);
+ assert.equal(e.balanceMW,0);assert.deepEqual(e.power,record);
 });
 
 test('the nitrogen store cannot return more work than the liquid holds', () => {

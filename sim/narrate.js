@@ -10,9 +10,15 @@ export function narrate(m, st) {
     next: "Re-evaluate when the provincial feed or the source rules change.",
     plan: "A real fleet would retask this aircraft elsewhere; the demonstration keeps one per fire.",
   };
+  if (m.plan.feasible === false) return {
+    last: "Conceptual profile only — no flight demonstrated.",
+    now: `${m.plan.basis} basis: INFEASIBLE. ${m.plan.bindingLimits.join(', ')}.`,
+    next: `Worst unheld force ${fmt(m.plan.worst.unheldT, 1)} tf in ${m.plan.worst.phase}.`,
+    plan: `${m.plan.eCycleMWh.toFixed(1)} MWh supplied effort; ${m.plan.kwhPerTonne.toFixed(0)} kWh per planned tonne. This profile cannot be flown under the stated limits. Current constraint: ${m.plan.bottleneck}. ${ENERGY_NOTE}`,
+  };
   if (st.stopped) return {
     last: "Storage reached zero mid-" + PHASES[st.idx][1].toLowerCase() + ".",
-    now: "Power exhausted — safe shutdown. The hull holds position on buoyancy alone; nothing on the bus is live.",
+    now: "Power exhausted. Motion after shutdown is not modelled; buoyancy does not prove position hold.",
     next: "Wait for imported energy. Delivery ships that ferry charge to the fleet are the next iteration of this demonstration.",
     plan: "Every hull runs an energy deficit: solar and nitrogen recovery do not cover propulsion, pumping and the cryogenic plant. A real fleet needs an energy logistics chain, and this monitor now shows why.",
   };
@@ -45,7 +51,7 @@ export function narrate(m, st) {
       (p.retainedT > 1 ? ` (${fmtT(p.retainedT)} held back as descent ballast)` : "") +
       `, ${fmtMin(p.cycleMin)} per cycle — ` +
       `${fmt(p.tph)} t/h to this fire if every cycle ran as modelled. Current constraint: ${p.bottleneck}. ` +
-      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne. ${ENERGY_NOTE}`,
+      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne; ${p.basis} basis, feasible in this model. ${ENERGY_NOTE}`,
   };
 }
 

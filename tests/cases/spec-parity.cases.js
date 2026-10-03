@@ -197,7 +197,8 @@ describe('derived results and actual consumers agree', () => {
       const b = viz.resolveClass(id);
       for (const mode of Object.values(sim.MODES)) {
         const v = a.cruiseKph * mode.speed / 3.6;
-        const aero = mass.aeroForce(b, {airspeedMps:v}, viz.ASSUMPTIONS);
+        const rhoAir = ledger(a, sim.WORK_ALT_MSL).rho;
+        const aero = mass.aeroForce(b, {airspeedMps:v}, {...viz.ASSUMPTIONS,rhoAir});
         close(aero.referenceAreaM2, Math.PI*(a.diaM/2)**2, 1e-9, 'drag reference area');
         close(aero.dragN*v/viz.ASSUMPTIONS.propEta/1e6, dragMW(a, mode), 1e-9, 'drag MW');
       }

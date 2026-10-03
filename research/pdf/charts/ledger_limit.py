@@ -18,13 +18,13 @@ F = figures()['classes'][CLS]
 L = F['energy']['ledgerMWh']
 total = F['cycle']['eCycleMWh']
 
-ORDER = [('RETURN_TRANSIT',  'Return transit',      'drag + cryogenic plant',      COOL),
-         ('WATER_FILL',      'Pumping',             'the payload up a 300 m head', COOL),
-         ('other',           'Hotel + manoeuvring', '',                            COOL),
-         ('OUTBOUND_TRANSIT','Outbound transit',    'loaded, at cruise',           COOL),
-         ('letdown',         'Letdown',             'rotors, anchor deployed',     ACCENT),
-         ('anchor',          'Anchor',              'lifting the bag 15 m',        ACCENT),
-         ('recovery',        'Nitrogen recovery',   'credited back',               GREEN)]
+ORDER = [('SOURCE_APPROACH', 'Approach', '', ACCENT),
+         ('WATER_FILL', 'Fill', '', COOL),
+         ('OUTBOUND_TRANSIT', 'Outbound', '', COOL),
+         ('WATER_RELEASE', 'Release', '', COOL),
+         ('BUOYANCY_ESCAPE', 'Escape', '', COOL),
+         ('RETURN_TRANSIT', 'Return', '', COOL),
+         ('recovery', 'Nitrogen recovery', '', GREEN)]
 
 vals = [L[k] for k, _, _, _ in ORDER]
 lo, hi = min(vals), max(vals)
@@ -56,7 +56,7 @@ for i, (_, _, sub, _) in enumerate(ORDER):
                     ha='right', va='center', fontsize=7.0, color=FAINT)
 ax.set_xlim(XMIN, XMAX)
 ax.set_ylim(-len(ORDER) + 0.45, 0.75)
-ax.set_xlabel(f'MWh per cycle \u2014 {NAME}, 15 km each way', labelpad=2)
+ax.set_xlabel(f'{NAME}, 15 km: MWh supplied — record basis, INFEASIBLE', labelpad=2)
 bare(ax, left=False)
 ax.text(SHARE_X, 0.75, 'share', ha='right', va='bottom', fontsize=7.2, color=FAINT,
         fontstyle='italic')

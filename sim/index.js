@@ -37,6 +37,12 @@ export {
 } from './geo.js?v=acbad6ee';
 
 export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=acbad6ee';
+export {
+  BUS_CEILING, ROTOR_EFFICIENCY_VALUES, AERO_CL_MAX, AERO_CL_VALUES, AERO_SPAN_EFFICIENCY, VERTICAL_CD, FORCE_TOL, LIMIT_STEPS, HOTEL_FRAC, WINCH_IDLE_FRAC, HOIST_M, WINCH_ETA, WINCH_MPS,
+  LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS,
+  inducedMW, rotorMaxTonnes, ventTph, regenMW, descentBusMW, cryoOnFrac, cycleGeometry,
+  altAt, gsAt, loadAt, drawAt, integrateCycle, cycleLimits, aeroGeometry, rotorThrustLimitT,
+} from './power.js?v=acbad6ee';
 export { planCycle } from './plan.js?v=acbad6ee';
 export { findSource, intakePoint } from './water.js?v=acbad6ee';
 export { CITIES } from './communities.js?v=acbad6ee';
@@ -58,3 +64,6 @@ export { narrate, srcName } from './narrate.js?v=acbad6ee';
 export { selftest } from './selftest.js?v=acbad6ee';
 
 export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=acbad6ee';
+export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=acbad6ee';
+
+export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=acbad6ee';

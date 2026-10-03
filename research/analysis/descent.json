@@ -1,223 +1,1775 @@
 {
- "generated": {
-  "by": "research/analysis/descent.js"
- },
- "classes": {
-  "P100": {
-   "cableM": 350,
-   "bagT": 125,
-   "busMW": 38,
-   "descentFromAglM": 1500,
-   "toAglM": 300,
-   "descentMinutes": 3.33,
-   "anchorAvailableBelowAglM": 350,
-   "anchorAvailableForPctOfDescent": 4.2,
-   "rotorsAloneFailBelowAglM": null,
-   "anchorReachesBeforeRotorsFail": true,
-   "peakRotorAloneMW": 14,
-   "peakWithAnchorMW": 13.8,
-   "integratedMWh": {
-    "rotorsAlone": 0.665,
-    "withAnchorWhereItReaches": 0.634,
-    "anchorSavingPct": 4.7
-   },
-   "ledgerSays": {
-    "letdownMWh": 0.012,
-    "downMW": 0.3,
-    "windowMinutes": 2.35,
-    "understatementVsIntegral": 53.8,
-    "windowVsActualDescent": 0.71
-   },
-   "cycleContext": {
-    "eCycleMWh": 1.391,
-    "honestLetdownPctOfCycle": 31.5
-   },
-   "profile": [
-    {
-     "aglM": 1500,
-     "surplusT": 110.5,
-     "bagT": 0,
-     "residT": 110.5,
-     "rotorAloneMW": 10.1,
-     "withAnchorMW": 10.11
-    },
-    {
-     "aglM": 1250,
-     "surplusT": 115.9,
-     "bagT": 0,
-     "residT": 115.9,
-     "rotorAloneMW": 10.9,
-     "withAnchorMW": 10.86
-    },
-    {
-     "aglM": 1000,
-     "surplusT": 121.4,
-     "bagT": 0,
-     "residT": 121.4,
-     "rotorAloneMW": 11.6,
-     "withAnchorMW": 11.64
-    },
-    {
-     "aglM": 750,
-     "surplusT": 127,
-     "bagT": 0,
-     "residT": 127,
-     "rotorAloneMW": 12.5,
-     "withAnchorMW": 12.46
-    },
-    {
-     "aglM": 500,
-     "surplusT": 132.8,
-     "bagT": 0,
-     "residT": 132.8,
-     "rotorAloneMW": 13.3,
-     "withAnchorMW": 13.31
+  "generated": {
+    "by": "research/analysis/descent.js",
+    "worked": {
+      "oneWayKm": 15,
+      "mode": "balanced"
     }
-   ]
   },
-  "P1000": {
-   "cableM": 600,
-   "bagT": 1250,
-   "busMW": 190,
-   "descentFromAglM": 1500,
-   "toAglM": 300,
-   "descentMinutes": 3.33,
-   "anchorAvailableBelowAglM": 600,
-   "anchorAvailableForPctOfDescent": 25,
-   "rotorsAloneFailBelowAglM": 540,
-   "anchorReachesBeforeRotorsFail": true,
-   "peakRotorAloneMW": 201.8,
-   "peakWithAnchorMW": 186.62,
-   "integratedMWh": {
-    "rotorsAlone": 9.605,
-    "withAnchorWhereItReaches": 6.952,
-    "anchorSavingPct": 27.6
-   },
-   "ledgerSays": {
-    "letdownMWh": 0.161,
-    "downMW": 5.02,
-    "windowMinutes": 1.93,
-    "understatementVsIntegral": 43.2,
-    "windowVsActualDescent": 0.58
-   },
-   "cycleContext": {
-    "eCycleMWh": 8.454,
-    "honestLetdownPctOfCycle": 45.6
-   },
-   "profile": [
-    {
-     "aglM": 1500,
-     "surplusT": 1105.1,
-     "bagT": 0,
-     "residT": 1105.1,
-     "rotorAloneMW": 145.9,
-     "withAnchorMW": 145.86
+  "classes": {
+    "P100": {
+      "cableM": 350,
+      "bagT": 125,
+      "reachAglM": 322.5,
+      "bus": {
+        "battMW": 30,
+        "genMW": 8,
+        "descentBusMW": 31.48,
+        "rotorShareOfBus": 1,
+        "rotorMaxT": 141.4,
+        "rotorCapT": 141.4,
+        "basis": "record",
+        "feasible": false
+      },
+      "hold": {
+        "surplusAtSourceT": 137.4,
+        "ln2MakeT": 1.83,
+        "holdAtSourceT": 135.6,
+        "anchorT": 125,
+        "leftToRotorsT": 10.6,
+        "rotorsLeftDoingPctOfCapability": 7.5
+      },
+      "basis": "record",
+      "feasible": false,
+      "bindingLimits": [
+        "bus power",
+        "upward authority unavailable"
+      ],
+      "geometry": {
+        "ceilingAglM": 1500,
+        "holdAglM": 430,
+        "fillAglM": 300,
+        "anchorFromAglM": 300,
+        "rotorsAloneFailBelowAglM": null,
+        "bagInTheWaterBelowAglM": 322.5,
+        "bandNeitherRotorsNorBagM": 0,
+        "letdownMinutes": 5.29
+      },
+      "letdown": {
+        "mwh": 2.296,
+        "pctOfCycle": 28.5,
+        "peakRotorMW": 31.5,
+        "peakPhase": "SOURCE_APPROACH",
+        "battLimited": true,
+        "clippedMinutes": 2.74,
+        "clippedMWh": 0.228,
+        "rotorsWholeCycleMWh": 6.651,
+        "rotorsPctOfCycle": 82.7
+      },
+      "cycle": {
+        "eCycleMWh": 8.042,
+        "kwhPerTonne": 80.42,
+        "deliveredT": 100,
+        "bottleneck": "descent authority"
+      },
+      "rotorsBlindToTheBag": {
+        "letdownMWh": 2.351,
+        "eCycleMWh": 8.233,
+        "peakRotorMW": 31.5,
+        "creditSavesMWh": 0.191,
+        "creditSavesPctOfCycle": 2.3
+      },
+      "withoutTheBag": {
+        "retainedT": 0,
+        "deliveredT": 100,
+        "eCycleMWh": 8.232,
+        "kwhPerTonne": 82.32,
+        "letdownMWh": 2.352,
+        "bottleneck": "descent authority",
+        "battLimited": true,
+        "anchorHoistMWh": 0,
+        "bagBuysDeliveredT": 0,
+        "bagCostsCyclePct": -2.3,
+        "bagCostsPerTonnePct": -2.3
+      },
+      "hoist": {
+        "mwh": 0.003,
+        "formulaMgh": 0.006
+      },
+      "profile": [
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.72,
+          "aglM": 1393,
+          "gsKph": 90,
+          "vzMps": -5.62,
+          "surplusT": 111.5,
+          "bagT": 0,
+          "netAfterBagT": 111.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 121.06912917814843,
+            "aeroT": 0,
+            "verticalDragT": -9.570573271157134
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 121.1,
+          "askedMW": 22.5,
+          "rotorsMW": 22.5,
+          "busMW": 30.3,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.75,
+          "aglM": 1261,
+          "gsKph": 90,
+          "vzMps": -7.57,
+          "surplusT": 114.3,
+          "bagT": 0,
+          "netAfterBagT": 114.3,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 117.83999038419736,
+            "aeroT": 0,
+            "verticalDragT": -17.362641364405114
+          },
+          "unheldT": 13.830961569824751,
+          "feasible": false,
+          "thrustT": 117.8,
+          "askedMW": 28.7,
+          "rotorsMW": 24.5,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.78,
+          "aglM": 1099,
+          "gsKph": 90,
+          "vzMps": -8.66,
+          "surplusT": 117.8,
+          "bagT": 0,
+          "netAfterBagT": 117.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 112.61935457456885,
+            "aeroT": 0,
+            "verticalDragT": -22.7232873093054
+          },
+          "unheldT": 27.914389384187714,
+          "feasible": false,
+          "thrustT": 112.6,
+          "askedMW": 33.4,
+          "rotorsMW": 24.5,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.8,
+          "aglM": 924,
+          "gsKph": 90,
+          "vzMps": -8.89,
+          "surplusT": 121.6,
+          "bagT": 0,
+          "netAfterBagT": 121.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 111.55372598695348,
+            "aeroT": 0,
+            "verticalDragT": -23.948967553131162
+          },
+          "unheldT": 34.04460803476839,
+          "feasible": false,
+          "thrustT": 111.6,
+          "askedMW": 35.5,
+          "rotorsMW": 24.5,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.83,
+          "aglM": 753,
+          "gsKph": 90,
+          "vzMps": -8.26,
+          "surplusT": 125.5,
+          "bagT": 0,
+          "netAfterBagT": 125.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 114.49354864930247,
+            "aeroT": 0,
+            "verticalDragT": -20.679485233251757
+          },
+          "unheldT": 31.637395333365163,
+          "feasible": false,
+          "thrustT": 114.5,
+          "askedMW": 34.6,
+          "rotorsMW": 24.5,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.86,
+          "aglM": 605,
+          "gsKph": 85.8,
+          "vzMps": -6.35,
+          "surplusT": 128.8,
+          "bagT": 0,
+          "netAfterBagT": 128.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 123.30180562945202,
+            "aeroT": 0,
+            "verticalDragT": -12.191386022972807
+          },
+          "unheldT": 17.676505775033945,
+          "feasible": false,
+          "thrustT": 123.3,
+          "askedMW": 30.1,
+          "rotorsMW": 24.6,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.89,
+          "aglM": 507,
+          "gsKph": 74,
+          "vzMps": -3.65,
+          "surplusT": 131,
+          "bagT": 0,
+          "netAfterBagT": 131,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 133.8382866129727,
+            "aeroT": 0,
+            "verticalDragT": -4.039233017248359
+          },
+          "unheldT": 1.1907155315016098,
+          "feasible": false,
+          "thrustT": 133.8,
+          "askedMW": 25.5,
+          "rotorsMW": 25.1,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.92,
+          "aglM": 456,
+          "gsKph": 62.3,
+          "vzMps": -1.67,
+          "surplusT": 132.1,
+          "bagT": 0,
+          "netAfterBagT": 132.1,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.97407090628087,
+            "aeroT": 0,
+            "verticalDragT": -0.8481188271915197
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 133,
+          "askedMW": 23.7,
+          "rotorsMW": 23.7,
+          "busMW": 30.3,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.94,
+          "aglM": 435,
+          "gsKph": 50.5,
+          "vzMps": -0.52,
+          "surplusT": 132.5,
+          "bagT": 0,
+          "netAfterBagT": 132.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.6316750591873,
+            "aeroT": 0,
+            "verticalDragT": -0.08321594967677812
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.6,
+          "askedMW": 24,
+          "rotorsMW": 24,
+          "busMW": 30.3,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.97,
+          "aglM": 430,
+          "gsKph": 38.8,
+          "vzMps": -0.07,
+          "surplusT": 132.6,
+          "bagT": 0,
+          "netAfterBagT": 132.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.61297388836712,
+            "aeroT": 0,
+            "verticalDragT": -0.0013918128276379626
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.6,
+          "askedMW": 25.4,
+          "rotorsMW": 25.4,
+          "busMW": 30.3,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 1,
+          "aglM": 430,
+          "gsKph": 27,
+          "vzMps": 0,
+          "surplusT": 132.6,
+          "bagT": 0,
+          "netAfterBagT": 132.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 129.22814946269506,
+            "aeroT": 0,
+            "verticalDragT": -2.1577672938682946e-13
+          },
+          "unheldT": 3.340009798290339,
+          "feasible": false,
+          "thrustT": 129.2,
+          "askedMW": 26.9,
+          "rotorsMW": 25.9,
+          "busMW": 30.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0,
+          "aglM": 430,
+          "gsKph": 27,
+          "vzMps": 0,
+          "surplusT": 132.6,
+          "bagT": 0,
+          "netAfterBagT": 132.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.56810801915512,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.6,
+          "askedMW": 26.9,
+          "rotorsMW": 26.9,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.1,
+          "aglM": 430,
+          "gsKph": 20,
+          "vzMps": 0,
+          "surplusT": 132.6,
+          "bagT": 0,
+          "netAfterBagT": 132.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.6230099799394,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.6,
+          "askedMW": 27.7,
+          "rotorsMW": 27.7,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.2,
+          "aglM": 430,
+          "gsKph": 7,
+          "vzMps": 0,
+          "surplusT": 132.7,
+          "bagT": 0,
+          "netAfterBagT": 132.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.67791194072373,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.7,
+          "askedMW": 28.5,
+          "rotorsMW": 28.5,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.3,
+          "aglM": 430,
+          "gsKph": 0,
+          "vzMps": 0,
+          "surplusT": 132.7,
+          "bagT": 0,
+          "netAfterBagT": 132.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 132.73281722535557,
+            "aeroT": 0,
+            "verticalDragT": -0.0000033238475285599035
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 132.7,
+          "askedMW": 28.6,
+          "rotorsMW": 28.6,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.4,
+          "aglM": 423,
+          "gsKph": 0,
+          "vzMps": -1.14,
+          "surplusT": 133,
+          "bagT": 0,
+          "netAfterBagT": 133,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 133.34667281790857,
+            "aeroT": 0,
+            "verticalDragT": -0.39146261531992027
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 133.3,
+          "askedMW": 29.9,
+          "rotorsMW": 29.9,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.5,
+          "aglM": 404,
+          "gsKph": 0,
+          "vzMps": -1.9,
+          "surplusT": 133.4,
+          "bagT": 0,
+          "netAfterBagT": 133.4,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 134.52989481573255,
+            "aeroT": 0,
+            "verticalDragT": -1.0874009865703658
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 134.5,
+          "askedMW": 31,
+          "rotorsMW": 31,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.6,
+          "aglM": 379,
+          "gsKph": 0,
+          "vzMps": -2.27,
+          "surplusT": 134.1,
+          "bagT": 0,
+          "netAfterBagT": 134.1,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 134.66944029150073,
+            "aeroT": 0,
+            "verticalDragT": -1.5658591605091545
+          },
+          "unheldT": 0.9860169664117961,
+          "feasible": false,
+          "thrustT": 134.7,
+          "askedMW": 31.8,
+          "rotorsMW": 31.5,
+          "busMW": 31.8,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.7,
+          "aglM": 351,
+          "gsKph": 0,
+          "vzMps": -2.27,
+          "surplusT": 134.8,
+          "bagT": 0,
+          "netAfterBagT": 134.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 134.66944029202222,
+            "aeroT": 0,
+            "verticalDragT": -1.5658591605088286
+          },
+          "unheldT": 1.6874532090078844,
+          "feasible": false,
+          "thrustT": 134.7,
+          "askedMW": 32.1,
+          "rotorsMW": 31.5,
+          "busMW": 31.8,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.8,
+          "aglM": 326,
+          "gsKph": 0,
+          "vzMps": -1.9,
+          "surplusT": 135.4,
+          "bagT": 0,
+          "netAfterBagT": 135.4,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 135.7920715731438,
+            "aeroT": 0,
+            "verticalDragT": -1.087400986570094
+          },
+          "unheldT": 0.7358540019426698,
+          "feasible": false,
+          "thrustT": 135.8,
+          "askedMW": 31.7,
+          "rotorsMW": 31.5,
+          "busMW": 31.8,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.9,
+          "aglM": 307,
+          "gsKph": 0,
+          "vzMps": -1.14,
+          "surplusT": 135.9,
+          "bagT": 29.4,
+          "netAfterBagT": 106.5,
+          "owners": {
+            "bagT": 29.449689861367315,
+            "rotorT": 106.87277177310251,
+            "aeroT": 0,
+            "verticalDragT": -0.3914626153197573
+          },
+          "unheldT": 2.842170943040401e-14,
+          "feasible": true,
+          "thrustT": 106.9,
+          "askedMW": 21.5,
+          "rotorsMW": 21.5,
+          "busMW": 31.8,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 1,
+          "aglM": 300,
+          "gsKph": 0,
+          "vzMps": -0.01,
+          "surplusT": 136.2,
+          "bagT": 56.1,
+          "netAfterBagT": 80,
+          "owners": {
+            "bagT": 56.1493627302612,
+            "rotorT": 80.00555948124489,
+            "aeroT": 0,
+            "verticalDragT": -0.000016084354991011674
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 80,
+          "askedMW": 13.4,
+          "rotorsMW": 13.4,
+          "busMW": 31.8,
+          "clipped": false
+        }
+      ]
     },
-    {
-     "aglM": 1250,
-     "surplusT": 1159.2,
-     "bagT": 0,
-     "residT": 1159.2,
-     "rotorAloneMW": 156.7,
-     "withAnchorMW": 156.69
+    "P1000": {
+      "cableM": 600,
+      "bagT": 1250,
+      "reachAglM": 540.5,
+      "bus": {
+        "battMW": 150,
+        "genMW": 40,
+        "descentBusMW": 154.04,
+        "rotorShareOfBus": 1,
+        "rotorMaxT": 687.6,
+        "rotorCapT": 687.6,
+        "basis": "record",
+        "feasible": false
+      },
+      "hold": {
+        "surplusAtSourceT": 1374.4,
+        "ln2MakeT": 7.49,
+        "holdAtSourceT": 1366.9,
+        "anchorT": 1250,
+        "leftToRotorsT": 116.9,
+        "rotorsLeftDoingPctOfCapability": 17
+      },
+      "basis": "record",
+      "feasible": false,
+      "bindingLimits": [
+        "bus power",
+        "rotor thrust"
+      ],
+      "geometry": {
+        "ceilingAglM": 1340,
+        "holdAglM": 960,
+        "fillAglM": 300,
+        "anchorFromAglM": 900,
+        "rotorsAloneFailBelowAglM": 3000,
+        "bagInTheWaterBelowAglM": 540.5,
+        "bandNeitherRotorsNorBagM": 2459.5,
+        "letdownMinutes": 5.7
+      },
+      "letdown": {
+        "mwh": 11.629,
+        "pctOfCycle": 18.6,
+        "peakRotorMW": 153.8,
+        "peakPhase": "SOURCE_APPROACH",
+        "battLimited": true,
+        "clippedMinutes": 5.02,
+        "clippedMWh": 7.686,
+        "rotorsWholeCycleMWh": 54.161,
+        "rotorsPctOfCycle": 86.7
+      },
+      "cycle": {
+        "eCycleMWh": 62.5,
+        "kwhPerTonne": 62.5,
+        "deliveredT": 1000,
+        "bottleneck": "descent authority"
+      },
+      "rotorsBlindToTheBag": {
+        "letdownMWh": 13.101,
+        "eCycleMWh": 65.141,
+        "peakRotorMW": 153.8,
+        "creditSavesMWh": 2.641,
+        "creditSavesPctOfCycle": 4.1
+      },
+      "withoutTheBag": {
+        "retainedT": 0,
+        "deliveredT": 1000,
+        "eCycleMWh": 65.141,
+        "kwhPerTonne": 65.14,
+        "letdownMWh": 13.161,
+        "bottleneck": "descent authority",
+        "battLimited": true,
+        "anchorHoistMWh": 0,
+        "bagBuysDeliveredT": 0,
+        "bagCostsCyclePct": -4.1,
+        "bagCostsPerTonnePct": -4.1
+      },
+      "hoist": {
+        "mwh": 0.059,
+        "formulaMgh": 0.06
+      },
+      "profile": [
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.72,
+          "aglM": 1302,
+          "gsKph": 110,
+          "vzMps": -2.44,
+          "surplusT": 1142.5,
+          "bagT": 0,
+          "netAfterBagT": 1142.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 754.4901798123824,
+            "aeroT": 0,
+            "verticalDragT": -8.42224885133707
+          },
+          "unheldT": 396.47042506405035,
+          "feasible": false,
+          "thrustT": 754.5,
+          "askedMW": 126.8,
+          "rotorsMW": 117,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.75,
+          "aglM": 1255,
+          "gsKph": 110,
+          "vzMps": -3.28,
+          "surplusT": 1152.5,
+          "bagT": 0,
+          "netAfterBagT": 1152.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 724.3471801525342,
+            "aeroT": 0,
+            "verticalDragT": -15.279386317246432
+          },
+          "unheldT": 443.4483694033239,
+          "feasible": false,
+          "thrustT": 724.3,
+          "askedMW": 135.4,
+          "rotorsMW": 117,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.78,
+          "aglM": 1197,
+          "gsKph": 110,
+          "vzMps": -3.76,
+          "surplusT": 1164.9,
+          "bagT": 0,
+          "netAfterBagT": 1164.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 708.0903347981722,
+            "aeroT": 0,
+            "verticalDragT": -19.99683561444975
+          },
+          "unheldT": 476.7735036809446,
+          "feasible": false,
+          "thrustT": 708.1,
+          "askedMW": 140.1,
+          "rotorsMW": 117,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.8,
+          "aglM": 1135,
+          "gsKph": 110,
+          "vzMps": -3.86,
+          "surplusT": 1178.3,
+          "bagT": 0,
+          "netAfterBagT": 1178.3,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 704.7071971673367,
+            "aeroT": 0,
+            "verticalDragT": -21.07545271848333
+          },
+          "unheldT": 494.6619399075123,
+          "feasible": false,
+          "thrustT": 704.7,
+          "askedMW": 141.1,
+          "rotorsMW": 117,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.83,
+          "aglM": 1075,
+          "gsKph": 110,
+          "vzMps": -3.58,
+          "surplusT": 1191.5,
+          "bagT": 0,
+          "netAfterBagT": 1191.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 713.985954049352,
+            "aeroT": 0,
+            "verticalDragT": -18.198258956637243
+          },
+          "unheldT": 495.68870358365416,
+          "feasible": false,
+          "thrustT": 714,
+          "askedMW": 138.4,
+          "rotorsMW": 117,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.86,
+          "aglM": 1022,
+          "gsKph": 104.9,
+          "vzMps": -2.75,
+          "surplusT": 1202.9,
+          "bagT": 0,
+          "netAfterBagT": 1202.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 736.7191916417802,
+            "aeroT": 0,
+            "verticalDragT": -10.728603608064393
+          },
+          "unheldT": 476.95475452938695,
+          "feasible": false,
+          "thrustT": 736.7,
+          "askedMW": 133.8,
+          "rotorsMW": 118.7,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.89,
+          "aglM": 987,
+          "gsKph": 90.5,
+          "vzMps": -1.58,
+          "surplusT": 1210.5,
+          "bagT": 0,
+          "netAfterBagT": 1210.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 750.4972686414598,
+            "aeroT": 0,
+            "verticalDragT": -3.554585987270432
+          },
+          "unheldT": 463.5192433040098,
+          "feasible": false,
+          "thrustT": 750.5,
+          "askedMW": 134.3,
+          "rotorsMW": 122.5,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.92,
+          "aglM": 969,
+          "gsKph": 76.1,
+          "vzMps": -0.73,
+          "surplusT": 1214.3,
+          "bagT": 0,
+          "netAfterBagT": 1214.3,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 741.9761924411622,
+            "aeroT": 0,
+            "verticalDragT": -0.7463573618558711
+          },
+          "unheldT": 473.07776899316866,
+          "feasible": false,
+          "thrustT": 742,
+          "askedMW": 140.2,
+          "rotorsMW": 125.3,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.94,
+          "aglM": 962,
+          "gsKph": 61.8,
+          "vzMps": -0.23,
+          "surplusT": 1215.7,
+          "bagT": 0,
+          "netAfterBagT": 1215.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 715.5985998029568,
+            "aeroT": 0,
+            "verticalDragT": -0.0732312910334753
+          },
+          "unheldT": 500.1877439138839,
+          "feasible": false,
+          "thrustT": 715.6,
+          "askedMW": 151.1,
+          "rotorsMW": 127.3,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.97,
+          "aglM": 960,
+          "gsKph": 47.4,
+          "vzMps": -0.03,
+          "surplusT": 1215.9,
+          "bagT": 0,
+          "netAfterBagT": 1215.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 680.7974369400454,
+            "aeroT": 0,
+            "verticalDragT": -0.0012248162839020138
+          },
+          "unheldT": 535.0969368520005,
+          "feasible": false,
+          "thrustT": 680.8,
+          "askedMW": 164.5,
+          "rotorsMW": 128.5,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 1,
+          "aglM": 960,
+          "gsKph": 33,
+          "vzMps": 0,
+          "surplusT": 1215.7,
+          "bagT": 0,
+          "netAfterBagT": 1215.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 647.7826677294153,
+            "aeroT": 0,
+            "verticalDragT": -1.8988680568315604e-13
+          },
+          "unheldT": 567.9274962860937,
+          "feasible": false,
+          "thrustT": 647.8,
+          "askedMW": 176.9,
+          "rotorsMW": 129.1,
+          "busMW": 151.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0,
+          "aglM": 960,
+          "gsKph": 33,
+          "vzMps": 0,
+          "surplusT": 1215.7,
+          "bagT": 0,
+          "netAfterBagT": 1215.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 722.4779481239196,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 493.23200626592063,
+          "feasible": false,
+          "thrustT": 722.5,
+          "askedMW": 176.9,
+          "rotorsMW": 153.5,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.1,
+          "aglM": 960,
+          "gsKph": 24.4,
+          "vzMps": 0,
+          "surplusT": 1215.9,
+          "bagT": 0,
+          "netAfterBagT": 1215.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 706.8495303864784,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 509.0850229338432,
+          "feasible": false,
+          "thrustT": 706.8,
+          "askedMW": 182.7,
+          "rotorsMW": 153.7,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.2,
+          "aglM": 960,
+          "gsKph": 8.6,
+          "vzMps": 0,
+          "surplusT": 1216.2,
+          "bagT": 0,
+          "netAfterBagT": 1216.2,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 689.4137687821255,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 526.7453834686773,
+          "feasible": false,
+          "thrustT": 689.4,
+          "askedMW": 189.1,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.3,
+          "aglM": 960,
+          "gsKph": 0,
+          "vzMps": -0.01,
+          "surplusT": 1216.4,
+          "bagT": 0,
+          "netAfterBagT": 1216.4,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 686.7419870837812,
+            "aeroT": 0,
+            "verticalDragT": -0.00017824948582209702
+          },
+          "unheldT": 529.6419423469888,
+          "feasible": false,
+          "thrustT": 686.7,
+          "askedMW": 190.1,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.4,
+          "aglM": 923,
+          "gsKph": 0,
+          "vzMps": -3.85,
+          "surplusT": 1224.8,
+          "bagT": 0,
+          "netAfterBagT": 1224.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 631.8773844617041,
+            "aeroT": 0,
+            "verticalDragT": -20.99314403046352
+          },
+          "unheldT": 613.8996116939237,
+          "feasible": false,
+          "thrustT": 631.9,
+          "askedMW": 212.5,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.5,
+          "aglM": 829,
+          "gsKph": 0,
+          "vzMps": -6.41,
+          "surplusT": 1246.2,
+          "bagT": 0,
+          "netAfterBagT": 1246.2,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 595.6005033451252,
+            "aeroT": 0,
+            "verticalDragT": -58.31454814986206
+          },
+          "unheldT": 708.912846875284,
+          "feasible": false,
+          "thrustT": 595.6,
+          "askedMW": 228.8,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.6,
+          "aglM": 700,
+          "gsKph": 0,
+          "vzMps": -7.7,
+          "surplusT": 1275.6,
+          "bagT": 0,
+          "netAfterBagT": 1275.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 577.690090988977,
+            "aeroT": 0,
+            "verticalDragT": -83.97304263939711
+          },
+          "unheldT": 781.9296815099541,
+          "feasible": false,
+          "thrustT": 577.7,
+          "askedMW": 237.4,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.7,
+          "aglM": 560,
+          "gsKph": 0,
+          "vzMps": -7.7,
+          "surplusT": 1308,
+          "bagT": 0,
+          "netAfterBagT": 1308,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 577.690090988977,
+            "aeroT": 0,
+            "verticalDragT": -83.973042639404
+          },
+          "unheldT": 814.323855259177,
+          "feasible": false,
+          "thrustT": 577.7,
+          "askedMW": 237.4,
+          "rotorsMW": 153.8,
+          "busMW": 155.3,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.8,
+          "aglM": 431,
+          "gsKph": 0,
+          "vzMps": -6.41,
+          "surplusT": 1338.1,
+          "bagT": 1250,
+          "netAfterBagT": 88.1,
+          "owners": {
+            "bagT": 1250,
+            "rotorT": 146.40984912699895,
+            "aeroT": 0,
+            "verticalDragT": -58.31454814985631
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 146.4,
+          "askedMW": 23.1,
+          "rotorsMW": 23.1,
+          "busMW": 155.3,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.9,
+          "aglM": 337,
+          "gsKph": 0,
+          "vzMps": -3.85,
+          "surplusT": 1360.3,
+          "bagT": 1250,
+          "netAfterBagT": 110.3,
+          "owners": {
+            "bagT": 1250,
+            "rotorT": 131.31444339267335,
+            "aeroT": 0,
+            "verticalDragT": -20.993144030460073
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 131.3,
+          "askedMW": 16.9,
+          "rotorsMW": 16.9,
+          "busMW": 155.3,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 1,
+          "aglM": 300,
+          "gsKph": 0,
+          "vzMps": -0.02,
+          "surplusT": 1369.1,
+          "bagT": 1250,
+          "netAfterBagT": 119.1,
+          "owners": {
+            "bagT": 1250,
+            "rotorT": 119.12005644100512,
+            "aeroT": 0,
+            "verticalDragT": -0.0008625630335117188
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 119.1,
+          "askedMW": 11.1,
+          "rotorsMW": 11.1,
+          "busMW": 155.3,
+          "clipped": false
+        }
+      ]
     },
-    {
-     "aglM": 1000,
-     "surplusT": 1214.3,
-     "bagT": 0,
-     "residT": 1214.3,
-     "rotorAloneMW": 168,
-     "withAnchorMW": 168
-    },
-    {
-     "aglM": 750,
-     "surplusT": 1270.5,
-     "bagT": 0,
-     "residT": 1270.5,
-     "rotorAloneMW": 179.8,
-     "withAnchorMW": 179.79
-    },
-    {
-     "aglM": 500,
-     "surplusT": 1327.7,
-     "bagT": 1250,
-     "residT": 77.7,
-     "rotorAloneMW": 192.1,
-     "withAnchorMW": 2.72
+    "P10000": {
+      "cableM": 850,
+      "bagT": 12400,
+      "reachAglM": 722,
+      "bus": {
+        "battMW": 1400,
+        "genMW": 150,
+        "descentBusMW": 1406.84,
+        "rotorShareOfBus": 1,
+        "rotorMaxT": 7124.3,
+        "rotorCapT": 7124.3,
+        "basis": "record",
+        "feasible": false
+      },
+      "hold": {
+        "surplusAtSourceT": 13743.6,
+        "ln2MakeT": 21.12,
+        "holdAtSourceT": 13722.5,
+        "anchorT": 12400,
+        "leftToRotorsT": 1322.5,
+        "rotorsLeftDoingPctOfCapability": 18.6
+      },
+      "basis": "record",
+      "feasible": false,
+      "bindingLimits": [
+        "rotor thrust",
+        "bus power"
+      ],
+      "geometry": {
+        "ceilingAglM": 1180,
+        "holdAglM": 1210,
+        "fillAglM": 300,
+        "anchorFromAglM": 1150,
+        "rotorsAloneFailBelowAglM": 3000,
+        "bagInTheWaterBelowAglM": 722,
+        "bandNeitherRotorsNorBagM": 2278,
+        "letdownMinutes": 7.28
+      },
+      "letdown": {
+        "mwh": 117.284,
+        "pctOfCycle": 16.8,
+        "peakRotorMW": 1405.7,
+        "peakPhase": "SOURCE_APPROACH",
+        "battLimited": true,
+        "clippedMinutes": 3.23,
+        "clippedMWh": 42.671,
+        "rotorsWholeCycleMWh": 644.939,
+        "rotorsPctOfCycle": 92.5
+      },
+      "cycle": {
+        "eCycleMWh": 697.586,
+        "kwhPerTonne": 69.76,
+        "deliveredT": 10000,
+        "bottleneck": "descent authority"
+      },
+      "rotorsBlindToTheBag": {
+        "letdownMWh": 146.332,
+        "eCycleMWh": 749.583,
+        "peakRotorMW": 1405.7,
+        "creditSavesMWh": 51.998,
+        "creditSavesPctOfCycle": 6.9
+      },
+      "withoutTheBag": {
+        "retainedT": 0,
+        "deliveredT": 10000,
+        "eCycleMWh": 749.583,
+        "kwhPerTonne": 74.96,
+        "letdownMWh": 146.928,
+        "bottleneck": "descent authority",
+        "battLimited": true,
+        "anchorHoistMWh": 0,
+        "bagBuysDeliveredT": 0,
+        "bagCostsCyclePct": -6.9,
+        "bagCostsPerTonnePct": -6.9
+      },
+      "hoist": {
+        "mwh": 0.596,
+        "formulaMgh": 0.596
+      },
+      "profile": [
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.72,
+          "aglM": 1183,
+          "gsKph": 130,
+          "vzMps": 0.23,
+          "surplusT": 11723.7,
+          "bagT": 0,
+          "netAfterBagT": 11723.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.34832699044783755
+          },
+          "unheldT": 4123.654508360137,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 616.8,
+          "rotorsMW": 616.8,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.75,
+          "aglM": 1186,
+          "gsKph": 130,
+          "vzMps": 0.31,
+          "surplusT": 11714.9,
+          "bagT": 0,
+          "netAfterBagT": 11714.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.6319241743764998
+          },
+          "unheldT": 4114.57161398828,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 616.8,
+          "rotorsMW": 616.8,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.78,
+          "aglM": 1191,
+          "gsKph": 130,
+          "vzMps": 0.36,
+          "surplusT": 11704.3,
+          "bagT": 0,
+          "netAfterBagT": 11704.3,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.8270282309394842
+          },
+          "unheldT": 4103.709183307699,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 616.8,
+          "rotorsMW": 616.8,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.8,
+          "aglM": 1196,
+          "gsKph": 130,
+          "vzMps": 0.36,
+          "surplusT": 11692.8,
+          "bagT": 0,
+          "netAfterBagT": 11692.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.8716376287778707
+          },
+          "unheldT": 4092.188586787758,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 616.8,
+          "rotorsMW": 616.8,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.83,
+          "aglM": 1201,
+          "gsKph": 130,
+          "vzMps": 0.34,
+          "surplusT": 11681.6,
+          "bagT": 0,
+          "netAfterBagT": 11681.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.752642778151694
+          },
+          "unheldT": 4081.0808498097886,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 616.8,
+          "rotorsMW": 616.8,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.86,
+          "aglM": 1205,
+          "gsKph": 123.9,
+          "vzMps": 0.26,
+          "surplusT": 11671.7,
+          "bagT": 0,
+          "netAfterBagT": 11671.7,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.4437131070884633
+          },
+          "unheldT": 4071.567670764919,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 645.3,
+          "rotorsMW": 645.3,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.89,
+          "aglM": 1208,
+          "gsKph": 107,
+          "vzMps": 0.15,
+          "surplusT": 11665.1,
+          "bagT": 0,
+          "netAfterBagT": 11665.1,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.1470104079194335
+          },
+          "unheldT": 4065.1884156765855,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 739.3,
+          "rotorsMW": 739.3,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.92,
+          "aglM": 1209,
+          "gsKph": 90,
+          "vzMps": 0.07,
+          "surplusT": 11661.3,
+          "bagT": 0,
+          "netAfterBagT": 11661.3,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.030867814314413797
+          },
+          "unheldT": 4061.5266352299313,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 859,
+          "rotorsMW": 859,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.94,
+          "aglM": 1210,
+          "gsKph": 73,
+          "vzMps": 0.02,
+          "surplusT": 11659.4,
+          "bagT": 0,
+          "netAfterBagT": 11659.4,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.0030286964518143637
+          },
+          "unheldT": 4059.6954292560067,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 1008.2,
+          "rotorsMW": 1008.2,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 0.97,
+          "aglM": 1210,
+          "gsKph": 56,
+          "vzMps": 0,
+          "surplusT": 11658.5,
+          "bagT": 0,
+          "netAfterBagT": 11658.5,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0.00005065589696351483
+          },
+          "unheldT": 4058.801462921955,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 1180.9,
+          "rotorsMW": 1180.9,
+          "busMW": 1405.4,
+          "clipped": false
+        },
+        {
+          "phase": "RETURN_TRANSIT",
+          "prog": 1,
+          "aglM": 1210,
+          "gsKph": 39,
+          "vzMps": 0,
+          "surplusT": 11657.9,
+          "bagT": 0,
+          "netAfterBagT": 11657.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7524.4210379562655,
+            "aeroT": 0,
+            "verticalDragT": 7.853249582914694e-15
+          },
+          "unheldT": 4133.502061044953,
+          "feasible": false,
+          "thrustT": 7524.4,
+          "askedMW": 1351.6,
+          "rotorsMW": 1329.8,
+          "busMW": 1405.4,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0,
+          "aglM": 1210,
+          "gsKph": 39,
+          "vzMps": 0,
+          "surplusT": 11657.9,
+          "bagT": 0,
+          "netAfterBagT": 11657.9,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7599.733665089733,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 4058.188842659599,
+          "feasible": false,
+          "thrustT": 7599.7,
+          "askedMW": 1351.8,
+          "rotorsMW": 1351.8,
+          "busMW": 1412.2,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.1,
+          "aglM": 1210,
+          "gsKph": 28.9,
+          "vzMps": 0,
+          "surplusT": 11658.6,
+          "bagT": 0,
+          "netAfterBagT": 11658.6,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7490.863962917048,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 4167.6920289951795,
+          "feasible": false,
+          "thrustT": 7490.9,
+          "askedMW": 1437,
+          "rotorsMW": 1404.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.2,
+          "aglM": 1210,
+          "gsKph": 10.1,
+          "vzMps": 0,
+          "surplusT": 11659.2,
+          "bagT": 0,
+          "netAfterBagT": 11659.2,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7167.320936555367,
+            "aeroT": 0,
+            "verticalDragT": 0
+          },
+          "unheldT": 4491.868539519757,
+          "feasible": false,
+          "thrustT": 7167.3,
+          "askedMW": 1535.6,
+          "rotorsMW": 1405.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.3,
+          "aglM": 1210,
+          "gsKph": 0,
+          "vzMps": -0.01,
+          "surplusT": 11659.8,
+          "bagT": 0,
+          "netAfterBagT": 11659.8,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 7118.89179075807,
+            "aeroT": 0,
+            "verticalDragT": -0.0005645620844703401
+          },
+          "unheldT": 4540.931734042034,
+          "feasible": false,
+          "thrustT": 7118.9,
+          "askedMW": 1550.5,
+          "rotorsMW": 1405.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.4,
+          "aglM": 1160,
+          "gsKph": 0,
+          "vzMps": -3.18,
+          "surplusT": 11771.1,
+          "bagT": 0,
+          "netAfterBagT": 11771.1,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 6585.137001782201,
+            "aeroT": 0,
+            "verticalDragT": -66.49070037275158
+          },
+          "unheldT": 5252.4419823026565,
+          "feasible": false,
+          "thrustT": 6585.1,
+          "askedMW": 1728.8,
+          "rotorsMW": 1405.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.5,
+          "aglM": 1030,
+          "gsKph": 0,
+          "vzMps": -5.31,
+          "surplusT": 12059,
+          "bagT": 0,
+          "netAfterBagT": 12059,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 6231.712304551144,
+            "aeroT": 0,
+            "verticalDragT": -184.69721080265913
+          },
+          "unheldT": 6012.014081627329,
+          "feasible": false,
+          "thrustT": 6231.7,
+          "askedMW": 1858.1,
+          "rotorsMW": 1405.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.6,
+          "aglM": 852,
+          "gsKph": 0,
+          "vzMps": -6.37,
+          "surplusT": 12457.2,
+          "bagT": 0,
+          "netAfterBagT": 12457.2,
+          "owners": {
+            "bagT": 0,
+            "rotorT": 6056.932440094649,
+            "aeroT": 0,
+            "verticalDragT": -265.9642790724137
+          },
+          "unheldT": 6666.223555628753,
+          "feasible": false,
+          "thrustT": 6056.9,
+          "askedMW": 1925.7,
+          "rotorsMW": 1405.7,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.7,
+          "aglM": 658,
+          "gsKph": 0,
+          "vzMps": -6.37,
+          "surplusT": 12897.2,
+          "bagT": 4653.7,
+          "netAfterBagT": 8243.5,
+          "owners": {
+            "bagT": 4653.68959012176,
+            "rotorT": 5692.494456745702,
+            "aeroT": 0,
+            "verticalDragT": -265.9642790724137
+          },
+          "unheldT": 2816.943380572142,
+          "feasible": false,
+          "thrustT": 5692.5,
+          "askedMW": 1925.7,
+          "rotorsMW": 1290.4,
+          "busMW": 1412.2,
+          "clipped": true
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.8,
+          "aglM": 480,
+          "gsKph": 0,
+          "vzMps": -5.31,
+          "surplusT": 13306.8,
+          "bagT": 12400,
+          "netAfterBagT": 906.8,
+          "owners": {
+            "bagT": 12400,
+            "rotorT": 1091.4762903407343,
+            "aeroT": 0,
+            "verticalDragT": -184.69721080265913
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 1091.5,
+          "askedMW": 134.2,
+          "rotorsMW": 134.2,
+          "busMW": 1412.2,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 0.9,
+          "aglM": 350,
+          "gsKph": 0,
+          "vzMps": -3.18,
+          "surplusT": 13610,
+          "bagT": 12400,
+          "netAfterBagT": 1210,
+          "owners": {
+            "bagT": 12400,
+            "rotorT": 1276.5277515805637,
+            "aeroT": 0,
+            "verticalDragT": -66.49070037275949
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 1276.5,
+          "askedMW": 138.9,
+          "rotorsMW": 138.9,
+          "busMW": 1412.2,
+          "clipped": false
+        },
+        {
+          "phase": "SOURCE_APPROACH",
+          "prog": 1,
+          "aglM": 300,
+          "gsKph": 0,
+          "vzMps": -0.02,
+          "surplusT": 13728.8,
+          "bagT": 12400,
+          "netAfterBagT": 1328.8,
+          "owners": {
+            "bagT": 12400,
+            "rotorT": 1328.8213672822353,
+            "aeroT": 0,
+            "verticalDragT": -0.002731959545089265
+          },
+          "unheldT": 0,
+          "feasible": true,
+          "thrustT": 1328.8,
+          "askedMW": 113.5,
+          "rotorsMW": 113.5,
+          "busMW": 1412.2,
+          "clipped": false
+        }
+      ]
     }
-   ]
-  },
-  "P10000": {
-   "cableM": 850,
-   "bagT": 12400,
-   "busMW": 1550,
-   "descentFromAglM": 1500,
-   "toAglM": 300,
-   "descentMinutes": 3.33,
-   "anchorAvailableBelowAglM": 850,
-   "anchorAvailableForPctOfDescent": 45.8,
-   "rotorsAloneFailBelowAglM": 760,
-   "anchorReachesBeforeRotorsFail": true,
-   "peakRotorAloneMW": 1747.4,
-   "peakWithAnchorMW": 1511.6,
-   "integratedMWh": {
-    "rotorsAlone": 83.184,
-    "withAnchorWhereItReaches": 42.245,
-    "anchorSavingPct": 49.2
-   },
-   "ledgerSays": {
-    "letdownMWh": 1.42,
-    "downMW": 52.29,
-    "windowMinutes": 1.63,
-    "understatementVsIntegral": 29.8,
-    "windowVsActualDescent": 0.49
-   },
-   "cycleContext": {
-    "eCycleMWh": 54.325,
-    "honestLetdownPctOfCycle": 44.4
-   },
-   "profile": [
-    {
-     "aglM": 1500,
-     "surplusT": 11050.9,
-     "bagT": 0,
-     "residT": 11050.9,
-     "rotorAloneMW": 1263.2,
-     "withAnchorMW": 1263.16
-    },
-    {
-     "aglM": 1250,
-     "surplusT": 11591.6,
-     "bagT": 0,
-     "residT": 11591.6,
-     "rotorAloneMW": 1357,
-     "withAnchorMW": 1356.98
-    },
-    {
-     "aglM": 1000,
-     "surplusT": 12142.8,
-     "bagT": 0,
-     "residT": 12142.8,
-     "rotorAloneMW": 1454.9,
-     "withAnchorMW": 1454.92
-    },
-    {
-     "aglM": 750,
-     "surplusT": 12704.7,
-     "bagT": 12400,
-     "residT": 304.7,
-     "rotorAloneMW": 1557.1,
-     "withAnchorMW": 5.78
-    },
-    {
-     "aglM": 500,
-     "surplusT": 13277.5,
-     "bagT": 12400,
-     "residT": 877.5,
-     "rotorAloneMW": 1663.5,
-     "withAnchorMW": 28.26
-    }
-   ]
   }
- }
 }

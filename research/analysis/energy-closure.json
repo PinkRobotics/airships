@@ -1,0 +1,2391 @@
+{
+  "order": "7f",
+  "mode": "balanced",
+  "wind": "still air",
+  "clMax": 1,
+  "clSensitivity": [
+    0.5,
+    1,
+    1.5
+  ],
+  "warning": "An infeasible row is supplied effort along an unsupported profile, not a flyable cycle or demonstrated delivery.",
+  "rows": [
+    {
+      "class": "P100",
+      "km": 15,
+      "old": {
+        "cycleMWh": 1.3913373409350793,
+        "kwhPerTonne": 13.913373409350793,
+        "peakRotorMW": 0.30045182718747954,
+        "hoursOnBattery": 9.211399946705521,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 2.02300479358911,
+        "kwhPerTonne": 20.230047935891097,
+        "peakRotorMW": 11.806463384852957,
+        "hoursOnBattery": 6.098419537730311,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "upward authority unavailable"
+        ],
+        "worst": {
+          "unheldT": 34.25214522600295,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.810546875,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 8.04219820542544,
+        "kwhPerTonne": 80.4219820542544,
+        "peakRotorMW": 31.474632941176388,
+        "hoursOnBattery": 1.445009685669183,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P100",
+        "km": 15,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "upward authority unavailable"
+          ],
+          "worst": {
+            "unheldT": 34.25214522600295,
+            "phase": "RETURN_TRANSIT",
+            "progress": 0.810546875,
+            "limits": [
+              "bus power"
+            ]
+          },
+          "cycleMWh": 8.04219820542544,
+          "kwhPerTonne": 80.4219820542544,
+          "peakRotorMW": 31.474632941176388,
+          "hoursOnBattery": 1.445009685669183,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "feasible": false,
+          "reason": "no ballast can repair the invariant loaded trajectory",
+          "invariantFailure": {
+            "phase": "OUTBOUND_TRANSIT",
+            "progress": 0.177,
+            "unheldT": -0.23068807578982486,
+            "reason": "loaded trajectory requires upward authority"
+          }
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 41.14870339148832,
+          "requiredRotorT": 146.45405349508545,
+          "feasible": false,
+          "verification": {
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": -8.272329224403169,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.2236328125,
+              "limits": [
+                "upward authority unavailable"
+              ]
+            },
+            "cycleMWh": 8.270308798462764,
+            "kwhPerTonne": 82.70308798462764,
+            "peakRotorMW": 35.60032590128548,
+            "hoursOnBattery": 1.4043979683629106,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": 34.25214522600295,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.810546875,
+              "limits": [
+                "bus power"
+              ]
+            },
+            "cycleMWh": 8.04219820542544,
+            "kwhPerTonne": 80.4219820542544,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.445009685669183,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": 34.25214522600295,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.810546875,
+              "limits": [
+                "bus power"
+              ]
+            },
+            "cycleMWh": 8.04219820542544,
+            "kwhPerTonne": 80.4219820542544,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.445009685669183,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": 34.25214522600295,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.810546875,
+              "limits": [
+                "bus power"
+              ]
+            },
+            "cycleMWh": 8.04219820542544,
+            "kwhPerTonne": 80.4219820542544,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.445009685669183,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P100",
+      "km": 15,
+      "old": {
+        "cycleMWh": 1.3913373409350793,
+        "kwhPerTonne": 13.913373409350793,
+        "peakRotorMW": 0.30045182718747954,
+        "hoursOnBattery": 9.211399946705521,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 2.02300479358911,
+        "kwhPerTonne": 20.230047935891097,
+        "peakRotorMW": 11.806463384852957,
+        "hoursOnBattery": 6.098419537730311,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "aerodynamic coefficient",
+          "upward authority unavailable"
+        ],
+        "worst": {
+          "unheldT": -8.272329224403169,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.2236328125,
+          "limits": [
+            "upward authority unavailable"
+          ]
+        },
+        "cycleMWh": 6.300367361284031,
+        "kwhPerTonne": 63.00367361284031,
+        "peakRotorMW": 31.474632941176388,
+        "hoursOnBattery": 1.8545059159805393,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P100",
+        "km": 15,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "upward authority unavailable"
+          ],
+          "worst": {
+            "unheldT": -8.272329224403169,
+            "phase": "OUTBOUND_TRANSIT",
+            "progress": 0.2236328125,
+            "limits": [
+              "upward authority unavailable"
+            ]
+          },
+          "cycleMWh": 6.300367361284031,
+          "kwhPerTonne": 63.00367361284031,
+          "peakRotorMW": 31.474632941176388,
+          "hoursOnBattery": 1.8545059159805393,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "feasible": false,
+          "reason": "no ballast can repair the invariant loaded trajectory",
+          "invariantFailure": {
+            "phase": "OUTBOUND_TRANSIT",
+            "progress": 0.177,
+            "unheldT": -0.23068807578982486,
+            "reason": "loaded trajectory requires upward authority"
+          }
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 30.736091160751062,
+          "requiredRotorT": 136.53297948826165,
+          "feasible": false,
+          "verification": {
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": -8.272329224403169,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.2236328125,
+              "limits": [
+                "upward authority unavailable"
+              ]
+            },
+            "cycleMWh": 6.304483532691515,
+            "kwhPerTonne": 63.044835326915155,
+            "peakRotorMW": 32.05529304075558,
+            "hoursOnBattery": 1.8532648236054556,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "aerodynamic coefficient",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": -8.272329224403169,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.2236328125,
+              "limits": [
+                "upward authority unavailable"
+              ]
+            },
+            "cycleMWh": 6.419270511245989,
+            "kwhPerTonne": 64.19270511245989,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.8193115131021016,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "aerodynamic coefficient",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": -8.272329224403169,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.2236328125,
+              "limits": [
+                "upward authority unavailable"
+              ]
+            },
+            "cycleMWh": 6.300367361284031,
+            "kwhPerTonne": 63.00367361284031,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.8545059159805393,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "aerodynamic coefficient",
+              "upward authority unavailable"
+            ],
+            "worst": {
+              "unheldT": -8.272329224403169,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.2236328125,
+              "limits": [
+                "upward authority unavailable"
+              ]
+            },
+            "cycleMWh": 6.258227715944285,
+            "kwhPerTonne": 62.582277159442846,
+            "peakRotorMW": 31.474632941176388,
+            "hoursOnBattery": 1.8673079802368504,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "old": {
+        "cycleMWh": 4.884022899028383,
+        "kwhPerTonne": 48.84022899028383,
+        "peakRotorMW": 0.1006501443365153,
+        "hoursOnBattery": 7.915729434157964,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 6.0937098038379105,
+        "kwhPerTonne": 60.937098038379105,
+        "peakRotorMW": 11.035024065407638,
+        "hoursOnBattery": 6.212554941212675,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": true,
+        "bindingLimits": [],
+        "worst": {
+          "unheldT": -2.842170943040401e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6708984375,
+          "limits": []
+        },
+        "cycleMWh": 19.687357151597816,
+        "kwhPerTonne": 196.87357151597814,
+        "peakRotorMW": 30.572761676648017,
+        "hoursOnBattery": 1.817673693169085,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "modelled cycle"
+      },
+      "requirements": {
+        "class": "P100",
+        "km": 60,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -2.842170943040401e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6708984375,
+            "limits": []
+          },
+          "cycleMWh": 19.687357151597816,
+          "kwhPerTonne": 196.87357151597814,
+          "peakRotorMW": 30.572761676648017,
+          "hoursOnBattery": 1.817673693169085,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "modelled cycle"
+        },
+        "ballast": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -2.842170943040401e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6708984375,
+            "limits": []
+          },
+          "cycleMWh": 19.687357151597816,
+          "kwhPerTonne": 196.87357151597814,
+          "peakRotorMW": 30.572761676648017,
+          "hoursOnBattery": 1.817673693169085,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "modelled cycle",
+          "search": "zero ballast sufficient"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 29.332442579921267,
+          "requiredRotorT": 132.36891430504852,
+          "feasible": true,
+          "verification": {
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 19.687357151597816,
+            "kwhPerTonne": 196.87357151597814,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 1.817673693169085,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 19.687357151597816,
+            "kwhPerTonne": 196.87357151597814,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 1.817673693169085,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 19.687357151597816,
+            "kwhPerTonne": 196.87357151597814,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 1.817673693169085,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 19.687357151597816,
+            "kwhPerTonne": 196.87357151597814,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 1.817673693169085,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "old": {
+        "cycleMWh": 4.884022899028383,
+        "kwhPerTonne": 48.84022899028383,
+        "peakRotorMW": 0.1006501443365153,
+        "hoursOnBattery": 7.915729434157964,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 6.0937098038379105,
+        "kwhPerTonne": 60.937098038379105,
+        "peakRotorMW": 11.035024065407638,
+        "hoursOnBattery": 6.212554941212675,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": true,
+        "bindingLimits": [],
+        "worst": {
+          "unheldT": -2.842170943040401e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6708984375,
+          "limits": []
+        },
+        "cycleMWh": 14.346691325435918,
+        "kwhPerTonne": 143.46691325435918,
+        "peakRotorMW": 30.572761676648017,
+        "hoursOnBattery": 2.5173114946319077,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "modelled cycle"
+      },
+      "requirements": {
+        "class": "P100",
+        "km": 60,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -2.842170943040401e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6708984375,
+            "limits": []
+          },
+          "cycleMWh": 14.346691325435918,
+          "kwhPerTonne": 143.46691325435918,
+          "peakRotorMW": 30.572761676648017,
+          "hoursOnBattery": 2.5173114946319077,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "modelled cycle"
+        },
+        "ballast": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -2.842170943040401e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6708984375,
+            "limits": []
+          },
+          "cycleMWh": 14.346691325435918,
+          "kwhPerTonne": 143.46691325435918,
+          "peakRotorMW": 30.572761676648017,
+          "hoursOnBattery": 2.5173114946319077,
+          "deliveredT": 100,
+          "ballastT": 0,
+          "energyMeaning": "modelled cycle",
+          "search": "zero ballast sufficient"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 28.00322406749428,
+          "requiredRotorT": 132.36891430504852,
+          "feasible": true,
+          "verification": {
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 14.346691325435918,
+            "kwhPerTonne": 143.46691325435918,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 2.5173114946319077,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 14.562756137854805,
+            "kwhPerTonne": 145.62756137854805,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 2.4787128370089695,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 14.346691325435918,
+            "kwhPerTonne": 143.46691325435918,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 2.5173114946319077,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.842170943040401e-14,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6708984375,
+              "limits": []
+            },
+            "cycleMWh": 14.28379002049475,
+            "kwhPerTonne": 142.83790020494752,
+            "peakRotorMW": 30.572761676648017,
+            "hoursOnBattery": 2.528775380410002,
+            "deliveredT": 100,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "old": {
+        "cycleMWh": 8.454477478823392,
+        "kwhPerTonne": 8.454477478823392,
+        "peakRotorMW": 5.016538115055263,
+        "hoursOnBattery": 9.17091860404849,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 18.14934122815764,
+        "kwhPerTonne": 18.14934122815764,
+        "peakRotorMW": 146.34064171122992,
+        "hoursOnBattery": 4.06307771479987,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust"
+        ],
+        "worst": {
+          "unheldT": 868.5611622852377,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.73046875,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ]
+        },
+        "cycleMWh": 62.4999292037005,
+        "kwhPerTonne": 62.49992920370051,
+        "peakRotorMW": 153.7964607486556,
+        "hoursOnBattery": 1.1452067308558875,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P1000",
+        "km": 15,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "rotor thrust"
+          ],
+          "worst": {
+            "unheldT": 868.5611622852377,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.73046875,
+            "limits": [
+              "bus power",
+              "rotor thrust"
+            ]
+          },
+          "cycleMWh": 62.4999292037005,
+          "kwhPerTonne": 62.49992920370051,
+          "peakRotorMW": 153.7964607486556,
+          "hoursOnBattery": 1.1452067308558875,
+          "deliveredT": 1000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -5.684341886080802e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.65625,
+            "limits": []
+          },
+          "cycleMWh": 21.823674780702508,
+          "kwhPerTonne": 166.83506093225876,
+          "peakRotorMW": 134.4981936262521,
+          "hoursOnBattery": 2.6378811489864447,
+          "deliveredT": 130.8098828792572,
+          "ballastT": 869.1901171207428,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 539.9571311174388,
+          "requiredRotorT": 1396.2150791598012,
+          "feasible": true,
+          "verification": {
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.2737367544323206e-13,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.4345703125,
+              "limits": []
+            },
+            "cycleMWh": 111.40894180006455,
+            "kwhPerTonne": 111.40894180006455,
+            "peakRotorMW": 525.1548207027296,
+            "hoursOnBattery": 0.6390823276472594,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 62.4999292037005,
+            "kwhPerTonne": 62.49992920370051,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1452067308558875,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 62.4999292037005,
+            "kwhPerTonne": 62.49992920370051,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1452067308558875,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 62.4999292037005,
+            "kwhPerTonne": 62.49992920370051,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1452067308558875,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "old": {
+        "cycleMWh": 8.454477478823392,
+        "kwhPerTonne": 8.454477478823392,
+        "peakRotorMW": 5.016538115055263,
+        "hoursOnBattery": 9.17091860404849,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 18.14934122815764,
+        "kwhPerTonne": 18.14934122815764,
+        "peakRotorMW": 146.34064171122992,
+        "hoursOnBattery": 4.06307771479987,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient"
+        ],
+        "worst": {
+          "unheldT": 868.5611622852377,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.73046875,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ]
+        },
+        "cycleMWh": 61.19462691036294,
+        "kwhPerTonne": 61.19462691036294,
+        "peakRotorMW": 153.7964607486556,
+        "hoursOnBattery": 1.1699344584546194,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P1000",
+        "km": 15,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ],
+          "worst": {
+            "unheldT": 868.5611622852377,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.73046875,
+            "limits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ]
+          },
+          "cycleMWh": 61.19462691036294,
+          "kwhPerTonne": 61.19462691036294,
+          "peakRotorMW": 153.7964607486556,
+          "hoursOnBattery": 1.1699344584546194,
+          "deliveredT": 1000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -5.684341886080802e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.65625,
+            "limits": []
+          },
+          "cycleMWh": 17.373475387008533,
+          "kwhPerTonne": 132.81470027035306,
+          "peakRotorMW": 134.4981936262521,
+          "hoursOnBattery": 3.3372488834251888,
+          "deliveredT": 130.8098828792572,
+          "ballastT": 869.1901171207428,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 539.9571311174388,
+          "requiredRotorT": 1396.2150791598012,
+          "feasible": true,
+          "verification": {
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.2737367544323206e-13,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.0166015625,
+              "limits": []
+            },
+            "cycleMWh": 89.7600389386141,
+            "kwhPerTonne": 89.7600389386141,
+            "peakRotorMW": 525.1548207027296,
+            "hoursOnBattery": 0.7945061768365437,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 61.57446163153186,
+            "kwhPerTonne": 61.57446163153186,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1626293752263177,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 61.19462691036294,
+            "kwhPerTonne": 61.19462691036294,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1699344584546194,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 868.5611622852377,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 61.06636696332722,
+            "kwhPerTonne": 61.06636696332722,
+            "peakRotorMW": 153.7964607486556,
+            "hoursOnBattery": 1.1724219649153125,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "old": {
+        "cycleMWh": 26.81205578525386,
+        "kwhPerTonne": 26.81205578525386,
+        "peakRotorMW": 3.642351415541051,
+        "hoursOnBattery": 7.492289425917246,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 43.193146099812175,
+        "kwhPerTonne": 43.193146099812175,
+        "peakRotorMW": 148.47533347229128,
+        "hoursOnBattery": 4.5160839547383915,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust"
+        ],
+        "worst": {
+          "unheldT": 816.8275629402261,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.73046875,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ]
+        },
+        "cycleMWh": 140.68687110500713,
+        "kwhPerTonne": 140.68687110500713,
+        "peakRotorMW": 165.92480299465046,
+        "hoursOnBattery": 1.3423989321489038,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P1000",
+        "km": 60,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "rotor thrust"
+          ],
+          "worst": {
+            "unheldT": 816.8275629402261,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.73046875,
+            "limits": [
+              "bus power",
+              "rotor thrust"
+            ]
+          },
+          "cycleMWh": 140.68687110500713,
+          "kwhPerTonne": 140.68687110500713,
+          "peakRotorMW": 165.92480299465046,
+          "hoursOnBattery": 1.3423989321489038,
+          "deliveredT": 1000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": 5.684341886080802e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.5791015625,
+            "limits": []
+          },
+          "cycleMWh": 58.94888376473732,
+          "kwhPerTonne": 322.9023488485952,
+          "peakRotorMW": 146.6194299566879,
+          "hoursOnBattery": 3.011799242528798,
+          "deliveredT": 182.55947649478912,
+          "ballastT": 817.4405235052109,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 518.5064045971054,
+          "requiredRotorT": 1378.6783677766841,
+          "feasible": true,
+          "verification": {
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.2737367544323206e-13,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.5498046875,
+              "limits": []
+            },
+            "cycleMWh": 236.02828177244007,
+            "kwhPerTonne": 236.02828177244007,
+            "peakRotorMW": 515.735480257978,
+            "hoursOnBattery": 0.7956195194656697,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 140.68687110500713,
+            "kwhPerTonne": 140.68687110500713,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.3423989321489038,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 140.68687110500713,
+            "kwhPerTonne": 140.68687110500713,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.3423989321489038,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 140.68687110500713,
+            "kwhPerTonne": 140.68687110500713,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.3423989321489038,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "old": {
+        "cycleMWh": 26.81205578525386,
+        "kwhPerTonne": 26.81205578525386,
+        "peakRotorMW": 3.642351415541051,
+        "hoursOnBattery": 7.492289425917246,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 43.193146099812175,
+        "kwhPerTonne": 43.193146099812175,
+        "peakRotorMW": 148.47533347229128,
+        "hoursOnBattery": 4.5160839547383915,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient"
+        ],
+        "worst": {
+          "unheldT": 816.8275629402261,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.73046875,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ]
+        },
+        "cycleMWh": 138.70766266536418,
+        "kwhPerTonne": 138.70766266536418,
+        "peakRotorMW": 165.92480299465046,
+        "hoursOnBattery": 1.361827409094503,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P1000",
+        "km": 60,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ],
+          "worst": {
+            "unheldT": 816.8275629402261,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.73046875,
+            "limits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ]
+          },
+          "cycleMWh": 138.70766266536418,
+          "kwhPerTonne": 138.70766266536418,
+          "peakRotorMW": 165.92480299465046,
+          "hoursOnBattery": 1.361827409094503,
+          "deliveredT": 1000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": 5.684341886080802e-14,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.5791015625,
+            "limits": []
+          },
+          "cycleMWh": 48.110891059194955,
+          "kwhPerTonne": 263.5354350425529,
+          "peakRotorMW": 146.6194299566879,
+          "hoursOnBattery": 3.7167484551421253,
+          "deliveredT": 182.55947649478912,
+          "ballastT": 817.4405235052109,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 518.5064045971054,
+          "requiredRotorT": 1378.6783677766841,
+          "feasible": true,
+          "verification": {
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -2.2737367544323206e-13,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.0166015625,
+              "limits": []
+            },
+            "cycleMWh": 170.33874469147048,
+            "kwhPerTonne": 170.33874469147048,
+            "peakRotorMW": 515.735480257978,
+            "hoursOnBattery": 1.1060058714284753,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 139.14834482905704,
+            "kwhPerTonne": 139.14834482905707,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.357453035109174,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 138.70766266536418,
+            "kwhPerTonne": 138.70766266536418,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.361827409094503,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 816.8275629402261,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.73046875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 138.59802850663525,
+            "kwhPerTonne": 138.59802850663525,
+            "peakRotorMW": 165.92480299465046,
+            "hoursOnBattery": 1.362920061174038,
+            "deliveredT": 1000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "old": {
+        "cycleMWh": 54.325252027055555,
+        "kwhPerTonne": 5.4325252027055555,
+        "peakRotorMW": 52.2934059999643,
+        "hoursOnBattery": 30.20276734150385,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 176.00017471083115,
+        "kwhPerTonne": 17.600017471083113,
+        "peakRotorMW": 1157.272446034225,
+        "hoursOnBattery": 8.82503907201565,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "rotor thrust",
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 7389.457647502279,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6767578125,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ]
+        },
+        "cycleMWh": 697.5856386907633,
+        "kwhPerTonne": 69.75856386907633,
+        "peakRotorMW": 1405.710028959227,
+        "hoursOnBattery": 2.1875750600353734,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P10000",
+        "km": 15,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": false,
+          "bindingLimits": [
+            "rotor thrust",
+            "bus power"
+          ],
+          "worst": {
+            "unheldT": 7389.457647502279,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6767578125,
+            "limits": [
+              "bus power",
+              "rotor thrust"
+            ]
+          },
+          "cycleMWh": 697.5856386907633,
+          "kwhPerTonne": 69.75856386907633,
+          "peakRotorMW": 1405.710028959227,
+          "hoursOnBattery": 2.1875750600353734,
+          "deliveredT": 10000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -9.094947017729282e-13,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.685546875,
+            "limits": []
+          },
+          "cycleMWh": 236.4789845289928,
+          "kwhPerTonne": 90.84087630233581,
+          "peakRotorMW": 1288.9241290840423,
+          "hoursOnBattery": 4.466621712118533,
+          "deliveredT": 2603.2221853733063,
+          "ballastT": 7396.777814626694,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 4248.19088547457,
+          "requiredRotorT": 13115.846385003355,
+          "feasible": true,
+          "verification": {
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -1.8189894035458565e-12,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.3701171875,
+              "limits": []
+            },
+            "cycleMWh": 1173.9218583573668,
+            "kwhPerTonne": 117.39218583573668,
+            "peakRotorMW": 4137.115009558844,
+            "hoursOnBattery": 1.296825993994972,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 697.5856386907633,
+            "kwhPerTonne": 69.75856386907633,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.1875750600353734,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 697.5856386907633,
+            "kwhPerTonne": 69.75856386907633,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.1875750600353734,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 697.5856386907633,
+            "kwhPerTonne": 69.75856386907633,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.1875750600353734,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "old": {
+        "cycleMWh": 54.325252027055555,
+        "kwhPerTonne": 5.4325252027055555,
+        "peakRotorMW": 52.2934059999643,
+        "hoursOnBattery": 30.20276734150385,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 176.00017471083115,
+        "kwhPerTonne": 17.600017471083113,
+        "peakRotorMW": 1157.272446034225,
+        "hoursOnBattery": 8.82503907201565,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient"
+        ],
+        "worst": {
+          "unheldT": 7389.457647502279,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6767578125,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ]
+        },
+        "cycleMWh": 762.3665248199436,
+        "kwhPerTonne": 76.23665248199435,
+        "peakRotorMW": 1405.710028959227,
+        "hoursOnBattery": 2.000685212594696,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P10000",
+        "km": 15,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": false,
+          "bindingLimits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ],
+          "worst": {
+            "unheldT": 7389.457647502279,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6767578125,
+            "limits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ]
+          },
+          "cycleMWh": 762.3665248199436,
+          "kwhPerTonne": 76.23665248199435,
+          "peakRotorMW": 1405.710028959227,
+          "hoursOnBattery": 2.000685212594696,
+          "deliveredT": 10000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -9.094947017729282e-13,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.685546875,
+            "limits": []
+          },
+          "cycleMWh": 212.50025681705878,
+          "kwhPerTonne": 81.62970414551299,
+          "peakRotorMW": 1288.9241290840423,
+          "hoursOnBattery": 4.977412985769141,
+          "deliveredT": 2603.2221853733063,
+          "ballastT": 7396.777814626694,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 4248.19088547457,
+          "requiredRotorT": 13105.479616503775,
+          "feasible": true,
+          "verification": {
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": 1.8189894035458565e-12,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.005859375,
+              "limits": []
+            },
+            "cycleMWh": 1092.4614845961787,
+            "kwhPerTonne": 109.24614845961786,
+            "peakRotorMW": 4137.115009558844,
+            "hoursOnBattery": 1.3938889180016383,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "aerodynamic coefficient",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 759.4627902931819,
+            "kwhPerTonne": 75.94627902931819,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.008376124203273,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 762.3665248199436,
+            "kwhPerTonne": 76.23665248199435,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.000685212594696,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 7389.457647502279,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 760.0935129512559,
+            "kwhPerTonne": 76.00935129512558,
+            "peakRotorMW": 1405.710028959227,
+            "hoursOnBattery": 2.006700551979934,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "old": {
+        "cycleMWh": 143.1173026332512,
+        "kwhPerTonne": 14.31173026332512,
+        "peakRotorMW": 48.581402660619716,
+        "hoursOnBattery": 23.36910204605921,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 302.89363045597133,
+        "kwhPerTonne": 30.289363045597135,
+        "peakRotorMW": 1146.9568501073982,
+        "hoursOnBattery": 10.686231087933727,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "record",
+      "current": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "rotor thrust",
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 7273.49062429381,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6767578125,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ]
+        },
+        "cycleMWh": 1111.3329124042511,
+        "kwhPerTonne": 111.13329124042511,
+        "peakRotorMW": 1426.2349158370955,
+        "hoursOnBattery": 2.852656415086136,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P10000",
+        "km": 60,
+        "basis": "record",
+        "baseline": {
+          "basis": "record",
+          "feasible": false,
+          "bindingLimits": [
+            "rotor thrust",
+            "bus power"
+          ],
+          "worst": {
+            "unheldT": 7273.49062429381,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6767578125,
+            "limits": [
+              "bus power",
+              "rotor thrust"
+            ]
+          },
+          "cycleMWh": 1111.3329124042511,
+          "kwhPerTonne": 111.13329124042511,
+          "peakRotorMW": 1426.2349158370955,
+          "hoursOnBattery": 2.852656415086136,
+          "deliveredT": 10000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "record",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -9.094947017729282e-13,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.685546875,
+            "limits": []
+          },
+          "cycleMWh": 446.91599184428736,
+          "kwhPerTonne": 164.35459409865578,
+          "peakRotorMW": 1309.4490164098322,
+          "hoursOnBattery": 6.088247335788309,
+          "deliveredT": 2719.2181289196014,
+          "ballastT": 7280.781871080399,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 4205.048573046588,
+          "requiredRotorT": 13115.846385003355,
+          "feasible": true,
+          "verification": {
+            "basis": "record",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": -1.8189894035458565e-12,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.3701171875,
+              "limits": []
+            },
+            "cycleMWh": 1880.8348274188113,
+            "kwhPerTonne": 188.08348274188114,
+            "peakRotorMW": 4114.497584051833,
+            "hoursOnBattery": 1.6802604286186278,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 1111.3329124042511,
+            "kwhPerTonne": 111.13329124042511,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.852656415086136,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 1111.3329124042511,
+            "kwhPerTonne": 111.13329124042511,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.852656415086136,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "record",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ]
+            },
+            "cycleMWh": 1111.3329124042511,
+            "kwhPerTonne": 111.13329124042511,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.852656415086136,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "old": {
+        "cycleMWh": 143.1173026332512,
+        "kwhPerTonne": 14.31173026332512,
+        "peakRotorMW": 48.581402660619716,
+        "hoursOnBattery": 23.36910204605921,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "first": {
+        "cycleMWh": 302.89363045597133,
+        "kwhPerTonne": 30.289363045597135,
+        "peakRotorMW": 1146.9568501073982,
+        "hoursOnBattery": 10.686231087933727,
+        "feasible": null,
+        "basis": "unpriced aerodynamic share",
+        "bindingLimits": [
+          "not evaluated"
+        ]
+      },
+      "basis": "favourable",
+      "current": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 7273.49062429381,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6767578125,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient"
+          ]
+        },
+        "cycleMWh": 1329.620350401256,
+        "kwhPerTonne": 132.9620350401256,
+        "peakRotorMW": 1426.2349158370955,
+        "hoursOnBattery": 2.381316804321264,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+      },
+      "requirements": {
+        "class": "P10000",
+        "km": 60,
+        "basis": "favourable",
+        "baseline": {
+          "basis": "favourable",
+          "feasible": false,
+          "bindingLimits": [
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "bus power"
+          ],
+          "worst": {
+            "unheldT": 7273.49062429381,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.6767578125,
+            "limits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ]
+          },
+          "cycleMWh": 1329.620350401256,
+          "kwhPerTonne": 132.9620350401256,
+          "peakRotorMW": 1426.2349158370955,
+          "hoursOnBattery": 2.381316804321264,
+          "deliveredT": 10000,
+          "ballastT": 0,
+          "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+        },
+        "ballast": {
+          "basis": "favourable",
+          "feasible": true,
+          "bindingLimits": [],
+          "worst": {
+            "unheldT": -9.094947017729282e-13,
+            "phase": "SOURCE_APPROACH",
+            "progress": 0.685546875,
+            "limits": []
+          },
+          "cycleMWh": 398.65211520582164,
+          "kwhPerTonne": 146.60541975873554,
+          "peakRotorMW": 1309.4490164098322,
+          "hoursOnBattery": 6.8389476426792015,
+          "deliveredT": 2719.2181289196014,
+          "ballastT": 7280.781871080399,
+          "energyMeaning": "modelled cycle",
+          "search": "first feasible 1%-payload bracket, bisected to 1e-7 payload; no global monotonicity claimed"
+        },
+        "powerAndThrust": {
+          "requiredBatteryMW": 4205.048573046588,
+          "requiredRotorT": 13105.479616503775,
+          "feasible": true,
+          "verification": {
+            "basis": "favourable",
+            "feasible": true,
+            "bindingLimits": [],
+            "worst": {
+              "unheldT": 1.8189894035458565e-12,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.005859375,
+              "limits": []
+            },
+            "cycleMWh": 1665.423986867343,
+            "kwhPerTonne": 166.54239868673432,
+            "peakRotorMW": 4114.497584051833,
+            "hoursOnBattery": 1.898704399996524,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "modelled cycle"
+          },
+          "meaning": "seam-inclusive extrema, refined at local maxima; 1e-9 numerical headroom; same model verifies the resulting profile"
+        },
+        "clSensitivity": [
+          {
+            "clMax": 0.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "aerodynamic coefficient",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 1315.0880329819977,
+            "kwhPerTonne": 131.50880329819975,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.4078025049397938,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "rotor thrust",
+              "aerodynamic coefficient",
+              "bus power"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 1329.620350401256,
+            "kwhPerTonne": 132.9620350401256,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.381316804321264,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          },
+          {
+            "clMax": 1.5,
+            "basis": "favourable",
+            "feasible": false,
+            "bindingLimits": [
+              "bus power",
+              "rotor thrust",
+              "aerodynamic coefficient"
+            ],
+            "worst": {
+              "unheldT": 7273.49062429381,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6767578125,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ]
+            },
+            "cycleMWh": 1326.2278077719957,
+            "kwhPerTonne": 132.62278077719958,
+            "peakRotorMW": 1426.2349158370955,
+            "hoursOnBattery": 2.387447572370382,
+            "deliveredT": 10000,
+            "ballastT": 0,
+            "energyMeaning": "drawn profile cannot be flown; supplied effort only"
+          }
+        ],
+        "airBallast": "Unavailable: research/analysis/air-ballast.md retracts air admission into permanently sealed cells."
+      }
+    }
+  ]
+}

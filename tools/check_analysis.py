@@ -72,10 +72,15 @@ MANIFEST = [
      "classes/P100/throughputTph/atMedianByFire", ".1f"),
     ("water-availability.md", "water-availability", "input/fires", ",d"),
 
-    ("descent.md", "descent", "classes/P100/integratedMWh/withAnchorWhereItReaches", ".3f"),
-    ("descent.md", "descent", "classes/P100/ledgerSays/understatementVsIntegral", ".1f"),
-    ("descent.md", "descent", "classes/P100/integratedMWh/anchorSavingPct", ".1f"),
-    ("descent.md", "descent", "classes/P100/anchorAvailableForPctOfDescent", ".1f"),
+    # 2026-10-01: descent.json is the one model's own descent (sim/power.js), no longer an
+    # alternative integral; the old understatement/saving keys have no generated basis now.
+    ("descent.md", "descent", "classes/P100/letdown/mwh", ".3f"),
+    ("descent.md", "descent", "classes/P100/letdown/pctOfCycle", ".1f"),
+    ("descent.md", "descent", "classes/P1000/geometry/rotorsAloneFailBelowAglM", ",d"),
+    ("descent.md", "descent", "classes/P1000/letdown/clippedMinutes", ".2f"),
+    ("descent.md", "descent", "classes/P10000/rotorsBlindToTheBag/creditSavesPctOfCycle", ".1f"),
+    ("descent.md", "descent", "classes/P10000/withoutTheBag/bagCostsPerTonnePct", ".1f"),
+    ("descent.md", "descent", "classes/P10000/withoutTheBag/bagBuysDeliveredT", ",.1f"),
 
     ("delivery.md", "delivery", "classes/P100/atRealMedianLeg/lineKmPer24hAtCL4_30mSwath", ".1f"),
     ("delivery.md", "delivery", "classes/P100/atRealMedianLeg/pctOfPerimetersLinedDailyAtCL4",

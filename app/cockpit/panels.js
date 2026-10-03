@@ -1,6 +1,6 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=acbad6ee';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText } from '../../sim/index.js?v=acbad6ee';
 import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=acbad6ee';
 import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=acbad6ee';
 import { shipViz } from '../cockpit/shipviz.js?v=acbad6ee';
@@ -137,8 +137,8 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     const dialPk = Math.max(0.5, solMW + regenPk,
       m.plan.pumpMW + hotelMW,
       m.plan.dragMW + hotelMW,
-      m.cls.cryoMW * CFG.cryoMul * m.mode.cryoShare + m.plan.dragMW * 0.55 + hotelMW,
-      m.plan.downMW + m.plan.dragMW * 0.55 + hotelMW);
+      m.cls.cryoMW * CFG.cryoMul * m.mode.cryoShare + m.plan.dragMW + hotelMW,
+      m.plan.downMW + m.plan.dragMW + hotelMW);
     /* WHAT IS HANGING UNDER THE SHIP, in metres, on one face.
      *
      * This was generation against consumption — a dial whose whole content is repeated
@@ -195,7 +195,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
-      `<p class="cycnote">${fmt(m.plan.tph)} t/h to this fire · ${m.plan.eCycleMWh.toFixed(1)} MWh per cycle · ${m.plan.kwhPerTonne.toFixed(0)} kWh/t · <small class="energy-tag">${ENERGY_TAG}</small></p><p class="cycnote">${ENERGY_NOTE}</p>`;
+      `<p class="cycnote">${fmt(m.plan.tph)} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))} · <small class="energy-tag">${ENERGY_TAG}</small></p><p class="cycnote">${ENERGY_NOTE}</p>`;
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
@@ -283,7 +283,7 @@ export function updateCockpit() {
   updateM3D(m, st);
   if (phaseDialObj) phaseDialObj.set(st);
   const d = st.draw, g = st.gen || {};
-  const prp = (d.prop || 0) + (d.fans || 0) + (d.rotors || 0);
+  const prp = (d.prop || 0) + (d.rotors || 0);
   const pmp = (d.pumps || 0) + (d.winch || 0);
   const cry = d.cryo || 0, hot = d.hotel || 0;
   const sol = g.solar || 0, rgn = g.regen || 0;
@@ -316,9 +316,15 @@ export function updateCockpit() {
     if (netEl) {
       const net = sol + rgn - (prp + pmp + cry + hot);
       netEl.innerHTML = st.stopped
-        ? '<b style="color:var(--red)">power exhausted</b> — holding position; energy import is the next iteration'
+        ? '<b style="color:var(--red)">power exhausted</b> · vertical motion after shutdown is not modelled'
         : `net <b style="color:${net < 0 ? "var(--red)" : "#46d06e"}">${net < 0 ? "−" : "+"}${fmt(Math.abs(net), 1)} MW</b>` +
           (net < 0 ? " — storage depleting, no refills yet" : " — storage recovering") + `<small class="energy-tag">${ENERGY_TAG}</small>`;
+    }
+    if (netEl) {
+      const pair = energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan);
+      const other = drawAt(m.cls,m.mode,pair.favourable,st.phase,st.prog);
+      const favourableNet = Object.values(other.gen).reduce((a,b)=>a+b,0)-Object.values(other.draw).reduce((a,b)=>a+b,0);
+      netEl.innerHTML += ` · record: ${feasibilityText(pair.record)} · favourable net ${fmt(favourableNet,1)} MW: ${feasibilityText(pair.favourable)}`;
     }
     const tf = 1000 * 9.81, put = (id, v) => { const el = $(id); if (el) el.innerHTML = v; };
     // ONE SIGN CONVENTION: down is positive. Buoyancy pulls up, so it is a negative number,

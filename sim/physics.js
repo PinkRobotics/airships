@@ -5,21 +5,21 @@
  * functions, so they are kept together, short, and separately testable.
  */
 import { airDensity, ISA, isaPressurePa, isaTemperatureK } from './atmosphere.js?v=acbad6ee';
-import { CFG, sourceAltM } from './config.js?v=acbad6ee';
+import { CFG, WORK_ALT_MSL, sourceAltM } from './config.js?v=acbad6ee';
 
 export function pumpMW(cls) {
   return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * sourceAltM(cls) / CFG.pumpEta / 1e6;
 }
 
-export function dragMW(cls, mode) {
+export function dragMW(cls, mode, rho = ledger(cls, WORK_ALT_MSL).rho) {
   const v = cls.cruiseKph * mode.speed * CFG.speedMul / 3.6;
   const A = Math.PI * (cls.diaM / 2) ** 2;
-  return 0.5 * CFG.rhoAir * CFG.Cd * A * v ** 3 / CFG.propEta / 1e6;
+  return 0.5 * rho * CFG.Cd * A * v ** 3 / CFG.propEta / 1e6;
 }
 
-export function diskMW(cls, thrustN) {
+export function diskMW(cls, thrustN, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {
   if (thrustN <= 0) return 0;
-  return Math.pow(thrustN, 1.5) / Math.sqrt(2 * CFG.rhoAir * cls.diskM2) / CFG.propEta / 1e6;
+  return Math.pow(thrustN, 1.5) / Math.sqrt(2 * rho * cls.diskM2) / eta / 1e6;
 }
 
 /** Gross aerostatic lift as a mass, kg, before envelope/structure/payload.

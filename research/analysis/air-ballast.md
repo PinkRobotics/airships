@@ -1,3 +1,7 @@
+> The retained mass-budget capture reported a 52.5% nitrogen-cycle saving under its older energy denominator; this is historical, not a current feasible-flight saving.
+>
+> **2026-10-01:** the retraction stands. The energy/rotor tables below record earlier incomplete force models, not current feasible flights. Current record/favourable requirements are bound to `energy-closure.json` and `docs/ENERGY-CLOSURE-2026-10.md`.
+
 # Ballast — a retraction, and the finding that survived it
 
 > ## RETRACTED, 2026-08-10, the same day it was written.
@@ -59,9 +63,11 @@ Correction, 2026-10-02: the regenerated shares replace 52.5%, 36.4% and 16.6%.
 The cycle energy used as the denominator comes from the earlier flight model.
 The historical argument below has not been recomputed here.
 
-Over half of a P-100's published cycle energy is liquefaction, and it is invisible: `plan.js`
-adds `eCryo` to `E.RETURN_TRANSIT`, so a ledger reporting 0.938 MWh against "return transit" is
-reporting 0.114 MWh of flying and 0.824 MWh of refrigeration.
+A third of a P-100's published cycle energy is liquefaction. It was over half of the cycle the
+old budget published; the one energy model of 2026-10-01 made the rest of the cycle larger, not
+the plant smaller. It is no longer invisible: `sim/power.js` prices the plant as its own channel,
+so the phase ledger's 1.326 MWh against "return transit" is 0.502 MWh of flying and 0.824 MWh of
+refrigeration, and the channel ledger (`Echan.cryo`) says so directly.
 
 It is also unnecessary. `plan.js:64` makes `ln2MakeT` whatever the plant can produce in the
 time available — capacity times duration, not demand — so the ship refrigerates because it
@@ -70,25 +76,31 @@ hold:
 
 | | surplus at the source | anchor | left for the rotors | rotor capacity | margin |
 |---|---|---|---|---|---|
-| P-100 | 137.4 t | 125 t | 12.4 t | 267.2 t | **21.5×** |
-| P-1000 | 1,374.4 t | 1,250 t | 124.4 t | 1,318.1 t | 10.6× |
-| P-10000 | 13,743.6 t | 12,400 t | 1,343.6 t | 12,666.2 t | 9.4× |
+| P-100 | 137.4 t | 125 t | 12.4 t | 227.8 t | **18.4×** |
+| P-1000 | 1,374.4 t | 1,250 t | 124.4 t | 1,107.5 t | 8.9× |
+| P-10000 | 13,743.6 t | 12,400 t | 1,343.6 t | 11,474.6 t | 8.5× |
 
 **Recommendation: keep the plant and the tank, and stop running them in the normal cycle.**
 Liquefy on the ground, or when idle, or when the forecast says the ship may need to come down
 unpowered — not on every return leg. The plant's job is the emergency; the anchor's job is the
 cycle; and at present the ship pays for both every 34 minutes.
 
-## Read this next to `descent.md`, because the two corrections nearly cancel
+## Read this next to `descent.md` — the cancellation is gone
 
-They use different denominators and must not be quoted separately:
+The earlier version of this note put the nitrogen saving beside the descent correction and found
+they nearly cancelled: 1.253 MWh published, −0.658 for the plant, +0.622 for the letdown priced
+honestly, 1.217 MWh for both. The letdown is now priced in the published budget itself
+(`sim/power.js`, 2026-10-01; `docs/ENERGY-MODEL-2026-10.md`), so there is nothing left to cancel
+against:
 
 | | P-100 cycle |
 |---|---|
-| as published | 1.253 MWh |
+| as published, one model | 2.023 MWh |
 | stop making nitrogen in the cycle | −0.658 |
-| price the letdown honestly (`descent.md`) | +0.622 |
-| **both** | **1.217 MWh — about 3% below published, not 52% below** |
+| **without the plant in the cycle** | **1.365 MWh — 32.5% below published** |
 
-The nitrogen saving is real and the letdown correction is real, and together they very nearly
-swap one error for another. Neither number means anything on its own.
+The nitrogen saving stands on its own now. It is a third of the P-100's cycle, a seventh of the
+P-1000's and a twenty-third of the P-10000's — smaller shares than before because the rest of
+the cycle grew, not because the plant got cheaper. (The subtraction is `mass-budget.py`'s: it
+removes the plant's net energy and does not re-fly the descent with 1.83 t less nitrogen aboard,
+which would cost the rotors slightly more.)
