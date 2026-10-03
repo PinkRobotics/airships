@@ -16,17 +16,27 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
 
    This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `readmecheck` verifies the generated figures below. `noticecheck` checks the publication package; `linkcheck` checks repository documentation links and anchors without fetching external URLs.
 
-2. **Reproduce and move a number (about one minute; Node only).** This example uses balanced mode and a one-way distance in kilometres. It makes no feed request. What it prints comes from the earlier flight model: read "Model output and limits" below before quoting it.
+<!-- readme:energy-input:start -->
+2. **Reproduce and move a number (about one minute; Node only).**
+   This example uses balanced mode and a one-way distance in kilometres.
+   It prints both energy bases and the force verdict, without a feed request.
 
    ```sh
-   node --input-type=module -e "import {planCycle} from './sim/plan.js'; import {CLASSES, MODES} from './sim/config.js'; for (const km of [15, 45]) { const r = planCycle(CLASSES.P10000, MODES.balanced, km); console.log(km, r.tph.toFixed(0), r.cycleMin.toFixed(1), r.eCycleMWh.toFixed(2), r.kwhPerTonne.toFixed(2)); }"
+   node --input-type=module -e "import {planCycle,CLASSES,MODES} from './sim/index.js'; for(const km of [15, 45]) for(const basis of ['record','favourable']) { const p=planCycle(CLASSES.P10000,MODES.balanced,km,null,{basis}); console.log(km,basis,p.feasible,p.cycleMin,p.eCycleMWh,p.kwhPerTonne,p.worst); }"
    ```
 
-   The columns are km one way, tonnes/hour, minutes/cycle, MWh/cycle and kWh/delivered tonne. Longer transit lowers throughput and raises drag energy per tonne. Change the distance again, or inspect the assumptions in [`sim/config.js`](sim/config.js). The table below is regenerated from [`research/figures.json`](research/figures.json); `make figfresh` checks that record against the live model.
+   The columns are distance, basis, force verdict, minutes, supplied MWh, kWh per planned tonne, and the worst unheld force.
+   An infeasible row establishes no delivery or endurance.
+   The example and table use `energy-documents.json`; `make energydoccheck` compares that record with the model.
+<!-- readme:energy-input:end -->
 
    <!-- readme:example:start -->
-   Expected from the shipped defaults: **13,183 t/h**, **45.5 min/cycle**, **54.33 MWh/cycle**, and **5.43 kWh/t**. These are model outputs, not observed aircraft performance.
-   Expected at 45 km from the shipped defaults: **7,683 t/h**, **78.1 min/cycle**, **113.86 MWh/cycle**, and **11.39 kWh/t**. This row is also a model output.
+   At 15 km, the prescribed P-10000 cycle takes **45.5 minutes** and does not close on the drawn hardware.
+   Its supplied effort is **694.38 MWh/cycle** on record and **757.61 MWh/cycle** on favourable.
+   The corresponding **69.44 / 75.76 kWh per planned tonne** do not establish delivered water.
+   At 45 km, the prescribed P-10000 cycle takes **78.1 minutes** and does not close on the drawn hardware.
+   Its supplied effort is **976.51 MWh/cycle** on record and **1168.58 MWh/cycle** on favourable.
+   The corresponding **97.65 / 116.86 kWh per planned tonne** do not establish delivered water.
    <!-- readme:example:end -->
 
 3. **Inspect a recorded change.** The [public log](https://pinkrobotics.ca/log/) displays its builder, checker and token and wall-time cost. It needs JavaScript to load `data/activity.json`; plain `curl` only sees the fallback. Compare its commit identifier with your clone's `git log -1 --oneline`: this branch and the published log can be at different commits. The log's provenance and cost are reported by the crew's own records, not independently audited here.
@@ -63,31 +73,44 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
    The columns are basis, altitude name, altitude in metres, lift/mass and margin in tonnes; range rows give the minimum and maximum over all readings.
    These are computations with unresolved structural questions.
 
-Known model defects, deliberate failing tests and the decisions still open are recorded in [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md). The mass-budget record now uses the configured capsule areas; `make analysisfresh` checks it against fresh generation. The cycle-energy context still comes from the earlier flight model. The [objection loop](GOALS.md) says how a disputed number should be reproduced and corrected. The assembly gate can exit successfully with frozen failed proofs; a green suite is not evidence that the craft is buildable.
+Known model defects, deliberate failing tests and the decisions still open are recorded in [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md). The mass-budget record now uses the configured capsule areas; `make analysisfresh` checks it against fresh generation. <!-- readme:energy-budget-context:start -->
+The mass budget's cycle-energy context follows the figure cache. Its battery sizing does not establish feasible endurance.
+<!-- readme:energy-budget-context:end --> The [objection loop](GOALS.md) says how a disputed number should be reproduced and corrected. The assembly gate can exit successfully with frozen failed proofs; a green suite is not evidence that the craft is buildable.
 
 ## Model output and limits
 
-This table describes the simulated cycle under the model defaults. It is a calculation, not a performance claim. Its energy and delivery figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected energy figures will be higher, and some cycles may not be flyable as drawn. That model also has a documented disagreement between planned and integrated draw in [the open questions](docs/OPEN-QUESTIONS.md). The P-100 is the reference class. Nobody is proposing to build a P-10000.
+<!-- readme:energy-intro:start -->
+This table describes prescribed cycles under the model defaults. The force ledger and energy integrals now share one calculation.
+All rows below are unsupported prescribed profiles; their requested mass and supplied effort are not achieved delivery.
+The P-100 is the reference class. Nobody is proposing to build a P-10000.
+<!-- readme:energy-intro:end -->
 
 <!-- readme:headline:start -->
-| Model output, balanced mode, 15 km one way | P-100 | P-1000 | P-10000 |
+| Prescribed balanced profile at 15 km | P100 | P1000 | P10000 |
 |---|---:|---:|---:|
-| Payload | 100 t | 1,000 t | 10,000 t |
-| Hull length | 110 m | 238 m | 512 m |
-| Cycle | 34.2 min | 35.4 min | 45.5 min |
-| Water delivered | 175 t/h | 1,697 t/h | 13,183 t/h |
-| Descent anchor | 125 t | 1,250 t | 12,400 t |
-| Retained ballast | 0 t | 0 t | 0 t |
-| Energy per cycle | 1.39 MWh | 8.45 MWh | 54.33 MWh |
-| Energy per delivered tonne | 13.91 kWh/t | 8.45 kWh/t | 5.43 kWh/t |
-| What sets the cycle time | transit distance | transit distance | transit distance |
+| Force verdict | does not close / does not close | does not close / does not close | does not close / does not close |
+| Hull length, m | 110 | 238 | 512 |
+| Minutes | 34.2 | 35.4 | 45.5 |
+| Requested payload, t | 100 | 1000 | 10000 |
+| Water kept, t | 0 | 0 | 0 |
+| Supplied MWh: record / favourable | 8.192 / 6.402 | 62.314 / 61.155 | 694.378 / 757.615 |
+| kWh per planned tonne: record / favourable | 81.923 / 64.017 | 62.314 / 61.155 | 69.438 / 75.761 |
+| Worst unheld t: record / favourable | 34.556 / -5.714 | 818.465 / 818.465 | 7073.819 / 7073.819 |
 <!-- readme:headline:end -->
 
-The table names the limit on cycle time in the current calculation. The unresolved physical problem is descent: a large enough hull cannot push itself back down into the dense air over a lake. The descent anchor in the model is a proposed water bag, not demonstrated hardware.
+<!-- readme:energy-reading:start -->
+The prescribed profiles leave force unheld in several phases, including stationary fill on the larger classes.
+The [generated tables](docs/ENERGY-CLOSURE-2026-10.md) show the cheapest feasible profiles found in the stated space, their retained water and their minutes.
+The independent [payload-exchange study](research/analysis/payload-exchange.md) is analysis, not design.
+<!-- readme:energy-reading:end -->
 
 ## Where to inspect the calculation
 
-[`sim/config.js`](sim/config.js) names the classes, modes and defaults. [`sim/plan.js`](sim/plan.js) computes cycle duration, water delivered, energy and the limit on cycle time; [`sim/physics.js`](sim/physics.js) contains the lift and power equations. Run `make figfresh` to compare the generated figure record with the model, and `make readmecheck` to compare this page with that record. Regenerate this page after model records change with `python3 tools/gen_readme.py`.
+<!-- readme:energy-method:start -->
+`sim/config.js` names the assumptions. `sim/plan.js` times the cycle; `sim/power.js` owns force limits and integrated power.
+`sim/requirements.js` searches the stated profiles. Run `make energycheck energydoccheck figfresh` to check the energy records and documents.
+Run `make readmecheck` to compare this page with those records; regenerate it with `python3 tools/gen_readme.py`.
+<!-- readme:energy-method:end -->
 
 For a pinned browser run, serve the repository root and open the snapshot URL. The snapshot is committed data; it does not fetch a live emergency feed.
 

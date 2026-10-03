@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Regenerate the README's published model figures from generated records.
 
-The records are checked against the live model by figfresh and cellparity. This
+The records are checked by energydoccheck, figfresh and cellparity. This
 tool checks the README projection, including prose values, without a browser.
 """
 
 import argparse
 import json
-import subprocess
 from pathlib import Path
 import sys
 
@@ -21,51 +20,77 @@ def record(path):
 def sections():
     figures = record("research/figures.json")
     sources = record("research/sources.json")
-    classes = figures["classes"]
+    energy = record("research/analysis/energy-documents.json")
     names = ("P100", "P1000", "P10000")
+    classes = {r["class"]: r for r in energy["classes"]}
+    km = figures["assumptions"]["exampleKm"]
+    cycles = {(r["class"], r["basis"]): r["asDrawn"]
+              for r in energy["records"] if r["km"] == km}
 
-    def row(label, get, unit=""):
-        return "| " + label + " | " + " | ".join(
-            f"{get(classes[name])}{unit}" for name in names
-        ) + " |"
+    def row(label, get):
+        return "| " + label + " | " + " | ".join(get(name) for name in names) + " |"
 
-    def decimal(key, digits):
-        return lambda cls: f"{cls['cycle'][key]:,.{digits}f}"
+    def paired(name, field, digits=3):
+        return " / ".join(f"{cycles[name, basis][field]:.{digits}f}"
+                          for basis in ("record", "favourable"))
 
     headline = [
-        f"| Model output, balanced mode, {figures['assumptions']['exampleKm']} km one way | P-100 | P-1000 | P-10000 |",
+        f"| Prescribed balanced profile at {km} km | P100 | P1000 | P10000 |",
         "|---|---:|---:|---:|",
-        row("Payload", lambda c: f"{c['spec']['payloadT']:,}", " t"),
-        row("Hull length", lambda c: c["spec"]["lenM"], " m"),
-        row("Cycle", decimal("cycleMin", 1), " min"),
-        row("Water delivered", lambda c: f"{c['cycle']['tph']:,}", " t/h"),
-        row("Descent anchor", lambda c: f"{c['descent']['anchorT']:,}", " t"),
-        row("Retained ballast", lambda c: c["descent"]["retainedT"], " t"),
-        row("Energy per cycle", decimal("eCycleMWh", 2), " MWh"),
-        row("Energy per delivered tonne", decimal("kwhPerTonne", 2), " kWh/t"),
-        "| What sets the cycle time | " + " | ".join(
-            classes[name]["cycle"]["bottleneck"] for name in names
-        ) + " |",
+        row("Force verdict", lambda n: " / ".join(
+            "closes" if cycles[n, b]["feasible"] else "does not close"
+            for b in ("record", "favourable"))),
+        row("Hull length, m", lambda n: str(classes[n]["lengthM"])),
+        row("Minutes", lambda n: f"{cycles[n, 'record']['cycleMin']:.1f}"),
+        row("Requested payload, t", lambda n: f"{cycles[n, 'record']['deliveredT']:g}"),
+        row("Water kept, t", lambda n: f"{cycles[n, 'record']['ballastT']:g}"),
+        row("Supplied MWh: record / favourable", lambda n: paired(n, "cycleMWh")),
+        row("kWh per planned tonne: record / favourable", lambda n: paired(n, "kwhPerTonne")),
+        row("Worst unheld t: record / favourable", lambda n: " / ".join(
+            f"{cycles[n, b]['worst']['unheldT']:.3f}" for b in ("record", "favourable"))),
     ]
-    example = classes["P10000"]["cycle"]
-    changed_distance = json.loads(subprocess.check_output(
-        ["node", "--input-type=module", "-e",
-         "import {planCycle} from './sim/plan.js'; "
-         "import {CLASSES, MODES} from './sim/config.js'; "
-         "const c=planCycle(CLASSES.P10000, MODES.balanced, 45); "
-         "console.log(JSON.stringify({tph:c.tph,cycleMin:c.cycleMin,eCycleMWh:c.eCycleMWh,kwhPerTonne:c.kwhPerTonne}));"],
-        cwd=ROOT, text=True,
-    ))
-    first_screen = [
-        f"Expected from the shipped defaults: **{example['tph']:,} t/h**, "
-        f"**{example['cycleMin']:.1f} min/cycle**, "
-        f"**{example['eCycleMWh']:.2f} MWh/cycle**, and "
-        f"**{example['kwhPerTonne']:.2f} kWh/t**. These are model outputs, "
-        "not observed aircraft performance.",
-        f"Expected at 45 km from the shipped defaults: **{changed_distance['tph']:,.0f} t/h**, "
-        f"**{changed_distance['cycleMin']:.1f} min/cycle**, "
-        f"**{changed_distance['eCycleMWh']:.2f} MWh/cycle**, and "
-        f"**{changed_distance['kwhPerTonne']:.2f} kWh/t**. This row is also a model output."
+    first_screen = []
+    examples = energy["readmeExamples"]
+    distances = list(dict.fromkeys(r["km"] for r in examples))
+    for distance in distances:
+        rec, fav = (next(r for r in examples if r["km"] == distance and r["basis"] == b)
+                    for b in ("record", "favourable"))
+        verdict = "closes" if rec["feasible"] else "does not close on the drawn hardware"
+        first_screen.extend([
+            f"At {distance} km, the prescribed P-10000 cycle takes **{rec['cycleMin']:.1f} minutes** and {verdict}.",
+            f"Its supplied effort is **{rec['cycleMWh']:.2f} MWh/cycle** on record and **{fav['cycleMWh']:.2f} MWh/cycle** on favourable.",
+            f"The corresponding **{rec['kwhPerTonne']:.2f} / {fav['kwhPerTonne']:.2f} kWh per planned tonne** do not establish delivered water.",
+        ])
+    example_input = [
+        "2. **Reproduce and move a number (about one minute; Node only).**",
+        "   This example uses balanced mode and a one-way distance in kilometres.",
+        "   It prints both energy bases and the force verdict, without a feed request.",
+        "",
+        "   ```sh",
+        "   node --input-type=module -e \"import {planCycle,CLASSES,MODES} from './sim/index.js'; "
+        f"for(const km of {json.dumps(distances)}) for(const basis of ['record','favourable']) "
+        "{ const p=planCycle(CLASSES.P10000,MODES.balanced,km,null,{basis}); "
+        "console.log(km,basis,p.feasible,p.cycleMin,p.eCycleMWh,p.kwhPerTonne,p.worst); }\"",
+        "   ```",
+        "",
+        "   The columns are distance, basis, force verdict, minutes, supplied MWh, kWh per planned tonne, and the worst unheld force.",
+        "   An infeasible row establishes no delivery or endurance.",
+        "   The example and table use `energy-documents.json`; `make energydoccheck` compares that record with the model.",
+    ]
+    energy_intro = [
+        "This table describes prescribed cycles under the model defaults. The force ledger and energy integrals now share one calculation.",
+        "All rows below are unsupported prescribed profiles; their requested mass and supplied effort are not achieved delivery.",
+        "The P-100 is the reference class. Nobody is proposing to build a P-10000.",
+    ]
+    energy_reading = [
+        "The prescribed profiles leave force unheld in several phases, including stationary fill on the larger classes.",
+        "The [generated tables](docs/ENERGY-CLOSURE-2026-10.md) show the cheapest feasible profiles found in the stated space, their retained water and their minutes.",
+        "The independent [payload-exchange study](research/analysis/payload-exchange.md) is analysis, not design.",
+    ]
+    energy_method = [
+        "`sim/config.js` names the assumptions. `sim/plan.js` times the cycle; `sim/power.js` owns force limits and integrated power.",
+        "`sim/requirements.js` searches the stated profiles. Run `make energycheck energydoccheck figfresh` to check the energy records and documents.",
+        "Run `make readmecheck` to compare this page with those records; regenerate it with `python3 tools/gen_readme.py`.",
     ]
     ledger = record("research/analysis/float-ledger.json")
     caps = record("research/analysis/cap-readings.json")
@@ -89,6 +114,11 @@ def sections():
         "The [float ledger](docs/FLOAT-LEDGER.md) gives every case and what would have to be true to close it.",
     ]
     return {
+        "energy-input": "\n".join(example_input),
+        "energy-intro": "\n".join(energy_intro),
+        "energy-reading": "\n".join(energy_reading),
+        "energy-method": "\n".join(energy_method),
+        "energy-budget-context": "The mass budget's cycle-energy context follows the figure cache. Its battery sizing does not establish feasible endurance.",
         "float": "\n".join("   " + line for line in float_lines),
         "example": "\n".join("   " + line for line in first_screen),
         "headline": "\n".join(headline),
@@ -98,6 +128,18 @@ def sections():
 
 def regenerate(readme):
     current = readme
+    current = current.replace('The cycle-energy context still comes from the earlier flight model.', '<!-- readme:energy-budget-context:start -->\n<!-- readme:energy-budget-context:end -->')
+    # Introduce generator boundaries around the earlier energy prose once.
+    spans = {
+        "energy-input": ("2. **Reproduce and move a number", "   <!-- readme:example:start -->"),
+        "energy-intro": ("This table describes the simulated cycle", "<!-- readme:headline:start -->"),
+        "energy-reading": ("The table names the limit on cycle time", "## Where to inspect the calculation"),
+        "energy-method": ("[`sim/config.js`](sim/config.js) names", "For a pinned browser run"),
+    }
+    for name, (first, last) in spans.items():
+        if f"<!-- readme:{name}:start -->" not in current:
+            a, b = current.index(first), current.index(last)
+            current = current[:a] + f"<!-- readme:{name}:start -->\n<!-- readme:{name}:end -->\n\n" + current[b:]
     for name, body in sections().items():
         start = f"<!-- readme:{name}:start -->"
         end = f"<!-- readme:{name}:end -->"
