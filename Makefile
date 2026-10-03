@@ -1,7 +1,7 @@
 # The whole contributor interface. `make` on its own prints it.
 #
-# Checks need Python dependencies from requirements.txt, Chromium, and the PDF toolchain
-# (latexmk, pdfLaTeX, TeX Gyre fonts, poppler). CI also installs Node 22 for test-node.
+# Checks need Node, Python dependencies from requirements.txt, Chromium, and the PDF
+# toolchain (latexmk, pdfLaTeX, TeX Gyre fonts, poppler). CI installs Node 22 and these tools.
 
 PY     ?= python3
 CHROME ?= chromium
@@ -34,8 +34,8 @@ test:  ## Run the browser suites headless: the page's own, then the 3D library's
 	$(PY) $(BROWSER_RUNNER)
 	CHROME=$(CHROME) 3d/scripts/browser-tests.sh
 
-# CI reaches this target with node already installed, so the skip branch is unreachable
-# there and a missing node fails the build. Locally, skipping is the honest outcome.
+# CI provides Node and runs the complete Node suites. Without Node this target runs
+# the browser-compatible 3D fallback; the full check still requires Node.
 test-node:  ## Run the node unit tests — falls back to a browser shim when node is absent
 	@if ! command -v node >/dev/null 2>&1; then \
 	   echo 'test-node: no node here — running the same files in a browser instead.'; \
@@ -53,8 +53,8 @@ golden:  ## Re-run the model at seed=7 and diff every output against tests/golde
 # The other suites ask what the model computes and what the page renders. This one asks
 # whether the page is still running after someone has used it: a throw inside draw() kills
 # the animation frame that would have requested the next one, and the page then sits there
-# looking correct and frozen. It drives a browser, so it cannot run at the same time as the
-# golden gate — .NOTPARALLEL above is what keeps `make check` from trying.
+# looking correct and frozen. The .NOTPARALLEL declaration keeps `make check` output
+# ordered while this target drives its own browser.
 interaction:  ## Click through the page headless and check it survives every interaction
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
@@ -252,11 +252,10 @@ jointshots:  ## Capture six marked views of every printed joint (browser, ~15 mi
 jointreview: jointshots  ## Vision-review every joint against its seats (needs the fleet)
 	$(PY) tools/review_joints.py
 
-# The concept analyses in research/analysis/. These answer questions about the VEHICLE rather
-# than about the code, so they are not in `check`: two of them take minutes and one needs a
-# fire-history extract that is fetched, not generated. But they must stay reproducible, and
-# the browser-run ones must read the live model rather than a cached figure, for the same
-# reason `figfresh` exists.
+# This target rewrites the concept analyses in research/analysis/. `make check` runs
+# analysisfresh, which rebuilds them in scratch and compares the committed bytes.
+# Browser calculations read the model and the bundled fire-history capture; this
+# target does not refresh network inputs.
 analysis:  ## Regenerate the concept analyses in research/analysis/
 	$(PY) research/analysis/mass-budget.py --json research/analysis/mass-budget.json
 	$(PY) research/analysis/delivery.py --json research/analysis/delivery.json
@@ -322,6 +321,7 @@ ledger:  ## Regenerate the float figures and their complete basis
 
 ledgercheck:  ## Fresh ledger equality and explicit altitude/basis binding in prose
 	$(PY) tools/check_float_ledger.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_ledgercheck_node.py'
 
 .PHONY: analysisfresh
 analysisfresh:  ## Recompute each analysis in scratch and refuse any changed artifact

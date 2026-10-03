@@ -24,6 +24,7 @@ from html.parser import HTMLParser
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 
@@ -376,6 +377,9 @@ def markdown(hits):
 
 
 def main():
+    if shutil.which('node') is None:
+        print('ledgercheck: node is missing from PATH; install Node to run this gate.', file=sys.stderr)
+        return 1
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--inventory',action='store_true');ap.add_argument('--report',action='store_true')
     args=ap.parse_args()

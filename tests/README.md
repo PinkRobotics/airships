@@ -11,10 +11,8 @@ Three tiers, answering three different questions.
 | capture | does the daily capture tool behave against recorded responses? | `capture/check.py` (`make capturecheck`) | python3; a fixture server on 127.0.0.1 |
 
 The unit tier is written once and run twice. The assertions live in `cases/`, import nothing
-but the code under test and `harness.js`, and are executed by two runners: `browser/index.html`
-locally, `node/run.mjs` in CI. That split exists because the machine this was written on has no
-node and CI has no browser, and because a test that only runs in one of them is a test that
-rots in the other.
+but the code under test and `harness.js`, and are executed by `browser/index.html` and
+`node/run.mjs`. `make check` and CI run both runners.
 
 ```
 harness.js              describe/it, five assertions, and knownFail; collects, does not print
@@ -30,9 +28,9 @@ golden/*.json           the baselines; golden/*dump.js the scripts that produce 
 
 ```sh
 make test        # the browser suites, headless
-make test-node   # the same assertions under node --test, or a plain "no node here"
+make test-node   # Node suites; browser-compatible 3D fallback if Node is absent
 make golden      # replay at seed=7 and diff every output against the baselines
-make check       # everything that runs without node
+make check       # the same ordered gates as CI; Node is required
 ```
 
 **In a browser**, to read it rather than script it — no toolchain, no install:
