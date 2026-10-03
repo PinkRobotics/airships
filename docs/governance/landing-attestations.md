@@ -130,3 +130,16 @@
 | Order | sha256 `8049777bdd40eb85…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 11 — Price every vertical force in the energy model
+
+| field | value |
+|---|---|
+| Landed | 2026-10-03 08:13:28 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `d9eeb8524e620689250fd5abd36d84db498570cb` → `bd06b800b745ea2ffeeb77ca12807bee10db5128`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `bd06b800b745ea2ffeeb77ca12807bee10db5128`, tree `82a844b19ae3f4684b6cea54a436abfd443a313e`, from `pr/energy1` (source checkout redacted), parent `a9be53929076196e46f2fcb55c59ec98d8af6b82`, governance `gov-c45010e3dcc4` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py bd06b800b…` → rc=0, HONOURED-XO bd06b800b745ea2ffeeb77ca12807bee10db5128 — the last record for this sha is XO-SIGNED. (store redacted) |
+| Evidence before landing | `env redacted redacted redacted redacted` rc=0 |
+| Tool | `ship/tools/land.py` sha256 `d4ad25b6e0d27bd0…` (informational) |
+| Order | sha256 `8cceec42e77bf38d…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
