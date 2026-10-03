@@ -25,7 +25,8 @@ tools/tests/test_check_ports.py | address:0 | 1 | The negative URL fixture prove
 tools/tests/test_check_ports.py | address:443 | 1 | The negative remote-host fixture proves numeric ports are recognized beyond loopback.
 tools/tests/test_check_ports.py | address:8875 | 3 | Exact-allowance, wrong-count and same-line tests plant the manual address as fixture text.
 tools/tests/test_check_ports.py | address:9001 | 3 | Negative URL and changed-port fixtures test refusal without opening these addresses.
-tools/tests/test_check_ports.py | argument:9001 | 6 | Negative CLI fixtures cover split, equals, default, http.server and debugging arguments.
+tools/tests/test_check_ports.py | argument:8875 | 2 | The count-once test plants the manual http.server command, in shell and list form, as fixture text.
+tools/tests/test_check_ports.py | argument:9001 | 13 | Negative CLI fixtures cover split, equals, default and debugging arguments, and http.server ports as shell words, list elements and after options.
 tools/tests/test_check_ports.py | assignment:9001 | 12 | Negative assignment and scope fixtures exercise names, types, quoting and included files.
 tools/tests/test_check_ports.py | assignment:9002 | 1 | The list-assignment fixture checks every value in a literal port list.
 tools/tests/test_check_ports.py | bind:9001 | 3 | Negative bind and server-constructor fixtures are scanned as text, never executed.

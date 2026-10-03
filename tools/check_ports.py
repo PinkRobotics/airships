@@ -7,8 +7,9 @@ Comments and string examples are included. Nothing under docs is scanned.
 
 Recognized shapes, drawn from the port inventory (decimal literals):
 - address: a numeric port in an HTTP/WebSocket URL or a loopback host:port;
-- argument: a numeric port option, its argparse default, an http.server command, or
-  a JavaScript listen/bind argument;
+- argument: a numeric port option, its argparse default, the port of an http.server
+  command (shell words or list elements, after any options), or a JavaScript
+  listen/bind argument;
 - assignment: a numeric value/list assigned to port, PORT, *_port(s), *_PORT(S)
   or a camel-case *Port(s) name, including Makefile defaults;
 - bind: a nonzero literal in a bind/HTTPServer/TCPServer/Server address tuple;
@@ -49,8 +50,7 @@ NUMERIC = (
     ('address', re.compile(r'(?:https?|wss?)://(?:\[[^\]\s]+\]|[\w.-]+):([0-9]{1,5})\b|'
                            r'(?<![\w.])(?:127\.0\.0\.1|localhost):([0-9]{1,5})\b')),
     ('argument', re.compile(r'--(?:[\w]+-)*port(?:=|[\s\x22\x27,]+)([0-9]{1,5})\b|'
-                            r'--port[^\n]{0,80}?\bdefault\s*=\s*([0-9]{1,5})\b|'
-                            r'\bhttp\.server\s+[\x22\x27]?([0-9]{1,5})\b')),
+                            r'--port[^\n]{0,80}?\bdefault\s*=\s*([0-9]{1,5})\b')),
     ('bind', re.compile(r'(?:\.bind|\b[\w.]*(?:HTTPServer|TCPServer|Server))\s*\(\s*'
                         r'(?:server_address\s*=\s*)?\(\s*'
                         r'[^,\n]+,\s*([0-9]{1,5})\b')),
@@ -69,6 +69,33 @@ ENVIRONMENT = (
 )
 ENV_LOOP = re.compile(r'for\s+\w+\s+in\s*\([^)]*[\x22\x27](?:PORT|AIRSHIPS_PORT)[\x22\x27]'
                       r'[^)]*\)\s*:[\s\S]{0,160}?\benviron(?:\.get|\[)')
+# http.server takes its port as the first positional argument, after any options: as shell
+# words, or as list elements when the module name is itself a quoted element.
+HTTP_SERVER = re.compile(r'\bhttp\.server\b(?![\w.])')
+HTTP_SERVER_VALUED = {'-b', '--bind', '-d', '--directory', '-p', '--protocol',
+                      '--tls-cert', '--tls-key', '--tls-password-file'}
+WORD = re.compile(r'[^\s\x22\x27,\[\]()\\]+')
+
+
+def http_server_ports(text):
+    """Yield (port, offset) for each http.server command that names a literal port."""
+    for match in HTTP_SERVER.finditer(text):
+        rest = text[match.end():]
+        if rest[:1] in ('\x22', '\x27'):
+            end = re.search(r'[\])]', rest)
+            command = rest[:end.start() if end else len(rest)]
+        else:
+            end = re.search(r'(?<!\\)\n', rest)
+            command = rest[:end.start() if end else len(rest)].replace('\\\n', ' ')
+        words = iter(WORD.findall(command))
+        for word in words:
+            if word in HTTP_SERVER_VALUED:
+                next(words, None)
+            elif not word.startswith('-'):
+                port = re.match(r'[0-9]{1,5}\b', word)
+                if port:
+                    yield int(port.group()), match.start()
+                break
 
 
 def in_scope(path):
@@ -86,6 +113,9 @@ def scan(path, text):
             value = int(next(v for v in match.groups() if v is not None))
             if (kind == 'address' and value == 0) or 0 < value <= 65535:
                 hit(f'{kind}:{value}', match.start())
+    for value, offset in http_server_ports(text):
+        if 0 < value <= 65535:
+            hit(f'argument:{value}', offset)
     if path.endswith(('.js', '.mjs')):
         for match in re.finditer(r'\.(?:listen|bind)\s*\(\s*([0-9]{1,5})\b', text):
             if 0 < int(match.group(1)) <= 65535:

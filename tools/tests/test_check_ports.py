@@ -18,6 +18,15 @@ BAD = {
     'equals_argument': 'python3 tools/serve.py --port=9001',
     'argparse_default': 'parser.add_argument("--port", type=int, default=9001)',
     'http_server': 'python3 -m http.server 9001',
+    'http_server_bind_first': 'python3 -m http.server --bind 127.0.0.1 9001',
+    'http_server_continued': 'python3 -m http.server \\\n    --bind 127.0.0.1 9001',
+    'http_server_list': 'subprocess.Popen(["python3", "-m", "http.server", "9001"])',
+    'http_server_list_bind': 'subprocess.Popen(["python3", "-m", "http.server", "--bind", "127.0.0.1", "9001"])',
+    'http_server_list_lines': 'subprocess.Popen([\n    "python3", "-m", "http.server",\n    "-d", ".", "9001",\n])',
+    'http_server_prose': 'Run python3 -m http.server 9001. Then open the page.',
+    'http_server_escaped': 'script.write_text("python3 -m http.server 9001\\n")',
+    'http_server_escaped_quotes': 'command = "python3 -m http.server \\"9001\\""',
+    'js_http_server_spawn': 'spawn("python3", ["-m", "http.server", "9001"]);',
     'assignment': 'PORT = 9001',
     'typed_assignment': 'port: int = 9001',
     'make_default': 'PORT ?= 9001',
@@ -72,6 +81,21 @@ class PortRules(unittest.TestCase):
         self.plant('sock.bind(("127.0.0.1", 0))\n'
                    'args = ["--remote-debugging-port=0", "--port", "0"]\n'
                    'transport = 9001\nprofile = os.environ.get("TMPDIR")')
+        self.assertEqual(self.errors(), [])
+
+    def test_http_server_without_a_literal_port_passes(self):
+        self.plant('import http.server\n'
+                   'from http.server import BaseHTTPRequestHandler\n'
+                   'class Handler(http.server.SimpleHTTPRequestHandler):\n    pass\n'
+                   'command = ["python3", "-m", "http.server", "--bind", "127.0.0.1", str(chosen)]\n'
+                   'chosen_by_system = ["python3", "-m", "http.server", "0"]\n'
+                   '# python3 -m http.server mostly works')
+        self.assertEqual(self.errors(), [])
+
+    def test_http_server_port_is_counted_once_per_command(self):
+        self.plant('python3 -m http.server 8875\n'
+                   'command = ["python3", "-m", "http.server", "--bind", "127.0.0.1", "8875"]')
+        self.allow.write_text('tools/probe.py | argument:8875 | 2 | Person-facing example\n')
         self.assertEqual(self.errors(), [])
 
     def test_socket_read_is_confined_to_serving_module(self):
