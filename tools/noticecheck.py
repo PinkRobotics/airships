@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-from html.parser import HTMLParser
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -18,6 +17,7 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 import noticegen
+from linkparse import Links, parse_links
 from noticegen import esc, page
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -283,17 +283,6 @@ def embedded_credit(source: str) -> str | None:
     return match.group(0) if match else None
 
 
-class Links(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.links = []
-
-    def handle_starttag(self, tag, attrs):
-        for key, value in attrs:
-            if key in ("href", "src", "poster") and value:
-                self.links.append(value)
-
-
 def link_errors(dest: Path) -> list[str]:
     errors = []
     for path in sorted(dest.rglob("*")):
@@ -301,12 +290,10 @@ def link_errors(dest: Path) -> list[str]:
             continue
         content = path.read_text(encoding="utf-8", errors="replace")
         if path.suffix == ".html":
-            parser = Links()
-            parser.feed(content)
-            links = parser.links
+            links = parse_links(content, path.suffix)
             pointers = []
         else:
-            links = re.findall(r"(?<!!)\[[^]]+\]\(([^)]+)\)", content)
+            links = parse_links(content, path.suffix)
             # Plain-text pointers to the public legal documents must also resolve.
             pointers = re.findall(r"`((?:\.\./)?(?:LICENSE|NOTICE|DATA-SOURCES\.md))`", content)
         for pointer in pointers:

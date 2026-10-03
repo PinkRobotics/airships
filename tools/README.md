@@ -1,11 +1,15 @@
 # tools/
 
 Development tooling. None of it is served to the web (see `dist.manifest`) and none of it
-runs in a browser. Everything here is Python 3 with at most one dependency; `make help`
+runs in a browser. The tools use Python and JavaScript; `make help`
 lists the targets that wrap the ones you will use most.
 
-The two headless drivers spawn a binary called `chromium` and need `websockets` from
-`requirements.txt`. Everything else is standard library.
+The headless drivers need Chromium and `websockets`. Python dependencies are listed in
+`requirements.txt`; the Makefile documents Node and PDF toolchain requirements.
+
+`make linkcheck` checks tracked Markdown and HTML links, including anchors. It lists
+external addresses without fetching them. `make noticecheck` separately checks links
+in a temporary publication package. Both use `linkparse.py`.
 
 ---
 

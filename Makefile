@@ -11,7 +11,7 @@ PORT   ?= 8875
 .PHONY: help serve portproof portcheck test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
-        firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
+        firstparty firstparty-static labelledcheck readmecheck noticecheck linkcheck mutationcheck buildercheck clean
 .NOTPARALLEL:          # check runs its steps in a fixed order; interleaved output is useless
 
 help:  ## List these targets
@@ -73,7 +73,11 @@ noticecheck:  ## Publish to empty scratch and verify third-party records, notice
 	  trap 'rm -rf "$$d"' EXIT; \
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
-check: ciparity portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck mutationcheck buildercheck  ## Everything CI checks
+linkcheck:  ## Check tracked documentation links and anchors; list external URLs without fetching
+	$(PY) -m unittest -v tools.tests.test_check_links
+	$(PY) tools/check_links.py
+
+check: ciparity portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Everything CI checks
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
