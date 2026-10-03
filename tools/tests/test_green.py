@@ -112,6 +112,34 @@ class StrangerTests(unittest.TestCase):
             self.assertNotIn(account.pw_name, cleaned)
             self.assertEqual(set(json.loads(cleaned)), {'message'})
 
+    def test_runner_does_not_probe_retired_ports(self):
+        def clone(source, destination, *args):
+            destination.mkdir()
+            (destination / 'Makefile').write_text('check: sample\n')
+            return '0' * 40, {'kind': 'fixture'}
+
+        with tempfile.TemporaryDirectory() as td:
+            output = Path(td) / 'report.json'
+            row = {'gate': 'sample', 'status': 'pass', 'exit_code': 0,
+                   'seconds': 0, 'output_tail': []}
+            with patch.object(sys, 'argv', ['stranger_run.py', '--output', str(output)]), \
+                    patch.dict(os.environ, {'TMPDIR': td}), \
+                    patch.object(stranger, 'clone_input', side_effect=clone), \
+                    patch.object(stranger, 'isolation_probe', return_value=([], [])), \
+                    patch.object(stranger, 'tool_versions', return_value={}), \
+                    patch.object(stranger.shutil, 'which', return_value='/bin/sh'), \
+                    patch.object(stranger, 'run_gates', return_value=[row]) as run, \
+                    patch.object(stranger.socket, 'socket', side_effect=AssertionError('fixed-port probe')), \
+                    redirect_stdout(io.StringIO()):
+                code = stranger.main()
+            report = json.loads(output.read_text())
+            self.assertEqual(code, 0)
+            self.assertEqual(run.call_count, 1)
+            self.assertEqual(report['gates'], [row])
+            self.assertEqual(report['errors'], [])
+            self.assertNotIn('fixed test ports', json.dumps(report))
+            self.assertIn('system-chosen loopback ports', json.dumps(report['isolation']))
+
     def test_missing_tmpdir_writes_report_and_exits_nonzero(self):
         with tempfile.TemporaryDirectory() as td:
             out = Path(td) / 'report.json'

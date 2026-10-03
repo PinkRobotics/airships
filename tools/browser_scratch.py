@@ -1,9 +1,9 @@
-"""Disposable browser-readable scratch, preferring the checkout over the user's home.
+"""Disposable browser-readable scratch, honoring an explicit TMPDIR.
 
-Confined browsers can see a different system temporary directory from Python, and
-may reject TMPDIR altogether. Probe both profile writes and file reads rather than
-guessing from the executable name. A non-hidden checkout directory usually works
-with Snap's home interface. Only fall back to the account home if that fails.
+Confined browsers can see a different system temporary directory from Python.
+Probe profile writes and file reads rather than guessing from the executable name.
+An explicit TMPDIR is authoritative; unreadable scratch fails without a fallback.
+Without it, try the checkout and then the account home for confined browsers.
 """
 from contextlib import contextmanager
 import os

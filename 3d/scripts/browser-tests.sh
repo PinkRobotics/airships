@@ -14,7 +14,7 @@ CHROME="${CHROME:-chromium}"
 # With no argument, the wrapper owns the listening socket until this script exits.
 # A person may explicitly supply a complete loopback base address.
 if [ "$#" -eq 0 ]; then
-  exec python3 tools/with_server.py -- bash "${BASH_SOURCE[0]}" '{base}'
+  exec python3 tools/with_server.py -- bash 3d/scripts/browser-tests.sh '{base}'
 fi
 if [ "$#" -ne 1 ]; then
   echo 'usage: browser-tests.sh [base-url]' >&2

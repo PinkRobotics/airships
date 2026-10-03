@@ -8,7 +8,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
+.PHONY: help serve portproof test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck mutationcheck buildercheck clean
@@ -347,3 +347,6 @@ floatpages:
 floatpagecheck:  ## Float pages equal a fresh render of their documents (write them: make floatpages)
 	$(PY) tools/gen_float_pages.py --check
 	$(PY) -m unittest discover -s tools/tests -p 'test_float_pages.py'
+
+portproof:  ## Bind eight fixed ports to prove tree isolation; run alone
+	$(PY) tests/ports/proof.py $(PORTPROOF_ARGS)

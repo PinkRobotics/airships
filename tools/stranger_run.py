@@ -35,9 +35,6 @@ from check_ci_parity import make_gates
 
 ROOT = Path(__file__).resolve().parent.parent
 SYSTEM_PATH = "/usr/local/bin:/usr/bin:/bin:/snap/bin"
-# Current fixed-port browser drivers. Refuse an occupied port instead of borrowing a
-# server that may serve another checkout. The remaining drivers allocate ephemeral ports.
-FIXED_PORTS = (8791, 8871, 8898, 8907, 8909, 8911, 8913)
 
 
 def process(command, cwd, timeout=60, input_bytes=None):
@@ -273,17 +270,11 @@ def main():
                 "tool_path": "disposable Node copy plus system executable directories",
                 "scratch": "new directory under caller TMPDIR; removed after report",
                 "not_isolated": ["host kernel and installed system tools and Python packages",
-                                 "host network; fixed test ports checked for availability",
+                                 "host network; gate servers use system-chosen loopback ports",
                                  "host identity and system configuration"] + (
                                      [] if prefix else ["host filesystem, including real home"]),
             }
             report["tools"] = tool_versions(env, prefix, run)
-            for port in FIXED_PORTS:
-                with socket.socket() as sock:
-                    try:
-                        sock.bind(("127.0.0.1", port))
-                    except OSError as exc:
-                        raise RuntimeError(f"test port {port} is occupied; refusing another checkout's server") from exc
             report["gates"] = run_gates(clone, gates, env, prefix, args.gate_timeout, scrub)
         except (OSError, RuntimeError, ValueError) as exc:
             report["errors"].append(scrub(str(exc)))
