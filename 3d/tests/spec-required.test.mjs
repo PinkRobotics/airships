@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { resolveClass, rawSpec, CLASS_IDS, ALT, MODES } from '../model/config.js?v=5bcbf32c';
-import * as mission from '../anim/mission.js?v=5bcbf32c';
-import { aeroForce } from '../physics/mass.js?v=5bcbf32c';
-import { pumpPowerMW } from '../physics/energy.js?v=5bcbf32c';
-import { createHose } from '../anim/hose.js?v=5bcbf32c';
+import { resolveClass, rawSpec, CLASS_IDS, ALT, MODES } from '../model/config.js?v=47195d1b';
+import * as mission from '../anim/mission.js?v=47195d1b';
+import { aeroForce } from '../physics/mass.js?v=47195d1b';
+import { pumpPowerMW } from '../physics/energy.js?v=47195d1b';
+import { createHose } from '../anim/hose.js?v=47195d1b';
 
 const root = fileURLToPath(new URL('../', import.meta.url)).replace(/\/$/, '');
 function sourceFiles(dir) {

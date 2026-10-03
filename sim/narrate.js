@@ -1,8 +1,8 @@
 /* The mission trace in prose: last, now, next, plan.
  */
-import { ENERGY_NOTE } from './energy-label.js?v=acbad6ee';
-import { CFG, PHASES } from './config.js?v=acbad6ee';
-import { fmt, fmtMin, fmtT } from './format.js?v=acbad6ee';
+import { ENERGY_NOTE } from './energy-label.js?v=eae942b2';
+import { CFG, PHASES } from './config.js?v=eae942b2';
+import { fmt, fmtMin, fmtT } from './format.js?v=eae942b2';
 
 export function narrate(m, st) {
   if (m.idle) return {

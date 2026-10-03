@@ -1,7 +1,7 @@
 import {writeGenerated} from './energy-output.mjs';
 /* Current comparisons use the live ledger; earlier published rows remain dated history. */
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle,energySummary} from '../../sim/index.js';
+import {CLASSES,MODES,planCycle,energySummary} from '../../sim/index.js?v=eae942b2';
 const historical=JSON.parse(fs.readFileSync('research/analysis/energy-closure-history.json'));
 const requirements=JSON.parse(fs.readFileSync('research/analysis/energy-requirements.json')).rows;
 const rows=historical.flatMap(old=>['record','favourable'].map(basis=>({

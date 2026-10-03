@@ -24,48 +24,48 @@ export {
   DEFAULTS, CFG, setConfig, resetConfig, REFERENCE_CLASS,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
   TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
-} from './config.js?v=acbad6ee';
+} from './config.js?v=eae942b2';
 
 export {
   ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
-} from './atmosphere.js?v=acbad6ee';
+} from './atmosphere.js?v=eae942b2';
 
-export { SEED, setSeed, hashFrac } from './rng.js?v=acbad6ee';
+export { SEED, setSeed, hashFrac } from './rng.js?v=eae942b2';
 
 export {
   R_EARTH, havKm, moveToward, bez, bezBearing, easeTrap, easeSm, lerpAng, trackBearing,
-} from './geo.js?v=acbad6ee';
+} from './geo.js?v=eae942b2';
 
-export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=acbad6ee';
+export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=eae942b2';
 export {
   BUS_CEILING, ROTOR_EFFICIENCY_VALUES, AERO_CL_MAX, AERO_CL_VALUES, AERO_SPAN_EFFICIENCY, VERTICAL_CD, FORCE_TOL, LIMIT_STEPS, HOTEL_FRAC, WINCH_IDLE_FRAC, HOIST_M, WINCH_ETA, WINCH_MPS,
   LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS,
   inducedMW, rotorMaxTonnes, ventTph, regenMW, descentBusMW, cryoOnFrac, cycleGeometry,
   altAt, gsAt, loadAt, drawAt, integrateCycle, cycleLimits, aeroGeometry, rotorThrustLimitT,
-} from './power.js?v=acbad6ee';
-export { planCycle } from './plan.js?v=acbad6ee';
-export { findSource, intakePoint } from './water.js?v=acbad6ee';
-export { CITIES } from './communities.js?v=acbad6ee';
+} from './power.js?v=eae942b2';
+export { planCycle } from './plan.js?v=eae942b2';
+export { findSource, intakePoint } from './water.js?v=eae942b2';
+export { CITIES } from './communities.js?v=eae942b2';
 
 export {
   insideFire, dropSeg, planTargets, tIdx, segAt, legKmFor, stationFor, deliveryPoint,
   arrivalCurve,
-} from './targets.js?v=acbad6ee';
+} from './targets.js?v=eae942b2';
 
-export { sizeTier, assign } from './assign.js?v=acbad6ee';
+export { sizeTier, assign } from './assign.js?v=eae942b2';
 export {
   loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, fireNumber, guardedFire, missionBlocked, keepOutsFor, pointBlocked,
   pathBlocked, noteKm,
-} from './guard.js?v=acbad6ee';
-export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=acbad6ee';
-export { buildMission } from './mission.js?v=acbad6ee';
-export { anchorHang, stateAt } from './state.js?v=acbad6ee';
-export { narrate, srcName } from './narrate.js?v=acbad6ee';
-export { selftest } from './selftest.js?v=acbad6ee';
+} from './guard.js?v=eae942b2';
+export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=eae942b2';
+export { buildMission } from './mission.js?v=eae942b2';
+export { anchorHang, stateAt } from './state.js?v=eae942b2';
+export { narrate, srcName } from './narrate.js?v=eae942b2';
+export { selftest } from './selftest.js?v=eae942b2';
 
-export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=acbad6ee';
-export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=acbad6ee';
+export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=eae942b2';
+export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=eae942b2';
 
-export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=acbad6ee';
+export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=eae942b2';
 
-export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=acbad6ee';
+export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=eae942b2';
