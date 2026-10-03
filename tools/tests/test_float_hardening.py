@@ -4,6 +4,7 @@ Run directly with --observe to record old-gate misses without suppressing their 
 FLOAT_PLANT_REPORT names an optional JSON evidence file outside the tracked tree.
 """
 from __future__ import annotations
+from concurrent.futures import ProcessPoolExecutor
 import json
 import os
 from pathlib import Path
@@ -11,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -140,6 +142,46 @@ def run_case(root, name, spec):
                 output='\n'.join(outputs), green=spec.get('green', False))
 
 
+# One case per distinct finding, plus every positive control. The complete suite
+# remains mandatory for changes to the tools, schema or plants.
+FAST_CASES = (
+    'A1-float-headline', 'A2a-float-shown', 'A2c-basis-swap', 'A3-hand-ledger',
+    'A4-altitude-swap', 'A4-short-to-over', 'A4-round-1.00', 'A6-classes',
+    'A7-knockdown', 'A7-jsmirror-knockdown', 'A8-orphan', 'A8-dup-shard',
+    'A8-wrong-line', 'A8-empty-reason', 'A9-float-index', 'A10-census-json',
+)
+
+
+def workers():
+    value = os.environ.get('FLOAT_PLANT_WORKERS')
+    count = int(value) if value is not None else (os.cpu_count() or 1)
+    if count < 1:
+        raise ValueError('FLOAT_PLANT_WORKERS must be a positive integer')
+    return min(count, 8)
+
+
+def selected_cases(mode):
+    cases = specs()
+    if mode == 'all':
+        return cases
+    if mode != 'fast':
+        raise ValueError('FLOAT_PLANT_MODE must be all or fast')
+    return {name: spec for name, spec in cases.items()
+            if name in FAST_CASES or spec.get('green')}
+
+
+def run_one(base, files, name):
+    # Callbacks are built inside this process; no closure is pickled. chdir in
+    # run_case is process-local, so independent plants cannot cross trees.
+    with tempfile.TemporaryDirectory(prefix='case-', dir=base.parent) as td:
+        tree = Path(td)
+        copy_tree(tree, files, source=base)
+        started = time.monotonic()
+        row = run_case(tree, name, specs()[name])
+        row['seconds'] = round(time.monotonic() - started, 3)
+        return row
+
+
 class PlantedTree(unittest.TestCase):
     def test_counterexamples(self):
         scratch = Path(os.environ['TMPDIR'])
@@ -148,33 +190,37 @@ class PlantedTree(unittest.TestCase):
         files = sorted({f for f in tracked if f and not f.startswith(('inputs/', 'series/')) and f != 'HANDUP.md'} | {
             'tools/tests/float_plants.py', 'tools/tests/test_float_hardening.py'})
         rows = []
-        with tempfile.TemporaryDirectory(prefix='float-plants-', dir=scratch) as tmp:
-            base = Path(tmp) / 'base'
-            base.mkdir()
-            copy_tree(base, files)
-            for target in ('ledgercheck','floatpagecheck','censuscheck','cellparity'):
-                code, out = command(base, ['make', target])
-                rows.append(dict(id='unplanted' if target=='ledgercheck' else 'unplanted-'+target, code=code, output=out, green=True))
-                self.assertEqual(code, 0, out)
-            for name, spec in specs().items():
-                with self.subTest(plant=name):
-                    tree = Path(tmp) / 'plant'
-                    tree.mkdir()
-                    copy_tree(tree, files, source=base)
-                    try:
-                        row = run_case(tree, name, spec)
-                        rows.append(row)
-                        print(f'PLANT {name}: {"GREEN" if row["code"] == 0 else "RED"}', flush=True)
-                        if not OBSERVE:
-                            if row['green']:
-                                self.assertEqual(row['code'], 0, row['output'])
-                            else:
-                                self.assertNotEqual(row['code'], 0, row['output'])
-                                self.assertIn(row['expected'], row['output'])
-                    finally:
-                        shutil.rmtree(tree)
-        if report := os.environ.get('FLOAT_PLANT_REPORT'):
-            Path(report).write_text(json.dumps(rows, ensure_ascii=False, indent=2)+'\n')
+        mode = os.environ.get('FLOAT_PLANT_MODE', 'all')
+        cases = selected_cases(mode)
+        count = workers()
+        print(f'Plant suite: {mode}; {len(cases)} cases; {count} workers', flush=True)
+        try:
+            with tempfile.TemporaryDirectory(prefix='float-plants-', dir=scratch) as tmp:
+                base = Path(tmp) / 'base'
+                base.mkdir()
+                copy_tree(base, files)
+                for target in ('ledgercheck','floatpagecheck','censuscheck','cellparity'):
+                    code, out = command(base, ['make', target])
+                    rows.append(dict(id='unplanted' if target=='ledgercheck' else 'unplanted-'+target, code=code, output=out, green=True))
+                    self.assertEqual(code, 0, out)
+                with ProcessPoolExecutor(max_workers=count) as pool:
+                    futures = [pool.submit(run_one, base, files, name) for name in cases]
+                    # Read futures in registration order, never completion order. Each
+                    # case's complete stdout/stderr stays in its row in the report.
+                    for name, future in zip(cases, futures):
+                        with self.subTest(plant=name):
+                            row = future.result()
+                            rows.append(row)
+                            print(f'PLANT {name}: {"GREEN" if row["code"] == 0 else "RED"}', flush=True)
+                            if not OBSERVE:
+                                if row['green']:
+                                    self.assertEqual(row['code'], 0, row['output'])
+                                else:
+                                    self.assertNotEqual(row['code'], 0, row['output'])
+                                    self.assertIn(row['expected'], row['output'])
+        finally:
+            if report := os.environ.get('FLOAT_PLANT_REPORT'):
+                Path(report).write_text(json.dumps(rows, ensure_ascii=False, indent=2)+'\n')
 
 
 OBSERVE = '--observe' in sys.argv

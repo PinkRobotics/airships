@@ -60,6 +60,88 @@ class ParityTests(unittest.TestCase):
                     parity.check(root)
 
 
+class SplitParityTests(unittest.TestCase):
+    def setUp(self):
+        import copy
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        (self.root / '.github/workflows').mkdir(parents=True)
+        self.make = 'CI_OUTSIDE_CHECK := plants\ncheck: first second\nplants:\n\ttrue\n'
+        self.doc = {'on': {'push': None, 'pull_request': None}, 'jobs': {
+            'checks': {'steps': [{'id': 'check-gates', 'run': 'make --keep-going first second'}]},
+            'plants': {'steps': [{'run': 'make plants'}]}}}
+        self.copy = copy.deepcopy
+
+    def check(self, make=None, doc=None):
+        (self.root / 'Makefile').write_text(self.make if make is None else make)
+        (self.root / '.github/workflows/ci.yml').write_text(parity.yaml.safe_dump(self.doc if doc is None else doc))
+        return parity.check(self.root)
+
+    def test_split_passes_and_missing_job_is_red(self):
+        self.assertEqual(self.check(), ['first', 'second'])
+        doc = self.copy(self.doc)
+        del doc['jobs']['plants']
+        with self.assertRaisesRegex(ValueError, 'exactly once'):
+            self.check(doc=doc)
+
+    def test_renamed_target_and_extra_gate_are_red(self):
+        with self.assertRaisesRegex(ValueError, 'real, explicit'):
+            self.check(make=self.make.replace('plants:', 'renamed:'))
+        doc = self.copy(self.doc)
+        doc['jobs']['plants']['steps'][0]['run'] = 'make renamed'
+        with self.assertRaisesRegex(ValueError, 'extra CI make gate'):
+            self.check(doc=doc)
+        doc['jobs']['plants']['steps'][0]['run'] = 'make plants extra'
+        with self.assertRaisesRegex(ValueError, 'extra CI make gate'):
+            self.check(doc=doc)
+
+    def test_duplicate_disjoint_and_literal_contract(self):
+        doc = self.copy(self.doc)
+        doc['jobs']['duplicate'] = self.copy(doc['jobs']['plants'])
+        with self.assertRaisesRegex(ValueError, 'exactly once'):
+            self.check(doc=doc)
+        with self.assertRaisesRegex(ValueError, 'disjoint'):
+            self.check(make=self.make.replace('check: first second', 'check: first second plants'))
+        for body in ('$(TARGETS)', 'plants plants'):
+            with self.subTest(body=body), self.assertRaises(ValueError):
+                self.check(make=self.make.replace(':= plants', ':= '+body))
+        doc = self.copy(self.doc)
+        doc['jobs']['plants']['steps'][0]['run'] = 'make plants || true'
+        with self.assertRaises(ValueError):
+            self.check(doc=doc)
+
+    def test_erased_contract_and_hidden_extra_step_are_red(self):
+        with self.assertRaisesRegex(ValueError, 'extra CI make gate'):
+            self.check(make=self.make.replace('CI_OUTSIDE_CHECK := plants\n', ''))
+        doc = self.copy(self.doc)
+        doc['jobs']['plants']['steps'].append({'run': 'echo preparing\nmake extra'})
+        with self.assertRaisesRegex(ValueError, 'literal make step'):
+            self.check(doc=doc)
+
+    def test_no_job_or_step_can_skip_or_hide_failure(self):
+        for level in ('job', 'step'):
+            for key, value in (('if', 'false'), ('continue-on-error', True)):
+                doc = self.copy(self.doc)
+                mapping = doc['jobs']['plants'] if level == 'job' else doc['jobs']['plants']['steps'][0]
+                mapping[key] = value
+                with self.subTest(level=level, key=key), self.assertRaisesRegex(ValueError, 'unconditional'):
+                    self.check(doc=doc)
+        doc = self.copy(self.doc)
+        doc['jobs']['plants']['needs'] = 'checks'
+        with self.assertRaisesRegex(ValueError, 'independent'):
+            self.check(doc=doc)
+
+    def test_every_push_and_pull_request_without_filters(self):
+        for events in ({'push': None}, {'pull_request': None},
+                       {'push': {'paths': ['tools/**']}, 'pull_request': None},
+                       {'push': {'branches': ['main']}, 'pull_request': None}):
+            doc = self.copy(self.doc)
+            doc['on'] = events
+            with self.subTest(events=events), self.assertRaises(ValueError):
+                self.check(doc=doc)
+
+
 class StrangerTests(unittest.TestCase):
     def test_first_node_suite_failure_is_not_masked_by_second_suite(self):
         with tempfile.TemporaryDirectory() as td:

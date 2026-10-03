@@ -77,7 +77,9 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_check_links.py'
 	$(PY) tools/check_links.py
 
-check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Everything CI checks
+CI_OUTSIDE_CHECK := floatplants
+
+check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; gate tools, schema or plant changes also require floatplants
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -89,7 +91,7 @@ buildercheck:  ## Require a named builder on recorded changes; exempt only attes
 	$(PY) tools/check_builder_line.py
 	$(PY) -m unittest discover -s tools/tests -p 'test_builder_line.py'
 
-ciparity:  ## CI and make check must run the same ordered gates; verify the stranger runner
+ciparity:  ## Check ordered main gates and explicit separate CI targets; verify the stranger runner
 	$(PY) tools/check_ci_parity.py
 	$(PY) -m unittest discover -s tools/tests -p 'test_*green.py'
 
@@ -340,10 +342,14 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 	$(PY) tools/check_member_census.py --self-test
 	$(PY) tools/check_member_census.py
 
-.PHONY: ledgercheck-selftest
+.PHONY: ledgercheck-selftest floatplants
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
-	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_runner.py'
+	FLOAT_PLANT_MODE=fast $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
+
+floatplants:  ## Full plants: required before hand-up of gate tools, record schema or plant changes
+	FLOAT_PLANT_MODE=all $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
 
 .PHONY: floatpages floatpagecheck
 floatpages:

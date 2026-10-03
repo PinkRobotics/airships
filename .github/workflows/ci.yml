@@ -15,7 +15,7 @@ concurrency:
 jobs:
   checks:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 180
     env:
       A3D_TEST_TIMEOUT: '1800'
     steps:
@@ -60,3 +60,26 @@ jobs:
           analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck
           nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty
           interaction readmecheck noticecheck linkcheck mutationcheck buildercheck
+
+  floatplants:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install Python dependencies
+        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Prepare scratch directory
+        run: |
+          mkdir -p "$RUNNER_TEMP/scratch"
+          echo "TMPDIR=$RUNNER_TEMP/scratch" >> "$GITHUB_ENV"
+      - name: Complete independent claim plants
+        id: float-plants
+        run: make floatplants
