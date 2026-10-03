@@ -363,6 +363,7 @@ portcheck:  ## Refuse fixed gate ports and test owned server lifetimes
 energycheck:  ## Replay independent force, arithmetic, profile and printed-row energy checks
 	node tests/energy/closure.mjs
 	node tests/energy/replay.mjs
+	node tests/energy/unheld.mjs
 	node tests/node/energy-profile.mjs
 	$(PY) tests/energy/first-principles.py
 	node tests/energy/vertical-profile.mjs
