@@ -9,8 +9,10 @@ Recognized shapes, drawn from the port inventory (decimal literals):
 - address: a numeric port in an HTTP/WebSocket URL or a loopback host:port;
 - argument: a numeric port option, its argparse default, the port an http.server
   command binds (8000 when it names none), or a JavaScript listen/bind argument.
-  An http.server command with a word its own parser would refuse is
-  argument:unreadable, which no allowance can excuse;
+  An http.server command with a word its own parser would refuse, or a Python module
+  switch whose module name is computed, is argument:unreadable, which no allowance
+  can excuse. An explicit runpy.run_module call for http.server is unreadable too:
+  its serving arguments come from sys.argv rather than the call's arguments;
 - assignment: a numeric value/list assigned to port, PORT, *_port(s), *_PORT(S)
   or a camel-case *Port(s) name, including Makefile defaults;
 - bind: a nonzero literal in a bind/HTTPServer/TCPServer/Server address tuple;
@@ -27,8 +29,11 @@ positive count and row-specific reason; obsolete rows fail too.
 
 Limits: this is a syntax guard, not dataflow analysis. Constructed strings, aliased
 APIs, computed or nondecimal numbers and ports hidden behind differently named variables can
-escape it. An http.server command is read only where Python runs it by its module switch,
-and a computed port is trusted to be chosen at run time. Files outside the scope, untracked
+escape it. A switch on an explicitly named Python executable (including sys.executable
+and the Makefile's PY) with a computed module name fails closed; adjacent string literals
+are read as their one constant. Explicit runpy.run_module calls naming http.server are
+refused without attempting to infer sys.argv. A computed port on a literal module command
+is trusted to be chosen at run time. Files outside the scope, untracked
 files, installed dependencies and external services are not inspected. `make portproof`
 checks the actual isolation of the eight browser gates independently of these patterns.
 """
@@ -82,6 +87,10 @@ ENV_LOOP = re.compile(r'for\s+\w+\s+in\s*\([^)]*[\x22\x27](?:PORT|AIRSHIPS_PORT)
 # is not a fixed one.
 HTTP_SERVER = re.compile(r'(?<![\w-])-[A-Za-z]*m(?P<gap>(?:[\s\x22\x27\\,+]|#[^\n]*\n)*?)'
                          r'http\.server(?![\w.])')
+MODULE_SWITCH = re.compile(r'(?<![\w-])-[A-Za-z]*m(?![\w.-])')
+RUN_MODULE = re.compile(r'(?<![\w.])runpy\.run_module\s*\(')
+PYTHON_COMMAND = re.compile(r'(?<![\w.])python(?:[0-9]+(?:\.[0-9]+)*)?\b|\bsys\.executable\b|'
+                            r'\$\(\s*PY\s*\)|\$\{?PY(?:THON)?\}?\b')
 SERVER_OPTIONS = {'--bind': True, '--directory': True, '--protocol': True, '--tls-cert': True,
                   '--tls-key': True, '--tls-password-file': True, '--cgi': False, '--help': False}
 SERVER_SHORT = {'-b': '--bind', '-d': '--directory', '-p': '--protocol', '-h': '--help'}
@@ -265,7 +274,9 @@ def server_port(words):
 
 def http_server_ports(text):
     """Yield (port, offset) for each http.server command whose port is fixed or unreadable."""
+    covered = set()
     for match in HTTP_SERVER.finditer(text):
+        covered.add(match.start())
         line = text.rfind('\n', 0, match.start()) + 1
         quote, opened = open_quote(text[line:match.start()])
         element = quote and line + opened == match.start() - 1  # the switch opens an element
@@ -284,6 +295,43 @@ def http_server_ports(text):
         port = server_port(words)
         if port is not None:
             yield port, match.start()
+    for match in MODULE_SWITCH.finditer(text):
+        if match.start() in covered:
+            continue
+        # A message switch on a Git command is not a Python module switch. Look in
+        # the same shell command or the still-open argument list for its executable.
+        start = max(text.rfind('\n', 0, match.start()), text.rfind(';', 0, match.start())) + 1
+        prefix = text[start:match.start()]
+        if not PYTHON_COMMAND.search(prefix):
+            opening = max(text.rfind('[', 0, match.start()), text.rfind('(', 0, match.start()))
+            prefix = text[opening:match.start()] if opening >= 0 else ''
+            if any(end in prefix for end in '])') or not PYTHON_COMMAND.search(prefix):
+                continue
+        line = text.rfind('\n', 0, match.start()) + 1
+        quote, opened = open_quote(text[line:match.start()])
+        element = quote and line + opened == match.start() - 1
+        end = match.end()
+        if element and text.startswith(quote, end):
+            end += 1
+            words = (list_words(text, end) if re.match(r'\s*,', text[end:])
+                     else shell_words(text, end))
+        elif quote:
+            words = shell_words(string_body(text, end, quote))
+        else:
+            words = shell_words(text, end)
+        if not words:
+            continue
+        module, *arguments = words
+        if module is None or module is UNREADABLE:
+            yield UNREADABLE, match.start()
+        elif module == 'http.server':
+            port = server_port(arguments)
+            if port is not None:
+                yield port, match.start()
+    for match in RUN_MODULE.finditer(text):
+        words = list_words(text, match.end())
+        if words and words[0] == 'http.server':
+            yield UNREADABLE, match.start()
 
 
 def in_scope(path):

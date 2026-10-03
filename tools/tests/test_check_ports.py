@@ -11,6 +11,7 @@ import check_ports
 # The gate scans this file too. Its http.server commands are assembled at run time, so that the
 # file's own text holds no command for the gate to read and no second layer of escaping.
 SERVER = 'http.' + 'server'
+MODULE_SWITCH = '-' + 'm'
 
 BAD = {
     'loopback_address': 'url = "http://127.0.0.1:9001/page"',
@@ -54,6 +55,24 @@ BAD = {
 # parser binds for those words (8000 when none is named), argument:unreadable when that parser
 # would refuse a word, and nothing when the port is computed or zero or only help is asked for.
 SERVER_COMMANDS = {
+    # D1-D5: computed or alternate module spellings from the port-gate review.
+    f'MODULE = "{SERVER}"\nPopen([sys.executable, "{MODULE_SWITCH}", MODULE, "8123"])':
+        'argument:unreadable',
+    f'Popen([sys.executable, "{MODULE_SWITCH}", f"{SERVER}", "8123"])':
+        'argument:unreadable',
+    f'Popen([sys.executable, "{MODULE_SWITCH}", "http." "server", "8123"])':
+        'argument:8123',
+    f'sys.argv = ["{SERVER}", "8123"]\nrunpy.run_module("{SERVER}", run_name="__main__")':
+        'argument:unreadable',
+    f'M={SERVER}; python3 {MODULE_SWITCH} $M 8123': 'argument:unreadable',
+    # Computed calls and shell expansions fail too; ordinary module and Git calls pass.
+    f'Popen([\n    sys.executable, "{MODULE_SWITCH}",\n    module_name(), "8123"\n])':
+        'argument:unreadable',
+    f'python3 "{MODULE_SWITCH}" "${{MODULE}}" 8123': 'argument:unreadable',
+    f'python3 {MODULE_SWITCH} json.tool': None,
+    f'Popen([sys.executable, "{MODULE_SWITCH}", "json.tool"])': None,
+    f'self.git("commit", "{MODULE_SWITCH}", message)': None,
+    f'runpy.run_module("json.tool", run_name="__main__")': None,
     f'python3 -m {SERVER} 9001': 'argument:9001',
     f'python3 -m {SERVER} --bind 127.0.0.1 9001': 'argument:9001',
     f'python3 -m {SERVER} \\\n    --bind 127.0.0.1 9001': 'argument:9001',
