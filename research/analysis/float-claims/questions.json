@@ -16,11 +16,11 @@
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
-      "key": "72e10ddc0c4f63a3",
+      "key": "02902362ee1e3903",
       "line": 81,
       "class": "history",
-      "date": "2026-10-01",
-      "reason": "Dated account of earlier analysis and test changes; current energy records supersede its performance claims."
+      "date": "2026-10-03",
+      "reason": "Dated account of corrected defects and test changes; tools/gen_test_status.py generates the current marker count. Historical flight claims remain superseded by the force-ledger records."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -179,14 +179,6 @@
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
-    },
-    {
-      "file": "docs/OPEN-QUESTIONS.md",
-      "key": "d4a3af526ece9984",
-      "line": 629,
-      "class": "method",
-      "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
-      "context": []
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -1141,6 +1133,15 @@
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "dd021e7abaca30e6",
+      "line": 631,
+      "class": "method",
+      "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
+      "context": [],
+      "dated": "2026-10-03"
     }
   ]
 }
