@@ -1,1187 +1,1203 @@
 {
- "schema": "float-claims/1",
- "files": [
-  "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-  "research/notes/barrier-and-permeation.md",
-  "research/notes/chin-2021-battery-cell-to-pack.md",
-  "research/notes/helium-and-hydrogen.md",
-  "research/notes/hierarchy-manufacturing.md",
-  "research/notes/jenett-2019-lattice-vacuum-airship.md",
-  "research/notes/metlen-2013-vacuum-lta-vehicle.md",
-  "research/notes/noaa-1976-us-standard-atmosphere.md",
-  "research/notes/print-reliability.md",
-  "research/notes/prior-art-cellular-vacuum.md",
-  "research/notes/suter-2005-rotor-wash.md",
-  "research/notes/usfs-2022-retardant-airtanker-bases.md",
-  "research/reports/01-brief.md",
-  "research/reports/02-paper.md",
-  "research/reports/03-diligence.md"
- ],
- "dated": [],
- "entries": [
-  {
-   "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-   "key": "42059b53a8cf4209",
-   "line": 9,
-   "class": "literature",
-   "reason": "The homogeneous-sphere criterion and diamond counterexample belong to Akhmeteli and Gavrilin, not to a project hull.",
-   "text": "The negative result is exact. For a homogeneous single-layer evacuated sphere, floating requires `h/R = ρa/3ρs` and surviving requires the classical buckling pressure to exceed one atmosphere; combining them demands `E/ρs² ≳ 4.5 × 10⁵ kg⁻¹m⁵s⁻²`. Diamond, at 1.2 TPa and 3,500 kg/m³, reaches about 1 × 10⁵. A perfect diamond sphere of ideal geometry buckles at roughly **0.2 atmospheres**. No solid in existence can be a one-layer vacuum balloon, at any radius — the criterion is scale-free.",
-   "source": "Akhmeteli & Gavrilin (2021), Eng 2(4), 480–491, homogeneous-shell analysis."
-  },
-  {
-   "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-   "key": "ec6aeb820b689362",
-   "line": 16,
-   "class": "literature",
-   "reason": "This is the paper’s boron-carbide sandwich sphere and its eigenvalue calculation; the example does not describe our drawing.",
-   "text": "The positive result is a three-layer sandwich: boron carbide face skins (460 GPa, 2,500 kg/m³, 3.2 GPa compressive) bonded to PLASCORE 5056 aluminium honeycomb (50 kg/m³). Optimising against their own analytical buckling estimate and then against an ANSYS axisymmetric eigenvalue buckling FEA gives face skins `4.23 × 10⁻⁵·R` and a core `3.52 × 10⁻³·R`, with a buckling safety factor λ_min = 2.65. They check face-skin compressive stress (600 MPa against 3,200), shear crimping, face wrinkling and intracell dimpling, the last of which sets a *minimum* radius of R > 2.11 m. Worked example at R = 2.5 m: 106 µm skins, 8.8 mm core, shell 75.7 kg, payload 8.7 kg.",
-   "source": "Akhmeteli & Gavrilin (2021), sandwich-shell optimisation and worked radius-2.5 m example."
-  },
-  {
-   "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-   "key": "554dc94495495b45",
-   "line": 26,
-   "class": "literature",
-   "reason": "The one-tenth payload fraction is the cited sandwich design’s accounting convention, retained as the comparison benchmark.",
-   "text": "The design is quoted at a **payload fraction q = 0.1**: at zero buoyancy, everything that is not shell may weigh one tenth of the displaced air. That is the most rigorous published number for what a vacuum hull costs, and it is the number our ledger has to beat.",
-   "source": "Akhmeteli & Gavrilin (2021), payload fraction q = 0.1."
-  },
-  {
-   "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-   "key": "a908492b3d3c964c",
-   "line": 36,
-   "class": "literature",
-   "reason": "The altitude extrapolation keeps Akhmeteli’s sphere as its object and compares its published density with ISA; it does not claim that our hull floats.",
-   "text": "Worse, and this is our arithmetic rather than theirs: a shell massing 90% of sea-level air density is neutrally buoyant *empty* at roughly 0.6–1.1 km in the ISA column, depending on whether you size against their 1.29 kg/m³ or ISA's 1.225. Our hulls work at 2,500 m MSL. An Akhmeteli sphere sized for our loads would not reach the altitude our fleet cruises at, let alone carry water there.",
-   "source": "Akhmeteli & Gavrilin (2021), shell fraction; U.S. Standard Atmosphere (1976), density profile. Neutral-altitude range is this note’s extrapolation."
-  },
-  {
-   "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
-   "key": "bc2f9cd1257407e3",
-   "line": 32,
-   "class": "bound",
-   "reason": "The imported shell density is compared with the simulator’s assumed dry allowance, not with a measured or sized fleet hull.",
-   "text": "It does not support us anywhere. On their numbers the shell alone is 0.9 × 1.29 = **1.16 kg per m³** of enclosed volume. The fleet model's entire dry-mass allowance, covering structure, rotors, batteries, cryogenic plant, pumps and tanks, is 0.455 kg/m³. Their shell alone is 2.55 times that assumed allowance.",
-   "context": [
-    "0.9",
-    "1.29"
-   ],
-   "bindings": [
+  "schema": "float-claims/1",
+  "files": [
+    "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+    "research/notes/barrier-and-permeation.md",
+    "research/notes/chin-2021-battery-cell-to-pack.md",
+    "research/notes/helium-and-hydrogen.md",
+    "research/notes/hierarchy-manufacturing.md",
+    "research/notes/jenett-2019-lattice-vacuum-airship.md",
+    "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+    "research/notes/noaa-1976-us-standard-atmosphere.md",
+    "research/notes/print-reliability.md",
+    "research/notes/prior-art-cellular-vacuum.md",
+    "research/notes/suter-2005-rotor-wash.md",
+    "research/notes/usfs-2022-retardant-airtanker-bases.md",
+    "research/reports/01-brief.md",
+    "research/reports/02-paper.md",
+    "research/reports/03-diligence.md"
+  ],
+  "dated": [],
+  "entries": [
     {
-     "case": "literature-demonstrated",
-     "field": "mass",
-     "shown": "1.16"
+      "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+      "key": "42059b53a8cf4209",
+      "line": 9,
+      "class": "literature",
+      "reason": "The homogeneous-sphere criterion and diamond counterexample belong to Akhmeteli and Gavrilin, not to a project hull.",
+      "text": "The negative result is exact. For a homogeneous single-layer evacuated sphere, floating requires `h/R = ρa/3ρs` and surviving requires the classical buckling pressure to exceed one atmosphere; combining them demands `E/ρs² ≳ 4.5 × 10⁵ kg⁻¹m⁵s⁻²`. Diamond, at 1.2 TPa and 3,500 kg/m³, reaches about 1 × 10⁵. A perfect diamond sphere of ideal geometry buckles at roughly **0.2 atmospheres**. No solid in existence can be a one-layer vacuum balloon, at any radius — the criterion is scale-free.",
+      "source": "Akhmeteli & Gavrilin (2021), Eng 2(4), 480–491, homogeneous-shell analysis."
     },
     {
-     "source": "research/analysis/mass-budget.json",
-     "pointer": "/classes/P100/requiredKgPerM3",
-     "shown": "0.455"
+      "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+      "key": "ec6aeb820b689362",
+      "line": 16,
+      "class": "literature",
+      "reason": "This is the paper’s boron-carbide sandwich sphere and its eigenvalue calculation; the example does not describe our drawing.",
+      "text": "The positive result is a three-layer sandwich: boron carbide face skins (460 GPa, 2,500 kg/m³, 3.2 GPa compressive) bonded to PLASCORE 5056 aluminium honeycomb (50 kg/m³). Optimising against their own analytical buckling estimate and then against an ANSYS axisymmetric eigenvalue buckling FEA gives face skins `4.23 × 10⁻⁵·R` and a core `3.52 × 10⁻³·R`, with a buckling safety factor λ_min = 2.65. They check face-skin compressive stress (600 MPa against 3,200), shear crimping, face wrinkling and intracell dimpling, the last of which sets a *minimum* radius of R > 2.11 m. Worked example at R = 2.5 m: 106 µm skins, 8.8 mm core, shell 75.7 kg, payload 8.7 kg.",
+      "source": "Akhmeteli & Gavrilin (2021), sandwich-shell optimisation and worked radius-2.5 m example."
     },
     {
-     "source": "research/analysis/mass-budget.json",
-     "pointer": "/classes/P100/cases/demonstrated/shellAloneOverBy",
-     "shown": "2.55"
+      "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+      "key": "554dc94495495b45",
+      "line": 26,
+      "class": "literature",
+      "reason": "The one-tenth payload fraction is the cited sandwich design’s accounting convention, retained as the comparison benchmark.",
+      "text": "The design is quoted at a **payload fraction q = 0.1**: at zero buoyancy, everything that is not shell may weigh one tenth of the displaced air. That is the most rigorous published number for what a vacuum hull costs, and it is the number our ledger has to beat.",
+      "source": "Akhmeteli & Gavrilin (2021), payload fraction q = 0.1."
+    },
+    {
+      "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+      "key": "bc2f9cd1257407e3",
+      "line": 32,
+      "class": "bound",
+      "reason": "The imported shell density is compared with the simulator’s assumed dry allowance, not with a measured or sized fleet hull.",
+      "text": "It does not support us anywhere. On their numbers the shell alone is 0.9 × 1.29 = **1.16 kg per m³** of enclosed volume. The fleet model's entire dry-mass allowance, covering structure, rotors, batteries, cryogenic plant, pumps and tanks, is 0.455 kg/m³. Their shell alone is 2.55 times that assumed allowance.",
+      "context": [
+        "0.9",
+        "1.29"
+      ],
+      "bindings": [
+        {
+          "case": "literature-demonstrated",
+          "field": "mass",
+          "shown": "1.16"
+        },
+        {
+          "source": "research/analysis/mass-budget.json",
+          "pointer": "/classes/P100/requiredKgPerM3",
+          "shown": "0.455"
+        },
+        {
+          "source": "research/analysis/mass-budget.json",
+          "pointer": "/classes/P100/cases/demonstrated/shellAloneOverBy",
+          "shown": "2.55"
+        }
+      ]
+    },
+    {
+      "file": "research/notes/akhmeteli-gavrilin-2021-vacuum-balloon.md",
+      "key": "a908492b3d3c964c",
+      "line": 36,
+      "class": "literature",
+      "reason": "The altitude extrapolation keeps Akhmeteli’s sphere as its object and compares its published density with ISA; it does not claim that our hull floats.",
+      "text": "Worse, and this is our arithmetic rather than theirs: a shell massing 90% of sea-level air density is neutrally buoyant *empty* at roughly 0.6–1.1 km in the ISA column, depending on whether you size against their 1.29 kg/m³ or ISA's 1.225. Our hulls work at 2,500 m MSL. An Akhmeteli sphere sized for our loads would not reach the altitude our fleet cruises at, let alone carry water there.",
+      "source": "Akhmeteli & Gavrilin (2021), shell fraction; U.S. Standard Atmosphere (1976), density profile. Neutral-altitude range is this note’s extrapolation."
+    },
+    {
+      "file": "research/notes/barrier-and-permeation.md",
+      "key": "3f220700564322e8",
+      "line": 83,
+      "class": "deferred",
+      "reason": "The getter comparison uses an older small-cell lift and sorbent-mass calculation without a generated case for that object.",
+      "owner": "hand-arithmetic"
+    },
+    {
+      "file": "research/notes/barrier-and-permeation.md",
+      "key": "22d195c51b32393a",
+      "line": 95,
+      "class": "other-quantity",
+      "reason": "This paragraph estimates printed-polymer and absorbed-water component masses for the small demonstrator; it makes no structural float verdict.",
+      "text": "The binding gate is not permeation, it is water. DATASHEET (Bambu PAHT-CF TDS V3.0): saturated water absorption 0.88% at 25 °C/55% RH. The demonstrator cell is **0.948 kg of printed PAHT-CF in the model's in-array convention, and ~1.32 kg as the standalone printed article** (36 struts + 14 nodes) — an earlier draft used 650 g and understated this gate by half. At saturation those masses hold 8.3–11.6 g of water = **11,300–15,700 mbar·L of vapour: 2.5–3.5× the entire ten-year budget**, released from the inside [arithmetic]. Vacuum bake-out before sealing is not an optimisation; it is a gate, and 2–3 g of CaO (0.32 g H₂O/g stoichiometric) is the cheap backstop for an imperfect bake."
+    },
+    {
+      "file": "research/notes/barrier-and-permeation.md",
+      "key": "e5a863a32654d259",
+      "line": 123,
+      "class": "deferred",
+      "reason": "Annex laminate data are extended into small-cell mass, lift and film comparisons by hand arithmetic absent from the generated records.",
+      "owner": "hand-arithmetic"
+    },
+    {
+      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
+      "key": "6fc32539a64a1507",
+      "line": 22,
+      "class": "deferred",
+      "reason": "Battery energy per dry mass is asserted equal across classes, although the paragraph itself gives 120 MWh per 1,000 t for the middle class. The claimed universal 200 Wh/kg requirement belongs to the energy correction.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
+      "key": "63d38ae343d99809",
+      "line": 26,
+      "class": "deferred",
+      "reason": "The battery-over-budget result is extended to every class despite the different middle-class capacity. This is an energy-budget closure claim, not merely a component mass.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "1a82fbbf72b695b6",
+      "line": 57,
+      "class": "literature",
+      "reason": "This list qualifies the USGS supply comparison and distinguishes fleet inventory from annual consumption; it makes no claim about hull mass or structural closure.",
+      "text": "- **The \"90-year federal buffer\" in `helium.md` is not in any MCS chapter.** No chapter dates the program. The usual anchor is the Helium Act of 1925, which would make it closer to 99 years — but that is memory (OOM), not a read source. As published, the age is unsourced. - **The fleet comparison divides a stock by a flow.** 17.2 Mm³ is inventory held once, not an annual purchase; make-up, not the fill, is the recurring draw. The 31% figure is honest as a statement of what filling a fleet would take out of one year's supply, and should not be read as an annual burden. - **The consumption denominator is itself an estimate.** MCS 2025's own footnote: USGS estimated 2024 apparent consumption because Census Bureau export data \"were unusually high and may have contained misclassified items.\" 2024 production figures carry the 'e' flag too. - **Nothing in the MCS predicts prices or market response.** \"A 100-ship program is not a price-taker\" is our inference from the size ratio, not a USGS statement. - **The prices are US prices.** A BC-based fleet would buy into the Canadian supply picture — Canada was 36% of US imports and brought three new facilities online in 2024 — and the MCS says nothing about Canadian domestic pricing or availability.",
+      "source": "USGS Mineral Commodity Summaries 2022, 2024 and 2025, helium chapters; stock-versus-flow interpretation in this note."
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "bc9a25298c8c9177",
+      "line": 106,
+      "class": "literature",
+      "reason": "These are historical gas-airship mass and useful-load figures from the explicitly single-source secondary, not vacuum-hull results.",
+      "text": "The demonstrated dead-weight numbers in `helium.py` — *Hindenburg* 200,000 m³ and 118 t empty (0.590 kg/m³ of volume, 49% useful on hydrogen), the same LZ-126 hull at 57% useful on hydrogen for its delivery flight but 41% as USS *Los Angeles* on helium, the 90–95% inflation practice, the water-recovery gear US helium ships carried to avoid venting — all come from one curated secondary, Dan Grossman's airships.net. **The audit flags every one of these as single-sourced**, and they are; before the useful-fraction comparison hardens, they should be re-based to primary references (Burgess's *Airship Design*, the Navy's ZR-3 records). Not redistributable; catalogued only.",
+      "source": "Dan Grossman, airships.net, Hindenburg and LZ-126 / USS Los Angeles historical records."
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "3a36c9a6ee7e0640",
+      "line": 115,
+      "class": "bound",
+      "reason": "Both density margins belong to the unbuilt M60J hierarchy formula. Historical gas-ship fractions remain comparison inputs; the modern rigid density is explicitly an invented assumption.",
+      "text": "The comparison uses an unbuilt level-2 M60J hierarchy formula, not a drawn hull. At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.6867 kg/m³ at sea level and 0.4186 kg/m³ at 2,500 m. It assumes local-wall knockdown 0.30 and node mass 15%; material properties, joint mass, film convention and a drawn, tested structure remain unverified. Comparing that formula with the historical 49%/41% useful fractions remains arithmetic on unequal evidence: 1930s duralumin and cotton against a target laminate. The number a modern helium rigid would achieve, **0.3–0.45 kg/m³ in the draft, is an invented OOM guess** (audit: invented); no modern transport-scale rigid exists to measure, and nothing published by LTA Research yet fills the gap.",
+      "context": [
+        "2",
+        "1.5",
+        "0.30",
+        "15",
+        "2500",
+        "1930",
+        "0.3",
+        "0.45"
+      ],
+      "bindings": [
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.seaLevel.margin",
+          "shown": "0.6867"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.margin",
+          "shown": "0.4186"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgH2Pct",
+          "shown": "49"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/zr3HeliumPct",
+          "shown": "41"
+        }
+      ]
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "bd9cdaa0bc6dd5a6",
+      "line": 127,
+      "class": "conditional",
+      "reason": "The list explicitly labels operating purity as an assumption, plant mass as unsourced and other inputs as secondhand; none establishes a floating project hull."
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "c75a028390e3b8a5",
+      "line": 151,
+      "class": "history",
+      "reason": "This integration correction records the earlier hierarchy figures and draft market arithmetic as they stood when the note entered the repository.",
+      "text": "1. **\"Break-even 0.067 kg/m³ is six times below the fourth hierarchy level\" is wrong arithmetic.** 0.067 is 2.5× below level 4 (0.169 kg/m³) and 3.7× below level 3 (0.245); the 6.4× multiple belongs to the level-2 *target* (0.428). The sentence appears in `research/README.md`, the `helium.py` docstring, and `helium.md`. The verdict — vacuum never wins on lift, at any level — is unchanged; the multiple should be fixed where it appears. 2. **Make-up: 3.7%/yr ≈ $90k/yr, not the draft's ~5%/yr ≈ $115k/yr.** The draft priced altitude-m³ as standard m³. `helium.py` computes the right number ($90k) but its own prose string still says \"~$115k/yr\" — a leftover from the draft that should be reconciled the next time the analysis is touched. 3. **Import-share attribution.** The Qatar-40/Canada-36 window (2020–23) is MCS 2025's; MCS 2022's window (2017–20) reads Qatar 65%, Algeria 12%, Canada 11%, Portugal 7%. The draft's source table credited \"import shares\" to MCS 2022. 4. **The surcharge quote** is \"with **some** producers posting surcharges\" in MCS 2022 and 2024; only MCS 2025 drops the \"some\". 5. **The \"90-year\" buffer age** is not in the USGS chapters (see above) and rides unsourced in `helium.md`.",
+      "date": "2026-08-11"
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "34d244d13a76434a",
+      "line": 13,
+      "class": "history",
+      "reason": "The note explicitly dates this hierarchy prediction to 2026-08-10; the old density ladder and proposed benchmark are retained as that record, not rebound to a later model.",
+      "text": "**The level-2 coefficient is carried at zero degradation, and no published source supports 0.428 kg/m³.** The cell model steps the shell from 1.086 to 0.428 against the 0.957 buoyancy wall by adding a second level of hierarchy — and it applies the exponent gain while leaving the strength coefficient untouched, even though the page itself admits the coefficient \"degrades even as the exponent improves.\" Every measured hierarchical specimen in the literature pays a coefficient penalty; none of them is a tube-of-tubes strut; none is at structural scale and airship-usable density. 0.428 is a **prediction of this project's own scaling arithmetic**, and must be labelled as such wherever it appears. The measured knockdown bands straddle exactly what the margin tolerates (arithmetic below), so the number is not safe and not dead — it is undecided, and the A/B crush benchmark on the project's own printer is the retirement path.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "6e305f6e2eebfe18",
+      "line": 28,
+      "class": "literature",
+      "reason": "Lakes, Zheng and Meza supply the measured exponent examples; none is a project tube-of-tubes strut.",
+      "text": "- Lakes (1993, Nature) built second-order paper honeycomb and crushed it: **3.2–3.8× stronger in compression than first-order honeycomb at the same 0.01 g/cm³ density** (MEASURED). Two more things the project's page does not yet carry: his own plastic-buckling theory predicted 4.6×, so even the founding measurement landed at 0.7–0.83 of its predicted gain — a coefficient shortfall of 1.2–1.4× in the friendliest possible experiment; and he bounds the ladder — cell-wall relative thickness grows with order, so at relative density 0.01 \"values of n above 4 are unrealistic.\" Both support stopping at level 2 with 3 as reserve. - Zheng et al. (2016, **Nature Materials** 15:1100 — the project page has been citing this as Science; Science 344 is the separate 2014 single-scale paper) measured 2nd–3rd-order Ni-P hollow-tube lattices: strength–density scaling exponent as low as **1.3** at relative density below 10⁻³, tensile strain ~20%, specific strength to 40.8 MPa/(g/cm³) (MEASURED, from the OSTI accepted manuscript in `papers/`). - Meza et al. (2015, PNAS) measured 2nd-order hollow-tube alumina octahedron-of-octets: stiffness E = 0.015·E_s·ρ̄^1.04 — nearly linear where a single-level bend-dominated architecture would be quadratic or worse (MEASURED, read at PMC).",
+      "source": "Lakes (1993); Zheng et al. (2016), Nature Materials 15; Meza et al. (2015), PNAS."
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "9453f52ff408fbaf",
+      "line": 44,
+      "class": "literature",
+      "reason": "The coefficients and manufacturing penalties describe the cited specimens; constituent assumptions used in this note’s estimates remain explicitly labelled.",
+      "text": "**And every measured coefficient lands below the ideal.** Meza's 0.015 sits ≈7× under the A = 0.1 that Jenett 2019 assumes for an ideal lattice and ≈20× under the octet ideal. Their own finite-element predictions overshot the hollow-tube measurements by 68.5% — a **1.69× defect knockdown, attributed to sinusoidal wall waviness from the two-photon writing process** (MEASURED) — while their monolithically printed polymer specimens came in ~11% *above* prediction (MEASURED): monolithic printing at ~micron scale was coefficient-clean, the hollow-tube coating process was not. ARMADAS (Gregg 2024, in `papers/` with supplement) measured injection-molding knit lines at **3.5× on coupon strength** (108.52 → 31.101 MPa, tables S5/S6, MEASURED). Assembled single-level lattices land at A ≈ 0.06 (Cheung 2013, Science, catalogued only) and A ≈ 0.019 (ARMADAS) — but both of those coefficients divide by constituent properties this note had to assume (quasi-iso laminate values for Cheung; ρ_s ≈ 1,340 kg/m³ for StatTech NN-40CF, a DATASHEET-class value not stated in the paper), so treat them as estimates, and note the audit's finding that they are our arithmetic, not the papers'.",
+      "source": "Meza et al. (2015); Gregg et al. (2024), supplementary Tables S5/S6; Cheung (2013); Jenett (2019)."
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "c2fcef5a52e4d5be",
+      "line": 61,
+      "class": "history",
+      "reason": "The dated synthesis compares measured joints with the then-current node allowance and an unbuilt node; its quoted model correction is historical.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "29a9d36f12cb9034",
+      "line": 76,
+      "class": "literature",
+      "reason": "Smith’s robot-assembled CF-nylon blocks demonstrate assembly logistics, which the paragraph explicitly distinguishes from a flight strut’s coefficient.",
+      "text": "**Hierarchical *assembly* works at metre scale.** Smith 2025 (SCF '25, CC BY, in `papers/`): CF-nylon voxels handled as blocks by mobile robots; 81.85 kg/m³ average, a 2×2×2 block held 3,445 N ≈ 2,220× its own weight, and the assembled lattice is stretch-dominated (MEASURED). Note carefully: the hierarchy there is in the *handling*, not in the strut cross-section — it is evidence for construction logistics, not for the level-2 coefficient.",
+      "source": "Smith (2025), SCF, hierarchical robotic assembly measurements."
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "8fcf56a6b0670089",
+      "line": 134,
+      "class": "history",
+      "reason": "The dated list records the limitations and model corrections identified in that reading; its hierarchy and node statements describe the 2026-08-10 state.",
+      "text": "1. **Nobody has ever built or crushed a tube-of-tubes strut.** Not at 100 µm, not at 1 mm, not at any scale. The three measured hierarchy demonstrations are paper honeycomb, nanolattices at ρ̄ < 10⁻³, and micron-scale alumina — none within reach of an airship design point. The right citation posture is: *exponent mechanism confirmed at three scales; coefficient never demonstrated at structural scale.* 2. **Zheng's measured exponent is 1.3, not the ladder's 1.333 read as achieved** — supportive of the mechanism, and simultaneously a warning against printing the ladder as fact; and its coefficient at those densities is far below any airship-usable value. 3. **The node correction is the wrong kind of model.** \"Carry no load, 15%\" fails against measured joint-governed failure and a 27.8% measured mass fraction. The ×1.15 number itself remains what the cell page already admits: the largest unsourced number left. 4. **The joint that would settle it is undesigned.** Ochalek 2018 proves the design lineage exists and publishes no numbers; no source in this collection prices a 12-tube vacuum-cell node. 5. **The manufacturing routes are existence proofs, not designs.** Anisogrid rib modulus at 100–300 µm tow scale: no data. Drawn-silica structural walls: index-inferior to M60J and never used structurally. Bonded bundle creep under multi-year load: no source found at this scale. And the two anchor papers for routes A and B were not read for this note. 6. **Hierarchy-of-assembly results (Smith 2025, ARMADAS) do not transfer to the strut wall.** They demonstrate logistics and assembled-lattice scaling at 10–80 kg/m³ — an order of magnitude above the design point, with the hierarchy in the robots' hands, not in the material.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "7b1c45968e5bb97e",
+      "line": 159,
+      "class": "history",
+      "reason": "This is the pre-test prediction and specimen protocol registered in the dated note; replacing its numbers would rewrite the registered prediction.",
+      "text": "The A/B crush benchmark, on the project's stated gear (0.6 mm nozzle, PAHT-CF): specimen A, the 251 mm demonstrator strut with solid 1.2 mm wall; specimen B, same length and mass ±3%, wall printed as two 0.6 mm skins joined by a triangulated corrugation; n ≥ 10 per arm, axial compression to failure, potted ends. Readout: k = (P_B/P_A)_measured / (P_B/P_A)_theory from the project's own cell model — one dimensionless number, which is the entire level-2 coefficient question. **Prediction registered before testing: the model's 1.086 → 0.428 step implies an equal-mass strength ratio ≈ 2.5×. k > 2.9 retires the level-2 claim; k ≤ 1.7 funds it.** A second tier at 1/10 scale on a DLP printer (~100 µm features, where Meza's polymer result says monolithic printing can be nearly coefficient-clean) checks whether k is a geometry/process property or a scale property — which is precisely what the hierarchy ladder assumes and nobody has checked for this geometry.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "93c0245c92a980d1",
+      "line": 173,
+      "class": "history",
+      "reason": "These are the page corrections requested by the 2026-08-10 note, including its superseded hierarchy prediction, rather than a new current float verdict.",
+      "text": "- Label 0.428 kg/m³ a **prediction of this project**, unsupported by any published measurement, wherever it appears; the \"floats\" column inherits the label. - Fix the Zheng citation: Nature Materials 15 (2016), not Science. - Reclassify nodes from dead mass to potentially strength-governing elements; keep 10–30% as the measured band for discretely assembled levels (top measured: 27.8%). - State the design rule as a requirement, not a preference: the level-2 wall must be stretch-dominated and continuously manufactured, because only that combination keeps the measured knockdown bands inside the 2.9× the margin can absorb.",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
+      "key": "9999cac15d4b9bbd",
+      "line": 7,
+      "class": "literature",
+      "reason": "The strength-versus-stability argument, constituent properties and lattice coefficients are Jenett’s sphere analysis, not a result for the project hull.",
+      "text": "Earlier vacuum-balloon analyses concluded the problem was one of *stability*: a shell thin enough to float buckles. This paper's contribution is to redo that analysis with a cellular solid in place of",
+      "source": "Jenett, Gregg & Cheung (2019), AIAA 2019-0815, lattice vacuum sphere analysis."
+    },
+    {
+      "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
+      "key": "5473854ae1b09dff",
+      "line": 24,
+      "class": "bound",
+      "reason": "Jenett’s sphere arithmetic supplies the comparison inputs; the project’s assumed dry allowance and the generated shell-to-allowance multiplier are bound separately.",
+      "text": "That table also convicts us. A sphere of R = 100 m displaces 5,131 t at 1.225 kg/m³, so the shell is 2,126 t, or **0.508 kg per m³ of enclosed volume** — and because the design rules are ratios (`R/t ",
+      "context": [
+        "100",
+        "5131",
+        "1.225",
+        "2126",
+        "10"
+      ],
+      "bindings": [
+        {
+          "case": "literature-floor",
+          "field": "mass",
+          "shown": "0.508"
+        },
+        {
+          "case": "fleet-P10000-empty",
+          "field": "extras.structureAllowanceKgPerCubicM",
+          "shown": "0.455"
+        },
+        {
+          "case": "fleet-P10000-empty",
+          "field": "mass",
+          "shown": "10000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/dispM3",
+          "shown": "22000000"
+        },
+        {
+          "source": "research/analysis/mass-budget.json",
+          "pointer": "/classes/P10000/cases/floor/shellAloneOverBy",
+          "shown": "1.12"
+        }
+      ]
+    },
+    {
+      "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
+      "key": "0095267cae26d155",
+      "line": 37,
+      "class": "bound",
+      "reason": "The largest nominal capsule dimensions come from the configured fleet; its buoyancy assumption does not transfer the paper’s spherical pressure analysis.",
+      "bindings": [
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/lenM",
+          "shown": "512"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/diaM",
+          "shown": "256"
+        }
+      ],
+      "context": [
+        "3"
+      ]
+    },
+    {
+      "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+      "key": "51a87bbf8bddd0f6",
+      "line": 1,
+      "class": "literature",
+      "reason": "The verdict wording is the exact title of Metlen’s thesis; it names his research object, not this project’s hull.",
+      "text": "# Metlen (2013) — Design of a Lighter than Air Vehicle that Achieves Positive Buoyancy Using a Vacuum",
+      "source": "Metlen (2013), AFIT-ENY-13-J-02, thesis title."
+    },
+    {
+      "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+      "key": "51ac7e231a137cdf",
+      "line": 9,
+      "class": "literature",
+      "reason": "W/B is Metlen’s defined weight-to-displaced-air ratio; the float threshold is a definition in the cited study.",
+      "text": "Metlen defines the figure of merit this whole literature turns on: **W/B**, the ratio of structure weight to the weight of displaced air. W/B < 1 floats. He then optimises three real designs with a no",
+      "source": "Metlen (2013), definition of the W/B figure of merit."
+    },
+    {
+      "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+      "key": "4cfea8fc392377dd",
+      "line": 35,
+      "class": "bound",
+      "reason": "The fleet’s dry mass is an allowance, not a sized hull. The current negative structural verdict is bound; the linked ledger holds the numerical comparison.",
+      "text": "The fleet model assumes dry mass equals payload; it has not sized a fleet hull. The [float ledger](../../docs/FLOAT-LEDGER.md) compares that allowance at sea level and 2,500 m. Nothing floats today as",
+      "context": [
+        "2500"
+      ],
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+      "key": "8c3ceb50a5607d7e",
+      "line": 39,
+      "class": "bound",
+      "reason": "The comparison keeps Metlen’s sphere separate from the largest configured capsule and its component allowances; battery, tank and cable figures are quantities only.",
+      "text": "Two further points make his number optimistic for us rather than pessimistic. Every design he found workable is a sphere; the sphere is the best possible shape against external pressure and our larges",
+      "bindings": [
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/lenM",
+          "shown": "512"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/diaM",
+          "shown": "256"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/battMWh",
+          "shown": "2000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/ln2CapT",
+          "shown": "15500"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/anchorCableM",
+          "shown": "850"
+        }
+      ]
+    },
+    {
+      "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
+      "key": "ec0459da41750903",
+      "line": 9,
+      "class": "literature",
+      "reason": "These are the standard atmosphere’s physical reference constants and tropospheric definition, not a measured fire-weather profile.",
+      "text": "The idealised mean vertical profile of a static atmosphere: sea-level pressure 101,325 Pa, temperature 288.15 K, density 1.225 kg/m³, gravity 9.80665 m/s², and a linear temperature lapse of 6.5 K/km t",
+      "source": "NOAA / NASA / USAF (1976), U.S. Standard Atmosphere, Part 1."
+    },
+    {
+      "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
+      "key": "a76b31447580890e",
+      "line": 18,
+      "class": "history",
+      "reason": "This paragraph records the explicitly dated 2026-08-09 correction from sea-level-only fleet lift to an altitude-dependent allowance.",
+      "text": "All of it, and recently. Until 2026-08-09 `ledger()` computed displacement at 1.225 kg/m³ and used that number at every altitude; the fix was to build `sim/atmosphere.js` around this profile, so every",
+      "date": "2026-08-09"
+    },
+    {
+      "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
+      "key": "e2a68789e2515136",
+      "line": 34,
+      "class": "deferred",
+      "reason": "The hot-day density, percentage and fleet lift loss are hand sensitivities, not values supplied by the standard-atmosphere source.",
+      "owner": "hand-arithmetic"
+    },
+    {
+      "file": "research/notes/print-reliability.md",
+      "key": "be03642cbd7bc060",
+      "line": 69,
+      "class": "conditional",
+      "reason": "Povilus’s SLS-PA12 measurements are extrapolated to a proposed FDM demonstrator and an explicitly invented pressure-rise budget; the block states that no allowance has been adopted.",
+      "text": "**5. The polymer itself outgasses more than any plausible leak budget.** Povilus et al. 2014 [MEASURED, with an extrapolation flag] measured **SLS-printed PA12** at 3×10⁻⁸–4×10⁻⁷ mbar·L/cm²·s *after* "
+    },
+    {
+      "file": "research/notes/print-reliability.md",
+      "key": "0c29d8cc9f1ca281",
+      "line": 117,
+      "class": "history",
+      "reason": "The 2026-08-10 topic note records the demonstrator’s then-current shared-array versus standalone mass discrepancy and its proposed process checks.",
+      "text": "- **No published failure-rate dataset for consumer print farms exists.** Song & Telenko 2017 is the only peer-reviewed FDM waste measurement found and it is paywalled and **was not read**; no number f",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "889b315bb0ed9622",
+      "line": 31,
+      "class": "literature",
+      "reason": "This is the cited history of other vacuum-airship proposals; its buoyancy discussion does not identify a project hull.",
+      "text": "Francesco Lana de Terzi's *Prodromo* (Brescia, 1670, ch. 6) proposed four evacuated copper spheres lifting a boat — the first quantitative LTA proposal, and wrong for the reason that has killed every ",
+      "source": "Akhmeteli & Gavrilin (2021), references 1 and 8; Metlen (2013) §1.2; secondary and bibliographic sources labelled in the paragraph."
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "e2c4ef8ae78da0ec",
+      "line": 50,
+      "class": "literature",
+      "reason": "The table inventories other inventors’ patents and applications, retaining the stated limits of index-only or unread evidence.",
+      "source": "Patent identifiers in the table; retained Google Patents index records and Akhmeteli & Gavrilin (2021) references."
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "d22dc0b69f7953be",
+      "line": 77,
+      "class": "literature",
+      "reason": "The shell fraction and density are Akhmeteli and Gavrilin’s sandwich sphere, with no claim that it sizes our hull.",
+      "text": "**The lattice step** — Jenett, Gregg & Cheung, AIAA 2019-0815 / NTRS 20190001133 [read — in `papers/`]: a vacuum sphere whose wall is a cellular solid of hollow CFRP struts at fixed R/t = 10; strength",
+      "source": "Akhmeteli & Gavrilin (2021), Eng 2(4), sandwich sphere."
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "40be3f8d367ca457",
+      "line": 82,
+      "class": "literature",
+      "reason": "The density and zero-mass skin qualification describe Jenett’s published lattice sphere on its own assumptions.",
+      "text": "**The AFIT / Palazotto line** — the only sustained academic programme on vacuum LTA structures. Metlen's 2013 thesis [read — in `papers/`] is its honest core: W/B 0.81 isogrid, 0.57 frame alone, and *",
+      "source": "Jenett, Gregg & Cheung (2019), AIAA 2019-0815, Table 2."
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "fd3748d745ec97e9",
+      "line": 102,
+      "class": "history",
+      "reason": "The dated reading records a then-open conflict between the project’s pressure-scaling argument and an unread 2020 gossamer paper; it is not a present validation.",
+      "text": "**Barton's tension-stabilised line** — patent US 7,708,161 (§3) plus arXiv physics/0610222 and J. Aircraft 2013 (10.2514/1.C031654; conference version 10.2514/6.2011-1717) [biblio: Crossref]. The roun",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "800fa8084f5b27f8",
+      "line": 149,
+      "class": "history",
+      "reason": "The 2026-08-10 research record quotes the earlier hierarchy ladder and the objections raised against it. Its old prediction is preserved, not represented as the current model.",
+      "text": "1. **No published design is within 2× of our level-2 number.** Best published shells: Jenett 0.508 kg/m³ (skin uncosted, fibre properties), A&G 1.16, Metlen ≈ 1.15. Our level-1 figure (1.086) sits exa",
+      "date": "2026-08-10"
+    },
+    {
+      "file": "research/notes/prior-art-cellular-vacuum.md",
+      "key": "c12ac829c53d5e14",
+      "line": 176,
+      "class": "literature",
+      "reason": "This table compares proposed mechanisms with cited prior architectures; the proportions are labels of those mechanisms, not a computed float result.",
+      "text": "| Mechanism (this project) | Closest prior | Gap | |---|---|---| | Shared-wall evacuated cells; interior partitions at zero differential | Jenett (cellular wall, one skin, no sealed cells); Hobson 202",
+      "source": "Jenett (2019); Hobson (2023); Barton; Akhmeteli & Gavrilin; Rapport & Middleton; Lakes (1993); Zheng (2016); Turinetti, as qualified in this note."
+    },
+    {
+      "file": "research/notes/suter-2005-rotor-wash.md",
+      "key": "5bc971aff2913829",
+      "line": 24,
+      "class": "deferred",
+      "reason": "Rotor power and thrust are extrapolated to induced velocity and wake reach over a fire. These hull performance estimates require the energy and delivery model, not a structural float disposition.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/notes/usfs-2022-retardant-airtanker-bases.md",
+      "key": "a3fcb185745ff691",
+      "line": 39,
+      "class": "deferred",
+      "reason": "The paragraph makes a delivery-behaviour claim about a 10,000 t release, mixing a source caveat with an unmodelled coherent-body hypothesis. It is not merely a water mass.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "d36b8127312452f1",
+      "line": 22,
+      "class": "deferred",
+      "reason": "The zero-power lift argument is extended to a vehicle with no turnaround. That is an energy/delivery result, not merely buoyancy as a physical principle.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "01f9a049061a6ba2",
+      "line": 69,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "e878bd2dd8bd0ae8",
+      "line": 72,
+      "class": "bound",
+      "reason": "The structural result belongs to the separate 52 m hull of record, not the simulated P-100 fleet allowance. Both altitude pairs, the favourable deficits and the negative verdict are bound.",
+      "text": "A conventional airship floats because it is full of helium. This concept proposes vacuum lift; nothing floats today as drawn. The separate 52 m hull of record uses structural safety factor 1.2 against",
+      "context": [
+        "52",
+        "1.2",
+        "0.30",
+        "1050",
+        "2500",
+        "0.65",
+        "1450"
+      ],
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.558"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.436"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.981"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.766"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "shown": "4.3",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "shown": "53.6",
+          "abs": true
+        }
+      ]
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "67ddde2262d3d1ac",
+      "line": 79,
+      "class": "bound",
+      "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
+      "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. Across five readings, the favourable lift-to-mass ratio ranges from 0.751 to 0.998 at sea level and from",
+      "context": [
+        "52",
+        "2500",
+        "1.2",
+        "0.65",
+        "1450"
+      ],
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "15b3d53c54a4e328",
+      "line": 84,
+      "class": "literature",
+      "reason": "The historical copper-sphere proposal and homogeneous-shell impossibility argument are the cited authors’ objects, not a claim of a floating project design.",
+      "text": "Francesco Lana de Terzi published the idea in 1670 and was right about everything except the metal: thin the shell enough to float and the atmosphere crushes it. Akhmeteli and Gavrilin put a number on",
+      "source": "Lana de Terzi (1670); Akhmeteli & Gavrilin (2021), homogeneous-shell argument."
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "c54c6ab467cdb883",
+      "line": 115,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/01-brief.md",
+      "key": "98316d44964e3ef6",
+      "line": 122,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "1b8c1f46df84960e",
+      "line": 16,
+      "class": "bound",
+      "reason": "The flight simulation assumes structural buoyancy; the ledger’s current negative verdict prevents cycle behaviour being read as a floating drawn design.",
+      "text": "The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "c571dd53590f1fba",
+      "line": 22,
+      "class": "deferred",
+      "reason": "The airtanker and helicopter payload and turnaround figures name no quantitative source for those outside aircraft.",
+      "owner": "source-needed"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "bb38b691c937ab18",
+      "line": 32,
+      "class": "method",
+      "reason": "The paragraph states the general equilibrium principle of weight equal to displaced air and its qualitative scaling argument, without a named project design.",
+      "context": []
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "ec4b7b2b07fd717f",
+      "line": 38,
+      "class": "deferred",
+      "reason": "The claim that buoyancy wins a loading-dominated firefighting duty cycle is a delivery result; this block supplies no generated comparison.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "e340d1ac782d82a7",
+      "line": 46,
+      "class": "method",
+      "reason": "The paragraph compares displaced-air lift at a stated sea-level reference density; it is a physical comparison, not a project design result.",
+      "context": [
+        "0.169",
+        "1.225",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "786514a7e603470e",
+      "line": 96,
+      "class": "flight-model",
+      "reason": "The heading labels the simulated float-up sizing logic, whose assumed hull is stated once at the start.",
+      "text": "## 4. What sizes the hull: fail-safe float-up",
+      "assumption": "1b8c1f46df84960e"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "6c5d5f5401ea7f67",
+      "line": 101,
+      "class": "conditional",
+      "reason": "This is explicitly a fail-safe sizing requirement for a loaded vehicle with a jammed outlet, not a report that a drawn hull meets it.",
+      "text": "> A hull must be positively buoyant at its working altitude while **fully loaded with water and > unable to drop it.**"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "2edaea2a48f80509",
+      "line": 108,
+      "class": "bound",
+      "reason": "These are the simulator’s assumed loaded-fleet masses and ratios at both altitudes. The paragraph explicitly disclaims a structural sizing basis and requires a qualified mass bill.",
+      "text": "The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water. In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t lo",
+      "context": [
+        "2",
+        "10000",
+        "2500"
+      ],
+      "bindings": [
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.seaLevel.lift",
+          "shown": "26950"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.target.lift",
+          "shown": "21050.9"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "mass",
+          "shown": "20000"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "1.348"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.target.liftToMass",
+          "shown": "1.053"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "d9d1c79f375385ea",
+      "line": 114,
+      "class": "bound",
+      "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
+      "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis",
+      "context": [
+        "52",
+        "2500",
+        "1.2",
+        "0.65",
+        "1450"
+      ],
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "dee8fb594e06036e",
+      "line": 120,
+      "class": "history",
+      "reason": "This is the explicitly dated account of the 2026-08-09 altitude correction and its consequences for the then-current simulation.",
+      "text": "**This is where a correction made on 2026-08-09 belongs.** The ledger previously bought its lift at sea-level density and spent it at altitude, which overstated lift by 22%. Correcting it grew every h",
+      "date": "2026-08-09"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "f2980dc184a30b79",
+      "line": 127,
+      "class": "flight-model",
+      "reason": "The ceiling-versus-water comparison describes the simulated cycle’s two limiting altitude cases, not structural validation.",
+      "text": "- **Float-up is hardest at the ceiling**, 2,500 m MSL, in the thinnest air. - **Descent is hardest at the water**, 1,300 m MSL, in air 16% denser.",
+      "assumption": "1b8c1f46df84960e"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "037161d42893537f",
+      "line": 137,
+      "class": "deferred",
+      "reason": "The phase table ends in delivered water and embeds unpowered escape. It needs the delivery model’s definition of arrival, not merely a payload-mass allowance.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "88c879c71a18d895",
+      "line": 169,
+      "class": "flight-model",
+      "reason": "The paragraph describes simulated loaded ascent and empty descent under the stated hull assumption; the size limit is within that flight model.",
+      "text": "Buoyancy that guarantees the ship rises when loaded must be overcome when it is empty, and it is worst at the bottom of the letdown where the air is 16% denser than the air the hull was sized in. **Th",
+      "assumption": "1b8c1f46df84960e"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "a57985a935bdbd1c",
+      "line": 182,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "4951f7866c7dcc45",
+      "line": 220,
+      "class": "deferred",
+      "reason": "This paragraph interprets a rotor shortfall as the energy-exponent finding behind sizing the whole descent bag.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "df617d531ce4c71b",
+      "line": 249,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "b12c732da8d1beff",
+      "line": 286,
+      "class": "deferred",
+      "reason": "Cryogenic production is compared with tank capacity to assert a cycle-ballast shortfall, an energy/cycle closure result.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "f714c760a081afc9",
+      "line": 331,
+      "class": "bound",
+      "reason": "The dry density is an explicit simulation allowance shared by the nominal fleet, not the mass of a sized structural hull.",
+      "text": "`dryT = payloadT` implies a hull-average density of **0.455 kg/m³** — and it is the same figure on every class, because displacement is sized per tonne of payload. 100 t inside 220,000 m³ and 10,000 t",
+      "bindings": [
+        {
+          "case": "fleet-P100-empty",
+          "field": "extras.structureAllowanceKgPerCubicM",
+          "shown": "0.455"
+        },
+        {
+          "case": "fleet-P100-empty",
+          "field": "mass",
+          "shown": "100"
+        },
+        {
+          "case": "fleet-P10000-empty",
+          "field": "mass",
+          "shown": "10000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P100/spec/dispM3",
+          "shown": "220000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/dispM3",
+          "shown": "22000000"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "e85fc7fc9d51ad1c",
+      "line": 338,
+      "class": "deferred",
+      "reason": "The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "23fbf28b79f4b242",
+      "line": 558,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "1b8c1f46df84960e",
+      "line": 13,
+      "class": "bound",
+      "reason": "The flight simulation assumes structural buoyancy; the ledger’s current negative verdict prevents cycle behaviour being read as a floating drawn design.",
+      "text": "The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/verdict",
+          "equals": "Nothing floats today as drawn."
+        }
+      ]
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "442c830aa670996c",
+      "line": 41,
+      "class": "conditional",
+      "reason": "The vacuum-lift proposal explicitly depends on making the shell light enough, and the paragraph says that construction has not been shown.",
+      "text": "Buoyant flight is the only way to get payload without paying for lift continuously, and it is the only way to build a firefighting aircraft that never has to land. Helium is expensive and leaks; vacuu"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "833fe0560c16639a",
+      "line": 76,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "a7c8c97bb005e356",
+      "line": 95,
+      "class": "conditional",
+      "reason": "Positive buoyancy with an unreleasable load is stated as a requirement, not as a checked property of a drawn vehicle.",
+      "text": "> A hull must be positively buoyant at its working altitude while **fully loaded with water and > unable to release it.**"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "2edaea2a48f80509",
+      "line": 98,
+      "class": "bound",
+      "reason": "These are the simulator’s assumed loaded-fleet masses and ratios at both altitudes. The paragraph explicitly disclaims a structural sizing basis and requires a qualified mass bill.",
+      "text": "The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water. In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t lo",
+      "context": [
+        "2",
+        "10000",
+        "2500"
+      ],
+      "bindings": [
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.seaLevel.lift",
+          "shown": "26950"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.target.lift",
+          "shown": "21050.9"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "mass",
+          "shown": "20000"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "1.348"
+        },
+        {
+          "case": "fleet-P10000-loaded",
+          "field": "at.target.liftToMass",
+          "shown": "1.053"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "d9d1c79f375385ea",
+      "line": 104,
+      "class": "bound",
+      "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
+      "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis",
+      "context": [
+        "52",
+        "2500",
+        "1.2",
+        "0.65",
+        "1450"
+      ],
+      "bindings": [
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "81c63139d7436ebb",
+      "line": 112,
+      "class": "deferred",
+      "reason": "The phase table ends in delivered water and embeds unpowered escape; its delivery meaning remains for the delivery work.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "991f0db859e276b8",
+      "line": 149,
+      "class": "flight-model",
+      "reason": "The ascent/descent comparison belongs to the flight simulation under the explicit floating-hull assumption at the start of the report.",
+      "text": "The buoyancy that guarantees float-up must be overcome to descend, and it is worst at the bottom, over the water, where the air is densest.",
+      "assumption": "1b8c1f46df84960e"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "2368cd11696e01ea",
+      "line": 176,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "c54832727187958f",
+      "line": 177,
+      "class": "deferred",
+      "reason": "This risk table combines component quantities, a rotor-wash extrapolation and station-keeping claims. It cannot be reduced to a component-mass allowance.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "5ff97c620bf0ecfb",
+      "line": 207,
+      "class": "bound",
+      "reason": "The dry density is an explicit simulation allowance shared by the nominal fleet, not the mass of a sized structural hull.",
+      "text": "The model's foundational assumption is `dryT = payloadT`: the ship's entire dry mass — shell, skin, joints, rotors, tanks, batteries, pumps, cable — equals the water it carries. That is a hull-average",
+      "bindings": [
+        {
+          "case": "fleet-P100-empty",
+          "field": "extras.structureAllowanceKgPerCubicM",
+          "shown": "0.455"
+        },
+        {
+          "case": "fleet-P100-empty",
+          "field": "mass",
+          "shown": "100"
+        },
+        {
+          "case": "fleet-P10000-empty",
+          "field": "mass",
+          "shown": "10000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P100/spec/dispM3",
+          "shown": "220000"
+        },
+        {
+          "source": "research/figures.json",
+          "pointer": "/classes/P10000/spec/dispM3",
+          "shown": "22000000"
+        }
+      ]
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "c399d98d90d0db25",
+      "line": 218,
+      "class": "deferred",
+      "reason": "The source table combines hull comparisons with a battery-over-budget energy result; it remains one inventoried block.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "998bece93d133fc4",
+      "line": 312,
+      "class": "deferred",
+      "reason": "The text says the cycle and most energy costs survive a helium substitution unchanged, then the next paragraph admits that substitution has not been modelled.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "0a81b9c89add5043",
+      "line": 318,
+      "class": "literature",
+      "reason": "This is the gas-density penalty of helium before structure, followed by supply consequences; it is not a float verdict for a vacuum hull.",
+      "text": "What changes is the lift budget and the economics. Helium is about 14% less buoyant per cubic metre than vacuum, so the hull grows for the same payload. It leaks, so it is a consumable with a supply c",
+      "source": "U.S. Standard Atmosphere (1976) and helium molar-mass reference used in research/analysis/helium.py; historical supply context in research/notes/helium-and-hydrogen.md."
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "afc909b5c7222354",
+      "line": 498,
+      "class": "deferred",
+      "reason": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "d3d00f5e3f523e79",
+      "line": 543,
+      "class": "conditional",
+      "reason": "The proposed expert studies and example sizes are future work, explicitly conditional on what the mass estimates find.",
+      "text": "**Recommended next step, at minimal cost:** commission a lattice-structure mass breakdown at 100 m and 219 m radius from a group that builds them, and an independent pack-level mass estimate for a 2,0"
     }
-   ]
-  },
-  {
-   "file": "research/notes/barrier-and-permeation.md",
-   "key": "22d195c51b32393a",
-   "line": 95,
-   "class": "other-quantity",
-   "reason": "This paragraph estimates printed-polymer and absorbed-water component masses for the small demonstrator; it makes no structural float verdict.",
-   "text": "The binding gate is not permeation, it is water. DATASHEET (Bambu PAHT-CF TDS V3.0): saturated water absorption 0.88% at 25 °C/55% RH. The demonstrator cell is **0.948 kg of printed PAHT-CF in the model's in-array convention, and ~1.32 kg as the standalone printed article** (36 struts + 14 nodes) — an earlier draft used 650 g and understated this gate by half. At saturation those masses hold 8.3–11.6 g of water = **11,300–15,700 mbar·L of vapour: 2.5–3.5× the entire ten-year budget**, released from the inside [arithmetic]. Vacuum bake-out before sealing is not an optimisation; it is a gate, and 2–3 g of CaO (0.32 g H₂O/g stoichiometric) is the cheap backstop for an imperfect bake."
-  },
-  {
-   "file": "research/notes/helium-and-hydrogen.md",
-   "key": "1a82fbbf72b695b6",
-   "line": 57,
-   "class": "literature",
-   "reason": "This list qualifies the USGS supply comparison and distinguishes fleet inventory from annual consumption; it makes no claim about hull mass or structural closure.",
-   "text": "- **The \"90-year federal buffer\" in `helium.md` is not in any MCS chapter.** No chapter dates the program. The usual anchor is the Helium Act of 1925, which would make it closer to 99 years — but that is memory (OOM), not a read source. As published, the age is unsourced. - **The fleet comparison divides a stock by a flow.** 17.2 Mm³ is inventory held once, not an annual purchase; make-up, not the fill, is the recurring draw. The 31% figure is honest as a statement of what filling a fleet would take out of one year's supply, and should not be read as an annual burden. - **The consumption denominator is itself an estimate.** MCS 2025's own footnote: USGS estimated 2024 apparent consumption because Census Bureau export data \"were unusually high and may have contained misclassified items.\" 2024 production figures carry the 'e' flag too. - **Nothing in the MCS predicts prices or market response.** \"A 100-ship program is not a price-taker\" is our inference from the size ratio, not a USGS statement. - **The prices are US prices.** A BC-based fleet would buy into the Canadian supply picture — Canada was 36% of US imports and brought three new facilities online in 2024 — and the MCS says nothing about Canadian domestic pricing or availability.",
-   "source": "USGS Mineral Commodity Summaries 2022, 2024 and 2025, helium chapters; stock-versus-flow interpretation in this note."
-  },
-  {
-   "file": "research/notes/helium-and-hydrogen.md",
-   "key": "bc9a25298c8c9177",
-   "line": 106,
-   "class": "literature",
-   "reason": "These are historical gas-airship mass and useful-load figures from the explicitly single-source secondary, not vacuum-hull results.",
-   "text": "The demonstrated dead-weight numbers in `helium.py` — *Hindenburg* 200,000 m³ and 118 t empty (0.590 kg/m³ of volume, 49% useful on hydrogen), the same LZ-126 hull at 57% useful on hydrogen for its delivery flight but 41% as USS *Los Angeles* on helium, the 90–95% inflation practice, the water-recovery gear US helium ships carried to avoid venting — all come from one curated secondary, Dan Grossman's airships.net. **The audit flags every one of these as single-sourced**, and they are; before the useful-fraction comparison hardens, they should be re-based to primary references (Burgess's *Airship Design*, the Navy's ZR-3 records). Not redistributable; catalogued only.",
-   "source": "Dan Grossman, airships.net, Hindenburg and LZ-126 / USS Los Angeles historical records."
-  },
-  {
-   "file": "research/notes/helium-and-hydrogen.md",
-   "key": "bd9cdaa0bc6dd5a6",
-   "line": 127,
-   "class": "conditional",
-   "reason": "The list explicitly labels operating purity as an assumption, plant mass as unsourced and other inputs as secondhand; none establishes a floating project hull."
-  },
-  {
-   "file": "research/notes/helium-and-hydrogen.md",
-   "key": "c75a028390e3b8a5",
-   "line": 151,
-   "class": "history",
-   "reason": "This integration correction records the earlier hierarchy figures and draft market arithmetic as they stood when the note entered the repository.",
-   "text": "1. **\"Break-even 0.067 kg/m³ is six times below the fourth hierarchy level\" is wrong arithmetic.** 0.067 is 2.5× below level 4 (0.169 kg/m³) and 3.7× below level 3 (0.245); the 6.4× multiple belongs to the level-2 *target* (0.428). The sentence appears in `research/README.md`, the `helium.py` docstring, and `helium.md`. The verdict — vacuum never wins on lift, at any level — is unchanged; the multiple should be fixed where it appears. 2. **Make-up: 3.7%/yr ≈ $90k/yr, not the draft's ~5%/yr ≈ $115k/yr.** The draft priced altitude-m³ as standard m³. `helium.py` computes the right number ($90k) but its own prose string still says \"~$115k/yr\" — a leftover from the draft that should be reconciled the next time the analysis is touched. 3. **Import-share attribution.** The Qatar-40/Canada-36 window (2020–23) is MCS 2025's; MCS 2022's window (2017–20) reads Qatar 65%, Algeria 12%, Canada 11%, Portugal 7%. The draft's source table credited \"import shares\" to MCS 2022. 4. **The surcharge quote** is \"with **some** producers posting surcharges\" in MCS 2022 and 2024; only MCS 2025 drops the \"some\". 5. **The \"90-year\" buffer age** is not in the USGS chapters (see above) and rides unsourced in `helium.md`.",
-   "date": "2026-08-11"
-  },
-  {
-   "file": "research/notes/helium-and-hydrogen.md",
-   "key": "3a36c9a6ee7e0640",
-   "line": 115,
-   "class": "bound",
-   "reason": "Both density margins belong to the unbuilt M60J hierarchy formula. Historical gas-ship fractions remain comparison inputs; the modern rigid density is explicitly an invented assumption.",
-   "text": "The comparison uses an unbuilt level-2 M60J hierarchy formula, not a drawn hull. At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.6867 kg/m³ at sea level and 0.4186 kg/m³ at 2,500 m. It assumes local-wall knockdown 0.30 and node mass 15%; material properties, joint mass, film convention and a drawn, tested structure remain unverified. Comparing that formula with the historical 49%/41% useful fractions remains arithmetic on unequal evidence: 1930s duralumin and cotton against a target laminate. The number a modern helium rigid would achieve, **0.3–0.45 kg/m³ in the draft, is an invented OOM guess** (audit: invented); no modern transport-scale rigid exists to measure, and nothing published by LTA Research yet fills the gap.",
-   "context": [
-    "2",
-    "1.5",
-    "0.30",
-    "15",
-    "2500",
-    "1930",
-    "0.3",
-    "0.45"
-   ],
-   "bindings": [
-    {
-     "case": "hierarchy-M60J_LAM-2",
-     "field": "at.seaLevel.margin",
-     "shown": "0.6867"
-    },
-    {
-     "case": "hierarchy-M60J_LAM-2",
-     "field": "at.target.margin",
-     "shown": "0.4186"
-    },
-    {
-     "source": "research/analysis/helium.json",
-     "pointer": "/usefulFraction/hindenburgH2Pct",
-     "shown": "49"
-    },
-    {
-     "source": "research/analysis/helium.json",
-     "pointer": "/usefulFraction/zr3HeliumPct",
-     "shown": "41"
-    }
-   ]
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "34d244d13a76434a",
-   "line": 13,
-   "class": "history",
-   "reason": "The note explicitly dates this hierarchy prediction to 2026-08-10; the old density ladder and proposed benchmark are retained as that record, not rebound to a later model.",
-   "text": "**The level-2 coefficient is carried at zero degradation, and no published source supports 0.428 kg/m³.** The cell model steps the shell from 1.086 to 0.428 against the 0.957 buoyancy wall by adding a second level of hierarchy — and it applies the exponent gain while leaving the strength coefficient untouched, even though the page itself admits the coefficient \"degrades even as the exponent improves.\" Every measured hierarchical specimen in the literature pays a coefficient penalty; none of them is a tube-of-tubes strut; none is at structural scale and airship-usable density. 0.428 is a **prediction of this project's own scaling arithmetic**, and must be labelled as such wherever it appears. The measured knockdown bands straddle exactly what the margin tolerates (arithmetic below), so the number is not safe and not dead — it is undecided, and the A/B crush benchmark on the project's own printer is the retirement path.",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "c2fcef5a52e4d5be",
-   "line": 61,
-   "class": "history",
-   "reason": "The dated synthesis compares measured joints with the then-current node allowance and an unbuilt node; its quoted model correction is historical.",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "8fcf56a6b0670089",
-   "line": 134,
-   "class": "history",
-   "reason": "The dated list records the limitations and model corrections identified in that reading; its hierarchy and node statements describe the 2026-08-10 state.",
-   "text": "1. **Nobody has ever built or crushed a tube-of-tubes strut.** Not at 100 µm, not at 1 mm, not at any scale. The three measured hierarchy demonstrations are paper honeycomb, nanolattices at ρ̄ < 10⁻³, and micron-scale alumina — none within reach of an airship design point. The right citation posture is: *exponent mechanism confirmed at three scales; coefficient never demonstrated at structural scale.* 2. **Zheng's measured exponent is 1.3, not the ladder's 1.333 read as achieved** — supportive of the mechanism, and simultaneously a warning against printing the ladder as fact; and its coefficient at those densities is far below any airship-usable value. 3. **The node correction is the wrong kind of model.** \"Carry no load, 15%\" fails against measured joint-governed failure and a 27.8% measured mass fraction. The ×1.15 number itself remains what the cell page already admits: the largest unsourced number left. 4. **The joint that would settle it is undesigned.** Ochalek 2018 proves the design lineage exists and publishes no numbers; no source in this collection prices a 12-tube vacuum-cell node. 5. **The manufacturing routes are existence proofs, not designs.** Anisogrid rib modulus at 100–300 µm tow scale: no data. Drawn-silica structural walls: index-inferior to M60J and never used structurally. Bonded bundle creep under multi-year load: no source found at this scale. And the two anchor papers for routes A and B were not read for this note. 6. **Hierarchy-of-assembly results (Smith 2025, ARMADAS) do not transfer to the strut wall.** They demonstrate logistics and assembled-lattice scaling at 10–80 kg/m³ — an order of magnitude above the design point, with the hierarchy in the robots' hands, not in the material.",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "7b1c45968e5bb97e",
-   "line": 159,
-   "class": "history",
-   "reason": "This is the pre-test prediction and specimen protocol registered in the dated note; replacing its numbers would rewrite the registered prediction.",
-   "text": "The A/B crush benchmark, on the project's stated gear (0.6 mm nozzle, PAHT-CF): specimen A, the 251 mm demonstrator strut with solid 1.2 mm wall; specimen B, same length and mass ±3%, wall printed as two 0.6 mm skins joined by a triangulated corrugation; n ≥ 10 per arm, axial compression to failure, potted ends. Readout: k = (P_B/P_A)_measured / (P_B/P_A)_theory from the project's own cell model — one dimensionless number, which is the entire level-2 coefficient question. **Prediction registered before testing: the model's 1.086 → 0.428 step implies an equal-mass strength ratio ≈ 2.5×. k > 2.9 retires the level-2 claim; k ≤ 1.7 funds it.** A second tier at 1/10 scale on a DLP printer (~100 µm features, where Meza's polymer result says monolithic printing can be nearly coefficient-clean) checks whether k is a geometry/process property or a scale property — which is precisely what the hierarchy ladder assumes and nobody has checked for this geometry.",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "93c0245c92a980d1",
-   "line": 173,
-   "class": "history",
-   "reason": "These are the page corrections requested by the 2026-08-10 note, including its superseded hierarchy prediction, rather than a new current float verdict.",
-   "text": "- Label 0.428 kg/m³ a **prediction of this project**, unsupported by any published measurement, wherever it appears; the \"floats\" column inherits the label. - Fix the Zheng citation: Nature Materials 15 (2016), not Science. - Reclassify nodes from dead mass to potentially strength-governing elements; keep 10–30% as the measured band for discretely assembled levels (top measured: 27.8%). - State the design rule as a requirement, not a preference: the level-2 wall must be stretch-dominated and continuously manufactured, because only that combination keeps the measured knockdown bands inside the 2.9× the margin can absorb.",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "6e305f6e2eebfe18",
-   "line": 28,
-   "class": "literature",
-   "reason": "Lakes, Zheng and Meza supply the measured exponent examples; none is a project tube-of-tubes strut.",
-   "text": "- Lakes (1993, Nature) built second-order paper honeycomb and crushed it: **3.2–3.8× stronger in compression than first-order honeycomb at the same 0.01 g/cm³ density** (MEASURED). Two more things the project's page does not yet carry: his own plastic-buckling theory predicted 4.6×, so even the founding measurement landed at 0.7–0.83 of its predicted gain — a coefficient shortfall of 1.2–1.4× in the friendliest possible experiment; and he bounds the ladder — cell-wall relative thickness grows with order, so at relative density 0.01 \"values of n above 4 are unrealistic.\" Both support stopping at level 2 with 3 as reserve. - Zheng et al. (2016, **Nature Materials** 15:1100 — the project page has been citing this as Science; Science 344 is the separate 2014 single-scale paper) measured 2nd–3rd-order Ni-P hollow-tube lattices: strength–density scaling exponent as low as **1.3** at relative density below 10⁻³, tensile strain ~20%, specific strength to 40.8 MPa/(g/cm³) (MEASURED, from the OSTI accepted manuscript in `papers/`). - Meza et al. (2015, PNAS) measured 2nd-order hollow-tube alumina octahedron-of-octets: stiffness E = 0.015·E_s·ρ̄^1.04 — nearly linear where a single-level bend-dominated architecture would be quadratic or worse (MEASURED, read at PMC).",
-   "source": "Lakes (1993); Zheng et al. (2016), Nature Materials 15; Meza et al. (2015), PNAS."
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "9453f52ff408fbaf",
-   "line": 44,
-   "class": "literature",
-   "reason": "The coefficients and manufacturing penalties describe the cited specimens; constituent assumptions used in this note’s estimates remain explicitly labelled.",
-   "text": "**And every measured coefficient lands below the ideal.** Meza's 0.015 sits ≈7× under the A = 0.1 that Jenett 2019 assumes for an ideal lattice and ≈20× under the octet ideal. Their own finite-element predictions overshot the hollow-tube measurements by 68.5% — a **1.69× defect knockdown, attributed to sinusoidal wall waviness from the two-photon writing process** (MEASURED) — while their monolithically printed polymer specimens came in ~11% *above* prediction (MEASURED): monolithic printing at ~micron scale was coefficient-clean, the hollow-tube coating process was not. ARMADAS (Gregg 2024, in `papers/` with supplement) measured injection-molding knit lines at **3.5× on coupon strength** (108.52 → 31.101 MPa, tables S5/S6, MEASURED). Assembled single-level lattices land at A ≈ 0.06 (Cheung 2013, Science, catalogued only) and A ≈ 0.019 (ARMADAS) — but both of those coefficients divide by constituent properties this note had to assume (quasi-iso laminate values for Cheung; ρ_s ≈ 1,340 kg/m³ for StatTech NN-40CF, a DATASHEET-class value not stated in the paper), so treat them as estimates, and note the audit's finding that they are our arithmetic, not the papers'.",
-   "source": "Meza et al. (2015); Gregg et al. (2024), supplementary Tables S5/S6; Cheung (2013); Jenett (2019)."
-  },
-  {
-   "file": "research/notes/hierarchy-manufacturing.md",
-   "key": "29a9d36f12cb9034",
-   "line": 76,
-   "class": "literature",
-   "reason": "Smith’s robot-assembled CF-nylon blocks demonstrate assembly logistics, which the paragraph explicitly distinguishes from a flight strut’s coefficient.",
-   "text": "**Hierarchical *assembly* works at metre scale.** Smith 2025 (SCF '25, CC BY, in `papers/`): CF-nylon voxels handled as blocks by mobile robots; 81.85 kg/m³ average, a 2×2×2 block held 3,445 N ≈ 2,220× its own weight, and the assembled lattice is stretch-dominated (MEASURED). Note carefully: the hierarchy there is in the *handling*, not in the strut cross-section — it is evidence for construction logistics, not for the level-2 coefficient.",
-   "source": "Smith (2025), SCF, hierarchical robotic assembly measurements."
-  },
-  {
-   "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
-   "key": "9999cac15d4b9bbd",
-   "line": 7,
-   "class": "literature",
-   "reason": "The strength-versus-stability argument, constituent properties and lattice coefficients are Jenett’s sphere analysis, not a result for the project hull.",
-   "text": "Earlier vacuum-balloon analyses concluded the problem was one of *stability*: a shell thin enough to float buckles. This paper's contribution is to redo that analysis with a cellular solid in place of",
-   "source": "Jenett, Gregg & Cheung (2019), AIAA 2019-0815, lattice vacuum sphere analysis."
-  },
-  {
-   "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
-   "key": "5473854ae1b09dff",
-   "line": 24,
-   "class": "bound",
-   "reason": "Jenett’s sphere arithmetic supplies the comparison inputs; the project’s assumed dry allowance and the generated shell-to-allowance multiplier are bound separately.",
-   "text": "That table also convicts us. A sphere of R = 100 m displaces 5,131 t at 1.225 kg/m³, so the shell is 2,126 t, or **0.508 kg per m³ of enclosed volume** — and because the design rules are ratios (`R/t ",
-   "context": [
-    "100",
-    "5131",
-    "1.225",
-    "2126",
-    "10"
-   ],
-   "bindings": [
-    {
-     "case": "literature-floor",
-     "field": "mass",
-     "shown": "0.508"
-    },
-    {
-     "case": "fleet-P10000-empty",
-     "field": "extras.structureAllowanceKgPerCubicM",
-     "shown": "0.455"
-    },
-    {
-     "case": "fleet-P10000-empty",
-     "field": "mass",
-     "shown": "10000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/dispM3",
-     "shown": "22000000"
-    },
-    {
-     "source": "research/analysis/mass-budget.json",
-     "pointer": "/classes/P10000/cases/floor/shellAloneOverBy",
-     "shown": "1.12"
-    }
-   ]
-  },
-  {
-   "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
-   "key": "ec0459da41750903",
-   "line": 9,
-   "class": "literature",
-   "reason": "These are the standard atmosphere’s physical reference constants and tropospheric definition, not a measured fire-weather profile.",
-   "text": "The idealised mean vertical profile of a static atmosphere: sea-level pressure 101,325 Pa, temperature 288.15 K, density 1.225 kg/m³, gravity 9.80665 m/s², and a linear temperature lapse of 6.5 K/km t",
-   "source": "NOAA / NASA / USAF (1976), U.S. Standard Atmosphere, Part 1."
-  },
-  {
-   "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
-   "key": "a76b31447580890e",
-   "line": 18,
-   "class": "history",
-   "reason": "This paragraph records the explicitly dated 2026-08-09 correction from sea-level-only fleet lift to an altitude-dependent allowance.",
-   "text": "All of it, and recently. Until 2026-08-09 `ledger()` computed displacement at 1.225 kg/m³ and used that number at every altitude; the fix was to build `sim/atmosphere.js` around this profile, so every",
-   "date": "2026-08-09"
-  },
-  {
-   "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
-   "key": "51a87bbf8bddd0f6",
-   "line": 1,
-   "class": "literature",
-   "reason": "The verdict wording is the exact title of Metlen’s thesis; it names his research object, not this project’s hull.",
-   "text": "# Metlen (2013) — Design of a Lighter than Air Vehicle that Achieves Positive Buoyancy Using a Vacuum",
-   "source": "Metlen (2013), AFIT-ENY-13-J-02, thesis title."
-  },
-  {
-   "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
-   "key": "51ac7e231a137cdf",
-   "line": 9,
-   "class": "literature",
-   "reason": "W/B is Metlen’s defined weight-to-displaced-air ratio; the float threshold is a definition in the cited study.",
-   "text": "Metlen defines the figure of merit this whole literature turns on: **W/B**, the ratio of structure weight to the weight of displaced air. W/B < 1 floats. He then optimises three real designs with a no",
-   "source": "Metlen (2013), definition of the W/B figure of merit."
-  },
-  {
-   "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
-   "key": "4cfea8fc392377dd",
-   "line": 35,
-   "class": "bound",
-   "reason": "The fleet’s dry mass is an allowance, not a sized hull. The current negative structural verdict is bound; the linked ledger holds the numerical comparison.",
-   "text": "The fleet model assumes dry mass equals payload; it has not sized a fleet hull. The [float ledger](../../docs/FLOAT-LEDGER.md) compares that allowance at sea level and 2,500 m. Nothing floats today as",
-   "context": [
-    "2500"
-   ],
-   "bindings": [
-    {
-     "source": "research/analysis/float-ledger.json",
-     "pointer": "/verdict",
-     "equals": "Nothing floats today as drawn."
-    }
-   ]
-  },
-  {
-   "file": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
-   "key": "8c3ceb50a5607d7e",
-   "line": 39,
-   "class": "bound",
-   "reason": "The comparison keeps Metlen’s sphere separate from the largest configured capsule and its component allowances; battery, tank and cable figures are quantities only.",
-   "text": "Two further points make his number optimistic for us rather than pessimistic. Every design he found workable is a sphere; the sphere is the best possible shape against external pressure and our larges",
-   "bindings": [
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/lenM",
-     "shown": "512"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/diaM",
-     "shown": "256"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/battMWh",
-     "shown": "2000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/ln2CapT",
-     "shown": "15500"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/anchorCableM",
-     "shown": "850"
-    }
-   ]
-  },
-  {
-   "file": "research/notes/print-reliability.md",
-   "key": "be03642cbd7bc060",
-   "line": 69,
-   "class": "conditional",
-   "reason": "Povilus’s SLS-PA12 measurements are extrapolated to a proposed FDM demonstrator and an explicitly invented pressure-rise budget; the block states that no allowance has been adopted.",
-   "text": "**5. The polymer itself outgasses more than any plausible leak budget.** Povilus et al. 2014 [MEASURED, with an extrapolation flag] measured **SLS-printed PA12** at 3×10⁻⁸–4×10⁻⁷ mbar·L/cm²·s *after* "
-  },
-  {
-   "file": "research/notes/print-reliability.md",
-   "key": "0c29d8cc9f1ca281",
-   "line": 117,
-   "class": "history",
-   "reason": "The 2026-08-10 topic note records the demonstrator’s then-current shared-array versus standalone mass discrepancy and its proposed process checks.",
-   "text": "- **No published failure-rate dataset for consumer print farms exists.** Song & Telenko 2017 is the only peer-reviewed FDM waste measurement found and it is paywalled and **was not read**; no number f",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "889b315bb0ed9622",
-   "line": 31,
-   "class": "literature",
-   "reason": "This is the cited history of other vacuum-airship proposals; its buoyancy discussion does not identify a project hull.",
-   "text": "Francesco Lana de Terzi's *Prodromo* (Brescia, 1670, ch. 6) proposed four evacuated copper spheres lifting a boat — the first quantitative LTA proposal, and wrong for the reason that has killed every ",
-   "source": "Akhmeteli & Gavrilin (2021), references 1 and 8; Metlen (2013) §1.2; secondary and bibliographic sources labelled in the paragraph."
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "e2c4ef8ae78da0ec",
-   "line": 50,
-   "class": "literature",
-   "reason": "The table inventories other inventors’ patents and applications, retaining the stated limits of index-only or unread evidence.",
-   "source": "Patent identifiers in the table; retained Google Patents index records and Akhmeteli & Gavrilin (2021) references."
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "d22dc0b69f7953be",
-   "line": 77,
-   "class": "literature",
-   "reason": "The shell fraction and density are Akhmeteli and Gavrilin’s sandwich sphere, with no claim that it sizes our hull.",
-   "text": "**The lattice step** — Jenett, Gregg & Cheung, AIAA 2019-0815 / NTRS 20190001133 [read — in `papers/`]: a vacuum sphere whose wall is a cellular solid of hollow CFRP struts at fixed R/t = 10; strength",
-   "source": "Akhmeteli & Gavrilin (2021), Eng 2(4), sandwich sphere."
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "40be3f8d367ca457",
-   "line": 82,
-   "class": "literature",
-   "reason": "The density and zero-mass skin qualification describe Jenett’s published lattice sphere on its own assumptions.",
-   "text": "**The AFIT / Palazotto line** — the only sustained academic programme on vacuum LTA structures. Metlen's 2013 thesis [read — in `papers/`] is its honest core: W/B 0.81 isogrid, 0.57 frame alone, and *",
-   "source": "Jenett, Gregg & Cheung (2019), AIAA 2019-0815, Table 2."
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "c12ac829c53d5e14",
-   "line": 176,
-   "class": "literature",
-   "reason": "This table compares proposed mechanisms with cited prior architectures; the proportions are labels of those mechanisms, not a computed float result.",
-   "text": "| Mechanism (this project) | Closest prior | Gap | |---|---|---| | Shared-wall evacuated cells; interior partitions at zero differential | Jenett (cellular wall, one skin, no sealed cells); Hobson 202",
-   "source": "Jenett (2019); Hobson (2023); Barton; Akhmeteli & Gavrilin; Rapport & Middleton; Lakes (1993); Zheng (2016); Turinetti, as qualified in this note."
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "fd3748d745ec97e9",
-   "line": 102,
-   "class": "history",
-   "reason": "The dated reading records a then-open conflict between the project’s pressure-scaling argument and an unread 2020 gossamer paper; it is not a present validation.",
-   "text": "**Barton's tension-stabilised line** — patent US 7,708,161 (§3) plus arXiv physics/0610222 and J. Aircraft 2013 (10.2514/1.C031654; conference version 10.2514/6.2011-1717) [biblio: Crossref]. The roun",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/notes/prior-art-cellular-vacuum.md",
-   "key": "800fa8084f5b27f8",
-   "line": 149,
-   "class": "history",
-   "reason": "The 2026-08-10 research record quotes the earlier hierarchy ladder and the objections raised against it. Its old prediction is preserved, not represented as the current model.",
-   "text": "1. **No published design is within 2× of our level-2 number.** Best published shells: Jenett 0.508 kg/m³ (skin uncosted, fibre properties), A&G 1.16, Metlen ≈ 1.15. Our level-1 figure (1.086) sits exa",
-   "date": "2026-08-10"
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "e878bd2dd8bd0ae8",
-   "line": 72,
-   "class": "bound",
-   "reason": "The structural result belongs to the separate 52 m hull of record, not the simulated P-100 fleet allowance. Both altitude pairs, the favourable deficits and the negative verdict are bound.",
-   "text": "A conventional airship floats because it is full of helium. This concept proposes vacuum lift; nothing floats today as drawn. The separate 52 m hull of record uses structural safety factor 1.2 against",
-   "context": [
-    "52",
-    "1.2",
-    "0.30",
-    "1050",
-    "2500",
-    "0.65",
-    "1450"
-   ],
-   "bindings": [
-    {
-     "source": "research/analysis/float-ledger.json",
-     "pointer": "/verdict",
-     "equals": "Nothing floats today as drawn."
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-     "field": "at.seaLevel.liftToMass",
-     "shown": "0.558"
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-     "field": "at.target.liftToMass",
-     "shown": "0.436"
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-     "field": "at.seaLevel.liftToMass",
-     "shown": "0.981"
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-     "field": "at.target.liftToMass",
-     "shown": "0.766"
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-     "field": "at.seaLevel.margin",
-     "shown": "4.3",
-     "abs": true
-    },
-    {
-     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-     "field": "at.target.margin",
-     "shown": "53.6",
-     "abs": true
-    }
-   ]
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "67ddde2262d3d1ac",
-   "line": 79,
-   "class": "bound",
-   "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
-   "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. Across five readings, the favourable lift-to-mass ratio ranges from 0.751 to 0.998 at sea level and from",
-   "context": [
-    "52",
-    "2500",
-    "1.2",
-    "0.65",
-    "1450"
-   ],
-   "bindings": [
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/min",
-     "shown": "0.751",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/max",
-     "shown": "0.998",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/min",
-     "shown": "0.586",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/max",
-     "shown": "0.780",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/noneReachesOne",
-     "equals": true
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/disagreementCount",
-     "shown": "20"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "15b3d53c54a4e328",
-   "line": 84,
-   "class": "literature",
-   "reason": "The historical copper-sphere proposal and homogeneous-shell impossibility argument are the cited authors’ objects, not a claim of a floating project design.",
-   "text": "Francesco Lana de Terzi published the idea in 1670 and was right about everything except the metal: thin the shell enough to float and the atmosphere crushes it. Akhmeteli and Gavrilin put a number on",
-   "source": "Lana de Terzi (1670); Akhmeteli & Gavrilin (2021), homogeneous-shell argument."
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "1b8c1f46df84960e",
-   "line": 16,
-   "class": "bound",
-   "reason": "The flight simulation assumes structural buoyancy; the ledger’s current negative verdict prevents cycle behaviour being read as a floating drawn design.",
-   "text": "The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.",
-   "bindings": [
-    {
-     "source": "research/analysis/float-ledger.json",
-     "pointer": "/verdict",
-     "equals": "Nothing floats today as drawn."
-    }
-   ]
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "6c5d5f5401ea7f67",
-   "line": 101,
-   "class": "conditional",
-   "reason": "This is explicitly a fail-safe sizing requirement for a loaded vehicle with a jammed outlet, not a report that a drawn hull meets it.",
-   "text": "> A hull must be positively buoyant at its working altitude while **fully loaded with water and > unable to drop it.**"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "dee8fb594e06036e",
-   "line": 120,
-   "class": "history",
-   "reason": "This is the explicitly dated account of the 2026-08-09 altitude correction and its consequences for the then-current simulation.",
-   "text": "**This is where a correction made on 2026-08-09 belongs.** The ledger previously bought its lift at sea-level density and spent it at altitude, which overstated lift by 22%. Correcting it grew every h",
-   "date": "2026-08-09"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "786514a7e603470e",
-   "line": 96,
-   "class": "flight-model",
-   "reason": "The heading labels the simulated float-up sizing logic, whose assumed hull is stated once at the start.",
-   "text": "## 4. What sizes the hull: fail-safe float-up",
-   "assumption": "1b8c1f46df84960e"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "f2980dc184a30b79",
-   "line": 127,
-   "class": "flight-model",
-   "reason": "The ceiling-versus-water comparison describes the simulated cycle’s two limiting altitude cases, not structural validation.",
-   "text": "- **Float-up is hardest at the ceiling**, 2,500 m MSL, in the thinnest air. - **Descent is hardest at the water**, 1,300 m MSL, in air 16% denser.",
-   "assumption": "1b8c1f46df84960e"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "88c879c71a18d895",
-   "line": 169,
-   "class": "flight-model",
-   "reason": "The paragraph describes simulated loaded ascent and empty descent under the stated hull assumption; the size limit is within that flight model.",
-   "text": "Buoyancy that guarantees the ship rises when loaded must be overcome when it is empty, and it is worst at the bottom of the letdown where the air is 16% denser than the air the hull was sized in. **Th",
-   "assumption": "1b8c1f46df84960e"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "2edaea2a48f80509",
-   "line": 108,
-   "class": "bound",
-   "reason": "These are the simulator’s assumed loaded-fleet masses and ratios at both altitudes. The paragraph explicitly disclaims a structural sizing basis and requires a qualified mass bill.",
-   "text": "The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water. In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t lo",
-   "context": [
-    "2",
-    "10000",
-    "2500"
-   ],
-   "bindings": [
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.seaLevel.lift",
-     "shown": "26950"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.target.lift",
-     "shown": "21050.9"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "mass",
-     "shown": "20000"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.seaLevel.liftToMass",
-     "shown": "1.348"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.target.liftToMass",
-     "shown": "1.053"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "d9d1c79f375385ea",
-   "line": 114,
-   "class": "bound",
-   "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
-   "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis",
-   "context": [
-    "52",
-    "2500",
-    "1.2",
-    "0.65",
-    "1450"
-   ],
-   "bindings": [
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/min",
-     "shown": "0.751",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/max",
-     "shown": "0.998",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/min",
-     "shown": "0.586",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/max",
-     "shown": "0.780",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/noneReachesOne",
-     "equals": true
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/disagreementCount",
-     "shown": "20"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "f714c760a081afc9",
-   "line": 331,
-   "class": "bound",
-   "reason": "The dry density is an explicit simulation allowance shared by the nominal fleet, not the mass of a sized structural hull.",
-   "text": "`dryT = payloadT` implies a hull-average density of **0.455 kg/m³** — and it is the same figure on every class, because displacement is sized per tonne of payload. 100 t inside 220,000 m³ and 10,000 t",
-   "bindings": [
-    {
-     "case": "fleet-P100-empty",
-     "field": "extras.structureAllowanceKgPerCubicM",
-     "shown": "0.455"
-    },
-    {
-     "case": "fleet-P100-empty",
-     "field": "mass",
-     "shown": "100"
-    },
-    {
-     "case": "fleet-P10000-empty",
-     "field": "mass",
-     "shown": "10000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P100/spec/dispM3",
-     "shown": "220000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/dispM3",
-     "shown": "22000000"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "1b8c1f46df84960e",
-   "line": 13,
-   "class": "bound",
-   "reason": "The flight simulation assumes structural buoyancy; the ledger’s current negative verdict prevents cycle behaviour being read as a floating drawn design.",
-   "text": "The flight model assumes a hull that floats; no drawn hull does, as the [structural assessment](../../docs/FLOAT.md) explains.",
-   "bindings": [
-    {
-     "source": "research/analysis/float-ledger.json",
-     "pointer": "/verdict",
-     "equals": "Nothing floats today as drawn."
-    }
-   ]
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "442c830aa670996c",
-   "line": 41,
-   "class": "conditional",
-   "reason": "The vacuum-lift proposal explicitly depends on making the shell light enough, and the paragraph says that construction has not been shown.",
-   "text": "Buoyant flight is the only way to get payload without paying for lift continuously, and it is the only way to build a firefighting aircraft that never has to land. Helium is expensive and leaks; vacuu"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "a7c8c97bb005e356",
-   "line": 95,
-   "class": "conditional",
-   "reason": "Positive buoyancy with an unreleasable load is stated as a requirement, not as a checked property of a drawn vehicle.",
-   "text": "> A hull must be positively buoyant at its working altitude while **fully loaded with water and > unable to release it.**"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "991f0db859e276b8",
-   "line": 149,
-   "class": "flight-model",
-   "reason": "The ascent/descent comparison belongs to the flight simulation under the explicit floating-hull assumption at the start of the report.",
-   "text": "The buoyancy that guarantees float-up must be overcome to descend, and it is worst at the bottom, over the water, where the air is densest.",
-   "assumption": "1b8c1f46df84960e"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "0a81b9c89add5043",
-   "line": 318,
-   "class": "literature",
-   "reason": "This is the gas-density penalty of helium before structure, followed by supply consequences; it is not a float verdict for a vacuum hull.",
-   "text": "What changes is the lift budget and the economics. Helium is about 14% less buoyant per cubic metre than vacuum, so the hull grows for the same payload. It leaks, so it is a consumable with a supply c",
-   "source": "U.S. Standard Atmosphere (1976) and helium molar-mass reference used in research/analysis/helium.py; historical supply context in research/notes/helium-and-hydrogen.md."
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "d3d00f5e3f523e79",
-   "line": 543,
-   "class": "conditional",
-   "reason": "The proposed expert studies and example sizes are future work, explicitly conditional on what the mass estimates find.",
-   "text": "**Recommended next step, at minimal cost:** commission a lattice-structure mass breakdown at 100 m and 219 m radius from a group that builds them, and an independent pack-level mass estimate for a 2,0"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "2edaea2a48f80509",
-   "line": 98,
-   "class": "bound",
-   "reason": "These are the simulator’s assumed loaded-fleet masses and ratios at both altitudes. The paragraph explicitly disclaims a structural sizing basis and requires a qualified mass bill.",
-   "text": "The fleet model assumes dry mass equals payload: loaded mass is 2 t per tonne of water. In its P-10000 scenario, lift is 26,950 t at sea level and 21,050.9 t at 2,500 m, against an assumed 20,000 t lo",
-   "context": [
-    "2",
-    "10000",
-    "2500"
-   ],
-   "bindings": [
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.seaLevel.lift",
-     "shown": "26950"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.target.lift",
-     "shown": "21050.9"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "mass",
-     "shown": "20000"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.seaLevel.liftToMass",
-     "shown": "1.348"
-    },
-    {
-     "case": "fleet-P10000-loaded",
-     "field": "at.target.liftToMass",
-     "shown": "1.053"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "d9d1c79f375385ea",
-   "line": 104,
-   "class": "bound",
-   "reason": "The five unchecked cap-accounting readings belong to the separate 52 m structural hull. Both altitude ranges and the census count are generated; none is a validated design.",
-   "text": "The separate 52 m structural drawing and its bill disagree in the end caps, in both directions. These readings retain structural safety factor 1.2 against full sea-level pressure. The favourable basis",
-   "context": [
-    "52",
-    "2500",
-    "1.2",
-    "0.65",
-    "1450"
-   ],
-   "bindings": [
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/min",
-     "shown": "0.751",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/seaLevel/max",
-     "shown": "0.998",
-     "altitude": "seaLevel"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/min",
-     "shown": "0.586",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/ranges/favourable/target/max",
-     "shown": "0.780",
-     "altitude": "target"
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/noneReachesOne",
-     "equals": true
-    },
-    {
-     "source": "research/analysis/cap-readings.json",
-     "pointer": "/disagreementCount",
-     "shown": "20"
-    }
-   ]
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "5ff97c620bf0ecfb",
-   "line": 207,
-   "class": "bound",
-   "reason": "The dry density is an explicit simulation allowance shared by the nominal fleet, not the mass of a sized structural hull.",
-   "text": "The model's foundational assumption is `dryT = payloadT`: the ship's entire dry mass — shell, skin, joints, rotors, tanks, batteries, pumps, cable — equals the water it carries. That is a hull-average",
-   "bindings": [
-    {
-     "case": "fleet-P100-empty",
-     "field": "extras.structureAllowanceKgPerCubicM",
-     "shown": "0.455"
-    },
-    {
-     "case": "fleet-P100-empty",
-     "field": "mass",
-     "shown": "100"
-    },
-    {
-     "case": "fleet-P10000-empty",
-     "field": "mass",
-     "shown": "10000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P100/spec/dispM3",
-     "shown": "220000"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/dispM3",
-     "shown": "22000000"
-    }
-   ]
-  },
-  {
-   "file": "research/notes/chin-2021-battery-cell-to-pack.md",
-   "key": "6fc32539a64a1507",
-   "line": 22,
-   "class": "deferred",
-   "reason": "Battery energy per dry mass is asserted equal across classes, although the paragraph itself gives 120 MWh per 1,000 t for the middle class. The claimed universal 200 Wh/kg requirement belongs to the energy correction.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/notes/chin-2021-battery-cell-to-pack.md",
-   "key": "63d38ae343d99809",
-   "line": 26,
-   "class": "deferred",
-   "reason": "The battery-over-budget result is extended to every class despite the different middle-class capacity. This is an energy-budget closure claim, not merely a component mass.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/notes/suter-2005-rotor-wash.md",
-   "key": "5bc971aff2913829",
-   "line": 24,
-   "class": "deferred",
-   "reason": "Rotor power and thrust are extrapolated to induced velocity and wake reach over a fire. These hull performance estimates require the energy and delivery model, not a structural float disposition.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/notes/usfs-2022-retardant-airtanker-bases.md",
-   "key": "a3fcb185745ff691",
-   "line": 39,
-   "class": "deferred",
-   "reason": "The paragraph makes a delivery-behaviour claim about a 10,000 t release, mixing a source caveat with an unmodelled coherent-body hypothesis. It is not merely a water mass.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "d36b8127312452f1",
-   "line": 22,
-   "class": "deferred",
-   "reason": "The zero-power lift argument is extended to a vehicle with no turnaround. That is an energy/delivery result, not merely buoyancy as a physical principle.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "5eb26ecdf4544ce7",
-   "line": 57,
-   "class": "deferred",
-   "reason": "Energy per tonne and delivered tonnes are claimed to improve with hull size; these cycle results belong to the energy/delivery correction.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "03ed3388960db3bc",
-   "line": 100,
-   "class": "deferred",
-   "reason": "The paragraph claims rotor descent closes for the simulated P-100. This is an operational closure claim under an assumed floating hull, not a structural mass result.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/01-brief.md",
-   "key": "3d167531d03fae25",
-   "line": 105,
-   "class": "deferred",
-   "reason": "The paragraph combines a descent-closure limit with the energy cost of the suspended-water solution. It remains for the energy/delivery correction.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "ec4b7b2b07fd717f",
-   "line": 38,
-   "class": "deferred",
-   "reason": "The claim that buoyancy wins a loading-dominated firefighting duty cycle is a delivery result; this block supplies no generated comparison.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "037161d42893537f",
-   "line": 137,
-   "class": "deferred",
-   "reason": "The phase table ends in delivered water and embeds unpowered escape. It needs the delivery model’s definition of arrival, not merely a payload-mass allowance.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "4951f7866c7dcc45",
-   "line": 220,
-   "class": "deferred",
-   "reason": "This paragraph interprets a rotor shortfall as the energy-exponent finding behind sizing the whole descent bag.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "09f4b13b003f1c7c",
-   "line": 225,
-   "class": "deferred",
-   "reason": "The combined list states descent-energy savings, mechanism closure and cable mass; the energy result cannot be covered by a quantity-only class.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "b12c732da8d1beff",
-   "line": 286,
-   "class": "deferred",
-   "reason": "Cryogenic production is compared with tank capacity to assert a cycle-ballast shortfall, an energy/cycle closure result.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "e85fc7fc9d51ad1c",
-   "line": 338,
-   "class": "deferred",
-   "reason": "The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "e30d56946c42d4aa",
-   "line": 454,
-   "class": "deferred",
-   "reason": "The requirement list includes energy endurance and delivery-success claims as well as a shell-density target; a single conditional label would hide those result claims.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "84a1b5dde3a515b7",
-   "line": 66,
-   "class": "deferred",
-   "reason": "Energy per tonne is asserted to fall with size; this is an energy/delivery result, not a structural float figure.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "81c63139d7436ebb",
-   "line": 112,
-   "class": "deferred",
-   "reason": "The phase table ends in delivered water and embeds unpowered escape; its delivery meaning remains for the delivery work.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "c54832727187958f",
-   "line": 177,
-   "class": "deferred",
-   "reason": "This risk table combines component quantities, a rotor-wash extrapolation and station-keeping claims. It cannot be reduced to a component-mass allowance.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "c399d98d90d0db25",
-   "line": 218,
-   "class": "deferred",
-   "reason": "The source table combines hull comparisons with a battery-over-budget energy result; it remains one inventoried block.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "998bece93d133fc4",
-   "line": 312,
-   "class": "deferred",
-   "reason": "The text says the cycle and most energy costs survive a helium substitution unchanged, then the next paragraph admits that substitution has not been modelled.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/03-diligence.md",
-   "key": "afc909b5c7222354",
-   "line": 498,
-   "class": "deferred",
-   "reason": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-   "owner": "energy-model"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "bb38b691c937ab18",
-   "line": 32,
-   "class": "method",
-   "reason": "The paragraph states the general equilibrium principle of weight equal to displaced air and its qualitative scaling argument, without a named project design.",
-   "context": []
-  },
-  {
-   "file": "research/notes/barrier-and-permeation.md",
-   "key": "3f220700564322e8",
-   "line": 83,
-   "class": "deferred",
-   "reason": "The getter comparison uses an older small-cell lift and sorbent-mass calculation without a generated case for that object.",
-   "owner": "hand-arithmetic"
-  },
-  {
-   "file": "research/notes/barrier-and-permeation.md",
-   "key": "e5a863a32654d259",
-   "line": 123,
-   "class": "deferred",
-   "reason": "Annex laminate data are extended into small-cell mass, lift and film comparisons by hand arithmetic absent from the generated records.",
-   "owner": "hand-arithmetic"
-  },
-  {
-   "file": "research/notes/noaa-1976-us-standard-atmosphere.md",
-   "key": "e2a68789e2515136",
-   "line": 34,
-   "class": "deferred",
-   "reason": "The hot-day density, percentage and fleet lift loss are hand sensitivities, not values supplied by the standard-atmosphere source.",
-   "owner": "hand-arithmetic"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "c571dd53590f1fba",
-   "line": 22,
-   "class": "deferred",
-   "reason": "The airtanker and helicopter payload and turnaround figures name no quantitative source for those outside aircraft.",
-   "owner": "source-needed"
-  },
-  {
-   "file": "research/reports/02-paper.md",
-   "key": "e340d1ac782d82a7",
-   "line": 46,
-   "class": "method",
-   "reason": "The paragraph compares displaced-air lift at a stated sea-level reference density; it is a physical comparison, not a project design result.",
-   "context": [
-    "0.169",
-    "1.225",
-    "14",
-    "16"
-   ]
-  },
-  {
-   "file": "research/notes/jenett-2019-lattice-vacuum-airship.md",
-   "key": "0095267cae26d155",
-   "line": 37,
-   "class": "bound",
-   "reason": "The largest nominal capsule dimensions come from the configured fleet; its buoyancy assumption does not transfer the paper’s spherical pressure analysis.",
-   "bindings": [
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/lenM",
-     "shown": "512"
-    },
-    {
-     "source": "research/figures.json",
-     "pointer": "/classes/P10000/spec/diaM",
-     "shown": "256"
-    }
-   ],
-   "context": [
-    "3"
-   ]
-  }
- ]
+  ]
 }

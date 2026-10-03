@@ -1,14 +1,32 @@
 {
   "schema": "float-claims/1",
   "files": [
+    "docs/DECISIONS.md",
     "docs/FLOAT.md",
     "docs/PHYSICS.md",
-    "research/README.md",
-    "docs/DECISIONS.md",
-    "docs/governance/landing-attestations.md"
+    "docs/governance/landing-attestations.md",
+    "research/README.md"
   ],
   "dated": [],
   "entries": [
+    {
+      "file": "docs/DECISIONS.md",
+      "key": "a8b714951b4051ea",
+      "line": 233,
+      "class": "history",
+      "reason": "Heading of the dated altitude-aware buoyancy decision; it records the original simulation change, not current structural validation.",
+      "text": "## 2026-08-09 — Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it",
+      "date": "2026-08-09"
+    },
+    {
+      "file": "docs/DECISIONS.md",
+      "key": "5190d342336e9700",
+      "line": 246,
+      "class": "history",
+      "reason": "The dated decision preserves the fleet resize and recovery-tank assumptions, including payload-equals-dry-mass; it is not a current drawn-hull claim.",
+      "text": "The hulls were then resized to a requirement rather than to the defect: FAIL-SAFE FLOAT-UP, positively buoyant at the working altitude while fully loaded with water it cannot drop, with a stated 5% margin. Nitrogen is excluded from that mass because it vents in seconds; water is the load a ship can be stuck with. Displacement is 2,200 m³ per tonne of payload, +22.2%, and the margin comes out at +5.25% identically on all three classes because dry mass is set equal to payload on all three. The `ln2CapT` tanks were resized on the same principle — enough nitrogen to LAND an empty hull with no rotor authority, checked at the ground where the air is densest rather than at the ceiling where the descent starts.",
+      "date": "2026-08-09"
+    },
     {
       "file": "docs/FLOAT.md",
       "key": "d98f3a0474099c95",
@@ -194,6 +212,14 @@
     },
     {
       "file": "docs/FLOAT.md",
+      "key": "9c80b557a5630683",
+      "line": 45,
+      "class": "method",
+      "reason": "This regeneration protocol distinguishes reproduced current calculations from historical tables and physical evidence.",
+      "context": []
+    },
+    {
+      "file": "docs/FLOAT.md",
       "key": "18b812cad584973a",
       "line": 53,
       "class": "other-quantity",
@@ -255,6 +281,13 @@
     },
     {
       "file": "docs/FLOAT.md",
+      "key": "6d8b9465002bd8fe",
+      "line": 88,
+      "class": "conditional",
+      "reason": "The definition of done specifies the required complete bill and load factors; it does not claim the required article exists."
+    },
+    {
+      "file": "docs/FLOAT.md",
       "key": "3c013cd1d4663d70",
       "line": 95,
       "class": "history",
@@ -303,6 +336,22 @@
       "reason": "This film-share and barrier-mass statement belongs to the unreproduced original mass comparison; the 2026-08-11 correction near the head of docs/FLOAT.md records its joint corrections.",
       "text": "The film itself is **1% of the mass** at every size. The barrier coating is 0.45 g on the whole cell — 100 nm of PVD aluminium over 1.681 m². Neither is a weight problem. They are a leak problem, which is a different document (#63).",
       "date": "2026-08-11"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "8a6dd9c7dc24087d",
+      "line": 140,
+      "class": "deferred",
+      "reason": "The list interleaves scaling results, a source pointer, a pressure derivation, the current bench verdict and a check-scope explanation.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "6d988ead164ea911",
+      "line": 167,
+      "class": "deferred",
+      "reason": "The 11.24 subdivision multiple and the earlier twofold joint-saving estimate have no matching current generated fields.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "docs/FLOAT.md",
@@ -374,12 +423,31 @@
     },
     {
       "file": "docs/FLOAT.md",
+      "key": "d4ae4ccdbb8c30e0",
+      "line": 402,
+      "class": "conditional",
+      "reason": "Retargeting is an optional handling and barrier proposal whose own words deny a route to floating."
+    },
+    {
+      "file": "docs/FLOAT.md",
       "key": "6146b3d65515de8a",
       "line": 412,
       "class": "history",
       "reason": "Appendix A retains the original one-metre retargeting geometry and loads, as introduced by its dated brief; this is not a built article.",
       "text": "| | 0.7085 m | 1.000 m | |---|---|---| | square face to square face | 709 mm | **1000 mm** | | hexagon face to hexagon face (`S·√3/2`) | 614 mm | 866 mm | | corner to corner | 793 mm | 1118 mm | | edge / long member | 250.5 mm | **353.6 mm** | | short member (`a/√2`) | 177.1 mm | **250.0 mm** | | enclosed | 178 L | **500 L** | | surface area | 1.681 m² | 3.348 m² | | load on one hexagon | 1.68 tf | 3.36 tf | | load on the whole surface | 17.4 tf | 34.6 tf | | cells per m³ of ship (BCC, 2 per S³) | 5.61 | 2.00 |",
       "date": "2026-08-11"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "9325aca8a3922752",
+      "line": 439,
+      "class": "method",
+      "reason": "The table derives geometric scaling exponents for load, stress and Euler margin; its numbers are algebraic context.",
+      "context": [
+        "1",
+        "2",
+        "8"
+      ]
     },
     {
       "file": "docs/FLOAT.md",
@@ -630,11 +698,11 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "3168802df34e9e81",
+      "key": "f58a42f1a50c23fb",
       "line": 8,
-      "class": "conditional",
-      "reason": "The introduction explicitly calls these aircraft calculations assumptions without a built vehicle; its audit-status chronology is retained for the energy revision.",
-      "text": "No such aircraft exists. Nothing here is validated against a built vehicle, because there is no built vehicle. This is arithmetic on stated assumptions, published so that the assumptions can be attacked. Six defects were found by audit; five are open, one — buoyancy at sea level — was fixed on 2026-08-09 and is written up as fixed rather than deleted. They have their own section and they are not hidden anywhere else in the document."
+      "class": "method",
+      "context": [],
+      "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
     },
     {
       "file": "docs/PHYSICS.md",
@@ -653,11 +721,11 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "a7714d3232e0ecf1",
-      "line": 23,
-      "class": "conditional",
-      "reason": "The notation table states the dry-mass allowance by assumption and identifies atmospheric constants, geometry definitions and operating inputs, not a sized hull.",
-      "text": "| Symbol | Meaning | Value or source | |---|---|---| | ρ_SL | sea-level air density | 1.225 kg/m³, ISA; `DEFAULTS.rhoSL`, the anchor of the density column | | ρ(h) | air density at altitude h above MEAN SEA LEVEL | `sim/atmosphere.js`, ISA troposphere | | ρ_work | air density at the altitude the hulls are sized at | 0.95686 kg/m³, ρ(2,500 m) | | ρ_air | working air density used for drag and rotors | 1.10 kg/m³, `DEFAULTS.rhoAir`. See Defect 2 | | h_t | terrain reference elevation | 1,000 m MSL, `TERRAIN_MSL` | | ρ_w | water density | 1000 kg/m³ | | g | gravity | 9.81 m/s² | | V | hull displacement | `CLASSES[*].dispM3` | | m_dry | dry mass allowance | `= payloadT`, by assumption | | m_pay | water payload | `CLASSES[*].payloadT` | | A_f | hull frontal area | π(d/2)² | | A_d | total rotor disk area | `CLASSES[*].diskM2` | | C_d | drag coefficient on frontal area | 0.05, `DEFAULTS.Cd` | | η_p | propulsive efficiency | 0.70, `DEFAULTS.propEta` | | η_pump | pump-system efficiency | 0.75, `DEFAULTS.pumpEta` | | h | pumping head = hose length = fill altitude | 300 m on every class, `CLASSES[*].hoseM` × `CFG.hoseMul` | | Q | fill rate | `CLASSES[*].fillM3s` |"
+      "key": "d0d74b664b8b4921",
+      "line": 22,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Generated by research/analysis/energy-documents.mjs; energydoccheck checks the record. The generated class requires analysisfresh, which does not regenerate this energy region."
     },
     {
       "file": "docs/PHYSICS.md",
@@ -705,6 +773,22 @@
     },
     {
       "file": "docs/PHYSICS.md",
+      "key": "e0142dcb4b1c3218",
+      "line": 128,
+      "class": "deferred",
+      "reason": "One paragraph combines gas fractions, an assumed structural share, a generated hierarchy comparison and the mission rationale.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "a3ec55b9312dca9d",
+      "line": 152,
+      "class": "deferred",
+      "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-02 hand-figure correction that follows it in docs/PHYSICS.md is retained.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
       "key": "0ebc46a34b9431ff",
       "line": 178,
       "class": "history",
@@ -719,6 +803,14 @@
       "class": "other-quantity",
       "reason": "The table compares material modulus and density for a classical shell requirement; it is not a computed bill or float result for any project hull.",
       "text": "| Material | E (GPa) | ρ_m (kg/m³) | E/ρ_m² | fraction of requirement | |---|---:|---:|---:|---:| | aluminium 6061 | 70 | 2,700 | 9,602 | 0.02× | | silicon carbide | 410 | 3,210 | 39,790 | 0.08× | | carbon/epoxy, unidirectional | 150 | 1,600 | 58,594 | 0.12× | | boron carbide | 460 | 2,520 | 72,436 | 0.14× | | beryllium | 287 | 1,850 | 83,857 | 0.17× | | diamond | 1,050 | 3,510 | 85,227 | 0.17× |"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "f7d310e9a77f501d",
+      "line": 220,
+      "class": "deferred",
+      "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
+      "owner": "mixed-block"
     },
     {
       "file": "docs/PHYSICS.md",
@@ -739,262 +831,43 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "f7b08fdc6037f30a",
-      "line": 252,
-      "class": "other-quantity",
-      "reason": "Battery masses and shares are component quantities under the stated installed specific energies; no energy balance or delivery result is asserted in this table.",
-      "text": "| | storage | mass at 250 Wh/kg | at 350 | at 500 | share of dry allowance at 250 Wh/kg | |---|---:|---:|---:|---:|---:| | P-100 | 20 MWh | 80 t | 57 t | 40 t | **80%** | | P-1000 | 120 MWh | 480 t | 343 t | 240 t | **48%** | | P-10000 | 2,000 MWh | 8,000 t | 5,714 t | 4,000 t | **80%** |"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "d1dc36db89d77674",
-      "line": 262,
-      "class": "other-quantity",
-      "reason": "The paragraph compares a library power-mass allowance with configured storage and generation quantities; it records a component-budget inconsistency, not closure.",
-      "text": "The 3D library's mass breakdown (`3d/model/metadata.js`, `MASS_SHARE`) allots 14% of dry mass to \"power\": 1,400 t on the P-10000, for 2,000 MWh of storage plus 150 MW of generation. That is 1,430 Wh/kg for the storage alone before the generators are counted. The two halves of the project do not agree with each other here, and neither agrees with any cell chemistry."
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "de65abb9a0b3340b",
-      "line": 289,
-      "class": "flight-model",
-      "reason": "The phase table describes the assumed simulated flight cycle and its timing formulas, not observed flight or suppression effectiveness.",
-      "text": "| Phase | Duration | Altitude | Water | |---|---|---|---| | `SOURCE_APPROACH` | `max(1.5·fixed, hoseDeployMin·0.5·hose)` | 430 → 300 m AGL | retained only | | `WATER_FILL` | `deliveredT / Q / 60` | 300 m, station-keeping | 0 → payload | | `OUTBOUND_TRANSIT` | `max(legKm/gs_out · 60/0.85, hoseRetractMin·0.4·hose + 0.8)` | 300 → altTop → 450 m | payload | | `WATER_RELEASE` | `max(dropKm/(0.45·v)·60, delivered/fill/60)` — one pass | 450 → 580 m | payload → retained | | `BUOYANCY_ESCAPE` | `2 × fixed` | 580 → max(760, 0.75·altTop) | retained | | `RETURN_TRANSIT` | `max(1.2, legKm/gs_ret · 60/0.85)`, ×1.12 if authority-limited | 0.55·altTop → altTop → 430 m | retained |",
-      "assumption": "14d0a1037fdafa03"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "ef3d50de97f5e98a",
-      "line": 350,
-      "class": "other-quantity",
-      "reason": "The hose paragraph estimates a standing water-column mass and states that it is omitted; it does not claim a completed energy budget.",
-      "text": "The lumped η_pump = 0.75 covers pump, motor, drive, hose friction and the kinetic energy left in the stream. Hose friction is not separately modelled, which matters more than it looks: 15 m³/s at a plausible 6 m/s in-hose velocity needs a 1.78 m bore, and the standing column in a 300 m hose of that bore weighs 750 t. The model neither carries that mass nor charges for the friction of moving water through it."
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "13684d0e423be90b",
-      "line": 445,
-      "class": "conditional",
-      "reason": "The paragraph explicitly describes the intended nitrogen mechanism; no computed production, recovery rate or closed cycle is asserted here.",
-      "text": "The intended mechanism: on the return leg, an onboard air-separation plant liquefies nitrogen and stores it, so the empty hull has ballast to descend on instead of fighting its own buoyancy with rotors. On the fill, the nitrogen boils off and hands some energy back while incoming water replaces its mass."
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "a68e67ec5108d81b",
-      "line": 563,
-      "class": "other-quantity",
-      "reason": "The table only lists the two energy quantities and their ratios; those retained values must be reclassified when the energy revision lands.",
-      "text": "| | integrated `stateAt` draw | `planCycle` total | ratio | ratio before the resize | |---|---:|---:|---:|---:| | P-100 | 2.59 MWh | 2.12 MWh | 1.23× | 1.14× | | P-1000 | 26.18 MWh | 14.44 MWh | 1.81× | 1.58× | | P-10000 | 255.45 MWh | 90.18 MWh | 2.83× | 2.29× |"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "d329bb7d21d0aea3",
-      "line": 666,
-      "class": "history",
-      "reason": "This is the dated heading of the repaired sea-level buoyancy defect, retained as the correction record.",
-      "text": "### Defect 1 — buoyancy was computed at sea level — FIXED 2026-08-09",
-      "date": "2026-08-09"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "da8f2eca79277cee",
-      "line": 668,
-      "class": "history",
-      "reason": "The What it was paragraph records the superseded sea-level calculation and its erroneous cycle forces.",
-      "text": "**What it was.** `ledger()` evaluated L = ρV at ρ_SL = 1.225 kg/m³ and used the result at every altitude. The ships work between 300 m and about 1,180 m above ground, over interior British Columbia terrain that is itself 500–1,500 m above sea level. Loaded break-even was 1.1111 kg/m³, which is 1,005 m in ISA, so the sign of the net force reversed *within a single cycle*: a full P-10000 was +406 t over the lake, −860 t on the drop run and −2,209 t at the ceiling it climbs to. `netFrac`, `vert`, every rotor draw and every force readout had the wrong sign for part of the cycle, and the outbound leg needed rotor thrust upward that the model never charged for.",
-      "date": "2026-08-09"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "e74590d14909c0e5",
-      "line": 677,
-      "class": "history",
-      "reason": "The What was done paragraph records the original altitude-aware displacement repair and the then-reported resize costs.",
-      "text": "**What was done.** `sim/atmosphere.js` computes ISA density against altitude, with its constants sourced to ISO 2533:1975 and cross-checked against the published table. `ledger()` takes an altitude in metres MSL, with no default, so a caller that has not decided where the ship is gets an exception. `planCycle` evaluates it at `WORK_ALT_MSL` = 2,500 m; `stateAt` evaluates it at every instant from the ship's own altitude. The hulls were then resized to satisfy fail-safe float-up — buoyant fully loaded, at the working altitude, with a 5.25% margin — which cost +22.2% of displacement (§1) and 14% more cruise drag (§6).",
-      "date": "2026-08-09"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "be1dc2aadfa4a2fb",
-      "line": 694,
-      "class": "flight-model",
-      "reason": "The positive cycle forces are reported for the assumed simulated fleet, not a drawn structure; the file explicitly binds that distinction to the no-float verdict.",
-      "text": "The hull is buoyant at every point in the cycle carrying more water than it can hold. Over a whole seed-7 cycle the minimum net force on the three classes is +10.5 t, +105.1 t and +1,231.1 t, so the rotors only ever push down, as computed rather than as asserted.",
-      "assumption": "14d0a1037fdafa03"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "5c58a85b879291ef",
-      "line": 769,
-      "class": "flight-model",
-      "reason": "This describes the simulated use of separate altitude references for float-up and descent, under the file-level floating-hull assumption.",
-      "text": "**The altitude was the fault.** Float-up and descent do not share a worst case: float-up is hardest at the ceiling in the thinnest air, descent is hardest at the lake 1,200 m lower where the air is 16% denser and the hull correspondingly more buoyant. Both were answered with the ceiling ledger. `planCycle` now carries two — `led` at `WORK_ALT_MSL` for sizing and float-up, `ledLow` at `TERRAIN_MSL + sourceAltM(cls)` for everything that answers to descent:",
-      "assumption": "14d0a1037fdafa03"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "51fc4bddff35b7cc",
-      "line": 807,
-      "class": "flight-model",
-      "reason": "This describes the rendered simulated descent sequence and its scale cues; the historical hull-length cue remains for the cycle-document revision.",
-      "text": "**In the picture.** The 3D view draws the whole sequence — cable out, bag dipped, bag lifted clear, bag dumped — against a translucent lake with rings at one-hull-length intervals. The rings are there because a featureless plane has no perspective and the hull reads as floating IN the water rather than 300 m above it. The bag is drawn at its true size, which is smaller than a reader expects: 12,400 t of water is a sphere 28.7 m across beside an 876 m ship, and that contrast is worth seeing rather than correcting.",
-      "assumption": "14d0a1037fdafa03"
-    },
-    {
-      "file": "docs/DECISIONS.md",
-      "key": "a8b714951b4051ea",
-      "line": 233,
-      "class": "history",
-      "reason": "Heading of the dated altitude-aware buoyancy decision; it records the original simulation change, not current structural validation.",
-      "text": "## 2026-08-09 — Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it",
-      "date": "2026-08-09"
-    },
-    {
-      "file": "docs/DECISIONS.md",
-      "key": "5190d342336e9700",
-      "line": 246,
-      "class": "history",
-      "reason": "The dated decision preserves the fleet resize and recovery-tank assumptions, including payload-equals-dry-mass; it is not a current drawn-hull claim.",
-      "text": "The hulls were then resized to a requirement rather than to the defect: FAIL-SAFE FLOAT-UP, positively buoyant at the working altitude while fully loaded with water it cannot drop, with a stated 5% margin. Nitrogen is excluded from that mass because it vents in seconds; water is the load a ship can be stuck with. Displacement is 2,200 m³ per tonne of payload, +22.2%, and the margin comes out at +5.25% identically on all three classes because dry mass is set equal to payload on all three. The `ln2CapT` tanks were resized on the same principle — enough nitrogen to LAND an empty hull with no rotor authority, checked at the ground where the air is densest rather than at the ceiling where the descent starts.",
-      "date": "2026-08-09"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "a3ec55b9312dca9d",
-      "line": 152,
+      "key": "bb875fc9630dff24",
+      "line": 241,
       "class": "deferred",
-      "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-02 hand-figure correction that follows it in docs/PHYSICS.md is retained.",
-      "owner": "energy-model"
+      "owner": "energy-model",
+      "reason": "Generated by research/analysis/energy-documents.mjs; energydoccheck checks the record. The generated class requires analysisfresh, which does not regenerate this energy region."
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "2010dc2be6f33fd2",
-      "line": 327,
-      "class": "deferred",
-      "reason": "It claims a changed delivered-water rate and descent-authority result; retain for the energy/delivery revision rather than classing it as a water quantity.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "a09a7f2b099e6ea8",
-      "line": 362,
-      "class": "deferred",
-      "reason": "These cruise powers predate the 2026-08-13 capsule change and differ from research/figures.json; the resize comparison rests on them. The energy-model item recomputes both. The float-up wording also prevents a quantity-only disposition.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "de7a9079090706ca",
-      "line": 456,
-      "class": "deferred",
-      "reason": "It asserts the cryogenic fraction, cycle-energy share and discarded recovery result; the energy revision must reconcile those old outputs.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "c330c41ca50355df",
-      "line": 516,
-      "class": "deferred",
-      "reason": "It attributes a rotor-power reduction and descent closure to the anchor. This is a performance result, not merely a ballast mass.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "20dd41bb15510a4c",
-      "line": 698,
-      "class": "deferred",
-      "reason": "This states drag and power errors under the old constant-density energy model; its performance percentages belong to that revision.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "ac5b813011355ef0",
-      "line": 705,
-      "class": "deferred",
-      "reason": "This asserts disagreement between two cycle-energy calculations and its cause; it is more than a list of energy quantities.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "1bbbc3561858d467",
-      "line": 794,
-      "class": "deferred",
-      "reason": "The bag paragraph claims that anchor sizing closes descent and removes the authority stretch; keep it for the energy/delivery revision.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/FLOAT.md",
-      "key": "9c80b557a5630683",
-      "line": 45,
+      "key": "451c1bbcffc340c7",
+      "line": 253,
       "class": "method",
-      "reason": "This regeneration protocol distinguishes reproduced current calculations from historical tables and physical evidence.",
+      "context": [],
+      "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "d4a3af526ece9984",
+      "line": 263,
+      "class": "method",
+      "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": []
     },
     {
-      "file": "docs/FLOAT.md",
-      "key": "9325aca8a3922752",
-      "line": 439,
+      "file": "docs/PHYSICS.md",
+      "key": "5ee2543ddd270d0b",
+      "line": 329,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Generated by research/analysis/energy-documents.mjs; energydoccheck checks the record. The generated class requires analysisfresh, which does not regenerate this energy region."
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "382335bf5ffcf978",
+      "line": 341,
       "class": "method",
-      "reason": "The table derives geometric scaling exponents for load, stress and Euler margin; its numbers are algebraic context.",
-      "context": [
-        "1",
-        "2",
-        "8"
-      ]
-    },
-    {
-      "file": "docs/FLOAT.md",
-      "key": "6d8b9465002bd8fe",
-      "line": 88,
-      "class": "conditional",
-      "reason": "The definition of done specifies the required complete bill and load factors; it does not claim the required article exists."
-    },
-    {
-      "file": "docs/FLOAT.md",
-      "key": "d4ae4ccdbb8c30e0",
-      "line": 402,
-      "class": "conditional",
-      "reason": "Retargeting is an optional handling and barrier proposal whose own words deny a route to floating."
-    },
-    {
-      "file": "docs/FLOAT.md",
-      "key": "8a6dd9c7dc24087d",
-      "line": 140,
-      "class": "deferred",
-      "reason": "The list interleaves scaling results, a source pointer, a pressure derivation, the current bench verdict and a check-scope explanation.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "e0142dcb4b1c3218",
-      "line": 128,
-      "class": "deferred",
-      "reason": "One paragraph combines gas fractions, an assumed structural share, a generated hierarchy comparison and the mission rationale.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "f7d310e9a77f501d",
-      "line": 220,
-      "class": "deferred",
-      "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "research/README.md",
-      "key": "7fd53798bda44f34",
-      "line": 27,
-      "class": "deferred",
-      "reason": "Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/FLOAT.md",
-      "key": "6d988ead164ea911",
-      "line": 167,
-      "class": "deferred",
-      "reason": "The 11.24 subdivision multiple and the earlier twofold joint-saving estimate have no matching current generated fields.",
-      "owner": "hand-arithmetic"
+      "context": [],
+      "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
     },
     {
       "file": "docs/governance/landing-attestations.md",
@@ -1004,6 +877,14 @@
       "reason": "The landing record's heading for landing 6, dated 2026-10-02. It names what that landing did, putting statements about floating under a gate, and claims no float result. The landing tool appends this file after the gates have run.",
       "text": "## Landing 6 — Every statement about floating held to one ledger by a gate, and every view of the monitor named for what it shows",
       "date": "2026-10-02"
+    },
+    {
+      "file": "research/README.md",
+      "key": "7fd53798bda44f34",
+      "line": 27,
+      "class": "deferred",
+      "reason": "Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
+      "owner": "mixed-block"
     }
   ]
 }

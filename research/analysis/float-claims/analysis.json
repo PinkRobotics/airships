@@ -34,6 +34,22 @@
       "date": "2026-08-10"
     },
     {
+      "file": "research/analysis/air-ballast.md",
+      "key": "56c780b7a18e8599",
+      "line": 41,
+      "class": "deferred",
+      "reason": "Asserts emergency recovery and ballast/descent closure for an assumed fleet hull; recovery energy and plant performance are not established by the structural ledger.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/analysis/air-ballast.md",
+      "key": "90b566c11dd9ebf2",
+      "line": 102,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Retracted historical discussion retains an older cycle-energy denominator. Its subtraction is not a feasible-cycle result; the current prescribed energy is in energy-closure.json."
+    },
+    {
       "file": "research/analysis/cap-readings.md",
       "key": "82bbbc952d13ac4b",
       "line": 18,
@@ -67,20 +83,12 @@
       "assumption": "825a11694ea5056f"
     },
     {
-      "file": "research/analysis/descent.md",
-      "key": "1b06a42085b66f6c",
-      "line": 68,
-      "text": "| | bag pull | cable | as fitted | full-descent cable | extra mass | |---|---|---|---|---|---| | P-100 | 1.2 MN | 1.84 kg/m | 350 m, 0.64 t | 1,500 m, 2.76 t | **+2.12 t** | | P-1000 | 12.3 MN | 18.39",
-      "class": "other-quantity",
-      "reason": "This table prices cable mass and bag pull for three assumed rope lengths; it makes no structural float claim."
-    },
-    {
-      "file": "research/analysis/descent.md",
-      "key": "a0976fc737bbd806",
-      "line": 146,
-      "text": "| question | discipline | what would settle it | |---|---|---| | Is a 1,200 m cable with a 125 t bag under a 190 m hull dynamically stable? | flight dynamics / marine towing | a pendulum and vortex-sh",
-      "class": "conditional",
-      "reason": "These are proposed towing and descent studies, including an unchosen long cable; the table asks what would settle them."
+      "file": "research/analysis/helium.md",
+      "key": "4873cc8fcb0ee991",
+      "line": 9,
+      "class": "deferred",
+      "reason": "The ideal-vacuum advantage over hydrogen and sixfold hierarchy comparison are derived figures without matching generated fields.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/analysis/helium.md",
@@ -315,6 +323,22 @@
     },
     {
       "file": "research/analysis/mass-budget.md",
+      "key": "42191996e6edaf38",
+      "line": 89,
+      "class": "deferred",
+      "reason": "States hull sizes that close an equipment/energy allowance budget, not a structurally priced floating hull.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "00224a73c1ef88d0",
+      "line": 125,
+      "class": "deferred",
+      "reason": "Packing table asserts closure volumes from the equipment allowance scenario; that closure is not structural evidence.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
       "key": "f56e261377ae00a3",
       "line": 146,
       "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
@@ -345,6 +369,14 @@
       "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
       "class": "conditional",
       "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "9c196cd6e1a49ebe",
+      "line": 190,
+      "class": "deferred",
+      "reason": "Says the concept closes after battery resizing and changes to energy/ballast assumptions; the claimed closure remains unverified.",
+      "owner": "energy-model"
     },
     {
       "file": "research/analysis/reproductions.md",
@@ -650,12 +682,28 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
+      "key": "d258475f48ff5111",
+      "line": 221,
+      "class": "deferred",
+      "reason": "Conditional design changes surround component deltas, hand-derived bulge factors and unsourced node estimates; the classes are interleaved.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
       "key": "2773f904088426bf",
       "line": 318,
       "text": "How the membrane meshes with the structure — corrected once, and the correction recorded: an earlier version claimed every face was node-supported, from a lattice generator that admitted **two interle",
       "class": "history",
       "reason": "This records the correction from two interleaved octets to FCC sites and the resulting boundary-node topology.",
       "date": "2026-08-11"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "009c6ce702751d35",
+      "line": 412,
+      "class": "deferred",
+      "reason": "The paragraph combines current bulge geometry with an older article mass and derived buoyancy comparisons without separate source fields.",
+      "owner": "mixed-block"
     },
     {
       "file": "research/analysis/vacuum-cell.md",
@@ -767,6 +815,14 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
+      "key": "f5b9d60bab5d5b47",
+      "line": 558,
+      "class": "deferred",
+      "reason": "The paragraph mixes earlier joint masses and load commentary with present generator and assembly claims.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
       "key": "beebb7b516280293",
       "line": 684,
       "text": "The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**. The octet demand is 3,372 N per strut, with safety factor already included. Its Euler margins are ×1.8 pinn",
@@ -842,6 +898,14 @@
         "2500",
         "1.5"
       ]
+    },
+    {
+      "file": "research/analysis/water-availability.md",
+      "key": "b912908abf18eab4",
+      "line": 43,
+      "class": "deferred",
+      "reason": "Publishes delivery throughput on fire-distance inputs and the earlier flight-cycle model; a payload quantity allowance would hide a delivery result.",
+      "owner": "energy-model"
     },
     {
       "file": "research/validation/report.md",
@@ -955,6 +1019,40 @@
     },
     {
       "file": "tools/ship_scoping.py",
+      "key": "51f0e3723009483d",
+      "line": 2,
+      "class": "deferred",
+      "reason": "This indivisible docstring combines dated design instructions, historical verdicts, current calculation descriptions and output claims.",
+      "owner": "mixed-block"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "6e18eb0e7b336a7b",
+      "line": 245,
+      "class": "method",
+      "reason": "The bending-method docstring defines stocky-tube section selection and warns against substituting the axial local-wall formula.",
+      "context": [
+        "25"
+      ]
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "d5820bfe932a243b",
+      "line": 697,
+      "class": "method",
+      "reason": "The comment defines the floats data flag as a mass-to-lift comparison separate from structural checks.",
+      "context": []
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "4b379441613442e9",
+      "line": 705,
+      "class": "method",
+      "reason": "a key, not a sentence",
+      "context": []
+    },
+    {
+      "file": "tools/ship_scoping.py",
       "key": "5de4fa932a9aa0e3",
       "line": 762,
       "text": "v2 ratio @SF1.2",
@@ -982,12 +1080,28 @@
     },
     {
       "file": "tools/ship_scoping.py",
+      "key": "fe1f3c3218c7743d",
+      "line": 825,
+      "class": "method",
+      "reason": "The float-window docstring explains the diameter search and why its root finding differs from the former monotonic closure map.",
+      "context": []
+    },
+    {
+      "file": "tools/ship_scoping.py",
       "key": "837cac974f4a343c",
       "line": 873,
       "text": "# float, farthest from crush) and let the margin be an OUTPUT of materials and",
       "class": "history",
       "reason": "This comment quotes the dated question that introduced the band study, not an assertion that a drawn hull is weightless.",
       "date": "2026-08-13"
+    },
+    {
+      "file": "tools/ship_scoping.py",
+      "key": "b2d17f10748eea50",
+      "line": 879,
+      "class": "method",
+      "reason": "The comment defines a positive band as an unchecked allowance and denies that it establishes a design.",
+      "context": []
     },
     {
       "file": "tools/ship_scoping.py",
@@ -1051,6 +1165,17 @@
     },
     {
       "file": "tools/ship_scoping.py",
+      "key": "54d212387a8458a6",
+      "line": 1100,
+      "class": "method",
+      "reason": "The command-line help labels the band-study calculation; the date describes its origin, not a result.",
+      "context": [
+        "08",
+        "13"
+      ]
+    },
+    {
+      "file": "tools/ship_scoping.py",
       "key": "cd380916af21145f",
       "line": 1170,
       "text": "positive float margin",
@@ -1098,171 +1223,6 @@
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
-    },
-    {
-      "file": "research/analysis/air-ballast.md",
-      "key": "56c780b7a18e8599",
-      "line": 41,
-      "class": "deferred",
-      "reason": "Asserts emergency recovery and ballast/descent closure for an assumed fleet hull; recovery energy and plant performance are not established by the structural ledger.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/descent.md",
-      "key": "2d2415c965f990cc",
-      "line": 46,
-      "class": "deferred",
-      "reason": "Asserts descent authority and that the ship can always get down; this is an operational result from the earlier thrust/energy model.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/descent.md",
-      "key": "fb685f55ef2c99b2",
-      "line": 81,
-      "class": "deferred",
-      "reason": "Claims a cable energy saving against the earlier cycle; the energy basis requires the energy work.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/descent.md",
-      "key": "5ea87faa9ade93cd",
-      "line": 97,
-      "class": "deferred",
-      "reason": "Assigns the descent energy to buoyancy work and induced loss under the earlier thrust-share model.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/descent.md",
-      "key": "de8b3d57aa603d3a",
-      "line": 121,
-      "class": "deferred",
-      "reason": "Explains thrust-share and axial-climb energy corrections and quantitative headroom; the current result belongs to the energy work.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "42191996e6edaf38",
-      "line": 89,
-      "class": "deferred",
-      "reason": "States hull sizes that close an equipment/energy allowance budget, not a structurally priced floating hull.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "00224a73c1ef88d0",
-      "line": 125,
-      "class": "deferred",
-      "reason": "Packing table asserts closure volumes from the equipment allowance scenario; that closure is not structural evidence.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "9c196cd6e1a49ebe",
-      "line": 190,
-      "class": "deferred",
-      "reason": "Says the concept closes after battery resizing and changes to energy/ballast assumptions; the claimed closure remains unverified.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/water-availability.md",
-      "key": "b912908abf18eab4",
-      "line": 43,
-      "class": "deferred",
-      "reason": "Publishes delivery throughput on fire-distance inputs and the earlier flight-cycle model; a payload quantity allowance would hide a delivery result.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "6e18eb0e7b336a7b",
-      "line": 245,
-      "class": "method",
-      "reason": "The bending-method docstring defines stocky-tube section selection and warns against substituting the axial local-wall formula.",
-      "context": [
-        "25"
-      ]
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "fe1f3c3218c7743d",
-      "line": 825,
-      "class": "method",
-      "reason": "The float-window docstring explains the diameter search and why its root finding differs from the former monotonic closure map.",
-      "context": []
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "4b379441613442e9",
-      "line": 705,
-      "class": "method",
-      "reason": "a key, not a sentence",
-      "context": []
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "54d212387a8458a6",
-      "line": 1100,
-      "class": "method",
-      "reason": "The command-line help labels the band-study calculation; the date describes its origin, not a result.",
-      "context": [
-        "08",
-        "13"
-      ]
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "d5820bfe932a243b",
-      "line": 697,
-      "class": "method",
-      "reason": "The comment defines the floats data flag as a mass-to-lift comparison separate from structural checks.",
-      "context": []
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "b2d17f10748eea50",
-      "line": 879,
-      "class": "method",
-      "reason": "The comment defines a positive band as an unchecked allowance and denies that it establishes a design.",
-      "context": []
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "d258475f48ff5111",
-      "line": 221,
-      "class": "deferred",
-      "reason": "Conditional design changes surround component deltas, hand-derived bulge factors and unsourced node estimates; the classes are interleaved.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "009c6ce702751d35",
-      "line": 412,
-      "class": "deferred",
-      "reason": "The paragraph combines current bulge geometry with an older article mass and derived buoyancy comparisons without separate source fields.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "f5b9d60bab5d5b47",
-      "line": 558,
-      "class": "deferred",
-      "reason": "The paragraph mixes earlier joint masses and load commentary with present generator and assembly claims.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "tools/ship_scoping.py",
-      "key": "51f0e3723009483d",
-      "line": 2,
-      "class": "deferred",
-      "reason": "This indivisible docstring combines dated design instructions, historical verdicts, current calculation descriptions and output claims.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "4873cc8fcb0ee991",
-      "line": 9,
-      "class": "deferred",
-      "reason": "The ideal-vacuum advantage over hydrogen and sixfold hierarchy comparison are derived figures without matching generated fields.",
-      "owner": "hand-arithmetic"
     }
   ]
 }
