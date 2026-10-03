@@ -536,8 +536,7 @@ git clone … && cd airships && make check
 
 - `make golden` re-runs 151 class/mode/distance/wind combinations and diffs every output against
   `tests/golden/seed7-snapshot.json`.
-- `make test` runs 206 tests in 39 suites. Two are marked `knownFail` and **fail on purpose** — a
-  defect is not allowed to lose its excuse quietly.
+- `make test` registers 233 tests in 59 suites, with 0 known-failing markers. Corrected defects run as ordinary assertions.
 - `make test-node` runs a further 103. Until 2026-08-09 it printed "SKIPPED — no node here" on the
   machine this is developed on, so those 103 were only ever executed by CI and two breaks were
   found by a red badge after a push. They run in a browser now, against the same files, and

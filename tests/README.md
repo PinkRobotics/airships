@@ -127,75 +127,9 @@ hard failure**, because a defect that has quietly been fixed must not keep a per
 in the suite — the marker has to come off and the test has to start asserting the corrected
 behaviour.
 
-The following markers are defined in the case files:
-
-1. **`plan · windUsed is false when the wind was not applied`** — `windUsed` tests only
-   `wind.spd`, while the legs also require `wind.bearing`. The flag can report a wind the plan
-   ignored. Harmless today, because `mission.js` always sets the bearing before planning.
-2. **`energy · the planned budget and the integrated draw agree within 25%`** — two power
-   models. On a 19 km leg `planCycle` budgets 90.2 MWh for the P-10000 while integrating
-   `stateAt`'s per-system draw over the same cycle gives 255.5 MWh, a factor of 2.83. The gap
-   widens with the size of the ship: 1.23× on the P-100, 1.81× on the P-1000.
-
-TWO came off on 2026-08-09, which is exactly what the mechanism above is for — in both cases
-the suite failed *because a test passed*, and the marker had to go.
-
-**`physics · lift at the working-band density covers dry mass plus payload`** started passing
-when the hulls were resized for fail-safe float-up. It was replaced by two ordinary tests
-asserting the requirement the classes now meet: `physics · FAIL-SAFE FLOAT-UP` and
-`physics · UNPOWERED RECOVERY`.
-
-**`plan · the letdown term is a minor share of cycle energy`** started passing when the descent
-anchor took the load off the rotors. `min(6, RETURN_TRANSIT × 0.2)` used to set 45% of the
-P-10000's cycle; it is 3.1% now, because rotor power goes as thrust^1.5 and the bag removed the
-thrust. Note what did NOT happen: the 6 and the 0.2 are still unjustified, and defect 3 is still
-open. The test came off because the defect stopped mattering, not because it was fixed, and the
-replacement says so in as many words. A marker is about impact, not about virtue.
-
-Everything else about those defects — including the numbers above — is asserted by ordinary
-passing tests alongside the markers, so the arithmetic is on the record either way.
-
-**Four markers, six open questions.** `docs/OPEN-QUESTIONS.md` tracks six items and only
-three of them appear above; the fourth marker, `windUsed`, has no entry there because it is
-too small. The three that cannot have a marker are dead descent ballast (`selftest.js`
-*requires* `retainedT` to be zero, so a failing test would assert the opposite of the
-specification), the Esri basemap (not a model behaviour), and the uncredited generators (no
-assertion can fail because a term is missing from a sum). Those three are held to ordinary
-passing tests that record what the code does. A count of markers is not a count of defects.
-
-## Adding a test
-
-1. Put the assertion in the right `cases/*.cases.js` file, or a new one.
-2. **If you add a file, add it to both runners** — the `CASES` array in
-   `browser/index.html` and the import list in `node/run.mjs`. They are deliberately
-   explicit rather than globbed, because a browser cannot glob; the cost is that a file
-   listed in one and not the other runs in one and not the other.
-3. Run it both ways before committing, and run `golden/check.py` if you touched anything
-   under `sim/`.
-
-A test that cannot fail is worse than no test. If you are not sure a new assertion has any
-teeth, break the code on purpose and watch it go red.
-
-## Notes on the harness
-
-`harness.js` is 140 lines and has no dependencies. It collects test definitions at
-import time and runs them on demand, returning a record rather than printing, so both runners
-can format the same outcomes their own way. Assertions: `ok`, `eq` (`Object.is`), `close(a, b,
-tol)` (absolute tolerance, no default — state the one you mean), `throws`, `deepEq`.
-Everything is synchronous; nothing in `sim/` is async, and a test framework that can await is
-a test framework that can hang.
-
-## Gotchas
-
-- **The golden dumps need time.** `check.py` waits 16 s for the model dump and 18 s for the UI
-  dump before evaluating. Twelve is not enough — the page has not finished building the fleet
-  and the evaluation fails outright rather than returning something wrong.
-- **Each browser has its own endpoint and profile.** Chromium chooses its debugging port
-  and reports it through `DevToolsActivePort` in its new profile directory. The serving
-  context keeps its original listening socket until the gate finishes.
-- **`CFG` is global.** It is the only mutable state in `sim/`, so any test that patches it
-  must `resetConfig()` in a `finally`. `sim-config.cases.js` is both the test of that and the
-  worked example of the pattern.
-- **Cycle 1 is not a typical cycle.** `SOURCE_APPROACH` has no previous return leg to
-  continue on the first cycle, so it sits at the intake on a default heading. Continuity
-  tests sample cycle 2.
+<!-- test-status:markers:start -->
+The registered suites contain **0 known-failing markers**.
+The corrected wind flag runs as an ordinary assertion in `cases/sim-plan.cases.js`.
+The force ledger and phase-integral checks run in `cases/sim-energy.cases.js`.
+These counts describe registered tests, not an execution result.
+<!-- test-status:markers:end -->

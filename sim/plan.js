@@ -213,7 +213,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
     // Whole-cycle rotor clipping; battLimited covers every running channel and phase.
     rotorClipMin: I.rotorClipMin, rotorClipMWh: I.rotorClipMWh, letdownClipMin: I.letdownClipMin,
     retainedT, deliveredT, rotorMaxT, busMW, passes,
-    gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null),
+    gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null && wind.bearing != null),
     ln2MakeT, cryoLimited, battLimited, descentShort,
     // The rotors' peak draw over the cycle and the phase it falls in. It is the drop run on
     // every class: the hull is held at the drop altitude while the water leaves it.

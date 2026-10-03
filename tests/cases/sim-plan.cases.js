@@ -5,7 +5,7 @@
  * that the arithmetic cannot silently stop making sense: the books balance, more distance
  * never buys more water, and a tailwind out is a headwind home.
  */
-import { close, describe, eq, it, knownFail, ok } from '../harness.js';
+import { close, describe, eq, it, ok } from '../harness.js';
 import {
   BUS_CEILING, CFG, CLASSES, CLASS_ORDER, MODES, PHASES, WORK_ALT_MSL,
   ledger, planCycle, resetConfig, setConfig,
@@ -149,18 +149,15 @@ describe('plan · wind', () => {
     eq(p.tailOut, 0, 'tailOut');
   });
 
-  knownFail(
-    'windUsed is false when the wind was not applied',
-    'open question #17: windUsed tests only wind.spd, while the legs also require wind.bearing — the flag can claim a wind the plan ignored',
-    () => {
-      // Harmless today: mission.js always sets m.wind.bearing before planning, so the two
-      // conditions never come apart on the live page. It is still a flag that can lie, and
-      // the cockpit reads it to decide whether to say "wind applied". docs/OPEN-QUESTIONS.md
-      // #17 has the reproduction and the one-line fix.
-      resetConfig();
-      const p = planCycle(CLASSES.P1000, MODES.balanced, 40, { spd: 40, dir: 270, bearing: null });
+  it('windUsed is false when the wind was not applied', () => {
+    resetConfig();
+    for (const bearing of [null, undefined]) {
+      const p = planCycle(CLASSES.P1000, MODES.balanced, 40, { spd: 40, dir: 270, bearing });
       eq(p.windUsed, false, 'windUsed');
-    });
+    }
+    const north = planCycle(CLASSES.P1000, MODES.balanced, 40, { spd: 40, dir: 270, bearing: 0 });
+    eq(north.windUsed, true, 'a zero-degree bearing is present');
+  });
 
   it('a tailwind out is a headwind home: the two ground speeds average to the airspeed', () => {
     resetConfig();

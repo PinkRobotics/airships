@@ -82,8 +82,10 @@ Items 2 and 3 had a test in `tests/cases/` marked `knownFail`. Those tests ran, 
 until 2026-10-01, when the one energy model made them pass; the markers were converted into
 ordinary tests of the corrected behaviour rather than deleted — `energy · the budget is the
 integral of the flight` on every golden combination, and the `defects 3 and 15` suite that
-fails if a letdown window ever comes back. One `knownFail` marker is left, the unrelated flag
-bug `plan · windUsed is false when the wind was not applied`, recorded as #17 here. Item 1 had another. It started passing on 2026-08-09, which is what a fix looks
+fails if a letdown window ever comes back. <!-- test-status:markers:start -->
+The current suites contain 0 known-failing markers. The corrected wind flag is an ordinary assertion; item 17 records its closure.
+<!-- test-status:markers:end -->
+Item 1 had another. It started passing on 2026-08-09, which is what a fix looks
 like from the suite's side, and was converted the same way: `physics · FAIL-SAFE FLOAT-UP` and
 `physics · UNPOWERED RECOVERY`.
 
@@ -744,22 +746,15 @@ or a simulation of water reaching the ground; it has not been stretched to disgu
 
 ---
 
-## 17. `windUsed` claims wind without a route bearing
+## 17. `windUsed` requires a route bearing
 
-**Reproduced 2026-10-01. Open: the fix is one line, and it lands with the energy model change,
-which rewrites the same function.** For P-1000, balanced mode, 40 km and
-`{ spd: 40, dir: 270, bearing: null }`, `planCycle` returns the same ground speeds as still air
-(110 km/h each) and `tailOut: 0`, but `windUsed: true`. The guard that applies the wind in
-`sim/plan.js` requires a speed and a bearing; the returned flag checks only the speed. The
-executable case is `plan · windUsed is false when the wind was not applied` in
-`tests/cases/sim-plan.cases.js`, marked `knownFail`.
+**Closed 2026-10-03.** The returned flag now uses the same speed-and-bearing condition as the wind calculation in `sim/plan.js`.
+A wind without a bearing leaves both ground speeds unchanged and reports `windUsed: false`.
+The ordinary case in `tests/cases/sim-plan.cases.js` checks null and missing bearings, plus the valid zero-degree bearing.
 
-It is harmless on the live page today, because the mission code always sets a bearing before
-planning. It is still a flag that can lie, and the cockpit reads it to decide whether to say that
-wind was applied.
-
-The correction is `!!(wind && wind.spd != null && wind.bearing != null)`, matching the guard, after
-which the known failure becomes an ordinary test.
+The earlier reproduction used P-1000, balanced mode, 40 km and `{ spd: 40, dir: 270, bearing: null }`.
+Both ground speeds were 110 km/h, but the flag claimed wind use.
+The test failed on that implementation and passes after the flag correction.
 
 ---
 

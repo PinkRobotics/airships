@@ -554,7 +554,7 @@ reader can verify in an afternoon.
 | Artefact | What it is |
 |---|---|
 | `sim/` | The model. No DOM, network, storage, wall clock or location — enforced by a boundary linter across 80 modules. |
-| `tests/` | 206 tests in 39 suites, plus 103 more that need node. **Two fail on purpose**, marked `knownFail`, so a documented defect cannot quietly lose its excuse. |
+| `tests/` | 233 registered tests in 59 suites, plus 103 more that need node. **0 known-failing markers**; corrected defects run as ordinary assertions. |
 | `tests/golden/` | 151 class/mode/distance/wind combinations, diffed on every run. Independently reproduced by a separate Python implementation. |
 | `research/sources.json` | 73 sources: 3 load-bearing, **9 that contradict us**, 20 supporting, 41 context. 29 redistributable PDFs with provenance records; everything paywalled catalogued and refused by name. |
 | `research/notes/` | 12 notes, each written from the source PDF rather than its abstract, each stating where the source does *not* support what we would like it to. |
@@ -660,7 +660,7 @@ These energy figures come from the earlier flight model, which understates the f
 git clone github.com/pinkrobotics/airships && cd airships && make check
 ```
 
-`make golden` diffs 151 cases; `make test` runs 206 tests including two deliberate failures and
+`make golden` diffs 151 cases; `make test` runs 233 tests with 0 known-failing markers and
 `make test-node` a further 103;
 `make factsheet` regenerates every published figure from the live model; `tools/check_figures.py`
 fails the build if this document disagrees with it. `?seed=7&data=snapshot` reproduces any run on
