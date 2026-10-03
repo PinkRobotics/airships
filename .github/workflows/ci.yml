@@ -74,12 +74,23 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      # The plants run the cell parity check, which drives a headless Chromium.
+      - uses: browser-actions/setup-chrome@v2
+        id: chromium
+        with:
+          chrome-version: latest
+          install-dependencies: true
       - name: Install Python dependencies
         run: python3 -m pip install --disable-pip-version-check -r requirements.txt
-      - name: Prepare scratch directory
+      - name: Prepare browser and scratch directories
+        env:
+          CHROMIUM_BINARY: ${{ steps.chromium.outputs.chrome-path }}
         run: |
-          mkdir -p "$RUNNER_TEMP/scratch"
+          mkdir -p "$RUNNER_TEMP/bin" "$RUNNER_TEMP/scratch"
+          ln -s "$CHROMIUM_BINARY" "$RUNNER_TEMP/bin/chromium"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
           echo "TMPDIR=$RUNNER_TEMP/scratch" >> "$GITHUB_ENV"
+          "$CHROMIUM_BINARY" --version
       - name: Complete independent claim plants
         id: float-plants
         run: make floatplants
