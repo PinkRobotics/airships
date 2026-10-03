@@ -16,20 +16,39 @@ import publish
 
 class BrowserScratchTests(unittest.TestCase):
     def test_distinct_runs_restore_environment_and_clean_up(self):
-        with tempfile.TemporaryDirectory() as td:
+        with tempfile.TemporaryDirectory() as td, patch.dict(os.environ, {"TMPDIR": td}):
             root = Path(td)
             before = {key: os.environ.get(key) for key in ('TMPDIR', 'AIRSHIPS_TMPDIR')}
             with patch.object(browser_scratch, 'ROOT', root), \
                     patch.object(browser_scratch, '_readable', return_value=True):
                 with browser_scratch.browser_scratch() as outer:
+                    self.assertEqual(Path(outer).parent, root)
                     with browser_scratch.browser_scratch() as inner:
                         self.assertNotEqual(outer, inner)
-                        self.assertEqual(Path(inner).parent, root / '.browser-scratch')
+                        self.assertEqual(Path(inner).parent, Path(outer))
                         self.assertEqual(os.environ['AIRSHIPS_TMPDIR'], inner)
                     self.assertFalse(Path(inner).exists())
                     self.assertEqual(os.environ['TMPDIR'], outer)
                 self.assertFalse(Path(outer).exists())
             self.assertEqual(before, {key: os.environ.get(key) for key in before})
+
+    def test_without_explicit_scratch_uses_checkout(self):
+        with tempfile.TemporaryDirectory() as td, patch.dict(os.environ):
+            os.environ.pop('TMPDIR', None)
+            with patch.object(browser_scratch, 'ROOT', Path(td)), \
+                    patch.object(browser_scratch, '_readable', return_value=True):
+                with browser_scratch.browser_scratch() as name:
+                    self.assertEqual(Path(name).parent, Path(td) / '.browser-scratch')
+                self.assertFalse(Path(name).exists())
+
+    def test_explicit_unreadable_scratch_does_not_fall_back(self):
+        with tempfile.TemporaryDirectory() as td, patch.dict(os.environ, {'TMPDIR': td}):
+            with patch.object(browser_scratch, '_readable', return_value=False) as probe:
+                with self.assertRaisesRegex(RuntimeError, 'explicit TMPDIR'):
+                    with browser_scratch.browser_scratch():
+                        self.fail('unreadable scratch was accepted')
+                self.assertEqual(probe.call_count, 1)
+                self.assertEqual(list(Path(td).iterdir()), [])
 
     def test_leftover_does_not_change_gates_stamps_status_or_published_copy(self):
         commands = [

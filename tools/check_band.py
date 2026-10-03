@@ -21,6 +21,7 @@ import pathlib
 import subprocess
 import sys
 from browser_scratch import browser_scratch
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REL_TOL = 1e-9
@@ -80,17 +81,12 @@ def main() -> None:
         probe = pathlib.Path(td) / "probe.js"
         probe.write_text(PROBE)
         out = pathlib.Path(td) / "out.json"
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", "8911", "--quiet"], cwd=ROOT)
-        try:
+        with serve_tree(ROOT) as base:
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            "http://127.0.0.1:8911/cell/band.html", str(probe),
+                            f"{base}cell/band.html", str(probe),
                             str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL)
             js = json.loads(out.read_text())
-        finally:
-            srv.terminate()
-            srv.wait()
 
     if "err" in js:
         sys.exit(f"check_band: {js['err']}")

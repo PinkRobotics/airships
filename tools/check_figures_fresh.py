@@ -26,11 +26,10 @@ import pathlib
 import subprocess
 import sys
 import tempfile
-import time
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 COMMITTED = ROOT / 'research' / 'figures.json'
-PORT = 8898
 
 
 def flatten(obj, prefix=''):
@@ -47,17 +46,11 @@ def flatten(obj, prefix=''):
 
 
 def main() -> int:
-    # Scratch on disk, never /tmp: it is a RAM-backed tmpfs on this machine and a build step
-    # that quietly consumes memory is a build step that eventually kills a running service.
-    scratch = pathlib.Path(tempfile.mkdtemp(prefix='figfresh-', dir=ROOT)) / 'fresh.json'
-    server = subprocess.Popen([sys.executable, str(ROOT / 'tools' / 'serve.py'),
-                               '--port', str(PORT)],
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=ROOT)
-    try:
-        time.sleep(1.5)
+    with tempfile.TemporaryDirectory(prefix='figfresh-') as td, serve_tree(ROOT) as base:
+        scratch = pathlib.Path(td) / 'fresh.json'
         r = subprocess.run(
             [sys.executable, str(ROOT / 'tools' / 'js_eval.py'),
-             f'http://127.0.0.1:{PORT}/index.html?seed=7&data=snapshot',
+             f'{base}index.html?seed=7&data=snapshot',
              str(ROOT / 'tools' / 'figures_dump.js'), str(scratch), '20'],
             capture_output=True, text=True, errors='replace', cwd=ROOT, timeout=180)
         if r.returncode or not scratch.exists():
@@ -66,13 +59,6 @@ def main() -> int:
             return 1
         fresh = flatten(json.loads(scratch.read_text()))
         have = flatten(json.loads(COMMITTED.read_text()))
-    finally:
-        server.terminate()
-        try:
-            scratch.unlink(missing_ok=True)
-            scratch.parent.rmdir()
-        except OSError:
-            pass
 
     # `generated.*` is provenance, not a figure — it records how the file was made.
     keys = {k for k in set(fresh) | set(have) if not k.startswith('generated.')}

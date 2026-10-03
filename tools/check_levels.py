@@ -32,9 +32,9 @@ import pathlib
 import subprocess
 import sys
 from browser_scratch import browser_scratch
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PORT = "8911"          # explorer's in-check server uses 8909, the Makefile's 8899
 
 # Figures each page promises today. The probe also sweeps every .lvl-fig it finds, so a
 # NEW figure is covered automatically; these lists only pin the known sets against silent
@@ -104,12 +104,12 @@ PROBE = r"""(async () => {
 })()"""
 
 
-def check_page(page, td) -> tuple[list[str], int]:
+def check_page(page, td, base) -> tuple[list[str], int]:
     probe = pathlib.Path(td) / "probe.js"
     probe.write_text(PROBE)
     out = pathlib.Path(td) / f"out-{page['url'].replace('/', '-')}.json"
     subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                    f"http://127.0.0.1:{PORT}/{page['url']}",
+                    f"{base}{page['url']}",
                     str(probe), str(out), "8"], cwd=ROOT, check=True,
                    stdout=subprocess.DEVNULL)
     res = json.loads(out.read_text())
@@ -153,16 +153,11 @@ def check_page(page, td) -> tuple[list[str], int]:
 def main() -> int:
     bad, figs = [], []
     with browser_scratch() as td:
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", PORT, "--quiet"], cwd=ROOT)
-        try:
+        with serve_tree(ROOT) as base:
             for page in PAGES:
-                page_bad, n = check_page(page, td)
+                page_bad, n = check_page(page, td, base)
                 bad += page_bad
                 figs.append(f"{page['url']} {n}")
-        finally:
-            srv.terminate()
-            srv.wait()
 
     if bad:
         print("LEVELS CHECK FAILED:\n")

@@ -37,13 +37,12 @@ import subprocess
 import sys
 import tempfile
 import time
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.html'
 POSTER = ROOT / 'media' / 'map-snapshot.jpg'
 VEHICLE = ROOT / 'media' / 'intake.jpg'
-PORT = 8871
-REPLAY_URL = f'http://127.0.0.1:{PORT}/index.html?view=exercise'
 
 CHECK = '--check' in sys.argv
 SHOOT = '--poster' in sys.argv
@@ -85,12 +84,12 @@ def esc(s) -> str:
     return html.escape(str(s), quote=False)
 
 
-def run_dump(scratch: pathlib.Path, jsfile: pathlib.Path, out: pathlib.Path, wait: str):
+def run_dump(scratch: pathlib.Path, jsfile: pathlib.Path, out: pathlib.Path, wait: str, replay_url: str):
     """One headless replay run, dumped to JSON — the check_figures_fresh idiom."""
     import os
     env = dict(os.environ, AIRSHIPS_TMPDIR=str(scratch), A3D_WINDOW='1600,1600')
     r = subprocess.run(
-        [sys.executable, str(ROOT / 'tools' / 'js_eval.py'), REPLAY_URL,
+        [sys.executable, str(ROOT / 'tools' / 'js_eval.py'), replay_url,
          str(jsfile), str(out), wait],
         capture_output=True, text=True, errors='replace', cwd=ROOT, env=env, timeout=240)
     if r.returncode or not out.exists():
@@ -233,7 +232,7 @@ def splice(text: str, name: str, body: str) -> str:
     return pat.sub(lambda m: f'<!--{name}-->{body}<!--/{name}-->', text)
 
 
-def capture_poster(scratch: pathlib.Path):
+def capture_poster(scratch: pathlib.Path, replay_url: str):
     """One headless browser: replay the snapshot, dismiss the intro, fit the fires, then a
     CDP screenshot clipped to the map box. The launch flags are js_eval.py's."""
     import asyncio
@@ -296,7 +295,7 @@ def capture_poster(scratch: pathlib.Path):
 
             await call('Page.enable')
             await call('Runtime.enable')
-            await call('Page.navigate', {'url': REPLAY_URL})
+            await call('Page.navigate', {'url': replay_url})
             await asyncio.sleep(14)
             await evaluate(POSTER_SETUP_JS)
             await asyncio.sleep(2.5)
@@ -329,24 +328,17 @@ def capture_poster(scratch: pathlib.Path):
 
 
 def main() -> int:
-    scratch = pathlib.Path(tempfile.mkdtemp(prefix='fallback-', dir=ROOT))
-    server = subprocess.Popen([sys.executable, str(ROOT / 'tools' / 'serve.py'),
-                               '--port', str(PORT)],
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=ROOT)
-    try:
-        time.sleep(1.5)
-        if SHOOT and not CHECK:
-            capture_poster(scratch)
-        if not POSTER.exists():
-            raise SystemExit('gen_fallback: media/map-snapshot.jpg is missing — '
-                             'run tools/gen_fallback.py --poster first')
-        d = run_dump(scratch, ROOT / 'tools' / 'fallback_dump.js', scratch / 'dump.json', '18')
-    finally:
-        server.terminate()
-        # rmtree, not unlink: a failed browser run leaves its profile DIRECTORY behind, and
-        # ignore_errors because chromium's children can outlive it and keep writing briefly.
-        import shutil
-        shutil.rmtree(scratch, ignore_errors=True)
+    with tempfile.TemporaryDirectory(prefix='fallback-', ignore_cleanup_errors=True) as td:
+        scratch = pathlib.Path(td)
+        with serve_tree(ROOT) as base:
+            replay_url = base + 'index.html?view=exercise'
+            if SHOOT and not CHECK:
+                capture_poster(scratch, replay_url)
+            if not POSTER.exists():
+                raise SystemExit('gen_fallback: media/map-snapshot.jpg is missing — '
+                                 'run tools/gen_fallback.py --poster first')
+            d = run_dump(scratch, ROOT / 'tools' / 'fallback_dump.js', scratch / 'dump.json',
+                         '18', replay_url)
 
     if d['tier'] != 'exercise':
         raise SystemExit(f'gen_fallback: expected the exercise tier, page reports {d["tier"]!r}')

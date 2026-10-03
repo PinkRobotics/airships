@@ -1,23 +1,29 @@
 #!/usr/bin/env bash
 # Run the browser integration suite headless and report.
 #
-#   scripts/browser-tests.sh [port]
+#   scripts/browser-tests.sh [base-url]
 #
-# Serves the repository root on a local port, drives Chromium with software WebGL, and reads the
+# Serves the repository root on a system-chosen port, drives Chromium with software WebGL, and reads the
 # result the page prints to the console. Software WebGL rather than the real GPU because the suite
 # asserts geometry and DOM behaviour, not pixels: it must give the same answer on a headless CI
 # runner with no display as it does on a workstation.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> repository root
-PORT="${1:-8791}"
 CHROME="${CHROME:-chromium}"
 
-if ! curl -sf -o /dev/null "http://127.0.0.1:$PORT/3d/index.js"; then
-  python3 -m http.server "$PORT" --bind 127.0.0.1 >/dev/null 2>&1 &
-  SERVER=$!
-  trap 'kill $SERVER 2>/dev/null || true' EXIT
-  sleep 1
+# With no argument, the wrapper owns the listening socket until this script exits.
+# A person may explicitly supply a complete loopback base address.
+if [ "$#" -eq 0 ]; then
+  exec python3 tools/with_server.py -- bash "${BASH_SOURCE[0]}" '{base}'
 fi
+if [ "$#" -ne 1 ]; then
+  echo 'usage: browser-tests.sh [base-url]' >&2
+  exit 2
+fi
+case "$1" in
+  http://127.0.0.1:*) BASE="${1%/}/" ;;
+  *) echo 'browser tests: expected a full loopback base address' >&2; exit 2 ;;
+esac
 
 # A dedicated profile, because Chromium refuses to share one with a running interactive instance.
 # A sandboxed install can only write inside its own confinement, and a snap in particular cannot
@@ -32,8 +38,16 @@ if [ -z "${A3D_CHROME_PROFILE:-}" ]; then
     A3D_CHROME_PROFILE="${XDG_CACHE_HOME:-$HOME/.cache}/airship3d/chrome-profile"
   fi
 fi
-PROFILE="$A3D_CHROME_PROFILE"
-mkdir -p "$PROFILE"
+mkdir -p "$A3D_CHROME_PROFILE"
+PROFILE=$(mktemp -d "$A3D_CHROME_PROFILE/run.XXXXXX")
+cleanup() {
+  if [ -n "${CHROME_PID:-}" ]; then
+    kill "$CHROME_PID" 2>/dev/null || true
+    wait "$CHROME_PID" 2>/dev/null || true
+  fi
+  rm -rf -- "$PROFILE"
+}
+trap cleanup EXIT
 
 # THE RESULT COMES FROM THE PAGE'S OWN CONSOLE, NOT FROM --dump-dom.
 #
@@ -65,12 +79,8 @@ LOG="$PROFILE/last-run.log"
   --disable-client-side-phishing-detection --disable-domain-reliability \
   --metrics-recording-only \
   --user-data-dir="$PROFILE" --virtual-time-budget=20000 --dump-dom \
-  "http://127.0.0.1:$PORT/3d/tests/browser.html" >/dev/null 2>"$LOG" &
+  "${BASE}3d/tests/browser.html" >/dev/null 2>"$LOG" &
 CHROME_PID=$!
-# Added to the existing trap, not replacing it: line 18 may have a dev server to kill, and a
-# second `trap ... EXIT` silently discards the first. That has been a bug here once already.
-trap 'kill "$CHROME_PID" 2>/dev/null || true; kill ${SERVER:-} 2>/dev/null || true' EXIT
-
 DEADLINE=$(( $(date +%s) + A3D_TEST_TIMEOUT ))
 while :; do
   grep -qa 'DONE pass=' "$LOG" && break
@@ -80,6 +90,7 @@ while :; do
 done
 kill "$CHROME_PID" 2>/dev/null || true
 wait "$CHROME_PID" 2>/dev/null || true
+CHROME_PID=""
 
 RESULT=$(grep -oaE 'DONE pass=[0-9]+ fail=[0-9]+ skip=[0-9]+' "$LOG" | tail -1 | sed 's/^DONE //')
 FAILS=$(grep -oaE 'FAILURES .*' "$LOG" | tail -1 | sed 's/^FAILURES //;s/", source.*//')

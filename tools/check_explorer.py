@@ -35,6 +35,7 @@ import pathlib
 import subprocess
 import sys
 from browser_scratch import browser_scratch
+from serve import serve_tree
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -734,18 +735,13 @@ def check_phone() -> list:
         probe = pathlib.Path(td) / "phone.js"
         probe.write_text(PHONE_PROBE)
         out = pathlib.Path(td) / "phone.json"
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", "8911", "--quiet"], cwd=ROOT)
-        try:
+        with serve_tree(ROOT) as base:
             env = {**os.environ, "A3D_VIEWPORT": "390x844"}
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            "http://127.0.0.1:8911/ship/index.html?still=1",
+                            f"{base}ship/index.html?still=1",
                             str(probe), str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL, env=env)
             r = json.loads(out.read_text())
-        finally:
-            srv.terminate()
-            srv.wait()
 
     out_bad = []
     if r.get("errors"):
@@ -803,17 +799,12 @@ def main() -> None:
         probe = pathlib.Path(td) / "probe.js"
         probe.write_text(PROBE)
         out = pathlib.Path(td) / "out.json"
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", "8909", "--quiet"], cwd=ROOT)
-        try:
+        with serve_tree(ROOT) as base:
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            "http://127.0.0.1:8909/ship/index.html?still=1",
+                            f"{base}ship/index.html?still=1",
                             str(probe), str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL)
             res = json.loads(out.read_text())
-        finally:
-            srv.terminate()
-            srv.wait()
 
     bad = []
     if res.get("errors"):

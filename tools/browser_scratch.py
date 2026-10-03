@@ -48,7 +48,9 @@ def _readable(directory, chrome):
 def browser_scratch(chrome='chromium'):
     """Yield scratch and route child js_eval profiles there; remove it on exit."""
     home = Path(pwd.getpwuid(os.getuid()).pw_dir).resolve()
-    for parent in dict.fromkeys((ROOT / SCRATCH_NAME, home)):
+    requested = os.environ.get('TMPDIR')
+    parents = (Path(requested),) if requested else (ROOT / SCRATCH_NAME, home)
+    for parent in dict.fromkeys(parents):
         try:
             if parent != home:
                 parent.mkdir(exist_ok=True)
@@ -59,9 +61,9 @@ def browser_scratch(chrome='chromium'):
             directory = Path(name)
             if not _readable(directory, chrome):
                 continue
-            location = (f'./{SCRATCH_NAME}/' if parent != home else '~/') + directory.name
-            reason = '' if parent != home else 'checkout unavailable to Chromium; using account home; '
-            cleanup = shlex.quote(location if parent != home else str(directory))
+            location = ('TMPDIR/' if requested else f'./{SCRATCH_NAME}/' if parent != home else '~/') + directory.name
+            reason = '' if requested or parent != home else 'checkout unavailable to Chromium; using account home; '
+            cleanup = shlex.quote(str(directory))
             print(f'browser scratch: {reason}{location} (removed on exit; if interrupted, '
                   f'remove with rm -rf -- {cleanup}).',
                   file=sys.stderr)
@@ -76,5 +78,7 @@ def browser_scratch(chrome='chromium'):
                     else:
                         os.environ[key] = value
             return
+    if requested:
+        raise RuntimeError('Chromium could not read and write explicit TMPDIR; check confinement')
     raise RuntimeError('Chromium could not read and write disposable scratch in the checkout '
                        'or account home; check browser confinement and checkout permissions')
