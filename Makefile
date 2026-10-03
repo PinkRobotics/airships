@@ -68,13 +68,13 @@ firstparty: firstparty-static  ## Record browser requests on every served page i
 	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
 
 noticecheck:  ## Publish to empty scratch and verify third-party records, notices and links
-	$(PY) -m unittest -v tools.tests.test_noticecheck
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_noticecheck.py'
 	@d=$$(mktemp -d "$${TMPDIR:?set TMPDIR to project scratch}/noticecheck.XXXXXX"); \
 	  trap 'rm -rf "$$d"' EXIT; \
 	  $(PY) tools/publish.py --dest "$$d" && $(PY) tools/noticecheck.py --dest "$$d"
 
 linkcheck:  ## Check tracked documentation links and anchors; list external URLs without fetching
-	$(PY) -m unittest -v tools.tests.test_check_links
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_check_links.py'
 	$(PY) tools/check_links.py
 
 check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Everything CI checks
