@@ -401,7 +401,8 @@ function rows(host, list) {
   host.innerHTML = '';
   for (const [k, v] of list) {
     const value=el('b',null,v);
-    if (/\b(?:MWh|kWh|MW|kW)\b/.test(v)) {
+    if (/\b(?:MWh|kWh|MW|kW)\b/.test(v) || /Mission energy.*unavailable/.test(v)) {
+      if (/Mission energy.*unavailable/.test(v)) value.dataset.energyUnavailable='true';
       const tag=el('small',null,'earlier model · under review');
       tag.style.cssText='display:block;font-size:10px;font-weight:400;white-space:normal';
       value.append(tag);
@@ -422,8 +423,8 @@ function renderState(cls, vs, wrench) {
     ['centre of mass', m.centreOfMass.map((v) => v.toFixed(1)).join(', ') + ' m'],
     ['altitude', `${Math.round(vs.altitudeM).toLocaleString()} m`],
     ['airspeed', `${vs.airspeedMps.toFixed(1)} m/s`],
-    ['supply / demand', e.available === false ? 'Record and favourable energy unavailable; feasibility unknown' : `${e.supplyMW.toFixed(1)} / ${e.demandMW.toFixed(1)} MW · ${vs.energyBasis || 'basis unknown'} · ${vs.energyFeasible === true ? 'feasible in model' : vs.energyFeasible === false ? 'INFEASIBLE' : 'feasibility unknown'}`],
-    ['bus balance', e.available === false ? 'record and favourable unavailable' : `${e.balanceMW.toFixed(2)} MW`],
+    ['supply / demand', e.available === false ? 'Mission energy supply and demand unavailable: this actuator experiment has no mission energy record; record and favourable feasibility unknown' : `${e.supplyMW.toFixed(1)} / ${e.demandMW.toFixed(1)} MW · ${vs.energyBasis || 'basis unknown'} · ${vs.energyFeasible === true ? 'feasible in model' : vs.energyFeasible === false ? 'INFEASIBLE' : 'feasibility unknown'}`],
+    ['bus balance', e.available === false ? 'Mission energy bus balance unavailable: this actuator experiment has no mission energy record' : `${e.balanceMW.toFixed(2)} MW`],
     ['LN₂ round trip', `${(ln2Ledger(cls).roundTrip * 100).toFixed(0)}%`],
   ]);
 

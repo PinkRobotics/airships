@@ -42,6 +42,13 @@ PROBE = r'''
   const norm=s=>s.replace(/\s+/g,' ').trim();
   function inspect() {
     const errors=[], figures=[], used=new Set();
+    for(const block of document.querySelectorAll('[data-energy-unavailable]')) {
+      if(!block.getClientRects().length) continue;
+      const text=norm(block.textContent); used.add(block); figures.push({block,text});
+      if(!/mission energy (?:supply and demand|bus balance)/i.test(text) || !/unavailable/i.test(text) || !/no mission energy record/i.test(text))
+        errors.push('incomplete unavailable energy state: '+text.slice(0,140));
+      if(!text.includes(TAG) && !text.includes(NOTE)) errors.push('unlabelled figure: '+text.slice(0,140));
+    }
     const body=norm(document.body.innerText);
     if(!body.includes(NOTE)) errors.push('view has no complete energy notice');
     const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
@@ -62,7 +69,7 @@ PROBE = r'''
       if(!norm(canvas.closest('#cpLeft').textContent).includes(NOTE))
         errors.push('rotor-power view has no complete notice');
     }
-    if(!figures.length) errors.push('no energy figures rendered; the view was not exercised');
+    if(!figures.length) errors.push('no energy values or labelled unavailable states rendered; the view was not exercised');
     return {errors,figures};
   }
   const baseline=inspect();
@@ -79,7 +86,10 @@ PROBE = r'''
   const compact=baseline.figures.find(f=>f.text.includes(TAG)&&!f.text.includes(NOTE));
   let missingTag=[];
   if(compact) {restore=removeText(TAG,compact.block);missingTag=inspect().errors;restore();}
-  return JSON.stringify({errors:baseline.errors,figures:baseline.figures.map(f=>f.text.slice(0,100)),
+  const bare=baseline.figures[0]; let bareNumber=[];
+  if(bare) {const saved=bare.block.innerHTML;bare.block.textContent='123 MW';bareNumber=inspect().errors;bare.block.innerHTML=saved;}
+  return JSON.stringify({bareNumberErrors:bareNumber,missingTagErrors:missingTag,
+    bareNumberCaught:bareNumber.some(e=>e.startsWith('unlabelled figure:')),errors:baseline.errors,figures:baseline.figures.map(f=>f.text.slice(0,100)),
     missingNoticeCaught:missingNotice.includes('view has no complete energy notice'),
     missingTagCaught:missingTag.some(e=>e.startsWith('unlabelled figure:'))});
 })()
@@ -138,6 +148,9 @@ def check_energy_labels():
                 failures.extend(f'{route}: {e}' for e in result['errors'])
                 if not result['missingNoticeCaught']: failures.append(f'{route}: removing the notice was not detected')
                 if not result['missingTagCaught']: failures.append(f'{route}: removing one compact label was not detected')
+                if not result['bareNumberCaught']: failures.append(f'{route}: a bare unlabelled number was not detected')
+                print(f"energy control: {route}: bare number RED: {result['bareNumberErrors']}")
+                print(f"energy control: {route}: missing tag RED: {result['missingTagErrors']}")
                 print(f"energy labels: {route}: {len(result['figures'])} rendered energy blocks; "
                       f"missing-notice control {'caught' if result['missingNoticeCaught'] else 'MISSED'}, "
                       f"missing-tag control {'caught' if result['missingTagCaught'] else 'MISSED'}")
