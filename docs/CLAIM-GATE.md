@@ -3,7 +3,7 @@
 Changes to the gate tools (`tools/check_float_ledger.py`, `tools/float_text.py`,
 `tools/float_claims.py`, `tools/float_regions.py`, `tools/float_qualifiers.py`,
 `tools/update_float_records.py`), record schema or plants must run
-`make floatplants` before hand-up.
+`make floatplants` before they are submitted for review.
 
 `make ledgercheck-selftest`, included in `make check`, runs the record contracts,
 one plant per finding class and all controls. The complete suite runs separately
