@@ -13,6 +13,7 @@ specific masses, and each carries its source.
 **2026-10-02 correction:** nominal fleet areas now use the model’s capsule surface.
 The [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) records every old and new number and its cause.
 These conditional equipment budgets do not validate a drawn hull.
+The [energy correction](../../docs/audit/26-10-02-energy-carry.md) records the new battery-sizing figures and their cause.
 
 ## The requirement, as the model states it
 
@@ -47,8 +48,8 @@ and flown.
 | **TOTAL** | **216.1** | 466.4 | 1108.3 |
 | × the 100 t allowance | **2.16×** | 4.66× | 11.08× |
 
-Right-sizing the battery to the mission rather than to eighteen cycles of endurance takes the
-floor to **181.3 t, 1.81×**. The cryogenic plant stays: see the retraction in `air-ballast.md`.
+Sizing the battery to three prescribed cycles raises the floor from **181.3 t, 1.81×**, to **226.2 t, 2.26×**.
+The cycle is infeasible; this energy-based allowance does not establish endurance. The cryogenic plant stays: see the retraction in `air-ballast.md`.
 
 **The cryogenic line is now the second-largest item in the vehicle and the worst-supported.**
 Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg),
@@ -88,21 +89,21 @@ And the hull that closes, in the floor case:
 
 | shell | volume that closes | × baseline | hull |
 |---|---|---|---|
-| 0.264 kg/m³ | 228,644 m³ | 1.04× | 111 × 56 m |
-| 0.350 | 261,566 m³ | 1.19× | 117 × 58 m |
-| **0.508 (Jenett, published)** | **355,499 m³** | **1.62×** | **129 × 65 m** |
-| 0.600 | 449,285 m³ | 2.04× | 140 × 70 m |
-| 0.750 | 786,622 m³ | 3.58× | 168 × 84 m |
-| 0.900 | 3,060,477 m³ | 13.91× | 265 × 132 m |
+| 0.264 kg/m³ | 294,309 m³ | 1.34× | 121 × 61 m |
+| 0.350 | 336,631 m³ | 1.53× | 127 × 63 m |
+| **0.508 (Jenett, published)** | **457,324 m³** | **2.08×** | **140 × 70 m** |
+| 0.600 | 577,748 m³ | 2.63× | 152 × 76 m |
+| 0.750 | 1,010,309 m³ | 4.59× | 183 × 91 m |
+| 0.900 | 3,908,881 m³ | 17.77× | 287 × 144 m |
 
-**At the best published shell density the reference ship closes at 129 × 65 m — still shorter
+**At the best published shell density the reference ship closes at 140 × 70 m — still shorter
 than the Hindenburg.** The previous headline here, that the shell must be 1.9× lighter than
 anything ever designed, was an artefact of holding the hull size fixed. The honest statement is
-that **the reference hull is undersized by about 1.6×**, which is a sizing decision, not a
+that **the reference hull is undersized by about 2.1×**, which is a sizing decision, not a
 physics wall.
 
-The curve is brutally non-linear near the wall, though: 0.508 → 0.75 nearly triples the hull,
-and 0.90 multiplies it twentyfold. Every kilogram per cubic metre bought back is worth much
+The conditional volume grows from 457,324 m³ at 0.508 kg/m³ to 1,010,309 m³ at 0.75 kg/m³.
+At 0.90 kg/m³ it reaches 3,908,881 m³. Every kilogram per cubic metre bought back is worth much
 more than it looks.
 
 ## The sealed-cell architecture is the answer to the shape problem — and it has a price
@@ -125,9 +126,9 @@ scaled by the packing fraction φ:
 | | φ = 0.74 (close-packed spheres) | φ = 0.85 | φ = 1.0 (space-filling cells) |
 |---|---|---|---|
 | effective wall | 0.708 kg/m³ | 0.813 kg/m³ | 0.957 kg/m³ |
-| hull at shell 0.264 | 359,402 m³, 130 × 65 m | 289,426 m³, 121 × 60 m | 228,644 m³, 111 × 56 m |
-| hull at shell 0.508 | 814,181 m³, 170 × 85 m | 527,049 m³, 147 × 74 m | 355,499 m³, 129 × 65 m |
-| hull at shell 0.750 | **never** | 2,725,487 m³, 255 × 127 m | 786,622 m³, 168 × 84 m |
+| hull at shell 0.264 | 462,338 m³, 141 × 70 m | 372,438 m³, 131 × 66 m | 294,309 m³, 121 × 61 m |
+| hull at shell 0.508 | 1,045,611 m³, 185 × 92 m | 677,541 m³, 160 × 80 m | 457,324 m³, 140 × 70 m |
+| hull at shell 0.750 | **never** | 3,483,404 m³, 276 × 138 m | 1,010,309 m³, 183 × 91 m |
 
 **Packing fraction is now a first-order design parameter and nobody has chosen it.** A
 space-filling cell (rhombic dodecahedron, truncated octahedron) approaches φ = 1 but is a worse
@@ -187,9 +188,9 @@ it is a materials test, not an analysis.
 
 ## The honest summary
 
-The budget as specified fails by 2.16× at its most favourable, and 1.81× with the battery
-right-sized. But the vehicle is not the specification: **at the best published shell density the
-concept closes at 1.62× the reference volume, a 129 m hull — and the true go/no-go is a single
+The budget as specified fails by 2.16× at its most favourable, and 2.26× with the battery
+sized to the prescribed cycle. But the vehicle is not the specification: **at the best published shell density the
+concept closes at 2.08× the reference volume, a 140 m hull — and the true go/no-go is a single
 number, 0.957 kg/m³, that the project had never written down.**
 
 What decides it now is not "can the shell be twice as light as anything designed". It is:

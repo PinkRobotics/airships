@@ -34,7 +34,7 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 >
 > Regenerate all of it with `make analysis`.
 >
-> **2026-10-02 correction to #11:** the conditional capsule budget now gives 355,499 m³ and 129 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
+> **2026-10-02 correction to #11:** the conditional capsule budget now gives 457,324 m³ and 140 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
 > See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
 > **DECIDED 2026-08-09.** All six are to be fixed. The decisions are recorded at the top of

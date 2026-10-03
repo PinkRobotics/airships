@@ -31,8 +31,8 @@ Against the wall, the literature separates cleanly:
 
 | | shell | verdict |
 |---|---|---|
-| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes with 47% margin** — hull closes at 355,499 m³, a 129 m ship, shorter than the Hindenburg |
-| Jenett + 50% for joints and skin | 0.75 | passes; hull is 3.6× the baseline |
+| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes with 47% margin** — hull closes at 457,324 m³, a 140 m ship, shorter than the Hindenburg |
+| Jenett + 50% for joints and skin | 0.75 | passes; hull is 4.6× the baseline |
 | Metlen 2013, frame + a real membrane | ≈0.94 | passes by 2% |
 | Akhmeteli & Gavrilin 2021, sandwich | 1.16 | **fails outright** |
 

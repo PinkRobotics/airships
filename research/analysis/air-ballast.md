@@ -1,6 +1,6 @@
 > The retained mass-budget capture reported a 52.5% nitrogen-cycle saving under its older energy denominator; this is historical, not a current feasible-flight saving.
 >
-> **2026-10-01:** the retraction stands. The energy/rotor tables below record earlier incomplete force models, not current feasible flights. Current record/favourable requirements are bound to `energy-closure.json` and `docs/ENERGY-CLOSURE-2026-10.md`.
+> **2026-10-01:** the retraction stands. The energy shares and rotor capacities below are regenerated; the retained historical argument does not establish feasible flight. Current record/favourable requirements are bound to `energy-closure.json` and `docs/ENERGY-CLOSURE-2026-10.md`.
 
 # Ballast — a retraction, and the finding that survived it
 
@@ -55,19 +55,18 @@ number in the vehicle (`mass-budget.md` carries it at 12 to 120 t across three c
 
 | | LN₂ made per cycle | energy | net of recovery | share of the published cycle |
 |---|---|---|---|---|
-| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **47.3%** |
-| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 31.9% |
-| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 14.0% |
+| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **8.0%** |
+| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 4.3% |
+| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 1.1% |
 
-Correction, 2026-10-02: the regenerated shares replace 52.5%, 36.4% and 16.6%.
-The cycle energy used as the denominator comes from the earlier flight model.
-The historical argument below has not been recomputed here.
+Correction, 2026-10-02: the regenerated shares are 8.0%, 4.3% and 1.1%, replacing 47.3%, 31.9% and 14.0%.
+The force ledger raises the supplied cycle energy used as the denominator.
+These prescribed cycles are infeasible, so the subtraction does not establish a flight saving.
 
-A third of a P-100's published cycle energy is liquefaction. It was over half of the cycle the
-old budget published; the one energy model of 2026-10-01 made the rest of the cycle larger, not
-the plant smaller. It is no longer invisible: `sim/power.js` prices the plant as its own channel,
-so the phase ledger's 1.326 MWh against "return transit" is 0.502 MWh of flying and 0.824 MWh of
-refrigeration, and the channel ledger (`Echan.cryo`) says so directly.
+The table attributes 8.0% of a P-100's prescribed cycle energy to net liquefaction.
+The earlier sentence said over half while its table showed 47.3%.
+The net nitrogen term remains 0.658 MWh; the supplied cycle energy rises from 1.391 to 8.192 MWh.
+The [energy correction](../../docs/audit/26-10-02-energy-carry.md) records the dependent changes.
 
 It is also unnecessary. `plan.js:64` makes `ln2MakeT` whatever the plant can produce in the
 time available — capacity times duration, not demand — so the ship refrigerates because it
@@ -76,9 +75,9 @@ hold:
 
 | | surplus at the source | anchor | left for the rotors | rotor capacity | margin |
 |---|---|---|---|---|---|
-| P-100 | 137.4 t | 125 t | 12.4 t | 227.8 t | **18.4×** |
-| P-1000 | 1,374.4 t | 1,250 t | 124.4 t | 1,107.5 t | 8.9× |
-| P-10000 | 13,743.6 t | 12,400 t | 1,343.6 t | 11,474.6 t | 8.5× |
+| P-100 | 137.4 t | 125 t | 12.4 t | 140.5 t | **11.3×** |
+| P-1000 | 1,374.4 t | 1250 t | 124.4 t | 683.3 t | 5.5× |
+| P-10000 | 13,743.6 t | 12400 t | 1,343.6 t | 7,079.2 t | 5.3× |
 
 **Recommendation: keep the plant and the tank, and stop running them in the normal cycle.**
 Liquefy on the ground, or when idle, or when the forecast says the ship may need to come down
@@ -95,12 +94,11 @@ against:
 
 | | P-100 cycle |
 |---|---|
-| as published, one model | 2.023 MWh |
+| supplied effort on the prescribed profile | 8.192 MWh |
 | stop making nitrogen in the cycle | −0.658 |
-| **without the plant in the cycle** | **1.365 MWh — 32.5% below published** |
+| **arithmetic after subtracting net refrigeration** | **7.534 MWh — 8.0% below supplied effort** |
 
-The nitrogen saving stands on its own now. It is a third of the P-100's cycle, a seventh of the
-P-1000's and a twenty-third of the P-10000's — smaller shares than before because the rest of
-the cycle grew, not because the plant got cheaper. (The subtraction is `mass-budget.py`'s: it
+The nitrogen subtraction is 8.0%, 4.3% and 1.1% of the three prescribed cycle energies.
+These shares do not establish feasible delivery; the subtraction does not replan the cycle. (The subtraction is `mass-budget.py`'s: it
 removes the plant's net energy and does not re-fly the descent with 1.83 t less nitrogen aboard,
 which would cost the rotors slightly more.)

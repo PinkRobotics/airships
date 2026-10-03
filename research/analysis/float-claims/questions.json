@@ -8,14 +8,6 @@
   "entries": [
     {
       "file": "docs/OPEN-QUESTIONS.md",
-      "key": "a1cbc7dbdd4db5c6",
-      "line": 20,
-      "class": "history",
-      "date": "2026-10-01",
-      "reason": "Dated account of earlier analysis and test changes; current energy records supersede its performance claims."
-    },
-    {
-      "file": "docs/OPEN-QUESTIONS.md",
       "key": "57e95da3aed68c74",
       "line": 40,
       "class": "history",
@@ -872,14 +864,6 @@
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
-      "key": "a7c356d93e65b32e",
-      "line": 32,
-      "class": "deferred",
-      "reason": "The rows mix outside shell densities with project closure volumes and margins within individual cells; a row split would not separate the claims.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/VERIFICATION-PLAN.md",
       "key": "36d15190bb41bc1a",
       "line": 41,
       "class": "conditional",
@@ -1141,6 +1125,22 @@
       "reason": "The August evidence-map conclusion records its assessment of atmosphere, shell theory, tests and source provenance at that date.",
       "text": "- **The atmosphere module.** Sourced constants, cross-checked against the published table, throws rather than extrapolates, pure. It is the only part of the model with no free parameters of its own — its single input, ρ_SL, is the ISA value. - **The vacuum-shell argument in `PHYSICS.md` §2.** A correct derivation that concludes the best material available is short by a factor of six, published in the project's own physics document. Very few concept papers argue against themselves this well. - **The two-ledger insight.** Recognising that float-up and descent have different worst cases and are separated by 1 200 m of atmosphere is the best piece of modelling in the repository, and `anchorFromAglM` — computing the altitude at which the rotors lose the argument, and then constraining the flight profile to respect it — is exactly right. - **The thrust^1.5 leverage.** The reason the bag is worth so much is real physics, correctly identified, correctly quantified. - **The data provenance.** `DATA-SOURCES.md` is better than most published research. - **The boundary linter, `selftest()` and the golden grid.** A guard with its own test suite, assertions that ship to the reader's browser, and a 135-case grid. The infrastructure for checking this project is genuinely present, which is why an audit like this one could be done in an afternoon.",
       "date": "2026-08-09"
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "ca74cd89ca728fe8",
+      "line": 20,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Dated analysis summary now includes the current conditional battery-sized volume. The combined block mixes historical conclusions and current equipment-budget closure; it is not structural proof."
+    },
+    {
+      "file": "docs/VERIFICATION-PLAN.md",
+      "key": "14d8d264bdfacb6f",
+      "line": 32,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
     }
   ]
 }

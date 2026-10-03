@@ -42,14 +42,6 @@
       "owner": "energy-model"
     },
     {
-      "file": "research/analysis/air-ballast.md",
-      "key": "90b566c11dd9ebf2",
-      "line": 102,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Retracted historical discussion retains an older cycle-energy denominator. Its subtraction is not a feasible-cycle result; the current prescribed energy is in energy-closure.json."
-    },
-    {
       "file": "research/analysis/cap-readings.md",
       "key": "82bbbc952d13ac4b",
       "line": 18,
@@ -323,22 +315,6 @@
     },
     {
       "file": "research/analysis/mass-budget.md",
-      "key": "42191996e6edaf38",
-      "line": 89,
-      "class": "deferred",
-      "reason": "States hull sizes that close an equipment/energy allowance budget, not a structurally priced floating hull.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "00224a73c1ef88d0",
-      "line": 125,
-      "class": "deferred",
-      "reason": "Packing table asserts closure volumes from the equipment allowance scenario; that closure is not structural evidence.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
       "key": "f56e261377ae00a3",
       "line": 146,
       "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
@@ -369,14 +345,6 @@
       "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
       "class": "conditional",
       "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "9c196cd6e1a49ebe",
-      "line": 190,
-      "class": "deferred",
-      "reason": "Says the concept closes after battery resizing and changes to energy/ballast assumptions; the claimed closure remains unverified.",
-      "owner": "energy-model"
     },
     {
       "file": "research/analysis/reproductions.md",
@@ -1223,6 +1191,46 @@
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
       "function": "main",
       "gate": "analysisfresh"
+    },
+    {
+      "file": "research/analysis/air-ballast.md",
+      "key": "e5e9448876fbaec1",
+      "line": 101,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "The current mass-budget.json supplies the nitrogen energy shares. Subtracting refrigeration does not replan the infeasible cycle and does not establish delivery."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "453ddd403e3d6e65",
+      "line": 90,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "d5e5d6f2d4a1b556",
+      "line": 105,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "4c34921208176514",
+      "line": 126,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "37861baab012415b",
+      "line": 191,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
     }
   ]
 }
