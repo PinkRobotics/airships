@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import subprocess
 import unittest
 from unittest.mock import patch
 
@@ -20,6 +21,7 @@ class RecordContracts(unittest.TestCase):
         self.root = Path(tmp.name)
         self.record = self.root / 'research/analysis/float-claims'
         self.record.mkdir(parents=True)
+        subprocess.run(['git','init','-q'],cwd=self.root,check=True)
         for name, value in [('ROOT', self.root), ('RECORD', self.record)]:
             mock = patch.object(claims, name, value)
             mock.start()
@@ -42,6 +44,8 @@ class RecordContracts(unittest.TestCase):
         path = self.root / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
+        if name.endswith(('.py','.mjs')):
+            subprocess.run(['git','add','-N','--',name],cwd=self.root,check=True)
 
     def block(self, text, cls, file='docs/example.md', **extra):
         self.write(file, text + '\n')
@@ -229,7 +233,7 @@ class RecordContracts(unittest.TestCase):
         self.rejects('a calculator names the make target', e, h)
 
     def test_generated_script_and_page(self):
-        h, e = self.block('Mass comparison.', 'generated', generator='tools/render.py')
+        h, e = self.block('Mass comparison.', 'generated', generator='tools/render.py', gate='pagecheck')
         self.assertEqual(self.check(e, h), [])
         e['generator'] = 'tools/missing.py'
         self.rejects('a generated block names the tracked script', e, h)
@@ -353,6 +357,9 @@ class RecordContracts(unittest.TestCase):
         self.write(self.hit['file'], '# Record\n\nDated 2020-01-02; see [current ledger](FLOAT-LEDGER.md).\n\n' + self.hit['sentence'])
         hits, errors = self.apply([self.hit], [], dated=[dated])
         self.assertEqual(errors, [])
+        self.assertEqual(hits[0]['status'], 'FAIL')
+        # A dated notice establishes provenance, never a disposition for unseen text.
+        hits, errors = self.apply([self.hit], [dict(self.entry, **{'class':'history'},date=dated['date'],bindings=[])], dated=[dated])
         self.assertEqual(hits[0]['status'], 'ALLOW')
         self.write(self.hit['file'], '# Record\n\n' + self.hit['sentence'])
         hits, errors = self.apply([self.hit], [], dated=[dated])
@@ -631,6 +638,113 @@ class ScopingLabels(unittest.TestCase):
         with patch.object(scope.vc, 'ship0', return_value={'totalT': 1, 'ratioSL': 1, 'ratio2500': 1}):
             with self.assertRaisesRegex(ValueError, 'hull of record does not reproduce'):
                 scope.hull_label(scope.PLAN_CFG)
+
+
+
+class HardenedLanguage(unittest.TestCase):
+    def test_verdict_refusals_and_ordinary_prose(self):
+        import check_float_ledger as gate
+        refusals = [
+            'The hull is lighter than the air it pushes aside, so it rises on its own.',
+            'The 52 m hull is heavier than air and sinks on its own.',
+            'The vehicle holds itself up in air.',
+            'The vehicle lifts itself up.',
+            'On the drawn hull, lift exceeds weight at sea level.',
+            'The hull net lift is positive at sea level.',
+            'The hull rises unaided from the ground.',
+            'The hull carries its own structure with lift to spare.',
+            'The hull needs ballast to stay down.',
+            'The hull weighs less than nothing in air.',
+            'On the drawn hull the deficit is closed at sea level.',
+            'The vehicle has a surplus of lift.',
+            'The hull has a shortfall of lift.',
+            'Air supports the hull while it carries its own weight.',
+        ]
+        ordinary = ['centre of buoyancy', 'floating controls', 'float: right;',
+                    'const n = parseFloat(value);',
+                    'Climb and letdown each have independent peak-rate and peak-airspeed caps.',
+                    'Hold-down descent is priced as climb, on the conservative side; '
+                    'climb against hold-down thrust is priced as level flight, with no bound claimed.']
+        for sentence in refusals:
+            with self.subTest(sentence=sentence):self.assertTrue(gate.interesting(sentence))
+        for sentence in ordinary:
+            with self.subTest(sentence=sentence):self.assertFalse(gate.interesting(sentence))
+
+    def test_each_false_numeric_hull_class_is_refused(self):
+        ledger={'atmosphere':{'targetM':2500},'designs':[]}
+        for cls in ('literature','conditional','other-quantity','method','history','question','deferred','live-model','flight-model'):
+            text='If settled, the 52 m hull’s sea-level lift exceeds its mass by 41.2 t.'
+            hit=dict(file='docs/FLOAT.md',line=1,sentence=text,dynamicFigures=[])
+            entry=dict(file=hit['file'],key=claims.key_of(text),line=1,**{'class':cls},
+                       reason='A deliberately false numeric hull result.',context=['52','41.2'],
+                       date='2026-08',owner='hand-arithmetic',source='Test source',assumption='none')
+            errors=claims.check_entry(entry,hit,claims.Sources(ledger),ledger)
+            with self.subTest(cls=cls):
+                self.assertTrue(any('requires a checked binding' in e for e in errors),errors)
+
+    def test_script_escapes_fragments_templates_and_regex(self):
+        from float_text import js_strings
+        text = "const re = /['\"]/g; const x = 'The hull ' + 'floats.'; " + \
+               "const y = `The hull ${ok ? 'floats' : 'sinks'} at sea level.`; " + \
+               "// 'The false comment floats.'\nconst z='The hull fl\\u006fats.';"
+        strings=[t for _,t in js_strings(text)]
+        self.assertIn('The hull floats.',strings)
+        self.assertIn('The hull floats.',strings)
+        self.assertTrue(any(s.startswith('The hull ${') for s in strings))
+        self.assertNotIn('The false comment floats.',strings)
+
+
+class GeneratedRegionContracts(unittest.TestCase):
+    def setUp(self):
+        from float_regions import Regions
+        self.tmp=tempfile.TemporaryDirectory(prefix='float-region-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name)
+        (self.root/'tools').mkdir()
+        (self.root/'docs').mkdir()
+        self.start,self.end='<!-- fixture:start -->','<!-- fixture:end -->'
+        body=self.start+'\nThe computed float comparison.\n'+self.end+'\n'
+        (self.root/'docs/result.md').write_text(body)
+        (self.root/'tools/generate.py').write_text('import json\nprint(json.dumps('+repr({'docs/result.md':body})+'))\n')
+        (self.root/'tools/verify.py').write_text("# tools/generate.py regenerates this output; ledgercheck compares it too.\n")
+        (self.root/'Makefile').write_text('check: fresh\nfresh:\n\tpython3 tools/verify.py\n')
+        subprocess.run(['git','init','-q'],cwd=self.root,check=True)
+        subprocess.run(['git','add','-N','tools/generate.py','tools/verify.py'],cwd=self.root,check=True)
+        self.entry=dict(file='docs/result.md',generator='tools/generate.py',gate='fresh',verifier='tools/verify.py',
+                        region=dict(start=self.start,end=self.end))
+        self.hit=dict(line=2)
+
+    def check(self, entry=None):
+        from float_regions import Regions
+        return Regions(self.root,{'fresh'}).check(entry or self.entry,self.hit)
+
+    def test_complete_region_passes(self):self.assertEqual(self.check(),[])
+
+    def test_wrong_unpaired_reversed_and_inexact_markers(self):
+        path=self.root/'docs/result.md';body=path.read_text()
+        for bad in [body.replace(self.end,'<!-- wrong:end -->'),body.replace(self.start,''),
+                    body.replace(self.start,'MARKER_SWAP').replace(self.end,self.start).replace('MARKER_SWAP',self.end),
+                    body.replace(self.start,' '+self.start),body+self.end+'\n']:
+            with self.subTest(body=bad):
+                path.write_text(bad)
+                self.assertTrue(self.check())
+        path.write_text(body)
+        self.assertTrue(self.check(dict(self.entry,region=dict(start='wrong',end=self.end))))
+
+    def test_missing_untracked_generator_and_unrun_check(self):
+        self.assertTrue(self.check(dict(self.entry,generator='tools/missing.py')))
+        (self.root/'tools/untracked.py').write_text((self.root/'tools/generate.py').read_text())
+        self.assertTrue(self.check(dict(self.entry,generator='tools/untracked.py')))
+        self.assertTrue(self.check(dict(self.entry,gate='unchecked')))
+        (self.root/'Makefile').write_text('check: fresh\nfresh:\n\tpython3 -c "pass"\n')
+        self.assertTrue(self.check())
+
+    def test_fresh_content_comparison_and_region_membership(self):
+        path=self.root/'docs/result.md'
+        path.write_text(path.read_text().replace('computed','invented'))
+        self.assertTrue(any('differs from fresh regeneration' in e for e in self.check()))
+        self.hit['line']=99
+        self.assertTrue(any('outside' in e for e in self.check()))
 
 
 if __name__ == '__main__':
