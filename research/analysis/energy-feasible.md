@@ -51,16 +51,16 @@ Retained water uses five-percent payload steps plus each bisected first closing 
 
 The following full-payload profiles can cost more per tonne than the selected row. They are not global minima.
 
-| Class | km | Basis | Mode | Minutes | MWh | kWh/t | Inertia qualification |
-|---|---:|---|---|---:|---:|---:|---|
-| P100 | 7.480511 | record | rapid | 231.583 | 54.831 | 548.306 | closes only quasi-statically |
-| P100 | 7.480511 | favourable | rapid | 231.583 | 53.647 | 536.471 | closes only quasi-statically |
-| P100 | 51.913032 | record | balanced | 64.955 | 14.011 | 140.111 | closes only quasi-statically |
-| P100 | 51.913032 | favourable | balanced | 64.955 | 10.984 | 109.841 | closes only quasi-statically |
+| Class | km | Basis | Mode | Minutes | MWh | kWh/t | Omitted inertia / simultaneous rotor reserve, t | Inertia qualification |
+|---|---:|---|---|---:|---:|---:|---|---|
+| P100 | 7.480511 | record | rapid | 231.583 | 54.831 | 548.306 | 23.676 / 9.712 | closes only quasi-statically |
+| P100 | 7.480511 | favourable | rapid | 231.583 | 53.647 | 536.471 | 23.676 / 15.172 | closes only quasi-statically |
+| P100 | 51.913032 | record | balanced | 64.955 | 14.011 | 140.111 | 23.676 / 9.712 | closes only quasi-statically |
+| P100 | 51.913032 | favourable | balanced | 64.955 | 10.984 | 109.841 | 23.676 / 15.172 | closes only quasi-statically |
 
 ## Coefficient ranges for each selected feasible profile
 
-Each row replays the same printed profile; a coefficient change can make it infeasible.
+Each row replays the same printed controls; a coefficient change can make it infeasible.
 
 | Class | km | Basis | Profile | Parameter | Value | Verdict | Worst unheld, t | Minutes | MWh |
 |---|---:|---|---|---|---:|---|---:|---:|---:|

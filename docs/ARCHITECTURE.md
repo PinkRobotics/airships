@@ -74,11 +74,11 @@ either, so `3d/model/config.js` carries its own copy of the assumption set. Thei
 would also mean the vehicle renderer could no longer be lifted out and used elsewhere,
 which is the trade that was taken.
 
-There is a second cost, and it is a defect rather than a trade: the storage ledger — the
-integration of per-system draw into remaining megawatt-hours — lives in `app/loop.js`, not
-in `sim/`. It is model arithmetic in the application layer, and because it integrates the
-`stateAt` draws it constitutes a second, disagreeing energy model. See
-[PHYSICS.md §Defect 2](PHYSICS.md#defect-2--two-disagreeing-power-models).
+The storage ledger — the integration of per-system draw into remaining
+megawatt-hours — still lives in `app/loop.js`, so model arithmetic remains in
+the application layer. The cycle budget and `stateAt` now use the same force
+and power calculation; the independent integral checks their agreement. See
+[PHYSICS.md §Force and energy rules](PHYSICS.md#force-and-energy-rules).
 
 ---
 

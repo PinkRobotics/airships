@@ -1,0 +1,1714 @@
+{
+  "readmeExamples": [
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "feasible": false,
+      "bindingLimits": [
+        "rotor thrust",
+        "anchor cable reach",
+        "bus power"
+      ],
+      "worst": {
+        "unheldT": 7073.818965639636,
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6669362957670824,
+        "limits": [
+          "bus power",
+          "rotor thrust",
+          "anchor cable reach"
+        ]
+      },
+      "cycleMWh": 694.3784845942871,
+      "kwhPerTonne": 69.43784845942871,
+      "cycleMin": 45.51181498240322,
+      "peakRotorMW": 1405.7100289592227,
+      "hoursOnBattery": 2.197738856909237,
+      "deliveredT": 10000,
+      "ballastT": 0,
+      "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "favourable",
+      "feasible": false,
+      "bindingLimits": [
+        "bus power",
+        "rotor thrust",
+        "aerodynamic coefficient",
+        "anchor cable reach"
+      ],
+      "worst": {
+        "unheldT": 7073.818965639636,
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6669362957670824,
+        "limits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ]
+      },
+      "cycleMWh": 757.6148094057548,
+      "kwhPerTonne": 75.76148094057548,
+      "cycleMin": 45.51181498240322,
+      "peakRotorMW": 1405.7100289592227,
+      "hoursOnBattery": 2.013301603113668,
+      "deliveredT": 10000,
+      "ballastT": 0,
+      "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+    },
+    {
+      "class": "P10000",
+      "km": 45,
+      "basis": "record",
+      "feasible": false,
+      "bindingLimits": [
+        "rotor thrust",
+        "anchor cable reach",
+        "bus power"
+      ],
+      "worst": {
+        "unheldT": 6998.257750711363,
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6669362957670824,
+        "limits": [
+          "bus power",
+          "rotor thrust",
+          "anchor cable reach"
+        ]
+      },
+      "cycleMWh": 976.5058466969225,
+      "kwhPerTonne": 97.65058466969225,
+      "cycleMin": 78.09100050276521,
+      "peakRotorMW": 1419.3932868778272,
+      "hoursOnBattery": 2.684985396241499,
+      "deliveredT": 10000,
+      "ballastT": 0,
+      "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+    },
+    {
+      "class": "P10000",
+      "km": 45,
+      "basis": "favourable",
+      "feasible": false,
+      "bindingLimits": [
+        "bus power",
+        "rotor thrust",
+        "aerodynamic coefficient",
+        "anchor cable reach"
+      ],
+      "worst": {
+        "unheldT": 6998.257750711363,
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6669362957670824,
+        "limits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ]
+      },
+      "cycleMWh": 1168.5807066233137,
+      "kwhPerTonne": 116.85807066233137,
+      "cycleMin": 78.09100050276521,
+      "peakRotorMW": 1419.3932868778272,
+      "hoursOnBattery": 2.2409949726257006,
+      "deliveredT": 10000,
+      "ballastT": 0,
+      "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+    }
+  ],
+  "constants": {
+    "rhoSL": 1.225,
+    "Cd": 0.05,
+    "propEta": 0.7,
+    "pumpEta": 0.75,
+    "eLN2": 0.45,
+    "rtLN2": 0.2,
+    "solarWPerM2": 45,
+    "forceTolerance": 0.000001,
+    "limitSteps": 1024,
+    "energySteps": 96,
+    "clMax": 1,
+    "clValues": [
+      0.5,
+      1,
+      1.5
+    ],
+    "verticalCd": 1,
+    "rotorEfficiencyRange": [
+      0.55,
+      0.7
+    ],
+    "hoistM": 15,
+    "winchEfficiency": 0.85
+  },
+  "date": "2026-10-02",
+  "classes": [
+    {
+      "class": "P100",
+      "payloadT": 100,
+      "lengthM": 110,
+      "diameterM": 55,
+      "designVolumeM3": 220000,
+      "capsuleVolumeM3": 217784.36572541745,
+      "diskM2": 2500,
+      "batteryMWh": 20,
+      "batteryMW": 30,
+      "generatorMW": 8,
+      "solarMW": 0.27,
+      "hotelMW": 0.16,
+      "dragMW": 1.2686010466406168,
+      "dragDensity": 0.9568587008868916,
+      "volumetricCd": 0.03259643795002995,
+      "sourceM": 300,
+      "pumpMW": 1.962,
+      "pumpIdealMWh": 0.08175,
+      "pumpElectricalMWh": 0.109,
+      "groundMassT": 144.56133929726047,
+      "tankMassT": 155,
+      "tankEnergyMWh": 69.75,
+      "groundEnergyMWh": 65.05260268376722,
+      "groundSolarDays": 24.641137380214854,
+      "tankSolarDays": 26.420454545454543,
+      "tankPlantDays": 0.484375,
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 0.6666666666666666,
+        "energyMWh": 20,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 40,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 66.66666666666667,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 134.2281879194631,
+            "exceedsDryTarget": true,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      }
+    },
+    {
+      "class": "P1000",
+      "payloadT": 1000,
+      "lengthM": 238,
+      "diameterM": 119,
+      "designVolumeM3": 2200000,
+      "capsuleVolumeM3": 2205867.9727211343,
+      "diskM2": 12000,
+      "batteryMWh": 120,
+      "batteryMW": 150,
+      "generatorMW": 40,
+      "solarMW": 1.26,
+      "hotelMW": 0.8,
+      "dragMW": 10.84286714053528,
+      "dragDensity": 0.9568587008868916,
+      "volumetricCd": 0.03287547385261097,
+      "sourceM": 300,
+      "pumpMW": 11.772,
+      "pumpIdealMWh": 0.8175,
+      "pumpElectricalMWh": 1.09,
+      "groundMassT": 1445.6133929726047,
+      "tankMassT": 1550,
+      "tankEnergyMWh": 697.5,
+      "groundEnergyMWh": 650.5260268376721,
+      "groundSolarDays": 58.9244589526877,
+      "tankSolarDays": 63.17934782608696,
+      "tankPlantDays": 0.96875,
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 0.8,
+        "energyMWh": 120,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 240,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 400,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 805.3691275167786,
+            "exceedsDryTarget": false,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      }
+    },
+    {
+      "class": "P10000",
+      "payloadT": 10000,
+      "lengthM": 512,
+      "diameterM": 256,
+      "designVolumeM3": 22000000,
+      "capsuleVolumeM3": 21961324.38887047,
+      "diskM2": 160000,
+      "batteryMWh": 2000,
+      "batteryMW": 1400,
+      "generatorMW": 150,
+      "solarMW": 5.4,
+      "hotelMW": 3,
+      "dragMW": 82.82894802536197,
+      "dragDensity": 0.9568587008868916,
+      "volumetricCd": 0.03277867259813378,
+      "sourceM": 300,
+      "pumpMW": 58.86,
+      "pumpIdealMWh": 8.175,
+      "pumpElectricalMWh": 10.9,
+      "groundMassT": 14456.13392972605,
+      "tankMassT": 15500,
+      "tankEnergyMWh": 6975,
+      "groundEnergyMWh": 6505.260268376723,
+      "groundSolarDays": 112.93854632598476,
+      "tankSolarDays": 121.09374999999999,
+      "tankPlantDays": 2.90625,
+      "battery": {
+        "assumption": "The battery retains the class energy-to-peak-power ratio; power alone does not determine storage mass.",
+        "hours": 1.4285714285714286,
+        "energyMWh": 2000,
+        "cases": {
+          "floor": {
+            "specificEnergyWhKg": 500,
+            "tonnes": 4000,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at pack level. The best case anyone at NASA will name."
+          },
+          "credible": {
+            "specificEnergyWhKg": 300,
+            "tonnes": 6666.666666666667,
+            "exceedsDryTarget": false,
+            "source": "Lvovich 2020 — 'achievable within reasonable timeframe'."
+          },
+          "demonstrated": {
+            "specificEnergyWhKg": 149,
+            "tonnes": 13422.818791946309,
+            "exceedsDryTarget": true,
+            "source": "Chin et al. 2021 — the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+          }
+        }
+      }
+    }
+  ],
+  "records": [
+    {
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "anchor cable reach",
+          "upward authority unavailable"
+        ],
+        "worst": {
+          "unheldT": 34.55593475079449,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.810546875,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 8.192341671751578,
+        "kwhPerTonne": 81.92341671751578,
+        "cycleMin": 34.196078431372555,
+        "peakRotorMW": 31.47463294117556,
+        "hoursOnBattery": 1.4180195928570543,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 0.950373192720462,
+        "WATER_FILL": 0.8641337564722633,
+        "OUTBOUND_TRANSIT": 0.5761350365776585,
+        "WATER_RELEASE": 0.8036145444937403,
+        "BUOYANCY_ESCAPE": 0.7537972949779226,
+        "RETURN_TRANSIT": 4.4089937288624705,
+        "recovery": -0.16470588235294092
+      },
+      "channels": {
+        "hotel": 0.09118954248366047,
+        "prop": 0.42660000537606,
+        "winch": 0.010719809892975687,
+        "rotors": 6.896008784587106,
+        "pumps": 0.109,
+        "cryo": 0.8235294117647054
+      },
+      "solarMWh": 0.15388235294117653,
+      "ln2MakeT": 1.8300653594771241,
+      "letdownMWh": 2.305132211144699,
+      "anchorHoistMWh": 0.002708309892975674
+    },
+    {
+      "class": "P100",
+      "km": 15,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "aerodynamic coefficient",
+          "anchor cable reach",
+          "upward authority unavailable"
+        ],
+        "worst": {
+          "unheldT": -5.714119989225541,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.22265625,
+          "limits": [
+            "upward authority unavailable"
+          ]
+        },
+        "cycleMWh": 6.4017469495128,
+        "kwhPerTonne": 64.017469495128,
+        "cycleMin": 34.196078431372555,
+        "peakRotorMW": 31.47463294117556,
+        "hoursOnBattery": 1.824414187322865,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 0.9340228328817602,
+        "WATER_FILL": 0.8641337564722633,
+        "OUTBOUND_TRANSIT": 0.3962615252538844,
+        "WATER_RELEASE": 0.6833318469274434,
+        "BUOYANCY_ESCAPE": 0.6281760777097362,
+        "RETURN_TRANSIT": 3.060526792620653,
+        "recovery": -0.16470588235294092
+      },
+      "channels": {
+        "hotel": 0.09118954248366047,
+        "prop": 1.5257533757061377,
+        "winch": 0.010719809892975687,
+        "rotors": 4.006260692018247,
+        "pumps": 0.109,
+        "cryo": 0.8235294117647054
+      },
+      "solarMWh": 0.15388235294117653,
+      "ln2MakeT": 1.8300653594771241,
+      "letdownMWh": 1.4427443497672439,
+      "anchorHoistMWh": 0.002708309892975674
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": true,
+        "bindingLimits": [],
+        "worst": {
+          "unheldT": -2.842170943040401e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7314453125,
+          "limits": []
+        },
+        "cycleMWh": 20.521409967098204,
+        "kwhPerTonne": 205.21409967098202,
+        "cycleMin": 104.78431372549021,
+        "peakRotorMW": 30.903416007187595,
+        "hoursOnBattery": 1.7420604815459673,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "modelled cycle"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 0.9068056170303556,
+        "WATER_FILL": 0.8360335425176042,
+        "OUTBOUND_TRANSIT": 1.7616080418368374,
+        "WATER_RELEASE": 0.8036145444937403,
+        "BUOYANCY_ESCAPE": 0.7537972949779226,
+        "RETURN_TRANSIT": 16.10164242950972,
+        "recovery": -0.642091503267975
+      },
+      "channels": {
+        "hotel": 0.2794248366013064,
+        "prop": 1.6862490026702006,
+        "winch": 0.022982309892975675,
+        "rotors": 15.771727674142847,
+        "pumps": 0.109,
+        "cryo": 3.2941176470588216
+      },
+      "solarMWh": 0.471529411764706,
+      "ln2MakeT": 7.3202614379084965,
+      "letdownMWh": 5.1689610785995885,
+      "anchorHoistMWh": 0.002708309892975674
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": true,
+        "bindingLimits": [],
+        "worst": {
+          "unheldT": -2.842170943040401e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7314453125,
+          "limits": []
+        },
+        "cycleMWh": 14.763897057282067,
+        "kwhPerTonne": 147.63897057282068,
+        "cycleMin": 104.78431372549021,
+        "peakRotorMW": 30.903416007187595,
+        "hoursOnBattery": 2.4438291430404258,
+        "deliveredT": 100,
+        "ballastT": 0,
+        "energyMeaning": "modelled cycle"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 0.8908844589505502,
+        "WATER_FILL": 0.8360335425176042,
+        "OUTBOUND_TRANSIT": 1.4495380265020452,
+        "WATER_RELEASE": 0.6833318469274434,
+        "BUOYANCY_ESCAPE": 0.6281760777097362,
+        "RETURN_TRANSIT": 10.918024607942662,
+        "recovery": -0.642091503267975
+      },
+      "channels": {
+        "hotel": 0.2794248366013064,
+        "prop": 4.851163394523816,
+        "winch": 0.022982309892975675,
+        "rotors": 6.849300372473106,
+        "pumps": 0.109,
+        "cryo": 3.2941176470588216
+      },
+      "solarMWh": 0.471529411764706,
+      "ln2MakeT": 7.3202614379084965,
+      "letdownMWh": 2.4659236732034726,
+      "anchorHoistMWh": 0.002708309892975674
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 818.4651001292503,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960116603085,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 62.31445905783682,
+        "kwhPerTonne": 62.31445905783682,
+        "cycleMin": 35.362448009506835,
+        "peakRotorMW": 153.79646074864453,
+        "hoursOnBattery": 1.1486563862994685,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 6.200573441248004,
+        "WATER_FILL": 12.217125492228785,
+        "OUTBOUND_TRANSIT": 5.162440408420855,
+        "WATER_RELEASE": 11.501266462510337,
+        "BUOYANCY_ESCAPE": 4.950351138527061,
+        "RETURN_TRANSIT": 22.95649890634563,
+        "recovery": -0.6737967914438479
+      },
+      "channels": {
+        "hotel": 0.47149930679342494,
+        "prop": 3.0331929292621043,
+        "winch": 0.11479190200369785,
+        "rotors": 54.90978775400216,
+        "pumps": 1.0900000000000007,
+        "cryo": 3.368983957219256
+      },
+      "solarMWh": 0.7426114081996436,
+      "ln2MakeT": 7.4866310160427805,
+      "letdownMWh": 11.57236467845352,
+      "anchorHoistMWh": 0.059409992912788645
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 818.4651001292503,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960116603085,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 61.15515290706444,
+        "kwhPerTonne": 61.15515290706444,
+        "cycleMin": 35.362448009506835,
+        "peakRotorMW": 153.79646074864453,
+        "hoursOnBattery": 1.1706989023188612,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 6.184473589394801,
+        "WATER_FILL": 12.217125492228785,
+        "OUTBOUND_TRANSIT": 3.5773351406847254,
+        "WATER_RELEASE": 10.638675511150497,
+        "BUOYANCY_ESCAPE": 4.995387058923629,
+        "RETURN_TRANSIT": 24.215952906125857,
+        "recovery": -0.6737967914438479
+      },
+      "channels": {
+        "hotel": 0.47149930679342494,
+        "prop": 13.790208941867409,
+        "winch": 0.11479190200369785,
+        "rotors": 42.99346559062445,
+        "pumps": 1.0900000000000007,
+        "cryo": 3.368983957219256
+      },
+      "solarMWh": 0.7426114081996436,
+      "ln2MakeT": 7.4866310160427805,
+      "letdownMWh": 9.256303446292652,
+      "anchorHoistMWh": 0.059409992912788645
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 768.4062753384814,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960116603085,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 141.53322969910528,
+        "kwhPerTonne": 141.53322969910528,
+        "cycleMin": 93.116458704694,
+        "peakRotorMW": 165.92480299464833,
+        "hoursOnBattery": 1.3342590201956328,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 6.625479191224989,
+        "WATER_FILL": 12.869982547954317,
+        "OUTBOUND_TRANSIT": 16.59082697081223,
+        "WATER_RELEASE": 11.501266462510337,
+        "BUOYANCY_ESCAPE": 4.952240310375223,
+        "RETURN_TRANSIT": 91.68862138200359,
+        "recovery": -2.6951871657753914
+      },
+      "channels": {
+        "hotel": 1.241552782729256,
+        "prop": 11.772380899181574,
+        "winch": 0.1749896292764251,
+        "rotors": 116.47355772481613,
+        "pumps": 1.0900000000000007,
+        "cryo": 13.475935828877024
+      },
+      "solarMWh": 1.955445632798574,
+      "ln2MakeT": 29.946524064171122,
+      "letdownMWh": 28.43304385235055,
+      "anchorHoistMWh": 0.059409992912788645
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 768.4062753384814,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960116603085,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 142.15320330869878,
+        "kwhPerTonne": 142.15320330869878,
+        "cycleMin": 93.116458704694,
+        "peakRotorMW": 165.92480299464833,
+        "hoursOnBattery": 1.3283587447946836,
+        "deliveredT": 1000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 6.615188862337146,
+        "WATER_FILL": 12.869982547954317,
+        "OUTBOUND_TRANSIT": 12.890089379662864,
+        "WATER_RELEASE": 10.638675511150497,
+        "BUOYANCY_ESCAPE": 4.995707050999009,
+        "RETURN_TRANSIT": 96.83874712237035,
+        "recovery": -2.6951871657753914
+      },
+      "channels": {
+        "hotel": 1.241552782729256,
+        "prop": 48.9607797137631,
+        "winch": 0.1749896292764251,
+        "rotors": 79.90513251982836,
+        "pumps": 1.0900000000000007,
+        "cryo": 13.475935828877024
+      },
+      "solarMWh": 1.955445632798574,
+      "ln2MakeT": 29.946524064171122,
+      "letdownMWh": 19.56924676639496,
+      "anchorHoistMWh": 0.059409992912788645
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "rotor thrust",
+          "anchor cable reach",
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 7073.818965639636,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6669362957670824,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 694.3784845942871,
+        "kwhPerTonne": 69.43784845942871,
+        "cycleMin": 45.51181498240322,
+        "peakRotorMW": 1405.7100289592227,
+        "hoursOnBattery": 2.197738856909237,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 87.52441998190098,
+        "WATER_FILL": 214.0463105085051,
+        "OUTBOUND_TRANSIT": 34.34464872093249,
+        "WATER_RELEASE": 205.2080888322681,
+        "BUOYANCY_ESCAPE": 41.117250915902964,
+        "RETURN_TRANSIT": 114.03821812346513,
+        "recovery": -1.9004524886877772
+      },
+      "channels": {
+        "hotel": 2.2755907491201635,
+        "prop": 19.954514310165663,
+        "winch": 0.9754349152674517,
+        "rotors": 652.671134664984,
+        "pumps": 10.89999999999999,
+        "cryo": 9.502262443438907
+      },
+      "solarMWh": 4.0960633484162905,
+      "ln2MakeT": 21.116138763197593,
+      "letdownMWh": 117.21910499015881,
+      "anchorHoistMWh": 0.5962406844982211
+    },
+    {
+      "class": "P10000",
+      "km": 15,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 7073.818965639636,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6669362957670824,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 757.6148094057548,
+        "kwhPerTonne": 75.76148094057548,
+        "cycleMin": 45.51181498240322,
+        "peakRotorMW": 1405.7100289592227,
+        "hoursOnBattery": 2.013301603113668,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 87.63566040525572,
+        "WATER_FILL": 214.0463105085051,
+        "OUTBOUND_TRANSIT": 28.12863654441726,
+        "WATER_RELEASE": 200.67462764249768,
+        "BUOYANCY_ESCAPE": 46.08702830075858,
+        "RETURN_TRANSIT": 182.94299849300825,
+        "recovery": -1.9004524886877772
+      },
+      "channels": {
+        "hotel": 2.2755907491201635,
+        "prop": 105.6368552726312,
+        "winch": 0.9754349152674517,
+        "rotors": 630.2251185139843,
+        "pumps": 10.89999999999999,
+        "cryo": 9.502262443438907
+      },
+      "solarMWh": 4.0960633484162905,
+      "ln2MakeT": 21.116138763197593,
+      "letdownMWh": 116.49380261473293,
+      "anchorHoistMWh": 0.5962406844982211
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "basis": "record",
+      "asDrawn": {
+        "basis": "record",
+        "feasible": false,
+        "bindingLimits": [
+          "rotor thrust",
+          "anchor cable reach",
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 6960.52330882995,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6669362957670824,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 1113.8547803836275,
+        "kwhPerTonne": 111.38547803836273,
+        "cycleMin": 94.3805932629462,
+        "peakRotorMW": 1426.2349158370625,
+        "hoursOnBattery": 2.8461481106065483,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 88.42861938132056,
+        "WATER_FILL": 215.65028236906397,
+        "OUTBOUND_TRANSIT": 105.30718842873134,
+        "WATER_RELEASE": 205.2080888322681,
+        "BUOYANCY_ESCAPE": 41.18167133330546,
+        "RETURN_TRANSIT": 465.6807399936893,
+        "recovery": -7.601809954751109
+      },
+      "channels": {
+        "hotel": 4.719029663147313,
+        "prop": 76.09866263814224,
+        "winch": 1.230117607575143,
+        "rotors": 990.4997306557583,
+        "pumps": 10.89999999999999,
+        "cryo": 38.00904977375563
+      },
+      "solarMWh": 8.49425339366516,
+      "ln2MakeT": 84.46455505279037,
+      "letdownMWh": 218.1489737178838,
+      "anchorHoistMWh": 0.5962406844982211
+    },
+    {
+      "class": "P10000",
+      "km": 60,
+      "basis": "favourable",
+      "asDrawn": {
+        "basis": "favourable",
+        "feasible": false,
+        "bindingLimits": [
+          "bus power",
+          "rotor thrust",
+          "aerodynamic coefficient",
+          "anchor cable reach"
+        ],
+        "worst": {
+          "unheldT": 6960.52330882995,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6669362957670824,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        },
+        "cycleMWh": 1373.4016958227742,
+        "kwhPerTonne": 137.3401695822774,
+        "cycleMin": 94.3805932629462,
+        "peakRotorMW": 1426.2349158370625,
+        "hoursOnBattery": 2.304932684543508,
+        "deliveredT": 10000,
+        "ballastT": 0,
+        "energyMeaning": "does not close on the drawn hardware; supplied effort only"
+      },
+      "phaseEnergy": {
+        "SOURCE_APPROACH": 88.67692936841574,
+        "WATER_FILL": 215.65028236906397,
+        "OUTBOUND_TRANSIT": 92.67327724052484,
+        "WATER_RELEASE": 200.67462764249768,
+        "BUOYANCY_ESCAPE": 46.19868530689128,
+        "RETURN_TRANSIT": 737.1297038501319,
+        "recovery": -7.601809954751109
+      },
+      "channels": {
+        "hotel": 4.719029663147313,
+        "prop": 370.2048710460372,
+        "winch": 1.230117607575143,
+        "rotors": 955.9404376870106,
+        "pumps": 10.89999999999999,
+        "cryo": 38.00904977375563
+      },
+      "solarMWh": 8.49425339366516,
+      "ln2MakeT": 84.46455505279037,
+      "letdownMWh": 216.39843172986744,
+      "anchorHoistMWh": 0.5962406844982211
+    }
+  ],
+  "sensitivity": [
+    {
+      "basis": "record",
+      "key": "propEta",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 4.568183674759352,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7962.260701068638
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -4.070211968977889,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6238.3928239298875
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "Cd",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.5734722643041423,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.5734194987276453,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "rhoAir",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "pumpEta",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.19893991311317194,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7076.518961074807
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.13320007553250246,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7072.019256284452
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "hoseMul",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.12865041823506562,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7072.660642261289
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.16286137540637569,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7050.832051711345
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "rhoSL",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -33.63212992984218,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 2825.7628772017615
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 27.981528106034848,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 11375.222561871404
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "rtLN2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.024575185043795855,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7078.00366194114
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.02457518488078181,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7069.635512938702
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "eLN2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.006959627617919573,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7069.596164901411
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.004642194859405535,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7076.634166131788
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "solarWPerM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.03436917384300742,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7077.121783121829
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.03410639309013863,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7070.516922861214
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "cruiseKph",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 8.241434673938919,
+          "cycleMinutes": 49.584213172448464,
+          "feasible": false,
+          "worstUnheldT": 7064.3670431888295
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -3.9700714985082097,
+          "cycleMinutes": 42.79688285570638,
+          "feasible": false,
+          "worstUnheldT": 7080.121326592232
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "anchorBagT",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 3.5431608849660234,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -1.380796708841725,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "dropKm",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.6321934826548858,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.9445590498063705,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "fillM3s",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 15.661909742323289,
+          "cycleMinutes": 51.06737053795878,
+          "feasible": false,
+          "worstUnheldT": 7071.659342068248
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -10.700361511839308,
+          "cycleMinutes": 41.80811127869951,
+          "feasible": false,
+          "worstUnheldT": 7075.978920592215
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "dispM3",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -36.384309023309726,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": -2743.3090835731346
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 29.955658042984588,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 11627.482034215249
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "diskM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 4.035267697674838,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7431.334908576083
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -3.3838113399270564,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6769.6505304970815
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "battMW",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -15.228607590436315,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7958.524016431819
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 14.002566864710797,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6241.69551126267
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "anchorM",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 1.478088011216605,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7103.871760372035
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.5937732061155554,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6998.19416410001
+        }
+      ]
+    },
+    {
+      "basis": "record",
+      "key": "solarM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.03436917384300742,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7077.121783121829
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.03410639309013863,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7070.516922861214
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "propEta",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 1.9978780629485104,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7962.260701068638
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -6.130002088828846,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6238.3928239298875
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "Cd",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.16719117553121166,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.17164615593801003,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "rhoAir",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "pumpEta",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.18167596884075543,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7076.518961074807
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.12164290549503409,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7072.019256284452
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "hoseMul",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.26458746103426023,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7072.660642261289
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.2922515549849125,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7050.832051711345
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "rhoSL",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -40.81479435985435,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 2825.7628772017615
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 20.986704858523318,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 11375.222561871404
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "rtLN2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.02150279265611399,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7078.00366194114
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.02150275823120662,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7069.635512938702
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "eLN2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.0018260037336070845,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7069.596164901411
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.0012196139904219194,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7076.634166131788
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "solarWPerM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.06427388054883743,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7077.121783121829
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.06429631000490765,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7070.516922861214
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "cruiseKph",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 5.998852472446359,
+          "cycleMinutes": 49.584213172448464,
+          "feasible": false,
+          "worstUnheldT": 7064.3670431888295
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -3.637903372938933,
+          "cycleMinutes": 42.79688285570638,
+          "feasible": false,
+          "worstUnheldT": 7080.121326592232
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "anchorBagT",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 3.247421586051402,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -1.2655448577758688,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "dropKm",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.6122978829635972,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.7266731309898411,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7073.818965639636
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "fillM3s",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 14.246667750933707,
+          "cycleMinutes": 51.06737053795878,
+          "feasible": false,
+          "worstUnheldT": 7071.659342068248
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -9.592152139502176,
+          "cycleMinutes": 41.80811127869951,
+          "feasible": false,
+          "worstUnheldT": 7075.978920592215
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "dispM3",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -45.37911143045367,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": -2743.3090835731346
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 22.602441751262404,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 11627.482034215249
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "diskM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 1.9110959942455263,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7431.334908576083
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -2.177527150903902,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6769.6505304970815
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "battMW",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -18.068063081396403,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7958.524016431819
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 12.281165981295805,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6241.69551126267
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "anchorM",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": 0.7486021482969507,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7103.871760372035
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": -0.4804890853057575,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 6998.19416410001
+        }
+      ]
+    },
+    {
+      "basis": "favourable",
+      "key": "solarM2",
+      "rows": [
+        {
+          "multiplier": 0.8,
+          "energyPct": -0.06427388054883743,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7077.121783121829
+        },
+        {
+          "multiplier": 1.2,
+          "energyPct": 0.06429631000490765,
+          "cycleMinutes": 45.51181498240322,
+          "feasible": false,
+          "worstUnheldT": 7070.516922861214
+        }
+      ]
+    }
+  ],
+  "search": {
+    "speedMultipliers": [
+      0.5,
+      0.75,
+      1,
+      1.25,
+      1.5
+    ],
+    "verticalProfile": {
+      "climbRateMps": [
+        0.5,
+        2
+      ],
+      "letdownRateMps": [
+        0.5,
+        2
+      ],
+      "climbAirspeedMps": [
+        0,
+        5
+      ],
+      "letdownAirspeedMps": [
+        0,
+        5
+      ]
+    },
+    "modes": [
+      "rapid",
+      "balanced",
+      "endurance"
+    ],
+    "ballastFractions": [
+      0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ]
+  }
+}

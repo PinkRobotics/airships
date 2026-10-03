@@ -277,21 +277,11 @@ export const CLASSES = {  P100: {
     id: "P10000", name: "P-10000", payloadT: 10000, dispM3: 2.2e7, lenM: 512, diaM: 256,
     cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,
     anchorM: 850, anchorBagT: 12400,
-    /* diskM2 AND battMW ARE LEFT OVER FROM A CONSTRAINT THAT NO LONGER BINDS. Read this before
-     * quoting either of them.
-     *
-     * They were reverse-engineered so the force balance would close with nothing held back:
-     * 14 big discs on a battery-surge bus pushing an emptied hull back down under its own
-     * buoyancy, sized against the surplus AT THE CEILING. That check moved on 2026-08-09, to
-     * the source where the letdown actually ends and the air is 16% denser — and there it does
-     * not close. rotorMaxT/0.6 is 12,666 t against a 13,723 t hold. What closes the descent now
-     * is the anchor: a bag of lake water doing 12,400 t of the work for 0.6 MWh.
-     *
-     * So these two numbers satisfy a superseded constraint and no longer earn their place by
-     * the argument that produced them. Measured today, diskM2 ±20% moves cycle energy by
-     * ∓0.4% and battMW ±20% moves every published figure by 0.0% — the bus is not binding on
-     * anything. They are kept because re-deriving them needs a decision about what the rotors
-     * are actually for now, which is docs/OPEN-QUESTIONS.md #8, not a quiet re-tune. */
+    /* The prescribed empty return does not close on this hardware.
+     * Disk area and battery power both affect the ledger's force and energy result.
+     * The bag supplies only the water inventory its reachable cable carries.
+     * Current sensitivities and closure requirements are generated in research/analysis/.
+     * These ratings remain assumptions; changing them requires a separate mass budget. */
     genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarM2: 120000, diskM2: 160000, rotors: 14, ln2CapT: 15500,
     minSourceHa: 1000, searchKm: 600, dropKm: 5, use: "Campaign fires, long hauls, and moving water between regions",
   },

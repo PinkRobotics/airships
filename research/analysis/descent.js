@@ -1,21 +1,6 @@
-/* What the descent costs, read out of the one energy model.
- *
- * Until 2026-10-01 this file was the counter-argument: it integrated the letdown independently
- * of the budget, because the budget priced it with a window nobody could derive and the state
- * model priced it blind to the anchor (OPEN-QUESTIONS #3, #14, #15). Those three are closed by
- * the same change — sim/power.js prices every instant of the flown cycle once, and planCycle's
- * letdown is the rotor energy integrated over the descent the ship actually flies. So this is
- * no longer an alternative integral. It is the model's own descent, laid out so a reader can
- * see where the energy goes: the profile the ship flies down, what the rotors are asked for at
- * each point, what the bus gives them, where the bag comes in, and what the bag buys.
- *
- * Two counterfactuals are priced with the switches drawAt exposes for exactly this purpose —
- * the rotors blind to the bag (#14's defect) and the whole bag removed (planCycle with
- * anchorBagT 0, so the hull keeps lake water aboard instead) — and the second is the honest
- * statement of what the anchor is for.
- *
- *   make analysis
- */
+/* Read both energy bases from the current instantaneous ledger.
+ * Bag removal and disabled bag credit are supplied-effort comparisons.
+ * Neither comparison establishes a feasible flight or a delivery saving. */
 (async () => {
   const S = window.AIRSHIPS.sim;
   const { CLASSES, CLASS_ORDER, MODES, CFG, PHASES, TERRAIN_MSL, BUS_CEILING, LETDOWN_FROM,
@@ -23,12 +8,12 @@
   const r = (x, n = 3) => (Number.isFinite(x) ? Number(x.toFixed(n)) : null);
   const G = 9.81;
 
-  const out = { generated: { by: 'research/analysis/descent.js', worked: { oneWayKm: CFG.exampleKm, mode: 'balanced' } }, classes: {} };
+  const out = { generated: { by: 'research/analysis/descent.js', worked: { oneWayKm: CFG.exampleKm, mode: 'balanced' } }, classes: {}, favourableClasses: {} };
 
-  for (const id of CLASS_ORDER) {
+  for (const basis of ['record','favourable'])for (const id of CLASS_ORDER) {
     const cls = CLASSES[id];
     const mode = MODES.balanced;
-    const plan = planCycle(cls, mode, CFG.exampleKm);
+    const plan = planCycle(cls, mode, CFG.exampleKm,null,{basis});
     const g = cycleGeometry(cls, plan);
     const cableM = cls.anchorM || 0;
     const reachAglM = Math.max(0, cableM - cls.diaM / 2);      // the bag touches the water here
@@ -59,17 +44,15 @@
     for (let a = g.srcAlt; a <= 3000; a += 10) {
       if (ledger(cls, TERRAIN_MSL + a).surplusT - plan.ln2MakeT > rotorCapT) crossingAglM = a;
     }
-    /* Between the crossing and the bag's reach neither the rotors at full share nor the bag can
-       hold the hull; the model's hold schedule hands the remainder to aero trim there, which is
-       the open assumption named at the end of descent.md. */
+    // A static crossing is only a diagnostic; the signed ledger decides feasibility.
     const bandNeitherM = crossingAglM === null ? 0 : Math.max(0, crossingAglM - reachAglM);
 
     // The same flown cycle with the rotors blind to the bag (#14, as it was), and the bare hull.
     const blind = integrateCycle(cls, mode, plan, PLAN_STEPS, { anchorCredit: false });
-    const bare = planCycle({ ...cls, anchorBagT: 0 }, mode, CFG.exampleKm);
+    const bare = planCycle({ ...cls, anchorBagT: 0 }, mode, CFG.exampleKm,null,{basis});
     const bareHoist = r(bare.anchorHoistMWh, 3);
 
-    out.classes[id] = {
+    out[basis==='record'?'classes':'favourableClasses'][id] = {
       cableM, bagT: cls.anchorBagT || 0, reachAglM,
       bus: { battMW: cls.battMW, genMW: cls.genMW, descentBusMW: r(plan.busMW, 2), rotorShareOfBus: BUS_CEILING,
         rotorMaxT: r(plan.rotorMaxT, 1), rotorCapT: r(rotorCapT, 1), basis: plan.basis, feasible: plan.feasible },
@@ -77,7 +60,7 @@
         holdAtSourceT: r(plan.ledLow.surplusT - plan.ln2MakeT, 1), anchorT: r(plan.anchorT, 1),
         leftToRotorsT: r(plan.ledLow.surplusT - plan.ln2MakeT - plan.anchorT, 1),
         rotorsLeftDoingPctOfCapability: r(100 * (plan.ledLow.surplusT - plan.ln2MakeT - plan.anchorT) / rotorCapT, 1) },
-      basis: plan.basis, feasible: plan.feasible, bindingLimits: plan.bindingLimits,
+      basis: plan.basis, feasible: plan.feasible, cycleMin:plan.cycleMin,worst:plan.worst,bindingLimits: plan.bindingLimits,
       geometry: { ceilingAglM: r(g.altTop, 0), holdAglM: r(g.holdAgl, 0), fillAglM: r(g.srcAlt, 0),
         anchorFromAglM: plan.anchorFromAglM, rotorsAloneFailBelowAglM: crossingAglM,
         bagInTheWaterBelowAglM: reachAglM, bandNeitherRotorsNorBagM: bandNeitherM,
@@ -89,13 +72,10 @@
         rotorsWholeCycleMWh: r(plan.Echan.rotors, 3), rotorsPctOfCycle: r(100 * plan.Echan.rotors / plan.eCycleMWh, 1),
       },
       cycle: { eCycleMWh: r(plan.eCycleMWh, 3), kwhPerTonne: r(plan.kwhPerTonne, 2), deliveredT: r(plan.deliveredT, 1), bottleneck: plan.bottleneck },
-      /* THE BAG, PRICED TWO WAYS. Blind: the same flight with the rotors asked to hold the whole
-         surplus as if the bag were not pulling (what stateAt did until 2026-10-01). Bare: no bag at
-         all, so the plan keeps lake water aboard to close the descent and the hull is heavier on
-         every phase — cheaper to hold down everywhere, and it delivers less. */
+      // Supplied-effort comparisons on unsupported requested cycles.
       rotorsBlindToTheBag: { letdownMWh: r(blind.letdownMWh, 3), eCycleMWh: r(blind.eCycleMWh, 3), peakRotorMW: r(blind.downMW, 1),
         creditSavesMWh: r(blind.eCycleMWh - plan.eCycleMWh, 3), creditSavesPctOfCycle: r(100 * (blind.eCycleMWh - plan.eCycleMWh) / blind.eCycleMWh, 1) },
-      withoutTheBag: { retainedT: r(bare.retainedT, 1), deliveredT: r(bare.deliveredT, 1), eCycleMWh: r(bare.eCycleMWh, 3),
+      withoutTheBag: { feasible:bare.feasible,cycleMin:bare.cycleMin,worst:bare.worst,retainedT: r(bare.retainedT, 1), deliveredT: r(bare.deliveredT, 1), eCycleMWh: r(bare.eCycleMWh, 3),
         kwhPerTonne: r(bare.kwhPerTonne, 2), letdownMWh: r(bare.letdownMWh, 3), bottleneck: bare.bottleneck, battLimited: bare.battLimited,
         anchorHoistMWh: bareHoist,
         bagBuysDeliveredT: r(plan.deliveredT - bare.deliveredT, 1),

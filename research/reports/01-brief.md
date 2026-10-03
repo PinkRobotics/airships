@@ -1,5 +1,9 @@
 # Enough water to matter
 
+> **Energy reading, 2026-10-02.** Energy conclusions in this earlier report are superseded by the [generated closure record](../../docs/ENERGY-CLOSURE-2026-10.md).
+> Its cited tables now show supplied effort on the prescribed, unsupported profile. They do not establish delivery, endurance, savings or operating cost.
+> Historical arrows retain earlier figures. Feasible delivery, cycle minutes, both energy bases and the requirements are in the generated record.
+
 <!--tex:skip-->
 **A briefing · 2026-08-09 · Pink Robotics**
 
@@ -34,7 +38,7 @@ where the fires and the lakes are usually within tens of kilometres of each othe
 55 m<!--f:P100.spec.diaM--> across — **smaller than the Hindenburg**, which flew in 1936 at 245 m.
 Everything below is that ship unless it says otherwise.
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 | P-100, the reference ship | |
 |---|---:|
@@ -42,7 +46,9 @@ Everything below is that ship unless it says otherwise.
 | Length × diameter | 110<!--f:P100.spec.lenM--> × 55 m<!--f:P100.spec.diaM--> |
 | Round trip, 15 km each way | 34.2 min<!--f:P100.cycle.cycleMin--> |
 | **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** |
-| Energy per tonne delivered | 13.9 → 80.4 kWh<!--f:P100.cycle.kwhPerTonne--> |
+| Energy per tonne delivered (earlier 1) | 13.9 |
+| Energy per tonne delivered (earlier 2) | 80.4 |
+| Energy per tonne delivered (current) | 81.9 kWh<!--f:P100.cycle.kwhPerTonne--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -58,11 +64,11 @@ would have to be true.
 
 ### And then the question of how much bigger
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 Buoyancy scales with volume and drag with area, so a bigger ship is a *cheaper* ship per tonne
-delivered: 13.9 → 80.4 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
-8.5 → 62.5<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4 → 69.8<!--f:P10000.cycle.kwhPerTonne--> on
+delivered: 13.9 → 80.4 → 81.9 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
+8.5 → 62.5 → 62.3<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4 → 69.8 → 69.4<!--f:P10000.cycle.kwhPerTonne--> on
 a 10,000-tonne one delivering 13,183 t/h<!--f:P10000.cycle.tph-->. The square-cube law, which
 punishes almost every other kind of vehicle, is on this one's side.
 
@@ -104,18 +110,18 @@ which is an engineering question, and those get answered.
 
 ## What stops you getting bigger: borrowing the lake
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 A hull big enough to float when it is full of water is very hard to push *down* when it is empty,
 and hardest of all at the bottom, over the lake, where the air is thickest. The P-100 manages: it
 has to hold down 136 t<!--f:P100.descent.holdAtSourceT--> of surplus lift at the water and its
 rotors can produce 267 → 141<!--f:P100.descent.rotorCapT-->, comfortably.
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 **Scale it up and that margin closes, then inverts.** A 10,000-tonne hull has to hold down
 13,723 t<!--f:P10000.descent.holdAtSourceT--> and its rotors can manage
-12,666 → 7,124<!--f:P10000.descent.rotorCapT-->. It cannot reach its own water under power. Not because
+12,666 → 7,124 → 7,079<!--f:P10000.descent.rotorCapT-->. It cannot reach its own water under power. Not because
 the structure fails or the power runs out — because the air near a lake is 16% denser than the air
 it was sized in, and buoyancy that guarantees the ship rises when loaded has to be overcome when
 it is empty. **That is the physics that stops the idea getting arbitrarily large**, and it arrived
@@ -132,7 +138,7 @@ a fair measure of how far past the reference ship the limit case sits.
 
 <!--tex:fig charts/render-anchor.png | The mechanism at the limit case, rendered from the same model that computes the numbers: pump pods on hoses to the surface, and the anchor cable running down to a bag in the water. The bag is to scale --- 12,400 tonnes is 28.7 m across beside an 512 m hull. The rotors are pushing the ship \emph{down} here, which is why the wash blows upward.-->
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 The P-100 does not need it — its descent closes on rotors alone with 1.97× headroom — and it
 carries one anyway, because a bucket is cheaper than thrust even when thrust would do: the bag
@@ -153,7 +159,7 @@ These energy figures come from the earlier flight model, which understates the f
 This is arithmetic on a vehicle nobody has built, resting on assumptions we have gone looking for
 evidence *against*. Four are load-bearing:
 
-> **2026-10-01 correction — record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
+> **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 - **A structure light enough.** The model assumes a ship's dry mass equals its water payload.
   NASA's own lattice paper — the one this rests on — gives a bare shell 12% heavier than that
