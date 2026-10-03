@@ -1,0 +1,4133 @@
+{
+ "meta": {
+  "label": "ANALYSIS, NOT DESIGN",
+  "date": "2026-10-02",
+  "script": "research/analysis/payload-exchange.py",
+  "note": "Nothing here says the ship flies, and nothing says it cannot be made to."
+ },
+ "constants": {
+  "PROP_ETA": 0.7,
+  "ETAS": [
+   0.55,
+   0.7
+  ],
+  "CD_ZERO_LIFT": 0.05,
+  "VERTICAL_CD": 1.0,
+  "VERTICAL_CD_RANGE": [
+   0.0,
+   1.0,
+   2.0
+  ],
+  "ISA": {
+   "RHO_SL": 1.225,
+   "T0": 288.15,
+   "P0": 101325.0,
+   "LAPSE": 0.0065,
+   "G0": 9.80665,
+   "R": 287.0528
+  },
+  "G": 9.81,
+  "ALT": {
+   "ground": 1000,
+   "hold": 1300,
+   "drop": 1450,
+   "work": 2500
+  },
+  "SOLAR_W_M2": 45,
+  "HOTEL_FRAC": 0.02,
+  "PUMP_ETA": 0.75,
+  "LN2_KWH_PER_T": {
+   "optimumCollins_arnaizDelPozo2020": 430.7,
+   "config_eLN2": 450.0,
+   "standalone_rimpel2023": 907.0
+  },
+  "CRYO_T_PER_MW": {
+   "floor": 2.0,
+   "credible": 20.0,
+   "demonstrated": 65.0
+  },
+  "BATT_WH_PER_KG": {
+   "floor": 500,
+   "credible": 300,
+   "demonstrated": 149
+  },
+  "ISOTHERMAL_PUMP_EFF": [
+   0.3,
+   1.0
+  ],
+  "ADDED_MASS_K2": {
+   "2": 0.702,
+   "4": 0.86
+  },
+  "CL_MEASURED_PLANFORM": [
+   0.14,
+   0.34
+  ],
+  "CL_ASSUMED": [
+   0.5,
+   1.0,
+   1.5
+  ],
+  "E_SPAN": [
+   1.0,
+   0.7
+  ],
+  "TURN_RADIUS_LENGTHS": [
+   1.0,
+   2.0,
+   3.0
+  ],
+  "REVERSE_THRUST_FACTOR": [
+   0.5,
+   0.8
+  ],
+  "measuredSources": {
+   "akron_fins_20deg_vol23": 0.405,
+   "akron_bare_vol23_max": 0.115,
+   "akron_vol23_to_planform": 0.34637614783271703,
+   "fineness4_finned_35p6deg_vol23_normal": 0.825,
+   "fineness4_finned_11p6deg_vol23_normal": 0.233,
+   "hybridHull_slope_per_deg": 0.0067,
+   "hybridHull_zeroLiftDeg": -4.2
+  },
+  "clConversions": {
+   "akron_fins_20deg_planform": 0.14028233987225042,
+   "akron_bare_max_planform": 0.039833257000762456,
+   "fineness4_35p6deg_lift_vol23": 0.6485089907232853,
+   "fineness4_35p6deg_lift_planform": 0.33791323685891395,
+   "fineness4_11p6deg_lift_planform": 0.11550820012684243,
+   "hybridHull_12deg_cl": 0.10854,
+   "note": "conversions are this study's own arithmetic; planforms are capsule/ellipse estimates of the test bodies"
+  }
+ },
+ "earlierData": {
+  "durationsMin": {
+   "P100/15": {
+    "SA": 2,
+    "WF": 3.3333,
+    "OUT": 11.7647,
+    "WR": 3.3333,
+    "BE": 2,
+    "RET": 11.7647
+   },
+   "P100/60": {
+    "SA": 2,
+    "WF": 3.3333,
+    "OUT": 47.0588,
+    "WR": 3.3333,
+    "BE": 2,
+    "RET": 47.0588
+   },
+   "P1000/15": {
+    "SA": 3,
+    "WF": 5.5556,
+    "OUT": 9.6257,
+    "WR": 5.5556,
+    "BE": 2,
+    "RET": 9.6257
+   },
+   "P1000/60": {
+    "SA": 3,
+    "WF": 5.5556,
+    "OUT": 38.5027,
+    "WR": 5.5556,
+    "BE": 2,
+    "RET": 38.5027
+   },
+   "P10000/15": {
+    "SA": 5,
+    "WF": 11.1111,
+    "OUT": 8.1448,
+    "WR": 11.1111,
+    "BE": 2,
+    "RET": 8.1448
+   },
+   "P10000/60": {
+    "SA": 5,
+    "WF": 11.1111,
+    "OUT": 32.5792,
+    "WR": 11.1111,
+    "BE": 2,
+    "RET": 32.5792
+   }
+  },
+  "cycles": {
+   "P100/15": {
+    "cycleMWh": 8.0422,
+    "rotorsMWh": 6.651,
+    "worstUnheldT": 34.252,
+    "feasible": false,
+    "worstPhase": "RETURN_TRANSIT"
+   },
+   "P100/60": {
+    "cycleMWh": 19.6874,
+    "rotorsMWh": 14.6888,
+    "worstUnheldT": 0.0,
+    "feasible": true,
+    "worstPhase": "SOURCE_APPROACH"
+   },
+   "P1000/15": {
+    "cycleMWh": 62.4999,
+    "rotorsMWh": 54.161,
+    "worstUnheldT": 868.561,
+    "feasible": false,
+    "worstPhase": "SOURCE_APPROACH"
+   },
+   "P1000/60": {
+    "cycleMWh": 140.6869,
+    "rotorsMWh": 113.5462,
+    "worstUnheldT": 816.828,
+    "feasible": false,
+    "worstPhase": "SOURCE_APPROACH"
+   },
+   "P10000/15": {
+    "cycleMWh": 697.5856,
+    "rotorsMWh": 644.9394,
+    "worstUnheldT": 7389.458,
+    "feasible": false,
+    "worstPhase": "SOURCE_APPROACH"
+   },
+   "P10000/60": {
+    "cycleMWh": 1111.3329,
+    "rotorsMWh": 969.2823,
+    "worstUnheldT": 7273.491,
+    "feasible": false,
+    "worstPhase": "SOURCE_APPROACH"
+   }
+  },
+  "levers": {
+   "P1000/15": {
+    "retainedT": 869.19,
+    "deliveredT": 130.81,
+    "kwhPerT": 166.835
+   },
+   "P1000/60": {
+    "retainedT": 817.441,
+    "deliveredT": 182.559,
+    "kwhPerT": 322.902
+   },
+   "P10000/15": {
+    "retainedT": 7396.778,
+    "deliveredT": 2603.222,
+    "kwhPerT": 90.841
+   },
+   "P10000/60": {
+    "retainedT": 7280.782,
+    "deliveredT": 2719.218,
+    "kwhPerT": 164.355
+   }
+  },
+  "capT_rho110": {
+   "P100": 160.339,
+   "P1000": 790.861,
+   "P10000": 7599.734
+  }
+ },
+ "classes": {
+  "P100": {
+   "problem": {
+    "payloadT": 100,
+    "dispM3": 220000,
+    "dryMassTargetT": 100,
+    "hull": {
+     "config": {
+      "lenM": 110,
+      "diaM": 55,
+      "fineness": 2.0,
+      "planformM2": 5400.829444277281,
+      "spanM": 55,
+      "aspectRatio": 0.5600991535115574,
+      "frontalM2": 2375.8294442772813,
+      "capsuleVolumeM3": 217784.36572541745,
+      "volumeOverDesign": 0.9899289351155338
+     },
+     "published": {
+      "lenM": 190,
+      "diaM": 47,
+      "fineness": 4.042553191489362,
+      "planformM2": 8455.944542944962,
+      "spanM": 47,
+      "aspectRatio": 0.26123633956930714,
+      "ellipsoidVolumeM3": 219759.642106362
+     }
+    },
+    "busMW": 38,
+    "batteryPlusSolarMW": 30.27,
+    "diskM2": 2500,
+    "altitudes": {
+     "ground": {
+      "mslM": 1000,
+      "aglM": 0,
+      "rho": 1.111642451351184,
+      "pressurePa": 89874.56028802077,
+      "liftT": 244.56133929726047,
+      "emptySurplusT": 144.56133929726047,
+      "loadedSurplusT": 44.561339297260474,
+      "emptySurplusOverPayload": 1.4456133929726047
+     },
+     "hold": {
+      "mslM": 1300,
+      "aglM": 300,
+      "rho": 1.079254577125614,
+      "pressurePa": 86651.93501576946,
+      "liftT": 237.43600696763508,
+      "emptySurplusT": 137.43600696763508,
+      "loadedSurplusT": 37.43600696763508,
+      "emptySurplusOverPayload": 1.3743600696763507
+     },
+     "drop": {
+      "mslM": 1450,
+      "aglM": 450,
+      "rho": 1.0633339390546592,
+      "pressurePa": 85076.08562127003,
+      "liftT": 233.93346659202504,
+      "emptySurplusT": 133.93346659202504,
+      "loadedSurplusT": 33.93346659202504,
+      "emptySurplusOverPayload": 1.3393346659202505
+     },
+     "work": {
+      "mslM": 2500,
+      "aglM": 1500,
+      "rho": 0.9568587008868916,
+      "pressurePa": 74682.51206786813,
+      "liftT": 210.50891419511615,
+      "emptySurplusT": 110.50891419511615,
+      "loadedSurplusT": 10.508914195116148,
+      "emptySurplusOverPayload": 1.1050891419511615
+     }
+    },
+    "balance": {
+     "emptyRho": 0.45454545454545453,
+     "emptyAltMslM": 9212.159371489737,
+     "loadedRho": 0.9090909090909091,
+     "loadedAltMslM": 3000.329626149522
+    }
+   },
+   "routes": {
+    "a": {
+     "label": "rotor hold-down as drawn",
+     "emptySurplusT": 137.43600696763508,
+     "byEta": {
+      "0.55": {
+       "hoverPowerNeededMW_local": 38.74758708317284,
+       "hoverPowerNeededMW_rho110": 38.380468346012684,
+       "powerOverBus": 1.019673344294022,
+       "thrustCapT_fullBus_local": 135.66250057704372,
+       "thrustCapT_fullBus_rho110": 136.52622432973197,
+       "hoverDeficitT_local": 1.7735063905913648,
+       "closesAtHover": false,
+       "diskNeededM2_fullBus": 2599.334322659387,
+       "diskNeededOverDrawn": 1.0397337290637547,
+       "diskNeededOverPlanform": 0.48128428225291237,
+       "diskNeededOverPublishedPlanform": 0.30739727649090204,
+       "inducedVelocityAtNeedMps": 15.806576455407507
+      },
+      "0.7": {
+       "hoverPowerNeededMW_local": 30.44453270820723,
+       "hoverPowerNeededMW_rho110": 30.156082271867113,
+       "powerOverBus": 0.8011719133738745,
+       "thrustCapT_fullBus_local": 159.3248010621322,
+       "thrustCapT_fullBus_rho110": 160.33917581185565,
+       "hoverDeficitT_local": -21.888794094497115,
+       "closesAtHover": true,
+       "diskNeededM2_fullBus": 1604.691086947887,
+       "diskNeededOverDrawn": 0.6418764347791548,
+       "diskNeededOverPlanform": 0.2971193783296041,
+       "diskNeededOverPublishedPlanform": 0.1897707676295875,
+       "inducedVelocityAtNeedMps": 15.806576455407507
+      }
+     },
+     "sketch15": {
+      "rotorMWh": 5.796106206644584,
+      "worstUnheldT": 0.0,
+      "worstPhase": null,
+      "earlierRotorsMWh": 6.651,
+      "earlierWorstUnheldT": 34.252
+     },
+     "sketch60": {
+      "rotorMWh": 15.213439282395463,
+      "worstUnheldT": 0.0,
+      "worstPhase": null,
+      "earlierRotorsMWh": 14.6888,
+      "earlierWorstUnheldT": 0.0
+     }
+    },
+    "b": {
+     "label": "water kept aboard",
+     "byKm": {
+      "15": {
+       "0.55": {
+        "closes": true,
+        "keptT": 15.71197509765625,
+        "keptFraction": 0.1571197509765625,
+        "deliveredT": 84.28802490234375,
+        "deliveredFraction": 0.8428802490234375,
+        "cycleMWh": 7.125333410155223,
+        "rotorMWh": 5.7341334101552235,
+        "nonRotorMWh_earlier": 1.3911999999999995,
+        "peakBusMW": 38.000000000000014,
+        "kwhPerDeliveredT": 84.53553655350979,
+        "minutesAdded": -1.0474545318603514
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 0.0,
+        "keptFraction": 0.0,
+        "deliveredT": 100.0,
+        "deliveredFraction": 1.0,
+        "cycleMWh": 7.187306206644584,
+        "rotorMWh": 5.796106206644584,
+        "nonRotorMWh_earlier": 1.3911999999999995,
+        "peakBusMW": 35.80938175502092,
+        "kwhPerDeliveredT": 71.87306206644584,
+        "minutesAdded": -0.0
+       },
+       "earlierLever": {
+        "retainedT": 0.0,
+        "note": "baseline: no ballast lever needed or no ballast can repair the loaded trajectory (P-100)"
+       },
+       "keptRangeT": {
+        "low": 0.0,
+        "sketch": 0.0,
+        "high": 34.252
+       }
+      },
+      "60": {
+       "0.55": {
+        "closes": true,
+        "keptT": 4.95452880859375,
+        "keptFraction": 0.0495452880859375,
+        "deliveredT": 95.04547119140625,
+        "deliveredFraction": 0.9504547119140625,
+        "cycleMWh": 22.921770683775467,
+        "rotorMWh": 17.923170683775467,
+        "nonRotorMWh_earlier": 4.9986,
+        "peakBusMW": 38.00000000000002,
+        "kwhPerDeliveredT": 241.16636380932573,
+        "minutesAdded": -0.3302986175537109
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 0.0,
+        "keptFraction": 0.0,
+        "deliveredT": 100.0,
+        "deliveredFraction": 1.0,
+        "cycleMWh": 20.212039282395462,
+        "rotorMWh": 15.213439282395463,
+        "nonRotorMWh_earlier": 4.9986,
+        "peakBusMW": 31.90558466597142,
+        "kwhPerDeliveredT": 202.1203928239546,
+        "minutesAdded": -0.0
+       },
+       "earlierLever": {
+        "retainedT": 0.0,
+        "note": "baseline: no ballast lever needed or no ballast can repair the loaded trajectory (P-100)"
+       },
+       "keptRangeT": {
+        "low": 0.0,
+        "sketch": 0.0,
+        "high": 0.0
+       }
+      }
+     },
+     "keptAtHover_fullBusT": {
+      "0.55": 1.7735063905913648,
+      "0.7": 0.0
+     }
+    },
+    "c": {
+     "label": "approach flown at airspeed (hull as a lifting body at negative incidence)",
+     "emptySurplusT": 137.43600696763508,
+     "bySpeed": {
+      "15": {
+       "qPa": 121.41613992663156,
+       "clNeeded_configPlanform": 2.056045171237596,
+       "clNeeded_publishedPlanform": 1.3132003460037838,
+       "zeroLiftDragMW": 0.30906861455162327,
+       "inducedPowerMW_e1.0": 33.75830386734816,
+       "inducedPowerMW_publishedSpan_e1.0": 46.22855101798469,
+       "liftOverInducedDrag_e1.0": 0.8558194200055496,
+       "totalPowerMW_e1.0": 34.22737248189978,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 48.22614838192595,
+       "inducedPowerMW_publishedSpan_e0.7": 66.04078716854956,
+       "liftOverInducedDrag_e0.7": 0.5990735940038846,
+       "totalPowerMW_e0.7": 48.69521699647757,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 177.12830132331135,
+       "record_unheldT": -39.69229435567627,
+       "record_surrogateCapT": 159.3248010621322,
+       "record_closes": true,
+       "split_cl0.14": {
+        "aeroT": 9.35827735919204,
+        "inducedPowerMW_e1": 0.15652055734806242,
+        "rotorT": 159.3248010621322,
+        "unheldT": -31.24707145368916,
+        "closesLevelFlight": true
+       },
+       "split_cl0.34": {
+        "aeroT": 22.727245015180667,
+        "inducedPowerMW_e1": 0.9231518586446944,
+        "rotorT": 159.3248010621322,
+        "unheldT": -44.616039109677786,
+        "closesLevelFlight": true
+       },
+       "split_cl0.5": {
+        "aeroT": 33.422419139971566,
+        "inducedPowerMW_e1": 1.996435680459978,
+        "rotorT": 159.3248010621322,
+        "unheldT": -55.31121323446868,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 66.84483827994313,
+        "inducedPowerMW_e1": 7.985742721839912,
+        "rotorT": 153.56202287416585,
+        "unheldT": -82.9708541864739,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 100.2672574199147,
+        "inducedPowerMW_e1": 17.967921124139814,
+        "rotorT": 120.61511419438892,
+        "unheldT": -83.44636464666854,
+        "closesLevelFlight": true
+       }
+      },
+      "20": {
+       "qPa": 215.85091542512276,
+       "clNeeded_configPlanform": 1.1565254088211478,
+       "clNeeded_publishedPlanform": 0.7386751946271284,
+       "zeroLiftDragMW": 0.7326070863445884,
+       "inducedPowerMW_e1.0": 25.31872790051112,
+       "inducedPowerMW_publishedSpan_e1.0": 34.67141326348852,
+       "liftOverInducedDrag_e1.0": 1.5214567466765327,
+       "totalPowerMW_e1.0": 26.21133498685571,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 36.16961128644446,
+       "inducedPowerMW_publishedSpan_e0.7": 49.53059037641217,
+       "liftOverInducedDrag_e0.7": 1.0650197226735727,
+       "totalPowerMW_e0.7": 37.06221837278904,
+       "closesOnBus_e0.7": true,
+       "record_rotorThrustAtBusT": 188.64772005297039,
+       "record_unheldT": -51.211713085335305,
+       "record_surrogateCapT": 159.3248010621322,
+       "record_closes": true,
+       "split_cl0.14": {
+        "aeroT": 16.636937527452517,
+        "inducedPowerMW_e1": 0.3710116914917033,
+        "rotorT": 159.3248010621322,
+        "unheldT": -38.52573162194963,
+        "closesLevelFlight": true
+       },
+       "split_cl0.34": {
+        "aeroT": 40.40399113809897,
+        "inducedPowerMW_e1": 2.1882118130837203,
+        "rotorT": 159.3248010621322,
+        "unheldT": -62.29278523259609,
+        "closesLevelFlight": true
+       },
+       "split_cl0.5": {
+        "aeroT": 59.41763402661611,
+        "inducedPowerMW_e1": 4.732291983312541,
+        "rotorT": 159.3248010621322,
+        "unheldT": -81.30642812111323,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 118.83526805323223,
+        "inducedPowerMW_e1": 18.929167933250163,
+        "rotorT": 126.6229403451827,
+        "unheldT": -108.02220143077984,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 25.31872790051112,
+        "rotorT": 100.18418717464364,
+        "unheldT": -100.18418717464364,
+        "closesLevelFlight": true
+       }
+      },
+      "25": {
+       "qPa": 337.2670553517544,
+       "clNeeded_configPlanform": 0.7401762616455344,
+       "clNeeded_publishedPlanform": 0.47275212456136206,
+       "zeroLiftDragMW": 1.4308732155167747,
+       "inducedPowerMW_e1.0": 20.254982320408885,
+       "inducedPowerMW_publishedSpan_e1.0": 27.737130610790807,
+       "liftOverInducedDrag_e1.0": 2.3772761666820834,
+       "totalPowerMW_e1.0": 21.84585553592566,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 28.935689029155554,
+       "inducedPowerMW_publishedSpan_e0.7": 39.62447230112973,
+       "liftOverInducedDrag_e0.7": 1.664093316677458,
+       "totalPowerMW_e0.7": 30.52656224467233,
+       "closesOnBus_e0.7": true,
+       "record_rotorThrustAtBusT": 200.5928186996547,
+       "record_unheldT": -63.156811732019634,
+       "record_surrogateCapT": 159.3248010621322,
+       "record_closes": true,
+       "split_cl0.14": {
+        "aeroT": 25.995214886644558,
+        "inducedPowerMW_e1": 0.724632209944733,
+        "rotorT": 159.3248010621322,
+        "unheldT": -47.884008981141676,
+        "closesLevelFlight": true
+       },
+       "split_cl0.34": {
+        "aeroT": 63.13123615327964,
+        "inducedPowerMW_e1": 4.273851197429138,
+        "rotorT": 159.3248010621322,
+        "unheldT": -85.02003024777676,
+        "closesLevelFlight": true
+       },
+       "split_cl0.5": {
+        "aeroT": 92.8400531665877,
+        "inducedPowerMW_e1": 9.242757779907306,
+        "rotorT": 159.3248010621322,
+        "unheldT": -114.72884726108481,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 20.254982320408885,
+        "rotorT": 129.70561634562458,
+        "unheldT": -129.70561634562458,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 20.254982320408885,
+        "rotorT": 129.70561634562458,
+        "unheldT": -129.70561634562458,
+        "closesLevelFlight": true
+       }
+      },
+      "30": {
+       "qPa": 485.66455970652623,
+       "clNeeded_configPlanform": 0.514011292809399,
+       "clNeeded_publishedPlanform": 0.32830008650094594,
+       "zeroLiftDragMW": 2.472548916412986,
+       "inducedPowerMW_e1.0": 16.87915193367408,
+       "inducedPowerMW_publishedSpan_e1.0": 23.114275508992346,
+       "liftOverInducedDrag_e1.0": 3.4232776800221982,
+       "totalPowerMW_e1.0": 19.511700850087067,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 24.113074190962976,
+       "inducedPowerMW_publishedSpan_e0.7": 33.02039358427478,
+       "liftOverInducedDrag_e0.7": 2.3962943760155384,
+       "totalPowerMW_e0.7": 26.745623107375962,
+       "closesOnBus_e0.7": true,
+       "record_rotorThrustAtBusT": 211.69377186162492,
+       "record_unheldT": -74.25776489398984,
+       "record_surrogateCapT": 159.3248010621322,
+       "record_closes": true,
+       "split_cl0.14": {
+        "aeroT": 37.43310943676816,
+        "inducedPowerMW_e1": 1.2521644587844993,
+        "rotorT": 159.3248010621322,
+        "unheldT": -59.32190353126528,
+        "closesLevelFlight": true
+       },
+       "split_cl0.34": {
+        "aeroT": 90.90898006072267,
+        "inducedPowerMW_e1": 7.385214869157555,
+        "rotorT": 159.3248010621322,
+        "unheldT": -112.79777415521978,
+        "closesLevelFlight": true
+       },
+       "split_cl0.5": {
+        "aeroT": 133.68967655988627,
+        "inducedPowerMW_e1": 15.971485443679825,
+        "rotorT": 154.393397823301,
+        "unheldT": -150.6470674155522,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 16.87915193367408,
+        "rotorT": 150.59827421664866,
+        "unheldT": -150.59827421664866,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 16.87915193367408,
+        "rotorT": 150.59827421664866,
+        "unheldT": -150.59827421664866,
+        "closesLevelFlight": true
+       }
+      },
+      "35": {
+       "qPa": 661.0434284894386,
+       "clNeeded_configPlanform": 0.3776409498191502,
+       "clNeeded_publishedPlanform": 0.24120006355171536,
+       "zeroLiftDragMW": 3.9263161033780296,
+       "inducedPowerMW_e1.0": 14.467844514577777,
+       "inducedPowerMW_publishedSpan_e1.0": 19.81223615056486,
+       "liftOverInducedDrag_e1.0": 4.6594612866968825,
+       "totalPowerMW_e1.0": 18.554160617955805,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 20.668349306539685,
+       "inducedPowerMW_publishedSpan_e0.7": 28.303194500806946,
+       "liftOverInducedDrag_e0.7": 3.2616229006878177,
+       "totalPowerMW_e0.7": 24.754665409917717,
+       "closesOnBus_e0.7": true,
+       "record_rotorThrustAtBusT": 220.94874213664866,
+       "record_unheldT": -83.51273516901358,
+       "record_surrogateCapT": 159.3248010621322,
+       "record_closes": true,
+       "split_cl0.14": {
+        "aeroT": 50.950621177823336,
+        "inducedPowerMW_e1": 1.988390784088348,
+        "rotorT": 159.3248010621322,
+        "unheldT": -72.83941527232045,
+        "closesLevelFlight": true
+       },
+       "split_cl0.34": {
+        "aeroT": 123.73722286042809,
+        "inducedPowerMW_e1": 11.72744768574556,
+        "rotorT": 159.3248010621322,
+        "unheldT": -145.6260169549252,
+        "closesLevelFlight": true
+       },
+       "split_cl0.5": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 14.467844514577777,
+        "rotorT": 159.3248010621322,
+        "unheldT": -159.3248010621322,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 14.467844514577777,
+        "rotorT": 159.3248010621322,
+        "unheldT": -159.3248010621322,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 137.43600696763508,
+        "inducedPowerMW_e1": 14.467844514577777,
+        "rotorT": 159.3248010621322,
+        "unheldT": -159.3248010621322,
+        "closesLevelFlight": true
+       }
+      }
+     },
+     "favourable": {
+      "cl0.14": {
+       "VminMps": 57.48354817613092,
+       "VminOverCruise": 2.2993419270452367,
+       "zeroLiftDragMW": 17.39449519542544,
+       "inducedPowerMW_e1.0": 8.809034481634274,
+       "totalPowerMW_e1.0": 26.363529677059713,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 12.584334973763251,
+       "totalPowerMW_e0.7": 30.13883016918869,
+       "closesOnBus_e0.7": true
+      },
+      "cl0.34": {
+       "VminMps": 36.886557551835594,
+       "VminOverCruise": 1.4754623020734237,
+       "zeroLiftDragMW": 4.59605807357845,
+       "inducedPowerMW_e1.0": 13.72788873829251,
+       "totalPowerMW_e1.0": 18.48394681187096,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 19.611269626132156,
+       "totalPowerMW_e0.7": 24.367327699710607,
+       "closesOnBus_e0.7": true
+      },
+      "cl0.5": {
+       "VminMps": 30.41743459032859,
+       "VminOverCruise": 1.2166973836131436,
+       "zeroLiftDragMW": 2.577204474241801,
+       "inducedPowerMW_e1.0": 16.647510377855053,
+       "totalPowerMW_e1.0": 19.384714852096852,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 23.78215768265007,
+       "totalPowerMW_e0.7": 26.51936215689187,
+       "closesOnBus_e0.7": true
+      },
+      "cl1.0": {
+       "VminMps": 21.5083742651196,
+       "VminOverCruise": 0.8603349706047839,
+       "zeroLiftDragMW": 0.9111793801203443,
+       "inducedPowerMW_e1.0": 23.543134956109466,
+       "totalPowerMW_e1.0": 24.61431433622981,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 33.63304993729923,
+       "totalPowerMW_e0.7": 34.704229317419575,
+       "closesOnBus_e0.7": true
+      },
+      "cl1.5": {
+       "VminMps": 17.561514048784044,
+       "VminOverCruise": 0.7024605619513618,
+       "zeroLiftDragMW": 0.4959832323200705,
+       "inducedPowerMW_e1.0": 28.834333793975112,
+       "totalPowerMW_e1.0": 29.490317026295184,
+       "closesOnBus_e1.0": true,
+       "inducedPowerMW_e0.7": 41.19190541996445,
+       "totalPowerMW_e0.7": 41.84788865228452,
+       "closesOnBus_e0.7": false
+      }
+     },
+     "record": {},
+     "handOver": {
+      "cableBelowAttachmentM": 272.5,
+      "cableM": 350,
+      "circleRadiusMaxM": 219.64459929622672,
+      "addedMassK2_fineness2": 0.702,
+      "effectiveMassT": 266.6800768912798,
+      "circles": {
+       "1L": {
+        "radiusM": 110.0,
+        "radiusOverCableReach": 0.5008090358354178,
+        "reachable": true,
+        "cableAngleFromVerticalDeg": 21.982438203118637,
+        "turnRateDegPerS": 19.213127895332672,
+        "secondsPerCircle": 18.737188549473647,
+        "bankForTurnDeg": 51.582227174937174,
+        "centripetalForceT": 336.25219812931516,
+        "endSideslipDeg": 26.56505117707799,
+        "pendulumDropM": 25.44547875826821,
+        "pendulumSpeedMps": 22.343685757663668,
+        "bagOrbitSpeedIfConicalMps": 28.718819808214857
+       },
+       "2L": {
+        "radiusM": 220.0,
+        "radiusOverCableReach": 1.0016180716708356,
+        "reachable": false,
+        "cableAngleFromVerticalDeg": 38.91530613473125,
+        "turnRateDegPerS": 9.606563947666336,
+        "secondsPerCircle": 37.47437709894729,
+        "bankForTurnDeg": 32.22901922296569,
+        "centripetalForceT": 168.12609906465758,
+        "endSideslipDeg": 14.036243467926479,
+        "pendulumDropM": 77.67362219029275,
+        "pendulumSpeedMps": 39.03788502690103,
+        "bagOrbitSpeedIfConicalMps": 28.718819808214857
+       },
+       "3L": {
+        "radiusM": 330.0,
+        "radiusOverCableReach": 1.5024271075062536,
+        "reachable": false,
+        "cableAngleFromVerticalDeg": 50.451551098712734,
+        "turnRateDegPerS": 6.404375965110891,
+        "secondsPerCircle": 56.21156564842093,
+        "bankForTurnDeg": 22.79672874421249,
+        "centripetalForceT": 112.08406604310507,
+        "endSideslipDeg": 9.462322208025617,
+        "pendulumDropM": 127.14433444256818,
+        "pendulumSpeedMps": 49.94568892069853,
+        "bagOrbitSpeedIfConicalMps": 28.718819808214857
+       }
+      },
+      "speedUsedMps": 36.886557551835594,
+      "headWind": {
+       "cl0.14": 57.48354817613092,
+       "cl0.34": 36.886557551835594,
+       "cl0.5": 30.41743459032859,
+       "cl1.0": 21.5083742651196,
+       "cl1.5": 17.561514048784044
+      },
+      "hoverInterval": {
+       "unheldT_fullBus": -21.888794094497115,
+       "closesAtHoverWithoutBag": true,
+       "initialAccelMps2": 0.0,
+       "terminalRiseMps_CD1": 0.0,
+       "riseIn60sM": 0.0,
+       "withBagAtHoverT": -146.88879409449711,
+       "closesAtHoverWithBag": true,
+       "cablePayoutS": 54.5,
+       "hoistS": 3.0
+      }
+     },
+     "sketch15": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 0.0,
+       "worstPhase": null,
+       "keptToCloseT": 0.0,
+       "rotorMWh": 4.4334767377712
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 0.0,
+       "worstPhase": null,
+       "keptToCloseT": 0.0,
+       "rotorMWh": 5.35997304414365
+      }
+     },
+     "sketch60": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 0.0,
+       "worstPhase": null,
+       "keptToCloseT": 0.0,
+       "rotorMWh": 10.681460828627491
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 0.0,
+       "worstPhase": null,
+       "keptToCloseT": 0.0,
+       "rotorMWh": 14.954540976716952
+      }
+     }
+    },
+    "d": {
+     "label": "hull balanced at half load, rotors pushing both ways",
+     "dispM3": 156762.95764564638,
+     "dispChange": -0.28744110161069825,
+     "hullAreaChange": -0.20222483596965657,
+     "allowedWallMassPerM3Change": 0.40339276130077417,
+     "lenM": 98.25008643643606,
+     "diaM": 49.12504321821803,
+     "planformM2": 4308.647595808217,
+     "sizedAtMslM": 2500,
+     "surpluses": {
+      "ground": {
+       "liftT": 174.26435851826818,
+       "emptySurplusT": 74.26435851826818,
+       "loadedSurplusT": -25.735641481731818
+      },
+      "hold": {
+       "liftT": 169.1871395628126,
+       "emptySurplusT": 69.1871395628126,
+       "loadedSurplusT": -30.812860437187396
+      },
+      "drop": {
+       "liftT": 166.69137325120388,
+       "emptySurplusT": 66.69137325120388,
+       "loadedSurplusT": -33.308626748796115
+      },
+      "work": {
+       "liftT": 150.0,
+       "emptySurplusT": 50.0,
+       "loadedSurplusT": -50.0
+      }
+     },
+     "byEta": {
+      "0.55": {
+       "downThrustT_emptyAtHold": 69.1871395628126,
+       "downHoverMW": 13.839867535571056,
+       "downCapT_fullBus": 135.66250057704372,
+       "upThrustT_loadedAtWork": 50.0,
+       "upHoverMW_ideal": 9.029982751260972,
+       "upHoverMW_reverseRange": [
+        18.059965502521944,
+        11.287478439076214
+       ],
+       "upEdgewiseMW_atCruise": 3.610249020501605,
+       "closesDownAtHover": true,
+       "closesUpAtHover_ideal": true
+      },
+      "0.7": {
+       "downThrustT_emptyAtHold": 69.1871395628126,
+       "downHoverMW": 10.874181635091546,
+       "downCapT_fullBus": 159.3248010621322,
+       "upThrustT_loadedAtWork": 50.0,
+       "upHoverMW_ideal": 7.094986447419336,
+       "upHoverMW_reverseRange": [
+        14.189972894838672,
+        8.868733059274168
+       ],
+       "upEdgewiseMW_atCruise": 2.8366242303941185,
+       "closesDownAtHover": true,
+       "closesUpAtHover_ideal": true
+      }
+     },
+     "sketch15": {
+      "reverse1.0": {
+       "rotorMWh": 2.0052348658238017,
+       "cycleMWh": 3.3964348658238013,
+       "kwhPerDeliveredT": 33.964348658238016,
+       "peakBusMW": 13.770476463741383,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 8.470583999999999,
+         "rotorMWh": 0.40046439699981157
+        },
+        "LETDOWN": {
+         "minutes": 5.294116000000001,
+         "rotorMWh": 0.830400161243058
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.022127069973920374
+        },
+        "OUT": {
+         "minutes": 11.7647,
+         "rotorMWh": 0.458953919256917
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.18073446631874526
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 2.513400277356578,
+       "cycleMWh": 3.9046002773565776,
+       "kwhPerDeliveredT": 39.046002773565775,
+       "peakBusMW": 13.770476463741383,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 8.470583999999999,
+         "rotorMWh": 0.40046439699981157
+        },
+        "LETDOWN": {
+         "minutes": 5.294116000000001,
+         "rotorMWh": 0.830400161243058
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.04425413994784075
+        },
+        "OUT": {
+         "minutes": 11.7647,
+         "rotorMWh": 0.917907838513834
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.20781888862068476
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 2.1322762187069957,
+       "cycleMWh": 3.5234762187069952,
+       "kwhPerDeliveredT": 35.23476218706995,
+       "peakBusMW": 13.770476463741383,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 8.470583999999999,
+         "rotorMWh": 0.40046439699981157
+        },
+        "LETDOWN": {
+         "minutes": 5.294116000000001,
+         "rotorMWh": 0.830400161243058
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.027658837467400464
+        },
+        "OUT": {
+         "minutes": 11.7647,
+         "rotorMWh": 0.573692399071146
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.18750557189423017
+        }
+       }
+      }
+     },
+     "sketch60": {
+      "reverse1.0": {
+       "rotorMWh": 5.593929679360947,
+       "cycleMWh": 10.592529679360947,
+       "kwhPerDeliveredT": 105.92529679360946,
+       "peakBusMW": 11.657630491268893,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 33.882335999999995,
+         "rotorMWh": 1.6018575879992463
+        },
+        "LETDOWN": {
+         "minutes": 15.176464000000001,
+         "rotorMWh": 1.8408400260100182
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.022127069973920374
+        },
+        "OUT": {
+         "minutes": 47.0588,
+         "rotorMWh": 1.835815677027668
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.18073446631874526
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 7.478956848664475,
+       "cycleMWh": 12.477556848664474,
+       "kwhPerDeliveredT": 124.77556848664473,
+       "peakBusMW": 11.657630491268893,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 33.882335999999995,
+         "rotorMWh": 1.6018575879992463
+        },
+        "LETDOWN": {
+         "minutes": 15.176464000000001,
+         "rotorMWh": 1.8408400260100182
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.04425413994784075
+        },
+        "OUT": {
+         "minutes": 47.0588,
+         "rotorMWh": 3.671631354055336
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.20781888862068476
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 6.065186471686828,
+       "cycleMWh": 11.063786471686829,
+       "kwhPerDeliveredT": 110.63786471686828,
+       "peakBusMW": 11.657630491268893,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 0.1125548520313493
+        },
+        "RET_cruise": {
+         "minutes": 33.882335999999995,
+         "rotorMWh": 1.6018575879992463
+        },
+        "LETDOWN": {
+         "minutes": 15.176464000000001,
+         "rotorMWh": 1.8408400260100182
+        },
+        "WF": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.027658837467400464
+        },
+        "OUT": {
+         "minutes": 47.0588,
+         "rotorMWh": 2.294769596284584
+        },
+        "WR": {
+         "minutes": 3.3333,
+         "rotorMWh": 0.18750557189423017
+        }
+       }
+      }
+     },
+     "failureCase": {
+      "heavyT": 50.0,
+      "terminalSinkMps_CD1": 14.853110325809181,
+      "terminalSinkMps_CD2": 10.502735033091602,
+      "terminalSinkMps_CD0p5": 21.005470066183207,
+      "secondsToGroundAtTerminal": 100.98894892025126,
+      "dumpRateNeededM3s": 0.4951036775269727,
+      "dumpRateOverDrawnFill": 0.9902073550539454,
+      "note": "fail-safe float-up (decision 2026-08-09) is given up: a loaded ship with stopped rotors is heavy"
+     },
+     "ifRotorsNotReversible": {
+      "upwardActuatorNeededT": 50.0,
+      "atPowerMW_eta07": 7.094986447419336,
+      "note": "rule E10 declares upward thrust false for the drawn rotors; this route needs it, so the class record changes"
+     }
+    },
+    "e": {
+     "label": "variable displacement (sealed cells change volume)",
+     "ambientPressurePa": 86651.93501576946,
+     "fullExchange": {
+      "liftRemovedT": 137.43600696763508,
+      "volumeChangeM3": 127343.45527046021,
+      "volumeFraction": 0.5788338875930009,
+      "idealWorkMWh": 3.065154669660962,
+      "electricalMWh_eff030": 10.217182232203207,
+      "meanPowerInFillMW_15": 55.17333578725519,
+      "meanPowerInFillMW_eff030_15": 183.91111929085065,
+      "meanPowerOverCycleMW_15": 5.378093349504554,
+      "meanPowerOverCycleMW_eff030_15": 17.92697783168185,
+      "cyclesPer24h_15": 42.11018832612002,
+      "cycleMWh_eff030_15": 11.608382232203207,
+      "kwhPerDeliveredT_eff030_15": 116.08382232203206,
+      "minutesAddedIfBusLimited_15": 12.79909299821559,
+      "meanPowerInFillMW_60": 55.17333578725519,
+      "meanPowerInFillMW_eff030_60": 183.91111929085065,
+      "meanPowerOverCycleMW_60": 1.75512415211127,
+      "meanPowerOverCycleMW_eff030_60": 5.8504138403709,
+      "cyclesPer24h_60": 13.74252988523079,
+      "cycleMWh_eff030_60": 15.215782232203207,
+      "kwhPerDeliveredT_eff030_60": 152.15782232203208,
+      "minutesAddedIfBusLimited_60": 12.79909299821559
+     },
+     "toRotorCap": {
+      "liftRemovedT": 0.0,
+      "volumeChangeM3": 0.0,
+      "volumeFraction": 0.0,
+      "idealWorkMWh": 0.0,
+      "electricalMWh_eff030": 0.0,
+      "meanPowerInFillMW_15": 0.0,
+      "meanPowerInFillMW_eff030_15": 0.0,
+      "meanPowerOverCycleMW_15": 0.0,
+      "meanPowerOverCycleMW_eff030_15": 0.0,
+      "cyclesPer24h_15": 42.11018832612002,
+      "cycleMWh_eff030_15": 1.3911999999999995,
+      "kwhPerDeliveredT_eff030_15": 13.911999999999995,
+      "minutesAddedIfBusLimited_15": 0.0,
+      "meanPowerInFillMW_60": 0.0,
+      "meanPowerInFillMW_eff030_60": 0.0,
+      "meanPowerOverCycleMW_60": 0.0,
+      "meanPowerOverCycleMW_eff030_60": 0.0,
+      "cyclesPer24h_60": 13.74252988523079,
+      "cycleMWh_eff030_60": 4.9986,
+      "kwhPerDeliveredT_eff030_60": 49.986,
+      "minutesAddedIfBusLimited_60": 0.0
+     },
+     "closedBy": "sealed cells with no valve (research/analysis/air-ballast.md, retraction 2026-08-10); reopenable only as a design decision"
+    },
+    "f": {
+     "label": "ballast made on board by the cryogenic plant",
+     "plantMW": 6,
+     "tonnesPerHourAtDrawnPlant": {
+      "optimumCollins_arnaizDelPozo2020": 13.930810308799629,
+      "config_eLN2": 13.333333333333332,
+      "standalone_rimpel2023": 6.615214994487321
+     },
+     "byKm": {
+      "15": {
+       "makingWindowMin": 23.568583999999998,
+       "gapT": {
+        "hover_eta07": 0.0,
+        "hover_eta055": 1.7735063905913648,
+        "earlierWorstUnheldT": 34.252
+       },
+       "hover_eta07": {
+        "ballastT": 0.0,
+        "note": "no gap at this bound"
+       },
+       "earlierWorst": {
+        "ballastT": 34.252,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 14.7523364,
+         "hoursAtDrawnPlant": 2.4587227333333335,
+         "powerToMakeInWindowMW": 37.5559339500413,
+         "powerOverBus": 0.9883140513168763,
+         "plantMassT_range": [
+          75.1118679000826,
+          751.118679000826,
+          2441.1357067526847
+         ],
+         "plantMassOverDryTarget_floor": 0.751118679000826,
+         "tonnesMadeByDrawnPlantPerCycle": 5.472157882516833,
+         "cycleMWh": 16.143536400000002,
+         "kwhPerDeliveredT": 161.43536400000002,
+         "minutesAddedAtDrawnPlant": 123.95478000000001
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 15.413400000000001,
+         "hoursAtDrawnPlant": 2.5689,
+         "powerToMakeInWindowMW": 39.2388443870875,
+         "powerOverBus": 1.03260116808125,
+         "plantMassT_range": [
+          78.477688774175,
+          784.77688774175,
+          2550.524885160687
+         ],
+         "plantMassOverDryTarget_floor": 0.7847768877417499,
+         "tonnesMadeByDrawnPlantPerCycle": 5.2374631111111105,
+         "cycleMWh": 16.8046,
+         "kwhPerDeliveredT": 168.04600000000002,
+         "minutesAddedAtDrawnPlant": 130.56541600000003
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 31.066564000000003,
+         "hoursAtDrawnPlant": 5.177760666666667,
+         "powerToMakeInWindowMW": 79.08807079797413,
+         "powerOverBus": 2.0812650209993193,
+         "plantMassT_range": [
+          158.17614159594825,
+          1581.7614159594825,
+          5140.724601868318
+         ],
+         "plantMassOverDryTarget_floor": 1.5817614159594826,
+         "tonnesMadeByDrawnPlantPerCycle": 2.598520837927232,
+         "cycleMWh": 32.457764000000005,
+         "kwhPerDeliveredT": 324.57764000000003,
+         "minutesAddedAtDrawnPlant": 287.097056
+        }
+       }
+      },
+      "60": {
+       "makingWindowMin": 84.274436,
+       "gapT": {
+        "hover_eta07": 0.0,
+        "hover_eta055": 1.7735063905913648,
+        "earlierWorstUnheldT": 0.0
+       },
+       "hover_eta07": {
+        "ballastT": 0.0,
+        "note": "no gap at this bound"
+       },
+       "earlierWorst": {
+        "ballastT": 0.0,
+        "note": "no gap at this bound"
+       }
+      }
+     }
+    },
+    "g": {
+     "a+b": {
+      "closes": true,
+      "keptT": 0.0,
+      "deliveredT": 100.0,
+      "condition": "slow letdown, whole bus on the rotors; the drawn letdown needs the earlier lever",
+      "vehicleChange": false
+     },
+     "b+c": {
+      "closes": true,
+      "keptT": 0.0,
+      "deliveredT": 100.0,
+      "condition": "C_L 0.34 on the planform at 36.9 m/s shown, and a hand-over that holds the hull through the hover interval with 0 t of water aboard",
+      "vehicleChange": false
+     },
+     "c+bag": {
+      "closes": false,
+      "condition": "the hover interval before the bag holds has no actuator: see routes.c.handOver.hoverInterval",
+      "vehicleChange": false
+     },
+     "a+f": {
+      "closes": false,
+      "ballastMadePerCycleT": 5.2374631111111105,
+      "gapT": 34.252,
+      "condition": "drawn plant, config specific energy, making window of the cycle",
+      "vehicleChange": false
+     },
+     "b+f": {
+      "closes": true,
+      "keptT": 29.01453688888889,
+      "deliveredT": 70.9854631111111,
+      "condition": "the plant replaces the tonnes it can make per cycle",
+      "vehicleChange": false
+     },
+     "a+d": {
+      "closes": true,
+      "deliveredT": 100,
+      "condition": "vehicle change: smaller hull, reversible rotors, float-up given up",
+      "vehicleChange": true
+     },
+     "a+e": {
+      "closes": true,
+      "volumeFraction": 0.0,
+      "electricalMWh": 0.0,
+      "condition": "vehicle change: cells that change volume every cycle (closed by the sealed-cell decision)",
+      "vehicleChange": true
+     }
+    }
+   },
+   "batteryMassT": {
+    "floor": 40.0,
+    "credible": 66.66666666666667,
+    "demonstrated": 134.2281879194631
+   },
+   "batteryMassOverDryTarget": {
+    "floor": 0.4,
+    "credible": 0.6666666666666667,
+    "demonstrated": 1.342281879194631
+   }
+  },
+  "P1000": {
+   "problem": {
+    "payloadT": 1000,
+    "dispM3": 2200000.0,
+    "dryMassTargetT": 1000,
+    "hull": {
+     "config": {
+      "lenM": 238,
+      "diaM": 119,
+      "fineness": 2.0,
+      "planformM2": 25283.023391871266,
+      "spanM": 119,
+      "aspectRatio": 0.5600991535115574,
+      "frontalM2": 11122.023391871266,
+      "capsuleVolumeM3": 2205867.9727211343,
+      "volumeOverDesign": 1.0026672603277884
+     },
+     "published": {
+      "lenM": 404,
+      "diaM": 102,
+      "fineness": 3.9607843137254903,
+      "planformM2": 38975.282491987055,
+      "spanM": 102,
+      "aspectRatio": 0.26693841159814463,
+      "ellipsoidVolumeM3": 2200798.751175179
+     }
+    },
+    "busMW": 190,
+    "batteryPlusSolarMW": 151.26,
+    "diskM2": 12000,
+    "altitudes": {
+     "ground": {
+      "mslM": 1000,
+      "aglM": 0,
+      "rho": 1.111642451351184,
+      "pressurePa": 89874.56028802077,
+      "liftT": 2445.6133929726047,
+      "emptySurplusT": 1445.6133929726047,
+      "loadedSurplusT": 445.61339297260474,
+      "emptySurplusOverPayload": 1.4456133929726047
+     },
+     "hold": {
+      "mslM": 1300,
+      "aglM": 300,
+      "rho": 1.079254577125614,
+      "pressurePa": 86651.93501576946,
+      "liftT": 2374.3600696763506,
+      "emptySurplusT": 1374.3600696763506,
+      "loadedSurplusT": 374.3600696763506,
+      "emptySurplusOverPayload": 1.3743600696763505
+     },
+     "drop": {
+      "mslM": 1450,
+      "aglM": 450,
+      "rho": 1.0633339390546592,
+      "pressurePa": 85076.08562127003,
+      "liftT": 2339.3346659202502,
+      "emptySurplusT": 1339.3346659202502,
+      "loadedSurplusT": 339.33466592025025,
+      "emptySurplusOverPayload": 1.3393346659202503
+     },
+     "work": {
+      "mslM": 2500,
+      "aglM": 1500,
+      "rho": 0.9568587008868916,
+      "pressurePa": 74682.51206786813,
+      "liftT": 2105.0891419511613,
+      "emptySurplusT": 1105.0891419511613,
+      "loadedSurplusT": 105.08914195116131,
+      "emptySurplusOverPayload": 1.1050891419511613
+     }
+    },
+    "balance": {
+     "emptyRho": 0.45454545454545453,
+     "emptyAltMslM": 9212.159371489737,
+     "loadedRho": 0.9090909090909091,
+     "loadedAltMslM": 3000.329626149522
+    }
+   },
+   "routes": {
+    "a": {
+     "label": "rotor hold-down as drawn",
+     "emptySurplusT": 1374.3600696763506,
+     "byEta": {
+      "0.55": {
+       "hoverPowerNeededMW_local": 559.2732458229574,
+       "hoverPowerNeededMW_rho110": 553.9743432798582,
+       "powerOverBus": 2.9435433990681967,
+       "thrustCapT_fullBus_local": 669.1449939139392,
+       "thrustCapT_fullBus_rho110": 673.4052458094709,
+       "hoverDeficitT_local": 705.2150757624114,
+       "closesAtHover": false,
+       "diskNeededM2_fullBus": 103973.37290637541,
+       "diskNeededOverDrawn": 8.664447742197952,
+       "diskNeededOverPlanform": 4.112378938818047,
+       "diskNeededOverPublishedPlanform": 2.667674645533393,
+       "inducedVelocityAtNeedMps": 22.81482792873981
+      },
+      "0.7": {
+       "hoverPowerNeededMW_local": 439.42897886089514,
+       "hoverPowerNeededMW_rho110": 435.2655554341744,
+       "powerOverBus": 2.312784099267869,
+       "thrustCapT_fullBus_local": 785.8574962394609,
+       "thrustCapT_fullBus_rho110": 790.8608227507888,
+       "hoverDeficitT_local": 588.5025734368896,
+       "closesAtHover": false,
+       "diskNeededM2_fullBus": 64187.64347791547,
+       "diskNeededOverDrawn": 5.34897028982629,
+       "diskNeededOverPlanform": 2.538764548964204,
+       "diskNeededOverPublishedPlanform": 1.6468807760690853,
+       "inducedVelocityAtNeedMps": 22.81482792873981
+      }
+     },
+     "sketch15": {
+      "rotorMWh": 50.41487055507436,
+      "worstUnheldT": 641.3556261234984,
+      "worstPhase": "LETDOWN",
+      "earlierRotorsMWh": 54.161,
+      "earlierWorstUnheldT": 868.561
+     },
+     "sketch60": {
+      "rotorMWh": 113.77911172716752,
+      "worstUnheldT": 595.9808753117115,
+      "worstPhase": "LETDOWN",
+      "earlierRotorsMWh": 113.5462,
+      "earlierWorstUnheldT": 816.828
+     }
+    },
+    "b": {
+     "label": "water kept aboard",
+     "byKm": {
+      "15": {
+       "0.55": {
+        "closes": true,
+        "keptT": 752.3651123046875,
+        "keptFraction": 0.7523651123046875,
+        "deliveredT": 247.6348876953125,
+        "deliveredFraction": 0.2476348876953125,
+        "cycleMWh": 28.238092345032005,
+        "rotorMWh": 19.89919234503201,
+        "nonRotorMWh_earlier": 8.338899999999995,
+        "peakBusMW": 190.0,
+        "kwhPerDeliveredT": 114.03115533452569,
+        "minutesAdded": -8.359679235839844
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 640.3656005859375,
+        "keptFraction": 0.6403656005859375,
+        "deliveredT": 359.6343994140625,
+        "deliveredFraction": 0.3596343994140625,
+        "cycleMWh": 31.271717464138163,
+        "rotorMWh": 22.932817464138168,
+        "nonRotorMWh_earlier": 8.338899999999995,
+        "peakBusMW": 190.00000000000003,
+        "kwhPerDeliveredT": 86.9541887958657,
+        "minutesAdded": -7.11523026123047
+       },
+       "earlierLever": {
+        "retainedT": 869.19,
+        "deliveredT": 130.81,
+        "kwhPerDeliveredT": 166.835
+       },
+       "keptRangeT": {
+        "low": 588.5025734368896,
+        "sketch": 640.3656005859375,
+        "high": 869.19
+       }
+      },
+      "60": {
+       "0.55": {
+        "closes": true,
+        "keptT": 709.381103515625,
+        "keptFraction": 0.709381103515625,
+        "deliveredT": 290.618896484375,
+        "deliveredFraction": 0.290618896484375,
+        "cycleMWh": 80.86403822742872,
+        "rotorMWh": 53.72333822742872,
+        "nonRotorMWh_earlier": 27.14070000000001,
+        "peakBusMW": 190.0000000000001,
+        "kwhPerDeliveredT": 278.2476955409414,
+        "minutesAdded": -7.882075317382813
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 594.9859619140625,
+        "keptFraction": 0.5949859619140625,
+        "deliveredT": 405.0140380859375,
+        "deliveredFraction": 0.4050140380859375,
+        "cycleMWh": 88.0317611117434,
+        "rotorMWh": 60.8910611117434,
+        "nonRotorMWh_earlier": 27.14070000000001,
+        "peakBusMW": 190.00000000000006,
+        "kwhPerDeliveredT": 217.35483917489418,
+        "minutesAdded": -6.611008020019532
+       },
+       "earlierLever": {
+        "retainedT": 817.441,
+        "deliveredT": 182.559,
+        "kwhPerDeliveredT": 322.902
+       },
+       "keptRangeT": {
+        "low": 588.5025734368896,
+        "sketch": 594.9859619140625,
+        "high": 817.441
+       }
+      }
+     },
+     "keptAtHover_fullBusT": {
+      "0.55": 705.2150757624114,
+      "0.7": 588.5025734368896
+     }
+    },
+    "c": {
+     "label": "approach flown at airspeed (hull as a lifting body at negative incidence)",
+     "emptySurplusT": 1374.3600696763506,
+     "bySpeed": {
+      "15": {
+       "qPa": 121.41613992663156,
+       "clNeeded_configPlanform": 4.392017966947056,
+       "clNeeded_publishedPlanform": 2.8490747441964217,
+       "zeroLiftDragMW": 1.4468498018729046,
+       "inducedPowerMW_e1.0": 721.127527707988,
+       "inducedPowerMW_publishedSpan_e1.0": 981.5346904914278,
+       "liftOverInducedDrag_e1.0": 0.40063665476689553,
+       "totalPowerMW_e1.0": 723.3743775098608,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 1030.1821824399826,
+       "inducedPowerMW_publishedSpan_e0.7": 1402.1924149877543,
+       "liftOverInducedDrag_e0.7": 0.2804456583368269,
+       "totalPowerMW_e0.7": 1032.4290322418556,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 871.6182727006777,
+       "record_unheldT": 502.74179697567286,
+       "record_surrogateCapT": 785.8574962394609,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 43.80911262265074,
+        "inducedPowerMW_e1": 0.7327231777209625,
+        "rotorT": 785.8574962394609,
+        "unheldT": 544.693460814239,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 106.39355922643749,
+        "inducedPowerMW_e1": 4.321571395129756,
+        "rotorT": 785.8574962394609,
+        "unheldT": 482.1090142104522,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 156.4611165094669,
+        "inducedPowerMW_e1": 9.345958899502067,
+        "rotorT": 785.8574962394609,
+        "unheldT": 432.0414569274228,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 312.9222330189338,
+        "inducedPowerMW_e1": 37.38383559800827,
+        "rotorT": 763.1777759980314,
+        "unheldT": 298.2600606593853,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 469.38334952840063,
+        "inducedPowerMW_e1": 84.11363009551859,
+        "rotorT": 613.0697569606413,
+        "unheldT": 291.90696318730863,
+        "closesLevelFlight": false
+       }
+      },
+      "20": {
+       "qPa": 215.85091542512276,
+       "clNeeded_configPlanform": 2.470510106407719,
+       "clNeeded_publishedPlanform": 1.6026045436104874,
+       "zeroLiftDragMW": 3.4295699007357743,
+       "inducedPowerMW_e1.0": 540.8456457809908,
+       "inducedPowerMW_publishedSpan_e1.0": 736.1510178685706,
+       "liftOverInducedDrag_e1.0": 0.7122429418078143,
+       "totalPowerMW_e1.0": 545.0752156817266,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 772.6366368299869,
+       "inducedPowerMW_publishedSpan_e0.7": 1051.6443112408156,
+       "liftOverInducedDrag_e0.7": 0.4985700592654701,
+       "totalPowerMW_e0.7": 776.8662067307226,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 927.5510188892468,
+       "record_unheldT": 446.80905078710373,
+       "record_surrogateCapT": 785.8574962394609,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 77.88286688471241,
+        "inducedPowerMW_e1": 1.7368253101533915,
+        "rotorT": 785.8574962394609,
+        "unheldT": 510.61970655217715,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 189.14410529144442,
+        "inducedPowerMW_e1": 10.24372478845572,
+        "rotorT": 785.8574962394609,
+        "unheldT": 399.35846814544516,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 278.15309601683003,
+        "inducedPowerMW_e1": 22.15338405807897,
+        "rotorT": 785.8574962394609,
+        "unheldT": 310.34947742005966,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 556.3061920336601,
+        "inducedPowerMW_e1": 88.61353623231588,
+        "rotorT": 644.7164959391542,
+        "unheldT": 173.33738170353627,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 834.4592880504899,
+        "inducedPowerMW_e1": 199.3804565227107,
+        "rotorT": 0.0,
+        "unheldT": 539.9007816258606,
+        "closesLevelFlight": false
+       }
+      },
+      "25": {
+       "qPa": 337.2670553517544,
+       "clNeeded_configPlanform": 1.58112646810094,
+       "clNeeded_publishedPlanform": 1.025666907910712,
+       "zeroLiftDragMW": 6.69837871237456,
+       "inducedPowerMW_e1.0": 432.67651662479255,
+       "inducedPowerMW_publishedSpan_e1.0": 588.9208142948565,
+       "liftOverInducedDrag_e1.0": 1.11287959657471,
+       "totalPowerMW_e1.0": 440.17489533716713,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 618.1093094639893,
+       "inducedPowerMW_publishedSpan_e0.7": 841.3154489926523,
+       "liftOverInducedDrag_e0.7": 0.779015717602297,
+       "totalPowerMW_e0.7": 625.6076881763638,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 986.000087198329,
+       "record_unheldT": 388.3599824780216,
+       "record_surrogateCapT": 785.8574962394609,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 121.69197950736317,
+        "inducedPowerMW_e1": 3.392236933893344,
+        "rotorT": 785.8574962394609,
+        "unheldT": 466.8105939295265,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 295.537664517882,
+        "inducedPowerMW_e1": 20.007274977452578,
+        "rotorT": 785.8574962394609,
+        "unheldT": 292.9649089190077,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 434.614212526297,
+        "inducedPowerMW_e1": 43.2683282384355,
+        "rotorT": 785.8574962394609,
+        "unheldT": 153.8883609105926,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 869.228425052594,
+        "inducedPowerMW_e1": 173.073312953742,
+        "rotorT": 211.58106181232836,
+        "unheldT": 293.55058281142817,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 1303.8426375788908,
+        "inducedPowerMW_e1": 389.41495414591947,
+        "rotorT": 0.0,
+        "unheldT": 70.51743209745973,
+        "closesLevelFlight": false
+       }
+      },
+      "30": {
+       "qPa": 485.66455970652623,
+       "clNeeded_configPlanform": 1.098004491736764,
+       "clNeeded_publishedPlanform": 0.7122686860491054,
+       "zeroLiftDragMW": 11.574798414983237,
+       "inducedPowerMW_e1.0": 360.563763853994,
+       "inducedPowerMW_publishedSpan_e1.0": 490.7673452457139,
+       "liftOverInducedDrag_e1.0": 1.6025466190675821,
+       "totalPowerMW_e1.0": 372.93856226897725,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 515.0910912199913,
+       "inducedPowerMW_publishedSpan_e0.7": 701.0962074938772,
+       "liftOverInducedDrag_e0.7": 1.1217826333473075,
+       "totalPowerMW_e0.7": 527.4658896349745,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 1040.9201725838166,
+       "record_unheldT": 333.439897092534,
+       "record_surrogateCapT": 785.8574962394609,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 175.23645049060295,
+        "inducedPowerMW_e1": 5.8617854217677,
+        "rotorT": 785.8574962394609,
+        "unheldT": 413.2661229462867,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 425.57423690574996,
+        "inducedPowerMW_e1": 34.57257116103805,
+        "rotorT": 785.8574962394609,
+        "unheldT": 162.92833653113962,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 625.8444660378676,
+        "inducedPowerMW_e1": 74.76767119601654,
+        "rotorT": 780.5496504732964,
+        "unheldT": -32.034046834813466,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 1251.6889320757352,
+        "inducedPowerMW_e1": 299.07068478406615,
+        "rotorT": 0.0,
+        "unheldT": 122.67113760061534,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 1374.3600696763506,
+        "inducedPowerMW_e1": 360.563763853994,
+        "rotorT": 0.0,
+        "unheldT": 0.0,
+        "closesLevelFlight": true
+       }
+      },
+      "35": {
+       "qPa": 661.0434284894386,
+       "clNeeded_configPlanform": 0.8066971776025204,
+       "clNeeded_publishedPlanform": 0.5232994428115876,
+       "zeroLiftDragMW": 18.380351186755792,
+       "inducedPowerMW_e1.0": 309.0546547319947,
+       "inducedPowerMW_publishedSpan_e1.0": 420.657724496326,
+       "liftOverInducedDrag_e1.0": 2.181244009286432,
+       "totalPowerMW_e1.0": 328.23500591875046,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 441.5066496171353,
+       "inducedPowerMW_publishedSpan_e0.7": 600.9396064233231,
+       "liftOverInducedDrag_e0.7": 1.5268708065005023,
+       "totalPowerMW_e0.7": 460.68700080389107,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 1087.5500226141476,
+       "record_unheldT": 286.810047062203,
+       "record_surrogateCapT": 785.8574962394609,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 238.5162798344318,
+        "inducedPowerMW_e1": 9.308298146603335,
+        "rotorT": 785.8574962394609,
+        "unheldT": 349.98629360245786,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 579.2538224550487,
+        "inducedPowerMW_e1": 54.8999625381299,
+        "rotorT": 785.8574962394609,
+        "unheldT": 9.248750981840885,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 851.8438565515421,
+        "inducedPowerMW_e1": 118.72829268626703,
+        "rotorT": 590.7688743028045,
+        "unheldT": -68.25266117799606,
+        "closesLevelFlight": true
+       },
+       "split_cl1.0": {
+        "aeroT": 1374.3600696763506,
+        "inducedPowerMW_e1": 309.0546547319947,
+        "rotorT": 0.0,
+        "unheldT": 0.0,
+        "closesLevelFlight": true
+       },
+       "split_cl1.5": {
+        "aeroT": 1374.3600696763506,
+        "inducedPowerMW_e1": 309.0546547319947,
+        "rotorT": 0.0,
+        "unheldT": 0.0,
+        "closesLevelFlight": true
+       }
+      }
+     },
+     "favourable": {
+      "cl0.14": {
+       "VminMps": 84.01547657439106,
+       "VminOverCruise": 2.7495974151618894,
+       "zeroLiftDragMW": 254.23044505479015,
+       "inducedPowerMW_e1.0": 128.74905144461138,
+       "totalPowerMW_e1.0": 383.77949649940155,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 183.92721634944485,
+       "totalPowerMW_e0.7": 438.957661404235,
+       "closesOnBus_e0.7": false
+      },
+      "cl0.34": {
+       "VminMps": 53.91180277199723,
+       "VminOverCruise": 1.7643862725380912,
+       "zeroLiftDragMW": 67.17400398321432,
+       "inducedPowerMW_e1.0": 200.64090532024116,
+       "totalPowerMW_e1.0": 268.6149093034555,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 286.6298647432017,
+       "totalPowerMW_e0.7": 354.60386872641607,
+       "closesOnBus_e0.7": false
+      },
+      "cl0.5": {
+       "VminMps": 44.456811459282314,
+       "VminOverCruise": 1.4549501932128759,
+       "zeroLiftDragMW": 37.667309865709754,
+       "inducedPowerMW_e1.0": 243.31283689850207,
+       "totalPowerMW_e1.0": 281.78014676421185,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 347.5897669978602,
+       "totalPowerMW_e0.7": 386.05707686356993,
+       "closesOnBus_e0.7": false
+      },
+      "cl1.0": {
+       "VminMps": 31.43571285279034,
+       "VminOverCruise": 1.028805147909502,
+       "zeroLiftDragMW": 13.317405117549157,
+       "inducedPowerMW_e1.0": 344.09631384133434,
+       "totalPowerMW_e1.0": 358.2137189588835,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 491.5661626304777,
+       "totalPowerMW_e0.7": 505.68356774802686,
+       "closesOnBus_e0.7": false
+      },
+      "cl1.5": {
+       "VminMps": 25.667152063329084,
+       "VminOverCruise": 0.8400158857089519,
+       "zeroLiftDragMW": 7.249077163538859,
+       "inducedPowerMW_e1.0": 421.430195641925,
+       "totalPowerMW_e1.0": 429.4792728054639,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 602.0431366313215,
+       "totalPowerMW_e0.7": 610.0922137948604,
+       "closesOnBus_e0.7": false
+      }
+     },
+     "record": {},
+     "handOver": {
+      "cableBelowAttachmentM": 240.5,
+      "cableM": 600,
+      "circleRadiusMaxM": 549.6905947894688,
+      "addedMassK2_fineness2": 0.702,
+      "effectiveMassT": 2666.8007689127976,
+      "circles": {
+       "1L": {
+        "radiusM": 238.0,
+        "radiusOverCableReach": 0.4329708426085657,
+        "reachable": true,
+        "cableAngleFromVerticalDeg": 44.70065173361616,
+        "turnRateDegPerS": 12.97865027217283,
+        "secondsPerCircle": 27.737861214418125,
+        "bankForTurnDeg": 51.22505544834505,
+        "centripetalForceT": 3319.8030253385473,
+        "endSideslipDeg": 26.56505117707799,
+        "pendulumDropM": 173.5251163293611,
+        "pendulumSpeedMps": 58.34863136682869,
+        "bagOrbitSpeedIfConicalMps": 21.60964761110889
+       },
+       "2L": {
+        "radiusM": 476.0,
+        "radiusOverCableReach": 0.8659416852171314,
+        "reachable": true,
+        "cableAngleFromVerticalDeg": 63.1947163543267,
+        "turnRateDegPerS": 6.489325136086415,
+        "secondsPerCircle": 55.47572242883625,
+        "bankForTurnDeg": 31.899446068260765,
+        "centripetalForceT": 1659.9015126692736,
+        "endSideslipDeg": 14.036243467926479,
+        "pendulumDropM": 329.42408977760107,
+        "pendulumSpeedMps": 80.39465555269537,
+        "bagOrbitSpeedIfConicalMps": 21.60964761110889
+       },
+       "3L": {
+        "radiusM": 714.0,
+        "radiusOverCableReach": 1.2989125278256972,
+        "reachable": false,
+        "cableAngleFromVerticalDeg": 71.38468730429352,
+        "turnRateDegPerS": 4.326216757390943,
+        "secondsPerCircle": 83.21358364325437,
+        "bankForTurnDeg": 22.536226592636318,
+        "centripetalForceT": 1106.6010084461823,
+        "endSideslipDeg": 9.462322208025618,
+        "pendulumDropM": 408.4724426366236,
+        "pendulumSpeedMps": 89.52222810302789,
+        "bagOrbitSpeedIfConicalMps": 21.60964761110889
+       }
+      },
+      "speedUsedMps": 53.91180277199723,
+      "headWind": {
+       "cl0.14": 84.01547657439106,
+       "cl0.34": 53.91180277199723,
+       "cl0.5": 44.456811459282314,
+       "cl1.0": 31.43571285279034,
+       "cl1.5": 25.667152063329084
+      },
+      "hoverInterval": {
+       "unheldT_fullBus": 588.5025734368896,
+       "closesAtHoverWithoutBag": false,
+       "initialAccelMps2": 2.164844975565802,
+       "terminalRiseMps_CD1": 20.57061290852358,
+       "riseIn60sM": 1234.2367745114148,
+       "withBagAtHoverT": -661.4974265631104,
+       "closesAtHoverWithBag": true,
+       "cablePayoutS": 48.1,
+       "hoistS": 3.0
+      }
+     },
+     "sketch15": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 639.1933683085707,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 638.1988525390625,
+       "rotorMWh": 52.81699189793048
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 635.1916478947774,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 634.2010498046875,
+       "rotorMWh": 69.22381176865449
+      }
+     },
+     "sketch60": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 593.8193184742978,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 592.83447265625,
+       "rotorMWh": 122.10681555498306
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 589.8229619508891,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 588.836669921875,
+       "rotorMWh": 186.89850152653503
+      }
+     }
+    },
+    "d": {
+     "label": "hull balanced at half load, rotors pushing both ways",
+     "dispM3": 1567629.5764564637,
+     "dispChange": -0.28744110161069836,
+     "hullAreaChange": -0.20222483596965668,
+     "allowedWallMassPerM3Change": 0.4033927613007744,
+     "lenM": 212.5774597442889,
+     "diaM": 106.28872987214444,
+     "planformM2": 20170.168133633102,
+     "sizedAtMslM": 2500,
+     "surpluses": {
+      "ground": {
+       "liftT": 1742.6435851826816,
+       "emptySurplusT": 742.6435851826816,
+       "loadedSurplusT": -257.3564148173184
+      },
+      "hold": {
+       "liftT": 1691.8713956281258,
+       "emptySurplusT": 691.8713956281258,
+       "loadedSurplusT": -308.1286043718742
+      },
+      "drop": {
+       "liftT": 1666.9137325120387,
+       "emptySurplusT": 666.9137325120387,
+       "loadedSurplusT": -333.0862674879613
+      },
+      "work": {
+       "liftT": 1500.0,
+       "emptySurplusT": 500.0,
+       "loadedSurplusT": -500.0
+      }
+     },
+     "byEta": {
+      "0.55": {
+       "downThrustT_emptyAtHold": 691.8713956281258,
+       "downHoverMW": 199.76128118026762,
+       "downCapT_fullBus": 669.1449939139392,
+       "upThrustT_loadedAtWork": 500.0,
+       "upHoverMW_ideal": 130.33657430545497,
+       "upHoverMW_reverseRange": [
+        260.67314861090995,
+        162.92071788181872
+       ],
+       "upEdgewiseMW_atCruise": 60.84183694301002,
+       "closesDownAtHover": false,
+       "closesUpAtHover_ideal": true
+      },
+      "0.7": {
+       "downThrustT_emptyAtHold": 691.8713956281258,
+       "downHoverMW": 156.95529235592457,
+       "downCapT_fullBus": 785.8574962394609,
+       "upThrustT_loadedAtWork": 500.0,
+       "upHoverMW_ideal": 102.40730838285748,
+       "upHoverMW_reverseRange": [
+        204.81461676571496,
+        128.00913547857184
+       ],
+       "upEdgewiseMW_atCruise": 47.80430045522217,
+       "closesDownAtHover": true,
+       "closesUpAtHover_ideal": true
+      }
+     },
+     "sketch15": {
+      "reverse1.0": {
+       "rotorMWh": 30.24112001202714,
+       "cycleMWh": 38.580020012027134,
+       "kwhPerDeliveredT": 38.580020012027134,
+       "peakBusMW": 175.5807426977199,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 6.930504,
+         "rotorMWh": 5.5217982587019785
+        },
+        "LETDOWN": {
+         "minutes": 5.695196,
+         "rotorMWh": 10.947088194647339
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 0.5323041566406947
+        },
+        "OUT": {
+         "minutes": 9.6257,
+         "rotorMWh": 6.334803067039907
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.34787379364265
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 37.75978890151016,
+       "cycleMWh": 46.09868890151016,
+       "kwhPerDeliveredT": 46.09868890151016,
+       "peakBusMW": 175.5807426977199,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 6.930504,
+         "rotorMWh": 5.5217982587019785
+        },
+        "LETDOWN": {
+         "minutes": 5.695196,
+         "rotorMWh": 10.947088194647339
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 1.0646083132813895
+        },
+        "OUT": {
+         "minutes": 9.6257,
+         "rotorMWh": 12.669606134079814
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.999435459445073
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 32.120787234397916,
+       "cycleMWh": 40.45968723439791,
+       "kwhPerDeliveredT": 40.45968723439791,
+       "peakBusMW": 175.5807426977199,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 6.930504,
+         "rotorMWh": 5.5217982587019785
+        },
+        "LETDOWN": {
+         "minutes": 5.695196,
+         "rotorMWh": 10.947088194647339
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 0.6653801958008687
+        },
+        "OUT": {
+         "minutes": 9.6257,
+         "rotorMWh": 7.918503833799905
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.510764210093256
+        }
+       }
+      }
+     },
+     "sketch60": {
+      "reverse1.0": {
+       "rotorMWh": 77.96644268498659,
+       "cycleMWh": 105.1071426849866,
+       "kwhPerDeliveredT": 105.1071426849866,
+       "peakBusMW": 160.8253441793786,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 27.721943999999997,
+         "rotorMWh": 22.087135669647335
+        },
+        "LETDOWN": {
+         "minutes": 13.780756,
+         "rotorMWh": 23.102730066891233
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 0.5323041566406947
+        },
+        "OUT": {
+         "minutes": 38.5027,
+         "rotorMWh": 25.339146456810116
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.34787379364265
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 104.48945496423983,
+       "cycleMWh": 131.63015496423984,
+       "kwhPerDeliveredT": 131.63015496423984,
+       "peakBusMW": 160.8253441793786,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 27.721943999999997,
+         "rotorMWh": 22.087135669647335
+        },
+        "LETDOWN": {
+         "minutes": 13.780756,
+         "rotorMWh": 23.102730066891233
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 1.0646083132813895
+        },
+        "OUT": {
+         "minutes": 38.5027,
+         "rotorMWh": 50.67829291362023
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.999435459445073
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 84.59719575480004,
+       "cycleMWh": 111.73789575480005,
+       "kwhPerDeliveredT": 111.73789575480005,
+       "peakBusMW": 160.8253441793786,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 2.557252541354569
+        },
+        "RET_cruise": {
+         "minutes": 27.721943999999997,
+         "rotorMWh": 22.087135669647335
+        },
+        "LETDOWN": {
+         "minutes": 13.780756,
+         "rotorMWh": 23.102730066891233
+        },
+        "WF": {
+         "minutes": 5.5556,
+         "rotorMWh": 0.6653801958008687
+        },
+        "OUT": {
+         "minutes": 38.5027,
+         "rotorMWh": 31.673933071012776
+        },
+        "WR": {
+         "minutes": 5.5556,
+         "rotorMWh": 4.510764210093256
+        }
+       }
+      }
+     },
+     "failureCase": {
+      "heavyT": 500.0,
+      "terminalSinkMps_CD1": 21.708665909266777,
+      "terminalSinkMps_CD2": 15.350344874955766,
+      "terminalSinkMps_CD0p5": 30.700689749911536,
+      "secondsToGroundAtTerminal": 69.0968300986057,
+      "dumpRateNeededM3s": 7.236221969755593,
+      "dumpRateOverDrawnFill": 2.412073989918531,
+      "note": "fail-safe float-up (decision 2026-08-09) is given up: a loaded ship with stopped rotors is heavy"
+     },
+     "ifRotorsNotReversible": {
+      "upwardActuatorNeededT": 500.0,
+      "atPowerMW_eta07": 102.40730838285748,
+      "note": "rule E10 declares upward thrust false for the drawn rotors; this route needs it, so the class record changes"
+     }
+    },
+    "e": {
+     "label": "variable displacement (sealed cells change volume)",
+     "ambientPressurePa": 86651.93501576946,
+     "fullExchange": {
+      "liftRemovedT": 1374.3600696763506,
+      "volumeChangeM3": 1273434.552704602,
+      "volumeFraction": 0.5788338875930009,
+      "idealWorkMWh": 30.651546696609614,
+      "electricalMWh_eff030": 102.17182232203206,
+      "meanPowerInFillMW_15": 331.0340560509354,
+      "meanPowerInFillMW_eff030_15": 1103.4468535031183,
+      "meanPowerOverCycleMW_15": 52.00671901377661,
+      "meanPowerOverCycleMW_eff030_15": 173.35573004592206,
+      "cyclesPer24h_15": 40.72098771017968,
+      "cycleMWh_eff030_15": 110.51072232203205,
+      "kwhPerDeliveredT_eff030_15": 110.51072232203207,
+      "minutesAddedIfBusLimited_15": 26.70918599643118,
+      "meanPowerInFillMW_60": 331.0340560509354,
+      "meanPowerInFillMW_eff030_60": 1103.4468535031183,
+      "meanPowerOverCycleMW_60": 19.750429051281692,
+      "meanPowerOverCycleMW_eff030_60": 65.83476350427232,
+      "cyclesPer24h_60": 15.46448216537116,
+      "cycleMWh_eff030_60": 129.31252232203207,
+      "kwhPerDeliveredT_eff030_60": 129.31252232203207,
+      "minutesAddedIfBusLimited_60": 26.70918599643118
+     },
+     "toRotorCap": {
+      "liftRemovedT": 588.5025734368896,
+      "volumeChangeM3": 545286.1501910444,
+      "volumeFraction": 0.2478573409959293,
+      "idealWorkMWh": 13.125027792042635,
+      "electricalMWh_eff030": 43.75009264014212,
+      "meanPowerInFillMW_15": 141.74916616073116,
+      "meanPowerInFillMW_eff030_15": 472.4972205357706,
+      "meanPowerOverCycleMW_15": 22.26933730898062,
+      "meanPowerOverCycleMW_eff030_15": 74.23112436326875,
+      "cyclesPer24h_15": 40.72098771017968,
+      "cycleMWh_eff030_15": 52.088992640142116,
+      "kwhPerDeliveredT_eff030_15": 52.088992640142116,
+      "minutesAddedIfBusLimited_15": 8.260218728465933,
+      "meanPowerInFillMW_60": 141.74916616073116,
+      "meanPowerInFillMW_eff030_60": 472.4972205357706,
+      "meanPowerOverCycleMW_60": 8.457156592085173,
+      "meanPowerOverCycleMW_eff030_60": 28.190521973617244,
+      "cyclesPer24h_60": 15.46448216537116,
+      "cycleMWh_eff030_60": 70.89079264014214,
+      "kwhPerDeliveredT_eff030_60": 70.89079264014214,
+      "minutesAddedIfBusLimited_60": 8.260218728465933
+     },
+     "closedBy": "sealed cells with no valve (research/analysis/air-ballast.md, retraction 2026-08-10); reopenable only as a design decision"
+    },
+    "f": {
+     "label": "ballast made on board by the cryogenic plant",
+     "plantMW": 30,
+     "tonnesPerHourAtDrawnPlant": {
+      "optimumCollins_arnaizDelPozo2020": 69.65405154399815,
+      "config_eLN2": 66.66666666666667,
+      "standalone_rimpel2023": 33.0760749724366
+     },
+     "byKm": {
+      "15": {
+       "makingWindowMin": 22.111804,
+       "gapT": {
+        "hover_eta07": 588.5025734368896,
+        "hover_eta055": 705.2150757624114,
+        "earlierWorstUnheldT": 868.561
+       },
+       "hover_eta07": {
+        "ballastT": 588.5025734368896,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 253.46805837926837,
+         "hoursAtDrawnPlant": 8.448935279308946,
+         "powerToMakeInWindowMW": 687.7812186991212,
+         "powerOverBus": 3.619901151048006,
+         "plantMassT_range": [
+          1375.5624373982423,
+          13755.624373982424,
+          44705.779215442875
+         ],
+         "plantMassOverDryTarget_floor": 1.3755624373982422,
+         "tonnesMadeByDrawnPlantPerCycle": 25.669612259113073,
+         "cycleMWh": 261.8069583792684,
+         "kwhPerDeliveredT": 261.8069583792684,
+         "minutesAddedAtDrawnPlant": 484.8243127585368
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 264.82615804660037,
+         "hoursAtDrawnPlant": 8.827538601553346,
+         "powerToMakeInWindowMW": 718.6012268739368,
+         "powerOverBus": 3.782111720389141,
+         "plantMassT_range": [
+          1437.2024537478735,
+          14372.024537478736,
+          46709.07974680589
+         ],
+         "plantMassOverDryTarget_floor": 1.4372024537478736,
+         "tonnesMadeByDrawnPlantPerCycle": 24.568671111111108,
+         "cycleMWh": 273.1650580466004,
+         "kwhPerDeliveredT": 273.1650580466004,
+         "minutesAddedAtDrawnPlant": 507.54051209320073
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 533.7718341072589,
+         "hoursAtDrawnPlant": 17.792394470241963,
+         "powerToMakeInWindowMW": 1448.3806950548012,
+         "powerOverBus": 7.623056289762111,
+         "plantMassT_range": [
+          2896.7613901096024,
+          28967.613901096025,
+          94144.74517856208
+         ],
+         "plantMassOverDryTarget_floor": 2.8967613901096025,
+         "tonnesMadeByDrawnPlantPerCycle": 12.189528114663727,
+         "cycleMWh": 542.1107341072588,
+         "kwhPerDeliveredT": 542.1107341072588,
+         "minutesAddedAtDrawnPlant": 1045.4318642145179
+        }
+       },
+       "earlierWorst": {
+        "ballastT": 868.561,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 374.0892227,
+         "hoursAtDrawnPlant": 12.469640756666667,
+         "powerToMakeInWindowMW": 1015.084674321462,
+         "powerOverBus": 5.342550917481379,
+         "plantMassT_range": [
+          2030.169348642924,
+          20301.69348642924,
+          65980.50383089503
+         ],
+         "plantMassOverDryTarget_floor": 2.030169348642924,
+         "tonnesMadeByDrawnPlantPerCycle": 25.669612259113073,
+         "cycleMWh": 382.4281227,
+         "kwhPerDeliveredT": 382.4281227,
+         "minutesAddedAtDrawnPlant": 726.0666414
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 390.85245000000003,
+         "hoursAtDrawnPlant": 13.028415,
+         "powerToMakeInWindowMW": 1060.5714034006453,
+         "powerOverBus": 5.581954754740239,
+         "plantMassT_range": [
+          2121.1428068012906,
+          21211.428068012905,
+          68937.14122104195
+         ],
+         "plantMassOverDryTarget_floor": 2.1211428068012905,
+         "tonnesMadeByDrawnPlantPerCycle": 24.568671111111108,
+         "cycleMWh": 399.19135000000006,
+         "kwhPerDeliveredT": 399.19135000000006,
+         "minutesAddedAtDrawnPlant": 759.5930960000001
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 787.7848270000001,
+         "hoursAtDrawnPlant": 26.259494233333335,
+         "powerToMakeInWindowMW": 2137.640584187523,
+         "powerOverBus": 11.250739916776437,
+         "plantMassT_range": [
+          4275.281168375046,
+          42752.811683750464,
+          138946.637972189
+         ],
+         "plantMassOverDryTarget_floor": 4.275281168375046,
+         "tonnesMadeByDrawnPlantPerCycle": 12.189528114663727,
+         "cycleMWh": 796.123727,
+         "kwhPerDeliveredT": 796.123727,
+         "minutesAddedAtDrawnPlant": 1553.4578500000002
+        }
+       }
+      },
+      "60": {
+       "makingWindowMin": 71.780244,
+       "gapT": {
+        "hover_eta07": 588.5025734368896,
+        "hover_eta055": 705.2150757624114,
+        "earlierWorstUnheldT": 816.828
+       },
+       "hover_eta07": {
+        "ballastT": 588.5025734368896,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 253.46805837926837,
+         "hoursAtDrawnPlant": 8.448935279308946,
+         "powerToMakeInWindowMW": 211.87004467073282,
+         "powerOverBus": 1.1151054982670148,
+         "plantMassT_range": [
+          423.74008934146565,
+          4237.400893414657,
+          13771.552903597634
+         ],
+         "plantMassOverDryTarget_floor": 0.4237400893414657,
+         "tonnesMadeByDrawnPlantPerCycle": 83.32974692361273,
+         "cycleMWh": 280.60875837926835,
+         "kwhPerDeliveredT": 280.60875837926835,
+         "minutesAddedAtDrawnPlant": 435.1558727585368
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 264.82615804660037,
+         "hoursAtDrawnPlant": 8.827538601553346,
+         "powerToMakeInWindowMW": 221.36410518186622,
+         "powerOverBus": 1.165074237799296,
+         "plantMassT_range": [
+          442.72821036373244,
+          4427.282103637324,
+          14388.666836821305
+         ],
+         "plantMassOverDryTarget_floor": 0.44272821036373244,
+         "tonnesMadeByDrawnPlantPerCycle": 79.75582666666666,
+         "cycleMWh": 291.96685804660035,
+         "kwhPerDeliveredT": 291.96685804660035,
+         "minutesAddedAtDrawnPlant": 457.87207209320076
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 533.7718341072589,
+         "hoursAtDrawnPlant": 17.792394470241963,
+         "powerToMakeInWindowMW": 446.1716519998948,
+         "powerOverBus": 2.3482718526310253,
+         "plantMassT_range": [
+          892.3433039997896,
+          8923.433039997895,
+          29001.15737999316
+         ],
+         "plantMassOverDryTarget_floor": 0.8923433039997896,
+         "tonnesMadeByDrawnPlantPerCycle": 39.570145534729875,
+         "cycleMWh": 560.9125341072589,
+         "kwhPerDeliveredT": 560.9125341072589,
+         "minutesAddedAtDrawnPlant": 995.7634242145177
+        }
+       },
+       "earlierWorst": {
+        "ballastT": 816.828,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 351.8078196,
+         "hoursAtDrawnPlant": 11.72692732,
+         "powerToMakeInWindowMW": 294.0707358977493,
+         "powerOverBus": 1.547740715251312,
+         "plantMassT_range": [
+          588.1414717954985,
+          5881.4147179549855,
+          19114.597833353702
+         ],
+         "plantMassOverDryTarget_floor": 0.5881414717954986,
+         "tonnesMadeByDrawnPlantPerCycle": 83.32974692361273,
+         "cycleMWh": 378.94851960000005,
+         "kwhPerDeliveredT": 378.94851960000005,
+         "minutesAddedAtDrawnPlant": 631.8353952
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 367.57259999999997,
+         "hoursAtDrawnPlant": 12.252419999999999,
+         "powerToMakeInWindowMW": 307.24827293704936,
+         "powerOverBus": 1.6170961733528915,
+         "plantMassT_range": [
+          614.4965458740987,
+          6144.965458740988,
+          19971.13774090821
+         ],
+         "plantMassOverDryTarget_floor": 0.6144965458740987,
+         "tonnesMadeByDrawnPlantPerCycle": 79.75582666666666,
+         "cycleMWh": 394.7133,
+         "kwhPerDeliveredT": 394.7133,
+         "minutesAddedAtDrawnPlant": 663.3649559999999
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 740.862996,
+         "hoursAtDrawnPlant": 24.6954332,
+         "powerToMakeInWindowMW": 619.2759634531194,
+         "powerOverBus": 3.2593471760690496,
+         "plantMassT_range": [
+          1238.5519269062388,
+          12385.519269062388,
+          40252.93762445276
+         ],
+         "plantMassOverDryTarget_floor": 1.2385519269062388,
+         "tonnesMadeByDrawnPlantPerCycle": 39.570145534729875,
+         "cycleMWh": 768.003696,
+         "kwhPerDeliveredT": 768.003696,
+         "minutesAddedAtDrawnPlant": 1409.9457479999999
+        }
+       }
+      }
+     }
+    },
+    "g": {
+     "a+b": {
+      "closes": true,
+      "keptT": 640.3656005859375,
+      "deliveredT": 359.6343994140625,
+      "condition": "slow letdown, whole bus on the rotors; the drawn letdown needs the earlier lever",
+      "vehicleChange": false
+     },
+     "b+c": {
+      "closes": true,
+      "keptT": 588.5025734368896,
+      "deliveredT": 411.49742656311037,
+      "condition": "C_L 0.34 on the planform at 53.9 m/s shown, and a hand-over that holds the hull through the hover interval with 589 t of water aboard",
+      "vehicleChange": false
+     },
+     "c+bag": {
+      "closes": false,
+      "condition": "the hover interval before the bag holds has no actuator: see routes.c.handOver.hoverInterval",
+      "vehicleChange": false
+     },
+     "a+f": {
+      "closes": false,
+      "ballastMadePerCycleT": 24.568671111111108,
+      "gapT": 868.561,
+      "condition": "drawn plant, config specific energy, making window of the cycle",
+      "vehicleChange": false
+     },
+     "b+f": {
+      "closes": true,
+      "keptT": 844.6213288888889,
+      "deliveredT": 155.3786711111111,
+      "condition": "the plant replaces the tonnes it can make per cycle",
+      "vehicleChange": false
+     },
+     "a+d": {
+      "closes": true,
+      "deliveredT": 1000,
+      "condition": "vehicle change: smaller hull, reversible rotors, float-up given up",
+      "vehicleChange": true
+     },
+     "a+e": {
+      "closes": true,
+      "volumeFraction": 0.2478573409959293,
+      "electricalMWh": 43.75009264014212,
+      "condition": "vehicle change: cells that change volume every cycle (closed by the sealed-cell decision)",
+      "vehicleChange": true
+     }
+    }
+   },
+   "batteryMassT": {
+    "floor": 240.0,
+    "credible": 400.0,
+    "demonstrated": 805.3691275167786
+   },
+   "batteryMassOverDryTarget": {
+    "floor": 0.24,
+    "credible": 0.4,
+    "demonstrated": 0.8053691275167786
+   }
+  },
+  "P10000": {
+   "problem": {
+    "payloadT": 10000,
+    "dispM3": 22000000.0,
+    "dryMassTargetT": 10000,
+    "hull": {
+     "config": {
+      "lenM": 512,
+      "diaM": 256,
+      "fineness": 2.0,
+      "planformM2": 117007.85403641517,
+      "spanM": 256,
+      "aspectRatio": 0.5600991535115574,
+      "frontalM2": 51471.85403641517,
+      "capsuleVolumeM3": 21961324.38887047,
+      "volumeOverDesign": 0.9982420176759305
+     },
+     "published": {
+      "lenM": 876,
+      "diaM": 219,
+      "fineness": 4.0,
+      "planformM2": 181551.48131470502,
+      "spanM": 219,
+      "aspectRatio": 0.26417300290083245,
+      "ellipsoidVolumeM3": 21998393.08778773
+     }
+    },
+    "busMW": 1550,
+    "batteryPlusSolarMW": 1405.4,
+    "diskM2": 160000,
+    "altitudes": {
+     "ground": {
+      "mslM": 1000,
+      "aglM": 0,
+      "rho": 1.111642451351184,
+      "pressurePa": 89874.56028802077,
+      "liftT": 24456.13392972605,
+      "emptySurplusT": 14456.13392972605,
+      "loadedSurplusT": 4456.133929726049,
+      "emptySurplusOverPayload": 1.445613392972605
+     },
+     "hold": {
+      "mslM": 1300,
+      "aglM": 300,
+      "rho": 1.079254577125614,
+      "pressurePa": 86651.93501576946,
+      "liftT": 23743.600696763504,
+      "emptySurplusT": 13743.600696763504,
+      "loadedSurplusT": 3743.600696763504,
+      "emptySurplusOverPayload": 1.3743600696763505
+     },
+     "drop": {
+      "mslM": 1450,
+      "aglM": 450,
+      "rho": 1.0633339390546592,
+      "pressurePa": 85076.08562127003,
+      "liftT": 23393.3466592025,
+      "emptySurplusT": 13393.3466592025,
+      "loadedSurplusT": 3393.3466592024997,
+      "emptySurplusOverPayload": 1.33933466592025
+     },
+     "work": {
+      "mslM": 2500,
+      "aglM": 1500,
+      "rho": 0.9568587008868916,
+      "pressurePa": 74682.51206786813,
+      "liftT": 21050.891419511616,
+      "emptySurplusT": 11050.891419511616,
+      "loadedSurplusT": 1050.8914195116158,
+      "emptySurplusOverPayload": 1.1050891419511615
+     }
+    },
+    "balance": {
+     "emptyRho": 0.45454545454545453,
+     "emptyAltMslM": 9212.159371489737,
+     "loadedRho": 0.9090909090909091,
+     "loadedAltMslM": 3000.329626149522
+    }
+   },
+   "routes": {
+    "a": {
+     "label": "rotor hold-down as drawn",
+     "emptySurplusT": 13743.600696763504,
+     "byEta": {
+      "0.55": {
+       "hoverPowerNeededMW_local": 4843.448385396604,
+       "hoverPowerNeededMW_rho110": 4797.558543251584,
+       "powerOverBus": 3.124805409933293,
+       "thrustCapT_fullBus_local": 6430.11208898444,
+       "thrustCapT_fullBus_rho110": 6471.050745725104,
+       "hoverDeficitT_local": 7313.488607779064,
+       "closesAtHover": false,
+       "diskNeededM2_fullBus": 1562305.4159917384,
+       "diskNeededOverDrawn": 9.764408849948365,
+       "diskNeededOverPlanform": 13.352141434074314,
+       "diskNeededOverPublishedPlanform": 8.605302499755464,
+       "inducedVelocityAtNeedMps": 19.758220569259382
+      },
+      "0.7": {
+       "hoverPowerNeededMW_local": 3805.566588525903,
+       "hoverPowerNeededMW_rho110": 3769.5102839833885,
+       "powerOverBus": 2.455204250661873,
+       "thrustCapT_fullBus_local": 7551.654473616676,
+       "thrustCapT_fullBus_rho110": 7599.733665089733,
+       "hoverDeficitT_local": 6191.946223146828,
+       "closesAtHover": false,
+       "diskNeededM2_fullBus": 964484.4659949001,
+       "diskNeededOverDrawn": 6.028027912468126,
+       "diskNeededOverPlanform": 8.242903640423432,
+       "diskNeededOverPublishedPlanform": 5.312457155461283,
+       "inducedVelocityAtNeedMps": 19.758220569259382
+      }
+     },
+     "sketch15": {
+      "rotorMWh": 509.0794759872049,
+      "worstUnheldT": 6539.065923428174,
+      "worstPhase": "LETDOWN",
+      "earlierRotorsMWh": 644.9394,
+      "earlierWorstUnheldT": 7389.458
+     },
+     "sketch60": {
+      "rotorMWh": 855.2555801529477,
+      "worstUnheldT": 6273.612551630208,
+      "worstPhase": "LETDOWN",
+      "earlierRotorsMWh": 969.2823,
+      "earlierWorstUnheldT": 7273.491
+     }
+    },
+    "b": {
+     "label": "water kept aboard",
+     "byKm": {
+      "15": {
+       "0.55": {
+        "closes": true,
+        "keptT": 7619.62890625,
+        "keptFraction": 0.761962890625,
+        "deliveredT": 2380.37109375,
+        "deliveredFraction": 0.238037109375,
+        "cycleMWh": 235.31589589792938,
+        "rotorMWh": 182.66969589792936,
+        "nonRotorMWh_earlier": 52.64620000000002,
+        "peakBusMW": 1550.0000000000007,
+        "kwhPerDeliveredT": 98.85681124081218,
+        "minutesAdded": -16.932491748046875
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 6538.0859375,
+        "keptFraction": 0.65380859375,
+        "deliveredT": 3461.9140625,
+        "deliveredFraction": 0.34619140625,
+        "cycleMWh": 265.43327496525694,
+        "rotorMWh": 212.78707496525692,
+        "nonRotorMWh_earlier": 52.64620000000002,
+        "peakBusMW": 1550.0000000000007,
+        "kwhPerDeliveredT": 76.67240439052837,
+        "minutesAdded": -14.52906533203125
+       },
+       "earlierLever": {
+        "retainedT": 7396.778,
+        "deliveredT": 2603.222,
+        "kwhPerDeliveredT": 90.841
+       },
+       "keptRangeT": {
+        "low": 6191.946223146828,
+        "sketch": 6538.0859375,
+        "high": 7396.778
+       }
+      },
+      "60": {
+       "0.55": {
+        "closes": true,
+        "keptT": 7371.673583984375,
+        "keptFraction": 0.7371673583984375,
+        "deliveredT": 2628.326416015625,
+        "deliveredFraction": 0.2628326416015625,
+        "cycleMWh": 507.2216283714404,
+        "rotorMWh": 365.17102837144023,
+        "nonRotorMWh_earlier": 142.05060000000014,
+        "peakBusMW": 1550.0000000000005,
+        "kwhPerDeliveredT": 192.98273809550489,
+        "minutesAdded": -16.38148047180176
+       },
+       "0.7": {
+        "closes": true,
+        "keptT": 6272.735595703125,
+        "keptFraction": 0.6272735595703125,
+        "deliveredT": 3727.264404296875,
+        "deliveredFraction": 0.3727264404296875,
+        "cycleMWh": 560.3238791278842,
+        "rotorMWh": 418.27327912788405,
+        "nonRotorMWh_earlier": 142.05060000000014,
+        "peakBusMW": 1550.0000000000007,
+        "kwhPerDeliveredT": 150.33113252763343,
+        "minutesAdded": -13.939398495483399
+       },
+       "earlierLever": {
+        "retainedT": 7280.782,
+        "deliveredT": 2719.218,
+        "kwhPerDeliveredT": 164.355
+       },
+       "keptRangeT": {
+        "low": 6191.946223146828,
+        "sketch": 6272.735595703125,
+        "high": 7280.782
+       }
+      }
+     },
+     "keptAtHover_fullBusT": {
+      "0.55": 7313.488607779064,
+      "0.7": 6191.946223146828
+     }
+    },
+    "c": {
+     "label": "approach flown at airspeed (hull as a lifting body at negative incidence)",
+     "emptySurplusT": 13743.600696763504,
+     "bySpeed": {
+      "15": {
+       "qPa": 121.41613992663156,
+       "clNeeded_configPlanform": 9.490259770193063,
+       "clNeeded_publishedPlanform": 6.116363920124467,
+       "zeroLiftDragMW": 6.695907677109151,
+       "inducedPowerMW_e1.0": 15582.102844044211,
+       "inducedPowerMW_publishedSpan_e1.0": 21292.064218579293,
+       "liftOverInducedDrag_e1.0": 0.1854115091222602,
+       "totalPowerMW_e1.0": 15591.79875172132,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 22260.146920063165,
+       "inducedPowerMW_publishedSpan_e0.7": 30417.234597970426,
+       "liftOverInducedDrag_e0.7": 0.12978805638558213,
+       "totalPowerMW_e0.7": 22269.842827740275,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 8709.183741632616,
+       "record_unheldT": 5034.416955130888,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 202.74514545851554,
+        "inducedPowerMW_e1": 3.390985535987641,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5989.201077688313,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 492.3810675421092,
+        "inducedPowerMW_e1": 19.99989428368221,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5699.565155604718,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 724.089805208984,
+        "inducedPowerMW_e1": 43.252366530454594,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5467.8564179378445,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 1448.179610417968,
+        "inducedPowerMW_e1": 173.00946612181838,
+        "rotorT": 7551.654473616676,
+        "unheldT": 4743.766612728859,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 2172.269415626952,
+        "inducedPowerMW_e1": 389.2712987740915,
+        "rotorT": 7353.594179076006,
+        "unheldT": 4217.737102060546,
+        "closesLevelFlight": false
+       }
+      },
+      "20": {
+       "qPa": 215.85091542512276,
+       "clNeeded_configPlanform": 5.338271120733599,
+       "clNeeded_publishedPlanform": 3.4404547050700125,
+       "zeroLiftDragMW": 15.871781160555022,
+       "inducedPowerMW_e1.0": 11686.577133033157,
+       "inducedPowerMW_publishedSpan_e1.0": 15969.048163934465,
+       "liftOverInducedDrag_e1.0": 0.32962046066179596,
+       "totalPowerMW_e1.0": 11705.448914193712,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 16695.11019004737,
+       "inducedPowerMW_publishedSpan_e0.7": 22812.925948477805,
+       "liftOverInducedDrag_e0.7": 0.23073432246325712,
+       "totalPowerMW_e0.7": 16713.981971207926,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 9428.912560259,
+       "record_unheldT": 4314.688136504505,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 360.43581414847205,
+        "inducedPowerMW_e1": 8.037891640859591,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5831.510408998356,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 875.3441200748606,
+        "inducedPowerMW_e1": 47.40715682058003,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5316.602103071968,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 1287.2707648159715,
+        "inducedPowerMW_e1": 102.52412807218867,
+        "rotorT": 7551.654473616676,
+        "unheldT": 4904.675458330856,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 2574.541529631943,
+        "inducedPowerMW_e1": 410.0965122887547,
+        "rotorT": 7551.654473616676,
+        "unheldT": 3617.4046935148854,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 3861.812294447914,
+        "inducedPowerMW_e1": 922.7171526496977,
+        "rotorT": 5718.044670713463,
+        "unheldT": 4163.743731602126,
+        "closesLevelFlight": false
+       }
+      },
+      "25": {
+       "qPa": 337.2670553517544,
+       "clNeeded_configPlanform": 3.416493517269503,
+       "clNeeded_publishedPlanform": 2.2018910112448076,
+       "zeroLiftDragMW": 30.999572579209033,
+       "inducedPowerMW_e1.0": 9349.261706426525,
+       "inducedPowerMW_publishedSpan_e1.0": 12775.238531147572,
+       "liftOverInducedDrag_e1.0": 0.5150319697840563,
+       "totalPowerMW_e1.0": 9383.261279005734,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 13356.088152037892,
+       "inducedPowerMW_publishedSpan_e0.7": 18250.340758782244,
+       "liftOverInducedDrag_e0.7": 0.36052237884883936,
+       "totalPowerMW_e0.7": 13390.0877246171,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 10171.746572054451,
+       "record_unheldT": 3571.8541247090525,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 563.1809596069877,
+        "inducedPowerMW_e1": 15.699007111053891,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5628.765263539841,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 1367.72518761697,
+        "inducedPowerMW_e1": 92.59210316519541,
+        "rotorT": 7551.654473616676,
+        "unheldT": 4824.2210355298575,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 2011.3605700249557,
+        "inducedPowerMW_e1": 200.24243764099353,
+        "rotorT": 7551.654473616676,
+        "unheldT": 4180.585653121872,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 4022.7211400499114,
+        "inducedPowerMW_e1": 800.9697505639741,
+        "rotorT": 6845.3393036252055,
+        "unheldT": 2875.5402530883875,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 6034.081710074867,
+        "inducedPowerMW_e1": 1802.1819387689413,
+        "rotorT": 0.0,
+        "unheldT": 7709.518986688637,
+        "closesLevelFlight": false
+       }
+      },
+      "30": {
+       "qPa": 485.66455970652623,
+       "clNeeded_configPlanform": 2.3725649425482658,
+       "clNeeded_publishedPlanform": 1.5290909800311168,
+       "zeroLiftDragMW": 53.56726141687321,
+       "inducedPowerMW_e1.0": 7791.051422022106,
+       "inducedPowerMW_publishedSpan_e1.0": 10646.032109289647,
+       "liftOverInducedDrag_e1.0": 0.7416460364890408,
+       "totalPowerMW_e1.0": 7847.618683438979,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 11130.073460031583,
+       "inducedPowerMW_publishedSpan_e0.7": 15208.617298985213,
+       "liftOverInducedDrag_e0.7": 0.5191522255423285,
+       "totalPowerMW_e0.7": 11186.640721448455,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 10880.92039310939,
+       "record_unheldT": 2862.6803036541132,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 810.9805818340621,
+        "inducedPowerMW_e1": 27.12788428790113,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5380.965641312765,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 1969.5242701684367,
+        "inducedPowerMW_e1": 159.99915426945768,
+        "rotorT": 7551.654473616676,
+        "unheldT": 4222.421952978391,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 2896.359220835936,
+        "inducedPowerMW_e1": 346.01893224363675,
+        "rotorT": 7551.654473616676,
+        "unheldT": 3295.587002310891,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 5792.718441671872,
+        "inducedPowerMW_e1": 1384.075728974547,
+        "rotorT": 2876.636430792654,
+        "unheldT": 5074.245824298978,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 8689.077662507809,
+        "inducedPowerMW_e1": 3114.170390192732,
+        "rotorT": 0.0,
+        "unheldT": 5054.523034255695,
+        "closesLevelFlight": false
+       }
+      },
+      "35": {
+       "qPa": 661.0434284894386,
+       "clNeeded_configPlanform": 1.7431089373823991,
+       "clNeeded_publishedPlanform": 1.1234137812473508,
+       "zeroLiftDragMW": 85.06282715734959,
+       "inducedPowerMW_e1.0": 6678.044076018946,
+       "inducedPowerMW_publishedSpan_e1.0": 9125.170379391122,
+       "liftOverInducedDrag_e1.0": 1.0094626607767503,
+       "totalPowerMW_e1.0": 6766.106903176295,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 9540.062965741352,
+       "inducedPowerMW_publishedSpan_e0.7": 13035.95768484446,
+       "liftOverInducedDrag_e0.7": 0.7066238625437251,
+       "totalPowerMW_e0.7": 9628.125792898702,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 11522.512303356349,
+       "record_unheldT": 2221.0883934071553,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 1103.8346808296958,
+        "inducedPowerMW_e1": 43.078075512731886,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5088.111542317132,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 2680.7413677292616,
+        "inducedPowerMW_e1": 254.07273108529623,
+        "rotorT": 7551.654473616676,
+        "unheldT": 3511.204855417567,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 3942.2667172489137,
+        "inducedPowerMW_e1": 549.4652488868863,
+        "rotorT": 7551.654473616676,
+        "unheldT": 2249.679505897915,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 7884.533434497827,
+        "inducedPowerMW_e1": 2197.8609955475454,
+        "rotorT": 0.0,
+        "unheldT": 5859.067262265677,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 11826.80015174674,
+        "inducedPowerMW_e1": 4945.187239981976,
+        "rotorT": 0.0,
+        "unheldT": 1916.8005450167639,
+        "closesLevelFlight": false
+       }
+      },
+      "36.11": {
+       "qPa": 703.6373435930069,
+       "clNeeded_configPlanform": 1.6375917490592025,
+       "clNeeded_publishedPlanform": 1.0554091597468955,
+       "zeroLiftDragMW": 93.41532844532036,
+       "inducedPowerMW_e1.0": 6472.764958755556,
+       "inducedPowerMW_publishedSpan_e1.0": 8844.668049811391,
+       "liftOverInducedDrag_e1.0": 1.0745067486842577,
+       "totalPowerMW_e1.0": 6569.180287200877,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 9246.80708393651,
+       "inducedPowerMW_publishedSpan_e0.7": 12635.24007115913,
+       "liftOverInducedDrag_e0.7": 0.7521547240789803,
+       "totalPowerMW_e0.7": 9343.22241238183,
+       "closesOnBus_e0.7": false,
+       "record_rotorThrustAtBusT": 11653.450341003689,
+       "record_unheldT": 2090.1503557598153,
+       "record_surrogateCapT": 7551.654473616676,
+       "record_closes": false,
+       "split_cl0.14": {
+        "aeroT": 1174.9595701445674,
+        "inducedPowerMW_e1": 47.30800406351727,
+        "rotorT": 7551.654473616676,
+        "unheldT": 5016.986653002261,
+        "closesLevelFlight": false
+       },
+       "split_cl0.34": {
+        "aeroT": 2853.4732417796636,
+        "inducedPowerMW_e1": 279.0206770276835,
+        "rotorT": 7551.654473616676,
+        "unheldT": 3338.472981367164,
+        "closesLevelFlight": false
+       },
+       "split_cl0.5": {
+        "aeroT": 4196.28417908774,
+        "inducedPowerMW_e1": 603.418419177516,
+        "rotorT": 7551.654473616676,
+        "unheldT": 1995.6620440590887,
+        "closesLevelFlight": false
+       },
+       "split_cl1.0": {
+        "aeroT": 8392.56835817548,
+        "inducedPowerMW_e1": 2413.673676710064,
+        "rotorT": 0.0,
+        "unheldT": 5351.032338588024,
+        "closesLevelFlight": false
+       },
+       "split_cl1.5": {
+        "aeroT": 12588.852537263221,
+        "inducedPowerMW_e1": 5430.765772597645,
+        "rotorT": 0.0,
+        "unheldT": 1154.7481595002828,
+        "closesLevelFlight": false
+       }
+      }
+     },
+     "favourable": {
+      "cl0.14": {
+       "VminMps": 123.49981053465626,
+       "VminOverCruise": 3.4199947532674044,
+       "zeroLiftDragMW": 3737.098577142184,
+       "inducedPowerMW_e1.0": 1892.566001913613,
+       "totalPowerMW_e1.0": 5632.664579055797,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 2703.665717019447,
+       "totalPowerMW_e0.7": 6443.7642941616305,
+       "closesOnBus_e0.7": false
+      },
+      "cl0.34": {
+       "VminMps": 79.24846349027177,
+       "VminOverCruise": 2.1945728351152187,
+       "zeroLiftDragMW": 987.4343517453693,
+       "inducedPowerMW_e1.0": 2949.3510961175307,
+       "totalPowerMW_e1.0": 3939.7854478629,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 4213.358708739329,
+       "totalPowerMW_e0.7": 5203.793060484698,
+       "closesOnBus_e0.7": false
+      },
+      "cl0.5": {
+       "VminMps": 65.34995712765907,
+       "VminOverCruise": 1.8096911204582513,
+       "zeroLiftDragMW": 553.6962737628867,
+       "inducedPowerMW_e1.0": 3576.6135577422947,
+       "totalPowerMW_e1.0": 4133.309831505181,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 5109.447939631849,
+       "totalPowerMW_e0.7": 5666.144213394736,
+       "closesOnBus_e0.7": false
+      },
+      "cl1.0": {
+       "VminMps": 46.209397835217885,
+       "VminOverCruise": 1.2796448631291109,
+       "zeroLiftDragMW": 195.7611949477302,
+       "inducedPowerMW_e1.0": 5058.09540072664,
+       "totalPowerMW_e1.0": 5256.8565956743705,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 7225.850572466627,
+       "totalPowerMW_e0.7": 7424.611767414358,
+       "closesOnBus_e0.7": false
+      },
+      "cl1.5": {
+       "VminMps": 37.72981533918446,
+       "VminOverCruise": 1.0448256555466469,
+       "zeroLiftDragMW": 106.55889756876508,
+       "inducedPowerMW_e1.0": 6194.876401049338,
+       "totalPowerMW_e1.0": 6304.435298618103,
+       "closesOnBus_e1.0": false,
+       "inducedPowerMW_e0.7": 8849.823430070483,
+       "totalPowerMW_e0.7": 8959.382327639247,
+       "closesOnBus_e0.7": false
+      }
+     },
+     "record": {},
+     "handOver": {
+      "cableBelowAttachmentM": 172.0,
+      "cableM": 850,
+      "circleRadiusMaxM": 832.4157615038292,
+      "addedMassK2_fineness2": 0.702,
+      "effectiveMassT": 26668.007689127982,
+      "circles": {
+       "1L": {
+        "radiusM": 512.0,
+        "radiusOverCableReach": 0.6150772530724656,
+        "reachable": true,
+        "cableAngleFromVerticalDeg": 71.43086926896218,
+        "turnRateDegPerS": 8.868364240017902,
+        "secondsPerCircle": 40.59373186043983,
+        "bankForTurnDeg": 51.34873269312088,
+        "centripetalForceT": 33345.19831166554,
+        "endSideslipDeg": 26.56505117707799,
+        "pendulumDropM": 579.3186615397703,
+        "pendulumSpeedMps": 106.61253275018981,
+        "bagOrbitSpeedIfConicalMps": 16.03615967097264
+       },
+       "2L": {
+        "radiusM": 1024.0,
+        "radiusOverCableReach": 1.2301545061449313,
+        "reachable": false,
+        "cableAngleFromVerticalDeg": 80.46510559580906,
+        "turnRateDegPerS": 4.434182120008951,
+        "secondsPerCircle": 81.18746372087966,
+        "bankForTurnDeg": 32.01325318630409,
+        "centripetalForceT": 16672.59915583277,
+        "endSideslipDeg": 14.036243467926479,
+        "pendulumDropM": 709.1989916779783,
+        "pendulumSpeedMps": 117.9596719931093,
+        "bagOrbitSpeedIfConicalMps": 16.03615967097264
+       },
+       "3L": {
+        "radiusM": 1536.0,
+        "radiusOverCableReach": 1.845231759217397,
+        "reachable": false,
+        "cableAngleFromVerticalDeg": 83.61068356234378,
+        "turnRateDegPerS": 2.9561214133393006,
+        "secondsPerCircle": 121.7811955813195,
+        "bankForTurnDeg": 22.62608201782058,
+        "centripetalForceT": 11115.066103888514,
+        "endSideslipDeg": 9.462322208025617,
+        "pendulumDropM": 755.4089153623668,
+        "pendulumSpeedMps": 121.7420343160473,
+        "bagOrbitSpeedIfConicalMps": 16.03615967097264
+       }
+      },
+      "speedUsedMps": 79.24846349027177,
+      "headWind": {
+       "cl0.14": 123.49981053465626,
+       "cl0.34": 79.24846349027177,
+       "cl0.5": 65.34995712765907,
+       "cl1.0": 46.209397835217885,
+       "cl1.5": 37.72981533918446
+      },
+      "hoverInterval": {
+       "unheldT_fullBus": 6191.946223146828,
+       "closesAtHoverWithoutBag": false,
+       "initialAccelMps2": 2.277747672685504,
+       "terminalRiseMps_CD1": 31.016560250317,
+       "riseIn60sM": 1860.99361501902,
+       "withBagAtHoverT": -6208.053776853172,
+       "closesAtHoverWithBag": true,
+       "cablePayoutS": 34.4,
+       "hoistS": 3.0
+      }
+     },
+     "sketch15": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 6528.213792207686,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 6527.252197265625,
+       "rotorMWh": 550.9314276381012
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 6508.361127126365,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 6507.415771484375,
+       "rotorMWh": 700.6600218579453
+      }
+     },
+     "sketch60": {
+      "cl0.34": {
+       "worstUnheldT_noWaterKept": 6262.763703501124,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 6261.90185546875,
+       "rotorMWh": 1003.9423596164671
+      },
+      "cl1.0": {
+       "worstUnheldT_noWaterKept": 6242.936158916123,
+       "worstPhase": "LETDOWN",
+       "keptToCloseT": 6242.0654296875,
+       "rotorMWh": 1555.8184463967114
+      }
+     }
+    },
+    "d": {
+     "label": "hull balanced at half load, rotors pushing both ways",
+     "dispM3": 15676295.764564637,
+     "dispChange": -0.28744110161069836,
+     "hullAreaChange": -0.20222483596965668,
+     "allowedWallMassPerM3Change": 0.4033927613007744,
+     "lenM": 457.3094932314114,
+     "diaM": 228.6547466157057,
+     "planformM2": 93345.95994673957,
+     "sizedAtMslM": 2500,
+     "surpluses": {
+      "ground": {
+       "liftT": 17426.435851826816,
+       "emptySurplusT": 7426.435851826816,
+       "loadedSurplusT": -2573.5641481731836
+      },
+      "hold": {
+       "liftT": 16918.71395628126,
+       "emptySurplusT": 6918.713956281259,
+       "loadedSurplusT": -3081.286043718741
+      },
+      "drop": {
+       "liftT": 16669.137325120384,
+       "emptySurplusT": 6669.137325120384,
+       "loadedSurplusT": -3330.862674879616
+      },
+      "work": {
+       "liftT": 15000.0,
+       "emptySurplusT": 5000.0,
+       "loadedSurplusT": -5000.0
+      }
+     },
+     "byEta": {
+      "0.55": {
+       "downThrustT_emptyAtHold": 6918.713956281259,
+       "downHoverMW": 1729.9834419463812,
+       "downCapT_fullBus": 6430.11208898444,
+       "upThrustT_loadedAtWork": 5000.0,
+       "upHoverMW_ideal": 1128.7478439076215,
+       "upHoverMW_reverseRange": [
+        2257.495687815243,
+        1410.9348048845268
+       ],
+       "upEdgewiseMW_atCruise": 392.70958671625607,
+       "closesDownAtHover": false,
+       "closesUpAtHover_ideal": true
+      },
+      "0.7": {
+       "downThrustT_emptyAtHold": 6918.713956281259,
+       "downHoverMW": 1359.2727043864425,
+       "downCapT_fullBus": 7551.654473616676,
+       "upThrustT_loadedAtWork": 5000.0,
+       "upHoverMW_ideal": 886.873305927417,
+       "upHoverMW_reverseRange": [
+        1773.746611854834,
+        1108.5916324092711
+       ],
+       "upEdgewiseMW_atCruise": 308.55753241991556,
+       "closesDownAtHover": true,
+       "closesUpAtHover_ideal": true
+      }
+     },
+     "sketch15": {
+      "reverse1.0": {
+       "rotorMWh": 278.05540697392854,
+       "cycleMWh": 330.70160697392856,
+       "kwhPerDeliveredT": 33.07016069739286,
+       "peakBusMW": 1472.6342570590755,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 5.864256,
+         "rotorMWh": 30.157672680644826
+        },
+        "LETDOWN": {
+         "minutes": 7.280544000000001,
+         "rotorMWh": 107.54440546920813
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 9.219695466475674
+        },
+        "OUT": {
+         "minutes": 8.1448,
+         "rotorMWh": 34.54467003676395
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 75.3067053938368
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 333.10505000390896,
+       "cycleMWh": 385.751250003909,
+       "kwhPerDeliveredT": 38.5751250003909,
+       "peakBusMW": 1472.6342570590755,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 5.864256,
+         "rotorMWh": 30.157672680644826
+        },
+        "LETDOWN": {
+         "minutes": 7.280544000000001,
+         "rotorMWh": 107.54440546920813
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 18.439390932951348
+        },
+        "OUT": {
+         "minutes": 8.1448,
+         "rotorMWh": 69.0893400735279
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 86.59198292057759
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 291.81781773142365,
+       "cycleMWh": 344.46401773142367,
+       "kwhPerDeliveredT": 34.44640177314237,
+       "peakBusMW": 1472.6342570590755,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 5.864256,
+         "rotorMWh": 30.157672680644826
+        },
+        "LETDOWN": {
+         "minutes": 7.280544000000001,
+         "rotorMWh": 107.54440546920813
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 11.524619333094593
+        },
+        "OUT": {
+         "minutes": 8.1448,
+         "rotorMWh": 43.18083754595495
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 78.128024775522
+        }
+       }
+      }
+     },
+     "sketch60": {
+      "reverse1.0": {
+       "rotorMWh": 552.4600971229021,
+       "cycleMWh": 694.5106971229022,
+       "kwhPerDeliveredT": 69.45106971229022,
+       "peakBusMW": 1394.9009382627996,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 23.457024,
+         "rotorMWh": 120.6306907225793
+        },
+        "LETDOWN": {
+         "minutes": 14.122176000000001,
+         "rotorMWh": 187.84206746595538
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 9.219695466475674
+        },
+        "OUT": {
+         "minutes": 32.5792,
+         "rotorMWh": 138.1786801470558
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 75.3067053938368
+        }
+       }
+      },
+      "reverse0.5": {
+       "rotorMWh": 711.1437502631744,
+       "cycleMWh": 853.1943502631746,
+       "kwhPerDeliveredT": 85.31943502631745,
+       "peakBusMW": 1394.9009382627996,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 23.457024,
+         "rotorMWh": 120.6306907225793
+        },
+        "LETDOWN": {
+         "minutes": 14.122176000000001,
+         "rotorMWh": 187.84206746595538
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 18.439390932951348
+        },
+        "OUT": {
+         "minutes": 32.5792,
+         "rotorMWh": 276.3573602941116
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 86.59198292057759
+        }
+       }
+      },
+      "reverse0.8": {
+       "rotorMWh": 592.1310104079703,
+       "cycleMWh": 734.1816104079704,
+       "kwhPerDeliveredT": 73.41816104079703,
+       "peakBusMW": 1394.9009382627996,
+       "worstUnheldDownT": 0.0,
+       "worstUnheldUpT": 0.0,
+       "closes": true,
+       "perPhase": {
+        "BE": {
+         "minutes": 2,
+         "rotorMWh": 21.28225792699918
+        },
+        "RET_cruise": {
+         "minutes": 23.457024,
+         "rotorMWh": 120.6306907225793
+        },
+        "LETDOWN": {
+         "minutes": 14.122176000000001,
+         "rotorMWh": 187.84206746595538
+        },
+        "WF": {
+         "minutes": 11.1111,
+         "rotorMWh": 11.524619333094593
+        },
+        "OUT": {
+         "minutes": 32.5792,
+         "rotorMWh": 172.7233501838198
+        },
+        "WR": {
+         "minutes": 11.1111,
+         "rotorMWh": 78.128024775522
+        }
+       }
+      }
+     },
+     "failureCase": {
+      "heavyT": 5000.0,
+      "terminalSinkMps_CD1": 31.91097921560567,
+      "terminalSinkMps_CD2": 22.564469797657743,
+      "terminalSinkMps_CD0p5": 45.128939595315494,
+      "secondsToGroundAtTerminal": 47.005765315607846,
+      "dumpRateNeededM3s": 106.36993071868558,
+      "dumpRateOverDrawnFill": 7.0913287145790385,
+      "note": "fail-safe float-up (decision 2026-08-09) is given up: a loaded ship with stopped rotors is heavy"
+     },
+     "ifRotorsNotReversible": {
+      "upwardActuatorNeededT": 5000.0,
+      "atPowerMW_eta07": 886.873305927417,
+      "note": "rule E10 declares upward thrust false for the drawn rotors; this route needs it, so the class record changes"
+     }
+    },
+    "e": {
+     "label": "variable displacement (sealed cells change volume)",
+     "ambientPressurePa": 86651.93501576946,
+     "fullExchange": {
+      "liftRemovedT": 13743.600696763504,
+      "volumeChangeM3": 12734345.52704602,
+      "volumeFraction": 0.5788338875930009,
+      "idealWorkMWh": 306.51546696609614,
+      "electricalMWh_eff030": 1021.7182232203205,
+      "meanPowerInFillMW_15": 1655.1851768020958,
+      "meanPowerInFillMW_eff030_15": 5517.283922673653,
+      "meanPowerOverCycleMW_15": 404.09142283903884,
+      "meanPowerOverCycleMW_eff030_15": 1346.9714094634628,
+      "cyclesPer24h_15": 31.6401460720077,
+      "cycleMWh_eff030_15": 1074.3644232203205,
+      "kwhPerDeliveredT_eff030_15": 107.43644232203206,
+      "minutesAddedIfBusLimited_15": 28.43928283433499,
+      "meanPowerInFillMW_60": 1655.1851768020958,
+      "meanPowerInFillMW_eff030_60": 5517.283922673653,
+      "meanPowerOverCycleMW_60": 194.8591979492159,
+      "meanPowerOverCycleMW_eff030_60": 649.5306598307197,
+      "cyclesPer24h_60": 15.257372807547313,
+      "cycleMWh_eff030_60": 1163.7688232203207,
+      "kwhPerDeliveredT_eff030_60": 116.37688232203207,
+      "minutesAddedIfBusLimited_60": 28.43928283433499
+     },
+     "toRotorCap": {
+      "liftRemovedT": 6191.946223146828,
+      "volumeChangeM3": 5737243.42187909,
+      "volumeFraction": 0.260783791903595,
+      "idealWorkMWh": 138.0953456006438,
+      "electricalMWh_eff030": 460.3178186688127,
+      "meanPowerInFillMW_15": 745.7156119590885,
+      "meanPowerInFillMW_eff030_15": 2485.718706530295,
+      "meanPowerOverCycleMW_15": 182.05653777786483,
+      "meanPowerOverCycleMW_eff030_15": 606.8551259262161,
+      "cyclesPer24h_15": 31.6401460720077,
+      "cycleMWh_eff030_15": 512.9640186688127,
+      "kwhPerDeliveredT_eff030_15": 51.296401866881276,
+      "minutesAddedIfBusLimited_15": 6.707654271050814,
+      "meanPowerInFillMW_60": 745.7156119590885,
+      "meanPowerInFillMW_eff030_60": 2485.718706530295,
+      "meanPowerOverCycleMW_60": 87.79050711733798,
+      "meanPowerOverCycleMW_eff030_60": 292.6350237244599,
+      "cyclesPer24h_60": 15.257372807547313,
+      "cycleMWh_eff030_60": 602.3684186688129,
+      "kwhPerDeliveredT_eff030_60": 60.236841866881285,
+      "minutesAddedIfBusLimited_60": 6.707654271050814
+     },
+     "closedBy": "sealed cells with no valve (research/analysis/air-ballast.md, retraction 2026-08-10); reopenable only as a design decision"
+    },
+    "f": {
+     "label": "ballast made on board by the cryogenic plant",
+     "plantMW": 100,
+     "tonnesPerHourAtDrawnPlant": {
+      "optimumCollins_arnaizDelPozo2020": 232.18017181332715,
+      "config_eLN2": 222.22222222222223,
+      "standalone_rimpel2023": 110.25358324145535
+     },
+     "byKm": {
+      "15": {
+       "makingWindowMin": 25.120156,
+       "gapT": {
+        "hover_eta07": 6191.946223146828,
+        "hover_eta055": 7313.488607779064,
+        "earlierWorstUnheldT": 7389.458
+       },
+       "hover_eta07": {
+        "ballastT": 6191.946223146828,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 2666.871238309339,
+         "hoursAtDrawnPlant": 26.66871238309339,
+         "powerToMakeInWindowMW": 6369.875819981386,
+         "powerOverBus": 4.109597303213797,
+         "plantMassT_range": [
+          12739.751639962771,
+          127397.51639962771,
+          414041.92829879007
+         ],
+         "plantMassOverDryTarget_floor": 1.273975163996277,
+         "tonnesMadeByDrawnPlantPerCycle": 97.20670226762637,
+         "cycleMWh": 2719.517438309339,
+         "kwhPerDeliveredT": 271.9517438309339,
+         "minutesAddedAtDrawnPlant": 1575.0025869856033
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 2786.3758004160723,
+         "hoursAtDrawnPlant": 27.863758004160722,
+         "powerToMakeInWindowMW": 6655.314880407762,
+         "powerOverBus": 4.293751535746943,
+         "plantMassT_range": [
+          13310.629760815524,
+          133106.29760815523,
+          432595.4672265045
+         ],
+         "plantMassOverDryTarget_floor": 1.3310629760815524,
+         "tonnesMadeByDrawnPlantPerCycle": 93.03761481481483,
+         "cycleMWh": 2839.0220004160724,
+         "kwhPerDeliveredT": 283.9022000416073,
+         "minutesAddedAtDrawnPlant": 1646.7053242496434
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 5616.095224394173,
+         "hoursAtDrawnPlant": 56.16095224394173,
+         "powerToMakeInWindowMW": 13414.156881177423,
+         "powerOverBus": 8.65429476204995,
+         "plantMassT_range": [
+          26828.313762354846,
+          268283.13762354845,
+          871920.1972765325
+         ],
+         "plantMassOverDryTarget_floor": 2.6828313762354847,
+         "tonnesMadeByDrawnPlantPerCycle": 46.1597868430724,
+         "cycleMWh": 5668.741424394173,
+         "kwhPerDeliveredT": 566.8741424394173,
+         "minutesAddedAtDrawnPlant": 3344.5369786365036
+        }
+       },
+       "earlierWorst": {
+        "ballastT": 7389.458,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 3182.6395606,
+         "hoursAtDrawnPlant": 31.826395606000002,
+         "powerToMakeInWindowMW": 7601.798875612078,
+         "powerOverBus": 4.904386371362631,
+         "plantMassT_range": [
+          15203.597751224155,
+          152035.97751224154,
+          494116.92691478506
+         ],
+         "plantMassOverDryTarget_floor": 1.5203597751224156,
+         "tonnesMadeByDrawnPlantPerCycle": 97.20670226762637,
+         "cycleMWh": 3235.2857606000002,
+         "kwhPerDeliveredT": 323.52857606000003,
+         "minutesAddedAtDrawnPlant": 1884.4635803600002
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 3325.2560999999996,
+         "hoursAtDrawnPlant": 33.25256099999999,
+         "powerToMakeInWindowMW": 7942.441360634861,
+         "powerOverBus": 5.12415571653862,
+         "plantMassT_range": [
+          15884.882721269722,
+          158848.82721269722,
+          516258.68844126596
+         ],
+         "plantMassOverDryTarget_floor": 1.5884882721269722,
+         "tonnesMadeByDrawnPlantPerCycle": 93.03761481481483,
+         "cycleMWh": 3377.9022999999997,
+         "kwhPerDeliveredT": 337.79023,
+         "minutesAddedAtDrawnPlant": 1970.0335039999995
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 6702.2384059999995,
+         "hoursAtDrawnPlant": 67.02238406,
+         "powerToMakeInWindowMW": 16008.43180910182,
+         "powerOverBus": 10.328020522001173,
+         "plantMassT_range": [
+          32016.86361820364,
+          320168.63618203637,
+          1040548.0675916183
+         ],
+         "plantMassOverDryTarget_floor": 3.201686361820364,
+         "tonnesMadeByDrawnPlantPerCycle": 46.1597868430724,
+         "cycleMWh": 6754.884606,
+         "kwhPerDeliveredT": 675.4884605999999,
+         "minutesAddedAtDrawnPlant": 3996.2228875999995
+        }
+       }
+      },
+      "60": {
+       "makingWindowMin": 67.147324,
+       "gapT": {
+        "hover_eta07": 6191.946223146828,
+        "hover_eta055": 7313.488607779064,
+        "earlierWorstUnheldT": 7273.491
+       },
+       "hover_eta07": {
+        "ballastT": 6191.946223146828,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 2666.871238309339,
+         "hoursAtDrawnPlant": 26.66871238309339,
+         "powerToMakeInWindowMW": 2383.0029964941023,
+         "powerOverBus": 1.5374212880607112,
+         "plantMassT_range": [
+          4766.0059929882045,
+          47660.059929882045,
+          154895.19477211664
+         ],
+         "plantMassOverDryTarget_floor": 0.4766005992988204,
+         "tonnesMadeByDrawnPlantPerCycle": 259.83795371875243,
+         "cycleMWh": 2808.921838309339,
+         "kwhPerDeliveredT": 280.8921838309339,
+         "minutesAddedAtDrawnPlant": 1532.9754189856033
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 2786.3758004160723,
+         "hoursAtDrawnPlant": 27.863758004160722,
+         "powerToMakeInWindowMW": 2489.787203209533,
+         "powerOverBus": 1.6063143246513116,
+         "plantMassT_range": [
+          4979.574406419066,
+          49795.74406419066,
+          161836.16820861964
+         ],
+         "plantMassOverDryTarget_floor": 0.49795744064190656,
+         "tonnesMadeByDrawnPlantPerCycle": 248.6937925925926,
+         "cycleMWh": 2928.4264004160723,
+         "kwhPerDeliveredT": 292.84264004160724,
+         "minutesAddedAtDrawnPlant": 1604.6781562496433
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 5616.095224394173,
+         "hoursAtDrawnPlant": 56.16095224394173,
+         "powerToMakeInWindowMW": 5018.304429580104,
+         "powerOverBus": 3.2376157610194216,
+         "plantMassT_range": [
+          10036.608859160207,
+          100366.08859160208,
+          326189.78792270675
+         ],
+         "plantMassOverDryTarget_floor": 1.0036608859160208,
+         "tonnesMadeByDrawnPlantPerCycle": 123.38721793458286,
+         "cycleMWh": 5758.145824394173,
+         "kwhPerDeliveredT": 575.8145824394173,
+         "minutesAddedAtDrawnPlant": 3302.5098106365035
+        }
+       },
+       "earlierWorst": {
+        "ballastT": 7273.491,
+        "optimumCollins_arnaizDelPozo2020": {
+         "energyPerCycleMWh": 3132.6925737,
+         "hoursAtDrawnPlant": 31.326925737,
+         "powerToMakeInWindowMW": 2799.241179320862,
+         "powerOverBus": 1.8059620511747498,
+         "plantMassT_range": [
+          5598.482358641724,
+          55984.823586417246,
+          181950.67665585605
+         ],
+         "plantMassOverDryTarget_floor": 0.5598482358641724,
+         "tonnesMadeByDrawnPlantPerCycle": 259.83795371875243,
+         "cycleMWh": 3274.7431737,
+         "kwhPerDeliveredT": 327.47431737,
+         "minutesAddedAtDrawnPlant": 1812.46822022
+        },
+        "config_eLN2": {
+         "energyPerCycleMWh": 3273.0709500000003,
+         "hoursAtDrawnPlant": 32.7307095,
+         "powerToMakeInWindowMW": 2924.677340827462,
+         "powerOverBus": 1.8868886069854593,
+         "plantMassT_range": [
+          5849.354681654924,
+          58493.54681654924,
+          190104.02715378505
+         ],
+         "plantMassOverDryTarget_floor": 0.5849354681654925,
+         "tonnesMadeByDrawnPlantPerCycle": 248.6937925925926,
+         "cycleMWh": 3415.1215500000003,
+         "kwhPerDeliveredT": 341.512155,
+         "minutesAddedAtDrawnPlant": 1896.6952460000002
+        },
+        "standalone_rimpel2023": {
+         "energyPerCycleMWh": 6597.056337,
+         "hoursAtDrawnPlant": 65.97056337,
+         "powerToMakeInWindowMW": 5894.84966251224,
+         "powerOverBus": 3.8031288145240256,
+         "plantMassT_range": [
+          11789.69932502448,
+          117896.99325024479,
+          383165.2280632956
+         ],
+         "plantMassOverDryTarget_floor": 1.1789699325024479,
+         "tonnesMadeByDrawnPlantPerCycle": 123.38721793458286,
+         "cycleMWh": 6739.1069370000005,
+         "kwhPerDeliveredT": 673.9106937000001,
+         "minutesAddedAtDrawnPlant": 3891.0864781999994
+        }
+       }
+      }
+     }
+    },
+    "g": {
+     "a+b": {
+      "closes": true,
+      "keptT": 6538.0859375,
+      "deliveredT": 3461.9140625,
+      "condition": "slow letdown, whole bus on the rotors; the drawn letdown needs the earlier lever",
+      "vehicleChange": false
+     },
+     "b+c": {
+      "closes": true,
+      "keptT": 6191.946223146828,
+      "deliveredT": 3808.053776853172,
+      "condition": "C_L 0.34 on the planform at 79.2 m/s shown, and a hand-over that holds the hull through the hover interval with 6192 t of water aboard",
+      "vehicleChange": false
+     },
+     "c+bag": {
+      "closes": false,
+      "condition": "the hover interval before the bag holds has no actuator: see routes.c.handOver.hoverInterval",
+      "vehicleChange": false
+     },
+     "a+f": {
+      "closes": false,
+      "ballastMadePerCycleT": 93.03761481481483,
+      "gapT": 7389.458,
+      "condition": "drawn plant, config specific energy, making window of the cycle",
+      "vehicleChange": false
+     },
+     "b+f": {
+      "closes": true,
+      "keptT": 7303.740385185185,
+      "deliveredT": 2696.259614814815,
+      "condition": "the plant replaces the tonnes it can make per cycle",
+      "vehicleChange": false
+     },
+     "a+d": {
+      "closes": true,
+      "deliveredT": 10000,
+      "condition": "vehicle change: smaller hull, reversible rotors, float-up given up",
+      "vehicleChange": true
+     },
+     "a+e": {
+      "closes": true,
+      "volumeFraction": 0.260783791903595,
+      "electricalMWh": 460.3178186688127,
+      "condition": "vehicle change: cells that change volume every cycle (closed by the sealed-cell decision)",
+      "vehicleChange": true
+     }
+    }
+   },
+   "batteryMassT": {
+    "floor": 4000.0,
+    "credible": 6666.666666666667,
+    "demonstrated": 13422.818791946309
+   },
+   "batteryMassOverDryTarget": {
+    "floor": 0.4,
+    "credible": 0.6666666666666667,
+    "demonstrated": 1.342281879194631
+   }
+  }
+ },
+ "baselineReproduction": [
+  {
+   "cls": "P100",
+   "km": 15,
+   "phase": "RETURN_TRANSIT",
+   "x": 0.8105,
+   "altAgl": 883.168,
+   "vz": -8.823116,
+   "airV": 25.0,
+   "surplusT": 122.557082,
+   "dragT_rho110": 23.57209175363403,
+   "availThrustT": 111.87703472365872,
+   "unheldMine": 34.25213902997531,
+   "unheldTree": 34.252145,
+   "diffT": -5.9700246879401675e-06,
+   "rangeAtCd": [
+    10.68004727634128,
+    34.25213902997531,
+    57.82423078360934
+   ]
+  },
+  {
+   "cls": "P1000",
+   "km": 15,
+   "phase": "SOURCE_APPROACH",
+   "x": 0.7305,
+   "altAgl": 518.199,
+   "vz": -7.441801,
+   "airV": 0.0,
+   "surplusT": 1317.69527,
+   "dragT_rho110": 78.50165150746511,
+   "availThrustT": 527.6357694530003,
+   "unheldMine": 868.5611520544647,
+   "unheldTree": 868.561162,
+   "diffT": -9.945535225597268e-06,
+   "rangeAtCd": [
+    790.0595005469996,
+    868.5611520544647,
+    947.0628035619299
+   ]
+  },
+  {
+   "cls": "P1000",
+   "km": 60,
+   "phase": "SOURCE_APPROACH",
+   "x": 0.7305,
+   "altAgl": 518.199,
+   "vz": -7.441801,
+   "airV": 0.0,
+   "surplusT": 1300.157252,
+   "dragT_rho110": 78.50165150746511,
+   "availThrustT": 561.831350140839,
+   "unheldMine": 816.827553366626,
+   "unheldTree": 816.827563,
+   "diffT": -9.633374020268093e-06,
+   "rangeAtCd": [
+    738.3259018591609,
+    816.827553366626,
+    895.3292048740911
+   ]
+  },
+  {
+   "cls": "P10000",
+   "km": 15,
+   "phase": "SOURCE_APPROACH",
+   "x": 0.6768,
+   "altAgl": 702.924,
+   "vz": -6.461992,
+   "airV": 0.0,
+   "surplusT": 12794.900081,
+   "dragT_rho110": 273.9312179561136,
+   "availThrustT": 5679.373533100751,
+   "unheldMine": 7389.457765855362,
+   "unheldTree": 7389.457648,
+   "diffT": 0.00011785536207753466,
+   "rangeAtCd": [
+    7115.526547899248,
+    7389.457765855362,
+    7663.388983811476
+   ]
+  },
+  {
+   "cls": "P10000",
+   "km": 60,
+   "phase": "SOURCE_APPROACH",
+   "x": 0.6768,
+   "altAgl": 702.924,
+   "vz": -6.461992,
+   "airV": 0.0,
+   "surplusT": 12744.413126,
+   "dragT_rho110": 273.9312179561136,
+   "availThrustT": 5744.853600647379,
+   "unheldMine": 7273.490743308734,
+   "unheldTree": 7273.490624,
+   "diffT": 0.0001193087337014731,
+   "rangeAtCd": [
+    6999.55952535262,
+    7273.490743308734,
+    7547.421961264848
+   ]
+  }
+ ],
+ "ranking": [
+  {
+   "rank": 1,
+   "route": "b",
+   "name": "water kept aboard",
+   "why": "closes every class on the drawn vehicle and bus at a price in delivered tonnes; no new mechanism; the price is bounded by routes.b.byKm.*.keptRangeT"
+  },
+  {
+   "rank": 2,
+   "route": "d",
+   "name": "hull balanced at half load, rotors both ways",
+   "why": "closes the force balance for all classes on the drawn bus with full delivery, but changes the vehicle and gives up fail-safe float-up; the one next analysis"
+  },
+  {
+   "rank": 3,
+   "route": "c",
+   "name": "approach at airspeed",
+   "why": "closes the moving legs for the P-100 and, at measured C_L, the P-1000; the hand-over to the bag has no coherent form at the drawn cable and hull lengths"
+  },
+  {
+   "rank": 4,
+   "route": "e",
+   "name": "variable displacement",
+   "why": "ideal work is affordable only for the partial exchange; it asks sealed cells to change volume every cycle; closed by a reopenable design decision"
+  },
+  {
+   "rank": 5,
+   "route": "a",
+   "name": "rotor hold-down as drawn",
+   "why": "the disk needed is a multiple of the hull planform on the two larger classes"
+  },
+  {
+   "rank": 6,
+   "route": "f",
+   "name": "cryogenic ballast",
+   "why": "the energy and plant mass to make the ballast inside the cycle exceed the bus and the dry mass on every class with a gap"
+  }
+ ],
+ "nextAnalysis": "route d: the half-load hull with two-way rotors, opened on its failure case (routes.*.d.failureCase) before anything else"
+}
