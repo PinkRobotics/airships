@@ -4,7 +4,8 @@
 --inventory prints every detected block and its interpretation as JSON.
 --report prints the failing-sentence table for the hand-up. Neither mode writes files.
 
-This is a lexical and structural inventory, not a natural-language proof. It scans tables,
+This is a lexical and structural inventory, not a natural-language proof. Vehicle/motion
+relations apply to prose only; style and script code are not flight statements. It scans tables,
 paragraphs, HTML display blocks and inline script templates, README.md, GOALS.md and the
 scoping tool's Python display strings/comments. It also lexes quoted and template strings
 (including concatenation and escapes) under every published script root: app, 3d, sim,
@@ -122,11 +123,11 @@ class Blocks(HTMLParser):
             self.out.append((frame['line'],self.getpos()[0],text,raw,tag))
 
 
-def interesting(text):
+def interesting(text, prose=True):
     text=re.sub(r'(?:centre|center) of buoyancy|floating controls|\b(?:highp|mediump|lowp)\s+float\b|aspect-ratio\s*:\s*[\d/]+|\bfloat\s*:\s*(?:left|right|none)', '',text,flags=re.I)
     if text.startswith('#version'):text=re.sub(r'\bfloat\b','',text)
     if len(text)>128 and re.fullmatch(r'[A-Za-z0-9+/=]+',text):return False
-    return bool(DENSITY.search(text) or CUE.search(text) or relation(text) or (RATIO.search(text) and NUM.search(text)) or
+    return bool(DENSITY.search(text) or CUE.search(text) or relation(text, prose=prose) or (RATIO.search(text) and NUM.search(text)) or
                 (MASS.search(text) and re.search(r"mass|weigh|deficit|short",text,re.I)) or
                 re.search(r'data-(?:n|cat)="(?:ship\.(?:ratio|bestWorldRatio|massT|liftT)|walls\.|stock\.(?:totalKg|massOver)|demo\.displacedAirKg|weigh\.)',text) or
                 re.search(r'data-(?:n|cat)="[^" ]*(?:ratio|residual|totalKg|kgPerM3|filmGM2|arealGM2|displacedAir|nodesKg|tubeKg|pipeKg)',text,re.I))
@@ -146,18 +147,21 @@ def source_blocks(path):
         # prose; no attempt to execute arbitrary HTML script is needed for this gate.
         for m in re.finditer(r'<script\b[^>]*>(.*?)</script>',body,re.S|re.I):
             for off,line in enumerate(m[1].splitlines()):
-                if not line.lstrip().startswith(('//','/*','*')) and interesting(clean(line)) and ('`' in line or "'" in line or '"' in line):
+                if not line.lstrip().startswith(('//','/*','*')) and interesting(clean(line), prose=False) and ('`' in line or "'" in line or '"' in line):
                     yield body.count('\n',0,m.start())+off+1,clean(line),line
     elif path.suffix=='.md':
+        # Preserve source positions while removing nonprose HTML containers.
+        body=re.sub(r'<(script|style)\b[^>]*>.*?</\1\s*>',
+                    lambda m: re.sub(r'[^\n]', ' ', m[0]), body, flags=re.S|re.I)
         start=1
         for m in re.finditer(r'\S[^\n]*(?:\n(?!\s*\n)[^\n]*)*',body):
             raw=m[0];text=clean(raw)
-            if any(pattern.fullmatch(rel) for pattern, _ in ALLOWLIST) or interesting(text) or (raw.lstrip().startswith('|') and NUM.search(text) and (re.search(r'kg/m|kg.m|density|mass|tube',text,re.I) or (rel=='docs/FLOAT.md'))):
+            if any(pattern.fullmatch(rel) for pattern, _ in ALLOWLIST) or interesting(text, prose=not raw.lstrip().startswith(('```', '~~~'))) or (raw.lstrip().startswith('|') and NUM.search(text) and (re.search(r'kg/m|kg.m|density|mass|tube',text,re.I) or (rel=='docs/FLOAT.md'))):
                 yield body.count('\n',0,m.start())+1,text,raw
     elif path.suffix in ('.js', '.mjs'):
         for line, string in js_strings(body):
             text=clean(string)
-            if interesting(text):
+            if interesting(text, prose=False):
                 yield line,text,string
     elif path.suffix=='.py':
         # Only display/documentation strings and comments, never float type annotations.

@@ -53,6 +53,7 @@ def register(change):
     _mk7(change)
     _mk8(change)
     _mk9(change)
+    _mk10(change)
 
 def _mk(change):
     import hashlib
@@ -468,3 +469,43 @@ def _mk9(change):
            edits=[('research/analysis/cap-readings.md', '| As billed | record | 403.101266',
                    '| As billed | record | 403.201266')],
            gates=G)
+
+
+def _mk10(change):
+    """Subject/motion and dated-refresh regressions, each on a separate tree."""
+    statement = 'The drawn 52 m hull climbs off its mast and stays up with its engines off.'
+    change('L-P-prose', 'Uncued mast departure in prose',
+           append=('docs/FLOAT.md', '\n'+statement+'\n'))
+    def emit(text):
+        anchor = "const notation=region('notation','## Energy notation\\n\\n'+table"
+        assert text.count(anchor) == 1
+        return text.replace(anchor, "const notation=region('notation','" + statement + "\\n\\n## Energy notation\\n\\n'+table")
+    change('L-G-generated', 'Uncued statement emitted by the energy document generator',
+           py_edits=[('research/analysis/energy-documents.mjs', emit)])
+    change('L-T-table', 'Gas hold-up verdict in a new table',
+           append=('docs/FLOAT.md', '\n| Hull | Claim |\n|---|---|\n| 52 m drawn hull | stays up on its own gas |\n'))
+    pairs = [('hull','climbs'), ('ship','ascends'), ('airship','stays up'),
+             ('vehicle','stays aloft'), ('cell','is aloft'), ('hull','is airborne'),
+             ('ship','lifts off'), ('airship','leaves the ground'),
+             ('vehicle','hovers'), ('cell','goes up'), ('hull','rises')]
+    for i, (subject, motion) in enumerate(pairs, 1):
+        change(f'L-motion-{i:02}', f'{subject} subject with {motion} motion',
+               append=('docs/FLOAT.md', '\n'+f'The drawn {subject} {motion} with its engines off.'+'\n'))
+    change('L-motion-front', 'Airborne predicate precedes the vehicle subject',
+           append=('docs/FLOAT.md', '\nAirborne, the drawn ship crosses the valley with its engines off.\n'))
+    change('L-control-md-code', 'Markdown style and script containers are not prose',
+           append=('docs/FLOAT.md', '\n<style>.vehicle:hover { color: pink; }</style>\n'
+                                    '<script>const hull = 52; const climbs = true;</script>\n'))
+    change('L-control-crane', 'Nonvehicle subject lifts a cover',
+           append=('docs/FLOAT.md', '\nThe crane lifts off the cover.\n'))
+    change('L-control-track', 'Nonvehicle subject climbs a ridge',
+           append=('docs/FLOAT.md', '\nThe track climbs the ridge.\n'))
+    change('L-control-css', 'Vehicle CSS selector and script code are not prose',
+           edits=[('index.html', '</body>',
+                   '<style>.vehicle:hover { color: pink; }</style>\n'
+                   '<script>const vehicle = "track"; const climbs = true;</script>\n</body>')])
+    change('L-control-model', 'Motion in the simulated fleet, with its existing bound assumption',
+           edits=[('index.html', 'It escapes on the surplus buoyancy',
+                   'The simulated vehicle climbs in the flight model. It escapes on the surplus buoyancy')])
+    change('L-dated-append', 'Plain refresh must not freeze a newly appended verdict')
+    change('L-dated-new', 'Plain refresh must not freeze a new dated audit verdict')

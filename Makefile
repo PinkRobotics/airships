@@ -346,10 +346,10 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_runner.py'
-	FLOAT_PLANT_MODE=fast $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
+	FLOAT_PLANT_CASES= FLOAT_PLANT_MODE=fast $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
 
 floatplants:  ## Full plants: required before hand-up of gate tools, record schema or plant changes
-	FLOAT_PLANT_MODE=all $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
+	FLOAT_PLANT_CASES= FLOAT_PLANT_MODE=all $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
 
 .PHONY: floatpages floatpagecheck
 floatpages:

@@ -2,7 +2,7 @@
 """Replay the reviewed float dispositions and freeze dated blocks by text hash.
 
 Run intentionally after reviewing a candidate tree; never a gate prerequisite. Unknown
-new text outside dated records is refused unless its hash is in the reviewed catalogue.
+new verdict text, including dated records, is refused unless its hash is in the reviewed catalogue.
 Existing record entries retain their dispositions; their informative locations are refreshed.
 Energy blocks qualify only inside paired markers that their checked generator reproduces.
 """
@@ -16,6 +16,7 @@ sys.dont_write_bytecode = True
 import check_float_ledger as gate
 import float_claims as claims
 from float_regions import region
+from float_text import dated_verdict
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT/'tools/float_dispositions.json'
@@ -65,6 +66,26 @@ def retire_reviewed(shards, by_key, catalogue):
     return retired
 
 
+def dated_disposition(hit, frozen, reviewed):
+    """Reuse an existing freeze; new verdicts need the same catalogue as live edits."""
+    key = (hit['file'], hit['key'])
+    date = '20' + re.search(r'(\d{2}-\d{2}-\d{2})', hit['file'])[1]
+    if key in frozen:
+        return dict(frozen[key], line=hit['line'])
+    if key in reviewed:
+        entry = reviewed[key]
+        if (entry.get('class') != 'history' or entry.get('date') != date or
+                not isinstance(entry.get('reason'), str) or not 8 <= len(entry['reason']) <= 240):
+            raise SystemExit('Dated decision requires history, the file date and a reviewed reason: ' + str(key))
+        return dict(entry, line=hit['line'])
+    if dated_verdict(hit['sentence']):
+        raise SystemExit('New dated verdict needs review: ' + str(key) +
+                         '; add an explicit per-block entry to tools/float_dispositions.json')
+    return dict(file=hit['file'], key=hit['key'], line=hit['line'],
+        **{'class': 'history'}, date=date,
+        reason='Frozen block of this dated working or audit record; retained as history, not a current float endorsement.')
+
+
 def main():
     ledger=json.loads((ROOT/claims.LEDGER_PATH).read_text())
     hits=gate.inventory(ledger)
@@ -75,6 +96,11 @@ def main():
         if h.get('pointer') is not None:continue
         h['key']=claims.key_of(h['sentence'])
         by_key.setdefault((h['file'],h['key']),h)
+    frozen_path=claims.RECORD/'dated-blocks.json'
+    try:
+        frozen={(e['file'],e['key']):e for e in json.loads(frozen_path.read_text())['entries']}
+    except FileNotFoundError:
+        frozen={}
     catalogue=json.loads(CATALOG.read_text())
     retired=retire_reviewed(shards,by_key,catalogue)
     known={(e['file'],e['key']):e for d in shards.values() for e in d['entries']}
@@ -91,10 +117,7 @@ def main():
     for k,h in sorted(by_key.items()):
         if any(p.fullmatch(h['file']) for p,_ in gate.ALLOWLIST):
             if k not in known:
-                date='20'+re.search(r'(\d{2}-\d{2}-\d{2})',h['file'])[1]
-                dated_entries.append(dict(file=h['file'],key=h['key'],line=h['line'],
-                    **{'class':'history'},date=date,
-                    reason='Frozen block of this dated working or audit record; retained as history, not a current float endorsement.'))
+                dated_entries.append(dated_disposition(h,frozen,reviewed))
             continue
         if k in known or h['status']=='ALLOW' or h['file']==claims.DEFERRED_PATH:continue
         if k not in reviewed:raise SystemExit('New block needs review: '+str(k))

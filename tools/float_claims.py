@@ -96,7 +96,7 @@ import pathlib
 import re
 import sys
 
-from float_text import relation, verdict_relation
+from float_text import relation, verdict_relation, VERDICT
 from float_regions import Regions
 from float_qualifiers import check as check_qualifiers
 
@@ -119,10 +119,6 @@ DEFERRED_OWNERS = {
 }
 NOTICE_LINES = 12
 HEADING_LINES = 60
-VERDICT = re.compile(r'\bfloat(?:s|ed)?\b(?!\s+(?:ratio|ledger|window|case|claim|gate|result|verdict))'
-                     r'|\bneutrally buoyant\b|\bneutral buoyancy\b|\ba design exists\b'
-                     r'|\blighter than (?:the )?air\b'
-                     r'|\bwithin (?:two|three|five|\d+(?:\.\d+)?)\s*(?:percent|per cent|%)', re.I)
 STRUCTURAL = re.compile(r'\bneutrally buoyant\b|\bneutral buoyancy\b|\ba design exists\b'
                         r'|\blighter than (?:the )?air\b'
                         r'|\bwithin (?:two|three|five|\d+(?:\.\d+)?)\s*(?:percent|per cent|%)', re.I)

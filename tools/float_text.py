@@ -21,8 +21,36 @@ STRUCTURAL_RELATION = re.compile(
     r'[^.!?\n]{0,100}\b(?:mass|weight|hull|vehicle|structure|air)\b', re.I)
 
 
-def relation(text):
-    return bool(RELATION.search(text) or STRUCTURAL_RELATION.search(text))
+# A subject and motion in one sentence are inventory, not proof of structural lift.
+# Keep motion vocabulary here for both the inventory and dated-record review guard.
+VEHICLE = r'\b(?:hulls?|ships?|airships?|vehicles?|cells?)\b'
+MOTION = re.compile(
+    r'\b(?:rise(?:s)?|rose|ris(?:en|ing)|climb(?:s|ed|ing)?|ascend(?:s|ed|ing)?|'
+    r'stay(?:s|ed|ing)? (?:up|aloft)|aloft|airborne|'
+    r'lift(?:s|ed|ing)? off|(?:leave(?:s)?|left|leaving) the ground|'
+    r'hover(?:s|ed|ing)?|(?:go(?:es|ing)?|went) up)\b', re.I)
+SENTENCE_GAP = r'(?:[^.!?\n]|\.(?=\d))*?'
+VEHICLE_MOTION = re.compile(VEHICLE + SENTENCE_GAP + MOTION.pattern +
+                            '|' + MOTION.pattern + SENTENCE_GAP + VEHICLE, re.I)
+VERDICT = re.compile(r'\bfloat(?:s|ed)?\b(?!\s+(?:ratio|ledger|window|case|claim|gate|result|verdict))'
+                     r'|\bneutrally buoyant\b|\bneutral buoyancy\b|\ba design exists\b'
+                     r'|\blighter than (?:the )?air\b'
+                     r'|\bwithin (?:two|three|five|\d+(?:\.\d+)?)\s*(?:percent|per cent|%)', re.I)
+
+
+def dated_verdict(text):
+    """Words requiring explicit review before a NEW dated block is frozen."""
+    # A provenance destination names a document, not a verdict. Keep link labels:
+    # a claim hidden behind a label still requires the same per-block decision.
+    text = re.sub(r'\]\([^)]*\)', ']', text)
+    text = re.sub(r'\bFLOAT(?:-LEDGER)?\.(?:md|json)\b', '', text, flags=re.I)
+    return bool(VERDICT.search(text) or re.search(r'\b(?:floating|buoyan\w*)\b', text, re.I) or
+                verdict_relation(text) or MOTION.search(text))
+
+
+def relation(text, prose=True):
+    return bool(RELATION.search(text) or STRUCTURAL_RELATION.search(text) or
+                (prose and VEHICLE_MOTION.search(text)))
 
 
 def verdict_relation(text):
