@@ -42,14 +42,14 @@ const cycles = args.distances_km.map(km => {
 });
 setConfig({ rhoAir: args.rotor_density });
 const rotorConfig = { ...CFG };
-const rotor = physics.module.diskMW({ diskM2: args.disk_m2 }, args.thrust_N);
+const rotor = physics.module.diskMW({ diskM2: args.disk_m2 }, args.thrust_N, args.rotor_density);
 const hoverPressure = atmosphere.module.isaPressurePa(args.hover.pressure_altitude_m);
 const hoverDensity = hoverPressure / (atmosphere.module.ISA.R * args.hover.temperature_K);
 setConfig({ rhoAir: hoverDensity });
 const hover = {
   pressure_Pa: hoverPressure, density_kg_m3: hoverDensity,
   density_altitude_m: atmosphere.module.altitudeForDensity(hoverDensity),
-  power_MW: physics.module.diskMW({ diskM2: args.hover.disk_m2 }, args.hover.thrust_N),
+  power_MW: physics.module.diskMW({ diskM2: args.hover.disk_m2 }, args.hover.thrust_N, hoverDensity),
   config: { ...CFG },
 };
 resetConfig();
