@@ -243,7 +243,8 @@ class RepositoryMutationProofs(unittest.TestCase):
             for name in (*noticecheck.REQUIRED, 'index.html', 'dist.manifest'):
                 shutil.copy2(ROOT / name, source / name)
             for folder in noticecheck.FOLDERS:
-                shutil.copytree(ROOT / folder, source / folder)
+                if (ROOT / folder).is_dir():
+                    shutil.copytree(ROOT / folder, source / folder)
             served, _, partial = publish.read_manifest()
             for src, rel in publish.wanted_files(served, partial):
                 target = dest / rel

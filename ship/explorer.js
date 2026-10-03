@@ -24,14 +24,14 @@
  * and the panel says so at every level.
  */
 
-import * as CELL from './model.js?v=762fdcfd';
-import * as G from './explorer-geom.js?v=762fdcfd';
+import * as CELL from './model.js?v=acbad6ee';
+import * as G from './explorer-geom.js?v=acbad6ee';
 // The 51 printed joints grouped into their five families, and the 216 members grouped into
 // the cuts they are sawn to — both straight out of the manifest the joint generator wrote.
 // Generated, never typed: `python3 tools/gen_node_families.py`.
 import {
   FAMILIES as NODE_FAMILIES, FAMILY_ORDER, NODE_TOTALS, JOINT, CUT_GROUPS, ASSEMBLY,
-} from './nodes.generated.js?v=762fdcfd';
+} from './nodes.generated.js?v=acbad6ee';
 // The 51 joints as real meshes — the display field for the article, plus the five family
 // representatives at print resolution for the connector tour. Generated, never modelled:
 // `python3 tools/gen_display_meshes.py`.
@@ -41,17 +41,17 @@ import {
  * mounts, which is the same ordering the old static import enforced. */
 let NODEMESHES = null;
 export function loadNodemeshes() {
-  return import('./nodemeshes.generated.js?v=762fdcfd')
+  return import('./nodemeshes.generated.js?v=acbad6ee')
     .then((m) => { NODEMESHES = m.NODEMESHES; return NODEMESHES; });
 }
 // The film's pressure-formed shape over all 72 panels — the loaded skin, solved by the
 // membrane FEM in tools/gen_skin.py. Generated, never modelled: `python3 tools/gen_skin.py`.
-import { SKIN } from './skin.generated.js?v=762fdcfd';
+import { SKIN } from './skin.generated.js?v=acbad6ee';
 // SHIP-SCALE FIGURES, from the blueprint page's own data module — typed once there, with
 // provenance comments and scoping status, until ship.js lands under the gates (see
-// docs/working/26-08-12-seven-levels-handoff.md §4b). The ship level draws FROM these so
+// catalog.js for the recorded basis). The ship level draws FROM these so
 // the drawn population and the quoted population are one number. model.js stays the cell's.
-import { SHIP, BAND, GRID, WALL } from './catalog.js?v=762fdcfd';
+import { SHIP, BAND, GRID, WALL } from './catalog.js?v=acbad6ee';
 import { node, addChild, updateWorld, walk } from '../3d/core/nodes.js?v=5bcbf32c';
 import { createRenderer, isWebGL2Available } from '../3d/render/gl.js?v=5bcbf32c';
 import {

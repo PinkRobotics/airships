@@ -32,9 +32,6 @@ FIRST_PARTY = {
     "media/intake.jpg": "Project WebGL model render; media/README.md",
     "media/vacuum.jpg": "Project WebGL model render; media/README.md",
     "research/papers/README.md": "Project provenance schema and classification rule",
-    "research/prior/README.md": "Project explanation of retained and withheld documents",
-    "research/prior/Pink_Energy_As_Cargo_Deep_Dive.md": "Project-authored prior analysis; release rehearsal retained it",
-    "research/prior/pink_energy_reference_defaults.json": "Project model defaults; release rehearsal retained them",
 }
 DECISIONS = {"redistributed", "link-only", "withheld", "to-confirm"}
 SERVICE_RECORD = "data/wind.prov.json"

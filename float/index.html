@@ -58,7 +58,7 @@ The Bryant membrane term requires an in-surface shear system the drawn wall lack
 A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case.
 No person checked the arithmetic.
 The model paths are <code>ship/model.js</code> and <code>research/analysis/vacuum-cell.py</code>; the study is <code>tools/ship_scoping.py</code>.
-The <a href="../cell/ship.html">ship checks</a> and dated account (<code>docs/working/26-08-13-honest-ship-overnight.md</code>) retain the development record.</p>
+The <a href="../cell/ship.html">ship checks</a> and <a href="ledger.html">float ledger</a> describe the design and its measured limits.</p>
 <p>The bench-cell brief below concerns article A, the process coupon.
 The scoping tool's default hull has a different wall from the hull of record; its figures belong to separate <a href="ledger.html">ledger rows</a>.</p>
 <p>Written 2026-08-11. This is the standing brief for continuous work on the vacuum cell's
@@ -590,7 +590,7 @@ computing anything new. A failed self-check means stop, not adjust the tolerance
 <li><strong>Never widen a margin definition to make something pass.</strong> If a configuration only works
 at a lower safety factor, say so in those words and report both.</li>
 <li><strong>Never freeze a worse baseline.</strong> <code>check_assembly --freeze</code> locks a known-bad state;
-locking a <em>more</em> broken one makes the gate useless. See <code>docs/HANDOFF.md</code>.</li>
+locking a <em>more</em> broken one makes the gate useless. See the handoff of 11 August, <code>docs/HANDOFF.md</code> at commit <code>5e48f2a</code> (history).</li>
 <li><strong>A mass line you did not model is not zero.</strong> Bond adhesive, seam tape, the barrier
 coating, fasteners, jig-induced overlength — each is small and they are not all small
 together. Keep a running "not yet counted" list at the bottom of any result.</li>
@@ -1130,8 +1130,8 @@ it is where the mass actually is.</strong></p>
 grind, and the gates will tell you when you are done.</p>
 <p><strong>Screenshot after every visual change.</strong> The gates hold every number on the page to the
 model and cannot see whether anything is <em>visible</em> — see the explorer section of
-<code>docs/HANDOFF.md</code>, which is written from six consecutive faults that all passed a green
-check.</p>
+the handoff of 11 August, <code>docs/HANDOFF.md</code> at commit <code>5e48f2a</code> (history),
+which records six consecutive faults that all passed a green check.</p>
 <hr>
 <h2 id="a7-what-will-bite-if-the-span-is-retargeted--all-three-measured">A7. What will bite if the span is retargeted — all three MEASURED</h2>
 <p><strong>The node SDF does not survive the parameter change as it stands.</strong> One node generated at

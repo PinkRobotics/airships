@@ -17,7 +17,7 @@ research/
   papers/            source PDFs and per-file provenance / release decisions
   notes/             one note per source: what it says, what we used, where we disagree
   analysis/          questions about the VEHICLE, worked: a script and a note each
-  prior/             earlier project documents; some withheld pending author review
+
   reports/           the three documents written from all of the above
 ```
 
@@ -52,7 +52,7 @@ record — authors, venue, year, DOI, licence, and *what we take from it* — fo
 including the ones behind a paywall. What varies is whether a PDF sits in `papers/`.
 
 **3. Each file has a release decision in its sidecar.** Working-tree presence is not a
-redistribution grant. The release rehearsal's decisions are recorded as `redistributed`,
+redistribution grant. Release decisions are recorded as `redistributed`,
 `link-only`, `withheld`, or `to-confirm`. Public releases keep only `redistributed` files;
 excluded originals leave their hashes and source records behind. Nonstandard terms need
 a person's confirmation. The generated `NOTICE`, `DATA-SOURCES.md`, and `notices.html`
@@ -69,14 +69,13 @@ actually establishes, which of our numbers touch it, and — the useful part —
 support what we would like it to. A citation that does not survive being read is worse than no
 citation, because it launders an assumption into a fact.
 
-**5. Our own earlier documents are evidence too, and are kept as written.** `prior/` holds the
-project's previous concept papers unedited, including the parts later work contradicts. They are
-dated and superseded, not corrected in place. The two documents identified in `prior/README.md`
-are withheld from the public tree pending author review; their sidecars retain the record.
+**5. Superseded project documents remain in Git history.** The current tree holds the
+maintained descriptions and the dated evidence they cite. The audits under `docs/audit/`
+record corrections; they are not claims that an earlier design is the present one.
 
 ## Where this is published
 
-`research/sources.json`, `research/notes/` and the three reports are the internal record. A page
+`research/sources.json`, `research/notes/` and the three reports are the repository record. A page
 written from the same material for a reader who has not cloned anything is live at
 <https://pinkrobotics.ca/research/> — it leads with the nine sources that contradict the project,
 and it carries the descent anchor in enough detail to be built from, deliberately: we are not

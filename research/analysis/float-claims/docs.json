@@ -4,17 +4,10 @@
     "docs/FLOAT.md",
     "docs/PHYSICS.md",
     "research/README.md",
-    "docs/HANDOFF.md",
     "docs/DECISIONS.md",
     "docs/governance/landing-attestations.md"
   ],
-  "dated": [
-    {
-      "file": "docs/HANDOFF.md",
-      "date": "2026-08-11",
-      "reason": "Dated development record; its original claims remain historical, with current results linked in the opening notice."
-    }
-  ],
+  "dated": [],
   "entries": [
     {
       "file": "docs/FLOAT.md",
@@ -163,11 +156,11 @@
     },
     {
       "file": "docs/FLOAT.md",
-      "key": "d3af1509b3fc9f99",
+      "key": "da7409bc93fc59ff",
       "line": 24,
       "class": "bound",
       "reason": "The correction distinguishes missing odd-mode spoke credit from the current even critical mode. Model identities and dated references label the reproduction record.",
-      "text": "**Correction to the ship-era note.** Diametral spokes provide no credit at odd circumferential modes, but the current governing mode is even on both published bases. The Bryant membrane term requires an in-surface shear system the drawn wall lacks. A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case. No person checked the arithmetic. The model paths are `ship/model.js` and `research/analysis/vacuum-cell.py`; the study is `tools/ship_scoping.py`. The [ship checks](../cell/ship.html) and [dated account](working/26-08-13-honest-ship-overnight.md) retain the development record.",
+      "text": "**Correction to the ship-era note.** Diametral spokes provide no credit at odd circumferential modes, but the current governing mode is even on both published bases. The Bryant membrane term requires an in-surface shear system the drawn wall lacks. A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case. No person checked the arithmetic. The model paths are `ship/model.js` and `research/analysis/vacuum-cell.py`; the study is `tools/ship_scoping.py`. The [ship checks](../cell/ship.html) and [float ledger](FLOAT-LEDGER.md) describe the design and its measured limits.",
       "bindings": [
         {
           "source": "research/analysis/vacuum-cell.json",

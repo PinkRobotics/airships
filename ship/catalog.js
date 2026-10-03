@@ -5,7 +5,7 @@
  * table); nothing the model computes is retyped here. Ship-scale entries carry numbers
  * from the verified scoping analysis (the ship-scale analysis of 12 August 2026,
  * version 2) and say so in their `prov` line — they swap to
- * ship.js imports when that module lands under the gates (see docs/HANDOFF.md, the
+ * ship.js imports when that module lands under the gates (history: docs/HANDOFF.md at commit 5e48f2a, the
  * seven-levels section). Status vocabulary:
  *
  *   proven      measured on, or billed against, the built article A
@@ -20,7 +20,7 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0, ship0Summary } from './model.js?v=762fdcfd';
+         SHIP0, ship0, ship0Summary } from './model.js?v=acbad6ee';
 
 const sb = stockBuild();
 /* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,

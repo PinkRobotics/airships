@@ -26,7 +26,7 @@ The Bryant membrane term requires an in-surface shear system the drawn wall lack
 A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case.
 No person checked the arithmetic.
 The model paths are `ship/model.js` and `research/analysis/vacuum-cell.py`; the study is `tools/ship_scoping.py`.
-The [ship checks](../cell/ship.html) and [dated account](working/26-08-13-honest-ship-overnight.md) retain the development record.
+The [ship checks](../cell/ship.html) and [float ledger](FLOAT-LEDGER.md) describe the design and its measured limits.
 
 The bench-cell brief below concerns article A, the process coupon.
 The scoping tool's default hull has a different wall from the hull of record; its figures belong to separate [ledger rows](FLOAT-LEDGER.md).
@@ -342,7 +342,7 @@ over an unchecked number that is better.
 - **Never widen a margin definition to make something pass.** If a configuration only works
   at a lower safety factor, say so in those words and report both.
 - **Never freeze a worse baseline.** `check_assembly --freeze` locks a known-bad state;
-  locking a *more* broken one makes the gate useless. See `docs/HANDOFF.md`.
+  locking a *more* broken one makes the gate useless. See the handoff of 11 August, `docs/HANDOFF.md` at commit `5e48f2a` (history).
 - **A mass line you did not model is not zero.** Bond adhesive, seam tape, the barrier
   coating, fasteners, jig-induced overlength — each is small and they are not all small
   together. Keep a running "not yet counted" list at the bottom of any result.
@@ -704,8 +704,8 @@ grind, and the gates will tell you when you are done.
 
 **Screenshot after every visual change.** The gates hold every number on the page to the
 model and cannot see whether anything is *visible* — see the explorer section of
-`docs/HANDOFF.md`, which is written from six consecutive faults that all passed a green
-check.
+the handoff of 11 August, `docs/HANDOFF.md` at commit `5e48f2a` (history),
+which records six consecutive faults that all passed a green check.
 
 ---
 

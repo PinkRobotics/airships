@@ -76,8 +76,9 @@ prove the guards can fire. A failed self-check means the model moved: stop.
 
 Objects, stated (house rule): SHIP 0 = 2:1 stubby cigar, hemispherical ends,
 sea-level survive AND sea-level float, declared SF 1.2 with SF 1.5 beside.
-Sources: ~/data/airships-reviews/analysis/26-08-12-ship-scale-analysis-v2.md
-(framework), docs/working/26-08-12-seven-levels-handoff.md SS6a (the cascade).
+Sources: the ship-scale analysis of 12 August 2026 (framework); the seven-levels
+handoff of 12 August, docs/working/26-08-12-seven-levels-handoff.md at commit
+5e48f2a, section 6a (historical cascade).
 """
 from __future__ import annotations
 

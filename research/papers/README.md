@@ -2,9 +2,9 @@
 
 The sidecar is the decision record. A PDF in a working tree is not evidence that the
 public repository may redistribute it. `decision` is exactly one of `redistributed`,
-`link-only`, `withheld`, or `to-confirm`. The release rehearsal removes the last three
-kinds from the public tree; their sidecars retain the original SHA-256 and source.
-A nonstandard statement needs a person's confirmation. In this review EASA is
+`link-only`, `withheld`, or `to-confirm`. The public export excludes the last three
+kinds; their sidecars retain the original SHA-256 and source.
+A nonstandard statement needs a person's confirmation. EASA is
 `to-confirm`; NREL, Rimpel and Zheng remain `link-only` under the prior release ruling.
 
 `python3 tools/noticecheck.py --write` generates `NOTICE`, `DATA-SOURCES.md`,
@@ -19,7 +19,8 @@ Normal mode deliberately allows excluded originals to remain in the working tree
 
 The gate takes all tracked paths (including paths deleted without updating the index)
 and all files present recursively in `data/`, `media/`, `research/papers/`, and
-`research/prior/`. Every file there needs a sidecar, except the exact project-owned
+the reserved `research/prior/` location (empty in this tree). Every file in these
+locations needs a sidecar, except the exact project-owned
 paths below and provenance JSON itself, which is parsed and validated. New READMEs,
 nested PDFs, and unstaged files get no implicit exception. A release export without
 Git is scanned using the same folder rule. In addition, fonts (`.woff`, `.woff2`,
@@ -38,9 +39,6 @@ new third-party storage locations must extend this rule and its tests.
 | `media/intake.jpg` | Render of the project's WebGL model; documented in media/README.md. |
 | `media/vacuum.jpg` | Render of the project's WebGL model; documented in media/README.md. |
 | `research/papers/README.md` | This project-authored schema and classification explanation. |
-| `research/prior/README.md` | Project explanation of retained and withheld documents. |
-| `research/prior/Pink_Energy_As_Cargo_Deep_Dive.md` | Project-authored analysis retained by the release rehearsal. |
-| `research/prior/pink_energy_reference_defaults.json` | Project model defaults retained by the release rehearsal. |
 
 ## Schema and evidence
 

@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=762fdcfd';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=762fdcfd';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=762fdcfd';
-import { shipViz } from '../cockpit/shipviz.js?v=762fdcfd';
-import { updateRoster } from '../cockpit/tables.js?v=762fdcfd';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=762fdcfd';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=762fdcfd';
-import { S } from '../store.js?v=762fdcfd';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt } from '../../sim/index.js?v=acbad6ee';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=acbad6ee';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=acbad6ee';
+import { shipViz } from '../cockpit/shipviz.js?v=acbad6ee';
+import { updateRoster } from '../cockpit/tables.js?v=acbad6ee';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=acbad6ee';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=acbad6ee';
+import { S } from '../store.js?v=acbad6ee';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
