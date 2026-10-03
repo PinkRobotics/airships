@@ -40,9 +40,8 @@ The step named "map: click a fire with no ship assigned" must go red.
     tests/interaction/check.py --settle 800
 
 Requires: python3, chromium on PATH, and the `websockets` package (as tools/js_eval.py
-does). No node. If AIRSHIPS_PORT (or PORT) names a development server that is already
-listening this reuses it, as the other drivers do; otherwise it serves the repository
-itself on a free port. The browser runs on a throwaway profile under the system temporary
+does). No node. Each invocation serves its own tree on a system-chosen port.
+The browser runs on a throwaway profile under the system temporary
 directory; AIRSHIPS_TMPDIR moves that elsewhere, which is worth doing where /tmp is a RAM
 disk or where a confined browser package cannot reach it.
 
@@ -59,15 +58,10 @@ import json
 import os
 import pathlib
 import shutil
-import socket
-import socketserver
 import subprocess
 import sys
 import tempfile
-import threading
 import time
-import urllib.error
-import urllib.request
 
 def chrome_flags():
     """Extra Chromium flags this environment needs.
@@ -88,6 +82,9 @@ def chrome_flags():
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from serve import serve_tree
+from devtools import page_target
 QUERY = "?seed=7&data=snapshot"
 CHROME = os.environ.get("CHROME", "chromium")
 
@@ -98,55 +95,12 @@ if not sys.stdout.isatty() or os.environ.get("NO_COLOR"):
 
 # ---------- the server: the same arrangement as tests/golden/check.py ---------------------
 
-def answers(port: int) -> bool:
-    try:
-        urllib.request.urlopen(f"http://127.0.0.1:{port}/sim/index.js", timeout=1).read(1)
-        return True
-    except (urllib.error.URLError, OSError):
-        return False
-
-
-def existing_server():
-    for var in ("AIRSHIPS_PORT", "PORT"):
-        raw = os.environ.get(var)
-        if not raw:
-            continue
-        try:
-            port = int(raw)
-        except ValueError:
-            continue
-        if answers(port):
-            return port
-    return None
-
-
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
-
-
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=str(ROOT), **kw)
 
     def log_message(self, *a):
         pass
-
-
-class Server(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
-def serve(port: int) -> Server:
-    httpd = Server(("127.0.0.1", port), Handler)
-    threading.Thread(target=httpd.serve_forever, daemon=True).start()
-    for _ in range(100):
-        if answers(port):
-            return httpd
-        time.sleep(0.05)
-    raise SystemExit("the local server never came up")
 
 
 # ---------- the trap and the survival probe ------------------------------------------------
@@ -382,7 +336,6 @@ class Run:
 async def drive(url: str, settle: int, verbose: bool) -> int:
     import websockets                       # imported late, as tools/js_eval.py does
 
-    port = free_port()
     # ignore_cleanup_errors for the same reason tools/js_eval.py has it: Chromium's children
     # outlive the process we kill and can still be writing into the profile when the directory
     # is removed, which failed a CI run whose actual work had already succeeded.
@@ -391,35 +344,14 @@ async def drive(url: str, settle: int, verbose: bool) -> int:
         # A profile of its own: a browser sharing the default one with another headless run
         # refuses to start, and a fresh profile is also what makes the run reproducible —
         # empty localStorage means the first-visit overlay and the default map/model split.
-        proc = subprocess.Popen([
-            CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
-            *chrome_flags(),
-            f"--remote-debugging-port={port}", "--remote-allow-origins=*",
-            f"--user-data-dir={tmp}/profile",
-            "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
-            "--window-size=1600,1000", "about:blank",
-        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        try:
-            return await session(websockets, port, url, settle, verbose)
-        finally:
-            proc.kill()
+        flags = ["--disable-gpu", "--hide-scrollbars", *chrome_flags(),
+                 "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
+                 "--window-size=1600,1000"]
+        with page_target(CHROME, flags, pathlib.Path(tmp) / 'profile') as (_proc, ws_url):
+            return await session(websockets, ws_url, url, settle, verbose)
 
 
-async def session(websockets, port, url, settle, verbose) -> int:
-    ws_url = None
-    for _ in range(100):
-        try:
-            tabs = json.load(urllib.request.urlopen(f"http://127.0.0.1:{port}/json"))
-            pages = [t for t in tabs if t["type"] == "page"]
-            if pages:
-                ws_url = pages[0]["webSocketDebuggerUrl"]
-                break
-        except Exception:
-            pass
-        time.sleep(0.2)
-    if ws_url is None:
-        raise SystemExit(f"{CHROME} never opened a debuggable page on {port}")
-
+async def session(websockets, ws_url, url, settle, verbose) -> int:
     async with websockets.connect(ws_url, max_size=64_000_000) as ws:
         page = Page(ws)
         await page.call("Page.enable")
@@ -558,19 +490,9 @@ def main() -> int:
     if shutil.which(CHROME) is None:
         raise SystemExit(f"{CHROME} is not on PATH; this test needs a headless browser")
 
-    port = existing_server()
-    httpd = None
-    if port is None:
-        port = free_port()
-        httpd = serve(port)
-    else:
-        print(f"reusing the development server already listening on {port}")
-    url = f"http://127.0.0.1:{port}/index.html{QUERY}"
-    try:
+    with serve_tree(ROOT, handler=Handler) as base:
+        url = f"{base}index.html{QUERY}"
         return asyncio.run(drive(url, args.settle, args.verbose))
-    finally:
-        if httpd is not None:
-            httpd.shutdown()
 
 
 if __name__ == "__main__":

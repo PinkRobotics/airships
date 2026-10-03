@@ -75,10 +75,9 @@ tests/golden/check.py --only ui  # just the rendered-page half
 tests/golden/check.py --update   # rewrite the baselines, deliberately
 ```
 
-`tests/browser/run.py` and `tests/golden/check.py` both serve the repository themselves on a
-free port, unless `AIRSHIPS_PORT` (or `PORT`) names a development server that is already
-listening, in which case they reuse it. CI starts one server for the whole job; locally you
-do not have to start anything.
+`tests/browser/run.py` and `tests/golden/check.py` each serve their own repository on a
+system-chosen port and close the server on exit. CI uses the same arrangement; neither
+runner needs a server started beforehand.
 
 ## What belongs where
 
@@ -193,11 +192,9 @@ a test framework that can hang.
 - **The golden dumps need time.** `check.py` waits 16 s for the model dump and 18 s for the UI
   dump before evaluating. Twelve is not enough — the page has not finished building the fleet
   and the evaluation fails outright rather than returning something wrong.
-- **Two golden runs at once are fine now.** `tools/js_eval.py` used to bind a fixed debug port
-  (9281) and share the default browser profile, so a second run found the port taken, got no
-  debuggable page, and died pointing at the websocket library rather than at the collision. It
-  now takes a free port from the kernel and a profile of its own, as `tests/interaction/check.py`
-  always did.
+- **Each browser has its own endpoint and profile.** Chromium chooses its debugging port
+  and reports it through `DevToolsActivePort` in its new profile directory. The serving
+  context keeps its original listening socket until the gate finishes.
 - **`CFG` is global.** It is the only mutable state in `sim/`, so any test that patches it
   must `resetConfig()` in a `finally`. `sim-config.cases.js` is both the test of that and the
   worked example of the pattern.

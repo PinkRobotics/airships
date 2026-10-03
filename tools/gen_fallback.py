@@ -36,8 +36,8 @@ import re
 import subprocess
 import sys
 import tempfile
-import time
 from serve import serve_tree
+from devtools import page_target
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.html'
@@ -237,40 +237,14 @@ def capture_poster(scratch: pathlib.Path, replay_url: str):
     CDP screenshot clipped to the map box. The launch flags are js_eval.py's."""
     import asyncio
     import os
-    import socket
-    import urllib.request
     from PIL import Image
 
-    with socket.socket() as s:
-        s.bind(('127.0.0.1', 0))
-        cdp_port = s.getsockname()[1]
-    log = (scratch / 'chromium.log').open('w')
-    proc = subprocess.Popen([
-        'chromium', '--headless=new', '--hide-scrollbars',
-        *([ '--no-sandbox', '--disable-dev-shm-usage'] if os.environ.get('CI') else []),
-        '--disable-gpu', '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
-        f'--remote-debugging-port={cdp_port}', '--remote-allow-origins=*',
-        f'--user-data-dir={scratch}/poster-profile', '--window-size=1600,1600', 'about:blank',
-    ], stdout=subprocess.DEVNULL, stderr=log, start_new_session=True)
+    flags = ['--hide-scrollbars', '--disable-gpu', '--use-angle=swiftshader',
+             '--enable-unsafe-swiftshader', '--window-size=1600,1600']
+    if os.environ.get('CI'):
+        flags += ['--no-sandbox', '--disable-dev-shm-usage']
 
-    async def drive():
-        ws_url = None
-        deadline = time.monotonic() + 60
-        while time.monotonic() < deadline:
-            if proc.poll() is not None:
-                break
-            try:
-                tabs = json.load(urllib.request.urlopen(f'http://127.0.0.1:{cdp_port}/json'))
-                pages = [t for t in tabs if t['type'] == 'page']
-                if pages:
-                    ws_url = pages[0]['webSocketDebuggerUrl']
-                    break
-            except Exception:
-                pass
-            time.sleep(0.2)
-        if ws_url is None:
-            raise SystemExit('gen_fallback: chromium never opened a debuggable page — see '
-                             + str(scratch / 'chromium.log'))
+    async def drive(ws_url):
         import websockets
         async with websockets.connect(ws_url, max_size=600_000_000) as ws:
             mid = 0
@@ -304,14 +278,9 @@ def capture_poster(scratch: pathlib.Path, replay_url: str):
                               {'format': 'png', 'clip': {**rect, 'scale': 1}})
             return base64.b64decode(shot['data'])
 
-    try:
-        raw = asyncio.run(drive())
-    finally:
-        try:
-            os.killpg(proc.pid, 15)
-        except Exception:
-            proc.terminate()
-        log.close()
+    with (scratch / 'chromium.log').open('w') as log:
+        with page_target('chromium', flags, scratch / 'poster-profile', stderr=log) as (_proc, ws_url):
+            raw = asyncio.run(drive(ws_url))
     im = Image.open(io.BytesIO(raw)).convert('RGB')
     if im.width > 1100:
         im = im.resize((1100, round(im.height * 1100 / im.width)), Image.LANCZOS)

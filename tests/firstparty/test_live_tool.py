@@ -4,13 +4,13 @@ import http.server
 import io
 from pathlib import Path
 import sys
-import threading
 import unittest
 from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from check_first_party import Loads, inspect, main
+from serve import serve_tree
 
 
 class Edge(http.server.BaseHTTPRequestHandler):
@@ -44,16 +44,9 @@ class Edge(http.server.BaseHTTPRequestHandler):
 class LiveToolTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Edge)
-        cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
-        cls.thread.start()
-        cls.address = f'http://127.0.0.1:{cls.server.server_port}/'
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.server.shutdown()
-        cls.server.server_close()
-        cls.thread.join()
+        cls.serving = serve_tree(handler=Edge)
+        cls.address = cls.serving.__enter__()
+        cls.addClassCleanup(cls.serving.__exit__, None, None, None)
 
     def setUp(self):
         Edge.requests.clear()

@@ -17,11 +17,10 @@ from __future__ import annotations
 import importlib.util
 import json
 import pathlib
-import socket
 import subprocess
-import time
 import sys
 from browser_scratch import browser_scratch
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PY_JSON = ROOT / "research" / "analysis" / "vacuum-cell.json"
@@ -120,30 +119,12 @@ def main() -> None:
         probe.write_text(PROBE.replace(
             "__WALL__", repr(py["theWall"]["rhoAirAtWorkAltKgPerM3"])))
         out = pathlib.Path(td) / "out.json"
-        with socket.socket() as sock:
-            sock.bind(("127.0.0.1", 0))
-            port = sock.getsockname()[1]
-        srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                                "--port", str(port), "--quiet"], cwd=ROOT)
-        try:
-            for _ in range(100):
-                if srv.poll() is not None:
-                    raise RuntimeError("parity server failed to start")
-                try:
-                    with socket.create_connection(("127.0.0.1", port), timeout=.1):
-                        break
-                except OSError:
-                    time.sleep(.05)
-            else:
-                raise RuntimeError("parity server did not become ready")
+        with serve_tree(ROOT) as base:
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"http://127.0.0.1:{port}/cell/index.html", str(probe),
+                            f"{base}cell/index.html", str(probe),
                             str(out), "10"], cwd=ROOT, check=True,
                            stdout=subprocess.DEVNULL)
             js = json.loads(out.read_text())
-        finally:
-            srv.terminate()
-            srv.wait()
 
     bad, checked = [], 0
 

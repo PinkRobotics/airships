@@ -11,11 +11,9 @@ import contextlib
 import http.server
 import json
 import os
-import socket
 import subprocess
 import sys
 import tempfile
-import threading
 import time
 import urllib.request
 from datetime import datetime, timezone
@@ -25,12 +23,9 @@ from urllib.parse import urlsplit
 from static import ROOT, served_files
 sys.path.insert(0, str(ROOT))
 from pipeline.live import WIND_LATS, WIND_LONS, wind_grid
-
-
-def free_port():
-    with socket.socket() as sock:
-        sock.bind(('127.0.0.1', 0))
-        return sock.getsockname()[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from serve import serve_tree
+from devtools import page_target
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -353,35 +348,19 @@ def main():
     parser.add_argument('--note-only', action='store_true', help='run only the note cases')
     args = parser.parse_args()
     records = []
-    server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
-    threading.Thread(target=server.serve_forever, daemon=True).start()
-    origin = f'127.0.0.1:{server.server_port}'
     try:
-        with tempfile.TemporaryDirectory(dir=os.environ.get('AIRSHIPS_TMPDIR'), ignore_cleanup_errors=True) as tmp:
-            port = free_port()
+        with serve_tree(ROOT, handler=Handler) as base, tempfile.TemporaryDirectory(
+                dir=os.environ.get('AIRSHIPS_TMPDIR'), ignore_cleanup_errors=True) as tmp:
+            origin = urlsplit(base).netloc
             flags = ['--no-sandbox', '--disable-dev-shm-usage'] if os.environ.get('CI') else []
-            proc = subprocess.Popen([os.environ.get('CHROME', 'chromium'), '--headless=new', '--disable-gpu',
-                '--disable-background-networking', '--disable-component-update', '--no-first-run',
-                '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--window-size=1600,1000',
-                # Prevent accidental external transmission including workers or browser speculation.
-                '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1',
-                f'--remote-debugging-port={port}', f'--user-data-dir={tmp}/profile', *flags, 'about:blank'],
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            try:
-                for _ in range(100):
-                    try:
-                        tabs = json.load(urllib.request.urlopen(f'http://127.0.0.1:{port}/json', timeout=1))
-                        ws_url = next(t['webSocketDebuggerUrl'] for t in tabs if t['type'] == 'page')
-                        break
-                    except Exception: time.sleep(.2)
-                else: raise RuntimeError('Chromium did not expose a page')
+            flags += ['--disable-gpu', '--disable-background-networking', '--disable-component-update',
+                      '--no-first-run', '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
+                      '--window-size=1600,1000',
+                      '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1']
+            with page_target(os.environ.get('CHROME', 'chromium'), flags,
+                             Path(tmp) / 'profile') as (_proc, ws_url):
                 asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only))
-            finally:
-                proc.terminate()
-                try: proc.wait(timeout=8)
-                except subprocess.TimeoutExpired: proc.kill(); proc.wait()
     finally:
-        server.shutdown(); server.server_close()
         if args.evidence: args.evidence.write_text(json.dumps(records, indent=2) + '\n')
 
 

@@ -25,9 +25,8 @@ deliberately, read the diff, and commit the new baseline in the same change as t
 Requires: python3, chromium on PATH, and the `websockets` package (tools/js_eval.py uses
 it). No node.
 
-If AIRSHIPS_PORT (or PORT) names a development server that is already listening, this
-reuses it — CI starts one for the whole job. Otherwise it serves the repository itself on
-a free port and shuts that down on the way out.
+Each invocation serves this repository on its own system-chosen port and closes
+that server on exit. CI and local runs use the same arrangement.
 """
 import argparse
 import http.server
@@ -35,18 +34,15 @@ import json
 import os
 import pathlib
 import shutil
-import socket
-import socketserver
 import subprocess
 import sys
-import threading
 import time
-import urllib.error
-import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 TOOLS = ROOT / "tools"
+sys.path.insert(0, str(ROOT / "tools"))
+from serve import serve_tree
 
 # (dump script, baseline, how long to let the page settle before evaluating)
 TARGETS = [
@@ -54,12 +50,6 @@ TARGETS = [
     ("ui-dump.js", "ui-seed7-snapshot.json", 18),
 ]
 QUERY = "?view=exercise"
-
-
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -70,51 +60,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
-class Server(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
-def answers(port: int) -> bool:
-    try:
-        urllib.request.urlopen(f"http://127.0.0.1:{port}/sim/index.js", timeout=1).read(1)
-        return True
-    except (urllib.error.URLError, OSError):
-        return False
-
-
-def existing_server() -> "int | None":
-    """Reuse a development server already listening, rather than binding a second one.
-
-    CI starts `tools/serve.py` once for the whole job and expects every driver to use it;
-    AIRSHIPS_PORT is how it says which one. Locally there is usually nothing listening and
-    this returns None."""
-    for var in ("AIRSHIPS_PORT", "PORT"):
-        raw = os.environ.get(var)
-        if not raw:
-            continue
-        try:
-            port = int(raw)
-        except ValueError:
-            continue
-        if answers(port):
-            return port
-    return None
-
-
-def serve(port: int) -> Server:
-    httpd = Server(("127.0.0.1", port), Handler)
-    threading.Thread(target=httpd.serve_forever, daemon=True).start()
-    for _ in range(100):
-        if answers(port):
-            return httpd
-        time.sleep(0.05)
-    raise SystemExit("the local server never came up")
-
-
-def dump(port: int, script: pathlib.Path, out: pathlib.Path, wait: int) -> None:
+def dump(base: str, script: pathlib.Path, out: pathlib.Path, wait: int) -> None:
     """Load the page headless and evaluate `script`, writing its JSON result to `out`."""
-    url = f"http://127.0.0.1:{port}/index.html{QUERY}"
+    url = f"{base}index.html{QUERY}"
     r = subprocess.run(
         [sys.executable, str(TOOLS / "js_eval.py"), url, str(script), str(out), str(wait)],
         cwd=str(ROOT), capture_output=True, text=True)
@@ -158,21 +106,14 @@ def main() -> int:
     elif args.only == "ui":
         targets = TARGETS[1:]
 
-    port = existing_server()
-    httpd = None
-    if port is None:
-        port = free_port()
-        httpd = serve(port)
-    else:
-        print(f"reusing the development server already listening on {port}")
     failures = []
-    try:
+    with serve_tree(ROOT, handler=Handler) as base:
         for script_name, baseline_name, wait in targets:
             script = HERE / script_name
             baseline = HERE / baseline_name
             candidate = HERE / (baseline_name.replace(".json", ".candidate.json"))
             print(f"\n=== {baseline_name} " + "=" * (56 - len(baseline_name)))
-            dump(port, script, candidate, wait)
+            dump(base, script, candidate, wait)
             if args.update:
                 candidate.replace(baseline)
                 print(f"baseline updated: {baseline.relative_to(ROOT)}")
@@ -184,9 +125,6 @@ def main() -> int:
                 failures.append(baseline_name)
             if not args.keep and candidate.exists():
                 candidate.unlink()
-    finally:
-        if httpd is not None:
-            httpd.shutdown()
 
     if args.update:
         print("\nBaselines rewritten. Read the diff before committing them.")

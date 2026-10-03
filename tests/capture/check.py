@@ -31,11 +31,10 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import threading
 import time
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -44,6 +43,8 @@ REPO = HERE.parent.parent
 FIXTURES = HERE / "fixtures"
 sys.path.insert(0, str(REPO / "pipeline"))
 import capture  # noqa: E402  (path set up just above)
+sys.path.insert(0, str(REPO / "tools"))
+from serve import serve_tree
 
 # The stop-gap's folders held exactly these files (fire layers 2026-10-01, evacuation
 # layer 2026-10-02); the fixture set mirrors them, so a passing "file set" assertion here
@@ -123,7 +124,7 @@ class Fixtures:
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        f = self.server.fixtures      # set by start_server, shared with the test
+        f = self.fixtures      # set by start_server, shared with the test
         url = urlparse(self.path)
         query = parse_qs(url.query)
         route = f.route(url.path, query)
@@ -145,10 +146,10 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def start_server(fixtures):
-    server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
-    server.fixtures = fixtures
-    threading.Thread(target=server.serve_forever, daemon=True).start()
-    return server
+    class FixtureHandler(Handler):
+        pass
+    FixtureHandler.fixtures = fixtures
+    return serve_tree(handler=FixtureHandler)
 
 
 class Recorder:
@@ -164,10 +165,9 @@ class Recorder:
 class CaptureToolTests(unittest.TestCase):
     def setUp(self):
         self.fixtures = Fixtures()
-        self.server = start_server(self.fixtures)
-        self.addCleanup(self.server.shutdown)
-        self.addCleanup(self.server.server_close)
-        self.base = f"http://127.0.0.1:{self.server.server_address[1]}"
+        serving = start_server(self.fixtures)
+        self.base = serving.__enter__().rstrip('/')
+        self.addCleanup(serving.__exit__, None, None, None)
         self.root = Path(tempfile.mkdtemp(prefix="capture-check-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)
         self._contact = os.environ.get("AIRSHIPS_CONTACT")

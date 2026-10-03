@@ -7,11 +7,11 @@ tests/browser/index.html a person opens in a browser. All this does is load that
 headless Chromium, read the record the page leaves on `window.__tests`, print it, and exit
 non-zero if anything failed.
 
-    tests/browser/run.py                 # reuse or start a server, run, report
+    tests/browser/run.py                 # start a server, run, report
     tests/browser/run.py --verbose       # list every test, not just the failures
 
-If AIRSHIPS_PORT (or PORT) names a server that is already listening, this reuses it — CI
-starts one for the whole job. Otherwise it serves the repository itself on a free port.
+Each invocation serves this repository on its own system-chosen port and closes
+that server on exit. CI and local runs use the same arrangement.
 
 A "known" result is a test that is expected to fail against a defect that is open and
 tracked; see the Known failures section of tests/README.md. Those do not fail the run. A
@@ -25,19 +25,16 @@ import json
 import os
 import pathlib
 import shutil
-import socket
-import socketserver
 import subprocess
 import sys
 import tempfile
-import threading
 import time
-import urllib.error
-import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 TOOLS = ROOT / "tools"
+sys.path.insert(0, str(ROOT / "tools"))
+from serve import serve_tree
 
 # Read the record the page publishes, waiting for it rather than guessing how long the
 # imports take. The page sets window.__tests once, at the end of the run.
@@ -50,55 +47,12 @@ GRAB = r"""
 """
 
 
-def answers(port: int) -> bool:
-    try:
-        urllib.request.urlopen(f"http://127.0.0.1:{port}/sim/index.js", timeout=1).read(1)
-        return True
-    except (urllib.error.URLError, OSError):
-        return False
-
-
-def existing_server():
-    for var in ("AIRSHIPS_PORT", "PORT"):
-        raw = os.environ.get(var)
-        if not raw:
-            continue
-        try:
-            port = int(raw)
-        except ValueError:
-            continue
-        if answers(port):
-            return port
-    return None
-
-
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
-
-
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=str(ROOT), **kw)
 
     def log_message(self, *a):
         pass
-
-
-class Server(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
-def serve(port: int) -> Server:
-    httpd = Server(("127.0.0.1", port), Handler)
-    threading.Thread(target=httpd.serve_forever, daemon=True).start()
-    for _ in range(100):
-        if answers(port):
-            return httpd
-        time.sleep(0.05)
-    raise SystemExit("the local server never came up")
 
 
 GREEN, RED, AMBER, DIM, OFF = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
@@ -139,31 +93,20 @@ def main() -> int:
     if shutil.which("chromium") is None:
         raise SystemExit("chromium is not on PATH; the browser suite needs a headless browser")
 
-    port = existing_server()
-    httpd = None
-    if port is None:
-        port = free_port()
-        httpd = serve(port)
-    else:
-        print(f"reusing the development server already listening on {port}")
-
-    try:
+    with serve_tree(ROOT, handler=Handler) as base:
         with tempfile.TemporaryDirectory() as tmp:
             script = pathlib.Path(tmp) / "grab.js"
             script.write_text(GRAB)
             out = pathlib.Path(tmp) / "result.json"
             r = subprocess.run(
                 [sys.executable, str(TOOLS / "js_eval.py"),
-                 f"http://127.0.0.1:{port}/tests/browser/index.html",
+                 f"{base}tests/browser/index.html",
                  str(script), str(out), str(args.wait)],
                 cwd=str(ROOT), capture_output=True, text=True)
             if r.returncode != 0 or not out.exists():
                 sys.stderr.write(r.stdout + r.stderr)
                 raise SystemExit("the test page did not run")
             rec = json.loads(out.read_text())
-    finally:
-        if httpd is not None:
-            httpd.shutdown()
 
     if "error" in rec:
         print(f"{RED}{rec['error']}{OFF} (title was {rec.get('title')!r})")

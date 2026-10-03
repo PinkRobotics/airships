@@ -143,18 +143,14 @@ VIEWS={}
 def pages(routes=False):
     keys=['precedence','default','sample'] if routes else [1440,834,390]
     if all(k in VIEWS for k in keys): return VIEWS
-    server=None; port=guard.existing_server()
-    if port is None: port=guard.free_port();server=guard.serve(port)
-    try:
+    with guard.serve() as base:
         if routes:
             # X7: explicit exercise wins over an old day query; default still tries live.
             for name,query in [('precedence','?view=exercise&day=2026-08-08'),('default',''),('sample','?data=snapshot')]:
-                VIEWS[name]=guard.probe_once(port,query,guard.PROBE,5)
+                VIEWS[name]=guard.probe_once(base,query,guard.PROBE,5)
         else:
             for w,h in [(1440,900),(834,1112),(390,844)]:
-                VIEWS[w]=guard.probe_once(port,'?view=exercise',PROBE,5,f'{w}x{h}')
-    finally:
-        if server: server.shutdown();server.server_close()
+                VIEWS[w]=guard.probe_once(base,'?view=exercise',PROBE,5,f'{w}x{h}')
     return VIEWS
 
 

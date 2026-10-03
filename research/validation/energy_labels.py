@@ -9,13 +9,13 @@ import http.server
 import json
 import os
 import re
-import socketserver
 import subprocess
 import sys
 import tempfile
-import threading
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools'))
+from serve import serve_tree
 NOTE = ('These energy figures come from the earlier flight model, which understates the force '
         'needed to hold an empty hull down. Corrected figures will be higher, and some cycles '
         'may not be flyable as drawn.')
@@ -124,29 +124,24 @@ def check_energy_labels():
         if re.search(r'\b(?:MWh|kWh|MW|kW)\b',path.read_text()) and rel.as_posix() not in known:
             failures.append(f'{rel}: energy view is not registered for the rendered label check')
     handler=functools.partial(Handler,directory=str(ROOT))
-    with socketserver.ThreadingTCPServer(('127.0.0.1',0),handler) as server:
-        server.daemon_threads=True
-        thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
-        try:
-            with tempfile.TemporaryDirectory(prefix='energy-labels-',dir=os.environ.get('TMPDIR')) as scratch:
-                js=Path(scratch)/'probe.js';js.write_text(PROBE)
-                for route in ('index.html?view=exercise&seed=7','concept/index.html','model-lab/index.html','notices.html'):
-                    out=Path(scratch)/'view.json'
-                    out.unlink(missing_ok=True)
-                    r=subprocess.run([sys.executable,'tools/js_eval.py',f'http://127.0.0.1:{server.server_address[1]}/{route}',str(js),str(out),'5'],
-                                     cwd=ROOT,capture_output=True,text=True,timeout=300)
-                    if r.returncode or not out.exists():
-                        failures.append(f'{route}: browser probe failed: '+(r.stdout+r.stderr)[-1000:]);continue
-                    result=json.loads(out.read_text())
-                    failures.extend(f'{route}: {e}' for e in result['errors'])
-                    if not result['missingNoticeCaught']: failures.append(f'{route}: removing the notice was not detected')
-                    if not result['missingTagCaught']: failures.append(f'{route}: removing one compact label was not detected')
-                    print(f"energy labels: {route}: {len(result['figures'])} rendered energy blocks; "
-                          f"missing-notice control {'caught' if result['missingNoticeCaught'] else 'MISSED'}, "
-                          f"missing-tag control {'caught' if result['missingTagCaught'] else 'MISSED'}")
-                    for figure in result['figures']: print('  '+figure)
-        finally:
-            server.shutdown();thread.join()
+    with serve_tree(ROOT, handler=handler) as base:
+        with tempfile.TemporaryDirectory(prefix='energy-labels-',dir=os.environ.get('TMPDIR')) as scratch:
+            js=Path(scratch)/'probe.js';js.write_text(PROBE)
+            for route in ('index.html?view=exercise&seed=7','concept/index.html','model-lab/index.html','notices.html'):
+                out=Path(scratch)/'view.json'
+                out.unlink(missing_ok=True)
+                r=subprocess.run([sys.executable,'tools/js_eval.py',f'{base}{route}',str(js),str(out),'5'],
+                                 cwd=ROOT,capture_output=True,text=True,timeout=300)
+                if r.returncode or not out.exists():
+                    failures.append(f'{route}: browser probe failed: '+(r.stdout+r.stderr)[-1000:]);continue
+                result=json.loads(out.read_text())
+                failures.extend(f'{route}: {e}' for e in result['errors'])
+                if not result['missingNoticeCaught']: failures.append(f'{route}: removing the notice was not detected')
+                if not result['missingTagCaught']: failures.append(f'{route}: removing one compact label was not detected')
+                print(f"energy labels: {route}: {len(result['figures'])} rendered energy blocks; "
+                      f"missing-notice control {'caught' if result['missingNoticeCaught'] else 'MISSED'}, "
+                      f"missing-tag control {'caught' if result['missingTagCaught'] else 'MISSED'}")
+                for figure in result['figures']: print('  '+figure)
     if failures:
         raise ValueError('\n'.join(failures).replace(str(ROOT),'<repo>').replace(str(Path.home()),'<user>'))
     print('energy labels: PASS; notices and their negative controls hold')

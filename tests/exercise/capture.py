@@ -11,32 +11,23 @@ import json
 import os
 from pathlib import Path
 import shutil
-import signal
-import socket
 import subprocess
 import tempfile
 import urllib.parse
-import urllib.request
 import websockets
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tools"))
+from devtools import page_target
 
 
 async def capture(url, out, width, height, no_script):
-    with socket.socket() as s:
-        s.bind(('127.0.0.1',0));port=s.getsockname()[1]
     foreign=[];errors=[]; own=urllib.parse.urlsplit(url).netloc
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         with open(Path(tmp)/'chrome.log','w') as log:
-            proc=subprocess.Popen([shutil.which('chromium'),'--headless=new','--disable-gpu',
-                '--hide-scrollbars','--disable-background-networking','--no-first-run',
-                '--no-default-browser-check',f'--user-data-dir={tmp}/profile',
-                f'--remote-debugging-port={port}','about:blank'],stdout=log,stderr=log,start_new_session=True)
-            try:
-                wsurl=None
-                for _ in range(160):
-                    try:
-                        tabs=json.load(urllib.request.urlopen(f'http://127.0.0.1:{port}/json',timeout=1))
-                        wsurl=next(t['webSocketDebuggerUrl'] for t in tabs if t['type']=='page');break
-                    except Exception: await asyncio.sleep(.25)
+            flags = ['--disable-gpu', '--hide-scrollbars', '--disable-background-networking',
+                     '--no-first-run', '--no-default-browser-check']
+            with page_target(shutil.which('chromium'), flags, Path(tmp) / 'profile',
+                             stderr=log) as (_proc, wsurl):
                 assert wsurl, 'browser did not start'
                 async with websockets.connect(wsurl,max_size=None) as ws:
                     seq=0
@@ -63,10 +54,6 @@ async def capture(url, out, width, height, no_script):
                     shot=await call('Page.captureScreenshot',{'format':'png','captureBeyondViewport':True,
                         'clip':{'x':0,'y':0,'width':width,'height':min(16000,size['height']),'scale':1}})
                     out.write_bytes(base64.b64decode(shot['data']))
-            finally:
-                os.killpg(proc.pid,signal.SIGTERM)
-                try:proc.wait(timeout=5)
-                except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
     print(f'{out.name}: {width}x{height}; scripts {"off" if no_script else "on"}; foreign requests {len(foreign)}; script errors {len(errors)}')
     assert not foreign and not errors, 'foreign request or script error'
 

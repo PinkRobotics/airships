@@ -49,18 +49,15 @@ import os
 import pathlib
 import re
 import shutil
-import socket
-import socketserver
 import subprocess
 import sys
 import tempfile
-import threading
 import time
-import urllib.error
-import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from serve import serve_tree
 TOOLS = ROOT / "tools"
 GUARD = ROOT / "data" / "season" / "2026.guard.json"
 
@@ -277,34 +274,6 @@ def the_static_fallback_carries_the_ruled_sentences():
 # ============================================================================================
 # 3. THE PAGE — served locally, driven headless, one probe per view
 # ============================================================================================
-def answers(port: int) -> bool:
-    try:
-        urllib.request.urlopen(f"http://127.0.0.1:{port}/sim/index.js", timeout=1).read(1)
-        return True
-    except (urllib.error.URLError, OSError):
-        return False
-
-
-def existing_server():
-    for var in ("AIRSHIPS_PORT", "PORT"):
-        raw = os.environ.get(var)
-        if not raw:
-            continue
-        try:
-            port = int(raw)
-        except ValueError:
-            continue
-        if answers(port):
-            return port
-    return None
-
-
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
-
-
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=str(ROOT), **kw)
@@ -313,12 +282,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
-class Server(socketserver.ThreadingTCPServer):
-    allow_reuse_address = True
-    daemon_threads = True
-
-
-def serve(port: int, missing=()) -> Server:
+def serve(missing=()):
     """`missing`: path fragments this server answers 404 for — a deployment with a file gone."""
     class Broken(Handler):
         def do_GET(self):
@@ -326,13 +290,7 @@ def serve(port: int, missing=()) -> Server:
                 self.send_error(404)
                 return
             super().do_GET()
-    httpd = Server(("127.0.0.1", port), Broken if missing else Handler)
-    threading.Thread(target=httpd.serve_forever, daemon=True).start()
-    for _ in range(100):
-        if answers(port):
-            return httpd
-        time.sleep(0.05)
-    raise SystemExit("the local server never came up")
+    return serve_tree(ROOT, handler=Broken if missing else Handler)
 
 
 # What one view is asked, in the page, after it has booted. Everything the tests assert on
@@ -495,7 +453,7 @@ LAYOUT = r"""
 VIEWS = {}          # filled by the page pass, read by the tests
 
 
-def probe_once(port: int, query: str, script: str, wait: float, viewport=None):
+def probe_once(base: str, query: str, script: str, wait: float, viewport=None):
     """One headless load of one view. Returns the parsed record."""
     with tempfile.TemporaryDirectory(dir=os.environ.get("AIRSHIPS_TMPDIR") or None) as tmp:
         js = pathlib.Path(tmp) / "probe.js"
@@ -506,14 +464,14 @@ def probe_once(port: int, query: str, script: str, wait: float, viewport=None):
             env["A3D_VIEWPORT"] = viewport
         r = subprocess.run(
             [sys.executable, str(TOOLS / "js_eval.py"),
-             f"http://127.0.0.1:{port}/index.html{query}", str(js), str(out), str(wait)],
+             f"{base}index.html{query}", str(js), str(out), str(wait)],
             cwd=str(ROOT), capture_output=True, text=True, env=env, timeout=300)
         if r.returncode != 0 or not out.exists():
             raise SystemExit(f"the probe of {query!r} did not run:\n{r.stdout}\n{r.stderr}")
         return json.loads(out.read_text())
 
 
-def load_views(port: int):
+def load_views(base: str):
     """Every view this gate reads, once. Blocking on purpose: one browser at a time."""
     plan = [(d, f"?day={d}&seed=7", 9) for d in RECORD_DAYS]
     plan += [(d, f"?day={d}&seed=7", 9) for d in FLEET_DAYS]
@@ -521,12 +479,12 @@ def load_views(port: int):
              ("no-day-in-window", f"?day={NO_DAY_IN_WINDOW}", 9),
              ("exercise", "?view=exercise&seed=7", 9)]
     for name, query, wait in plan:
-        VIEWS[name] = probe_once(port, query, PROBE, wait)
+        VIEWS[name] = probe_once(base, query, PROBE, wait)
     # 1440: the side-by-side split, all five call-outs up. 1100: the stacked split, still
     # wide enough for the call-outs. 834 and 390: under the phone breakpoint the call-outs
     # are hidden and only the tap prompt shows — the layout test measures what is visible.
     for w, h in ((1440, 900), (1100, 900), (834, 1000), (390, 844)):
-        VIEWS[f"layout-{w}"] = probe_once(port, "?seed=7", LAYOUT, 9, f"{w}x{h}")
+        VIEWS[f"layout-{w}"] = probe_once(base, "?seed=7", LAYOUT, 9, f"{w}x{h}")
 
 
 PAGE_LOADED = []
@@ -537,17 +495,9 @@ def page_pass(fn):
     @test
     def wrapped(*a, **kw):
         if not PAGE_LOADED:
-            port = existing_server()
-            httpd = None
-            if port is None:
-                port = free_port()
-                httpd = serve(port)
-            try:
-                load_views(port)
+            with serve() as base:
+                load_views(base)
                 PAGE_LOADED.append(True)
-            finally:
-                if httpd is not None:
-                    httpd.shutdown()
         return fn(*a, **kw)
     wrapped.__name__ = fn.__name__
     wrapped.__doc__ = fn.__doc__
@@ -653,9 +603,8 @@ HEAT_AND_NULL = r"""
 
 @test
 def heat_retargets_and_null_input_stand_down_in_words():
-    port=free_port(); httpd=serve(port)
-    try: result=probe_once(port,"?view=exercise&seed=7",HEAT_AND_NULL,5)
-    finally: httpd.shutdown()
+    with serve() as base:
+        result=probe_once(base,"?view=exercise&seed=7",HEAT_AND_NULL,5)
     h=result["heat"]
     same(h["centreClear"],True,"heat target centre was clear")
     same(h["missions"],0,"blocked heat-refined hull is unassigned")
@@ -951,12 +900,8 @@ def a_view_that_could_not_be_read_says_nothing_is_shown_and_why():
     day control on "fleet simulated", and an exercise that could not be read described
     "the record as British Columbia published it" over an empty map."""
     for name, query, missing, title, why in BROKEN:
-        port = free_port()
-        httpd = serve(port, missing)
-        try:
-            v = probe_once(port, query, PROBE, 9)
-        finally:
-            httpd.shutdown()
+        with serve(missing) as base:
+            v = probe_once(base, query, PROBE, 9)
         lab, p = v["labels"], v["panels"]
         same(v["fires"], 0, f"{name}: fires on the map")
         same(v["missions"], 0, f"{name}: hulls")
