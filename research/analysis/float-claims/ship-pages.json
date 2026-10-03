@@ -377,7 +377,7 @@
     {
       "file": "ship/index.html",
       "key": "9dbba0ee19cd08cc",
-      "line": 432,
+      "line": 429,
       "text": "[data-n=\"ship.liftT\" data-f=\"1\"] tonnes of lift",
       "class": "live-model",
       "reason": "The display reports model sea-level displaced-air lift without claiming the hull can carry its own mass."
@@ -385,7 +385,7 @@
     {
       "file": "ship/index.html",
       "key": "28bbe89043db2044",
-      "line": 434,
+      "line": 431,
       "text": "As drawn, the [data-n=\"ship.diaM\" data-f=\"0\"] m hull does not float. The house-harsh record basis uses safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords. Its lift is [data-n=\"ship.ratio\" data-f=\"3\"] of its mass at sea level and [data-n=\"ship.ratioTarget\" data-f=\"3\"] at the 2,500 m working altitude. The best defensible world assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified. Its lift/mass is [data-n=\"ship.bestWorldRatio\" data-f=\"3\"] at sea level and [data-n=\"ship.bestWorldRatioTarget\" data-f=\"3\"] at 2,500 m, short by [data-n=\"ship.bestWorldShortfallT\" data-f=\"1\"] t and [data-n=\"ship.bestWorldShortfallTargetT\" data-f=\"1\"] t respectively.",
       "class": "bound",
       "reason": "The hull of record fails at both altitudes on both stated bases; favourable inputs remain unverified.",
@@ -440,7 +440,7 @@
     {
       "file": "ship/index.html",
       "key": "682f292f7fc031c7",
-      "line": 439,
+      "line": 436,
       "text": "The bill and the drawing disagree in the end caps, in both directions. Across five readings, the favourable lift/mass runs from 0.751 to 0.998 at sea level and from 0.586 to 0.780 at 2,500 m. No reading reaches 1; none is a checked design. The hull's member census records 20 disagreements between drawing and bill.",
       "class": "bound",
       "reason": "Five unresolved cap-accounting readings span both altitudes; none reaches one, and the census retains twenty disagreements.",
@@ -488,7 +488,7 @@
     {
       "file": "ship/index.html",
       "key": "b9e949f32805f9c1",
-      "line": 443,
+      "line": 440,
       "text": "Closing the float budget needs tested knockdowns and chord coupons, defined cap load paths, and a complete mass bill. The ledger prices chordal spokes and in-surface shear only as bounds; shear hardware remains unpriced. Confirming the favourable inputs alone would not close the altitude deficit.",
       "class": "bound",
       "reason": "The record names coupon and knockdown tests; cap reconciliation and unpriced shear prevent either proposed credit from establishing a hull.",
@@ -503,7 +503,7 @@
     {
       "file": "ship/index.html",
       "key": "33af2d3d8bfdb3ef",
-      "line": 446,
+      "line": 443,
       "text": "The flight model assumes a hull that floats; no drawn hull does .",
       "class": "bound",
       "reason": "The simulated cycle assumes buoyancy; the linked structural record establishes that no drawn hull floats.",
@@ -518,7 +518,7 @@
     {
       "file": "ship/index.html",
       "key": "425f41a02cfeb4b6",
-      "line": 450,
+      "line": 447,
       "text": "The raft is suspended, not bolted to the belly. A hard-mounted gondola feeds its thrust and slosh moments straight into film-on-rings, and the 4 mm wall has no line for that local bending. Pendants on a wide bridle arrive nearly tangential, so the wall sees distributed pulls along straps that ride many rings in bearing. The hull is huge, so the bridle can be wide and the swing angle small. The price is a pendulum in the control loop, and ops owns it. Both readings are [SCOPING]. The equipment axis is scoped rather than weighed in the gated ledger; Mission 0 carries it as a spec figure: 19 t of gear against 100 t of water at 112 m.",
       "class": "other-quantity",
       "reason": "The scoped raft paragraph gives equipment and water masses, plus wall dimensions; it makes no structural float result."
@@ -526,7 +526,7 @@
     {
       "file": "ship/index.html",
       "key": "98c4494fe64d5ca5",
-      "line": 468,
+      "line": 465,
       "class": "deferred",
       "reason": "The tank layout also asserts rotor holddown during filling, an operational result requiring the flight and energy model.",
       "owner": "energy-model"
@@ -534,7 +534,7 @@
     {
       "file": "ship/index.html",
       "key": "59284f35ed473273",
-      "line": 470,
+      "line": 467,
       "text": "Mission 0 wears this same fit. Mission 0 is a scoping scenario, distinct from the hull of record. It uses this architecture at 112 m, with 100 t of water and 19 t of equipment. Its mid-band structural mass is a target with unverified inputs and unpriced shear hardware, not a drawn floating vehicle. The 52 m hull comes first; Mission 0 is its next configuration. The hull below carries the whole verdict.",
       "class": "conditional",
       "reason": "Mission 0 is explicitly a scoping scenario; payload and equipment quantities are retained and the mid-band mass is identified as an unverified target."
@@ -542,7 +542,7 @@
     {
       "file": "ship/index.html",
       "key": "05dc5494c7196f0c",
-      "line": 490,
+      "line": 487,
       "text": "[data-n=\"w.panels\" data-f=\"0\"] film panels in the wrap — one membrane, pressure-formed onto the rings [data-n=\"ship.massT\" data-f=\"1\"] t the whole ledger at the declared factor, every check gated",
       "class": "live-model",
       "reason": "The model supplies the film-panel population and record structural mass; this card no longer repeats the near-float verdict."
@@ -550,7 +550,7 @@
     {
       "file": "ship/index.html",
       "key": "309e5b67d313e3b4",
-      "line": 499,
+      "line": 496,
       "text": "No drawn hull floats. The two-altitude comparison is on the dressed ship . A second gpt-6 run and glm-5.3 reproduced the census's three corrections; muse-spark-1.3 examined the float case. No person checked the arithmetic.",
       "class": "bound",
       "reason": "The negative verdict remains the ledger verdict; the named model runs checked arithmetic, not a physical hull.",
@@ -570,7 +570,7 @@
     {
       "file": "ship/index.html",
       "key": "20eb18ca4d98b7f8",
-      "line": 525,
+      "line": 522,
       "text": "[data-n=\"w.ringPitchM\" data-f=\"1\"] m ring pitch — the film lies straight on the hoop chords, ruled and sweep-confirmed [data-n=\"w.ringOdMm\" data-f=\"0\"] mm the ring's own bore — sized live, Euler-governed at the fan's true brace pitch [data-n=\"grid.depthM\" data-f=\"0\"] m between the walls — depth only counts once the ring-plane webs make it real [data-n=\"w.filmGM2\" data-f=\"0\"] g/m² the film, priced one-way until the drape licenses the two-way credit",
       "class": "live-model",
       "reason": "Ring pitch, ring section, wall depth and film are model display values, not a float result."
@@ -578,7 +578,7 @@
     {
       "file": "ship/index.html",
       "key": "dbfca8c985d97362",
-      "line": 566,
+      "line": 563,
       "text": "[data-n=\"stock.pipeCount\" data-f=\"0\"] carbon cuts · [data-n=\"demo.printedNodes\" data-f=\"0\"] printed joints · [data-n=\"stock.totalKg\" data-f=\"2\"] kg",
       "class": "live-model",
       "reason": "The bench headline displays the computed cut count, joint count and stock-build mass."
@@ -586,7 +586,7 @@
     {
       "file": "ship/index.html",
       "key": "d84640ace1b8e3e5",
-      "line": 615,
+      "line": 612,
       "text": "[data-n=\"edge.totalSurfaceLoadTf\" data-f=\"1\"] tf squeezing the whole surface [data-n=\"edge.hexFaceLoadN\" data-mul=\"0.000102\" data-f=\"1\"] tf on each of 8 hexagons [data-n=\"stock.pipeKg\" data-f=\"2\"] kg carbon tube, billed at the saw table [data-n=\"stock.nodesKg\" data-f=\"2\"] kg printed joints, weighed [data-n=\"edge.rows.2.failsAtAtm\" data-f=\"2\"] atm what the braced boundary holds — it is asked for 1 [data-n=\"demo.hexSpokeStruts\" data-f=\"0\"] spokes six per hexagon face, at the primary cut length",
       "class": "calculator",
       "reason": "fillNumbers renders computeCtx loads, component masses and brace capacity; explorercheck executes the array-indexed capacity and component displays.",
@@ -600,7 +600,7 @@
     {
       "file": "ship/index.html",
       "key": "8baa091cbd4fb67a",
-      "line": 636,
+      "line": 633,
       "text": "Bracing pays twice. Bending falls as the cube of the bracing pitch, so spokes buy strength cheaply — and they buy back volume. Every panel dimples inward and that dent is open to the sky, so an unbraced cell forfeits [data-n=\"edge.bulgeVolumeLostUnbracedPct\" data-f=\"1\"] % of its own displacement. Spoked and solved over every real panel, the pumped-down article gives up [data-n=\"skin.loadedDishPct\" data-f=\"1\"] % — the ledger carries it. On anything meant to float, that is a fifth of the lift.",
       "class": "bound",
       "reason": "The braced and unbraced displacement losses describe the bench geometry; meant to float is a requirement, not a successful article.",
@@ -620,7 +620,7 @@
     {
       "file": "ship/index.html",
       "key": "ef9cf5bbb4ec16ea",
-      "line": 666,
+      "line": 663,
       "text": "The bench article does not float. Its nominal volume displaces [data-n=\"weigh.airSLG\" data-f=\"1\"] g of air at sea level and [data-n=\"weigh.airUpG\" data-f=\"1\"] g at 2,500 m. Its computed mass is [data-n=\"stock.totalKg\" data-f=\"2\"] kg, including [data-n=\"stock.pipeKg\" data-f=\"2\"] kg of tube and [data-n=\"stock.nodesKg\" data-f=\"2\"] kg of joints. Weighed parts, load tests and a complete skin and hardware bill are needed to establish its actual mass and capacity.",
       "class": "bound",
       "reason": "Article A has negative mass margins at both altitudes; nominal displacement and computed component masses are not physical weighings.",
@@ -658,7 +658,7 @@
     {
       "file": "ship/index.html",
       "key": "32f84b775e71860a",
-      "line": 670,
+      "line": 667,
       "text": "The material study is a formula, not the bench article. With M60J-class tube, the finite-article estimate gives [data-n=\"wM60.densityAtN1\" data-f=\"3\"] kg/m³, below sea-level air density but above air at 2,500 m. The continuous-fibre printed variant needs [data-n=\"wCFF.minNSeaLevel\" data-f=\"0\"] sub-cells per half-span to fall below sea-level air density in the formula. These estimates need drawn members, joints and tests; they do not establish a floating cell.",
       "class": "bound",
       "reason": "The M60J unit-subdivision density and CFF subdivision threshold are different material estimates; neither supplies a drawn floating cell.",
@@ -681,7 +681,7 @@
     {
       "file": "ship/index.html",
       "key": "2cd73a54996a7b18",
-      "line": 678,
+      "line": 675,
       "text": "The same geometry printed end to end in nylon, the variant that proves the printer chain rather than the physics, comes to [data-n=\"demo.totalKg\" data-f=\"2\"] kg against [data-n=\"demo.displacedAirKg\" data-mul=\"1000\" data-f=\"0\"] g of displaced air.",
       "class": "live-model",
       "reason": "The all-printed nylon variant is separate from Article A; its computed mass and nominal displacement remain model displays."
@@ -689,7 +689,7 @@
     {
       "file": "ship/index.html",
       "key": "efa2780c9f3d4e33",
-      "line": 1156,
+      "line": 1153,
       "text": "The buy. At a [data-n=\"cuts.kerfMm\" data-f=\"0\"] mm kerf on [data-n=\"cuts.stockLenM\" data-f=\"0\"] m stock, [data-n=\"cuts.skus.main.sticks\" data-f=\"0\"] sticks of the thin section and [data-n=\"cuts.skus.rim.sticks\" data-f=\"0\"] of the heavy one. That is [data-n=\"cuts.sticks\" data-f=\"0\"] sticks, [data-n=\"cuts.purchasedM\" data-f=\"0\"] metres purchased against [data-n=\"cuts.cutM\" data-f=\"2\"] metres of cut, which is [data-n=\"cuts.offcutPct\" data-f=\"1\"] % offcut with the lengths mixed on a stick. Keep each length on its own stick and it is [data-n=\"cuts.sticksUnmixed\" data-f=\"0\"] . [data-n=\"cuts.purchasedKg\" data-f=\"2\"] kg of tube walks in the door, [data-n=\"cuts.cutKg\" data-f=\"2\"] kg of it ends up in the article. And that is now exactly what the model bills: stock_build prices the measured saw table ( [data-n=\"stock.pipeKg\" data-f=\"2\"] kg over [data-n=\"stock.sawnM\" data-f=\"1\"] m of cuts), not the centre-to-centre spans it once quoted as cuts. The spans still do the Euler physics.",
       "class": "live-model",
       "reason": "The purchasing comparison uses saw-schedule lengths and masses, with component billing rather than a buoyancy verdict."
@@ -697,7 +697,7 @@
     {
       "file": "ship/index.html",
       "key": "a67d7788748a7825",
-      "line": 1200,
+      "line": 1197,
       "class": "bound",
       "reason": "The closed-form hierarchy comparison names its working altitude and denies a drawn structure; the bench path explicitly lacks a local-wall check.",
       "bindings": [
@@ -737,7 +737,7 @@
     {
       "file": "ship/index.html",
       "key": "ad96404e61ddc7c1",
-      "line": 1232,
+      "line": 1227,
       "text": "[data-n=\"skin.areaM2\" data-f=\"2\"] m² of fabric — [data-n=\"skin.filmG\" data-f=\"0\"] g all in [data-n=\"edge.totalSurfaceLoadTf\" data-f=\"1\"] tf standing on it, permanently [data-n=\"skin.hexSharePct\" data-f=\"1\"] % of the surface is the [data-n=\"edge.hexFaces\" data-f=\"0\"] hexagons [data-n=\"skin.hexArealGM2\" data-f=\"2\"] g/m² what a hexagon panel needs to hold an atmosphere [data-n=\"skin.loadedDishPct\" data-f=\"1\"] % of displacement lost to dimpling — solved surfaces [data-n=\"edge.bulgeVolumeLostUnbracedPct\" data-f=\"1\"] % unbraced — the better argument for spokes",
       "class": "live-model",
       "reason": "The skin card displays membrane area, mass, load and computed displacement losses from the existing model and loaded mesh."
@@ -745,7 +745,7 @@
     {
       "file": "ship/index.html",
       "key": "6246da8f5cda28ef",
-      "line": 1337,
+      "line": 1332,
       "text": "The bulge tax. Every dimple is open to the sky, so the article displaces less air than its outline claims: the solved surfaces swallow [data-n=\"skin.loadedDishL\" data-f=\"1\"] litres, [data-n=\"skin.loadedDishPct\" data-f=\"1\"] % of the cell's [data-n=\"stock.enclosedL\" data-f=\"1\"] , where the analysis' smeared estimate said [data-n=\"edge.bulgeVolumeLostPct\" data-f=\"1\"] % ( [data-n=\"edge.bulgeVolumeLostUnbracedPct\" data-f=\"1\"] % unbraced). On the bench that is cosmetic. On a floater, where mass and displaced air are equal by construction, it is a fifth of the lift. That is a better argument for bracing than film mass.",
       "class": "live-model",
       "reason": "The loaded-surface and smeared displacement losses are model figures; the equal-mass floater is explanatory context, not this article."
@@ -753,7 +753,7 @@
     {
       "file": "ship/index.html",
       "key": "5ec7ceb2d4f0649a",
-      "line": 1348,
+      "line": 1343,
       "text": "It is a membrane, not a barrier. The [data-n=\"skin.hexArealGM2\" data-f=\"2\"] g/m² above is sized for strength . A real barrier laminate of the class this project has measured is several times heavier, and wrapped around a cell this size that is lift-negative on its own skin — deliberately, because the demonstrator is not meant to be flight representative. Only a deposited stack scales to every cell size, and nobody has a measured number for one on printed PAHT-CF. That is the barrier-stack experiment, and it must be measured rather than argued. The arithmetic behind that comparison lives in research/notes/barrier-and-permeation.md , marked as arithmetic and under no checker, so this page does not put a figure on it.",
       "class": "live-model",
       "reason": "The displayed membrane areal mass is live; the paragraph explicitly leaves barrier mass to an unmeasured experiment."

@@ -22,12 +22,13 @@
       "text": "gpt-6-astra executed the census and regeneration. muse-spark-1.3 and a second gpt-6 run examined the float case. claude-opus-5-5 ruled the publication basis. A person directs the project; no person ch",
       "class": "generated",
       "reason": "The census generator supplies the attribution paragraph and explicitly says no person checked the arithmetic.",
-      "generator": "research/analysis/member-census.py"
+      "generator": "research/analysis/member-census.py",
+      "gate": "censuscheck"
     },
     {
       "file": "research/analysis/air-ballast.md",
       "key": "8c5405bd02148a7c",
-      "line": 30,
+      "line": 34,
       "text": "- **A fail-open valve on a dead ship is a crash, not a landing.** A fully flooded hull weighs its structure with no buoyancy at all — about 13 m/s terminal broadside, 34 m/s nose-down. A 6 m/s descent",
       "class": "history",
       "reason": "The retraction dated 2026-08-10 records why the abandoned admission-valve and pump proposal failed.",
@@ -36,7 +37,7 @@
     {
       "file": "research/analysis/air-ballast.md",
       "key": "56c780b7a18e8599",
-      "line": 41,
+      "line": 45,
       "class": "deferred",
       "reason": "Asserts emergency recovery and ballast/descent closure for an assumed fleet hull; recovery energy and plant performance are not established by the structural ledger.",
       "owner": "energy-model"
@@ -48,7 +49,8 @@
       "text": "| Reading | Basis | Mass t | Change t | Sea-level lift/mass | Sea-level margin t | Lift/mass at 2,500 m | Margin t at 2,500 m | | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | | As billed | re",
       "class": "generated",
       "reason": "The cap generator prints all five accounting readings on both bases; none is a checked structure.",
-      "generator": "research/analysis/cap-readings.py"
+      "generator": "research/analysis/cap-readings.py",
+      "gate": "censuscheck"
     },
     {
       "file": "research/analysis/delivery.md",
@@ -68,7 +70,7 @@
     {
       "file": "research/analysis/delivery.md",
       "key": "2c9ef1cd33d06099",
-      "line": 75,
+      "line": 77,
       "text": "**A buoyant hull holds station by thrusting downward, so its rotors accelerate air *upward*.** That is the opposite sign to a helicopter, and it happens directly over the release.",
       "class": "flight-model",
       "reason": "Rotor upwash follows the simulated downward thrust on an assumed buoyant hull; this is not a built-aircraft result.",
@@ -280,7 +282,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "8d7c8825b02b9858",
-      "line": 53,
+      "line": 54,
       "text": "**The cryogenic line is now the second-largest item in the vehicle and the worst-supported.** Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg), and NASA's ow",
       "class": "other-quantity",
       "reason": "These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
@@ -288,7 +290,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "9b4f8c182bf3f3ca",
-      "line": 74,
+      "line": 75,
       "text": "> ## A vacuum shell must mass less than 0.957 kg per m³ of enclosed volume. > That is ISA air density at the 2,500 m working altitude. Above it there is no net lift at > any size, at any scale, ever.",
       "class": "bound",
       "reason": "The shell-density requirement is the budget analysis air-density limit at its stated working altitude.",
@@ -307,7 +309,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "1b499ca8da5e6296",
-      "line": 80,
+      "line": 81,
       "text": "| source | shell | verdict | |---|---|---| | Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes, with 47% margin** | | Jenett + 50% for joints and skin | 0.75 kg/m³ | passes, with 22% | | M",
       "class": "literature",
       "reason": "These densities and margins refer to Jenett, Metlen and Akhmeteli shell studies, plus the explicitly added allowance, not the drawn project hull.",
@@ -316,7 +318,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "f56e261377ae00a3",
-      "line": 146,
+      "line": 147,
       "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
       "class": "other-quantity",
       "reason": "This lists unpriced cryogenic and thermal equipment masses and heat rejection quantities; it does not establish a structural float result."
@@ -324,7 +326,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "ecf313cd35581cdc",
-      "line": 169,
+      "line": 170,
       "text": "`barrier_floor()` sizes a film that only has to **seal**, with load-carrying left to the lattice under it: a film bulging into a lattice cell carries the atmosphere as membrane tension, σ = pR/2t. At",
       "class": "other-quantity",
       "reason": "The membrane law estimates barrier areal mass and its component mass on the assumed hull; it does not size the load-carrying hull."
@@ -332,7 +334,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "a7ba68c7cfd96080",
-      "line": 174,
+      "line": 175,
       "text": "Metlen measured 3.45 kg/m² for a real membrane, eighty times more, because his membrane was *also* the structure. That gap is the whole question of whether the two functions separate, and it is a mate",
       "class": "literature",
       "reason": "The membrane areal mass is attributed to Metlen and compared with the separate barrier component, not a project hull density.",
@@ -341,7 +343,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "3911cda2eb237df7",
-      "line": 180,
+      "line": 181,
       "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
       "class": "conditional",
       "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
@@ -433,7 +435,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "b63183a0e7d7775b",
-      "line": 29,
+      "line": 26,
       "text": "> **A vacuum shell must mass less than 0.9569 kg per m³ of enclosed volume** — air density at > the 2,500 m working altitude. Heavier and there is no net lift at any size, ever. Lighter and > the hull",
       "class": "bound",
       "reason": "This is the air-density requirement at the stated working altitude, not a sized or drawn structure.",
@@ -452,7 +454,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "8ecf68ea14aa6a6a",
-      "line": 60,
+      "line": 57,
       "text": "At floating densities lattice members are slender enough that **Euler buckling governs, not yield** — by more than an order of magnitude for every material tested. Solid rods therefore give strength ∝",
       "class": "bound",
       "reason": "The discussion contrasts the solid-rod branch with the hollow-tube exponent; its no-float statement concerns that closed-form solid-rod branch.",
@@ -472,7 +474,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "b71022074f407881",
-      "line": 73,
+      "line": 70,
       "text": "| | effect on the reference shell | |---|---| | **1. Fibre properties used as laminate properties.** M60J's 588 GPa / 3.82 GPa / 1930 is the *fibre*. A laminate at 60% fibre volume is ~354 / 2.29 / 16",
       "class": "history",
       "reason": "This is the recorded sequence of five corrections to the earlier reference-shell calculation, including the discarded film accounting.",
@@ -481,7 +483,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "c0e16a9f019fcce8",
-      "line": 86,
+      "line": 83,
       "text": "| cell size | 0.5 m | 1 m | 2 m | 4 m | |---|---|---|---|---| | film sized to hold an atmosphere | 0.347 | 0.347 | 0.347 | 0.347 kg/m³ | | minimum-gauge foil laminate instead | 0.300 | 0.150 | 0.075 |",
       "class": "other-quantity",
       "reason": "The table compares the interior film component under two barrier assumptions; these are not complete shell densities or a float verdict."
@@ -489,7 +491,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "e7d5c1b5cf90fb2f",
-      "line": 105,
+      "line": 102,
       "text": "The envelope-only figure was 0.002 in an earlier version — an unsourced 17 g/m² film assigned to a surface that must hold a full atmosphere over 2 m spans. A review priced it with the model's own memb",
       "class": "history",
       "reason": "This records the earlier unpriced envelope film and the membrane recalculation that replaced it, preserving the old and replacement figures.",
@@ -498,7 +500,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "069530d9e7c01329",
-      "line": 112,
+      "line": 109,
       "text": "**That trade — containment against 0.35 kg/m³ — is the sharpest unresolved question in the design.** It is worth a third of the shortfall, and the earlier version of this page paid for it without clai",
       "class": "bound",
       "reason": "The containment trade quotes the generated interior-film density rounded to two decimals.",
@@ -659,7 +661,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "2773f904088426bf",
-      "line": 318,
+      "line": 315,
       "text": "How the membrane meshes with the structure — corrected once, and the correction recorded: an earlier version claimed every face was node-supported, from a lattice generator that admitted **two interle",
       "class": "history",
       "reason": "This records the correction from two interleaved octets to FCC sites and the resulting boundary-node topology.",
@@ -676,7 +678,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "3ac6d363e075961b",
-      "line": 517,
+      "line": 514,
       "text": "**Two SKUs, and the designer was right for the wrong reason.** He proposed the secondaries be a *smaller* carbon pipe. Carbon yes; smaller no — sized against the load they actually react, the ties com",
       "class": "history",
       "reason": "This records the dated saw-table correction, retained old span billing and the material replacement in the hybrid article.",
@@ -685,7 +687,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "a2502f4bccb5e023",
-      "line": 528,
+      "line": 525,
       "text": "The 51 printed joints are **weighed, not budgeted**: gen_nodes.py integrates each one from its own field and the article reads the manifest — **0.71 kg** since the sunken boundary frame (2026-08-11).",
       "class": "history",
       "reason": "This records the successive generated joint-mass estimates through the dated sunken-frame change, not a physical weighing.",
@@ -694,7 +696,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "18bd439f85b88e7d",
-      "line": 538,
+      "line": 535,
       "text": "**Then 21 g of that came back, and it is worth naming what bought it.** Giving the 36 rim members the 14×12 socket the stock build specifies — instead of the 10×8 every other member gets — pushed the",
       "class": "history",
       "reason": "This preserves the socket-diameter change and its signed joint-mass increments from the recorded article geometry revision.",
@@ -996,7 +998,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "6e18eb0e7b336a7b",
-      "line": 245,
+      "line": 246,
       "class": "method",
       "reason": "The bending-method docstring defines stocky-tube section selection and warns against substituting the axial local-wall formula.",
       "context": [
@@ -1006,7 +1008,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "d5820bfe932a243b",
-      "line": 697,
+      "line": 698,
       "class": "method",
       "reason": "The comment defines the floats data flag as a mass-to-lift comparison separate from structural checks.",
       "context": []
@@ -1014,7 +1016,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "4b379441613442e9",
-      "line": 705,
+      "line": 706,
       "class": "method",
       "reason": "a key, not a sentence",
       "context": []
@@ -1022,7 +1024,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "5de4fa932a9aa0e3",
-      "line": 762,
+      "line": 764,
       "text": "v2 ratio @SF1.2",
       "class": "history",
       "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.2; it is not the selected hull verdict.",
@@ -1031,7 +1033,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "7b4b7076283e11ea",
-      "line": 764,
+      "line": 766,
       "text": "v2 ratio @SF1.5",
       "class": "history",
       "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.5; it is not the selected hull verdict.",
@@ -1040,7 +1042,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "9173694a51193a63",
-      "line": 765,
+      "line": 767,
       "text": "v2 ratio @SF1.5 s1450",
       "class": "history",
       "reason": "This self-check label names the superseded band-and-chord ratio at safety factor 1.5 with the ceiling chord allowable; it is not the selected hull verdict.",
@@ -1049,7 +1051,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "fe1f3c3218c7743d",
-      "line": 825,
+      "line": 826,
       "class": "method",
       "reason": "The float-window docstring explains the diameter search and why its root finding differs from the former monotonic closure map.",
       "context": []
@@ -1057,7 +1059,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "837cac974f4a343c",
-      "line": 873,
+      "line": 875,
       "text": "# float, farthest from crush) and let the margin be an OUTPUT of materials and",
       "class": "history",
       "reason": "This comment quotes the dated question that introduced the band study, not an assertion that a drawn hull is weightless.",
@@ -1066,7 +1068,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "b2d17f10748eea50",
-      "line": 879,
+      "line": 880,
       "class": "method",
       "reason": "The comment defines a positive band as an unchecked allowance and denies that it establishes a design.",
       "context": []
@@ -1074,7 +1076,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "828584b014d47888",
-      "line": 948,
+      "line": 949,
       "text": "THE BAND, BY HULL: greedy sizing (the SF-1.0 ledger) vs sink boundary (sea-level lift), in tonnes. The SF-1.0 result is greedy sizing, not a proven minimum. A positive float band is an unchecked mass",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1084,7 +1086,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "249c8beb45cab99a",
-      "line": 971,
+      "line": 972,
       "text": "FLOATS below means mass below sea-level lift only. It does not establish a drawn floating design.",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1094,7 +1096,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "a138cf96eba3f96c",
-      "line": 992,
+      "line": 993,
       "text": "FLOATS",
       "class": "calculator",
       "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
@@ -1104,7 +1106,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "04dd1b14ff493aba",
-      "line": 1000,
+      "line": 1001,
       "text": "MID-BAND DESIGN POINTS — mass target halfway crush->sink at the widest hull; float reserve and emergent SF split the band, and the margin is an output:",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1114,7 +1116,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "3c5e87602865f82a",
-      "line": 1021,
+      "line": 1022,
       "text": "t: float reserve",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1124,7 +1126,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "ded571c0bd4b96e3",
-      "line": 1052,
+      "line": 1053,
       "text": "t, float reserve",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1134,7 +1136,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "54d212387a8458a6",
-      "line": 1100,
+      "line": 1101,
       "class": "method",
       "reason": "The command-line help labels the band-study calculation; the date describes its origin, not a result.",
       "context": [
@@ -1145,7 +1147,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "cd380916af21145f",
-      "line": 1170,
+      "line": 1154,
       "text": "positive float margin",
       "class": "calculator",
       "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
@@ -1155,7 +1157,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "d3b697673cee0910",
-      "line": 1170,
+      "line": 1154,
       "text": "negative float margin",
       "class": "calculator",
       "reason": "The display condition uses the computed sea-level mass/lift comparison; the full check executes the scoping output through analysisfresh.",
@@ -1165,7 +1167,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "69cddcf72a7a7526",
-      "line": 1176,
+      "line": 1177,
       "text": "THE FLOAT WINDOW (chosen config, geometric scaling; the old closure map inverts — the band's diluting mass is gone):",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1175,7 +1177,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "bc722093e5bd480a",
-      "line": 1184,
+      "line": 1185,
       "text": "MPa: floats",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1185,7 +1187,7 @@
     {
       "file": "tools/ship_scoping.py",
       "key": "1ba3ea93442721f0",
-      "line": 1188,
+      "line": 1189,
       "text": "MPa: floats nowhere 40-80 m (52 m:",
       "class": "calculator",
       "reason": "This is computed scoping output, qualified as a sea-level bound; the full check executes it through analysisfresh.",
@@ -1231,6 +1233,60 @@
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "546ec7f8346a2c23",
+      "class": "method",
+      "context": [],
+      "reason": "Explains the assumed scale-invariant density model and its conditional closing equation; it establishes no drawn hull.",
+      "line": 71
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "84da69759f0eaf69",
+      "class": "method",
+      "context": [],
+      "reason": "Explains the assumed scale-invariant density model and its conditional closing equation; it establishes no drawn hull.",
+      "line": 67
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "25a6495f025c3fbe",
+      "class": "bound",
+      "context": [
+        "5"
+      ],
+      "reason": "The signed net-lift change and outer differential match the generated graded-band source; this remains a model comparison.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/costPctOfNetLift",
+          "shown": "-1.9"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/outerSurfaceDifferentialAtm",
+          "shown": "0.1"
+        }
+      ],
+      "line": 268
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "4a90bc90c03df733",
+      "class": "deferred",
+      "reason": "The table prints 0.515 from raw structure 0.514521413; JSON stores 0.5145, which double-rounds to 0.514. No ledger row holds this grading result; source precision needs an explicit binding.",
+      "owner": "hand-arithmetic",
+      "line": 257
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "b993f3fb134efe3b",
+      "class": "method",
+      "context": [],
+      "reason": "Explains the generated grading comparison qualitatively; no numerical result is asserted in this block.",
+      "line": 263
     }
   ]
 }

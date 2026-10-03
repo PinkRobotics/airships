@@ -574,7 +574,7 @@
     {
       "file": "concept/index.html",
       "key": "9939ce05722fb2a1",
-      "line": 597,
+      "line": 598,
       "text": "The flight model assumes a hull that floats; no drawn hull does. See the float case .",
       "class": "bound",
       "reason": "The flight cycle assumes buoyancy; the ledger establishes that no drawn hull currently supplies it.",
@@ -612,7 +612,7 @@
     {
       "file": "concept/index.html",
       "key": "5833d3512428c35c",
-      "line": 693,
+      "line": 689,
       "text": "As water is pushed up the hose, the ship gets heavier and its net positive buoyancy falls. The downforce it was spending to hold itself low is progressively handed over to the payload itself. It only ever needs to force itself into hose range; incoming water does the rest of the pulling down.",
       "class": "flight-model",
       "reason": "This describes payload mass replacing downforce in the assumed-buoyant flight cycle, conditional on the explicit structural assumption.",
@@ -630,7 +630,7 @@
     {
       "file": "concept/index.html",
       "key": "4a8084e3847385b0",
-      "line": 727,
+      "line": 722,
       "class": "deferred",
       "reason": "Compressed-air tank mass and negligible cryogenic tank mass are asserted without a tank bill that closes those allowances.",
       "owner": "energy-model"
@@ -661,7 +661,7 @@
     {
       "file": "concept/index.html",
       "key": "2bcd24c159b960f4",
-      "line": 893,
+      "line": 877,
       "class": "deferred",
       "reason": "Cycle throughput and empty-hull descent closure depend on the delivery and energy model, including retained ballast.",
       "owner": "energy-model"
@@ -669,7 +669,7 @@
     {
       "file": "concept/index.html",
       "key": "656c76c23c6584d2",
-      "line": 919,
+      "line": 903,
       "text": "How much power it costs rotors of a given total disk area to push down with force T, divided by an overall efficiency. It is used whenever the ship must descend while still buoyant. This is the ideal momentum-theory floor. The model quotes it explicitly so the margin to real installed performance is visible rather than absorbed.",
       "class": "other-quantity",
       "reason": "This defines the ideal induced-power quantity and its efficiency divisor; it gives no structural closure or delivered-payload result."
@@ -677,7 +677,7 @@
     {
       "file": "concept/index.html",
       "key": "be5007616452bdcb",
-      "line": 1087,
+      "line": 1065,
       "text": "The first physical gate is the sealed bench article A, intended to test joints, films, seals and a months-long vacuum hold. That drawn article does not float. The ledger keeps its bill separate from the hull and fleet assumptions.",
       "class": "bound",
       "reason": "Article A is a nonfloating bench experiment for seals and load paths; its ledger row is distinct from the hull and fleet.",
@@ -688,6 +688,44 @@
           "equals": false
         }
       ]
+    },
+    {
+      "file": "cell/index.html",
+      "key": "51b5ef9b30304311",
+      "class": "method",
+      "context": [],
+      "reason": "Defines the density comparison at fixed architecture; this principle names no calculated drawn-hull result.",
+      "line": 107
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "1a6442210fbb1fd2",
+      "class": "bound",
+      "context": [],
+      "reason": "The denial agrees with the drawn bench or hull verdict; the remaining prose describes the intended test and construction sequence.",
+      "bindings": [
+        {
+          "case": "bench-nominal",
+          "field": "floatsToday",
+          "equals": false
+        }
+      ],
+      "line": 135
+    },
+    {
+      "file": "cell/levels.html",
+      "key": "5fade9d35fc95063",
+      "class": "bound",
+      "context": [],
+      "reason": "The denial agrees with the drawn bench or hull verdict; the remaining prose describes the intended test and construction sequence.",
+      "bindings": [
+        {
+          "case": "bench-nominal",
+          "field": "floatsToday",
+          "equals": false
+        }
+      ],
+      "line": 187
     }
   ]
 }
