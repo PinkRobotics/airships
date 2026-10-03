@@ -1,3 +1,4 @@
+import {writeGenerated} from './energy-output.mjs';
 /* Render the current descent reading. The older prose remains dated history. */
 import fs from 'node:fs';
 const data=JSON.parse(fs.readFileSync('research/analysis/descent.json'));
@@ -13,5 +14,5 @@ for(const basis of ['record','favourable'])for(const [id,r] of Object.entries(da
 md+='\nThe static scan ends at its stated ceiling and is not a proof of the crossing altitude. The phase ledger uses local density and instantaneous available power.\n\n';
 md+='The bag comparison removes its credited force or its hardware from the same requested cycle. Retained water is not silently increased to make the comparison close.\n\n';
 md+='Earlier figures remain in [the dated document record](energy-document-history.json). Current feasible profiles and minutes are in [the profile table](energy-profiles.md).\n';
-fs.writeFileSync('research/analysis/descent.md',md);
+writeGenerated('research/analysis/descent.md',md);
 console.log('Generated both-basis descent tables from the browser record.');

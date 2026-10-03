@@ -1,3 +1,4 @@
+import {writeGenerated} from './energy-output.mjs';
 /* Fast replay of selected rows; it performs no search. */
 import fs from 'node:fs';
 import {CLASSES,MODES,planCycle} from '../../sim/index.js';
@@ -15,6 +16,6 @@ export function profileDetails(b){
 if(process.argv[1]?.endsWith('energy-profile-details.mjs'))for(const name of ['energy-profiles','energy-feasible']){
  const path=`research/analysis/${name}.json`,data=JSON.parse(fs.readFileSync(path));
  for(const row of data.rows)for(const b of [row.best,row.fullDeliveryBest])profileDetails(b);
- fs.writeFileSync(path,JSON.stringify(data,null,2)+'\n');
+ writeGenerated(path,JSON.stringify(data,null,2)+'\n');
  console.log('Replayed profile details:',name);
 }

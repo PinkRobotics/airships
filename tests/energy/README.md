@@ -15,3 +15,9 @@ The slow profile search is `node research/analysis/energy-feasible.mjs` and uses
 - `vertical-profile.mjs`: independent distance quadrature, sampled smoothness across the declared grid, separate airspeed controls and an upward-authority counterexample.
 - `hover-floor.py`: independent momentum inversion against the payload-exchange study and each mode's actual supply.
   It also checks stationary retained-water floors with nitrogen, newly loaded water and bag credit named.
+- `unheld.mjs`: complete phase coverage and signed-force replay of every prescribed row.
+- `payload-exchange.py`: independent analysis reproduction and every cited numeric key.
+
+`make energydoccheck` regenerates fast records and document regions without changing files.
+It rejects unbound energy figures outside those regions, including new figures in energy tables.
+The gate replays printed inputs; it does not run the slow search.

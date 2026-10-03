@@ -372,3 +372,9 @@ energycheck:  ## Replay independent force, arithmetic, profile and printed-row e
 	node tests/energy/peaks.mjs
 	node tests/energy/bus.mjs
 	node tests/node/force-mutations.mjs
+
+energydoccheck:  ## Reject stale generated energy text and newly unbound figures
+	$(PY) tools/check_energy_docs.py --self-test
+	$(PY) tools/check_energy_docs.py
+
+.PHONY: energycheck energydoccheck

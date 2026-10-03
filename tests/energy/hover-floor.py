@@ -39,6 +39,10 @@ for row in data['profiles']:
                instant='WATER_FILL at progress 0.3, stationary, before any remaining bag credit')
     print(f"PASS {row['table']} {row['class']}/{row['km']}/{row['basis']}: kept {row['retainedT']:.3f} t; "
           f"stationary floor {floor:.3f} t; other support {credits}")
+if '--check' in sys.argv:
+    expected = json.dumps(data, indent=2)+'\n'
+    actual = Path('research/analysis/energy-crosschecks.json').read_text()
+    assert actual == expected, 'research/analysis/energy-crosschecks.json:1: stationary cross-check record is stale'
 if '--write' in sys.argv:
     Path('research/analysis/energy-crosschecks.json').write_text(json.dumps(data, indent=2)+'\n')
 print(f"PASS independent hover and retained-water checks: {len(data['modes'])} mode rows, {len(data['profiles'])} feasible rows")
