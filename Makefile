@@ -365,6 +365,8 @@ energycheck:  ## Replay independent force, arithmetic, profile and printed-row e
 	node tests/energy/replay.mjs
 	node tests/node/energy-profile.mjs
 	$(PY) tests/energy/first-principles.py
+	node tests/energy/vertical-profile.mjs
+	$(PY) tests/energy/hover-floor.py
 	node tests/energy/peaks.mjs
 	node tests/energy/bus.mjs
 	node tests/node/force-mutations.mjs

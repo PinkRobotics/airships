@@ -10,8 +10,10 @@ for(const r of JSON.parse(fs.readFileSync('research/analysis/energy-requirements
   for(const s of [p.batterySearch,p.rotorSearch])assert.ok(s.printed>=s.threshold&&s.printed-s.threshold<=REQUIREMENT_UNIT);checked++;}
 }
 for(const path of ['energy-profiles','energy-feasible'])for(const r of JSON.parse(fs.readFileSync(`research/analysis/${path}.json`)).rows){
- if(!r.best)continue;
- const b=r.best,p=planCycle(CLASSES[b.class],MODES[b.mode],b.km,null,b.options);
- assert.ok(p.feasible,`${path}: infeasible row`);assert.ok(Math.abs(p.eCycleMWh-b.cycleMWh)<1e-8);assert.equal(p.deliveredT,b.deliveredT);checked++;
+ for(const b of [r.best,r.fullDeliveryBest].filter(Boolean)){
+ const p=planCycle(CLASSES[b.class],MODES[b.mode],b.km,null,b.options);
+ assert.ok(p.feasible,`${path}: infeasible row`);assert.ok(Math.abs(p.eCycleMWh-b.cycleMWh)<1e-8);assert.equal(p.deliveredT,b.deliveredT);assert.ok(Math.abs(p.cycleMin-b.cycleMin)<1e-8);
+ for(const s of b.sensitivity||[]){const q=planCycle(CLASSES[b.class],MODES[b.mode],b.km,null,{...b.options,[s.parameter]:s.value});assert.equal(q.feasible,s.feasible);assert.ok(Math.abs(q.eCycleMWh-s.cycleMWh)<1e-8);}
+ checked++;}
 }
 console.log('PASS printed requirement/profile replays:',checked);

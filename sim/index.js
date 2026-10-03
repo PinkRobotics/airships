@@ -67,3 +67,5 @@ export { ENERGY_NOTE, ENERGY_TAG } from './energy-label.js?v=acbad6ee';
 export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=acbad6ee';
 
 export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=acbad6ee';
+
+export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=acbad6ee';

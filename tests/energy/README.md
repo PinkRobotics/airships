@@ -11,3 +11,7 @@ Run `make energycheck` without the network. Scratch follows `TMPDIR`.
 - `../node/force-mutations.mjs`: gpt-6-sol's four-invariant force probe, adapted to the integrated record.
 
 The slow profile search is `node research/analysis/energy-feasible.mjs` and uses four workers. It is outside `make check`; this gate replays only its printed rows.
+
+- `vertical-profile.mjs`: independent distance quadrature, sampled smoothness across the declared grid, separate airspeed controls and an upward-authority counterexample.
+- `hover-floor.py`: independent momentum inversion against the payload-exchange study and each mode's actual supply.
+  It also checks stationary retained-water floors with nitrogen, newly loaded water and bag credit named.

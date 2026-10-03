@@ -6,12 +6,14 @@
  */
 import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=acbad6ee';
 import { dragMW, ledger, pumpMW } from './physics.js?v=acbad6ee';
-import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry } from './power.js?v=acbad6ee';
+import { searchedProfile } from './profile.js?v=acbad6ee';
+import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=acbad6ee';
 
-export function planCycle(cls, mode, oneWayKm, wind, options = {}) {
-  const verticalRateMultiplier = options.verticalRateMultiplier ?? 1;
-  if (!(verticalRateMultiplier >= 0.5 && verticalRateMultiplier <= 1))
-    throw new RangeError('verticalRateMultiplier must be in [0.5, 1]');
+export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
+  if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');
+  const movingPhaseRateMultiplier = options.movingPhaseRateMultiplier ?? 1;
+  if (!(movingPhaseRateMultiplier >= 0.5 && movingPhaseRateMultiplier <= 1))
+    throw new RangeError('movingPhaseRateMultiplier must be in [0.5, 1]');
   const speedMultiplier = options.speedMultiplier ?? CFG.speedMul;
   const rotorEfficiency = options.rotorEfficiency ?? CFG.propEta;
   if (!(Number.isFinite(rotorEfficiency) && rotorEfficiency > 0 && rotorEfficiency <= 1))
@@ -131,16 +133,20 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}) {
   let cycleMin = Object.values(dur).reduce((a, b) => a + b, 0);
 
   /* Quasi-static force and energy closure is evaluated by power.js. */
-  const partial = { bagCreditRule: options.bagCreditRule, rotorEfficiency, speedMultiplier, verticalRateMultiplier, verticalCd: options.verticalCd, basis: options.basis || 'record', clMax: options.clMax,
+  const partial = { bagCreditRule: options.bagCreditRule, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, verticalCd: options.verticalCd, basis: options.basis || 'record', clMax: options.clMax,
     requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT, dur, anchorFromAglM, retainedT, deliveredT, ln2MakeT, gsOut, gsRet, passes,
     anchorT, dragMW: dragMW(cls, mode, led.rho), pumpMW: pumpMW(cls) };
   const shape = cycleGeometry(cls, partial);
   const altitudeGeometry = Object.fromEntries(['srcAlt','holdAgl','altTop','altEsc'].map(k=>[k,shape[k]]));
   const releaseRiseFraction = Math.min(1, Math.max(0.15, 30 / (dur.WATER_RELEASE * 60)));
   Object.assign(partial, {altitudeGeometry,releaseRiseFraction});
-  if (verticalRateMultiplier < 1) {
-    for (const phase of Object.keys(dur)) if (phase !== 'WATER_FILL') dur[phase] /= verticalRateMultiplier;
-    gsOut *= verticalRateMultiplier; gsRet *= verticalRateMultiplier;
+  if (options.verticalProfile) {
+    if(movingPhaseRateMultiplier!==1)throw new RangeError('independent profile cannot use moving-phase dilation');
+    partial.profile=searchedProfile(partial,shape,oneWayKm,options.verticalProfile,tailOut/3.6);
+  }
+  if (movingPhaseRateMultiplier < 1) {
+    for (const phase of Object.keys(dur)) if (phase !== 'WATER_FILL') dur[phase] /= movingPhaseRateMultiplier;
+    gsOut *= movingPhaseRateMultiplier; gsRet *= movingPhaseRateMultiplier;
     ln2MakeT = Math.min(ln2NeedT, cryoCapMW * dur.RETURN_TRANSIT / 60 / CFG.eLN2);
     anchorT = Math.min(cls.anchorBagT || 0, Math.max(0, ledLow.surplusT - ln2MakeT));
     Object.assign(partial, {gsOut,gsRet,ln2MakeT,anchorT});
@@ -150,7 +156,27 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}) {
     rotorMaxT = rotorMaxTonnes(cls, busMW, ledLow.rho, rotorEfficiency);
     shortfallT = Math.max(0, ledLow.surplusT - ln2MakeT - anchorT - rotorMaxT);
   }
+  if(partial.profile) {
+    ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);
+    anchorT=Math.min(cls.anchorBagT||0,Math.max(0,ledLow.surplusT-ln2MakeT));
+    Object.assign(partial,{ln2MakeT,anchorT});
+    cycleMin=Object.values(dur).reduce((a,b)=>a+b,0);
+    cryoLimited=ln2MakeT<ln2NeedT-0.5;
+    busMW=descentBusMW(cls,partial);
+    rotorMaxT=rotorMaxTonnes(cls,busMW,ledLow.rho,rotorEfficiency);
+    shortfallT=Math.max(0,ledLow.surplusT-ln2MakeT-anchorT-rotorMaxT);
+  }
+  // Search may reject at a coarse sample, but acceptance always uses the full ledger.
+  if(rejectEarly) {
+    if(partial.profile&&!partial.profile.feasibleGeometry)return {feasible:false};
+    for(const id of Object.keys(dur))for(const progress of [0,.15,.3,.5,.7,.85,1]) {
+      if(dur[id]>0&&!drawAt(cls,mode,partial,id,progress).feasible)return {feasible:false};
+    }
+  }
   const I = integrateCycle(cls, mode, partial);
+  if(partial.profile&&!partial.profile.feasibleGeometry) {
+    I.feasible=false;I.bindingLimits.push('vertical legs exceed route distance');
+  }
   const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;
   const battLimited = I.battLimited;
 
@@ -170,7 +196,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}) {
   if (descentShort) bottleneck = "descent does not close at the source";
 
   return {
-    bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, verticalRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
+    profile: partial.profile, bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
     requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT,
     dur, cycleMin, tph, eCycleMWh: eCycle, kwhPerTonne: eCycle * 1000 / Math.max(1, deliveredT),
     // The ledger itself, not just its total: energy by phase with the nitrogen recovery as its

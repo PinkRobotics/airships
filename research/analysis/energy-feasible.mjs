@@ -2,13 +2,13 @@
 import fs from 'node:fs';
 import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
 import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js';
-import {omittedInertia} from './energy-motion.mjs';
+import {profileDetails} from './energy-profile-details.mjs';
 if(!isMainThread){
   const {kind,class:id,km,basis}=workerData,c=CLASSES[id];
   if(kind==='requirement')parentPort.postMessage(closureRequirements(c,MODES.balanced,km,basis));
   else {
     const r=cheapestFeasible(c,km,basis);
-    if(r.best){const p=planCycle(c,MODES[r.best.mode],km,null,r.best.options);r.best.inertia=omittedInertia(c,MODES[r.best.mode],p);}
+    for(const b of [r.best,r.fullDeliveryBest])profileDetails(b);
     parentPort.postMessage({class:id,km,basis,...r});
   }
 }else{

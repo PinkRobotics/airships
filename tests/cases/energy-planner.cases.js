@@ -1,9 +1,9 @@
 import {describe,it,close,ok,eq} from '../harness.js';
 import {CLASSES,MODES,PHASES,planCycle,drawAt} from '../../sim/index.js?v=acbad6ee';
-describe('vertical-rate planning',()=>{
+describe('moving-phase time dilation',()=>{
   it('time dilation scales vertical rates without changing altitude or clearance',()=>{
     for(const c of Object.values(CLASSES))for(const km of [5,15,60])for(const k of [.5,.75]){
-      const a=planCycle(c,MODES.balanced,km),b=planCycle(c,MODES.balanced,km,null,{verticalRateMultiplier:k});
+      const a=planCycle(c,MODES.balanced,km),b=planCycle(c,MODES.balanced,km,null,{movingPhaseRateMultiplier:k});
       let total=0;
       for(const [id] of PHASES){
         close(b.dur[id],a.dur[id]/(id==='WATER_FILL'?1:k),1e-10,'phase duration');total+=b.dur[id];

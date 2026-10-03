@@ -286,3 +286,24 @@ where it now has 20. Those are updated separately from this change, so that this
 every model number exactly once.
 
 Correction to the earlier-model explanation: physical engagement remained about 540.5 m and 722 m AGL on the two larger classes. The 500 → 900 / 750 → 1,150 m quantities were scan cutoffs, not cable tops or higher water contact.
+
+## Independent vertical controls, 2026-10-02
+
+The prescribed profile remains the default and is labelled "as drawn".
+The planner also searches `VERTICAL_PROFILE_GRID` in `sim/profile.js`.
+Climb and letdown each have a peak vertical-rate cap and a separate peak airspeed.
+Cruise speed remains independent.
+
+The slowest searched peak letdown cap is 0.5 m/s for each class.
+This finite search bound includes slow stationary descents; smaller caps remain unsearched, not physically excluded.
+Short joins take longer when needed to meet the sampled smoothness condition.
+The drop altitude, terrain clearance and cable reach retain their configured values.
+
+Altitude joins use smoothstep; horizontal airspeed uses a smooth pulse.
+Each segment's time, ground distance and energy are integrated.
+A profile whose vertical portions exceed the route distance is refused.
+The stationary approach remains separate from any approach-at-airspeed analysis.
+
+`movingPhaseRateMultiplier` names the older whole-moving-phase dilation accurately.
+It is not a vertical-only control and is excluded from the new search.
+No served page selects these new profiles yet.

@@ -5,7 +5,7 @@ export const feasibilityText=p=>p.feasible?'closes in the quasi-static model':'d
 export function energyComparison(cls,mode,km,wind,record){
   if(comparisons.has(record))return comparisons.get(record);
   const favourable=planCycle(cls,mode,km,wind,{basis:'favourable',ballastT:record.retainedT,
-    speedMultiplier:record.speedMultiplier,verticalRateMultiplier:record.verticalRateMultiplier,
+    speedMultiplier:record.speedMultiplier,movingPhaseRateMultiplier:record.movingPhaseRateMultiplier,verticalProfile:record.profile?.parameters,
     rotorEfficiency:record.rotorEfficiency,verticalCd:record.verticalCd,clMax:record.clMax,
     requiredBatteryMW:record.requiredBatteryMW,requiredRotorT:record.requiredRotorT});
   const pair={record,favourable};comparisons.set(record,pair);return pair;

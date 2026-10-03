@@ -2,6 +2,8 @@ import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sour
 import { easeSm, easeTrap } from './geo.js?v=acbad6ee';
 import { diskMW, ledger, pumpMW } from './physics.js?v=acbad6ee';
 
+import {profilePoint} from './profile.js?v=acbad6ee';
+
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
 export const BUS_CEILING = 1;
@@ -157,6 +159,7 @@ export function cycleGeometry(cls, plan) {
 
 /** Altitude above the terrain, m, at `prog` of phase `id`. */
 export function altAt(g, plan, id, prog) {
+  if(plan.profile?.phases[id])return profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60).alt;
   switch (id) {
     case "SOURCE_APPROACH": {
       // Arrive, stop, THEN go down: the first 30% closes the track, the descent is on the far
@@ -193,6 +196,10 @@ export function altAt(g, plan, id, prog) {
     Phase SEAMS carry speed across; two phases pass through zero on purpose: the fill is a
     station-hold, and the approach stops before it lets itself down so the anchor can go in. */
 export function gsAt(g, plan, id, prog) {
+  if(plan.profile?.phases[id]) {
+    const point=profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60);
+    return 3.6*(point.airV+(plan.profile.legs[id]?.windMps||0));
+  }
   const aE2 = 0.15;
   if (id === "OUTBOUND_TRANSIT") {
     return prog < aE2 ? plan.gsOut * (prog / aE2)
@@ -241,7 +248,8 @@ export function loadAt(cls, plan, id, prog, cryoFrac) {
     ground speed is the day's; everywhere else no wind is applied to the rotors (a stated
     simplification — a wind through the disks would lower the induced power, not raise it). */
 function airV(cls, mode, plan, id, prog, gs) {
-  const kph = cls.cruiseKph * mode.speed * (plan.speedMultiplier ?? CFG.speedMul) * (plan.verticalRateMultiplier ?? 1);
+  if(plan.profile?.phases[id])return profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60).airV;
+  const kph = cls.cruiseKph * mode.speed * (plan.speedMultiplier ?? CFG.speedMul) * (plan.movingPhaseRateMultiplier ?? 1);
   if (id === "OUTBOUND_TRANSIT") return Math.abs(gs - (plan.gsOut - kph)) / 3.6;
   if (id === "RETURN_TRANSIT") return Math.abs(gs - (plan.gsRet - kph)) / 3.6;
   return gs / 3.6;
@@ -386,6 +394,11 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
   for (const [id] of PHASES) {
     if (!(plan.dur[id] > 0)) continue;
     const points = new Set([0, 1, .1, .15, .18, .25, .28, .3, .34, .55, .6, .7, .72, .75, .85, .94, cryoOnFrac(cls, mode, plan)]);
+    let elapsed=0;
+    for(const segment of plan.profile?.phases[id]||[]) {
+      elapsed+=segment.seconds;
+      points.add(elapsed/(plan.dur[id]*60));
+    }
     for (let i = 0; i <= LIMIT_STEPS; i++) points.add(i / LIMIT_STEPS);
     const xs = [...points].filter(x=>x>=0&&x<=1).sort((a,b)=>a-b);
     const at = p => drawAt(cls, mode, plan, id, p, opts);
