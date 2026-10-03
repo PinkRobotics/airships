@@ -8,7 +8,7 @@
 import { close, describe, eq, it, ok } from '../harness.js';
 import {
   BUS_CEILING, CFG, CLASSES, CLASS_ORDER, MODES, PHASES, WORK_ALT_MSL,
-  ledger, planCycle, resetConfig, setConfig,
+  drawAt, FORCE_TOL, LIMIT_STEPS, ledger, planCycle, resetConfig, setConfig,
 } from '../../sim/index.js?v=eae942b2';
 
 const MODE_IDS = Object.keys(MODES);
@@ -328,5 +328,26 @@ describe('plan · anchor removal', () => {
     close(bare.retainedT, 0, 1, 'the prescribed profile keeps no water automatically');
     close(bare.deliveredT + bare.retainedT, CLASSES.P10000.payloadT, 1e-9, 'the mass book balances');
     eq(bare.bottleneck, 'descent authority', 'the bottleneck names the authority gap');
+  });
+
+  it('without an anchor the prescribed cycle is NOT FEASIBLE', () => {
+    resetConfig();
+    const bare = planCycle({ ...CLASSES.P10000, anchorBagT: 0 }, MODES.balanced, 15);
+    eq(bare.feasible, false, 'an unheld hull cannot establish a delivery cycle');
+  });
+
+  it('without an anchor unheld mass is reported in every phase except outbound transit', () => {
+    resetConfig();
+    const cls = { ...CLASSES.P10000, anchorBagT: 0 };
+    const bare = planCycle(cls, MODES.balanced, 15);
+    for (const [phase] of PHASES) {
+      let reported = false;
+      for (let i = 0; i <= LIMIT_STEPS; i++) {
+        const s = drawAt(cls, MODES.balanced, bare, phase, i / LIMIT_STEPS);
+        ok(Number.isFinite(s.unheldT), `${phase}: unheld mass must be reported as a finite quantity`);
+        reported ||= Math.abs(s.unheldT) > FORCE_TOL * Math.max(1, Math.abs(s.surplusT));
+      }
+      eq(reported, phase !== 'OUTBOUND_TRANSIT', `${phase}: unheld mass on the verdict mesh`);
+    }
   });
 });
