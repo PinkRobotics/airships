@@ -1,6 +1,6 @@
 # tests
 
-Three tiers, answering three different questions.
+The test groups answer different questions.
 
 | tier | question | where | needs |
 |---|---|---|---|
@@ -44,7 +44,7 @@ make serve       # or: python3 -m http.server 8875 --directory .
 
 ```sh
 $ tests/browser/run.py            # add -v to list the passing tests too
-150 passed, 0 failed, 4 known-failing — 154 tests in 35 suites, 81 ms
+
 ```
 
 That driver loads the same page and reads the record it leaves on `window.__tests` — per
@@ -53,7 +53,7 @@ puts a summary in `document.title`, and `tools/screenshot.py` prints titles:
 
 ```sh
 $ python3 tools/screenshot.py http://127.0.0.1:8875/tests/browser/
-TITLE: AIRSHIPS TESTS pass=150 fail=0 known=4 total=154
+
 ```
 
 **Under node** (this is what CI runs):
@@ -127,7 +127,7 @@ hard failure**, because a defect that has quietly been fixed must not keep a per
 in the suite — the marker has to come off and the test has to start asserting the corrected
 behaviour.
 
-Two are currently marked:
+The following markers are defined in the case files:
 
 1. **`plan · windUsed is false when the wind was not applied`** — `windUsed` tests only
    `wind.spd`, while the legs also require `wind.bearing`. The flag can report a wind the plan

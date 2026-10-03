@@ -17,9 +17,9 @@ index.html            the live fleet monitor — markup and styles only; the app
 concept/index.html    how it works: the cycle, the arithmetic, the assumption dials
 model-lab/index.html  the 3D development and review surface
 
-sim/     15 modules   THE MODEL. No DOM, no network, no clock, no globals.
-3d/      ~30 modules  the WebGL vehicle library. Its own README, tests and scripts.
-app/     18 modules   the application: data, map, cockpit, bridges.
+sim/                 THE MODEL. No DOM, no network, no clock, no globals.
+3d/                  the WebGL vehicle library. Its own README, tests and scripts.
+app/                 the application: data, map, cockpit, bridges.
 data/                 terrain, water, roads, outline, snapshots; live/ is gitignored
 pipeline/             the Python generators for everything in data/
 tools/                the boundary linter, golden diff, headless eval, screenshots
@@ -45,15 +45,14 @@ import both. `concept/` may import `sim/` and `3d/`. Nothing imports `app/`.
 
 ## Why the model is separate and pure
 
-`sim/` is sixteen files, about 1,550 lines, and it computes every number the site
-publishes. It touches no DOM node, opens no socket, reads no clock and reads no URL. Every
+`sim/` computes the simulated fleet behaviour; structural calculations live in `ship/`
+and `research/analysis/`. `sim/` touches no DOM node, opens no socket, reads no clock and reads no URL. Every
 function is a function of its arguments plus the shared `CFG` object.
 
 This is not tidiness. It buys four specific things.
 
 **It can be read.** The claim the project makes is "here is the arithmetic, check it". That
-claim is worthless if checking it means reading a renderer. `physics.js` is forty lines
-and contains the four relations everything else is built on. A reader who disagrees with
+claim is worthless if checking it means reading a renderer. `physics.js` contains the basic lift and power relations. A reader who disagrees with
 the project can find the line they disagree with in a minute.
 
 **It can be run anywhere.** The same modules load in a browser, in node, and in a test
@@ -71,8 +70,7 @@ the page sets and the model never reads from a URL, so a golden file can compare
 output rather than pixels.
 
 The purity rule has one visible cost, and it is worth naming. `3d/` cannot import `sim/`
-either, so `3d/model/config.js` carries its own copy of the assumption set. The two agree
-today and are kept in step by hand. A cross-area import would fix the duplication and
+either, so `3d/model/config.js` carries its own copy of the assumption set. Their shared assumptions are checked by `tests/cases/spec-parity.cases.js`. A cross-area import would fix the duplication and
 would also mean the vehicle renderer could no longer be lifted out and used elsewhere,
 which is the trade that was taken.
 
@@ -97,13 +95,14 @@ entire proposition is that there is no such translation.
 
 The costs are real and accepted: no TypeScript, no JSX, no npm libraries, more HTTP
 requests than a bundle, and the module graph is the deployment unit. In exchange the
-project has no supply chain, no build that can rot, and nothing to reproduce.
+browser application has no package installation or bundling step; its development tools
+and data sources still have dependencies.
 
 The one place this bites is caching, which is what the version stamp is for.
 
 ---
 
-## The three pages
+## The simulation pages
 
 | Page | What it is | What it imports |
 |---|---|---|

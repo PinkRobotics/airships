@@ -39,21 +39,21 @@ unchanged. CI runs:
 node --input-type=module -e "import('./sim/index.js').then(m => console.log(m.selftest()))"
 ```
 
-Node is not required to work on this project. Without it, run the same assertions in the browser by
+Node is required for the full check, but not for viewing the pages. Without it, run the same assertions in the browser by
 opening `/index.html?selftest=1`, or call `AIRSHIPS.sim.selftest()` in devtools on any page that
 loads the model. It is the same seventeen checks either way.
 
 **Golden outputs.** Two dumps, one for the model and one for what the page renders. Both need the
-server running and headless chromium available:
+server running, headless Chromium available, and `TMPDIR` set to a writable scratch folder:
 
 ```sh
 python3 tools/js_eval.py "http://127.0.0.1:8875/index.html?seed=7&data=snapshot" \
-        tests/golden/dump.js ~/airships-dump.json 16
-python3 tools/golden_diff.py tests/golden/seed7-snapshot.json ~/airships-dump.json
+        tests/golden/dump.js "$TMPDIR/airships-dump.json" 16
+python3 tools/golden_diff.py tests/golden/seed7-snapshot.json "$TMPDIR/airships-dump.json"
 
 python3 tools/js_eval.py "http://127.0.0.1:8875/index.html?seed=7&data=snapshot" \
-        tests/golden/ui-dump.js ~/airships-ui-dump.json 20
-python3 tools/golden_diff.py tests/golden/ui-seed7-snapshot.json ~/airships-ui-dump.json
+        tests/golden/ui-dump.js "$TMPDIR/airships-ui-dump.json" 20
+python3 tools/golden_diff.py tests/golden/ui-seed7-snapshot.json "$TMPDIR/airships-ui-dump.json"
 ```
 
 Both must print `IDENTICAL` unless you meant to change behaviour. `golden_diff.py` reports which

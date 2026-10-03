@@ -1,18 +1,20 @@
 # Airships: a checkable study
 
-This repository studies whether an evacuated hull could carry water to a fire, using a simulated fleet, published assumptions and code a reader can run. **Nothing here has flown:** the aircraft are imagined, and the replay must never imply that a real fire would have burned differently.
+This repository studies whether an evacuated hull could carry water to a fire, using a simulated fleet, published assumptions and code a reader can run. **The fires are real; the fleet is simulated and never flew.** The labelled exercise uses invented fires. Nothing here says or implies that a real fire would have burned differently.
 
-## Four checks: about 20 minutes with the full gate
+## Run and inspect the study
 
-From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The full check needs Node; the browser fallback skips filesystem-dependent suites. The checks need those installed; the pages themselves need only a local HTTP server. These are measured times on one prepared machine, not a promise for a cold machine. The full check took the stranger 11m32s; the four steps together take about 20 minutes on that prepared machine.
+From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The full check needs Node; the browser fallback skips filesystem-dependent suites. The pages themselves need only a local HTTP server. Check runtimes depend on the machine.
 
-1. **Run the gates (about 12 minutes; browser and PDF tools required).**
+1. **Run the gates (browser and PDF tools required).**
 
    ```sh
+   export TMPDIR="$PWD/.browser-scratch"
+   mkdir -p "$TMPDIR"
    make check
    ```
 
-   This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `make check` and CI also run `readmecheck`, `noticecheck`, `mutationcheck` and `buildercheck`; `readmecheck` verifies the generated figures below.
+   This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `readmecheck` verifies the generated figures below. `noticecheck` checks the publication package; `linkcheck` checks repository documentation links and anchors without fetching external URLs.
 
 2. **Reproduce and move a number (about one minute; Node only).** This example uses balanced mode and a one-way distance in kilometres. It makes no feed request. What it prints comes from the earlier flight model: read "Model output and limits" below before quoting it.
 
@@ -27,7 +29,7 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
    Expected at 45 km from the shipped defaults: **7,683 t/h**, **78.1 min/cycle**, **113.86 MWh/cycle**, and **11.39 kWh/t**. This row is also a model output.
    <!-- readme:example:end -->
 
-3. **Inspect the latest recorded change (about two minutes with a browser).** The [public log](https://pinkrobotics.ca/log/) displays its builder, checker and token and wall-time cost. It needs JavaScript to load `data/activity.json`; plain `curl` only sees the fallback. Compare its commit identifier with your clone's `git log -1 --oneline`: this branch and the published log can be at different commits. The log's provenance and cost are reported by the crew's own records, not independently audited here.
+3. **Inspect a recorded change.** The [public log](https://pinkrobotics.ca/log/) displays its builder, checker and token and wall-time cost. It needs JavaScript to load `data/activity.json`; plain `curl` only sees the fallback. Compare its commit identifier with your clone's `git log -1 --oneline`: this branch and the published log can be at different commits. The log's provenance and cost are reported by the crew's own records, not independently audited here.
 
 4. **Read the float case (about four minutes).** Start with [the ship float brief](docs/FLOAT.md) for the present design, then [the cell calculation](research/analysis/vacuum-cell.md) and [the mass budget](research/analysis/mass-budget.md) for their separate assumptions. Those documents state the basis and [verification plan](docs/VERIFICATION-PLAN.md) names the experiments that could change it. You can inspect the records without a browser:
 
@@ -94,6 +96,22 @@ python3 -m http.server 8875
 ```
 
 Open <http://127.0.0.1:8875/index.html?seed=7&data=snapshot>. The repository's browser-feed code is held to first-party requests by `make firstparty`. The deployed site has its own publish cycle; verify its served code before making the same claim about it.
+
+## Pages and documents
+
+| Start here | What to inspect |
+|---|---|
+| [Fleet monitor](index.html) | Dated fire records and the labelled simulated fleet or invented exercise |
+| [Concept](concept/index.html) | Proposed mission, assumptions and limitations |
+| [Engineering](engineering/index.html) | Structural questions across the design scales |
+| [Ship viewer](ship/index.html) | The drawn structure and its model readings |
+| [Cell](cell/index.html), [blueprint](cell/levels.html), [checks](cell/ship.html), [band calculator](cell/band.html) | Cell and hull calculations |
+| [Model lab](model-lab/index.html) | Vehicle visualisation and development controls |
+| [Float case](docs/FLOAT.md), [ledger](docs/FLOAT-LEDGER.md), [member census](docs/MEMBER-CENSUS.md) | Verdict, basis and drawing/bill disagreements; also [readable as pages](float/index.html) |
+| [Physics](docs/PHYSICS.md), [open questions](docs/OPEN-QUESTIONS.md), [verification plan](docs/VERIFICATION-PLAN.md) | Equations, unresolved defects and proposed experiments |
+| [Research guide](research/README.md), [reports](research/reports/README.md) | Source notes and analysis |
+| [Architecture](docs/ARCHITECTURE.md), [tests](tests/README.md), [tools](tools/README.md) | Code boundaries and contributor commands |
+| [Data and sources](DATA-SOURCES.md), [notices](notices.html) | Captures, provenance and redistribution terms |
 
 ## Evidence and scope
 
