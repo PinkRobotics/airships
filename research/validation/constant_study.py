@@ -11,14 +11,14 @@ import os
 from pathlib import Path
 import re
 import shutil
-import socket
 import subprocess
 import sys
 import tarfile
 import tempfile
-import time
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools'))
+from serve import serve_tree
 OUTPUTS = ['research/figures.json'] + [f'research/analysis/{name}.json' for name in
     ('mass-budget', 'delivery', 'vacuum-cell', 'helium', 'water-availability', 'descent')]
 OUTPUTS += ['research/geometry/skin/loaded-skin.json', 'ship/skin.generated.js',
@@ -55,21 +55,12 @@ def run(root, command, log):
 
 
 def regenerate(root, log):
-    with socket.socket() as sock:
-        sock.bind(('127.0.0.1', 0))
-        port = sock.getsockname()[1]
-    server = subprocess.Popen([sys.executable, 'tools/serve.py', '--port', str(port), '--quiet'],
-                              cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    try:
-        time.sleep(1)
+    with serve_tree(root) as base:
         for script, output in [('tools/figures_dump.js', 'research/figures.json'),
                                ('research/analysis/water-availability.js', 'research/analysis/water-availability.json'),
                                ('research/analysis/descent.js', 'research/analysis/descent.json')]:
             run(root, ['python3', '-B', 'tools/js_eval.py',
-                       f'http://127.0.0.1:{port}/index.html?seed=7&data=snapshot', script, output, '20'], log)
-    finally:
-        server.terminate()
-        server.wait(timeout=10)
+                       f'{base}index.html?seed=7&data=snapshot', script, output, '20'], log)
     for name in ['mass-budget', 'delivery', 'vacuum-cell', 'helium']:
         run(root, ['python3', '-B', f'research/analysis/{name}.py', '--json', f'research/analysis/{name}.json'], log)
     run(root, ['python3', '-B', 'tools/gen_skin.py'], log)

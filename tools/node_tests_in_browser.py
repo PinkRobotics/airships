@@ -24,11 +24,10 @@ import argparse
 import pathlib
 import re
 import shutil
-import socket
 import subprocess
 import sys
 from browser_scratch import browser_scratch
-import time
+from serve import serve_tree
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TESTS = ROOT / '3d' / 'tests'
@@ -109,12 +108,6 @@ try {
 """
 
 
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(('127.0.0.1', 0))
-        return s.getsockname()[1]
-
-
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--keep', action='store_true', help='leave the harness file in place')
@@ -138,12 +131,8 @@ def main() -> int:
         'files': '[' + ','.join(f'"./{f}"' for f in files) + ']',
     })
 
-    port = free_port()
-    server = subprocess.Popen([sys.executable, str(ROOT / 'tools' / 'serve.py'), '--port', str(port)],
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=ROOT)
     try:
-        with browser_scratch(args.chrome) as profile:
-            time.sleep(1.5)
+        with browser_scratch(args.chrome) as profile, serve_tree(ROOT) as base:
             # swiftshader, unsafe explicitly allowed: several of these build a real GL scene and a
             # headless runner has no GPU. --dump-dom rather than a screenshot because the answer is
             # text, and the virtual time budget is what lets the whole suite finish before the dump.
@@ -151,11 +140,9 @@ def main() -> int:
                 [args.chrome, '--headless', '--no-sandbox', '--use-gl=angle',
                  '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
                  f'--user-data-dir={profile}', '--virtual-time-budget=45000', '--dump-dom',
-                 f'http://127.0.0.1:{port}/3d/tests/{HARNESS.name}'],
+                 f'{base}3d/tests/{HARNESS.name}'],
                 capture_output=True, text=True, timeout=300)
     finally:
-        server.terminate()
-        server.wait()
         if not args.keep:
             HARNESS.unlink(missing_ok=True)
 

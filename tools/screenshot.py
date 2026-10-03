@@ -2,7 +2,8 @@
 """Load a page headless, collect console messages + page errors, report the <title>,
 optionally screenshot. Usage: cdp-check.py URL [OUT.png] [WIDTH] [WAIT_S]"""
 import os
-import asyncio, base64, json, subprocess, sys, time, urllib.request
+import asyncio, base64, json, pathlib, sys, tempfile, time
+from devtools import page_target
 
 def chrome_flags():
     """Chromium cannot use its namespace sandbox on an Ubuntu 24.04 CI runner, and the
@@ -14,30 +15,11 @@ URL = sys.argv[1]
 OUT = sys.argv[2] if len(sys.argv) > 2 else None
 WIDTH = int(sys.argv[3]) if len(sys.argv) > 3 else 1440
 WAIT = float(sys.argv[4]) if len(sys.argv) > 4 else 12
-PORT = 9272
+FLAGS = ["--disable-gpu", "--hide-scrollbars", *chrome_flags(),
+         "--use-angle=swiftshader", f"--window-size={WIDTH},1600"]
 
-proc = subprocess.Popen([
-    "chromium", "--headless=new", "--disable-gpu", "--hide-scrollbars",
-    *chrome_flags(),
-    f"--remote-debugging-port={PORT}", "--remote-allow-origins=*", "--use-angle=swiftshader",
-    f"--window-size={WIDTH},1600", "about:blank",
-], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-async def main():
-    ws_url = None
-    for _ in range(50):
-        try:
-            tabs = json.load(urllib.request.urlopen(f"http://127.0.0.1:{PORT}/json"))
-            page = [t for t in tabs if t["type"] == "page"]
-            if page:
-                ws_url = page[0]["webSocketDebuggerUrl"]
-                break
-        except Exception:
-            pass
-        time.sleep(0.2)
-    if not ws_url:
-        raise SystemExit("no debug target")
-
+async def main(ws_url):
     import websockets
     logs = []
     async with websockets.connect(ws_url, max_size=200_000_000) as ws:
@@ -90,7 +72,7 @@ async def main():
             open(OUT, "wb").write(base64.b64decode(shot["data"]))
             print(f"captured {WIDTH}x{h} -> {OUT}")
 
-try:
-    asyncio.run(main())
-finally:
-    proc.terminate()
+with tempfile.TemporaryDirectory(dir=os.environ.get('AIRSHIPS_TMPDIR') or None,
+                                 ignore_cleanup_errors=True) as tmp:
+    with page_target('chromium', FLAGS, pathlib.Path(tmp) / 'profile') as (_proc, ws_url):
+        asyncio.run(main(ws_url))

@@ -25,11 +25,11 @@ import pathlib
 import subprocess
 import sys
 import tempfile
-import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 OUT = ROOT / '3d' / 'assets' / 'renders'
-PORT = 8907
+sys.path.insert(0, str(ROOT / 'tools'))
+from serve import serve_tree
 
 # name -> query string. `t` is a position in the mission clip: source approach runs to 0.110,
 # the fill to 0.354, outbound to 0.533, the release to 0.777, escape to 0.821.
@@ -93,12 +93,8 @@ def main() -> int:
         return 1
     OUT.mkdir(parents=True, exist_ok=True)
 
-    server = subprocess.Popen([sys.executable, str(ROOT / 'tools' / 'serve.py'), '--port', str(PORT)],
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=ROOT)
-    tmp = tempfile.mkdtemp(prefix='shots-', dir=pathlib.Path.home() / 'tmp')
     env = {**os.environ, 'A3D_GPU': '1'}
-    try:
-        time.sleep(1.5)
+    with tempfile.TemporaryDirectory(prefix='shots-') as tmp, serve_tree(ROOT) as base:
         for name in want:
             q = SHOTS[name]
             w = dict(p.split('=', 1) for p in q.split('&'))
@@ -108,7 +104,7 @@ def main() -> int:
             res = pathlib.Path(tmp) / 'grab.json'
             r = subprocess.run(
                 [sys.executable, str(ROOT / 'tools' / 'js_eval.py'),
-                 f'http://127.0.0.1:{PORT}/3d/scripts/render-scene.html?{q}',
+                 f'{base}3d/scripts/render-scene.html?{q}',
                  str(js), str(res), '45'],
                 capture_output=True, text=True, errors='replace', env=env, cwd=ROOT)
             if r.returncode or not res.exists():
@@ -123,8 +119,6 @@ def main() -> int:
             path.write_bytes(raw)
             trimmed = trim_letterbox(path)
             print(f'  {name}.png — {trimmed[0]}x{trimmed[1]}, {path.stat().st_size // 1024} KB')
-    finally:
-        server.terminate()
     return 0
 
 

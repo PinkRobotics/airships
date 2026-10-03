@@ -224,10 +224,9 @@ figfresh:  ## Fail if research/figures.json has drifted from the live model
 	$(PY) tools/check_figures_fresh.py
 
 factsheet:  ## Regenerate research/figures.json from the live model
-	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \
-	 $(PY) tools/js_eval.py "http://127.0.0.1:8899/index.html?seed=7&data=snapshot" \
-	   tools/figures_dump.js research/figures.json 16; \
-	 kill %1 2>/dev/null || true
+	$(PY) tools/with_server.py -- $(PY) tools/js_eval.py \
+	  '{base}index.html?seed=7&data=snapshot' tools/figures_dump.js research/figures.json 16
+
 
 stamp:  ## Recompute both version hashes and stamp every import with them
 	$(PY) 3d/scripts/stamp-version.py
@@ -267,12 +266,11 @@ analysis:  ## Regenerate the concept analyses in research/analysis/
 	   echo 'analysis: data/fire-history-bc.json is missing.'; \
 	   echo '          Fetch it with: $(PY) pipeline/firehistory.py data/fire-history-bc.json'; \
 	   exit 1; }
-	@$(PY) tools/serve.py --port 8899 --quiet & sleep 1; \
-	 for a in water-availability descent; do \
-	   $(PY) tools/js_eval.py "http://127.0.0.1:8899/index.html?seed=7&data=snapshot" \
-	     research/analysis/$$a.js research/analysis/$$a.json 20 || exit 1; \
-	 done; \
-	 kill %1 2>/dev/null || true
+	$(PY) tools/with_server.py -- $(SHELL) -ec 'for a in water-availability descent; do \
+	  $(PY) tools/js_eval.py "$${1}index.html?seed=7&data=snapshot" \
+	    research/analysis/$$a.js research/analysis/$$a.json 20; \
+	  done' _ '{base}'
+
 
 clean:  ## Delete generated output: rasterised figures and __pycache__
 	rm -f 3d/assets/raster/*.png 3d/assets/raster/*.webp

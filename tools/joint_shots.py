@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Multi-view captures of every printed joint, for the vision review.
 
-    python3 tools/joint_shots.py [--joints 2,9,22] [--size 640] [--port 8875]
+    python3 tools/joint_shots.py [--joints 2,9,22] [--size 640]
                                  [--out research/geometry/nodes/vision/shots]
 
 The joints are expected to keep changing, and each change has to be verifiably correct —
@@ -33,12 +33,12 @@ import base64
 import json
 import os
 import pathlib
-import signal
-import socket
 import subprocess
 import sys
 import time
-import urllib.request
+import tempfile
+from serve import serve_tree
+from devtools import page_target
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -133,12 +133,6 @@ VIEW_JS = """
 """
 
 
-def free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
-
-
 def annotate(png_path: pathlib.Path, rec: dict) -> None:
     """Markers onto a copy: cyan circle at the joint centre; solid green crosshair for a
     NEAR-side seat (its pipe end must be visible here); hollow orange square for a
@@ -167,34 +161,14 @@ def annotate(png_path: pathlib.Path, rec: dict) -> None:
 
 
 async def run(args) -> None:
-    port = args.port or free_port()
-    srv = subprocess.Popen([sys.executable, str(ROOT / "tools" / "serve.py"),
-                            "--port", str(port), "--quiet"],
-                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                           start_new_session=True)
-    dbg = free_port()
-    chrome = subprocess.Popen([
-        "chromium", "--headless=new", "--disable-gpu", "--hide-scrollbars",
-        "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
-        f"--remote-debugging-port={dbg}", "--remote-allow-origins=*",
-        f"--window-size={args.size},{args.size}", "about:blank",
-    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    flags = ["--disable-gpu", "--hide-scrollbars", "--use-angle=swiftshader",
+             "--enable-unsafe-swiftshader", f"--window-size={args.size},{args.size}"]
+    if os.environ.get('CI'):
+        flags += ['--no-sandbox', '--disable-dev-shm-usage']
     out = pathlib.Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    try:
-        ws_url = None
-        for _ in range(150):
-            try:
-                tabs = json.load(urllib.request.urlopen(f"http://127.0.0.1:{dbg}/json"))
-                pages = [t for t in tabs if t["type"] == "page"]
-                if pages:
-                    ws_url = pages[0]["webSocketDebuggerUrl"]
-                    break
-            except Exception:
-                pass
-            time.sleep(0.2)
-        if not ws_url:
-            sys.exit("joint_shots: chromium never offered a page")
+    with serve_tree(ROOT) as base, tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp, \
+            page_target('chromium', flags, pathlib.Path(tmp) / 'profile') as (_proc, ws_url):
         import websockets
         async with websockets.connect(ws_url, max_size=300_000_000) as ws:
             mid = 0
@@ -215,7 +189,7 @@ async def run(args) -> None:
                        {"width": args.size, "height": args.size,
                         "deviceScaleFactor": 1, "mobile": False})
             await call("Page.navigate",
-                       {"url": f"http://127.0.0.1:{port}/ship/index.html?still=1"})
+                       {"url": f"{base}ship/index.html?still=1"})
             await asyncio.sleep(args.boot)
 
             manifest = json.loads(
@@ -274,13 +248,6 @@ async def run(args) -> None:
                 print(f"  node_{i:02d} ({row['role']}, {row['arms']} arms): 6 views")
             (out / "index.json").write_text(json.dumps(index, indent=1))
             print(f"joint_shots: {n_shot} captures -> {out}")
-    finally:
-        for proc in (chrome, srv):
-            try:
-                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
-            except Exception:
-                proc.kill()
-            proc.wait()
 
 
 def main() -> None:
@@ -289,7 +256,6 @@ def main() -> None:
     ap.add_argument("--joints", default="", help="comma list of node indices; empty = all")
     ap.add_argument("--size", type=int, default=640)
     ap.add_argument("--dist", type=float, default=0.16, help="camera distance, m")
-    ap.add_argument("--port", type=int, default=0, help="serve port (0 = pick free)")
     ap.add_argument("--boot", type=float, default=9.0, help="page boot wait, s")
     args = ap.parse_args()
     asyncio.run(run(args))
