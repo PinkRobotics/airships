@@ -15,7 +15,7 @@ A shard is one JSON object:
    "files":   ["docs/FLOAT.md", ...],                 every file this shard answers for
    "dated":   [{"file", "date", "reason"}, ...],      whole files that are dated records
    "entries": [{"file", "key", "line", "class", "reason", ...}, ...]}
-`line` is informative; `key` decides. An entry may also carry:
+`key` decides; `line` must identify an occurrence of that block. The record script refreshes locations. An entry may also carry:
   bindings  a list; each binding names a source and one way of checking it:
               source: {"case": LEDGER_CASE, "field": "at.seaLevel.liftToMass"}
                    or {"source": "research/analysis/x.json", "pointer": "/a/0/b"}
@@ -33,10 +33,14 @@ Classes (a block has exactly one):
   live-model      every figure is rendered from the model by the page's binder; no verdict
   calculator      a display template whose figures or verdict the page's own script computes
                   from the model; it names that function and the make target that runs the page
-  generated       the file is written by a named generator that `make analysisfresh` reruns
+  generated       a tracked generator writes the file, whose existing freshness target runs in
+                  make check; or an exact marker-delimited region carries generator, gate,
+                  verifier and region {start, end}. The generator's --emit returns a JSON
+                  path-to-text map, which this gate freshly compares. The named target must
+                  invoke the tracked verifier, and that verifier must name the generator.
   literature      someone else's design, or a physical constant; the source is named
-  history         a dated record of what was once said; never on a served page. A whole
-                  dated file is listed once under "dated" instead, and must then carry,
+  history         a dated record of what was once said; never on a served page. Dated
+                  provenance under "dated" never grants an unseen block a disposition; it carries,
                   in its first 12 lines, a notice that links docs/FLOAT-LEDGER.md
   other-quantity  a mass or density that is not a float result (payload, water, a material)
   conditional     a requirement, an assumption or a scenario, and the block says so
@@ -90,6 +94,10 @@ import pathlib
 import re
 import sys
 
+from float_text import relation, verdict_relation
+from float_regions import Regions
+from float_qualifiers import check as check_qualifiers
+
 sys.dont_write_bytecode = True
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RECORD = ROOT / 'research/analysis/float-claims'
@@ -98,7 +106,7 @@ LEDGER_PATH = 'research/analysis/float-ledger.json'
 CAP_READINGS = 'research/analysis/cap-readings.json'
 CLASSES = ('bound', 'live-model', 'calculator', 'generated', 'literature', 'history',
            'other-quantity', 'conditional', 'flight-model', 'question', 'method', 'deferred')
-VERDICT_OK = ('bound', 'calculator', 'literature', 'history', 'question', 'method', 'deferred')
+VERDICT_OK = ('bound', 'generated', 'calculator', 'literature', 'history', 'question', 'method', 'deferred')
 QUESTION_FILES = ('docs/OPEN-QUESTIONS.md', 'docs/VERIFICATION-PLAN.md')
 DEFERRED_PATH = 'docs/FLOAT-DEFERRED.md'
 DEFERRED_OWNERS = {
@@ -208,6 +216,7 @@ class Sources:
         self.ledger = ledger
         self.rows = {c['id']: c for d in ledger['designs'] for c in d['cases']}
         self.docs = {LEDGER_PATH: ledger}
+        self.regions = Regions(ROOT,check_targets())
 
     def value(self, b):
         if 'case' in b:
@@ -266,14 +275,20 @@ def check_entry(entry, hit, sources, ledger):
     if cls == 'deferred' and entry.get('owner') not in DEFERRED_OWNERS:
         errors.append('unknown deferred owner')
     if cls == 'flight-model':
-        if STRUCTURAL.search(plain):
+        if STRUCTURAL.search(plain) or verdict_relation(plain):
             errors.append('a flight-model block carries a structural verdict; bind it or reword it')
         if not entry.get('assumption'):
             errors.append('a flight-model block names the key of the block that states the float assumption')
-    elif VERDICT.search(verdict_text) and cls not in VERDICT_OK:
+    elif (VERDICT.search(verdict_text) or verdict_relation(verdict_text)) and cls not in VERDICT_OK:
         errors.append(f'verdict words in a block classed {cls}; permitted classes: ' + ', '.join(VERDICT_OK))
     if BANNED.search(plain) and cls != 'history':
         errors.append('"certified world" outside a dated record: nothing in the evidence is certified')
+    # A named drawn hull's numeric lift/mass comparison is a result, even when a
+    # contributor labels it literature, history, method, conditional or deferred.
+    if (re.search(r'\b(?:52 m hull|drawn hull|hull of record)\b',plain,re.I) and
+            re.search(r'lift.*(?:exceeds?|exceeded|exceed|clears).*\d',plain,re.I) and
+            cls not in ('bound','generated')):
+        errors.append('named hull lift comparison requires a checked binding, not a class allowance')
     is_page = hit['file'].endswith('.html')
     bindings = entry.get('bindings', [])
     if cls == 'bound' and not bindings:
@@ -291,6 +306,7 @@ def check_entry(entry, hit, sources, ledger):
         try:
             value = sources.value(b)
             ratio = sources.ratio_field(b)
+            errors.extend(check_qualifiers(b, text, sources, ledger))
         except (KeyError, IndexError, TypeError, ValueError) as exc:
             errors.append(f'binding does not resolve: {exc}')
             continue
@@ -366,9 +382,13 @@ def check_entry(entry, hit, sources, ledger):
             errors.append('a calculator names the make target, run by `make check`, that executes its page')
     if cls == 'generated':
         gen = entry.get('generator', '')
-        if not gen or not (ROOT / gen).is_file():
+        if not gen or not (ROOT / gen).is_file() or gen not in sources.regions.tracked:
             errors.append('a generated block names the tracked script that writes its file')
-        if is_page:
+        if entry.get('gate') not in check_targets():
+            errors.append('a generated block names a freshness target run by make check')
+        if entry.get('region'):
+            errors.extend(sources.regions.check(entry,hit))
+        elif is_page:
             errors.append('generated is for analysis notes, not for a served page')
     if cls == 'literature' and not entry.get('source'):
         errors.append('a literature block names its source')
@@ -465,16 +485,14 @@ def apply(hits, ledger):
             seen[name].add(key)
         if hit['status'] == 'ALLOW' or (hit['status'] == 'PASS' and entry is None):
             continue
-        if entry is None and name in dated:
-            hit['status'] = 'ALLOW'
-            hit['disposition'] = 'history'
-            hit['reason'] = f"history ({dated[name]['date']}): {dated[name]['reason']}"
-            continue
         if entry is None:
             hit['reason'] = ('No disposition in research/analysis/float-claims/ for this text'
                              + ('' if name in owned else ' (the file belongs to no shard)') + '. ' + hit['reason'])
             continue
         problems = check_entry(entry, hit, sources, ledger)
+        locations = {int(h['line']) for h in hits if h.get('file')==name and key_of(h.get('sentence',''))==key}
+        if int(entry.get('line',0)) not in locations:
+            problems.append('record line does not identify an occurrence of its block')
         if problems:
             hit['status'] = 'FAIL'
             hit['reason'] = '; '.join(problems)
