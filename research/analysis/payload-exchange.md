@@ -46,7 +46,7 @@ This study's simplified sketch remains labelled analysis and retains its earlier
 ## 2. The routes, priced from first principles
 
 All rotor figures use momentum theory with Glauert's inflow and one efficiency on the ideal induced power,
-0.70, printed beside 0.55 (rule E17) [`constants.ETAS`]. Density is the local standard atmosphere (rule E13).
+0.70, printed beside 0.55 as an efficiency range [`constants.ETAS`]. Every force and power term uses the local standard-atmosphere density.
 The bus is the battery plus the generator rating: 38, 190 and 1,550 MW [`*.problem.busMW`].
 
 ### 2a. Rotor hold-down as drawn
@@ -189,8 +189,8 @@ The failure case: a loaded ship whose rotors stop is heavy by 500 t (P-1000). At
 a terminal 21.7 m/s and reaches the ground from the working altitude in 69 s [`P1000.routes.d.failureCase.heavyT`,
 `.terminalSinkMps_CD1`, `.secondsToGroundAtTerminal`]. Shedding the water in that time needs 7.2 m³/s, 2.4 times
 the drawn fill rate [`P1000.routes.d.failureCase.dumpRateNeededM3s`, `.dumpRateOverDrawnFill`]. For the P-10000:
-32 m/s, 47 s, 106 m³/s [`P10000.routes.d.failureCase`]. This gives up the fail-safe float-up property of the
-2026-08-09 decision. The drawn rotors are declared not reversible (rule E10). This route needs an upward
+32 m/s, 47 s, 106 m³/s [`P10000.routes.d.failureCase`]. This gives up the fail-safe float-up property described in the
+section "Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it" in [DECISIONS.md](../../docs/DECISIONS.md). The drawn rotors are declared not reversible. This route needs an upward
 actuator of the loaded deficit at the powers above, so the class record changes [`*.routes.d.ifRotorsNotReversible`].
 Direction and size only: no structure is drawn here.
 
@@ -336,4 +336,4 @@ Assumptions with no source, named as ranges:
 The battery mass at the sourced specific energies is 240 to 805 t on the P-1000 and 4,000 to 13,423 t on the
 P-10000 [`*.batteryMassT`, `*.batteryMassOverDryTarget`]. The dry targets are 1,000 and 10,000 t, and no route
 above changes that. Not priced here: cable mass, the bag's pendulum in the vertical letdown, wind, the inertia
-of the letdown, and the rotor regime of a hull climbing against its own hold-down. Rule E18 lists them for the model.
+of the letdown, and the rotor regime of a hull climbing against its own hold-down. The model's generated omissions section lists these limits.

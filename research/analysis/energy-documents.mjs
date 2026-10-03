@@ -135,7 +135,7 @@ const start=oldPhysics.includes('<!-- energy:physics:start -->')?oldPhysics.inde
 const end=oldPhysics.includes('<!-- energy:physics:end -->')?oldPhysics.indexOf('<!-- energy:physics:end -->')+'<!-- energy:physics:end -->'.length:oldPhysics.indexOf('## 12. ');
 const questionBodies={
  2:['Which measurements would validate the force owners?',
-  'Can an aerospace reviewer establish attainable hull downforce and drag across the stated airspeeds? Which rotor thrust rating can replace the unverified hover surrogate?\n\n'+
+  'Can an aerospace engineer establish attainable hull downforce and drag across the stated airspeeds? Which rotor thrust rating can replace the unverified hover surrogate?\n\n'+
   table(['Class','Full-bus static hold-down t','Actual balanced stationary supply MW'],cross.modes.filter(r=>r.mode==='balanced').map(r=>[r.class,f(r.independentFullBusT),f(r.modeBusMW)]))],
  3:['What vertical profile remains feasible with acceleration included?',
   `The search stops at a peak letdown cap of ${Math.min(...PROFILE_SEARCH.verticalProfile.letdownRateMps)} m/s. What lower bound would mission conditions justify?\n\n`+

@@ -9,7 +9,7 @@ Relations used (and nothing else):
   momentum theory   hover P = T^1.5 / sqrt(2 rho A) / eta                                                [Johnson 1994; not in the catalogue]
   Glauert inflow    vi sqrt(V^2 + (vc + vi)^2) = T/(2 rho A); P = T (vc + vi) / eta                     [Glauert 1926 R&M 1111; not in the catalogue]
   lifting line      D_i = L^2 / (q pi b^2 e), span b = hull diameter                                      [Prandtl 1921 NACA TR 116; not in the catalogue]
-  broadside drag    D = 0.5 rho C_D S vz^2, S = capsule planform, C_D = 1 (unverified; range 0..2, rule E9)
+  broadside drag    D = 0.5 rho C_D S vz^2, S = capsule planform, C_D = 1 (unverified; range 0..2)
   ideal gas         isothermal work to re-establish a vacuum of volume dV against ambient p: W = p dV
   added mass        m_eff = dry + k2 rho Vol, k2 from Munk 1924 NACA TR 184 (not in the catalogue)
 
@@ -29,9 +29,9 @@ CLASSES = {
 }
 ORDER = ['P100', 'P1000', 'P10000']
 PUBLISHED_HULL = {'P100': (190, 47), 'P1000': (404, 102), 'P10000': (876, 219)}   # docs/PHYSICS.md: fineness 4, differ from config.js
-PROP_ETA = 0.70; ETAS = (0.55, 0.70)                     # rule E17: 0.70 on ideal induced power, printed at 0.55 and 0.70
+PROP_ETA = 0.70; ETAS = (0.55, 0.70)                     # Efficiency assumption: 0.70 on ideal induced power, printed at 0.55 and 0.70
 CD_ZERO_LIFT = 0.05                                       # config.js Cd on the frontal area
-VERTICAL_CD = 1.0; VERTICAL_CD_RANGE = (0.0, 1.0, 2.0)    # unverified broadside coefficient, rule E9
+VERTICAL_CD = 1.0; VERTICAL_CD_RANGE = (0.0, 1.0, 2.0)    # unverified broadside coefficient, tested across the declared range
 RHO_SL, T0, P0, LAPSE, G0, R = 1.225, 288.15, 101325.0, 0.0065, 9.80665, 287.0528
 G = 9.81
 TERRAIN_MSL, HOSE_M, DROP_AGL, WORK_ALT_MSL = 1000, 300, 450, 2500
@@ -41,7 +41,7 @@ HOIST_M, WINCH_MPS, WINCH_ETA = 15, 5, 0.85
 RHO_WATER = 1000.0
 LN2_KWH_PER_T = {'optimumCollins_arnaizDelPozo2020': 430.7, 'config_eLN2': 450.0, 'standalone_rimpel2023': 907.0}
 CRYO_T_PER_MW = {'floor': 2.0, 'credible': 20.0, 'demonstrated': 65.0}            # mass-budget.json EVIDENCE
-BATT_WH_PER_KG = {'floor': 500, 'credible': 300, 'demonstrated': 149}             # mass-budget.json EVIDENCE (rule E19)
+BATT_WH_PER_KG = {'floor': 500, 'credible': 300, 'demonstrated': 149}             # battery specific energies from mass-budget.json EVIDENCE
 ISOTHERMAL_PUMP_EFF = (0.30, 1.0)                                                  # mass-budget.py assumption, and ideal
 ADDED_MASS_K2 = {2: 0.702, 4: 0.860}        # Munk TR 184 table: transverse additional-mass coefficient, fineness 2.00 and 3.99
 MEASURED_CL = {                              # planform-basis conversions are this study's own (see md, step 2c)
@@ -101,7 +101,7 @@ def hover_mw(thrust_t, rho, A, eta=PROP_ETA):
 
 def glauert_mw(thrust_t, rho, A, vc=0.0, V=0.0, eta=PROP_ETA):
     """Rotor power pushing with thrust T while the air comes INTO the disk axially at vc (hold-down in descent)
-    and edgewise at V. vc < 0 (climb against hold-down) is priced as level flight: no bound claimed (rule E17)."""
+    and edgewise at V. vc < 0 (climb against hold-down) is priced as level flight: no bound claimed."""
     T = thrust_t * 1000 * G
     if T <= 0: return 0.0
     vc = max(0.0, vc); V = abs(V)
@@ -216,7 +216,7 @@ def cycle_sketch(name, c, km, keptT=0.0, disp=None, lenM=None, diaM=None, two_wa
                 if unheld > worst_up['unheldT']: worst_up = dict(unheldT=unheld, phase=pid, s=round(s, 3), altAgl=alt - TERRAIN_MSL, needT=need, rotorT=rotor, availMW=avail)
             else:
                 mw = 0.0
-                if -need > worst_up['unheldT']: worst_up = dict(unheldT=-need, phase=pid, s=round(s, 3), altAgl=alt - TERRAIN_MSL, needT=need, note='heavy; no upward authority (rule E10)')
+                if -need > worst_up['unheldT']: worst_up = dict(unheldT=-need, phase=pid, s=round(s, 3), altAgl=alt - TERRAIN_MSL, needT=need, note='heavy; the drawn rotors provide no upward authority')
             total = mw + nonrotor
             peakMW = max(peakMW, total)
             Eph += mw * dt / 3600
@@ -398,8 +398,8 @@ def route_d(name, c, prob):
     t_fall = (ALT['work'] - TERRAIN_MSL) / vt
     out['failureCase'] = dict(heavyT=heavy, terminalSinkMps_CD1=vt, terminalSinkMps_CD2=vt / math.sqrt(2), terminalSinkMps_CD0p5=vt * math.sqrt(2),
                               secondsToGroundAtTerminal=t_fall, dumpRateNeededM3s=heavy / t_fall, dumpRateOverDrawnFill=heavy / t_fall / c['fillM3s'],
-                              note='fail-safe float-up (decision 2026-08-09) is given up: a loaded ship with stopped rotors is heavy')
-    out['ifRotorsNotReversible'] = dict(upwardActuatorNeededT=heavy, atPowerMW_eta07=hover_mw(heavy, rho_w, A, 0.70), note='rule E10 declares upward thrust false for the drawn rotors; this route needs it, so the class record changes')
+                              note='fail-safe float-up is given up: a loaded ship with stopped rotors is heavy. See docs/DECISIONS.md, section "Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it".')
+    out['ifRotorsNotReversible'] = dict(upwardActuatorNeededT=heavy, atPowerMW_eta07=hover_mw(heavy, rho_w, A, 0.70), note='The drawn rotors provide no upward thrust. This route needs upward authority, so the class record changes.')
     return out
 
 def route_e(name, c, prob):

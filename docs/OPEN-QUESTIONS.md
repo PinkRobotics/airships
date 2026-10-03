@@ -294,7 +294,7 @@ different machine from the one described.
 <!-- energy:question-2:start -->
 ## 2. Which measurements would validate the force owners?
 
-Can an aerospace reviewer establish attainable hull downforce and drag across the stated airspeeds? Which rotor thrust rating can replace the unverified hover surrogate?
+Can an aerospace engineer establish attainable hull downforce and drag across the stated airspeeds? Which rotor thrust rating can replace the unverified hover surrogate?
 
 | Class | Full-bus static hold-down t | Actual balanced stationary supply MW |
 |---|---|---|
