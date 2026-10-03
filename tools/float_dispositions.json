@@ -552,6 +552,449 @@
     "4"
    ],
    "reason": "Lists reproducibility tasks for a reader; no current float figure or design result is asserted."
+  },
+  {
+   "file": "ship/index.html",
+   "key": "4231981cba6eca9b",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.ratio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.ratioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.bestWorldRatio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "shown": "52"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "abs": true,
+     "shown": "4.3"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "abs": true,
+     "shown": "53.6"
+    }
+   ]
+  },
+  {
+   "file": "ship/index.html",
+   "key": "a317ca4a5f8ca462",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:bench:start -->",
+    "end": "<!-- float-verdict:bench:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "bench-nominal",
+     "field": "extras.displacedSeaLevelG",
+     "route": "weigh.airSLG"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "extras.displacedTargetG",
+     "route": "weigh.airUpG"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "mass",
+     "route": "stock.totalKg"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/kg",
+     "route": "stock.pipeKg"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/printed/nodesKg",
+     "route": "stock.nodesKg"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "extras.displacedSeaLevelG",
+     "shown": "217.9"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "extras.displacedTargetG",
+     "shown": "170.2"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "mass",
+     "shown": "2.69"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/kg",
+     "shown": "1.95"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/printed/nodesKg",
+     "shown": "0.71"
+    }
+   ]
+  },
+  {
+   "file": "engineering/index.html",
+   "key": "4d89e328dff0f200",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.ratio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.ratioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.bestWorldRatio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "shown": "52"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "abs": true,
+     "shown": "4.3"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "abs": true,
+     "shown": "53.6"
+    }
+   ]
+  },
+  {
+   "file": "cell/levels.html",
+   "key": "464085ce8ee99819",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.worlds.s1050_sf12.ratioSL"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.worlds.s1050_sf12.ratio2500"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.worldsFrame.s1450_sf12.ratioSL"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "shown": "4.3",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "shown": "53.6",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    }
+   ]
+  },
+  {
+   "file": "cell/ship.html",
+   "key": "2926f5425efeae84",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.worlds.s1050_sf12.ratioSL"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.worlds.s1050_sf12.ratio2500"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.worldsFrame.s1450_sf12.ratioSL"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "shown": "4.3",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "shown": "53.6",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    }
+   ]
+  }
+ ],
+ "replacements": [
+  {
+   "file": "ship/index.html",
+   "oldKey": "28bbe89043db2044",
+   "newKey": "4231981cba6eca9b",
+   "reason": "Fill the previously empty catalogue-bound spans inside an exact checked region; preserve the float verdict and every existing result."
+  },
+  {
+   "file": "ship/index.html",
+   "oldKey": "ef9cf5bbb4ec16ea",
+   "newKey": "a317ca4a5f8ca462",
+   "reason": "Fill the previously empty catalogue-bound spans inside an exact checked region; preserve the float verdict and every existing result."
+  },
+  {
+   "file": "engineering/index.html",
+   "oldKey": "540b76c6cabc18b2",
+   "newKey": "4d89e328dff0f200",
+   "reason": "Fill the previously empty catalogue-bound spans inside an exact checked region; preserve the float verdict and every existing result."
+  },
+  {
+   "file": "cell/levels.html",
+   "oldKey": "769f9ff89a5ac36e",
+   "newKey": "464085ce8ee99819",
+   "reason": "Fill the previously empty catalogue-bound spans inside an exact checked region; preserve the float verdict and every existing result."
+  },
+  {
+   "file": "cell/ship.html",
+   "oldKey": "8c05c11f90cb15e5",
+   "newKey": "2926f5425efeae84",
+   "reason": "Fill the previously empty catalogue-bound spans inside an exact checked region; preserve the float verdict and every existing result."
   }
  ]
 }

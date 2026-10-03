@@ -389,6 +389,21 @@ class RecordContracts(unittest.TestCase):
         e['context'].append('0.436')
         self.assertTrue(any('P1:' in s for s in self.apply([h, cap], [e, ce])[1]))
 
+    def test_generated_region_retains_ledger_bindings_and_page_rules(self):
+        h, e, cap, ce = self.pair()
+        e.update({'class': 'generated', 'generator': 'tools/render.py', 'gate': 'pagecheck',
+                  'verifier': 'tools/render.py',
+                  'region': {'start': '<!-- start -->', 'end': '<!-- end -->'}})
+        # Region regeneration has its own plant tests. Isolate the retained binding
+        # and page-rule checks here so the new class cannot bypass either one.
+        with patch.object(claims.Regions, 'check', return_value=[]):
+            self.assertEqual(self.apply([h, cap], [e, ce])[1], [])
+            self.assertTrue(any('P2:' in s for s in self.apply([h], [e])[1]))
+            e['bindings'].pop()
+            self.assertTrue(any('P1:' in s for s in self.apply([h, cap], [e, ce])[1]))
+            e['bindings'][0]['shown'] = '0.999'
+            self.rejects('not in the visible text', e, h)
+
     def test_p1_pointer_cannot_bypass(self):
         h, e, cap, ce = self.pair()
         e['bindings'] = [{'source': claims.LEDGER_PATH,

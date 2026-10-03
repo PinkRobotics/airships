@@ -73,10 +73,12 @@
 
 <h2>The two questions</h2>
 <p><b>Does it stand?</b> Every named structural check, margin by margin, at the declared safety factor. That includes the operator's requirement that the wall stand as a structure before it is ever pumped down. <b>Does it float?</b> The whole component ledger against the air the hull displaces, at both altitudes, across every world the record cannot yet choose between.</p>
-<p class="float-basis">As drawn, the 52 m hull does not float. The record basis uses structural safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords.
-    Its lift is <span data-n="ship.worlds.s1050_sf12.ratioSL" data-f="3"></span> of its mass at sea level and <span data-n="ship.worlds.s1050_sf12.ratio2500" data-f="3"></span> at 2,500 m.
+<!-- float-verdict:hull:start -->
+<p data-float-verdict="hull" class="float-basis">As drawn, the <span data-n="ship.diaM" data-f="0">52</span> m hull does not float. The record basis uses structural safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords.
+    Its lift is <span data-n="ship.worlds.s1050_sf12.ratioSL" data-f="3">0.558</span> of its mass at sea level and <span data-n="ship.worlds.s1050_sf12.ratio2500" data-f="3">0.436</span> at 2,500 m.
     The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified, at the same safety factor.
-    Its lift-to-mass ratios are <span data-n="ship.worldsFrame.s1450_sf12.ratioSL" data-f="3"></span> at sea level and 0.766 at 2,500 m: short by 4.3 t and 53.6 t respectively.</p>
+    Its lift-to-mass ratios are <span data-n="ship.worldsFrame.s1450_sf12.ratioSL" data-f="3">0.981</span> at sea level and <span data-n="ship.bestWorldRatioTarget" data-f="3">0.766</span> at 2,500 m: short by <span data-n="ship.bestWorldShortfallT" data-f="1">4.3</span> t and <span data-n="ship.bestWorldShortfallTargetT" data-f="1">53.6</span> t respectively.</p>
+<!-- float-verdict:hull:end -->
     <p>Closing the gap needs knockdown tests, chord coupons and a complete mass bill. The chordal net and in-surface shear credits are bounds, with geometry or hardware still unpriced; neither establishes a drawn floating hull.</p>
     <p class="float-caps">The bill and the drawing disagree in the end caps, in both directions. Across five readings the favourable lift-to-mass ratio spans 0.751–0.998 at sea level and 0.586–0.780 at 2,500 m. No reading reaches 1; none is a checked design.</p>
     <p class="float-census">The drawing and the bill disagree in 20 places, recorded for the float ledger in the <a href="../float/census.html">member census</a>.</p>
@@ -191,11 +193,12 @@ failure mode, and nothing dropped to get there.</p>
 
 <script type="module">
 import { ship0Summary, SHIP0 } from '../ship/model.js?v=eae942b2';
+import { SHIP } from '../ship/catalog.js?v=eae942b2';
 const S = ship0Summary();
 const ctx = {
   plan: { ...S.planOfRecord, sfDeclared: SHIP0.sfDeclared,
           giKnockdown: S.giKnockdown, giKnockdownFrame: S.giKnockdownFrame },
-  ship: { worlds: S.worlds, worldsFrame: S.worldsFramePractice },
+  ship: { ...SHIP, worlds: S.worlds, worldsFrame: S.worldsFramePractice },
   mid: S.mid, led: S.mid.ledgerT,
   best: S.worldsFramePractice.s1450_sf12,
   sk: S.skeletonCounts,

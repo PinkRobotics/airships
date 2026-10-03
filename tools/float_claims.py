@@ -38,6 +38,8 @@ Classes (a block has exactly one):
                   verifier and region {start, end}. The generator's --emit returns a JSON
                   path-to-text map, which this gate freshly compares. The named target must
                   invoke the tracked verifier, and that verifier must name the generator.
+                  A region may retain checked ledger bindings; these still enforce the
+                  page's paired-altitude and cap-reading requirements.
   literature      someone else's design, or a physical constant; the source is named
   history         a dated record of what was once said; never on a served page. Dated
                   provenance under "dated" never grants an unseen block a disposition; it carries,
@@ -293,7 +295,8 @@ def check_entry(entry, hit, sources, ledger):
     bindings = entry.get('bindings', [])
     if cls == 'bound' and not bindings:
         errors.append('a bound block names at least one binding')
-    if cls not in ('bound', 'question', 'calculator') and bindings:
+    region_bound = cls == 'generated' and entry.get('region') and bindings
+    if cls not in ('bound', 'question', 'calculator') and not region_bound and bindings:
         errors.append(f'bindings are checked only on bound, question and calculator blocks, not {cls}')
     routes = {f['route']: f for f in hit.get('dynamicFigures', [])}
     shown = set()
@@ -372,7 +375,7 @@ def check_entry(entry, hit, sources, ledger):
         for route, fig in routes.items():
             if fig.get('display') in (None, 'unresolved'):
                 errors.append(f"route {route!r} did not resolve when the page's catalog was executed")
-    if cls == 'bound' and routes.keys() - bound_routes:
+    if (cls == 'bound' or region_bound) and routes.keys() - bound_routes:
         errors.append('routes without bindings: ' + ', '.join(sorted(routes.keys() - bound_routes)))
     if cls == 'calculator':
         function = entry.get('function', '')
@@ -517,7 +520,7 @@ def apply(hits, ledger):
                               assumption_text, re.I)
                 and links_float_case(hit.get('raw', hit['sentence']), name)):
             assumptions.setdefault(name, set()).add(key)
-        if entry['class'] == 'bound':
+        if entry['class'] == 'bound' or (entry['class'] == 'generated' and entry.get('region') and entry.get('bindings')):
             fields = {field for b in entry.get('bindings', []) if (field := sources.ratio_field(b))}
             capped = any(b.get('source') == CAP_READINGS for b in entry.get('bindings', []))
             ratio_blocks.setdefault(name, []).append((int(hit['line']), fields, capped))

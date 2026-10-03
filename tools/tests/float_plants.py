@@ -29,13 +29,13 @@ def register(change):
            edits=[('engineering/index.html', 'runs from 0.751 to 0.998 at sea level',
                    'runs from 0.851 to 0.998 at sea level')])
     change('A1-levels',
-           'cell/levels.html: typed 0.766 (favourable target ratio) -> 0.866',
-           edits=[('cell/levels.html', 'at sea level and 0.766 at 2,500 m: short by 4.3 t',
-                   'at sea level and 0.866 at 2,500 m: short by 4.3 t')])
+           'cell/levels.html: generated 0.766 (favourable target ratio) -> 0.866',
+           edits=[('cell/levels.html', 'data-cat="ship.bestWorldRatioTarget" data-f="3">0.766</span>',
+                   'data-cat="ship.bestWorldRatioTarget" data-f="3">0.866</span>')])
     change('A1-shipcell',
-           'cell/ship.html: typed 0.766 -> 0.866',
-           edits=[('cell/ship.html', 'at sea level and 0.766 at 2,500 m: short by 4.3 t',
-                   'at sea level and 0.866 at 2,500 m: short by 4.3 t')])
+           'cell/ship.html: generated 0.766 -> 0.866',
+           edits=[('cell/ship.html', 'data-n="ship.bestWorldRatioTarget" data-f="3">0.766</span>',
+                   'data-n="ship.bestWorldRatioTarget" data-f="3">0.866</span>')])
     change('A1-shipindex',
            'ship/index.html: cap-range 0.751 -> 0.851',
            edits=[('ship/index.html', 'runs from 0.751 to 0.998 at sea level',

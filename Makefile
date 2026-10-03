@@ -77,7 +77,7 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_check_links.py'
 	$(PY) tools/check_links.py
 
-check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Everything CI checks
+check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Everything CI checks
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -352,6 +352,14 @@ floatpages:
 floatpagecheck:  ## Float pages equal a fresh render of their documents (write them: make floatpages)
 	$(PY) tools/gen_float_pages.py --check
 	$(PY) -m unittest discover -s tools/tests -p 'test_float_pages.py'
+
+.PHONY: floatverdicts floatverdictcheck
+floatverdicts:  ## Fill scripts-off verdicts from the pages' own catalogue contexts
+	$(PY) tools/gen_float_verdicts.py --write
+
+floatverdictcheck:  ## Scripts-off verdicts equal fresh catalogue output and the float ledger
+	$(PY) tools/check_float_verdicts.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_float_record_replacements.py'
 
 portproof:  ## Bind eight fixed ports to prove tree isolation; run alone
 	$(PY) tests/ports/proof.py $(PORTPROOF_ARGS)

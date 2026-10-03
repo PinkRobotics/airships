@@ -30,6 +30,41 @@ def write(path, value):
     if not path.exists() or path.read_text()!=body:path.write_text(body)
 
 
+def retire_reviewed(shards, by_key, catalogue):
+    """Replace an edited live block only by an explicit old/new hash review.
+
+    A second run has nothing to retire. Dated history cannot be replaced by this
+    mechanism; new dated corrections remain separate blocks.
+    """
+    reviewed = {(e['file'], e['key']) for e in catalogue['entries']}
+    old_keys, new_keys = set(), set()
+    retired = 0
+    for item in catalogue.get('replacements', []):
+        old = (item['file'], item['oldKey'])
+        new = (item['file'], item['newKey'])
+        if old == new or old in old_keys or new in new_keys:
+            raise SystemExit('Duplicate or unchanged reviewed replacement: ' + str(item))
+        old_keys.add(old); new_keys.add(new)
+        if new not in reviewed or not 8 <= len(item.get('reason', '')) <= 240:
+            raise SystemExit('Replacement requires a reviewed new hash and reason: ' + str(item))
+        if old in by_key:
+            # Historical catalogue entries also apply to future trees where the
+            # old block is still present; only a missing old block is retired.
+            continue
+        entries = [(d, e) for d in shards.values() for e in d['entries']
+                   if (e['file'], e['key']) == old]
+        if not entries:
+            continue
+        if new not in by_key:
+            raise SystemExit('Reviewed replacement text is absent: ' + str(new))
+        for doc, entry in entries:
+            if entry.get('class') == 'history':
+                raise SystemExit('Dated history cannot be replaced: ' + str(old))
+            doc['entries'].remove(entry)
+            retired += 1
+    return retired
+
+
 def main():
     ledger=json.loads((ROOT/claims.LEDGER_PATH).read_text())
     hits=gate.inventory(ledger)
@@ -40,12 +75,14 @@ def main():
         if h.get('pointer') is not None:continue
         h['key']=claims.key_of(h['sentence'])
         by_key.setdefault((h['file'],h['key']),h)
+    catalogue=json.loads(CATALOG.read_text())
+    retired=retire_reviewed(shards,by_key,catalogue)
+    known={(e['file'],e['key']):e for d in shards.values() for e in d['entries']}
     missing=set(known)-set(by_key)
     if missing:raise SystemExit('Existing text changed; review rather than reclassify: '+str(sorted(missing)))
     for k,e in known.items():e['line']=by_key[k]['line']
     dated_entries=[]
     new_entries=[]
-    catalogue=json.loads(CATALOG.read_text())
     reviewed={(e['file'],e['key']):e for e in catalogue['entries']}
     for k,disposition in reviewed.items():
         if k in known:
@@ -107,7 +144,7 @@ def main():
         for e in errors:print(e)
         return 1
     claims.write_deferred(hits)
-    print(f'float records: {len(dated_entries)} frozen dated blocks; {len(new_entries)} new dispositions; {energy_moved} energy entries qualify by region')
+    print(f'float records: {len(dated_entries)} frozen dated blocks; {len(new_entries)} new dispositions; {retired} reviewed live replacements; {energy_moved} energy entries qualify by region')
     print('deferred by owner: '+json.dumps(claims.deferred_counts(hits),sort_keys=True))
     return 0
 
