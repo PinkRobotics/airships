@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Static file server for local development.
+"""Static file server for local development, and the one way a gate serves a directory.
 
     python3 tools/serve.py                 # http://127.0.0.1:8875
-    python3 tools/serve.py --port 9000
+    python3 tools/serve.py --port 0        # the system chooses; the address bound is printed
     python3 tools/serve.py --root DIR      # default: the repository root
 
 `python3 -m http.server` almost works. It gets three things wrong for this repository, and
@@ -27,14 +27,20 @@ database.
 
 BIND ADDRESS. `http.server` listens on 0.0.0.0, which puts your working tree on whatever
 network you are attached to. This binds the loopback interface only.
+
+serve_tree() is the context manager for automated callers. It binds a system-chosen
+port once, yields its base address, and closes the socket when the caller finishes.
 """
 from __future__ import annotations
 
 import argparse
+import contextlib
 import functools
 import http.server
 import pathlib
 import sys
+import signal
+import threading
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -93,11 +99,43 @@ class Server(http.server.ThreadingHTTPServer):
     quiet = False
 
 
+@contextlib.contextmanager
+def serve_tree(root=None, handler=None):
+    """Serve a directory on a port the system chose, for the length of the block.
+
+    Yields "http://127.0.0.1:<port>/" from the listening socket itself. The server
+    constructor binds and listens before the serving thread starts; no port is
+    released and rebound, and no readiness delay is needed.
+
+    `handler` defaults to this module's no-store Handler over `root` (the repository root
+    by default). A driver with its own request handler — one that injects failures, or
+    serves fixtures — passes its handler class instead, exactly as http.server accepts it.
+
+    The server is stopped on the way out, including when the block raises.
+    """
+    if handler is None:
+        root = pathlib.Path(root or ROOT).resolve()
+        handler = functools.partial(Handler, directory=str(root))
+    httpd = Server(("127.0.0.1", 0), handler)
+    httpd.quiet = True
+    thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+    try:
+        thread.start()
+        yield f"http://127.0.0.1:{httpd.server_address[1]}/"
+    finally:
+        if thread.is_alive():
+            httpd.shutdown()
+            thread.join()
+        httpd.server_close()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--port", type=int, default=8875)
     ap.add_argument("--root", default=str(ROOT), help="directory to serve (default: repo root)")
     ap.add_argument("--quiet", action="store_true", help="do not log every request")
+    ap.add_argument("--addr-file", type=pathlib.Path,
+                    help="write the bound base address here once listening (for scripts)")
     args = ap.parse_args()
 
     root = pathlib.Path(args.root).resolve()
@@ -114,12 +152,23 @@ def main() -> int:
         return 1
     httpd.quiet = args.quiet
 
-    base = f"http://127.0.0.1:{args.port}/"
+    # server_address carries the port the system chose when --port was 0, and the port
+    # asked for otherwise: one expression, and --port 0 prints the truth.
+    base = f"http://127.0.0.1:{httpd.server_address[1]}/"
+    print(f"listening on {base}", flush=True)
+    if args.addr_file:
+        pending = args.addr_file.with_name(args.addr_file.name + ".pending")
+        pending.write_text(base + "\n")
+        pending.replace(args.addr_file)
     print(f"serving {root} — no-store, so a reload always gets the file you just saved")
     for name, path in PAGES:
         print(f"  {name}   {base}{path}")
     print(f"  replay          {base}{REPLAY}")
     print("Ctrl-C to stop.")
+    def stop(_signum, _frame):
+        raise KeyboardInterrupt
+
+    signal.signal(signal.SIGTERM, stop)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
