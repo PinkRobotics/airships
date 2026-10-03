@@ -290,3 +290,46 @@ describe('plan · the mechanisms the copy describes', () => {
     });
   });
 });
+
+describe('plan · cryogenic bounds', () => {
+  it('at the worked example the cryogenic plant makes under 7% of the ballast asked of it', () => {
+    // ln2NeedT is 80% of the buoyant surplus, capped by the tanks. What the plant can make
+    // on one return leg at the distance the site quotes is one to two orders of magnitude
+    // smaller, so the nitrogen store is decorative in the MASS budget. It is not inert in
+    // the energy budget: eCryo and eBack are both non-zero.
+    resetConfig();
+    for (const id of CLASS_ORDER) for (const mid of MODE_IDS) {
+      const c = CLASSES[id];
+      const p = planCycle(c, MODES[mid], CFG.exampleKm);
+      const needT = Math.min(ledger(c, WORK_ALT_MSL).surplusT * 0.8, c.ln2CapT);
+      ok(p.cryoLimited, `${id}/${mid}: cryoLimited is false at the worked example`);
+      ok(p.ln2MakeT < needT * 0.07,
+        `${id}/${mid}: made ${p.ln2MakeT.toFixed(1)} t of the ${needT.toFixed(0)} t asked for`);
+      ok(p.eBack > 0, `${id}/${mid}: no nitrogen energy returned`);
+    }
+  });
+
+  it('no combination anywhere on the grid ever makes the nitrogen it is asked for', () => {
+    // One used to: a P-100 in endurance mode on a 400 km leg, 313 minutes of return at full
+    // cryo share, made the whole 50 t its tanks then held. The 2026-08-09 resize took that
+    // away from both ends. The tanks now hold 155 t, sized by unpowered recovery rather than
+    // picked, so the cap no longer binds before the plant does; and the target is 80% of the
+    // surplus, 88.4 t, against the 69.6 t that leg can make. Every class, mode and distance
+    // in the grid is now cryo-limited, so `cryoLimited` carries no information at all —
+    // defect 5, unchanged and if anything more complete.
+    const unlimited = [];
+    grid((p, tag) => { if (!p.cryoLimited) unlimited.push(tag); });
+    eq(unlimited.join(' | '), '', `cryo-satisfied combinations: ${unlimited.join(' | ')}`);
+  });
+});
+
+// The prescribed profile does not choose retention automatically.
+describe('plan · anchor removal', () => {
+  it('without an anchor the mass book balances and descent authority binds', () => {
+    resetConfig();
+    const bare = planCycle({ ...CLASSES.P10000, anchorBagT: 0 }, MODES.balanced, 15);
+    close(bare.retainedT, 0, 1, 'the prescribed profile keeps no water automatically');
+    close(bare.deliveredT + bare.retainedT, CLASSES.P10000.payloadT, 1e-9, 'the mass book balances');
+    eq(bare.bottleneck, 'descent authority', 'the bottleneck names the authority gap');
+  });
+});
