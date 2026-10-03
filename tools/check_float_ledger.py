@@ -4,8 +4,19 @@
 --inventory prints every detected block and its interpretation as JSON.
 --report prints the failing-sentence table for the hand-up. Neither mode writes files.
 
-This is a lexical inventory, not a natural-language proof. It scans tables, paragraphs,
-HTML display blocks, dynamic bindings and Python display strings/comments. New hits do
+This is a lexical and structural inventory, not a natural-language proof. It scans tables,
+paragraphs, HTML display blocks and inline script templates, README.md, GOALS.md and the
+scoping tool's Python display strings/comments. It also lexes quoted and template strings
+(including concatenation and escapes) under every published script root: app, 3d, sim,
+ship, cell, concept and engineering; their tests and offline scripts are excluded. This
+conservative source rule covers display text without executing pages or fetching inputs.
+Script expressions remain source placeholders, not guessed rendered values. Shader numeric
+types, CSS float/aspect-ratio, parseFloat and encoded mesh payloads are not lift claims.
+The vocabulary is supplemented by subject/relation/air-or-lift structures. Unknown new
+blocks fail until reviewed; finite lexical rules still cannot prove arbitrary language.
+Dated working/audit documents inventory every block and freeze dispositions by hash.
+Only exact figure-free `## Landing N — <title>` headings in the landing file are historical
+by shape; other content there needs the usual disposition. New hits do
 not pass by matching an unrelated number. A prose block can bind explicitly with:
   <!-- float-ledger: CASE_ID ; field=at.seaLevel.liftToMass ; value=0.558 -->
 The stated value must occur in the visible text, match that exact field at its printed
@@ -27,6 +38,8 @@ import re
 import shutil
 import subprocess
 import sys
+
+from float_text import relation, js_strings
 
 sys.dont_write_bytecode=True
 ROOT=pathlib.Path(__file__).resolve().parent.parent
@@ -110,8 +123,10 @@ class Blocks(HTMLParser):
 
 
 def interesting(text):
-    text=re.sub(r'(?:centre|center) of buoyancy|floating controls', '',text,flags=re.I)
-    return bool(DENSITY.search(text) or CUE.search(text) or (RATIO.search(text) and NUM.search(text)) or
+    text=re.sub(r'(?:centre|center) of buoyancy|floating controls|\b(?:highp|mediump|lowp)\s+float\b|aspect-ratio\s*:\s*[\d/]+|\bfloat\s*:\s*(?:left|right|none)', '',text,flags=re.I)
+    if text.startswith('#version'):text=re.sub(r'\bfloat\b','',text)
+    if len(text)>128 and re.fullmatch(r'[A-Za-z0-9+/=]+',text):return False
+    return bool(DENSITY.search(text) or CUE.search(text) or relation(text) or (RATIO.search(text) and NUM.search(text)) or
                 (MASS.search(text) and re.search(r"mass|weigh|deficit|short",text,re.I)) or
                 re.search(r'data-(?:n|cat)="(?:ship\.(?:ratio|bestWorldRatio|massT|liftT)|walls\.|stock\.(?:totalKg|massOver)|demo\.displacedAirKg|weigh\.)',text) or
                 re.search(r'data-(?:n|cat)="[^" ]*(?:ratio|residual|totalKg|kgPerM3|filmGM2|arealGM2|displacedAir|nodesKg|tubeKg|pipeKg)',text,re.I))
@@ -137,8 +152,13 @@ def source_blocks(path):
         start=1
         for m in re.finditer(r'\S[^\n]*(?:\n(?!\s*\n)[^\n]*)*',body):
             raw=m[0];text=clean(raw)
-            if interesting(text) or (raw.lstrip().startswith('|') and NUM.search(text) and (re.search(r'kg/m|kg.m|density|mass|tube',text,re.I) or (rel=='docs/FLOAT.md'))):
+            if any(pattern.fullmatch(rel) for pattern, _ in ALLOWLIST) or interesting(text) or (raw.lstrip().startswith('|') and NUM.search(text) and (re.search(r'kg/m|kg.m|density|mass|tube',text,re.I) or (rel=='docs/FLOAT.md'))):
                 yield body.count('\n',0,m.start())+1,text,raw
+    elif path.suffix in ('.js', '.mjs'):
+        for line, string in js_strings(body):
+            text=clean(string)
+            if interesting(text):
+                yield line,text,string
     elif path.suffix=='.py':
         # Only display/documentation strings and comments, never float type annotations.
         tree=ast.parse(body)
@@ -151,10 +171,15 @@ def source_blocks(path):
 
 
 def paths():
-    result=[ROOT/'README.md',ROOT/'index.html',ROOT/'tools/ship_scoping.py']
+    result=[ROOT/'README.md',ROOT/'GOALS.md',ROOT/'index.html',ROOT/'tools/ship_scoping.py']
     for parent in ['docs','research','engineering','ship','cell','concept']:
         for p in (ROOT/parent).rglob('*'):
             if p.suffix in ('.md','.html') and p.name!='FLOAT-LEDGER.md':result.append(p)
+    # Published script roots; test harnesses and offline rendering scripts are excluded.
+    for parent in ['app','3d','sim','ship','cell','concept','engineering']:
+        for p in (ROOT/parent).rglob('*'):
+            if p.suffix in ('.js','.mjs') and not ({'tests','scripts'} & set(p.relative_to(ROOT/parent).parts[:-1])):
+                result.append(p)
     return sorted(set(result))
 
 
@@ -250,9 +275,11 @@ def inspect_block(path,line,text,raw,rows,ledger,cat):
         else:rendered='unresolved'
         hit['dynamicFigures'].append(dict(route=route,value=value,display=rendered,
             basis='default page context; not an accepted ledger binding'))
-    for pattern,reason in ALLOWLIST:
-        if pattern.fullmatch(path):
-            hit.update(status='ALLOW',reason=reason);return hit
+    # Only the lander's exact, figure-free heading is historical by shape.
+    heading=re.fullmatch(r'## Landing [0-9]+ — ([^\n]+)',raw.strip())
+    if path=='docs/governance/landing-attestations.md' and heading and not NUM.search(heading[1]):
+        hit.update(status='ALLOW',disposition='history',reason='Exact figure-free landing heading; history by shape.')
+        return hit
     bindings=list(BIND.finditer(raw));live=re.findall(r'data-(?:n|cat)="([^"]+)"',raw)
     bound=[]
     if bindings:
