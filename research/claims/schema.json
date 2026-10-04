@@ -1,0 +1,610 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tier 1 claims register, known defects and acceptance receipts",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/register"
+    },
+    {
+      "$ref": "#/$defs/knownDefects"
+    },
+    {
+      "$ref": "#/$defs/acceptedDefects"
+    }
+  ],
+  "$defs": {
+    "owner": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "model",
+            "generated",
+            "delegated",
+            "cited",
+            "nonclaim",
+            "labelled",
+            "ledger",
+            "model-span"
+          ]
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "generator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "region": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inventory": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arithmetic": {
+          "$ref": "#/$defs/owner"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "by",
+            "date",
+            "digest"
+          ],
+          "additionalProperties": false
+        },
+        "no_capture_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "enum": [
+            "named-identifier",
+            "iso-date",
+            "section-or-step",
+            "cross-reference",
+            "version",
+            "unit-exponent-or-formula-index",
+            "rendering-metadata",
+            "exact",
+            "section-symbol-reference",
+            "discourse-ordinal",
+            "document-or-process-order",
+            "named-word",
+            "pronominal-one",
+            "idiomatic-single",
+            "section-range-endpoint"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "enum": [
+            "vision",
+            "assumption",
+            "assumed",
+            "target",
+            "illustration",
+            "illustrative"
+          ]
+        },
+        "record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attribute": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "physical_basis": {
+          "type": "object",
+          "properties": {
+            "record": {
+              "type": "string",
+              "minLength": 1
+            },
+            "key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "record",
+            "key",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "model"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "key",
+              "precision",
+              "unit",
+              "scenario"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "generated"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generator",
+              "region"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "delegated"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "inventory"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "cited"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source",
+              "locator",
+              "review"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "nonclaim"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "rule"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "labelled"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "label"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "rule"
+            ],
+            "properties": {
+              "rule": {
+                "const": "exact"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ledger"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "record",
+              "key",
+              "reason"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "model-span"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "key",
+              "attribute",
+              "producer",
+              "format"
+            ]
+          }
+        }
+      ]
+    },
+    "register": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "delegations": {
+          "type": "object",
+          "maxProperties": 2,
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "optional_until_present": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "file": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "ordinal": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "raw": {
+                "type": "string",
+                "minLength": 1
+              },
+              "placement": {
+                "type": "object",
+                "properties": {
+                  "surface": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "block_digest": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "context_digest": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "region": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "marker": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "surface",
+                  "block_digest",
+                  "context_digest",
+                  "region",
+                  "marker"
+                ],
+                "additionalProperties": false
+              },
+              "owner": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/owner"
+                  }
+                ]
+              },
+              "gate": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "file",
+              "digest",
+              "ordinal",
+              "text",
+              "raw",
+              "placement",
+              "owner",
+              "gate"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "version",
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "knownDefects": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "headlines": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 7,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "defects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "occurrences": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "headline": {
+                "type": "string",
+                "minLength": 1
+              },
+              "problem": {
+                "type": "string",
+                "minLength": 1
+              },
+              "failure": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "key": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "observed": {},
+                  "expected": {}
+                },
+                "required": [
+                  "kind",
+                  "observed",
+                  "expected"
+                ],
+                "additionalProperties": false
+              },
+              "closes": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "occurrences",
+              "headline",
+              "problem",
+              "failure",
+              "closes"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "version",
+        "headlines",
+        "defects"
+      ],
+      "additionalProperties": false
+    },
+    "acceptedDefects": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "accepted": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "source_digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "added": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "added",
+              "digest"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "changes",
+              "digest"
+            ],
+            "properties": {
+              "changes": {
+                "type": "object"
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "version",
+        "accepted",
+        "source_digests",
+        "runs"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

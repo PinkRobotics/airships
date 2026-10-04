@@ -1,0 +1,70 @@
+{
+  "command": "python3 -B research/claims/mutation_proof.py",
+  "baseline_exit": 0,
+  "method": "Disposable tier 1 copy; one mutation at a time, restore bytes and rerun after each.",
+  "mutations": [
+    {
+      "mutation": "bound page number",
+      "file": "concept/index.html",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: orphaned register entry; old=0.45 new=0.46 key=assumptions.eLN2",
+        "claimscheck: concept/index.html::1db8663fd21014a02646361b939df5dd41d3c96328986480733413b44ae374b1::1: UNREGISTERED p value=0.46 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.46 kWh/kg dia",
+        "claimscheck: concept/index.html::1db8663fd21014a02646361b939df5dd41d3c96328986480733413b44ae374b1::2: UNREGISTERED p value=04 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.46 kWh/kg dia"
+      ],
+      "restored_exit": 0
+    },
+    {
+      "mutation": "new page number",
+      "file": "concept/index.html",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: concept/index.html::9ab4829edda3d35d28d1dcba9c7f912a10de29dcd33393009882229e91efef88::1: UNREGISTERED p value=314159 text=Capacity 314159 tonnes."
+      ],
+      "restored_exit": 0
+    },
+    {
+      "mutation": "register entry deleted",
+      "file": "research/claims/register.json",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: UNREGISTERED p value=0.45 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.45 kWh/kg dia"
+      ],
+      "restored_exit": 0
+    },
+    {
+      "mutation": "known defect fixed but listed",
+      "file": "README.md",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: README.md::8aead1ce516edca5243c6f9073847b7ff1930c792b8aef8446b8e1c19c8e63cf::1: orphaned register entry; old=1.25 new=1.39 key=classes.P100.cycle.eCycleMWh",
+        "claimscheck: README.md::c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e::1: known defect no longer reproduces: recorded={\"expected\":8.454,\"key\":\"classes.P1000.cycle.eCycleMWh\",\"kind\":\"stale-model\",\"observed\":\"7.4\"} now={\"expected\":{\"block_digest\":\"c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e\",\"context_digest\":\"b273035984149eca51898d6d5b008e97ea97779615399530e49c6859e765f03d\",\"marker\":null,\"region\":null,\"surface\":\"cell\"},\"kind\":\"placement-changed\",\"observed\":{\"block_digest\":\"c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e\",\"context_digest\":\"4cdc0705d01fe208eafcd865ce2c2e3c2988aece8c25ec33fcaf3655f2c672b7\",\"marker\":null,\"region\":null,\"surface\":\"cell\"}}",
+        "claimscheck: README.md::796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec::1: known defect no longer reproduces: recorded={\"expected\":54.325,\"key\":\"classes.P10000.cycle.eCycleMWh\",\"kind\":\"stale-model\",\"observed\":\"45.9\"} now={\"expected\":{\"block_digest\":\"796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec\",\"context_digest\":\"537e980ab8da4d5afffce498d8046f874885c7ea52544d650868e9efde1117b6\",\"marker\":null,\"region\":null,\"surface\":\"cell\"},\"kind\":\"placement-changed\",\"observed\":{\"block_digest\":\"796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec\",\"context_digest\":\"a3ed14caa4a12c22183fe717911abb16b3ed9491e54a254243580981116c3a0e\",\"marker\":null,\"region\":null,\"surface\":\"cell\"}}",
+        "claimscheck: README.md::8aead1ce516edca5243c6f9073847b7ff1930c792b8aef8446b8e1c19c8e63cf::1: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text"
+      ],
+      "restored_exit": 0
+    },
+    {
+      "mutation": "model figure moved",
+      "file": "research/figures.json",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}",
+        "claimscheck: concept/index.html::ca8e0710ffd6e6b8360d7910bf9b9762643ac10895c59259a0ed7ced2383bf78::1: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}",
+        "claimscheck: research/reports/02-paper.md::7af7b6aec589a209d81fc9f1b612b56bd7497c69ee10891999d2bbf3de27fcb4::4: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}",
+        "claimscheck: research/reports/03-diligence.md::7af7b6aec589a209d81fc9f1b612b56bd7497c69ee10891999d2bbf3de27fcb4::4: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}"
+      ],
+      "restored_exit": 0
+    },
+    {
+      "mutation": "number moved into accessibility only",
+      "file": "concept/index.html",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: orphaned register entry; old=0.45 new=missing/changed text key=assumptions.eLN2",
+        "claimscheck: concept/index.html::ca3399102650d40f26220589eef5f560ecf403f5b3cf54063c78cc19be33d8c5::1: UNREGISTERED aria-label value=0.45 text=0.45 kWh/kg"
+      ],
+      "restored_exit": 0
+    }
+  ]
+}

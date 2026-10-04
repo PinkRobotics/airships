@@ -1,0 +1,155 @@
+[
+  {
+    "command": [
+      "git",
+      "apply",
+      "--3way",
+      "--index",
+      "inputs/claimsgate.patch"
+    ],
+    "exit": 0,
+    "output": "Makefile and tools/check_figures.py applied cleanly; remaining new files fell back to direct application. No conflicts."
+  },
+  {
+    "command": [
+      "make",
+      "claimscheck"
+    ],
+    "exit": null,
+    "phase": "immediately after patch",
+    "output": "TOTAL | 2484 | 12 | 238 | 0 | 0 | 431 | 0 | 1415 | 375; claimscheck: FAIL; 1107 errors; 1678 known defect occurrences",
+    "status": "nonzero; make reported Error 1 after the gate returned failure"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/claims.py",
+      "check"
+    ],
+    "exit": 1,
+    "phase": "after changed-ID carry and placement review, before acceptance",
+    "output": "claimscheck: FAIL; 271 errors; 1686 known defect occurrences; 271 lines: ratchet: new defect needs check --accept-new"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/claims.py",
+      "check",
+      "--accept-new"
+    ],
+    "exit": 0,
+    "output": "271 ACCEPT NEW lines printed; claimscheck: PASS; 0 errors; 1686 known defect occurrences"
+  },
+  {
+    "command": [
+      "make",
+      "claimscheck"
+    ],
+    "exit": 0,
+    "output": "python3 tools/claims.py check\nTier 1: README.md, GOALS.md, manifest-served HTML, research/reports/*.md. Out of scope: docs/, working notes, analysis notes, external scripts and runtime-only values.\nfile | occurrences | model | generated | delegated | cited | nonclaim | labelled | known defect | unregistered\nGOALS.md | 80 | 0 | 0 | 0 | 0 | 45 | 0 | 35 | 0\n  nonclaim rules: cross-reference=3, iso-date=27, named-identifier=7, section-or-step=8\nREADME.md | 252 | 12 | 0 | 0 | 0 | 45 | 0 | 195 | 0\n  nonclaim rules: cross-reference=1, iso-date=12, named-identifier=22, section-or-step=3, unit-exponent-or-formula-index=6, version=1\ncell/band.html | 26 | 0 | 0 | 0 | 0 | 7 | 0 | 19 | 0\n  nonclaim rules: named-identifier=6, rendering-metadata=1\ncell/explorer.html | 3 | 0 | 0 | 0 | 0 | 2 | 0 | 1 | 0\n  nonclaim rules: named-identifier=1, rendering-metadata=1\ncell/index.html | 63 | 0 | 0 | 0 | 0 | 13 | 0 | 50 | 0\n  nonclaim rules: named-identifier=2, rendering-metadata=4, unit-exponent-or-formula-index=7\ncell/levels.html | 71 | 0 | 0 | 0 | 0 | 25 | 0 | 46 | 0\n  nonclaim rules: cross-reference=7, named-identifier=11, rendering-metadata=4, unit-exponent-or-formula-index=3\ncell/ship.html | 65 | 0 | 0 | 0 | 0 | 10 | 0 | 55 | 0\n  nonclaim rules: named-identifier=8, rendering-metadata=1, unit-exponent-or-formula-index=1\nconcept/index.html | 193 | 2 | 0 | 0 | 0 | 49 | 0 | 142 | 0\n  nonclaim rules: cross-reference=9, iso-date=9, named-identifier=22, rendering-metadata=4, unit-exponent-or-formula-index=5\nengineering/index.html | 67 | 0 | 0 | 0 | 0 | 19 | 0 | 48 | 0\n  nonclaim rules: named-identifier=10, rendering-metadata=4, unit-exponent-or-formula-index=5\nindex.html | 127 | 0 | 68 | 0 | 0 | 39 | 0 | 20 | 0\n  nonclaim rules: cross-reference=1, iso-date=18, named-identifier=16, rendering-metadata=4\nmodel-lab/index.html | 27 | 0 | 0 | 0 | 0 | 3 | 0 | 24 | 0\n  nonclaim rules: named-identifier=1, rendering-metadata=1, unit-exponent-or-formula-index=1\nresearch/reports/01-brief.md | 103 | 0 | 17 | 0 | 0 | 14 | 0 | 72 | 0\n  nonclaim rules: iso-date=6, named-identifier=8\nresearch/reports/02-paper.md | 566 | 0 | 118 | 0 | 0 | 118 | 0 | 330 | 0\n  nonclaim rules: cross-reference=4, iso-date=36, named-identifier=35, section-or-step=19, unit-exponent-or-formula-index=23, version=1\nresearch/reports/03-diligence.md | 527 | 0 | 68 | 0 | 0 | 75 | 0 | 384 | 0\n  nonclaim rules: cross-reference=4, iso-date=15, named-identifier=25, section-or-step=17, unit-exponent-or-formula-index=13, version=1\nresearch/reports/README.md | 27 | 0 | 0 | 0 | 0 | 5 | 0 | 22 | 0\n  nonclaim rules: iso-date=3, named-identifier=2\nship/_hero_test.html | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0\nship/index.html | 287 | 0 | 0 | 0 | 0 | 44 | 0 | 243 | 0\n  nonclaim rules: cross-reference=4, named-identifier=4, rendering-metadata=4, unit-exponent-or-formula-index=32\nTOTAL | 2484 | 14 | 271 | 0 | 0 | 513 | 0 | 1686 | 0\nKnown defects: 10 | Handwritten energy figures and hull dimensions lag the model.\nKnown defects: 19 | Released water is described as delivered water.\nKnown defects: 468 | Float figures await a ledger that records their physical basis.\nKnown defects: 51 | Static defaults and diagrams still need a generating check.\nKnown defects: 603 | Source and historical figures still need occurrence-level review.\nKnown defects: 535 | Other public numbers still need an accountable owner or an explicit label.\nclaimscheck: PASS; 0 errors; 1686 known defect occurrences"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-p",
+      "test_claims.py",
+      "-v"
+    ],
+    "exit": 0,
+    "output": "Ran 41 tests in 0.278s; OK"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/claims.py",
+      "extract"
+    ],
+    "exit": 0,
+    "output": "first and second outputs byte-identical; sha256=49ad1cc536d01fa416bdffa4e5027950cccb016a3aa609339810c3db32d1b3c3"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "research/claims/mutation_proof.py"
+    ],
+    "exit": 0,
+    "output": "Six RED exit 1 mutations and six restored GREEN exit 0 runs; All six mutations failed as required and all six restorations passed; scratch copy discarded."
+  },
+  {
+    "command": [
+      "make",
+      "figcheck",
+      "analysischeck",
+      "fallbackcheck",
+      "labelledcheck",
+      "lint"
+    ],
+    "exit": 0,
+    "output": "check_figures: 233 cited figures across 4 report(s) match the model\npython3 tools/check_analysis.py\n88 analysis figures match the JSON their scripts produced.\npython3 tools/gen_fallback.py --check\ngen_fallback --check: all 4 fallback regions match a fresh regeneration (652 words of static content)\npython3 research/validation/check.py\nlabelledcheck: 6 checks computed; 35 source records valid; reports match\n1-atmosphere: MISS; 2-hindenburg: not comparable; 3-cl415-cycle: not comparable; 4-helicopter-hover: bound only; 5-vacuum-shells: not comparable; 6-helium: not comparable\npython3 tools/check_boundaries.py\nboundaries clean: 81 modules, 29 linter self-tests\n  sim/ and 3d/ name nothing outside themselves — static import, re-export or dynamic import;\n  sim/ additionally touches no DOM, network, storage, wall clock or location."
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "schema validation"
+    ],
+    "exit": 0,
+    "output": "register VALID; known-defects VALID; accepted-defects VALID"
+  },
+  {
+    "command": [
+      "original",
+      "and",
+      "carried",
+      "tools/check_figures.py",
+      "main()"
+    ],
+    "exit": 0,
+    "output": "Both: check_figures: 233 cited figures across 4 report(s) match the model; byte-identical stdout"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "HEAD",
+      "--exit-code",
+      "--",
+      "README.md",
+      "GOALS.md",
+      "sim",
+      "app",
+      "3d",
+      "docs",
+      "research/figures.json",
+      "research/reports",
+      "index.html",
+      "concept",
+      "engineering",
+      "ship",
+      "cell",
+      "model-lab"
+    ],
+    "exit": 0,
+    "output": "empty"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "HEAD",
+      "--check"
+    ],
+    "exit": 0,
+    "output": "empty"
+  }
+]

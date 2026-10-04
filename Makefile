@@ -407,3 +407,7 @@ servedenergycheck:  ## Accept every served cycle at its own inputs; regenerate p
 	$(PY) tools/check_served_energy.py
 
 .PHONY: servedenergycheck
+
+.PHONY: claimscheck
+claimscheck:  ## Inventory every tier 1 number and enforce ownership and the defect ratchet
+	$(PY) tools/claims.py check

@@ -70,6 +70,15 @@ def fmt_like(value, raw, dp):
     return out
 
 
+def matches_display(value, raw, dp=None):
+    """The report comparison, shared with the occurrence register (ROUND_HALF_UP)."""
+    if dp is None:
+        dp = len(raw.split(".")[1]) if "." in raw else 0
+    got = float(raw.replace(",", "").replace("−", "-"))
+    q = float(fmt_like(value, raw, dp).replace(",", "").replace("−", "-"))
+    return abs(q - got) <= 10 ** (-dp) / 2 + 1e-9
+
+
 def fix(flat):
     """Rewrite every cited number to the model's value, in place. Returns the count changed."""
     total = 0
@@ -150,16 +159,13 @@ def main():
             if not isinstance(want, (int, float)) or isinstance(want, bool):
                 bad.append(f"{rp.name}:{line}: f:{key} is {want!r}, not a number")
                 continue
-            got = float(raw.replace(",", "").replace("−", "-"))
             # Compare at the precision the author WROTE. Quoting 13,183 against 13,183.4 is
             # correct rounding; quoting 13,200 is not, and neither is quoting last week's 12,052.
             dp = len(raw.split(".")[1]) if "." in raw else 0
             # ROUND HALF UP, not Python's round(), which is banker's: round(13722.5) is 13722,
             # so a report writing the correct 13,723 was being failed by the gate meant to
             # protect it. Authors round the way everyone was taught; the checker must agree.
-            q = decimal.Decimal(str(float(want))).quantize(
-                decimal.Decimal(1).scaleb(-dp), rounding=decimal.ROUND_HALF_UP)
-            if abs(float(q) - got) > 10 ** (-dp) / 2 + 1e-9:
+            if not matches_display(want, raw, dp):
                 bad.append(f"{rp.name}:{line}: f:{key} — report says {raw}, "
                            f"the model says {want}")
 
