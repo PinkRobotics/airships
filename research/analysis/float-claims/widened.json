@@ -16,6 +16,7 @@
   "app/cockpit/tables.js",
   "app/worked.js",
   "cell/levels.js",
+  "concept/energy-analysis.html",
   "research/notes/derveni-2024-multi-defect-shell-buckling.md",
   "ship/catalog.js",
   "ship/explorer.js",
@@ -348,6 +349,20 @@
    "line": 289
   },
   {
+   "file": "concept/energy-analysis.html",
+   "key": "56517a00b3f39dcc",
+   "class": "generated",
+   "reason": "The ruled analysis summary is freshly emitted from the study records; it establishes no mission result or structural float verdict.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:analysis:start -->",
+    "end": "<!-- served-energy:analysis:end -->"
+   },
+   "line": 9
+  },
+  {
    "file": "research/notes/derveni-2024-multi-defect-shell-buckling.md",
    "key": "af28abef1f0910dd",
    "class": "literature",
@@ -462,9 +477,9 @@
   },
   {
    "file": "sim/served-view.js",
-   "key": "4a21dbc28929d18c",
+   "key": "4f2a9b2480beb7a4",
    "class": "calculator",
-   "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+   "reason": "Worked quantities use an accepted exact-input plan; structural float remains unproven and water released is not a fire outcome.",
    "context": [],
    "function": "workedFigures",
    "gate": "servedenergycheck",

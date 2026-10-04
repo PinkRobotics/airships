@@ -1309,6 +1309,28 @@
    "class": "flight-model",
    "reason": "The caption names a simulation render of the concept vehicle at an intake; the page states the simulated flight's float assumption once, and the caption says no aircraft has flown.",
    "assumption": "22491643fb810667"
+  },
+  {
+   "file": "sim/served-view.js",
+   "key": "4f2a9b2480beb7a4",
+   "class": "calculator",
+   "reason": "Worked quantities use an accepted exact-input plan; structural float remains unproven and water released is not a fire outcome.",
+   "context": [],
+   "function": "workedFigures",
+   "gate": "servedenergycheck"
+  },
+  {
+   "file": "concept/energy-analysis.html",
+   "key": "56517a00b3f39dcc",
+   "class": "generated",
+   "reason": "The ruled analysis summary is freshly emitted from the study records; it establishes no mission result or structural float verdict.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:analysis:start -->",
+    "end": "<!-- served-energy:analysis:end -->"
+   }
   }
  ],
  "replacements": [
@@ -1383,6 +1405,12 @@
    "oldKey": "cc0bb6069996e890",
    "newKey": "a3c076ba37155fd1",
    "reason": "Reviewed replacement: the intake render's caption now says it is a simulation render and that no aircraft has flown; its class and float assumption are unchanged."
+  },
+  {
+   "file": "sim/served-view.js",
+   "oldKey": "4a21dbc28929d18c",
+   "newKey": "4f2a9b2480beb7a4",
+   "reason": "Use the existing complete fire-outcome denial while preserving all accepted-plan quantities and the structural qualification."
   }
  ]
 }

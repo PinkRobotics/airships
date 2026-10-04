@@ -24,51 +24,51 @@ export {
   DEFAULTS, CFG, setConfig, resetConfig, REFERENCE_CLASS,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
   TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
-} from './config.js?v=3c1b7308';
+} from './config.js?v=64c16b0c';
 
 export {
   ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
-} from './atmosphere.js?v=3c1b7308';
+} from './atmosphere.js?v=64c16b0c';
 
-export { SEED, setSeed, hashFrac } from './rng.js?v=3c1b7308';
+export { SEED, setSeed, hashFrac } from './rng.js?v=64c16b0c';
 
 export {
   R_EARTH, havKm, moveToward, bez, bezBearing, easeTrap, easeSm, lerpAng, trackBearing,
-} from './geo.js?v=3c1b7308';
+} from './geo.js?v=64c16b0c';
 
-export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=3c1b7308';
+export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=64c16b0c';
 export {
   BUS_CEILING, ROTOR_EFFICIENCY_VALUES, AERO_CL_MAX, AERO_CL_VALUES, AERO_SPAN_EFFICIENCY, VERTICAL_CD, FORCE_TOL, LIMIT_STEPS, HOTEL_FRAC, WINCH_IDLE_FRAC, HOIST_M, WINCH_ETA, WINCH_MPS,
   LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS,
   inducedMW, rotorMaxTonnes, ventTph, regenMW, descentBusMW, cryoOnFrac, cycleGeometry,
   altAt, gsAt, loadAt, drawAt, integrateCycle, cycleLimits, aeroGeometry, rotorThrustLimitT,
-} from './power.js?v=3c1b7308';
-export { planCycle } from './plan.js?v=3c1b7308';
-export { findSource, intakePoint } from './water.js?v=3c1b7308';
-export { CITIES } from './communities.js?v=3c1b7308';
+} from './power.js?v=64c16b0c';
+export { planCycle } from './plan.js?v=64c16b0c';
+export { findSource, intakePoint } from './water.js?v=64c16b0c';
+export { CITIES } from './communities.js?v=64c16b0c';
 
 export {
   insideFire, dropSeg, planTargets, tIdx, segAt, legKmFor, stationFor, deliveryPoint,
   arrivalCurve,
-} from './targets.js?v=3c1b7308';
+} from './targets.js?v=64c16b0c';
 
-export { sizeTier, assign } from './assign.js?v=3c1b7308';
+export { sizeTier, assign } from './assign.js?v=64c16b0c';
 export {
   loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, fireNumber, guardedFire, missionBlocked, keepOutsFor, pointBlocked,
   pathBlocked, noteKm,
-} from './guard.js?v=3c1b7308';
-export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=3c1b7308';
-export { buildMission } from './mission.js?v=3c1b7308';
-export { anchorHang, stateAt } from './state.js?v=3c1b7308';
-export { narrate, srcName } from './narrate.js?v=3c1b7308';
-export { selftest } from './selftest.js?v=3c1b7308';
+} from './guard.js?v=64c16b0c';
+export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=64c16b0c';
+export { buildMission } from './mission.js?v=64c16b0c';
+export { anchorHang, stateAt } from './state.js?v=64c16b0c';
+export { narrate, srcName } from './narrate.js?v=64c16b0c';
+export { selftest } from './selftest.js?v=64c16b0c';
 
-export { MODEL_STATUS } from './energy-label.js?v=3c1b7308';
-export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=3c1b7308';
+export { MODEL_STATUS } from './energy-label.js?v=64c16b0c';
+export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=64c16b0c';
 
-export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=3c1b7308';
+export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=64c16b0c';
 
-export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=3c1b7308';
+export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=64c16b0c';
 
-export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=3c1b7308";
-export {workedFigures,planStatusText} from "./served-view.js?v=3c1b7308";
+export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=64c16b0c";
+export {workedFigures,planStatusText} from "./served-view.js?v=64c16b0c";

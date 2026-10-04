@@ -408,10 +408,10 @@ PROBE = r"""
 # the sample route and asserts the overlay is actually on screen.
 LAYOUT = r"""
 (async () => {
-  // Bounded at 6 s — the orientation screen dismisses itself 12 s after boot, and this
-  // has to see it up. If the cards never appear, the measurement below says so.
-  for (let i = 0; i < 24 && !document.querySelector('#introOv .io'); i++)
-    await new Promise(r => setTimeout(r, 250));
+  // Wait for the real first-visit screen after asynchronous data and plan acceptance.
+  // Static cards exist while hidden; they do not establish that boot completed.
+  for (let i = 0; i < 200 && (document.getElementById('introOv')?.hidden || !document.querySelector('#introOv .io')); i++)
+    await new Promise(r => setTimeout(r, 100));
   const ov = document.getElementById('introOv');
   const visible = !!(ov && !ov.hidden);
   const cards = visible ? [...document.querySelectorAll('#introOv .io')].map(e => {
@@ -812,7 +812,6 @@ NOT_A_LIVE_CLAIM = (
     "If the live mirror fails",                         # the same note, about the fallback
     "hotspots are a live layer and are not part of a status day",   # why a dated view has none
     "with live force vectors",                          # the schematic follows the simulation
-    "the two larger classes live outside it",           # the verb
     "Nothing floats today as drawn",                    # the float ledger's verdict
     "Currently in frame:",                              # what the map frame holds
     "Current constraint:",                              # the simulated cycle's binding limit

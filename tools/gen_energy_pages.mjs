@@ -66,22 +66,32 @@ for(const cls of ['P1000','P10000']){
 }
 qualification+='Model feasibility does not establish structural float, transient control or flight performance.';
 text+=sentence('qualifications',qualification,['research/analysis/energy-requirements.json#rows[km=15].dragSensitivity[*].{verticalCd,feasible,worst.unheldT}','research/analysis/energy-rotor-range.json#assumption']);
-text+=sentence('fire-boundary','Nothing here says a past fire would have burned differently. The fires are records or labelled inventions; the fleet is simulated and never flew.',['docs/ENERGY-MODEL-2026-10.md']);
-text+=sentence('omissions','The <a href="research/analysis/energy-omissions.md">omissions analysis</a> names unpriced beam-wind position holding, cable and storage mass, the bag pendulum and winch transients, day-average solar credited at every instant, and dry mass as a target rather than an assembled ledger.',['research/analysis/energy-omissions.json#rows[*]']);
-text+=sentence('study-link','The <a href="research/analysis/payload-exchange.md">payload-exchange study</a> is analysis of alternative force balances, not a design or a mission result.',['research/analysis/payload-exchange.json#ranking']);
+text+=sentence('fire-boundary','Nothing here says any fire would have burned differently. The fires are records or labelled inventions; the fleet is simulated and never flew.',['docs/ENERGY-MODEL-2026-10.md']);
+const omissionText='The omissions analysis names unpriced beam-wind position holding, cable and storage mass, the bag pendulum and winch transients, day-average solar credited at every instant, and dry mass as a target rather than an assembled ledger.';
+text+=sentence('omissions',omissionText.replace('omissions analysis','<a href="concept/energy-analysis.html#omissions">omissions analysis</a>'),['research/analysis/energy-omissions.json#rows[*]']);
+text+=sentence('study-link','The <a href="concept/energy-analysis.html#study">payload-exchange study summary</a> is analysis of alternative force balances, not a design or a mission result.',['research/analysis/payload-exchange.json#ranking']);
 // Five study sentences, under their own analysis heading. No unsupported mission energy or rate is promoted.
 let analysis='<h4>Payload exchange · analysis</h4>\n';
-analysis+=sentence('analysis-water','In the study, water kept aboard closes the exchange force balance on the drawn vehicle and bus, at a price in delivered water; the mission figures above use the integrated model instead.',['research/analysis/payload-exchange.json#ranking[route=b]']);
+analysis+=sentence('analysis-water','In the study, water kept aboard closes the exchange force balance on the drawn vehicle and bus, at a price in delivered water; the accepted mission figures use the integrated model instead.',['research/analysis/payload-exchange.json#ranking[route=b]']);
 analysis+=sentence('analysis-half-load',`The study's half-load hull gives up fail-safe float-up: the loaded ${CLASSES.P1000.name} would be ${N(study.classes.P1000.routes.d.failureCase.heavyT,0)} t heavy after its rotors stop, and it needs rotors that push both ways, which the drawn rotors do not.`,['research/analysis/payload-exchange.json#classes.P1000.routes.d.failureCase.heavyT','research/analysis/payload-exchange.json#ranking[route=d]']);
 analysis+=sentence('analysis-approach','The study analyses an approach at airspeed, but the hand-over to the bag has no coherent form at the drawn cable and hull lengths.',['research/analysis/payload-exchange.json#ranking[route=c]']);
 analysis+=sentence('analysis-volume','The study analyses variable displacement for a partial exchange; it asks sealed cells to change volume every cycle and requires reopening that design decision.',['research/analysis/payload-exchange.json#ranking[route=e]']);
 analysis+=sentence('analysis-cryo','The study finds that making the exchange ballast within the cycle exceeds the bus and dry-mass target on every class with a gap; cryogenic ballast is analysis of a different plant, not an accepted flight plan.',['research/analysis/payload-exchange.json#ranking[route=f]']);
 function region(name,body){return `<!-- served-energy:${name}:start -->\n${body}\n<!-- served-energy:${name}:end -->`;}
 const home=region('home','<details class="d"><summary>Energy · feasible simulated plans</summary><div class="dbody">\n'+text+analysis+'\n</div></details>');
-const concept=region('concept','<details class="d"><summary>What the generated energy records say</summary><div class="dbody">\n'+text.replaceAll('href="research/','href="../research/')+analysis+'\n</div></details>');
+const concept=region('concept','<details class="d"><summary>What the generated energy records say</summary><div class="dbody">\n'+text.replaceAll('href="concept/','href="')+analysis+'\n</div></details>');
 const homeWorked=region('worked',sentence('worked-record',`The generated ${N(p15.km,0)} km P-100 ${p15.best.mode} example requests ${N(CLASSES.P100.payloadT,0)} t, keeps ${N(p15.best.ballastT)} t aboard and delivers ${N(p15.best.deliveredT)} t in ${N(p15.best.cycleMin)} minutes; supplied energy is ${N(p15.best.cycleMWh)} MWh on the record basis and ${N(fav15.best.cycleMWh)} MWh on the favourable basis. This is a feasible simulated example, separate from each mission's own route.`,[key('energy-profiles','P100',15,'record','best'),key('energy-profiles','P100',15,'favourable','best.cycleMWh')]));
 const outputs={'index.html':{home,worked:homeWorked},'concept/index.html':{concept}};
 const files={};
+files['concept/energy-analysis.html']=`<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Energy analysis summaries · Pink Robotics</title>
+<style>html{color-scheme:dark}body{margin:0;background:#0a0a0c;color:#eceef2;font:16px/1.65 system-ui,sans-serif}main{max-width:72ch;margin:auto;padding:32px 20px}a{color:#ff75b4}code{overflow-wrap:anywhere}h1,h2{line-height:1.2}section{border-top:1px solid #33333c;margin-top:32px;padding-top:20px}</style>
+</head><body><main><a href="./">How the model works</a><h1>Energy analysis summaries</h1>
+<p>These are analysis of assumptions and alternative force balances. They are not mission results, an aircraft design or flight evidence. The full study, generated records and sources remain in the repository at the paths named below.</p>
+${region('analysis','<section id="study">'+analysis+'<p>Source study: <code>research/analysis/payload-exchange.md</code>; generated records: <code>research/analysis/payload-exchange.json</code>. This summary publishes its ruled conclusions, without promoting the study’s sketch-cycle energies to mission results.</p></section>\n<section id="omissions"><h2>Model omissions · analysis</h2><p>'+omissionText+'</p><p>Source analysis: <code>research/analysis/energy-omissions.md</code>; generated records: <code>research/analysis/energy-omissions.json</code>. Model feasibility remains conditional on these omissions.</p></section>')}
+</main><footer style="max-width:72ch;margin:auto;padding:20px"><a href="../notices.html">Data, licences and notices</a></footer></body></html>
+`;
 for(const [file,regions] of Object.entries(outputs)){
  let body=fs.readFileSync(file,'utf8');
  for(const [name,fresh] of Object.entries(regions)){
@@ -95,6 +105,6 @@ if(process.argv.includes('--records'))console.log(JSON.stringify({sentences,inve
 else if(process.argv.includes('--emit'))console.log(JSON.stringify(files));
 else if(process.argv.includes('--check')){
  let failures=0;
- for(const [file,fresh] of Object.entries(files))if(fs.readFileSync(file,'utf8')!==fresh){console.error('FAIL stale generated served-energy sentence: '+file);failures++;}
+ for(const [file,fresh] of Object.entries(files))if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==fresh){console.error('FAIL stale generated served-energy sentence: '+file);failures++;}
  if(failures)process.exitCode=1;else console.log('PASS served energy sentences: exact regions match generated records and feasible profiles replay at their own inputs');
 }else{for(const [file,body] of Object.entries(files))fs.writeFileSync(file,body);console.log('Generated served energy regions: '+Object.keys(files).join(', '));}

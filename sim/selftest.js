@@ -3,14 +3,14 @@
  * These are shipped, not just tested in CI, so that a reader who does not trust the
  * numbers can run the checks themselves in devtools on the page they are reading.
  */
-import { sizeTier } from './assign.js?v=3c1b7308';
-import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=3c1b7308';
-import { buildMission } from './mission.js?v=3c1b7308';
-import { ledger, pumpMW } from './physics.js?v=3c1b7308';
-import { planCycle } from './plan.js?v=3c1b7308';
-import { BUS_CEILING } from './power.js?v=3c1b7308';
-import { stateAt } from './state.js?v=3c1b7308';
-import { findSource } from './water.js?v=3c1b7308';
+import { sizeTier } from './assign.js?v=64c16b0c';
+import { CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, resetConfig, TERRAIN_MSL, WORK_ALT_MSL } from './config.js?v=64c16b0c';
+import { buildMission } from './mission.js?v=64c16b0c';
+import { ledger, pumpMW } from './physics.js?v=64c16b0c';
+import { planCycle } from './plan.js?v=64c16b0c';
+import { BUS_CEILING } from './power.js?v=64c16b0c';
+import { stateAt } from './state.js?v=64c16b0c';
+import { findSource } from './water.js?v=64c16b0c';
 
 export function selftest() {
   const eq = (a, b, tol, msg) => { if (Math.abs(a - b) > tol) throw new Error("SELFTEST FAIL: " + msg + ` (${a} vs ${b})`); };

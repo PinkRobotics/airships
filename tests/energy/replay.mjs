@@ -1,7 +1,7 @@
 /* Replay the exact decimal requirements and profiles that the document generator prints. */
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,planCycle,energySummary,REQUIREMENT_UNIT} from '../../sim/index.js?v=3c1b7308';
+import {CLASSES,MODES,planCycle,energySummary,REQUIREMENT_UNIT} from '../../sim/index.js?v=64c16b0c';
 let checked=0;
 function sameSummary(c,p,row){
  for(const [key,value] of Object.entries(energySummary(c,p)))assert.deepEqual(row[key],value,`stale printed energy field ${key}`);

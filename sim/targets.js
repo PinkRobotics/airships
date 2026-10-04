@@ -1,8 +1,8 @@
 /* Choosing where the water goes: candidate drop lines across a fire, scored and sequenced.
  */
-import { havKm, moveToward, trackBearing } from './geo.js?v=3c1b7308';
-import { SEED, hashFrac } from './rng.js?v=3c1b7308';
-import { CITIES } from './communities.js?v=3c1b7308';
+import { havKm, moveToward, trackBearing } from './geo.js?v=64c16b0c';
+import { SEED, hashFrac } from './rng.js?v=64c16b0c';
+import { CITIES } from './communities.js?v=64c16b0c';
 
 export function insideFire(fire, pt) {
   if (fire.ring) {

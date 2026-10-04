@@ -95,7 +95,7 @@ def page(recs: list[dict]) -> str:
             tag = ''
             if ENERGY_UNITS.search(str(v)):
                 has_energy = True
-                tag = '<small class="energy-source">Source measurement or processing comparison; not a mission result.</small>' 
+                tag = '<small class="energy-source">Source measurement or processing comparison; not a mission result.</small>'
             more += f'<dt>{esc(k)}</dt><dd>{esc(v)}{tag}</dd>'
         rows.append(f'<tr><th scope="row"><span class="folder">{esc(p.parent)}/</span>{esc(p.name)}</th>'
                     f'<td data-label="Publisher">{esc(r["publisher"])}</td>'
