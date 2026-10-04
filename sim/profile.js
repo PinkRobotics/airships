@@ -1,8 +1,8 @@
 /* Independent climb and letdown controls for the searched profile.
  * Rates are peak vertical speeds. Airspeeds are peaks of a smooth pulse.
  * The integral of that pulse is two thirds of its peak times its duration. */
-import {ALT, ALT_DROP_TOP} from './config.js?v=c7b36628';
-import {easeSm} from './geo.js?v=c7b36628';
+import {ALT, ALT_DROP_TOP} from './config.js?v=182fd413';
+import {easeSm} from './geo.js?v=182fd413';
 
 export const VERTICAL_PROFILE_GRID = {
   climbRateMps: [0.5, 2], letdownRateMps: [0.5, 2],

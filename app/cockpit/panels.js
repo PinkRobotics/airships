@@ -1,14 +1,14 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, MODEL_STATUS, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=c7b36628';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=c7b36628';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=c7b36628';
-import { shipViz } from '../cockpit/shipviz.js?v=c7b36628';
-import { updateRoster } from '../cockpit/tables.js?v=c7b36628';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=c7b36628';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=c7b36628';
-import {figure,inactiveText} from "../served-ui.js?v=c7b36628";
-import { S } from '../store.js?v=c7b36628';
+import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=182fd413';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=182fd413';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=182fd413';
+import { shipViz } from '../cockpit/shipviz.js?v=182fd413';
+import { updateRoster } from '../cockpit/tables.js?v=182fd413';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=182fd413';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=182fd413';
+import {figure,inactiveText} from "../served-ui.js?v=182fd413";
+import { S } from '../store.js?v=182fd413';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
@@ -178,7 +178,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ? '<button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(-1)">← phase</button> <button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(1)">phase →</button>'
       : "";
     requestAnimationFrame(sizeAvatar);
-    O.innerHTML = `<div class="ops3">
+    O.innerHTML = `<p class="cycnote" data-plan-wind>Routes: ${m.plan.windUsed ? "wind-informed legs and selected vertical profile." : "wind not measured; still-air plan."}</p><div class="ops3">
       <div><h4>Operation · ${S.exercise ? "exercise · invented fire" : S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id) + " <small>" + esc(f.id) + "</small>", "live"],
         ...(!S.exercise && f.geo ? [["record description", esc(f.geo), "live"]] : []),
@@ -193,13 +193,13 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],
         ["nearby community", m.protect ? esc(m.protect.name) + " — " + m.protect.dKm.toFixed(0) + " km" + (m.protect.dw ? ", downwind" : "") : "no listed community within 40 km", "sim"],
       ]) + `<details class="d" style="border:0;margin-top:var(--s2)"><summary style="padding:4px 0 4px 22px;font-size:var(--t-12);color:var(--faint)">why this tasking</summary>
-        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)} Routes: ${S.exercise ? "wind not measured; still-air plan." : m.plan.windUsed ? "wind-informed legs and selected vertical profile." : S.daySource === "live" ? "wind not measured; still-air plan." : "wind not measured; still-air plan."}</p></div></details></div>
+        <div class="dbody" style="padding:0 0 var(--s2) 0"><p style="font-size:var(--t-11);color:var(--faint)">${esc(m.why)} ${esc(m.srcWhy)}</p></div></details></div>
       <div><h4>Cycle · simulated</h4><div id="opsCycle"></div></div>
       <div><h4>The Mind — running trace</h4><div class="narr" id="opsNarr"></div></div>
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
-      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))}</p><p class="cycnote"><span data-planned-mode="${m.mode.id}">Planned ${esc(m.mode.label.toLowerCase())} mode</span> · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${MODEL_STATUS}</p>`;
+      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))}</p><p class="cycnote"><span data-planned-mode="${m.mode.id}">Planned ${esc(m.mode.label.toLowerCase())} mode</span> · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${MODEL_STATUS} ${FEASIBILITY_SCOPE}</p>`;
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [

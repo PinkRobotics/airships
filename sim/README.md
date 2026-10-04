@@ -64,6 +64,7 @@ Hold-down descent is priced as climb, on the conservative side; climb against ho
 
 The installed thrust cap is an unverified hover surrogate at the battery-plus-generator rating.
 A feasible result is quasi-static.
+Feasible means force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility.
 The inertia table (`research/analysis/energy-motion.md` in the repository) compares omitted inertia with simultaneous rotor reserve.
 The feasible-profile records also contain that comparison for every phase.
 

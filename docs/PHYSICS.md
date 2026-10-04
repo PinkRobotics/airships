@@ -370,6 +370,7 @@ Hold-down descent is priced as climb, on the conservative side; climb against ho
 
 The installed thrust cap is an unverified hover surrogate at the battery-plus-generator rating.
 A feasible result is quasi-static.
+Feasible means force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility.
 The [inertia table](../research/analysis/energy-motion.md) compares omitted inertia with simultaneous rotor reserve.
 The feasible-profile records also contain that comparison for every phase.
 
@@ -404,7 +405,7 @@ Solar-only days subtract hotel load and assume the day-average sun throughout. T
 | P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |
 | P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |
 
-Battery hours divide usable storage by the modelled energy deficit. On an infeasible row this is an accounting quotient, not demonstrated endurance.
+Battery hours divide usable storage by the modelled energy deficit. They are reported, but do not gate the force-and-bus feasibility verdict. On an infeasible row this is an accounting quotient, not demonstrated endurance.
 Every phase draws from the same ledger. The phase and channel integrals are stored in `energy-documents.json`.
 
 ## 10. Sensitivity

@@ -23,6 +23,9 @@
    window.APP.selRow(i);
    const label=document.querySelector('[data-planned-mode]');
    if(label?.dataset.plannedMode!==m.selection.mode||label.textContent!==`Planned ${m.mode.label.toLowerCase()} mode`)throw new Error('mode label differs from planned mode');
+   const routeNote=document.querySelector('#cpOps [data-plan-wind]');
+   if(!routeNote||routeNote.closest('details')||(!m.plan.windUsed&&!routeNote.textContent.includes('wind not measured; still-air plan.')))throw new Error('operation wind qualification is hidden or differs from the plan');
+   if(!document.getElementById('cpOps').textContent.includes('Battery hours are reported; they do not determine feasibility.'))throw new Error('operation panel does not define the feasibility scope');
    const current=SIM.stateAt(m,S.simTime);
    const cycleText=document.getElementById('opsCycle').textContent;
    if(!cycleText.includes(SIM.fmtMin(m.plan.cycleMin)+' per cycle'))throw new Error('displayed cycle duration differs from accepted plan');
@@ -100,6 +103,32 @@
   const inactive=document.querySelector('[data-plan-inactive]')?.textContent||'';
   if(!inactive.includes('stands down')||!inactive.includes('unavailable')||!SIM.stateAt(fixture,0).inactive)throw new Error('stand-down label or animation guard failed');
   S.missions.pop();
+  // Use the model's bounded candidate set under measured wind, rather than
+  // only proving the rendering of an artificially empty candidate list.
+  const wind={spd:40,dir:270,bearing:90};
+  const windySelection=SIM.selectServedPlan(SIM.CLASSES.P100,15,wind,'rapid');
+  if(windySelection.state!=='stand-down')throw new Error('measured-wind stand-down fixture unexpectedly closes');
+  const windyFire={...seed.fire,id:'wind-stand-down-fixture',sizeHa:1e9};
+  const windy={...seed,name:'Wind stand-down fixture',cls:SIM.CLASSES.P100,mode:SIM.MODES.rapid,legKm:15,wind,fire:windyFire,
+   selection:windySelection,plan:null,planState:windySelection.state,planReason:windySelection.reason,idle:true,served:true};
+  windyFire.mission=windy;
+  S.missions.push(windy);S.fires.push(windyFire);
+  const tables=await import('./app/cockpit/tables.js?v='+SIM.modelIdentity().importStamp);
+  try{
+   const st=SIM.stateAt(windy,0),trace=SIM.narrate(windy,st),view=SIM.workedFigures(windy.cls,15,windySelection);
+   if(st.phase!=='STAND_DOWN'||st.label!=='stands down'||!st.inactive||st.water!==0||st.ln2!==0)throw new Error('state.js: stand-down label, activity or loads differ');
+   if(!trace.now.includes('unavailable')||!trace.next.includes('stands down')||!trace.plan.includes('No aircraft has flown'))throw new Error('narrate.js: stand-down trace supplies a cycle');
+   if(view.rows.length||!view.status.includes('stands down')||!view.status.includes('unavailable'))throw new Error('served-view.js: stand-down supplies quantities');
+   window.APP.selRow(S.missions.length-1);
+   if(!document.querySelector('[data-plan-inactive]')?.textContent.includes('stands down')||document.querySelector('#cpOps [data-energy-quantity]'))throw new Error('operation panel: stand-down supplies quantities');
+   tables.renderRoster();tables.renderFires();tables.updateRoster();tables.updateFires();
+   const roster=document.querySelector(`#roster [data-mi="${S.missions.length-1}"] .ph`);
+   const fire=document.querySelector('#firesTop [data-fid="wind-stand-down-fixture"]');
+   if(roster?.textContent!=='stands down')throw new Error('tables.js: roster lost stand-down label after update');
+   if(!fire?.textContent.includes('stands down')||fire.querySelector('[data-energy-fleet-fire]'))throw new Error('tables.js: stand-down contributes a fleet rate');
+  }finally{
+   S.missions.pop();S.fires.pop();tables.renderRoster();tables.renderFires();
+  }
   // A fresh capture replaces mission objects. A retired selection must not publish
   // its old numbers while the replacement mission is being planned at new inputs.
   const savedMissions=S.missions;

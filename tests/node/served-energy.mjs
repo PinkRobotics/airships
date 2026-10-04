@@ -1,6 +1,6 @@
 /* Adversarial checks of the page selector's acceptance, distinct from model equations. */
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,CFG,PHASES,planCycle,selectServedPlan,auditServedPlan,stateAt,missionReady,workedFigures} from '../../sim/index.js?v=c7b36628';
+import {CLASSES,MODES,CFG,PHASES,planCycle,selectServedPlan,auditServedPlan,stateAt,missionReady,workedFigures} from '../../sim/index.js?v=182fd413';
 const cls=CLASSES.P100,km=15,selection=selectServedPlan(cls,km,null,'balanced');
 assert.equal(selection.state,'ready');
 const inactive=selectServedPlan(CLASSES.P10000,3,null,'balanced',[]);
@@ -26,6 +26,8 @@ try{
   console.log('UNEXPECTED GREEN '+mutation);process.exitCode=2;
  }else{
   validate(fixture);validate(stand);
+  assert.equal(selectServedPlan(CLASSES.P1000,400,null,'endurance').state,'ready','battery-hours quotient is not an endurance rule');
+  assert.equal(selectServedPlan(CLASSES.P100,15,{spd:40,dir:270,bearing:90},'rapid').state,'stand-down','model wind refusal uses the bounded candidate set');
   assert.equal(selectServedPlan(cls,km,null,'balanced'),selection,'identical exact inputs are cached');
   assert.notEqual(selectServedPlan(cls,km+.01,null,'balanced').key,selection.key,'neighboring distance changes cache key');
   const wind={spd:0,dir:210,bearing:38,capture:'dated fixture'},w=selectServedPlan(cls,km,wind,'balanced');

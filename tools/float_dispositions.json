@@ -1879,6 +1879,41 @@
     "start": "<!-- energy:model:start -->",
     "end": "<!-- energy:model:end -->"
    }
+  },
+  {
+   "file": "sim/served-view.js",
+   "key": "8d0e8842e599174e",
+   "class": "calculator",
+   "reason": "Accepted exact-input worked quantities retain their structural-float qualification and add the shared force-and-bus feasibility scope.",
+   "context": [],
+   "function": "workedFigures",
+   "gate": "servedenergycheck"
+  },
+  {
+   "file": "concept/index.html",
+   "key": "1ddf70f02db94c96",
+   "class": "generated",
+   "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   }
+  },
+  {
+   "file": "index.html",
+   "key": "1ddf70f02db94c96",
+   "class": "generated",
+   "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   }
   }
  ],
  "replacements": [
@@ -2109,6 +2144,24 @@
    "oldKey": "b7c29754230bf30e",
    "newKey": "aedf98f90ef35b96",
    "reason": "Generated diagnostic correction table includes the omitted figure record; no structural float verdict or qualification changes."
+  },
+  {
+   "file": "sim/served-view.js",
+   "oldKey": "4f2a9b2480beb7a4",
+   "newKey": "8d0e8842e599174e",
+   "reason": "Accepted exact-input worked quantities retain their structural-float qualification and add the shared force-and-bus feasibility scope."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "d71714a7b4eebd11",
+   "newKey": "1ddf70f02db94c96",
+   "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "d71714a7b4eebd11",
+   "newKey": "1ddf70f02db94c96",
+   "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility."
   }
  ]
 }

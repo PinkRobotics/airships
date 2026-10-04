@@ -1,6 +1,6 @@
 /* Observer helpers from muse-spark-1.3. */
 import fs from 'node:fs';
-export * from '../../sim/index.js?v=c7b36628';
+export * from '../../sim/index.js?v=182fd413';
 export const sum = o => Object.values(o).reduce((a,b)=>a+b,0);
 
 export const winds = [null,{spd:40,dir:270,bearing:90},{spd:25,dir:90,bearing:90}];

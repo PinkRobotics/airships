@@ -823,20 +823,6 @@
       "line": 870
     },
     {
-      "file": "concept/index.html",
-      "key": "d71714a7b4eebd11",
-      "class": "generated",
-      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
-      "generator": "tools/gen_energy_pages.mjs",
-      "gate": "servedenergycheck",
-      "verifier": "tools/check_served_energy.py",
-      "region": {
-        "start": "<!-- served-energy:concept:start -->",
-        "end": "<!-- served-energy:concept:end -->"
-      },
-      "line": 870
-    },
-    {
       "file": "cell/ship.html",
       "key": "1ecee39eb58cea34",
       "class": "deferred",
@@ -849,6 +835,20 @@
       "key": "d8fd0a0255f4dfc7",
       "class": "generated",
       "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:concept:start -->",
+        "end": "<!-- served-energy:concept:end -->"
+      },
+      "line": 870
+    },
+    {
+      "file": "concept/index.html",
+      "key": "1ddf70f02db94c96",
+      "class": "generated",
+      "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",

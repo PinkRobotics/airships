@@ -434,7 +434,7 @@
    "class": "method",
    "context": [],
    "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance.",
-   "line": 2
+   "line": 3
   },
   {
    "file": "sim/narrate.js",
@@ -477,13 +477,13 @@
   },
   {
    "file": "sim/served-view.js",
-   "key": "4f2a9b2480beb7a4",
+   "key": "8d0e8842e599174e",
    "class": "calculator",
-   "reason": "Worked quantities use an accepted exact-input plan; structural float remains unproven and water released is not a fire outcome.",
+   "reason": "Accepted exact-input worked quantities retain their structural-float qualification and add the shared force-and-bus feasibility scope.",
    "context": [],
    "function": "workedFigures",
    "gate": "servedenergycheck",
-   "line": 24
+   "line": 25
   },
   {
    "file": "sim/state.js",

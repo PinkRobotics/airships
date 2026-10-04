@@ -203,20 +203,6 @@
     },
     {
       "file": "index.html",
-      "key": "d71714a7b4eebd11",
-      "class": "generated",
-      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
-      "generator": "tools/gen_energy_pages.mjs",
-      "gate": "servedenergycheck",
-      "verifier": "tools/check_served_energy.py",
-      "region": {
-        "start": "<!-- served-energy:home:start -->",
-        "end": "<!-- served-energy:home:end -->"
-      },
-      "line": 785
-    },
-    {
-      "file": "index.html",
       "key": "a3c076ba37155fd1",
       "class": "flight-model",
       "reason": "The caption names a simulation render of the concept vehicle at an intake; the page states the simulated flight's float assumption once, and the caption says no aircraft has flown.",
@@ -317,6 +303,20 @@
       "key": "d8fd0a0255f4dfc7",
       "class": "generated",
       "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 785
+    },
+    {
+      "file": "index.html",
+      "key": "1ddf70f02db94c96",
+      "class": "generated",
+      "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",
