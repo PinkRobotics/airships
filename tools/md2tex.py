@@ -51,6 +51,12 @@ FIGURES = ROOT / 'research' / 'figures.json'
 # to get the same links.
 SOURCE_DIR = 'research/reports'
 PDF_DIR = 'research/pdf/out'
+PUBLIC_ORIGIN = 'https://pinkrobotics.ca/airships'
+PUBLIC_PAGES = {
+    'docs/FLOAT.md': 'float/',
+    'docs/FLOAT-LEDGER.md': 'float/ledger.html',
+    'docs/MEMBER-CENSUS.md': 'float/census.html',
+}
 
 CITE = re.compile(r'([-−]?[\d][\d,]*(?:\.\d+)?)(\s*(?:[^\d<]{0,24}?))<!--\s*f:([A-Za-z0-9_.]+)\s*-->')
 DIRECTIVE = re.compile(r'^<!--\s*tex:(\w+)\s*(.*?)-->\s*$', re.S)
@@ -121,13 +127,16 @@ def link_target(target: str) -> str:
     """A Markdown link target as the PDF has to carry it.
 
     An address with a scheme, a rooted path and a bare anchor pass through. A relative path
-    is re-based from the report's folder to the PDF's: copied as written, `../../README.md`
+    to a published float document uses its public page address. Other relative paths
+    are re-based from the report's folder to the PDF's: copied as written, `../../README.md`
     opened research/README.md from the PDF, and `../../docs/FLOAT.md` opened nothing.
     """
     if re.match(r'[A-Za-z][A-Za-z0-9+.-]*:', target) or target.startswith(('#', '/')):
         return target
     path, sep, fragment = target.partition('#')
     there = posixpath.normpath(posixpath.join(SOURCE_DIR, path))
+    if there in PUBLIC_PAGES:
+        return PUBLIC_ORIGIN + '/' + PUBLIC_PAGES[there] + sep + fragment
     return posixpath.relpath(there, PDF_DIR) + sep + fragment
 
 
