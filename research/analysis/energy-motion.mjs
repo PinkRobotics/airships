@@ -1,6 +1,6 @@
 /* Omitted inertia on the prescribed path. This adds no owner to the force ledger. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=182fd413';
+import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=68fef878';
 export const ADDED_MASS_COEFFICIENT = 0.70;
 export const ADDED_MASS_VALUES = [ADDED_MASS_COEFFICIENT, 1.0];
 export const ADDED_MASS_SOURCE = {

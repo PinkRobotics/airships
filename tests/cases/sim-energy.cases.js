@@ -5,7 +5,7 @@ import './energy-profile.cases.js';
 import './energy-assumptions.cases.js';
 import './energy-planner.cases.js';
 import {describe,it,ok,close,eq,deepEq} from '../harness.js';
-import {CFG,WORK_ALT_MSL,ledger,CLASSES,CLASS_ORDER,MODES,PHASES,drawAt,planCycle,integrateCycle,inducedMW,diskMW,stateAt,buildMission,findSource,resetConfig,setSeed} from '../../sim/index.js?v=182fd413';
+import {CFG,WORK_ALT_MSL,ledger,CLASSES,CLASS_ORDER,MODES,PHASES,drawAt,planCycle,integrateCycle,inducedMW,diskMW,stateAt,buildMission,findSource,resetConfig,setSeed} from '../../sim/index.js?v=68fef878';
 describe('one energy record',()=>{
   it('plan equals a finer independent phase integral on both bases',()=>{
     for(const c of Object.values(CLASSES))for(const basis of ['record','favourable']){

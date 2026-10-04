@@ -1,14 +1,14 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=182fd413';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=182fd413';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=182fd413';
-import { shipViz } from '../cockpit/shipviz.js?v=182fd413';
-import { updateRoster } from '../cockpit/tables.js?v=182fd413';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=182fd413';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=182fd413';
-import {figure,inactiveText} from "../served-ui.js?v=182fd413";
-import { S } from '../store.js?v=182fd413';
+import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=68fef878';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=68fef878';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=68fef878';
+import { shipViz } from '../cockpit/shipviz.js?v=68fef878';
+import { updateRoster } from '../cockpit/tables.js?v=68fef878';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=68fef878';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=68fef878';
+import {figure,inactiveText} from "../served-ui.js?v=68fef878";
+import { S } from '../store.js?v=68fef878';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */

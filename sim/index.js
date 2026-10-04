@@ -24,51 +24,51 @@ export {
   DEFAULTS, CFG, setConfig, resetConfig, REFERENCE_CLASS,
   CLASSES, CLASS_ORDER, HULL_NAMES, MODES, ALT, ALT_DROP_TOP, VZ_MAX, PHASES, PHASE_TINT,
   TERRAIN_MSL, WORK_ALT_MSL, sourceAltM,
-} from './config.js?v=182fd413';
+} from './config.js?v=68fef878';
 
 export {
   ISA, RHO_SL_ISA, isaTemperatureK, isaPressurePa, densityRatio, airDensity, altitudeForDensity,
-} from './atmosphere.js?v=182fd413';
+} from './atmosphere.js?v=68fef878';
 
-export { SEED, setSeed, hashFrac } from './rng.js?v=182fd413';
+export { SEED, setSeed, hashFrac } from './rng.js?v=68fef878';
 
 export {
   R_EARTH, havKm, moveToward, bez, bezBearing, easeTrap, easeSm, lerpAng, trackBearing,
-} from './geo.js?v=182fd413';
+} from './geo.js?v=68fef878';
 
-export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=182fd413';
+export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=68fef878';
 export {
   BUS_CEILING, ROTOR_EFFICIENCY_VALUES, AERO_CL_MAX, AERO_CL_VALUES, AERO_SPAN_EFFICIENCY, VERTICAL_CD, FORCE_TOL, LIMIT_STEPS, HOTEL_FRAC, WINCH_IDLE_FRAC, HOIST_M, WINCH_ETA, WINCH_MPS,
   LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS,
   inducedMW, rotorMaxTonnes, ventTph, regenMW, descentBusMW, cryoOnFrac, cycleGeometry,
   altAt, gsAt, loadAt, drawAt, integrateCycle, cycleLimits, aeroGeometry, rotorThrustLimitT,
-} from './power.js?v=182fd413';
-export { planCycle } from './plan.js?v=182fd413';
-export { findSource, intakePoint } from './water.js?v=182fd413';
-export { CITIES } from './communities.js?v=182fd413';
+} from './power.js?v=68fef878';
+export { planCycle } from './plan.js?v=68fef878';
+export { findSource, intakePoint } from './water.js?v=68fef878';
+export { CITIES } from './communities.js?v=68fef878';
 
 export {
   insideFire, dropSeg, planTargets, tIdx, segAt, legKmFor, stationFor, deliveryPoint,
   arrivalCurve,
-} from './targets.js?v=182fd413';
+} from './targets.js?v=68fef878';
 
-export { sizeTier, assign } from './assign.js?v=182fd413';
+export { sizeTier, assign } from './assign.js?v=68fef878';
 export {
   loadGuard, loadEvac, mergeEvac, liveEvac, dayKind, fireNumber, guardedFire, missionBlocked, keepOutsFor, pointBlocked,
   pathBlocked, noteKm,
-} from './guard.js?v=182fd413';
-export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=182fd413';
-export { buildMission } from './mission.js?v=182fd413';
-export { anchorHang, stateAt } from './state.js?v=182fd413';
-export { narrate, srcName } from './narrate.js?v=182fd413';
-export { selftest } from './selftest.js?v=182fd413';
+} from './guard.js?v=68fef878';
+export { fmt, fmtHa, fmtMin, fmtT } from './format.js?v=68fef878';
+export { buildMission } from './mission.js?v=68fef878';
+export { anchorHang, stateAt } from './state.js?v=68fef878';
+export { narrate, srcName } from './narrate.js?v=68fef878';
+export { selftest } from './selftest.js?v=68fef878';
 
-export { MODEL_STATUS, FEASIBILITY_SCOPE } from './energy-label.js?v=182fd413';
-export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=182fd413';
+export { MODEL_STATUS, FEASIBILITY_SCOPE } from './energy-label.js?v=68fef878';
+export {energySummary,closureRequirements,ballastRequirement,cheapestFeasible,PROFILE_SEARCH,REQUIREMENT_UNIT,roundRequirement} from './requirements.js?v=68fef878';
 
-export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=182fd413';
+export {energyComparison,cycleEnergyText,feasibilityText} from './energy-view.js?v=68fef878';
 
-export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=182fd413';
+export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?v=68fef878';
 
-export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=182fd413";
-export {workedFigures,planStatusText} from "./served-view.js?v=182fd413";
+export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=68fef878";
+export {workedFigures,planStatusText} from "./served-view.js?v=68fef878";

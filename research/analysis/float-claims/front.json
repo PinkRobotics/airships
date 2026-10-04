@@ -314,20 +314,6 @@
     },
     {
       "file": "index.html",
-      "key": "1ddf70f02db94c96",
-      "class": "generated",
-      "reason": "Generated quasi-static qualification keeps every assumption and structural-float caveat, and clarifies that battery hours do not gate feasibility.",
-      "generator": "tools/gen_energy_pages.mjs",
-      "gate": "servedenergycheck",
-      "verifier": "tools/check_served_energy.py",
-      "region": {
-        "start": "<!-- served-energy:home:start -->",
-        "end": "<!-- served-energy:home:end -->"
-      },
-      "line": 785
-    },
-    {
-      "file": "index.html",
       "key": "1048287380316524",
       "class": "method",
       "context": [],
@@ -341,6 +327,20 @@
       "assumption": "22491643fb810667",
       "reason": "Alternative text explicitly labels a simulation render; station holding uses this page's bound float assumption, not a demonstrated vehicle.",
       "line": 1046
+    },
+    {
+      "file": "index.html",
+      "key": "463828b53ba9c176",
+      "class": "generated",
+      "reason": "Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 785
     }
   ]
 }
