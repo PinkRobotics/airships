@@ -1,7 +1,7 @@
 import {writeGenerated} from './energy-output.mjs';
 /* Fast replay of selected rows; it performs no search. */
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle} from '../../sim/index.js?v=b3bc1c96';
+import {CLASSES,MODES,planCycle} from '../../sim/index.js?v=93744380';
 import {omittedInertia} from './energy-motion.mjs';
 export function profileDetails(b){
  if(!b)return;

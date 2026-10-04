@@ -1,5 +1,5 @@
 {
-  "meaning": "Largest absolute signed unheld force in each failing phase on the seam-inclusive verdict mesh. Positive is unsupported surplus lift; negative requires unavailable upward authority.",
+  "meaning": "Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits. Positive is unsupported surplus lift; negative requires unavailable upward authority.",
   "samplesPerPhase": 1025,
   "rows": [
     {
@@ -12,41 +12,41 @@
       "cycleMin": 34.196078431372555,
       "phases": [
         {
+          "unheldT": 2.689655807431393,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 2.689653168628354,
-          "progress": 0.6865234375,
-          "secondsIntoPhase": 82.3828125,
-          "cycleMinute": 1.373046875,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -2.2961431010761144,
+          "progress": 0.6863418217437876,
           "limits": [
             "bus power",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 82.3610186092545,
+          "cycleMinute": 1.372683643487575,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -2.2963938812930924
         },
         {
+          "unheldT": -5.714220829993373,
           "phase": "OUTBOUND_TRANSIT",
-          "unheldT": -5.714119989225541,
-          "progress": 0.22265625,
-          "secondsIntoPhase": 157.16911764705884,
-          "cycleMinute": 7.952818627450981,
-          "airspeedMps": 25,
-          "verticalSpeedMps": 9.749876049275986,
+          "progress": 0.22283235516091282,
           "limits": [
             "upward authority unavailable"
-          ]
+          ],
+          "secondsIntoPhase": 157.29342717240905,
+          "cycleMinute": 7.954890452873485,
+          "airspeedMps": 25,
+          "verticalSpeedMps": 9.7454898886749
         },
         {
+          "unheldT": 34.556068137197826,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 34.55593475079449,
-          "progress": 0.810546875,
-          "secondsIntoPhase": 572.1507352941177,
-          "cycleMinute": 31.967218137254903,
-          "airspeedMps": 25,
-          "verticalSpeedMps": -8.823116452522802,
+          "progress": 0.8107068194023629,
           "limits": [
             "bus power"
-          ]
+          ],
+          "secondsIntoPhase": 572.2636372251974,
+          "cycleMinute": 31.96909983610623,
+          "airspeedMps": 25,
+          "verticalSpeedMps": -8.820813199587533
         }
       ]
     },
@@ -60,30 +60,30 @@
       "cycleMin": 34.196078431372555,
       "phases": [
         {
+          "unheldT": 2.689655807431393,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 2.689653168628354,
-          "progress": 0.6865234375,
-          "secondsIntoPhase": 82.3828125,
-          "cycleMinute": 1.373046875,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -2.2961431010761144,
+          "progress": 0.6863418217437876,
           "limits": [
             "bus power",
             "aerodynamic coefficient",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 82.3610186092545,
+          "cycleMinute": 1.372683643487575,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -2.2963938812930924
         },
         {
+          "unheldT": -5.714220829993373,
           "phase": "OUTBOUND_TRANSIT",
-          "unheldT": -5.714119989225541,
-          "progress": 0.22265625,
-          "secondsIntoPhase": 157.16911764705884,
-          "cycleMinute": 7.952818627450981,
-          "airspeedMps": 25,
-          "verticalSpeedMps": 9.749876049275986,
+          "progress": 0.22283235516091282,
           "limits": [
             "upward authority unavailable"
-          ]
+          ],
+          "secondsIntoPhase": 157.29342717240905,
+          "cycleMinute": 7.954890452873485,
+          "airspeedMps": 25,
+          "verticalSpeedMps": 9.7454898886749
         }
       ]
     },
@@ -117,71 +117,71 @@
       "cycleMin": 35.362448009506835,
       "phases": [
         {
+          "unheldT": 818.4651001338424,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 818.4616497331451,
-          "progress": 0.7138671875,
-          "secondsIntoPhase": 128.49609375,
-          "cycleMinute": 2.1416015625,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -7.595493523630611,
+          "progress": 0.7139960117803305,
           "limits": [
             "bus power",
             "rotor thrust",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 128.51928212045948,
+          "cycleMinute": 2.1419880353409915,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -7.594437017910289
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 418.09590326863315,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 99.99999999999999,
           "cycleMinute": 4.666666666666666,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "anchor cable reach"
-          ]
+          "verticalSpeedMps": 0
         },
         {
-          "phase": "WATER_RELEASE",
           "unheldT": 642.8479677811475,
+          "phase": "WATER_RELEASE",
           "progress": 1,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 333.3333333333333,
           "cycleMinute": 23.736779560308975,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.051768888888886935,
+          "verticalSpeedMps": 0.051768888888886935
+        },
+        {
+          "unheldT": 642.8514406578398,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 642.8514406578398,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 23.736779560308975,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.010609900623611187,
-          "limits": [
-            "bus power",
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 0.010609900623611187
         },
         {
+          "unheldT": 587.8110553086962,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 586.8717402478653,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 576.9761029411765,
-          "cycleMinute": 35.35304794266192,
-          "airspeedMps": 9.30591724537037,
-          "verticalSpeedMps": -0.0000026015219958754016,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
+          ],
+          "secondsIntoPhase": 577.5401069512941,
+          "cycleMinute": 35.36244800949721,
+          "airspeedMps": 9.166666666809256,
+          "verticalSpeedMps": -3.369046231050591e-7
         }
       ]
     },
@@ -195,76 +195,76 @@
       "cycleMin": 35.362448009506835,
       "phases": [
         {
+          "unheldT": 818.4651001338424,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 818.4616497331451,
-          "progress": 0.7138671875,
-          "secondsIntoPhase": 128.49609375,
-          "cycleMinute": 2.1416015625,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -7.595493523630611,
+          "progress": 0.7139960117803305,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 128.51928212045948,
+          "cycleMinute": 2.1419880353409915,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -7.594437017910289
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 418.09590326863315,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 99.99999999999999,
           "cycleMinute": 4.666666666666666,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
+          "verticalSpeedMps": 0
+        },
+        {
+          "unheldT": 642.8479677811475,
+          "phase": "WATER_RELEASE",
+          "progress": 1,
           "limits": [
             "bus power",
             "rotor thrust",
-            "aerodynamic coefficient",
-            "anchor cable reach"
-          ]
-        },
-        {
-          "phase": "WATER_RELEASE",
-          "unheldT": 642.8479677811475,
-          "progress": 1,
+            "aerodynamic coefficient"
+          ],
           "secondsIntoPhase": 333.3333333333333,
           "cycleMinute": 23.736779560308975,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.051768888888886935,
+          "verticalSpeedMps": 0.051768888888886935
+        },
+        {
+          "unheldT": 642.8514406578398,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 642.8514406578398,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 23.736779560308975,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.010609900623611187,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "aerodynamic coefficient"
-          ]
+          "verticalSpeedMps": 0.010609900623611187
         },
         {
+          "unheldT": 516.3518703384375,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 513.4595189371711,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 576.9761029411765,
-          "cycleMinute": 35.35304794266192,
-          "airspeedMps": 9.30591724537037,
-          "verticalSpeedMps": -0.0000026015219958754016,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
+          ],
+          "secondsIntoPhase": 577.5401069512941,
+          "cycleMinute": 35.36244800949721,
+          "airspeedMps": 9.166666666809256,
+          "verticalSpeedMps": -3.369046231050591e-7
         }
       ]
     },
@@ -278,71 +278,71 @@
       "cycleMin": 93.116458704694,
       "phases": [
         {
+          "unheldT": 768.4062753437059,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 768.4025190981839,
-          "progress": 0.7138671875,
-          "secondsIntoPhase": 128.49609375,
-          "cycleMinute": 2.1416015625,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -7.595493523630611,
+          "progress": 0.7139960117803305,
           "limits": [
             "bus power",
             "rotor thrust",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 128.51928212045948,
+          "cycleMinute": 2.1419880353409915,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -7.594437017910289
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 361.63289697062953,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 99.99999999999999,
           "cycleMinute": 4.666666666666666,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "anchor cable reach"
-          ]
+          "verticalSpeedMps": 0
         },
         {
-          "phase": "WATER_RELEASE",
           "unheldT": 642.8479677811475,
+          "phase": "WATER_RELEASE",
           "progress": 1,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 333.3333333333333,
           "cycleMinute": 52.613784907902556,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.051768888888886935,
+          "verticalSpeedMps": 0.051768888888886935
+        },
+        {
+          "unheldT": 642.8513421530243,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 642.8513421530243,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 52.613784907902556,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.013615916666746369,
-          "limits": [
-            "bus power",
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 0.013615916666746369
         },
         {
+          "unheldT": 565.3511588371521,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 564.4337541478541,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 2307.904411764706,
-          "cycleMinute": 93.07885843731432,
-          "airspeedMps": 9.30591724537037,
-          "verticalSpeedMps": -9.252665657423555e-7,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
+          ],
+          "secondsIntoPhase": 2310.1604278051764,
+          "cycleMinute": 93.11645870465549,
+          "airspeedMps": 9.166666666809256,
+          "verticalSpeedMps": -1.198246920733848e-7
         }
       ]
     },
@@ -356,76 +356,76 @@
       "cycleMin": 93.116458704694,
       "phases": [
         {
+          "unheldT": 768.4062753437059,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 768.4025190981839,
-          "progress": 0.7138671875,
-          "secondsIntoPhase": 128.49609375,
-          "cycleMinute": 2.1416015625,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -7.595493523630611,
+          "progress": 0.7139960117803305,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 128.51928212045948,
+          "cycleMinute": 2.1419880353409915,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -7.594437017910289
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 361.63289697062953,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 99.99999999999999,
           "cycleMinute": 4.666666666666666,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
+          "verticalSpeedMps": 0
+        },
+        {
+          "unheldT": 642.8479677811475,
+          "phase": "WATER_RELEASE",
+          "progress": 1,
           "limits": [
             "bus power",
             "rotor thrust",
-            "aerodynamic coefficient",
-            "anchor cable reach"
-          ]
-        },
-        {
-          "phase": "WATER_RELEASE",
-          "unheldT": 642.8479677811475,
-          "progress": 1,
+            "aerodynamic coefficient"
+          ],
           "secondsIntoPhase": 333.3333333333333,
           "cycleMinute": 52.613784907902556,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.051768888888886935,
+          "verticalSpeedMps": 0.051768888888886935
+        },
+        {
+          "unheldT": 642.8513421530243,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 642.8513421530243,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 52.613784907902556,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.013615916666746369,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "aerodynamic coefficient"
-          ]
+          "verticalSpeedMps": 0.013615916666746369
         },
         {
+          "unheldT": 493.89197360968626,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 491.02153075570254,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 2307.904411764706,
-          "cycleMinute": 93.07885843731432,
-          "airspeedMps": 9.30591724537037,
-          "verticalSpeedMps": -9.252665657423555e-7,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
+          ],
+          "secondsIntoPhase": 2310.1604278051764,
+          "cycleMinute": 93.11645870465549,
+          "airspeedMps": 9.166666666809256,
+          "verticalSpeedMps": -1.198246920733848e-7
         }
       ]
     },
@@ -439,70 +439,70 @@
       "cycleMin": 45.51181498240322,
       "phases": [
         {
+          "unheldT": 7073.818965639636,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 7070.368655000237,
-          "progress": 0.666015625,
-          "secondsIntoPhase": 199.8046875,
-          "cycleMinute": 3.330078125,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -6.486372095889307,
+          "progress": 0.6669362957670824,
           "limits": [
             "bus power",
             "rotor thrust",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 200.0808887301247,
+          "cycleMinute": 3.334681478835412,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -6.484762331349234
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 3843.579979554509,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 199.99999999999997,
           "cycleMinute": 8.333333333333332,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "anchor cable reach"
-          ]
+          "verticalSpeedMps": 0
         },
         {
-          "phase": "WATER_RELEASE",
           "unheldT": 6093.823494705809,
+          "phase": "WATER_RELEASE",
           "progress": 1,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 666.6666666666666,
           "cycleMinute": 35.367018602312726,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.025884444444443468,
+          "verticalSpeedMps": 0.025884444444443468
+        },
+        {
+          "unheldT": 6093.827326100109,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 6093.827326100109,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 35.367018602312726,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.007613133861165504,
-          "limits": [
-            "bus power",
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 0.007613133861165504
         },
         {
-          "phase": "RETURN_TRANSIT",
           "unheldT": 4994.043550303768,
+          "phase": "RETURN_TRANSIT",
           "progress": 0,
+          "limits": [
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 37.367018602312726,
           "airspeedMps": 30.694444444444443,
-          "verticalSpeedMps": 3.093513172374244e-7,
-          "limits": [
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 3.093513172374244e-7
         }
       ]
     },
@@ -516,76 +516,76 @@
       "cycleMin": 45.51181498240322,
       "phases": [
         {
+          "unheldT": 7073.818965639636,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 7070.368655000237,
-          "progress": 0.666015625,
-          "secondsIntoPhase": 199.8046875,
-          "cycleMinute": 3.330078125,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -6.486372095889307,
+          "progress": 0.6669362957670824,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 200.0808887301247,
+          "cycleMinute": 3.334681478835412,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -6.484762331349234
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 3843.579979554509,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 199.99999999999997,
           "cycleMinute": 8.333333333333332,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
+          "verticalSpeedMps": 0
+        },
+        {
+          "unheldT": 6093.823494705809,
+          "phase": "WATER_RELEASE",
+          "progress": 1,
           "limits": [
             "bus power",
             "rotor thrust",
-            "aerodynamic coefficient",
-            "anchor cable reach"
-          ]
-        },
-        {
-          "phase": "WATER_RELEASE",
-          "unheldT": 6093.823494705809,
-          "progress": 1,
+            "aerodynamic coefficient"
+          ],
           "secondsIntoPhase": 666.6666666666666,
           "cycleMinute": 35.367018602312726,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.025884444444443468,
+          "verticalSpeedMps": 0.025884444444443468
+        },
+        {
+          "unheldT": 6093.827326100109,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 6093.827326100109,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 35.367018602312726,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.007613133861165504,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "aerodynamic coefficient"
-          ]
+          "verticalSpeedMps": 0.007613133861165504
         },
         {
+          "unheldT": 3968.7482655924405,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 3940.04979801384,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 488.210548642534,
-          "cycleMinute": 45.50386107968829,
-          "airspeedMps": 10.997902199074073,
-          "verticalSpeedMps": 2.4593132754244893e-7,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
+          ],
+          "secondsIntoPhase": 488.68778280494126,
+          "cycleMinute": 45.51181498239508,
+          "airspeedMps": 10.833333333501848,
+          "verticalSpeedMps": 3.184892965100606e-8
         }
       ]
     },
@@ -599,70 +599,70 @@
       "cycleMin": 94.3805932629462,
       "phases": [
         {
+          "unheldT": 6960.52330882995,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 6957.060223559551,
-          "progress": 0.666015625,
-          "secondsIntoPhase": 199.8046875,
-          "cycleMinute": 3.330078125,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -6.486372095889307,
+          "progress": 0.6669362957670824,
           "limits": [
             "bus power",
             "rotor thrust",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 200.0808887301247,
+          "cycleMinute": 3.334681478835412,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -6.484762331349234
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 3739.4484636209236,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 199.99999999999997,
           "cycleMinute": 8.333333333333332,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "anchor cable reach"
-          ]
+          "verticalSpeedMps": 0
         },
         {
-          "phase": "WATER_RELEASE",
           "unheldT": 6093.823494705809,
+          "phase": "WATER_RELEASE",
           "progress": 1,
+          "limits": [
+            "bus power",
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 666.6666666666666,
           "cycleMinute": 59.80140774258422,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.025884444444443468,
+          "verticalSpeedMps": 0.025884444444443468
+        },
+        {
+          "unheldT": 6093.826528368247,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 6093.826528368247,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 59.80140774258422,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.013615916666746369,
-          "limits": [
-            "bus power",
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 0.013615916666746369
         },
         {
-          "phase": "RETURN_TRANSIT",
           "unheldT": 4518.750409903647,
+          "phase": "RETURN_TRANSIT",
           "progress": 0,
+          "limits": [
+            "rotor thrust"
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 61.80140774258422,
           "airspeedMps": 30.694444444444443,
-          "verticalSpeedMps": 9.834099151467616e-8,
-          "limits": [
-            "rotor thrust"
-          ]
+          "verticalSpeedMps": 9.834099151467616e-8
         }
       ]
     },
@@ -676,76 +676,76 @@
       "cycleMin": 94.3805932629462,
       "phases": [
         {
+          "unheldT": 6960.52330882995,
           "phase": "SOURCE_APPROACH",
-          "unheldT": 6957.060223559551,
-          "progress": 0.666015625,
-          "secondsIntoPhase": 199.8046875,
-          "cycleMinute": 3.330078125,
-          "airspeedMps": 0,
-          "verticalSpeedMps": -6.486372095889307,
+          "progress": 0.6669362957670824,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient",
             "anchor cable reach"
-          ]
+          ],
+          "secondsIntoPhase": 200.0808887301247,
+          "cycleMinute": 3.334681478835412,
+          "airspeedMps": 0,
+          "verticalSpeedMps": -6.484762331349234
         },
         {
-          "phase": "WATER_FILL",
           "unheldT": 3739.4484636209236,
+          "phase": "WATER_FILL",
           "progress": 0.3,
+          "limits": [
+            "bus power",
+            "rotor thrust",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ],
           "secondsIntoPhase": 199.99999999999997,
           "cycleMinute": 8.333333333333332,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0,
+          "verticalSpeedMps": 0
+        },
+        {
+          "unheldT": 6093.823494705809,
+          "phase": "WATER_RELEASE",
+          "progress": 1,
           "limits": [
             "bus power",
             "rotor thrust",
-            "aerodynamic coefficient",
-            "anchor cable reach"
-          ]
-        },
-        {
-          "phase": "WATER_RELEASE",
-          "unheldT": 6093.823494705809,
-          "progress": 1,
+            "aerodynamic coefficient"
+          ],
           "secondsIntoPhase": 666.6666666666666,
           "cycleMinute": 59.80140774258422,
           "airspeedMps": 4.499999868231309e-8,
-          "verticalSpeedMps": 0.025884444444443468,
+          "verticalSpeedMps": 0.025884444444443468
+        },
+        {
+          "unheldT": 6093.826528368247,
+          "phase": "BUOYANCY_ESCAPE",
+          "progress": 0,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
-        },
-        {
-          "phase": "BUOYANCY_ESCAPE",
-          "unheldT": 6093.826528368247,
-          "progress": 0,
+          ],
           "secondsIntoPhase": 0,
           "cycleMinute": 59.80140774258422,
           "airspeedMps": 0,
-          "verticalSpeedMps": 0.013615916666746369,
-          "limits": [
-            "bus power",
-            "rotor thrust",
-            "aerodynamic coefficient"
-          ]
+          "verticalSpeedMps": 0.013615916666746369
         },
         {
+          "unheldT": 3905.3998658665414,
           "phase": "RETURN_TRANSIT",
-          "unheldT": 3876.763374129181,
-          "progress": 0.9990234375,
-          "secondsIntoPhase": 1952.842194570136,
-          "cycleMinute": 94.34877765208648,
-          "airspeedMps": 10.997902199074073,
-          "verticalSpeedMps": -5.872483232726022e-7,
+          "progress": 0.999999999999,
           "limits": [
             "bus power",
             "rotor thrust",
             "aerodynamic coefficient"
-          ]
+          ],
+          "secondsIntoPhase": 1954.751131219765,
+          "cycleMinute": 94.38059326291364,
+          "airspeedMps": 10.833333333501848,
+          "verticalSpeedMps": -7.605030000604046e-8
         }
       ]
     }

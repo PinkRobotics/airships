@@ -51,11 +51,8 @@ export const DEFAULTS = {
   pumpEta: 0.75,   // pump + hose + electrical efficiency, all-in
   propEta: 0.70,   // propulsive efficiency applied to drag and disk power
   Cd: 0.05,        // hull drag coefficient (streamlined body of revolution)
-  // Drag and every rotor calculation still use one fixed density. 1.10 kg/m3 is ISA at
-  // about 1,107 m MSL, and the working altitude is 2,500 m (below), where the air is
-  // 0.957 kg/m3. So drag is overstated by 15% and induced power understated by 7%. Both
-  // are the power model's to fix, not the ledger's: see docs/PHYSICS.md Defect 2.
-  rhoAir: 1.10,    // kg/m3, a fixed working-band density for drag and disk power
+  // Drag and rotor power use local ISA density at the instantaneous altitude.
+  rhoAir: 1.10,    // kg/m3, retained legacy input; unused by the current force and power laws
   // The sea-level ANCHOR of the density profile, not the density anything is weighed in.
   // sim/atmosphere.js scales the ISA column from it, so moving this dial moves the air at
   // every altitude — a hotter or colder day — rather than lying about where the ship flies.

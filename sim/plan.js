@@ -4,10 +4,10 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=b3bc1c96';
-import { dragMW, ledger, pumpMW } from './physics.js?v=b3bc1c96';
-import { searchedProfile } from './profile.js?v=b3bc1c96';
-import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=b3bc1c96';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=93744380';
+import { dragMW, ledger, pumpMW } from './physics.js?v=93744380';
+import { searchedProfile } from './profile.js?v=93744380';
+import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=93744380';
 
 export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
   if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');
@@ -198,6 +198,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   return {
     profile: partial.profile, bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
     requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT,
+    phasePeaks: I.phasePeaks,
     dur, cycleMin, tph, eCycleMWh: eCycle, kwhPerTonne: eCycle * 1000 / Math.max(1, deliveredT),
     // The ledger itself, not just its total: energy by phase with the nitrogen recovery as its
     // own negative line (E sums to eCycleMWh), and the same energy by channel (Echan sums to the

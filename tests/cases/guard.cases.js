@@ -14,13 +14,13 @@
  * list, that an order area is keep-out ground on its own, and that a record which cannot
  * be read is a refusal with the fleet down — never a quiet "no fires under order".
  */
-import * as guardModel from '../../sim/guard.js?v=b3bc1c96';
+import * as guardModel from '../../sim/guard.js?v=93744380';
 const missionBlocked = (...args) => guardModel.missionBlocked(...args);
 import { close, deepEq, describe, eq, it, ok } from '../harness.js';
 import {
   dayKind, guardedFire, keepOutsFor, loadEvac, loadGuard, liveEvac, mergeEvac, noteKm,
   pathBlocked, pointBlocked,
-} from '../../sim/index.js?v=b3bc1c96';
+} from '../../sim/index.js?v=93744380';
 
 /* A well-formed guard file, small enough to check by hand. X-prefixed numbers are not
    BCWS fire numbers; the dates are 2030; nothing here is real. */

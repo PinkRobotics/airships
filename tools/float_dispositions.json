@@ -1656,6 +1656,111 @@
      "shown": "53.6"
     }
    ]
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "e07ff2ae324a782e",
+   "class": "generated",
+   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+   "region": {
+    "start": "<!-- energy:question-8:start -->",
+    "end": "<!-- energy:question-8:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "0c4aa76c1ee6b0b5",
+   "class": "generated",
+   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+   "region": {
+    "start": "<!-- energy:question-15:start -->",
+    "end": "<!-- energy:question-15:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "concept/index.html",
+   "key": "d8fd0a0255f4dfc7",
+   "class": "generated",
+   "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   }
+  },
+  {
+   "file": "index.html",
+   "key": "d8fd0a0255f4dfc7",
+   "class": "generated",
+   "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   }
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "0c4aa76c1ee6b0b5",
+   "class": "generated",
+   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "e07ff2ae324a782e",
+   "class": "generated",
+   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "research/analysis/energy-requirements.md",
+   "key": "e07ff2ae324a782e",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the independent comparison."
+  },
+  {
+   "file": "research/analysis/energy-unheld.md",
+   "key": "0c4aa76c1ee6b0b5",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the independent comparison."
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "key": "3d913a50c47892f1",
+   "class": "generated",
+   "reason": "Exact generated energy-document region; energydoccheck replays its numbers without establishing structural float.",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:model:start -->",
+    "end": "<!-- energy:model:end -->"
+   }
   }
  ],
  "replacements": [
@@ -1784,6 +1889,54 @@
    "oldKey": "20044b3354d1f6de",
    "newKey": "1683e52b4b3395ec",
    "reason": "Reading protocol states that ledger regeneration needs Chromium and uses execution/run terminology; figures, input instructions and method classification are unchanged."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "8ee1e390b468d869",
+   "newKey": "e07ff2ae324a782e",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "fd0e68cb465186c7",
+   "newKey": "0c4aa76c1ee6b0b5",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "3f5f362052232fa7",
+   "newKey": "d8fd0a0255f4dfc7",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "3f5f362052232fa7",
+   "newKey": "d8fd0a0255f4dfc7",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "fd0e68cb465186c7",
+   "newKey": "0c4aa76c1ee6b0b5",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "8ee1e390b468d869",
+   "newKey": "e07ff2ae324a782e",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "research/analysis/energy-requirements.md",
+   "oldKey": "8ee1e390b468d869",
+   "newKey": "e07ff2ae324a782e",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "research/analysis/energy-unheld.md",
+   "oldKey": "fd0e68cb465186c7",
+   "newKey": "0c4aa76c1ee6b0b5",
+   "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
   }
  ]
 }

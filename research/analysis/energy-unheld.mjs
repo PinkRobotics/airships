@@ -1,26 +1,21 @@
 import {writeGenerated} from './energy-output.mjs';
 /* Every phase with unheld vertical force, on the unchanged prescribed profile. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS,cryoOnFrac} from '../../sim/index.js?v=b3bc1c96';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=93744380';
 export function unheldRows(){
  const rows=[];
  for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){
   const p=planCycle(c,MODES.balanced,km,null,{basis}),phases=[];let elapsedMin=0;
   for(const [phase] of PHASES){
-   let worst=null;
-   const points=new Set([0,.15,.18,.3,.7,.85,1,cryoOnFrac(c,MODES.balanced,p)]);
-   for(let i=0;i<=LIMIT_STEPS;i++)points.add(i/LIMIT_STEPS);
-   for(const progress of points){
-    const s=drawAt(c,MODES.balanced,p,phase,progress);
-    if(Math.abs(s.unheldT)>FORCE_TOL*Math.max(1,Math.abs(s.surplusT))&&(!worst||Math.abs(s.unheldT)>Math.abs(worst.unheldT)))
-      worst={phase,unheldT:s.unheldT,progress,secondsIntoPhase:progress*p.dur[phase]*60,cycleMinute:elapsedMin+progress*p.dur[phase],airspeedMps:s.airV,verticalSpeedMps:s.vz,limits:s.limits};
-   }
-   if(worst)phases.push(worst);
+   const peak=p.phasePeaks[phase],progress=peak.progress;
+   const s=drawAt(c,MODES.balanced,p,phase,progress);
+   if(Math.abs(s.unheldT)>FORCE_TOL*Math.max(1,Math.abs(s.surplusT)))
+     phases.push({...peak,secondsIntoPhase:progress*p.dur[phase]*60,cycleMinute:elapsedMin+progress*p.dur[phase],airspeedMps:s.airV,verticalSpeedMps:s.vz});
    elapsedMin+=p.dur[phase];
   }
   rows.push({class:c.id,km,basis,profile:'as drawn',mode:'balanced',feasible:p.feasible,cycleMin:p.cycleMin,phases});
  }
- return {meaning:'Largest absolute signed unheld force in each failing phase on the seam-inclusive verdict mesh. Positive is unsupported surplus lift; negative requires unavailable upward authority.',samplesPerPhase:LIMIT_STEPS+1,rows};
+ return {meaning:'Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits. Positive is unsupported surplus lift; negative requires unavailable upward authority.',samplesPerPhase:LIMIT_STEPS+1,rows};
 }
 const result=unheldRows();
 writeGenerated('research/analysis/energy-unheld.json',JSON.stringify(result,null,2)+'\n');

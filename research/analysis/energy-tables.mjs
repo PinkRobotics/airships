@@ -2,7 +2,7 @@ import {writeGenerated} from './energy-output.mjs';
 /* Human-readable tables from replayable model inputs; no slow search here. */
 import fs from 'node:fs';
 import {batteryMass,specificEnergies} from './energy-omissions.mjs';
-import {CLASSES} from '../../sim/index.js?v=b3bc1c96';
+import {CLASSES} from '../../sim/index.js?v=93744380';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const f=x=>x==null?'none':x.toFixed(3);
 const req=read('energy-requirements');
@@ -44,7 +44,7 @@ for(const name of ['energy-profiles','energy-feasible']){
  out+='\n## Coefficient ranges for each selected feasible profile\n\nEach row replays the same printed controls; a coefficient change can make it infeasible.\n\n';
  out+='| Class | km | Basis | Profile | Parameter | Value | Verdict | Worst unheld, t | Minutes | MWh |\n|---|---:|---|---|---|---:|---|---:|---:|---:|\n';
  for(const r of data.rows)for(const b of [r.best,r.fullDeliveryBest].filter(Boolean))for(const s of b.sensitivity||[])out+=`| ${r.class} | ${r.km} | ${r.basis} | ${b===r.best?'cheapest found':'full delivery'} | ${s.parameter} | ${s.value} | ${s.feasible?'closes':'does not close'} | ${f(s.worst.unheldT)} | ${f(s.cycleMin)} | ${f(s.cycleMWh)} |\n`;
- out+='\nThe qualification compares every phase, including phases with less inertia but less reserve. The full per-phase inertia bounds at coefficients 0.70 and 1.0 are in the matching JSON. The fleet has not yet been bound to this table.\n';
+ out+='\nThe qualification compares every phase, including phases with less inertia but less reserve. The full per-phase inertia bounds at coefficients 0.70 and 1.0 are in the matching JSON. The fleet replays its selected controls at each mission’s exact inputs; this table does not promise interpolation.\n';
  writeGenerated(`research/analysis/${name}.md`,out);
 }
 console.log('Wrote requirements, baseline profile search and allocator-distance feasible tables.');

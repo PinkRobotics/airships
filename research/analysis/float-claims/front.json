@@ -175,20 +175,6 @@
     },
     {
       "file": "index.html",
-      "key": "3f5f362052232fa7",
-      "class": "generated",
-      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
-      "generator": "tools/gen_energy_pages.mjs",
-      "gate": "servedenergycheck",
-      "verifier": "tools/check_served_energy.py",
-      "region": {
-        "start": "<!-- served-energy:home:start -->",
-        "end": "<!-- served-energy:home:end -->"
-      },
-      "line": 785
-    },
-    {
-      "file": "index.html",
       "key": "56517a00b3f39dcc",
       "class": "generated",
       "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
@@ -325,6 +311,20 @@
       ],
       "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed.",
       "line": 7
+    },
+    {
+      "file": "index.html",
+      "key": "d8fd0a0255f4dfc7",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 785
     }
   ]
 }

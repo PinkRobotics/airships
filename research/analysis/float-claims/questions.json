@@ -158,20 +158,6 @@
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
-      "key": "8ee1e390b468d869",
-      "line": 423,
-      "class": "generated",
-      "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
-      "region": {
-        "start": "<!-- energy:question-8:start -->",
-        "end": "<!-- energy:question-8:end -->"
-      },
-      "generator": "research/analysis/energy-documents.mjs",
-      "gate": "energydoccheck",
-      "verifier": "tools/check_energy_docs.py"
-    },
-    {
-      "file": "docs/OPEN-QUESTIONS.md",
       "key": "bb875fc9630dff24",
       "line": 609,
       "class": "generated",
@@ -198,20 +184,6 @@
       "line": 637,
       "class": "question",
       "reason": "Asks what evidence justifies a different hull and its loss of the assumed fail-safe behavior."
-    },
-    {
-      "file": "docs/OPEN-QUESTIONS.md",
-      "key": "fd0e68cb465186c7",
-      "line": 647,
-      "class": "generated",
-      "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
-      "region": {
-        "start": "<!-- energy:question-15:start -->",
-        "end": "<!-- energy:question-15:end -->"
-      },
-      "generator": "research/analysis/energy-documents.mjs",
-      "gate": "energydoccheck",
-      "verifier": "tools/check_energy_docs.py"
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -1184,6 +1156,34 @@
       "reason": "Resize and cycle comparisons concern the simulated energy model; this paragraph has no exact generated-region binding.",
       "owner": "energy-model",
       "line": 215
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "0c4aa76c1ee6b0b5",
+      "class": "generated",
+      "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+      "region": {
+        "start": "<!-- energy:question-15:start -->",
+        "end": "<!-- energy:question-15:end -->"
+      },
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "line": 647
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "key": "e07ff2ae324a782e",
+      "class": "generated",
+      "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
+      "region": {
+        "start": "<!-- energy:question-8:start -->",
+        "end": "<!-- energy:question-8:end -->"
+      },
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "line": 423
     }
   ]
 }

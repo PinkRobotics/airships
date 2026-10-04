@@ -1,8 +1,8 @@
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=b3bc1c96';
-import { easeSm, easeTrap } from './geo.js?v=b3bc1c96';
-import { diskMW, ledger, pumpMW } from './physics.js?v=b3bc1c96';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=93744380';
+import { easeSm, easeTrap } from './geo.js?v=93744380';
+import { diskMW, ledger, pumpMW } from './physics.js?v=93744380';
 
-import {profilePoint} from './profile.js?v=b3bc1c96';
+import {profilePoint} from './profile.js?v=93744380';
 
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
@@ -390,7 +390,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
   let downMW = 0, downMWPhase = null, rotorClipMin = 0, letdownClipMin = 0;
   let peakBatteryMW = 0, peakRotorT = 0;
   let battLimited = false, feasible = true, worst = { unheldT: 0, phase: null, progress: 0, limits: [] };
-  const bound = new Set();
+  const bound = new Set(), phasePeaks = {};
   for (const [id] of PHASES) {
     if (!(plan.dur[id] > 0)) continue;
     const points = new Set([0, 1, .1, .15, .18, .25, .28, .3, .34, .55, .6, .7, .72, .75, .85, .94, cryoOnFrac(cls, mode, plan)]);
@@ -399,6 +399,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
       elapsed+=segment.seconds;
       points.add(elapsed/(plan.dur[id]*60));
     }
+    const seams = [...points];
     for (let i = 0; i <= LIMIT_STEPS; i++) points.add(i / LIMIT_STEPS);
     const xs = [...points].filter(x=>x>=0&&x<=1).sort((a,b)=>a-b);
     const at = p => drawAt(cls, mode, plan, id, p, opts);
@@ -409,11 +410,19 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
       battLimited ||= s.busLimited; feasible &&= s.feasible;
       for (const k of s.limits) bound.add(k);
       if (Math.abs(s.unheldT) > Math.abs(worst.unheldT)) worst = { unheldT: s.unheldT, phase: id, progress: x, limits: s.limits };
+      if (!phasePeaks[id] || Math.abs(s.unheldT) > Math.abs(phasePeaks[id].unheldT))
+        phasePeaks[id] = { unheldT: s.unheldT, phase: id, progress: x, limits: s.limits };
     };
+    // Some owners change at a seam. Include each side, rather than replacing the
+    // endpoint value with a limit from the neighbouring interval.
+    for (const x of seams) for (const side of [-1, 1]) {
+      const z = x + side * 1e-12;
+      if (z > 0 && z < 1) note(at(z), z);
+    }
     let prev = at(xs[0]), prevprev = null; note(prev, xs[0]);
     for (let i=1; i<xs.length; i++) {
       const x=xs[i], s=at(x); note(s,x);
-      if (prevprev) for (const value of [q=>q.draw.rotors,q=>q.electrical.batteryPowerMW,q=>q.owners.rotorT]) {
+      if (prevprev) for (const value of [q=>q.draw.rotors,q=>q.electrical.batteryPowerMW,q=>q.owners.rotorT,q=>Math.abs(q.unheldT)]) {
         const epsilon = 1e-10 * Math.max(1, Math.abs(value(prev)));
         if (!(value(prev)>value(prevprev)+epsilon && value(prev)>value(s)+epsilon)) continue;
         let lo=xs[i-2], hi=x;
@@ -438,7 +447,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
     }
   }
   return { downMW, downMWPhase, peakBatteryMW, peakRotorT, rotorClipMin, letdownClipMin, battLimited, feasible,
-    worst, bindingLimits: [...bound], limitSteps: LIMIT_STEPS };
+    worst, phasePeaks, bindingLimits: [...bound], limitSteps: LIMIT_STEPS };
 }
 
 /** Legacy schematic geometry only. Never used for force or energy credit. Actual inventory

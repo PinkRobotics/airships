@@ -74,7 +74,7 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 10.193 | 1.372 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 10.193 | 1.410 |
-| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 48.264 | 10.193 | 1.437 |
+| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 48.265 | 10.193 | 1.437 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 11.173 | 10.193 | 1.703 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 10.193 | 1.410 |
 | P100 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 10.193 | 1.431 |
@@ -82,36 +82,36 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 10.193 | 1.402 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 14.769 | 3.193 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 14.769 | 3.204 |
-| P100 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | -32.296 | 14.769 | 3.220 |
+| P100 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | -32.297 | 14.769 | 3.220 |
 | P100 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 30.732 | 14.769 | 3.681 |
 | P100 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | clMax | 1 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | full delivery | verticalCd | 0 | closes | -0.000 | 231.583 | 54.846 |
-| P100 | 7.480511 | record | full delivery | verticalCd | 1 | closes | 0.000 | 231.583 | 54.831 |
-| P100 | 7.480511 | record | full delivery | verticalCd | 2 | closes | -0.000 | 231.583 | 54.816 |
+| P100 | 7.480511 | record | full delivery | verticalCd | 1 | closes | -0.000 | 231.583 | 54.831 |
+| P100 | 7.480511 | record | full delivery | verticalCd | 2 | closes | 0.000 | 231.583 | 54.816 |
 | P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.55 | does not close | 16.326 | 231.583 | 61.734 |
-| P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.7 | closes | 0.000 | 231.583 | 54.831 |
-| P100 | 7.480511 | record | full delivery | clMax | 0.5 | closes | 0.000 | 231.583 | 54.831 |
-| P100 | 7.480511 | record | full delivery | clMax | 1 | closes | 0.000 | 231.583 | 54.831 |
-| P100 | 7.480511 | record | full delivery | clMax | 1.5 | closes | 0.000 | 231.583 | 54.831 |
+| P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.7 | closes | -0.000 | 231.583 | 54.831 |
+| P100 | 7.480511 | record | full delivery | clMax | 0.5 | closes | -0.000 | 231.583 | 54.831 |
+| P100 | 7.480511 | record | full delivery | clMax | 1 | closes | -0.000 | 231.583 | 54.831 |
+| P100 | 7.480511 | record | full delivery | clMax | 1.5 | closes | -0.000 | 231.583 | 54.831 |
 | P100 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 14.769 | 2.683 |
 | P100 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 14.769 | 2.682 |
-| P100 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | -32.296 | 14.769 | 2.687 |
+| P100 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | -32.297 | 14.769 | 2.687 |
 | P100 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 30.732 | 14.769 | 3.059 |
 | P100 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 14.769 | 2.682 |
 | P100 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 14.769 | 2.722 |
 | P100 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 14.769 | 2.682 |
 | P100 | 7.480511 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 14.769 | 2.670 |
 | P100 | 7.480511 | favourable | full delivery | verticalCd | 0 | closes | -0.000 | 231.583 | 53.662 |
-| P100 | 7.480511 | favourable | full delivery | verticalCd | 1 | closes | 0.000 | 231.583 | 53.647 |
-| P100 | 7.480511 | favourable | full delivery | verticalCd | 2 | closes | -0.000 | 231.583 | 53.633 |
+| P100 | 7.480511 | favourable | full delivery | verticalCd | 1 | closes | -0.000 | 231.583 | 53.647 |
+| P100 | 7.480511 | favourable | full delivery | verticalCd | 2 | closes | 0.000 | 231.583 | 53.633 |
 | P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 16.326 | 231.583 | 60.105 |
-| P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.7 | closes | 0.000 | 231.583 | 53.647 |
-| P100 | 7.480511 | favourable | full delivery | clMax | 0.5 | closes | 0.000 | 231.583 | 53.995 |
-| P100 | 7.480511 | favourable | full delivery | clMax | 1 | closes | 0.000 | 231.583 | 53.647 |
-| P100 | 7.480511 | favourable | full delivery | clMax | 1.5 | closes | 0.000 | 231.583 | 53.556 |
+| P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.7 | closes | -0.000 | 231.583 | 53.647 |
+| P100 | 7.480511 | favourable | full delivery | clMax | 0.5 | closes | -0.000 | 231.583 | 53.995 |
+| P100 | 7.480511 | favourable | full delivery | clMax | 1 | closes | -0.000 | 231.583 | 53.647 |
+| P100 | 7.480511 | favourable | full delivery | clMax | 1.5 | closes | -0.000 | 231.583 | 53.556 |
 | P100 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | -0.000 | 56.989 | 12.596 |
 | P100 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | -0.000 | 56.989 | 12.572 |
 | P100 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 2.179 | 56.989 | 12.557 |
@@ -120,7 +120,7 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | -0.000 | 56.989 | 12.572 |
 | P100 | 51.913032 | record | cheapest found | clMax | 1 | closes | -0.000 | 56.989 | 12.572 |
 | P100 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | -0.000 | 56.989 | 12.572 |
-| P100 | 51.913032 | record | full delivery | verticalCd | 0 | closes | -0.000 | 64.955 | 14.033 |
+| P100 | 51.913032 | record | full delivery | verticalCd | 0 | closes | 0.000 | 64.955 | 14.033 |
 | P100 | 51.913032 | record | full delivery | verticalCd | 1 | closes | 0.000 | 64.955 | 14.011 |
 | P100 | 51.913032 | record | full delivery | verticalCd | 2 | closes | -0.000 | 64.955 | 13.998 |
 | P100 | 51.913032 | record | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 15.913 |
@@ -131,12 +131,12 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | -0.000 | 66.529 | 10.092 |
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 66.529 | 10.043 |
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 2.179 | 66.529 | 9.999 |
-| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.867 | 66.529 | 10.836 |
+| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.868 | 66.529 | 10.836 |
 | P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 66.529 | 10.043 |
 | P100 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 66.529 | 10.156 |
 | P100 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 66.529 | 10.043 |
 | P100 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 66.529 | 10.009 |
-| P100 | 51.913032 | favourable | full delivery | verticalCd | 0 | closes | -0.000 | 64.955 | 11.021 |
+| P100 | 51.913032 | favourable | full delivery | verticalCd | 0 | closes | 0.000 | 64.955 | 11.021 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 1 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 2 | closes | -0.000 | 64.955 | 10.954 |
 | P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 11.816 |
@@ -241,4 +241,4 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P10000 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.005 | 59.529 | 363.463 |
 | P10000 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.005 | 59.529 | 363.006 |
 
-The qualification compares every phase, including phases with less inertia but less reserve. The full per-phase inertia bounds at coefficients 0.70 and 1.0 are in the matching JSON. The fleet has not yet been bound to this table.
+The qualification compares every phase, including phases with less inertia but less reserve. The full per-phase inertia bounds at coefficients 0.70 and 1.0 are in the matching JSON. The fleet replays its selected controls at each mission’s exact inputs; this table does not promise interpolation.
