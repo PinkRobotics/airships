@@ -550,7 +550,7 @@
     {
       "file": "concept/index.html",
       "key": "656c76c23c6584d2",
-      "line": 899,
+      "line": 905,
       "text": "How much power it costs rotors of a given total disk area to push down with force T, divided by an overall efficiency. It is used whenever the ship must descend while still buoyant. This is the ideal momentum-theory floor. The model quotes it explicitly so the margin to real installed performance is visible rather than absorbed.",
       "class": "other-quantity",
       "reason": "This defines the ideal induced-power quantity and its efficiency divisor; it gives no structural closure or delivered-payload result."
@@ -558,7 +558,7 @@
     {
       "file": "concept/index.html",
       "key": "be5007616452bdcb",
-      "line": 1060,
+      "line": 1066,
       "text": "The first physical gate is the sealed bench article A, intended to test joints, films, seals and a months-long vacuum hold. That drawn article does not float. The ledger keeps its bill separate from the hull and fleet assumptions.",
       "class": "bound",
       "reason": "Article A is a nonfloating bench experiment for seals and load paths; its ledger row is distinct from the hull and fleet.",
@@ -800,7 +800,63 @@
       "class": "method",
       "context": [],
       "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-      "line": 877
+      "line": 883
+    },
+    {
+      "file": "concept/index.html",
+      "key": "3f5f362052232fa7",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:concept:start -->",
+        "end": "<!-- served-energy:concept:end -->"
+      },
+      "line": 872
+    },
+    {
+      "file": "concept/index.html",
+      "key": "56517a00b3f39dcc",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:concept:start -->",
+        "end": "<!-- served-energy:concept:end -->"
+      },
+      "line": 873
+    },
+    {
+      "file": "concept/index.html",
+      "key": "b971231eb2960d96",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:concept:start -->",
+        "end": "<!-- served-energy:concept:end -->"
+      },
+      "line": 872
+    },
+    {
+      "file": "concept/index.html",
+      "key": "d71714a7b4eebd11",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:concept:start -->",
+        "end": "<!-- served-energy:concept:end -->"
+      },
+      "line": 872
     }
   ]
 }

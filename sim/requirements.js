@@ -1,8 +1,8 @@
 /* Requirements on existing hardware and profiles. All printed closing values are replayed. */
-import {VERTICAL_PROFILE_GRID,verticalProfiles} from './profile.js?v=059cbc27';
-import {CFG,MODES} from './config.js?v=059cbc27';
-import {planCycle} from './plan.js?v=059cbc27';
-import {drawAt,AERO_CL_VALUES,LIMIT_STEPS} from './power.js?v=059cbc27';
+import {VERTICAL_PROFILE_GRID,verticalProfiles} from './profile.js?v=1ead4525';
+import {CFG,MODES} from './config.js?v=1ead4525';
+import {planCycle} from './plan.js?v=1ead4525';
+import {drawAt,AERO_CL_VALUES,LIMIT_STEPS} from './power.js?v=1ead4525';
 export const REQUIREMENT_DIGITS=3;
 export const REQUIREMENT_UNIT=10**-REQUIREMENT_DIGITS;
 export const roundRequirement=x=>Math.ceil(x/REQUIREMENT_UNIT)*REQUIREMENT_UNIT;

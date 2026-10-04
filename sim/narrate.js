@@ -1,8 +1,8 @@
 /* The mission trace in prose: last, now, next, plan.
  */
-import { ENERGY_NOTE } from './energy-label.js?v=059cbc27';
-import { CFG, PHASES } from './config.js?v=059cbc27';
-import { fmt, fmtMin, fmtT } from './format.js?v=059cbc27';
+import { ENERGY_NOTE } from './energy-label.js?v=1ead4525';
+import { CFG, PHASES } from './config.js?v=1ead4525';
+import { fmt, fmtMin, fmtT } from './format.js?v=1ead4525';
 
 export function narrate(m, st) {
   if (m.served && m.planState !== 'ready') return {
@@ -36,13 +36,13 @@ export function narrate(m, st) {
       (p.retainedT > 1 ? ` (topping up the ${fmtT(p.deliveredT)} delivered last run)` : "") +
       `; incoming mass is replacing rotor downforce.`,
     OUTBOUND_TRANSIT: (st.prog < 0.18 ? `In the simulation, the ship climbs along the selected profile with the hose winding up. ` : "") +
-      `Outbound, ${(st.prog * 100).toFixed(0)}% of ${(m.legKm || m.oneWayKm).toFixed(1)} km at ${fmt(p.gsOut)} km/h ground speed` +
+      `Outbound, ${(st.prog * 100).toFixed(0)}% of ${(m.legKm || m.oneWayKm).toFixed(1)} km at ${fmt(st.gs)} km/h ground speed` +
       (p.windUsed ? (p.tailOut > 3 ? ` — riding a ${fmt(p.tailOut)} km/h tailwind` : p.tailOut < -3 ? ` — fighting a ${fmt(-p.tailOut)} km/h headwind` : " in light wind") : "; still-air estimate") +
       `; letting down toward the run-in on arrival.`,
     WATER_RELEASE: `Drop run on ${m.whyT && m.whyT[m.curTi] ? m.whyT[m.curTi] : (m.heat ? "last-24h satellite heat" : "the near fire edge")}${m.curPass > 0 ? " — re-treating the planned line" : ""}: ${fmtT(cls.payloadT - st.water)} of ${fmtT(p.deliveredT)} out along ${fmt(m.cls.dropKm, 1)} km${p.passes > 1 ? ` in ${p.passes} passes` : ""}` +
       (p.retainedT > 1 ? `, retaining ${fmtT(p.retainedT)} as descent ballast` : "") + `.`,
     BUOYANCY_ESCAPE: `In the simulation, the ship climbs along the force-checked profile; buoyancy and retained water are modelled, with ${fmtT(p.retainedT)} of water kept aboard.`,
-    RETURN_TRANSIT: `Returning light at ${fmt(p.gsRet)} km/h; cryogenic plant making ballast — ${fmtT(st.ln2)} of ${fmtT(p.ln2MakeT)}. ` +
+    RETURN_TRANSIT: `Returning with retained water at ${fmt(st.gs)} km/h; cryogenic plant making ballast — ${fmtT(st.ln2)} of ${fmtT(p.ln2MakeT)}. ` +
       (st.prog > 0.72
         ? `Descending to hose range on ${(st.draw.rotors || 0).toFixed(0)} MW of rotor downforce and the ballast aboard.`
         : `The simulated ship stays at the planned altitude using ${(st.draw.rotors || 0).toFixed(0)} MW of rotor power, with ${fmtT(st.water)} of water aboard.`),

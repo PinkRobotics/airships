@@ -1,0 +1,77 @@
+{
+  "producer": "tools/gen_energy_page_checks.mjs",
+  "model": {
+    "sim/config.js": "4b846d5809c0dcc8934e7fbb12253761bc3b270d45c18d561fae47890f2b0e22",
+    "sim/atmosphere.js": "19df19667cedc6dd7f345c4c214bbfc3bcc8caa897afc51c0e697314b255f8af",
+    "sim/physics.js": "a9b57133f7428ca5873c5e6d5a54828a387f40c0d5928a955bba94ece6d907ed",
+    "sim/power.js": "071831c7c267a7621abebb0b2c9cb9cb28e1267d776abd595228887ab232d43f",
+    "sim/profile.js": "4084e51d1e450d1830abc449775080653085bfb2099a34d79df40cfc143366f7",
+    "sim/plan.js": "19b221f02d2d8e4015a5d6589f5aff0cf2524fc6081e049a0027ad389c9039ed",
+    "sim/requirements.js": "b625658eb7b0b76845e51af20a219fd5262ad68afc458efe40473c7acd7da108"
+  },
+  "checkSources": {
+    "tests/energy/closure.mjs": "45fe6f5d6ad8bd1dc10933289727ea67db01bdcf6e8ea6b29e7eca71c6e9ab65",
+    "tests/energy/model.mjs": "c1dae3433f6ce0d867ac8eb6db0896315510bb8ade3fc45ae0f756e7196eda92"
+  },
+  "report": {
+    "tree": "integrated",
+    "N": 1000,
+    "plans": 270,
+    "instants": 1621620,
+    "feasiblePlans": 33,
+    "rotorUpInstants": 0,
+    "bagInstants": 153630,
+    "aeroInstants": 580205,
+    "violations": {},
+    "worst": {},
+    "channelsSeen": {
+      "hotel": 1621620,
+      "prop": 1621620,
+      "winch": 318870,
+      "rotors": 1621620,
+      "pumps": 270270,
+      "cryo": 270000
+    },
+    "phaseKeyedConsumers": {},
+    "hoistWorst": {
+      "rel": 0.01165027080865376,
+      "tag": "P1000/balanced/5/wind0/record",
+      "hoistMWh": 0.059409992912788645,
+      "expect": 0.06011029411764706,
+      "maxBagT": 1250
+    },
+    "verdictMismatches": []
+  },
+  "examples": [
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "record",
+      "mode": "balanced",
+      "feasible": true,
+      "planSteps": 96,
+      "peak": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6927083333333334,
+        "rotorMW": 30.902977429146574,
+        "supplyMW": 36.199411764705886,
+        "grossMW": 31.180697429146573
+      }
+    },
+    {
+      "class": "P100",
+      "km": 60,
+      "basis": "favourable",
+      "mode": "balanced",
+      "feasible": true,
+      "planSteps": 96,
+      "peak": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.6927083333333334,
+        "rotorMW": 30.902977429146574,
+        "supplyMW": 36.199411764705886,
+        "grossMW": 31.180697429146573
+      }
+    }
+  ]
+}

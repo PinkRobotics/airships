@@ -123,7 +123,7 @@
     {
       "file": "index.html",
       "key": "22491643fb810667",
-      "line": 1033,
+      "line": 1039,
       "class": "bound",
       "reason": "The static simulation explanation names its float assumption and binds the drawn-hull verdict to the ledger.",
       "bindings": [
@@ -140,7 +140,7 @@
       "class": "flight-model",
       "reason": "The concept render depicts the simulated fleet under the existing bound flight assumption in this same page.",
       "assumption": "22491643fb810667",
-      "line": 1048
+      "line": 1054
     },
     {
       "file": "index.html",
@@ -163,7 +163,7 @@
         "10000"
       ],
       "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-      "line": 967
+      "line": 973
     },
     {
       "file": "index.html",
@@ -189,7 +189,63 @@
         "start": "<!--FALLBACK-->",
         "end": "<!--/FALLBACK-->"
       },
-      "line": 1044
+      "line": 1050
+    },
+    {
+      "file": "index.html",
+      "key": "3f5f362052232fa7",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 791
+    },
+    {
+      "file": "index.html",
+      "key": "56517a00b3f39dcc",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 792
+    },
+    {
+      "file": "index.html",
+      "key": "b971231eb2960d96",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 791
+    },
+    {
+      "file": "index.html",
+      "key": "d71714a7b4eebd11",
+      "class": "generated",
+      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 791
     }
   ]
 }

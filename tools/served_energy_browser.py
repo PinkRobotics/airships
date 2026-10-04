@@ -29,6 +29,7 @@ async def probe(wsurl,base,page,width,stem):
   result=await call('Runtime.evaluate',dict(expression=(ROOT/'tests/served-energy/page.js').read_text(),returnByValue=True,awaitPromise=True))
   (OUT/(stem+'.json')).write_text(json.dumps(dict(result=result,errors=errors),indent=2)+'\n')
   if 'exceptionDetails' in result:raise RuntimeError(str(result['exceptionDetails'])[:1200])
+  if errors:raise RuntimeError('uncaught page exception: '+str(errors[0])[:1200])
   await call('Runtime.evaluate',dict(expression="document.getElementById('introOv')?.click();document.getElementById('worked')?.scrollIntoView({block:'center'});",returnByValue=True))
   await asyncio.sleep(.3)
   if '--pictures' in sys.argv:
