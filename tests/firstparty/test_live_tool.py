@@ -28,6 +28,9 @@ class Edge(http.server.BaseHTTPRequestHandler):
                 '/': '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"></script>',
                 '/module': '<script type="module" src="https://edge-module.invalid/beacon.js"></script>',
                 '/fetch': '<script>fetch("https://edge-fetch.invalid/ping").catch(() => {});</script>',
+                '/srcdoc': '<iframe srcdoc="&lt;img src=\'https://frame-image.invalid/x\'&gt;"></iframe>',
+                '/apple-icon': '<link rel="apple-touch-icon" href="https://apple-icon.invalid/icon.png">',
+                '/image-attribute': '<div style="background: image-set(\'https://attribute-image.invalid/x\' 1x)"></div>',
                 '/image-set': '<style>body {background: image-set("https://edge-image.invalid/x" 1x)}</style>',
                 '/clean': '<script>fetch("/data/local.json"); const u="http://127.0.0.1/ok";</script>',
             }[self.path]
@@ -79,6 +82,9 @@ class LiveToolTests(unittest.TestCase):
             ('module', 'edge-module.invalid', 'script[src]'),
             ('fetch', 'edge-fetch.invalid', 'named in an inline script'),
             ('image-set', 'edge-image.invalid', 'named in an inline style'),
+            ('image-attribute', 'attribute-image.invalid', 'named in an inline style'),
+            ('srcdoc', 'frame-image.invalid', 'iframe[srcdoc] img[src]'),
+            ('apple-icon', 'apple-icon.invalid', 'link[href]'),
         ]:
             with self.subTest(path=path):
                 out = io.StringIO()
@@ -112,6 +118,30 @@ class LiveToolTests(unittest.TestCase):
             ('style2.invalid', 'named in an inline style'),
             ('attribute.invalid', 'named in an inline style'),
         })
+
+    def test_srcdoc_inherits_base_and_uses_its_own_base_when_present(self):
+        parser = Loads(self.address)
+        parser.feed("""<base href="https://parent-base.invalid/dir/">
+          <iframe srcdoc="&lt;img src='relative.png'&gt;"></iframe>
+          <iframe srcdoc="&lt;base href='nested/'&gt;&lt;img src='x.png'&gt;"></iframe>
+          <iframe srcdoc="&lt;base href='https://child-base.invalid/'&gt;&lt;img src='child.png'&gt;"></iframe>""")
+        self.assertEqual({url for _, _, url in parser.foreign()}, {
+            'https://parent-base.invalid/dir/relative.png', 'https://child-base.invalid/child.png',
+            'https://parent-base.invalid/dir/nested/x.png'})
+
+    def test_nested_srcdoc_loads_and_same_host_pass(self):
+        parser = Loads(self.address)
+        parser.feed("""<iframe srcdoc="&lt;iframe srcdoc=&quot;&amp;lt;img src='https://nested.invalid/x'&amp;gt;&quot;&gt;&lt;/iframe&gt;"></iframe>""")
+        self.assertEqual(parser.foreign(), [('nested.invalid', 'iframe[srcdoc] iframe[srcdoc] img[src]',
+                                             'https://nested.invalid/x')])
+        own = Loads(self.address)
+        own.feed("""<iframe srcdoc="&lt;img src='/local.png'&gt;"></iframe>""")
+        self.assertEqual(own.foreign(), [])
+
+    def test_interaction_only_addresses_remain_out_of_scope(self):
+        parser = Loads(self.address)
+        parser.feed('<form action="https://form.invalid/x"></form><a href="/local" ping="https://ping.invalid/x">go</a>')
+        self.assertEqual(parser.foreign(), [])
 
 
 if __name__ == '__main__':

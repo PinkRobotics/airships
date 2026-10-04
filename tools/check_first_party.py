@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Inspect served HTML with browser request headers. Read only; no page scripts run."""
+"""Inspect returned HTML with browser request headers; no page scripts run.
+
+Reports automatic HTML/CSS load addresses, including nested srcdoc, and literal
+inline addresses as references. Does not interpret scripts or reconstruct computed
+addresses, follow subresources, or cover interaction-only form actions and link
+pings. Hostname scoping deliberately ignores ports. Redirecting documents fail closed.
+"""
 import argparse
 from html.parser import HTMLParser
 import re
@@ -11,7 +17,8 @@ from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 LOAD_LINK_RELS = {'stylesheet', 'icon', 'preload', 'modulepreload', 'prefetch',
-                  'preconnect', 'dns-prefetch', 'manifest'}
+                  'preconnect', 'dns-prefetch', 'manifest', 'apple-touch-icon',
+                  'apple-touch-icon-precomposed'}
 CSS_URL = re.compile(r'url\(\s*["\']?([^"\')\s]+)', re.I)
 # Textual references, not proof of a request. Include non-loading strings and
 # comments deliberately; the report must not vouch for what a script will do.
@@ -33,9 +40,12 @@ def browser_user_agent():
 
 
 class Loads(HTMLParser):
-    def __init__(self, address):
+    def __init__(self, address, inherited_base=None, depth=0):
         super().__init__(convert_charrefs=True)
-        self.address, self.base, self.loads = address, address, []
+        self.address, self.base, self.loads = address, inherited_base or address, []
+        self.fallback_base = inherited_base or address
+        self.srcdocs = []
+        self.depth = depth
         self.in_style = False
         self.in_script = False
 
@@ -50,7 +60,7 @@ class Loads(HTMLParser):
     def handle_starttag(self, tag, pairs):
         attrs = dict(pairs)
         if tag == 'base' and attrs.get('href'):
-            self.base = urljoin(self.address, attrs['href'])
+            self.base = urljoin(self.fallback_base, attrs['href'])
         if tag == 'style':
             self.in_style = True
         if tag == 'script':
@@ -68,6 +78,8 @@ class Loads(HTMLParser):
         if tag in {'img', 'source'} and attrs.get('srcset'):
             for candidate in attrs['srcset'].split(','):
                 self.add(f'{tag}[srcset]', candidate.strip().split()[0] if candidate.strip() else '')
+        if tag == 'iframe' and attrs.get('srcdoc') is not None:
+            self.srcdocs.append(attrs['srcdoc'])
         if tag == 'video':
             self.add('video[poster]', attrs.get('poster'))
         if tag == 'meta' and attrs.get('http-equiv', '').lower() == 'refresh':
@@ -103,6 +115,13 @@ class Loads(HTMLParser):
             parts = urlsplit(absolute)
             if parts.hostname and parts.hostname != own:
                 found.add((parts.hostname, source, absolute))
+        for source in self.srcdocs:
+            if self.depth >= 32:
+                raise RuntimeError('iframe[srcdoc] nesting exceeds the inspector limit')
+            child = Loads(self.address, inherited_base=self.base, depth=self.depth + 1)
+            child.feed(source)
+            found.update((host, 'iframe[srcdoc] ' + kind, url)
+                         for host, kind, url in child.foreign())
         return sorted(found)
 
 
