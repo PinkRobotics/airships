@@ -504,10 +504,9 @@ def _mk10(change):
            edits=[('index.html', '</body>',
                    '<style>.vehicle:hover { color: pink; }</style>\n'
                    '<script>const vehicle = "track"; const climbs = true;</script>\n</body>')])
+    control = 'The simulated vehicle climbs in the flight model; no aircraft has flown.'
     change('L-control-model', 'Motion in the simulated fleet, with its existing bound assumption',
-           edits=[('tools/gen_fallback.py', 'reference concept vehicle',
-                   'reference concept vehicle (the simulated vehicle climbs in the flight model)'),
-                  ('index.html', 'reference concept vehicle',
-                   'reference concept vehicle (the simulated vehicle climbs in the flight model)')])
+           edits=[('index.html', '</body>', '<p>' + control + '</p>\n</body>')],
+           control_text=control)
     change('L-dated-append', 'Plain refresh must not freeze a newly appended verdict')
     change('L-dated-new', 'Plain refresh must not freeze a new dated audit verdict')

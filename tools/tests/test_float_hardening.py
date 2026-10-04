@@ -123,16 +123,20 @@ def run_case(root, name, spec, observe=False):
         from float_claims import key_of
         record = root / 'research/analysis/float-claims/front.json'
         doc = json.loads(record.read_text())
-        entry = next(e for e in doc['entries'] if e['file'] == 'index.html'
-                     and e['class'] == 'flight-model')
+        reference = next(e for e in doc['entries'] if e['file'] == 'index.html'
+                         and e['class'] == 'flight-model')
         previous_root = gate.ROOT
         try:
             gate.ROOT = root
             blocks = list(gate.source_blocks(root / 'index.html'))
         finally:
             gate.ROOT = previous_root
-        text = next(text for line, text, raw in blocks if line == entry['line'])
-        entry['key'] = key_of(text)
+        line, text, _ = next(block for block in blocks if block[1] == spec['control_text'])
+        # A fresh control block outside generated regions: preserve existing entries
+        # and use the same page's already bound flight assumption.
+        doc['entries'].append(dict(file='index.html', line=line, key=key_of(text),
+            **{'class': 'flight-model'}, assumption=reference['assumption'],
+            reason='Planted simulated motion under this page\'s existing bound flight assumption.'))
         record.write_text(json.dumps(doc, indent=1)+'\n')
     outputs = []
     for argv in spec.get('regenerate_commands', []):
