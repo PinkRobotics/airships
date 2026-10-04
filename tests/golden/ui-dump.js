@@ -49,7 +49,9 @@
   await new Promise(r => setTimeout(r, 1600));   // the 1.5 s slow-text tick
   const txt = (sel) => {
     const e = document.querySelector(sel);
-    return e ? e.textContent.replace(/\s+/g, ' ').trim() : null;
+    const value = e?.textContent.replace(/\s+/g, ' ').trim();
+    if (!value) throw new Error(`golden UI selector is absent or empty: ${sel}`);
+    return value;
   };
   return JSON.stringify({
     title: document.title,
@@ -57,10 +59,10 @@
     fires: txt('#firesTop'),
     focus: txt('#cpShip'),
     forces: txt('#cpForces'),
-    ops: txt('#ops'),
-    status: [...document.querySelectorAll('.statusbar p')]
-      .map(e => e.textContent.replace(/\s+/g, ' ').trim()),
-    stats: txt('#stats'),
+    ops: txt('#cpOps'),
+    status: txt('#modeNote'),
+    /* There is no statistics element on the monitor. Model quantities are held by
+       dump.js; keeping a null #stats key here would assert no rendered behaviour. */
     dialCount: document.querySelectorAll('.dialgrid svg, #phaseDial svg').length,
     bars: txt('#pwrBars'),
     /* Height is layout, not a model fact: browser modes can settle at different heights.
