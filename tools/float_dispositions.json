@@ -1331,6 +1331,87 @@
     "start": "<!-- served-energy:analysis:start -->",
     "end": "<!-- served-energy:analysis:end -->"
    }
+  },
+  {
+   "file": "README.md",
+   "key": "20044b3354d1f6de",
+   "class": "method",
+   "context": [
+    "-1",
+    "1",
+    "2",
+    "3",
+    "30",
+    "4"
+   ],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "08d077a16ae00283",
+   "class": "method",
+   "context": [],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "7ae7fd5fc8bf7788",
+   "class": "method",
+   "context": [
+    "0.30",
+    "1.2",
+    "1.5",
+    "104",
+    "1050",
+    "3",
+    "52"
+   ],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "a1fa30fd7874981c",
+   "class": "method",
+   "context": [
+    "1.2",
+    "1.5",
+    "2500"
+   ],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "a3b581baa872d230",
+   "class": "generated",
+   "generator": "tools/gen_readme.py",
+   "gate": "readmecheck",
+   "verifier": "tools/gen_readme.py",
+   "region": {
+    "start": "<!-- readme:float-example:start -->",
+    "end": "<!-- readme:float-example:end -->"
+   },
+   "reason": "Exact printed SF sensitivity output freshly computed from ship0 on the record basis; sizing checks are not flotation."
+  },
+  {
+   "file": "README.md",
+   "key": "604f92b6f9660a01",
+   "class": "method",
+   "context": [],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "fb0e9c22fe0a93c4",
+   "class": "method",
+   "context": [],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "README.md",
+   "key": "3334294b7fd5bd2f",
+   "class": "method",
+   "context": [],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
   }
  ],
  "replacements": [
@@ -1411,6 +1492,12 @@
    "oldKey": "4a21dbc28929d18c",
    "newKey": "4f2a9b2480beb7a4",
    "reason": "Use the existing complete fire-outcome denial while preserving all accepted-plan quantities and the structural qualification."
+  },
+  {
+   "file": "README.md",
+   "oldKey": "44067179cff88447",
+   "newKey": "3334294b7fd5bd2f",
+   "reason": "Move the reading protocol below the new four-step opening; preserve the links to the structural assumptions and deciding experiments."
   }
  ]
 }

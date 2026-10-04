@@ -3,11 +3,14 @@
 
 The records are checked by energydoccheck, figfresh and cellparity. This
 tool checks the README projection, including prose values, without a browser.
+tools/gen_readme.py also emits the current README for exact-region verification.
 """
 
 import argparse
+import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -113,7 +116,19 @@ def sections():
         "No reading reaches 1." if caps['noneReachesOne'] else "At least one arithmetic reading reaches 1; that does not establish a checked design.",
         "The [float ledger](docs/FLOAT-LEDGER.md) gives every case and what would have to be true to close it.",
     ]
+    spec = importlib.util.spec_from_file_location('cell', ROOT / 'research/analysis/vacuum-cell.py')
+    cell = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cell)
+    float_example = ['```text']
+    for sf in (1.2, 1.5):
+        result = cell.ship0('s1050', sf=sf, basis='record')
+        float_example.append(
+            f"SF {sf:.1f}: mass {result['totalT']:.3f} t; lift {result['liftSLT']:.3f} t; "
+            f"lift/mass {result['ratioSL']:.3f} sea level, {result['ratio2500']:.3f} at 2500 m; "
+            f"sizing checks {result['checksPass']}")
+    float_example.append('```')
     return {
+        "float-example": "\n".join(float_example),
         "energy-input": "\n".join(example_input),
         "energy-intro": "\n".join(energy_intro),
         "energy-reading": "\n".join(energy_reading),
@@ -155,6 +170,7 @@ def regenerate(readme):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--emit", action="store_true")
     parser.add_argument("--readme", type=Path, default=ROOT / "README.md")
     args = parser.parse_args()
     try:
@@ -163,7 +179,9 @@ def main():
     except (OSError, KeyError, ValueError, subprocess.CalledProcessError) as exc:
         print(f"readmecheck: {exc}", file=sys.stderr)
         return 1
-    if args.check:
+    if args.emit:
+        print(json.dumps({'README.md': generated}))
+    elif args.check:
         if original != generated:
             print("readmecheck: README.md differs from generated model records", file=sys.stderr)
             return 1

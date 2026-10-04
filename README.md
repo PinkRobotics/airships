@@ -1,20 +1,31 @@
 # Airships: a checkable study
 
-This repository studies whether an evacuated hull could carry water to a fire, using a simulated fleet, published assumptions and code a reader can run. **The fires are real; the fleet is simulated and never flew.** The labelled exercise uses invented fires. Nothing here says or implies that a real fire would have burned differently.
+We study vacuum lift and water transport with published assumptions and a simulated fleet that has never flown. The fires are real; the labelled exercise uses invented fires. No different outcome for any real fire is established.
 
-## Run and inspect the study
+Four steps start at the repository root:
 
-From a fresh clone at the repository root, use Python 3 with `requirements.txt`, Node 22, Chromium, and the PDF tools listed at the top of the [Makefile](Makefile) (latexmk, pdfLaTeX, TeX Gyre fonts and poppler). The full check needs Node; the browser fallback skips filesystem-dependent suites. The pages themselves need only a local HTTP server. Check runtimes depend on the machine.
+1. **Get green checks:** `make quick` runs the Python and Node gates, without a browser or TeX; measured time is below. `make check` adds browser behaviour, fresh figure/analysis generation and PDF checks; allow about 30 minutes. Green can include recorded failed engineering proofs; read the `NOT PROVEN` lines.
+2. **Reproduce a number and move an assumption:** use the [energy and float commands below](#reproduce-and-move-a-number). The float command changes only safety factor, with the record basis fixed.
+3. **Inspect the latest change:** `git log -1 --format=full` shows the commit and its trailers; the [public log](https://pinkrobotics.ca/log/) records published landings and related lane costs. Builder trailers name the model; checker/verdict and audit trailers identify the recorded review where present. The log does not yet expose a named independent checker with retrievable evidence for every landing, or complete cost for every carried order; whole-lane cost is not a per-landing allocation. Its [JSON](https://pinkrobotics.ca/log/data/activity.json) is readable without scripts. Compare its revision with your clone; the served site changes on publication.
+4. **Read a float figure with its basis:** the [float ledger](docs/FLOAT-LEDGER.md#evidence-and-knockdowns) defines evidence classes, altitudes, safety factors and what would move each result. No row is a weighed or physically tested object. The live [float case](https://pinkrobotics.ca/airships/float/) and [ledger](https://pinkrobotics.ca/airships/float/ledger.html) carry those distinctions beside the figures.
 
-1. **Run the gates (browser and PDF tools required).**
+## Run the checks
 
-   ```sh
-   export TMPDIR="$PWD/.browser-scratch"
-   mkdir -p "$TMPDIR"
-   make check
-   ```
+Use Python 3 with the packages in [requirements.txt](requirements.txt) and Node 22. The full check also needs Chromium, latexmk, pdfLaTeX, TeX Gyre fonts and poppler; see the [Makefile](Makefile). Installation from a clean operating system has not been verified here. The pages need only a local HTTP server.
 
-   This runs the checks in the [Makefile](Makefile). A passing command can still report known failed engineering proofs: read its `NOT PROVEN` and known-failure lines. It can also rewrite tracked telemetry or PDFs, so inspect `git status --short` afterwards. `readmecheck` verifies the generated figures below. `noticecheck` checks the publication package; `linkcheck` checks repository documentation links and anchors without fetching external URLs.
+```sh
+export TMPDIR="$PWD/.browser-scratch"
+mkdir -p "$TMPDIR"
+make quick
+```
+
+A cold start with empty scratch and no persistent test server took **8 min 12 s (491.63 s)** on the validation machine. Machine load changes this time.
+
+`quick` is an ordered subset of `check`: model arithmetic and energy documents, source and port rules, dated capture tests, analysis-note figures, the float ledger and pages, geometry/assembly records, Node suites, README and documentation links, notices, parity mutations and builder records. It does not exercise browser rendering/interactions, regenerate the browser-derived figure and analysis records, or check PDFs. No agency feed is requested.
+
+Run `make check` for all gates, including those browser and PDF checks. It can rewrite tracked telemetry or PDFs; inspect `git status --short` afterwards. A passing suite checks the recorded study and its known failures; it does not establish a buildable aircraft.
+
+## Reproduce and move a number
 
 <!-- readme:energy-input:start -->
 2. **Reproduce and move a number (about one minute; Node only).**
@@ -39,9 +50,33 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
    The corresponding **97.65 / 116.86 kWh per planned tonne** do not establish delivered water.
    <!-- readme:example:end -->
 
-3. **Inspect a recorded change.** The [public log](https://pinkrobotics.ca/log/) displays its builder, checker and token and wall-time cost. It needs JavaScript to load `data/activity.json`; plain `curl` only sees the fallback. Compare its commit identifier with your clone's `git log -1 --oneline`: this branch and the published log can be at different commits. The log's provenance and cost are reported by the crew's own records, not independently audited here.
+For a float number, import the model and change SF from 1.2 to 1.5 on the **record** basis. Geometry (52 × 104 m, 3 m wall), 1,050 MPa chords, knockdown 0.30 and full sea-level pressure stay fixed:
 
-4. **Read the float case (about four minutes).** Start with [the ship float brief](docs/FLOAT.md) for the present design, then [the cell calculation](research/analysis/vacuum-cell.md) and [the mass budget](research/analysis/mass-budget.md) for their separate assumptions. Those documents state the basis and [verification plan](docs/VERIFICATION-PLAN.md) names the experiments that could change it. You can inspect the records without a browser:
+```sh
+python3 -B - <<'PYCODE'
+import importlib.util
+s = importlib.util.spec_from_file_location('cell', 'research/analysis/vacuum-cell.py')
+m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+for sf in [1.2, 1.5]:
+    r = m.ship0('s1050', sf=sf, basis='record')
+    print(f"SF {sf:.1f}: mass {r['totalT']:.3f} t; lift {r['liftSLT']:.3f} t; "
+          f"lift/mass {r['ratioSL']:.3f} sea level, {r['ratio2500']:.3f} at 2500 m; "
+          f"sizing checks {r['checksPass']}")
+PYCODE
+```
+
+<!-- readme:float-example:start -->
+```text
+SF 1.2: mass 403.101 t; lift 224.820 t; lift/mass 0.558 sea level, 0.436 at 2500 m; sizing checks True
+SF 1.5: mass 502.069 t; lift 224.820 t; lift/mass 0.448 sea level, 0.350 at 2500 m; sizing checks True
+```
+<!-- readme:float-example:end -->
+
+Higher factored loads buy heavier members, joint allowance and stability reserve. Lift stays fixed, so lift/mass falls. Passing sizing checks does not mean the hull floats. A custom knockdown also needs an explicit `basis='record'` or `basis='favourable'`; reserve policy is separate from that capacity assumption.
+
+## Read the float case
+
+Start with the [ship float brief](docs/FLOAT.md), then the [cell calculation](research/analysis/vacuum-cell.md) and [mass budget](research/analysis/mass-budget.md) for their separate assumptions. The [verification plan](docs/VERIFICATION-PLAN.md) names the deciding experiments.
 
    <!-- readme:float:start -->
    **Nothing floats today as drawn.**
@@ -55,23 +90,6 @@ From a fresh clone at the repository root, use Python 3 with `requirements.txt`,
    No reading reaches 1.
    The [float ledger](docs/FLOAT-LEDGER.md) gives every case and what would have to be true to close it.
    <!-- readme:float:end -->
-
-   ```sh
-   python3 - <<'PYCODE'
-   import json
-   x = json.load(open('research/analysis/cap-readings.json'))
-   for basis, row in x['readings']['R']['byBasis'].items():
-       for altitude, result in row['at'].items():
-           print(basis, altitude, result['altitudeM'], result['liftToMass'], result['marginT'])
-   for basis, altitudes in x['ranges'].items():
-       for altitude, result in altitudes.items():
-           print('range', basis, altitude, result['min'], result['max'])
-   PYCODE
-   make analysischeck analysisfresh censuscheck
-   ```
-
-   The columns are basis, altitude name, altitude in metres, lift/mass and margin in tonnes; range rows give the minimum and maximum over all readings.
-   These are computations with unresolved structural questions.
 
 Known model defects, deliberate failing tests and the decisions still open are recorded in [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md). The mass-budget record now uses the configured capsule areas; `make analysisfresh` checks it against fresh generation. <!-- readme:energy-budget-context:start -->
 The mass budget's cycle-energy context follows the figure cache. Its battery sizing does not establish feasible endurance.
@@ -115,10 +133,10 @@ Run `make readmecheck` to compare this page with those records; regenerate it wi
 For a pinned browser run, serve the repository root and open the snapshot URL. The snapshot is committed data; it does not fetch a live emergency feed.
 
 ```sh
-python3 -m http.server 8875
+python3 tools/serve.py --port 0
 ```
 
-Open <http://127.0.0.1:8875/index.html?seed=7&data=snapshot>. The repository's browser-feed code is held to first-party requests by `make firstparty`. The deployed site has its own publish cycle; verify its served code before making the same claim about it.
+The command prints a loopback address on a port chosen by the system. Open that address with `index.html?seed=7&data=snapshot` appended. The repository's browser-feed code is held to first-party requests by `make firstparty`. The deployed site has its own publish cycle; verify its served code before making the same claim about it.
 
 ## Pages and documents
 

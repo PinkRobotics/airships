@@ -8,7 +8,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve portproof portcheck test test-node golden interaction capturecheck lint check stamp figures pdf pdfgenerate pdfcheck figfresh \
+.PHONY: help serve portproof portcheck test test-node golden interaction capturecheck lint check quick stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck linkcheck mutationcheck buildercheck clean
@@ -78,6 +78,10 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 	$(PY) tools/check_links.py
 
 CI_OUTSIDE_CHECK := floatplants
+
+# Browser-free main gates, in check's order. ledgercheck-selftest includes a
+# browser cellparity baseline; analysisfresh and figure freshness also use it.
+quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Python and Node gates; no browser or TeX
 
 check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; gate tools, schema or plant changes also require floatplants
 
