@@ -133,3 +133,17 @@ The corrected wind flag runs as an ordinary assertion in `cases/sim-plan.cases.j
 The force ledger and phase-integral checks run in `cases/sim-energy.cases.js`.
 These counts describe registered tests, not an execution result.
 <!-- test-status:markers:end -->
+
+### Keeping the test inventory current
+
+`make test` and `make test-node` compare the files and test names that actually
+run with `research/test-inventory.json`. The browser fallback checks the same
+inventory, with its named Node-only exclusions. Missing or renamed tests fail
+with their identities even after `make stamp`.
+
+After deliberately adding, renaming or retiring a test, run
+`python3 tools/gen_test_status.py --inventory` once. Review the inventory diff:
+every removed file and test name must have a reason. Use
+`python3 tools/gen_test_status.py --inventory --check` to verify it without writing.
+The generator's existing count/document mode remains separate; `make stamp`
+changes cache versions and never writes the test inventory.

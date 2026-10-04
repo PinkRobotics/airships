@@ -42,6 +42,7 @@ import {
 const out = document.getElementById('out');
 const host = document.getElementById('host');
 let pass = 0, fail = 0, skip = 0;
+const ran = [];
 
 function report(name, ok, note = '') {
   const d = document.createElement('div');
@@ -51,6 +52,7 @@ function report(name, ok, note = '') {
   if (ok === null) skip++; else if (ok) pass++; else fail++;
 }
 async function check(name, fn) {
+  ran.push(name);
   // Announced before it runs, not after. --dump-dom prints nothing when the browser is killed
   // mid-run, so on a machine where the suite hangs the console is the only record of how far it
   // got; scripts/browser-tests.sh keeps chromium's stderr for exactly this. The 25 s race below
@@ -763,6 +765,8 @@ document.body.setAttribute('data-a3d-failures',
 // PRINTS that DOM is a separate question — it waits for the virtual-time budget, not for the
 // page — so this line is what tells the two failures apart in the log: "DONE" present means
 // the tests ran and the dump is what hung.
+window.__tests3d = {files: ['3d/tests/browser.html'], names: ran};
+console.log('TEST_INVENTORY browser3d ' + JSON.stringify(window.__tests3d));
 console.log(`DONE ${line}`);
 console.log(`FAILURES ${[...out.querySelectorAll('.fail')].map((d) => d.textContent).join(' | ')}`);
 </script>

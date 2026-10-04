@@ -35,6 +35,7 @@ ROOT = HERE.parent.parent
 TOOLS = ROOT / "tools"
 sys.path.insert(0, str(ROOT / "tools"))
 from serve import serve_tree
+from test_inventory import check_files, check_record, shared_record
 
 # Read the record the page publishes, waiting for it rather than guessing how long the
 # imports take. The page sets window.__tests once, at the end of the run.
@@ -42,7 +43,10 @@ GRAB = r"""
 (async () => {
   for (let i = 0; i < 300 && !window.__tests; i++) await new Promise(r => setTimeout(r, 100));
   if (!window.__tests) return JSON.stringify({ error: 'the suite never finished', title: document.title });
-  return JSON.stringify(window.__tests);
+  const record = window.__tests;
+  record.files = performance.getEntriesByType('resource').map(e => new URL(e.name).pathname.slice(1))
+    .filter(p => /^tests\/cases\/[^/]+\.cases\.js$/.test(p));
+  return JSON.stringify(record);
 })()
 """
 
@@ -90,6 +94,12 @@ def main() -> int:
     ap.add_argument("--wait", type=int, default=4, help="seconds to let the page load (default 4)")
     args = ap.parse_args()
 
+    bad = check_files('shared')
+    for line in bad:
+        print(line, file=sys.stderr)
+    if bad:
+        return 1
+
     if shutil.which("chromium") is None:
         raise SystemExit("chromium is not on PATH; the browser suite needs a headless browser")
 
@@ -111,7 +121,8 @@ def main() -> int:
     if "error" in rec:
         print(f"{RED}{rec['error']}{OFF} (title was {rec.get('title')!r})")
         return 1
-    return report(rec, args.verbose)
+    good = check_record('shared', shared_record(rec))
+    return int(bool(report(rec, args.verbose) or not good))
 
 
 if __name__ == "__main__":

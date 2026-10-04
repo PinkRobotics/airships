@@ -12,15 +12,16 @@ requires Node, and `make test-node` with Node installed always runs every suite.
 Only the assertion helpers used by these tests are implemented. An unsupported
 helper or an unexpected import failure fails the run rather than silently passing.
 
-CHECK THE COUNT. The first version of this file ran 22 of 103 tests and reported green,
-because it reset the registry between files while the cached shim module kept pushing into
-the original array. A harness that under-reports is worse than no harness, so the count it
-prints is compared against `EXPECTED_MIN` below — if the suite grows, that number moves with
-it, deliberately and in a diff.
+The committed inventory pins files and actual test names, including the shared
+cases run by tests/browser/run.py. The explicit Node-only exclusions remain
+visible. Regenerate deliberately with tools/gen_test_status.py --inventory;
+review its diff when adding, renaming or retiring a test.
 """
 from __future__ import annotations
 
 import argparse
+import html
+import json
 import pathlib
 import re
 import shutil
@@ -28,6 +29,7 @@ import subprocess
 import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
+from test_inventory import check_files, check_record, console_record, load
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TESTS = ROOT / '3d' / 'tests'
@@ -71,10 +73,6 @@ NODE_ONLY = {
     'builder-line.test.mjs': 'requires node:child_process and Git history; run make buildercheck',
     'spec-required.test.mjs': 'requires node:fs directory enumeration and synchronous source-file reads',
 }
-# The remaining suites currently register 106 tests. Keep a lower bound so a broken
-# harness cannot silently omit tests, even when a module loads without registering.
-EXPECTED_MIN = 106
-
 # The host div is on screen and sized, because the viewer stops rendering when it is not
 # intersecting and several of these tests build a real scene.
 HARNESS_HTML = """<!doctype html>
@@ -87,7 +85,7 @@ HARNESS_HTML = """<!doctype html>
 <script type="module">
 const out = document.getElementById('out');
 const files = %(files)s;
-const lines = []; let pass = 0, fail = 0;
+const lines = []; const ran = [], loaded = []; let pass = 0, fail = 0;
 try {
   // The shim module is CACHED, so its registry array is created once and every file pushes
   // into the same one. Resetting globalThis.__R between files therefore reads an empty array
@@ -95,14 +93,16 @@ try {
   // Take a slice of the shared registry instead.
   for (const f of files) {
     const from = (globalThis.__R || []).length;
-    try { await import(f); }
+    try { await import(f); loaded.push('3d/tests/' + f.slice(2)); }
     catch (e) { lines.push('LOADFAIL ' + f + ': ' + e.message); fail++; continue; }
     for (const t of globalThis.__R.slice(from)) {
+      ran.push('3d/tests/' + f.slice(2) + ' › ' + t.n);
       try { await t.f(); pass++; }
       catch (e) { fail++; lines.push('FAIL [' + f.slice(2) + '] ' + t.n + ': ' + e.message); }
     }
   }
-  out.textContent = 'RESULT pass=' + pass + ' fail=' + fail + '\\n' + lines.join('\\n');
+  out.textContent = 'RESULT pass=' + pass + ' fail=' + fail + '\\n' + lines.join('\\n')
+    + '\\nTEST_INVENTORY node ' + JSON.stringify({files: loaded, names: ran});
 } catch (e) { out.textContent = 'HARNESSERROR ' + e.message; }
 </script></body></html>
 """
@@ -118,6 +118,14 @@ def main() -> int:
         print('note: node is installed here — `make test-node` is the authority, this is the '
               'fallback for machines without it.')
 
+    bad = check_files('shared') + check_files('node')
+    for line in bad:
+        print(line, file=sys.stderr)
+    if bad:
+        return 1
+    shared = subprocess.run([sys.executable, str(ROOT / 'tests/browser/run.py')], cwd=ROOT)
+    if shared.returncode:
+        return 1
     files = sorted(p.name for p in TESTS.glob('*.test.mjs'))
     if not files:
         print('node_tests_in_browser: no 3d/tests/*.test.mjs found', file=sys.stderr)
@@ -151,14 +159,25 @@ def main() -> int:
         print('node_tests_in_browser: the harness produced no result — run with --keep and open '
               f'it at http://127.0.0.1:PORT/3d/tests/{HARNESS.name}', file=sys.stderr)
         return 1
-    body = m.group(1).strip()
-    print(body)
+    body = html.unescape(m.group(1)).strip()
+    print(body.split("\nTEST_INVENTORY ", 1)[0])
     head = body.split('\n', 1)[0]
-    ran = sum(int(n) for n in re.findall(r'(?:pass|fail)=(\d+)', head))
-    if ran < EXPECTED_MIN:
-        print(f'\nnode_tests_in_browser: only {ran} of {EXPECTED_MIN} tests ran. The harness is '
-              'not seeing all browser-compatible tests — fix that before trusting this result.', file=sys.stderr)
+    expected = load()
+    excluded = {'3d/tests/' + name for name in NODE_ONLY}
+    expected['node']['files'] = [p for p in expected['node']['files'] if p not in excluded]
+    expected['node']['names'] = [n for n in expected['node']['names']
+                                 if n.split(' › ', 1)[0] not in excluded]
+    from test_inventory import differences
+    try:
+        bad = differences('node', console_record(body, 'node'), expected)
+    except (ValueError, KeyError) as exc:
+        bad = [f'test inventory fallback: invalid runner record: {exc}']
+    for line in bad:
+        print(line, file=sys.stderr)
+    if bad:
         return 1
+    print(f"test inventory fallback: {len(expected['node']['files'])} files, "
+          f"{len(expected['node']['names'])} names match; named Node-only suites excluded")
     if not head.startswith('RESULT') or ' fail=0' not in head:
         print('\nnode_tests_in_browser: browser-compatible tests failed; see diagnostics above.',
               file=sys.stderr)

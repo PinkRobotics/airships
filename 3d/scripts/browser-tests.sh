@@ -10,6 +10,7 @@
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."          # -> repository root
 CHROME="${CHROME:-chromium}"
+python3 tools/test_inventory.py --files browser3d
 
 # With no argument, the wrapper owns the listening socket until this script exits.
 # A person may explicitly supply a complete loopback base address.
@@ -101,6 +102,8 @@ if [ -z "$RESULT" ]; then
   grep -aE 'RUN |ERROR|Fail' "$LOG" | tail -25 >&2 || true
   exit 1
 fi
+
+python3 tools/test_inventory.py browser3d "$LOG"
 
 echo "browser tests: $RESULT"
 [ -n "$FAILS" ] && echo "failures: $FAILS"

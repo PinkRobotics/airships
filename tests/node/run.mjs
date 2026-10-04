@@ -31,11 +31,13 @@ const suites = collect();
 if (!suites.length) throw new Error('no tests were collected — check the import list in tests/node/run.mjs');
 
 const tally = { pass: 0, fail: 0, known: 0 };
+const ran = [];
 
 for (const suite of suites) {
   nodeDescribe(suite.name, () => {
     for (const test of suite.tests) {
       nodeIt(test.name, () => {
+        ran.push(suite.name + ' › ' + test.name);
         const r = runTest(test);
         tally[r.status]++;
         if (r.status === 'fail') {
@@ -54,6 +56,7 @@ for (const suite of suites) {
 }
 
 process.on('exit', () => {
+  console.log('TEST_INVENTORY shared ' + JSON.stringify({names: ran.sort()}));
   process.stderr.write(
     `\nharness: ${tally.pass} passed, ${tally.fail} failed, ${tally.known} known-failing ` +
     `across ${suites.length} suites\n`);

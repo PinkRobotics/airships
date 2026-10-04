@@ -41,9 +41,7 @@ test-node:  ## Run the node unit tests — falls back to a browser shim when nod
 	   echo 'test-node: no node here — running the same files in a browser instead.'; \
 	   echo '           `node --test` in CI stays the authority; see tools/node_tests_in_browser.py.'; \
 	   $(PY) tools/node_tests_in_browser.py; \
-	 else set -ex; \
-	   if [ -f tests/node/run.mjs ]; then node tests/node/run.mjs; else node --test tests/node/*.mjs; fi; \
-	   node --test 3d/tests/*.test.mjs; \
+	 else $(PY) tools/run_node_tests.py; \
 	 fi
 
 golden:  ## Re-run the model at seed=7 and diff every output against tests/golden/

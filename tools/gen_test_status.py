@@ -53,6 +53,19 @@ def outputs(s):
     return out
 
 def main():
+    if '--inventory' in sys.argv:
+        from test_inventory import INVENTORY, generate, differences, load
+        inventory = generate()
+        if '--check' in sys.argv:
+            bad = [line for section, record in inventory.items()
+                   for line in differences(section, record, load())]
+            for line in bad: print(line)
+            if bad: return 1
+        else:
+            INVENTORY.write_text(json.dumps(inventory, indent=2, ensure_ascii=False) + '\n')
+        print('test inventory: ' + ', '.join(f"{s}: {len(r['files'])} files / {len(r['names'])} names"
+                                           for s, r in inventory.items()))
+        return 0
     s=status();generated=outputs(s);bad=[]
     for name,text in generated.items():
         p=ROOT/name
