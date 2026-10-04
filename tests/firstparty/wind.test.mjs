@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readWind, windForMission, WIND_MAX_AGE_MS } from '../../app/wind.js?v=1ead4525';
+import { readWind, windForMission, WIND_MAX_AGE_MS } from '../../app/wind.js?v=3c1b7308';
 
 const now = Date.parse('2026-10-02T02:30:00Z');
 const doc = () => ({ fetchedAt: '2026-10-02T02:20:00Z', data: {

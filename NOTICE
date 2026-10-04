@@ -1148,13 +1148,13 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Source:** data/exercise/exercise.json<br>data/water-bc.json<br>data/terrain-bc.jpg<br>data/roads-bc.json<br>data/bc-outline.json
 
-**SHA-256:** c6229df099fdcc0629b3cb64d078c3efc624e16be2e2faba3dbd7dfadb516deb
+**SHA-256:** 949ecaa49bd747d2411aee4392d19af07529f96e725ee54b7cb528498dc7aa87
 
 **Decision reason:** Existing bundled data decision retained; this repair records attribution and verifies local bytes.
 
 **Processing and caveats:** This static no-script poster depicts an invented exercise, not an agency image or a real fire. The fleet is simulated and never flew. Component licences and attribution travel with the poster; no heat or wind forecast is used.
 
-**Measured contents:** 93,924 bytes
+**Measured contents:** 93,390 bytes
 
 **Record:** media/map-snapshot.prov.json
 

@@ -13,7 +13,6 @@
 <meta property="og:url" content="https://pinkrobotics.ca/airships/concept/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0a0c'/%3E%3Cpath d='M4 12.5 L7 8.5 L11 6' fill='none' stroke='%23ff4fa3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='4' cy='12.5' r='1.4' fill='%23ff4fa3'/%3E%3Ccircle cx='7' cy='8.5' r='1.15' fill='%23ff4fa3'/%3E%3Ccircle cx='11' cy='6' r='1.7' fill='none' stroke='%23ff4fa3' stroke-width='1.1'/%3E%3C/svg%3E">
 <style>
-.energy-tag{display:block;font-size:11px;line-height:1.4;font-weight:400;color:var(--muted)}
 
 /*DESIGN*/:root{
   --bg:#0a0a0c; --panel:#111114; --line:#232329; --line-strong:#33333c;
@@ -740,7 +739,7 @@ nav.estate .wrap{display:block}
             cost is already priced into the 0.45 kWh/kg dial in
             <a href="#arithmetic">section 04</a>. The modest discount liquid air offers is the price of not flying a slowly concentrating oxidizer through a fire in a flammable airframe — a bad trade at any efficiency. (Argon would be denser ballast still, and
             just as inert, but air offers only one percent of it; nitrogen is what the sky
-            actually stocks.) These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
+            actually stocks.)</p>
         </div>
       </details>
       <details class="d">
@@ -778,7 +777,6 @@ nav.estate .wrap{display:block}
       </p>
     </div>
 
-    <p class="small" data-energy-note>These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
     <div class="classes" id="classcards">
       <noscript><p class="small">JavaScript adds the class cards, comparison drawing, dials and worked results. The static diagrams and explanatory text remain readable without it.</p></noscript>
     </div>
@@ -888,7 +886,7 @@ nav.estate .wrap{display:block}
         <div class="dbody">
           <div class="eq">P_pump = ρ · g · Q · h / η</div>
           <p class="eqwhy">Lifting water hundreds of metres up a hose is honest work. The P-100's 0.5 m³/s through a 300 m head at 75% efficiency takes about 2.0 MW while it fills. The pumps live at the bottom of the hose because no pump at the top could
-            suction-lift that column. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
+            suction-lift that column.</p>
         </div>
       </details>
       <details class="d">
@@ -913,7 +911,7 @@ nav.estate .wrap{display:block}
             (adjustable 0.30–0.80); expansion recovers a configured 20% round trip (adjustable
             10–38%, capped at the exergy of the liquid). Both are demonstration assumptions, not specifications for an airborne
             plant, and both are dials above precisely because they materially move the answer.
-            The monitor names the selected plan's limiting constraint; a mode name does not establish endurance. <a href="#cycle">The cycle section</a> explains the nitrogen safety argument. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
+            The monitor names the selected plan's limiting constraint; a mode name does not establish endurance. <a href="#cycle">The cycle section</a> explains the nitrogen safety argument.</p>
         </div>
       </details>
     </div>
@@ -1178,10 +1176,10 @@ nav.estate .wrap{display:block}
  * both are wrong, which is the only honest arrangement.
  */
 import {
-  CFG, ENERGY_NOTE, ENERGY_TAG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
+  CFG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
   ledger, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures, fmt, fmtHa, fmtMin, fmtT,
-} from '../sim/index.js?v=1ead4525';
-import * as SIM from '../sim/index.js?v=1ead4525';
+} from '../sim/index.js?v=3c1b7308';
+import * as SIM from '../sim/index.js?v=3c1b7308';
 
 /* ============================================================================================
  * Concept-page shim. The SIM block above is byte-shared with the monitor page; this page
@@ -1191,7 +1189,7 @@ const $ = id => document.getElementById(id);
 const S = { exampleCls: "P100", modeId: "balanced" };
 function kvRows(rows) {
   return '<dl class="kv">' + rows.map(([k, v, cls]) =>
-    `<dt>${k}</dt><dd class="${cls || ""}">${v}${/\b(?:MWh|kWh|MW|kW)\b/.test(v) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</dd>`).join("") + "</dl>";
+    `<dt>${k}</dt><dd class="${cls || ""}">${v}</dd>`).join("") + "</dl>";
 }
 function replanAll() { renderWorked(); }
 
@@ -1211,7 +1209,7 @@ function renderAsm() {
   $("asmpanel").innerHTML = DIALS.map(dd =>
     `<div class="a-row"><label>${dd.label}<output id="o_${dd.k}">${CFG[dd.k].toFixed(dd.d)}${dd.unit}</output></label>` +
     `<input type="range" id="i_${dd.k}" min="${dd.min}" max="${dd.max}" step="${dd.step}" value="${CFG[dd.k]}" aria-label="${dd.label}">` +
-    `<div class="a-note">${dd.note}${/kWh/.test(dd.unit+dd.note) ? " · " + ENERGY_TAG : ""}</div></div>`).join("");
+    `<div class="a-note">${dd.note}</div></div>`).join("");
   for (const dd of DIALS) {
     $("i_" + dd.k).addEventListener("input", e => {
       setConfig({ [dd.k]: parseFloat(e.target.value) });

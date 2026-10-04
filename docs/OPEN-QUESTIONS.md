@@ -913,11 +913,11 @@ What measured mass belongs to the outfit’s 622 solar pieces, 6 pods and 12 mod
 
 ---
 
-## Interim energy figures: earlier model, under review
+## Closed: current served energy figures use feasible plans
 
-These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
+Closed on 2026-10-03. The monitor plans each mission at its exact leg distance, full wind input and shown mode; record basis is the default, with the same controls on the favourable basis beside it. Missing wind is labelled and uses still air. A mission without an accepted plan stands down and contributes no rate. The worked examples and ruled page sentences are generated and checked. Requested water, water kept aboard, energy supplied and water delivered remain distinct.
 
-The figures will be published old and new, with the reason for each change, when the corrected model lands. The interim labels change no calculation.
+The interim labels are retired. Earlier report text remains dated history under its superseded-report warning; unsupported prescribed profiles remain diagnostic analysis. The model's structural, transient-control and hardware assumptions remain open. No aircraft has flown.
 
 ## What is not on this list
 

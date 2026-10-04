@@ -1,13 +1,13 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady } from '../../sim/index.js?v=1ead4525';
-import { timeSinceDrop } from '../cockpit/panels.js?v=1ead4525';
-import { $, SHORT, esc } from '../dom.js?v=1ead4525';
-import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=1ead4525';
-import {figure,inactiveText} from "../served-ui.js?v=1ead4525";
-import { FLEET } from '../fleet.js?v=1ead4525';
-import { select } from '../map/interact.js?v=1ead4525';
-import { S } from '../store.js?v=1ead4525';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady } from '../../sim/index.js?v=3c1b7308';
+import { timeSinceDrop } from '../cockpit/panels.js?v=3c1b7308';
+import { $, SHORT, esc } from '../dom.js?v=3c1b7308';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=3c1b7308';
+import {figure,inactiveText} from "../served-ui.js?v=3c1b7308";
+import { FLEET } from '../fleet.js?v=3c1b7308';
+import { select } from '../map/interact.js?v=3c1b7308';
+import { S } from '../store.js?v=3c1b7308';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -259,8 +259,8 @@ export function renderTable() {
     const f = m.fire;
     return `<tr><td><button onclick="APP.selRow(${i})">${esc(f.id)}</button>${f.note ? " ★" : ""}</td>` +
       `<td>${esc(f.status)}</td><td class="num">${fmt(f.sizeHa)}</td>` +
-      (m.idle ? `<td colspan="4">no suitable mapped source</td>` :
-        `<td>${m.cls.name}</td><td>${esc(srcName(m))}</td><td class="num">${m.oneWayKm.toFixed(1)}</td>` +
+      (m.idle ? `<td colspan="4">${esc(m.served ? inactiveText(m) : "no suitable mapped source")}</td>` :
+        `<td>${m.cls.name}</td><td>${esc(srcName(m))}</td><td class="num">${m.legKm.toFixed(1)}</td>` +
         `<td class="num">${fmt(m.plan.cycleMin)}</td>`) +
       `<td class="num">${m.idle ? "—" : fmt(m.plan.tph)}</td>` +
       `<td class="phase">${m.idle ? "idle" : ""}</td></tr>`;

@@ -20,6 +20,7 @@
   "ship/catalog.js",
   "ship/explorer.js",
   "sim/config.js",
+  "sim/energy-label.js",
   "sim/narrate.js",
   "sim/power.js",
   "sim/selftest.js",
@@ -249,7 +250,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 359
+   "line": 361
   },
   {
    "file": "app/cockpit/panels.js",
@@ -257,7 +258,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 207
+   "line": 206
   },
   {
    "file": "app/cockpit/panels.js",
@@ -413,6 +414,14 @@
    "line": 318
   },
   {
+   "file": "sim/energy-label.js",
+   "key": "c1cc790311022c57",
+   "class": "method",
+   "context": [],
+   "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance.",
+   "line": 2
+  },
+  {
    "file": "sim/narrate.js",
    "key": "7254ee857d72fef0",
    "class": "calculator",
@@ -420,7 +429,7 @@
    "context": [],
    "function": "narrate",
    "gate": "servedenergycheck",
-   "line": 44
+   "line": 43
   },
   {
    "file": "sim/narrate.js",
@@ -428,7 +437,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 25
+   "line": 24
   },
   {
    "file": "sim/power.js",

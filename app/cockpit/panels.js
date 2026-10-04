@@ -1,14 +1,14 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=1ead4525';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=1ead4525';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=1ead4525';
-import { shipViz } from '../cockpit/shipviz.js?v=1ead4525';
-import { updateRoster } from '../cockpit/tables.js?v=1ead4525';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=1ead4525';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=1ead4525';
-import {figure,inactiveText} from "../served-ui.js?v=1ead4525";
-import { S } from '../store.js?v=1ead4525';
+import { CFG, MODEL_STATUS, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=3c1b7308';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=3c1b7308';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=3c1b7308';
+import { shipViz } from '../cockpit/shipviz.js?v=3c1b7308';
+import { updateRoster } from '../cockpit/tables.js?v=3c1b7308';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=3c1b7308';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=3c1b7308';
+import {figure,inactiveText} from "../served-ui.js?v=3c1b7308";
+import { S } from '../store.js?v=3c1b7308';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
@@ -155,11 +155,10 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     gGen = makeDualGauge(sd, "anchor cable", "intake hose",
       Math.max(1, m.cls.anchorM || 0, m.cls.hoseM), v => fmt(v), "m");
     gStore = makeGauge(sd, "storage", m.cls.battMWh, v => fmt(v, v < 10 ? 1 : 0) + " MWh");
-    sd.insertAdjacentHTML('beforeend', `<small class="energy-tag" style="grid-column:1/-1">${ENERGY_TAG}</small>`);
     const barRow = ([lab, id, col]) =>
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
       `<span class="b-tr"><span class="b-fill" id="${id}" style="width:0%;background:${col}"></span></span>` +
-      `<span class="b-val" id="${id}v">–</span><small class="energy-tag" style="grid-column:1/-1">${ENERGY_TAG}</small></div>`;
+      `<span class="b-val" id="${id}v">–</span></div>`;
     /* The two headings take the DIAL'S colours — green for generation, warm for consumption —
      * because they label the same two quantities the dual gauge above them plots against each
      * other (gauges.js: #46d06e and #d98b80). Both were `--faint` grey, which left the reader
@@ -200,7 +199,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
-      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))} · <small class="energy-tag">${ENERGY_TAG}</small></p><p class="cycnote">Planned ${esc(m.mode.label.toLowerCase())} mode · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${ENERGY_NOTE}</p>`;
+      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))}</p><p class="cycnote"><span data-planned-mode="${m.mode.id}">Planned ${esc(m.mode.label.toLowerCase())} mode</span> · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${MODEL_STATUS}</p>`;
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
@@ -260,7 +259,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       <div><h4 style="color:var(--warm)">Simulated draw</h4>` + kvRows([
         ["serving fire", esc(mm.fire.id), "sim"],
         ["assigned ship", mm.cls.name, "sim"],
-        ["distance to fire", mm.oneWayKm.toFixed(1) + " km", "sim"],
+        ["planned leg", mm.legKm.toFixed(1) + " km", "sim"],
         ["intake", "mid-lake, long-axis centerline", "sim"],
         ["draws per hour", mm.plan.dropsPerHour.toFixed(1) + " × " + fmtT(mm.plan.deliveredT) + " delivered; " + fmtT(mm.plan.retainedT) + " kept aboard", "sim"],
       ]) + `<p style="margin-top:var(--s3);font-size:var(--t-11);color:var(--faint)">${esc(mm.srcWhy)} Repeated withdrawal at this rate is not claimed to be sustainable.</p></div>
@@ -268,6 +267,9 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
   }
   noteSelection();
   updateCockpitText();
+  // A new cockpit must show its own power readings immediately, before the slow refresh tick.
+  forceAcc = 9;
+  updateCockpit();
 }
 
 /* Announce the selection, and swallow the phase announcement that would otherwise land on
@@ -323,13 +325,13 @@ export function updateCockpit() {
       netEl.innerHTML = st.stopped
         ? '<b style="color:var(--red)">power exhausted</b> · vertical motion after shutdown is not modelled'
         : `net <b style="color:${net < 0 ? "var(--red)" : "#46d06e"}">${net < 0 ? "−" : "+"}${fmt(Math.abs(net), 1)} MW</b>` +
-          (net < 0 ? " — storage depleting, no refills yet" : " — storage recovering") + `<small class="energy-tag">${ENERGY_TAG}</small>`;
+          (net < 0 ? " — storage depleting, no refills yet" : " — storage recovering");
     }
     if (netEl) {
       const pair = energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan);
       const other = pair.favourable.feasible ? drawAt(m.cls,m.mode,pair.favourable,st.phase,st.prog) : null;
       const favourableNet = other ? Object.values(other.gen).reduce((a,b)=>a+b,0)-Object.values(other.draw).reduce((a,b)=>a+b,0) : null;
-      netEl.innerHTML += ` · record: ${feasibilityText(pair.record)} · favourable net ${fmt(favourableNet,1)} MW: ${feasibilityText(pair.favourable)}`;
+      netEl.innerHTML += ` · record: ${feasibilityText(pair.record)} · favourable: ${other ? fmt(favourableNet,1) + " MW net; " + feasibilityText(pair.favourable) : "net power unavailable: these controls do not close"}`;
     }
     const tf = 1000 * 9.81, put = (id, v) => { const el = $(id); if (el) el.innerHTML = v; };
     // ONE SIGN CONVENTION: down is positive. Buoyancy pulls up, so it is a negative number,

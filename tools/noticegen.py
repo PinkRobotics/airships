@@ -14,12 +14,6 @@ INTRO = (
     "works retain the terms recorded below. The Information in the map layers was modified. "
     "No information provider endorses this project or its uses. For real emergencies use the official service."
 )
-ENERGY_NOTE = (
-    "These energy figures come from the earlier flight model, which understates the force "
-    "needed to hold an empty hull down. Corrected figures will be higher, and some cycles "
-    "may not be flyable as drawn."
-)
-ENERGY_TAG = "earlier model · under review"
 ENERGY_UNITS = re.compile(r"\b(?:MWh|kWh|MW|kW)\b")
 
 DECISIONS = (
@@ -101,8 +95,7 @@ def page(recs: list[dict]) -> str:
             tag = ''
             if ENERGY_UNITS.search(str(v)):
                 has_energy = True
-                tag = (f'<small class="energy-tag">Model figures mentioned here: {ENERGY_TAG}. '
-                       'Cited source measurements retain their cited basis.</small>')
+                tag = '<small class="energy-source">Source measurement or processing comparison; not a mission result.</small>' 
             more += f'<dt>{esc(k)}</dt><dd>{esc(v)}{tag}</dd>'
         rows.append(f'<tr><th scope="row"><span class="folder">{esc(p.parent)}/</span>{esc(p.name)}</th>'
                     f'<td data-label="Publisher">{esc(r["publisher"])}</td>'
@@ -112,10 +105,10 @@ def page(recs: list[dict]) -> str:
                     f'<details><summary>Credit and source record</summary><dl>{more}</dl></details></td>'
                     f'<td data-label="Decision"><strong>{esc(r["decision"])}</strong></td></tr>')
     energy_note = (
-        '<aside><h2>Model energy comparisons</h2><p>Processing notes compare source '
-        'measurements with model figures. The following notice applies to the model figures; '
-        'source measurements retain their cited basis.</p>'
-        f'<p data-energy-note>{ENERGY_NOTE}</p></aside>' if has_energy else '')
+        '<aside><h2>Energy references in source records</h2><p>These are source measurements '
+        'and processing notes, not accepted mission results. Current simulated mission '
+        'quantities require an exact-input feasible plan; structural float and flight '
+        'performance remain unproven.</p></aside>' if has_energy else '')
     return '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data, licences and notices — Pink Robotics</title>
@@ -129,7 +122,7 @@ th:nth-child(1){width:24%}th:nth-child(2){width:21%}th:nth-child(3){width:41%}th
 tbody th{font-weight:500}.folder{display:block;color:var(--muted)}.evidence{font-size:14px;color:var(--muted)}
 details{margin-top:14px}summary{cursor:pointer;color:var(--warm)}dt{font-weight:600;margin-top:12px}dd{margin:0;white-space:pre-wrap}
 footer{border-top:1px solid var(--line)}
-.energy-tag{display:block;margin-top:8px;color:var(--muted);font-size:13px}
+.energy-source{display:block;margin-top:8px;color:var(--muted);font-size:13px}
 @media(max-width:900px){thead{position:absolute;clip-path:inset(50%);height:1px;width:1px;overflow:hidden}
 caption{display:block;width:100%}table,tbody,tr,td,tbody th{display:block;width:100%!important}tr{padding:16px 0;border-top:1px solid var(--line)}
 th,td{border:0;padding:8px 0}td[data-label]::before{content:attr(data-label);display:block;font-size:13px;color:var(--muted);font-weight:600}

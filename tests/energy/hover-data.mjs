@@ -1,6 +1,6 @@
 /* Observe inputs and model results; the Python check supplies the independent equations. */
 import fs from 'node:fs';
-import {CLASSES,MODES,CFG,planCycle,drawAt,rotorMaxTonnes,ledger} from '../../sim/index.js?v=1ead4525';
+import {CLASSES,MODES,CFG,planCycle,drawAt,rotorMaxTonnes,ledger} from '../../sim/index.js?v=3c1b7308';
 const modes=[],profiles=[];
 for(const c of Object.values(CLASSES))for(const m of Object.values(MODES)) {
  const p=planCycle(c,m,15,null,{basis:'record'}),s=drawAt(c,m,p,'WATER_FILL',.3);

@@ -1,9 +1,9 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures } from '../sim/index.js?v=1ead4525';
-import { $, kvRows } from './dom.js?v=1ead4525';
-import { replanAll } from './fleet.js?v=1ead4525';
-import { S } from './store.js?v=1ead4525';
+import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures } from '../sim/index.js?v=3c1b7308';
+import { $, kvRows } from './dom.js?v=3c1b7308';
+import { replanAll } from './fleet.js?v=3c1b7308';
+import { S } from './store.js?v=3c1b7308';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
@@ -27,7 +27,7 @@ export function renderAsm() {
   $("asmpanel").innerHTML = DIALS.map(dd =>
     `<div class="a-row"><label>${dd.label}<output id="o_${dd.k}">${CFG[dd.k].toFixed(dd.d)}${dd.unit}</output></label>` +
     `<input type="range" id="i_${dd.k}" min="${dd.min}" max="${dd.max}" step="${dd.step}" value="${CFG[dd.k]}" aria-label="${dd.label}">` +
-    `<div class="a-note">${dd.note}${/kWh/.test(dd.unit+dd.note) ? " · " + ENERGY_TAG : ""}</div></div>`).join("");
+    `<div class="a-note">${dd.note}</div></div>`).join("");
   for (const dd of DIALS) {
     $("i_" + dd.k).addEventListener("input", e => {
       CFG[dd.k] = parseFloat(e.target.value);

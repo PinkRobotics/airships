@@ -1,8 +1,7 @@
 /* The mission trace in prose: last, now, next, plan.
  */
-import { ENERGY_NOTE } from './energy-label.js?v=1ead4525';
-import { CFG, PHASES } from './config.js?v=1ead4525';
-import { fmt, fmtMin, fmtT } from './format.js?v=1ead4525';
+import { CFG, PHASES } from './config.js?v=3c1b7308';
+import { fmt, fmtMin, fmtT } from './format.js?v=3c1b7308';
 
 export function narrate(m, st) {
   if (m.served && m.planState !== 'ready') return {
@@ -49,13 +48,13 @@ export function narrate(m, st) {
   };
   return {
     last: `Completed: ${prev}.`,
-    now: (lines[st.phase] || st.label) + (st.phase === "RETURN_TRANSIT" ? " " + ENERGY_NOTE : ""),
+    now: (lines[st.phase] || st.label),
     next: `Next: ${next}.`,
     plan: `Simulated cycle ${st.cycleN}: ${fmtT(p.deliveredT)} delivered per drop` +
       (p.retainedT > 1 ? ` (${fmtT(p.retainedT)} held back as descent ballast)` : "") +
       `, ${fmtMin(p.cycleMin)} per cycle — ` +
       `${fmt(p.tph)} t/h to this fire if every cycle ran as modelled. Current constraint: ${p.bottleneck}. ` +
-      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne; ${p.basis} basis, feasible in this model. ${ENERGY_NOTE}`,
+      `Mode ${m.mode.label.toLowerCase()}; ${p.kwhPerTonne.toFixed(0)} kWh per delivered tonne; ${p.basis} basis, feasible in this model.`,
   };
 }
 

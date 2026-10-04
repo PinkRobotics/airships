@@ -206,8 +206,8 @@ def render(d: dict) -> dict[str, str]:
   </figure>{mission}
   <figure>
     <img src="media/intake.jpg" width="{vw}" height="{vh}" loading="eager" fetchpriority="high"
-      alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">
-    <figcaption>The reference concept vehicle at a lake intake, hoses down, pumping while it hovers. A still render of the same 3D model the running monitor animates beside the map.</figcaption>
+      alt="Simulation render: the airship holds station with hoses lowered and pump pods hanging toward the water">
+    <figcaption>In this simulation render, the reference concept vehicle hovers at a lake intake with hoses down. A still illustration of the model; no aircraft has flown.</figcaption>
   </figure>
 </section>
 '''

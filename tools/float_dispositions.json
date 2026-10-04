@@ -1295,6 +1295,20 @@
     "start": "<!-- served-energy:home:start -->",
     "end": "<!-- served-energy:home:end -->"
    }
+  },
+  {
+   "file": "sim/energy-label.js",
+   "key": "c1cc790311022c57",
+   "class": "method",
+   "context": [],
+   "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance."
+  },
+  {
+   "file": "index.html",
+   "key": "a3c076ba37155fd1",
+   "class": "flight-model",
+   "reason": "The caption names a simulation render of the concept vehicle at an intake; the page states the simulated flight's float assumption once, and the caption says no aircraft has flown.",
+   "assumption": "22491643fb810667"
   }
  ],
  "replacements": [
@@ -1363,6 +1377,12 @@
    "oldKey": "318d175b88c79886",
    "newKey": "6967046ea9fa3596",
    "reason": "Reviewed replacement: simulated motion and water/energy quantities now follow an accepted exact-input plan; capacity remains a separate assumption."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "cc0bb6069996e890",
+   "newKey": "a3c076ba37155fd1",
+   "reason": "Reviewed replacement: the intake render's caption now says it is a simulation render and that no aircraft has flown; its class and float assumption are unchanged."
   }
  ]
 }

@@ -41,7 +41,7 @@ with serve_tree(ROOT) as base:
  for page,width,stem in [('index.html?view=exercise',1440,'exercise-1440'),('index.html?day=2026-09-22',1440,'replay-1440'),('index.html?view=exercise',390,'exercise-390'),('index.html?day=2026-09-22',390,'replay-390'),('concept/index.html',1440,'concept-1440')]:
   if '--view' in sys.argv and stem!=sys.argv[sys.argv.index('--view')+1]:continue
   with tempfile.TemporaryDirectory(prefix='served-probe-',dir=os.environ['TMPDIR'],ignore_cleanup_errors=True) as temp:
-   with page_target('/snap/bin/chromium',['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader','--enable-unsafe-swiftshader'],Path(temp)/'profile') as (proc,url):
+   with page_target('chromium',['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader','--enable-unsafe-swiftshader'],Path(temp)/'profile') as (proc,url):
     print('owned browser PID',proc.pid,stem,flush=True);results.append(asyncio.run(probe(url,base,page,width,stem)))
  (OUT/'inventory.json').write_text(json.dumps(results,indent=2)+'\n')
 print('PASS browser audit; owned browser groups and server closed',flush=True)

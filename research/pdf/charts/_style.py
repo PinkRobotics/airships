@@ -111,8 +111,8 @@ def save(fig, name: str):
         import textwrap
         fig.canvas.draw()
         bottom = fig.get_tightbbox(fig.canvas.get_renderer()).y0 / fig.get_figheight()
-        note = 'These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.'
-        fig.text(.5, bottom-.04, "earlier model · under review\n" +
+        note = 'Prescribed-profile diagnostic analysis. These supplied-effort figures do not establish delivery, endurance, savings or operating cost. See the generated energy closure record for feasible plans.'
+        fig.text(.5, bottom-.04, "Diagnostic analysis\n" +
                  "\n".join(textwrap.wrap(note, max(45, int(fig.get_figwidth()*17)))),
                  ha='center', va='top', fontsize=6.5, color=MUTED)
     fig.savefig(path)

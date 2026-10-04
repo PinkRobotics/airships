@@ -1,166 +1,80 @@
-"""Visitor energy labels: rendered values, downloadable reports and negative controls.
+"""Current energy publication: accepted plans, complete unavailable states, dated history.
 
-This checks publication labels only. It neither repairs nor certifies the flight model.
-Run directly for the energy portion of labelledcheck.
+The earlier global interim notice is retired. Feasibility and rendered quantities belong
+with servedenergycheck; this gate checks the publication boundary and its negative controls.
 """
 from pathlib import Path
-import functools
-import http.server
-import json
-import os
-import re
-import subprocess
-import sys
-import tempfile
-
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'tools'))
+import json,os,subprocess,sys,tempfile
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'tools'))
 from serve import serve_tree
-NOTE = ('These energy figures come from the earlier flight model, which understates the force '
-        'needed to hold an empty hull down. Corrected figures will be higher, and some cycles '
-        'may not be flyable as drawn.')
-TAG = 'earlier model · under review'
-ENERGY = re.compile(r'\b(?:MWh|kWh|MW|kW)\b|<!--f:[^>]*(?:energy\.|eCycleMWh|kwhPerTonne|\.battMWh|\.battMW|\.genMW)|charts/(?:ledger(?:-limit)?|deficit|sensitivity)\.pdf')
-
-PROBE = r'''
-(async () => {
-  const NOTE=__NOTE__, TAG=__TAG__;
-  for(let i=0;i<160;i++) {
-    if (location.pathname.includes('notices') && document.querySelector('tbody tr')) break;
-    if (location.pathname.includes('concept') && document.querySelector('#worked .stat')) break;
-    if (location.pathname.includes('model-lab') && document.querySelector('#statebox b')) break;
-    if (window.AIRSHIPS?.app?.ready) break;
-    await new Promise(r=>setTimeout(r,250));
+OLD='earlier model · under review'
+CURRENT=('index.html','concept/index.html','model-lab/index.html','notices.html')
+PROBE=r'''
+(async()=>{
+ for(let i=0;i<200;i++){
+  if(location.pathname.includes('notices')&&document.querySelector('tbody tr'))break;
+  if(location.pathname.includes('concept')&&window.AIRSHIPS?.concept?.workedSelection)break;
+  if(location.pathname.includes('model-lab')&&document.querySelector('[data-energy-unavailable]'))break;
+  if(window.AIRSHIPS?.app?.ready)break;
+  await new Promise(r=>setTimeout(r,100));
+ }
+ document.getElementById('introOv')?.click();
+ const unavailable=()=>{
+  const errors=[];
+  for(const el of document.querySelectorAll('[data-energy-unavailable]')){
+   const text=el.textContent;
+   if(!/mission energy (?:supply and demand|bus balance)/i.test(text)||!/unavailable/i.test(text)||!/no mission energy record/i.test(text))errors.push('incomplete unavailable quantity: '+text);
   }
-  document.getElementById('introOv')?.click();
-  for(const d of document.querySelectorAll('details')) d.open=true;
-  if (window.AIRSHIPS?.app) { AIRSHIPS.app.paused=true; APP.selRow(0); }
-  document.querySelectorAll('#wrenches button')[1]?.click();
-  const mag=document.querySelector('#wmag');
-  if(mag) { mag.value='30'; mag.dispatchEvent(new Event('input',{bubbles:true})); }
-  await new Promise(r=>setTimeout(r,700));
-  const norm=s=>s.replace(/\s+/g,' ').trim();
-  function inspect() {
-    const errors=[], figures=[], used=new Set();
-    for(const block of document.querySelectorAll('[data-energy-unavailable]')) {
-      if(!block.getClientRects().length) continue;
-      const text=norm(block.textContent); used.add(block); figures.push({block,text});
-      if(!/mission energy (?:supply and demand|bus balance)/i.test(text) || !/unavailable/i.test(text) || !/no mission energy record/i.test(text))
-        errors.push('incomplete unavailable energy state: '+text.slice(0,140));
-      if(!text.includes(TAG) && !text.includes(NOTE)) errors.push('unlabelled figure: '+text.slice(0,140));
-    }
-    const body=norm(document.body.innerText);
-    if(!body.includes(NOTE)) errors.push('view has no complete energy notice');
-    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
-    while(walker.nextNode()) {
-      const node=walker.currentNode, el=node.parentElement;
-      if(!/\b(?:MWh|kWh|MW|kW)\b/.test(node.textContent) || !el
-         || el.closest('script,style,noscript,pre,code') || !el.getClientRects().length) continue;
-      const block=el.closest('.stat,.b-row,dd,.a-row,p,[id^="opsN"],#sysDials,#statebox>b,#allocbox>b') || el;
-      if(used.has(block)) continue;
-      used.add(block); const text=norm(block.textContent);
-      figures.push({block,text});
-      if(!text.includes(TAG) && !text.includes(NOTE)) errors.push('unlabelled figure: '+text.slice(0,140));
-    }
-    const canvas=document.querySelector('#shipviz');
-    if(canvas && canvas.getClientRects().length) {
-      if(document.getElementById('shipvizEnergy')?.textContent.trim()!==TAG)
-        errors.push('rotor-power canvas has no adjacent tag');
-      if(!norm(canvas.closest('#cpLeft').textContent).includes(NOTE))
-        errors.push('rotor-power view has no complete notice');
-    }
-    if(!figures.length) errors.push('no energy values or labelled unavailable states rendered; the view was not exercised');
-    return {errors,figures};
-  }
-  const baseline=inspect();
-  function removeText(needle,root) {
-    const undo=[], w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-    while(w.nextNode()) {
-      const n=w.currentNode;
-      if(n.textContent.includes(needle)) { undo.push([n,n.textContent]); n.textContent=n.textContent.split(needle).join(''); }
-    }
-    return ()=>undo.forEach(([n,s])=>n.textContent=s);
-  }
-  let restore=removeText(NOTE,document.body), missingNotice=inspect().errors;
-  restore();
-  const compact=baseline.figures.find(f=>f.text.includes(TAG)&&!f.text.includes(NOTE));
-  let missingTag=[];
-  if(compact) {restore=removeText(TAG,compact.block);missingTag=inspect().errors;restore();}
-  const bare=baseline.figures[0]; let bareNumber=[];
-  if(bare) {const saved=bare.block.innerHTML;bare.block.textContent='123 MW';bareNumber=inspect().errors;bare.block.innerHTML=saved;}
-  return JSON.stringify({bareNumberErrors:bareNumber,missingTagErrors:missingTag,
-    bareNumberCaught:bareNumber.some(e=>e.startsWith('unlabelled figure:')),errors:baseline.errors,figures:baseline.figures.map(f=>f.text.slice(0,100)),
-    missingNoticeCaught:missingNotice.includes('view has no complete energy notice'),
-    missingTagCaught:missingTag.some(e=>e.startsWith('unlabelled figure:'))});
+  return errors;
+ };
+ const errors=unavailable();
+ if(document.body.innerText.includes('earlier model · under review'))errors.push('superseded interim label is rendered');
+ const A=window.AIRSHIPS;
+ if(A?.app){
+  for(const m of A.app.missions)A.sim.auditServedPlan(m.cls,m.legKm,m.wind,m.selection,m.mode.id);
+ }else if(A?.concept){const w=A.concept.workedSelection;A.sim.auditServedPlan(A.sim.CLASSES[w.cls],w.km,null,w.selection,w.selection.mode);}
+ else if(location.pathname.includes('notices')&&!document.body.innerText.includes('not accepted mission results'))errors.push('source records lack their publication class');
+ let controls=[];
+ const fixture=document.createElement('p');fixture.dataset.energyUnavailable='true';document.body.append(fixture);
+ for(const text of ['123 MW','Mission energy bus balance unavailable','Bus balance: no mission energy record']){
+  fixture.textContent=text;const red=unavailable();controls.push({text,caught:red.length>0});
+ }
+ fixture.textContent='Mission energy bus balance unavailable: no mission energy record';
+ if(unavailable().length)errors.push('complete unavailable fixture refused');
+ fixture.remove();
+ return {errors,controls,unavailable:document.querySelectorAll('[data-energy-unavailable]').length};
 })()
-'''.replace('__NOTE__', json.dumps(NOTE)).replace('__TAG__', json.dumps(TAG))
-
-
-class Handler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *args):
-        pass
-
-
-def report_labels():
-    failures=[]; count=0
-    for path in sorted((ROOT/'research/reports').glob('0[123]-*.md')):
-        blocks=re.split(r'\n\s*\n',path.read_text())
-        for i,block in enumerate(blocks):
-            if not ENERGY.search(block): continue
-            count+=1
-            if NOTE not in block and (i+1==len(blocks) or blocks[i+1].strip()!=NOTE):
-                failures.append(f'{path.relative_to(ROOT)}: energy block lacks its adjacent notice: {block[:60]}')
-    for name in ('ledger','ledger-limit','deficit','sensitivity'):
-        path=ROOT/'research/pdf/charts'/f'{name}.pdf'
-        r=subprocess.run(['pdftotext',str(path),'-'],capture_output=True,text=True,check=True)
-        text=' '.join(r.stdout.split())
-        if NOTE not in text or TAG not in text:
-            failures.append(f'{path.relative_to(ROOT)}: standalone energy chart lacks notice or tag')
-    for path in sorted((ROOT/'research/pdf/out').glob('0[123]-*.pdf')):
-        r=subprocess.run(['pdftotext',str(path),'-'],capture_output=True,text=True,check=True)
-        if NOTE not in ' '.join(r.stdout.split()): failures.append(f'{path.relative_to(ROOT)}: PDF lacks energy notice')
-    print(f'energy labels: {count} report energy blocks, four standalone charts and three report PDFs inspected')
-    return failures
-
+'''
+def report_boundary():
+ failures=[]
+ for p in sorted((ROOT/'research/reports').glob('0[123]-*.md')):
+  text=p.read_text();preface=text.split('<!--tex:skip-->')[0]
+  if 'Energy reading, 2026-10-02' not in preface or 'superseded' not in preface or 'do not establish delivery' not in preface:
+   failures.append(str(p.relative_to(ROOT))+': historical report lacks its superseded energy boundary')
+ for name in ('ledger','ledger-limit','deficit','sensitivity'):
+  p=ROOT/'research/pdf/charts'/f'{name}.pdf'
+  text=subprocess.check_output(['pdftotext',str(p),'-'],text=True)
+  if 'Diagnostic analysis' not in text or OLD in text:failures.append(str(p.relative_to(ROOT))+': energy chart lacks its diagnostic class')
+ return failures
 
 def check_energy_labels():
-    failures=report_labels()
-    # A new HTML surface containing energy units must join the rendered checks.
-    known={'index.html','concept/index.html','model-lab/index.html','notices.html'}
-    ignored={'tests','tools','inputs','series','shots','.git'}
-    for path in ROOT.rglob('*.html'):
-        rel=path.relative_to(ROOT)
-        if any(p in ignored for p in rel.parts): continue
-        if re.search(r'\b(?:MWh|kWh|MW|kW)\b',path.read_text()) and rel.as_posix() not in known:
-            failures.append(f'{rel}: energy view is not registered for the rendered label check')
-    handler=functools.partial(Handler,directory=str(ROOT))
-    with serve_tree(ROOT, handler=handler) as base:
-        with tempfile.TemporaryDirectory(prefix='energy-labels-',dir=os.environ.get('TMPDIR')) as scratch:
-            js=Path(scratch)/'probe.js';js.write_text(PROBE)
-            for route in ('index.html?view=exercise&seed=7','concept/index.html','model-lab/index.html','notices.html'):
-                out=Path(scratch)/'view.json'
-                out.unlink(missing_ok=True)
-                r=subprocess.run([sys.executable,'tools/js_eval.py',f'{base}{route}',str(js),str(out),'5'],
-                                 cwd=ROOT,capture_output=True,text=True,timeout=300)
-                if r.returncode or not out.exists():
-                    failures.append(f'{route}: browser probe failed: '+(r.stdout+r.stderr)[-1000:]);continue
-                result=json.loads(out.read_text())
-                failures.extend(f'{route}: {e}' for e in result['errors'])
-                if not result['missingNoticeCaught']: failures.append(f'{route}: removing the notice was not detected')
-                if not result['missingTagCaught']: failures.append(f'{route}: removing one compact label was not detected')
-                if not result['bareNumberCaught']: failures.append(f'{route}: a bare unlabelled number was not detected')
-                print(f"energy control: {route}: bare number RED: {result['bareNumberErrors']}")
-                print(f"energy control: {route}: missing tag RED: {result['missingTagErrors']}")
-                print(f"energy labels: {route}: {len(result['figures'])} rendered energy blocks; "
-                      f"missing-notice control {'caught' if result['missingNoticeCaught'] else 'MISSED'}, "
-                      f"missing-tag control {'caught' if result['missingTagCaught'] else 'MISSED'}")
-                for figure in result['figures']: print('  '+figure)
-    if failures:
-        raise ValueError('\n'.join(failures).replace(str(ROOT),'<repo>').replace(str(Path.home()),'<user>'))
-    print('energy labels: PASS; notices and their negative controls hold')
-
-
+ failures=report_boundary()
+ for f in CURRENT:
+  if OLD in (ROOT/f).read_text():failures.append(f+': superseded interim label remains')
+ with serve_tree(ROOT) as base:
+  with tempfile.TemporaryDirectory(prefix='energy-labels-',dir=os.environ.get('TMPDIR'),ignore_cleanup_errors=True) as scratch:
+   js=Path(scratch)/'probe.js';js.write_text(PROBE)
+   for route in ('index.html?view=exercise','index.html?day=2026-09-22','concept/index.html','model-lab/index.html','notices.html'):
+    out=Path(scratch)/'view.json';out.unlink(missing_ok=True)
+    r=subprocess.run([sys.executable,'tools/js_eval.py',base+route,str(js),str(out),'5'],cwd=ROOT,capture_output=True,text=True,timeout=300)
+    if r.returncode or not out.exists():failures.append(route+': browser probe failed: '+(r.stdout+r.stderr)[-1000:]);continue
+    result=json.loads(out.read_text());failures.extend(route+': '+e for e in result['errors'])
+    for control in result['controls']:
+     if not control['caught']:failures.append(route+': unavailable negative control missed: '+control['text'])
+    print('energy boundary:',route,':',len(result['errors']),'errors;',len(result['controls']),'unavailable controls RED;',result['unavailable'],'labelled unavailable states')
+ if failures:raise ValueError('\n'.join(failures).replace(str(ROOT),'<repo>').replace(str(Path.home()),'<user>'))
+ print('energy boundary: PASS; accepted-plan provenance, complete unavailable labels, source comparisons and dated diagnostic history')
 if __name__=='__main__':
-    try: check_energy_labels()
-    except (ValueError,OSError,subprocess.SubprocessError) as exc:
-        print('energy labels: FAIL\n'+str(exc),file=sys.stderr);sys.exit(1)
+ try:check_energy_labels()
+ except (ValueError,OSError,subprocess.SubprocessError) as exc:print('energy boundary: FAIL\n'+str(exc),file=sys.stderr);sys.exit(1)
