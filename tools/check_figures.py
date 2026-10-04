@@ -33,6 +33,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from numeric_tokens import LEFT, RIGHT
 
 ROOT = Path(__file__).resolve().parent.parent
 FIGURES = ROOT / "research" / "figures.json"
@@ -40,7 +41,8 @@ REPORTS = sorted((ROOT / "research" / "reports").glob("*.md"))
 
 # `1,234.5 unit<!--f:key.path-->` — the number may carry thousand separators and a sign, and may
 # be followed by a unit or closing punctuation before the marker.
-CITE = re.compile(r"([-−]?[\d][\d,]*(?:\.\d+)?)\s*(?:[^\d<]{0,24}?)<!--\s*f:([A-Za-z0-9_.]+)\s*-->")
+CITE = re.compile(LEFT + r"([-−]?[\d][\d,]*(?:\.\d+)?)" + RIGHT
+                  + r"\s*(?:[^\d<]{0,24}?)<!--\s*f:([A-Za-z0-9_.]+)\s*-->")
 BARE = re.compile(r"<!--\s*f:([A-Za-z0-9_.]+)\s*-->")
 
 

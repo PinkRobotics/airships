@@ -60,7 +60,7 @@ give strength ∝ φ², and nothing floats. Hollow struts, sized so the strut's 
 the tube wall's local buckling fail together, restore φ^1.5.
 
 **Jenett et al. use hollow tubes too** — at a *fixed* R/t = 10, which puts local buckling far
-out of reach and recovers the φ² law. The optimum here is **R/t ≈ 76**, and that proportion is
+out of reach and recovers the φ² law. The optimum here is **R/t ≈ 54**, and that proportion is
 what the mass turns on. That is the contribution, and it is a narrower and fairer claim than
 the one this page made first: Jenett explicitly discusses the strength-exponent shift, cites a
 threshold for it, and bounds his claim to relative densities above 10⁻³.

@@ -27,6 +27,7 @@ import pathlib
 import re
 import sys
 import subprocess
+from numeric_tokens import numeric_pattern
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 A = ROOT / "research" / "analysis"
@@ -292,12 +293,75 @@ for cid in ("P100", "P1000", "P10000"):
     ]
 
 
-def main() -> None:
+# Short values have unrelated witnesses (15 of 36 rows on the audited tree).
+# Bind these rows to their quantity, or to the labelled table cell, as well as
+# requiring a whole numeric token. {number} is always the shared matcher.
+CONTEXTS = {
+    ("descent.md", "classes/P10000/rotorsBlindToTheBag/creditSavesPctOfCycle"):
+        r"^\| P10000 \| record \|[^|]*\| {number} \|",
+    ("descent.md", "classes/P10000/withoutTheBag/bagCostsPerTonnePct"):
+        r"^\| P10000 \| record \|[^|]*\|[^|]*\| {number} \|",
+    ("descent.md", "classes/P10000/withoutTheBag/bagBuysDeliveredT"):
+        r"^\| P10000 \| record \|[^|]*\|[^|]*\|[^|]*\| {number} \|",
+    ("vacuum-cell.md", "designPoint/tubeROverT"): r"optimum here is \*\*R/t ≈ {number}\*\*",
+    ("air-ballast.md", "classes/P100/descentWithoutNitrogen/cycleSavingPct"):
+        r"^\| P-100 \|[^|]*\|[^|]*\|[^|]*\| \*\*{number}%\*\* \|",
+    ("vacuum-cell.md", "printerChain/rows/0.6 mm x 2/enclosedL"):
+        r"^\| \*\*0\.6 mm\*\* \| \*\*2\*\* \|[^\n]*\*\*{number} L\*\* \|",
+    ("vacuum-cell.md", "gradedPressure/band/costPctOfNetLift"):
+        r"arrangement nets \*\*{number}% of net lift",
+    ("vacuum-cell.md", "gradedPressure/band/outerSurfaceDifferentialAtm"):
+        r"outer surface sees\s+\*\*{number} atm\*\*",
+    ("vacuum-cell.md", "demonstrator/massOverDisplaced"):
+        r"all-printed variant[^\n]*about {number} times",
+    ("vacuum-cell.md", "stockBuild/pipe/eulerMarginPinned"): r"Euler margins are ×{number} pinned",
+    ("vacuum-cell.md", "stockBuild/printed/nodesKg"):
+        r"article reads the manifest — \*\*{number} kg\*\*",
+    ("vacuum-cell.md", "memberDemands/crushDivisor"): r"3 × 32 = \*\*{number}\*\*",
+    ("vacuum-cell.md", "filmEdgeLoads/rows/0/failsAtAtm"): r"rim tore off at {number}\s+atmospheres",
+    ("vacuum-cell.md", "filmEdgeLoads/bulgeVolumeLostPct"): r"spoked,\s+{number}%",
+    ("vacuum-cell.md", "designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/outerEnvelopeOnlyKgPerM3"):
+        r"^\| barrier on the outer envelope only \| {number} \|",
+    ("helium.md", "breakeven/structureToTieHydrogenKgPerM3"): r"break-even structure to tie hydrogen is {number} kg/m³",
+    ("helium.md", "perShip/fillUsdM"): r"standard m³ ≈ \*\*\${number}M",
+    ("helium.md", "perShip/makeupPctPerYr"): r"make-up around {number}%/yr",
+    ("helium.md", "fleet/pctOfUsAnnualConsumption"): r"{number}% of US\s+annual consumption",
+    ("helium.md", "fleet/pctOfWorldAnnualProduction"): r"{number}% of world production",
+    ("helium.md", "heliumMarket/priceRisePct"): r"\+{number}% in two years",
+    ("mass-budget.md", "classes/P100/cases/floor/lines/1/tonnes"):
+        r"^\| Gas barrier skin \| {number} \|",
+    ("mass-budget.md", "classes/P100/cases/credible/lines/1/tonnes"):
+        r"^\| Gas barrier skin \|[^|]*\| {number} \|",
+    ("water-availability.md", "geometry/P100/hullStationDiscHa"): r"{number} ha for a P-100,",
+}
+for density in ("0.264", "0.350", "0.508", "0.600", "0.750"):
+    # The right-sized table has one density per row; its final cell is length × diameter.
+    CONTEXTS[("mass-budget.md", f"classes/P100/rightSized/floor/hullThatCloses/{density}/diaM")] = (
+        r"^\| \*?\*?" + re.escape(density) + r"[^|]*\|[^|]*\|[^|]*\|[^|]*× {number} m")
+for phi, densities in (("0.74", ("0.264", "0.508")), ("0.85", ("0.264", "0.508")),
+                       ("1.0", ("0.264", "0.508", "0.750"))):
+    column = {"0.74": 0, "0.85": 1, "1.0": 2}[phi]
+    for density in densities:
+        CONTEXTS[("mass-budget.md", f"classes/P100/rightSized/floor/cellular/phi={phi}/{density}/diaM")] = (
+            r"^\| hull at shell " + re.escape(density) + r" \|" + r"[^|]*\|" * column
+            + r"[^|]*× {number} m")
+
+
+def matches(text, want, context=None):
+    pattern = numeric_pattern(want)
+    if context is not None:
+        pattern = context.replace("{number}", pattern)
+    return re.search(pattern, text, re.M) is not None
+
+
+def check_rows(directory=A):
     cache: dict[str, dict] = {}
     bad, checked = [], 0
     for md, jname, path, fmt in MANIFEST:
-        doc = cache.setdefault(jname, load(jname))
-        text = (A / md).read_text()
+        if jname not in cache:
+            cache[jname] = json.loads((directory / f"{jname}.json").read_text())
+        doc = cache[jname]
+        text = (directory / md).read_text()
         try:
             value = dig(doc, path)
         except (KeyError, TypeError, IndexError, ValueError):
@@ -305,10 +369,14 @@ def main() -> None:
             continue
         want = num(value, fmt)
         checked += 1
-        # Word-boundary search, so 4.71 does not match inside 14.712.
-        if not re.search(rf"(?<![\d.,]){re.escape(want)}(?![\d])", text):
+        if not matches(text, want, CONTEXTS.get((md, path))):
             bad.append(f"{md}: does not contain {want!r} "
                        f"(from {jname}.json {path}) — the prose has drifted")
+    return cache, bad, checked
+
+
+def main() -> None:
+    cache, bad, checked = check_rows()
 
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
@@ -316,7 +384,7 @@ def main() -> None:
     for cid, row in budget.items():
         want = format(row["shellDensityWallKgPerM3"] * row["displacementM3"] / row["hullAreaM2"], ".2f")
         checked += 1
-        if not re.search(rf"(?<![\d.,]){re.escape(want)}(?![\d])", physics):
+        if not matches(physics, want):
             bad.append(f"docs/PHYSICS.md: missing {cid} lift per capsule area {want}")
 
     # Current capsule dimensions are bound to the configuration, not a historical table.

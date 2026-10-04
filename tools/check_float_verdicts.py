@@ -7,6 +7,7 @@ import sys
 sys.dont_write_bytecode = True
 from gen_float_verdicts import ROOT, TEMPLATES, markers, render
 from float_regions import region
+from numeric_tokens import numeric_pattern
 
 
 def check(root=ROOT):
@@ -32,7 +33,7 @@ def check(root=ROOT):
                 # result must appear at the ledger's precision before JavaScript runs.
                 plain = re.sub(r'<!--.*?-->|<[^>]*>', '', actual, flags=re.S)
                 for number in expected:
-                    if not re.search(r'(?<![\d.])' + re.escape(number) + r'(?![\d.])', plain):
+                    if not re.search(numeric_pattern(number), plain):
                         errors.append(f'{file}:{lo}: scripts-off verdict lacks ledger value {number}')
     return errors
 

@@ -14,7 +14,9 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import sys
+from numeric_tokens import numeric_pattern
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "research" / "geometry" / "nodes" / "manifest.json"
@@ -72,7 +74,7 @@ def main() -> None:
     # The analysis note quotes the measured node mass; hold it to the manifest.
     md = (ROOT / "research" / "analysis" / "vacuum-cell.md").read_text()
     quoted = f"{m['totalNodeMassKg']:.2f}"
-    if quoted not in md:
+    if not re.search(numeric_pattern(quoted), md):
         bad.append(f"vacuum-cell.md does not contain '{quoted}' kg "
                    "(measured node mass) — prose has drifted from the manifest")
     if bad:

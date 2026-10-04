@@ -118,6 +118,7 @@ labelledcheck:  ## Recompute six external comparisons and refuse stale reports (
 
 analysischeck:  ## Every figure quoted in an analysis note must match its own generated JSON
 	$(PY) tools/check_analysis.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_numeric_tokens.py'
 
 cellparity:  ## ship/model.js must agree with research/analysis/vacuum-cell.py exactly
 	$(PY) tools/check_cell_parity.py
