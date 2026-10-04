@@ -375,6 +375,1063 @@ The bag is a moving pendulum; its ideal small-angle period is shown, but swing, 
 
 Solar is credited at its day average at every instant, including night. Dry mass is a target equal to payload, not an assembled mass ledger; see [the float analysis](../float/).
 
+## Omitted vertical inertia of the served candidates
+
+Central second difference of altitude with progress step 0.0001, clamped inside each phase at its endpoints. Peak means largest absolute vertical acceleration; each coefficient also checks the force-minus-reserve gap at every sampled instant.
+
+Hull dry-mass target plus water and nitrogen aboard; added mass is coefficient times local displaced-air mass. The 0.70 coefficient rounds the source’s 0.702 prolate-spheroid value at length/diameter 2; 1.0 is a sensitivity assumption. Hull and hanging-bag dynamics are unvalidated.
+
+Additional downward rotor thrust at the same instant with aerodynamic force and other loads fixed; absolute inertial force is compared conservatively. This is a sampled diagnostic of the quasi-static omission, not an inertial closure or a changed verdict.
+
+Source: [Munk, The Aerodynamic Forces on Airship Hulls, NACA Report 184 (1924)](https://ntrs.nasa.gov/citations/19930091249), printed page 20, table; PDF page 21. The source is a potential-flow ellipsoid surrogate; it is not a measurement of these hulls.
+
+The 32 mission captures still select the same ready controls. 16 have a positive sampled force-minus-reserve gap at some instant under at least one coefficient. This requires a ruling on inertial closure.
+
+| Capture / mission | Class / km | Peak phase / progress | Peak vertical acceleration m/s² | Inertial tf: 0.70 / 1.00 | Same-instant reserve tf | Largest gap tf: 0.70 / 1.00 |
+|---|---|---|---|---|---|---|
+| exercise / 1 | P10000 / 26.853994 | WATER_RELEASE / 1.000000 | -0.755640 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 |
+| exercise / 2 | P1000 / 47.358693 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| exercise / 3 | P1000 / 13.995451 | WATER_RELEASE / 1.000000 | -0.865791 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 |
+| exercise / 4 | P1000 / 28.971950 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| exercise / 5 | P1000 / 31.769484 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| exercise / 6 | P1000 / 27.381497 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| exercise / 7 | P100 / 19.302441 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| exercise / 8 | P100 / 19.143703 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| exercise / 9 | P100 / 17.308881 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| exercise / 10 | P100 / 5.721509 | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | -39.073 / -46.558 | 126.945 | 0.000 / 0.000 |
+| exercise / 11 | P100 / 6.986891 | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | -31.908 / -38.000 | 128.045 | 0.000 / 0.000 |
+| exercise / 12 | P100 / 13.981185 | WATER_RELEASE / 1.000000 | -0.865511 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 |
+| exercise / 13 | P100 / 9.689204 | WATER_RELEASE / 1.000000 | -0.865511 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 |
+| exercise / 14 | P100 / 17.872318 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| exercise / 15 | P100 / 5.552227 | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | -40.279 / -47.998 | 126.798 | 0.000 / 0.232 |
+| exercise / 16 | P100 / 5.200784 | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | -43.034 / -51.289 | 126.491 | 0.000 / 2.363 |
+| replay / 1 | P10000 / 14.676201 | WATER_RELEASE / 1.000000 | -0.755640 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 |
+| replay / 2 | P1000 / 22.600690 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| replay / 3 | P1000 / 26.348396 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| replay / 4 | P1000 / 28.996840 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| replay / 5 | P1000 / 14.676201 | WATER_RELEASE / 1.000000 | -0.865791 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 |
+| replay / 6 | P1000 / 22.600690 | WATER_RELEASE / 1.000000 | -0.865791 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 |
+| replay / 7 | P100 / 6.870925 | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | -32.455 / -38.653 | 127.945 | 0.000 / 0.000 |
+| replay / 8 | P100 / 19.394658 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| replay / 9 | P100 / 6.870925 | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | -32.455 / -38.653 | 127.945 | 0.000 / 0.000 |
+| replay / 10 | P100 / 14.676052 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| replay / 11 | P100 / 19.394658 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| replay / 12 | P100 / 22.600530 | WATER_RELEASE / 1.000000 | -0.866089 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 |
+| replay / 13 | P100 / 6.870925 | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | -32.455 / -38.653 | 127.945 | 0.000 / 0.000 |
+| replay / 14 | P100 / 14.676052 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| replay / 15 | P100 / 19.394658 | WATER_RELEASE / 1.000000 | -0.865916 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 |
+| replay / 16 | P100 / 22.600530 | WATER_RELEASE / 1.000000 | -0.866089 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 |
+
+Every candidate is replayed in still air at every printed or locally captured distance for its class, on both bases. Infeasible cases remain diagnostics. A positive force-minus-reserve gap needs an inertial closure ruling; no quasi-static verdict is changed here.
+
+| Class / candidate | km / basis | Mode | Peak phase / progress | Peak vertical acceleration m/s² | Hull and load t | Inertial tf: 0.70 / 1.00 | Same-instant reserve tf | Largest gap tf: 0.70 / 1.00 | Quasi-static |
+|---|---|---|---|---|---|---|---|---|---|
+| P100 / 1 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.188955 | 200.000 | -43.889 / -52.310 | 126.403 | 10.111 / 15.429 | does not close |
+| P100 / 1 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.188955 | 200.000 | -43.889 / -52.310 | 141.772 | 0.000 / 0.000 | closes |
+| P100 / 1 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.188955 | 200.000 | -43.889 / -52.310 | 126.403 | 10.111 / 15.429 | does not close |
+| P100 / 1 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.188955 | 200.000 | -43.889 / -52.310 | 141.772 | 0.000 / 0.000 | closes |
+| P100 / 1 | 2.947399 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.028765 | 200.000 | -37.910 / -45.168 | 127.096 | 0.000 / 0.000 | closes |
+| P100 / 1 | 2.947399 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.028765 | 200.000 | -37.910 / -45.168 | 142.030 | 0.000 / 0.000 | closes |
+| P100 / 1 | 3.247289 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.933757 | 200.000 | -34.364 / -40.933 | 127.618 | 0.000 / 0.000 | closes |
+| P100 / 1 | 3.247289 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.933757 | 200.000 | -34.364 / -40.933 | 142.224 | 0.000 / 0.000 | closes |
+| P100 / 1 | 5.200784 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 5.200784 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 5.552227 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 5.552227 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 5.721509 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 5.721509 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.300 | does not close |
+| P100 / 1 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.146 / 0.456 | does not close |
+| P100 / 1 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.298 / 0.602 | does not close |
+| P100 / 1 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.607 / 0.852 | does not close |
+| P100 / 1 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.318 / 0.553 | does not close |
+| P100 / 1 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | does not close |
+| P100 / 1 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 1 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865916 | 135.000 | -26.185 / -32.300 | 39.241 | 0.000 / 0.000 | closes |
+| P100 / 2 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 2.947399 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 2.947399 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 3.247289 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 3.247289 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.200784 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.200784 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.552227 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.552227 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.721509 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 5.721509 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 2 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 2 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 2.947399 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 2.947399 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 3.247289 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 3.247289 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.200784 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.200784 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.552227 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.552227 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.721509 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 5.721509 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 3 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 3 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 4 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 2.947399 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 101.636 | -40.741 / -51.396 | 0.000 | 40.741 / 51.396 | does not close |
+| P100 / 4 | 2.947399 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 101.636 | -40.741 / -51.396 | 54.615 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 3.247289 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 101.638 | -37.051 / -46.742 | 0.000 | 37.051 / 46.742 | does not close |
+| P100 / 4 | 3.247289 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 101.638 | -37.051 / -46.742 | 53.510 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 126.491 | 19.084 / 24.078 | does not close |
+| P100 / 4 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 141.835 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 126.798 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 141.948 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 126.945 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 142.003 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.029288 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 127.213 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.029288 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 142.102 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.870925 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 127.945 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.870925 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 142.371 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.986891 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 128.045 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.986891 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 142.408 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.993057 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 128.050 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 6.993057 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 142.410 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | does not close |
+| P100 / 4 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | closes |
+| P100 / 4 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865530 | 101.618 | -23.228 / -29.340 | 5.860 | 17.368 / 23.481 | closes |
+| P100 / 5 | 2.550290 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 100.018 | -39.054 / -49.332 | 0.000 | 39.054 / 49.332 | does not close |
+| P100 / 5 | 2.550290 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 100.018 | -39.054 / -49.332 | 53.736 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 2.550290 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 100.018 | -39.054 / -49.332 | 0.000 | 39.054 / 49.332 | does not close |
+| P100 / 5 | 2.550290 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 100.018 | -39.054 / -49.332 | 53.736 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 2.947399 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.338640 | 200.000 | -49.584 / -59.138 | 125.031 | 33.657 / 42.516 | does not close |
+| P100 / 5 | 2.947399 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.338640 | 200.000 | -49.584 / -59.138 | 141.292 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 3.247289 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.474843 | 200.000 | -54.586 / -65.094 | 125.348 | 30.126 / 38.057 | does not close |
+| P100 / 5 | 3.247289 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.474843 | 200.000 | -54.586 / -65.094 | 141.410 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.971706 | 200.000 | -35.780 / -42.625 | 127.398 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.971706 | 200.000 | -35.780 / -42.625 | 142.168 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.910199 | 200.000 | -33.485 / -39.882 | 127.764 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.910199 | 200.000 | -33.485 / -39.882 | 142.303 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.883269 | 200.000 | -32.480 / -38.682 | 127.940 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.883269 | 200.000 | -32.480 / -38.682 | 142.368 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 5 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 5 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 6 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 0.000 / 0.000 | closes |
+| P100 / 6 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 0.000 / 0.000 | closes |
+| P100 / 6 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 0.000 / 0.000 | closes |
+| P100 / 6 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 0.000 / 0.000 | closes |
+| P100 / 6 | 2.947399 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 145.018 | -47.518 / -58.173 | 24.575 | 25.354 / 33.598 | does not close |
+| P100 / 6 | 2.947399 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 145.018 | -47.518 / -58.173 | 89.580 | 0.000 / 0.000 | closes |
+| P100 / 6 | 3.247289 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 145.020 | -43.213 / -52.904 | 22.998 | 22.325 / 29.907 | does not close |
+| P100 / 6 | 3.247289 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 145.020 | -43.213 / -52.904 | 88.607 | 0.000 / 0.000 | closes |
+| P100 / 6 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 126.491 | 0.000 / 2.363 | closes |
+| P100 / 6 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 141.835 | 0.000 / 0.000 | closes |
+| P100 / 6 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 126.798 | 0.000 / 0.000 | closes |
+| P100 / 6 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 141.948 | 0.000 / 0.000 | closes |
+| P100 / 6 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 126.945 | 0.000 / 0.000 | closes |
+| P100 / 6 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 142.003 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.029288 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 127.213 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.029288 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 142.102 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.870925 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 127.945 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.870925 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 142.371 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.986891 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 128.045 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.986891 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 142.408 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.993057 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 128.050 | 0.000 / 0.000 | closes |
+| P100 / 6 | 6.993057 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 142.410 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | does not close |
+| P100 / 6 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 6 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866031 | 145.000 | -27.071 / -33.187 | 49.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.447853 | 200.000 | -53.596 / -63.915 | 125.285 | 11.075 / 13.560 | does not close |
+| P100 / 7 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.447853 | 200.000 | -53.596 / -63.915 | 141.379 | 0.000 / 0.000 | closes |
+| P100 / 7 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.447853 | 200.000 | -53.596 / -63.915 | 125.285 | 11.075 / 13.560 | does not close |
+| P100 / 7 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.447853 | 200.000 | -53.596 / -63.915 | 141.379 | 0.000 / 0.000 | closes |
+| P100 / 7 | 2.947399 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.371686 | 200.000 | -50.710 / -60.458 | 125.809 | 0.537 / 6.473 | closes |
+| P100 / 7 | 2.947399 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.371686 | 200.000 | -50.710 / -60.458 | 141.574 | 0.000 / 0.000 | closes |
+| P100 / 7 | 3.247289 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.245010 | 200.000 | -45.981 / -54.810 | 126.203 | 0.000 / 1.145 | closes |
+| P100 / 7 | 3.247289 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.245010 | 200.000 | -45.981 / -54.810 | 141.720 | 0.000 / 0.000 | closes |
+| P100 / 7 | 5.200784 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 5.200784 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 5.552227 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 5.552227 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 5.721509 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 5.721509 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | does not close |
+| P100 / 7 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 7 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.866089 | 150.000 | -27.515 / -33.631 | 54.240 | 0.000 / 0.000 | closes |
+| P100 / 8 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 0.000 / 0.000 | closes |
+| P100 / 8 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 0.000 / 0.000 | closes |
+| P100 / 8 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 0.000 / 0.000 | closes |
+| P100 / 8 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 0.000 / 0.000 | closes |
+| P100 / 8 | 2.947399 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 130.018 | -45.175 / -55.830 | 9.575 | 35.600 / 46.255 | does not close |
+| P100 / 8 | 2.947399 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 130.018 | -45.175 / -55.830 | 77.893 | 0.000 / 0.000 | closes |
+| P100 / 8 | 3.247289 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 130.020 | -41.082 / -50.773 | 7.998 | 33.085 / 42.776 | does not close |
+| P100 / 8 | 3.247289 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 130.020 | -41.082 / -50.773 | 76.876 | 0.000 / 0.000 | closes |
+| P100 / 8 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 126.491 | 11.272 / 16.266 | does not close |
+| P100 / 8 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 141.835 | 0.000 / 0.000 | closes |
+| P100 / 8 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 126.798 | 0.000 / 0.232 | closes |
+| P100 / 8 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 141.948 | 0.000 / 0.000 | closes |
+| P100 / 8 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 126.945 | 0.000 / 0.000 | closes |
+| P100 / 8 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 142.003 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.029288 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 127.213 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.029288 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 142.102 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.870925 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 127.945 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.870925 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 142.371 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.986891 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 128.045 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.986891 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 142.408 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.993057 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 128.050 | 0.000 / 0.000 | closes |
+| P100 / 8 | 6.993057 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 142.410 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 1.470 / 1.878 | does not close |
+| P100 / 8 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 2.391 / 2.965 | does not close |
+| P100 / 8 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.241 / 4.010 | does not close |
+| P100 / 8 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.271 / 4.047 | does not close |
+| P100 / 8 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.505 / 4.538 | does not close |
+| P100 / 8 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.495 / 4.836 | does not close |
+| P100 / 8 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.513 / 4.956 | does not close |
+| P100 / 8 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.747 / 5.353 | does not close |
+| P100 / 8 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 3.441 / 4.999 | does not close |
+| P100 / 8 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 2.993 / 4.242 | does not close |
+| P100 / 8 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 2.971 / 4.151 | does not close |
+| P100 / 8 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 2.959 / 4.099 | does not close |
+| P100 / 8 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 2.502 / 3.093 | does not close |
+| P100 / 8 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | does not close |
+| P100 / 8 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 8 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865858 | 130.000 | -25.742 / -31.857 | 34.241 | 0.000 / 0.000 | closes |
+| P100 / 9 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 2.947399 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 2.947399 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 3.247289 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 3.247289 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.200784 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.200784 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.552227 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.552227 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.721509 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 5.721509 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 9 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 9 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 10 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 2.550290 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 124.238 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 2.550290 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.998905 | 200.000 | -37.073 / -44.234 | 141.001 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 2.947399 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 102.789 | -40.921 / -51.576 | 0.000 | 40.921 / 51.576 | does not close |
+| P100 / 10 | 2.947399 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.532638 | 102.789 | -40.921 / -51.576 | 55.592 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 3.247289 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 102.791 | -37.214 / -46.905 | 0.000 | 37.214 / 46.905 | does not close |
+| P100 / 10 | 3.247289 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.393561 | 102.791 | -37.214 / -46.905 | 54.491 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 126.491 | 19.168 / 24.163 | does not close |
+| P100 / 10 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.166047 | 200.000 | -43.034 / -51.289 | 141.835 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 126.798 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.092239 | 200.000 | -40.279 / -47.998 | 141.948 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 126.945 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.059923 | 200.000 | -39.073 / -46.558 | 142.003 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.029288 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 127.213 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.029288 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.005817 | 200.000 | -37.054 / -44.145 | 142.102 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.870925 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 127.945 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.870925 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.882612 | 200.000 | -32.455 / -38.653 | 142.371 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.986891 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 128.045 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.986891 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867963 | 200.000 | -31.908 / -38.000 | 142.408 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.993057 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 128.050 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 6.993057 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.867197 | 200.000 | -31.880 / -37.965 | 142.410 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | does not close |
+| P100 / 10 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | closes |
+| P100 / 10 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | closes |
+| P100 / 10 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | closes |
+| P100 / 10 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865543 | 102.771 | -23.330 / -29.443 | 7.013 | 16.317 / 22.430 | closes |
+| P100 / 11 | 2.550290 / record | balanced | RETURN_TRANSIT / 0.149500 | -1.539844 | 100.031 | -40.680 / -51.385 | 0.000 | 40.680 / 51.385 | does not close |
+| P100 / 11 | 2.550290 / favourable | balanced | RETURN_TRANSIT / 0.149500 | -1.539844 | 100.031 | -40.680 / -51.385 | 46.564 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 2.550290 / record | balanced | RETURN_TRANSIT / 0.149500 | -1.539844 | 100.031 | -40.680 / -51.385 | 0.000 | 40.680 / 51.385 | does not close |
+| P100 / 11 | 2.550290 / favourable | balanced | RETURN_TRANSIT / 0.149500 | -1.539844 | 100.031 | -40.680 / -51.385 | 46.564 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 2.947399 / record | balanced | RETURN_TRANSIT / 0.149500 | -1.333078 | 100.036 | -35.228 / -44.500 | 0.000 | 35.228 / 44.500 | does not close |
+| P100 / 11 | 2.947399 / favourable | balanced | RETURN_TRANSIT / 0.149500 | -1.333078 | 100.036 | -35.228 / -44.500 | 44.977 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 3.247289 / record | balanced | RETURN_TRANSIT / 0.436000 | 1.223655 | 100.115 | 32.846 / 41.571 | 25.317 | 31.673 / 40.010 | does not close |
+| P100 / 11 | 3.247289 / favourable | balanced | RETURN_TRANSIT / 0.436000 | 1.223655 | 100.115 | 32.846 / 41.571 | 90.119 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.200784 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -1.013954 | 200.000 | -37.357 / -44.508 | 127.171 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.200784 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -1.013954 | 200.000 | -37.357 / -44.508 | 142.085 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.552227 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.949773 | 200.000 | -34.962 / -41.647 | 127.523 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.552227 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.949773 | 200.000 | -34.962 / -41.647 | 142.214 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.721509 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.921672 | 200.000 | -33.913 / -40.394 | 127.692 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 5.721509 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.921672 | 200.000 | -33.913 / -40.394 | 142.277 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.029288 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.874623 | 200.000 | -32.157 / -38.296 | 127.999 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.029288 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.874623 | 200.000 | -32.157 / -38.296 | 142.390 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.870925 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.870925 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.986891 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.986891 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.993057 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 6.993057 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.346805 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.346805 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.480511 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.480511 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.614218 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 7.614218 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 9.689204 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 9.689204 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 10.240056 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 10.240056 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 11.726906 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 11.726906 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 11.813052 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 11.813052 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 13.981185 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 13.981185 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 14.676052 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 14.676052 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 15.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 15.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 17.308881 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 17.308881 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 17.872318 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 17.872318 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.143703 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.143703 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.302441 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.302441 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.394658 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 19.394658 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 22.600530 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 22.600530 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | does not close |
+| P100 / 11 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 11 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 11 | 60.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 11 | 60.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865511 | 100.000 | -23.085 / -29.197 | 4.242 | 18.843 / 24.955 | closes |
+| P100 / 12 | 2.550290 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 101.309 | -39.248 / -49.526 | 0.000 | 39.248 / 49.526 | does not close |
+| P100 / 12 | 2.550290 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 101.309 | -39.248 / -49.526 | 54.833 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 2.550290 / record | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 101.309 | -39.248 / -49.526 | 0.000 | 39.248 / 49.526 | does not close |
+| P100 / 12 | 2.550290 / favourable | rapid | RETURN_TRANSIT / 0.149500 | -1.478251 | 101.309 | -39.248 / -49.526 | 54.833 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 2.947399 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.338640 | 200.000 | -49.584 / -59.138 | 125.031 | 33.824 / 42.683 | does not close |
+| P100 / 12 | 2.947399 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.338640 | 200.000 | -49.584 / -59.138 | 141.292 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 3.247289 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.474843 | 200.000 | -54.586 / -65.094 | 125.348 | 30.276 / 38.207 | does not close |
+| P100 / 12 | 3.247289 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -1.474843 | 200.000 | -54.586 / -65.094 | 141.410 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.200784 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.971706 | 200.000 | -35.780 / -42.625 | 127.398 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.200784 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.971706 | 200.000 | -35.780 / -42.625 | 142.168 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.552227 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.910199 | 200.000 | -33.485 / -39.882 | 127.764 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.552227 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.910199 | 200.000 | -33.485 / -39.882 | 142.303 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.721509 / record | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.883269 | 200.000 | -32.480 / -38.682 | 127.940 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 5.721509 / favourable | rapid | OUTBOUND_TRANSIT / 0.329500 | -0.883269 | 200.000 | -32.480 / -38.682 | 142.368 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.029288 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.029288 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.870925 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.870925 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.986891 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.986891 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.993057 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 6.993057 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.346805 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.346805 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.614218 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 7.614218 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 9.689204 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 9.689204 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 10.240056 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 10.240056 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 11.726906 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 11.726906 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 11.813052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 11.813052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 13.981185 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 13.981185 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 14.676052 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 14.676052 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 17.308881 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 17.308881 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 17.872318 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 17.872318 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.143703 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.143703 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.302441 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.302441 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.394658 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 19.394658 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 22.600530 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 22.600530 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | does not close |
+| P100 / 12 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | closes |
+| P100 / 12 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | closes |
+| P100 / 12 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | closes |
+| P100 / 12 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.865526 | 101.291 | -23.199 / -29.312 | 5.533 | 17.666 / 23.779 | closes |
+| P1000 / 1 | 2.550290 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 2.550290 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 3.617929 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 3.617929 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 6.111791 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 6.111791 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 7.480511 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 7.480511 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 13.995451 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 13.995451 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 14.676201 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 14.676201 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | does not close |
+| P1000 / 1 | 15.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 15.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 21.143942 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 21.143942 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 22.600690 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 22.600690 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 26.348396 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 26.348396 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 27.381497 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 27.381497 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 28.971950 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 28.971950 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 28.996840 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 28.996840 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 31.769484 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 31.769484 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 39.863220 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 39.863220 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 47.358693 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 47.358693 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 50.662524 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 50.662524 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 51.913032 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 51.913032 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 60.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 1 | 60.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1784.409 | -300.151 / -361.294 | 141.563 | 158.588 / 219.731 | closes |
+| P1000 / 2 | 2.550290 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 2.550290 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 3.617929 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 3.617929 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 6.111791 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 6.111791 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 7.480511 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 7.480511 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 13.995451 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 13.995451 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 14.676201 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 14.676201 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 15.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 15.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 21.143942 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 21.143942 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 22.600690 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 22.600690 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 26.348396 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 26.348396 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 27.381497 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 27.381497 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 28.971950 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 28.971950 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 28.996840 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 28.996840 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 31.769484 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 31.769484 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 39.863220 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 39.863220 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 47.358693 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 47.358693 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 50.662524 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 50.662524 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 51.913032 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 51.913032 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | does not close |
+| P1000 / 2 | 60.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | closes |
+| P1000 / 2 | 60.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1729.494 | -295.305 / -356.448 | 86.648 | 208.657 / 269.800 | closes |
+| P1000 / 3 | 2.550290 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 2.550290 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 3.617929 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 3.617929 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 6.111791 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.878795 | 2000.000 | -323.126 / -384.824 | 481.305 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 6.111791 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.878795 | 2000.000 | -323.126 / -384.824 | 623.458 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 7.480511 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 7.480511 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 13.995451 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 13.995451 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 14.676201 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 14.676201 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 15.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 15.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 21.143942 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 21.143942 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 22.600690 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 22.600690 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 26.348396 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 26.348396 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 27.381497 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 27.381497 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 28.971950 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 28.971950 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 28.996840 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 28.996840 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 31.769484 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 31.769484 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 39.863220 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 39.863220 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 47.358693 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 47.358693 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 50.662524 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 50.662524 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 60.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 3 | 60.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865826 | 1833.024 | -304.454 / -365.600 | 190.178 | 114.277 / 175.422 | closes |
+| P1000 / 4 | 2.550290 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 2.550290 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 3.617929 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 3.617929 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 6.111791 / record | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.919574 | 2000.000 | -338.970 / -403.896 | 469.809 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 6.111791 / favourable | balanced | OUTBOUND_TRANSIT / 0.329500 | -0.919574 | 2000.000 | -338.970 / -403.896 | 618.251 | 117.351 / 178.506 | does not close |
+| P1000 / 4 | 7.480511 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 7.480511 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 13.995451 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 13.995451 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 14.676201 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 14.676201 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 15.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 15.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 21.143942 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 21.143942 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 22.600690 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 22.600690 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 26.348396 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 26.348396 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 27.381497 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 27.381497 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 28.971950 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 28.971950 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 28.996840 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 28.996840 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 31.769484 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 31.769484 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 39.863220 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 39.863220 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 47.358693 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 47.358693 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 50.662524 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 50.662524 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 60.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 4 | 60.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.865966 | 1829.708 | -304.211 / -365.366 | 186.860 | 117.351 / 178.506 | closes |
+| P1000 / 5 | 2.550290 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 2.550290 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 3.617929 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 3.617929 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 6.111791 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 6.111791 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | does not close |
+| P1000 / 5 | 7.480511 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 7.480511 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 13.995451 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 13.995451 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 14.676201 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 14.676201 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 15.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 15.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 21.143942 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 21.143942 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 22.600690 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 22.600690 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 26.348396 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 26.348396 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 27.381497 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 27.381497 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 28.971950 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 28.971950 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 28.996840 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 28.996840 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 31.769484 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 31.769484 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 39.863220 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 39.863220 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 47.358693 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 47.358693 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 50.662524 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 50.662524 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 51.913032 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 51.913032 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 60.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 5 | 60.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1793.667 | -300.969 / -362.111 | 150.821 | 150.147 / 211.290 | closes |
+| P1000 / 6 | 2.550290 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 2.550290 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 3.617929 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 3.617929 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 6.111791 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 6.111791 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 7.480511 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 7.480511 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 13.995451 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 13.995451 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 14.676201 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 14.676201 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 15.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 15.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 21.143942 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 21.143942 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 22.600690 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 22.600690 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 26.348396 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 26.348396 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 27.381497 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 27.381497 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 28.971950 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 28.971950 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 28.996840 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 28.996840 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 31.769484 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 31.769484 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 39.863220 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 39.863220 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 47.358693 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 47.358693 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 50.662524 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 50.662524 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | does not close |
+| P1000 / 6 | 51.913032 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | closes |
+| P1000 / 6 | 51.913032 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | closes |
+| P1000 / 6 | 60.000000 / record | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | closes |
+| P1000 / 6 | 60.000000 / favourable | endurance | WATER_RELEASE / 1.000000 | -0.865791 | 1739.303 | -296.171 / -357.313 | 96.457 | 199.713 / 260.856 | closes |
+| P10000 / 1 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 14.676201 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 14.676201 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | does not close |
+| P10000 / 1 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 26.853994 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 26.853994 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 1 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17373.800 | -2583.419 / -3117.058 | 1280.013 | 1303.406 / 1837.045 | closes |
+| P10000 / 2 | 2.550290 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 2.550290 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 7.480511 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 7.480511 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 14.676201 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 14.676201 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 15.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 15.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 26.853994 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 26.853994 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | does not close |
+| P10000 / 2 | 60.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | closes |
+| P10000 / 2 | 60.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 16990.703 | -1931.123 / -2334.631 | 896.906 | 1034.217 / 1437.725 | closes |
+| P10000 / 3 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 14.676201 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 14.676201 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 26.853994 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 26.853994 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 3 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17386.698 | -2584.413 / -3118.052 | 1292.911 | 1291.502 / 1825.141 | closes |
+| P10000 / 4 | 2.550290 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | does not close |
+| P10000 / 4 | 2.550290 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | does not close |
+| P10000 / 4 | 7.480511 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 7.480511 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 14.676201 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 14.676201 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 15.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 15.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 26.853994 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 26.853994 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 51.913032 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 51.913032 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 60.000000 / record | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 4 | 60.000000 / favourable | rapid | WATER_RELEASE / 1.000000 | -0.755640 | 17382.002 | -2584.051 / -3117.690 | 1288.215 | 1295.836 / 1829.475 | closes |
+| P10000 / 5 | 2.550290 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 2.550290 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 7.480511 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 7.480511 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 14.676201 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 14.676201 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 15.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 15.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 26.853994 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 26.853994 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | does not close |
+| P10000 / 5 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+| P10000 / 5 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+| P10000 / 5 | 51.913032 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+| P10000 / 5 | 51.913032 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+| P10000 / 5 | 60.000000 / record | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+| P10000 / 5 | 60.000000 / favourable | balanced | WATER_RELEASE / 1.000000 | -0.571373 | 17006.985 | -1932.071 / -2335.579 | 913.188 | 1018.883 / 1422.391 | closes |
+
+
 ## How this was checked
 
 Two ledger implementations used gpt-6-astra and gpt-6-sol.

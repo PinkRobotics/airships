@@ -52,7 +52,7 @@ def main():
     for path,region in FILES.items():errors.extend(unbound(path,(ROOT/path).read_text(),region))
     if errors:print('\n'.join(errors));return 1
     checks=[['node',f'research/analysis/{name}.mjs','--check'] for name in
-            ['energy-tables','energy-omissions','energy-unheld','energy-descent','energy-close','energy-model-change','energy-profile-details']]
+            ['energy-tables','energy-omissions','energy-unheld','energy-descent','energy-close','energy-model-change','energy-profile-details','energy-served-inertia']]
     checks += [['python3','tests/energy/hover-floor.py','--check'],['node','tests/energy/replay.mjs']]
     for command in checks:
         result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)

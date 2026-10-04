@@ -5,10 +5,11 @@ export const ADDED_MASS_COEFFICIENT = 0.70;
 export const ADDED_MASS_VALUES = [ADDED_MASS_COEFFICIENT, 1.0];
 export const ADDED_MASS_SOURCE = {
   assumption:'Transverse added mass of a prolate spheroid with length twice its width.',
-  citation:'Lamb coefficient as tabulated by Munk, NACA Report 184.',
+  citation:'Lamb coefficient as tabulated by Munk, NACA Report 184, printed page 20 (PDF page 21): https://ntrs.nasa.gov/citations/19930091249.',
+  primarySourceRead:true,
   localPrimarySource:false,
   localBackgroundSource:'research/papers/hochstetler-2016-heavy-lift-airships.pdf, pages 3 and 13',
-  qualification:'Local research discusses added mass and cites Munk, but no local copy of NACA Report 184 was found. The numerical coefficient remains a supplied assumption; the primary source was not fetched.'
+  qualification:'The primary table gives 0.702 at length/diameter 2; 0.70 is its rounded surrogate and 1.0 remains a sensitivity assumption. No local primary-source copy is shipped. The potential-flow ellipsoid approximation does not validate the hull or its hanging-bag dynamics.'
 };
 // Central second difference inside each phase. C1 joins have finite, one-sided acceleration.
 export function accelerationAt(g,p,id,x) {
