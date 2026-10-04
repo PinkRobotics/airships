@@ -11,10 +11,14 @@ vouch for it. This gate boots the page in a real browser, has its probe surface
 boundary, the friendliest world, an off-record 80 m hull, and a BOUND view with
 both SHIP-3 moves on — and diffs every number against the Python mirror solving
 the identical tuples. It also asserts the page actually rendered: the wall
-readouts must carry numbers, not placeholders.
+readouts must match the Python mirror at their published precision. Like
+shipcheck, this compares exact displayed strings rather than accepting a
+numeric tolerance that could hide a changed decimal place.
 """
 from __future__ import annotations
 
+from decimal import Decimal, ROUND_HALF_UP
+from functools import lru_cache
 import importlib.util
 import json
 import pathlib
@@ -27,18 +31,16 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 REL_TOL = 1e-9
 
 PROBE = """(async () => {
+  const READOUTS = __READOUTS__;
   const B = window.BAND;
   if (!B || !B.ready) return { err: 'window.BAND missing — page did not boot' };
-  const out = { dom: {}, samples: {} };
+  const out = { samples: {} };
   out.samples.record52crush = B.sample('s1050', 1.0, null, 'harsh', false, false);
   out.samples.frame1450crush = B.sample('s1450', 1.0, null, 'frame', false, false);
   out.samples.frame1450at80 = B.sample('s1450', 1.0, 80.0, 'frame', false, false);
   out.samples.declared52 = B.sample('s1050', 1.2, null, 'harsh', false, false);
   out.samples.bound52 = B.sample('s1050', 1.2, null, 'frame', true, true);
-  for (const id of ['crushT', 'sinkSL', 'sinkAlt', 'bandV', 'structT',
-                    'ceilEmpty', 'ceilLoaded', 'payAlt'])
-    out.dom[id] = document.getElementById(id).textContent;
-  out.altitudes = [];
+  out.altitudes = []; out.displays = [];
   for (const world of ['harsh', 'frame']) {
     for (const moves of [false, true]) {
       for (const altitude of [0, 2500]) {
@@ -49,14 +51,32 @@ PROBE = """(async () => {
           document.getElementById(id).checked = moves;
         document.getElementById('alt').dispatchEvent(new Event('input'));
         await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-        const text = id => document.getElementById(id).textContent;
+        const text = id => document.getElementById(id)?.textContent ?? null;
         out.altitudes.push({world, moves, altitude, band: text('bandV'),
           label: text('bandK'), sf: text('sfFloat'), sfLabel: text('sfFloatK'),
           chartLabel: text('chartNote'),
+          cfg: {sigma: 's1450', sf: 1.2, dia: 52, altitude, world, ch: moves, mem: moves, payload: 0},
+          readouts: Object.fromEntries(READOUTS.map(id => [id, text(id)])),
           shaded: [...document.querySelectorAll('#chart path')].filter(
             p => p.getAttribute('fill') === 'rgba(80,200,120,0.16)').length});
       }
     }
+  }
+  for (const cfg of [
+    {sigma: 's1050', sf: 1.2, dia: 52, altitude: 0, world: 'harsh', ch: false, mem: false, payload: 0},
+    {sigma: 's1450', sf: 1.0, dia: 80, altitude: 1000, world: 'frame', ch: true, mem: false, payload: 10},
+    {sigma: 's1450', sf: 1.05, dia: 80, altitude: 0, world: 'frame', ch: false, mem: true, payload: 20},
+    {sigma: 's1450', sf: 1.0, dia: 80, altitude: 0, world: 'frame', ch: true, mem: true, payload: 10},
+  ]) {
+    for (const [id, value] of Object.entries({dia: cfg.dia, alt: cfg.altitude,
+         world: cfg.world, sigma: cfg.sigma, sf: cfg.sf, payload: cfg.payload}))
+      document.getElementById(id).value = value;
+    document.getElementById('chordal').checked = cfg.ch;
+    document.getElementById('membrane').checked = cfg.mem;
+    document.getElementById('dia').dispatchEvent(new Event('input'));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    out.displays.push({cfg, readouts: Object.fromEntries(READOUTS.map(id =>
+      [id, document.getElementById(id)?.textContent ?? null]))});
   }
   return out;
 })()"""
@@ -71,6 +91,76 @@ SAMPLES = {
 }
 
 
+# Model results only: diaOut, altOut, sfOut and payloadOut echo input controls.
+READOUTS = ('crushT', 'sinkSL', 'sinkAlt', 'sfFloat', 'bandV', 'designV',
+            'structT', 'payAlt', 'ceilEmpty', 'ceilLoaded')
+
+
+def displayed(vc, c):
+    """Independent physics, formatted to the page's fixed display contract."""
+    gi = vc.SHIP0['giKnockdownFrame'] if c['world'] == 'frame' else None
+
+    @lru_cache(maxsize=None)
+    def mass(sf):
+        try:
+            return vc.ship0(c['sigma'], sf, c['dia'], gi, c['ch'], c['mem'])
+        except RuntimeError:
+            return None  # the section catalog has no such design
+
+    def fixed(value, digits):
+        # toLocaleString uses half-up; compare text, as shipcheck does.
+        return str(Decimal(repr(float(value))).quantize(
+            Decimal(1).scaleb(-digits), rounding=ROUND_HALF_UP))
+
+    def tonnes(value):
+        return fixed(value, 1)
+
+    def signed(value):
+        return ('+' if value >= 0 else '−') + tonnes(abs(value)) + ' t'
+
+    base = mass(1.0)
+    if base is None:
+        raise ValueError('readout probe configuration is beyond the section catalog')
+    crush, lift = base['totalT'], base['liftSLT']
+    sink = lift * vc.rho_air(c['altitude']) / vc.rho_air(0)
+    band = sink - crush
+    altitude = 'sea level' if c['altitude'] == 0 else f"{c['altitude']:,} m"
+    sf_float = 'closed'
+    if band > 0:
+        lo, hi = 1.0, 2.0
+        for _ in range(4):
+            m = mass(hi)
+            if m is None or m['totalT'] >= sink:
+                break
+            hi *= 1.5
+        for _ in range(20):
+            mid = (lo + hi) / 2
+            m = mass(mid)
+            if m is not None and m['totalT'] < sink:
+                lo = mid
+            else:
+                hi = mid
+        sf_float = fixed((lo + hi) / 2, 2)
+    want = dict(crushT=tonnes(crush) + ' t', sinkSL=tonnes(lift) + ' t',
+                sinkAlt=tonnes(sink) + ' t at ' + altitude,
+                sfFloat=sf_float, bandV=signed(band))
+    design = mass(c['sf'])
+    if design is None:
+        want.update(designV='beyond the catalog', structT='—', payAlt='—',
+                    ceilEmpty='—', ceilLoaded='—')
+    else:
+        total = design['totalT']
+        pay = sink - total
+        want.update(structT=tonnes(total) + ' t at SF ' + fixed(c['sf'], 2),
+                    payAlt=signed(pay),
+                    ceilEmpty=fixed(vc.ship_neutral_ceiling_m(total, lift), 0) + ' m',
+                    ceilLoaded=fixed(vc.ship_neutral_ceiling_m(total + c['payload'], lift), 0)
+                    + f" m with {c['payload']} t aboard",
+                    designV=(f'carries {tonnes(pay)} t at {altitude}' if pay >= 0
+                             else f'{tonnes(abs(pay))} t too heavy at {altitude}'))
+    return want
+
+
 def main() -> None:
     spec = importlib.util.spec_from_file_location(
         "vc", ROOT / "research" / "analysis" / "vacuum-cell.py")
@@ -79,7 +169,7 @@ def main() -> None:
 
     with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
-        probe.write_text(PROBE)
+        probe.write_text(PROBE.replace("__READOUTS__", json.dumps(READOUTS)))
         out = pathlib.Path(td) / "out.json"
         with serve_tree(ROOT) as base:
             subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
@@ -113,11 +203,13 @@ def main() -> None:
         for k in ("totalT", "liftSLT", "ceilM"):
             cmp(f"{name}.{k}", want[k], got[k])
 
-    for el, text in js["dom"].items():
-        checked += 1
-        if text.strip() in ("", "—", "-"):
-            bad.append(f"page: #{el} rendered '{text}' — the calculator did "
-                       "not solve on boot")
+    for reading in js['displays'] + js['altitudes']:
+        for el, want in displayed(vc, reading['cfg']).items():
+            checked += 1
+            got = reading['readouts'].get(el)
+            if got is None or got.replace(',', '') != want.replace(',', ''):
+                bad.append(f"cell/band.html #{el} at {reading['cfg']}: "
+                           f"page shows {got!r}, Python mirror computes {want!r}")
 
     for reading in js["altitudes"]:
         altitude = reading["altitude"]
