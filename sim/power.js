@@ -1,8 +1,8 @@
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=93744380';
-import { easeSm, easeTrap } from './geo.js?v=93744380';
-import { diskMW, ledger, pumpMW } from './physics.js?v=93744380';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=1cd95a83';
+import { easeSm, easeTrap } from './geo.js?v=1cd95a83';
+import { diskMW, ledger, pumpMW } from './physics.js?v=1cd95a83';
 
-import {profilePoint} from './profile.js?v=93744380';
+import {profilePoint} from './profile.js?v=1cd95a83';
 
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
@@ -320,16 +320,15 @@ export function drawAt(cls, mode, plan, id, prog, opts = {}) {
   const rotorAskMW = ask.rotorMW, forceAskMW = ask.rotorMW + ask.inducedMW;
   const busLimited = nonRotorMW + forceAskMW > busMW + 1e-9;
   if (forceAskMW > availableMW) {
-    // The full-closure optimum cannot be powered. Preserve its split while reducing both
-    // forces to a supplyable value, and explicitly report the unheld remainder.
-    let lo = 0, hi = 1;
-    for (let i = 0; i < 36; i++) {
-      const f = (lo + hi) / 2;
-      if (inducedMW(cls, rotorT * f * 9810, V, vc, rho, eta) + k * (aeroT * f) ** 2 > availableMW) hi = f; else lo = f;
+    // Minimum split power is monotone in held force. Find the largest force
+    // whose optimum fits the supply, so reallocation cannot leave a bus gap.
+    let lo = 0, hi = ask.rotorT + ask.aeroT;
+    for (let i = 0; i < 40; i++) {
+      const forceT = (lo + hi) / 2;
+      const trial = splitForce(cls, forceT, aeroLimitT, thrustLimitT, V, vc, k, rho, eta);
+      if (trial.rotorMW + trial.inducedMW > availableMW) hi = forceT; else lo = forceT;
     }
-    rotorT *= lo; aeroT *= lo;
-    // At the supplyable force, re-minimise the split; this cannot increase its power.
-    const supported = splitForce(cls, rotorT + aeroT, aeroLimitT, thrustLimitT, V, vc, k, rho, eta);
+    const supported = splitForce(cls, lo, aeroLimitT, thrustLimitT, V, vc, k, rho, eta);
     rotorT = supported.rotorT; aeroT = supported.aeroT;
   }
   draw.rotors = inducedMW(cls, rotorT * 9810, V, vc, rho, eta);

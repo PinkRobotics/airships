@@ -7,6 +7,7 @@ density, three otherwise). Exact old and new values remain in the JSON record.
 """
 import argparse
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -50,6 +51,12 @@ def main():
             continue
         for row in changes(json.loads(before.read_text()), json.loads(file.read_text())):
             rows.append(dict(file=rel.as_posix(), **row))
+    test = Path('tests/energy/unheld.mjs')
+    pattern = r'unheldT-([0-9.]+)'
+    a = re.search(pattern, (args.before/test).read_text())
+    b = re.search(pattern, (ROOT/test).read_text())
+    if a and b and a[1] != b[1]:
+        rows.append(dict(file=test.as_posix(), field='namedEndurance.worstUnheldT', old=float(a[1]), new=float(b[1]), decimals=9))
     data['parts'] = [p for p in data['parts'] if p['part'] != args.part]
     data['parts'].append(dict(part=args.part, reason=REASONS[args.part], changes=rows))
     output.write_text(json.dumps(data, indent=2)+'\n')

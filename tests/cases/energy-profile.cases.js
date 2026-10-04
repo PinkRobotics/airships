@@ -1,6 +1,6 @@
 /* A path check independent of the force allocation. */
 import {describe,it,ok,close} from '../harness.js';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt} from '../../sim/index.js?v=93744380';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt} from '../../sim/index.js?v=1cd95a83';
 export function largestVelocityStep(c,m,p) {
   let worst={dvz:0}, previous=null;
   const g=cycleGeometry(c,p);

@@ -2056,6 +2056,3757 @@
           "decimals": 3
         }
       ]
+    },
+    {
+      "part": "B",
+      "reason": "Bisect held force with the least-power split until the available bus is spent.",
+      "changes": [
+        {
+          "file": "research/analysis/descent.json",
+          "field": "classes.P100.withoutTheBag.worst.progress",
+          "old": 0.810546875,
+          "new": 0.8107067590940026,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "classes.P100.worst.progress",
+          "old": 0.810546875,
+          "new": 0.8107067590940026,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "classes.P1000.withoutTheBag.worst.progress",
+          "old": 0.7197265625,
+          "new": 0.7198047724785259,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "classes.P10000.withoutTheBag.worst.progress",
+          "old": 0.7939453125,
+          "new": 0.7938731432712015,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P100.withoutTheBag.worst.progress",
+          "old": 0.22265625,
+          "new": 0.22283235516091282,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P100.worst.progress",
+          "old": 0.22265625,
+          "new": 0.22283235516091282,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.cycle.eCycleMWh",
+          "old": 61.155,
+          "new": 61.355,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.cycle.kwhPerTonne",
+          "old": 61.16,
+          "new": 61.36,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.letdown.clippedMWh",
+          "old": 9.769,
+          "new": 9.573,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.letdown.mwh",
+          "old": 9.256,
+          "new": 9.319,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.letdown.pctOfCycle",
+          "old": 15.1,
+          "new": 15.2,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.letdown.rotorsPctOfCycle",
+          "old": 70.3,
+          "new": 70.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.letdown.rotorsWholeCycleMWh",
+          "old": 42.993,
+          "new": 43.189,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[0].owners.aeroT",
+          "old": 515.435932794177,
+          "new": 515.4922881766604,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[0].owners.rotorT",
+          "old": 500.94929847492836,
+          "new": 501.0216896634115,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[0].thrustT",
+          "old": 500.9,
+          "new": 501,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[0].unheldT",
+          "old": 133.62849264111435,
+          "new": 133.4997460701478,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[1].owners.aeroT",
+          "old": 519.328279891652,
+          "new": 519.4619393814824,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[1].owners.rotorT",
+          "old": 473.251534125828,
+          "new": 473.4220744790331,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[1].thrustT",
+          "old": 473.3,
+          "new": 473.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[1].unheldT",
+          "old": 173.562254285314,
+          "new": 173.25805444227854,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[2].owners.aeroT",
+          "old": 522.6458762521756,
+          "new": 522.8568413676767,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[2].owners.rotorT",
+          "old": 458.34095682105135,
+          "new": 458.6106784561157,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[2].thrustT",
+          "old": 458.3,
+          "new": 458.6,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[2].unheldT",
+          "old": 201.81680734290023,
+          "new": 201.33612059233485,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[3].owners.aeroT",
+          "old": 524.6642758738919,
+          "new": 524.9136262376808,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[3].owners.rotorT",
+          "old": 455.760019128674,
+          "new": 456.07782058395753,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[3].rotorsMW",
+          "old": 62,
+          "new": 62.1,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[3].thrustT",
+          "old": 455.8,
+          "new": 456.1,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[3].unheldT",
+          "old": 216.89227475594362,
+          "new": 216.32512293687125,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[4].owners.aeroT",
+          "old": 525.0831274585094,
+          "new": 525.3089070942287,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[4].owners.rotorT",
+          "old": 465.541765807528,
+          "new": 465.82959109942567,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[4].rotorsMW",
+          "old": 62.2,
+          "new": 62.3,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[4].thrustT",
+          "old": 465.5,
+          "new": 465.8,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[4].unheldT",
+          "old": 217.3781203654121,
+          "new": 216.86451543779503,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[5].owners.aeroT",
+          "old": 512.2503937783517,
+          "new": 512.4083348668078,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[5].owners.rotorT",
+          "old": 491.83438430117576,
+          "new": 492.04075171923114,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[5].thrustT",
+          "old": 491.8,
+          "new": 492,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[5].unheldT",
+          "old": 208.65544149560515,
+          "new": 208.29113298909374,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[6].owners.aeroT",
+          "old": 473.96194938619317,
+          "new": 474.112735509579,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[6].owners.rotorT",
+          "old": 517.5634261661924,
+          "new": 517.779884022115,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[6].rotorsMW",
+          "old": 68.2,
+          "new": 68.3,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[6].thrustT",
+          "old": 517.6,
+          "new": 517.8,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[6].unheldT",
+          "old": 222.19312391167034,
+          "new": 221.8258799323619,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[7].owners.aeroT",
+          "old": 427.8407499748038,
+          "new": 428.0900125309306,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[7].owners.rotorT",
+          "old": 525.5139962775052,
+          "new": 525.9295707228814,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[7].rotorsMW",
+          "old": 72.5,
+          "new": 72.6,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[7].thrustT",
+          "old": 525.5,
+          "new": 525.9,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[7].unheldT",
+          "old": 261.63789212073857,
+          "new": 260.9730551192356,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[8].owners.aeroT",
+          "old": 367.84034993455055,
+          "new": 371.3732260201008,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[8].owners.rotorT",
+          "old": 515.1464371206126,
+          "new": 522.5236896522924,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[8].rotorsMW",
+          "old": 76.3,
+          "new": 78.3,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[8].thrustT",
+          "old": 515.1,
+          "new": 522.5,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[8].unheldT",
+          "old": 332.7935886238836,
+          "new": 321.88346000665354,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[9].owners.rotorT",
+          "old": 564.9787080701184,
+          "new": 582.6968177129831,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[9].rotorsMW",
+          "old": 99.6,
+          "new": 104.9,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[9].thrustT",
+          "old": 565,
+          "new": 582.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[9].unheldT",
+          "old": 425.29432467389415,
+          "new": 407.5762132122378,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[10].owners.rotorT",
+          "old": 589.9226359926515,
+          "new": 603.0737102967668,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[10].rotorsMW",
+          "old": 117,
+          "new": 121.2,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[10].thrustT",
+          "old": 589.9,
+          "new": 603.1,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[10].unheldT",
+          "old": 516.2693375836949,
+          "new": 503.11826327957965,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[11].owners.rotorT",
+          "old": 669.8137404947648,
+          "new": 677.1389117074,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[11].rotorsMW",
+          "old": 143,
+          "new": 145.5,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[11].thrustT",
+          "old": 669.8,
+          "new": 677.1,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[11].unheldT",
+          "old": 436.47336260504346,
+          "new": 429.1481906404681,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[12].owners.rotorT",
+          "old": 671.7213848860824,
+          "new": 676.6669173098405,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[12].rotorsMW",
+          "old": 148.7,
+          "new": 150.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[12].thrustT",
+          "old": 671.7,
+          "new": 676.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[12].unheldT",
+          "old": 484.17319574833164,
+          "new": 479.22766332457354,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[13].owners.rotorT",
+          "old": 668.8073733754309,
+          "new": 669.6578435389738,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[13].rotorsMW",
+          "old": 153.4,
+          "new": 153.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[13].thrustT",
+          "old": 668.8,
+          "new": 669.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.profile[13].unheldT",
+          "old": 539.9968822213484,
+          "new": 539.1464120578055,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.rotorsBlindToTheBag.eCycleMWh",
+          "old": 63.879,
+          "new": 64.079,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.rotorsBlindToTheBag.letdownMWh",
+          "old": 10.821,
+          "new": 10.884,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.withoutTheBag.eCycleMWh",
+          "old": 63.879,
+          "new": 64.079,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.withoutTheBag.kwhPerTonne",
+          "old": 63.88,
+          "new": 64.08,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.withoutTheBag.letdownMWh",
+          "old": 10.88,
+          "new": 10.943,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P1000.withoutTheBag.worst.progress",
+          "old": 0.7197265625,
+          "new": 0.7198047724785259,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.cycle.eCycleMWh",
+          "old": 757.615,
+          "new": 766.285,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.cycle.kwhPerTonne",
+          "old": 75.76,
+          "new": 76.63,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.letdown.clippedMWh",
+          "old": 41.887,
+          "new": 41.722,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.letdown.mwh",
+          "old": 116.494,
+          "new": 116.531,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.letdown.pctOfCycle",
+          "old": 15.4,
+          "new": 15.2,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.letdown.rotorsPctOfCycle",
+          "old": 83.2,
+          "new": 82.3,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.letdown.rotorsWholeCycleMWh",
+          "old": 630.225,
+          "new": 630.39,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[0].owners.aeroT",
+          "old": 3891.2242734904403,
+          "new": 4033.216746475227,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[0].unheldT",
+          "old": 499.3513204526007,
+          "new": 357.35883289206504,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[1].owners.aeroT",
+          "old": 3893.268325223715,
+          "new": 4032.311049324306,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[1].unheldT",
+          "old": 489.176448037264,
+          "new": 350.13370966371986,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[2].owners.aeroT",
+          "old": 3895.662921735095,
+          "new": 4031.1989400178454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[2].unheldT",
+          "old": 477.0730729310799,
+          "new": 341.5370407353457,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[3].owners.aeroT",
+          "old": 3898.164975996341,
+          "new": 4029.997218497325,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[3].unheldT",
+          "old": 464.2801396497107,
+          "new": 332.44788361594146,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[4].owners.aeroT",
+          "old": 3900.5512724405908,
+          "new": 4028.822654485387,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[4].unheldT",
+          "old": 451.9712966408242,
+          "new": 323.6999014287703,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[5].owners.aeroT",
+          "old": 3693.3298589338247,
+          "new": 3874.646716517021,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[5].unheldT",
+          "old": 650.6870463344039,
+          "new": 469.370170138749,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[6].owners.aeroT",
+          "old": 3040.0001383313806,
+          "new": 3379.677395315507,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[6].unheldT",
+          "old": 1298.2919118131013,
+          "new": 958.6146199605737,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[7].owners.aeroT",
+          "old": 2527.132309875083,
+          "new": 2779.862139622596,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[7].owners.rotorT",
+          "old": 7326.286484975179,
+          "new": 7326.286510918291,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[7].unheldT",
+          "old": 1807.8447189961971,
+          "new": 1555.1148633055727,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[8].owners.aeroT",
+          "old": 2021.5967097094422,
+          "new": 2059.6674251234917,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[8].unheldT",
+          "old": 2311.688951187998,
+          "new": 2273.6182318659303,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[9].owners.rotorT",
+          "old": 7136.098977230053,
+          "new": 7139.978401357334,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[9].rotorsMW",
+          "old": 1148.3,
+          "new": 1149.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[9].thrustT",
+          "old": 7136.1,
+          "new": 7140,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[9].unheldT",
+          "old": 3100.3197968386576,
+          "new": 3096.4403723131472,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[10].owners.rotorT",
+          "old": 6999.698021607033,
+          "new": 7011.7207498485795,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[10].rotorsMW",
+          "old": 1267,
+          "new": 1270.5,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[10].thrustT",
+          "old": 6999.7,
+          "new": 7011.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[10].unheldT",
+          "old": 3967.9284082044833,
+          "new": 3955.9056787287846,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[11].owners.rotorT",
+          "old": 7254.695648615299,
+          "new": 7257.334282865352,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[11].rotorsMW",
+          "old": 1343.1,
+          "new": 1343.9,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[11].thrustT",
+          "old": 7254.7,
+          "new": 7257.3,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[11].unheldT",
+          "old": 3713.5310962583844,
+          "new": 3710.8924617374723,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[12].owners.rotorT",
+          "old": 7111.484802729318,
+          "new": 7117.669472819864,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[12].rotorsMW",
+          "old": 1378.7,
+          "new": 1380.6,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[12].thrustT",
+          "old": 7111.5,
+          "new": 7117.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[12].unheldT",
+          "old": 4168.637318096994,
+          "new": 4162.452647371583,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[13].owners.rotorT",
+          "old": 6900.409047124265,
+          "new": 6902.707147399701,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[13].rotorsMW",
+          "old": 1403.9,
+          "new": 1404.6,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[13].thrustT",
+          "old": 6900.4,
+          "new": 6902.7,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.profile[13].unheldT",
+          "old": 4712.422281802738,
+          "new": 4710.124181527302,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.rotorsBlindToTheBag.creditSavesPctOfCycle",
+          "old": 6.5,
+          "new": 6.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.rotorsBlindToTheBag.eCycleMWh",
+          "old": 810.386,
+          "new": 819.057,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.rotorsBlindToTheBag.letdownMWh",
+          "old": 146.52,
+          "new": 146.557,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.bagCostsCyclePct",
+          "old": -6.5,
+          "new": -6.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.bagCostsPerTonnePct",
+          "old": -6.5,
+          "new": -6.4,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.eCycleMWh",
+          "old": 810.386,
+          "new": 819.057,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.kwhPerTonne",
+          "old": 81.04,
+          "new": 81.91,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.letdownMWh",
+          "old": 147.116,
+          "new": 147.153,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/descent.json",
+          "field": "favourableClasses.P10000.withoutTheBag.worst.progress",
+          "old": 0.7939453125,
+          "new": 0.7938731432712015,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[4].completed.lastInfeasible",
+          "old": 871.8456166992187,
+          "new": 871.8453198242189,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[4].completed.threshold",
+          "old": 871.8456171874999,
+          "new": 871.8453203125001,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[5].completed.lastInfeasible",
+          "old": 871.8456166992187,
+          "new": 871.8453198242189,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[5].completed.threshold",
+          "old": 871.8456171874999,
+          "new": 871.8453203125001,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.ballastT",
+          "old": 7471.994,
+          "new": 7471.996,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.deliveredT",
+          "old": 2528.0060000000003,
+          "new": 2528.004,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.lastInfeasible",
+          "old": 7471.993738769531,
+          "new": 7471.99541015625,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.peakRotorMW",
+          "old": 1288.9277029557113,
+          "new": 1288.9271220576034,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.printed",
+          "old": 7471.994,
+          "new": 7471.996,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.threshold",
+          "old": 7471.993739257812,
+          "new": 7471.995411132812,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].completed.worst.unheldT",
+          "old": 0.0005079938400740502,
+          "new": 0.0027384822205931414,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[8].extraRetainedT",
+          "old": 398.1799999999994,
+          "new": 398.1819999999998,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.ballastT",
+          "old": 7471.994,
+          "new": 7471.996,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.deliveredT",
+          "old": 2528.0060000000003,
+          "new": 2528.004,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.lastInfeasible",
+          "old": 7471.993738769531,
+          "new": 7471.99541015625,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.peakRotorMW",
+          "old": 1288.9277029557113,
+          "new": 1288.9271220576034,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.printed",
+          "old": 7471.994,
+          "new": 7471.996,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.threshold",
+          "old": 7471.993739257812,
+          "new": 7471.995411132812,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].completed.worst.unheldT",
+          "old": 0.0005079938400740502,
+          "new": 0.0027384822205931414,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[9].extraRetainedT",
+          "old": 398.1799999999994,
+          "new": 398.1819999999998,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.ballastT",
+          "old": 7357.17,
+          "new": 7357.16,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.cycleMWh",
+          "old": 445.95573174414466,
+          "new": 445.9567869024749,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.deliveredT",
+          "old": 2642.83,
+          "new": 2642.84,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.lastInfeasible",
+          "old": 7357.169213867188,
+          "new": 7357.159888671875,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.peakRotorMW",
+          "old": 1309.4510228302352,
+          "new": 1309.4539385391663,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.printed",
+          "old": 7357.17,
+          "new": 7357.16,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.threshold",
+          "old": 7357.16921484375,
+          "new": 7357.159889160156,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].completed.worst.unheldT",
+          "old": 0.004469109469027899,
+          "new": 3.189995732100215e-05,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[10].extraRetainedT",
+          "old": 396.65200000000004,
+          "new": 396.6419999999998,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.ballastT",
+          "old": 7357.17,
+          "new": 7357.16,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.cycleMWh",
+          "old": 395.1647858949446,
+          "new": 395.16568721544974,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.deliveredT",
+          "old": 2642.83,
+          "new": 2642.84,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.lastInfeasible",
+          "old": 7357.169213867188,
+          "new": 7357.159888671875,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.peakRotorMW",
+          "old": 1309.4510228302352,
+          "new": 1309.4539385391663,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.printed",
+          "old": 7357.17,
+          "new": 7357.16,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.threshold",
+          "old": 7357.16921484375,
+          "new": 7357.159889160156,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].completed.worst.unheldT",
+          "old": 0.004469109469027899,
+          "new": 3.189995732100215e-05,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-bag-comparison.json",
+          "field": "rows[11].extraRetainedT",
+          "old": 396.65200000000004,
+          "new": 396.6419999999998,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[1].requirements.dragSensitivity[0].worst.progress",
+          "old": 0.7023180970050413,
+          "new": 0.7023196705233474,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].current.cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].current.hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].current.kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.baseline.cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.baseline.hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.baseline.kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[0].cycleMWh",
+          "old": 61.516890154192524,
+          "new": 61.758101156186825,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[0].hoursOnBattery",
+          "old": 1.1637307340924532,
+          "new": 1.1591301866317771,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[0].kwhPerTonne",
+          "old": 61.516890154192524,
+          "new": 61.758101156186825,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[1].cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[1].hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[1].kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[2].cycleMWh",
+          "old": 61.00853215281525,
+          "new": 61.171227540172765,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[2].hoursOnBattery",
+          "old": 1.1735470917090818,
+          "new": 1.1703874843758455,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.clSensitivity[2].kwhPerTonne",
+          "old": 61.00853215281525,
+          "new": 61.171227540172765,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[0].cycleMWh",
+          "old": 60.961590029690015,
+          "new": 61.161650322442654,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[0].hoursOnBattery",
+          "old": 1.1744618995210598,
+          "new": 1.1705730062902604,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[0].kwhPerTonne",
+          "old": 60.961590029690015,
+          "new": 61.161650322442654,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[1].cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[1].hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[1].kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[2].cycleMWh",
+          "old": 61.465812468272,
+          "new": 61.66615033387454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[2].hoursOnBattery",
+          "old": 1.1647096132011687,
+          "new": 1.160879641369753,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[5].requirements.dragSensitivity[2].kwhPerTonne",
+          "old": 61.465812468272,
+          "new": 61.66615033387454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].current.cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].current.hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].current.kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.baseline.cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.baseline.hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.baseline.kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[0].cycleMWh",
+          "old": 142.52820449150414,
+          "new": 143.06478329434168,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[0].hoursOnBattery",
+          "old": 1.324815127208089,
+          "new": 1.3197774186714402,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[0].kwhPerTonne",
+          "old": 142.52820449150414,
+          "new": 143.06478329434168,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[1].cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[1].hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[1].kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[2].cycleMWh",
+          "old": 142.0271187444262,
+          "new": 142.24117740030334,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[2].hoursOnBattery",
+          "old": 1.3295544578879486,
+          "new": 1.3275257224165278,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.clSensitivity[2].kwhPerTonne",
+          "old": 142.0271187444262,
+          "new": 142.24117740030334,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[0].cycleMWh",
+          "old": 142.07315068346358,
+          "new": 142.40412310392082,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[0].hoursOnBattery",
+          "old": 1.3291176681922405,
+          "new": 1.3259855540304357,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[0].kwhPerTonne",
+          "old": 142.07315068346358,
+          "new": 142.40412310392082,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[1].cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[1].hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[1].kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[2].cycleMWh",
+          "old": 142.23231443027495,
+          "new": 142.56228559541273,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[2].hoursOnBattery",
+          "old": 1.3276095981174225,
+          "new": 1.3244940108098961,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[7].requirements.dragSensitivity[2].kwhPerTonne",
+          "old": 142.23231443027495,
+          "new": 142.56228559541273,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].current.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].current.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].current.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.baseline.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.baseline.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.baseline.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[0].cycleMWh",
+          "old": 753.3499071298946,
+          "new": 753.4080174854405,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[0].kwhPerTonne",
+          "old": 75.33499071298947,
+          "new": 75.34080174854405,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[1].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[1].hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[1].kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[2].cycleMWh",
+          "old": 754.9118327912072,
+          "new": 765.203187861387,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[2].hoursOnBattery",
+          "old": 2.0205495957274704,
+          "new": 1.9932286146765494,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.clSensitivity[2].kwhPerTonne",
+          "old": 75.49118327912072,
+          "new": 76.5203187861387,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[0].cycleMWh",
+          "old": 756.4407276454018,
+          "new": 765.2715996055016,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[0].hoursOnBattery",
+          "old": 2.0164434884788203,
+          "new": 1.9930494703931958,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[0].kwhPerTonne",
+          "old": 75.64407276454018,
+          "new": 76.52715996055016,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[1].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[1].hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[1].kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[2].cycleMWh",
+          "old": 758.9809221960703,
+          "new": 767.4903833511609,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[2].hoursOnBattery",
+          "old": 2.009658137440009,
+          "new": 1.987256729140959,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[9].requirements.dragSensitivity[2].kwhPerTonne",
+          "old": 75.89809221960704,
+          "new": 76.7490383351161,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].current.cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].current.hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].current.kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.baseline.cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.baseline.hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.baseline.kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[0].cycleMWh",
+          "old": 1355.9892778789274,
+          "new": 1356.3633178589928,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[0].hoursOnBattery",
+          "old": 2.3347171739155823,
+          "new": 2.3340692789618274,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[0].kwhPerTonne",
+          "old": 135.59892778789273,
+          "new": 135.63633178589927,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[1].cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[1].hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[1].kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[2].cycleMWh",
+          "old": 1369.0684424944986,
+          "new": 1385.070263830355,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[2].hoursOnBattery",
+          "old": 2.312273597892269,
+          "new": 2.285394886718628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.clSensitivity[2].kwhPerTonne",
+          "old": 136.90684424944985,
+          "new": 138.5070263830355,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[0].cycleMWh",
+          "old": 1372.8672283538892,
+          "new": 1385.794892083564,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[0].hoursOnBattery",
+          "old": 2.3058355986003436,
+          "new": 2.284192490046373,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[0].kwhPerTonne",
+          "old": 137.28672283538893,
+          "new": 138.57948920835642,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[1].cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[1].hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[1].kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[2].cycleMWh",
+          "old": 1373.946918924725,
+          "new": 1386.8309612638511,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[2].hoursOnBattery",
+          "old": 2.3040123285474503,
+          "new": 2.2824755065058002,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-closure.json",
+          "field": "rows[11].requirements.dragSensitivity[2].kwhPerTonne",
+          "old": 137.39469189247248,
+          "new": 138.6830961263851,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[1].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[1].hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[1].kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[3].cycleMWh",
+          "old": 1168.5807066233137,
+          "new": 1178.8886565864784,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[3].hoursOnBattery",
+          "old": 2.2409949726257006,
+          "new": 2.2212826735038522,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "readmeExamples[3].kwhPerTonne",
+          "old": 116.85807066233137,
+          "new": 117.88886565864784,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].asDrawn.cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].asDrawn.hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].asDrawn.kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].channels.prop",
+          "old": 13.790208941867409,
+          "new": 13.79454992754305,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].channels.rotors",
+          "old": 42.99346559062445,
+          "new": 43.18934414370688,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].letdownMWh",
+          "old": 9.256303446292652,
+          "new": 9.318956866097098,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].phaseEnergy.BUOYANCY_ESCAPE",
+          "old": 4.995387058923629,
+          "new": 5.041999999995293,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].phaseEnergy.RETURN_TRANSIT",
+          "old": 24.215952906125857,
+          "new": 24.26631016040928,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].phaseEnergy.SOURCE_APPROACH",
+          "old": 6.184473589394801,
+          "new": 6.200573441318246,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[5].phaseEnergy.WATER_RELEASE",
+          "old": 10.638675511150497,
+          "new": 10.725825002593051,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].asDrawn.cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].asDrawn.hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].asDrawn.kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].channels.prop",
+          "old": 48.9607797137631,
+          "new": 48.97015520789842,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].channels.rotors",
+          "old": 79.90513251982836,
+          "new": 80.22637633089062,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].letdownMWh",
+          "old": 19.56924676639496,
+          "new": 19.757279030042653,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].phaseEnergy.BUOYANCY_ESCAPE",
+          "old": 4.995707050999009,
+          "new": 5.041999999995523,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].phaseEnergy.RETURN_TRANSIT",
+          "old": 96.83874712237035,
+          "new": 97.02563365807066,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].phaseEnergy.SOURCE_APPROACH",
+          "old": 6.615188862337146,
+          "new": 6.625479191301169,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[7].phaseEnergy.WATER_RELEASE",
+          "old": 10.638675511150497,
+          "new": 10.725825002593051,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].asDrawn.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].asDrawn.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].asDrawn.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].channels.prop",
+          "old": 105.6368552726312,
+          "new": 114.14200488222693,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].channels.rotors",
+          "old": 630.2251185139843,
+          "new": 630.3903368421526,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].letdownMWh",
+          "old": 116.49380261473293,
+          "new": 116.5309476078372,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].phaseEnergy.BUOYANCY_ESCAPE",
+          "old": 46.08702830075858,
+          "new": 46.786720079893854,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].phaseEnergy.RETURN_TRANSIT",
+          "old": 182.94299849300825,
+          "new": 190.7782805427625,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].phaseEnergy.SOURCE_APPROACH",
+          "old": 87.63566040525572,
+          "new": 87.6605690195031,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[9].phaseEnergy.WATER_RELEASE",
+          "old": 200.67462764249768,
+          "new": 200.78511313555913,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].asDrawn.cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].asDrawn.hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].asDrawn.kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].channels.prop",
+          "old": 370.2048710460372,
+          "new": 382.91814231691495,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].channels.rotors",
+          "old": 955.9404376870106,
+          "new": 956.1330907123802,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].letdownMWh",
+          "old": 216.39843172986744,
+          "new": 216.46293851992115,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].phaseEnergy.BUOYANCY_ESCAPE",
+          "old": 46.19868530689128,
+          "new": 46.78612455001424,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].phaseEnergy.RETURN_TRANSIT",
+          "old": 737.1297038501319,
+          "new": 749.3219720078398,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].phaseEnergy.SOURCE_APPROACH",
+          "old": 88.67692936841574,
+          "new": 88.69266076937478,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "records[11].phaseEnergy.WATER_RELEASE",
+          "old": 200.67462764249768,
+          "new": 200.78511313555913,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[18].rows[0].energyPct",
+          "old": 1.9978780629485104,
+          "new": 4.925841146264953,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[18].rows[1].energyPct",
+          "old": -6.130002088828846,
+          "new": -7.118433124300139,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[19].rows[0].energyPct",
+          "old": -0.16719117553121166,
+          "new": -0.24349191151959992,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[19].rows[1].energyPct",
+          "old": 0.17164615593801003,
+          "new": 0.24344561547968713,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[21].rows[0].energyPct",
+          "old": 0.18167596884075543,
+          "new": 0.17967168837815795,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[21].rows[1].energyPct",
+          "old": -0.12164290549503409,
+          "new": -0.12030077949541917,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[22].rows[0].energyPct",
+          "old": -0.26458746103426023,
+          "new": -0.07565501253892215,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[22].rows[1].energyPct",
+          "old": 0.2922515549849125,
+          "new": 0.10297818421363125,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[23].rows[0].energyPct",
+          "old": -40.81479435985435,
+          "new": -41.470795892668534,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[23].rows[1].energyPct",
+          "old": 20.986704858523318,
+          "new": 25.441448418082157,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[24].rows[0].energyPct",
+          "old": 0.02150279265611399,
+          "new": 0.021339065964998127,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[24].rows[1].energyPct",
+          "old": -0.02150275823120662,
+          "new": -0.02133906596963886,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[25].rows[0].energyPct",
+          "old": -0.0018260037336070845,
+          "new": -0.006306549870271905,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[25].rows[1].energyPct",
+          "old": 0.0012196139904219194,
+          "new": 0.004206580440802021,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[26].rows[0].energyPct",
+          "old": -0.06427388054883743,
+          "new": -0.05805906400040417,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[26].rows[1].energyPct",
+          "old": 0.06429631000490765,
+          "new": 0.05805906397979843,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[27].rows[0].energyPct",
+          "old": 5.998852472446359,
+          "new": 6.480343969812341,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[27].rows[1].energyPct",
+          "old": -3.637903372938933,
+          "new": -4.148747428839094,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[28].rows[0].energyPct",
+          "old": 3.247421586051402,
+          "new": 3.210677641605497,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[28].rows[1].energyPct",
+          "old": -1.2655448577758688,
+          "new": -1.2512254635403397,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[29].rows[0].energyPct",
+          "old": 0.6122978829635972,
+          "new": 0.6102378999460978,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[29].rows[1].energyPct",
+          "old": -0.7266731309898411,
+          "new": -0.7234055784294924,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[30].rows[0].energyPct",
+          "old": 14.246667750933707,
+          "new": 14.09511802636052,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[30].rows[1].energyPct",
+          "old": -9.592152139502176,
+          "new": -9.4901096201362,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[31].rows[0].energyPct",
+          "old": -45.37911143045367,
+          "new": -45.98863857289538,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[31].rows[1].energyPct",
+          "old": 22.602441751262404,
+          "new": 26.837147458378887,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[32].rows[0].energyPct",
+          "old": 1.9110959942455263,
+          "new": 2.4712603200688354,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[32].rows[1].energyPct",
+          "old": -2.177527150903902,
+          "new": -2.9023809710343462,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[33].rows[0].energyPct",
+          "old": -18.068063081396403,
+          "new": -15.868011580892006,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[33].rows[1].energyPct",
+          "old": 12.281165981295805,
+          "new": 11.089520159787547,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[34].rows[0].energyPct",
+          "old": 0.7486021482969507,
+          "new": 0.8475438020369763,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[34].rows[1].energyPct",
+          "old": -0.4804890853057575,
+          "new": -0.5488311732334328,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[35].rows[0].energyPct",
+          "old": -0.06427388054883743,
+          "new": -0.05805906400040417,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-documents.json",
+          "field": "sensitivity[35].rows[1].energyPct",
+          "old": 0.06429631000490765,
+          "new": 0.05805906397979843,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].best.sensitivity[3].worst.progress",
+          "old": 0.6690249545647382,
+          "new": 0.6690242889814441,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.kwhPerTonne",
+          "old": 38.684449073022826,
+          "new": 38.68457969655241,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.worst.progress",
+          "old": 0.20466690322600867,
+          "new": 0.20466203198577276,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.worst.unheldT",
+          "old": 8.72719397935478,
+          "new": 8.685672640827306,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].cycleMWh",
+          "old": 1.4373934341794994,
+          "new": 1.4379645326161543,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].worst.progress",
+          "old": 0.2038095607071887,
+          "new": 0.20381952408650644,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].worst.unheldT",
+          "old": 48.26542840520733,
+          "new": 46.90080157333941,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[2].asDrawn.worst.progress",
+          "old": 0.8041404617792346,
+          "new": 0.8041408935974647,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[3].asDrawn.worst.progress",
+          "old": 0.6849704306342339,
+          "new": 0.6849709388253999,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[4].best.sensitivity[2].worst.progress",
+          "old": 0.6722225212439871,
+          "new": 0.6722238157699023,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[4].fullDeliveryBest.sensitivity[3].worst.progress",
+          "old": 0.674763685955382,
+          "new": 0.6747632838634032,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[5].best.sensitivity[2].worst.progress",
+          "old": 0.6725994339498766,
+          "new": 0.6726004265434856,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[5].best.sensitivity[3].cycleMWh",
+          "old": 10.836324873926198,
+          "new": 10.836541558727818,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[5].fullDeliveryBest.sensitivity[3].cycleMWh",
+          "old": 11.816122219401933,
+          "new": 11.816547297854207,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[5].fullDeliveryBest.sensitivity[3].worst.progress",
+          "old": 0.674763685955382,
+          "new": 0.6747632838634032,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[7].asDrawn.cycleMWh",
+          "old": 38.93054325870745,
+          "new": 39.090235235511386,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[7].asDrawn.hoursOnBattery",
+          "old": 1.0674375035301091,
+          "new": 1.0630281195219384,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[7].asDrawn.kwhPerTonne",
+          "old": 38.93054325870745,
+          "new": 39.090235235511386,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[8].best.sensitivity[2].worst.progress",
+          "old": 0.695419870990283,
+          "new": 0.695418901969646,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[9].asDrawn.cycleMWh",
+          "old": 47.60114196108519,
+          "new": 47.77584451109937,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[9].asDrawn.hoursOnBattery",
+          "old": 1.0926950333080057,
+          "new": 1.0886536872302854,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[9].asDrawn.kwhPerTonne",
+          "old": 47.60114196108519,
+          "new": 47.77584451109937,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[10].best.sensitivity[2].worst.progress",
+          "old": 0.7071939223696392,
+          "new": 0.7071934105544931,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[11].asDrawn.cycleMWh",
+          "old": 127.61490931277889,
+          "new": 127.92215532782878,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[11].asDrawn.hoursOnBattery",
+          "old": 1.3145719165476535,
+          "new": 1.3113710761660353,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[11].asDrawn.kwhPerTonne",
+          "old": 127.61490931277889,
+          "new": 127.92215532782878,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[11].best.sensitivity[2].worst.progress",
+          "old": 0.7071939223696392,
+          "new": 0.7071934105544931,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[13].asDrawn.cycleMWh",
+          "old": 592.9716515537486,
+          "new": 595.3154252783111,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[13].asDrawn.hoursOnBattery",
+          "old": 1.9556713905417102,
+          "new": 1.9479313617336713,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[13].asDrawn.kwhPerTonne",
+          "old": 59.29716515537486,
+          "new": 59.5315425278311,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[15].asDrawn.cycleMWh",
+          "old": 652.034357620508,
+          "new": 658.6468696376297,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[15].asDrawn.hoursOnBattery",
+          "old": 1.9190892171313305,
+          "new": 1.8997236187641906,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[15].asDrawn.kwhPerTonne",
+          "old": 65.20343576205079,
+          "new": 65.86468696376298,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[17].asDrawn.cycleMWh",
+          "old": 1263.0218199776282,
+          "new": 1274.550143594551,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[17].asDrawn.hoursOnBattery",
+          "old": 2.2729530901243424,
+          "new": 2.252269176865458,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[17].asDrawn.kwhPerTonne",
+          "old": 126.3021819977628,
+          "new": 127.45501435945509,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[5].changeMWh",
+          "old": 43.0058116789068,
+          "new": 43.206031217664815,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[5].currentMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[7].changeMWh",
+          "old": 98.96005720888661,
+          "new": 99.29067651408411,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[7].currentMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[9].changeMWh",
+          "old": 581.6146346949237,
+          "new": 590.2850026326854,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[9].currentMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[11].changeMWh",
+          "old": 1070.5080653668028,
+          "new": 1083.4139896630504,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-model-change.json",
+          "field": "currentComparison.rows[11].currentMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[3].peaks[0].marginT",
+          "old": 4.42865013639971,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[3].peaks[0].worstMarginGapT",
+          "old": 83.10527133707859,
+          "new": 85.23278900339979,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[3].peaks[1].marginT",
+          "old": 4.42865013639971,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[3].peaks[1].worstMarginGapT",
+          "old": 105.10958378311659,
+          "new": 107.40423512980576,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[5].peaks[0].marginT",
+          "old": 0.0022056714698237556,
+          "new": 6.400568963726982e-10,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[5].peaks[0].worstMarginGapT",
+          "old": 26.681678055477956,
+          "new": 26.683883726307723,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[5].peaks[1].marginT",
+          "old": 0.0022056714698237556,
+          "new": 6.400568963726982e-10,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[5].phases[5].peaks[1].worstMarginGapT",
+          "old": 33.525401353206725,
+          "new": 33.52760702403649,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[7].phases[3].peaks[0].marginT",
+          "old": 4.42865013639971,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[7].phases[3].peaks[0].worstMarginGapT",
+          "old": 83.10527133707859,
+          "new": 85.23278900339979,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[7].phases[3].peaks[1].marginT",
+          "old": 4.42865013639971,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[7].phases[3].peaks[1].worstMarginGapT",
+          "old": 105.10958378311659,
+          "new": 107.40423512980576,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[9].phases[3].peaks[0].marginT",
+          "old": 6.365353301641335,
+          "new": 1.622538547962904e-09,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[9].phases[3].peaks[0].worstMarginGapT",
+          "old": 207.76317829915683,
+          "new": 213.08197250687695,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[9].phases[3].peaks[1].marginT",
+          "old": 6.365353301641335,
+          "new": 1.622538547962904e-09,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[9].phases[3].peaks[1].worstMarginGapT",
+          "old": 262.77395941425186,
+          "new": 268.51058782289186,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[11].phases[3].peaks[0].marginT",
+          "old": 6.365353301641335,
+          "new": 1.622538547962904e-09,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[11].phases[3].peaks[0].worstMarginGapT",
+          "old": 207.76317829915683,
+          "new": 213.08197250687695,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[11].phases[3].peaks[1].marginT",
+          "old": 6.365353301641335,
+          "new": 1.622538547962904e-09,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-motion.json",
+          "field": "rows[11].phases[3].peaks[1].worstMarginGapT",
+          "old": 262.77395941425186,
+          "new": 268.51058782289186,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[0].best.sensitivity[3].worst.progress",
+          "old": 0.6691983268276772,
+          "new": 0.6691970581684964,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[1].best.sensitivity[3].worst.progress",
+          "old": 0.6691983268276772,
+          "new": 0.6691970581684964,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[1].fullDeliveryBest.sensitivity[3].cycleMWh",
+          "old": 45.54738123129145,
+          "new": 45.57239514874801,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[2].best.sensitivity[2].worst.progress",
+          "old": 0.6725167394332918,
+          "new": 0.6725176329441416,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[2].fullDeliveryBest.sensitivity[2].worst.progress",
+          "old": 0.6729504897793737,
+          "new": 0.6729513575766589,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[2].fullDeliveryBest.sensitivity[3].worst.progress",
+          "old": 0.6694653760357195,
+          "new": 0.6694642233625452,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[3].best.sensitivity[2].worst.progress",
+          "old": 0.6729504897793737,
+          "new": 0.6729513575766589,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[3].best.sensitivity[3].worst.progress",
+          "old": 0.6694653760357195,
+          "new": 0.6694642233625452,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[3].fullDeliveryBest.sensitivity[2].worst.progress",
+          "old": 0.6729504897793737,
+          "new": 0.6729513575766589,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[3].fullDeliveryBest.sensitivity[3].worst.progress",
+          "old": 0.6694653760357195,
+          "new": 0.6694642233625452,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[5].asDrawn.cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[5].asDrawn.hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[5].asDrawn.kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[7].asDrawn.cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[7].asDrawn.hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[7].asDrawn.kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[9].asDrawn.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[9].asDrawn.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[9].asDrawn.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[11].asDrawn.cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[11].asDrawn.hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[11].asDrawn.kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[1].dragSensitivity[0].worst.progress",
+          "old": 0.7023180970050413,
+          "new": 0.7023196705233474,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].baseline.cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].baseline.hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].baseline.kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[0].cycleMWh",
+          "old": 61.516890154192524,
+          "new": 61.758101156186825,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[0].hoursOnBattery",
+          "old": 1.1637307340924532,
+          "new": 1.1591301866317771,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[0].kwhPerTonne",
+          "old": 61.516890154192524,
+          "new": 61.758101156186825,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[1].cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[1].hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[1].kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[2].cycleMWh",
+          "old": 61.00853215281525,
+          "new": 61.171227540172765,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[2].hoursOnBattery",
+          "old": 1.1735470917090818,
+          "new": 1.1703874843758455,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].clSensitivity[2].kwhPerTonne",
+          "old": 61.00853215281525,
+          "new": 61.171227540172765,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[0].cycleMWh",
+          "old": 60.961590029690015,
+          "new": 61.161650322442654,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[0].hoursOnBattery",
+          "old": 1.1744618995210598,
+          "new": 1.1705730062902604,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[0].kwhPerTonne",
+          "old": 60.961590029690015,
+          "new": 61.161650322442654,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[1].cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[1].hoursOnBattery",
+          "old": 1.1706989023188612,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[1].kwhPerTonne",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[2].cycleMWh",
+          "old": 61.465812468272,
+          "new": 61.66615033387454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[2].hoursOnBattery",
+          "old": 1.1647096132011687,
+          "new": 1.160879641369753,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[5].dragSensitivity[2].kwhPerTonne",
+          "old": 61.465812468272,
+          "new": 61.66615033387454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].baseline.cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].baseline.hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].baseline.kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[0].cycleMWh",
+          "old": 142.52820449150414,
+          "new": 143.06478329434168,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[0].hoursOnBattery",
+          "old": 1.324815127208089,
+          "new": 1.3197774186714402,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[0].kwhPerTonne",
+          "old": 142.52820449150414,
+          "new": 143.06478329434168,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[1].cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[1].hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[1].kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[2].cycleMWh",
+          "old": 142.0271187444262,
+          "new": 142.24117740030334,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[2].hoursOnBattery",
+          "old": 1.3295544578879486,
+          "new": 1.3275257224165278,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].clSensitivity[2].kwhPerTonne",
+          "old": 142.0271187444262,
+          "new": 142.24117740030334,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[0].cycleMWh",
+          "old": 142.07315068346358,
+          "new": 142.40412310392082,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[0].hoursOnBattery",
+          "old": 1.3291176681922405,
+          "new": 1.3259855540304357,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[0].kwhPerTonne",
+          "old": 142.07315068346358,
+          "new": 142.40412310392082,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[1].cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[1].hoursOnBattery",
+          "old": 1.3283587447946836,
+          "new": 1.3252335322597368,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[1].kwhPerTonne",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[2].cycleMWh",
+          "old": 142.23231443027495,
+          "new": 142.56228559541273,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[2].hoursOnBattery",
+          "old": 1.3276095981174225,
+          "new": 1.3244940108098961,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[7].dragSensitivity[2].kwhPerTonne",
+          "old": 142.23231443027495,
+          "new": 142.56228559541273,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].baseline.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].baseline.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].baseline.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[0].cycleMWh",
+          "old": 753.3499071298946,
+          "new": 753.4080174854405,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[0].kwhPerTonne",
+          "old": 75.33499071298947,
+          "new": 75.34080174854405,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[1].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[1].hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[1].kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[2].cycleMWh",
+          "old": 754.9118327912072,
+          "new": 765.203187861387,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[2].hoursOnBattery",
+          "old": 2.0205495957274704,
+          "new": 1.9932286146765494,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].clSensitivity[2].kwhPerTonne",
+          "old": 75.49118327912072,
+          "new": 76.5203187861387,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[0].cycleMWh",
+          "old": 756.4407276454018,
+          "new": 765.2715996055016,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[0].hoursOnBattery",
+          "old": 2.0164434884788203,
+          "new": 1.9930494703931958,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[0].kwhPerTonne",
+          "old": 75.64407276454018,
+          "new": 76.52715996055016,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[1].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[1].hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[1].kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[2].cycleMWh",
+          "old": 758.9809221960703,
+          "new": 767.4903833511609,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[2].hoursOnBattery",
+          "old": 2.009658137440009,
+          "new": 1.987256729140959,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[9].dragSensitivity[2].kwhPerTonne",
+          "old": 75.89809221960704,
+          "new": 76.7490383351161,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].baseline.cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].baseline.hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].baseline.kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[0].cycleMWh",
+          "old": 1355.9892778789274,
+          "new": 1356.3633178589928,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[0].hoursOnBattery",
+          "old": 2.3347171739155823,
+          "new": 2.3340692789618274,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[0].kwhPerTonne",
+          "old": 135.59892778789273,
+          "new": 135.63633178589927,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[1].cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[1].hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[1].kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[2].cycleMWh",
+          "old": 1369.0684424944986,
+          "new": 1385.070263830355,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[2].hoursOnBattery",
+          "old": 2.312273597892269,
+          "new": 2.285394886718628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].clSensitivity[2].kwhPerTonne",
+          "old": 136.90684424944985,
+          "new": 138.5070263830355,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[0].cycleMWh",
+          "old": 1372.8672283538892,
+          "new": 1385.794892083564,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[0].hoursOnBattery",
+          "old": 2.3058355986003436,
+          "new": 2.284192490046373,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[0].kwhPerTonne",
+          "old": 137.28672283538893,
+          "new": 138.57948920835642,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[1].cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[1].hoursOnBattery",
+          "old": 2.304932684543508,
+          "new": 2.28334246960361,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[1].kwhPerTonne",
+          "old": 137.3401695822774,
+          "new": 138.63076201190216,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[2].cycleMWh",
+          "old": 1373.946918924725,
+          "new": 1386.8309612638511,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[2].hoursOnBattery",
+          "old": 2.3040123285474503,
+          "new": 2.2824755065058002,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-requirements.json",
+          "field": "rows[11].dragSensitivity[2].kwhPerTonne",
+          "old": 137.39469189247248,
+          "new": 138.6830961263851,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[6].cycleMWh",
+          "old": 16.422873925014162,
+          "new": 16.423559029026865,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[10].cycleMWh",
+          "old": 63.02509075080661,
+          "new": 63.324904826804705,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[11].cycleMWh",
+          "old": 61.15515290706444,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[14].cycleMWh",
+          "old": 145.11496162469444,
+          "new": 145.62283001335248,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[15].cycleMWh",
+          "old": 142.15320330869878,
+          "new": 142.48382261389628,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[18].cycleMWh",
+          "old": 783.0222286166293,
+          "new": 801.4448024368992,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[19].cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[22].cycleMWh",
+          "old": 1394.6752746266468,
+          "new": 1444.1268934485859,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-rotor-range.json",
+          "field": "rows[23].cycleMWh",
+          "old": 1373.4016958227742,
+          "new": 1386.3076201190217,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[0].phases[0].progress",
+          "old": 0.6863418217437876,
+          "new": 0.6863439110616555,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[1].phases[0].progress",
+          "old": 0.6863418217437876,
+          "new": 0.6863439110616555,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[5].phases[4].unheldT",
+          "old": 516.3518703384375,
+          "new": 503.20746234471096,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[7].phases[4].unheldT",
+          "old": 493.89197360968626,
+          "new": 480.74756592667404,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[9].phases[4].unheldT",
+          "old": 3968.7482655924405,
+          "new": 3956.719271417698,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-unheld.json",
+          "field": "rows[11].phases[4].unheldT",
+          "old": 3905.3998658665414,
+          "new": 3893.3708710648298,
+          "decimals": 3
+        },
+        {
+          "file": "tests/energy/unheld.mjs",
+          "field": "namedEndurance.worstUnheldT",
+          "old": 2.041455599,
+          "new": 1.927956588,
+          "decimals": 9
+        }
+      ]
     }
   ]
 }

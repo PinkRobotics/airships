@@ -10,8 +10,8 @@ These supplied-effort comparisons do not establish delivery or savings. Every li
 | P1000 | record | 35.362 | 11.572 | 18.6 | 153.800 | 4.97 | does not close |
 | P10000 | record | 45.512 | 117.219 | 16.9 | 1,405.700 | 3.25 | does not close |
 | P100 | favourable | 34.196 | 1.443 | 22.5 | 31.500 | 0.63 | does not close |
-| P1000 | favourable | 35.362 | 9.256 | 15.1 | 153.800 | 4.97 | does not close |
-| P10000 | favourable | 45.512 | 116.494 | 15.4 | 1,405.700 | 5.80 | does not close |
+| P1000 | favourable | 35.362 | 9.319 | 15.2 | 153.800 | 4.97 | does not close |
+| P10000 | favourable | 45.512 | 116.531 | 15.2 | 1,405.700 | 5.80 | does not close |
 
 | Class | Basis | Last failed altitude in static scan, m AGL | Bag-credit change, % | Bare-bag supplied-effort change per planned tonne, % | Requested delivery change, t |
 |---|---|---:|---:|---:|---:|
@@ -20,7 +20,7 @@ These supplied-effort comparisons do not establish delivery or savings. Every li
 | P10000 | record | 3,000 | 7.1 | -7.1 | 0.0 |
 | P100 | favourable | none | 3.1 | -3.1 | 0.0 |
 | P1000 | favourable | 3,000 | 4.3 | -4.3 | 0.0 |
-| P10000 | favourable | 3,000 | 6.5 | -6.5 | 0.0 |
+| P10000 | favourable | 3,000 | 6.4 | -6.4 | 0.0 |
 
 The static scan ends at its stated ceiling and is not a proof of the crossing altitude. The phase ledger uses local density and instantaneous available power.
 

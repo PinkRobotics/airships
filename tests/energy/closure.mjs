@@ -70,6 +70,10 @@ for (const c of Object.values(S.CLASSES)) for (const m of Object.values(S.MODES)
     // channels outside the named consumers
     for (const k of Object.keys(s.draw)) { channelsSeen[k] = (channelsSeen[k] || 0) + 1; if (!KNOWN.has(k)) { const r = s.draw[k] / p.dragMW; fansRatio[`${id}:${k}`] = r; } }
     // bus
+    // A bus-limited force allocation must spend the gross bus to 1e-6 MW.
+    // Non-force loads alone can exceed supply; overload remains a separate refusal.
+    if ((s.limits || []).includes('bus power') && s.busMW - s.gross > 1e-6)
+      note('busUnspent', s.busMW - s.gross, { ...ex, gross: s.gross, bus: s.busMW });
     const over = s.gross - s.busMW; if (over > 1e-6) { note('bus', over, { ...ex, gross: s.gross, bus: s.busMW, flagged: (s.limits || []).join('+') }); scanOk = false; }
     if (Math.abs(s.unheldT) > tolF) { scanOk = false; if (Math.abs(s.unheldT) > Math.abs(scanWorst)) { scanWorst = s.unheldT; scanWhere = `${id}@${x}`; } }
   }

@@ -12,7 +12,7 @@ Retained water uses five-percent payload steps plus each bisected first closing 
 |---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
 | P100 | 2.55029 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 4.424 | 44.243 | | |
 | P100 | 2.55029 | record | rapid | 1.5 | prescribed | 45.000 | 55.000 | 9.987 | 1.894 | 34.444 | 37.073 / 124.238 | omitted inertia below sampled rotor margin |
-| P100 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 3.868 | 38.684 | | |
+| P100 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 3.868 | 38.685 | | |
 | P100 | 2.55029 | favourable | rapid | 1 | prescribed | 50.000 | 50.000 | 10.193 | 1.410 | 28.196 | 73.325 / 116.093 | closes only quasi-statically |
 | P100 | 7.480511 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 22.401 | 6.054 | 60.542 | | |
 | P100 | 7.480511 | record | rapid | 1.5 | prescribed | 30.000 | 70.000 | 14.769 | 3.204 | 45.770 | 29.771 / 128.472 | omitted inertia below sampled rotor margin |
@@ -24,27 +24,27 @@ Retained water uses five-percent payload steps plus each bisected first closing 
 | P100 | 51.913032 | favourable | rapid | 1.25 | prescribed | 1.291 | 98.709 | 66.529 | 10.043 | 101.739 | 23.810 / 16.876 | closes only quasi-statically |
 | P1000 | 2.55029 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 20.548 | 39.941 | 39.941 | | |
 | P1000 | 2.55029 | record | balanced | 1.25 | prescribed | 833.024 | 166.976 | 12.461 | 12.419 | 74.378 | 307.480 / 285.700 | closes only quasi-statically |
-| P1000 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 20.548 | 38.931 | 38.931 | | |
+| P1000 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 20.548 | 39.090 | 39.090 | | |
 | P1000 | 2.55029 | favourable | balanced | 1.25 | prescribed | 833.024 | 166.976 | 12.461 | 10.428 | 62.452 | 307.480 / 455.114 | closes only quasi-statically |
 | P1000 | 7.480511 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 25.712 | 48.467 | 48.467 | | |
 | P1000 | 7.480511 | record | balanced | 1.5 | prescribed | 829.708 | 170.292 | 14.367 | 15.500 | 91.018 | 316.709 / 482.677 | closes only quasi-statically |
-| P1000 | 7.480511 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 25.712 | 47.601 | 47.601 | | |
+| P1000 | 7.480511 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 25.712 | 47.776 | 47.776 | | |
 | P1000 | 7.480511 | favourable | endurance | 1.5 | prescribed | 793.667 | 206.333 | 17.522 | 15.861 | 76.873 | 303.442 / 407.552 | closes only quasi-statically |
 | P1000 | 51.913032 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 82.737 | 127.322 | 127.322 | | |
 | P1000 | 51.913032 | record | endurance | 1.5 | prescribed | 739.303 | 260.697 | 65.346 | 60.694 | 232.813 | 299.149 / 188.004 | closes only quasi-statically |
-| P1000 | 51.913032 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 82.737 | 127.615 | 127.615 | | |
+| P1000 | 51.913032 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 82.737 | 127.922 | 127.922 | | |
 | P1000 | 51.913032 | favourable | endurance | 1.5 | prescribed | 739.303 | 260.697 | 65.346 | 49.999 | 191.790 | 299.149 / 366.581 | closes only quasi-statically |
 | P10000 | 2.55029 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 34.607 | 583.213 | 58.321 | | |
 | P10000 | 2.55029 | record | rapid | 1.25 | prescribed | 7386.698 | 2613.302 | 17.041 | 149.063 | 57.040 | 2598.805 / 1665.510 | closes only quasi-statically |
-| P10000 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 34.607 | 592.972 | 59.297 | | |
+| P10000 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 34.607 | 595.315 | 59.532 | | |
 | P10000 | 2.55029 | favourable | rapid | 1.25 | prescribed | 7386.698 | 2613.302 | 17.041 | 139.155 | 53.249 | 2598.805 / 2955.180 | closes only quasi-statically |
 | P10000 | 7.480511 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 37.346 | 622.103 | 62.210 | | |
 | P10000 | 7.480511 | record | rapid | 1.25 | prescribed | 7382.002 | 2617.998 | 18.672 | 163.208 | 62.341 | 2598.467 / 1661.097 | closes only quasi-statically |
-| P10000 | 7.480511 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 37.346 | 652.034 | 65.203 | | |
+| P10000 | 7.480511 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 37.346 | 658.647 | 65.865 | | |
 | P10000 | 7.480511 | favourable | rapid | 1.25 | prescribed | 7382.002 | 2617.998 | 18.672 | 151.372 | 57.820 | 2598.467 / 2951.584 | closes only quasi-statically |
 | P10000 | 51.913032 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 85.598 | 1039.794 | 103.979 | | |
 | P10000 | 51.913032 | record | balanced | 1.25 | prescribed | 7006.985 | 2993.015 | 59.529 | 401.805 | 134.248 | 1944.400 / 1308.707 | closes only quasi-statically |
-| P10000 | 51.913032 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 85.598 | 1263.022 | 126.302 | | |
+| P10000 | 51.913032 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 85.598 | 1274.550 | 127.455 | | |
 | P10000 | 51.913032 | favourable | balanced | 1.25 | prescribed | 7006.985 | 2993.015 | 59.529 | 363.463 | 121.437 | 1944.400 / 2588.119 | closes only quasi-statically |
 
 ## Full delivery where found
@@ -74,7 +74,7 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 10.193 | 1.372 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 10.193 | 1.410 |
-| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 48.265 | 10.193 | 1.437 |
+| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 46.901 | 10.193 | 1.438 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 11.173 | 10.193 | 1.703 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 10.193 | 1.410 |
 | P100 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 10.193 | 1.431 |
@@ -131,7 +131,7 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | -0.000 | 66.529 | 10.092 |
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 66.529 | 10.043 |
 | P100 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 2.179 | 66.529 | 9.999 |
-| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.868 | 66.529 | 10.836 |
+| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.868 | 66.529 | 10.837 |
 | P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 66.529 | 10.043 |
 | P100 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 66.529 | 10.156 |
 | P100 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 66.529 | 10.043 |
@@ -139,7 +139,7 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 0 | closes | 0.000 | 64.955 | 11.021 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 1 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 2 | closes | -0.000 | 64.955 | 10.954 |
-| P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 11.816 |
+| P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 11.817 |
 | P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.7 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | clMax | 0.5 | closes | 0.000 | 64.955 | 11.099 |
 | P100 | 51.913032 | favourable | full delivery | clMax | 1 | closes | 0.000 | 64.955 | 10.984 |

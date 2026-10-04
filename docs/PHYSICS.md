@@ -271,13 +271,13 @@ Solar is credited at its day average at every instant, including night. Dry mass
 | P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.742 |
 | P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.444 |
 | P1000 | 15 | record | does not close | 35.362 | 62.314 | 62.314 | 1.149 |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.155 | 61.155 | 1.171 |
+| P1000 | 15 | favourable | does not close | 35.362 | 61.355 | 61.355 | 1.167 |
 | P1000 | 60 | record | does not close | 93.116 | 141.533 | 141.533 | 1.334 |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.153 | 142.153 | 1.328 |
+| P1000 | 60 | favourable | does not close | 93.116 | 142.484 | 142.484 | 1.325 |
 | P10000 | 15 | record | does not close | 45.512 | 694.378 | 69.438 | 2.198 |
-| P10000 | 15 | favourable | does not close | 45.512 | 757.615 | 75.761 | 2.013 |
+| P10000 | 15 | favourable | does not close | 45.512 | 766.285 | 76.629 | 1.990 |
 | P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |
-| P10000 | 60 | favourable | does not close | 94.381 | 1373.402 | 137.340 | 2.305 |
+| P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |
 
 | Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne |
 |---|---|---|---|---|---|---|---|---|
@@ -291,19 +291,19 @@ Solar is credited at its day average at every instant, including night. Dry mass
 | P100 | 60 | favourable | cheapest feasible profile found in the stated space | 100.000 | 0.000 | 75.440 | 11.263 | 112.630 |
 | P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.314 | 62.314 |
 | P1000 | 15 | record | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 26.489 | 122.866 |
-| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.155 | 61.155 |
+| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.355 | 61.355 |
 | P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 21.539 | 99.905 |
 | P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.533 | 141.533 |
 | P1000 | 60 | record | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 68.866 | 254.583 |
-| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.153 | 142.153 |
+| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.484 | 142.484 |
 | P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 56.659 | 209.457 |
 | P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.378 | 69.438 |
 | P10000 | 15 | record | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 200.116 | 76.200 |
-| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 757.615 | 75.761 |
+| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 766.285 | 76.629 |
 | P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 183.419 | 69.842 |
 | P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.855 | 111.385 |
 | P10000 | 60 | record | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 439.851 | 146.164 |
-| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1373.402 | 137.340 |
+| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1386.308 | 138.631 |
 | P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 397.762 | 132.178 |
 
 Cycle durations and supplied energy are model outputs. A cycle that does not close supplies no justified delivery rate.
@@ -396,13 +396,13 @@ Solar-only days subtract hotel load and assume the day-average sun throughout. T
 | P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.742 |
 | P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.444 |
 | P1000 | 15 | record | does not close | 35.362 | 62.314 | 62.314 | 1.149 |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.155 | 61.155 | 1.171 |
+| P1000 | 15 | favourable | does not close | 35.362 | 61.355 | 61.355 | 1.167 |
 | P1000 | 60 | record | does not close | 93.116 | 141.533 | 141.533 | 1.334 |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.153 | 142.153 | 1.328 |
+| P1000 | 60 | favourable | does not close | 93.116 | 142.484 | 142.484 | 1.325 |
 | P10000 | 15 | record | does not close | 45.512 | 694.378 | 69.438 | 2.198 |
-| P10000 | 15 | favourable | does not close | 45.512 | 757.615 | 75.761 | 2.013 |
+| P10000 | 15 | favourable | does not close | 45.512 | 766.285 | 76.629 | 1.990 |
 | P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |
-| P10000 | 60 | favourable | does not close | 94.381 | 1373.402 | 137.340 | 2.305 |
+| P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |
 
 Battery hours divide usable storage by the modelled energy deficit. On an infeasible row this is an accounting quotient, not demonstrated endurance.
 Every phase draws from the same ledger. The phase and channel integrals are stored in `energy-documents.json`.
@@ -432,23 +432,23 @@ All displayed energy changes are supplied-effort changes when the row is infeasi
 | record | battMW | -15.2% | 14.0% | does not close / does not close |
 | record | anchorM | 1.5% | -0.6% | does not close / does not close |
 | record | solarM2 | -0.0% | 0.0% | does not close / does not close |
-| favourable | propEta | 2.0% | -6.1% | does not close / does not close |
+| favourable | propEta | 4.9% | -7.1% | does not close / does not close |
 | favourable | Cd | -0.2% | 0.2% | does not close / does not close |
 | favourable | rhoAir | 0.0% | 0.0% | does not close / does not close |
 | favourable | pumpEta | 0.2% | -0.1% | does not close / does not close |
-| favourable | hoseMul | -0.3% | 0.3% | does not close / does not close |
-| favourable | rhoSL | -40.8% | 21.0% | does not close / does not close |
+| favourable | hoseMul | -0.1% | 0.1% | does not close / does not close |
+| favourable | rhoSL | -41.5% | 25.4% | does not close / does not close |
 | favourable | rtLN2 | 0.0% | -0.0% | does not close / does not close |
 | favourable | eLN2 | -0.0% | 0.0% | does not close / does not close |
 | favourable | solarWPerM2 | -0.1% | 0.1% | does not close / does not close |
-| favourable | cruiseKph | 6.0% | -3.6% | does not close / does not close |
+| favourable | cruiseKph | 6.5% | -4.1% | does not close / does not close |
 | favourable | anchorBagT | 3.2% | -1.3% | does not close / does not close |
 | favourable | dropKm | 0.6% | -0.7% | does not close / does not close |
-| favourable | fillM3s | 14.2% | -9.6% | does not close / does not close |
-| favourable | dispM3 | -45.4% | 22.6% | does not close / does not close |
-| favourable | diskM2 | 1.9% | -2.2% | does not close / does not close |
-| favourable | battMW | -18.1% | 12.3% | does not close / does not close |
-| favourable | anchorM | 0.7% | -0.5% | does not close / does not close |
+| favourable | fillM3s | 14.1% | -9.5% | does not close / does not close |
+| favourable | dispM3 | -46.0% | 26.8% | does not close / does not close |
+| favourable | diskM2 | 2.5% | -2.9% | does not close / does not close |
+| favourable | battMW | -15.9% | 11.1% | does not close / does not close |
+| favourable | anchorM | 0.8% | -0.5% | does not close / does not close |
 | favourable | solarM2 | -0.1% | 0.1% | does not close / does not close |
 
 The old fixed-density input has no effect because the force and power laws now use local ISA density. Drop distance can change the force-price integral even when metering fixes release time.

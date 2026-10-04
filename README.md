@@ -43,11 +43,11 @@ Run `make check` for all gates, including those browser and PDF checks. It can r
 
    <!-- readme:example:start -->
    At 15 km, the prescribed P-10000 cycle takes **45.5 minutes** and does not close on the drawn hardware.
-   Its supplied effort is **694.38 MWh/cycle** on record and **757.61 MWh/cycle** on favourable.
-   The corresponding **69.44 / 75.76 kWh per planned tonne** do not establish delivered water.
+   Its supplied effort is **694.38 MWh/cycle** on record and **766.29 MWh/cycle** on favourable.
+   The corresponding **69.44 / 76.63 kWh per planned tonne** do not establish delivered water.
    At 45 km, the prescribed P-10000 cycle takes **78.1 minutes** and does not close on the drawn hardware.
-   Its supplied effort is **976.51 MWh/cycle** on record and **1168.58 MWh/cycle** on favourable.
-   The corresponding **97.65 / 116.86 kWh per planned tonne** do not establish delivered water.
+   Its supplied effort is **976.51 MWh/cycle** on record and **1178.89 MWh/cycle** on favourable.
+   The corresponding **97.65 / 117.89 kWh per planned tonne** do not establish delivered water.
    <!-- readme:example:end -->
 
 For a float number, import the model and change SF from 1.2 to 1.5 on the **record** basis. Geometry (52 × 104 m, 3 m wall), 1,050 MPa chords, knockdown 0.30 and full sea-level pressure stay fixed:
@@ -111,8 +111,8 @@ The P-100 is the reference class. Nobody is proposing to build a P-10000.
 | Minutes | 34.2 | 35.4 | 45.5 |
 | Requested payload, t | 100 | 1000 | 10000 |
 | Water kept, t | 0 | 0 | 0 |
-| Supplied MWh: record / favourable | 8.192 / 6.402 | 62.314 / 61.155 | 694.378 / 757.615 |
-| kWh per planned tonne: record / favourable | 81.923 / 64.017 | 62.314 / 61.155 | 69.438 / 75.761 |
+| Supplied MWh: record / favourable | 8.192 / 6.402 | 62.314 / 61.355 | 694.378 / 766.285 |
+| kWh per planned tonne: record / favourable | 81.923 / 64.017 | 62.314 / 61.355 | 69.438 / 76.629 |
 | Worst unheld t: record / favourable | 34.556 / -5.714 | 818.465 / 818.465 | 7073.819 / 7073.819 |
 <!-- readme:headline:end -->
 

@@ -1,7 +1,7 @@
 /* Slow profile generator, deliberately outside make check. Four worker threads at most. */
 import fs from 'node:fs';
 import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
-import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js?v=93744380';
+import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js?v=1cd95a83';
 import {profileDetails} from './energy-profile-details.mjs';
 if(!isMainThread){
   const {kind,class:id,km,basis}=workerData,c=CLASSES[id];

@@ -1,7 +1,7 @@
 /* Independent completeness and numeric replay of the printed phase table. */
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=93744380';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=1cd95a83';
 const data=JSON.parse(fs.readFileSync('research/analysis/energy-unheld.json'));
 assert.equal(data.rows.length,12);let count=0;
 for(const r of data.rows){
@@ -32,5 +32,5 @@ for(const r of data.rows){
  }
 }
 const named=planCycle(CLASSES.P100,MODES.endurance,15,null,{basis:'favourable'});
-assert.equal(named.feasible,false);assert.ok(Math.abs(named.worst.unheldT-2.041455599)<1e-8);
+assert.equal(named.feasible,false);assert.ok(Math.abs(named.worst.unheldT-1.927956588)<1e-8);
 console.log(`PASS unheld table: ${data.rows.length} rows, ${count} failing phases; named case stays infeasible, ${named.worst.unheldT.toFixed(9)} t unheld.`);

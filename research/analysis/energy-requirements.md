@@ -35,10 +35,10 @@ The bag counts when the cable carries water; the hoist remains priced. Delaying 
 | P1000 | 15 | favourable | 53.381 |
 | P1000 | 60 | record | 52.110 |
 | P1000 | 60 | favourable | 52.110 |
-| P10000 | 15 | record | 398.180 |
-| P10000 | 15 | favourable | 398.180 |
-| P10000 | 60 | record | 396.652 |
-| P10000 | 60 | favourable | 396.652 |
+| P10000 | 15 | record | 398.182 |
+| P10000 | 15 | favourable | 398.182 |
+| P10000 | 60 | record | 396.642 |
+| P10000 | 60 | favourable | 396.642 |
 
 ## Broadside-drag range
 
