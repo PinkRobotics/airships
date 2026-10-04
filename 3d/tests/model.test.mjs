@@ -7,17 +7,17 @@ import {
   resolveClass, classes, validateClass, CLASS_IDS, hullVolume, radiusForVolume,
   profileR, sectionScale, HULL_DEFAULT, stationX, stationT, hullR,
   capsuleRadiusForVolume, RHO_LN2,
-} from '../model/config.js?v=47195d1b';
-import { build } from '../model/build.js?v=47195d1b';
-import { buildLayout, insideHull } from '../model/layout.js?v=47195d1b';
-import { proxyField, dataField, anchorsFor } from '../model/density.js?v=47195d1b';
-import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=47195d1b';
-import { buildLattice, TIERS } from '../model/structure.js?v=47195d1b';
-import { auditBuild } from '../model/audit.js?v=47195d1b';
-import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=47195d1b';
-import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=47195d1b';
-import { m4transform, norm, cross } from '../core/math.js?v=47195d1b';
-import { prng, streamFor } from '../core/prng.js?v=47195d1b';
+} from '../model/config.js?v=d3e69408';
+import { build } from '../model/build.js?v=d3e69408';
+import { buildLayout, insideHull } from '../model/layout.js?v=d3e69408';
+import { proxyField, dataField, anchorsFor } from '../model/density.js?v=d3e69408';
+import { checkMetadata, MASS_SHARE, templateFor } from '../model/metadata.js?v=d3e69408';
+import { buildLattice, TIERS } from '../model/structure.js?v=d3e69408';
+import { auditBuild } from '../model/audit.js?v=d3e69408';
+import { featureEdges, boxGeom, latheGeom } from '../model/geom.js?v=d3e69408';
+import { walk, buildIndex, updateWorld } from '../core/nodes.js?v=d3e69408';
+import { m4transform, norm, cross } from '../core/math.js?v=d3e69408';
+import { prng, streamFor } from '../core/prng.js?v=d3e69408';
 
 test('the three classes resolve and validate', () => {
   for (const c of classes()) {

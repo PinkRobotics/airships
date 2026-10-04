@@ -3,14 +3,14 @@
  * The import boundary keeps 3d standalone; this test is the sanctioned checked-copy seam.
  */
 import { describe, it, eq, close, deepEq } from '../harness.js';
-import * as sim from '../../sim/config.js?v=eae942b2';
-import { ISA, airDensity } from '../../sim/atmosphere.js?v=eae942b2';
-import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=eae942b2';
-import * as viz from '../../3d/model/config.js?v=47195d1b';
-import * as mission from '../../3d/anim/mission.js?v=47195d1b';
-import * as mass from '../../3d/physics/mass.js?v=47195d1b';
-import { pumpPowerMW } from '../../3d/physics/energy.js?v=47195d1b';
-import { createHose } from '../../3d/anim/hose.js?v=47195d1b';
+import * as sim from '../../sim/config.js?v=686fcc61';
+import { ISA, airDensity } from '../../sim/atmosphere.js?v=686fcc61';
+import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=686fcc61';
+import * as viz from '../../3d/model/config.js?v=d3e69408';
+import * as mission from '../../3d/anim/mission.js?v=d3e69408';
+import * as mass from '../../3d/physics/mass.js?v=d3e69408';
+import { pumpPowerMW } from '../../3d/physics/energy.js?v=d3e69408';
+import { createHose } from '../../3d/anim/hose.js?v=d3e69408';
 
 export const CLASS_PAIRS = {
   payloadT: 'payloadTonnes', dispM3: 'displacementM3', lenM: 'lengthM',

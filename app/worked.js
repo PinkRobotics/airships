@@ -1,9 +1,9 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText } from '../sim/index.js?v=eae942b2';
-import { $, kvRows } from './dom.js?v=eae942b2';
-import { replanAll } from './fleet.js?v=eae942b2';
-import { S } from './store.js?v=eae942b2';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText } from '../sim/index.js?v=686fcc61';
+import { $, kvRows } from './dom.js?v=686fcc61';
+import { replanAll } from './fleet.js?v=686fcc61';
+import { S } from './store.js?v=686fcc61';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
@@ -66,7 +66,7 @@ export function renderClassCards() {
   if (!$("classcards")) return; // class cards render on the concept page
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];
-    return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span>'}</span>
+    return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· structural float unproven</span>'}</span>
       <h3>${fmt(c.payloadT)} t of water</h3>
       <p class="one">${c.use}.</p>` + kvRows([
       ["payload", fmt(c.payloadT * 1000) + " L"],

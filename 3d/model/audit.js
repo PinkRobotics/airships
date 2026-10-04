@@ -10,9 +10,9 @@
  * something, and a finding needs reading rather than believing.
  */
 
-import { hullR, sectionScale, CLASS_IDS } from './config.js?v=47195d1b';
-import { insideHull } from './layout.js?v=47195d1b';
-import { segPointDist } from '../core/math.js?v=47195d1b';
+import { hullR, sectionScale, CLASS_IDS } from './config.js?v=d3e69408';
+import { insideHull } from './layout.js?v=d3e69408';
+import { segPointDist } from '../core/math.js?v=d3e69408';
 
 /** Mounted outside the envelope on purpose, so exempt from containment. */
 export const EXTERNAL_PREFIXES = [

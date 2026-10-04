@@ -607,7 +607,7 @@ nav.estate .wrap{display:block}
       <figure>
         <img src="../media/intake.jpg" alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">
         <figcaption><span class="p-k">Lake intake</span>
-          <p>Pump pods on 300 m hoses push a full payload up while the ship holds station —
+          <p>In the proposed cycle, pump pods on 300 m hoses replace the water delivered while the simulated ship holds station —
             it never lands, never scoops, never touches the water itself.</p></figcaption>
       </figure>
       <figure>
@@ -694,7 +694,7 @@ nav.estate .wrap{display:block}
         <summary>At the fire: the release is also the escape manoeuvre.</summary>
         <div class="dbody">
           <p>Avoiding severe convection remains a design requirement. Geometric targets start from the fire edge; available satellite detections can replace them on the live view. Water leaves from many distributed tanks, symmetrically, around the centre of
-            buoyancy. Dropping a full payload instantly makes the ship payload-weight buoyant. The design uses the resulting surplus lift: the surplus lift becomes a deliberate, pre-planned climb away from the dangerous low-altitude environment.</p>
+            buoyancy. Water release increases surplus buoyancy in the simulation. A feasible plan checks the force and power needed for the simulated ship to climb; structural float and flight performance remain unproven.</p>
           <p>The model computes retained water and nitrogen ballast from the configured descent assumptions. The model prescribes the climb profile. An emergency dump and its controlled recovery remain design questions.</p>
         </div>
       </details>
@@ -873,12 +873,8 @@ nav.estate .wrap{display:block}
       <details class="d">
         <summary>The throughput identity: the only equation most readers need.</summary>
         <div class="dbody">
-          <div class="eq">tonnes / hour = payload × 60 / cycle-minutes</div>
-          <p class="eqwhy">A 100-tonne aircraft on a 10-minute cycle is 6 drops an hour: 600
-            tonnes, 600,000 litres. Everything else on this page exists to justify the cycle-minutes. The argument lives in the cycle. <b>Every class now delivers its full payload.</b> The descent anchor takes the whole descent load from the lake, so retention is zero fleet-wide. A test asserts it, and asserts that removing the anchor brings the retention straight back. The refinement it replaced is still in the model: when
-            tanks and rotors together cannot cover a ship's post-drop buoyancy, the Mind
-            holds part of the payload back as descent ballast and only the rest counts as
-            delivered.</p>
+          <div class="eq">tonnes / hour = delivered water × 60 / feasible cycle-minutes</div>
+          <p class="eqwhy">Only water delivered by a feasible simulated plan enters this identity. Water requested and water kept aboard are separate quantities. An anchor can support the hull only while its bag is carried; it does not establish force closure for the rest of the cycle. No aircraft has flown; structural float remains unproven.</p>
         </div>
       </details>
       <details class="d">
@@ -911,8 +907,7 @@ nav.estate .wrap{display:block}
             (adjustable 0.30–0.80); expansion recovers a configured 20% round trip (adjustable
             10–38%, capped at the exergy of the liquid). Both are demonstration assumptions, not specifications for an airborne
             plant, and both are dials above precisely because they materially move the answer.
-            In endurance mode the cryogenic plant is usually the cycle's bottleneck. The
-            monitor flags it when it is. <a href="#cycle">The cycle section</a> explains the nitrogen safety argument. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
+            The monitor names the selected plan's limiting constraint; a mode name does not establish endurance. <a href="#cycle">The cycle section</a> explains the nitrogen safety argument. These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.</p>
         </div>
       </details>
     </div>
@@ -1179,8 +1174,8 @@ nav.estate .wrap{display:block}
 import {
   CFG, ENERGY_NOTE, ENERGY_TAG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
   ledger, planCycle, energyComparison, feasibilityText, fmt, fmtHa, fmtMin, fmtT,
-} from '../sim/index.js?v=eae942b2';
-import * as SIM from '../sim/index.js?v=eae942b2';
+} from '../sim/index.js?v=686fcc61';
+import * as SIM from '../sim/index.js?v=686fcc61';
 
 /* ============================================================================================
  * Concept-page shim. The SIM block above is byte-shared with the monitor page; this page

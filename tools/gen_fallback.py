@@ -120,9 +120,9 @@ def render(d: dict) -> dict[str, str]:
     rows = []
     for grp in d['roster']:
         # P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
-        # the crush envelope closes near 96 m of hull and both live outside it.
+        # structural float remains unproven for these simulated classes.
         badge = ("" if grp["cls"] == "P-100" else
-                 ' <span style="color:#d98b80;font-weight:600">· outside the 96 m envelope</span>')
+                 ' <span style="color:#d98b80;font-weight:600">· structural float unproven</span>')
         rows.append(f'<tr class="r-clsrow"><td colspan="3">'
                     f'<span class="r-cls">{esc(grp["cls"])} ×{grp["count"]}{badge}</span></td></tr>')
         for s in grp['ships']:

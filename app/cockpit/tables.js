@@ -1,12 +1,12 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=eae942b2';
-import { timeSinceDrop } from '../cockpit/panels.js?v=eae942b2';
-import { $, SHORT, esc } from '../dom.js?v=eae942b2';
-import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=eae942b2';
-import { FLEET } from '../fleet.js?v=eae942b2';
-import { select } from '../map/interact.js?v=eae942b2';
-import { S } from '../store.js?v=eae942b2';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=686fcc61';
+import { timeSinceDrop } from '../cockpit/panels.js?v=686fcc61';
+import { $, SHORT, esc } from '../dom.js?v=686fcc61';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=686fcc61';
+import { FLEET } from '../fleet.js?v=686fcc61';
+import { select } from '../map/interact.js?v=686fcc61';
+import { S } from '../store.js?v=686fcc61';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -191,9 +191,9 @@ export function renderRoster() {
   const body = FLEET.map(([clsId, count]) => {
     const ships = S.missions.map((m, i) => ({ m, i })).filter(x => x.m.cls && x.m.cls.id === clsId);
     // P-1000 and P-10000 wear the truth beside their names (operator, 08-13):
-    // the crush envelope closes near 96 m of hull and both live outside it.
+    // structural float remains unproven for the simulated hulls.
     const impossible = clsId === "P100" ? "" :
-      ` <span style="color:#d98b80;font-weight:600" title="the crush envelope closes near 96 m of hull diameter — this class lives outside it, and flies here to find where the arithmetic breaks (front page, Figure 2)">· outside the 96 m envelope</span>`;
+      ` <span style="color:#d98b80;font-weight:600" title="structural float is unproven; this class is used only in the simulation (float analysis)">· structural float unproven</span>`;
     const head = `<tr class="r-clsrow"><td colspan="3"><button class="r-cls" data-hl="${clsId}" ` +
       `aria-pressed="${S.hlClass === clsId}">${CLASSES[clsId].name} ×${count}${impossible}</button></td></tr>`;
     const rows = ships.map(({ m, i }) =>

@@ -1,6 +1,6 @@
 /* Rotor efficiency is a plan option; no class or configuration is mutated. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,ROTOR_EFFICIENCY_VALUES,planCycle,drawAt} from '../../sim/index.js?v=eae942b2';
+import {CLASSES,MODES,PHASES,ROTOR_EFFICIENCY_VALUES,planCycle,drawAt} from '../../sim/index.js?v=686fcc61';
 const rows=[];
 for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable'])for(const rotorEfficiency of ROTOR_EFFICIENCY_VALUES){
   const p=planCycle(c,MODES.balanced,km,null,{basis,rotorEfficiency});

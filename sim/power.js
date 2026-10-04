@@ -1,8 +1,8 @@
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=eae942b2';
-import { easeSm, easeTrap } from './geo.js?v=eae942b2';
-import { diskMW, ledger, pumpMW } from './physics.js?v=eae942b2';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=686fcc61';
+import { easeSm, easeTrap } from './geo.js?v=686fcc61';
+import { diskMW, ledger, pumpMW } from './physics.js?v=686fcc61';
 
-import {profilePoint} from './profile.js?v=eae942b2';
+import {profilePoint} from './profile.js?v=686fcc61';
 
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */

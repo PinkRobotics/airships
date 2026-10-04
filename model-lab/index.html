@@ -174,7 +174,8 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding:14px 0 40px;
 </section>
 
 <section style="margin-top:24px">
-  <h2>Trajectory explorer</h2>
+  <h2>Illustrative trajectory explorer</h2>
+  <p class="claimnote">The trajectory times and relative energies are illustrative inputs, not force-checked mission results.</p>
   <div id="trajScene"></div>
 </section>
 
@@ -195,7 +196,7 @@ import {
   phaseTimeline, stepPhase, MODES, demoState,
   AirshipScaleComparison, AirshipTrajectoryExplorer, AirshipMapModel, AirshipStaticFigure,
   componentPanel, describeMapping, injectStyles, VERSION,
-} from '../3d/index.js?v=47195d1b';
+} from '../3d/index.js?v=d3e69408';
 
 injectStyles();
 const $ = (id) => document.getElementById(id);

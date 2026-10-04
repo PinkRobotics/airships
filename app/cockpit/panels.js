@@ -1,13 +1,13 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText } from '../../sim/index.js?v=eae942b2';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=eae942b2';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=eae942b2';
-import { shipViz } from '../cockpit/shipviz.js?v=eae942b2';
-import { updateRoster } from '../cockpit/tables.js?v=eae942b2';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=eae942b2';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=eae942b2';
-import { S } from '../store.js?v=eae942b2';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText } from '../../sim/index.js?v=686fcc61';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=686fcc61';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=686fcc61';
+import { shipViz } from '../cockpit/shipviz.js?v=686fcc61';
+import { updateRoster } from '../cockpit/tables.js?v=686fcc61';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=686fcc61';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=686fcc61';
+import { S } from '../store.js?v=686fcc61';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
@@ -90,7 +90,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     m3p.hidden = !m;
     if (m) {
       $("m3dTitle").textContent = (m.name ? m.name + " · " : "") + m.cls.name
-        + (m.cls.id === "P100" ? "" : " · outside the 96 m envelope");
+        + (m.cls.id === "P100" ? "" : " · structural float unproven");
       ensureM3D(m);
     }
   }
@@ -104,7 +104,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       setCamera({ azimuth: null });
     }
     $("cpShip").textContent = (m.name || m.cls.name) + " · " + m.cls.name
-      + (m.cls.id === "P100" ? "" : " · outside the 96 m envelope") + " · " +
+      + (m.cls.id === "P100" ? "" : " · structural float unproven") + " · " +
       (f.name || f.geo || f.id);
     phaseDialObj = makePhaseDial($("phaseDial"), m);
     const sd = $("sysDials");

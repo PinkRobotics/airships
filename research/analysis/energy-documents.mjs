@@ -1,6 +1,6 @@
 /* Render the energy documents from model records. --emit writes only JSON to stdout. */
 import fs from 'node:fs';
-import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=eae942b2';
+import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=686fcc61';
 import {specificEnergies,batteryMass} from './energy-omissions.mjs';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const f=(x,n=3)=>x==null?'none':Number(x).toFixed(n);
