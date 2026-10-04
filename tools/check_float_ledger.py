@@ -2,7 +2,7 @@
 """Regeneration and fail-closed prose binding for the float ledger.
 
 --inventory prints every detected block and its interpretation as JSON.
---report prints the failing-sentence table for the hand-up. Neither mode writes files.
+--report prints the failing-sentence table for the review report. Neither mode writes files.
 
 This is a lexical and structural inventory, not a natural-language proof. Vehicle/motion
 relations apply to prose only; style and script code are not flight statements. It scans tables,
@@ -394,7 +394,7 @@ def generated_inventory(ledger):
 
 def markdown(hits):
     def esc(s):return str(s).replace('|','\\|').replace('\n',' ').replace('<','&lt;').replace('>','&gt;')
-    # Public hand-up must never copy a private source path out of historical prose.
+    # Public reports must never copy a private source path out of historical prose.
     def public(s):
         return re.sub(r'(?:/home/[^\s`<>]+|~/[^\s`<>]+)', '[private path omitted]',esc(s))
     lines=['| Sentence / figure | Where | Ledger interpretation / failure | Proposed wording |',

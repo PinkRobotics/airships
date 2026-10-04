@@ -25,4 +25,4 @@ regeneration is compared against pinned bytes. Its `fires` and `counts` are the 
 facts come out — and its `days[0]` differs only in the manifest and file hashes, which name
 these fixture files rather than the raw ones.
 
-Nothing here was fetched: the fixture is a local trim of the capture the lead took.
+Nothing here was fetched: the fixture is a local trim of the recorded capture.

@@ -86,17 +86,6 @@
     },
     {
       "file": "engineering/index.html",
-      "key": "99ad98b89c61cdae",
-      "line": 118,
-      "text": "[data-cat=\"walls.crushBestT\" data-f=\"0\"] – [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t greedy sizing at safety factor 1, best defensible to house-harsh; not minimum masses",
-      "class": "live-model",
-      "reason": "Both masses are the model greedy sizing outputs at structural SF 1, explicitly not minimum masses.",
-      "context": [
-        "1"
-      ]
-    },
-    {
-      "file": "engineering/index.html",
       "key": "5d3551998f2fd5e5",
       "line": 120,
       "text": "[data-cat=\"ship.massT\" data-f=\"1\"] t record structural mass at the declared safety factor, before equipment",
@@ -244,17 +233,6 @@
       "text": "The hull is [data-cat=\"ship.diaM\"] by [data-cat=\"ship.lenM\"] metres and encloses [data-cat=\"ship.volumeM3\" data-f=\"0\"] m³. The air displaced gives [data-cat=\"ship.liftT\" data-f=\"1\"] tonnes of lift at sea level. The model's greedy sizing at safety factor 1 is a computed case, not a minimum mass or a design with operating margin.",
       "class": "live-model",
       "reason": "Hull dimensions, enclosed volume and sea-level displaced-air lift are computed; the greedy case is qualified as lacking operating margin.",
-      "context": [
-        "1"
-      ]
-    },
-    {
-      "file": "engineering/index.html",
-      "key": "123a082747abf99b",
-      "line": 208,
-      "text": "greedy SF 1 sizing [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t harsh world · [data-cat=\"walls.crushBestT\" data-f=\"0\"] t best world",
-      "class": "live-model",
-      "reason": "The two structural SF 1 masses are greedy results and are explicitly labelled as such.",
       "context": [
         "1"
       ]
@@ -611,186 +589,6 @@
       "reason": "The displayed membrane areal mass is live; the paragraph explicitly leaves barrier mass to an unmeasured experiment."
     },
     {
-      "file": "engineering/index.html",
-      "key": "4d89e328dff0f200",
-      "class": "generated",
-      "generator": "tools/gen_float_verdicts.py",
-      "gate": "floatverdictcheck",
-      "verifier": "tools/check_float_verdicts.py",
-      "region": {
-        "start": "<!-- float-verdict:hull:start -->",
-        "end": "<!-- float-verdict:hull:end -->"
-      },
-      "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
-      "bindings": [
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "extras.hullDiameterM",
-          "route": "ship.diaM"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "route": "ship.ratio"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.target.liftToMass",
-          "route": "ship.ratioTarget"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "route": "ship.bestWorldRatio"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.liftToMass",
-          "route": "ship.bestWorldRatioTarget"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.margin",
-          "route": "ship.bestWorldShortfallT",
-          "abs": true
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.margin",
-          "route": "ship.bestWorldShortfallTargetT",
-          "abs": true
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "extras.hullDiameterM",
-          "shown": "52"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.558"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.target.liftToMass",
-          "shown": "0.436"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.981"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.liftToMass",
-          "shown": "0.766"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.margin",
-          "abs": true,
-          "shown": "4.3"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.margin",
-          "abs": true,
-          "shown": "53.6"
-        }
-      ],
-      "line": 99
-    },
-    {
-      "file": "ship/index.html",
-      "key": "4231981cba6eca9b",
-      "class": "generated",
-      "generator": "tools/gen_float_verdicts.py",
-      "gate": "floatverdictcheck",
-      "verifier": "tools/check_float_verdicts.py",
-      "region": {
-        "start": "<!-- float-verdict:hull:start -->",
-        "end": "<!-- float-verdict:hull:end -->"
-      },
-      "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
-      "bindings": [
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "extras.hullDiameterM",
-          "route": "ship.diaM"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "route": "ship.ratio"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.target.liftToMass",
-          "route": "ship.ratioTarget"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "route": "ship.bestWorldRatio"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.liftToMass",
-          "route": "ship.bestWorldRatioTarget"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.margin",
-          "route": "ship.bestWorldShortfallT",
-          "abs": true
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.margin",
-          "route": "ship.bestWorldShortfallTargetT",
-          "abs": true
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "extras.hullDiameterM",
-          "shown": "52"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.558"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
-          "field": "at.target.liftToMass",
-          "shown": "0.436"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.981"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.liftToMass",
-          "shown": "0.766"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.seaLevel.margin",
-          "abs": true,
-          "shown": "4.3"
-        },
-        {
-          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
-          "field": "at.target.margin",
-          "abs": true,
-          "shown": "53.6"
-        }
-      ],
-      "line": 439
-    },
-    {
       "file": "ship/index.html",
       "key": "a317ca4a5f8ca462",
       "class": "generated",
@@ -892,6 +690,208 @@
       "context": [],
       "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
       "line": 236
+    },
+    {
+      "file": "engineering/index.html",
+      "key": "54a4b9271188a32a",
+      "class": "generated",
+      "generator": "tools/gen_float_verdicts.py",
+      "gate": "floatverdictcheck",
+      "verifier": "tools/check_float_verdicts.py",
+      "region": {
+        "start": "<!-- float-verdict:hull:start -->",
+        "end": "<!-- float-verdict:hull:end -->"
+      },
+      "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "extras.hullDiameterM",
+          "route": "ship.diaM"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.ratio"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.ratioTarget"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.bestWorldRatio"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.bestWorldRatioTarget"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "route": "ship.bestWorldShortfallT",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "route": "ship.bestWorldShortfallTargetT",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "extras.hullDiameterM",
+          "shown": "52"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.558"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.436"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.981"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.766"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "abs": true,
+          "shown": "4.3"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "abs": true,
+          "shown": "53.6"
+        }
+      ],
+      "line": 99
+    },
+    {
+      "file": "engineering/index.html",
+      "key": "9d396aba08d03c35",
+      "text": "[data-cat=\"walls.crushBestT\" data-f=\"0\"] – [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t greedy sizing at safety factor 1, favourable to record basis; not minimum masses",
+      "class": "live-model",
+      "reason": "Both masses are the model greedy sizing outputs at structural SF 1, explicitly not minimum masses.",
+      "context": [
+        "1"
+      ],
+      "line": 118
+    },
+    {
+      "file": "engineering/index.html",
+      "key": "ad6b9dfda3a3dac9",
+      "text": "greedy SF 1 sizing [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t record basis · [data-cat=\"walls.crushBestT\" data-f=\"0\"] t favourable basis",
+      "class": "live-model",
+      "reason": "The two structural SF 1 masses are greedy results and are explicitly labelled as such.",
+      "context": [
+        "1"
+      ],
+      "line": 208
+    },
+    {
+      "file": "ship/index.html",
+      "key": "aff26ed0df1651db",
+      "class": "generated",
+      "generator": "tools/gen_float_verdicts.py",
+      "gate": "floatverdictcheck",
+      "verifier": "tools/check_float_verdicts.py",
+      "region": {
+        "start": "<!-- float-verdict:hull:start -->",
+        "end": "<!-- float-verdict:hull:end -->"
+      },
+      "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+      "bindings": [
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "extras.hullDiameterM",
+          "route": "ship.diaM"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.ratio"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.ratioTarget"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "route": "ship.bestWorldRatio"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "route": "ship.bestWorldRatioTarget"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "route": "ship.bestWorldShortfallT",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "route": "ship.bestWorldShortfallTargetT",
+          "abs": true
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "extras.hullDiameterM",
+          "shown": "52"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.558"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.436"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.981"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.liftToMass",
+          "shown": "0.766"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.seaLevel.margin",
+          "abs": true,
+          "shown": "4.3"
+        },
+        {
+          "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+          "field": "at.target.margin",
+          "abs": true,
+          "shown": "53.6"
+        }
+      ],
+      "line": 439
     }
   ]
 }

@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=e6a94414';
-import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, dayKind, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=e6a94414';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=e6a94414';
-import { renderDrawer } from './cockpit/panels.js?v=e6a94414';
-import { renderStats, renderTable } from './cockpit/tables.js?v=e6a94414';
-import { $, esc } from './dom.js?v=e6a94414';
-import { fetchHeat, fetchWind, guardNoteWords, introWords, loadLive, modeWords, nothingShown, nothingWhy, viewLabels } from './feeds.js?v=e6a94414';
-import { rebuildMissions, replanAll } from './fleet.js?v=e6a94414';
-import { frame } from './loop.js?v=e6a94414';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=e6a94414';
-import { resize } from './map/projection.js?v=e6a94414';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=e6a94414';
-import { S } from './store.js?v=e6a94414';
-import { DIALS, renderWorked } from './worked.js?v=e6a94414';
+import * as SIM from '../sim/index.js?v=b3bc1c96';
+import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, dayKind, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=b3bc1c96';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=b3bc1c96';
+import { renderDrawer } from './cockpit/panels.js?v=b3bc1c96';
+import { renderStats, renderTable } from './cockpit/tables.js?v=b3bc1c96';
+import { $, esc } from './dom.js?v=b3bc1c96';
+import { fetchHeat, fetchWind, guardNoteWords, introWords, loadLive, modeWords, nothingShown, nothingWhy, viewLabels } from './feeds.js?v=b3bc1c96';
+import { rebuildMissions, replanAll } from './fleet.js?v=b3bc1c96';
+import { frame } from './loop.js?v=b3bc1c96';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=b3bc1c96';
+import { resize } from './map/projection.js?v=b3bc1c96';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=b3bc1c96';
+import { S } from './store.js?v=b3bc1c96';
+import { DIALS, renderWorked } from './worked.js?v=b3bc1c96';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {
@@ -305,7 +305,7 @@ export function renderStatus() {
     const boundary = $("firstPartyNote");
     if (boundary && !renderStatus._firstPartyNote) {
       renderStatus._firstPartyNote = true;
-      import("./first-party-note.js?v=e6a94414").then(({ auditFirstPartyNote }) => auditFirstPartyNote(boundary))
+      import("./first-party-note.js?v=b3bc1c96").then(({ auditFirstPartyNote }) => auditFirstPartyNote(boundary))
         .catch(() => { boundary.textContent = "This page's own code talks only to the site that served it. Resource check unavailable."; });
     }
 

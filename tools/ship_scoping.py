@@ -938,7 +938,7 @@ def band_study() -> None:
                  f"({rec['totalT']:.1f} t, ratio {rec['ratioSL']:.3f}) — "
                  "PLAN_CFG drifted from the sweep's pick. Stop; fix the plan.")
     print(f"\n  record reproduced first: {rec['totalT']:.1f} t, "
-          f"ratio {rec['ratioSL']:.3f} at 52 m, harsh basis, declared SF.\n")
+          f"ratio {rec['ratioSL']:.3f} at 52 m, record basis, declared SF.\n")
 
     dias = [32.0, 36.0, 40.0, 46.0, 52.0, 60.0, 68.0, 80.0, 96.0, 112.0]
     worlds = [("house-harsh 0.3 (+K_SHELL 0.2 reserve)", GI_KNOCKDOWN),

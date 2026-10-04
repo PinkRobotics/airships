@@ -44,7 +44,7 @@ test-node:  ## Run the node unit tests — falls back to a browser shim when nod
 	 else $(PY) tools/run_node_tests.py; \
 	 fi
 
-golden:  ## Re-run the model at seed=7 and diff every output against tests/golden/
+golden:  ## Replay the seeded invented exercise and diff captured outputs against tests/golden/
 	@test -f tests/golden/check.py || { echo "tests/golden/check.py is missing — see tests/README.md"; exit 1; }
 	$(PY) tests/golden/check.py
 
@@ -53,7 +53,7 @@ golden:  ## Re-run the model at seed=7 and diff every output against tests/golde
 # the animation frame that would have requested the next one, and the page then sits there
 # looking correct and frozen. The .NOTPARALLEL declaration keeps `make check` output
 # ordered while this target drives its own browser.
-interaction:  ## Click through the page headless and check it survives every interaction
+interaction:  ## Click through the page headless and check it survives the exercised interactions
 	@test -f tests/interaction/check.py || { echo "tests/interaction/check.py is missing"; exit 1; }
 	CHROME=$(CHROME) $(PY) tests/interaction/check.py
 
@@ -77,9 +77,9 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 
 CI_OUTSIDE_CHECK := floatplants
 
-# Browser-free main gates, in check's order. ledgercheck-selftest includes a
-# browser cellparity baseline; analysisfresh and figure freshness also use it.
-quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Python and Node gates; no browser or TeX
+# A smaller gate set that omits the browser page suites and PDF build.
+# ledgercheck still drives a browser when regenerating the float ledger.
+quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
 check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
 
@@ -129,9 +129,9 @@ cellparity:  ## ship/model.js must agree with research/analysis/vacuum-cell.py e
 explorercheck:  ## The 3D explorer must render every level and display only the model's numbers
 	$(PY) tools/check_explorer.py
 
-# THE FAST PATH FOR BLUEPRINT-PAGE EDITS: `make stamp && make levelscheck` is ~10 s against
-# the full chain's ~8 min, the same trade explorercheck already gives explorer-only work.
-# The full chain still runs once before publish — this is the iteration loop, not the law.
+# For blueprint-page edits, `make stamp && make levelscheck` checks boot, bound figures
+# and SVG text bounds on the five pages in tools/check_levels.py. Run the full check
+# before publication; elapsed times depend on the tree and installed tools.
 levelscheck:  ## The blueprint page must boot clean, draw every figure, keep text on canvas
 	$(PY) tools/check_levels.py
 
@@ -145,7 +145,7 @@ skin:  ## Re-solve the loaded skin (#63): membrane FEM, gore study, generated ou
 	$(PY) tools/gen_skin.py
 	@echo 'skin: run `make stamp` — ship/skin.generated.js changed.'
 
-# A full re-solve and byte comparison, not a hash shortcut: the solve is nine seconds,
+# A full re-solve and byte comparison, not a hash shortcut: the solver recomputes the result,
 # and this repository has twice shipped a gate that lied by comparing a stale file.
 skincheck:  ## The committed loaded-skin outputs must match a full re-solve, every gate green
 	$(PY) tools/gen_skin.py --check
@@ -173,22 +173,22 @@ nodescheck:  ## The computed-node manifest must be closed and match the article 
 # the same 432 member-ends and 51 nodes, and was frozen at the parameters the STLs beside it
 # were cut for. That is the one failure a property diff cannot report, because a diff against a
 # contract that was never frozen has nothing to say and would pass in silence. It evaluates no
-# field, so it costs about a second and belongs here, immediately after the manifest it reads.
+# field, so it belongs here, immediately after the manifest it reads.
 # `assemblycheck` below then asks the opposite question — whether the article still MATCHES the
 # cap — because that answer needs the full measurement and is free once the measurement is
-# running. Splitting them this way is what keeps `make check` from paying for the same two
-# minutes twice.
+# running. Splitting them this way is what keeps `make check` from measuring the same
+# connections twice.
 contractcheck:  ## The frozen connection contract must exist and cover this article
 	$(PY) tools/check_assembly.py --contract-only
 
 # `nodescheck` asks whether 51 meshes are closed and whether the manifest counts match the
-# analysis. Both can be true of an article that cannot be built, and were: a socket drawn for
+# article graph. Both can be true of an article that cannot be built, and were: a socket drawn for
 # the wrong tube, a shoulder the pipe never reaches, 166 members with 0.00 mm of insertion
 # travel where 20 mm is needed. This measures each of the 432 member-ends out of the SDF and
-# holds it to a frozen contract. It regenerates nothing and drives no browser, so it costs a
-# minute rather than the minutes `make nodes` costs. CI runs it plain; the nightly runs
-# --exhaustive, which adds the void-topology fill, the STL cross-check and the full insertion
-# sweep for about three minutes.
+# holds it to a frozen contract. It regenerates nothing and drives no browser.
+# It measures the recorded geometry without regenerating the meshes. CI runs it plain. Running
+# --exhaustive explicitly adds the void-topology fill, STL cross-check and full insertion
+# sweep; no nightly workflow is configured in this repository.
 #
 # It also DIFFS every proven property of every member-end against research/geometry/nodes/
 # contract.json and fails naming the member-end, the property and both values. That is what
@@ -242,9 +242,8 @@ stamp:  ## Recompute both version hashes and stamp every import with them
 	$(PY) 3d/scripts/stamp-version.py
 	$(PY) tools/stamp_site.py
 
-# pipeline/figures.py draws the concept page's diagrams, but it imports `design`, a module
-# that stayed behind in the private site repository. It does not run here and is not wired
-# up. These are the 3D library's figures, which are self-contained.
+# These are the 3D library's self-contained figures. The concept diagrams are
+# separate; this target does not regenerate them.
 figures:  ## Rasterise the 3D figures to PNG, regenerating the SVGs first if node is here
 	@if command -v node >/dev/null 2>&1; then cd 3d && node scripts/figures.mjs; \
 	 else echo "figures: no node — rasterising the committed SVGs unchanged"; fi
@@ -290,7 +289,7 @@ clean:  ## Delete generated output: rasterised figures and __pycache__
 # made from are megabytes of agency data and are not in the repository, so this gate has two
 # depths. As it stands it rebuilds everything that can be rebuilt from committed files and
 # compares bytes, works out each published number a second way, holds the pinned totals and
-# the impossible-date policy, and holds data/README.md to the data: under a second, with no
+# the impossible-date policy, and holds data/README.md to the data: with no
 # browser, no node and no network. With SEASON_CAPTURE=<capture folder> it also regenerates
 # the season from the raw inputs, byte for byte. Without it those tests are reported as
 # SKIPPED, by name. They do not pass.
@@ -298,12 +297,12 @@ clean:  ## Delete generated output: rasterised figures and __pycache__
 seasoncheck:  ## The season files must match a regeneration and their pinned totals must hold
 	$(PY) tests/season/check.py
 
-# The guard gate (order 3b-1): the no-fleet window and the guarded fires are data, pinned
+# The guard gate: the no-fleet window and the guarded fires are data, pinned
 # by digest, and the page holds the ruling on every kind of day — record-only days carry no
 # fleet figure anywhere in their text, fleet days fly only unguarded fires and every
 # simulated position stays outside every keep-out, a date with no day file stands down in
-# words, and the ruled sentences appear exactly as ruled. Loads the page headless twelve
-# times (chromium + websockets, same as the golden check); about two and a half minutes.
+# words, and the ruled sentences appear exactly as ruled. Loads ten views and four layout widths headless
+# (chromium + websockets, same as the golden check).
 .PHONY: guardcheck
 guardcheck:  ## The no-fleet window and the guarded fires must hold, on file and on the page
 	$(PY) tests/guard/check.py
@@ -315,7 +314,7 @@ exercisecheck:  ## Invented exercise: deterministic geography, labels and all-da
 # The evacuation gate: the ever-under-order-or-alert record is generated data,
 # not a hand list. The committed pair data/season/2026.evac.json + .prov.json must
 # regenerate byte for byte — from the committed trimmed capture when the raw one is not
-# here, and from inputs/evac-capture/ (untracked, taken by the lead) when it is; that one
+# here, and from inputs/evac-capture/ (untracked captured inputs) when it is; that one
 # test reports itself SKIPPED, by name, on machines without the capture. The published
 # record carries only its minimal fields, the layer's homes/population/agency fields are
 # refused in every tracked file, every fire number resolves in the season record, the

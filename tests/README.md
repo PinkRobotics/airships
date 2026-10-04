@@ -1,11 +1,12 @@
 # tests
 
-The test groups answer different questions.
+The test groups answer different questions. This table introduces five groups;
+`make help` lists the full gate set, and `make ciparity` checks its CI order.
 
 | tier | question | where | needs |
 |---|---|---|---|
 | unit | does the model still make sense? | `cases/*.cases.js` | a browser, or node 18+ |
-| golden | does the model still produce the same numbers? | `golden/check.py` | python3 + chromium |
+| golden | do the model outputs and captured page elements still match? | `golden/check.py` | python3 + chromium |
 | shipped selftest | can a reader check the numbers from the page itself? | `../sim/selftest.js` | the live page |
 | season | do the season files match a regeneration, and do their pinned totals hold? | `season/check.py` (`make seasoncheck`) | python3 |
 | capture | does the daily capture tool behave against recorded responses? | `capture/check.py` (`make capturecheck`) | python3; a fixture server on 127.0.0.1 |
@@ -29,8 +30,8 @@ golden/*.json           the baselines; golden/*dump.js the scripts that produce 
 ```sh
 make test        # the browser suites, headless
 make test-node   # Node suites; browser-compatible 3D fallback if Node is absent
-make golden      # replay at seed=7 and diff every output against the baselines
-make check       # the same ordered gates as CI; Node is required
+make golden      # replay the seeded invented exercise and diff the captured outputs
+make check       # the same ordered main gates as CI; Node is required
 ```
 
 **In a browser**, to read it rather than script it — no toolchain, no install:
@@ -106,14 +107,14 @@ change belongs in `golden/`, not here.
 - `spec-parity` — every field `sim/config.js` and `3d/model/config.js` both claim to know,
   compared. Written after the two copies drifted and the drift was found by review.
 
-**`golden/` — characterisation.** `seed7-snapshot.json` is every model output, and
-`ui-seed7-snapshot.json` is what the page renders, both captured from
-`/?seed=7&data=snapshot`: the seed pins every choice the model makes, the snapshot pins
-every external input. Any difference is a failure, including an improvement. When a change is
+**`golden/` — characterisation.** `seed7-snapshot.json` holds model outputs at the captured inputs, and
+`ui-seed7-snapshot.json` holds selected rendered elements, both captured from
+`/?view=exercise`: the bundled exercise supplies its own seed, invented fires and
+pinned inputs. Any difference is a failure, including an improvement. When a change is
 meant to move the numbers, regenerate with `--update`, **read the diff**, and commit the new
 baseline in the same change as the code that moved it.
 
-**`../sim/selftest.js` — the shipped checks.** Seventeen assertions that run in devtools on
+**`../sim/selftest.js` — the shipped checks.** Model assertions that run in devtools on
 the live page, for a reader who does not trust the numbers and does not want to clone
 anything. It is duplicated in spirit by `cases/`, on purpose: one is for CI, one is for a
 stranger.

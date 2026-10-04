@@ -22,16 +22,16 @@
  * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
-import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=e6a94414';
-import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=e6a94414';
-import { renderFires, renderRoster } from './cockpit/tables.js?v=e6a94414';
-import { renderDrawer } from './cockpit/panels.js?v=e6a94414';
-import { vancouverClock, vancouverDate } from './dates.js?v=e6a94414';
-import { replanAll } from './fleet.js?v=e6a94414';
-import { renderStatus } from './main.js?v=e6a94414';
-import { fetchJSON, mirrorJSON } from './net.js?v=e6a94414';
-import { S } from './store.js?v=e6a94414';
-import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=e6a94414';
+import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=b3bc1c96';
+import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=b3bc1c96';
+import { renderFires, renderRoster } from './cockpit/tables.js?v=b3bc1c96';
+import { renderDrawer } from './cockpit/panels.js?v=b3bc1c96';
+import { vancouverClock, vancouverDate } from './dates.js?v=b3bc1c96';
+import { replanAll } from './fleet.js?v=b3bc1c96';
+import { renderStatus } from './main.js?v=b3bc1c96';
+import { fetchJSON, mirrorJSON } from './net.js?v=b3bc1c96';
+import { S } from './store.js?v=b3bc1c96';
+import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=b3bc1c96';
 
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to a dated copy bundled with the

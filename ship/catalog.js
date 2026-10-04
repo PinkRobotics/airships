@@ -3,10 +3,9 @@
  * One entry per part the ship is made of, grouped tubes / connectors / skins. Everything
  * the committed cell model already knows is READ from it (stockBuild, MATERIALS, the saw
  * table); nothing the model computes is retyped here. Ship-scale entries carry numbers
- * from the verified scoping analysis (the ship-scale analysis of 12 August 2026,
- * version 2) and say so in their `prov` line — they swap to
- * ship.js imports when that module lands under the gates (history: docs/HANDOFF.md at commit 5e48f2a, the
- * seven-levels section). Status vocabulary:
+ * from ship0Summary() in ship/model.js, mirrored in
+ * research/analysis/vacuum-cell.py and held by make cellparity. Their `prov` lines
+ * distinguish computed model output from unverified inputs. Status vocabulary:
  *
  *   proven      measured on, or billed against, the built article A
  *   decided     an operator decision on record — geometry known, some numbers [TO VERIFY]
@@ -20,10 +19,10 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0, ship0Summary } from './model.js?v=e6a94414';
+         SHIP0, ship0, ship0Summary } from './model.js?v=b3bc1c96';
 
 const sb = stockBuild();
-/* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,
+/* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by ship/model.js,
  * mirrored in research/analysis/vacuum-cell.py, and held identical by
  * tools/check_cell_parity.py — so every ship figure below is now GATED, and the
  * scoping chips those numbers wore since 08-12 come off. What stays flagged is

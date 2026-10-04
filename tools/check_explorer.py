@@ -121,7 +121,7 @@ __CHECKED_TEXT__
   out.checks.push(['surfaceLoadTf', shown('[data-n="edge.totalSurfaceLoadTf"]'),
                    el.totalSurfaceLoadTf.toFixed(1)]);
   // SHIP 0 — the gated port's own figures, read off the panel and recomputed
-  // fresh: the harsh-basis ratio, the best-world ratio, the wall populations,
+  // fresh: the record-basis ratio, the favourable-basis ratio, the wall populations,
   // the ring section. The ship level is not toured, so these explicit rows are
   // what holds its panel to the model.
   {

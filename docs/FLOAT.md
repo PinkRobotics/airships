@@ -1,5 +1,14 @@
 # Making the cell float
 
+This document combines the current hull case with earlier bench-cell work.
+The dated hull-of-record summary immediately below is the current case.
+The brief beginning “Written 2026-08-11”, its appendices and dated corrections
+retain the earlier work; they are not evidence that a vehicle floats.
+The four rows in “Where the mass is” are explicitly historical and unreproduced.
+Use the [float ledger](FLOAT-LEDGER.md) for the generated current figures and
+its [evidence key](FLOAT-LEDGER.md#evidence-and-knockdowns) to distinguish computation,
+unverified assumptions, reproduced history and uncomputed cases.
+
 > **Hull of record, 2026-10-02.** As drawn, the 52 m hull does not float.
 > On the record basis, lift is **0.558 of mass at sea level and 0.436 at 2,500 m**.
 > That basis assumes knockdown 0.30 and 1,050 MPa chords, with structural safety factor 1.2 against full sea-level pressure.
@@ -362,7 +371,7 @@ a pass written by a model are the same shape.
   tree holds while an order runs, the order cannot see it or disturb it.
 - **The deliverable comes back as a change and a report**, never as a commit on `main`.
   Until October 2026 the rule was that a person read each one before it merged. Since then a
-  desk other than the builder signs the exact commit before it lands; the project's public log
+  reviewer other than the builder signs the exact commit before it lands; the project's public log
   shows each change's builder and each landing's signature.
 - **One order changes one number.** Orders are sized to a single route from §3 or a single
   question from the list below. An order that touches two is mis-scoped — split it.
@@ -547,7 +556,7 @@ fossil.
 - **`demonstrator()` must keep using the printer chain** — that function is about the
   all-printed article and the chain is genuinely its sizing law. Do not "fix" both.
 - The parity gate holds 178 values identical across the two files. Change them together, in
-  one commit, and run `make parity` before anything else.
+  one commit, and run `make cellparity` before anything else.
 
 ### A4.2 The tube
 
@@ -692,8 +701,8 @@ it is where the mass actually is.**
 
 1. `tools/scale_study.py`, self-check green — everything downstream depends on it
 2. **ask: 1.000 or 0.980, and does the film supplier have a wide enough roll**
-3. break the `printerChain` derivation; `make parity`
-4. new SKUs in both model files; `make parity`, `make figcheck`
+3. break the `printerChain` derivation; `make cellparity`
+4. new SKUs in both model files; `make cellparity`, `make figcheck`
 5. fix the extraction window; generate one node; then all 51
 6. `make assemblycheck` without freezing; understand the failure set; then freeze
 7. the page, then the reports, then the net

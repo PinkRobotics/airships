@@ -105,7 +105,7 @@ def the_fixture_regenerates_the_pinned_pair_byte_for_byte():
 
 @test
 def the_raw_capture_regenerates_the_committed_pair():
-    """inputs/evac-capture/ (untracked, taken by the lead) -> the committed pair, exactly."""
+    """inputs/evac-capture/ (untracked captured inputs) -> the committed pair, exactly."""
     if not (RAW_CAPTURE / "MANIFEST.json").is_file():
         raise Skip(
             "inputs/evac-capture/ is not here. This test regenerates the committed pair from "

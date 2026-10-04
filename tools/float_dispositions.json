@@ -1412,6 +1412,250 @@
    "class": "method",
    "context": [],
    "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "engineering/index.html",
+   "key": "9d396aba08d03c35",
+   "text": "[data-cat=\"walls.crushBestT\" data-f=\"0\"] – [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t greedy sizing at safety factor 1, favourable to record basis; not minimum masses",
+   "class": "live-model",
+   "reason": "Both masses are the model greedy sizing outputs at structural SF 1, explicitly not minimum masses.",
+   "context": [
+    "1"
+   ]
+  },
+  {
+   "file": "engineering/index.html",
+   "key": "ad6b9dfda3a3dac9",
+   "text": "greedy SF 1 sizing [data-cat=\"walls.crushHarshT\" data-f=\"0\"] t record basis · [data-cat=\"walls.crushBestT\" data-f=\"0\"] t favourable basis",
+   "class": "live-model",
+   "reason": "The two structural SF 1 masses are greedy results and are explicitly labelled as such.",
+   "context": [
+    "1"
+   ]
+  },
+  {
+   "file": "ship/explorer.js",
+   "key": "7a3bc58e58d8847a",
+   "class": "bound",
+   "context": [],
+   "reason": "The denial agrees with the drawn bench or hull verdict; the remaining prose describes the intended test and construction sequence.",
+   "bindings": [
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/verdict",
+     "equals": "Nothing floats today as drawn."
+    }
+   ]
+  },
+  {
+   "file": "cell/ship.html",
+   "key": "1ecee39eb58cea34",
+   "class": "deferred",
+   "reason": "This served-page paragraph combines the dated first and second verdicts with the present comparison; its historical account must remain intact.",
+   "owner": "mixed-block"
+  },
+  {
+   "file": "README.md",
+   "key": "1683e52b4b3395ec",
+   "class": "method",
+   "context": [
+    "-1",
+    "1",
+    "2",
+    "3",
+    "30",
+    "4"
+   ],
+   "reason": "Reading protocol or reproducible model input recipe; no physical result is claimed."
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "ec5386e6b510a3cb",
+   "class": "method",
+   "context": [
+    "08",
+    "11",
+    "2026"
+   ],
+   "reason": "Reading guide distinguishes the current hull summary, retained dated work and the explicitly unreproduced table; it claims no new computed or physical result."
+  },
+  {
+   "file": "engineering/index.html",
+   "key": "54a4b9271188a32a",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.ratio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.ratioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.bestWorldRatio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "shown": "52"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "abs": true,
+     "shown": "4.3"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "abs": true,
+     "shown": "53.6"
+    }
+   ]
+  },
+  {
+   "file": "ship/index.html",
+   "key": "aff26ed0df1651db",
+   "class": "generated",
+   "generator": "tools/gen_float_verdicts.py",
+   "gate": "floatverdictcheck",
+   "verifier": "tools/check_float_verdicts.py",
+   "region": {
+    "start": "<!-- float-verdict:hull:start -->",
+    "end": "<!-- float-verdict:hull:end -->"
+   },
+   "reason": "Exact verdict region is freshly regenerated from the page catalogue and compared with both ledger bases by floatverdictcheck; values also survive scripts-off.",
+   "bindings": [
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "route": "ship.diaM"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.ratio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.ratioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "route": "ship.bestWorldRatio"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "route": "ship.bestWorldRatioTarget"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "route": "ship.bestWorldShortfallT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "route": "ship.bestWorldShortfallTargetT",
+     "abs": true
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "extras.hullDiameterM",
+     "shown": "52"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.558"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.30/chord-1050/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.436"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.981"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.liftToMass",
+     "shown": "0.766"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.seaLevel.margin",
+     "abs": true,
+     "shown": "4.3"
+    },
+    {
+     "case": "hull-52m/as-drawn/gamma-0.65/chord-1450/sf-1.2",
+     "field": "at.target.margin",
+     "abs": true,
+     "shown": "53.6"
+    }
+   ]
   }
  ],
  "replacements": [
@@ -1498,6 +1742,48 @@
    "oldKey": "44067179cff88447",
    "newKey": "3334294b7fd5bd2f",
    "reason": "Move the reading protocol below the new four-step opening; preserve the links to the structural assumptions and deciding experiments."
+  },
+  {
+   "file": "engineering/index.html",
+   "oldKey": "99ad98b89c61cdae",
+   "newKey": "9d396aba08d03c35",
+   "reason": "Basis terminology, command pointer or version stamp changed; physical values, input qualifications and the previous classification are unchanged."
+  },
+  {
+   "file": "engineering/index.html",
+   "oldKey": "123a082747abf99b",
+   "newKey": "ad6b9dfda3a3dac9",
+   "reason": "Basis terminology, command pointer or version stamp changed; physical values, input qualifications and the previous classification are unchanged."
+  },
+  {
+   "file": "engineering/index.html",
+   "oldKey": "4d89e328dff0f200",
+   "newKey": "54a4b9271188a32a",
+   "reason": "The verdict template uses record and favourable basis names; both altitude pairs, unverified inputs and all bindings are unchanged."
+  },
+  {
+   "file": "ship/index.html",
+   "oldKey": "4231981cba6eca9b",
+   "newKey": "aff26ed0df1651db",
+   "reason": "The verdict template uses record and favourable basis names; both altitude pairs, unverified inputs and all bindings are unchanged."
+  },
+  {
+   "file": "ship/explorer.js",
+   "oldKey": "ec10c41118c4ef40",
+   "newKey": "7a3bc58e58d8847a",
+   "reason": "Basis terminology, command pointer or version stamp changed; physical values, input qualifications and the previous classification are unchanged."
+  },
+  {
+   "file": "cell/ship.html",
+   "oldKey": "1833b37edbbf4d6c",
+   "newKey": "1ecee39eb58cea34",
+   "reason": "Basis terminology, command pointer or version stamp changed; physical values, input qualifications and the previous classification are unchanged."
+  },
+  {
+   "file": "README.md",
+   "oldKey": "20044b3354d1f6de",
+   "newKey": "1683e52b4b3395ec",
+   "reason": "Reading protocol states that ledger regeneration needs Chromium and uses execution/run terminology; figures, input instructions and method classification are unchanged."
   }
  ]
 }

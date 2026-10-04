@@ -687,12 +687,12 @@ def knockdown_registry(F) -> dict:
         name="general-instability knockdown γ on the ring, web and spoke capacity "
              "(Bryant's form, minimised over the buckling wave number)",
         value=N(F.gi_harsh, 2), status="assumed",
-        basis="The model calls it house-harsh and SIZES THE RECORD with it. No test and no "
+        basis="The record basis sizes the hull with this knockdown. No test and no "
               "citation in this repository stands behind the value.")
     K["gi-reserve"] = dict(
         name=f"imperfection knockdown priced as a stability reserve ({NO}K_SHELL{NC})",
         value=N(F.k_shell, 2), status="assumed",
-        basis="On the harsh basis the ledger also buys the mass that would hold the hull "
+        basis="On the record basis the ledger also buys the mass that would hold the hull "
               "at this lower knockdown — its stability-reserve line. No source is cited.")
     K["gi-frame"] = dict(
         name="general-instability knockdown γ, the frame-practice world",
@@ -752,8 +752,12 @@ def chord_input(F, key, mpa) -> dict:
 SHIP_CODE = f"`{MODEL}`: `{NO}ship0(){NC}`"
 
 
-def world_words(F, gi) -> str:
-    return "harsh" if float(gi) == float(F.gi_harsh) else "frame-practice"
+def world_words(F, gi, mpa) -> str:
+    if float(gi) == float(F.gi_harsh):
+        return "record"
+    # The favourable basis also requires the chord ceiling. Other rows retain
+    # the knockdown input name rather than implying that complete basis.
+    return "favourable" if float(mpa) == float(F.sig_hi[1]) else "frame-practice"
 
 
 def ship_kds(F, K, gi) -> list:
@@ -831,7 +835,7 @@ def ship_case(F, K, dia, gi, sig, sf, chordal: bool = False, membrane: bool = Fa
         why.append(f"it clears the float line at sea level only — at "
                    f"{fmt(at['target']['altitudeM'])} m the same row reads "
                    f"{fmt(at['target']['liftToMass'])}")
-    label = (f"{num(o.dia, 0)} m hull, {vname}, {world_words(F, gi)} stability basis "
+    label = (f"{num(o.dia, 0)} m hull, {vname}, {world_words(F, gi, mpa)} stability basis "
              f"(γ {num(gi, 2)}), chords at {num(mpa, 0)} MPa, {sfw}")
     cid = (f"hull-{bare(o.dia, 0)}m/{vname.replace(' ', '-')}/gamma-{bare(gi, 2)}/"
            f"chord-{bare(mpa, 0)}/sf-{bare(sf, 1)}")
@@ -925,7 +929,7 @@ sized for sea-level pressure either way.
 {num(F.sf_lat, 1)} always shown beside it.
 
 **Code path.** {SHIP_CODE}, called once per row.
-**Evidence.** The harsh-basis rows are *{ev("reviewed-model")}*; the frame-practice rows
+**Evidence.** The record-knockdown rows are *{ev("reviewed-model")}*; the frame-practice rows
 are *{ev("to-verify")}*.
 
 {kd_table(K, ["gi-harsh", "gi-reserve", "gi-frame", "classical", "local-wall", "ortho",
@@ -940,25 +944,25 @@ are *{ev("to-verify")}*.
         f"Lift ÷ mass at {altT} m", f"Margin at {altT} m (t)", "Evidence"],
        rows, "rrrrrrrrl")}
 
-**The two rows the site quotes.** The record — harsh knockdown, mid coupons, declared
+**The two rows the site quotes.** The record basis — record knockdown, mid coupons, declared
 factor — weighs {fmt(cr["mass"])} t: lift ÷ mass {a(cr, "seaLevel", "liftToMass")} at sea
 level and {a(cr, "target", "liftToMass")} at {altT} m, short by
 {num(sub(rec.mass, rec.lift_sl), 1)} t and {num(sub(rec.mass, rec.lift_t), 1)} t. The
-best defensible world — the frame-practice knockdown and the chord ceiling together —
+favourable basis — the frame-practice knockdown and the chord ceiling together —
 weighs {fmt(cb["mass"])} t: {a(cb, "seaLevel", "liftToMass")} and
 {a(cb, "target", "liftToMass")}, short by {num(sub(best.mass, best.lift_sl), 1)} t and
-{num(sub(best.mass, best.lift_t), 1)} t. That best world misses by {num(miss_sl, 1)} % of
+{num(sub(best.mass, best.lift_t), 1)} t. That favourable basis misses by {num(miss_sl, 1)} % of
 its lift ratio at sea level and by {num(miss_t, 1)} % at {altT} m: "nearly floats" is a
 sea-level statement.
 
 **Structure per cubic metre enclosed.** {num(rec.per_m3, 3)} kg/m³ on the record basis
-and {num(best.per_m3, 3)} kg/m³ in the best world, against air at
+and {num(best.per_m3, 3)} kg/m³ on the favourable basis, against air at
 {num(F.rho_sl, 4)} kg/m³ (sea level) and {num(F.rho_t, 4)} kg/m³ ({altT} m). Per square
 metre of hull: {num(rec.areal, 2)} and {num(best.areal, 2)} kg/m².
 
 **Where the mass is** (tonnes; the model's own line names):
 
-{table(["Line", "Record", "Best defensible world"],
+{table(["Line", "Record basis", "Favourable basis"],
        lines + [["**total**", f"**{num(rec.mass, 1)}**", f"**{num(best.mass, 1)}**"]],
        "lrr")}
 
@@ -1010,7 +1014,7 @@ def d_tool_default(F, K):
                 c = make_case(
                     F, cid,
                     f"{num(F.dia, 0)} m hull with a {num(depth, 1)} m wall (the scoping "
-                    f"tool's default run), {world_words(F, gi)} stability basis "
+                    f"tool's default run), {world_words(F, gi, sig[1])} stability basis "
                     f"(γ {num(gi, 2)}), chords at {num(sig[1], 0)} MPa, SF {num(sf, 1)}",
                     mass, 1, "t", at, sf,
                     DECLARED if agree(sf, F.sf_decl, 6) else BESIDE,
@@ -1067,9 +1071,9 @@ committed file that no page reads; the full check holds it to a fresh run throug
 analysisfresh. Its `--band` study uses a separately committed plan that matches the
 record above, and guards only that plan.
 
-**This is where two much-quoted figures come from.** On the harsh basis this hull reads
+**This is where two much-quoted figures come from.** On the record basis this hull reads
 {a(ct, "seaLevel", "liftToMass")} at sea level — and {a(ct, "target", "liftToMass")} at
-{altT} m. In the best defensible world it reads {a(cb, "seaLevel", "liftToMass")} at sea
+{altT} m. On the favourable basis it reads {a(cb, "seaLevel", "liftToMass")} at sea
 level — and {a(cb, "target", "liftToMass")} at {altT} m. Each pair is one hull. The
 second pair needs both unverified inputs at once: the frame-practice knockdown
 (γ {num(F.gi_frame, 2)}, assumed) and a chord allowable of {num(F.sig_hi[1], 0)} MPa — a
@@ -1080,7 +1084,7 @@ factors.
 **Code path.** `{SCOPING}`: `{NO}ship_ledger(){NC}`, the tool's own implementation, at the
 configuration `main()` picks.
 **Evidence.** *{ev("to-verify")}* — an output for a wall the record does not
-have. The deeper wall helps the harsh basis and hurts the best world, which is why
+have. The deeper wall helps the record basis and hurts the favourable basis, which is why
 neither hull dominates the other.
 
 {table(["Knockdown γ", "Chord allowable (MPa)", "SF", "Mass (t)",
@@ -1182,7 +1186,7 @@ def d_sizes(F, K):
     check(F, 'the record-basis ratio decreases at each size in the published size curve', falling)
     F.findings.append(dict(id='size-and-altitude', finding=
         'On the record basis the ratio falls at each sampled diameter in the published curve. '
-        'The best-world curve is not monotone, but its largest hull also has a lower ratio '
+        'The favourable-basis curve is not monotone, but its largest hull also has a lower ratio '
         'than its smallest. At the working altitude every sampled band is closed, even '
         'at the crush floor with both favourable credits. This is a finite sweep, not '
         'a proof about all possible diameters or architectures.'))
@@ -1836,7 +1840,7 @@ def main():
     ap.add_argument('--check',action='store_true')
     ap.add_argument('--names',action='store_true')
     args=ap.parse_args()
-    # Local scratch stays in the clone unless the caller supplies the lane's TMPDIR.
+    # Local scratch stays in the clone unless the caller supplies the caller's TMPDIR.
     base=pathlib.Path(os.environ.get('TMPDIR',str(ROOT / '.scratch' / 'ledger')))
     base.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='float-ledger-',dir=base) as tmp:

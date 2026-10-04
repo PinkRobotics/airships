@@ -31,8 +31,9 @@ A sceptical stranger with ten minutes should be able to:
 
 The target is a nightly run that does all four from a clean environment and publishes the result.
 That run does not exist yet. Step 1 can be run by hand: `tools/stranger_run.py` clones a commit,
-clears the environment and runs every gate. It was red until 2026-10-01, when `make check` stopped
-at one check, and is green since. Step 3 is the public work log at pinkrobotics.ca/log/. Steps 2
+clears the environment and runs the main `make check` gates. The separate `floatplants`
+CI target is outside that run. An earlier green run does not establish the result for a
+changed tree; each run records its own gate outcomes. Step 3 is the public work log at pinkrobotics.ca/log/. Steps 2
 and 4 are not demonstrated yet.
 
 ## Objectives and weights

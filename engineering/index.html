@@ -97,9 +97,9 @@
 
 <!-- float-verdict:hull:start -->
 <p data-float-verdict="hull"><b>As drawn, the <span data-cat="ship.diaM" data-f="0">52</span> m hull does not float.</b>
-  The house-harsh record basis uses safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords.
+  The record basis uses safety factor 1.2 against full sea-level pressure, knockdown 0.30 and 1,050 MPa chords.
   Its lift is <span data-cat="ship.ratio" data-f="3">0.558</span> of its mass at sea level and <span data-cat="ship.ratioTarget" data-f="3">0.436</span> at the 2,500 m working altitude.
-  The best defensible world assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
+  The favourable basis assumes knockdown 0.65 and a 1,450 MPa carbon-laminate compressive ceiling, both unverified.
   Its lift/mass is <span data-cat="ship.bestWorldRatio" data-f="3">0.981</span> at sea level and <span data-cat="ship.bestWorldRatioTarget" data-f="3">0.766</span> at 2,500 m, short by <span data-cat="ship.bestWorldShortfallT" data-f="1">4.3</span> t and <span data-cat="ship.bestWorldShortfallTargetT" data-f="1">53.6</span> t respectively.</p>
 <!-- float-verdict:hull:end -->
   <p>The bill and the drawing disagree in the end caps, in both directions.
@@ -116,7 +116,7 @@
       <div class="keynum"><div class="big"><span data-cat="ship.liftT" data-f="1"></span> <span class="unit-sm">t</span></div>
         <div class="lbl">what the emptied hull lifts at sea level</div></div>
       <div class="keynum"><div class="big"><span data-cat="walls.crushBestT" data-f="0"></span>–<span data-cat="walls.crushHarshT" data-f="0"></span> <span class="unit-sm">t</span></div>
-        <div class="lbl">greedy sizing at safety factor 1, best defensible to house-harsh; not minimum masses</div></div>
+        <div class="lbl">greedy sizing at safety factor 1, favourable to record basis; not minimum masses</div></div>
       <div class="keynum"><div class="big"><span data-cat="ship.massT" data-f="1"></span> <span class="unit-sm">t</span></div>
         <div class="lbl">record structural mass at the declared safety factor, before equipment</div></div>
     </div>
@@ -205,7 +205,7 @@
     Neither sizing result is a minimum mass, and a positive gap between lift and either one does not establish a ship.
     The ledger's working-altitude comparison remains short.</p>
     <div class="facts">
-      <span class="fact">greedy SF 1 sizing <b><span data-cat="walls.crushHarshT" data-f="0"></span> t</b> harsh world · <b><span data-cat="walls.crushBestT" data-f="0"></span> t</b> best world</span>
+      <span class="fact">greedy SF 1 sizing <b><span data-cat="walls.crushHarshT" data-f="0"></span> t</b> record basis · <b><span data-cat="walls.crushBestT" data-f="0"></span> t</b> favourable basis</span>
       <span class="fact">sea-level lift <b><span data-cat="walls.sinkT" data-f="0"></span> t</b> — the lift itself</span>
       <span class="fact">the drawing has no operating margin for equipment at either altitude</span>
     </div>
@@ -285,6 +285,6 @@ window.__errs = [];
 window.addEventListener('error', (e) => window.__errs.push(String(e.message || e)));
 window.addEventListener('unhandledrejection', (e) => window.__errs.push(String(e.reason)));
 </script>
-<script type="module" src="./engineering.js?v=e6a94414"></script>
+<script type="module" src="./engineering.js?v=b3bc1c96"></script>
 </body>
 </html>
