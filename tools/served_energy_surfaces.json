@@ -1,0 +1,29 @@
+{
+  "cycleConsumers": {
+    "app/cockpit/panels.js": "Cockpit cycle energy, requested/kept/delivered water, rate; fire and intake panels; instantaneous power and storage. Only missionReady opens the instruments.",
+    "app/cockpit/tables.js": "Fire rates sum accepted missions at this fire; retired fleet statistics and flat table exclude inactive missions.",
+    "app/cockpit/gauges.js": "Phase dial duration and remaining minutes use the cockpit's accepted plan.",
+    "app/cockpit/shipviz.js": "Release animation leaves retained water aboard; rotor labels read the selected plan's instantaneous state.",
+    "app/dom.js": "Cycle bar and phase minutes use the accepted cockpit mission.",
+    "app/worked.js": "Worked quantities use workedFigures after selectServedPlan; requested capacity cards remain configured assumptions.",
+    "app/loop.js": "Storage integration uses instantaneous power from accepted missions; inactive missions do not drain storage.",
+    "app/map/render.js": "Map motion and release animation skip inactive missions and read stateAt for the selected plan.",
+    "app/bridge/viz3d.js": "3D host telemetry comes from the accepted cockpit mission's stateAt power ledger.",
+    "sim/state.js": "Phase timing, altitude, airspeed, water, force and power come from drawAt of the accepted mission; map paths remain schematic.",
+    "sim/narrate.js": "Cycle, energy, delivered/retained water and rate follow the accepted plan; inactive quantities are unavailable with their reason.",
+    "sim/energy-view.js": "Favourable basis replays exactly the record plan's controls; an infeasible paired plan publishes no cycle energy.",
+    "sim/served-view.js": "Worked quantities are accepted plan fields; inactive plans yield no numeric rows.",
+    "concept/index.html": "Worked tiles and paragraph use the same selector and formatter; static ruled sentences have exact generated regions.",
+    "tools/fallback_dump.js": "Static exercise rates and worked mission are accepted after exact-input audit; figures regenerate with gen_fallback.py."
+  },
+  "otherSurfaces": {
+    "index.html": "Generated fallback and generated energy sentences; static configured fleet counts are capacity assumptions, not achieved delivery.",
+    "engineering/index.html": "No served mission energy or delivery figure; structural-float verdict belongs to the existing ledger generator.",
+    "ship/": "No cycle energy, delivery, endurance or fleet rate; structural specifications and float verdicts keep their existing generators.",
+    "cell/": "No mission energy, delivery, endurance or fleet rate; independent material and structural assumptions remain labelled.",
+    "float/": "Generated structural ledger analysis, not a flight-plan or mission-energy surface.",
+    "3d/physics/energy.js": "Mission power graphs use host telemetry; the nitrogen-store ledger is a labelled full-tank equipment calculation, not a mission result.",
+    "3d/scenes/scenes.js": "Illustrative trajectory minutes and relative energies are explicitly labelled inputs, not mission results.",
+    "model-lab/index.html": "Actuator experiments have no mission-energy record and label mission energy unavailable; storage assumptions and illustrative trajectories remain separate."
+  }
+}

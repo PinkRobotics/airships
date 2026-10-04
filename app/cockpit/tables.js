@@ -1,12 +1,13 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt } from '../../sim/index.js?v=686fcc61';
-import { timeSinceDrop } from '../cockpit/panels.js?v=686fcc61';
-import { $, SHORT, esc } from '../dom.js?v=686fcc61';
-import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=686fcc61';
-import { FLEET } from '../fleet.js?v=686fcc61';
-import { select } from '../map/interact.js?v=686fcc61';
-import { S } from '../store.js?v=686fcc61';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady } from '../../sim/index.js?v=059cbc27';
+import { timeSinceDrop } from '../cockpit/panels.js?v=059cbc27';
+import { $, SHORT, esc } from '../dom.js?v=059cbc27';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=059cbc27';
+import {figure,inactiveText} from "../served-ui.js?v=059cbc27";
+import { FLEET } from '../fleet.js?v=059cbc27';
+import { select } from '../map/interact.js?v=059cbc27';
+import { S } from '../store.js?v=059cbc27';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -132,12 +133,13 @@ export function renderFires() {
   el.innerHTML = `<table class="fleettab" role="grid" aria-describedby="firesNote" ` +
     `aria-label="Largest fires assigned or waiting: fire, reported size, time since the last drop, release rate">` +
     `<tbody>` + top.map(f => {
-    const m = f.mission;
+    const m = f.mission, plans = S.missions.filter(x => x.fire === f && missionReady(x));
+    const tph = plans.reduce((n,x) => n + x.plan.tph, 0);
     return `<tr class="r-ship" aria-selected="false" data-fid="${esc(f.id)}">` +
       `<td>${esc(f.name || f.geo || f.id)}</td>` +
       `<td style="text-align:right">${f.sizeHa > 0 ? fmt(f.sizeHa) + " ha" : "size unmapped"}</td>` +
       `<td class="dropt" style="text-align:right">…</td>` +
-      `<td style="text-align:right">${m && !m.idle ? fmt(m.plan.tph) + " kL/h <small>sim</small>" : f.heldOut ? "not flown" : "queued"}</td></tr>`;
+      `<td style="text-align:right">${plans.length ? `<span data-energy-fleet-fire="${esc(f.id)}" data-energy-value="${tph}">${fmt(tph)} kL/h <small>sim</small></span>` : m?.served ? esc(m.planState === "stand-down" ? "stands down" : "rate " + m.planState) : f.heldOut ? "not flown" : "queued"}</td></tr>`;
   }).join("") + "</tbody></table>";
   const pick = tr => {
     const f = S.fires.find(x => x.id === tr.dataset.fid);
@@ -201,7 +203,7 @@ export function renderRoster() {
       `aria-selected="${!!(S.sel && S.sel.m === m)}" title="${esc(m.why || "")}">` +
       `<td class="r-name">${esc(m.name || m.shipId || "?")}</td>` +
       `<td>${esc(m.fire.name || m.fire.geo || m.fire.id)}</td>` +
-      `<td class="ph">…</td></tr>`).join("");
+      `<td class="ph" title="${m.served && m.planState !== "ready" ? esc(inactiveText(m)) : ""}">${m.served && m.planState !== "ready" ? m.planState === "stand-down" ? "stands down" : "plan " + m.planState : "…"}</td></tr>`).join("");
     return head + rows;
   }).join("");
   el.innerHTML = `<table class="fleettab" role="grid" ` +
@@ -241,7 +243,7 @@ export function updateRoster() {
 export function renderStats() {
   // The header stat line was retired; the elements survive on no page. Guard and skip.
   if (!$("fsFires")) return;
-  const act = S.missions.filter(m => !m.idle);
+  const act = S.missions.filter(missionReady);
   const n = { P100: 0, P1000: 0, P10000: 0 };
   let tph = 0;
   for (const m of act) { n[m.cls.id]++; tph += m.plan.tph; }

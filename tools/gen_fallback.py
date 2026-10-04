@@ -158,8 +158,8 @@ def render(d: dict) -> dict[str, str]:
 
     p100, p1000, p10000 = fleet
     total = sum(g['count'] for g in fleet)
-    flying = (f'all {fmt(total)} hulls are flying' if d['flying'] == total
-              else f'{fmt(d["flying"])} of {fmt(total)} hulls are flying; the rest stand by')
+    flying = (f'all {fmt(total)} hulls have feasible plans in the simulation' if d['flying'] == total
+              else f'{fmt(d["flying"])} of {fmt(total)} hulls have feasible plans in the simulation; the rest stand down')
     pw, ph = img_size(POSTER) if POSTER.exists() else (0, 0)
     vw, vh = img_size(VEHICLE)
 
@@ -167,7 +167,7 @@ def render(d: dict) -> dict[str, str]:
     if ex:
         mission = f'''
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned in the simulation to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. It escapes on the surplus buoyancy the drop just created and returns while making nitrogen ballast. It releases {fmt(ex['releasedT'])} t of water over its planned lines, releasing at a modelled {fmt(ex['tph'])} kL/h over this invented fire; released water is not suppression. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists.</p>'''
+  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned in the simulation to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. In the simulation, the ship climbs along the selected force-checked profile; buoyancy is accounted for, and the return makes nitrogen ballast. Its planned mode is {esc(ex['mode'])}, with wind not measured and still air used. Water requested is {fmt(ex['requestedT'])} t; water kept aboard is {fmt(ex['keptT'])} t. It delivers {fmt(ex['releasedT'])} t of water over its planned lines, releasing at a modelled {fmt(ex['tph'])} kL/h over this invented fire; released water is not suppression. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists.</p>'''
 
     main = f'''
 <style>
@@ -198,7 +198,7 @@ def render(d: dict) -> dict[str, str]:
   <h3>The exercise fires: all invented</h3>
   <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: {fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</h3>
-  <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t of water and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t requested capacity and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t requested capacity and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t requested capacity and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
   <figure>
     <img src="media/map-snapshot.jpg" width="{pw}" height="{ph}"
       alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
@@ -209,7 +209,8 @@ def render(d: dict) -> dict[str, str]:
       alt="Render: the airship holds station with hoses lowered and pump pods hanging toward the water">
     <figcaption>The reference concept vehicle at a lake intake, hoses down, pumping while it hovers. A still render of the same 3D model the running monitor animates beside the map.</figcaption>
   </figure>
-</section>'''
+</section>
+'''
 
     return {'FALLBACK-FLEET-HEADING': f'The fleet · <b>{fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</b> · shared',
             'FALLBACK-HUD': hud, 'FALLBACK-ROSTER': roster,
@@ -314,6 +315,13 @@ def main() -> int:
 
     regions = render(d)
     text = INDEX.read_text()
+
+    if '--emit' in sys.argv:
+        out = text
+        for name, body in regions.items():
+            out = splice(out, name, body)
+        print(json.dumps({'index.html': out}))
+        return 0
 
     if CHECK:
         drift = []

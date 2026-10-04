@@ -1,9 +1,9 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText } from '../sim/index.js?v=686fcc61';
-import { $, kvRows } from './dom.js?v=686fcc61';
-import { replanAll } from './fleet.js?v=686fcc61';
-import { S } from './store.js?v=686fcc61';
+import { CFG, ENERGY_NOTE, ENERGY_TAG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures } from '../sim/index.js?v=059cbc27';
+import { $, kvRows } from './dom.js?v=059cbc27';
+import { replanAll } from './fleet.js?v=059cbc27';
+import { S } from './store.js?v=059cbc27';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },
@@ -37,29 +37,21 @@ export function renderAsm() {
   }
 }
 
-export function renderWorked() {
-  if (!$("worked")) return;     // worked example renders on the concept page
-  const cls = CLASSES[S.exampleCls], mode = MODES[S.modeId];
-  const p = planCycle(cls, mode, CFG.exampleKm);
-  const fav = energyComparison(cls, mode, CFG.exampleKm, null, p).favourable;
-  $("worked").innerHTML = [
-    [fmtMin(p.cycleMin), "per conceptual cycle"],
-    [p.dropsPerHour.toFixed(1), "drops per hour"],
-    [fmt(p.tph) + " t", "water per hour — " + fmt(p.tph * 1000) + " litres"],
-    [p.eCycleMWh.toFixed(1) + " MWh", `record: ${feasibilityText(p)}; favourable ${fav.eCycleMWh.toFixed(1)} MWh: ${feasibilityText(fav)}`],
-    [fmt(p.kwhPerTonne) + " kWh", `per planned tonne, record; favourable ${fmt(fav.kwhPerTonne)} kWh. States shown above.`],
-    [p.bottleneck, "current bottleneck"],
-  ].map(([b, s]) => `<div class="stat"><b style="font-size:var(--t-22)">${b}</b><span>${s}${/\b(?:MWh|kWh)\b/.test(b) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</span></div>`).join("");
-  $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +
-    (p.retainedT > 1 ? `releases ${fmt(p.deliveredT)} t per drop, retaining ${fmt(p.retainedT)} t as descent ballast · ` : "") +
-    (p.anchorT > 1 ? `descends on ${fmt(p.anchorT)} t of lake water in the anchor bag · ` : "") +
-    // The label said "sea-level ledger" for as long as the ledger bought its lift at sea
-    // level. It does not any more — it is evaluated in the air the ship is actually in — so
-    // the altitude is named rather than assumed, and the reader can see which one.
-    `still air (the live map applies current winds per mission) · ledger at ` +
-    `${fmt(p.led.altMslM)} m MSL: ` +
-    `${fmt(p.led.liftT)} t displaced = ${fmt(p.led.dryT)} t structure + ${fmt(cls.payloadT)} t water + ${fmt(p.led.reserveT, 1)} t reserve. ` +
-    `All values are demonstration assumptions; water released is not fire extinguished. ${ENERGY_NOTE}`;
+let workedGeneration = 0;
+export async function renderWorked() {
+  if (!$("worked")) return;
+  const generation = ++workedGeneration;
+  const cls = CLASSES[S.exampleCls], km = CFG.exampleKm;
+  $("worked").textContent = "Cycle energy, delivered water and rate pending: feasible plans are computing.";
+  $("workedNote").textContent = "No aircraft has flown.";
+  await new Promise(resolve => setTimeout(resolve, 0));
+  if (generation !== workedGeneration) return;
+  const started = performance.now();
+  const result = selectServedPlan(cls, km, null, S.modeId), view = workedFigures(cls, km, result);
+  S.workedSelection = {cls: cls.id, km, selection: result, ms: performance.now() - started};
+  $("worked").innerHTML = view.status || view.rows.map(row =>
+    `<div class="stat" data-energy-quantity="${row.quantity}" data-energy-value="${row.value}" data-energy-basis="${row.basis}"><b style="font-size:var(--t-22)">${row.text}</b><span>${row.label}</span></div>`).join("");
+  $("workedNote").textContent = view.note;
 }
 
 export function renderClassCards() {
@@ -67,9 +59,9 @@ export function renderClassCards() {
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];
     return `<div class="cls"><span class="kicker">${c.name}${c.id === "P100" ? "" : ' <span style="color:#d98b80;font-weight:600">· structural float unproven</span>'}</span>
-      <h3>${fmt(c.payloadT)} t of water</h3>
+      <h3>${fmt(c.payloadT)} t requested capacity</h3>
       <p class="one">${c.use}.</p>` + kvRows([
-      ["payload", fmt(c.payloadT * 1000) + " L"],
+      ["water requested", fmt(c.payloadT * 1000) + " L"],
       ["size", fmt(c.lenM) + " × " + fmt(c.diaM) + " m"],
       ["displacement", fmt(c.dispM3) + " m³"],
       ["cruise", fmt(c.cruiseKph) + " km/h"],

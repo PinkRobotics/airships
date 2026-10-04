@@ -22,16 +22,16 @@
  * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
-import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=686fcc61';
-import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=686fcc61';
-import { renderFires, renderRoster } from './cockpit/tables.js?v=686fcc61';
-import { renderDrawer } from './cockpit/panels.js?v=686fcc61';
-import { vancouverClock, vancouverDate } from './dates.js?v=686fcc61';
-import { replanAll } from './fleet.js?v=686fcc61';
-import { renderStatus } from './main.js?v=686fcc61';
-import { fetchJSON, mirrorJSON } from './net.js?v=686fcc61';
-import { S } from './store.js?v=686fcc61';
-import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=686fcc61';
+import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=059cbc27';
+import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=059cbc27';
+import { renderFires, renderRoster } from './cockpit/tables.js?v=059cbc27';
+import { renderDrawer } from './cockpit/panels.js?v=059cbc27';
+import { vancouverClock, vancouverDate } from './dates.js?v=059cbc27';
+import { replanAll } from './fleet.js?v=059cbc27';
+import { renderStatus } from './main.js?v=059cbc27';
+import { fetchJSON, mirrorJSON } from './net.js?v=059cbc27';
+import { S } from './store.js?v=059cbc27';
+import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=059cbc27';
 
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to a dated copy bundled with the
@@ -536,8 +536,8 @@ export function guardNoteWords() {
 
 export async function fetchWind() {
   clearTimeout(fetchWind._expiry);
-  const act = S.missions.filter(m => !m.idle);
-  // Clear the previous forecast even on a failed refresh: stale wind is still air.
+  const act = S.missions.filter(m => m.water && m.cls);
+  // Clear the previous forecast even on a failed refresh: missing wind is labelled, and the plan uses still air.
   for (const m of act) m.wind = null;
   S.windOk = false; S.windAt = null;
   // The wind mirror describes today's air. A dated day has no forecast to replay honestly

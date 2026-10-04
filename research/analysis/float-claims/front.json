@@ -136,14 +136,6 @@
     },
     {
       "file": "index.html",
-      "key": "7f073c48cda381c6",
-      "line": 1044,
-      "class": "flight-model",
-      "reason": "This worked mission of the invented exercise uses the flight model’s assumed floating hull; its simulated release and buoyancy do not establish structural feasibility.",
-      "assumption": "22491643fb810667"
-    },
-    {
-      "file": "index.html",
       "key": "cc0bb6069996e890",
       "class": "flight-model",
       "reason": "The concept render depicts the simulated fleet under the existing bound flight assumption in this same page.",
@@ -183,6 +175,21 @@
       ],
       "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
       "line": 766
+    },
+    {
+      "file": "index.html",
+      "key": "04f00c8593944c4d",
+      "class": "generated",
+      "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+      "context": [],
+      "generator": "tools/gen_fallback.py",
+      "gate": "fallbackcheck",
+      "verifier": "tools/gen_fallback.py",
+      "region": {
+        "start": "<!--FALLBACK-->",
+        "end": "<!--/FALLBACK-->"
+      },
+      "line": 1044
     }
   ]
 }

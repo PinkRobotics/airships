@@ -1,5 +1,5 @@
 /* Page binders use the same plans and records as the simulation. */
-import {planCycle} from './plan.js?v=686fcc61';
+import {planCycle} from './plan.js?v=059cbc27';
 const comparisons=new WeakMap();
 export const feasibilityText=p=>p.feasible?'closes in the quasi-static model':'does not close on the drawn hardware';
 export function energyComparison(cls,mode,km,wind,record){
@@ -11,5 +11,5 @@ export function energyComparison(cls,mode,km,wind,record){
   const pair={record,favourable};comparisons.set(record,pair);return pair;
 }
 export function cycleEnergyText(pair){
-  return [pair.record,pair.favourable].map(p=>`${p.eCycleMWh.toFixed(1)} MWh ${p.basis}: ${feasibilityText(p)}`).join(' · ');
+  return [pair.record,pair.favourable].map(p=>p.feasible ? `${p.eCycleMWh.toFixed(1)} MWh energy supplied · ${p.basis}: ${feasibilityText(p)}` : `${p.basis} cycle energy unavailable: the controls do not close`).join(' · ');
 }

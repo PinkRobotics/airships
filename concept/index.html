@@ -856,7 +856,7 @@ nav.estate .wrap{display:block}
           <button type="button" data-cls="P1000">P-1000</button>
           <button type="button" data-cls="P10000">P-10000</button>
         </span>
-        <span class="seg" role="group" aria-label="Operating mode">
+        <span class="seg" role="group" aria-label="Preferred mode for the bounded plan search">
           <button type="button" data-mode="rapid">Rapid</button>
           <button type="button" data-mode="balanced" aria-pressed="true">Balanced</button>
           <button type="button" data-mode="endurance">Endurance</button>
@@ -1173,9 +1173,9 @@ nav.estate .wrap{display:block}
  */
 import {
   CFG, ENERGY_NOTE, ENERGY_TAG, DEFAULTS, setConfig, resetConfig, CLASSES, CLASS_ORDER, MODES,
-  ledger, planCycle, energyComparison, feasibilityText, fmt, fmtHa, fmtMin, fmtT,
-} from '../sim/index.js?v=686fcc61';
-import * as SIM from '../sim/index.js?v=686fcc61';
+  ledger, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures, fmt, fmtHa, fmtMin, fmtT,
+} from '../sim/index.js?v=059cbc27';
+import * as SIM from '../sim/index.js?v=059cbc27';
 
 /* ============================================================================================
  * Concept-page shim. The SIM block above is byte-shared with the monitor page; this page
@@ -1214,24 +1214,23 @@ function renderAsm() {
     });
   }
 }
-function renderWorked() {
-  const cls = CLASSES[S.exampleCls], mode = MODES[S.modeId];
-  const p = planCycle(cls, mode, CFG.exampleKm);
-  const fav = energyComparison(cls, mode, CFG.exampleKm, null, p).favourable;
-  $("worked").innerHTML = [
-    [fmtMin(p.cycleMin), "per conceptual cycle"],
-    [p.dropsPerHour.toFixed(1), "drops per hour"],
-    [fmt(p.tph) + " t", "water per hour — " + fmt(p.tph * 1000) + " litres"],
-    [p.eCycleMWh.toFixed(1) + " MWh", `record: ${feasibilityText(p)}; favourable ${fav.eCycleMWh.toFixed(1)} MWh: ${feasibilityText(fav)}`],
-    [fmt(p.kwhPerTonne) + " kWh", `per planned tonne, record; favourable ${fmt(fav.kwhPerTonne)} kWh. States shown above.`],
-    [p.bottleneck, "current bottleneck", true],
-  ].map(([b, s, word]) => `<div class="stat"><b style="font-size:var(--t-${word ? 16 : 22})">${b}</b><span>${s}${/\b(?:MWh|kWh)\b/.test(b) ? `<small class="energy-tag">${ENERGY_TAG}</small>` : ""}</span></div>`).join("");
-  $("workedNote").textContent = `${cls.name} · ${mode.label.toLowerCase()} mode · ${CFG.exampleKm} km one-way · ` +
-    (p.retainedT > 1 ? `delivers ${fmt(p.deliveredT)} t per drop, retaining ${fmt(p.retainedT)} t as descent ballast · ` : "") +
-    `still air (the live map applies current winds per mission) · sea-level ledger: ` +
-    `${fmt(p.led.liftT)} t displaced = ${fmt(p.led.dryT)} t structure + ${fmt(cls.payloadT)} t water + ${fmt(p.led.reserveT, 1)} t reserve. ` +
-    `All values are demonstration assumptions; water delivered is not fire extinguished. ${ENERGY_NOTE}`;
+let workedGeneration = 0;
+ async function renderWorked() {
+  if (!$("worked")) return;
+  const generation = ++workedGeneration;
+  const cls = CLASSES[S.exampleCls], km = CFG.exampleKm;
+  $("worked").textContent = "Cycle energy, delivered water and rate pending: feasible plans are computing.";
+  $("workedNote").textContent = "No aircraft has flown.";
+  await new Promise(resolve => setTimeout(resolve, 0));
+  if (generation !== workedGeneration) return;
+  const started = performance.now();
+  const result = selectServedPlan(cls, km, null, S.modeId), view = workedFigures(cls, km, result);
+  S.workedSelection = {cls: cls.id, km, selection: result, ms: performance.now() - started};
+  $("worked").innerHTML = view.status || view.rows.map(row =>
+    `<div class="stat" data-energy-quantity="${row.quantity}" data-energy-value="${row.value}" data-energy-basis="${row.basis}"><b style="font-size:var(--t-22)">${row.text}</b><span>${row.label}</span></div>`).join("");
+  $("workedNote").textContent = view.note;
 }
+
 function renderClassScale() {
   for (const el of document.querySelectorAll('[data-class-length]')) {
     el.textContent = fmt(CLASSES[el.dataset.classLength].lenM);
@@ -1263,9 +1262,9 @@ function renderClassCards() {
   $("classcards").innerHTML = CLASS_ORDER.map(id => {
     const c = CLASSES[id];
     return `<div class="cls"><span class="kicker">${c.name}</span>
-      <h3>${fmt(c.payloadT)} t of water</h3>
+      <h3>${fmt(c.payloadT)} t requested capacity</h3>
       <p class="one">${c.use}.</p>` + kvRows([
-      ["payload", fmt(c.payloadT * 1000) + " L"],
+      ["water requested", fmt(c.payloadT * 1000) + " L"],
       ["size", fmt(c.lenM) + " × " + fmt(c.diaM) + " m"],
       ["displacement", fmt(c.dispM3) + " m³"],
       ["cruise", fmt(c.cruiseKph) + " km/h"],
@@ -1305,7 +1304,7 @@ renderClassCards(); renderAsm(); renderWorked();
 /* Published so a reader can check any figure on this page in their own console:
  * `AIRSHIPS.sim.planCycle(AIRSHIPS.sim.CLASSES.P1000, AIRSHIPS.sim.MODES.balanced, 15)`
  * recomputes the worked example from the same code that rendered it. */
-window.AIRSHIPS = { sim: SIM };
+window.AIRSHIPS = { sim: SIM, concept: S };
 </script>
 </body>
 </html>

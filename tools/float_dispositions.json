@@ -1143,6 +1143,54 @@
     "5"
    ],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result."
+  },
+  {
+   "file": "app/worked.js",
+   "key": "04b4ac08ac132b9d",
+   "class": "calculator",
+   "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+   "context": [],
+   "function": "renderClassCards",
+   "gate": "test-node"
+  },
+  {
+   "file": "index.html",
+   "key": "04f00c8593944c4d",
+   "class": "generated",
+   "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+   "context": [],
+   "generator": "tools/gen_fallback.py",
+   "gate": "fallbackcheck",
+   "verifier": "tools/gen_fallback.py",
+   "region": {
+    "start": "<!--FALLBACK-->",
+    "end": "<!--/FALLBACK-->"
+   }
+  },
+  {
+   "file": "sim/narrate.js",
+   "key": "7254ee857d72fef0",
+   "class": "calculator",
+   "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+   "context": [],
+   "function": "narrate",
+   "gate": "servedenergycheck"
+  },
+  {
+   "file": "sim/served-view.js",
+   "key": "4a21dbc28929d18c",
+   "class": "calculator",
+   "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+   "context": [],
+   "function": "workedFigures",
+   "gate": "servedenergycheck"
+  },
+  {
+   "file": "sim/state.js",
+   "key": "6967046ea9fa3596",
+   "class": "method",
+   "reason": "Simulation phase label; no measured float result or numeric claim.",
+   "context": []
   }
  ],
  "replacements": [
@@ -1187,6 +1235,30 @@
    "oldKey": "2bcd24c159b960f4",
    "newKey": "883ebaba3debf667",
    "reason": "Remove unsupported full-payload or escape claim; state feasible-plan and structural-float limits explicitly."
+  },
+  {
+   "file": "app/worked.js",
+   "oldKey": "d17b371cdf99949f",
+   "newKey": "04b4ac08ac132b9d",
+   "reason": "Reviewed replacement: simulated motion and water/energy quantities now follow an accepted exact-input plan; capacity remains a separate assumption."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "7f073c48cda381c6",
+   "newKey": "04f00c8593944c4d",
+   "reason": "Reviewed replacement: simulated motion and water/energy quantities now follow an accepted exact-input plan; capacity remains a separate assumption."
+  },
+  {
+   "file": "sim/narrate.js",
+   "oldKey": "62c60a68c407d308",
+   "newKey": "7254ee857d72fef0",
+   "reason": "Reviewed replacement: simulated motion and water/energy quantities now follow an accepted exact-input plan; capacity remains a separate assumption."
+  },
+  {
+   "file": "sim/state.js",
+   "oldKey": "318d175b88c79886",
+   "newKey": "6967046ea9fa3596",
+   "reason": "Reviewed replacement: simulated motion and water/energy quantities now follow an accepted exact-input plan; capacity remains a separate assumption."
   }
  ]
 }

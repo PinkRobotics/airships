@@ -505,7 +505,9 @@ def _mk10(change):
                    '<style>.vehicle:hover { color: pink; }</style>\n'
                    '<script>const vehicle = "track"; const climbs = true;</script>\n</body>')])
     change('L-control-model', 'Motion in the simulated fleet, with its existing bound assumption',
-           edits=[('index.html', 'It escapes on the surplus buoyancy',
-                   'The simulated vehicle climbs in the flight model. It escapes on the surplus buoyancy')])
+           edits=[('tools/gen_fallback.py', 'reference concept vehicle',
+                   'reference concept vehicle (the simulated vehicle climbs in the flight model)'),
+                  ('index.html', 'reference concept vehicle',
+                   'reference concept vehicle (the simulated vehicle climbs in the flight model)')])
     change('L-dated-append', 'Plain refresh must not freeze a newly appended verdict')
     change('L-dated-new', 'Plain refresh must not freeze a new dated audit verdict')

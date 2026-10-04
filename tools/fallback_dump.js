@@ -2,7 +2,9 @@
  * Only settled allocation output belongs here, never wall-clock phase or feed age. */
 (() => {
   const A = window.AIRSHIPS, S = A.app, SIM = A.sim;
-  const { CLASSES, CLASS_ORDER, HULL_NAMES, REFERENCE_CLASS, srcName } = SIM;
+  const { CLASSES, CLASS_ORDER, HULL_NAMES, REFERENCE_CLASS, srcName, missionReady, auditServedPlan } = SIM;
+  if (S.planning?.state !== 'settled') throw new Error('fallback cycle figures unavailable: planning has not settled');
+  for(const m of S.missions) if(missionReady(m)) auditServedPlan(m.cls,m.legKm,m.wind,m.selection,m.mode.id);
   const r = (x, n) => (Number.isFinite(x) ? Number(x.toFixed(n)) : null);
   const fname = f => f.name || f.geo || f.id;
   // The page's own rule (app/feeds.js), guard first: a fire the guard holds is never a
@@ -35,7 +37,7 @@
     .sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8).map(f => ({
       name: fname(f), id: f.id, sizeHa: Math.round(f.sizeHa), status: f.status,
       hull: f.mission && !f.mission.idle ? f.mission.name : null,
-      tph: f.mission && !f.mission.idle ? Math.round(f.mission.plan.tph) : null,
+      tph: S.missions.some(m=>m.fire===f&&missionReady(m)) ? Math.round(S.missions.filter(m=>m.fire===f&&missionReady(m)).reduce((n,m)=>n+m.plan.tph,0)) : null,
     }));
 
   // boot()'s own opening pick, reproduced: a REFERENCE_CLASS ship on the largest fire
@@ -55,6 +57,7 @@
     fireHa: Math.round(pick.fire.sizeHa), fireStatus: pick.fire.status,
     source: srcName(pick), sourceHa: Math.round(pick.water[2]),
     legKm: r(pick.legKm, 1), cycleMin: Math.round(pick.plan.cycleMin),
+    mode: pick.mode.label.toLowerCase(), requestedT: pick.cls.payloadT, keptT: Math.round(pick.plan.retainedT),
     releasedT: Math.round(pick.plan.deliveredT), tph: Math.round(pick.plan.tph),
   };
 

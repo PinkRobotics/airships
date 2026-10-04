@@ -79,7 +79,7 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 
 CI_OUTSIDE_CHECK := floatplants
 
-check: ciparity energycheck energydoccheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; gate tools, schema or plant changes also require floatplants
+check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; gate tools, schema or plant changes also require floatplants
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -394,3 +394,8 @@ energydoccheck:  ## Reject stale generated energy text and newly unbound figures
 	$(PY) tools/check_energy_docs.py
 
 .PHONY: energycheck energydoccheck
+
+servedenergycheck:  ## Accept every served cycle at its own inputs; regenerate page records
+	$(PY) tools/check_served_energy.py
+
+.PHONY: servedenergycheck

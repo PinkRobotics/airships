@@ -11,16 +11,17 @@
  * defect 2's fix: planCycle integrates the same `drawAt`, so the budget the site publishes is
  * the integral of what the instruments show, not a second estimate of it.
  */
-import { PHASES } from './config.js?v=686fcc61';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=686fcc61';
-import { anchorHang, drawAt } from './power.js?v=686fcc61';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=686fcc61';
+import { PHASES } from './config.js?v=059cbc27';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=059cbc27';
+import { anchorHang, drawAt } from './power.js?v=059cbc27';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=059cbc27';
 
 // The anchor rule moved to power.js on 2026-10-01 (the power model needs it before stateAt
 // does); it is re-exported here so sim/index.js and app/anchorview.js are unchanged.
 export { anchorHang };
 
 export function stateAt(m, tRaw) {
+  if (m.served && m.planState !== "ready") return {phase: "STAND_DOWN", label: m.planState === "pending" ? "plan pending" : m.planState === "stand-down" ? "stands down" : "plan unavailable", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1, inactive: true};
   if (m.idle) return { phase: "NO_SUITABLE_SOURCE", label: "idle — no suitable mapped source", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1 };
   // A hull whose storage reached zero is frozen at the moment the bus died: the picture
   // (position, phase, tanks) holds, but nothing draws power and nothing moves.
@@ -168,12 +169,12 @@ export function stateAt(m, tRaw) {
           Math.PI * ((plan.passes || 1) - 1);
         bearing = lerpAng(lineB, bearing, easeSm(prog / 0.35));
       }
-      sub = prog < 0.55 ? "rotors feathered — buoyancy has it" : "arresting the climb";
+      sub = prog < 0.55 ? "simulated climb — buoyancy and force checked" : "arresting the climb";
       break;
     case "RETURN_TRANSIT": {
       B(sB, cR, ikX, escF + tz * (0.96 - escF));   // ends short: the approach flies the rest in
       if (prog > 0.72) sub = "descending to hose range";
-      else if (prog < 0.30) sub = "holding the ceiling, empty";
+      else if (prog < 0.30) sub = "simulated return — retained water aboard";
       break;
     }
   }
