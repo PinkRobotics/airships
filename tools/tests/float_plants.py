@@ -54,6 +54,7 @@ def register(change):
     _mk8(change)
     _mk9(change)
     _mk10(change)
+    _mk11(change)
 
 def _mk(change):
     import hashlib
@@ -510,3 +511,28 @@ def _mk10(change):
            control_text=control)
     change('L-dated-append', 'Plain refresh must not freeze a newly appended verdict')
     change('L-dated-new', 'Plain refresh must not freeze a new dated audit verdict')
+
+
+def _mk11(change):
+    """Independent page plants for every added lexical alternative and noun."""
+    motions = (
+        ('remain', 'remains in the air'), ('gain', 'gains altitude'),
+        ('hold', 'holds station overhead'), ('held', 'held station overhead'),
+        ('soar', 'soars'), ('drift', 'drifts upward'),
+        ('takeoff', 'takes off by itself'), ('sky', 'stays in the sky'),
+        ('altitude', 'stays at the planned altitude'),
+    )
+    for name, motion in motions:
+        sentence = f'The drawn hull {motion} with its engines off.'
+        change('W-' + name, 'New motion alternative: ' + motion,
+               edits=[('index.html', '</body>', '<p>' + sentence + '</p>\n</body>')])
+    for noun in ('craft', 'dirigible'):
+        sentence = f'The drawn {noun} is airborne with its engines off.'
+        change('W-' + noun, 'New vehicle noun: ' + noun,
+               edits=[('index.html', '</body>', '<p>' + sentence + '</p>\n</body>')])
+    change('W-control-senses', 'Craft as verb or skill; station as place; nonvehicle motion',
+           edits=[('index.html', '</body>',
+                   '<p>We craft a diagram of a track that climbs a ridge.</p>\n'
+                   '<p>The craft of writing soars in popularity.</p>\n'
+                   '<p>The station overhead carries electrical wires.</p>\n'
+                   '<p>The track gains altitude along the ridge.</p>\n</body>')], green=True)

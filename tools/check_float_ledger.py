@@ -88,10 +88,13 @@ def clean(text):
 class Blocks(HTMLParser):
     """Keep display blocks and their containing section's basis, with original line numbers."""
     def __init__(self):
-        super().__init__(convert_charrefs=True);self.stack=[];self.out=[];self.skip=0
+        super().__init__(convert_charrefs=True);self.stack=[];self.out=[];self.attributes=[];self.skip=0
     def handle_starttag(self,tag,attrs):
         if tag in ('script','style'):self.skip+=1
         if self.skip:return
+        for name, value in attrs:
+            if name in ('alt','title','aria-label') and value and interesting(clean(value)):
+                self.attributes.append((self.getpos()[0],clean(value),value))
         if tag in ('section','table','p','li','tr','h1','h2','h3','div','span','text','figcaption'):
             self.stack.append({'tag':tag,'line':self.getpos()[0],'pieces':[],'attrs':dict(attrs)})
         token=' '.join(f'{k}="{v}"' for k,v in attrs)
@@ -143,6 +146,7 @@ def source_blocks(path):
             if any(other[0]<=ln and other[1]>=end and (other[0]<ln or other[1]>end)
                    for other in parser.out):continue
             yield ln,text,raw
+        yield from parser.attributes
         # Templates inside scripts also display text. Report them as unresolved dynamic
         # prose; no attempt to execute arbitrary HTML script is needed for this gate.
         for m in re.finditer(r'<script\b[^>]*>(.*?)</script>',body,re.S|re.I):

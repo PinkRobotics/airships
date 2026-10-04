@@ -23,12 +23,17 @@ STRUCTURAL_RELATION = re.compile(
 
 # A subject and motion in one sentence are inventory, not proof of structural lift.
 # Keep motion vocabulary here for both the inventory and dated-record review guard.
-VEHICLE = r'\b(?:hulls?|ships?|airships?|vehicles?|cells?)\b'
+VEHICLE = r'\b(?:hulls?|ships?|airships?|vehicles?|cells?|crafts?|dirigibles?)\b'
 MOTION = re.compile(
     r'\b(?:rise(?:s)?|rose|ris(?:en|ing)|climb(?:s|ed|ing)?|ascend(?:s|ed|ing)?|'
     r'stay(?:s|ed|ing)? (?:up|aloft)|aloft|airborne|'
     r'lift(?:s|ed|ing)? off|(?:leave(?:s)?|left|leaving) the ground|'
-    r'hover(?:s|ed|ing)?|(?:go(?:es|ing)?|went) up)\b', re.I)
+    r'hover(?:s|ed|ing)?|(?:go(?:es|ing)?|went) up|'
+    r'remain(?:s|ed|ing)? in the air|gain(?:s|ed|ing)? altitude|'
+    r'hold(?:s|ing)? station(?: overhead)?|held station(?: overhead)?|'
+    r'soar(?:s|ed|ing)?|drift(?:s|ed|ing)? upward|'
+    r'(?:take(?:s|n)?|took|taking) off by (?:itself|themselves)|'
+    r'stay(?:s|ed|ing)? in the sky|stay(?:s|ed|ing)? at (?:the )?(?:planned )?altitude)\b', re.I)
 SENTENCE_GAP = r'(?:[^.!?\n]|\.(?=\d))*?'
 VEHICLE_MOTION = re.compile(VEHICLE + SENTENCE_GAP + MOTION.pattern +
                             '|' + MOTION.pattern + SENTENCE_GAP + VEHICLE, re.I)
@@ -49,8 +54,12 @@ def dated_verdict(text):
 
 
 def relation(text, prose=True):
+    # Explicit verb/skill constructions do not name a vehicle. Keep all other
+    # craft uses conservative: this finite rule does not resolve arbitrary grammar.
+    vehicle_text = re.sub(r'\b(we|they|you|I|to)\s+craft\b|\bcraft\s+of\b',
+                          'nonvehicle', text, flags=re.I)
     return bool(RELATION.search(text) or STRUCTURAL_RELATION.search(text) or
-                (prose and VEHICLE_MOTION.search(text)))
+                (prose and VEHICLE_MOTION.search(vehicle_text)))
 
 
 def verdict_relation(text):
