@@ -1,5 +1,5 @@
 import {describe,it,eq,ok,close,throws} from '../harness.js';
-import {CLASSES,MODES,CFG,planCycle,drawAt,rotorThrustLimitT,inducedMW} from '../../sim/index.js?v=64c16b0c';
+import {CLASSES,MODES,CFG,planCycle,drawAt,rotorThrustLimitT,inducedMW} from '../../sim/index.js?v=979323dd';
 describe('declared rotor assumptions',()=>{
   it('every class declares downward-only authority and leaves an upward need unheld',()=>{
     for(const c of Object.values(CLASSES))eq(c.reversibleThrust,false,c.id);

@@ -1,7 +1,7 @@
 import {writeGenerated} from './energy-output.mjs';
 /* Every phase with unheld vertical force, on the unchanged prescribed profile. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS,cryoOnFrac} from '../../sim/index.js?v=64c16b0c';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS,cryoOnFrac} from '../../sim/index.js?v=979323dd';
 export function unheldRows(){
  const rows=[];
  for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){

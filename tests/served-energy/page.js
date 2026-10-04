@@ -38,15 +38,31 @@
    for(const [id,mw] of Object.entries(channels)){
     const displayed=document.getElementById(id+'v')?.textContent;
     if(displayed!==SIM.fmt(mw,mw<10?1:0)+' MW')throw new Error('displayed power differs from accepted plan state: '+id+' '+displayed);
+    add(location.pathname+location.search,'current power / '+id,'MW',mw,m);
    }
    const net=channels.pwSol+channels.pwRgn-channels.pwPrp-channels.pwPmp-channels.pwCry-channels.pwHot;
    if(!current.stopped&&document.querySelector('#pwNet b').textContent!==(net<0?'−':'+')+SIM.fmt(Math.abs(net),1)+' MW')throw new Error('displayed net power differs from accepted plan state');
+   if(!current.stopped)add(location.pathname+location.search,'#pwNet','net MW',net,m);
    const pair=m.selection.favourable.plan;
    if(pair){
     const other=SIM.drawAt(m.cls,m.mode,pair,current.phase,current.prog);
     const otherNet=Object.values(other.gen).reduce((n,v)=>n+v,0)-Object.values(other.draw).reduce((n,v)=>n+v,0);
     if(!document.getElementById('pwNet').textContent.includes('favourable: '+SIM.fmt(otherNet,1)+' MW net;'))throw new Error('displayed favourable net power differs from exact paired plan');
+    add(location.pathname+location.search,'#pwNet favourable','net MW',otherNet,m,'favourable');
    }
+   const storage=m.battE===undefined?m.cls.battMWh:m.battE;
+   const storageGauge=document.querySelector('#sysDials [aria-label="storage"]');
+   const storageText=SIM.fmt(storage,storage<10?1:0)+' MWh';
+   if(+storageGauge?.getAttribute('aria-valuenow')!==Math.round(storage*1000)/1000||storageGauge?.getAttribute('aria-valuetext')!==storageText||!storageGauge.textContent.includes(storageText))throw new Error('displayed storage differs from the accepted mission energy ledger');
+   add(location.pathname+location.search,'storage gauge','stored MWh',storage,m);
+   rows[rows.length-1].source='configured initial storage or app/loop.js integration of accepted instantaneous power; no endurance inferred';
+   const waterGauge=document.querySelector('#sysDials [aria-label="water aboard"]');
+   if(+waterGauge?.getAttribute('aria-valuenow')!==Math.round(current.water*1000)/1000||waterGauge?.getAttribute('aria-valuetext')!==SIM.fmtT(current.water))throw new Error('displayed water aboard differs from the accepted profile');
+   add(location.pathname+location.search,'water aboard gauge','water aboard t',current.water,m);
+   const forceWater=document.getElementById('fvP');
+   const forceWaterText=SIM.fmt(current.water)+' t '+(current.water/Math.max(1,m.cls.payloadT)*100).toFixed(0)+'% of water requested '+SIM.fmt(m.cls.payloadT)+' t';
+   if(forceWater.previousElementSibling.textContent!=='water aboard'||forceWater.textContent!==forceWaterText)throw new Error('water-aboard instrument confuses instantaneous load with delivery');
+   add(location.pathname+location.search,'#fvP water aboard','water aboard t',current.water,m);
    for(const quantity of ['cycleMin','dropsPerHour','deliveredT','retainedT','eCycleMWh','kwhPerTonne','tph']){
     add(location.pathname+location.search,'cockpit / mission '+m.name,quantity,m.plan[quantity],m);
     if(m.selection.favourable.plan)add(location.pathname+location.search,'cockpit favourable / mission '+m.name,quantity,m.selection.favourable.plan[quantity],m,'favourable');
@@ -84,6 +100,23 @@
   const inactive=document.querySelector('[data-plan-inactive]')?.textContent||'';
   if(!inactive.includes('stands down')||!inactive.includes('unavailable')||!SIM.stateAt(fixture,0).inactive)throw new Error('stand-down label or animation guard failed');
   S.missions.pop();
+  // A fresh capture replaces mission objects. A retired selection must not publish
+  // its old numbers while the replacement mission is being planned at new inputs.
+  const savedMissions=S.missions;
+  window.APP.selRow(0);
+  S.missions=savedMissions.map((m,i)=>({...m,wind:i===0?{spd:15,dir:120,bearing:65,capture:'replanning fixture'}:m.wind}));
+  const fleet=await import('./app/fleet.js?v='+SIM.modelIdentity().importStamp);
+  const computing=fleet.planFleet();
+  const pending=document.querySelector('[data-plan-inactive]')?.textContent||'';
+  const pendingCorrect=S.missions.includes(S.sel?.m)&&pending.includes('pending')&&!document.querySelector('#cpOps [data-energy-quantity]');
+  await computing;
+  S.missions=savedMissions;
+  await fleet.planFleet();
+  for(const el of document.querySelectorAll('[data-energy-fleet-fire]')){
+   const rate=S.missions.filter(m=>m.fire.id===el.dataset.energyFleetFire&&SIM.missionReady(m)).reduce((n,m)=>n+m.plan.tph,0);
+   if(+el.dataset.energyValue!==rate||el.textContent!==SIM.fmt(rate)+' kL/h sim')throw new Error('restored fleet figures differ from accepted missions');
+  }
+  if(!pendingCorrect)throw new Error('retired mission selection still publishes quantities during replanning');
   if(original?.m)window.APP.selRow(S.missions.indexOf(original.m));
   document.getElementById('introOv')?.click();
   return {view:S.exercise?'exercise':'replay',width:innerWidth,timing:S.planningRuns[0],planningRuns:S.planningRuns,rows,missionStates:S.missions.map(m=>({hull:m.name,state:m.planState,mode:m.mode.id,km:m.legKm,kept:m.plan?.retainedT??null,delivered:m.plan?.deliveredT??null}))};

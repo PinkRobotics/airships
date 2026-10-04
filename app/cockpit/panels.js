@@ -1,14 +1,14 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, MODEL_STATUS, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=64c16b0c';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=64c16b0c';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=64c16b0c';
-import { shipViz } from '../cockpit/shipviz.js?v=64c16b0c';
-import { updateRoster } from '../cockpit/tables.js?v=64c16b0c';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=64c16b0c';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=64c16b0c';
-import {figure,inactiveText} from "../served-ui.js?v=64c16b0c";
-import { S } from '../store.js?v=64c16b0c';
+import { CFG, MODEL_STATUS, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=979323dd';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=979323dd';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=979323dd';
+import { shipViz } from '../cockpit/shipviz.js?v=979323dd';
+import { updateRoster } from '../cockpit/tables.js?v=979323dd';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=979323dd';
+import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=979323dd';
+import {figure,inactiveText} from "../served-ui.js?v=979323dd";
+import { S } from '../store.js?v=979323dd';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
@@ -203,7 +203,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
-      ["buoyancy", "fvB", "live"], ["ship overhead", "fvO", ""], ["payload", "fvP", "sim"],
+      ["buoyancy", "fvB", "live"], ["ship overhead", "fvO", ""], ["water aboard", "fvP", "sim"],
       // The bucket sits with the forces because that is what it is — the largest single one on
       // the hull whenever it is in the water — and it is listed immediately above the net so a
       // reader can see the net change as it fills.
@@ -342,7 +342,7 @@ export function updateCockpit() {
     const payFrac = st.water / Math.max(1, m.cls.payloadT);
     put("fvB", "−" + fmt(st.buoyN / tf) + " t");
     put("fvO", fmt(overheadT) + " t <small>dry + LN₂</small>");
-    put("fvP", fmt(st.water) + " t <small>" + (payFrac * 100).toFixed(0) + "% of " +
+    put("fvP", fmt(st.water) + " t <small>" + (payFrac * 100).toFixed(0) + "% of water requested " +
       fmt(m.cls.payloadT) + " t</small>");
     // WEIGHT AND PULL. Tonnes of lake water in the bag, and what that is as a force on the
     // cable — 12,400 t is 122 MN, which is the number that sizes the rope.

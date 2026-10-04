@@ -1,12 +1,12 @@
 /* Allocating sixteen hulls to the fires that most need them — and keeping them off the
  * fires and places the guard holds (sim/guard.js, data/season/2026.guard.json).
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, bindServedMission } from '../sim/index.js?v=64c16b0c';
-import { renderDrawer } from './cockpit/panels.js?v=64c16b0c';
-import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=64c16b0c';
-import { needsShip } from './feeds.js?v=64c16b0c';
-import { S } from './store.js?v=64c16b0c';
-import { renderWorked } from './worked.js?v=64c16b0c';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, bindServedMission } from '../sim/index.js?v=979323dd';
+import { renderDrawer } from './cockpit/panels.js?v=979323dd';
+import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=979323dd';
+import { needsShip } from './feeds.js?v=979323dd';
+import { S } from './store.js?v=979323dd';
+import { renderWorked } from './worked.js?v=979323dd';
 
 /* The fleet is FIXED: ten P-100s, five P-1000s, one P-10000 — sixteen hulls for the whole
    province, allocated largest-first to the fires that fit them best (priority, class fit,
@@ -121,6 +121,13 @@ export async function planFleet() {
   for (const m of missions) {
     m.served = true; m.idle = true; m.plan = null; m.planState = "pending";
     m.planReason = "Feasible plans are computing";
+  }
+  // A rebuild replaces mission objects. Rebind the selected hull before rendering so
+  // the pending drawer cannot publish quantities from its retired route.
+  if (S.sel?.m && !S.missions.includes(S.sel.m)) {
+    const current = missions.find(m => m.shipId === S.sel.m.shipId);
+    S.sel = current ? {type: "ship", m: current} : null;
+    S.follow = false;
   }
   renderRoster(); renderFires(); renderDrawer();
   for (const m of missions) {

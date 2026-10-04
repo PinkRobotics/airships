@@ -2,7 +2,7 @@ import {writeGenerated} from './energy-output.mjs';
 /* Human-readable tables from replayable model inputs; no slow search here. */
 import fs from 'node:fs';
 import {batteryMass,specificEnergies} from './energy-omissions.mjs';
-import {CLASSES} from '../../sim/index.js?v=64c16b0c';
+import {CLASSES} from '../../sim/index.js?v=979323dd';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const f=x=>x==null?'none':x.toFixed(3);
 const req=read('energy-requirements');
