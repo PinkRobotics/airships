@@ -18,6 +18,7 @@ import subprocess
 import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
+from browser_probe import run_probe, CHECKED_TEXT, binding_failures
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -35,7 +36,7 @@ PROBE = r"""(() => {
   out.bandFigMarks = bf ? bf.querySelectorAll('line, rect').length : -1;
   return import('../ship/model.js').then(M => {
     const S = M.ship0Summary();
-    const shown = (sel) => document.querySelector(sel).textContent.replace(/,/g, '');
+  __CHECKED_TEXT__
     out.checks = [
       ['midRatio', shown('[data-n="mid.ratioSL"]'), S.mid.ratioSL.toFixed(3)],
       ['bestRatio', shown('[data-n="best.ratioSL"]'),
@@ -44,7 +45,7 @@ PROBE = r"""(() => {
       ['totalT', shown('[data-n="mid.totalT"]'), S.mid.totalT.toFixed(1)],
       ['band25', shown('[data-n="band25"]'), S.band.harshMid.lift2500T.toFixed(1)],
       ['bandCrushHarsh',
-       document.querySelector('#bandrows tr td:nth-child(2)').textContent,
+       shown('#bandrows tr td:nth-child(2)'),
        S.band.harshMid.crushT.toFixed(1)],
     ];
     out.bandWorlds = Object.keys(S.band).length;
@@ -57,16 +58,13 @@ PROBE = r"""(() => {
 def main() -> None:
     with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
-        probe.write_text(PROBE)
+        probe.write_text(PROBE.replace("__CHECKED_TEXT__", CHECKED_TEXT))
         out = pathlib.Path(td) / "out.json"
         with serve_tree(ROOT) as base:
-            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"{base}cell/ship.html",
-                            str(probe), str(out), "10"], cwd=ROOT, check=True,
-                           stdout=subprocess.DEVNULL)
-            res = json.loads(out.read_text())
+            res = run_probe(ROOT, f"{base}cell/ship.html", probe, out, 10)
 
-    bad = []
+
+    bad = binding_failures("cell/ship.html", res)
     for e in res.get("errors", []):
         bad.append(f"page error: {e}")
     for m in res.get("missing", []):

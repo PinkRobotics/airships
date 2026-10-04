@@ -21,6 +21,7 @@ import subprocess
 import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
+from browser_probe import run_probe
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PY_JSON = ROOT / "research" / "analysis" / "vacuum-cell.json"
@@ -120,11 +121,7 @@ def main() -> None:
             "__WALL__", repr(py["theWall"]["rhoAirAtWorkAltKgPerM3"])))
         out = pathlib.Path(td) / "out.json"
         with serve_tree(ROOT) as base:
-            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"{base}cell/index.html", str(probe),
-                            str(out), "10"], cwd=ROOT, check=True,
-                           stdout=subprocess.DEVNULL)
-            js = json.loads(out.read_text())
+            js = run_probe(ROOT, f"{base}cell/index.html", probe, out, 10)
 
     bad, checked = [], 0
 

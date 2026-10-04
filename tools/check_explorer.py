@@ -36,6 +36,7 @@ import subprocess
 import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
+from browser_probe import run_probe, CHECKED_TEXT, binding_failures
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -74,7 +75,7 @@ PROBE = r"""(() => {
   // The page's displayed numbers, against the model's own arithmetic.
   const wall = C.rhoAir(2500);
   out.checks = [];
-  const shown = (sel) => document.querySelector(sel).textContent.replace(/,/g, '');
+__CHECKED_TEXT__
   out.checks.push(['wall', shown('[data-n="wallWork"]'), wall.toFixed(4)]);
   const chain = C.printerChain(C.MATERIALS.PAHT_Z).find(r => r.designPoint);
   out.checks.push(['strutM', shown('[data-n="design.strutM"]'),
@@ -737,11 +738,8 @@ def check_phone() -> list:
         out = pathlib.Path(td) / "phone.json"
         with serve_tree(ROOT) as base:
             env = {**os.environ, "A3D_VIEWPORT": "390x844"}
-            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"{base}ship/index.html?still=1",
-                            str(probe), str(out), "10"], cwd=ROOT, check=True,
-                           stdout=subprocess.DEVNULL, env=env)
-            r = json.loads(out.read_text())
+            r = run_probe(ROOT, f"{base}ship/index.html?still=1", probe, out, 10, env=env)
+
 
     out_bad = []
     if r.get("errors"):
@@ -797,16 +795,13 @@ def main() -> None:
 
     with browser_scratch() as td:
         probe = pathlib.Path(td) / "probe.js"
-        probe.write_text(PROBE)
+        probe.write_text(PROBE.replace("__CHECKED_TEXT__", CHECKED_TEXT))
         out = pathlib.Path(td) / "out.json"
         with serve_tree(ROOT) as base:
-            subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                            f"{base}ship/index.html?still=1",
-                            str(probe), str(out), "10"], cwd=ROOT, check=True,
-                           stdout=subprocess.DEVNULL)
-            res = json.loads(out.read_text())
+            res = run_probe(ROOT, f"{base}ship/index.html?still=1", probe, out, 10)
 
-    bad = []
+
+    bad = binding_failures("ship/index.html", res)
     if res.get("errors"):
         bad += [f"page error: {e}" for e in res["errors"]]
     if not res.get("mounted"):

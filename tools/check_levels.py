@@ -33,6 +33,7 @@ import subprocess
 import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
+from browser_probe import run_probe
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -108,11 +109,7 @@ def check_page(page, td, base) -> tuple[list[str], int]:
     probe = pathlib.Path(td) / "probe.js"
     probe.write_text(PROBE)
     out = pathlib.Path(td) / f"out-{page['url'].replace('/', '-')}.json"
-    subprocess.run([sys.executable, str(ROOT / "tools" / "js_eval.py"),
-                    f"{base}{page['url']}",
-                    str(probe), str(out), "8"], cwd=ROOT, check=True,
-                   stdout=subprocess.DEVNULL)
-    res = json.loads(out.read_text())
+    res = run_probe(ROOT, f"{base}{page['url']}", probe, out, 8)
 
     bad = []
     for e in res.get("errors", []):
