@@ -873,6 +873,24 @@
       "assumption": "9939ce05722fb2a1",
       "reason": "Proposed intake cycle or labelled render; station holding belongs to the simulation under this page's bound float assumption, not a flown or buildable hull.",
       "line": 607
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "454429b2af43b564",
+      "class": "calculator",
+      "function": "verdictCell",
+      "gate": "shipcheck",
+      "reason": "Decoded display text reads computed model verdicts or rows; shipcheck executes this viewer, and the string is not a claim of physical flight.",
+      "line": 215
+    },
+    {
+      "file": "cell/ship.html",
+      "key": "95cb7b452bf4a73b",
+      "class": "calculator",
+      "function": "worldRows",
+      "gate": "shipcheck",
+      "reason": "Decoded display text reads computed model verdicts or rows; shipcheck executes this viewer, and the string is not a claim of physical flight.",
+      "line": 236
     }
   ]
 }

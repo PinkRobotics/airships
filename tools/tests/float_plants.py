@@ -55,6 +55,7 @@ def register(change):
     _mk9(change)
     _mk10(change)
     _mk11(change)
+    _mk12(change)
 
 def _mk(change):
     import hashlib
@@ -536,3 +537,30 @@ def _mk11(change):
                    '<p>The craft of writing soars in popularity.</p>\n'
                    '<p>The station overhead carries electrical wires.</p>\n'
                    '<p>The track gains altitude along the ridge.</p>\n</body>')], green=True)
+
+
+def _mk12(change):
+    """Display-string motion plants on served external and inline script paths."""
+    sentence = 'The ship climbs with its engines off.'
+    change('S-sim', 'Narration display string, previously read with motion disabled',
+           edits=[('sim/narrate.js', 'Held at dispatch.', sentence)])
+    change('S-app', 'Cockpit display text', append=('app/cockpit/panels.js',
+           '\ndocument.getElementById("opsN0").textContent = "' + sentence + '";\n'))
+    change('S-3d', 'Viewer tooltip display text', append=('3d/scenes/viewer.js',
+           '\ndocument.body.title = "' + sentence + '";\n'))
+    for name, file in (('S-inline', 'index.html'), ('S-model-lab', 'model-lab/index.html')):
+        change(name, 'Inline script display text in ' + file,
+               edits=[(file, '</body>', '<script>document.body.title = "' + sentence + '";</script>\n</body>')])
+    change('S-template-alt', 'Accessible display string inside a script HTML template',
+           append=('app/cockpit/panels.js',
+                   '\ndocument.body.innerHTML = `<img alt="' + sentence + '">`;\n'))
+    change('S-escaped', 'Escaped narration still contains a statement',
+           edits=[('sim/narrate.js', 'Held at dispatch.', 'The ship cl\\u0069mbs with its engines off.')])
+    change('S-concatenated', 'Inline display string spans concatenated source lines',
+           edits=[('index.html', '</body>',
+                   '<script>document.body.title =\n"The ship " +\n"climbs with its engines off.";</script>\n</body>')])
+    change('S-control-code', 'Identifiers, URLs, paths and CSS are not statements',
+           append=('sim/narrate.js', '\nconst plantKey = "ship_climbs";\n'
+                   'const plantUrl = "https://example.org/ship/climbs";\n'
+                   'const plantPath = "../ship/climbs.js";\n'
+                   'const plantCSS = ".ship:hover { color: pink; }";\n'), green=True)

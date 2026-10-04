@@ -67,6 +67,19 @@ def verdict_relation(text):
     return bool(RELATION.search(re.sub(r'\bnet lift\b(?!\s+(?:(?:is|was)\s+)?(?:positive|negative))', '', text, flags=re.I)))
 
 
+def js_prose(text):
+    """Enable motion for statement strings, retaining older cues for code strings.
+
+    Whole identifiers, whitespace-free URLs/paths, and complete CSS rules do not
+    state a flight result. A sentence containing any of those still gets read.
+    """
+    text = text.strip()
+    return not (re.fullmatch(r'[\w$.-]+', text) or
+                re.fullmatch(r'(?:[a-z][a-z0-9+.-]*://|\.{0,2}/)[^\s]+', text, re.I) or
+                re.fullmatch(r'(?:[.#:\w\[\]()>+~*=\s,\x27\x22-]+\{\s*'
+                             r'(?:[\w-]+\s*:[^{};]+;?\s*)+\}\s*)+', text))
+
+
 def js_strings(body):
     """Lex quoted and template strings; skip comments, regex and interpolation code.
 

@@ -243,6 +243,7 @@ FAST_CASES = (
     'A8-wrong-line', 'A8-empty-reason', 'A9-float-index', 'A10-census-json',
     'L-P-prose', 'L-G-generated', 'L-T-table', 'L-dated-append', 'L-dated-new',
     'W-remain', 'W-craft', 'W-altitude',
+    'S-sim', 'S-inline', 'S-model-lab', 'S-template-alt',
 )
 
 

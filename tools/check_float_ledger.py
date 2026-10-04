@@ -5,11 +5,12 @@
 --report prints the failing-sentence table for the review report. Neither mode writes files.
 
 This is a lexical and structural inventory, not a natural-language proof. Vehicle/motion
-relations apply to prose only; style and script code are not flight statements. It scans tables,
+relations apply to prose and script statement strings; style and code tokens are not
+flight statements. It scans tables,
 paragraphs, HTML display blocks and inline script templates, README.md, GOALS.md and the
 scoping tool's Python display strings/comments. It also lexes quoted and template strings
 (including concatenation and escapes) under every published script root: app, 3d, sim,
-ship, cell, concept and engineering; their tests and offline scripts are excluded. This
+ship, cell, concept, engineering and model-lab, including nested tests and scripts. This
 conservative source rule covers display text without executing pages or fetching inputs.
 Script expressions remain source placeholders, not guessed rendered values. Shader numeric
 types, CSS float/aspect-ratio, parseFloat and encoded mesh payloads are not lift claims.
@@ -40,7 +41,7 @@ import shutil
 import subprocess
 import sys
 
-from float_text import relation, js_strings
+from float_text import relation, js_strings, js_prose
 
 sys.dont_write_bytecode=True
 ROOT=pathlib.Path(__file__).resolve().parent.parent
@@ -136,6 +137,18 @@ def interesting(text, prose=True):
                 re.search(r'data-(?:n|cat)="[^" ]*(?:ratio|residual|totalKg|kgPerM3|filmGM2|arealGM2|displacedAir|nodesKg|tubeKg|pipeKg)',text,re.I))
 
 
+def script_blocks(body, first_line=1):
+    for line, string in js_strings(body):
+        text=clean(string)
+        if interesting(text, prose=js_prose(string)):
+            yield first_line+line-1,text,string
+        parser=Blocks();parser.feed(string)
+        # Decoded newlines may be escapes, not source lines. Attribute blocks use
+        # the enclosing literal's measured source start, like the statement itself.
+        for _,text,raw in parser.attributes:
+            yield first_line+line-1,text,raw
+
+
 def source_blocks(path):
     body=path.read_text(encoding='utf-8');rel=path.relative_to(ROOT).as_posix()
     if path.suffix=='.html':
@@ -150,9 +163,12 @@ def source_blocks(path):
         # Templates inside scripts also display text. Report them as unresolved dynamic
         # prose; no attempt to execute arbitrary HTML script is needed for this gate.
         for m in re.finditer(r'<script\b[^>]*>(.*?)</script>',body,re.S|re.I):
+            # Retain the existing source-line checks for computed float fields.
+            # Decoded statement strings add coverage; they do not remove it.
             for off,line in enumerate(m[1].splitlines()):
                 if not line.lstrip().startswith(('//','/*','*')) and interesting(clean(line), prose=False) and ('`' in line or "'" in line or '"' in line):
                     yield body.count('\n',0,m.start())+off+1,clean(line),line
+            yield from script_blocks(m[1],body.count('\n',0,m.start(1))+1)
     elif path.suffix=='.md':
         # Preserve source positions while removing nonprose HTML containers.
         body=re.sub(r'<(script|style)\b[^>]*>.*?</\1\s*>',
@@ -163,10 +179,7 @@ def source_blocks(path):
             if any(pattern.fullmatch(rel) for pattern, _ in ALLOWLIST) or interesting(text, prose=not raw.lstrip().startswith(('```', '~~~'))) or (raw.lstrip().startswith('|') and NUM.search(text) and (re.search(r'kg/m|kg.m|density|mass|tube',text,re.I) or (rel=='docs/FLOAT.md'))):
                 yield body.count('\n',0,m.start())+1,text,raw
     elif path.suffix in ('.js', '.mjs'):
-        for line, string in js_strings(body):
-            text=clean(string)
-            if interesting(text, prose=False):
-                yield line,text,string
+        yield from script_blocks(body)
     elif path.suffix=='.py':
         # Only display/documentation strings and comments, never float type annotations.
         tree=ast.parse(body)
@@ -180,13 +193,14 @@ def source_blocks(path):
 
 def paths():
     result=[ROOT/'README.md',ROOT/'GOALS.md',ROOT/'index.html',ROOT/'tools/ship_scoping.py']
-    for parent in ['docs','research','engineering','ship','cell','concept']:
+    for parent in ['docs','research','engineering','ship','cell','concept','app','sim','3d','model-lab']:
         for p in (ROOT/parent).rglob('*'):
             if p.suffix in ('.md','.html') and p.name!='FLOAT-LEDGER.md':result.append(p)
-    # Published script roots; test harnesses and offline rendering scripts are excluded.
-    for parent in ['app','3d','sim','ship','cell','concept','engineering']:
+    # Read all script strings in these roots; content rules, never directories,
+    # distinguish statements from identifiers, paths and CSS.
+    for parent in ['app','3d','sim','ship','cell','concept','engineering','model-lab']:
         for p in (ROOT/parent).rglob('*'):
-            if p.suffix in ('.js','.mjs') and not ({'tests','scripts'} & set(p.relative_to(ROOT/parent).parts[:-1])):
+            if p.suffix in ('.js','.mjs'):
                 result.append(p)
     return sorted(set(result))
 

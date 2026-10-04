@@ -1,6 +1,8 @@
 {
  "schema": "float-claims/1",
  "files": [
+  "3d/BLOWER-PORT-DIAGNOSIS.md",
+  "3d/README.md",
   "3d/anim/clips.js",
   "3d/anim/driver.js",
   "3d/anim/mission.js",
@@ -10,6 +12,10 @@
   "3d/physics/state.js",
   "3d/scenes/scenes.js",
   "3d/scenes/viewer.js",
+  "3d/tests/browser.html",
+  "3d/tests/control.test.mjs",
+  "3d/tests/hud-demo.html",
+  "3d/tests/state.test.mjs",
   "GOALS.md",
   "app/cockpit/panels.js",
   "app/cockpit/shipviz.js",
@@ -17,9 +23,12 @@
   "app/worked.js",
   "cell/levels.js",
   "concept/energy-analysis.html",
+  "engineering/engineering.js",
+  "model-lab/index.html",
   "research/notes/derveni-2024-multi-defect-shell-buckling.md",
   "ship/catalog.js",
   "ship/explorer.js",
+  "sim/README.md",
   "sim/config.js",
   "sim/energy-label.js",
   "sim/narrate.js",
@@ -29,6 +38,93 @@
   "sim/state.js"
  ],
  "entries": [
+  {
+   "file": "3d/BLOWER-PORT-DIAGNOSIS.md",
+   "key": "1956a91da34d1359",
+   "class": "method",
+   "context": [],
+   "reason": "Float describes whether rendered fan ducts sit on the skin; the text explicitly denies visual detachment, not an aircraft lift result.",
+   "line": 179
+  },
+  {
+   "file": "3d/BLOWER-PORT-DIAGNOSIS.md",
+   "key": "c7cde994e061d16e",
+   "class": "method",
+   "context": [
+    "1.18",
+    "1.24",
+    "1.4"
+   ],
+   "reason": "Geometric blower-to-flange ratio and a probe threshold; neither number is a lift-to-mass ratio.",
+   "line": 142
+  },
+  {
+   "file": "3d/BLOWER-PORT-DIAGNOSIS.md",
+   "key": "d852b6ea9c582999",
+   "class": "method",
+   "context": [
+    "0.2",
+    "1",
+    "100",
+    "736",
+    "9"
+   ],
+   "reason": "Rendering diagnosis uses floating-point arithmetic and a normal-vector bucket, not density, structural lift or flight evidence.",
+   "line": 105
+  },
+  {
+   "file": "3d/README.md",
+   "key": "1de57e9376b6a502",
+   "class": "method",
+   "context": [
+    "3"
+   ],
+   "reason": "Viewer and test-page inventory; model-lab is a path, not a mass or flight result.",
+   "line": 35
+  },
+  {
+   "file": "3d/README.md",
+   "key": "3d11a651f4e6d2f5",
+   "class": "method",
+   "context": [
+    "1"
+   ],
+   "reason": "Viewer API documentation describes controls and state keys; no structural verdict or flown vehicle is claimed.",
+   "line": 106
+  },
+  {
+   "file": "3d/README.md",
+   "key": "b04b47884620f911",
+   "class": "method",
+   "context": [],
+   "reason": "Module map names mass/buoyancy code and speculative configuration; it reports no vehicle result.",
+   "line": 236
+  },
+  {
+   "file": "3d/README.md",
+   "key": "d28ddad54c379249",
+   "class": "method",
+   "context": [
+    "1",
+    "100",
+    "150",
+    "300",
+    "4",
+    "50",
+    "86584",
+    "96140"
+   ],
+   "reason": "Renderer workload and HUD API documentation; draw calls, triangles, timing and force-vector labels are not a lift result.",
+   "line": 187
+  },
+  {
+   "file": "3d/README.md",
+   "key": "e73fc0d624290b6b",
+   "class": "method",
+   "context": [],
+   "reason": "Required viewer qualifications explicitly call the reference conceptual and allocation simulated; the complete buoyant cell is a future gate, not an achieved result.",
+   "line": 507
+  },
   {
    "file": "3d/anim/clips.js",
    "key": "22f41772018ad811",
@@ -176,6 +272,115 @@
    "line": 311
   },
   {
+   "file": "3d/tests/browser.html",
+   "key": "10cd0f4735061414",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 204
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "19e588c0e6b99f90",
+   "class": "method",
+   "context": [
+    "0",
+    "0.4",
+    "0.5",
+    "0.9"
+   ],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 218
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "46b09553eadd901c",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 184
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "55b9aa97d94b1658",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 184
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "6bc42e538fbddeeb",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 171
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "905373dc7a3bba26",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 171
+  },
+  {
+   "file": "3d/tests/browser.html",
+   "key": "e175e01d47bbb330",
+   "class": "method",
+   "context": [],
+   "reason": "Browser test name or phase identifier describes simulated force directions; it is test output, not a structural float verdict or flown vehicle.",
+   "line": 204
+  },
+  {
+   "file": "3d/tests/control.test.mjs",
+   "key": "540ad8a31b180c84",
+   "class": "method",
+   "context": [],
+   "reason": "Test assertion describes the simulator's force or motion bookkeeping; the assertion label is not a physical flight claim or a positive structural lift verdict.",
+   "line": 207
+  },
+  {
+   "file": "3d/tests/control.test.mjs",
+   "key": "9731dc254d2b8291",
+   "class": "method",
+   "context": [],
+   "reason": "Test assertion describes the simulator's force or motion bookkeeping; the assertion label is not a physical flight claim or a positive structural lift verdict.",
+   "line": 257
+  },
+  {
+   "file": "3d/tests/control.test.mjs",
+   "key": "f2043caf155c6d0d",
+   "class": "method",
+   "context": [],
+   "reason": "Test assertion describes the simulator's force or motion bookkeeping; the assertion label is not a physical flight claim or a positive structural lift verdict.",
+   "line": 218
+  },
+  {
+   "file": "3d/tests/hud-demo.html",
+   "key": "1048287380316524",
+   "class": "method",
+   "context": [],
+   "reason": "Accessible schematic label names rendered force vectors; it makes no positive structural lift or flight claim.",
+   "line": 25
+  },
+  {
+   "file": "3d/tests/state.test.mjs",
+   "key": "39e82e56d6815f9d",
+   "class": "method",
+   "context": [],
+   "reason": "Test assertion describes the simulator's force or motion bookkeeping; the assertion label is not a physical flight claim or a positive structural lift verdict.",
+   "line": 531
+  },
+  {
+   "file": "3d/tests/state.test.mjs",
+   "key": "f9ba009cf97d2fd8",
+   "class": "method",
+   "context": [],
+   "reason": "Test assertion describes the simulator's force or motion bookkeeping; the assertion label is not a physical flight claim or a positive structural lift verdict.",
+   "line": 165
+  },
+  {
    "file": "GOALS.md",
    "key": "0a1d757a7ace2ce3",
    "class": "method",
@@ -303,6 +508,14 @@
   },
   {
    "file": "app/cockpit/tables.js",
+   "key": "44e191ef6622caa4",
+   "class": "method",
+   "context": [],
+   "reason": "Tooltip explicitly says structural float is unproven and the configured class is used only in the simulation.",
+   "line": 198
+  },
+  {
+   "file": "app/cockpit/tables.js",
    "key": "c1c2efeb2e22221a",
    "class": "method",
    "context": [],
@@ -363,6 +576,31 @@
    "line": 9
   },
   {
+   "file": "engineering/engineering.js",
+   "key": "1117daccf9c9ef17",
+   "class": "method",
+   "context": [
+    "1"
+   ],
+   "reason": "Accessible plot description names a sizing comparison at SF 1 and explicitly denies a minimum or design; no structural result is endorsed.",
+   "line": 124
+  },
+  {
+   "file": "model-lab/index.html",
+   "key": "9c76a550e0df5c57",
+   "class": "bound",
+   "bindings": [
+    {
+     "case": "bench-nominal",
+     "field": "floatsToday",
+     "equals": false
+    }
+   ],
+   "context": [],
+   "reason": "The bench article denial is bound to bench-nominal floatsToday=false; the proposed first physical gate does not claim completed construction or flight.",
+   "line": 58
+  },
+  {
    "file": "research/notes/derveni-2024-multi-defect-shell-buckling.md",
    "key": "af28abef1f0910dd",
    "class": "literature",
@@ -399,6 +637,16 @@
   },
   {
    "file": "ship/explorer.js",
+   "key": "29f4f5c892134b8f",
+   "class": "method",
+   "context": [
+    "100"
+   ],
+   "reason": "Scoping viewer tooltip explains simulated water-cycle rotor downforce; the 100 t reference is cycle context, not a weighed or floating drawn hull.",
+   "line": 2789
+  },
+  {
+   "file": "ship/explorer.js",
    "key": "7a3bc58e58d8847a",
    "class": "bound",
    "context": [],
@@ -411,6 +659,14 @@
     }
    ],
    "line": 2334
+  },
+  {
+   "file": "sim/README.md",
+   "key": "382335bf5ffcf978",
+   "class": "method",
+   "context": [],
+   "reason": "Signed-force bookkeeping definition for the simulator, including unheld force; it is not evidence of structural float.",
+   "line": 35
   },
   {
    "file": "sim/config.js",
@@ -435,6 +691,24 @@
    "context": [],
    "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance.",
    "line": 3
+  },
+  {
+   "file": "sim/narrate.js",
+   "key": "0cbc4ac9c261803f",
+   "class": "method",
+   "context": [
+    "0"
+   ],
+   "reason": "Explicit simulation narration describes model rotor power, altitude and water state; expressions remain unresolved source placeholders, not flight evidence.",
+   "line": 47
+  },
+  {
+   "file": "sim/narrate.js",
+   "key": "0ef5db6a3cebb0ea",
+   "class": "method",
+   "context": [],
+   "reason": "Explicit simulation narration describes the selected climb profile and hose animation; it does not claim physical flight or a positive structural margin.",
+   "line": 37
   },
   {
    "file": "sim/narrate.js",

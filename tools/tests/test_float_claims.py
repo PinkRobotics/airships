@@ -709,6 +709,77 @@ class HardenedLanguage(unittest.TestCase):
         self.assertNotIn('The false comment floats.',strings)
 
 
+class ScriptMotionInventory(unittest.TestCase):
+    def setUp(self):
+        import check_float_ledger as gate
+        self.gate = gate
+        self.tmp = tempfile.TemporaryDirectory(prefix='script-motion-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+
+    def blocks(self, file, body):
+        path = self.root / file
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(body)
+        with patch.object(self.gate, 'ROOT', self.root):
+            return list(self.gate.source_blocks(path))
+
+    def test_served_strings_are_prose_across_roots(self):
+        for root in ('app', 'sim', '3d', 'model-lab'):
+            file = root + '/display.js'
+            with self.subTest(root=root):
+                blocks = self.blocks(file, '// comment\nnode.textContent = "The ship climbs with its engines off.";')
+                self.assertEqual([(line, text) for line, text, _ in blocks],
+                                 [(2, 'The ship climbs with its engines off.')])
+
+    def test_inline_multiline_escapes_and_concatenation(self):
+        blocks = self.blocks('model-lab/index.html', '<script>\nnode.textContent =\n'
+            "'The ship ' +\n'cl\\u0069mbs with its engines off.';\n</script>")
+        self.assertEqual([(line, text) for line, text, _ in blocks],
+                         [(3, 'The ship climbs with its engines off.')])
+
+    def test_template_visible_attributes(self):
+        for prefix in ('', 'Prefix\\n'):
+            with self.subTest(prefix=prefix):
+                blocks = self.blocks('app/example.js',
+                    'node.innerHTML = `' + prefix + '<img alt="The ship climbs with its engines off.">`;')
+                self.assertEqual([(line,text) for line,text,_ in blocks],
+                                 [(1,'The ship climbs with its engines off.')])
+
+    def test_existing_inline_float_field_inventory_is_retained(self):
+        blocks = self.blocks('cell/example.html',
+            '<script>\nnode.innerHTML = e.floats ? "pass" : "fail";\n</script>')
+        self.assertEqual([text for _, text, _ in blocks],
+                         ['node.innerHTML = e.floats ? "pass" : "fail";'])
+
+    def test_nonstatement_content_rules_keep_claims(self):
+        body = '''const key = "ship_climbs";
+const url = "https://example.org/ship/climbs";
+const path = "../ship/climbs.js";
+const css = ".ship:hover { color: pink; }";
+const shader = "#version 300 es\\nprecision highp float;";
+// "The ship climbs with its engines off."
+node.textContent = "The ship climbs with its engines off.";
+'''
+        blocks = self.blocks('sim/example.js', body)
+        self.assertEqual([text for _, text, _ in blocks],
+                         ['The ship climbs with its engines off.'])
+
+    def test_html_roots_and_script_roots_are_present(self):
+        for root in ('app', 'sim', '3d', 'model-lab'):
+            self.blocks(root + '/display.js', '')
+            self.blocks(root + '/scripts/display.js', '')
+            self.blocks(root + '/tests/display.js', '')
+            self.blocks(root + '/index.html', '')
+        with patch.object(self.gate, 'ROOT', self.root):
+            paths = {p.relative_to(self.root).as_posix() for p in self.gate.paths()}
+        for root in ('app', 'sim', '3d', 'model-lab'):
+            self.assertIn(root + '/display.js', paths)
+            self.assertIn(root + '/scripts/display.js', paths)
+            self.assertIn(root + '/tests/display.js', paths)
+            self.assertIn(root + '/index.html', paths)
+
+
 class GeneratedRegionContracts(unittest.TestCase):
     def setUp(self):
         from float_regions import Regions
