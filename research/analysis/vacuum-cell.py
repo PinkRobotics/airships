@@ -1483,9 +1483,25 @@ def ship_wall(g: dict, sigma_mat: float, sf: float) -> dict:
     )
 
 
+def ship_basis(basis, knockdown):
+    """Legacy named points remain callable; a custom knockdown needs its basis.
+
+    Reserve policy belongs to the accounting basis, independently of capacity.
+    """
+    if basis is None:
+        if knockdown is None or knockdown == SHIP0["giKnockdown"]:
+            return "record"
+        if knockdown == SHIP0["giKnockdownFrame"]:
+            return "favourable"
+        raise ValueError("custom knockdown requires basis='record' or 'favourable'")
+    if basis not in ("record", "favourable"):
+        raise ValueError("basis must be 'record' or 'favourable'")
+    return basis
+
+
 def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
                   gi_knockdown: float, gi_chordal: bool = False,
-                  gi_membrane: bool = False) -> dict:
+                  gi_membrane: bool = False, basis: str = None) -> dict:
     """The corrected stability system. General instability in Bryant's honest
     form — membrane term WITH the load-side divisor (n^2 + lam^2/2 - 1), head-
     credit effective length, ring term series-combined with the X-braced
@@ -1493,6 +1509,7 @@ def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
     tension-spoke foundation k*R/(n^2-1) — minimised over n, knocked down whole.
     Four growth moves, cheapest-first: inner rings, theta webs, ring flange
     doubler, spokes. The caps keep their crimp partner. Everything [SCOPING]."""
+    basis = ship_basis(basis, gi_knockdown)
     E_ = MATERIALS["T700_LAM"]["E"]
     rho = MATERIALS["T700_LAM"]["rho"]
     depth, r_in, bay = g["depthM"], g["rIn"], SHIP0["bayM"]
@@ -1631,7 +1648,7 @@ def ship_skeleton(g: dict, sigma_mat: float, sf: float, wall: dict,
     ov_harsh = gi(a_i_1 / bay, a_th_1, a_oe_1, a_sp_1, SHIP0["giKnockdown"])
     ov_02 = gi(a_i_1 / bay, a_th_1, a_oe_1, a_sp_1, K_SHELL)
     reserve_kgm2 = 0.0
-    if ov_02["marginAtSF"] < 1.0 and gi_knockdown == SHIP0["giKnockdown"]:
+    if ov_02["marginAtSF"] < 1.0 and basis == "record":
         a_i_2, a_th_2, a_oe_2, a_sp_2, ov_02b = solve(K_SHELL, a_i_1, a_th_1,
                                                       a_oe_1, a_sp_1)
         if ov_02b["marginAtSF"] >= 1.0:
@@ -1725,18 +1742,22 @@ def ship_unpressurised(g: dict, wall: dict, skel: dict, total_t: float) -> dict:
 
 def ship0(sigma_key: str = None, sf: float = None, dia_m: float = None,
           gi_knockdown: float = None, gi_chordal: bool = False,
-          gi_membrane: bool = False) -> dict:
+          gi_membrane: bool = False, basis: str = None) -> dict:
     """One whole-ship ledger, at a named sigma world, SF, hull and GI knockdown
     (harsh sizes the record; the frame world is the reported alternative). The
     two gi_* flags are the SHIP-3 moves as bounds — every record path leaves
-    them False; only the band page turns them on, under a BOUND label."""
+    them False; only the band page turns them on, under a BOUND label.
+    Custom knockdowns require an explicit basis, which selects reserve policy.
+    With no knockdown, the basis selects its named default."""
+    basis = ship_basis(basis, gi_knockdown)
     key = SHIP0["sigmaMid"] if sigma_key is None else sigma_key
     sf_ = SHIP0["sfDeclared"] if sf is None else sf
-    gi_kd = SHIP0["giKnockdown"] if gi_knockdown is None else gi_knockdown
+    gi_kd = (SHIP0["giKnockdown" if basis == "record" else "giKnockdownFrame"]
+             if gi_knockdown is None else gi_knockdown)
     g = ship_geom(dia_m)
     sig = SHIP0["sigmaWorldsMPa"][key] * 1e6
     wall = ship_wall(g, sig, sf_)
-    skel = ship_skeleton(g, sig, sf_, wall, gi_kd, gi_chordal, gi_membrane)
+    skel = ship_skeleton(g, sig, sf_, wall, gi_kd, gi_chordal, gi_membrane, basis)
     member_t = (wall["membersT"]
                 + (skel["longeronsT"] + skel["innerRingsT"] + skel["websT"]
                    + skel["thetaWebsT"] + skel["flangeDoublerT"]
@@ -1875,12 +1896,12 @@ def ship0_summary() -> dict:
     worlds_frame = {}
     for sf_name, sf_ in (("sf12", SHIP0["sfDeclared"]), ("sf15", LATTICE_SF)):
         for key in ("s742", "s1050", "s1450"):
-            r = ship0(key, sf_)
+            r = ship0(key, sf_, basis="record")
             worlds[f"{key}_{sf_name}"] = dict(
                 totalT=round(r["totalT"], 1), ratioSL=round(r["ratioSL"], 3),
                 residualSLT=round(r["residualSLT"], 1),
                 ratio2500=round(r["ratio2500"], 3), floats=r["floats"])
-            rf = ship0(key, sf_, None, SHIP0["giKnockdownFrame"])
+            rf = ship0(key, sf_, basis="favourable")
             worlds_frame[f"{key}_{sf_name}"] = dict(
                 totalT=round(rf["totalT"], 1), ratioSL=round(rf["ratioSL"], 3),
                 residualSLT=round(rf["residualSLT"], 1), floats=rf["floats"])
@@ -1897,7 +1918,7 @@ def ship0_summary() -> dict:
     window_frame = []
     for dia in (40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 68.0, 80.0):
         try:
-            led = ship0("s1450", None, dia, SHIP0["giKnockdownFrame"])
+            led = ship0("s1450", None, dia, basis="favourable")
             window_frame.append(dict(diaM=dia, ratioSL=round(led["ratioSL"], 3)))
         except RuntimeError:
             window_frame.append(dict(diaM=dia, ratioSL=None))

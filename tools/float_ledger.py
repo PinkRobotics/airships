@@ -558,7 +558,8 @@ def ship(F, key, sf, dia=None, gi=None, chordal: bool = False, membrane: bool = 
     section catalogue cannot build that hull."""
     try:
         r = F.vc.ship0(str(key), float(sf), None if dia is None else float(dia),
-                       None if gi is None else float(gi), chordal, membrane)
+                       None if gi is None else float(gi), chordal, membrane,
+                       basis=F.vc.ship_basis(None, None if gi is None else float(gi)))
     except RuntimeError:
         return None
     src = f"{MODEL}: ship0()"

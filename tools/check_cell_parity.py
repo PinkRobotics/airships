@@ -100,7 +100,7 @@ PROBE = """(() => {
   for (const n of [44, 50, 60, 72, 90, 120]) {
     for (const delta of [-1e-10, 0, 1e-10]) {
       const dia = (n + 0.5) * 52 / 72 + delta;
-      out.offGrid.push(C.ship0('s1050', 1.2, dia, 0.3));
+      out.offGrid.push(C.ship0('s1050', 1.2, dia, 0.3, false, false, 'record'));
     }
   }
   return out;
@@ -469,7 +469,7 @@ def main() -> None:
             if not ok:
                 bad.append(f"{path}: python {want}, js {got}")
 
-    directed = [model.ship0('s1050', 1.2, (n + 0.5) * 52 / 72 + delta, 0.3)
+    directed = [model.ship0('s1050', 1.2, (n + 0.5) * 52 / 72 + delta, 0.3, basis='record')
                 for n in [44, 50, 60, 72, 90, 120] for delta in [-1e-10, 0, 1e-10]]
     compare_raw(directed, js.get("offGrid"), "ship0.offGrid")
 

@@ -20,7 +20,7 @@
  */
 import { MATERIALS, CUT_SCHEDULE_MEASURED, NODE_MASS_MEASURED_KG,
          stockBuild, barrierKgPerM2, P_ATM,
-         SHIP0, ship0, ship0Summary } from './model.js?v=979323dd';
+         SHIP0, ship0, ship0Summary } from './model.js?v=e6a94414';
 
 const sb = stockBuild();
 /* THE SHIP PORT LANDED (2026-08-13): ship0Summary() is computed by cell/model.js,
@@ -30,7 +30,7 @@ const sb = stockBuild();
  * what is genuinely unverified: the sigma worlds themselves (the coupon
  * campaign), eta, the Ti fitting masses — carried as [TO VERIFY] in the model. */
 const S0 = ship0Summary();
-const bestWorld = ship0('s1450', SHIP0.sfDeclared, null, SHIP0.giKnockdownFrame);
+const bestWorld = ship0('s1450', SHIP0.sfDeclared, null, null, false, false, 'favourable');
 
 /* Linear masses from section geometry x the laminate density the model bills with. */
 const linKgPerM = (odMm, wallMm, rho) => {

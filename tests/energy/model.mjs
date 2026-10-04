@@ -1,5 +1,5 @@
 /* Data adapter for the independent equations. */
-import * as S from '../../sim/index.js?v=979323dd';
+import * as S from '../../sim/index.js?v=e6a94414';
 export const loadTree=async()=>({S,which:'integrated'});
 export const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
 export function norm(_,s){return {surplusT:s.surplusT,bagT:s.owners.bagT,rotorT:s.owners.rotorT,aeroT:s.owners.aeroT,

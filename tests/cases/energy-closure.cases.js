@@ -1,6 +1,6 @@
 /* Force closure: independent identities, limits, bus allocation and adversarial control points. */
 import {describe,it,ok,close,eq} from '../harness.js';
-import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt,integrateCycle,resetConfig} from '../../sim/index.js?v=979323dd';
+import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt,integrateCycle,resetConfig} from '../../sim/index.js?v=e6a94414';
 const sum = o => Object.values(o).reduce((a,b)=>a+b,0);
 const winds=[null,{spd:40,dir:270,bearing:90},{spd:25,dir:90,bearing:90}];
 

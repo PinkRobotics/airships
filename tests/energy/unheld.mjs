@@ -1,7 +1,7 @@
 /* Independent completeness and numeric replay of the printed phase table. */
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=979323dd';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=e6a94414';
 const data=JSON.parse(fs.readFileSync('research/analysis/energy-unheld.json'));
 assert.equal(data.rows.length,12);let count=0;
 for(const r of data.rows){

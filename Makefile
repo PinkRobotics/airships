@@ -122,6 +122,7 @@ analysischeck:  ## Every figure quoted in an analysis note must match its own ge
 
 cellparity:  ## ship/model.js must agree with research/analysis/vacuum-cell.py exactly
 	$(PY) tools/check_cell_parity.py
+	$(PY) -m unittest discover -s tools/tests -p 'test_ship_basis.py'
 
 explorercheck:  ## The 3D explorer must render every level and display only the model's numbers
 	$(PY) tools/check_explorer.py
