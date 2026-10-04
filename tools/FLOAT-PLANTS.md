@@ -1,0 +1,9 @@
+# Full claim plants before landing
+
+1. `make floatplantcheck` is an ordered `make check` and CI gate. It compares the current claim-gate contents with `research/analysis/float-plants-pass.json`.
+2. The key is SHA-256 of a canonical manifest of relative filenames, byte hashes and the complete case-name list. It covers the claim gate's Python modules and plant harness, including the claim-record schema in `tools/float_claims.py`, all float unit tests, the catalogue, page generators, numeric token rules, and four claim-gate Makefile recipes. New matching files join the manifest; removed files change it. Unrelated Makefile recipes do not.
+3. Only `make floatplants` normally writes the receipt: its wrapper forces all cases, requires a complete passing report, checks unchanged inputs before and after, then atomically replaces the deterministic JSON. Failed, incomplete and selected runs cannot refresh it. The receipt has no branch, commit, clock, remote or host identity.
+4. A receipt proves that the full plant runner accepted these protected contents when the command ran. It does not certify every repository file, arbitrary natural language, physical flight, or the authenticity of a hand-edited receipt. Reverting after a new pass also requires a new pass unless the matching earlier receipt is restored with the earlier contents.
+5. A hand edit of a matching receipt is not detected here. The independent, unconditional CI `floatplants` job still executes every plant on each push and pull request, so a forged receipt cannot hide a failing plant there. Review must assess changes to the checker, runner and CI themselves; this is a content freshness gate, not a cryptographic attestation.
+
+The fast fixed motion/noun rows in `ledgercheck-selftest` catch lexical deletions immediately. Full plants retain their separate CI job and are never run automatically by `floatplantcheck`.

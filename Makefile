@@ -81,7 +81,7 @@ CI_OUTSIDE_CHECK := floatplants
 # browser cellparity baseline; analysisfresh and figure freshness also use it.
 quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Python and Node gates; no browser or TeX
 
-check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; gate tools, schema or plant changes also require floatplants
+check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -346,7 +346,7 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 	$(PY) tools/check_member_census.py --self-test
 	$(PY) tools/check_member_census.py
 
-.PHONY: ledgercheck-selftest floatplants
+.PHONY: ledgercheck-selftest floatplants floatplantcheck
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_motion.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
@@ -354,7 +354,11 @@ ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on f
 	FLOAT_PLANT_CASES= FLOAT_PLANT_MODE=fast $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
 
 floatplants:  ## Full plants: run before a change to gate tools, record schema or plants goes to review
-	FLOAT_PLANT_CASES= FLOAT_PLANT_MODE=all $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
+	$(PY) tools/check_float_plants.py --run
+
+floatplantcheck:  ## Refuse changed claim-gate contents until make floatplants records a full pass
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_plant_state.py'
+	$(PY) tools/check_float_plants.py
 
 .PHONY: floatpages floatpagecheck
 floatpages:
