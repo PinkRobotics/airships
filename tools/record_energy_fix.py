@@ -36,29 +36,37 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--part', choices=REASONS, required=True)
     ap.add_argument('--before', type=Path, required=True)
+    ap.add_argument('--after', type=Path, default=ROOT, help='Optional completed checkpoint; defaults to the current tree.')
     args = ap.parse_args()
     output = ROOT/'research/analysis/energy-fix-changes.json'
     data = json.loads(output.read_text()) if output.exists() else {'parts': []}
     rows = []
-    for file in sorted((ROOT/'research/analysis').glob('*.json')):
+    for file in sorted((args.after/'research/analysis').glob('*.json')):
         if not (file.name.startswith('energy-') or file.name == 'descent.json'):
             continue
-        if 'history' in file.name or file == output:
+        if 'history' in file.name or file.name == output.name:
             continue
-        rel = file.relative_to(ROOT)
+        rel = file.relative_to(args.after)
         before = args.before/rel
         if not before.exists():
             continue
         for row in changes(json.loads(before.read_text()), json.loads(file.read_text())):
             rows.append(dict(file=rel.as_posix(), **row))
+    # These generated artifacts also publish model numbers outside the energy directory.
+    for rel in map(Path, ['research/figures.json', 'tests/golden/seed7-snapshot.json', 'tests/golden/ui-seed7-snapshot.json']):
+        before, after = args.before/rel, args.after/rel
+        if before.exists() and after.exists():
+            for row in changes(json.loads(before.read_text()), json.loads(after.read_text())):
+                rows.append(dict(file=rel.as_posix(), **row))
     test = Path('tests/energy/unheld.mjs')
     pattern = r'unheldT-([0-9.]+)'
     a = re.search(pattern, (args.before/test).read_text())
-    b = re.search(pattern, (ROOT/test).read_text())
+    b = re.search(pattern, (args.after/test).read_text())
     if a and b and a[1] != b[1]:
         rows.append(dict(file=test.as_posix(), field='namedEndurance.worstUnheldT', old=float(a[1]), new=float(b[1]), decimals=9))
     data['parts'] = [p for p in data['parts'] if p['part'] != args.part]
     data['parts'].append(dict(part=args.part, reason=REASONS[args.part], changes=rows))
+    data['parts'].sort(key=lambda p: p['part'])
     output.write_text(json.dumps(data, indent=2)+'\n')
     print(f'Recorded part {args.part}: {len(rows)} moved generated numbers at published precision.')
 

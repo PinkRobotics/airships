@@ -4,10 +4,10 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=1cd95a83';
-import { dragMW, ledger, pumpMW } from './physics.js?v=1cd95a83';
-import { searchedProfile } from './profile.js?v=1cd95a83';
-import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=1cd95a83';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=c7b36628';
+import { dragMW, ledger, pumpMW } from './physics.js?v=c7b36628';
+import { searchedProfile, prescribedReturnJoins } from './profile.js?v=c7b36628';
+import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=c7b36628';
 
 export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
   if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');
@@ -140,6 +140,21 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   const altitudeGeometry = Object.fromEntries(['srcAlt','holdAgl','altTop','altEsc'].map(k=>[k,shape[k]]));
   const releaseRiseFraction = Math.min(1, Math.max(0.15, 30 / (dur.WATER_RELEASE * 60)));
   Object.assign(partial, {altitudeGeometry,releaseRiseFraction});
+  if (!options.verticalProfile) {
+    const joined=prescribedReturnJoins(shape,dur.RETURN_TRANSIT*60);
+    partial.returnJoinWidths=joined.widths;
+    if(joined.seconds>dur.RETURN_TRANSIT*60){
+      dur.RETURN_TRANSIT=joined.seconds/60;
+      ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);
+      anchorT=Math.min(cls.anchorBagT||0,Math.max(0,ledLow.surplusT-ln2MakeT));
+      Object.assign(partial,{ln2MakeT,anchorT});
+      cycleMin=Object.values(dur).reduce((a,b)=>a+b,0);
+      cryoLimited=ln2MakeT<ln2NeedT-.5;
+      busMW=descentBusMW(cls,partial);
+      rotorMaxT=rotorMaxTonnes(cls,busMW,ledLow.rho,rotorEfficiency);
+      shortfallT=Math.max(0,ledLow.surplusT-ln2MakeT-anchorT-rotorMaxT);
+    }
+  }
   if (options.verticalProfile) {
     if(movingPhaseRateMultiplier!==1)throw new RangeError('independent profile cannot use moving-phase dilation');
     partial.profile=searchedProfile(partial,shape,oneWayKm,options.verticalProfile,tailOut/3.6);
@@ -198,7 +213,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   return {
     profile: partial.profile, bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
     requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT,
-    phasePeaks: I.phasePeaks,
+    phasePeaks: I.phasePeaks, returnJoinWidths: partial.returnJoinWidths,
     dur, cycleMin, tph, eCycleMWh: eCycle, kwhPerTonne: eCycle * 1000 / Math.max(1, deliveredT),
     // The ledger itself, not just its total: energy by phase with the nitrogen recovery as its
     // own negative line (E sums to eCycleMWh), and the same energy by channel (Echan sums to the

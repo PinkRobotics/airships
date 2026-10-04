@@ -243,7 +243,7 @@
         "start": "<!-- energy:model:start -->",
         "end": "<!-- energy:model:end -->"
       },
-      "line": 935
+      "line": 1018
     },
     {
       "file": "research/analysis/energy-requirements.md",
@@ -310,20 +310,6 @@
       "line": 270
     },
     {
-      "file": "docs/ENERGY-MODEL-2026-10.md",
-      "key": "b7c29754230bf30e",
-      "class": "generated",
-      "reason": "Exact generated energy-document region; energydoccheck replays its numbers without establishing structural float. Energy figures regenerated after the independent comparison.",
-      "generator": "research/analysis/energy-documents.mjs",
-      "gate": "energydoccheck",
-      "verifier": "tools/check_energy_docs.py",
-      "region": {
-        "start": "<!-- energy:model:start -->",
-        "end": "<!-- energy:model:end -->"
-      },
-      "line": 395
-    },
-    {
       "file": "research/analysis/energy-motion.md",
       "key": "2f6897f0edc93c67",
       "class": "deferred",
@@ -338,6 +324,20 @@
       "owner": "energy-model",
       "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the independent comparison. Energy figures regenerated after the indepe",
       "line": 5
+    },
+    {
+      "file": "docs/ENERGY-MODEL-2026-10.md",
+      "key": "aedf98f90ef35b96",
+      "class": "generated",
+      "reason": "Generated diagnostic correction table includes the omitted figure record; no structural float verdict or qualification changes.",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:model:start -->",
+        "end": "<!-- energy:model:end -->"
+      },
+      "line": 397
     }
   ]
 }

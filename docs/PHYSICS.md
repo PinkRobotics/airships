@@ -479,6 +479,7 @@ The slowest peak letdown cap is 0.5 m/s on each class.
 This finite bound includes slow descents; smaller caps remain unsearched, not physically excluded.
 
 Short joins take longer when needed for smoothness.
+The prescribed return widens its climb and letdown joins using an upper bound on the composed easing derivatives, so each of the 2,001 sampled vertical speeds differs by at most 0.1 m/s. If those joins would overlap, its return time grows instead. This applies to all searched prescribed controls, not one retained-water row.
 The drop altitude, terrain clearance and cable reach stay fixed.
 The approach remains stationary.
 Segment time and ground distance are integrated; energy uses the same instantaneous ledger.

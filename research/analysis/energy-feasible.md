@@ -10,10 +10,10 @@ Retained water uses five-percent payload steps plus each bisected first closing 
 
 | Class | km | Basis | Mode | Speed | Climb / letdown rate, m/s; airspeed, m/s | Water kept, t | Delivered, t | Minutes | MWh | kWh/t | Largest omitted inertia / rotor reserve, t (coefficient 0.70) | Qualification |
 |---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
-| P100 | 2.55029 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 4.424 | 44.243 | | |
+| P100 | 2.55029 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 4.432 | 44.323 | | |
 | P100 | 2.55029 | record | rapid | 1.5 | prescribed | 45.000 | 55.000 | 9.987 | 1.894 | 34.444 | 37.073 / 124.238 | omitted inertia below sampled rotor margin |
-| P100 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 3.868 | 38.685 | | |
-| P100 | 2.55029 | favourable | rapid | 1 | prescribed | 50.000 | 50.000 | 10.193 | 1.410 | 28.196 | 73.325 / 116.093 | closes only quasi-statically |
+| P100 | 2.55029 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 14.667 | 3.865 | 38.649 | | |
+| P100 | 2.55029 | favourable | rapid | 1 | prescribed | 50.000 | 50.000 | 10.193 | 1.395 | 27.897 | 53.596 / 141.379 | omitted inertia below sampled rotor margin |
 | P100 | 7.480511 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 22.401 | 6.054 | 60.542 | | |
 | P100 | 7.480511 | record | rapid | 1.5 | prescribed | 30.000 | 70.000 | 14.769 | 3.204 | 45.770 | 29.771 / 128.472 | omitted inertia below sampled rotor margin |
 | P100 | 7.480511 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 22.401 | 4.949 | 49.488 | | |
@@ -72,14 +72,14 @@ Each row replays the same printed controls; a coefficient change can make it inf
 | P100 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 9.987 | 1.894 |
-| P100 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 10.193 | 1.372 |
-| P100 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 10.193 | 1.410 |
-| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 46.901 | 10.193 | 1.438 |
+| P100 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 10.193 | 1.376 |
+| P100 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 10.193 | 1.395 |
+| P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | -25.048 | 10.193 | 1.421 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 11.173 | 10.193 | 1.703 |
-| P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 10.193 | 1.410 |
-| P100 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 10.193 | 1.431 |
-| P100 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 10.193 | 1.410 |
-| P100 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 10.193 | 1.402 |
+| P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 10.193 | 1.395 |
+| P100 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 10.193 | 1.416 |
+| P100 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 10.193 | 1.395 |
+| P100 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 10.193 | 1.387 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 14.769 | 3.193 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | -32.297 | 14.769 | 3.220 |

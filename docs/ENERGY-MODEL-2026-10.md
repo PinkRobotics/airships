@@ -60,6 +60,7 @@ The slowest peak letdown cap is 0.5 m/s on each class.
 This finite bound includes slow descents; smaller caps remain unsearched, not physically excluded.
 
 Short joins take longer when needed for smoothness.
+The prescribed return widens its climb and letdown joins using an upper bound on the composed easing derivatives, so each of the 2,001 sampled vertical speeds differs by at most 0.1 m/s. If those joins would overlap, its return time grows instead. This applies to all searched prescribed controls, not one retained-water row.
 The drop altitude, terrain clearance and cable reach stay fixed.
 The approach remains stationary.
 Segment time and ground distance are integrated; energy uses the same instantaneous ledger.
@@ -387,6 +388,7 @@ Refined force extrema and both sides of seams replace sampled phase peaks.
 | research/analysis/energy-unheld.json#rows[11].phases[4].progress | 0.999023 | 1.000000 |
 | research/analysis/energy-unheld.json#rows[11].phases[4].secondsIntoPhase | 1952.842 | 1954.751 |
 | research/analysis/energy-unheld.json#rows[11].phases[4].unheldT | 3876.763 | 3905.400 |
+| tests/energy/unheld.mjs#namedEndurance.worstUnheldT | 1.686282096 | 2.041455599 |
 
 ### Part B
 
@@ -928,7 +930,88 @@ Bisect held force with the least-power split until the available bus is spent.
 | research/analysis/energy-unheld.json#rows[7].phases[4].unheldT | 493.892 | 480.748 |
 | research/analysis/energy-unheld.json#rows[9].phases[4].unheldT | 3968.748 | 3956.719 |
 | research/analysis/energy-unheld.json#rows[11].phases[4].unheldT | 3905.400 | 3893.371 |
+| research/figures.json#classes.P100.bases.favourable.worst.progress | 0.222656 | 0.222832 |
+| research/figures.json#classes.P100.bases.record.worst.progress | 0.810547 | 0.810707 |
+| research/figures.json#classes.P100.cycle.worst.progress | 0.810547 | 0.810707 |
+| research/figures.json#classes.P1000.bases.favourable.cycleMWh | 61.155 | 61.355 |
+| research/figures.json#classes.P1000.bases.favourable.hoursOnBattery | 1.171 | 1.167 |
+| research/figures.json#classes.P1000.bases.favourable.kwhPerTonne | 61.155 | 61.355 |
+| research/figures.json#classes.P10000.bases.favourable.cycleMWh | 757.615 | 766.285 |
+| research/figures.json#classes.P10000.bases.favourable.hoursOnBattery | 2.013 | 1.990 |
+| research/figures.json#classes.P10000.bases.favourable.kwhPerTonne | 75.761 | 76.629 |
 | tests/energy/unheld.mjs#namedEndurance.worstUnheldT | 2.041455599 | 1.927956588 |
+
+### Part C
+
+Bound return-join acceleration throughout the finite profile search.
+
+| Generated record and field | Earlier | Current |
+|---|---|---|
+| research/analysis/energy-feasible.json#rows[0].asDrawn.cycleMWh | 4.424 | 4.432 |
+| research/analysis/energy-feasible.json#rows[0].asDrawn.hoursOnBattery | 1.122 | 1.120 |
+| research/analysis/energy-feasible.json#rows[0].asDrawn.kwhPerTonne | 44.243 | 44.323 |
+| research/analysis/energy-feasible.json#rows[0].asDrawn.worst.progress | 0.204787 | 0.229691 |
+| research/analysis/energy-feasible.json#rows[0].asDrawn.worst.unheldT | 73.021 | 53.543 |
+| research/analysis/energy-feasible.json#rows[0].checked | 2897.000 | 2934.000 |
+| research/analysis/energy-feasible.json#rows[0].planCalls | 9795.000 | 9919.000 |
+| research/analysis/energy-feasible.json#rows[1].asDrawn.cycleMWh | 3.868 | 3.865 |
+| research/analysis/energy-feasible.json#rows[1].asDrawn.hoursOnBattery | 1.286 | 1.287 |
+| research/analysis/energy-feasible.json#rows[1].asDrawn.kwhPerTonne | 38.685 | 38.649 |
+| research/analysis/energy-feasible.json#rows[1].asDrawn.worst.progress | 0.204662 | 0.684064 |
+| research/analysis/energy-feasible.json#rows[1].asDrawn.worst.unheldT | 8.686 | 7.487 |
+| research/analysis/energy-feasible.json#rows[1].best.cycleMWh | 1.410 | 1.395 |
+| research/analysis/energy-feasible.json#rows[1].best.hoursOnBattery | 2.491 | 2.519 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].absT | 73.325 | 38.460 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].accelerationMps2 | 2.297 | 1.205 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].forceT | 73.325 | 38.460 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].marginT | 116.093 | 115.829 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].onboardT | 150.051 | 150.066 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].progress | 0.329500 | 0.427000 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[0].worstMarginGapT | 8.988 | 0.000 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].absT | 89.694 | 47.045 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].accelerationMps2 | 2.297 | 1.205 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].forceT | 89.694 | 47.045 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].marginT | 116.093 | 115.829 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].onboardT | 150.051 | 150.066 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].progress | 0.329500 | 0.427000 |
+| research/analysis/energy-feasible.json#rows[1].best.inertia.phases[5].peaks[1].worstMarginGapT | 21.283 | 0.000 |
+| research/analysis/energy-feasible.json#rows[1].best.kwhPerTonne | 28.196 | 27.897 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[0].cycleMWh | 1.372 | 1.376 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[1].cycleMWh | 1.410 | 1.395 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[2].cycleMWh | 1.438 | 1.421 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[2].worst.progress | 0.203820 | 0.203792 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[2].worst.unheldT | 46.901 | -25.048 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[4].cycleMWh | 1.410 | 1.395 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[5].cycleMWh | 1.431 | 1.416 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[6].cycleMWh | 1.410 | 1.395 |
+| research/analysis/energy-feasible.json#rows[1].best.sensitivity[7].cycleMWh | 1.402 | 1.387 |
+| research/analysis/energy-feasible.json#rows[1].checked | 2986.000 | 3047.000 |
+| research/analysis/energy-feasible.json#rows[1].planCalls | 9902.000 | 9929.000 |
+| research/analysis/energy-feasible.json#rows[2].planCalls | 10381.000 | 10370.000 |
+| research/analysis/energy-feasible.json#rows[3].planCalls | 10377.000 | 10370.000 |
+| research/analysis/energy-feasible.json#rows[4].planCalls | 9164.000 | 9161.000 |
+| research/analysis/energy-feasible.json#rows[5].planCalls | 8854.000 | 8855.000 |
+| research/analysis/energy-feasible.json#rows[6].planCalls | 11225.000 | 11222.000 |
+| research/analysis/energy-feasible.json#rows[7].planCalls | 11225.000 | 11222.000 |
+| research/analysis/energy-feasible.json#rows[12].planCalls | 11956.000 | 11949.000 |
+| research/analysis/energy-feasible.json#rows[14].planCalls | 13168.000 | 13159.000 |
+| research/analysis/energy-feasible.json#rows[16].planCalls | 13911.000 | 13895.000 |
+| research/analysis/energy-profiles.json#rows[0].planCalls | 10872.000 | 10876.000 |
+| research/analysis/energy-profiles.json#rows[1].planCalls | 10781.000 | 10775.000 |
+| research/analysis/energy-profiles.json#rows[2].planCalls | 8828.000 | 8834.000 |
+| research/analysis/energy-profiles.json#rows[3].planCalls | 8697.000 | 8701.000 |
+| research/analysis/energy-profiles.json#rows[6].planCalls | 13033.000 | 13032.000 |
+| research/analysis/energy-profiles.json#rows[7].planCalls | 13017.000 | 13016.000 |
+| research/analysis/energy-profiles.json#rows[8].planCalls | 13626.000 | 13611.000 |
+| research/analysis/energy-profiles.json#rows[10].planCalls | 13906.000 | 13890.000 |
+| tests/golden/seed7-snapshot.json#plans[5].eCycleMWh | 7.483 | 7.489 |
+| tests/golden/seed7-snapshot.json#plans[5].kwhPerTonne | 74.834 | 74.894 |
+| tests/golden/seed7-snapshot.json#plans[20].eCycleMWh | 8.761 | 8.771 |
+| tests/golden/seed7-snapshot.json#plans[20].kwhPerTonne | 87.611 | 87.711 |
+| tests/golden/seed7-snapshot.json#plans[33].eCycleMWh | 7.095 | 7.104 |
+| tests/golden/seed7-snapshot.json#plans[33].kwhPerTonne | 70.950 | 71.041 |
+| tests/golden/seed7-snapshot.json#plans[35].eCycleMWh | 6.642 | 6.644 |
+| tests/golden/seed7-snapshot.json#plans[35].kwhPerTonne | 66.419 | 66.439 |
 
 ## Independent stationary cross-check
 

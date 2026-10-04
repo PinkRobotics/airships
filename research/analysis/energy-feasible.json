@@ -81,19 +81,19 @@
           "rotor thrust"
         ],
         "worst": {
-          "unheldT": 73.02128961320116,
+          "unheldT": 53.54251587187467,
           "phase": "RETURN_TRANSIT",
-          "progress": 0.20478709564169134,
+          "progress": 0.22969146012243552,
           "limits": [
             "bus power",
             "rotor thrust"
           ]
         },
-        "cycleMWh": 4.424307785001676,
-        "kwhPerTonne": 44.24307785001676,
+        "cycleMWh": 4.432273412218763,
+        "kwhPerTonne": 44.32273412218763,
         "cycleMin": 14.66712156862745,
         "peakRotorMW": 30.244308658823517,
-        "hoursOnBattery": 1.1217754826864155,
+        "hoursOnBattery": 1.1197289664328338,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "does not close on the drawn hardware; supplied effort only"
@@ -402,8 +402,8 @@
         ]
       },
       "fullDeliveryBest": null,
-      "checked": 2897,
-      "planCalls": 9795,
+      "checked": 2934,
+      "planCalls": 9919,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -473,18 +473,20 @@
           "anchor cable reach"
         ],
         "worst": {
-          "unheldT": 8.685672640827306,
-          "phase": "RETURN_TRANSIT",
-          "progress": 0.20466203198577276,
+          "unheldT": 7.487112126020463,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6840642059379601,
           "limits": [
-            "bus power"
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
           ]
         },
-        "cycleMWh": 3.8684579696552412,
-        "kwhPerTonne": 38.68457969655241,
+        "cycleMWh": 3.8649152999219383,
+        "kwhPerTonne": 38.64915299921938,
         "cycleMin": 14.66712156862745,
         "peakRotorMW": 30.244308658823517,
-        "hoursOnBattery": 1.2857586313682896,
+        "hoursOnBattery": 1.2869576632714919,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "does not close on the drawn hardware; supplied effort only"
@@ -507,11 +509,11 @@
           "progress": 0.8427734375,
           "limits": []
         },
-        "cycleMWh": 1.4097914712706432,
-        "kwhPerTonne": 28.195829425412864,
+        "cycleMWh": 1.3948738054394518,
+        "kwhPerTonne": 27.897476108789036,
         "cycleMin": 10.192661551577153,
         "peakRotorMW": 17.448024610018155,
-        "hoursOnBattery": 2.4910131497403447,
+        "hoursOnBattery": 2.5185594163455507,
         "deliveredT": 50,
         "ballastT": 50,
         "energyMeaning": "modelled cycle",
@@ -657,30 +659,30 @@
               "peaks": [
                 {
                   "coefficient": 0.7,
-                  "absT": 73.3246934557934,
-                  "worstMarginGapT": 8.98761977116444,
-                  "forceT": 73.3246934557934,
-                  "progress": 0.3295,
-                  "accelerationMps2": 2.296736917084613,
-                  "onboardT": 150.05094299092545,
-                  "addedAirT": 163.13914745896537,
-                  "marginT": 116.0932172300358
+                  "absT": 38.459713731634324,
+                  "worstMarginGapT": 0,
+                  "forceT": 38.459713731634324,
+                  "progress": 0.427,
+                  "accelerationMps2": 1.2046089704007308,
+                  "onboardT": 150.0660171688169,
+                  "addedAirT": 163.13918134620138,
+                  "marginT": 115.8294603307341
                 },
                 {
                   "coefficient": 1,
-                  "absT": 89.69374992546209,
-                  "worstMarginGapT": 21.283261439517005,
-                  "forceT": 89.69374992546209,
-                  "progress": 0.3295,
-                  "accelerationMps2": 2.296736917084613,
-                  "onboardT": 150.05094299092545,
-                  "addedAirT": 233.05592494137912,
-                  "marginT": 116.0932172300358
+                  "absT": 47.04507508040958,
+                  "worstMarginGapT": 0,
+                  "forceT": 47.04507508040958,
+                  "progress": 0.427,
+                  "accelerationMps2": 1.2046089704007308,
+                  "onboardT": 150.0660171688169,
+                  "addedAirT": 233.0559733517163,
+                  "marginT": 115.8294603307341
                 }
               ]
             }
           ],
-          "qualification": "closes only quasi-statically"
+          "qualification": "omitted inertia below sampled rotor margin"
         },
         "sensitivity": [
           {
@@ -694,7 +696,7 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.371840236516114
+            "cycleMWh": 1.3764112192976128
           },
           {
             "parameter": "verticalCd",
@@ -707,22 +709,22 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4097914712706432
+            "cycleMWh": 1.3948738054394518
           },
           {
             "parameter": "verticalCd",
             "value": 2,
             "feasible": false,
             "worst": {
-              "unheldT": 46.90080157333941,
-              "phase": "RETURN_TRANSIT",
-              "progress": 0.20381952408650644,
+              "unheldT": -25.047660840716667,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.20379222020820542,
               "limits": [
-                "bus power"
+                "upward authority unavailable"
               ]
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4379645326161543
+            "cycleMWh": 1.4211830805367147
           },
           {
             "parameter": "rotorEfficiency",
@@ -752,7 +754,7 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4097914712706432
+            "cycleMWh": 1.3948738054394518
           },
           {
             "parameter": "clMax",
@@ -765,7 +767,7 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4307457910196026
+            "cycleMWh": 1.4156803570096714
           },
           {
             "parameter": "clMax",
@@ -778,7 +780,7 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4097914712706432
+            "cycleMWh": 1.3948738054394518
           },
           {
             "parameter": "clMax",
@@ -791,13 +793,13 @@
               "limits": []
             },
             "cycleMin": 10.192661551577153,
-            "cycleMWh": 1.4019927527598663
+            "cycleMWh": 1.387075086928675
           }
         ]
       },
       "fullDeliveryBest": null,
-      "checked": 2986,
-      "planCalls": 9902,
+      "checked": 3047,
+      "planCalls": 9929,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -1498,7 +1500,7 @@
         ]
       },
       "checked": 3632,
-      "planCalls": 10381,
+      "planCalls": 10370,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -2204,7 +2206,7 @@
         ]
       },
       "checked": 3649,
-      "planCalls": 10377,
+      "planCalls": 10370,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -2900,7 +2902,7 @@
         ]
       },
       "checked": 5093,
-      "planCalls": 9164,
+      "planCalls": 9161,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -3595,7 +3597,7 @@
         ]
       },
       "checked": 5096,
-      "planCalls": 8854,
+      "planCalls": 8855,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -4005,7 +4007,7 @@
       },
       "fullDeliveryBest": null,
       "checked": 1292,
-      "planCalls": 11225,
+      "planCalls": 11222,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -4419,7 +4421,7 @@
       },
       "fullDeliveryBest": null,
       "checked": 1292,
-      "planCalls": 11225,
+      "planCalls": 11222,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -6463,7 +6465,7 @@
       },
       "fullDeliveryBest": null,
       "checked": 1527,
-      "planCalls": 11956,
+      "planCalls": 11949,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -7287,7 +7289,7 @@
       },
       "fullDeliveryBest": null,
       "checked": 1831,
-      "planCalls": 13168,
+      "planCalls": 13159,
       "space": {
         "speedMultipliers": [
           0.5,
@@ -8111,7 +8113,7 @@
       },
       "fullDeliveryBest": null,
       "checked": 2019,
-      "planCalls": 13911,
+      "planCalls": 13895,
       "space": {
         "speedMultipliers": [
           0.5,

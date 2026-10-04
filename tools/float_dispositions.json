@@ -1866,6 +1866,19 @@
     "start": "<!-- energy:model:start -->",
     "end": "<!-- energy:model:end -->"
    }
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "key": "aedf98f90ef35b96",
+   "class": "generated",
+   "reason": "Generated diagnostic correction table includes the omitted figure record; no structural float verdict or qualification changes.",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:model:start -->",
+    "end": "<!-- energy:model:end -->"
+   }
   }
  ],
  "replacements": [
@@ -2090,6 +2103,12 @@
    "oldKey": "e71a3add133c83b4",
    "newKey": "b7c29754230bf30e",
    "reason": "Same energy block with freshly replayed numbers; original disposition and structural qualification retained."
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "oldKey": "b7c29754230bf30e",
+   "newKey": "aedf98f90ef35b96",
+   "reason": "Generated diagnostic correction table includes the omitted figure record; no structural float verdict or qualification changes."
   }
  ]
 }

@@ -2,9 +2,9 @@
 
 Run `make energycheck` without the network. Scratch follows `TMPDIR`.
 
-- `closure.mjs`: claude-fable-5-1's independent owner, limit, price and verdict equations, adapted to local density.
+- `closure.mjs`: claude-fable-5-1's independent owner, limit, price and verdict equations, adapted to local density. Its bus rule also requires every bus-limited allocation to spend gross supply within 0.000001 MW.
 - `replay.mjs`: the printed-requirement replay proposed by claude-fable-5-1, now reading generated rows instead of historical literals. It also replays feasible profiles.
-- `../node/energy-profile.mjs`: the 2,001-sample kink check proposed by claude-fable-5-1, extended to every seam and retained-water profiles.
+- `../node/energy-profile.mjs`: the 2,001-sample kink check proposed by claude-fable-5-1, extended to every seam, retained-water profiles, every printed feasible row and served candidates at printed and captured route distances.
 - `first-principles.py`: independent ISA and momentum arithmetic from claude-fable-5-1. It imports no simulation code; the observer supplies state data.
 - `peaks.mjs`: muse-spark-1.3's dense peak observer, with a failing assertion on disagreement.
 - `bus.mjs`: muse-spark-1.3's bus sampler, with a failing assertion on overload or unflagged clipping.
@@ -15,7 +15,7 @@ The slow profile search is `node research/analysis/energy-feasible.mjs` and uses
 - `vertical-profile.mjs`: independent distance quadrature, sampled smoothness across the declared grid, separate airspeed controls and an upward-authority counterexample.
 - `hover-floor.py`: independent momentum inversion against the payload-exchange study and each mode's actual supply.
   It also checks stationary retained-water floors with nitrogen, newly loaded water and bag credit named.
-- `unheld.mjs`: complete phase coverage and signed-force replay of every prescribed row.
+- `unheld.mjs`: complete phase coverage and signed-force replay, with an independent 20,001-point refined peak probe of every prescribed row.
 - `payload-exchange.py`: independent analysis reproduction and every cited numeric key.
 
 `make energydoccheck` regenerates fast records and document regions without changing files.

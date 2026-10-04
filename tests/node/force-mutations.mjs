@@ -1,5 +1,5 @@
 /* Fast four-invariant probe adapted from gpt-6-sol's independent force test. */
-import {CLASSES,MODES,PHASES,planCycle,drawAt} from '../../sim/index.js?v=1cd95a83';
+import {CLASSES,MODES,PHASES,planCycle,drawAt} from '../../sim/index.js?v=c7b36628';
 import {auditForce} from '../cases/energy-force.cases.js';
 let checked=0;
 for(const c of Object.values(CLASSES))for(const basis of ['record','favourable']){

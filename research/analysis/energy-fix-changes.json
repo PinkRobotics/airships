@@ -2054,6 +2054,13 @@
           "old": 3876.763374129181,
           "new": 3905.3998658665414,
           "decimals": 3
+        },
+        {
+          "file": "tests/energy/unheld.mjs",
+          "field": "namedEndurance.worstUnheldT",
+          "old": 1.686282096,
+          "new": 2.041455599,
+          "decimals": 9
         }
       ]
     },
@@ -5800,11 +5807,535 @@
           "decimals": 3
         },
         {
+          "file": "research/figures.json",
+          "field": "classes.P100.bases.favourable.worst.progress",
+          "old": 0.22265625,
+          "new": 0.22283235516091282,
+          "decimals": 6
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P100.bases.record.worst.progress",
+          "old": 0.810546875,
+          "new": 0.8107067590940026,
+          "decimals": 6
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P100.cycle.worst.progress",
+          "old": 0.810546875,
+          "new": 0.8107067590940026,
+          "decimals": 6
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P1000.bases.favourable.cycleMWh",
+          "old": 61.15515290706436,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P1000.bases.favourable.hoursOnBattery",
+          "old": 1.1706989023188628,
+          "new": 1.166831782751394,
+          "decimals": 3
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P1000.bases.favourable.kwhPerTonne",
+          "old": 61.15515290706436,
+          "new": 61.355372445822454,
+          "decimals": 3
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P10000.bases.favourable.cycleMWh",
+          "old": 757.6148094057548,
+          "new": 766.2851773435166,
+          "decimals": 3
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P10000.bases.favourable.hoursOnBattery",
+          "old": 2.013301603113668,
+          "new": 1.9903990644285077,
+          "decimals": 3
+        },
+        {
+          "file": "research/figures.json",
+          "field": "classes.P10000.bases.favourable.kwhPerTonne",
+          "old": 75.76148094057548,
+          "new": 76.62851773435166,
+          "decimals": 3
+        },
+        {
           "file": "tests/energy/unheld.mjs",
           "field": "namedEndurance.worstUnheldT",
           "old": 2.041455599,
           "new": 1.927956588,
           "decimals": 9
+        }
+      ]
+    },
+    {
+      "part": "C",
+      "reason": "Bound return-join acceleration throughout the finite profile search.",
+      "changes": [
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].asDrawn.cycleMWh",
+          "old": 4.424307785001676,
+          "new": 4.432273412218763,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].asDrawn.hoursOnBattery",
+          "old": 1.1217754826864155,
+          "new": 1.1197289664328338,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].asDrawn.kwhPerTonne",
+          "old": 44.24307785001676,
+          "new": 44.32273412218763,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].asDrawn.worst.progress",
+          "old": 0.20478709564169134,
+          "new": 0.22969146012243552,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].asDrawn.worst.unheldT",
+          "old": 73.02128961320116,
+          "new": 53.54251587187467,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].checked",
+          "old": 2897,
+          "new": 2934,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[0].planCalls",
+          "old": 9795,
+          "new": 9919,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.cycleMWh",
+          "old": 3.8684579696552412,
+          "new": 3.8649152999219383,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.hoursOnBattery",
+          "old": 1.2857586313682896,
+          "new": 1.2869576632714919,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.kwhPerTonne",
+          "old": 38.68457969655241,
+          "new": 38.64915299921938,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.worst.progress",
+          "old": 0.20466203198577276,
+          "new": 0.6840642059379601,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].asDrawn.worst.unheldT",
+          "old": 8.685672640827306,
+          "new": 7.487112126020463,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.cycleMWh",
+          "old": 1.4097914712706432,
+          "new": 1.3948738054394518,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.hoursOnBattery",
+          "old": 2.4910131497403447,
+          "new": 2.5185594163455507,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].absT",
+          "old": 73.3246934557934,
+          "new": 38.459713731634324,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].accelerationMps2",
+          "old": 2.296736917084613,
+          "new": 1.2046089704007308,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].forceT",
+          "old": 73.3246934557934,
+          "new": 38.459713731634324,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].marginT",
+          "old": 116.0932172300358,
+          "new": 115.8294603307341,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].onboardT",
+          "old": 150.05094299092545,
+          "new": 150.0660171688169,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].progress",
+          "old": 0.3295,
+          "new": 0.427,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[0].worstMarginGapT",
+          "old": 8.98761977116444,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].absT",
+          "old": 89.69374992546209,
+          "new": 47.04507508040958,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].accelerationMps2",
+          "old": 2.296736917084613,
+          "new": 1.2046089704007308,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].forceT",
+          "old": 89.69374992546209,
+          "new": 47.04507508040958,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].marginT",
+          "old": 116.0932172300358,
+          "new": 115.8294603307341,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].onboardT",
+          "old": 150.05094299092545,
+          "new": 150.0660171688169,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].progress",
+          "old": 0.3295,
+          "new": 0.427,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.inertia.phases[5].peaks[1].worstMarginGapT",
+          "old": 21.283261439517005,
+          "new": 0,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.kwhPerTonne",
+          "old": 28.195829425412864,
+          "new": 27.897476108789036,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[0].cycleMWh",
+          "old": 1.371840236516114,
+          "new": 1.3764112192976128,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[1].cycleMWh",
+          "old": 1.4097914712706432,
+          "new": 1.3948738054394518,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].cycleMWh",
+          "old": 1.4379645326161543,
+          "new": 1.4211830805367147,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].worst.progress",
+          "old": 0.20381952408650644,
+          "new": 0.20379222020820542,
+          "decimals": 6
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[2].worst.unheldT",
+          "old": 46.90080157333941,
+          "new": -25.047660840716667,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[4].cycleMWh",
+          "old": 1.4097914712706432,
+          "new": 1.3948738054394518,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[5].cycleMWh",
+          "old": 1.4307457910196026,
+          "new": 1.4156803570096714,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[6].cycleMWh",
+          "old": 1.4097914712706432,
+          "new": 1.3948738054394518,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].best.sensitivity[7].cycleMWh",
+          "old": 1.4019927527598663,
+          "new": 1.387075086928675,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].checked",
+          "old": 2986,
+          "new": 3047,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[1].planCalls",
+          "old": 9902,
+          "new": 9929,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[2].planCalls",
+          "old": 10381,
+          "new": 10370,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[3].planCalls",
+          "old": 10377,
+          "new": 10370,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[4].planCalls",
+          "old": 9164,
+          "new": 9161,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[5].planCalls",
+          "old": 8854,
+          "new": 8855,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[6].planCalls",
+          "old": 11225,
+          "new": 11222,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[7].planCalls",
+          "old": 11225,
+          "new": 11222,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[12].planCalls",
+          "old": 11956,
+          "new": 11949,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[14].planCalls",
+          "old": 13168,
+          "new": 13159,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-feasible.json",
+          "field": "rows[16].planCalls",
+          "old": 13911,
+          "new": 13895,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[0].planCalls",
+          "old": 10872,
+          "new": 10876,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[1].planCalls",
+          "old": 10781,
+          "new": 10775,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[2].planCalls",
+          "old": 8828,
+          "new": 8834,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[3].planCalls",
+          "old": 8697,
+          "new": 8701,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[6].planCalls",
+          "old": 13033,
+          "new": 13032,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[7].planCalls",
+          "old": 13017,
+          "new": 13016,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[8].planCalls",
+          "old": 13626,
+          "new": 13611,
+          "decimals": 3
+        },
+        {
+          "file": "research/analysis/energy-profiles.json",
+          "field": "rows[10].planCalls",
+          "old": 13906,
+          "new": 13890,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[5].eCycleMWh",
+          "old": 7.483358,
+          "new": 7.489423,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[5].kwhPerTonne",
+          "old": 74.833578,
+          "new": 74.894225,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[20].eCycleMWh",
+          "old": 8.761069,
+          "new": 8.771088,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[20].kwhPerTonne",
+          "old": 87.610687,
+          "new": 87.710877,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[33].eCycleMWh",
+          "old": 7.095001,
+          "new": 7.104071,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[33].kwhPerTonne",
+          "old": 70.95001,
+          "new": 71.040713,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[35].eCycleMWh",
+          "old": 6.641883,
+          "new": 6.643879,
+          "decimals": 3
+        },
+        {
+          "file": "tests/golden/seed7-snapshot.json",
+          "field": "plans[35].kwhPerTonne",
+          "old": 66.418834,
+          "new": 66.438795,
+          "decimals": 3
         }
       ]
     }

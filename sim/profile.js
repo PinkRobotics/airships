@@ -1,8 +1,8 @@
 /* Independent climb and letdown controls for the searched profile.
  * Rates are peak vertical speeds. Airspeeds are peaks of a smooth pulse.
  * The integral of that pulse is two thirds of its peak times its duration. */
-import {ALT, ALT_DROP_TOP} from './config.js?v=1cd95a83';
-import {easeSm} from './geo.js?v=1cd95a83';
+import {ALT, ALT_DROP_TOP} from './config.js?v=c7b36628';
+import {easeSm} from './geo.js?v=c7b36628';
 
 export const VERTICAL_PROFILE_GRID = {
   climbRateMps: [0.5, 2], letdownRateMps: [0.5, 2],
@@ -28,6 +28,30 @@ export function profilePoint(segments, seconds) {
   }
   throw new Error('empty vertical profile');
 }
+/** Keep the prescribed return's altitude endpoints, easing short vertical joins.
+ * easeSm has |f'| <= 1.5 and |f''| <= 6; easeTrap has |g'| <= 1/.85
+ * and |g''| <= 1/(.15*.85). Their composition at join width w therefore has
+ * |d²alt/dprogress²| <= 6H/(.85w)² + 1.5H/(.15*.85w).
+ * Dividing by phase seconds and 2000 bounds the adjacent speed step to E11's
+ * 0.1 m/s. A central-difference average cannot increase this Lipschitz bound.
+ * Widen joins first; extend time only if the two joins would overlap. */
+export function prescribedReturnJoins(g, seconds) {
+  const height=[Math.abs(g.altTop-g.altEsc),Math.abs(g.altTop-g.holdAgl)];
+  const bound=(h,w)=>6*h/(.85*w)**2+1.5*h/(.15*.85*w);
+  if(g.altTop<Math.min(g.altEsc,g.holdAgl))
+    return {seconds:Math.max(seconds,6*Math.abs(g.holdAgl-g.altEsc)/200),widths:[.3,.3]};
+  const width=(h,t)=>{
+    const a=6*h/.85**2,b=1.5*h/(.15*.85),limit=200*t;
+    return Math.max(.3,(b+Math.sqrt(b*b+4*limit*a))/(2*limit));
+  };
+  let widths=height.map(h=>width(h,seconds));
+  if(widths[0]+widths[1]>1){
+    seconds=Math.max(seconds,...height.map(h=>bound(h,.5)/200))*(1+1e-9);
+    widths=height.map(h=>width(h,seconds));
+  }
+  return {seconds,widths};
+}
+
 export function searchedProfile(plan,g,oneWayKm,options,tailOutMps=0) {
   for(const [key,value] of Object.entries(options)) {
     if(!(key in VERTICAL_PROFILE_GRID)||!Number.isFinite(value)||value<0)throw new RangeError('invalid profile parameter '+key);

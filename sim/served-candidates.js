@@ -3,9 +3,9 @@ export const MODEL_SOURCE_HASHES = {
   "sim/config.js": "ed02b63dda32ba3322d40fb1deae7500598c81a76e7162c5e560158c368fac9a",
   "sim/atmosphere.js": "19df19667cedc6dd7f345c4c214bbfc3bcc8caa897afc51c0e697314b255f8af",
   "sim/physics.js": "a9b57133f7428ca5873c5e6d5a54828a387f40c0d5928a955bba94ece6d907ed",
-  "sim/power.js": "62143300817a1244cede3950fa07e881532c4f8ec10365c586cc365c154099cd",
-  "sim/profile.js": "4084e51d1e450d1830abc449775080653085bfb2099a34d79df40cfc143366f7",
-  "sim/plan.js": "a8cbfa5e9e2c9ec9a76e1eb2b4441e4e0dc284fec2db0228df2e9574acff045f",
+  "sim/power.js": "37e1fa4471fdd86da357081ff81ff4740a92f512cd9b99bf49a265b27c047b26",
+  "sim/profile.js": "a5b0f55c57a79aa4df77ac7d40dd8335eb789756d9d4175f9d20569095378e11",
+  "sim/plan.js": "c68cb9b9cff9852a812f208ce89951fa869d422e2e7dee0fdf498dabad417f17",
   "sim/requirements.js": "b625658eb7b0b76845e51af20a219fd5262ad68afc458efe40473c7acd7da108"
 };
 export const SERVED_CANDIDATES = {

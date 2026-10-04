@@ -1,8 +1,8 @@
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=1cd95a83';
-import { easeSm, easeTrap } from './geo.js?v=1cd95a83';
-import { diskMW, ledger, pumpMW } from './physics.js?v=1cd95a83';
+import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=c7b36628';
+import { easeSm, easeTrap } from './geo.js?v=c7b36628';
+import { diskMW, ledger, pumpMW } from './physics.js?v=c7b36628';
 
-import {profilePoint} from './profile.js?v=1cd95a83';
+import {profilePoint} from './profile.js?v=c7b36628';
 
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
@@ -184,9 +184,9 @@ export function altAt(g, plan, id, prog) {
       // A short leg can put its nominal ceiling below both endpoints. Join those endpoints
       // directly instead of diving to that ceiling and climbing steeply back to the source.
       if (g.altTop < Math.min(g.altEsc, g.holdAgl)) return g.altEsc + (g.holdAgl - g.altEsc) * easeSm(prog);
-      const tz = easeTrap(prog);
-      return tz < 0.3 ? g.altEsc + (g.altTop - g.altEsc) * easeSm(tz / 0.3)
-        : tz > 0.7 ? g.altTop - (g.altTop - g.holdAgl) * easeSm((tz - 0.7) / 0.3)
+      const tz = easeTrap(prog),[up,down]=plan.returnJoinWidths??[.3,.3];
+      return tz < up ? g.altEsc + (g.altTop - g.altEsc) * easeSm(tz / up)
+        : tz > 1-down ? g.altTop - (g.altTop - g.holdAgl) * easeSm((tz - (1-down)) / down)
         : g.altTop;
     }
   }
