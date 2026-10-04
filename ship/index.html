@@ -1567,8 +1567,8 @@ setTimeout(() => {
   if (location.protocol === 'file:') {
     why.innerHTML = 'This page was opened straight from the file system, and browsers ' +
       'refuse to load ES modules over <code>file://</code> — nothing here is broken. ' +
-      'Serve the repository instead: <code>make serve</code> in the repo, then open ' +
-      '<a href="http://127.0.0.1:8875/ship/">http://127.0.0.1:8875/ship/</a>.';
+      'Serve the repository instead: run <code>make serve</code> in the repository ' +
+      'and open the ship page at the address that command prints.';
   } else if (window.__errs.length) {
     why.textContent = 'The page hit an error while starting: ' + window.__errs.join(' · ');
   } else {

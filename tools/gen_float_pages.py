@@ -51,6 +51,7 @@ DOC_OF = {page: doc for doc, page, _ in PAGES}
 # The look is the notices page's: the same tokens, type and footer. Tables keep their natural
 # width and scroll inside their own container, so the page body never scrolls sideways. A short
 # cell stays on one line, so a figure is never broken; a cell of more than WRAP characters wraps.
+# A visible phone-width cue explains how to reach columns beyond the viewport.
 WRAP = 28
 STYLE = '''\
 :root{color-scheme:dark;--bg:#101014;--text:#ded9cd;--muted:#b0aeb9;--warm:#ff75b4;--line:#42424c}
@@ -78,7 +79,10 @@ td.w{white-space:normal;min-width:24ch}
 .r{text-align:right}
 details{margin:1.2em 0}summary{cursor:pointer;color:var(--warm)}
 footer{border-top:1px solid var(--line)}
-@media(max-width:900px){main,header,footer{padding:20px}th,td{padding:8px 10px}}
+@media(max-width:900px){main,header,footer{padding:20px}th,td{padding:8px 10px}
+.tablewrap::before{content:"Scroll sideways within the table →";display:block;
+position:sticky;left:0;width:fit-content;max-width:100%;padding:6px 0;
+color:var(--warm);font-size:13px}}
 '''
 
 BLOCK_START = re.compile(r'#|>|\||```|~~~|<|[-*+] |\d+[.)] | ')
