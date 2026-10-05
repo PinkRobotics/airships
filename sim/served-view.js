@@ -1,7 +1,7 @@
 /* Page quantities from an accepted exact-input plan. Equipment capacities are separate. */
-import {FEASIBILITY_SCOPE} from './energy-label.js?v=68fef878';
-import {MODES} from './config.js?v=68fef878';
-import {fmt,fmtMin} from './format.js?v=68fef878';
+import {FEASIBILITY_SCOPE} from './energy-label.js?v=fc85766f';
+import {MODES} from './config.js?v=fc85766f';
+import {fmt,fmtMin} from './format.js?v=fc85766f';
 export function planStatusText(result){
  const quantities='Cycle energy, delivered water and delivery rate';
  return result.state==='pending'?`${quantities} pending: feasible plans are computing.`

@@ -1,5 +1,5 @@
 import {describe,it,close,ok,eq} from '../harness.js';
-import {CLASSES,MODES,PHASES,planCycle,drawAt} from '../../sim/index.js?v=68fef878';
+import {CLASSES,MODES,PHASES,planCycle,drawAt} from '../../sim/index.js?v=fc85766f';
 describe('moving-phase time dilation',()=>{
   it('time dilation scales vertical rates without changing altitude or clearance',()=>{
     for(const c of Object.values(CLASSES))for(const km of [5,15,60])for(const k of [.5,.75]){

@@ -31,6 +31,8 @@ from devtools import page_target
 class Handler(http.server.SimpleHTTPRequestHandler):
     mode = 'fixture'
     wind_mode = 'fresh'
+    wind_delay = 0
+    wind_holds = []
     note_variant = None
 
     def __init__(self, *args, **kwargs):
@@ -71,6 +73,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             elif path.endswith('/perims.json'): data = snap['perimeters']
             elif path.endswith('/heat.json'): data = json.loads((ROOT / 'data/snapshot-heat.json').read_text())
             elif path.endswith('/wind.json'):
+                if self.wind_delay:
+                    started = time.monotonic()
+                    time.sleep(self.wind_delay)
+                    self.wind_holds.append(time.monotonic() - started)
                 fixture = json.loads((Path(__file__).parent / 'fixtures/wind-response.json').read_text())
                 data = wind_grid([fixture[i % 4] for i in range(25)])
                 data['forecastAt'] = now
@@ -149,6 +155,79 @@ BOOT = """(async () => {
   }
   return false;
 })()"""
+
+
+WIND_STATE = """(() => {
+  const s = AIRSHIPS.app;
+  return {ok:s.windOk, winds:s.missions.filter(m=>!m.idle&&m.wind).length,
+          note:document.getElementById('windNote').textContent};
+})()"""
+
+
+async def wait_wind(page, mode):
+    condition = ("s.ok && AIRSHIPS.app.planning?.state === 'settled' && s.note.startsWith('850 hPa wind · site mirror · fetched ')" if mode == 'fresh' else
+                 "!s.ok && s.winds === 0 && s.note.includes('Still air') && s.note.includes(" +
+                 json.dumps('wind mirror stale' if mode == 'stale' else 'HTTP 404') + ")")
+    result = await page.evaluate("""(async () => {
+      const until = performance.now() + 10000;
+      let s;
+      do {
+        s = """ + WIND_STATE + "; if (" + condition + """ ) return {ready:true, state:s};
+        await new Promise(r=>setTimeout(r,50));
+      } while (performance.now() < until);
+      return {ready:false, state:s};
+    })()""")
+    assert result['ready'], f'{mode}: wind state did not settle within 10 s: {result}'
+    return result['state']
+
+
+async def wind_cases(page):
+    # Stale and missing wind must erase previously applied wind.
+    for wind_mode in ('stale', 'fresh', 'missing'):
+        Handler.wind_mode = wind_mode
+        await page.evaluate("""(async () => {
+          const main = await import(document.querySelector('script[src*="app/main.js"]').src);
+          await main.refresh();
+        })()""")
+        state = await wait_wind(page, wind_mode)
+        assert state['ok'] == (wind_mode == 'fresh'), state
+        if wind_mode != 'fresh':
+            assert state['winds'] == 0 and 'Still air' in state['note'], state
+        print(f'wind {wind_mode}: {state}', flush=True)
+    Handler.wind_mode = 'fresh'
+    await page.evaluate("""(async () => {
+      const script = new URL(document.querySelector('script[src*="app/main.js"]').src);
+      const feeds = new URL('./feeds.js', script); feeds.search = script.search;
+      const {fetchWind} = await import(feeds.href); fetchWind();
+    })()""")
+    before = await wait_wind(page, 'fresh')
+    assert before['winds'] > 0, f'delay case needs previously applied wind: {before}'
+    Handler.wind_delay = 2
+    Handler.wind_holds.clear()
+    try:
+        # Capture the same task as the clear, and again while the server holds the reply.
+        # Retain the promise so even the RED case drains its request before cleanup.
+        held = await page.evaluate("""(async () => {
+          const script = new URL(document.querySelector('script[src*="app/main.js"]').src);
+      const feeds = new URL('./feeds.js', script); feeds.search = script.search;
+      const {fetchWind} = await import(feeds.href);
+          window.__heldWind = fetchWind();
+          const immediate = """ + WIND_STATE + """;
+          await new Promise(r=>setTimeout(r,250));
+          return {immediate, during:""" + WIND_STATE + """};
+        })()""")
+        print(f'wind held 2 s: {held}', flush=True)
+        for state in held.values():
+            assert state['ok'] is False and state['winds'] == 0, state
+            assert state['note'] == 'Still air · loading mirror', state
+            assert '850 hPa' not in state['note'] and 'fetched' not in state['note'], state
+        after = await wait_wind(page, 'fresh')
+        assert after['winds'] > 0, after
+        assert Handler.wind_holds and min(Handler.wind_holds) >= 2, Handler.wind_holds
+        print(f'wind after hold: {after}; fixture hold seconds: {Handler.wind_holds}', flush=True)
+    finally:
+        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 10 s')),10000))])")
+        Handler.wind_delay = 0
 
 
 async def note_cases(page, origin, shot_dir):
@@ -266,7 +345,7 @@ async def note_cases(page, origin, shot_dir):
     assert not failures, '\n'.join(failures)
 
 
-async def session(ws_url, origin, records, evidence, note_evidence, note_only=False):
+async def session(ws_url, origin, records, evidence, note_evidence, note_only=False, wind_only=False):
     import websockets
     async with websockets.connect(ws_url, max_size=64_000_000) as ws:
         page = Page(ws, origin)
@@ -284,6 +363,13 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
             if note_only:
                 await note_cases(page, origin, note_evidence)
                 return
+            if wind_only:
+                Handler.mode, Handler.wind_mode = 'fixture', 'fresh'
+                await page.navigate(f'http://{origin}/index.html?seed=7')
+                assert await page.evaluate(BOOT), 'fixture: monitor failed to boot'
+                await wait_wind(page, 'fresh')
+                await wind_cases(page)
+                return
             pages = [str(rel) for _, rel in served_files() if rel.suffix == '.html']
             for mode in ('fixture', 'snapshot', 'absent'):
                 Handler.mode, Handler.wind_mode = mode, 'fresh'
@@ -292,29 +378,14 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
                     await page.navigate(f'http://{origin}/{path}{query}')
                     if path == 'index.html':
                         assert await page.evaluate(BOOT), f'{mode}: monitor failed to boot'
-                        # Wait for the wind promise and lazy imports, then exercise refresh.
-                        await page.evaluate("new Promise(r => setTimeout(r, 1000))")
+                        # Poll for the expected wind state before exercising refresh.
+                        if mode == 'fixture': await wait_wind(page, 'fresh')
                         state = await page.evaluate("({tier:AIRSHIPS.app.tier, wind:AIRSHIPS.app.windOk, still:document.getElementById('windNote').textContent})")
                         expected = {'fixture': 'mirror', 'snapshot': 'replay', 'absent': 'snapshot'}[mode]
                         assert state['tier'] == expected, state
                         assert state['wind'] == (mode == 'fixture'), state
                         if mode != 'fixture': assert 'Still air' in state['still'], state
-                        # Stale and missing wind must erase previously applied wind.
-                        if mode == 'fixture':
-                            for wind_mode in ('stale', 'fresh', 'missing'):
-                                Handler.wind_mode = wind_mode
-                                state = await page.evaluate("""(async () => {
-                                  const main = await import(document.querySelector('script[src*="app/main.js"]').src);
-                                  await main.refresh();
-                                  await new Promise(r=>setTimeout(r,600));
-                                  const s=AIRSHIPS.app;
-                                  return {ok:s.windOk, winds:s.missions.filter(m=>!m.idle&&m.wind).length,
-                                          note:document.getElementById('windNote').textContent};
-                                })()""")
-                                assert state['ok'] == (wind_mode == 'fresh'), state
-                                if wind_mode != 'fresh':
-                                    assert state['winds'] == 0 and 'Still air' in state['note'], state
-                            Handler.wind_mode = 'fresh'
+                        if mode == 'fixture': await wind_cases(page)
                     # Trigger lazy images throughout the document, then settle imports/rendering.
                     await page.evaluate("""(async()=>{
                       for(let y=0;y<document.body.scrollHeight;y+=600) {
@@ -346,6 +417,7 @@ def main():
     parser.add_argument('--evidence', type=Path, help='write the recorded request log and monitor screenshot')
     parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440, 834 and 390 px')
     parser.add_argument('--note-only', action='store_true', help='run only the note cases')
+    parser.add_argument('--wind-only', action='store_true', help='run only wind refresh and delayed mirror cases')
     args = parser.parse_args()
     records = []
     try:
@@ -359,7 +431,7 @@ def main():
                       '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1']
             with page_target(os.environ.get('CHROME', 'chromium'), flags,
                              Path(tmp) / 'profile') as (_proc, ws_url):
-                asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only))
+                asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only, args.wind_only))
     finally:
         if args.evidence: args.evidence.write_text(json.dumps(records, indent=2) + '\n')
 
