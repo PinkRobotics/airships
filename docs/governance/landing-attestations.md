@@ -222,3 +222,17 @@
 | Order | sha256 `6cff4644559464ee…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 18 — Sign rotor authority, state stored-energy limits, fix the CI browser probe
+
+| field | value |
+|---|---|
+| Landed | 2026-10-05 14:06:08 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `0ab9b54b70693f71d556ad66a26e9e30ae9fc89e` → `74651d8ac085ebc4fb343f5eac8acc18649674d9`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `74651d8ac085ebc4fb343f5eac8acc18649674d9`, tree `f3c0c3ded1fa82d2a2f012a97010f86cedcfed55`, from `pr/c18` in `/home/tyler/data/t/pr-c18`, parent `ba0685d0886ce4c005351b31c3ea2e5576f6091b`, governance `gov-ba06d2a84a35` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 74651d8ac…` → rc=0, HONOURED-XO 74651d8ac085ebc4fb343f5eac8acc18649674d9 — the last record for this sha (store line 879) is XO-SIGNED. (store `/home/tyler/data/helm/tmp/fo-verdicts.tsv`) |
+| Governance records | `b73c37775` ← `gov-452836efdc08` (its trailer); `5680cb029` ← `gov-8243541d5d37` (its trailer); `4a26876eb` ← `gov-91ef1cca5c45` (its trailer); `3551fe3eb` ← `gov-74921fb96725` (its trailer); `ba0685d08` ← `gov-eeed694a4b23` (its trailer); `74651d8ac` ← `gov-ba06d2a84a35` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `/usr/bin/env PATH=/home/tyler/.local/node/bin:/snap/bin:/usr/local/bin:/usr/bin:/bin TMPDIR=/home/tyler/data/pinkrobotics/tmp/boyce-land-c18-1005 FLOAT_PLANT_WORKERS=8 make ciparity energycheck energydoccheck servedenergycheck figfresh ledgercheck floatplantcheck floatpagecheck floatverdictcheck noticecheck linkcheck cellparity explorercheck levelscheck shipcheck bandcheck` rc=0 (gate timeout 1800 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `7ad33759f7af8e0b…` from `/home/tyler/dev/helm` (informational) |
+| Order | sha256 `002024645bfd3a30…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
