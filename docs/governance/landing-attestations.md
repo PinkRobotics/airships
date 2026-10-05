@@ -208,3 +208,17 @@
 | Order | sha256 `a531bd08424374ba…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 17 — Make CI reproducible on a clean runner, plants in four shares
+
+| field | value |
+|---|---|
+| Landed | 2026-10-05 10:12:18 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `5cbc5ffc1f30db9729e1a15d1400e2ee0d9bb178` → `2f80e10e1499c0977898ebba6bed9c074159fa8b`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `2f80e10e1499c0977898ebba6bed9c074159fa8b`, tree `d807148dea1839e8cfeeb0dbe4ff449b1fb94a8f`, from `pr/c17` in `/home/tyler/data/t/pr-c17`, parent `c1ab101ae74e97df94aa406127d8d0546170a2fa`, governance `gov-02ac5ac690ec` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 2f80e10e1…` → rc=0, HONOURED-XO 2f80e10e1499c0977898ebba6bed9c074159fa8b — the last record for this sha (store line 871) is XO-SIGNED. (store `/home/tyler/data/helm/tmp/fo-verdicts.tsv`) |
+| Governance records | `b7745f232` ← `gov-ee021b1c85d5` (its trailer); `70798cbaf` ← `gov-64f585dadd65` (its trailer); `5b77d1ffc` ← `gov-1cd5b15972b2` (its trailer); `f41dc9009` ← `gov-d30a1cd4b36f` (its trailer); `ad36c9529` ← `gov-11d5f2821341` (its trailer); `acad2e248` ← `gov-ef47142b81d2` (its trailer); `c1ab101ae` ← `gov-fee274833272` (its trailer); `2f80e10e1` ← `gov-02ac5ac690ec` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `/usr/bin/env PATH=/home/tyler/.local/node/bin:/snap/bin:/usr/local/bin:/usr/bin:/bin TMPDIR=/home/tyler/data/pinkrobotics/tmp/boyce-land-c17-1005 FLOAT_PLANT_WORKERS=8 make ciparity energycheck energydoccheck servedenergycheck figfresh ledgercheck floatplantcheck floatpagecheck floatverdictcheck noticecheck linkcheck` rc=0 (gate timeout 1800 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `7ad33759f7af8e0b…` from `/home/tyler/dev/helm` (informational) |
+| Order | sha256 `6cff4644559464ee…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
