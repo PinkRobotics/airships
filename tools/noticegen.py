@@ -10,8 +10,10 @@ from pathlib import PurePosixPath
 INTRO = (
     "The fleet is simulated and never flew. The fire data is real, except the exercise in "
     "data/exercise/, whose fires are invented and labelled so; nothing here says a fire "
-    "would have burned differently. Source code is licensed under Apache-2.0; third-party "
-    "works retain the terms recorded below. The Information in the map layers was modified. "
+    "would have burned differently. Source code is licensed under Apache-2.0, and our own text "
+    "and figures under CC BY 4.0 (attribution: Pink Robotics, pinkrobotics.ca). Every file "
+    "recorded below keeps the terms recorded for it; third-party works are not relicensed. "
+    "The Information in the map layers was modified. "
     "No information provider endorses this project or its uses. For real emergencies use the official service."
 )
 ENERGY_UNITS = re.compile(r"\b(?:MWh|kWh|MW|kW)\b")
@@ -130,10 +132,10 @@ main,header,footer{padding:20px}tbody th{font-size:18px}details{margin-top:12px}
 </style></head><body><header><a href="./">← Fleet monitor</a></header>
 <main><h1>Data, licences and notices</h1>
 ''' + energy_note + f'<p>{esc(INTRO)}</p><p>{esc(DECISIONS)}</p><p>{esc(totals(recs))}</p>\n' + '''
-<p>Generated from provenance sidecars. Read <a href="NOTICE">NOTICE</a>, <a href="DATA-SOURCES.md">DATA-SOURCES.md</a> and the <a href="LICENSE">code licence</a>. Repository paths below are references, not links to files served by this website.</p>
+<p>Generated from provenance sidecars. Read <a href="NOTICE">NOTICE</a>, <a href="DATA-SOURCES.md">DATA-SOURCES.md</a>, the <a href="LICENSE">code licence</a> and the <a href="LICENSE-CONTENT">content licence</a>. Repository paths below are references, not links to files served by this website.</p>
 <table><caption>Per-file decisions — unresolved terms first</caption><thead><tr><th scope="col">Folder / file</th><th scope="col">Publisher</th><th scope="col">Licence and evidence</th><th scope="col">Decision</th></tr></thead><tbody>
 ''' + '\n'.join(rows) + '''
-</tbody></table></main><footer><a href="./">Fleet monitor</a> · <a href="notices.html">Data, licences and notices</a> · <a href="LICENSE">Code licence</a></footer></body></html>
+</tbody></table></main><footer><a href="./">Fleet monitor</a> · <a href="notices.html">Data, licences and notices</a> · <a href="LICENSE">Code licence</a> · <a href="LICENSE-CONTENT">Content licence</a></footer></body></html>
 '''
 
 

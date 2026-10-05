@@ -164,4 +164,10 @@ The [source catalogue](research/sources.json) contains **108 entries**.
 
 [DATA-SOURCES.md](DATA-SOURCES.md) records the datasets, licences and query methods. The captured snapshot under [`data/`](data/) supports offline replay. Do not query emergency agency feeds to run this test.
 
-The study's purpose and acceptance target are in [GOALS.md](GOALS.md). [CONTRIBUTING.md](CONTRIBUTING.md) explains how to bring a reproducible objection. The code licence is in [LICENSE](LICENSE).
+The study's purpose and acceptance target are in [GOALS.md](GOALS.md). [CONTRIBUTING.md](CONTRIBUTING.md) explains how to bring a reproducible objection.
+
+## Licence
+
+The code is licensed under the Apache License 2.0 ([LICENSE](LICENSE)). Our own written content and figures, the prose of the pages, the three [reports](research/reports/README.md) and the figures generated from the simulation, are licensed under Creative Commons Attribution 4.0 International, CC BY 4.0 ([LICENSE-CONTENT](LICENSE-CONTENT)). Attribute them as: Pink Robotics, pinkrobotics.ca.
+
+A file with its own record in [NOTICE](NOTICE) keeps the terms recorded there, our own data files under Apache-2.0 included. Third-party papers, datasets and assets keep their own terms, as [NOTICE](NOTICE) and [DATA-SOURCES.md](DATA-SOURCES.md) record them; nothing there is relicensed. The Pink Robotics and PinkAI names and marks are not licensed.
