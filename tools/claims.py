@@ -34,7 +34,7 @@ BLOCK = set('p li td th h1 h2 h3 h4 h5 h6 figcaption dt dd blockquote text title
 VOID = set('area base br col embed hr img input link meta param source track wbr'.split())
 FALLBACK = {'FALLBACK', 'FALLBACK-HUD', 'FALLBACK-ROSTER', 'FALLBACK-FIRES'}
 LABEL = re.compile(r'\b(vision|assumption|assumed|target|historical)\b', re.I)
-KINDS = {'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled'}
+KINDS = {'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger'}
 
 
 def digest(value):
@@ -43,6 +43,16 @@ def digest(value):
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
+
+
+def marker_action(text):
+    text = text.strip()
+    if text in FALLBACK:
+        return text, True
+    if text.startswith('/') and text[1:] in FALLBACK:
+        return text[1:], False
+    m = re.fullmatch(r'(energy|served-energy|readme):([a-z-]+):(start|end)', text)
+    return (m[1] + ':' + m[2], m[3] == 'start') if m else (None, None)
 
 
 def read_json(path):
@@ -126,19 +136,16 @@ class Reader(HTMLParser):
             self.order += 1
 
     def handle_comment(self, text):
-        text = text.strip()
-        if text in FALLBACK or text.startswith('/') and text[1:] in FALLBACK:
-            for e in self.stack:
-                if e['parts']:
-                    self.emit(''.join(e['parts']), e['tag'], e['region'], attrs=e['attrs'], order=e['order'])
-                    e['parts'].clear()
-        if text in FALLBACK:
-            self.region = text
-        elif text.startswith('/') and text[1:] in FALLBACK:
-            self.region = None
-        if text in FALLBACK or text.startswith('/') and text[1:] in FALLBACK:
-            for e in self.stack:
-                e['region'] = self.region
+        name, start = marker_action(text)
+        if name is None:
+            return
+        for e in self.stack:
+            if e['parts']:
+                self.emit(''.join(e['parts']), e['tag'], e['region'], attrs=e['attrs'], order=e['order'])
+                e['parts'].clear()
+        self.region = name if start else None
+        for e in self.stack:
+            e['region'] = self.region
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -239,6 +246,7 @@ class Reader(HTMLParser):
 
 
 def markdown_units(source):
+    source = re.sub(r'(<!--\s*readme:[a-z-]+:(?:start|end)\s*-->)', r'\n\1\n', source)
     # Markdown permits embedded HTML. Capture attributes too, without double-counting
     # its visible text (which the Markdown pass below already retains).
     reader = Reader()
@@ -250,14 +258,21 @@ def markdown_units(source):
     buf = []
     fenced = False
     headers = []
+    active_region = None
     def emit(text, surface, context=''):
         units.append(dict(text=clean_markdown(text), surface=surface, context=clean_markdown(context),
-                          region=None, attrs={}))
+                          region=active_region, attrs={}))
     def flush():
         if buf:
             emit(' '.join(buf), 'paragraph')
             buf.clear()
     for line in source.splitlines():
+        marker = re.fullmatch(r'\s*<!--\s*(.*?)\s*-->\s*', line)
+        name, start = marker_action(marker[1]) if marker else (None, None)
+        if name:
+            flush()
+            active_region = name if start else None
+            continue
         if fenced or line.startswith('    '):
             # A marker comment in displayed example code is itself visible. Its numeric
             # identifier is a separate occurrence as well as the adjacent bound value.
@@ -434,6 +449,7 @@ def validate_entry(entry):
     if kind not in KINDS:
         raise ValueError('invalid owner kind')
     required = {
+        'ledger': ['record', 'key', 'reason'],
         'model': ['key', 'precision', 'unit', 'scenario'],
         'generated': ['generator', 'region'], 'delegated': ['inventory'],
         'cited': ['source', 'locator', 'review'], 'nonclaim': ['rule'], 'labelled': ['label'],
@@ -453,13 +469,18 @@ def validate_entry(entry):
             raise ValueError('invalid citation review date')
 
 
-def failure(occ, entry, flat, root, inventories, sources):
+def failure(occ, entry, flat, root, inventories, sources, rules=None):
     if placement(occ) != entry['placement']:
         return dict(kind='placement-changed', observed=placement(occ), expected=entry['placement'])
     owner = entry['owner']
     if owner is None:
         return dict(kind='unowned', observed=occ['raw'], expected='an accountable owner and check')
     kind = owner['kind']
+    if kind == 'ledger':
+        if rules is None:
+            from claims_rules import Context
+            rules = Context(root, [occ['file']])
+        return rules.ledger_issue(occ, entry)
     if kind in {'nonclaim', 'labelled', 'cited'} and entry['gate'] != 'claimscheck':
         return dict(kind='wrong-gate', observed=entry['gate'], expected='claimscheck')
     if kind == 'model':
@@ -470,10 +491,15 @@ def failure(occ, entry, flat, root, inventories, sources):
         if owner['rule'] != 'exact' and nonclaim_rule(occ) != owner['rule']:
             return dict(kind='nonclaim-rule-miss', observed=nonclaim_rule(occ), expected=owner['rule'])
     elif kind == 'labelled':
-        if owner['label'].lower() not in {'vision', 'assumption', 'assumed', 'target', 'historical'} or not re.search(
-                r'\b' + re.escape(owner['label']) + r'\b', occ['block'], re.I):
+        from claims_rules import label_for
+        if label_for(occ) != owner['label']:
             return dict(kind='label-missing', observed=occ['raw'], expected=owner['label'])
     elif kind == 'generated':
+        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py'}:
+            if rules is None:
+                from claims_rules import Context
+                rules = Context(root, [occ['file']])
+            return rules.generated_issue(occ, entry)
         if owner['generator'] == 'figure-marker':
             if entry['gate'] != 'figcheck' or owner['region'] != occ['marker'] or not occ['file'].startswith('research/reports/'):
                 return dict(kind='generator-region-miss', observed=occ['marker'], expected=owner['region'])
@@ -531,6 +557,8 @@ def check(root, manifest, figures, register_path, accept_new=False):
         raise ValueError('unsupported register version')
     entries = index_unique(register['entries'], 'id', 'register entry')
     flat = flatten(read_json(figures))
+    from claims_rules import Context
+    rules = Context(root, extracted['files'])
     sources_path = root / 'research/sources.json'
     sources = index_unique(read_json(sources_path)['sources'], 'id', 'source') if sources_path.exists() else {}
     contracts = register.get('delegations', {})
@@ -599,7 +627,7 @@ def check(root, manifest, figures, register_path, accept_new=False):
         if oid in occurrences:
             entry = entries.get(oid)
             if (entry is None or digest(canonical(entry)) != change.get('entry_digest') or
-                    failure(occurrences[oid], entry, flat, root, inventories, sources) is not None):
+                    failure(occurrences[oid], entry, flat, root, inventories, sources, rules) is not None):
                 errors.append(f'{oid}: carry retirement no longer has a verified owner')
         else:
             path = safe_relative(root, oid.split('::')[0])
@@ -636,7 +664,7 @@ def check(root, manifest, figures, register_path, accept_new=False):
             continue
         if any(entry[k] != occ[k] for k in ('file', 'digest', 'ordinal', 'raw')) or entry['text'] != public_excerpt(occ['text']):
             errors.append(f'{oid}: register identity/payload mismatch')
-        problem = failure(occ, entry, flat, root, inventories, sources)
+        problem = failure(occ, entry, flat, root, inventories, sources, rules)
         defect = known.get(oid)
         if defect:
             row['known-defect'] += 1
@@ -665,8 +693,8 @@ def check(root, manifest, figures, register_path, accept_new=False):
         accepted['runs'].append(dict(added=sorted(pending), digest=digest(canonical(pending))))
         write_json(ratchet_path, accepted)
     print(SCOPE)
-    print('file | occurrences | model | generated | delegated | cited | nonclaim | labelled | known defect | unregistered')
-    columns = ['occurrences', 'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'known-defect', 'unregistered']
+    print('file | occurrences | model | generated | delegated | cited | nonclaim | labelled | ledger | known defect | unregistered')
+    columns = ['occurrences', 'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger', 'known-defect', 'unregistered']
     for file, row in counts.items():
         print(file + ' | ' + ' | '.join(str(row[c]) for c in columns))
         rules = ', '.join(f'{k[5:]}={v}' for k, v in sorted(row.items()) if k.startswith('rule:'))
@@ -723,12 +751,14 @@ def carry(root, manifest, figures, register_path):
     old_known = {oid: d for d in old_def['defects'] for oid in d['occurrences']}
     sources_path = root / 'research/sources.json'
     sources = index_unique(read_json(sources_path)['sources'], 'id', 'source') if sources_path.exists() else {}
+    from claims_rules import Context
+    rules = Context(root, extracted['files'])
     entries, defects = [], []
     for occ in extracted['occurrences']:
-        owner, gate = seed_owner(occ)
+        owner, gate = rules.choose(occ, seed_owner)
         entry = entry_for(occ, owner, gate)
         entries.append(entry)
-        problem = failure(occ, entry, flat, root, {}, sources)
+        problem = failure(occ, entry, flat, root, {}, sources, rules)
         if problem:
             old = old_known.get(occ['id'])
             defects.append(old if old and old['failure'] == problem else defect_for(occ, problem))

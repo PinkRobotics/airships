@@ -14,7 +14,7 @@ import claims
 from check_figures import matches_display
 
 
-class ClaimsTest(unittest.TestCase):
+class ClaimsFixture:
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(dir=os.environ['TMPDIR'])
         self.addCleanup(self.tmp.cleanup)
@@ -63,6 +63,9 @@ class ClaimsTest(unittest.TestCase):
         claims.write_json(path, data)
         return o, defect
 
+
+
+class ClaimsTest(ClaimsFixture, unittest.TestCase):
     def test_html_surfaces_inline_svg_controls_and_metadata(self):
         self.put('index.html', '''<title>9 classes</title><meta name="description" content="8 tonnes">
         <p>Hull <strong>110</strong> m long; three classes.</p><img alt="7 m" aria-label="6 m">
@@ -399,6 +402,135 @@ port 1234
 
     def test_deterministic(self):
         self.assertEqual(claims.canonical(self.extract()), claims.canonical(self.extract()))
+
+
+class OwnershipRulesTest(ClaimsFixture, unittest.TestCase):
+    def test_carry_twice_preserves_files_and_ratchet_receipts(self):
+        self.known()
+        self.check(True)
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(claims.carry(self.root, self.root/'dist.manifest', self.root/'research/figures.json', self.root/'research/claims/register.json'), 0)
+        before = {p.name: p.read_bytes() for p in (self.root/'research/claims').glob('*.json')}
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(claims.carry(self.root, self.root/'dist.manifest', self.root/'research/figures.json', self.root/'research/claims/register.json'), 0)
+        self.assertEqual(before, {p.name: p.read_bytes() for p in (self.root/'research/claims').glob('*.json')})
+
+    def test_same_rule_rebinding_requires_receipt_and_verified_owner(self):
+        o, _ = self.known()
+        self.check(True)
+        self.put('index.html', '<p>Length 110 m.</p>')
+        self.register()
+        self.assertEqual(self.check()[0], 1)
+        accepted = claims.read_json(self.root/'research/claims/accepted-defects.json')
+        entry = claims.read_json(self.root/'research/claims/register.json')['entries'][0]
+        changes = {o['id']: dict(before=accepted['accepted'][o['id']], after=None,
+                   source_before=accepted['source_digests'][o['id']], entry_digest=claims.digest(claims.canonical(entry)))}
+        accepted['transitions'] = [dict(changes=changes, digest=claims.digest(claims.canonical(changes)))]
+        claims.write_json(self.root/'research/claims/accepted-defects.json', accepted)
+        self.put('research/claims/known-defects.json', '{"version":1,"headlines":{"unowned":"Unowned."},"defects":[]}')
+        self.assertEqual(self.check()[0], 0)
+        self.put('research/figures.json', '{"length":111}')
+        self.assertIn('no longer has a verified owner', self.check()[1])
+
+    def test_float_record_adapter_bound_allowed_deferred_and_outside(self):
+        from claims_rules import Context
+        self.put('Makefile', 'check: ledgercheck\n')
+        self.put('research/analysis/float-ledger.json', '{"designs":[],"atmosphere":{"targetM":2500}}')
+        self.put('index.html', '<p>Mass 110 kg.</p><p>Length 120 m.</p>')
+        self.put('docs/OPEN-QUESTIONS.md', '<a id="float-deferred-source-needed"></a>')
+        import float_claims
+        import check_float_ledger
+        from unittest.mock import patch
+        cosmetic = patch.object(check_float_ledger, 'proposal', return_value='Fixture block.')
+        cosmetic.start(); self.addCleanup(cosmetic.stop)
+        text = 'Mass 110 kg.'
+        record = dict(file='index.html',key=float_claims.key_of(text),line=1,**{'class':'method'},
+                      context=['110'],reason='A stated method context, not a float result.')
+        self.put('research/analysis/float-claims/fixture.json', json.dumps(dict(schema='float-claims/1',files=['index.html'],entries=[record])))
+        def context():
+            return Context(self.root, ['index.html'])
+        occ, outside = self.extract()
+        ctx = context()
+        owner, gate = ctx.choose(occ, claims.seed_owner)
+        self.assertEqual(owner['key'], float_claims.key_of(text))
+        self.assertEqual(gate, 'ledgercheck')
+        entry = claims.entry_for(occ,owner,gate)
+        self.assertIsNone(ctx.ledger_issue(occ,entry))
+        self.assertIsNone(ctx.float_hit(outside))
+        owner['key'] = 'unrelated'
+        self.assertEqual(ctx.ledger_issue(occ,entry)['kind'], 'float-record-miss')
+        record.update(**{'class':'deferred'},owner='source-needed',reason='The physical basis requires a reviewed source.')
+        self.put('research/analysis/float-claims/fixture.json', json.dumps(dict(schema='float-claims/1',files=['index.html'],entries=[record])))
+        ctx = context();owner,gate = ctx.choose(occ,claims.seed_owner)
+        self.assertEqual(ctx.ledger_issue(occ,claims.entry_for(occ,owner,gate))['kind'], 'float-deferred')
+        record.update(**{'class':'bound'}, bindings=[dict(source='research/analysis/float-ledger.json',pointer='/value',shown='110')])
+        self.put('research/analysis/float-ledger.json','{"designs":[],"atmosphere":{"targetM":2500},"value":110}')
+        self.put('research/analysis/float-claims/fixture.json', json.dumps(dict(schema='float-claims/1',files=['index.html'],entries=[record])))
+        ctx = context();owner,gate=ctx.choose(occ,claims.seed_owner)
+        self.assertIsNone(ctx.ledger_issue(occ,claims.entry_for(occ,owner,gate)))
+        self.put('research/analysis/float-ledger.json','{"designs":[],"atmosphere":{"targetM":2500},"value":111}')
+        ctx=context();owner,gate=ctx.choose(occ,claims.seed_owner)
+        self.assertEqual(ctx.ledger_issue(occ,claims.entry_for(occ,owner,gate))['kind'],'float-record-miss')
+
+    def test_energy_regions_own_inside_only_and_regenerate(self):
+        from claims_rules import Context
+        self.put('tools/gen_energy_pages.mjs', "console.log(JSON.stringify({'index.html':'<p><!-- served-energy:home:start -->Target: 110 m.<!-- served-energy:home:end --></p>'}));")
+        # Markers are exact lines for the producer's region contract.
+        source='<p>\n<!-- served-energy:home:start -->\nTarget: 110 m.\n<!-- served-energy:home:end -->\n</p><p>Length 120 m.</p>'
+        self.put('index.html',source)
+        self.put('tools/gen_energy_pages.mjs', 'console.log('+json.dumps(json.dumps({'index.html':source}))+');')
+        inside,outside=self.extract();ctx=Context(self.root,['index.html'])
+        owner,gate=ctx.generator_owner(inside)
+        self.assertEqual(gate,'servedenergycheck');self.assertIsNone(ctx.generator_owner(outside))
+        self.assertIsNone(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate)))
+        self.put('index.html',source.replace('110','111'))
+        self.assertEqual(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate))['kind'],'stale-generated-region')
+        self.put('index.html', '<p>Assumption: 110 m.</p>')
+        self.assertIsNone(Context(self.root,['index.html']).generator_owner(self.extract()[0]))
+
+    def test_labels_are_sentence_and_quantity_specific(self):
+        from claims_rules import label_for
+        for word in ['Assumption','Assumed','Target','Illustration','Illustrative','Vision']:
+            self.put('index.html',f'<p>{word}: length 110 m.</p>')
+            self.assertEqual(label_for(self.extract()[0]),word.lower())
+        for text in ['Target: one thing. This is background. Length 110 m.',
+                     'Target: 100 m; actual length 110 m.',
+                     'Target: 100 m, length 110 m.', 'We have a target. Length 110 m.']:
+            self.put('index.html','<p>'+text+'</p>')
+            occ=next(o for o in self.extract() if o['raw']=='110')
+            self.assertIsNone(label_for(occ),text)
+
+
+class ReadmeProducerTest(ClaimsFixture, unittest.TestCase):
+    def test_readme_inline_and_indented_regions_own_only_checked_contents(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        source='Outside 120 m. <!-- readme:example:start -->Inside 110 m.<!-- readme:example:end --> Tail 130 m.\n'
+        self.put('README.md',source)
+        self.put('tools/gen_readme.py','import json\nprint('+repr(json.dumps({'README.md':source}))+')\n')
+        occ=self.extract();inside=next(o for o in occ if o['raw']=='110');outside=[o for o in occ if o['raw'] in {'120','130'}]
+        ctx=Context(self.root,['README.md']);owner,gate=ctx.generator_owner(inside)
+        self.assertEqual(gate,'readmecheck');self.assertTrue(all(ctx.generator_owner(o) is None for o in outside))
+        self.assertIsNone(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate)))
+        self.put('README.md',source.replace('110','111'))
+        ctx=Context(self.root,['README.md'])
+        self.assertEqual(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate))['kind'],'stale-generated-region')
+
+
+class GeneratedDeferralTest(ClaimsFixture, unittest.TestCase):
+    def test_generated_region_cannot_clear_its_recorded_deferral(self):
+        from claims_rules import Context
+        self.put('index.html','<p>\n<!-- served-energy:home:start -->\nMass 110 kg.\n<!-- served-energy:home:end -->\n</p>')
+        occ=self.extract()[0];ctx=Context(self.root,['index.html'])
+        hit=dict(match_text=occ['text'],record='research/analysis/float-claims/fixture.json',key='exact',
+                 status='DEFERRED',reason='deferred: A physical source is needed.',deferredReason='A physical source is needed.')
+        ctx.float_blocks={'index.html':[hit]}
+        owner,gate=ctx.choose(occ,claims.seed_owner)
+        self.assertEqual(owner['kind'],'ledger')
+        self.assertEqual(ctx.ledger_issue(occ,claims.entry_for(occ,owner,gate))['kind'],'float-deferred')
+        hit.update(status='ALLOW',reason='method: Model quantity is checked.')
+        owner,gate=ctx.choose(occ,claims.seed_owner)
+        self.assertEqual(owner['generator'],'tools/gen_energy_pages.mjs')
 
 
 if __name__ == '__main__':
