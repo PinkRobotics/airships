@@ -23,30 +23,31 @@ The P-100 allows **100 t** of everything that is not water, inside **220,000 m³
 ## Three columns, and the left one is the argument
 
 `floor` takes the single most favourable published or derivable number for **every line
-simultaneously** — a vehicle that gets the best of everything at once, which no real vehicle
-does. `credible` is what an engineer would plan against. `demonstrated` is what has been built
-and flown.
+simultaneously**. `credible` is a planning case. `demonstrated` combines literature
+calculations, component and bench evidence, and installed or unsourced allowances;
+it does not describe a built or flown vehicle. Masses below are tonnes. The last column
+names the evidence behind each `demonstrated` line, including its sizing allowances.
 
-| line | floor | credible | demonstrated |
-|---|---|---|---|
-| Vacuum shell (lattice) | 111.8 | 165.0 | 255.2 |
-| Gas barrier skin | 0.8 | 8.2 | 65.6 |
-| Solar skin | 2.2 | 3.9 | 7.2 |
-| Battery pack | 40.0 | 66.7 | 134.2 |
-| Propulsion motors | 1.9 | 2.3 | 6.0 |
-| Drives, cabling, thermal | 1.9 | 2.7 | 9.0 |
-| Rotors and hubs | 13.2 | 17.5 | 22.5 |
-| **Cryogenic plant** | **12.0** | **120.0** | **390.0** |
-| LN₂ tankage | 7.8 | 12.4 | 23.2 |
-| Water tanks and plumbing | 2.1 | 2.2 | 2.3 |
-| Pump | 0.2 | 0.3 | 0.8 |
-| Hose | 1.1 | 1.8 | 2.7 |
-| Anchor cable | 0.6 | 1.4 | 2.1 |
-| Anchor bag | 0.1 | 0.2 | 0.3 |
-| Winch | 0.8 | 0.9 | 2.5 |
-| Sundries and margin | 19.6 | 60.8 | 184.7 |
-| **TOTAL** | **216.1** | 466.4 | 1108.3 |
-| × the 100 t allowance | **2.16×** | 4.66× | 11.08× |
+| line | floor | credible | demonstrated | demonstrated evidence class |
+|---|---|---|---|---|
+| Vacuum shell (lattice) | 111.8 | 165.0 | 255.2 | literature FEA |
+| Gas barrier skin | 0.8 | 8.2 | 65.6 | literature membrane |
+| Solar skin | 2.2 | 3.9 | 7.2 | installed allowance |
+| Battery pack | 40.0 | 66.7 | 134.2 | literature pack |
+| Propulsion motors | 1.9 | 2.3 | 6.0 | bench component |
+| Drives, cabling, thermal | 1.9 | 2.7 | 9.0 | unsourced fraction |
+| Rotors and hubs | 13.2 | 17.5 | 22.5 | rotorcraft practice |
+| Cryogenic plant | 12.0 | 120.0 | 390.0 | ground hardware + flight concept |
+| LN2 tankage | 7.8 | 12.4 | 23.2 | cryotank practice |
+| Water tanks and plumbing | 2.1 | 2.2 | 2.3 | fabric practice + plumbing allowance |
+| Pump | 0.2 | 0.3 | 0.8 | bench motor + wet-end allowance |
+| Hose | 1.1 | 1.8 | 2.7 | hose practice |
+| Anchor cable | 0.6 | 1.4 | 2.1 | rope datasheet + assumed safety factor |
+| Anchor bag | 0.1 | 0.2 | 0.3 | fabric practice |
+| Winch | 0.8 | 0.9 | 2.5 | bench motor + sizing allowance |
+| Sundries and margin | 19.6 | 60.8 | 184.7 | airship weight statement + mass-growth allowance |
+| **TOTAL** | 216.1 | 466.4 | 1108.3 | mixed evidence above |
+| × the 100 t allowance | 2.16× | 4.66× | 11.08× | |
 
 Sizing the battery to three prescribed cycles raises the floor from **181.3 t, 1.81×**, to **226.2 t, 2.26×**.
 The cycle is infeasible; this energy-based allowance does not establish endurance. The cryogenic plant stays: see the retraction in `air-ballast.md`.

@@ -18,7 +18,8 @@
    },
    "demonstrated": {
     "value": 1.16,
-    "source": "Akhmeteli & Gavrilin 2021 \u2014 the only vacuum shell design checked against a buckling FEA, at 0.9 x 1.29 kg/m3."
+    "source": "Akhmeteli & Gavrilin 2021 \u2014 the only vacuum shell design checked against a buckling FEA, at 0.9 x 1.29 kg/m3.",
+    "evidenceClass": "literature FEA"
    }
   },
   "barrier_kg_per_m2": {
@@ -32,7 +33,8 @@
    },
    "demonstrated": {
     "value": 3.45,
-    "source": "Metlen 2013 \u2014 Zylon-reinforced Mylar, the only real membrane in the literature, at W/B += 0.37."
+    "source": "Metlen 2013 \u2014 Zylon-reinforced Mylar, the only real membrane in the literature, at W/B += 0.37.",
+    "evidenceClass": "literature membrane"
    }
   },
   "solar_kg_per_m2": {
@@ -46,7 +48,8 @@
    },
    "demonstrated": {
     "value": 1.2,
-    "source": "A conservative installed figure with encapsulation and attachment for a hull that flies through smoke and hail."
+    "source": "A conservative installed figure with encapsulation and attachment for a hull that flies through smoke and hail.",
+    "evidenceClass": "installed allowance"
    }
   },
   "battery_wh_per_kg": {
@@ -60,7 +63,8 @@
    },
    "demonstrated": {
     "value": 149.0,
-    "source": "Chin et al. 2021 \u2014 the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66."
+    "source": "Chin et al. 2021 \u2014 the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66.",
+    "evidenceClass": "literature pack"
    }
   },
   "motor_kw_per_kg": {
@@ -74,7 +78,8 @@
    },
    "demonstrated": {
     "value": 5.0,
-    "source": "Representative of MW-class machines actually run on a bench."
+    "source": "Representative of MW-class machines actually run on a bench.",
+    "evidenceClass": "bench component"
    }
   },
   "drive_frac_of_motor": {
@@ -88,7 +93,8 @@
    },
    "demonstrated": {
     "value": 1.5,
-    "source": "n/a"
+    "source": "n/a",
+    "evidenceClass": "unsourced fraction"
    }
   },
   "rotor_kg_per_m2_disc": {
@@ -102,7 +108,8 @@
    },
    "demonstrated": {
     "value": 9.0,
-    "source": "Heavy-lift rotorcraft practice."
+    "source": "Heavy-lift rotorcraft practice.",
+    "evidenceClass": "rotorcraft practice"
    }
   },
   "cryo_t_per_mw": {
@@ -116,7 +123,8 @@
    },
    "demonstrated": {
     "value": 65.0,
-    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; corroborated by NASA GRC's 68.6 t/MW reverse turbo-Brayton flight concept."
+    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; corroborated by NASA GRC's 68.6 t/MW reverse turbo-Brayton flight concept.",
+    "evidenceClass": "ground hardware + flight concept"
    }
   },
   "ln2_tank_frac": {
@@ -130,7 +138,8 @@
    },
    "demonstrated": {
     "value": 0.15,
-    "source": "Aerospace cryotank practice."
+    "source": "Aerospace cryotank practice.",
+    "evidenceClass": "cryotank practice"
    }
   },
   "fabric_kg_per_m2": {
@@ -144,7 +153,8 @@
    },
    "demonstrated": {
     "value": 2.5,
-    "source": "Bambi-bucket-class reinforced fabric."
+    "source": "Bambi-bucket-class reinforced fabric.",
+    "evidenceClass": "fabric practice"
    }
   },
   "rope_n_per_kg_per_m": {
@@ -158,7 +168,8 @@
    },
    "demonstrated": {
     "value": 1400000.0,
-    "source": "The pessimistic end of the same data sheets."
+    "source": "The pessimistic end of the same data sheets.",
+    "evidenceClass": "rope datasheet"
    }
   },
   "rope_safety_factor": {
@@ -172,7 +183,8 @@
    },
    "demonstrated": {
     "value": 7.0,
-    "source": "n/a"
+    "source": "n/a",
+    "evidenceClass": "unsourced safety factor"
    }
   },
   "hose_kg_per_m_per_m_bore": {
@@ -186,7 +198,8 @@
    },
    "demonstrated": {
     "value": 25.0,
-    "source": "Heavy suction hose."
+    "source": "Heavy suction hose.",
+    "evidenceClass": "hose practice"
    }
   },
   "sundries_frac": {
@@ -200,7 +213,8 @@
    },
    "demonstrated": {
     "value": 0.2,
-    "source": "With an ANSI/AIAA S-120 mass growth allowance on top."
+    "source": "With an ANSI/AIAA S-120 mass growth allowance on top.",
+    "evidenceClass": "airship weight statement + mass-growth allowance"
    }
   }
  },
@@ -429,97 +443,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 255.2,
        "driver": "220,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 65.57,
        "driver": "19,007 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 7.2,
        "driver": "6,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 134.23,
        "driver": "20.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 6.0,
        "driver": "30 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 9.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 22.5,
        "driver": "2,500 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 390.0,
        "driver": "6 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 23.25,
        "driver": "155 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 2.26,
        "driver": "100 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 0.78,
        "driver": "1.96 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 2.68,
        "driver": "300 m x 357 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 2.15,
        "driver": "1.2 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 0.3,
        "driver": "125 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 2.45,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 184.71,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 1108.3,
@@ -964,97 +994,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 255.2,
        "driver": "220,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 65.57,
        "driver": "19,007 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 7.2,
        "driver": "6,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 164.94,
        "driver": "24.58 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 6.0,
        "driver": "30 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 9.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 22.5,
        "driver": "2,500 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 390.0,
        "driver": "6 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 23.25,
        "driver": "155 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 2.26,
        "driver": "100 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 0.78,
        "driver": "1.96 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 2.68,
        "driver": "300 m x 357 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 2.15,
        "driver": "1.2 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 0.3,
        "driver": "125 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 2.45,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 190.86,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 1145.1,
@@ -1521,97 +1567,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 2552.0,
        "driver": "2,200,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 306.97,
        "driver": "88,976 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 33.6,
        "driver": "28,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 805.37,
        "driver": "120.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 30.0,
        "driver": "150 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 45.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 108.0,
        "driver": "12,000 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 1950.0,
        "driver": "30 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 232.5,
        "driver": "1550 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 21.21,
        "driver": "1000 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 4.71,
        "driver": "11.77 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 6.56,
        "driver": "300 m x 874 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 36.79,
        "driver": "12.3 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 1.4,
        "driver": "1250 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 24.52,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 1231.73,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 7390.4,
@@ -2056,97 +2118,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 2552.0,
        "driver": "2,200,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 306.97,
        "driver": "88,976 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 33.6,
        "driver": "28,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 1254.64,
        "driver": "186.94 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 30.0,
        "driver": "150 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 45.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 108.0,
        "driver": "12,000 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 1950.0,
        "driver": "30 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 232.5,
        "driver": "1550 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 21.21,
        "driver": "1000 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 4.71,
        "driver": "11.77 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 6.56,
        "driver": "300 m x 874 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 36.79,
        "driver": "12.3 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 1.4,
        "driver": "1250 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 24.52,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 1321.58,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 7929.5,
@@ -2613,97 +2691,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 25520.0,
        "driver": "22,000,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 1420.62,
        "driver": "411,775 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 144.0,
        "driver": "120,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 13422.82,
        "driver": "2,000.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 280.0,
        "driver": "1400 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 420.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 1440.0,
        "driver": "160,000 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 6500.0,
        "driver": "100 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 2325.0,
        "driver": "15500 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 205.62,
        "driver": "10000 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 23.54,
        "driver": "58.86 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 14.66,
        "driver": "300 m x 1954 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 516.99,
        "driver": "121.6 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 6.48,
        "driver": "12400 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 243.29,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 10496.6,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 62979.6,
@@ -3148,97 +3242,113 @@
        "item": "Vacuum shell (lattice)",
        "tonnes": 25520.0,
        "driver": "22,000,000 m3 enclosed",
-       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples."
+       "note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+       "evidenceClass": "literature FEA"
       },
       {
        "item": "Gas barrier skin",
        "tonnes": 1420.62,
        "driver": "411,775 m2 hull surface",
-       "note": ""
+       "note": "",
+       "evidenceClass": "literature membrane"
       },
       {
        "item": "Solar skin",
        "tonnes": 144.0,
        "driver": "120,000 m2 projected",
-       "note": ""
+       "note": "",
+       "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
        "tonnes": 13980.77,
        "driver": "2,083.13 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "evidenceClass": "literature pack"
       },
       {
        "item": "Propulsion motors",
        "tonnes": 280.0,
        "driver": "1400 MW peak bus",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench component"
       },
       {
        "item": "Drives, cabling, thermal",
        "tonnes": 420.0,
        "driver": "fraction of motor mass",
-       "note": ""
+       "note": "",
+       "evidenceClass": "unsourced fraction"
       },
       {
        "item": "Rotors and hubs",
        "tonnes": 1440.0,
        "driver": "160,000 m2 disc area",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rotorcraft practice"
       },
       {
        "item": "Cryogenic plant",
        "tonnes": 6500.0,
        "driver": "100 MW rated",
-       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source."
+       "note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+       "evidenceClass": "ground hardware + flight concept"
       },
       {
        "item": "LN2 tankage",
        "tonnes": 2325.0,
        "driver": "15500 t capacity",
-       "note": ""
+       "note": "",
+       "evidenceClass": "cryotank practice"
       },
       {
        "item": "Water tanks and plumbing",
        "tonnes": 205.62,
        "driver": "10000 m3 payload",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice + plumbing allowance"
       },
       {
        "item": "Pump",
        "tonnes": 23.54,
        "driver": "58.86 MW hydraulic set",
-       "note": "Twice the motor mass, for the wet end."
+       "note": "Twice the motor mass, for the wet end.",
+       "evidenceClass": "bench motor + wet-end allowance"
       },
       {
        "item": "Hose",
        "tonnes": 14.66,
        "driver": "300 m x 1954 mm bore",
-       "note": ""
+       "note": "",
+       "evidenceClass": "hose practice"
       },
       {
        "item": "Anchor cable",
        "tonnes": 516.99,
        "driver": "121.6 MN at SF 7",
-       "note": ""
+       "note": "",
+       "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
        "item": "Anchor bag",
        "tonnes": 6.48,
        "driver": "12400 m3 bag",
-       "note": ""
+       "note": "",
+       "evidenceClass": "fabric practice"
       },
       {
        "item": "Winch",
        "tonnes": 243.29,
        "driver": "haul at 5 m/s",
-       "note": ""
+       "note": "",
+       "evidenceClass": "bench motor + sizing allowance"
       },
       {
        "item": "Sundries and margin",
        "tonnes": 10608.19,
        "driver": "avionics, control, mooring, fasteners",
-       "note": ""
+       "note": "",
+       "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
      "totalT": 63649.2,

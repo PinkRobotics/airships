@@ -16,8 +16,8 @@ masses — and each one carries its source in the table below.
 
 THREE COLUMNS, and the leftmost is the point. `floor` takes the single most favourable
 published or derivable number for every line simultaneously, which no real vehicle gets.
-`credible` takes what an engineer would actually plan against. `demonstrated` takes what has
-been built and flown. If the floor column does not close, nothing else needs discussing.
+`credible` takes what an engineer would actually plan against. `demonstrated` combines literature calculations, component and bench
+evidence, and installed or unsourced allowances; it does not describe a built or flown vehicle. If the floor column does not close, nothing else needs discussing.
 """
 from __future__ import annotations
 
@@ -180,6 +180,38 @@ EVIDENCE = {
     },
 }
 
+# Evidence classes describe the existing EVIDENCE sources, not a vehicle test.
+DEMONSTRATED_LINE_EVIDENCE = {'Vacuum shell (lattice)': 'literature FEA',
+ 'Gas barrier skin': 'literature membrane',
+ 'Solar skin': 'installed allowance',
+ 'Battery pack': 'literature pack',
+ 'Propulsion motors': 'bench component',
+ 'Drives, cabling, thermal': 'unsourced fraction',
+ 'Rotors and hubs': 'rotorcraft practice',
+ 'Cryogenic plant': 'ground hardware + flight concept',
+ 'LN2 tankage': 'cryotank practice',
+ 'Water tanks and plumbing': 'fabric practice + plumbing allowance',
+ 'Pump': 'bench motor + wet-end allowance',
+ 'Hose': 'hose practice',
+ 'Anchor cable': 'rope datasheet + assumed safety factor',
+ 'Anchor bag': 'fabric practice',
+ 'Winch': 'bench motor + sizing allowance',
+ 'Sundries and margin': 'airship weight statement + mass-growth allowance'}
+DEMONSTRATED_PARAMETER_EVIDENCE = {'shell_kg_per_m3': 'literature FEA',
+ 'barrier_kg_per_m2': 'literature membrane',
+ 'solar_kg_per_m2': 'installed allowance',
+ 'battery_wh_per_kg': 'literature pack',
+ 'motor_kw_per_kg': 'bench component',
+ 'drive_frac_of_motor': 'unsourced fraction',
+ 'rotor_kg_per_m2_disc': 'rotorcraft practice',
+ 'cryo_t_per_mw': 'ground hardware + flight concept',
+ 'ln2_tank_frac': 'cryotank practice',
+ 'fabric_kg_per_m2': 'fabric practice',
+ 'rope_n_per_kg_per_m': 'rope datasheet',
+ 'rope_safety_factor': 'unsourced safety factor',
+ 'hose_kg_per_m_per_m_bore': 'hose practice',
+ 'sundries_frac': 'airship weight statement + mass-growth allowance'}
+
 CASES = ("floor", "credible", "demonstrated")
 
 # Zylon PBO-AS: tensile strength and density. The strongest commercially available fibre
@@ -282,7 +314,10 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     lines = []
 
     def add(name, t, driver, note=""):
-        lines.append({"item": name, "tonnes": round(t, 2), "driver": driver, "note": note})
+        line = {"item": name, "tonnes": round(t, 2), "driver": driver, "note": note}
+        if case == "demonstrated":
+            line["evidenceClass"] = DEMONSTRATED_LINE_EVIDENCE[name]
+        lines.append(line)
 
     add("Vacuum shell (lattice)", ev("shell_kg_per_m3", case) * spec["dispM3"] / 1000.0,
         f"{spec['dispM3']:,.0f} m3 enclosed",
@@ -433,7 +468,9 @@ def main() -> None:
     ATMOSPHERE = fig["atmosphere"]
     out = {"generated": {"by": "research/analysis/mass-budget.py",
                          "figures": fig["generated"]},
-           "evidence": {k: {c: {"value": v[c][0], "source": v[c][1]} for c in CASES}
+           "evidence": {k: {c: {"value": v[c][0], "source": v[c][1],
+                              **({"evidenceClass": DEMONSTRATED_PARAMETER_EVIDENCE[k]}
+                                 if c == "demonstrated" else {})} for c in CASES}
                         for k, v in EVIDENCE.items()},
            "classes": {}}
 
@@ -561,12 +598,13 @@ def main() -> None:
     print(f"\n{ref}: allowance {r['allowanceT']} t inside {r['displacementM3']:,} m3 "
           f"({r['requiredKgPerM3']} kg/m3, {r['requiredKgPerM2']} kg/m2 of hull)\n")
     w = 30
-    print(f"{'line':<{w}} {'floor':>10} {'credible':>10} {'demonstr.':>10}")
+    print(f"{'line':<{w}} {'floor':>10} {'credible':>10} {'demonstr.':>10}  demonstrated evidence class")
     print("-" * (w + 33))
     names = [x["item"] for x in r["cases"]["floor"]["lines"]]
     for i, n in enumerate(names):
         vals = [r["cases"][c]["lines"][i]["tonnes"] for c in CASES]
-        print(f"{n:<{w}} {vals[0]:>10.1f} {vals[1]:>10.1f} {vals[2]:>10.1f}")
+        print(f"{n:<{w}} {vals[0]:>10.1f} {vals[1]:>10.1f} {vals[2]:>10.1f}  "
+              + r["cases"]["demonstrated"]["lines"][i]["evidenceClass"])
     print("-" * (w + 33))
     print(f"{'TOTAL':<{w}} " + " ".join(f"{r['cases'][c]['totalT']:>10.1f}" for c in CASES))
     print(f"{'x allowance':<{w}} " + " ".join(f"{r['cases'][c]['overBy']:>10.2f}"

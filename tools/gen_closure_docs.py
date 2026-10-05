@@ -60,6 +60,23 @@ def render():
     packing.append('The packing wall is ρφ/(1 + f); the table uses the floor f = 0.10. '
                    'Credible (f = 0.15) and demonstrated (f = 0.20) lower each wall further.')
     mass = (ROOT/'research/analysis/mass-budget.md').read_text()
+    definition = """`floor` takes the single most favourable published or derivable number for **every line
+simultaneously**. `credible` is a planning case. `demonstrated` combines literature
+calculations, component and bench evidence, and installed or unsourced allowances;
+it does not describe a built or flown vehicle. Masses below are tonnes. The last column
+names the evidence behind each `demonstrated` line, including its sizing allowances."""
+    mass = section(mass, '## Three columns, and the left one is the argument', '| line |', definition)
+    table = ['| line | floor | credible | demonstrated | demonstrated evidence class |',
+             '|---|---|---|---|---|']
+    for i, line in enumerate(r['cases']['demonstrated']['lines']):
+        values = [r['cases'][case]['lines'][i]['tonnes'] for case in ('floor','credible','demonstrated')]
+        table.append('| ' + line['item'] + ' | ' + ' | '.join(f'{v:.1f}' for v in values)
+                     + ' | ' + line['evidenceClass'] + ' |')
+    table.append('| **TOTAL** | ' + ' | '.join(f"{r['cases'][c]['totalT']:.1f}" for c in ('floor','credible','demonstrated')) + ' | mixed evidence above |')
+    table.append('| × the 100 t allowance | ' + ' | '.join(f"{r['cases'][c]['overBy']:.2f}×" for c in ('floor','credible','demonstrated')) + ' | |')
+    start = mass.index('| line |')
+    end = mass.index('Sizing the battery', start)
+    mass = mass[:start] + '\n'.join(table) + '\n\n' + mass[end:]
     body = f'''**Displacement is a design variable and the payload is the requirement.** Shell mass
 per enclosed volume is held constant in this conditional study. Area-scaled equipment grows
 more slowly than volume. The complete bill can therefore close by growing the hull only when:
