@@ -33,6 +33,10 @@ def main():
             run([sys.executable, str(ANALYSIS / f'{name}.py'), '--json', str(output)])
             compare(ANALYSIS / output.name, output)
 
+        # Diagnostics compare their own committed JSON without writing it.
+        for name in ('energy-served-inertia', 'energy-motion', 'energy-necessary'):
+            run(['node', f'research/analysis/{name}.mjs', '--check'])
+
         # Use only the dated capture. No agency refresh is part of this target.
         if not (ROOT / 'data/fire-history-bc.json').is_file():
             raise RuntimeError('dated fire capture missing: data/fire-history-bc.json')

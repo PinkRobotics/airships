@@ -1,0 +1,47 @@
+{
+ "schema": "float-claims/1",
+ "files": [
+  "concept/energy-analysis.html",
+  "sim/served-view.js"
+ ],
+ "entries": [
+  {
+   "file": "sim/served-view.js",
+   "key": "943fb31e52b7835e",
+   "class": "calculator",
+   "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+   "context": [],
+   "function": "workedFigures",
+   "gate": "servedenergycheck",
+   "line": 26
+  },
+  {
+   "file": "concept/energy-analysis.html",
+   "key": "7dc2e33d408428bc",
+   "line": 11,
+   "class": "generated",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:analysis:start -->",
+    "end": "<!-- served-energy:analysis:end -->"
+   },
+   "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
+  },
+  {
+   "file": "concept/energy-analysis.html",
+   "key": "56517a00b3f39dcc",
+   "class": "generated",
+   "reason": "The ruled analysis summary is freshly emitted from the study records; it establishes no mission result or structural float verdict.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:analysis:start -->",
+    "end": "<!-- served-energy:analysis:end -->"
+   },
+   "line": 9
+  }
+ ]
+}

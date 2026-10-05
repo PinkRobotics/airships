@@ -574,7 +574,7 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])
             return rules.analysis_issue(occ, entry)
-        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs'}:
+        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs'}:
             if rules is None:
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])

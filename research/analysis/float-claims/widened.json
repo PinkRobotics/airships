@@ -22,7 +22,6 @@
   "app/cockpit/tables.js",
   "app/worked.js",
   "cell/levels.js",
-  "concept/energy-analysis.html",
   "engineering/engineering.js",
   "model-lab/index.html",
   "research/notes/derveni-2024-multi-defect-shell-buckling.md",
@@ -34,7 +33,6 @@
   "sim/narrate.js",
   "sim/power.js",
   "sim/selftest.js",
-  "sim/served-view.js",
   "sim/state.js"
  ],
  "entries": [
@@ -512,7 +510,7 @@
    "class": "method",
    "context": [],
    "reason": "Tooltip explicitly says structural float is unproven and the configured class is used only in the simulation.",
-   "line": 198
+   "line": 200
   },
   {
    "file": "app/cockpit/tables.js",
@@ -520,7 +518,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-   "line": 198
+   "line": 200
   },
   {
    "file": "app/worked.js",
@@ -560,20 +558,6 @@
    "function": "displacedAirG",
    "gate": "test-node",
    "line": 289
-  },
-  {
-   "file": "concept/energy-analysis.html",
-   "key": "56517a00b3f39dcc",
-   "class": "generated",
-   "reason": "The ruled analysis summary is freshly emitted from the study records; it establishes no mission result or structural float verdict.",
-   "generator": "tools/gen_energy_pages.mjs",
-   "gate": "servedenergycheck",
-   "verifier": "tools/check_served_energy.py",
-   "region": {
-    "start": "<!-- served-energy:analysis:start -->",
-    "end": "<!-- served-energy:analysis:end -->"
-   },
-   "line": 9
   },
   {
    "file": "engineering/engineering.js",
@@ -690,7 +674,7 @@
    "class": "method",
    "context": [],
    "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance.",
-   "line": 3
+   "line": 4
   },
   {
    "file": "sim/narrate.js",
@@ -748,16 +732,6 @@
    "function": "selftest",
    "gate": "test-node",
    "line": 77
-  },
-  {
-   "file": "sim/served-view.js",
-   "key": "8d0e8842e599174e",
-   "class": "calculator",
-   "reason": "Accepted exact-input worked quantities retain their structural-float qualification and add the shared force-and-bus feasibility scope.",
-   "context": [],
-   "function": "workedFigures",
-   "gate": "servedenergycheck",
-   "line": 25
   },
   {
    "file": "sim/state.js",

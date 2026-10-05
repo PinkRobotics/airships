@@ -14,3 +14,5 @@ for(const c of Object.values(S.CLASSES)) {
  console.log(`${c.id} publishedPeak=${p.downMW.toFixed(6)} densePeak=${peak.draw.rotors.toFixed(6)} phase=${peak.id} prog=${peak.prog} ask=${ask.rotorAskMW.toFixed(6)} askPhase=${ask.id} vz=${peak.vz.toFixed(6)} hoist=${r.hoist.toFixed(9)} MWh`);
 }
 for(const r of Object.values(result))if(Math.abs(r.p.downMW-r.peak.draw.rotors)>1e-5)throw new Error('dense peak differs from reported peak');
+
+await import("./signed-authority.mjs");

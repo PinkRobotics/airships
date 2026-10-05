@@ -37,9 +37,95 @@ Hold-down descent is priced as climb, on the conservative side; climb against ho
 
 The installed thrust cap is an unverified hover surrogate at the battery-plus-generator rating.
 A feasible result is quasi-static.
-Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility.
-The [served-candidate inertia diagnostic](../research/analysis/energy-served-inertia.json) compares omitted vertical hull inertia and added mass with simultaneous rotor reserve at published and captured routes.
+Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility. These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+The [served-candidate inertia diagnostic](../research/analysis/energy-served-inertia.json) checks signed vertical hull demand against rotor authority in both directions at published and captured routes.
 The feasible-profile records also contain that comparison for every phase.
+
+## Signed demand, added mass and suspended-load limits
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+
+With upward acceleration positive and forces in tonnes-force:
+
+`I = (m_onboard + C * m_displaced_air) * a_z / g`
+
+`T_required = T_quasi + unheld - I`
+
+The sampled rotor demand is accepted only inside `0 <= T_required <= T_available`.
+A negative required thrust is an upward-authority shortage; a demand above available thrust is a downward-authority shortage.
+The screen fixes aerodynamic, bag and drag owners and other electrical loads at the quasi-static values.
+Buoyancy is already in the ledger. Shedding hold-down supplies an upward increment; it is not additional buoyancy.
+The samples, central second difference and cutoff remain unchanged; a gap-free sample is not continuous-time control evidence.
+
+| Phase | Vertical acceleration and first allocation | Still unresolved |
+|---|---|---|
+| SOURCE_APPROACH | Downward into descent: add downward thrust; upward braking: shed it | When rotors are zero and the bag carries the surplus, braking needs a different pickup, tension or trajectory schedule |
+| WATER_FILL | Constant hull altitude; no hull acceleration demand | Water and nitrogen flow and load transfer |
+| OUTBOUND_TRANSIT | Both signs in climb and letdown; shed for upward acceleration, add for downward acceleration | Force allocation follows acceleration, not velocity; aerodynamic response is unvalidated |
+| WATER_RELEASE | Upward while starting the rise: shed; downward while stopping it: add | A rising hull can need additional downward force |
+| BUOYANCY_ESCAPE | Upward then downward: shed then add | No hanging-water owner is credited |
+| RETURN_TRANSIT | Either sign according to endpoint geometry; apply the signed equation | Short-route joins, actuator response and load control |
+
+### Geometry-specific added mass remains open
+
+The coefficients 0.70 and 1.00 are a sensitivity pair for transverse motion of a horizontal capsule of length/diameter 2.
+The lower value rounds Munk's 0.702 transverse coefficient for a prolate spheroid of that fineness: [NACA Report 184 (1924)](https://ntrs.nasa.gov/citations/19930091249), Table I, printed p.20 / PDF p.21.
+It is a potential-flow surrogate, not a measured capsule coefficient; neither endpoint establishes a physical limit.
+The configured capsule has about 25% more volume than the spheroid on the same axes.
+Added mass uses local displaced-air mass, not surplus lift. Attitude coupling requires a mass tensor and separate validation.
+
+### Hull and load need separate equations
+
+The current screen covers the hull alone. A minimum load model treats a rigid load on a taut, inextensible cable with prescribed winch length.
+In SI units, with upward positive, a vertical schematic at fixed instantaneous mass is:
+
+`(m_h + A_h) * z_h'' = B_h - m_h*g - T - F_rotor - F_aero - D_h + F_flow,h`
+
+`(m_b + A_b) * z_b'' = T + B_b - m_b*g - D_b + F_flow,b`
+
+Here B denotes buoyancy, T tensile cable force, A added mass and F_flow the separately required inventory/flow momentum terms.
+The hull feels downward cable tension; bag weight already credited in the quasi-static ledger must not be charged twice.
+For the straight taut-cable limit, `z_b = z_h - ell(t)` and `a_b = a_h - ell''`.
+For a rigid airborne bag with no other force, `T = m_b * (g + a_h - ell'')`.
+Bag buoyancy, water added mass and flow momentum must be supplied through immersion and pickup; dry-air load does not describe an immersed bag.
+
+For peak loads use a one-sided elastic cable with stiffness k, damping c and unloaded winch length ell_0:
+`T = 0` when slack; in extension, `T = max(0, k*(d-ell_0) + c*(d'-ell_0'))`.
+Lateral motion needs pendulum coordinates: `r_b = r_h + ell*q(theta,phi)`, with q a downward-directed unit vector, and the separate body equations.
+Unknown inputs are bag geometry, shell mass and immersion; cable stiffness, damping, distributed mass and slack; initial swing, flow history and winch speed ramps.
+No snatch factor or assumed value closes these equations.
+This treatment follows [Cicolani and Kanning, NASA TP-3280 (1992)](https://ntrs.nasa.gov/citations/19930003627), section 3, eqs.9b and 10 (PDF pp.14 and 16), and Figure 3 (printed p.15 / PDF p.23). No suspension parameters from another aircraft are transferred.
+
+### Dated withdrawn measurement
+
+Dated measurement at landing 16, 2026-10-05: absolute inertial force minus the additional downward rotor reserve at the same samples and coefficients. Withdrawn because it misses upward authority that cannot be obtained by shedding the existing downward thrust. Recomputed here solely to preserve that measurement.
+
+| Population | Withdrawn absolute / signed | Reason |
+|---|---|---|
+| candidates | 284 / 354 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| capturedMissions | 16 / 21 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+
+
+## Necessary stored energy, ideal accounting
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+
+Ideal, lossless chronological accounting with nominal class storage fully usable and the plan initial nitrogen inventory charged. No losses, health, state-of-charge window, reserve, external recharge or thermal limit. This is not an endurance rule, a mission-completion verdict or a battery model. Solar and nitrogen recovery are the existing bus inputs, not a promised recharge system.
+
+Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples per phase, in PHASES order. Record cumulative draw at every phase end; interpolate the first nominal-storage crossing inside its sample.
+
+| Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
+|---|---|---|---|---|---|---|
+| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.6 | 20 | 127.9 | 21.6 | index.html |
+| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 58.9 | 20 | 169.5 | 38.9 | index.html |
+| fullDeliveryBest | P100 / 15.000000 / record | 42.0 | 20 | 129.3 | 22.0 | index.html; concept/index.html |
+| fullDeliveryBest | P100 / 15.000000 / favourable | 37.8 | 20 | 123.9 | 17.8 | index.html; concept/index.html |
+| asDrawn | P100 / 60.000000 / record | 20.1 | 20 | 104.7 | 0.1 | index.html; concept/index.html |
+| ready selector | P1000 / 400.000000 / record | 330.5 | 120 | 233.1 | 210.5 | concept/energy-analysis.html |
+
+Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+
+Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
 
 ## What the profile search means
 
@@ -71,20 +157,22 @@ Retained water is searched at five-percent payload steps and at each bisected fi
 Printed requirements round upward at the verdict resolution and replay through the model.
 The older whole-phase dilation is named `movingPhaseRateMultiplier`; the new search does not use it.
 
-| Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient |
-|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | does not close | 34.196 | 8.192 | 81.923 | 1.418 |
-| P100 | 15 | favourable | does not close | 34.196 | 6.402 | 64.017 | 1.824 |
-| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.742 |
-| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.444 |
-| P1000 | 15 | record | does not close | 35.362 | 62.314 | 62.314 | 1.149 |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.355 | 61.355 | 1.167 |
-| P1000 | 60 | record | does not close | 93.116 | 141.533 | 141.533 | 1.334 |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.484 | 142.484 | 1.325 |
-| P10000 | 15 | record | does not close | 45.512 | 694.378 | 69.438 | 2.198 |
-| P10000 | 15 | favourable | does not close | 45.512 | 766.285 | 76.629 | 1.990 |
-| P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |
-| P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+
+| Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient | Profile note |
+|---|---|---|---|---|---|---|---|---|
+| P100 | 15 | record | does not close | 34.196 | 8.192 | 81.923 | 1.418 |  |
+| P100 | 15 | favourable | does not close | 34.196 | 6.402 | 64.017 | 1.824 |  |
+| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.742 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.444 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | does not close | 35.362 | 62.314 | 62.314 | 1.149 |  |
+| P1000 | 15 | favourable | does not close | 35.362 | 61.355 | 61.355 | 1.167 |  |
+| P1000 | 60 | record | does not close | 93.116 | 141.533 | 141.533 | 1.334 |  |
+| P1000 | 60 | favourable | does not close | 93.116 | 142.484 | 142.484 | 1.325 |  |
+| P10000 | 15 | record | does not close | 45.512 | 694.378 | 69.438 | 2.198 |  |
+| P10000 | 15 | favourable | does not close | 45.512 | 766.285 | 76.629 | 1.990 |  |
+| P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |  |
+| P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |  |
 
 ## Corrections from the energy comparison
 

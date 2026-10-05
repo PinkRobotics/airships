@@ -310,47 +310,47 @@ Can an aerospace engineer establish attainable hull downforce and drag across th
 
 The search stops at a peak letdown cap of 0.5 m/s. What lower bound would mission conditions justify?
 
-Can added-mass and control measurements close the gap where omitted inertia exceeds simultaneous rotor reserve? Full-delivery profiles below are quasi-static analysis.
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. Can shape-specific added-mass and control measurements close the signed authority gaps? Full-delivery profiles below are quasi-static analysis.
 
-| Class | km | Basis | Full-payload mode | Delivered t | Minutes | MWh | kWh/t | Inertia qualification |
+| Class | km | Basis | Full-payload mode | Delivered t | Minutes | MWh | kWh/t | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | rapid | 100.000 | 176.468 | 42.788 | 427.878 | closes only quasi-statically |
-| P100 | 15 | favourable | rapid | 100.000 | 163.432 | 38.497 | 384.967 | closes only quasi-statically |
-| P100 | 60 | record | rapid | 100.000 | 75.440 | 14.848 | 148.479 | closes only quasi-statically |
-| P100 | 60 | favourable | rapid | 100.000 | 75.440 | 11.263 | 112.630 | closes only quasi-statically |
+| P100 | 15 | record | rapid | 100.000 | 176.468 | 42.788 | 427.878 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 15 | favourable | rapid | 100.000 | 163.432 | 38.497 | 384.967 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 60 | record | rapid | 100.000 | 75.440 | 14.848 | 148.479 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | rapid | 100.000 | 75.440 | 11.263 | 112.630 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-3:end -->
 
 <!-- energy:question-4:start -->
 ## 4. How much delivery can be retained while holding the hull?
 
-Can a measured vehicle carry the retained-water requirements below throughout the cycle? What reserve is needed beyond the first closing threshold?
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. Can a measured vehicle carry the retained-water requirements below throughout the cycle? What reserve is needed beyond the first closing threshold?
 
-| Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne |
-|---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.192 | 81.923 |
-| P100 | 15 | record | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 5.201 | 80.021 |
-| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.402 | 64.017 |
-| P100 | 15 | favourable | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 3.793 | 58.359 |
-| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.521 | 205.214 |
-| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.382 | 1.618 | 64.420 | 14.100 | 143.315 |
-| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.764 | 147.639 |
-| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 100.000 | 0.000 | 75.440 | 11.263 | 112.630 |
-| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.314 | 62.314 |
-| P1000 | 15 | record | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 26.489 | 122.866 |
-| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.355 | 61.355 |
-| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 21.539 | 99.905 |
-| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.533 | 141.533 |
-| P1000 | 60 | record | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 68.866 | 254.583 |
-| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.484 | 142.484 |
-| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 56.659 | 209.457 |
-| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.378 | 69.438 |
-| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 200.116 | 76.200 |
-| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 766.285 | 76.629 |
-| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 183.419 | 69.842 |
-| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.855 | 111.385 |
-| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 439.851 | 146.164 |
-| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1386.308 | 138.631 |
-| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 397.762 | 132.178 |
+| Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne | Profile note |
+|---|---|---|---|---|---|---|---|---|---|
+| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.192 | 81.923 |  |
+| P100 | 15 | record | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 5.201 | 80.021 | quasi-static closure; hull-only sampled screen does not validate dynamics |
+| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.402 | 64.017 |  |
+| P100 | 15 | favourable | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 3.793 | 58.359 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.521 | 205.214 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.382 | 1.618 | 64.420 | 14.100 | 143.315 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.764 | 147.639 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 100.000 | 0.000 | 75.440 | 11.263 | 112.630 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.314 | 62.314 |  |
+| P1000 | 15 | record | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 26.489 | 122.866 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.355 | 61.355 |  |
+| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 21.539 | 99.905 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.533 | 141.533 |  |
+| P1000 | 60 | record | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 68.866 | 254.583 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.484 | 142.484 |  |
+| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 56.659 | 209.457 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.378 | 69.438 |  |
+| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 200.116 | 76.200 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 766.285 | 76.629 |  |
+| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 183.419 | 69.842 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.855 | 111.385 |  |
+| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 439.851 | 146.164 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1386.308 | 138.631 |  |
+| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 397.762 | 132.178 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-4:end -->
 
 ## 5. Esri basemap tiles — FIXED 2026-10-01
@@ -414,9 +414,11 @@ is the list to work through.
 <!-- energy:question-8:start -->
 ## 8. What rotor area, thrust and storage mass can be built?
 
-What evidence supports the installed disk area, downward-only thrust and battery rating together? Can any required storage mass fit inside the dry-mass target?
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. What evidence supports the installed disk area, downward-only thrust and battery rating together? Can any required storage mass fit inside the dry-mass target?
 
 ## What the model would require
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
 
 Generated by `node research/analysis/energy-tables.mjs`. Each printed closing value is rounded up to three decimals and replayed at the verdict resolution.
 
@@ -600,9 +602,11 @@ leaving the question unasked.
 <!-- energy:question-14:start -->
 ## 14. Can the bag be picked up and released at this scale?
 
-What cable, winch and control measurements would bound pickup shock and pendulum motion? How much station-keeping power is missing under a beam wind?
+What cable, winch and control measurements would quantify pickup loads and pendulum motion? How much station-keeping power is missing under a beam wind?
 
 ## What this model leaves out
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
 
 Generated by `node research/analysis/energy-omissions.mjs`. These loads are not silently absorbed into a closing claim.
 
@@ -913,11 +917,76 @@ What measured mass belongs to the outfit’s 622 solar pieces, 6 pods and 12 mod
 
 ---
 
-## Closed: current served energy figures use feasible plans
+## Closed: served figures use quasi-static feasible plans
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
 
 Closed on 2026-10-03. The monitor plans each mission at its exact leg distance, full wind input and shown mode; record basis is the default, with the same controls on the favourable basis beside it. Missing wind is labelled and uses still air. A mission without an accepted plan stands down and contributes no rate. The worked examples and ruled page sentences are generated and checked. Requested water, water kept aboard, energy supplied and water delivered remain distinct.
 
 The interim labels are retired. Earlier report text remains dated history under its superseded-report warning; unsupported prescribed profiles remain diagnostic analysis. The model's structural, transient-control and hardware assumptions remain open. No aircraft has flown.
+
+<!-- energy:open-limits:start -->
+## Endurance frame: what mission can the stores support?
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+
+Closure needs an authorised mission horizon and terminal state, a usable state-of-charge window, an operational reserve, a recharge schedule and a thermal policy. Each must be supplied before endurance can become a gate.
+
+| Component | What closes it | What it moves |
+|---|---|---|
+| Mission horizon | Name cycles, base transit, holding, standby, abort/return and terminal state; the director sets the requirement | Availability, sustained rate and completion acceptance |
+| Usable storage and initial state | Pack tests and BMS limits for initial SoC, usable window, health, losses and power versus SoC/temperature; account for initial nitrogen and integrate both inventories | Permitted energy, storage mass and rejected cycles |
+| Reserve | A named contingency trajectory with force, power, energy and a terminal state; distinguish contingency reserve from the protected pack floor | Dispatch availability and return/termination acceptance |
+| Recharge | Installed source schedule, charger rating/efficiency, charge acceptance, hotel/cooling power, nitrogen production and turnaround; conserve both stores over repeated cycles | Recovery time, repeated-cycle availability and sustained rate |
+| Thermal policy | Measured electrical/thermal pack parameters, initial and ambient temperature, cooling and derating, charge/discharge limits and abort thresholds | Sustained power, energy, cooling mass and accepted duty cycle |
+
+The accounting structure is supported by [Welstead, NASA/TM-20230011630 (2023)](https://ntrs.nasa.gov/citations/20230011630), printed pp.5-7 / PDF pp.9-11, Table 1.
+Mission and reserve definition are illustrated by [Johnson and Silva (2022)](https://ntrs.nasa.gov/citations/20210026170), printed pp.66-67 / PDF pp.8-9, sections 4 and 4.1.
+Duty-cycle voltage, temperature and health validation are supported by [Bills et al.](https://arxiv.org/abs/2008.01527), PDF pp.4-5 and 7-8.
+Their pack and mission examples are not values adopted for this vehicle; no endurance horizon, reserve or thermal threshold is invented here.
+
+## Necessary stored energy, ideal accounting
+
+These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished.
+
+Ideal, lossless chronological accounting with nominal class storage fully usable and the plan initial nitrogen inventory charged. No losses, health, state-of-charge window, reserve, external recharge or thermal limit. This is not an endurance rule, a mission-completion verdict or a battery model. Solar and nitrogen recovery are the existing bus inputs, not a promised recharge system.
+
+Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples per phase, in PHASES order. Record cumulative draw at every phase end; interpolate the first nominal-storage crossing inside its sample.
+
+| Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
+|---|---|---|---|---|---|---|
+| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.6 | 20 | 127.9 | 21.6 | index.html |
+| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 58.9 | 20 | 169.5 | 38.9 | index.html |
+| fullDeliveryBest | P100 / 15.000000 / record | 42.0 | 20 | 129.3 | 22.0 | index.html; concept/index.html |
+| fullDeliveryBest | P100 / 15.000000 / favourable | 37.8 | 20 | 123.9 | 17.8 | index.html; concept/index.html |
+| asDrawn | P100 / 60.000000 / record | 20.1 | 20 | 104.7 | 0.1 | index.html; concept/index.html |
+| ready selector | P1000 / 400.000000 / record | 330.5 | 120 | 233.1 | 210.5 | concept/energy-analysis.html |
+
+Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+
+Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
+
+## Shape-specific added mass: what coefficient belongs to the capsule?
+
+Closure needs a capsule-specific potential-flow solution at the configured geometry, followed by unsteady, viscous, appendage and attitude evidence and experimental validation.
+The current spheroid surrogate and sensitivity pair are not measured capsule data. Local density and displaced volume must remain explicit.
+A measured coefficient or tensor would move signed force demand, permissible acceleration, replan time and integrated energy, then any authorised dynamic acceptance.
+Source: [Munk, NACA Report 184](https://ntrs.nasa.gov/citations/19930091249), Table I, printed p.20 / PDF p.21.
+
+## Bag and cable: what load history reaches the hull?
+
+Closure needs rigid-body hull and load equations, a taut cable with prescribed winch length, an elastic one-sided tension law for peak loads and pendulum coordinates for lateral motion.
+Needed inputs are bag geometry and immersion, water-flow and entrained mass, cable stiffness, damping and slack, initial swing and winch speed ramps. They are unknown.
+It would move cable and winch sizing, power, hull control demand, pickup/transfer limits and accepted profiles.
+Source: [Cicolani and Kanning, NASA TP-3280](https://ntrs.nasa.gov/citations/19930003627), section 3, eqs.9b and 10; Figure 3, printed p.15 / PDF p.23.
+
+## Dynamic replan: what trajectory and load schedule can close together?
+
+Closure needs a search of altitude acceleration, climb/letdown timing and airspeed, release-rise timing, rotor thrust schedule and bag pickup/tension/winch schedule together, while preserving endpoints, cable reach and requested water.
+Check signed force in both directions, bus draw, actuator rates, coupled load limits and both sides of joins over the same chronological history. A C1 altitude join alone does not establish realizable acceleration or thrust response.
+Check initial stores, usable energy, reserve, recharge and thermal policy when an endurance frame is authorised. Publish both successful and failed searches.
+This would move mission profiles, cycle minutes, rates, peaks and energy, and ultimately an authorised completion predicate. A release-only time change cannot establish full-cycle cost without bag and actuator inputs; no replanning count or universal time/energy factor is asserted here.
+<!-- energy:open-limits:end -->
 
 ## What is not on this list
 

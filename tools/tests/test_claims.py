@@ -661,6 +661,27 @@ class DocumentScopeTest(ClaimsFixture, unittest.TestCase):
         ctx=Context(self.root,['research/analysis/energy-unheld.md'])
         self.assertEqual(ctx.generated_issue(o,claims.entry_for(o,owner,gate))['kind'],'stale-generated-region')
 
+    def test_motion_numbers_have_json_owner_and_reject_a_hand_edit(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        prefix='<!-- energy:motion:start -->\n'
+        suffix=' tonnes.\n<!-- energy:motion:end -->\n'
+        self.put('research/analysis/energy-motion.json','{"gap":110}')
+        self.put('research/analysis/energy-motion.md',prefix+'110'+suffix)
+        self.put('research/analysis/energy-motion.mjs',
+                 "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('research/analysis/energy-motion.json')); "
+                 "const expected="+json.dumps(prefix)+"+d.gap+"+json.dumps(suffix)+"; "
+                 "if(!process.argv.includes('--check')||fs.readFileSync('research/analysis/energy-motion.md','utf8')!==expected)process.exitCode=1;")
+        occ=self.extract()[0]
+        ctx=Context(self.root,['research/analysis/energy-motion.md'])
+        owner,gate=ctx.generator_owner(occ)
+        self.assertEqual(owner['source'],'research/analysis/energy-motion.json')
+        self.assertEqual(gate,'energydoccheck')
+        self.assertIsNone(ctx.generated_issue(occ,claims.entry_for(occ,owner,gate)))
+        self.put('research/analysis/energy-motion.md',prefix+'111'+suffix)
+        ctx=Context(self.root,['research/analysis/energy-motion.md'])
+        self.assertEqual(ctx.generated_issue(occ,claims.entry_for(occ,owner,gate))['kind'],'stale-generated-region')
+
 
 class SpanBasisTest(ClaimsFixture, unittest.TestCase):
     def test_model_key_does_not_clear_a_deferred_float_block(self):

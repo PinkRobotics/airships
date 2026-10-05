@@ -502,7 +502,7 @@
     {
       "file": "concept/index.html",
       "key": "5833d3512428c35c",
-      "line": 688,
+      "line": 691,
       "text": "As water is pushed up the hose, the ship gets heavier and its net positive buoyancy falls. The downforce it was spending to hold itself low is progressively handed over to the payload itself. It only ever needs to force itself into hose range; incoming water does the rest of the pulling down.",
       "class": "flight-model",
       "reason": "This describes payload mass replacing downforce in the assumed-buoyant flight cycle, conditional on the explicit structural assumption.",
@@ -511,23 +511,23 @@
     {
       "file": "concept/index.html",
       "key": "4a8084e3847385b0",
-      "line": 721,
+      "line": 724,
       "class": "deferred",
       "reason": "Compressed-air tank mass and negligible cryogenic tank mass are asserted without a tank bill that closes those allowances.",
       "owner": "energy-model"
     },
     {
       "file": "concept/index.html",
-      "key": "c92580efdabefc42",
-      "line": 772,
-      "text": "Three reference scales, named for their payload in tonnes of water. These configured fleet classes use geometric and equipment assumptions. The separate structural hull does not validate their mass or payload capacity. Its record-basis lift-to-mass ratio falls across the sampled sizes. These cards read the fixed class configuration. The dials change the worked example, not these cards. All three are conceptual: their dimensions are geometric scaling, and their pump, cryogenic, propulsion and generator systems have not been designed as integrated aircraft.",
+      "key": "3fc950b9cc464287",
+      "line": 775,
+      "text": "Three reference scales, named for their payload in tonnes of water. These configured fleet classes use geometric and equipment assumptions. These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. The separate structural hull does not validate their mass or payload capacity. Its record-basis lift-to-mass ratio falls across the sampled sizes. These cards read the fixed class configuration. The dials change the worked example, not these cards. All three are conceptual: their dimensions are geometric scaling, and their pump, cryogenic, propulsion and generator systems have not been designed as integrated aircraft.",
       "class": "conditional",
-      "reason": "The configured fleet capacities are assumptions; fixed class cards do not change with the worked-example dials or establish structural capacity."
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained."
     },
     {
       "file": "concept/index.html",
       "key": "cfc91e9af09677bc",
-      "line": 807,
+      "line": 810,
       "text": "The first generation, kept for the comparison: a lifting volume filled end to end with printed, independently sealed vacuum voids. The current design keeps the vacuum and gives up the filling twice over. A deep two-walled truss with nothing in the middle is wrapped in ONE membrane laid on hoop rings and pressed on by the atmosphere. Breach containment is compartment membranes across the void. No drawn hull floats. The ship comparison states both bases and altitudes, the unresolved cap accounting and the tests still needed. The newer structural drawing puts machinery on a raft outside the vacuum, with solar panels above and rotors on pylons. Compartment membranes are intended to limit damage; their arrangement remains open. The structural research this rests on is cited on the research page .",
       "class": "bound",
       "reason": "The historical render is distinguished from the external equipment raft and unresolved compartment arrangement; the drawn hull still does not float.",
@@ -542,7 +542,7 @@
     {
       "file": "concept/index.html",
       "key": "656c76c23c6584d2",
-      "line": 903,
+      "line": 906,
       "text": "How much power it costs rotors of a given total disk area to push down with force T, divided by an overall efficiency. It is used whenever the ship must descend while still buoyant. This is the ideal momentum-theory floor. The model quotes it explicitly so the margin to real installed performance is visible rather than absorbed.",
       "class": "other-quantity",
       "reason": "This defines the ideal induced-power quantity and its efficiency divisor; it gives no structural closure or delivered-payload result."
@@ -550,7 +550,7 @@
     {
       "file": "concept/index.html",
       "key": "be5007616452bdcb",
-      "line": 1064,
+      "line": 1067,
       "text": "The first physical gate is the sealed bench article A, intended to test joints, films, seals and a months-long vacuum hold. That drawn article does not float. The ledger keeps its bill separate from the hull and fleet assumptions.",
       "class": "bound",
       "reason": "Article A is a nonfloating bench experiment for seals and load paths; its ledger row is distinct from the hull and fleet.",
@@ -776,15 +776,15 @@
       "class": "deferred",
       "reason": "Proposed weather recovery is explicitly undemonstrated; its flight operations have no exact generated-region binding.",
       "owner": "energy-model",
-      "line": 827
+      "line": 830
     },
     {
       "file": "concept/index.html",
-      "key": "883ebaba3debf667",
+      "key": "d1acd59ea7b77bcc",
       "class": "method",
       "context": [],
-      "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-      "line": 881
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+      "line": 884
     },
     {
       "file": "concept/index.html",
@@ -798,7 +798,7 @@
         "start": "<!-- served-energy:concept:start -->",
         "end": "<!-- served-energy:concept:end -->"
       },
-      "line": 871
+      "line": 874
     },
     {
       "file": "concept/index.html",
@@ -812,7 +812,7 @@
         "start": "<!-- served-energy:concept:start -->",
         "end": "<!-- served-energy:concept:end -->"
       },
-      "line": 870
+      "line": 873
     },
     {
       "file": "cell/ship.html",
@@ -824,9 +824,9 @@
     },
     {
       "file": "concept/index.html",
-      "key": "d8fd0a0255f4dfc7",
+      "key": "a02e4cf5c5f7c2c0",
       "class": "generated",
-      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",
@@ -834,7 +834,7 @@
         "start": "<!-- served-energy:concept:start -->",
         "end": "<!-- served-energy:concept:end -->"
       },
-      "line": 870
+      "line": 873
     },
     {
       "file": "concept/index.html",
@@ -872,17 +872,17 @@
     },
     {
       "file": "concept/index.html",
-      "key": "06faeea7dacc12f0",
+      "key": "824ab28324637d9e",
       "class": "method",
       "context": [],
-      "reason": "Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
-      "line": 695
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+      "line": 698
     },
     {
       "file": "concept/index.html",
-      "key": "463828b53ba9c176",
+      "key": "e2ded21f1c116946",
       "class": "generated",
-      "reason": "Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",
@@ -890,7 +890,7 @@
         "start": "<!-- served-energy:concept:start -->",
         "end": "<!-- served-energy:concept:end -->"
       },
-      "line": 870
+      "line": 873
     }
   ]
 }

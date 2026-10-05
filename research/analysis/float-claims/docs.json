@@ -838,7 +838,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "bb875fc9630dff24",
-      "line": 241,
+      "line": 243,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -852,7 +852,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "451c1bbcffc340c7",
-      "line": 253,
+      "line": 255,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -860,7 +860,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "5ee2543ddd270d0b",
-      "line": 329,
+      "line": 333,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -874,7 +874,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "382335bf5ffcf978",
-      "line": 341,
+      "line": 345,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -899,7 +899,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "dd021e7abaca30e6",
-      "line": 263,
+      "line": 265,
       "class": "method",
       "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": [],
@@ -932,6 +932,48 @@
       ],
       "reason": "Reading guide distinguishes the current hull summary, retained dated work and the explicitly unreproduced table; it claims no new computed or physical result.",
       "line": 3
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "1e313d903b4a4f94",
+      "line": 391,
+      "class": "generated",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "6a45c9a3dd10599c",
+      "line": 397,
+      "class": "generated",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "0b5195293e15ccdd",
+      "line": 423,
+      "class": "generated",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
     }
   ]
 }

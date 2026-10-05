@@ -129,6 +129,9 @@ class Context:
 
     def generator_owner(self, occ):
         region = occ['region']
+        if occ['file']=='research/analysis/energy-motion.md' and region=='energy:motion':
+            return dict(kind='generated',generator='research/analysis/energy-motion.mjs',
+                        region=region,source='research/analysis/energy-motion.json'), 'energydoccheck'
         if occ['file']=='README.md' and region and region.startswith('readme:'):
             return dict(kind='generated',generator='tools/gen_readme.py',region=region), 'readmecheck'
         if region and region.startswith('served-energy:'):
@@ -156,7 +159,7 @@ class Context:
         generator = owner['generator']
         if not (self.root / generator).is_file():
             return dict(kind='generator-missing', observed=None, expected=generator)
-        if generator in {'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs'}:
+        if generator in {'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs'}:
             if generator not in self.checked_analysis:
                 p = subprocess.run(['node',generator,'--check'],cwd=self.root,capture_output=True,text=True,timeout=120)
                 self.checked_analysis[generator] = p.returncode

@@ -113,6 +113,8 @@ def render(d: dict) -> dict[str, str]:
     fires, fleet, ex = d['fires'], d['fleet'], d['example']
     top = d['topFires']
     mode = d['mode']            # the page's own mode sentence, the ruling's fixed words
+    qualification = esc(d['qualification'])
+    pointer = '<p>'+d['diagnosticPointerHtml']+'</p>'
     guard = d['guard']          # the page's own guard note, likewise
 
     hud = (f'<b>EXERCISE</b> · {fmt(fires["active"])} invented fires · simulated fleet')
@@ -128,14 +130,15 @@ def render(d: dict) -> dict[str, str]:
         for s in grp['ships']:
             fire = esc(s['fire']) if s['fire'] else '<span style="color:var(--faint)">standing by</span>'
             rate = f'{fmt(s["tph"])} kL/h <small>sim</small>' if s['tph'] else '—'
-            rows.append(f'<tr class="r-ship"><td class="r-name">{esc(s["hull"])}</td>'
+            note = f'<small style="display:block">{esc(s["note"])}</small>' if s['note'] else ''
+            rows.append(f'<tr class="r-ship"><td class="r-name">{esc(s["hull"])}{note}</td>'
                         f'<td>{fire}</td><td class="ph">{rate}</td></tr>')
     roster = (f'<table class="fleettab" aria-label="Fleet roster from the invented '
               f'{esc(date)}, grouped by class: hull, the fire it serves, and its simulated release rate">'
               '<tbody>' + ''.join(rows) + '</tbody></table>'
               f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
               f'Allocation over invented exercise fires. '
-              f'This printed copy is the fixed exercise bundled with this page.</p>')
+              f'This printed copy is the fixed exercise bundled with this page. {qualification}</p>')
 
     frows = []
     for f in top:
@@ -145,7 +148,8 @@ def render(d: dict) -> dict[str, str]:
         # notion of a hull's range, so the cell does not name one. A fire the guard holds is
         # never in this table at all — it was never a candidate.
         rate = f'{fmt(f["tph"])} kL/h <small>sim</small>' if f['tph'] else 'queued'
-        frows.append(f'<tr class="r-ship"><td>{esc(f["name"])}</td>'
+        note = f'<small style="display:block">{esc(f["note"])}</small>' if f['note'] else ''
+        frows.append(f'<tr class="r-ship"><td>{esc(f["name"])}{note}</td>'
                      f'<td style="text-align:right">{fmt(f["sizeHa"])} ha</td>'
                      f'<td style="text-align:right">{hull}</td>'
                      f'<td style="text-align:right">{rate}</td></tr>')
@@ -154,7 +158,7 @@ def render(d: dict) -> dict[str, str]:
                 '<tbody>' + ''.join(frows) + '</tbody></table>'
                 f'<p class="small" style="margin-top:var(--s2);font-size:var(--t-11);color:var(--faint)">'
                 f'Invented exercise sizes, fitted to aggregate season quantiles. This printed copy is '
-                f'the fixed exercise bundled with this page.</p>')
+                f'the fixed exercise bundled with this page. {qualification}</p>')
 
     p100, p1000, p10000 = fleet
     total = sum(g['count'] for g in fleet)
@@ -167,7 +171,7 @@ def render(d: dict) -> dict[str, str]:
     if ex:
         mission = f'''
   <h3>One mission, worked</h3>
-  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned in the simulation to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. In the simulation, the ship climbs along the selected force-checked profile; buoyancy is accounted for, and the return makes nitrogen ballast. Its planned mode is {esc(ex['mode'])}, with wind not measured and still air used. Water requested is {fmt(ex['requestedT'])} t; water kept aboard is {fmt(ex['keptT'])} t. It delivers {fmt(ex['releasedT'])} t of water over its planned lines, releasing at a modelled {fmt(ex['tph'])} kL/h over this invented fire; released water is not suppression. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists.</p>'''
+  <p><b style="color:var(--warm)">{esc(ex['hull'])}</b>, a {esc(ex['cls'])}, is assigned in the simulation to {esc(ex['fire'])} ({esc(ex['fireId'])}: {fmt(ex['fireHa'])} ha, {esc(ex['fireStatus']).lower()}). It fills from {esc(ex['source'])} ({fmt(ex['sourceHa'])} ha of mapped surface), a {fmt1(ex['legKm'])} km leg from the fire. One cycle takes about {fmt(ex['cycleMin'])} minutes: approach the water, pump aboard, transit, and drop along the fire. In the simulation, the ship climbs along the selected force-checked profile; buoyancy is accounted for, and the return makes nitrogen ballast. Its planned mode is {esc(ex['mode'])}, with wind not measured and still air used. Water requested is {fmt(ex['requestedT'])} t; water kept aboard is {fmt(ex['keptT'])} t. It delivers {fmt(ex['releasedT'])} t of water over its planned lines, releasing at a modelled {fmt(ex['tph'])} kL/h over this invented fire; released water is not suppression. The cycle is computed end to end from invented exercise fires and real water data. Simulation, not operations: no such aircraft exists. {qualification} {esc(ex["note"])}</p>'''
 
     main = f'''
 <style>
@@ -198,7 +202,8 @@ def render(d: dict) -> dict[str, str]:
   <h3>The exercise fires: all invented</h3>
   <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: {fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</h3>
-  <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t requested capacity and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t requested capacity and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t requested capacity and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above.</p>
+  <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t requested capacity and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t requested capacity and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t requested capacity and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above. {qualification}</p>
+  {pointer}
   <figure>
     <img src="media/map-snapshot.jpg" width="{pw}" height="{ph}"
       alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">

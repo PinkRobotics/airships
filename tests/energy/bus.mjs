@@ -18,3 +18,5 @@ for(const {c,m,p,tag} of S.grid(S)){
 }
 console.log(JSON.stringify({samples,overloadCases:rows.filter(x=>x.overCount).length,unflaggedClippingCases:rows.filter(x=>x.unflaggedClip).length}));
 if(rows.some(x=>x.overCount||x.unflaggedClip))throw new Error('bus sampler found an overload or unflagged clipping');
+
+await import("./necessary-energy.mjs");

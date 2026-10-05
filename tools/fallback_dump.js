@@ -27,6 +27,7 @@
     cls: CLASSES[id].name, count: HULL_NAMES[id].length,
     ships: S.missions.filter(m => m.cls && m.cls.id === id).map(m => ({
       hull: m.name || null,
+      note: SIM.diagnosticNotes(m.cls,m.legKm,m.selection,m.wind??null).join(". "),
       fire: m.idle ? null : fname(m.fire),
       tph: m.idle ? null : Math.round(m.plan.tph),
     })),
@@ -37,6 +38,7 @@
     .sort((a, b) => b.sizeHa - a.sizeHa).slice(0, 8).map(f => ({
       name: fname(f), id: f.id, sizeHa: Math.round(f.sizeHa), status: f.status,
       hull: f.mission && !f.mission.idle ? f.mission.name : null,
+      note: [...new Set(S.missions.filter(m=>m.fire===f&&missionReady(m)).flatMap(m=>SIM.diagnosticNotes(m.cls,m.legKm,m.selection,m.wind??null)))].join('. '),
       tph: S.missions.some(m=>m.fire===f&&missionReady(m)) ? Math.round(S.missions.filter(m=>m.fire===f&&missionReady(m)).reduce((n,m)=>n+m.plan.tph,0)) : null,
     }));
 
@@ -53,6 +55,7 @@
   pick = pick || anyShip;
   const example = pick && {
     hull: pick.name, cls: pick.cls.name,
+    note: SIM.diagnosticNotes(pick.cls,pick.legKm,pick.selection,pick.wind??null).join(". "),
     fire: fname(pick.fire), fireId: pick.fire.id,
     fireHa: Math.round(pick.fire.sizeHa), fireStatus: pick.fire.status,
     source: srcName(pick), sourceHa: Math.round(pick.water[2]),
@@ -64,6 +67,8 @@
   return {
     generated: { by: 'tools/fallback_dump.js via tools/gen_fallback.py',
                  inputs: 'data/exercise/exercise.json; invented fires; seed from the file' },
+    qualification: SIM.FEASIBILITY_SCOPE,
+    diagnosticPointerHtml: document.querySelector('[data-energy-sentence="fleet-diagnostic-pointer"]').innerHTML,
     day: S.day,                     // the day the view shows (America/Vancouver)
     snapshotAt: S.snapshotDate,     // when that day's files were captured (UTC)
     tier: S.tier,

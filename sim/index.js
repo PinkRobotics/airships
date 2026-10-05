@@ -72,3 +72,5 @@ export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?
 
 export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=fc85766f";
 export {workedFigures,planStatusText} from "./served-view.js?v=fc85766f";
+
+export {diagnosticNotes} from './energy-notes.js?v=fc85766f';

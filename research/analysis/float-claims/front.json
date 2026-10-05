@@ -98,10 +98,10 @@
     },
     {
       "file": "index.html",
-      "key": "f398313218b89c1f",
-      "line": 763,
+      "key": "763c4cdbb6100a4a",
+      "line": 764,
       "class": "bound",
-      "reason": "This note sits outside the container the script replaces, so it stays on the page when scripts run; it names the flight model’s float assumption and binds the drawn-hull verdict to the ledger.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "bindings": [
         {
           "source": "research/analysis/float-ledger.json",
@@ -160,9 +160,9 @@
     },
     {
       "file": "index.html",
-      "key": "04f00c8593944c4d",
+      "key": "8d56ce71bd34e6f8",
       "class": "generated",
-      "reason": "Page text reads a feasible exact-input plan or a configured requested capacity; it does not claim measured flight or structural float.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "context": [],
       "generator": "tools/gen_fallback.py",
       "gate": "fallbackcheck",
@@ -171,7 +171,7 @@
         "start": "<!--FALLBACK-->",
         "end": "<!--/FALLBACK-->"
       },
-      "line": 1044
+      "line": 1045
     },
     {
       "file": "index.html",
@@ -207,7 +207,7 @@
       "class": "flight-model",
       "reason": "The caption names a simulation render of the concept vehicle at an intake; the page states the simulated flight's float assumption once, and the caption says no aircraft has flown.",
       "assumption": "22491643fb810667",
-      "line": 1048
+      "line": 1049
     },
     {
       "file": "README.md",
@@ -300,9 +300,9 @@
     },
     {
       "file": "index.html",
-      "key": "d8fd0a0255f4dfc7",
+      "key": "a02e4cf5c5f7c2c0",
       "class": "generated",
-      "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures regenerated after the independent comparison.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",
@@ -326,13 +326,13 @@
       "class": "flight-model",
       "assumption": "22491643fb810667",
       "reason": "Alternative text explicitly labels a simulation render; station holding uses this page's bound float assumption, not a demonstrated vehicle.",
-      "line": 1046
+      "line": 1047
     },
     {
       "file": "index.html",
-      "key": "463828b53ba9c176",
+      "key": "e2ded21f1c116946",
       "class": "generated",
-      "reason": "Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "generator": "tools/gen_energy_pages.mjs",
       "gate": "servedenergycheck",
       "verifier": "tools/check_served_energy.py",
