@@ -68,10 +68,12 @@ class SplitParityTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         (self.root / '.github/workflows').mkdir(parents=True)
-        self.make = 'CI_OUTSIDE_CHECK := plants\ncheck: first second\nplants:\n\ttrue\n'
+        self.make = ('CI_OUTSIDE_CHECK := plants\ncheck: first second\nplants:\n'
+                     '\t$(PY) tools/check_float_plants.py --shard "$(FLOAT_PLANT_SHARD)"\n')
         self.doc = {'on': {'push': None, 'pull_request': None}, 'jobs': {
             'checks': {'steps': [{'id': 'check-gates', 'run': 'make --keep-going first second'}]},
-            'plants': {'steps': [{'run': 'make plants'}]}}}
+            'plants': {'strategy': {'fail-fast': False, 'matrix': {'shard': [1, 2]}},
+                       'steps': [{'run': 'make plants', 'env': {'FLOAT_PLANT_SHARD': '${{ matrix.shard }}/2'}}]}}}
         self.copy = copy.deepcopy
 
     def check(self, make=None, doc=None):
@@ -141,6 +143,50 @@ class SplitParityTests(unittest.TestCase):
             doc['on'] = events
             with self.subTest(events=events), self.assertRaises(ValueError):
                 self.check(doc=doc)
+
+    def test_missing_duplicate_or_nonliteral_shards_are_red(self):
+        for shards in ([], [1, 3], [1, 1], [2, 1], '${{ inputs.shards }}', [True, 2]):
+            doc = self.copy(self.doc)
+            doc['jobs']['plants']['strategy']['matrix']['shard'] = shards
+            with self.subTest(shards=shards), self.assertRaises(ValueError):
+                self.check(doc=doc)
+
+    def test_count_and_fail_fast_are_required(self):
+        doc = self.copy(self.doc)
+        doc['jobs']['plants']['steps'][0]['env']['FLOAT_PLANT_SHARD'] = '${{ matrix.shard }}/4'
+        with self.assertRaisesRegex(ValueError, 'count must agree'):
+            self.check(doc=doc)
+        for value in (True, None):
+            doc = self.copy(self.doc)
+            if value is None:
+                del doc['jobs']['plants']['strategy']['fail-fast']
+            else:
+                doc['jobs']['plants']['strategy']['fail-fast'] = value
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'fail-fast'):
+                self.check(doc=doc)
+
+    def test_matrix_include_exclude_and_empty_cases_are_red(self):
+        for key in ('include', 'exclude'):
+            doc = self.copy(self.doc)
+            doc['jobs']['plants']['strategy']['matrix'][key] = []
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, 'only one literal'):
+                self.check(doc=doc)
+        with patch.object(parity, 'expected_cases', return_value=['one']), self.assertRaises(ValueError):
+            self.check()
+        with patch.object(parity, 'shard_cases', return_value=[]), self.assertRaisesRegex(ValueError, 'partition'):
+            self.check()
+
+    def test_even_false_continue_on_error_is_forbidden(self):
+        for level in ('job', 'step'):
+            doc = self.copy(self.doc)
+            mapping = doc['jobs']['plants'] if level == 'job' else doc['jobs']['plants']['steps'][0]
+            mapping['continue-on-error'] = False
+            with self.subTest(level=level), self.assertRaisesRegex(ValueError, 'unconditional'):
+                self.check(doc=doc)
+
+    def test_shard_environment_must_reach_the_tool(self):
+        with self.assertRaisesRegex(ValueError, 'recipe must pass'):
+            self.check(make=self.make.replace('--shard "$(FLOAT_PLANT_SHARD)"', '--run'))
 
 
 class ReferenceParityTests(unittest.TestCase):

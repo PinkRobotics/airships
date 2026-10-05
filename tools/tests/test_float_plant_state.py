@@ -123,6 +123,64 @@ class PlantState(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'expected reason'):
             gate.validate_report(rows, self.cases)
 
+    def test_shards_partition_sorted_cases_and_validate_numbers(self):
+        cases = ['z', 'a', 'm', 'b', 'x']
+        parts = [gate.shard_cases(cases, i, 3) for i in range(1, 4)]
+        self.assertEqual(parts, [['a', 'x'], ['b', 'z'], ['m']])
+        self.assertEqual(sorted(sum(parts, [])), sorted(cases))
+        self.assertEqual(gate.parse_shard('1/4'), (1, 4))
+        for value in ('0/4', '5/4', '1/0', '1', '1/4.0', '01/4', ''):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                gate.parse_shard(value)
+        for index, count in ((0, 2), (3, 2), (1, 6), (True, 2)):
+            with self.assertRaises(ValueError):
+                gate.shard_cases(cases, index, count)
+
+    def test_shard_forces_selection_validates_report_and_never_writes_receipt(self):
+        self.record()
+        path = self.root / gate.RECORD
+        before = path.read_bytes()
+        def execute(argv, *, cwd, env):
+            self.assertEqual(env['FLOAT_PLANT_MODE'], 'all')
+            self.assertEqual(env['FLOAT_PLANT_CASES'], 'positive-control')
+            self.assertNotIn('--observe', argv)
+            rows = [dict(id=name, code=0, green=True) for name in gate.BASELINES]
+            rows.append(dict(id='positive-control', code=0, green=True))
+            Path(env['FLOAT_PLANT_REPORT']).write_text(json.dumps(rows))
+            return SimpleNamespace(returncode=0)
+        with patch.dict(os.environ, FLOAT_PLANT_MODE='fast', FLOAT_PLANT_CASES='wrong-claim'), \
+                patch.object(gate.subprocess, 'run', side_effect=execute):
+            self.assertEqual(gate.run_shard('1/2', self.root), 0)
+        self.assertEqual(path.read_bytes(), before)
+        path.unlink()
+        with patch.object(gate.subprocess, 'run', side_effect=execute):
+            self.assertEqual(gate.run_shard('1/2', self.root), 0)
+        self.assertFalse(path.exists())
+        def incomplete(argv, *, cwd, env):
+            Path(env['FLOAT_PLANT_REPORT']).write_text('[]')
+            return SimpleNamespace(returncode=0)
+        with patch.object(gate.subprocess, 'run', side_effect=incomplete), \
+                self.assertRaisesRegex(ValueError, 'complete passing report'):
+            gate.run_shard('1/2', self.root)
+        self.assertFalse(path.exists())
+
+    def test_shard_failure_and_midrun_change_preserve_receipt(self):
+        self.record()
+        path = self.root / gate.RECORD
+        before = path.read_bytes()
+        with patch.object(gate.subprocess, 'run', return_value=SimpleNamespace(returncode=7)):
+            self.assertEqual(gate.run_shard('1/2', self.root), 7)
+        def changed(argv, *, cwd, env):
+            rows = [dict(id=name, code=0, green=True) for name in gate.BASELINES]
+            rows.append(dict(id='positive-control', code=0, green=True))
+            Path(env['FLOAT_PLANT_REPORT']).write_text(json.dumps(rows))
+            (self.root / 'tools/float_text.py').write_text('# changed during tests\n')
+            return SimpleNamespace(returncode=0)
+        with patch.object(gate.subprocess, 'run', side_effect=changed), \
+                self.assertRaisesRegex(ValueError, 'changed during shard plants'):
+            gate.run_shard('1/2', self.root)
+        self.assertEqual(path.read_bytes(), before)
+
 
 if __name__ == '__main__':
     unittest.main()

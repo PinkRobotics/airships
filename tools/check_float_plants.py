@@ -29,7 +29,7 @@ REQUIRED = (
 )
 EXTRA = ('tools/float_dispositions.json', 'tools/float_verdict_templates.json',
          'tools/gen_float_pages.py', 'tools/gen_float_verdicts.py', 'tools/numeric_tokens.py')
-RULES = ('ledgercheck', 'ledgercheck-selftest', 'floatplants', 'floatplantcheck')
+RULES = ('ledgercheck', 'ledgercheck-selftest', 'floatplants', 'floatplantshard', 'floatplantcheck')
 BASELINES = ('unplanted', 'unplanted-floatpagecheck', 'unplanted-censuscheck',
              'unplanted-cellparity')
 
@@ -38,6 +38,23 @@ def expected_cases():
     sys.path.insert(0, str(ROOT / 'tools/tests'))
     from test_float_hardening import specs
     return sorted(specs())
+
+
+def parse_shard(value):
+    if not re.fullmatch(r'[1-9][0-9]*/[1-9][0-9]*', value):
+        raise ValueError('shard must be I/N with 1 <= I <= N')
+    index, count = map(int, value.split('/'))
+    if index > count:
+        raise ValueError('shard must be I/N with 1 <= I <= N')
+    return index, count
+
+
+def shard_cases(cases, index, count):
+    """Sorted round-robin: case i belongs to shard (i mod N) + 1."""
+    if (type(index) is not int or type(count) is not int
+            or not 1 <= index <= count <= len(cases) or len(set(cases)) != len(cases)):
+        raise ValueError('shards must partition unique cases with no empty shard')
+    return sorted(cases)[index - 1::count]
 
 
 def snapshot(root=ROOT):
@@ -134,13 +151,44 @@ def run_full(root=ROOT):
     return 0
 
 
+def run_shard(value, root=ROOT):
+    index, count = parse_shard(value)
+    before = snapshot(root)
+    cases = shard_cases(before['cases'], index, count)
+    scratch = os.environ.get('TMPDIR')
+    if not scratch:
+        raise ValueError('set TMPDIR to test scratch before make floatplantshard')
+    with tempfile.TemporaryDirectory(prefix='float-shard-', dir=scratch) as tmp:
+        report = Path(tmp) / 'report.json'
+        env = dict(os.environ, FLOAT_PLANT_MODE='all', FLOAT_PLANT_CASES=','.join(cases),
+                   FLOAT_PLANT_REPORT=str(report), PYTHONDONTWRITEBYTECODE='1')
+        command = [sys.executable, '-m', 'unittest', 'discover', '-v',
+                   '-s', 'tools/tests', '-p', 'test_float_hardening.py']
+        run = subprocess.run(command, cwd=root, env=env)
+        if run.returncode:
+            return run.returncode
+        try:
+            rows = json.loads(report.read_text(encoding='utf-8'))
+            validate_report(rows, cases)
+        except (OSError, ValueError, KeyError, TypeError):
+            raise ValueError('shard plants did not produce a complete passing report; no receipt written') from None
+        if snapshot(root) != before:
+            raise ValueError('gate inputs changed during shard plants; no receipt written')
+    print(f'Shard {index}/{count} PASS: {len(cases)} cases and {len(BASELINES)} baselines; no receipt written')
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--run', action='store_true', help='run all plants and record their exact gate state')
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--run', action='store_true', help='run all plants and record their exact gate state')
+    modes.add_argument('--shard', metavar='I/N', help='run a sorted round-robin share and baselines; never write a receipt')
     args = parser.parse_args()
     try:
         if args.run:
             return run_full()
+        if args.shard is not None:
+            return run_shard(args.shard)
         error = check()
         if error:
             print('floatplantcheck FAIL: ' + error)

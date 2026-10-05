@@ -81,7 +81,7 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 # goldenui: monitor trace history depends on machine speed before the clock is pinned.
 # pdfcheck: PDFs are compared exactly against TeX Live 2025 output.
 CI_REFERENCE_CHECK := goldenui pdfcheck
-CI_OUTSIDE_CHECK := floatplants
+CI_OUTSIDE_CHECK := floatplantshard
 
 # A smaller gate set that omits the browser page suites and PDF build.
 # ledgercheck still drives a browser when regenerating the float ledger.
@@ -353,7 +353,7 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 	$(PY) tools/check_member_census.py --self-test
 	$(PY) tools/check_member_census.py
 
-.PHONY: ledgercheck-selftest floatplants floatplantcheck
+.PHONY: ledgercheck-selftest floatplants floatplantshard floatplantcheck
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_motion.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
@@ -362,6 +362,9 @@ ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on f
 
 floatplants:  ## Full plants: run before a change to gate tools, record schema or plants goes to review
 	$(PY) tools/check_float_plants.py --run
+
+floatplantshard:  ## CI share and unplanted baselines; choose I/N with FLOAT_PLANT_SHARD; no receipt
+	$(PY) tools/check_float_plants.py --shard "$(FLOAT_PLANT_SHARD)"
 
 floatplantcheck:  ## Refuse changed claim-gate contents until make floatplants records a full pass
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_plant_state.py'

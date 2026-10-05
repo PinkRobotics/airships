@@ -12,6 +12,7 @@ import shlex
 import sys
 
 import yaml
+from check_float_plants import expected_cases, shard_cases
 
 ROOT = Path(__file__).resolve().parent.parent
 GATE = re.compile(r"[a-z][a-z0-9-]*\Z")
@@ -110,14 +111,38 @@ def check_split(doc, outside, reference=()):
                 if job_name == 'checks' or 'needs' in job:
                     raise ValueError('outside gates require an independent job beside checks')
                 for mapping in (job, step):
-                    if 'if' in mapping or mapping.get('continue-on-error', False):
+                    if 'if' in mapping or 'continue-on-error' in mapping:
                         raise ValueError('outside gate job and step must be unconditional and fail on error')
+                check_shards(job, step)
             for gate in goals:
                 if gate in seen:
                     seen[gate].append(job_name)
     for gate, jobs in seen.items():
         if len(jobs) != 1:
             raise ValueError(f'outside gate {gate} must run exactly once; jobs={jobs}')
+
+
+def check_shards(job, step):
+    strategy = job.get('strategy', {})
+    if strategy.get('fail-fast') is not False:
+        raise ValueError('plant matrix requires fail-fast: false')
+    matrix = strategy.get('matrix')
+    if not isinstance(matrix, dict) or set(matrix) != {'shard'}:
+        raise ValueError('plant matrix must contain only one literal shard list')
+    shards = matrix['shard']
+    if (not isinstance(shards, list) or not shards
+            or any(type(i) is not int for i in shards)
+            or shards != list(range(1, len(shards) + 1))):
+        raise ValueError('plant shards must be exactly the literal numbers 1..N')
+    value = step.get('env', {}).get('FLOAT_PLANT_SHARD', '')
+    match = re.fullmatch(r'\$\{\{ matrix\.shard \}\}/([1-9][0-9]*)', value)
+    if not match or int(match[1]) != len(shards):
+        raise ValueError('plant shard count must agree with the matrix size N')
+    cases = expected_cases()
+    parts = [shard_cases(cases, i, len(shards)) for i in shards]
+    flat = [case for part in parts for case in part]
+    if any(not part for part in parts) or len(flat) != len(set(flat)) or sorted(flat) != sorted(cases):
+        raise ValueError('plant shards must partition every expected case exactly once')
 
 
 def check(root=ROOT):
@@ -131,6 +156,11 @@ def check(root=ROOT):
         raise ValueError('CI_REFERENCE_CHECK and CI_OUTSIDE_CHECK must be disjoint')
     if not set(reference) <= set(local):
         raise ValueError('every reference gate must be a check prerequisite')
+    for gate in outside:
+        recipe = re.search(r'^' + re.escape(gate) + r':[^\n]*\n((?:\t[^\n]*\n)*)', text, re.M)
+        if not recipe or shlex.split(recipe[1]) != [
+                '$(PY)', 'tools/check_float_plants.py', '--shard', '$(FLOAT_PLANT_SHARD)']:
+            raise ValueError('outside plant recipe must pass FLOAT_PLANT_SHARD to --shard')
     workflow = (root / '.github/workflows/ci.yml').read_text()
     remote = ci_gates(workflow)
     expected = [g for g in local if g not in reference]

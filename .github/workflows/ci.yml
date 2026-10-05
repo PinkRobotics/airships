@@ -32,7 +32,7 @@ jobs:
       - uses: browser-actions/setup-chrome@v2
         id: chromium
         with:
-          chrome-version: latest
+          chrome-version: stable
           install-dependencies: true
       - name: Install Python and PDF dependencies
         run: |
@@ -65,6 +65,10 @@ jobs:
   floatplants:
     runs-on: ubuntu-24.04
     timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     env:
       FLOAT_PLANT_TIMEOUT: '1800'
     steps:
@@ -81,7 +85,7 @@ jobs:
       - uses: browser-actions/setup-chrome@v2
         id: chromium
         with:
-          chrome-version: latest
+          chrome-version: stable
           install-dependencies: true
       - name: Install Python dependencies
         run: python3 -m pip install --disable-pip-version-check -r requirements.txt
@@ -94,6 +98,8 @@ jobs:
           echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
           echo "TMPDIR=$RUNNER_TEMP/scratch" >> "$GITHUB_ENV"
           "$CHROMIUM_BINARY" --version
-      - name: Complete independent claim plants
+      - name: Independent claim plant shard
         id: float-plants
-        run: make floatplants
+        env:
+          FLOAT_PLANT_SHARD: ${{ matrix.shard }}/4
+        run: make floatplantshard
