@@ -51,13 +51,20 @@ model is explicit that this is the ledger's bet, not a mass estimate. The three 
 assumed to be geometrically similar capsules with fineness ratio 2; their configured
 dimensions are listed below.
 
+<!-- atmosphere:physics:start -->
 **FAIL-SAFE FLOAT-UP SETS THE DISPLACEMENT.** The requirement, decided 2026-08-09, is that a
 hull be positively buoyant at its working altitude *while fully loaded with water and unable
 to drop it*. Nitrogen ballast is excluded from that mass because it vents to atmosphere in
-seconds; water is the load a ship can be stuck with. The working altitude is
-h_t + `ALT.cruise` = 2,500 m MSL, which is the thinnest air in the cycle, so sizing there
-sizes for everywhere. At ρ_work = 0.95686 kg/m³ a loaded tonne needs 2,194.7 m³ of
+seconds; water is the load a ship can be stuck with. In the reference atmosphere, the working altitude
+h_t + `ALT.cruise` = 2,500 m MSL is the thinnest air in the nominal cycle, so sizing there
+covers that reference cycle. At the working-altitude reference pressure of 74682.51 Pa,
+loaded neutrality occurs at P-100: 0.909091 kg/m³, reference temperature +14.29 K; P-1000: 0.909091 kg/m³, reference temperature +14.29 K; P-10000: 0.909091 kg/m³, reference temperature +14.29 K. Float-up requires air denser than these boundaries;
+at the same pressure, warmer air beyond them removes the margin. ISA+15 K gives P-100 -0.25%; P-1000 -0.25%; P-10000 -0.25%.
+These are fixed-pressure model scenarios, not an established weather envelope; the
+[generated boundary record](../research/analysis/loaded-atmosphere.json) holds the calculation.
+At ρ_work = 0.95686 kg/m³ a loaded tonne needs 2,194.7 m³ of
 displacement with a 5% margin; the classes carry 2,200 m³ per tonne of payload:
+<!-- atmosphere:physics:end -->
 
 | | displacement | L at ρ_work | dry | payload | float-up margin | surplus, empty |
 |---|---:|---:|---:|---:|---:|---:|

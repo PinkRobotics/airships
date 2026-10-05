@@ -17098,6 +17098,46 @@
    "class": "deferred",
    "reason": "Reviewed replacement of this exact live text for Order 11f; Publishes delivery throughput on fire-distance inputs and the earlier flight-cycle model; a payload quantity allowance would hide a delivery result.",
    "owner": "energy-model"
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "5f1cfcb63f141be4",
+   "line": 117,
+   "class": "method",
+   "reason": "Reviewed Order 11f: this live list specifies an unpowered recovery requirement, not a past flight result; qualify its atmosphere basis without altering dated audit records.",
+   "text": "1. float up — it is buoyant by design (#1), so a dead ship rises rather than falls; 2. recharge on solar alone; 3. liquefy enough nitrogen to make itself heavy enough to descend **with no rotor authority at all**; and 4. land empty on ballast alone.",
+   "context": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "key": "08a025ee44bf4004",
+   "class": "generated",
+   "generator": "research/analysis/loaded-atmosphere.mjs",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- atmosphere:physics:start -->",
+    "end": "<!-- atmosphere:physics:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact qualified reference-atmosphere region and per-class neutral boundary are freshly recomputed by analysischeck; no structural float endorsement."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "a5d040474e6adeb0",
+   "class": "generated",
+   "generator": "research/analysis/loaded-atmosphere.mjs",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- atmosphere:recovery:start -->",
+    "end": "<!-- atmosphere:recovery:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact qualified reference-atmosphere region and per-class neutral boundary are freshly recomputed by analysischeck; no structural float endorsement."
   }
  ],
  "replacements": [
@@ -17484,6 +17524,18 @@
    "oldKey": "b912908abf18eab4",
    "newKey": "a4ac3bd3487d2916",
    "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "oldKey": "6b0c1774a1601ead",
+   "newKey": "08a025ee44bf4004",
+   "reason": "Order 11f: qualify this live model requirement with its computed reference-pressure boundary."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "5f1cfcb63f141be4",
+   "newKey": "a5d040474e6adeb0",
+   "reason": "Order 11f: qualify this live model requirement with its computed reference-pressure boundary."
   }
  ]
 }

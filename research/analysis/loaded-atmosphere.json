@@ -1,0 +1,54 @@
+{
+  "generator": "research/analysis/loaded-atmosphere.mjs",
+  "method": "Loaded dry allowance plus water; no nitrogen ballast. Neutral when density times displacement equals loaded mass. Temperature counterfactual holds reference pressure fixed; not a weather observation or a complete off-standard atmosphere.",
+  "reference": {
+    "altitudeM": 2500,
+    "pressurePa": 74682.51206786814,
+    "temperatureK": 271.9,
+    "gasConstantJkgK": 287.0528
+  },
+  "classes": {
+    "P100": {
+      "name": "P-100",
+      "loadedT": 200,
+      "displacementM3": 220000,
+      "criticalDensityKgM3": 0.9090909090909091,
+      "criticalTemperatureK": 286.18694287132877,
+      "criticalDeltaK": 14.28694287132879,
+      "referenceMarginPct": 5.254457097558074,
+      "atISAPlus15K": {
+        "densityKgM3": 0.9068314676362647,
+        "liftT": 199.50292287997823,
+        "marginPct": -0.24853856001088026
+      }
+    },
+    "P1000": {
+      "name": "P-1000",
+      "loadedT": 2000,
+      "displacementM3": 2200000,
+      "criticalDensityKgM3": 0.9090909090909091,
+      "criticalTemperatureK": 286.18694287132877,
+      "criticalDeltaK": 14.28694287132879,
+      "referenceMarginPct": 5.254457097558074,
+      "atISAPlus15K": {
+        "densityKgM3": 0.9068314676362647,
+        "liftT": 1995.0292287997822,
+        "marginPct": -0.24853856001089136
+      }
+    },
+    "P10000": {
+      "name": "P-10000",
+      "loadedT": 20000,
+      "displacementM3": 22000000,
+      "criticalDensityKgM3": 0.9090909090909091,
+      "criticalTemperatureK": 286.18694287132877,
+      "criticalDeltaK": 14.28694287132879,
+      "referenceMarginPct": 5.254457097558074,
+      "atISAPlus15K": {
+        "densityKgM3": 0.9068314676362647,
+        "liftT": 19950.29228799782,
+        "marginPct": -0.24853856001089136
+      }
+    }
+  }
+}

@@ -123,11 +123,16 @@ vehicle rather than a doctrine the code ignores.
 **Total-failure recovery, unpowered.** Assume the rotors have failed entirely and the
 battery is flat. The ship must then:
 
-1. float up — it is buoyant by design (#1), so a dead ship rises rather than falls;
+<!-- atmosphere:recovery:start -->
+1. float up within the flight model's reference-atmosphere assumption (#1): a loaded model rises
+   only when air density exceeds its computed boundary at 2,500 m MSL
+   (P-100: 0.909091 kg/m³, reference temperature +14.29 K; P-1000: 0.909091 kg/m³, reference temperature +14.29 K; P-10000: 0.909091 kg/m³, reference temperature +14.29 K). These temperature offsets hold reference pressure at 74682.51 Pa;
+   they do not establish a weather envelope. See the [generated boundaries](../research/analysis/loaded-atmosphere.json);
 2. recharge on solar alone;
 3. liquefy enough nitrogen to make itself heavy enough to descend **with no rotor
    authority at all**; and
 4. land empty on ballast alone.
+<!-- atmosphere:recovery:end -->
 
 Taking days to do it is acceptable. Being unable to do it is not.
 
