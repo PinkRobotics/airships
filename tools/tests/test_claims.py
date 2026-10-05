@@ -557,6 +557,37 @@ class HoleRulesTest(ClaimsFixture, unittest.TestCase):
         self.assertIsNone(Context(self.root,['README.md']).reference_issue(occ))
 
 
+class ResidueRulesTest(ClaimsFixture, unittest.TestCase):
+    def test_function_word_roles_both_sides(self):
+        examples=[('First, inspect the model.','First','discourse-ordinal'),
+                  ('The first is a choice.','first','discourse-ordinal'),
+                  ('The first draft is superseded.','first','document-or-process-order'),
+                  ('The browser uses first-party requests.','first','named-word'),
+                  ('A one-way route.','one','named-word'),
+                  ('No one has to average the values.','one','pronominal-one'),
+                  ('Each one browsable below.','one','pronominal-one'),
+                  ('It is a small one.','one','pronominal-one'),
+                  ('The single biggest lever.','single','idiomatic-single')]
+        for text,raw,rule in examples:
+            self.put('index.html','<p>'+text+'</p>')
+            occ=next(o for o in self.extract() if o['raw'].lower()==raw.lower())
+            self.assertEqual(claims.function_word_rule(occ),rule,text)
+        for text,raw in [('First 110 tonnes delivered.','First'),('One tonne per hour.','One'),
+                         ('Each one-tonne load.','one'),('A single aircraft.','single'),
+                         ('A second cycle lasts 110 minutes.','second'),('Two thirds of the energy.','Two')]:
+            self.put('index.html','<p>'+text+'</p>')
+            occ=next(o for o in self.extract() if o['raw'].lower().startswith(raw.lower()))
+            self.assertIsNone(claims.function_word_rule(occ),text)
+
+    def test_residue_changes_make_check_red_and_carry_repairs_it(self):
+        self.known();self.check(True)
+        with contextlib.redirect_stdout(io.StringIO()):
+            claims.carry(self.root,self.root/'dist.manifest',self.root/'research/figures.json',self.root/'research/claims/register.json')
+        self.assertIn('Length 110 m.',(self.root/'research/claims/page-defects.md').read_text())
+        self.put('research/claims/page-defects.md','stale')
+        self.assertIn('stale residue',self.check()[1])
+
+
 class SpanBasisTest(ClaimsFixture, unittest.TestCase):
     def test_model_key_does_not_clear_a_deferred_float_block(self):
         from claims_rules import Context

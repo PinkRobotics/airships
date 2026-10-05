@@ -368,8 +368,39 @@ def extract(root, manifest):
     return dict(version=1, scope=SCOPE, files=files, occurrences=occurrences)
 
 
+def function_word_rule(occ):
+    """Only explicitly tested grammatical roles; physical counts remain claims."""
+    raw, before, after = occ['raw'].lower(), occ['before'], occ['after']
+    if raw in {'first', 'second', 'third', 'fourth', 'fifth'}:
+        if not before.strip() and re.match(r',\s', after):
+            return 'discourse-ordinal'
+        if re.search(r'\bthe\s+$', before, re.I) and re.match(r'\s+is\b', after):
+            return 'discourse-ordinal'
+        if re.match(r'\s+on the list\b', after, re.I):
+            return 'discourse-ordinal'
+        if re.match(r'\s+(?:draft|commit|review round|question|job)\b', after, re.I):
+            return 'document-or-process-order'
+    if raw == 'first' and re.match(r'-party\b', after, re.I):
+        return 'named-word'
+    if raw == 'one':
+        if re.match(r'-(?:way|off)\b', after, re.I):
+            return 'named-word'
+        if re.search(r'\b(?:no|each)\s+$', before, re.I) and re.match(r'\s+(?:has|can|needs|browsable|carrying)\b', after, re.I):
+            return 'pronominal-one'
+        if re.match(r'\s+(?:where|that|which)\b', after, re.I):
+            return 'pronominal-one'
+        if re.search(r'\b(?:small|buildable|central|tempting)\s+$', before, re.I) and re.match(r'[.,;:!?)]|$', after):
+            return 'pronominal-one'
+    if raw == 'single' and re.match(r'\s+(?:biggest|right answer|point of failure)\b', after, re.I):
+        return 'idiomatic-single'
+    return None
+
+
 def nonclaim_rule(occ):
     raw, before, after, text = (occ[k] for k in ('raw', 'before', 'after', 'text'))
+    function = function_word_rule(occ)
+    if function:
+        return function
     if raw in '⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉' and re.search(r'[A-Za-zµΩ)]$', before):
         return 'unit-exponent-or-formula-index'
     if re.search(r'(?:\bP[-‑–]?|\bO|\bLN|\bCO|\bSHIP-|\bship )$', before, re.I) and raw.isdigit():
@@ -391,6 +422,8 @@ def nonclaim_rule(occ):
     if occ['surface'] in {'heading', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'paragraph', 'li', 'p'}:
         if not before.strip(' *#') and re.match(r'[.)]\s', after) and re.fullmatch(r'\d+(?:\.\d+)?', raw):
             return 'section-or-step'
+    if re.search(r'§§?\s*\d+[–—-]$', before) and raw.isdigit():
+        return 'section-range-endpoint'
     if re.search(r'§§?\s*$', before) and re.fullmatch(r'\d+(?:\.\d+)*', raw):
         return 'section-symbol-reference'
     if re.search(r'\b(?:section|step|figure|fig\.|table|defect|item|chapter|level)\s+#?$', before, re.I) and raw.isdigit():
@@ -496,7 +529,7 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
     if owner is None:
         return dict(kind='unowned', observed=occ['raw'], expected='an accountable owner and check')
     kind = owner['kind']
-    if rules is None and (kind in {'ledger', 'model-span'} or owner.get('rule') == 'section-symbol-reference'):
+    if rules is None and (kind in {'ledger', 'model-span'} or owner.get('rule') in {'section-symbol-reference','section-range-endpoint'}):
         from claims_rules import Context
         rules = Context(root, [occ['file']])
     if kind == 'model-span':
@@ -517,7 +550,7 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
             return dict(kind='wrong-gate', observed=entry['gate'], expected='claimscheck')
         return model_issue(occ, owner, flat)
     if kind == 'nonclaim':
-        if owner['rule'] == 'section-symbol-reference':
+        if owner['rule'] in {'section-symbol-reference','section-range-endpoint'}:
             issue = rules.reference_issue(occ)
             if issue:
                 return issue
@@ -725,6 +758,12 @@ def check(root, manifest, figures, register_path, accept_new=False):
             oid: digest(safe_relative(root, occurrences[oid]['file']).read_text()) for oid in pending})
         accepted['runs'].append(dict(added=sorted(pending), digest=digest(canonical(pending))))
         write_json(ratchet_path, accepted)
+    residue_path = register_path.parent / 'page-defects.md'
+    if residue_path.exists() and residue_path.read_text() != residue_text(register['entries'], defects['defects'], rules):
+        errors.append('page-defects.md: stale residue; run carry and review the drift')
+    nonclaim_path = register_path.parent / 'nonclaim-reclassifications.md'
+    if nonclaim_path.exists() and nonclaim_path.read_text() != nonclaim_text(register['entries']):
+        errors.append('nonclaim-reclassifications.md: stale reclassification list')
     print(SCOPE)
     print('file | occurrences | model | model-span | generated | delegated | cited | nonclaim | labelled | ledger | known defect | unregistered')
     columns = ['occurrences', 'model', 'model-span', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger', 'known-defect', 'unregistered']
@@ -765,12 +804,64 @@ def defect_for(occ, problem):
                 failure=problem, closes='Supply ' + need + '; carry and recheck the exact occurrence.')
 
 
+def residue_text(entries, defects, rules=None):
+    by_id = {e['id']:e for e in entries}
+    grouped = defaultdict(list)
+    for defect in defects:
+        for oid in defect['occurrences']:
+            grouped[by_id[oid]['file']].append((by_id[oid],defect))
+    lines = ['# Claims still awaiting an owner', '',
+             'Generated by `python3 -B tools/claims.py carry`. Green records these defects; it does not verify them.', '']
+    counts = Counter(d['headline'] for d in defects for _ in d['occurrences'])
+    lines += ['| Headline | Occurrences |', '| --- | ---: |']
+    lines += [f'| {name} | {count} |' for name,count in sorted(counts.items())]
+    def cell(value):
+        return public_excerpt(str(value)).replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('|','\\|').replace('\n',' ')
+    for file, rows in sorted(grouped.items()):
+        lines += ['', '## ' + file, '', '| Sentence | Number or model key | Reason | Owner needed |', '| --- | --- | --- | --- |']
+        for entry,defect in rows:
+            sentence = entry['text']
+            basis = (entry['owner'] or {}).get('physical_basis')
+            if basis and rules is not None:
+                hit = next((h for h in rules.floats().get(entry['file'], []) if h['key']==basis['key']), None)
+                if hit:
+                    from float_claims import TOKEN
+                    sentence = clean_markdown(TOKEN.sub(' ', hit['sentence']))
+            reason = defect['problem'] + ' ' + str(defect['failure']['expected'])
+            kind = defect['failure']['kind']
+            need = ('rewording' if kind in {'water-basis','broken-reference'} else
+                    'ledger entry or rewording' if kind.startswith('float-') or kind=='delegation-miss' else
+                    'generator' if defect['headline'] in {'generated','stale'} else
+                    'citation with a dated review, generator, or label')
+            lines.append('| '+' | '.join(cell(v) for v in [sentence,entry['raw'],reason,need])+' |')
+    return '\n'.join(lines)+'\n'
+
+
+def nonclaim_text(entries):
+    rules = {'discourse-ordinal','document-or-process-order','named-word','pronominal-one','idiomatic-single','section-range-endpoint'}
+    lines = ['# Tested nonclaim reclassifications', '',
+             'Every current occurrence classified by the function-word and range-endpoint rules is listed here.',
+             'Identity changes and before/after owners are retained in `carry-history.json`.', '',
+             '| File | Word | Rule | Sentence | Occurrence ID |', '| --- | --- | --- | --- | --- |']
+    for e in entries:
+        owner=e['owner'] or {}
+        if owner.get('kind')=='nonclaim' and owner.get('rule') in rules:
+            values=[e['file'],e['raw'],owner['rule'],e['text'],e['id']]
+            lines.append('| '+' | '.join(public_excerpt(str(v)).replace('|','\\|').replace('<','&lt;') for v in values)+' |')
+    return '\n'.join(lines)+'\n'
+
+
+_SEED = None
+
+
 def seed_owner(occ):
-    import importlib.util
-    spec = importlib.util.spec_from_file_location('claims_seed', ROOT / 'research/claims/seed.py')
-    seed = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(seed)
-    return seed.choose(occ)
+    global _SEED
+    if _SEED is None:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('claims_seed', ROOT / 'research/claims/seed.py')
+        _SEED = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(_SEED)
+    return _SEED.choose(occ)
 
 
 def carry(root, manifest, figures, register_path):
@@ -862,6 +953,10 @@ def carry(root, manifest, figures, register_path):
             revalidated=[dict(id=e['id'], before=old_entries[e['id']], after=e) for e in entries if e['id'] in old_entries and old_entries[e['id']] != e],
             defect_changes=changes))
         write_json(path, history)
+    for name, content in {'page-defects.md': residue_text(entries, defects, rules), 'nonclaim-reclassifications.md': nonclaim_text(entries)}.items():
+        path = out / name
+        if not path.exists() or path.read_text() != content:
+            path.write_text(content)
     print('Carry changed' if changed else 'Carry unchanged (idempotent)')
     return check(root, manifest, figures, register_path, accept_new=True)
 

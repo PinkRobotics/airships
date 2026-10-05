@@ -54,10 +54,9 @@ class Context:
         self.float_blocks = None
         self.emissions = {}
         self.region_issues = {}
-        self.bodies = {}
-        self.checked_analysis = {}
         self.contexts = None
         self.sections = {}
+        self.bodies = {}
 
     def body(self, file):
         path = self.root / file

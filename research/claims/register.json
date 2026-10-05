@@ -1855,11 +1855,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/gen_readme.py",
-        "region": "readme:energy-input"
+        "kind": "nonclaim",
+        "rule": "named-word"
       },
-      "gate": "readmecheck"
+      "gate": "claimscheck"
     },
     {
       "id": "README.md::e445bbe77f049fe348c6333d7e7938359ac524e19d18ff90436e4c895190a8da::1",
@@ -4163,7 +4162,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -5405,7 +5407,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -5692,7 +5697,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -5731,7 +5739,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -7187,7 +7198,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -7660,7 +7674,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -7943,10 +7960,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "delegated",
-        "inventory": "floatcheck"
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
       },
-      "gate": "floatcheck"
+      "gate": "claimscheck"
     },
     {
       "id": "cell/levels.html::7c4ba7a2568aaee7c8a616385b0fa6f6de933708325da8788cab45404fc425a6::2",
@@ -9726,10 +9743,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "delegated",
-        "inventory": "floatcheck"
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
       },
-      "gate": "floatcheck"
+      "gate": "claimscheck"
     },
     {
       "id": "cell/ship.html::79d34cf9511a20c0a4522074b37f8dcd6359f8da0eb7f2f262add362037d0613::1",
@@ -9997,12 +10014,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "ledger",
-        "record": "research/analysis/float-claims/cell-pages.json",
-        "key": "1ecee39eb58cea34",
-        "reason": "deferred: This served-page paragraph combines the dated first and second verdicts with the present comparison; its historical account must remain intact."
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
       },
-      "gate": "ledgercheck"
+      "gate": "claimscheck"
     },
     {
       "id": "cell/ship.html::41390680c5a586d675860d85a8308a106b5c9f08317d4a872730f24a5bcd3fd3::2",
@@ -10443,7 +10458,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
+      },
       "gate": "claimscheck"
     },
     {
@@ -10593,7 +10611,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -11359,7 +11380,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -11591,7 +11615,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
+      },
       "gate": "claimscheck"
     },
     {
@@ -11625,7 +11652,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -12171,11 +12201,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/gen_energy_pages.mjs",
-        "region": "served-energy:concept"
+        "kind": "nonclaim",
+        "rule": "named-word"
       },
-      "gate": "servedenergycheck"
+      "gate": "claimscheck"
     },
     {
       "id": "concept/index.html::e7c5ba546d6f473086c8a0c906ce787c3842734979b814ec1e72e8c733c4db67::3",
@@ -13910,11 +13939,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/gen_energy_pages.mjs",
-        "region": "served-energy:concept"
+        "kind": "nonclaim",
+        "rule": "discourse-ordinal"
       },
-      "gate": "servedenergycheck"
+      "gate": "claimscheck"
     },
     {
       "id": "concept/index.html::e38b35bc9c2d3d415230bb5837215c8e67bb94cb71be74cb82ba041b670a9699::1",
@@ -19056,7 +19084,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -123009,11 +123040,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/gen_energy_pages.mjs",
-        "region": "served-energy:home"
+        "kind": "nonclaim",
+        "rule": "named-word"
       },
-      "gate": "servedenergycheck"
+      "gate": "claimscheck"
     },
     {
       "id": "index.html::e7c5ba546d6f473086c8a0c906ce787c3842734979b814ec1e72e8c733c4db67::3",
@@ -124748,11 +124778,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/gen_energy_pages.mjs",
-        "region": "served-energy:home"
+        "kind": "nonclaim",
+        "rule": "discourse-ordinal"
       },
-      "gate": "servedenergycheck"
+      "gate": "claimscheck"
     },
     {
       "id": "index.html::e38b35bc9c2d3d415230bb5837215c8e67bb94cb71be74cb82ba041b670a9699::1",
@@ -183262,11 +183291,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/noticegen.py",
-        "region": "whole-file"
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
       },
-      "gate": "noticecheck"
+      "gate": "claimscheck"
     },
     {
       "id": "notices.html::5d9c93d2aef0c862dbc0179a65c02903c09ae40f671d6ec57a0076578d5b9bcf::7",
@@ -198393,11 +198421,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/noticegen.py",
-        "region": "whole-file"
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
       },
-      "gate": "noticecheck"
+      "gate": "claimscheck"
     },
     {
       "id": "notices.html::f56f3e363d8cf982c0d09c1dc9451f784362e073e701d9556eec2e91c72b200d::2",
@@ -198561,11 +198588,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "generated",
-        "generator": "tools/noticegen.py",
-        "region": "whole-file"
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
       },
-      "gate": "noticecheck"
+      "gate": "claimscheck"
     },
     {
       "id": "notices.html::f56f3e363d8cf982c0d09c1dc9451f784362e073e701d9556eec2e91c72b200d::10",
@@ -229199,7 +229225,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -237612,7 +237641,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -237938,12 +237970,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "ledger",
-        "record": "research/analysis/float-claims/research.json",
-        "key": "f714c760a081afc9",
-        "reason": "bound: The dry density is an explicit simulation allowance shared by the nominal fleet, not the mass of a sized structural hull."
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
       },
-      "gate": "ledgercheck"
+      "gate": "claimscheck"
     },
     {
       "id": "research/reports/02-paper.md::5e0acb91def7350286c810fe15fc9a11aa1478d38e17ae4d8ecc2073310ecb88::1",
@@ -238494,10 +238524,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "delegated",
-        "inventory": "floatcheck"
+        "kind": "nonclaim",
+        "rule": "section-range-endpoint"
       },
-      "gate": "floatcheck"
+      "gate": "claimscheck"
     },
     {
       "id": "research/reports/02-paper.md::40ea2c8fd64a16d3f795b4a67405664043dcf4a67e69d865e50b0d2444b2e53f::1",
@@ -241906,7 +241936,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
+      },
       "gate": "claimscheck"
     },
     {
@@ -242316,12 +242349,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "ledger",
-        "record": "research/analysis/float-claims/research.json",
-        "key": "23fbf28b79f4b242",
-        "reason": "deferred: Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
       },
-      "gate": "ledgercheck"
+      "gate": "claimscheck"
     },
     {
       "id": "research/reports/02-paper.md::6bc54f13bea593dc5e1c8e6b16249e669d1ce99cbeac65f2a10f36e1d86f1fd4::2",
@@ -242766,7 +242797,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "discourse-ordinal"
+      },
       "gate": "claimscheck"
     },
     {
@@ -243250,7 +243284,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "section-range-endpoint"
+      },
       "gate": "claimscheck"
     },
     {
@@ -243395,7 +243432,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "section-range-endpoint"
+      },
       "gate": "claimscheck"
     },
     {
@@ -243466,7 +243506,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -247478,7 +247521,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "section-range-endpoint"
+      },
       "gate": "claimscheck"
     },
     {
@@ -247683,7 +247729,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -247955,7 +248004,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -248679,10 +248731,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "delegated",
-        "inventory": "floatcheck"
+        "kind": "nonclaim",
+        "rule": "idiomatic-single"
       },
-      "gate": "floatcheck"
+      "gate": "claimscheck"
     },
     {
       "id": "research/reports/03-diligence.md::b031ef2e0ac36d0304fe99116cbde598b309d4a0af8963afb02ab2229c2db0c8::1",
@@ -250872,7 +250924,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "discourse-ordinal"
+      },
       "gate": "claimscheck"
     },
     {
@@ -250889,7 +250944,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "discourse-ordinal"
+      },
       "gate": "claimscheck"
     },
     {
@@ -253516,7 +253574,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -254607,7 +254668,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
+      },
       "gate": "claimscheck"
     },
     {
@@ -259111,12 +259175,10 @@
         "marker": null
       },
       "owner": {
-        "kind": "ledger",
-        "record": "research/analysis/float-claims/ship-pages.json",
-        "key": "20eb18ca4d98b7f8",
-        "reason": "live-model: Ring pitch, ring section, wall depth and film are model display values, not a float result."
+        "kind": "nonclaim",
+        "rule": "named-word"
       },
-      "gate": "ledgercheck"
+      "gate": "claimscheck"
     },
     {
       "id": "ship/index.html::8fac288fe60511828b7cd057b8ded9b8d2212ec72f90969496ba330c55948830::2",
@@ -259398,7 +259460,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "named-word"
+      },
       "gate": "claimscheck"
     },
     {
@@ -264328,7 +264393,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "pronominal-one"
+      },
       "gate": "claimscheck"
     },
     {
@@ -272399,7 +272467,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
+      },
       "gate": "claimscheck"
     },
     {
@@ -272416,7 +272487,10 @@
         "region": null,
         "marker": null
       },
-      "owner": null,
+      "owner": {
+        "kind": "nonclaim",
+        "rule": "document-or-process-order"
+      },
       "gate": "claimscheck"
     },
     {

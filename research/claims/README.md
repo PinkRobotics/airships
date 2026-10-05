@@ -4,6 +4,6 @@ Green means a checked owner or an explicit defect, not verification of those def
 
 Run `python3 -B tools/claims.py carry` after integrating text, then review its per-file and per-headline drift and append-only receipts. Run it again: it changes no file. `check` and `extract` are read-only. Scope is README, GOALS, reports and manifest-served HTML; history, notes, PDFs and other runtime strings remain outside this stage.
 
-All delivery verb forms are checked. Model spans bind finite keys in their own computed page contexts and keep ledger deferrals. Section symbols resolve existing sections.
+The generated page-defects list names each sentence, number, reason and owner needed. Every function-word reclassification is listed, with tested positive and negative roles.
 
 Use designated project TMPDIR. `python3 -B research/claims/mutation_proof.py` plants failures in a disposable complete dependency tree, restores exact bytes, and checks green after each. It executes only copied code and never commits, fetches an agency feed, or changes a public page in the worker tree.
