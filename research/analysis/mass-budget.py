@@ -94,8 +94,9 @@ EVIDENCE = {
         "floor": (500.0, "Lvovich 2020 (NASA GRC) — 'no clear path' beyond 500 Wh/kg at "
                          "pack level. The best case anyone at NASA will name."),
         "credible": (300.0, "Lvovich 2020 — 'achievable within reasonable timeframe'."),
-        "demonstrated": (149.0, "Chin et al. 2021 — the X-57 pack NASA actually flew, from "
-                                "225 Wh/kg cells at a cell-to-pack factor of 0.66."),
+        "demonstrated": (149.0, "Chin et al. 2021, printed p. 2 — a built X-57 pack, from "
+                                "225 Wh/kg cells at a cell-to-pack factor of 0.66. The electric aircraft "
+                                "did not fly (NASA X-57 Systems Engineering Lessons Learned, printed p. 4)."),
     },
     "motor_kw_per_kg": {
         "floor": (16.0, "NASA HEMM target, 1.4 MW class. A target, not a delivery."),
@@ -121,20 +122,21 @@ EVIDENCE = {
     # 20 t/MW at the small end) down to a number nobody has any right to assume.
     # NO AIRBORNE FIGURE EXISTS, and the ground figures are far worse than an earlier version
     # of this table assumed. Stirling StirLIN-2: 34 kW in 2,200 kg = 64.7 t/MW. StirLIN-1
-    # Compact: 71.4 t/MW. NASA's own MASS-OPTIMISED FLIGHT concept — Hauser, Johnson &
-    # Sutherlin, in-situ oxygen liquefaction for Mars, AIAA SciTech 2016, reverse turbo-
-    # Brayton, the most mass-efficient cryocooler class known — is 136.5 kg at 1,990 W =
-    # 68.6 t/MW. So practice is ~65-70 t/MW, not 20, and the floor below is not "a tenfold
-    # improvement on industry": it is 34x better than the best flight design NASA has
-    # published. It is kept at that value so the reader can see exactly what the budget is
-    # being given for free, and because the plant cannot be deleted — a sealed-cell hull has
-    # no other ballast source.
+    # Compact: 71.4 t/MW. Hauser, Johnson & Sutherlin, AIAA 2016-0721,
+    # Table 1, printed p. 3, estimates a Mars-surface oxygen liquefaction system:
+    # 136.5 kg including cryocooler and radiator, at 1,990 W input, or 68.6 t/MW.
+    # That comparator is not airborne hardware or a flight-qualified mass bound.
+    # The floor below is 34x lighter than that estimate and has no published source.
+    # It is kept so the reader can see what the budget is being given for free;
+    # the sealed-cell hull has no other ballast source.
     "cryo_t_per_mw": {
-        "floor": (2.0, "NO SOURCE, and 34x better than NASA's best published flight-optimised "
-                       "liquefier. Recorded as a stated gift to the budget, not an estimate."),
+        "floor": (2.0, "NO SOURCE; 34x lighter than the NASA Mars-surface oxygen "
+                       "liquefaction estimate. A stated gift to the budget, not an estimate."),
         "credible": (20.0, "NO SOURCE. A three-fold improvement on ground practice."),
-        "demonstrated": (65.0, "Stirling StirLIN-2, 34 kW in 2,200 kg; corroborated by NASA "
-                               "GRC's 68.6 t/MW reverse turbo-Brayton flight concept."),
+        "demonstrated": (65.0, "Stirling StirLIN-2, 34 kW in 2,200 kg; comparator: "
+                               "Hauser et al., Table 1, printed p. 3, estimate 136.5 kg "
+                               "at 1,990 W input (68.6 t/MW) for Mars-surface oxygen "
+                               "liquefaction, including cryocooler and radiator; not a flight design."),
     },
     "ln2_tank_frac": {
         "floor": (0.05, "Vacuum-jacketed cryogenic tank at large scale, LN2 (denser and "

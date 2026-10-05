@@ -416,7 +416,7 @@ than a scaling limit.
 - **Akhmeteli & Gavrilin 2021** publish a payload fraction of **0.1** against our implied 0.5, on a
   shell of 1.16 kg/m³.
 
-The per-class configured battery comparison is generated below from the model and the reference pack density:
+The per-class configured battery comparison below uses the built X-57 pack's 149 Wh/kg reference density (Chin et al., printed p. 2). The electric aircraft it was built for did not fly ([NASA's X-57 lessons learned](https://ntrs.nasa.gov/api/citations/20240006845/downloads/SE_lessonsleared_final.pdf), printed p. 4):
 
 <!-- battery:ratios:start -->
 At the 149 Wh/kg reference pack density, the battery alone exceeds the dry allowance on P-100 and P-10000.

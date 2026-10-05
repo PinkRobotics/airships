@@ -7,8 +7,9 @@ NASA Glenn Research Center, NTRS 20210017488. Read in full.
 The gap between a cell datasheet and a pack that can fly, and why the gap gets *worse* as cells
 improve.
 
-The empirical anchor is flight hardware: "The X-57 battery is a common reference, using 225 Wh/kg
-lithium-ion cells to create a 149 Wh/kg pack" — a cell-to-pack factor of **0.66**. The paper's
+The empirical anchor is a built X-57 pack: Chin et al., printed p. 2, report 225 Wh/kg
+cells and a 149 Wh/kg pack — a cell-to-pack factor of **0.66**. The electric aircraft
+it was built for did not fly; NASA's [X-57 Systems Engineering Lessons Learned](https://ntrs.nasa.gov/api/citations/20240006845/downloads/SE_lessonsleared_final.pdf), printed p. 4, records that decision. Chin et al.'s
 contribution is to show that this factor is not a constant to be carried forward. Preventing
 thermal runaway from propagating cell to cell is the dominant packaging cost, and the heat a single
 cell releases scales with its energy: a 200 Wh/kg cell corresponds to a 16 kJ core heat load and a
@@ -39,7 +40,7 @@ The complete floor uses the budget’s own evidence choices, including its 500 W
 This comparison comes from [battery-ratios.json](../analysis/battery-ratios.json), configuration and the generated mass budget. It does not establish a buildable pack or a complete aircraft.
 <!-- battery:ratios:end -->
 
-Against the 149 Wh/kg pack NASA actually flew, the class-specific reference masses
+Against the built 149 Wh/kg X-57 reference pack, the class-specific reference masses
 are in the generated table.
 
 Read alongside `notes/jenett-2019-lattice-vacuum-airship.md`, which finds the bare lattice shell

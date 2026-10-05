@@ -473,6 +473,12 @@ def main() -> None:
                        '-s', 'tools/tests', '-p', 'test_battery_ratios.py'], cwd=ROOT).returncode:
         bad.append('battery ratios drift plants failed')
 
+    if subprocess.run([sys.executable, '-B', 'tools/gen_mass_budget_prose.py', '--check'], cwd=ROOT).returncode:
+        bad.append('floor sentence differs from nominal and three-cycle budget records')
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_mass_budget_prose.py'], cwd=ROOT).returncode:
+        bad.append('floor sentence drift plants failed')
+
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
     physics = (ROOT / "docs/PHYSICS.md").read_text()

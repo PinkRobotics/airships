@@ -564,7 +564,8 @@ independently, and neither was cited when the assumption was made:
 - **Metlen & Palazotto 2013**'s only real-materials vacuum-lift design has a
   structure-to-buoyancy ratio of **0.94** — structure alone consuming what we allocate to
   structure *and* payload.
-- Separately: the configured battery ratio differs by class. NASA flew 149 Wh/kg on X-57.
+- Separately: the configured battery ratio differs by class. The built X-57 pack was 149 Wh/kg (Chin et al., printed p. 2);
+  the electric aircraft did not fly ([NASA's lessons learned](https://ntrs.nasa.gov/api/citations/20240006845/downloads/SE_lessonsleared_final.pdf), printed p. 4).
 
 <!-- battery:ratios:start -->
 At the 149 Wh/kg reference pack density, the battery alone exceeds the dry allowance on P-100 and P-10000.

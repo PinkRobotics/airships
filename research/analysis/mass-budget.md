@@ -49,16 +49,20 @@ names the evidence behind each `demonstrated` line, including its sizing allowan
 | **TOTAL** | 216.1 | 466.4 | 1108.3 | mixed evidence above |
 | × the 100 t allowance | 2.16× | 4.66× | 11.08× | |
 
-Sizing the battery to three prescribed cycles raises the floor from **181.3 t, 1.81×**, to **226.2 t, 2.26×**.
+<!-- mass-budget:floor:start -->
+Sizing the battery to three prescribed cycles raises the floor from **216.1 t, 2.16×**, to **226.1 t, 2.26×**.
+<!-- mass-budget:floor:end -->
+
 The cycle is infeasible; this energy-based allowance does not establish endurance. The cryogenic plant stays: see the retraction in `air-ballast.md`.
 
 **The cryogenic line is now the second-largest item in the vehicle and the worst-supported.**
 Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg),
-and NASA's own mass-optimised *flight* concept — reverse turbo-Brayton, the most mass-efficient
-cryocooler class known — is 68.6 t/MW. The floor of 2.0 t/MW in this table is **34× better than
-the best flight design NASA has published**, and it is kept at that value only so a reader can
-see exactly what the budget is being given for free. At the demonstrated figure the plant alone
-is 390 t on a 100 t allowance.
+and Hauser, Johnson and Sutherlin's [NASA Mars-surface oxygen liquefaction estimate](https://ntrs.nasa.gov/api/citations/20160004210/downloads/20160004210.pdf),
+Table 1, printed p. 3, totals 136.5 kg including cryocooler and radiator at 1,990 W input:
+68.6 t/MW. This is a surface-system estimate, not a flight design or an airborne mass bound.
+The floor of 2.0 t/MW in this table is **34× lighter than that estimate** and has no published
+source; it is retained so a reader can see what the budget is given for free. At the
+65 t/MW industrial comparison, the plant alone is 390 t on a 100 t allowance.
 
 <!-- solar:budget-note:start -->
 The enlargement passages below retain the earlier sizing publication. The
