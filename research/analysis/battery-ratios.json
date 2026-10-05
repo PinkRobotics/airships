@@ -1,0 +1,47 @@
+{
+  "generator": "research/analysis/battery-ratios.mjs",
+  "reference": {
+    "whKg": 149,
+    "floorWhKg": 500,
+    "source": "Chin et al. 2021, printed p. 2; mass-budget.json evidence/battery_wh_per_kg/demonstrated/value"
+  },
+  "basis": "Configured energy capacity and simulated dry allowance; reference-pack mass is a scaling comparison, not a pack design.",
+  "classes": {
+    "P100": {
+      "name": "P-100",
+      "batteryMWh": 20,
+      "dryAllowanceT": 100,
+      "mwhPerDryT": 0.2,
+      "referencePackT": 134.2281879194631,
+      "referencePackPctOfDry": 134.2281879194631,
+      "minimumPackWhKgForBatteryAlone": 200,
+      "floorPackPctOfDry": 40,
+      "completeFloorT": 216.1,
+      "completeFloorOverBy": 2.16
+    },
+    "P1000": {
+      "name": "P-1000",
+      "batteryMWh": 120,
+      "dryAllowanceT": 1000,
+      "mwhPerDryT": 0.12,
+      "referencePackT": 805.3691275167786,
+      "referencePackPctOfDry": 80.53691275167786,
+      "minimumPackWhKgForBatteryAlone": 120,
+      "floorPackPctOfDry": 24,
+      "completeFloorT": 1803.6,
+      "completeFloorOverBy": 1.8
+    },
+    "P10000": {
+      "name": "P-10000",
+      "batteryMWh": 2000,
+      "dryAllowanceT": 10000,
+      "mwhPerDryT": 0.2,
+      "referencePackT": 13422.818791946309,
+      "referencePackPctOfDry": 134.22818791946307,
+      "minimumPackWhKgForBatteryAlone": 200,
+      "floorPackPctOfDry": 40,
+      "completeFloorT": 19524.2,
+      "completeFloorOverBy": 1.95
+    }
+  }
+}

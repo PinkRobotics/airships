@@ -564,8 +564,23 @@ independently, and neither was cited when the assumption was made:
 - **Metlen & Palazotto 2013**'s only real-materials vacuum-lift design has a
   structure-to-buoyancy ratio of **0.94** — structure alone consuming what we allocate to
   structure *and* payload.
-- Separately: every class carries **0.2 MWh of battery per tonne of dry mass**, which demands
-  200 Wh/kg at pack level with nothing left over for anything else. NASA flew 149 Wh/kg on X-57.
+- Separately: the configured battery ratio differs by class. NASA flew 149 Wh/kg on X-57.
+
+<!-- battery:ratios:start -->
+At the 149 Wh/kg reference pack density, the battery alone exceeds the dry allowance on P-100 and P-10000.
+The per-class ratio of reference-pack mass to dry allowance is shown below.
+The complete nominal floor budget exceeds the dry allowance on P-100, P-1000, P-10000, as its own totals show below.
+
+| Class | Battery MWh | Dry allowance t | MWh/t dry | Battery-only minimum Wh/kg | Reference pack t | Pack / dry ratio | Complete floor t | Floor / dry |
+|---|---|---|---|---|---|---|---|---|
+| P-100 | 20 | 100 | 0.20 | 200 | 134.2 | 134.2% | 216.1 | 2.16× |
+| P-1000 | 120 | 1,000 | 0.12 | 120 | 805.4 | 80.5% | 1,803.6 | 1.80× |
+| P-10000 | 2,000 | 10,000 | 0.20 | 200 | 13,422.8 | 134.2% | 19,524.2 | 1.95× |
+
+The complete floor uses the budget’s own evidence choices, including its 500 Wh/kg battery assumption; it is separate from the 149 Wh/kg reference-pack comparison.
+
+This comparison comes from [battery-ratios.json](../research/analysis/battery-ratios.json), configuration and the generated mass budget. It does not establish a buildable pack or a complete aircraft.
+<!-- battery:ratios:end -->
 
 **DECISION: none yet**, and this is the largest open question in the project — larger than any of
 #1–#8, because those are errors inside a model and this is a question about whether the model's

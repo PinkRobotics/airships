@@ -91,6 +91,14 @@ class ReportLinks(unittest.TestCase):
 
 
 class SolarMarkers(unittest.TestCase):
+    def test_checked_battery_markers_keep_prose_and_unknown_comments_fail(self):
+        text='<!-- battery:ratios:start -->80.5% reference pack<!-- battery:ratios:end -->'
+        converted=md2tex.inline(text, set(), 'report')
+        self.assertIn('80.5', converted)
+        self.assertNotIn('<!--', converted)
+        with self.assertRaises(SystemExit):
+            md2tex.inline('80.5% <!-- battery:unknown:start -->', set(), 'report')
+
     def test_checked_solar_markers_keep_prose_and_unknown_comments_fail(self):
         text='<!-- solar:area:start -->85% coverage<!-- solar:area:end -->'
         converted=md2tex.inline(text, set(), 'report')

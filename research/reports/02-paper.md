@@ -415,10 +415,24 @@ than a scaling limit.
   structure and payload together.
 - **Akhmeteli & Gavrilin 2021** publish a payload fraction of **0.1** against our implied 0.5, on a
   shell of 1.16 kg/m³.
-- Independently, every class carries **0.2 MWh of battery per tonne of dry mass**, requiring
-  200 Wh/kg at *pack* level with nothing left for anything else. NASA flew 149 Wh/kg on X-57;
-  Lvovich (2020) sees no clear path past 500 Wh/kg at pack level, where the battery still consumes
-  40% of the budget.
+
+The per-class configured battery comparison is generated below from the model and the reference pack density:
+
+<!-- battery:ratios:start -->
+At the 149 Wh/kg reference pack density, the battery alone exceeds the dry allowance on P-100 and P-10000.
+The per-class ratio of reference-pack mass to dry allowance is shown below.
+The complete nominal floor budget exceeds the dry allowance on P-100, P-1000, P-10000, as its own totals show below.
+
+| Class | MWh/t dry | Reference pack / dry | Floor pack / dry | Complete floor t | Floor / dry |
+|---|---|---|---|---|---|
+| P-100 | 0.20 | 134.2% | 40.0% | 216.1 | 2.16× |
+| P-1000 | 0.12 | 80.5% | 24.0% | 1,803.6 | 1.80× |
+| P-10000 | 0.20 | 134.2% | 40.0% | 19,524.2 | 1.95× |
+
+The complete floor uses the budget’s own evidence choices, including its 500 Wh/kg battery assumption; it is separate from the 149 Wh/kg reference-pack comparison.
+
+This comparison comes from [battery-ratios.json](../analysis/battery-ratios.json), configuration and the generated mass budget. It does not establish a buildable pack or a complete aircraft.
+<!-- battery:ratios:end -->
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 

@@ -133,6 +133,7 @@ class Context:
             return dict(kind='generated',generator='research/analysis/energy-motion.mjs',
                         region=region,source='research/analysis/energy-motion.json'), 'energydoccheck'
         checked_regions = {
+            ('research/reports/02-paper.md','battery:ratios'):'research/analysis/battery-ratios.mjs',
             ('research/analysis/water-availability.md','logistics:rates'):'tools/gen_logistics_prose.py',
             ('research/analysis/water-availability.md','logistics:drawdown'):'tools/gen_logistics_prose.py',
             ('research/analysis/delivery.md','logistics:one-pass'):'tools/gen_logistics_prose.py',

@@ -55,7 +55,7 @@ def marker_action(text):
         return text, True
     if text.startswith('/') and text[1:] in FALLBACK:
         return text[1:], False
-    m = re.fullmatch(r'(energy|served-energy|readme|logistics|atmosphere|solar):([a-z-]+):(start|end)', text)
+    m = re.fullmatch(r'(energy|served-energy|readme|logistics|atmosphere|solar|battery):([a-z-]+):(start|end)', text)
     return (m[1] + ':' + m[2], m[3] == 'start') if m else (None, None)
 
 
@@ -574,7 +574,7 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])
             return rules.analysis_issue(occ, entry)
-        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs', 'tools/gen_logistics_prose.py', 'research/analysis/loaded-atmosphere.mjs', 'tools/gen_solar_prose.py', 'tools/gen_solar_budget_comparison.py'}:
+        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs', 'tools/gen_logistics_prose.py', 'research/analysis/loaded-atmosphere.mjs', 'tools/gen_solar_prose.py', 'tools/gen_solar_budget_comparison.py', 'research/analysis/battery-ratios.mjs'}:
             if rules is None:
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])

@@ -19,18 +19,32 @@ every energy density tested.
 
 ## Why it cuts against us
 
-`sim/config.js` gives every class 0.2 MWh of battery per tonne of dry mass — 20 MWh on a 100 t
-P-100, 120 MWh on a 1,000 t P-1000, 2,000 MWh on a 10,000 t P-10000. Turned round, that is a
-demand for **200 Wh/kg at pack level before anything else is allowed to weigh anything at all**.
+The configured battery-to-dry-allowance ratio differs by class. The generated comparison
+uses each class's capacity and dry allowance, the reference pack density, and the complete
+nominal floor budget:
 
-Against the 149 Wh/kg pack NASA actually flew, the P-10000's 2,000 MWh masses about **13,400
-tonnes** — 134% of the entire dry-mass allowance, which also has to contain the hull, the rotors,
-the pumps, the 15,500 t nitrogen tank's structure and an 850 m cable. The same ratio holds on all
-three classes, because the specification is linear.
+<!-- battery:ratios:start -->
+At the 149 Wh/kg reference pack density, the battery alone exceeds the dry allowance on P-100 and P-10000.
+The per-class ratio of reference-pack mass to dry allowance is shown below.
+The complete nominal floor budget exceeds the dry allowance on P-100, P-1000, P-10000, as its own totals show below.
+
+| Class | Battery MWh | Dry allowance t | MWh/t dry | Battery-only minimum Wh/kg | Reference pack t | Pack / dry ratio | Complete floor t | Floor / dry |
+|---|---|---|---|---|---|---|---|---|
+| P-100 | 20 | 100 | 0.20 | 200 | 134.2 | 134.2% | 216.1 | 2.16× |
+| P-1000 | 120 | 1,000 | 0.12 | 120 | 805.4 | 80.5% | 1,803.6 | 1.80× |
+| P-10000 | 2,000 | 10,000 | 0.20 | 200 | 13,422.8 | 134.2% | 19,524.2 | 1.95× |
+
+The complete floor uses the budget’s own evidence choices, including its 500 Wh/kg battery assumption; it is separate from the 149 Wh/kg reference-pack comparison.
+
+This comparison comes from [battery-ratios.json](../analysis/battery-ratios.json), configuration and the generated mass budget. It does not establish a buildable pack or a complete aircraft.
+<!-- battery:ratios:end -->
+
+Against the 149 Wh/kg pack NASA actually flew, the class-specific reference masses
+are in the generated table.
 
 Read alongside `notes/jenett-2019-lattice-vacuum-airship.md`, which finds the bare lattice shell
-already 12% over the same allowance, the two independent overruns are additive and each is on its
-own larger than the budget.
+already 12% over the same allowance, these are independent component comparisons. The
+generated totals above assess the complete nominal floor under its own evidence assumptions.
 
 ## Where it does not close the argument
 

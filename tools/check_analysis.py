@@ -467,6 +467,12 @@ def main() -> None:
     if subprocess.run(['node', 'tools/gen_served_route_selections.mjs', '--check'], cwd=ROOT).returncode:
         bad.append('captured route inputs have stale served controls')
 
+    if subprocess.run(['node', 'research/analysis/battery-ratios.mjs', '--check'], cwd=ROOT).returncode:
+        bad.append('per-class battery ratios or complete-budget passages differ')
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_battery_ratios.py'], cwd=ROOT).returncode:
+        bad.append('battery ratios drift plants failed')
+
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
     physics = (ROOT / "docs/PHYSICS.md").read_text()
