@@ -153,8 +153,9 @@ leak problem, which is a different document (#63).
   requiring the bench article's margins (or 30% more) and estimating joint mass as OD³.
   Its lightest parity cases are **18.00 and 17.43 kg/m³**, respectively. This invented
   catalogue is a geometry experiment, not procurement evidence.
-- **What size DOES buy** is manufacturability (§3, R3), 64% fewer joints per m³ from 0.7 to
-  1.3 m, and a 41% wider permeation budget. All real, none of it buoyancy.
+- **What size DOES buy** is manufacturability (§3, R3): the scale tool prints **286 to 102
+  joints per m³ from 0.709 to 1.0 m**, and a 41% wider permeation budget. Those are model
+  manufacturing and barrier allowances; they do not establish buoyancy.
 - **Vacuum, not helium.** Gated in `research/analysis/helium.md`.
 - **Full vacuum in the closed-form lattice study.** `nullResults.partialVacuum` gives
   shell mass proportional to Δp^(2/3) and lift proportional to Δp; reducing evacuation
