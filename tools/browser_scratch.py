@@ -6,42 +6,69 @@ An explicit TMPDIR is authoritative; unreadable scratch fails without a fallback
 Without it, try the checkout and then the account home for confined browsers.
 """
 from contextlib import contextmanager
+import json
 import os
 from pathlib import Path
 import pwd
 import shlex
-import signal
-import subprocess
 import sys
 import tempfile
+import time
+from urllib.parse import urlsplit
+import urllib.request
+
+from devtools import DEFAULT_TIMEOUT, BrowserFailed, page_target
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRATCH_NAME = '.browser-scratch'
+TITLE = 'browser-scratch-readable'
+
+
+def _page_titles(port):
+    with urllib.request.urlopen(f'http://127.0.0.1:{port}/json', timeout=1) as reply:
+        return [target.get('title') for target in json.load(reply) if target.get('type') == 'page']
 
 
 def _readable(directory, chrome):
+    """Whether the browser writes its profile here and reads a page written here.
+
+    The browser starts as the gates start it (devtools.page_target): the debugging port
+    it writes into its profile proves the write, and the page's title proves the read.
+    The probe does not wait for --dump-dom: Chrome for Testing 154 never prints the dump
+    for this page, which is also why 3d/scripts/browser-tests.sh reads its page's own
+    output. A failure prints the browser's stderr, the only place the cause is written.
+    One cause is a long TMPDIR: Chromium aborts when the path of its singleton socket
+    under TMPDIR is longer than 107 bytes.
+    """
     marker = directory / 'probe.html'
-    marker.write_text('<title>browser-scratch-readable</title>')
-    env = dict(os.environ, TMPDIR=str(directory))
-    proc = subprocess.Popen(
-        [chrome, '--headless', '--no-sandbox', '--disable-gpu',
-         '--disable-background-networking', '--no-first-run', '--no-default-browser-check',
-         f'--user-data-dir={directory / "probe-profile"}', '--dump-dom', marker.as_uri()],
-        env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
+    marker.write_text(f'<title>{TITLE}</title>')
+    log = directory / 'probe-chromium.log'
+    started = time.monotonic()
     try:
-        try:
-            out, _ = proc.communicate(timeout=30)
-        except subprocess.TimeoutExpired:
-            return False
-        return (proc.returncode == 0 and b'<title>browser-scratch-readable</title>' in out
-                and (directory / 'probe-profile' / 'Local State').is_file())
-    finally:
-        # Reap only this probe and the descendants in its own process group.
-        try:
-            os.killpg(proc.pid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
-        proc.communicate()
+        with log.open('wb') as stderr, page_target(
+                chrome, ['--no-sandbox', '--disable-gpu', '--no-default-browser-check'],
+                directory / 'probe-profile', stderr=stderr, url=marker.as_uri(),
+                env=dict(os.environ, TMPDIR=str(directory))) as (proc, ws_url):
+            port = urlsplit(ws_url).port
+            while time.monotonic() < started + DEFAULT_TIMEOUT:
+                try:
+                    if TITLE in _page_titles(port):
+                        return True
+                except (OSError, ValueError):
+                    pass
+                if proc.poll() is not None:
+                    raise BrowserFailed(f'chromium exited with code {proc.returncode} '
+                                        'before the page showed its title')
+                time.sleep(0.1)
+            raise BrowserFailed(f'the page did not show its title within {DEFAULT_TIMEOUT} s')
+    except BrowserFailed as failure:
+        lines = log.read_text(errors='replace').splitlines()
+        if len(lines) > 50:
+            lines = lines[:40] + [f'... {len(lines) - 50} lines omitted ...'] + lines[-10:]
+        print(f'browser scratch: {chrome} failed the probe in {directory} after '
+              f'{time.monotonic() - started:.1f} s: {failure}. Its stderr:',
+              *(f'  {line}' for line in lines), sep='\n', file=sys.stderr)
+        return False
 
 
 @contextmanager

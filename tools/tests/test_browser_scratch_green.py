@@ -1,4 +1,6 @@
 """An interrupted browser run must not change checks or publication selection."""
+from contextlib import redirect_stderr
+import io
 import os
 from pathlib import Path
 import shutil
@@ -49,6 +51,19 @@ class BrowserScratchTests(unittest.TestCase):
                         self.fail('unreadable scratch was accepted')
                 self.assertEqual(probe.call_count, 1)
                 self.assertEqual(list(Path(td).iterdir()), [])
+
+    def test_failed_probe_prints_the_browsers_own_stderr(self):
+        with tempfile.TemporaryDirectory() as td:
+            browser = Path(td) / 'chromium'
+            browser.write_text('#!/bin/sh\necho "the browser says why" >&2\nexit 7\n')
+            browser.chmod(0o755)
+            scratch = Path(td) / 'scratch'
+            scratch.mkdir()
+            printed = io.StringIO()
+            with redirect_stderr(printed):
+                self.assertFalse(browser_scratch._readable(scratch, str(browser)))
+            self.assertIn('exited with code 7', printed.getvalue())
+            self.assertIn('the browser says why', printed.getvalue())
 
     def test_leftover_does_not_change_gates_stamps_status_or_published_copy(self):
         commands = [

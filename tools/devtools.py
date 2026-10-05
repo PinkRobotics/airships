@@ -56,12 +56,13 @@ def _page_ws_url(port: int):
 
 @contextlib.contextmanager
 def page_target(chrome, flags, profile, stderr=subprocess.DEVNULL,
-                timeout=DEFAULT_TIMEOUT):
+                timeout=DEFAULT_TIMEOUT, url="about:blank", env=None):
     """Yield (proc, ws_url): a headless Chromium on a debugging port it chose itself.
 
     `flags` are the caller's own — renderer, window, confinement. The debug port, the
     profile wiring and the teardown belong to this module. `profile` is the user-data-dir
     to create; an existing directory is refused so a stale endpoint cannot be reused.
+    `url` is the first page, and `env` the browser's environment (this process's if None).
     """
     profile = pathlib.Path(profile)
     profile.mkdir(parents=True, exist_ok=False)
@@ -71,8 +72,8 @@ def page_target(chrome, flags, profile, stderr=subprocess.DEVNULL,
         [chrome, "--headless=new", "--remote-debugging-port=0", "--remote-allow-origins=*",
          "--remote-debugging-address=127.0.0.1", "--disable-background-networking",
          "--disable-component-update", "--disable-sync", "--no-first-run",
-         f"--user-data-dir={profile}", *flags, "about:blank"],
-        stdout=subprocess.DEVNULL, stderr=stderr, start_new_session=True)
+         f"--user-data-dir={profile}", *flags, url],
+        stdout=subprocess.DEVNULL, stderr=stderr, start_new_session=True, env=env)
     deadline = time.monotonic() + timeout
     try:
         port = _wait_for(_chosen_port(profile), proc, deadline, timeout)
