@@ -8,7 +8,7 @@ CHROME ?= chromium
 PORT   ?= 8875
 
 .DEFAULT_GOAL := help
-.PHONY: help serve portproof portcheck test test-node golden interaction capturecheck lint check quick stamp figures pdf pdfgenerate pdfcheck figfresh \
+.PHONY: help serve portproof portcheck test test-node golden goldenui interaction capturecheck lint check quick stamp figures pdf pdfgenerate pdfcheck figfresh \
         analysis analysischeck cellparity explorercheck nodes nodescheck contractcheck \
         assemblycheck assemblygenerate contractfreeze skin skincheck fallback fallbackcheck levelscheck shipcheck bandcheck ciparity \
         firstparty firstparty-static labelledcheck readmecheck noticecheck linkcheck mutationcheck buildercheck clean
@@ -44,9 +44,12 @@ test-node:  ## Run the node unit tests — falls back to a browser shim when nod
 	 else $(PY) tools/run_node_tests.py; \
 	 fi
 
-golden:  ## Replay the seeded invented exercise and diff captured outputs against tests/golden/
+golden:  ## Replay the seeded model and diff its captured outputs against tests/golden/
 	@test -f tests/golden/check.py || { echo "tests/golden/check.py is missing — see tests/README.md"; exit 1; }
-	$(PY) tests/golden/check.py
+	$(PY) tests/golden/check.py --only model
+
+goldenui:  ## Replay the rendered page and diff its UI snapshot against tests/golden/
+	$(PY) tests/golden/check.py --only ui
 
 # The other suites ask what the model computes and what the page renders. This one asks
 # whether the page is still running after someone has used it: a throw inside draw() kills
@@ -81,7 +84,7 @@ CI_OUTSIDE_CHECK := floatplants
 # ledgercheck still drives a browser when regenerating the float ledger.
 quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs

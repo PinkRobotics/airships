@@ -6,7 +6,7 @@ The test groups answer different questions. This table introduces five groups;
 | tier | question | where | needs |
 |---|---|---|---|
 | unit | does the model still make sense? | `cases/*.cases.js` | a browser, or node 18+ |
-| golden | do the model outputs and captured page elements still match? | `golden/check.py` | python3 + chromium |
+| golden / goldenui | do the model outputs and captured page elements still match? | `golden/check.py` | python3 + chromium |
 | shipped selftest | can a reader check the numbers from the page itself? | `../sim/selftest.js` | the live page |
 | season | do the season files match a regeneration, and do their pinned totals hold? | `season/check.py` (`make seasoncheck`) | python3 |
 | capture | does the daily capture tool behave against recorded responses? | `capture/check.py` (`make capturecheck`) | python3; a fixture server on 127.0.0.1 |
@@ -30,7 +30,8 @@ golden/*.json           the baselines; golden/*dump.js the scripts that produce 
 ```sh
 make test        # the browser suites, headless
 make test-node   # Node suites; browser-compatible 3D fallback if Node is absent
-make golden      # replay the seeded invented exercise and diff the captured outputs
+make golden      # replay the seeded model and diff its captured outputs
+make goldenui    # diff the rendered-page snapshot
 make check       # the same ordered main gates as CI; Node is required
 ```
 

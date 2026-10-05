@@ -86,5 +86,5 @@ more useful than a new report.
 ## Optional: does `make golden` move?
 
 If you have a fix, `make golden` replays the model at seed 7 and diffs every output against
-`tests/golden/`. The diff is the honest description of what your change does, and we will
+`tests/golden/`; `make goldenui` checks the rendered page. The diff is the honest description of what your change does, and we will
 ask for it eventually, so it may as well come with the argument.

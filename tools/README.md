@@ -66,7 +66,7 @@ the bytes differ. That report is what the pull request template asks you to past
 explain, line by line.
 
 `make golden` is the wrapper that produces the candidate dump and runs this against the
-committed baseline. Reach for `golden_diff.py` directly when you are comparing two dumps of
+committed model baseline; `make goldenui` checks the UI. Reach for `golden_diff.py` directly when you are comparing two dumps of
 your own — before and after a change, or two seeds.
 
 ## `js_eval.py` — evaluate JavaScript against a loaded page

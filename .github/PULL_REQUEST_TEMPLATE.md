@@ -16,7 +16,7 @@ Name them. If nothing covers it, say that plainly and say why — "this is a com
 is a complete answer; silence is not. A change to the model that no test would have caught
 is the one that needs a new test most.
 
-- [ ] `make check` passes (import boundaries, golden, browser suites)
+- [ ] `make check` passes (import boundaries, golden, goldenui, browser suites)
 - [ ] `make test-node` passes, or I have no node and CI will run it
 
 ---
