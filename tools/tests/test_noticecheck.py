@@ -252,13 +252,15 @@ class RepositoryMutationProofs(unittest.TestCase):
                 shutil.copy2(src, target)
             self.assertEqual(noticecheck.check(source, dest), [])
 
-            def mutate(path, content, expected, label, public=False):
-                before = path.read_bytes() if path.exists() else None
+            def mutate(path, content, expected, label, public=False, also=()):
+                changes = [(path, content), *also]
+                before = [(p, p.read_bytes() if p.exists() else None) for p, _ in changes]
                 try:
-                    if content is None:
-                        path.unlink()
-                    else:
-                        path.write_bytes(content)
+                    for p, c in changes:
+                        if c is None:
+                            p.unlink()
+                        else:
+                            p.write_bytes(c)
                     cmd = [sys.executable, str(ROOT / 'tools/noticecheck.py'), '--root', str(source), '--dest', str(dest)]
                     if public:
                         cmd.append('--public')
@@ -268,10 +270,11 @@ class RepositoryMutationProofs(unittest.TestCase):
                     relevant = next(line for line in result.stdout.splitlines() if expected in line)
                     print(f'{label}: RED exit=1; {relevant}')
                 finally:
-                    if before is None:
-                        path.unlink(missing_ok=True)
-                    else:
-                        path.write_bytes(before)
+                    for p, b in before:
+                        if b is None:
+                            p.unlink(missing_ok=True)
+                        else:
+                            p.write_bytes(b)
                 self.assertEqual(noticecheck.check(source, dest), [])
                 print(f'{label}: restored PASS')
 
@@ -291,8 +294,17 @@ class RepositoryMutationProofs(unittest.TestCase):
             rec = json.loads(record.read_text())
             rec['sha256'] = '0' * 64
             mutate(record, json.dumps(rec).encode(), 'hash mismatch', 'corrupt one hash')
-            mutate(record, record.read_bytes(), 'public tree contains link-only file: research/papers/',
-                   'public gate with link-only originals present', public=True)
+            # Link-only originals are absent from the tree by design. Plant one whose record vouches
+            # for its bytes, so that the public gate, not the hash check, is what turns RED.
+            link_only = 'research/papers/nrel-2023-beyond-4-hour-batteries.pdf'
+            planted = b'%PDF fixture'
+            sidecar = source / (link_only + '.prov.json')
+            rec = json.loads(sidecar.read_text())
+            rec['sha256'] = hashlib.sha256(planted).hexdigest()
+            rec['measurements'] = {'bytes': len(planted)}
+            mutate(source / link_only, planted, 'public tree contains link-only file: ' + link_only,
+                   'public gate with a link-only original present', public=True,
+                   also=[(sidecar, json.dumps(rec).encode())])
             index = dest / 'index.html'
             mutate(index, index.read_bytes() + b'<a href="missing-target.html">broken</a>',
                    'broken relative link', 'broken published link')
