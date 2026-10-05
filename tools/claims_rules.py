@@ -57,6 +57,8 @@ class Context:
         self.contexts = None
         self.sections = {}
         self.bodies = {}
+        self.analysis_cache = {}
+        self.checked_analysis = {}
 
     def body(self, file):
         path = self.root / file
@@ -85,7 +87,7 @@ class Context:
                     continue
                 bounds = {}
                 if rel.endswith('.html'):
-                    parser = gate.Blocks(); parser.feed((self.root / rel).read_text())
+                    parser = gate.Blocks(); parser.feed(self.body(rel))
                     bounds = {(line,text):(line,end) for line,end,text,raw,tag in parser.out}
                 for line, text, raw in gate.source_blocks(self.root / rel):
                     hit = gate.inspect_block(rel, line, text, raw, rows, ledger, cat)
@@ -215,16 +217,67 @@ class Context:
         generated = self.generator_owner(occ)
         if generated:
             return generated
-        # Recorded deferrals remain defects before arithmetic ownership is considered.
-        # Float record ownership takes precedence only where a real inventoried block
-        # covers this occurrence; unrecorded numeric float prose remains a defect.
+        # A marker binds arithmetic after recorded deferrals have been preserved.
+        # Other float prose needs a real inventoried block and its disposition.
         hit = self.float_hit(occ)
         if hit:
             return dict(kind='ledger', record=hit['record'], key=hit['key'], reason=hit['reason']), 'ledgercheck'
         label = label_for(occ)
         if label:
             return dict(kind='labelled', label=label), 'claimscheck'
+        analysis = self.analysis_owner(occ)
+        if analysis:
+            return analysis, 'analysischeck'
         return fallback(occ)
+
+    def analysis_owner(self, occ):
+        """Bind only the exact tokens in the analysis gate's quantity-specific patterns.
+
+        Manifest rows with only a value search lack occurrence-local ownership and
+        remain defects. Equal digits elsewhere in the note never gain this owner.
+        """
+        if occ['file'] in self.analysis_cache:
+            bindings = self.analysis_cache[occ['file']]
+        else:
+            import check_analysis as gate
+            from numeric_tokens import numeric_pattern
+            import claims
+            bindings = []
+            for md, name, pointer, fmt in gate.MANIFEST:
+                rel = (self.root / 'research/analysis' / md).resolve().relative_to(self.root).as_posix()
+                pattern = gate.CONTEXTS.get((md,pointer))
+                if rel != occ['file'] or pattern is None:
+                    continue
+                doc = json.loads((self.root / ('research/analysis/' + name + '.json')).read_text())
+                value = gate.dig(doc,pointer)
+                want = gate.num(value,fmt)
+                concrete = pattern.replace('{number}', '(?P<quantity>' + numeric_pattern(want) + ')')
+                for m in re.finditer(concrete,self.body(rel),re.M):
+                    line_start=self.body(rel).rfind('\n',0,m.start())+1
+                    line_end=self.body(rel).find('\n',m.end())
+                    raw_line=self.body(rel)[line_start:line_end if line_end>=0 else None]
+                    column=self.body(rel)[line_start:m.start('quantity')].count('|')-1 if raw_line.startswith('|') else None
+                    bindings.append(dict(pointer=pointer,source='research/analysis/'+name+'.json',fmt=fmt,
+                        want=want,line=claims.clean_markdown(raw_line),column=column,
+                        prefix=claims.clean_markdown(self.body(rel)[line_start:m.start('quantity')])[-40:]))
+            self.analysis_cache[occ['file']] = bindings
+        for b in bindings:
+            if occ['raw'] != b['want'] or occ['text'] not in b['line']:
+                continue
+            if b['column'] is not None:
+                parts=occ['context'].split(' | ')
+                if len(parts)<2 or parts[1]!=str(b['column']):
+                    continue
+            if b['column'] is None and not occ['before'].rstrip().endswith(b['prefix']):
+                continue
+            return dict(kind='generated',generator='analysis-figure',region=b['source']+'#'+b['pointer'])
+        return None
+
+    def analysis_issue(self, occ, entry):
+        owner = self.analysis_owner(occ)
+        if owner != entry['owner'] or entry['gate'] != 'analysischeck':
+            return dict(kind='analysis-figure-miss', observed=occ['raw'], expected=entry['owner']['region'])
+        return None
 
     def span_owner(self, occ):
         attribute = occ['context']

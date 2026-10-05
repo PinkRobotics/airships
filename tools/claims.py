@@ -19,8 +19,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_figures import CITE, flatten, matches_display
 
 ROOT = Path(__file__).resolve().parents[1]
-SCOPE = ('Tier 1: README.md, GOALS.md, manifest-served HTML, research/reports/*.md. '
-         'Out of scope: docs/, working notes, analysis notes, external scripts and runtime-only values.')
+SCOPE = ('Static public text and model-bound spans: manifest HTML, README.md, GOALS.md, reports; '
+         'then PHYSICS, ARCHITECTURE, analysis Markdown, simulator/test/tool READMEs and DATA-SOURCES. '
+         'History, source notes without dated reviews, PDFs, other runtime values and image pixels remain outside scope.')
+
 WORDS = ('zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen '
          'fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy '
          'eighty ninety hundred thousand million billion first second third fourth fifth sixth '
@@ -115,7 +117,10 @@ def tier_files(root, manifest):
             if path.suffix.lower() == '.html' and not any(rel == p or rel.startswith(p + '/') for p in partial):
                 safe_relative(root, rel)
                 paths.add(path)
-    return sorted(paths)
+    extra = [root/'docs/PHYSICS.md', root/'docs/ARCHITECTURE.md',
+             *sorted((root/'research/analysis').glob('*.md')), root/'sim/README.md',
+             root/'tests/README.md', root/'tools/README.md', root/'DATA-SOURCES.md']
+    return sorted(paths) + [p for p in extra if p.is_file() and p not in paths]
 
 
 class Reader(HTMLParser):
@@ -250,6 +255,7 @@ class Reader(HTMLParser):
 
 
 def markdown_units(source):
+    # README's checked producer has both indented and inline region markers.
     source = re.sub(r'(<!--\s*readme:[a-z-]+:(?:start|end)\s*-->)', r'\n\1\n', source)
     # Markdown permits embedded HTML. Capture attributes too, without double-counting
     # its visible text (which the Markdown pass below already retains).
@@ -561,7 +567,12 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
         if label_for(occ) != owner['label']:
             return dict(kind='label-missing', observed=occ['raw'], expected=owner['label'])
     elif kind == 'generated':
-        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py'}:
+        if owner['generator'] == 'analysis-figure':
+            if rules is None:
+                from claims_rules import Context
+                rules = Context(root, [occ['file']])
+            return rules.analysis_issue(occ, entry)
+        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs'}:
             if rules is None:
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])

@@ -588,6 +588,43 @@ class ResidueRulesTest(ClaimsFixture, unittest.TestCase):
         self.assertIn('stale residue',self.check()[1])
 
 
+class DocumentScopeTest(ClaimsFixture, unittest.TestCase):
+    def test_first_reader_documents_are_covered_history_and_source_notes_are_not(self):
+        for name in ['docs/PHYSICS.md','docs/ARCHITECTURE.md','research/analysis/note.md','sim/README.md','tests/README.md','tools/README.md','DATA-SOURCES.md']:
+            self.put(name,'A quantity 42 t.')
+        for name in ['docs/working/history.md','docs/audit/history.md','research/notes/paper.md']:
+            self.put(name,'A quantity 43 t.')
+        files=[p.relative_to(self.root).as_posix() for p in claims.tier_files(self.root,self.root/'dist.manifest')]
+        self.assertEqual(files[-7:],['docs/PHYSICS.md','docs/ARCHITECTURE.md','research/analysis/note.md','sim/README.md','tests/README.md','tools/README.md','DATA-SOURCES.md'])
+        self.assertNotIn('43',[o['raw'] for o in self.extract()])
+
+    def test_analysis_gate_context_does_not_bind_equal_digits_elsewhere(self):
+        from claims_rules import Context
+        import check_analysis as gate
+        from unittest.mock import patch
+        self.put('index.html','')
+        self.put('research/analysis/fixture.json','{"length":110}')
+        self.put('research/analysis/fixture.md','The model length is **110 m**; a different 110 m figure.\n\nUnrelated 110 m.\n')
+        with patch.object(gate,'MANIFEST',[('fixture.md','fixture','length','d')]), patch.object(gate,'CONTEXTS',{('fixture.md','length'):r'model length is \*\*{number} m'}):
+            occ=self.extract();ctx=Context(self.root,['research/analysis/fixture.md'])
+            first=next(o for o in occ if o['raw']=='110')
+            self.assertIsNotNone(ctx.analysis_owner(first))
+            others=[o for o in occ if o['raw']=='110'][1:]
+            self.assertTrue(all(ctx.analysis_owner(o) is None for o in others))
+
+    def test_generated_markdown_is_held_by_check_producer(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        self.put('research/analysis/energy-unheld.md','110 tonnes.\n')
+        self.put('research/analysis/energy-unheld.mjs', "import fs from 'node:fs'; if(fs.readFileSync('research/analysis/energy-unheld.md','utf8')!=='110 tonnes.\\n')process.exitCode=1;")
+        o=self.extract()[0];ctx=Context(self.root,['research/analysis/energy-unheld.md'])
+        owner,gate=ctx.generator_owner(o)
+        self.assertIsNone(ctx.generated_issue(o,claims.entry_for(o,owner,gate)))
+        self.put('research/analysis/energy-unheld.md','111 tonnes.\n')
+        ctx=Context(self.root,['research/analysis/energy-unheld.md'])
+        self.assertEqual(ctx.generated_issue(o,claims.entry_for(o,owner,gate))['kind'],'stale-generated-region')
+
+
 class SpanBasisTest(ClaimsFixture, unittest.TestCase):
     def test_model_key_does_not_clear_a_deferred_float_block(self):
         from claims_rules import Context
