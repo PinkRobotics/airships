@@ -1,7 +1,7 @@
 {
   "command": "python3 -B research/claims/mutation_proof.py",
   "baseline_exit": 0,
-  "method": "Disposable tier 1 copy; one mutation at a time, restore bytes and rerun after each.",
+  "method": "Disposable complete dependency tree and index; one mutation at a time, restore bytes and rerun after each.",
   "mutations": [
     {
       "mutation": "bound page number",
@@ -33,14 +33,13 @@
       "restored_exit": 0
     },
     {
-      "mutation": "known defect fixed but listed",
-      "file": "README.md",
+      "mutation": "known defect changed but listed",
+      "file": "research/reports/README.md",
       "red_exit": 1,
       "messages": [
-        "claimscheck: README.md::8aead1ce516edca5243c6f9073847b7ff1930c792b8aef8446b8e1c19c8e63cf::1: orphaned register entry; old=1.25 new=1.39 key=classes.P100.cycle.eCycleMWh",
-        "claimscheck: README.md::c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e::1: known defect no longer reproduces: recorded={\"expected\":8.454,\"key\":\"classes.P1000.cycle.eCycleMWh\",\"kind\":\"stale-model\",\"observed\":\"7.4\"} now={\"expected\":{\"block_digest\":\"c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e\",\"context_digest\":\"b273035984149eca51898d6d5b008e97ea97779615399530e49c6859e765f03d\",\"marker\":null,\"region\":null,\"surface\":\"cell\"},\"kind\":\"placement-changed\",\"observed\":{\"block_digest\":\"c0535474104dd5a125ba8d5e4c32680a3c01c26fcda0d16f78e5445f715c314e\",\"context_digest\":\"4cdc0705d01fe208eafcd865ce2c2e3c2988aece8c25ec33fcaf3655f2c672b7\",\"marker\":null,\"region\":null,\"surface\":\"cell\"}}",
-        "claimscheck: README.md::796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec::1: known defect no longer reproduces: recorded={\"expected\":54.325,\"key\":\"classes.P10000.cycle.eCycleMWh\",\"kind\":\"stale-model\",\"observed\":\"45.9\"} now={\"expected\":{\"block_digest\":\"796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec\",\"context_digest\":\"537e980ab8da4d5afffce498d8046f874885c7ea52544d650868e9efde1117b6\",\"marker\":null,\"region\":null,\"surface\":\"cell\"},\"kind\":\"placement-changed\",\"observed\":{\"block_digest\":\"796f07a719850ce3582c3d6e631efa30c5aff6d91ecacd09a7d19adc2a9c49ec\",\"context_digest\":\"a3ed14caa4a12c22183fe717911abb16b3ed9491e54a254243580981116c3a0e\",\"marker\":null,\"region\":null,\"surface\":\"cell\"}}",
-        "claimscheck: README.md::8aead1ce516edca5243c6f9073847b7ff1930c792b8aef8446b8e1c19c8e63cf::1: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text"
+        "claimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::1: orphaned register entry; old=half new=seventy key=unowned",
+        "claimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::2: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text",
+        "claimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::1: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text"
       ],
       "restored_exit": 0
     },
@@ -65,6 +64,27 @@
         "claimscheck: concept/index.html::ca3399102650d40f26220589eef5f560ecf403f5b3cf54063c78cc19be33d8c5::1: UNREGISTERED aria-label value=0.45 text=0.45 kWh/kg"
       ],
       "restored_exit": 0
+    },
+    {
+      "mutation": "unknown model span key",
+      "file": "ship/index.html",
+      "red_exit": 1,
+      "messages": [
+        "claimscheck: ship/index.html::e54f94195a4ac08e8bde0c4ba141cc9284c2a975d9818ab387737fdf5f2d0988::1: UNREGISTERED model-span value=claimsMissingKey text=Model span {\"attribute\":\"data-n\",\"attrs\":{\"data-f\":\"0\",\"data-n\":\"claimsMissingKey\"},\"key\":\"claimsMissingKey\"}"
+      ],
+      "restored_exit": 0
+    }
+  ],
+  "semantic_plants": [
+    {
+      "mutation": "delivering release key",
+      "red_kind": "water-basis",
+      "restored": "GREEN"
+    },
+    {
+      "mutation": "broken section reference",
+      "red_kind": "broken-reference",
+      "restored": "GREEN"
     }
   ]
 }

@@ -56,7 +56,7 @@ jobs:
         id: check-gates
         run: >-
           make --keep-going ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck
-          labelledcheck figcheck
+          labelledcheck claimscheck figcheck
           analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck
           nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty
           interaction readmecheck noticecheck linkcheck mutationcheck buildercheck

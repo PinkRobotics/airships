@@ -1,155 +1,247 @@
 [
   {
-    "command": [
-      "git",
-      "apply",
-      "--3way",
-      "--index",
-      "inputs/claimsgate.patch"
-    ],
-    "exit": 0,
-    "output": "Makefile and tools/check_figures.py applied cleanly; remaining new files fell back to direct application. No conflicts."
-  },
-  {
-    "command": [
-      "make",
-      "claimscheck"
-    ],
-    "exit": null,
-    "phase": "immediately after patch",
-    "output": "TOTAL | 2484 | 12 | 238 | 0 | 0 | 431 | 0 | 1415 | 375; claimscheck: FAIL; 1107 errors; 1678 known defect occurrences",
-    "status": "nonzero; make reported Error 1 after the gate returned failure"
-  },
-  {
-    "command": [
-      "python3",
-      "-B",
-      "tools/claims.py",
-      "check"
-    ],
+    "command": "git apply --3way --index inputs/claims2.patch",
     "exit": 1,
-    "phase": "after changed-ID carry and placement review, before acceptance",
-    "output": "claimscheck: FAIL; 271 errors; 1686 known defect occurrences; 271 lines: ratchet: new defect needs check --accept-new"
+    "output": "Makefile had one EOF conflict; tools/check_figures.py merged cleanly. Retained every current Makefile target and appended claimscheck; git add Makefile resolved the conflict.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "python3",
-      "-B",
-      "tools/claims.py",
-      "check",
-      "--accept-new"
-    ],
-    "exit": 0,
-    "output": "271 ACCEPT NEW lines printed; claimscheck: PASS; 0 errors; 1686 known defect occurrences"
+    "command": "python3 -B tools/claims.py check",
+    "phase": "immediately after supplied carry",
+    "exit": 2,
+    "output": "claimscheck: ERROR TimeoutExpired: Command '['python3', '-B', 'tools/check_float_ledger.py', '--inventory']' timed out after 15 seconds",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "make",
-      "claimscheck"
-    ],
-    "exit": 0,
-    "output": "python3 tools/claims.py check\nTier 1: README.md, GOALS.md, manifest-served HTML, research/reports/*.md. Out of scope: docs/, working notes, analysis notes, external scripts and runtime-only values.\nfile | occurrences | model | generated | delegated | cited | nonclaim | labelled | known defect | unregistered\nGOALS.md | 80 | 0 | 0 | 0 | 0 | 45 | 0 | 35 | 0\n  nonclaim rules: cross-reference=3, iso-date=27, named-identifier=7, section-or-step=8\nREADME.md | 252 | 12 | 0 | 0 | 0 | 45 | 0 | 195 | 0\n  nonclaim rules: cross-reference=1, iso-date=12, named-identifier=22, section-or-step=3, unit-exponent-or-formula-index=6, version=1\ncell/band.html | 26 | 0 | 0 | 0 | 0 | 7 | 0 | 19 | 0\n  nonclaim rules: named-identifier=6, rendering-metadata=1\ncell/explorer.html | 3 | 0 | 0 | 0 | 0 | 2 | 0 | 1 | 0\n  nonclaim rules: named-identifier=1, rendering-metadata=1\ncell/index.html | 63 | 0 | 0 | 0 | 0 | 13 | 0 | 50 | 0\n  nonclaim rules: named-identifier=2, rendering-metadata=4, unit-exponent-or-formula-index=7\ncell/levels.html | 71 | 0 | 0 | 0 | 0 | 25 | 0 | 46 | 0\n  nonclaim rules: cross-reference=7, named-identifier=11, rendering-metadata=4, unit-exponent-or-formula-index=3\ncell/ship.html | 65 | 0 | 0 | 0 | 0 | 10 | 0 | 55 | 0\n  nonclaim rules: named-identifier=8, rendering-metadata=1, unit-exponent-or-formula-index=1\nconcept/index.html | 193 | 2 | 0 | 0 | 0 | 49 | 0 | 142 | 0\n  nonclaim rules: cross-reference=9, iso-date=9, named-identifier=22, rendering-metadata=4, unit-exponent-or-formula-index=5\nengineering/index.html | 67 | 0 | 0 | 0 | 0 | 19 | 0 | 48 | 0\n  nonclaim rules: named-identifier=10, rendering-metadata=4, unit-exponent-or-formula-index=5\nindex.html | 127 | 0 | 68 | 0 | 0 | 39 | 0 | 20 | 0\n  nonclaim rules: cross-reference=1, iso-date=18, named-identifier=16, rendering-metadata=4\nmodel-lab/index.html | 27 | 0 | 0 | 0 | 0 | 3 | 0 | 24 | 0\n  nonclaim rules: named-identifier=1, rendering-metadata=1, unit-exponent-or-formula-index=1\nresearch/reports/01-brief.md | 103 | 0 | 17 | 0 | 0 | 14 | 0 | 72 | 0\n  nonclaim rules: iso-date=6, named-identifier=8\nresearch/reports/02-paper.md | 566 | 0 | 118 | 0 | 0 | 118 | 0 | 330 | 0\n  nonclaim rules: cross-reference=4, iso-date=36, named-identifier=35, section-or-step=19, unit-exponent-or-formula-index=23, version=1\nresearch/reports/03-diligence.md | 527 | 0 | 68 | 0 | 0 | 75 | 0 | 384 | 0\n  nonclaim rules: cross-reference=4, iso-date=15, named-identifier=25, section-or-step=17, unit-exponent-or-formula-index=13, version=1\nresearch/reports/README.md | 27 | 0 | 0 | 0 | 0 | 5 | 0 | 22 | 0\n  nonclaim rules: iso-date=3, named-identifier=2\nship/_hero_test.html | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0\nship/index.html | 287 | 0 | 0 | 0 | 0 | 44 | 0 | 243 | 0\n  nonclaim rules: cross-reference=4, named-identifier=4, rendering-metadata=4, unit-exponent-or-formula-index=32\nTOTAL | 2484 | 14 | 271 | 0 | 0 | 513 | 0 | 1686 | 0\nKnown defects: 10 | Handwritten energy figures and hull dimensions lag the model.\nKnown defects: 19 | Released water is described as delivered water.\nKnown defects: 468 | Float figures await a ledger that records their physical basis.\nKnown defects: 51 | Static defaults and diagrams still need a generating check.\nKnown defects: 603 | Source and historical figures still need occurrence-level review.\nKnown defects: 535 | Other public numbers still need an accountable owner or an explicit label.\nclaimscheck: PASS; 0 errors; 1686 known defect occurrences"
+    "command": "PYTHONPATH=tools:tools/tests python3 -B -m unittest test_claims.HoleRulesTest.test_delivering_and_every_delivery_form_are_red test_claims.HoleRulesTest.test_model_spans_are_extracted_even_without_numeric_text test_claims.HoleRulesTest.test_symbol_reference_resolves_and_broken_target_is_red",
+    "cwd": "$TMPDIR/before-c-final",
+    "exit": 1,
+    "output": "Ran 3 tests; FAILED (failures=1, errors=2): delivering was not refused, model spans were absent, and section symbols had no rule.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "python3",
-      "-B",
-      "-m",
-      "unittest",
-      "discover",
-      "-s",
-      "tools/tests",
-      "-p",
-      "test_claims.py",
-      "-v"
-    ],
-    "exit": 0,
-    "output": "Ran 41 tests in 0.278s; OK"
+    "command": "python3 -B tools/claims.py carry",
+    "phase": "first hole carry before receipt validation fix",
+    "exit": 1,
+    "output": "claimscheck: FAIL; 12 errors; 1541 known defect occurrences. Changing a passing owner invalidated the older retirement receipt; corrected append-only transition revalidation and reran green.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "python3",
-      "-B",
-      "tools/claims.py",
-      "extract"
-    ],
-    "exit": 0,
-    "output": "first and second outputs byte-identical; sha256=49ad1cc536d01fa416bdffa4e5027950cccb016a3aa609339810c3db32d1b3c3"
+    "command": "python3 -B research/claims/mutation_proof.py",
+    "phase": "initial complete-dependency attempt",
+    "exit": 1,
+    "output": "The accessibility mutation was RED, then restoration failed. The copy imported changing worker code; execute only copied tools. Full final proof reran after the fix.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "python3",
-      "-B",
-      "research/claims/mutation_proof.py"
-    ],
-    "exit": 0,
-    "output": "Six RED exit 1 mutations and six restored GREEN exit 0 runs; All six mutations failed as required and all six restorations passed; scratch copy discarded."
+    "command": "python3 -B \"$TMPDIR/report.py\"",
+    "phase": "audit helper before correction",
+    "exit": 1,
+    "output": "KeyError: 'surface'. Corrected helper to read entry placement.surface and reran successfully.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "make",
-      "figcheck",
-      "analysischeck",
-      "fallbackcheck",
-      "labelledcheck",
-      "lint"
-    ],
-    "exit": 0,
-    "output": "check_figures: 233 cited figures across 4 report(s) match the model\npython3 tools/check_analysis.py\n88 analysis figures match the JSON their scripts produced.\npython3 tools/gen_fallback.py --check\ngen_fallback --check: all 4 fallback regions match a fresh regeneration (652 words of static content)\npython3 research/validation/check.py\nlabelledcheck: 6 checks computed; 35 source records valid; reports match\n1-atmosphere: MISS; 2-hindenburg: not comparable; 3-cl415-cycle: not comparable; 4-helicopter-hover: bound only; 5-vacuum-shells: not comparable; 6-helium: not comparable\npython3 tools/check_boundaries.py\nboundaries clean: 81 modules, 29 linter self-tests\n  sim/ and 3d/ name nothing outside themselves — static import, re-export or dynamic import;\n  sim/ additionally touches no DOM, network, storage, wall clock or location."
+    "command": "three selected hole tests in the incomplete isolated fixture",
+    "exit": 1,
+    "output": "Ran 3 tests; FAILED (errors=3); ModuleNotFoundError: No module named 'check_figures'. Copied supporting modules; the repeated run then reproduced the three actual holes.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "python3",
-      "-B",
-      "schema validation"
-    ],
-    "exit": 0,
-    "output": "register VALID; known-defects VALID; accepted-defects VALID"
+    "command": "python3 -B tools/claims.py carry",
+    "phase": "final repeated carry",
+    "second_exit": 0,
+    "before_tree": "081fa1aa2b4cf1b270c23566f920f60b57d1e836",
+    "after_tree": "081fa1aa2b4cf1b270c23566f920f60b57d1e836",
+    "diff_stat": "",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "original",
-      "and",
-      "carried",
-      "tools/check_figures.py",
-      "main()"
-    ],
+    "command": "python3 -B tools/claims.py extract > \"$TMPDIR/extract-final-1.json\"; python3 -B tools/claims.py extract > \"$TMPDIR/extract-final-2.json\"; cmp \"$TMPDIR/extract-final-1.json\" \"$TMPDIR/extract-final-2.json\"",
     "exit": 0,
-    "output": "Both: check_figures: 233 cited figures across 4 report(s) match the model; byte-identical stdout"
+    "sha256": "2b3d9cfbc13399f87ddcc72cb582cd80a88505817cca286bea4f44fe486aefb1",
+    "output": "cmp printed nothing; bytes identical.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "git",
-      "diff",
-      "HEAD",
-      "--exit-code",
-      "--",
-      "README.md",
-      "GOALS.md",
-      "sim",
-      "app",
-      "3d",
-      "docs",
-      "research/figures.json",
-      "research/reports",
-      "index.html",
-      "concept",
-      "engineering",
-      "ship",
-      "cell",
-      "model-lab"
-    ],
+    "command": "python3 -B -m unittest discover -s tools/tests -p test_claims.py",
     "exit": 0,
-    "output": "empty"
+    "output": "..........................................................\n----------------------------------------------------------------------\nRan 58 tests in 0.809s\n\nOK",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   },
   {
-    "command": [
-      "git",
-      "diff",
-      "HEAD",
-      "--check"
-    ],
+    "command": "make claimscheck",
     "exit": 0,
-    "output": "empty"
+    "seconds": 40.481,
+    "output": [
+      "Known defects: 0 | Handwritten energy figures and hull dimensions lag the model.",
+      "Known defects: 18 | Released water is described as delivered water.",
+      "Known defects: 2240 | Float figures await a ledger that records their physical basis.",
+      "Known defects: 65 | Static defaults and diagrams still need a generating check.",
+      "Known defects: 2024 | Source and historical figures still need occurrence-level review.",
+      "Known defects: 431 | Other public numbers still need an accountable owner or an explicit label.",
+      "Known defects: 2 | Section references need an existing target.",
+      "claimscheck: PASS; 0 errors; 4780 known defect occurrences",
+      "python3 -B -m unittest discover -s tools/tests -p test_claims.py",
+      "..........................................................",
+      "----------------------------------------------------------------------",
+      "Ran 58 tests in 0.402s",
+      "",
+      "OK"
+    ],
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "command": "make ciparity",
+    "exit": 0,
+    "output": "python3 tools/check_ci_parity.py\nCI parity PASS: 44 ordered main gates: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck\nIndependent CI targets: floatplants\npython3 -m unittest discover -s tools/tests -p 'test_*green.py'\nbrowser scratch: TMPDIR/browser-check-syv2xv25 (removed on exit; if interrupted, remove with rm -rf -- $TMPDIR/tmpf2uviq6u/browser-check-syv2xv25).\nbrowser scratch: TMPDIR/browser-check-62liq2mk (removed on exit; if interrupted, remove with rm -rf -- $TMPDIR/tmpf2uviq6u/browser-check-syv2xv25/browser-check-62liq2mk).\n...browser scratch: ./.browser-scratch/browser-check-vvu49as3 (removed on exit; if interrupted, remove with rm -rf -- $TMPDIR/tmp4ufd1npw/.browser-scratch/browser-check-vvu49as3).\n...............\n----------------------------------------------------------------------\nRan 18 tests in 4.682s\n\nOK\nscratch unchanged: /usr/bin/python3 tools/stamp_site.py\nstamp-site: every import is stamped at ?v=e6a94414\nscratch unchanged: /usr/bin/python3 3d/scripts/stamp-version.py\nstamp: all module URLs carry ?v=d3e69408\nscratch unchanged: /usr/bin/python3 tools/check_boundaries.py\nboundaries clean: 101 modules, 29 linter self-tests\n  sim/ and 3d/ name nothing outside themselves — static import, re-export or dynamic import;\n  sim/ additionally touches no DOM, network, storage, wall clock or location.\nscratch unchanged: /usr/bin/python3 tests/firstparty/static.py\nfirst-party static: 133 served source files, 0 external loads\nscratch unchanged: node 3d/scripts/stamp-version.mjs\nstamp: all module URLs carry ?v=d3e69408\nscratch unchanged: /usr/bin/python3 tools/publish.py\npublished copy matches: 198 files\nscratch unchanged: /usr/bin/python3 tools/noticecheck.py\nnoticecheck: PASS (79 provenance records; data: 35 files read, 35 records; media: 1 files read, 1 records; research/papers: 42 files read, 42 records; research/prior: 0 files read, 0 records)",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "command": "python3 -B research/claims/mutation_proof.py",
+    "exit": 0,
+    "output": "bound page number: RED exit 1\nclaimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: orphaned register entry; old=0.45 new=0.46 key=assumptions.eLN2\nclaimscheck: concept/index.html::1db8663fd21014a02646361b939df5dd41d3c96328986480733413b44ae374b1::1: UNREGISTERED p value=0.46 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.46 kWh/kg dia\nclaimscheck: concept/index.html::1db8663fd21014a02646361b939df5dd41d3c96328986480733413b44ae374b1::2: UNREGISTERED p value=04 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.46 kWh/kg dia\nbound page number: restored GREEN exit 0\nnew page number: RED exit 1\nclaimscheck: concept/index.html::9ab4829edda3d35d28d1dcba9c7f912a10de29dcd33393009882229e91efef88::1: UNREGISTERED p value=314159 text=Capacity 314159 tonnes.\nnew page number: restored GREEN exit 0\nregister entry deleted: RED exit 1\nclaimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: UNREGISTERED p value=0.45 text=The separation column hands the oxygen straight back to the sky rather than storing it, and its energy cost is already priced into the 0.45 kWh/kg dia\nregister entry deleted: restored GREEN exit 0\nknown defect changed but listed: RED exit 1\nclaimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::1: orphaned register entry; old=half new=seventy key=unowned\nclaimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::2: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text\nclaimscheck: research/reports/README.md::256eb8002b3b15e0625c62a3e95ee8e1396192406ca2b22e227f55208d1216c8::1: known defect no longer reproduces: occurrence removed or changed; retire it and re-register the corrected text\nknown defect changed but listed: restored GREEN exit 0\nmodel figure moved: RED exit 1\nclaimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}\nclaimscheck: concept/index.html::ca8e0710ffd6e6b8360d7910bf9b9762643ac10895c59259a0ed7ced2383bf78::1: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}\nclaimscheck: research/reports/02-paper.md::7af7b6aec589a209d81fc9f1b612b56bd7497c69ee10891999d2bbf3de27fcb4::4: {\"expected\":0.55,\"key\":\"assumptions.eLN2\",\"kind\":\"stale-model\",\"observed\":\"0.45\"}\nmodel figure moved: restored GREEN exit 0\nnumber moved into accessibility only: RED exit 1\nclaimscheck: concept/index.html::f0638a3bb91142c20bcf98003c40eb8c9e4e7165526fd931de25eec6aa5bc319::1: orphaned register entry; old=0.45 new=missing/changed text key=assumptions.eLN2\nclaimscheck: concept/index.html::ca3399102650d40f26220589eef5f560ecf403f5b3cf54063c78cc19be33d8c5::1: UNREGISTERED aria-label value=0.45 text=0.45 kWh/kg\nnumber moved into accessibility only: restored GREEN exit 0\nunknown model span key: RED exit 1\nclaimscheck: ship/index.html::e54f94195a4ac08e8bde0c4ba141cc9284c2a975d9818ab387737fdf5f2d0988::1: UNREGISTERED model-span value=claimsMissingKey text=Model span {\"attribute\":\"data-n\",\"attrs\":{\"data-f\":\"0\",\"data-n\":\"claimsMissingKey\"},\"key\":\"claimsMissingKey\"}\nunknown model span key: restored GREEN exit 0\ndelivering release key: RED water-basis; restored GREEN\nbroken section reference: RED broken-reference; restored GREEN\nAll mutations were RED and every restoration GREEN; scratch copy discarded.",
+    "evidence_file": "research/claims/mutation-evidence.json",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "command": "isolated per-patch carry and focused suite",
+    "results": [
+      {
+        "stage": "01-carry",
+        "tree": "9dd608109c8151fb89bc928fb0c1d637c07cdfc4",
+        "carry_exit": 0,
+        "tests_exit": 0,
+        "seconds": 13.021,
+        "gate_summary": "claimscheck: PASS; 0 errors; 11253 known defect occurrences",
+        "tests": [
+          "Ran 41 tests in 0.102s",
+          "",
+          "OK"
+        ],
+        "privacy_note": "Generic scrubber prefixes use equivalent regex escapes; no personal prefix remains in the ordered patch."
+      },
+      {
+        "stage": "02-owners",
+        "tree": "de2c8a075bbccc08fe2a141f20954862df3ed831",
+        "carry_exit": 0,
+        "tests_exit": 0,
+        "seconds": 52.343,
+        "gate_summary": "claimscheck: PASS; 0 errors; 1538 known defect occurrences",
+        "tests": [
+          "Ran 48 tests in 0.226s",
+          "",
+          "OK"
+        ],
+        "privacy_note": "Generic scrubber prefixes use equivalent regex escapes; no personal prefix remains in the ordered patch."
+      },
+      {
+        "stage": "03-holes",
+        "tree": "11802e73599e2cf1eb0d4f6bdd5780ef4c2a7a4d",
+        "carry_exit": 0,
+        "tests_exit": 0,
+        "seconds": 60.33,
+        "gate_summary": "claimscheck: PASS; 0 errors; 1495 known defect occurrences",
+        "tests": [
+          "Ran 53 tests in 0.246s",
+          "",
+          "OK"
+        ],
+        "privacy_note": "Generic scrubber prefixes use equivalent regex escapes; no personal prefix remains in the ordered patch."
+      },
+      {
+        "stage": "04-residue",
+        "tree": "8545955eba155c9a0c79f5d62e917fa3f4cd65bb",
+        "carry_exit": 0,
+        "tests_exit": 0,
+        "seconds": 60.349,
+        "gate_summary": "claimscheck: PASS; 0 errors; 1459 known defect occurrences",
+        "tests": [
+          "Ran 55 tests in 0.251s",
+          "",
+          "OK"
+        ],
+        "privacy_note": "Generic scrubber prefixes use equivalent regex escapes; no personal prefix remains in the ordered patch."
+      },
+      {
+        "stage": "05-documents",
+        "tree": "b7ff4cfc63e453a39e3647781666013c81965b66",
+        "carry_exit": 0,
+        "tests_exit": 0,
+        "seconds": 82.121,
+        "gate_summary": "claimscheck: PASS; 0 errors; 4780 known defect occurrences",
+        "tests": [
+          "Ran 58 tests in 0.250s",
+          "",
+          "OK"
+        ],
+        "audit_note": "Audit report refreshed after measured replay; gate code, inventory, defects and tested source files are byte-identical to the passing replay.",
+        "privacy_note": "Generic scrubber prefixes use equivalent regex escapes; no personal prefix remains in the ordered patch."
+      }
+    ],
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "command": "flock \"$HOME/data/pinkrobotics/locks/make-check.lock\" make -k check",
+    "submitted_utc": "2026-10-04T04:48:14Z",
+    "exit": 2,
+    "elapsed_seconds": 1989.019,
+    "wait_until_first_gate_seconds": 1.0,
+    "wait_measurement": "First gate output after flock acquisition, sampled once per second; includes process startup.",
+    "gate_seconds": 1988.019,
+    "output_last_30": "RED 9 missing viewer partner: exit 1; missing numeric partner: sim.cruiseKph=90\nRED 10 wrong scalar: exit 1; sim.battMWh / 3d.batteryEnergyMWh\nRED 11 wrong table value: exit 1; sim.MODES / 3d.MODES\nRED 12 new table member: exit 1; sim.MODES / 3d.MODES\nRED 13 ignored mode speed: exit 1; rapid flight speed\nRED 14 copied rotor density: exit 1; not ok 5 - rotor density\nRED 15 wrong drag derivation: exit 1; drag reference area:\nRED 16 rounded working density: exit 1; sim.RHO_WORK / 3d.RHO_WORK\nRED 17 wrong drop altitude: exit 1; sim.ALT / 3d.ALT\nRED 18 old hose consumer: exit 1; eq: 250 !== 300\nRED 19 silent spec default: exit 1; not ok 1 - no numeric default\nRED 20 disabled runtime validation: exit 1; Missing expected exception\nRED 21 duplicated density declaration: exit 1; not ok 5 - mission constants and liquid density exports\nRESTORED: 21/21 mutations caught; parity and required-spec suites green\npython3 tools/check_builder_line.py\nbuildercheck: checked 141 commits; 12 attestations exempted; record starts 602d88df275a6f44c4bf233e94f27e04e1dd1d29\npython3 -m unittest discover -s tools/tests -p 'test_builder_line.py'\n............\n----------------------------------------------------------------------\nRan 12 tests in 0.891s\n\nOK\n(a) buildercheck: checked 2 commits; 0 attestations exempted; record starts d8703bf18ecef3728eb264d124c0c83cd24a10f1; missing Builder: f331e9dfcb214126243a9ad9022d108afdf5ba67\n(b) buildercheck: checked 2 commits; 0 attestations exempted; record starts d8703bf18ecef3728eb264d124c0c83cd24a10f1\n(c) buildercheck: checked 1 commits; 1 attestations exempted; record starts d8703bf18ecef3728eb264d124c0c83cd24a10f1\n(d) buildercheck: checked 2 commits; 0 attestations exempted; record starts d8703bf18ecef3728eb264d124c0c83cd24a10f1; missing Builder: 098d90511a61614c3d00bf3568d2f016cea334bb\n(e) buildercheck: no history; nothing checked (.git absent)\n(e) node: pass 0; skipped 1 (no history)\nshallow: buildercheck: shallow; checked 0 commits; 0 attestations exempted; no Builder record found\nmake: Target 'check' not remade because of errors.",
+    "make_errors": [
+      "make: *** [Makefile:333: ledgercheck] Error 1",
+      "make[1]: *** [Makefile:333: ledgercheck] Error 1",
+      "make: *** [Makefile:353: ledgercheck-selftest] Error 1",
+      "make: *** [Makefile:66: firstparty] Error 1"
+    ],
+    "ledger_failure_blocks": [
+      "research/claims/README.md:22: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/README.md:41: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:7: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:57: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:67: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:71: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:85: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:87: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:94: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:98: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/carry-report.md:103: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/nonclaim-reclassifications.md:6: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:5: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:98: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:127: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:174: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:215: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:257: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:377: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:499: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:635: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:675: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:705: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:733: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:995: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:1198: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:1799: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:1833: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:2016: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:2620: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:3154: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:3268: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:3357: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:3745: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:4211: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field.",
+      "research/claims/page-defects.md:4399: No disposition in research/analysis/float-claims/ for this text (the file belongs to no shard). No explicit binding to a named ledger field."
+    ],
+    "note": "This single full sweep ran before the final README ownership/deferral adapters. Its claims step passed 56 tests with 4335 defects; final focused validation passes 58 tests with 4780 defects. The public/model/serving sources were unchanged throughout.",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "command": "flock \"$HOME/data/pinkrobotics/locks/make-check.lock\" make floatplants",
+    "exit": 2,
+    "seconds": 1306.429,
+    "wait_until_first_output_seconds": 1251.425,
+    "output_last_12": "  Proposed: This buoyancy scenario is conditional on the simulator’s assumed dry mass equalling payload, and on its evaluated altitude and loading. It is not a structural mass estimate or an operational result. The sea-level and working-altitude allowances in docs/FLOAT-LEDGER.md do not establish a buildable floating structure.\nledgercheck: every block above needs one reviewed disposition in research/analysis/float-claims/. Reword a sentence the ledger contradicts; class the rest. python3 tools/float_claims.py --help lists the classes; --propose FILE writes the skeleton.\nledgercheck: 2015 inventoried blocks; 39 FAIL; 1787 explicit allowances; 88 bound blocks; 0 record errors; 101 deferred (energy-model=81, mixed-block=12, hand-arithmetic=7, source-needed=1)\nmake[1]: Leaving directory '$TMPDIR/float-plants-1fqsffgl/base'\nmake[1]: *** [Makefile:333: ledgercheck] Error 1\n\n\n----------------------------------------------------------------------\nRan 1 test in 54.978s\n\nFAILED (failures=1)\nmake: *** [Makefile:356: floatplants] Error 1",
+    "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
   }
 ]

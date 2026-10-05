@@ -79,9 +79,9 @@ CI_OUTSIDE_CHECK := floatplants
 
 # A smaller gate set that omits the browser page suites and PDF build.
 # ledgercheck still drives a browser when regenerating the float ledger.
-quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
+quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -411,3 +411,4 @@ servedenergycheck:  ## Accept every served cycle at its own inputs; regenerate p
 .PHONY: claimscheck
 claimscheck:  ## Inventory every tier 1 number and enforce ownership and the defect ratchet
 	$(PY) tools/claims.py check
+	$(PY) -B -m unittest discover -s tools/tests -p test_claims.py
