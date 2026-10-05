@@ -243,5 +243,17 @@
     "wait_until_first_output_seconds": 1251.425,
     "output_last_12": "  Proposed: This buoyancy scenario is conditional on the simulator’s assumed dry mass equalling payload, and on its evaluated altitude and loading. It is not a structural mass estimate or an operational result. The sea-level and working-altitude allowances in docs/FLOAT-LEDGER.md do not establish a buildable floating structure.\nledgercheck: every block above needs one reviewed disposition in research/analysis/float-claims/. Reword a sentence the ledger contradicts; class the rest. python3 tools/float_claims.py --help lists the classes; --propose FILE writes the skeleton.\nledgercheck: 2015 inventoried blocks; 39 FAIL; 1787 explicit allowances; 88 bound blocks; 0 record errors; 101 deferred (energy-model=81, mixed-block=12, hand-arithmetic=7, source-needed=1)\nmake[1]: Leaving directory '$TMPDIR/float-plants-1fqsffgl/base'\nmake[1]: *** [Makefile:333: ledgercheck] Error 1\n\n\n----------------------------------------------------------------------\nRan 1 test in 54.978s\n\nFAILED (failures=1)\nmake: *** [Makefile:356: floatplants] Error 1",
     "record_scope": "Historical source-lane evidence, retained from claims3; this is not a check receipt for the current carry."
+  },
+  {
+    "record_scope": "Current carry cache verification; the previous step regenerated source-only cache changes to satisfy its own required stampcheck.",
+    "step": "12-cache-stamps",
+    "input_tree": "1fcaa25f6471ce89b93111dedebcbd1f6a557096",
+    "regeneration_command": "make stamp",
+    "command": "make stampcheck",
+    "exit": 0,
+    "elapsed_seconds": 0.155,
+    "output": "stamp: all module URLs carry ?v=d3e69408\nstamp-site: every import is stamped at ?v=fc85766f\n",
+    "version_file_sha256": "efa35474366cee8d2181e47d7ab9d424788b24cad4708921dc3716712345193b",
+    "regeneration_changed_files": []
   }
 ]
