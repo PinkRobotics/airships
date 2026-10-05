@@ -23,9 +23,12 @@ two are held identical by `tools/check_cell_parity.py`.
 
 ## The one number
 
-> **A vacuum shell must mass less than 0.9569 kg per m³ of enclosed volume** — air density at
-> the 2,500 m working altitude. Heavier and there is no net lift at any size, ever. Lighter and
-> the hull can be grown until it closes.
+> **Air density is 0.9569 kg/m³ at 2,500 m.** At or above this lift wall a shell
+> has no net lift at any size. With sundries on everything, including the shell, a hull
+> can be grown until its equipment budget closes only below ρ/(1 + f):
+> **0.870 kg/m³ in the floor case (f = 0.10)**.
+
+The cases differ with their own sundries fractions: floor: f = 0.10, wall 0.870 kg/m³; credible: f = 0.15, wall 0.832 kg/m³; demonstrated: f = 0.20, wall 0.797 kg/m³. These are conditional mass balances, not structural validation.
 
 ## What the sealed-cell architecture buys, and what it does not
 

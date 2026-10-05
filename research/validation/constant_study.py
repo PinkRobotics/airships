@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Counterfactual only: regenerate published outputs in two disposable HEAD copies.
+"""Counterfactual only: regenerate published outputs in two disposable current-tree copies.
 
 Run with an explicit TMPDIR. The repository and its constants are never written.
 Output tables go to --out (a JSON file); an adjacent Markdown table lists every leaf.
@@ -13,7 +13,6 @@ import re
 import shutil
 import subprocess
 import sys
-import tarfile
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -48,7 +47,8 @@ def run(root, command, log):
     print(root.name+': '+' '.join(command), flush=True)
     p = subprocess.run(command, cwd=root, text=True, capture_output=True, timeout=900,
                        env={**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'})
-    log.append({'variant': root.name, 'command': command, 'exit': p.returncode,
+    recorded_command = [re.sub(r'http://127\.0\.0\.1:\d+/', '{base}', arg) for arg in command]
+    log.append({'variant': root.name, 'command': recorded_command, 'exit': p.returncode,
                 'output': (p.stdout+p.stderr).replace(str(root), '<scratch-copy>')[-4000:]})
     if p.returncode:
         raise RuntimeError(f'{root.name}: {command[0]} exited {p.returncode}: '+p.stderr[-1000:])
@@ -79,23 +79,54 @@ def compare(old, new):
     return differences
 
 
+def write_study(result, output):
+    """Canonical report writer; numerical results come from the recorded fresh runs."""
+    result['source_basis'] = 'Current working files; base_commit names HEAD, not the uncommitted candidate tree.'
+    for command in result['commands']:
+        command['command'] = [re.sub(r'http://127\.0\.0\.1:\d+/', '{base}', arg)
+                              for arg in command['command']]
+    output.write_text(json.dumps(result, indent=2)+'\n')
+    lines = ['# Counterfactual dry-air constant study', '',
+             'Scratch copies only. All gas-specific constants and density dials stay unchanged. ',
+             f'Old: JS 287.0528; Python 287.05. New: 8314.32 / 28.9644 = {result['standard_R_air']!r} J/(kg K).', '',
+             f'{len(result['changed_fields'])} changed leaves. Baseline regeneration drift: {len(result['baseline_regeneration_drift'])} leaves.', '',
+             'Old means a fresh original-constant run. Published old is the committed cache; '
+             'any difference between these columns predates the constant change.', '',
+             '| Published/generated file | Field | Published old | Fresh old | Standard R | Constant effect |',
+             '| --- | --- | ---: | ---: | ---: | ---: |']
+    for row in result['changed_fields']:
+        vals = [row[k] for k in ('file', 'field', 'published_old', 'old', 'new', 'difference')]
+        lines.append('| '+' | '.join(str(x).replace('|', '\\|').replace('\n',' ') for x in vals)+' |')
+    output.with_suffix('.md').write_text('\n'.join(lines)+'\n')
+    print(f'constant study: {len(result['changed_fields'])} changed leaves; baseline drift {len(result['baseline_regeneration_drift'])}', flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--normalize', action='store_true', help='rewrite report metadata from an already completed fresh run; no numerical changes')
     args = ap.parse_args()
+    if args.normalize:
+        write_study(json.loads(args.out.read_text()), args.out)
+        return
     if not os.environ.get('TMPDIR'):
         ap.error('an explicit TMPDIR is required')
     r_air = 8314.32 / 28.9644  # 1976 prose R* / dry-air molar mass; not the Table 2 exponent error.
     log = []
     with tempfile.TemporaryDirectory(prefix='constant-study-', dir=os.environ['TMPDIR']) as tmp:
         tmp = Path(tmp)
-        archive = tmp/'base.tar'
-        with archive.open('wb') as f:
-            subprocess.run(['git', 'archive', 'HEAD'], cwd=ROOT, stdout=f, check=True)
         base = tmp/'original'
         base.mkdir()
-        with tarfile.open(archive) as f:
-            f.extractall(base, filter='data')
+        # Use the current files so a later closure fix is included. No older revision
+        # is opened; untracked worker hand-ups and replay artifacts are not inputs.
+        tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
+        for filename in filter(None, tracked):
+            if filename == 'docs/HANDOFF.md':
+                continue
+            src, dest = ROOT/filename, base/filename
+            if src.is_file():
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(src, dest)
         before, after = tmp/'old', tmp/'standard'
         shutil.copytree(base, before)
         shutil.copytree(base, after)
@@ -117,24 +148,12 @@ def main():
             drift = drift_index.get((row['file'], row['field']))
             row['published_old'] = drift['old'] if drift else row['old']
         result = {'base_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+                  'source_basis': 'Current working files; base_commit names HEAD, not the uncommitted candidate tree.',
                   'old_R_air': {'JS': 287.0528, 'Python': 287.05}, 'standard_R_air': r_air,
                   'standard_definition': '8314.32 J/(kmol K) / 28.9644 kg/kmol',
                   'replacements': replacements, 'outputs': OUTPUTS,
                   'baseline_regeneration_drift': baseline_drift, 'changed_fields': differences, 'commands': log}
-        args.out.write_text(json.dumps(result, indent=2)+'\n')
-        lines = ['# Counterfactual dry-air constant study', '',
-                 'Scratch copies only. All gas-specific constants and density dials stay unchanged. ',
-                 f'Old: JS 287.0528; Python 287.05. New: 8314.32 / 28.9644 = {r_air!r} J/(kg K).', '',
-                 f'{len(differences)} changed leaves. Baseline regeneration drift: {len(baseline_drift)} leaves.', '',
-                 'Old means a fresh original-constant run. Published old is the committed cache; '
-                 'any difference between these columns predates the constant change.', '',
-                 '| Published/generated file | Field | Published old | Fresh old | Standard R | Constant effect |',
-                 '| --- | --- | ---: | ---: | ---: | ---: |']
-        for row in differences:
-            vals = [row[k] for k in ('file', 'field', 'published_old', 'old', 'new', 'difference')]
-            lines.append('| '+' | '.join(str(x).replace('|', '\\|').replace('\n',' ') for x in vals)+' |')
-        args.out.with_suffix('.md').write_text('\n'.join(lines)+'\n')
-        print(f'constant study: {len(differences)} changed leaves; baseline drift {len(baseline_drift)}', flush=True)
+        write_study(result, args.out)
 
 
 if __name__ == '__main__':

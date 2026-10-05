@@ -19,35 +19,35 @@ against it.
 
 ## The critical path: one number decides whether this can exist
 
-> ## A vacuum shell must mass less than 0.957 kg per m³ of enclosed volume.
-> That is ISA air density at the 2,500 m working altitude. Above it there is no net lift at any
-> size, at any scale, ever. Below it, the hull can always be grown until it closes.
+> **Air density is 0.957 kg/m³ at 2,500 m:** a shell at or above it has no net lift
+> at any size. The complete budget can be grown until it closes only below
+> **ρ/(1 + f) = 0.870 kg/m³ in the floor case**, because sundries include the shell.
 
-This is the whole go/no-go and **this project had never written it down.** It replaces the
-previous framing — "the shell must cost 0.264 kg/m³" — which was an artefact of holding the
-hull size fixed. Displacement is a design variable; payload is the requirement.
+The cases differ with their own sundries fractions: floor: f = 0.10, wall 0.870 kg/m³; credible: f = 0.15, wall 0.832 kg/m³; demonstrated: f = 0.20, wall 0.797 kg/m³.
 
-Against the wall, the literature separates cleanly:
+Displacement is a design variable; payload is the requirement. These constant-density
+closure sizes balance the conditional equipment bill and do not validate a drawn hull.
 
-| | shell | verdict |
+| source | shell | verdict against the floor closure wall |
 |---|---|---|
-| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes with 47% margin** — hull closes at 457,324 m³, a 140 m ship, shorter than the Hindenburg |
-| Jenett + 50% for joints and skin | 0.75 | passes; hull is 4.6× the baseline |
-| Metlen 2013, frame + a real membrane | ≈0.94 | passes by 2% |
-| Akhmeteli & Gavrilin 2021, sandwich | 1.16 | **fails outright** |
+| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | below by 41.6% |
+| Jenett + 50% for joints and skin | 0.75 kg/m³ | below by 13.8% |
+| Metlen 2013, frame with a real membrane | ≈0.94 kg/m³ equivalent | passes the lift wall; fails the closure wall by 8.1% |
+| Akhmeteli & Gavrilin 2021, sandwich sphere | 1.16 kg/m³ | fails both; 33.4% above the closure wall |
 
-And two things multiply that number, both newly identified:
+The 0.508 kg/m³ floor closes at 516,827 m³, a 146 m ship, shorter than
+the Hindenburg; 0.75 needs 7.32× the baseline volume. At 0.90 it never closes.
 
-- **Shape.** Every published design is a sphere. A monocoque fineness-4 hull carries an
-  estimated ~2.45× buckling penalty, which would take Jenett's 0.508 to 1.25 — *over the wall*.
-- **Packing.** The hull is **many permanently sealed vacuum cells**, not one envelope. That
-  makes the buckling radius the *cell's* and the outer body a fairing, which removes the shape
-  penalty — at the price of the interstitial space, which lifts nothing. At close-packed-sphere
-  φ = 0.74 the effective wall falls to **0.708 kg/m³**.
+Two things also matter:
 
-**So the project turns on two numbers: the shell density of one real sealed cell, and the
-packing fraction.** Neither has been chosen or measured. One of them is a geometry exercise
-that needs no hardware.
+- **Shape.** A monocoque fineness-4 hull's estimated ~2.45× buckling penalty would take
+  Jenett's 0.508 to 1.25 kg/m³, over both walls.
+- **Packing.** This budget prices **many permanently sealed vacuum cells**. Their buckling
+  radius is the cell's; ambient space between cells lifts nothing. At φ = 0.74 the floor
+  closure wall is **0.644 kg/m³**, from ρφ/(1 + f).
+
+The sealed-cell density and packing fraction have neither been chosen nor measured.
+
 
 ---
 
@@ -202,8 +202,7 @@ into shape on first pump-down.
 ## What we would ask external evaluators
 
 1. **An architected-materials structures group** (the Jenett/Cheung lineage, or a university
-   lattice group). *"Here is our wall: 0.957 kg/m³ of enclosed volume, less the packing
-   fraction. Here is your published 0.508 for a bare sphere. What does one complete, sealed,
+   lattice group). *"Here is the floor closure wall: ρφ/(1 + f), or 0.870φ kg/m³ of enclosed volume. Here is your published 0.508 for a bare sphere. What does one complete, sealed,
    jointed cell weigh?"*
 2. **A pressure-vessel geometer.** *"Spheres pack at 0.74 and are the ideal pressure shape;
    space-filling polyhedra pack at 1.0 and are not. Where is the optimum?"* No hardware, and it
@@ -253,8 +252,7 @@ be fatal:
 ## What the analysis changed
 
 **Better than we thought.** Water is not a constraint anywhere in BC, and the reference ship is
-the class the geography suits. The mass budget's true wall is a single number that Jenett's
-published shell clears with 47% margin, and the hull is free to grow to meet it. Over half the
+the class the geography suits. The floor budget's closure wall includes shell sundries; Jenett's published shell clears it with 41.6% margin before packing losses. Over half the
 reference ship's cycle energy is being spent on nitrogen it does not need in the cycle. The
 sealed-cell architecture — undocumented until today — is the answer to the shape penalty that
 would otherwise be fatal. And measured in line rather than tonnes, one P-100 could put a timber

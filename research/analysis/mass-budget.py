@@ -239,22 +239,23 @@ def closing_volume(shell_kg_m3: float, rho_work: float, spec: dict, base_t: floa
 
     Displacement was treated as fixed and the shell was asked to fit inside it. But dispM3 is
     a design variable and the payload is the requirement, so the honest question is the other
-    way round. Net lift per m3 is (rho_air - shell_kg_m3) and it is CONSTANT with size —
+    way round. Net lift per m3 is (rho_air - shell_kg_m3 * (1 + sundries_frac)) and it is CONSTANT with size —
     Jenett's design rules are ratios, so the shell's mass per enclosed m3 does not change with
     radius. Fixed payload divided by a constant net lift per m3 therefore has a solution, and
-    growing the hull closes the budget for any shell lighter than the air it displaces.
+    growing the hull closes only below rho_air / (1 + sundries_frac).
 
     Which makes the real wall a single number nobody in this project has written down:
     a shell denser than rho_air has no net lift at any size whatsoever.
     """
-    if shell_kg_m3 >= rho_work:
-        return {"closes": False, "why": "shell is denser than the air it displaces"}
+    effective_shell = shell_kg_m3 * (1.0 + sundries_frac)
+    if effective_shell >= rho_work:
+        return {"closes": False, "why": f"effective shell density {effective_shell:.6f} kg/m3 (including sundries) >= air density {rho_work:.6f} kg/m3"}
     v = float(spec["dispM3"])
     for _ in range(300):
         area = area0_m2 * (v / spec["dispM3"]) ** (2.0 / 3.0)
         m_else = (base_t + area_scaled_t * area / area0_m2) * (1.0 + sundries_frac)
-        vn = (spec["payloadT"] + m_else) / (rho_work - shell_kg_m3) * 1000.0
-        if abs(vn - v) < 1.0:
+        vn = (spec["payloadT"] + m_else) / (rho_work - effective_shell) * 1000.0
+        if abs(vn - v) < 1e-7:
             v = vn
             break
         v = vn
@@ -523,6 +524,7 @@ def main() -> None:
             f = ev("sundries_frac", case)
             base = rec["rightSized"][case]["baseExShellExSundriesT"]
             left = shell_budget_t(base, f, spec["payloadT"])
+            rec["rightSized"][case]["closureWallKgPerM3"] = rho_work / (1.0 + f)
             rec["rightSized"][case]["shellBudgetLeftT"] = round(left, 1)
             rec["rightSized"][case]["requiredShellKgPerM3"] = round(
                 max(0.0, left) * 1000.0 / spec["dispM3"], 4)

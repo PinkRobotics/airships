@@ -37,6 +37,15 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > **2026-10-02 correction to #11:** the conditional capsule budget now gives 457,324 m³ and 140 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
 > See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
+<!-- closure-correction:start -->
+
+> **2026-10-05 correction to #11:** shell sundries were omitted from the resized
+> bill. The 0.508 kg/m³ floor now closes conditionally at 516,827 m³,
+> a 146 m hull. Its closure wall is 0.870 kg/m³; 0.957 kg/m³ is the lift wall.
+> This complete equipment bill does not validate a drawn hull.
+
+<!-- closure-correction:end -->
+
 > **DECIDED 2026-08-09.** All six are to be fixed. The decisions are recorded at the top of
 > each entry as **DECISION**, and they change what "correct" means, so read them before
 > touching the arithmetic. Three of them interact: making the hull buoyant fully loaded

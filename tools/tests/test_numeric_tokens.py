@@ -1,5 +1,8 @@
 """Counterexamples to partial numeric matches, in disposable document copies."""
 import contextlib
+import json
+import os
+import subprocess
 from pathlib import Path
 import shutil
 import sys
@@ -66,6 +69,69 @@ class NumericTokenTests(unittest.TestCase):
             self.assertIsNone(figures.CITE.search(raw + ' kg<!--f:test.value-->'))
         for raw in ('54', '54.74', '1,234', '-1.9'):
             self.assertEqual(figures.CITE.search(raw + ' kg<!--f:test.value-->').group(1), raw)
+
+
+class ClosureConservationTests(unittest.TestCase):
+    """Plants live only in disposable copies under the caller's TMPDIR."""
+    def copy_and_generate(self, root, old_equation=False):
+        for rel in ('research/figures.json', 'research/analysis/mass-budget.py',
+                    'research/analysis/vacuum-cell.py'):
+            dest = root / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(gate.ROOT / rel, dest)
+        model = root / 'research/analysis/mass-budget.py'
+        if old_equation:
+            text = model.read_text().replace(
+                'effective_shell = shell_kg_m3 * (1.0 + sundries_frac)',
+                'effective_shell = shell_kg_m3')
+            model.write_text(text)
+        output = root / 'research/analysis/mass-budget.json'
+        subprocess.run([sys.executable, '-B', str(model), '--json', str(output)],
+                       check=True, capture_output=True, text=True)
+        return json.loads(output.read_text())
+
+    def test_old_equation_red_then_corrected_copy_green(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as td:
+            root = Path(td)
+            figures = json.loads((gate.ROOT / 'research/figures.json').read_text())
+            old = self.copy_and_generate(root, old_equation=True)
+            bad, count = gate.check_closure_bills(old, figures)
+            self.assertEqual(count, 126)
+            self.assertEqual(len(bad), count)
+            self.assertTrue(any('P100/floor/hullThatCloses/0.508' in x and
+                                '-23.232' in x for x in bad))
+            print(f'RED old closing equation: {len(bad)}/{count} bills fail')
+            corrected = self.copy_and_generate(root)
+            bad, count = gate.check_closure_bills(corrected, figures)
+            self.assertEqual(bad, [])
+            self.assertGreater(count, 0)
+            print(f'GREEN corrected disposable copy: {count} bills conserve mass')
+
+    def test_impossible_closure_red(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as td:
+            root = Path(td)
+            document = self.copy_and_generate(root)
+            figures = json.loads((gate.ROOT / 'research/figures.json').read_text())
+            rows = document['classes']['P10000']['rightSized']['floor']['hullThatCloses']
+            rows['0.900'] = dict(rows['0.508'])
+            (root / 'plant.json').write_text(json.dumps(document))
+            bad, _ = gate.check_closure_bills(json.loads((root / 'plant.json').read_text()), figures)
+            self.assertEqual(len(bad), 1)
+            self.assertIn('effective shell density 0.990000', bad[0])
+            print('RED P10000 impossible closure: ' + bad[0])
+            # Exact equality at the wall must be refused too.
+            document['evidence']['sundries_frac']['floor']['value'] = figures['atmosphere']['rhoAtWorkAlt'] / .9 - 1
+            bad, _ = gate.check_closure_bills(document, figures)
+            self.assertTrue(any('P10000/floor/hullThatCloses/0.900: claims closure' in b for b in bad))
+
+    def test_volume_rounding_is_the_only_mass_tolerance(self):
+        document = json.loads((gate.A / 'mass-budget.json').read_text())
+        figures = json.loads((gate.ROOT / 'research/figures.json').read_text())
+        record = document['classes']['P100']['rightSized']['floor']['hullThatCloses']['0.508']
+        record['volumeM3'] += 2
+        bad, _ = gate.check_closure_bills(document, figures)
+        self.assertTrue(any('P100/floor/hullThatCloses/0.508: lift - complete bill' in b for b in bad))
+        print('RED volume moved by 2 m3 beyond rounding tolerance')
 
 
 if __name__ == '__main__':

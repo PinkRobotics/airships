@@ -61,50 +61,46 @@ is 390 t on a 100 t allowance.
 
 ## But the allowance is not a law, and this is the correction that matters
 
-**Displacement is a design variable and the payload is the requirement.** Asking "what must a
-cubic metre of vacuum cost to fit inside 220,000 m³" is the question backwards. Ask it forwards:
+**Displacement is a design variable and the payload is the requirement.** Shell mass
+per enclosed volume is held constant in this conditional study. Area-scaled equipment grows
+more slowly than volume. The complete bill can therefore close by growing the hull only when:
 
-> Net lift per m³ = ρ_air − shell_kg/m³, and **it does not change with size** — Jenett's design
-> rules are ratios, so a lattice shell costs the same per enclosed cubic metre at every radius.
-> A fixed payload divided by a constant net lift per m³ therefore always has a solution.
+> Net lift after shell sundries = ρ_air − shell_kg/m³ × (1 + f) > 0.
+> Sundries are a fraction of everything, including the shell; payload is separate.
 
-So the hull grows until it closes, and the only thing that can prevent it is the shell being
-heavier than the air it displaces. **That is the real go/no-go, it is one number, and it is
-written down nowhere in this project:**
+Air density at 2,500 m is **0.957 kg/m³**. At or above this lift wall the shell has no
+net lift at any size. Closing the equipment budget needs a lower shell density:
+**ρ/(1 + f), or 0.870 kg/m³ in the floor case (f = 0.10)**.
 
-> ## A vacuum shell must mass less than 0.957 kg per m³ of enclosed volume.
-> That is ISA air density at the 2,500 m working altitude. Above it there is no net lift at
-> any size, at any scale, ever.
+The cases differ with their own sundries fractions: floor: f = 0.10, wall 0.870 kg/m³; credible: f = 0.15, wall 0.832 kg/m³; demonstrated: f = 0.20, wall 0.797 kg/m³.
 
-Against that wall, the literature separates:
+Against the floor closure wall, the literature separates:
 
-| source | shell | verdict |
+| source | shell | verdict against the floor closure wall |
 |---|---|---|
-| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes, with 47% margin** |
-| Jenett + 50% for joints and skin | 0.75 kg/m³ | passes, with 22% |
-| Metlen 2013, frame with a real membrane | ≈0.94 kg/m³ equivalent | **passes by 2%** |
-| Akhmeteli & Gavrilin 2021, sandwich sphere | 1.16 kg/m³ | **fails outright** |
+| Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | below by 41.6% |
+| Jenett + 50% for joints and skin | 0.75 kg/m³ | below by 13.8% |
+| Metlen 2013, frame with a real membrane | ≈0.94 kg/m³ equivalent | passes the lift wall; fails the closure wall by 8.1% |
+| Akhmeteli & Gavrilin 2021, sandwich sphere | 1.16 kg/m³ | fails both; 33.4% above the closure wall |
 
 And the hull that closes, in the floor case:
 
 | shell | volume that closes | × baseline | hull |
 |---|---|---|---|
-| 0.264 kg/m³ | 294,309 m³ | 1.34× | 121 × 61 m |
-| 0.350 | 336,631 m³ | 1.53× | 127 × 63 m |
-| **0.508 (Jenett, published)** | **457,324 m³** | **2.08×** | **140 × 70 m** |
-| 0.600 | 577,748 m³ | 2.63× | 152 × 76 m |
-| 0.750 | 1,010,309 m³ | 4.59× | 183 × 91 m |
-| 0.900 | 3,908,881 m³ | 17.77× | 287 × 144 m |
+| 0.264 kg/m³ | 306,126 m³ | 1.39× | 123 × 61 m |
+| 0.350 kg/m³ | 357,547 m³ | 1.63× | 129 × 65 m |
+| 0.508 kg/m³ (Jenett, published) | 516,827 m³ | 2.35× | 146 × 73 m |
+| 0.600 kg/m³ | 697,329 m³ | 3.17× | 162 × 81 m |
+| 0.750 kg/m³ | 1,609,984 m³ | 7.32× | 214 × 107 m |
+| 0.900 kg/m³ | **never** | — | — |
 
-**At the best published shell density the reference ship closes at 140 × 70 m — still shorter
-than the Hindenburg.** The previous headline here, that the shell must be 1.9× lighter than
-anything ever designed, was an artefact of holding the hull size fixed. The honest statement is
-that **the reference hull is undersized by about 2.1×**, which is a sizing decision, not a
-physics wall.
+**At the best published shell density the reference ship conditionally closes at 146 × 73 m —
+still shorter than the Hindenburg.** Its volume is **2.35× the reference**.
+This is a complete equipment-bill balance under constant shell density, not a checked structure.
 
-The conditional volume grows from 457,324 m³ at 0.508 kg/m³ to 1,010,309 m³ at 0.75 kg/m³.
-At 0.90 kg/m³ it reaches 3,908,881 m³. Every kilogram per cubic metre bought back is worth much
-more than it looks.
+The conditional volume grows from 516,827 m³ at 0.508 kg/m³ to
+1,609,984 m³ at 0.75 kg/m³ (214 × 107 m). At 0.90 kg/m³
+it **never closes**: shell plus its 10% sundries costs 0.990 kg/m³, above the air density.
 
 ## The sealed-cell architecture is the answer to the shape problem — and it has a price
 
@@ -125,10 +121,12 @@ scaled by the packing fraction φ:
 
 | | φ = 0.74 (close-packed spheres) | φ = 0.85 | φ = 1.0 (space-filling cells) |
 |---|---|---|---|
-| effective wall | 0.708 kg/m³ | 0.813 kg/m³ | 0.957 kg/m³ |
-| hull at shell 0.264 | 462,338 m³, 141 × 70 m | 372,438 m³, 131 × 66 m | 294,309 m³, 121 × 61 m |
-| hull at shell 0.508 | 1,045,611 m³, 185 × 92 m | 677,541 m³, 160 × 80 m | 457,324 m³, 140 × 70 m |
-| hull at shell 0.750 | **never** | 3,483,404 m³, 276 × 138 m | 1,010,309 m³, 183 × 91 m |
+| effective closure wall | 0.644 kg/m³ | 0.739 kg/m³ | 0.870 kg/m³ |
+| hull at shell 0.264 | 492,108 m³, 144 × 72 m | 391,542 m³, 133 × 67 m | 306,126 m³, 123 × 61 m |
+| hull at shell 0.508 | 1,415,326 m³, 205 × 102 m | 816,375 m³, 170 × 85 m | 516,827 m³, 146 × 73 m |
+| hull at shell 0.750 | **never** | **never** | 1,609,984 m³, 214 × 107 m |
+
+The packing wall is ρφ/(1 + f); the table uses the floor f = 0.10. Credible (f = 0.15) and demonstrated (f = 0.20) lower each wall further.
 
 **Packing fraction is now a first-order design parameter and nobody has chosen it.** A
 space-filling cell (rhombic dodecahedron, truncated octahedron) approaches φ = 1 but is a worse
@@ -158,7 +156,7 @@ of them are unsourced:
 
 Also missing: a mass line for `genMW` (8 MW of generation that `plan.js` uses in the thrust
 budget), load diffusion for a 1.2 MN anchor point into a shell designed for uniform pressure,
-and a realistic mass growth allowance — `sundries_frac` is 5% at the floor where conceptual
+and a realistic mass growth allowance — `sundries_frac` is 10% at the floor where conceptual
 design practice is 25–30%.
 
 And a physical one worth stating: **water boils at ambient temperature in vacuum**, so a
@@ -188,16 +186,11 @@ it is a materials test, not an analysis.
 
 ## The honest summary
 
-The budget as specified fails by 2.16× at its most favourable, and 2.26× with the battery
-sized to the prescribed cycle. But the vehicle is not the specification: **at the best published shell density the
-concept closes at 2.08× the reference volume, a 140 m hull — and the true go/no-go is a single
-number, 0.957 kg/m³, that the project had never written down.**
+The budget as specified fails by 2.16× at its most favourable,
+and 2.26× with the battery sized to the prescribed cycle. At the best published
+shell density the conditional complete bill closes at **2.35× the reference volume,
+a 146 m hull**. The lift wall is **0.957 kg/m³**; the floor equipment-budget closure
+wall is **0.870 kg/m³**, reduced further by packing losses and larger sundries fractions.
 
-What decides it now is not "can the shell be twice as light as anything designed". It is:
-
-1. **the shell density of one sealed cell**, including its seal and its joints, and
-2. **the packing fraction**, which multiplies the wall directly and which nobody has chosen.
-
-Both are answerable, one of them on paper. That is a substantially better position than the
-previous page described, and it is the sealed-cell architecture — undocumented until today —
-that puts it there.
+What decides this sealed-cell budget is the density of one complete cell and its packing
+fraction. Neither is measured here, and these conditional sizes do not validate a hull.

@@ -23,6 +23,7 @@ file exists to catch, so keep the manifest ahead of the prose.
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import re
 import sys
@@ -238,10 +239,6 @@ MANIFEST += [
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/timesBaseline', '.2f'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/lenM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.750/diaM', 'd'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/volumeM3', ',d'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/timesBaseline', '.2f'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/lenM', 'd'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.900/diaM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/lenM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/hullThatCloses/0.508/timesBaseline', '.2f'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.74/0.264/volumeM3', ',d'),
@@ -256,9 +253,6 @@ MANIFEST += [
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/volumeM3', ',d'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/lenM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.508/diaM', 'd'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/volumeM3', ',d'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/lenM', 'd'),
-    ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=0.85/0.750/diaM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/volumeM3', ',d'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/lenM', 'd'),
     ('mass-budget.md', 'mass-budget', 'classes/P100/rightSized/floor/cellular/phi=1.0/0.264/diaM', 'd'),
@@ -375,8 +369,70 @@ def check_rows(directory=A):
     return cache, bad, checked
 
 
+def check_closure_bills(document, figures):
+    """Rebuild each complete bill, without importing or solving closing_volume.
+
+    Equipment lines are the same rounded tonnes that the closure input uses. Only
+    barrier and solar grow with surface area. Sundries apply to shell AND equipment;
+    payload is added separately. Volume is rounded to 1 m3, so its error is <=0.5 m3.
+    The tolerance is 0.5 times the largest absolute bill-residual slope over that
+    interval, plus 1e-8 t for floating-point arithmetic. There is no equipment-rounding
+    allowance: these committed equipment lines are the inputs, not measurements.
+    """
+    bad, checked = [], 0
+    rho = figures['atmosphere']['rhoAtWorkAlt']
+    for cid, hull in document['classes'].items():
+        spec = figures['classes'][cid]['spec']
+        for case, budget in hull['rightSized'].items():
+            fraction = document['evidence']['sundries_frac'][case]['value']
+            groups = [('hullThatCloses', rho, budget['hullThatCloses'])]
+            groups += [(f'cellular/{packing}', rho * float(packing.split('=')[1]), rows)
+                       for packing, rows in budget['cellular'].items()]
+            equipment = [line for line in budget['lines']
+                         if not line['item'].startswith(('Vacuum shell', 'Sundries'))]
+            for group, density, rows in groups:
+                for shell, record in rows.items():
+                    if not record['closes']:
+                        continue
+                    checked += 1
+                    label = f'{cid}/{case}/{group}/{shell}'
+                    effective = float(shell) * (1 + fraction)
+                    if effective >= density:
+                        bad.append(f'{label}: claims closure with effective shell density '
+                                   f'{effective:.6f} >= lift density {density:.6f} kg/m3')
+                        continue
+                    volume = record['volumeM3']
+                    if not math.isfinite(volume) or volume <= 0.5:
+                        bad.append(f'{label}: invalid rounded volume')
+                        continue
+                    def bill(v):
+                        shell_t = float(shell) * v / 1000
+                        equipment_t = sum(line['tonnes'] *
+                            ((v / spec['dispM3']) ** (2/3)
+                             if line['item'].startswith(('Gas barrier', 'Solar')) else 1)
+                            for line in equipment)
+                        subtotal = shell_t + equipment_t
+                        return spec['payloadT'] + subtotal + fraction * subtotal
+                    area_t = sum(line['tonnes'] for line in equipment
+                                 if line['item'].startswith(('Gas barrier', 'Solar')))
+                    def slope(v):
+                        return ((density - effective) / 1000 - (1 + fraction) *
+                                area_t * (2/3) / spec['dispM3'] ** (2/3) / v ** (1/3))
+                    tolerance = 0.5 * max(abs(slope(volume - 0.5)),
+                                          abs(slope(volume + 0.5))) + 1e-8
+                    residual = density * volume / 1000 - bill(volume)
+                    if abs(residual) > tolerance:
+                        bad.append(f'{label}: lift - complete bill = {residual:+.9f} t; '
+                                   f'rounded-volume tolerance {tolerance:.9f} t')
+    return bad, checked
+
+
 def main() -> None:
     cache, bad, checked = check_rows()
+    closure_bad, closures = check_closure_bills(cache['mass-budget'],
+        json.loads((ROOT / 'research/figures.json').read_text()))
+    bad.extend(closure_bad)
+    print(f'Closure conservation: {closures} reported closures; {len(closure_bad)} failures')
 
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
@@ -405,6 +461,15 @@ def main() -> None:
         expected = f"{budget[cid]['descentWithoutNitrogen']['cycleSavingPct']:.1f}%"
         if expected not in row:
             bad.append(f"air-ballast.md: {cid} current share differs from {expected}")
+
+    for density, record in cache['mass-budget']['classes']['P100']['rightSized']['floor']['hullThatCloses'].items():
+        if not record['closes'] and not re.search(r'^\| ' + re.escape(density) + r' kg/m³ \| \*\*never\*\*', (A / 'mass-budget.md').read_text(), re.M):
+            bad.append(f'mass-budget.md: missing refusal for {density}')
+    if subprocess.run([sys.executable, 'tools/gen_closure_docs.py', '--check'], cwd=ROOT).returncode:
+        bad.append('closure prose differs from fresh generation')
+
+    if subprocess.run([sys.executable, 'tools/gen_closure_audit.py', '--check'], cwd=ROOT).returncode:
+        bad.append('closure audit differs from current records')
 
     result = subprocess.run([sys.executable, 'tools/check_member_census.py'], cwd=ROOT)
     if result.returncode:
