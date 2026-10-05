@@ -357,7 +357,9 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 Removed the Esri tile loader and satellite toggle. The bundled first-party terrain hillshade
 is now the default backdrop, with outlined labels and markers and stronger water/perimeter
-contrast. No Esri tiles are fetched or redistributed. See `DATA-SOURCES.md` §6.
+contrast. No Esri tiles are fetched or redistributed: `DATA-SOURCES.md` records the backdrop's
+sources and terms under `data/terrain-bc.jpg`, and the network gate below refuses external
+hosts.
 
 The browser network gate (`tests/firstparty/check.py`, part of `make check`) records requests
 for every served page in fixture-live, snapshot and absent-mirror modes and refuses external
