@@ -501,6 +501,83 @@ class OwnershipRulesTest(ClaimsFixture, unittest.TestCase):
             self.assertIsNone(label_for(occ),text)
 
 
+class HoleRulesTest(ClaimsFixture, unittest.TestCase):
+    def test_delivering_and_every_delivery_form_are_red(self):
+        for verb in ['deliver','delivers','delivered','delivering','delivery','deliveries']:
+            self.put('index.html',f'<p>The model is {verb} 110 t/h.</p>')
+            o=self.extract()[0]
+            self.assertEqual(claims.water_basis_issue(o,'classes.P100.cycle.tph')['kind'],'water-basis')
+        self.put('index.html','<p>The model requests 110 tonnes; water released is not suppression.</p>')
+        self.assertIsNone(claims.water_basis_issue(self.extract()[0],'classes.P100.cycle.tph'))
+        self.put('index.html','<p>Water was released in this example. Delivering 110 t/h at a fire is asserted.</p>')
+        o=next(o for o in self.extract() if o['raw']=='110')
+        self.assertEqual(claims.water_basis_issue(o,'classes.P100.cycle.tph')['kind'],'water-basis')
+        self.assertIsNone(claims.water_basis_issue(o,'classes.P100.spec.payloadT'))
+
+    def test_model_spans_are_extracted_even_without_numeric_text(self):
+        from claims_rules import Context
+        self.put('index.html','<p>Lift <span data-n="ship.liftT" data-f="2"></span> t.</p>')
+        o=self.extract()[0]
+        self.assertEqual(o['surface'],'model-span');self.assertEqual(o['raw'],'ship.liftT')
+        ctx=Context(self.root,['index.html']);owner=ctx.span_owner(o)
+        self.assertEqual(ctx.span_issue(o,claims.entry_for(o,owner))['kind'],'model-span-binding-miss')
+        # Use a recognised page to exercise finite model keys, formatting and absence.
+        self.put('dist.manifest','served ship/index.html')
+        self.put('ship/index.html','<span data-n="ship.liftT" data-f="2"></span>')
+        o=self.extract()[0];ctx=Context(self.root,['ship/index.html']);ctx.contexts={'ship/index.html':{'ship':{'liftT':110}}}
+        owner=ctx.span_owner(o);entry=claims.entry_for(o,owner)
+        self.assertIsNone(ctx.span_issue(o,entry))
+        ctx.contexts['ship/index.html']['ship'].clear()
+        self.assertEqual(ctx.span_issue(o,entry)['kind'],'missing-model-span-key')
+        ctx.contexts['ship/index.html']['ship']['liftT']='110'
+        self.assertEqual(ctx.span_issue(o,entry)['kind'],'missing-model-span-key')
+        ctx.contexts['ship/index.html']['ship']['liftT']=float('nan')
+        self.assertEqual(ctx.span_issue(o,entry)['kind'],'missing-model-span-key')
+
+    def test_symbol_reference_resolves_and_broken_target_is_red(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        self.put('README.md','# 4. Geometry\n\nSee §4, not an assertion of 110 m.\n')
+        occ=next(o for o in self.extract() if o['raw']=='4' and 'See' in o['text'])
+        self.assertEqual(claims.nonclaim_rule(occ),'section-symbol-reference')
+        ctx=Context(self.root,['README.md'])
+        self.assertIsNone(ctx.reference_issue(occ))
+        self.put('README.md','# 5. Geometry\n\nSee §4, not an assertion of 110 m.\n')
+        self.assertEqual(Context(self.root,['README.md']).reference_issue(occ)['kind'],'broken-reference')
+        figure=next(o for o in self.extract() if o['raw']=='110')
+        self.assertIsNone(claims.nonclaim_rule(figure))
+
+    def test_reference_ranges_check_every_section(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        self.put('README.md','# 1. One\n\n# 3. Three\n\nSee §§1–3.\n')
+        occ=next(o for o in self.extract() if o['raw']=='1' and 'See' in o['text'])
+        self.assertEqual(Context(self.root,['README.md']).reference_issue(occ)['kind'],'broken-reference')
+        self.put('README.md','# 1. One\n\n# 2. Two\n\n# 3. Three\n\nSee §§1–3.\n')
+        self.assertIsNone(Context(self.root,['README.md']).reference_issue(occ))
+
+
+class SpanBasisTest(ClaimsFixture, unittest.TestCase):
+    def test_model_key_does_not_clear_a_deferred_float_block(self):
+        from claims_rules import Context
+        self.put('index.html','')
+        self.put('dist.manifest','served ship/index.html')
+        self.put('ship/index.html','<p>Mass <span data-n="ship.massT"></span> t.</p>')
+        occ=self.extract()[0];ctx=Context(self.root,['ship/index.html'])
+        hit=dict(bounds=(1,1),dynamicFigures=[dict(route='ship.massT')],match_text='Mass t.',
+                 record='research/analysis/float-claims/fixture.json',key='exact',status='DEFERRED',
+                 reason='deferred: An independent physical basis is needed.',deferredReason='An independent physical basis is needed.')
+        ctx.float_blocks={'ship/index.html':[hit]};ctx.contexts={'ship/index.html':{'ship':{'massT':110}}}
+        owner=ctx.span_owner(occ)
+        self.assertEqual(owner['physical_basis']['key'],'exact')
+        self.assertEqual(ctx.span_issue(occ,claims.entry_for(occ,owner))['kind'],'float-deferred')
+        hit.update(status='ALLOW',reason='method: The context is checked.')
+        owner=ctx.span_owner(occ)
+        self.assertIsNone(ctx.span_issue(occ,claims.entry_for(occ,owner)))
+        hit['bounds']=(2,2)
+        self.assertIsNone(ctx.float_hit(occ))
+
+
 class ReadmeProducerTest(ClaimsFixture, unittest.TestCase):
     def test_readme_inline_and_indented_regions_own_only_checked_contents(self):
         from claims_rules import Context

@@ -56,6 +56,8 @@ class Context:
         self.region_issues = {}
         self.bodies = {}
         self.checked_analysis = {}
+        self.contexts = None
+        self.sections = {}
 
     def body(self, file):
         path = self.root / file
@@ -82,8 +84,14 @@ class Context:
             for rel in self.files:
                 if rel.startswith('float/') or rel == 'notices.html':
                     continue
+                bounds = {}
+                if rel.endswith('.html'):
+                    parser = gate.Blocks(); parser.feed((self.root / rel).read_text())
+                    bounds = {(line,text):(line,end) for line,end,text,raw,tag in parser.out}
                 for line, text, raw in gate.source_blocks(self.root / rel):
-                    hits.append(gate.inspect_block(rel, line, text, raw, rows, ledger, cat))
+                    hit = gate.inspect_block(rel, line, text, raw, rows, ledger, cat)
+                    hit['bounds'] = bounds.get((line,text), (line,line))
+                    hits.append(hit)
             errors = records.apply(hits, ledger)
             # apply also audits shards outside this gate. Their stale entries belong to
             # ledgercheck. Errors about a covered file must not become an allowance.
@@ -106,6 +114,12 @@ class Context:
     def float_hit(self, occ):
         candidates = []
         for h in self.floats().get(occ['file'], []):
+            if occ['surface']=='model-span':
+                line = occ.get('binding_line')
+                if (line is not None and h['bounds'][0] <= line <= h['bounds'][1] and
+                        any(f['route']==occ['raw'] for f in h.get('dynamicFigures',[]))):
+                    candidates.append(h)
+                continue
             if occ['surface'] in {'metadata', 'aria-label', 'alt', 'default', 'script-default'}:
                 continue
             if occ['text'] and occ['text'] in h['match_text']:
@@ -191,6 +205,8 @@ class Context:
 
     def choose(self, occ, fallback):
         import claims
+        if occ['surface'] == 'model-span':
+            return self.span_owner(occ), 'claimscheck'
         rule = claims.nonclaim_rule(occ)
         if rule:
             return dict(kind='nonclaim', rule=rule), 'claimscheck'
@@ -210,6 +226,78 @@ class Context:
         if label:
             return dict(kind='labelled', label=label), 'claimscheck'
         return fallback(occ)
+
+    def span_owner(self, occ):
+        attribute = occ['context']
+        producers = {'ship/index.html':'ship/explorer.js', 'engineering/index.html':'engineering/engineering.js',
+                     'cell/levels.html':'cell/levels.js', 'cell/ship.html':'cell/ship.html'}
+        owner = dict(kind='model-span', key=occ['raw'], attribute=attribute,
+                    producer=producers.get(occ['file'], 'unbound'),
+                    format={k:v for k,v in occ['attrs'].items() if k in {'data-f', 'data-mm', 'data-mul'}})
+        hit = self.float_hit(occ)
+        if hit:
+            owner['physical_basis'] = dict(record=hit['record'], key=hit['key'], reason=hit['reason'])
+        return owner
+
+
+    def span_issue(self, occ, entry):
+        import claims
+        expected = self.span_owner(occ)
+        if entry['gate'] != 'claimscheck' or entry['owner'] != expected or expected['producer'] == 'unbound':
+            return dict(kind='model-span-binding-miss', observed=occ['raw'], expected='the page own model key and format')
+        if self.contexts is None:
+            script = self.root / 'tools/claims_bindings.mjs'
+            if not script.is_file():
+                raise ValueError('missing model binding adapter')
+            p = subprocess.run(['node', 'tools/claims_bindings.mjs'], cwd=self.root, capture_output=True, text=True, timeout=60)
+            if p.returncode:
+                raise ValueError('model binding contexts failed')
+            self.contexts = json.loads(p.stdout)
+        try:
+            value = self.contexts[occ['file']]
+            for part in expected['key'].split('.'):
+                value = value[int(part)] if isinstance(value, list) else value[part]
+            import math
+            if type(value) not in (int, float) or not math.isfinite(value):
+                raise ValueError('not a finite computed number')
+            fmt = expected['format']
+            precision = int(fmt.get('data-f', '0'))
+            if not 0 <= precision <= 12:
+                raise ValueError('invalid span precision')
+            scaled = value * (1000 if 'data-mm' in fmt else 1) * float(fmt.get('data-mul', '1'))
+            if not math.isfinite(scaled):
+                raise ValueError('invalid span scale')
+        except (KeyError, TypeError, IndexError, ValueError, OverflowError):
+            return dict(kind='missing-model-span-key', observed=occ['raw'], expected='a finite number from the page computed context')
+        hit = self.float_hit(occ)
+        if hit and hit['status']=='DEFERRED':
+            return dict(kind='float-deferred', observed=occ['raw'], expected=hit['deferredReason'])
+        if hit and hit['status'] not in {'PASS','ALLOW'}:
+            return dict(kind='float-record-miss', observed=occ['raw'], expected=hit['reason'])
+        return None
+
+    def reference_issue(self, occ):
+        # A section symbol names numbered headings in its own document. Ranges such
+        # as §§1–3 resolve every integer in the range, not only its first endpoint.
+        file = occ['file']
+        if file not in self.sections:
+            body = (self.root / file).read_text()
+            if file.endswith('.md'):
+                headings = re.findall(r'^#{1,6}\s+([^\n]+)', body, re.M)
+            else:
+                headings = re.findall(r'<h[1-6]\b[^>]*>(.*?)</h[1-6]>', body, re.S|re.I)
+            import claims
+            self.sections[file] = {m[1] for h in headings if (m := re.match(r'(\d+(?:\.\d+)*)[.)]?\s', claims.clean_markdown(h)))}
+        targets = [occ['raw']]
+        suffix = re.match(r'[–—-](\d+)\b', occ['after'])
+        if suffix and occ['raw'].isdigit() and int(suffix[1]) >= int(occ['raw']):
+            if int(suffix[1])-int(occ['raw']) > 100:
+                return dict(kind='broken-reference', observed=occ['raw'], expected='a bounded existing section range')
+            targets = [str(n) for n in range(int(occ['raw']), int(suffix[1])+1)]
+        missing = [t for t in targets if t not in self.sections[file]]
+        if missing:
+            return dict(kind='broken-reference', observed=occ['raw'], expected='existing section(s): ' + ', '.join(missing))
+        return None
 
     def ledger_issue(self, occ, entry):
         hit = self.float_hit(occ)

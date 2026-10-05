@@ -6,7 +6,8 @@
     "float": "Float figures await a ledger that records their physical basis.",
     "generated": "Static defaults and diagrams still need a generating check.",
     "review": "Source and historical figures still need occurrence-level review.",
-    "unowned": "Other public numbers still need an accountable owner or an explicit label."
+    "unowned": "Other public numbers still need an accountable owner or an explicit label.",
+    "reference": "Section references need an existing target."
   },
   "defects": [
     {
@@ -1646,6 +1647,19 @@
         "expected": "floatcheck"
       },
       "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
+    },
+    {
+      "occurrences": [
+        "cell/levels.html::371b272dee9a287d9155cd0094db510c7916e6a061ed23703ced4fb4c8dcf37b::1"
+      ],
+      "headline": "float",
+      "problem": "The occurrence needs a ledger entry or a rewording. A live temperature coefficient and a conditional float-window statement occupy one served-page line and cannot be separated by table rows.",
+      "failure": {
+        "kind": "float-deferred",
+        "observed": "ship.tempPctPerK",
+        "expected": "A live temperature coefficient and a conditional float-window statement occupy one served-page line and cannot be separated by table rows."
+      },
+      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -4223,6 +4237,32 @@
     },
     {
       "occurrences": [
+        "float/index.html::278876d88ada9496e2afee6408da33cb2db3d390f5d97200c026acd343bb301b::9"
+      ],
+      "headline": "reference",
+      "problem": "The occurrence needs a rewording that names an existing section. existing section(s): 6",
+      "failure": {
+        "kind": "broken-reference",
+        "observed": "6",
+        "expected": "existing section(s): 6"
+      },
+      "closes": "Supply a rewording that names an existing section; carry and recheck the exact occurrence."
+    },
+    {
+      "occurrences": [
+        "float/index.html::f059e1a9caea30da5845b675c0c54565591f17a16b38cb600730397a81ee6281::3"
+      ],
+      "headline": "reference",
+      "problem": "The occurrence needs a rewording that names an existing section. existing section(s): 6",
+      "failure": {
+        "kind": "broken-reference",
+        "observed": "6",
+        "expected": "existing section(s): 6"
+      },
+      "closes": "Supply a rewording that names an existing section; carry and recheck the exact occurrence."
+    },
+    {
+      "occurrences": [
         "index.html::e666736ee37b87695786f07f1ff2587ab371b039ebe9f096b21d2c119a848ff3::3"
       ],
       "headline": "unowned",
@@ -4837,14 +4877,14 @@
         "research/reports/01-brief.md::094c71813e5a327fc3669efdca19ace36623bd1bd5f514049bf10148dfe61a40::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.tph",
         "observed": "175",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -4903,12 +4943,12 @@
         "research/reports/01-brief.md::5204743244a324a21c3c42db1e907af0a51878c02b1b62aaf7b59867b3265a37::1"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.kwhPerTonne",
         "observed": "81.9",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -5099,12 +5139,12 @@
         "research/reports/01-brief.md::e932e72f35bf7b278aa081ee4bdcd1d6d3f44a26c8dff9a101b458441551cce0::3"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.kwhPerTonne",
         "observed": "81.9",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -5139,12 +5179,12 @@
         "research/reports/01-brief.md::e932e72f35bf7b278aa081ee4bdcd1d6d3f44a26c8dff9a101b458441551cce0::7"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P1000.cycle.kwhPerTonne",
         "observed": "62.3",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -5192,12 +5232,12 @@
         "research/reports/01-brief.md::e932e72f35bf7b278aa081ee4bdcd1d6d3f44a26c8dff9a101b458441551cce0::11"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P10000.cycle.kwhPerTonne",
         "observed": "69.4",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -5232,12 +5272,12 @@
         "research/reports/01-brief.md::e932e72f35bf7b278aa081ee4bdcd1d6d3f44a26c8dff9a101b458441551cce0::14"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P10000.cycle.tph",
         "observed": "13,183",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -5854,19 +5894,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::81bd3d66062659602c8f6af7609ea0b453dac2cfd9cc38af47e08406c3d72993::2"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::81bd3d66062659602c8f6af7609ea0b453dac2cfd9cc38af47e08406c3d72993::3"
       ],
       "headline": "review",
@@ -6023,19 +6050,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::b67f1ad89be15fa28780099871f237907db3f363b30a4ae15c8e125b35e086f7::2"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "8.1",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::4920de034fc7342a7d619a93d81f07e2932b849658ae23485895a0c044b0a706::1"
       ],
       "headline": "float",
@@ -6114,19 +6128,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::4c1fb64d13abe18abbc13d9773ac87952ea4709c6b74e82a562ef6b51bcdae51::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::19f3c3964b6774430d7f8bd8982d477d5fc94e9b955a843ad9080e4403691174::1"
       ],
       "headline": "review",
@@ -6173,19 +6174,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "245",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::ee150560398541be4a172348b5a3ef8aa69320dffdea03488420b027e7ba674f::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "6",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -6254,19 +6242,6 @@
         "expected": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
       },
       "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::16bd6746c7b1698e9826e455cc80d41767c26de48c327f4ddf138f5d32fbded1::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "8.1",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
     },
     {
       "occurrences": [
@@ -6442,14 +6417,14 @@
         "research/reports/02-paper.md::2796b923fb3d595199dd9fe613318a8203a9e572f5272ab0622114a06bcb34c1::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.deliveredT",
         "observed": "100",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -6824,19 +6799,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "Three",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::a206ffef2b2f3e22c7bb5989a7b06968a81587386e60033f0dac63a152c813dc::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "7.2",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -7860,12 +7822,12 @@
         "research/reports/02-paper.md::2aa1bf906175e51771659f07352c5d41c41f1b7c4f8a80e964193b2288e4d414::3"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.kwhPerTonne",
         "observed": "81.92",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -7900,12 +7862,12 @@
         "research/reports/02-paper.md::2aa1bf906175e51771659f07352c5d41c41f1b7c4f8a80e964193b2288e4d414::6"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P1000.cycle.kwhPerTonne",
         "observed": "62.31",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -7940,27 +7902,14 @@
         "research/reports/02-paper.md::2aa1bf906175e51771659f07352c5d41c41f1b7c4f8a80e964193b2288e4d414::10"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P10000.cycle.kwhPerTonne",
         "observed": "69.44",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::7c6bfd14e5edb8ee63eeae2d39527c9cd24ca695f1260a22a2965a6a55bb90db::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "6",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
     },
     {
       "occurrences": [
@@ -8510,19 +8459,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::eb81e2757fdb95015aa0d43362fb76099e7bb98f252504e065cfd7cc3b8d3780::5"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "8.2",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::f05e0ead3622cbbe2c588b1cf20abe09f40ad7d4f81cd1ef5d649b3e8513993c::1"
       ],
       "headline": "review",
@@ -8634,19 +8570,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "two",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::dd17da667f58b37e085f12e9c52d0fcf6a2bc3e929cbf2529f1d2858ad637ca3::12"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8.5",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -8829,19 +8752,6 @@
       "failure": {
         "kind": "float-deferred",
         "observed": "125",
-        "expected": "The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::dbdc61be055490a85cba5fbb941396ed2a37f6a5119087874dd527431c0ed67d::3"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "6.3",
         "expected": "The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere."
       },
       "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
@@ -9050,19 +8960,6 @@
       "failure": {
         "kind": "delegation-miss",
         "observed": "one",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::30b79aad0e13cb0e7eef16c4fc59eb3a07428d2c2e775e9c5d87a2c1f45b2b19::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "5",
         "expected": "floatcheck"
       },
       "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
@@ -9810,19 +9707,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::319abc5ff42b9da6d7a5807a81a5cd4f648a140367e319d1bb41275ffc904407::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8.5",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::88d9e4bd52536e9c97b353613d4ff773fa3e4a049ff0277a69dd894de8e52e03::1"
       ],
       "headline": "review",
@@ -10421,19 +10305,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::af695e3aab3b930db0c8f144ec269a39a225ffd4ca12246d09bda38e7751a532::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "7.2",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::9d9a648328e8f74e791d6f87493d733b417e11953f1972e839210e063d580ac8::1"
       ],
       "headline": "review",
@@ -10441,19 +10312,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "150",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::9d9a648328e8f74e791d6f87493d733b417e11953f1972e839210e063d580ac8::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8.2",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -10954,19 +10812,6 @@
     },
     {
       "occurrences": [
-        "research/reports/02-paper.md::e45c8dcf7e08941913911f58e649dc9d29d9e9d1a8c87af43aaafb27ed206467::1"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "7.3",
-        "expected": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/02-paper.md::bc471849944028b78ae5866de3ea9f67e91b2e182a11b58aba5766ec74b198ac::1"
       ],
       "headline": "review",
@@ -10987,19 +10832,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "first",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/02-paper.md::7c8dde9190936d9b38090a5f4ce3b069230a0733c06bbcde92440af430c89b7d::2"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8.1",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -11149,19 +10981,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::5ee1e42afa20078c5d04d1f12cd9f2c202079842f1c1287545cc916df1dcd67b::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "1",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::5ee1e42afa20078c5d04d1f12cd9f2c202079842f1c1287545cc916df1dcd67b::2"
       ],
       "headline": "review",
@@ -11169,32 +10988,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "3",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::5ee1e42afa20078c5d04d1f12cd9f2c202079842f1c1287545cc916df1dcd67b::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::5ee1e42afa20078c5d04d1f12cd9f2c202079842f1c1287545cc916df1dcd67b::4"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.1",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -11253,19 +11046,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::bc9462f2a09d9234f12646612967f31887be1f94b49ad0bb053288e4f42695ad::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "1",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::bc9462f2a09d9234f12646612967f31887be1f94b49ad0bb053288e4f42695ad::4"
       ],
       "headline": "review",
@@ -11318,6 +11098,20 @@
     },
     {
       "occurrences": [
+        "research/reports/03-diligence.md::8805d1376fe40b59a0210ade8a6b8c51a599c062edfe315f67aac9d855ed5054::6"
+      ],
+      "headline": "water",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
+      "failure": {
+        "kind": "water-basis",
+        "key": "classes.P100.cycle.tph",
+        "observed": "175",
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
+      },
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
+    },
+    {
+      "occurrences": [
         "research/reports/03-diligence.md::8805d1376fe40b59a0210ade8a6b8c51a599c062edfe315f67aac9d855ed5054::7"
       ],
       "headline": "review",
@@ -11341,6 +11135,20 @@
         "expected": "an accountable owner and check"
       },
       "closes": "Supply a citation with a dated review, a generator, or a label; carry and recheck the exact occurrence."
+    },
+    {
+      "occurrences": [
+        "research/reports/03-diligence.md::8805d1376fe40b59a0210ade8a6b8c51a599c062edfe315f67aac9d855ed5054::9"
+      ],
+      "headline": "water",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
+      "failure": {
+        "kind": "water-basis",
+        "key": "classes.P100.cycle.kwhPerTonne",
+        "observed": "81.92",
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
+      },
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -11448,32 +11256,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::7964764c365ffd01566a6282d7c3638826a4ba2793e88dd13c06432e6c408f49::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "3",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::24085c349bd8e6353059b95b7f7b8a15a9663449e2e1680d39656a06deb7401b::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "4.1",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::8c11f0994d32b1ccae98e39c591353c6ba94f0f99675b91b966c3c6ea8e29e2c::1"
       ],
       "headline": "review",
@@ -11481,19 +11263,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "One",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::8c11f0994d32b1ccae98e39c591353c6ba94f0f99675b91b966c3c6ea8e29e2c::2"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "3",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -11669,19 +11438,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::bbef52a65d2ec02d872f324d02f405a6f9b62fbaee4019c115f0f9581a66c776::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "8",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::3cdb6114fd10f021ea965b1bf051b74b08f1bcb860a66567890fa1a72e60d232::1"
       ],
       "headline": "float",
@@ -11689,19 +11445,6 @@
       "failure": {
         "kind": "delegation-miss",
         "observed": "two",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::b4b3797f38c015c1b7e2af571c645059c0e3ca6a6636436025dc31a8143f7340::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "4.1",
         "expected": "floatcheck"
       },
       "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
@@ -11841,14 +11584,14 @@
         "research/reports/03-diligence.md::2796b923fb3d595199dd9fe613318a8203a9e572f5272ab0622114a06bcb34c1::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.deliveredT",
         "observed": "100",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -11891,19 +11634,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::c92035a839b72f00f58bb14eb8598770a5fc25add50336e49324c65aeda9eede::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::c57ec9188a566ca54bd061e4d8dd90249a88f5fa6acf03fd18686f0a29478b32::1"
       ],
       "headline": "review",
@@ -11920,42 +11650,42 @@
         "research/reports/03-diligence.md::094c71813e5a327fc3669efdca19ace36623bd1bd5f514049bf10148dfe61a40::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.tph",
         "observed": "175",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
         "research/reports/03-diligence.md::5b12b0a919a3a053937f2c84ec49216a8a23aaae32d578c7da9dc0869c6f3daf::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P1000.cycle.tph",
         "observed": "1,697",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
         "research/reports/03-diligence.md::c0bf9bcc08414236c6ecfae7314e09396406878c3ec72009c09211334e8c49ba::1"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P10000.cycle.tph",
         "observed": "13,183",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [
@@ -12687,19 +12417,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::35ad27cb990583177e3aec1429afad3c4a0991f8b1ee920d49bc9520ec504f0a::4"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This risk table combines component quantities, a rotor-wash extrapolation and station-keeping claims. It cannot be reduced to a component-mass allowance.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4.1",
-        "expected": "This risk table combines component quantities, a rotor-wash extrapolation and station-keeping claims. It cannot be reduced to a component-mass allowance."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::fb8d5e62d1d6d629d0e39d5779102bbfe3e79b71e452f69c086cad5724a21fe9::1"
       ],
       "headline": "float",
@@ -12856,19 +12573,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::35285a19fa13bfa74064401a98f05c30161d491d2772e4e2b28fe2f1b8d10e08::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "2",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::35285a19fa13bfa74064401a98f05c30161d491d2772e4e2b28fe2f1b8d10e08::2"
       ],
       "headline": "review",
@@ -12934,45 +12638,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::81eab8857401d84213715c4265f20145e05e975997e0b7a1cba935b28f1da436::2"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.1",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::81eab8857401d84213715c4265f20145e05e975997e0b7a1cba935b28f1da436::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.4",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::81eab8857401d84213715c4265f20145e05e975997e0b7a1cba935b28f1da436::4"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.1",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::81eab8857401d84213715c4265f20145e05e975997e0b7a1cba935b28f1da436::5"
       ],
       "headline": "review",
@@ -12980,19 +12645,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "one",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::81eab8857401d84213715c4265f20145e05e975997e0b7a1cba935b28f1da436::6"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.4",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -14104,19 +13756,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::bc7990cd60d1a96dbba6ba1f8e44831d980c4b124eb728bbcb6fb3c8d93869dc::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "8",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::bc7990cd60d1a96dbba6ba1f8e44831d980c4b124eb728bbcb6fb3c8d93869dc::3"
       ],
       "headline": "review",
@@ -14676,19 +14315,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::9746917edf1808ac5e1290b8a106361281ae3041b11ec453cca5a21cb6b2a2fe::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "4.1",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::9746917edf1808ac5e1290b8a106361281ae3041b11ec453cca5a21cb6b2a2fe::2"
       ],
       "headline": "float",
@@ -14696,32 +14322,6 @@
       "failure": {
         "kind": "delegation-miss",
         "observed": "one",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::e179e5ead4a940d484af3fdd7feaf5f08480d51eccfdbbfed7b19a226a3c3b21::1"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. The text says the cycle and most energy costs survive a helium substitution unchanged, then the next paragraph admits that substitution has not been modelled.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "1",
-        "expected": "The text says the cycle and most energy costs survive a helium substitution unchanged, then the next paragraph admits that substitution has not been modelled."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::a826804e3bfc05dddd99cc33587d72aa9a361a4a772fdec5a2e8f99832988714::1"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "1",
         "expected": "floatcheck"
       },
       "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
@@ -15446,12 +15046,12 @@
         "research/reports/03-diligence.md::7ab08a445a2683ee03b978d1f1c69ba9d47dddb3b0bf0556aa6438ab436ca0bb::5"
       ],
       "headline": "water",
-      "problem": "The occurrence needs a rewording of the model water basis. released water; arrival at the fire is not computed by this key",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P100.cycle.kwhPerTonne",
         "observed": "81.92",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
       "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
@@ -15743,19 +15343,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::3caaf1be9c2171e14d89022660833891ca1ac8d019bdc957129b185b2e475c0b::3"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "7",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::0c8913d4cbaf0adc96d9060ac1cbdb12f72b9bea833ceeaee1eacca73a562c13::1"
       ],
       "headline": "review",
@@ -15854,19 +15441,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "1",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::15e5d4b6d65663911e22433fed28f1c908ea522ac6d5ff9cccb79cf54320d9e6::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "2.2",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -16049,19 +15623,6 @@
       "failure": {
         "kind": "unowned",
         "observed": "second",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::bf9c46f10188639ee81dceaa5fcdd27246d7fd638d7ba4f38dab7ac6a46eaa51::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4",
         "expected": "an accountable owner and check"
       },
       "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
@@ -16562,19 +16123,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::02460a9b9962ba02a0b93d8ffbc6032c528d42419d303245a605b8b346bd4db3::2"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "4.3",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::3e0b70880f90da402b5b04c242cf9c577bff1eab1d3427fcd1589f601c0773b0::1"
       ],
       "headline": "review",
@@ -16595,71 +16143,6 @@
       "failure": {
         "kind": "float-deferred",
         "observed": "0.455",
-        "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::5e6dc11b14414f896b94383e42116bf58ecf0367d3a932e64d65356bb2c4364c::1"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4.1",
-        "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::ff0232fc29b4aa600f554d078ba50932f18d0269e21d0784f984ad7d1e3a1ba6::1"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4",
-        "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::ff0232fc29b4aa600f554d078ba50932f18d0269e21d0784f984ad7d1e3a1ba6::2"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4.2",
-        "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::ff0232fc29b4aa600f554d078ba50932f18d0269e21d0784f984ad7d1e3a1ba6::3"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4.3",
-        "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
-      },
-      "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::ff0232fc29b4aa600f554d078ba50932f18d0269e21d0784f984ad7d1e3a1ba6::4"
-      ],
-      "headline": "float",
-      "problem": "The occurrence needs a ledger entry or a rewording. This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
-      "failure": {
-        "kind": "float-deferred",
-        "observed": "4.4",
         "expected": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope."
       },
       "closes": "Supply a ledger entry or a rewording; carry and recheck the exact occurrence."
@@ -16835,19 +16318,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::568e36ba42dbe65c1564853f66bacec1a4b434a2235d598a3d15c56341dda891::2"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "4.1",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::6e7a56a688db6c64c76c133889d04a815573680b1245ae556da83eb1df99f22c::1"
       ],
       "headline": "review",
@@ -16946,19 +16416,6 @@
       "failure": {
         "kind": "delegation-miss",
         "observed": "four",
-        "expected": "floatcheck"
-      },
-      "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
-    },
-    {
-      "occurrences": [
-        "research/reports/03-diligence.md::b2dcd8e35f3062c5fefddfe24f1e2daa28c156e9ac0dd03e625bd07d0245de6b::6"
-      ],
-      "headline": "float",
-      "problem": "Awaiting the float ledger: a float-related block has no occurrence inventory that owns this number and its basis.",
-      "failure": {
-        "kind": "delegation-miss",
-        "observed": "4",
         "expected": "floatcheck"
       },
       "closes": "Land the float inventory, state quantity, hull or cell, altitude, safety factor, knockdown and evidence class on the page, then rebind the corrected occurrence."
@@ -17238,19 +16695,6 @@
     },
     {
       "occurrences": [
-        "research/reports/03-diligence.md::f29ab55c3c857b7c34d5bfdb47784646a3982cde1fd55a4ba1756a7df9a7a792::1"
-      ],
-      "headline": "review",
-      "problem": "Unowned occurrence: source entailment or historical scope has not been reviewed for this exact sentence.",
-      "failure": {
-        "kind": "unowned",
-        "observed": "5.3",
-        "expected": "an accountable owner and check"
-      },
-      "closes": "Review the local source and locator or label the historical/assumed basis on the page; record the dated reviewer and new occurrence binding."
-    },
-    {
-      "occurrences": [
         "research/reports/03-diligence.md::e6165cf52b14b36fcaa3cb6cbd5e1ced46b4820d89d02d9943067dcf6d6ac715::1"
       ],
       "headline": "review",
@@ -17384,14 +16828,14 @@
         "research/reports/README.md::5c5aff928da9caaf205df28b338df1b64d05394110733ed3603b472095b61aa8::2"
       ],
       "headline": "water",
-      "problem": "The bound key computes release from the aircraft; the surrounding wording says delivered without an arrival model.",
+      "problem": "The occurrence needs a rewording of the model water basis. water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan",
       "failure": {
         "kind": "water-basis",
         "key": "classes.P10000.cycle.tph",
         "observed": "13,183",
-        "expected": "released water; arrival at the fire is not computed by this key"
+        "expected": "water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan"
       },
-      "closes": "Label the quantity as released water, or bind an independently computed arrived-water quantity; update the register and retire this defect."
+      "closes": "Supply a rewording of the model water basis; carry and recheck the exact occurrence."
     },
     {
       "occurrences": [

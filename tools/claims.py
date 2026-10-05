@@ -34,7 +34,7 @@ BLOCK = set('p li td th h1 h2 h3 h4 h5 h6 figcaption dt dd blockquote text title
 VOID = set('area base br col embed hr img input link meta param source track wbr'.split())
 FALLBACK = {'FALLBACK', 'FALLBACK-HUD', 'FALLBACK-ROSTER', 'FALLBACK-FIRES'}
 LABEL = re.compile(r'\b(vision|assumption|assumed|target|historical)\b', re.I)
-KINDS = {'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger'}
+KINDS = {'model-span', 'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger'}
 
 
 def digest(value):
@@ -149,6 +149,10 @@ class Reader(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        for binding in ('data-n', 'data-cat'):
+            if binding in a:
+                self.emit(a[binding], 'model-span', self.region, context=binding, attrs=a)
+                self.units[-1]['binding_line'] = self.getpos()[0]
         if any(e['tag'] in {'script', 'style'} for e in self.stack):
             return
         for key in ('alt', 'aria-label', 'aria-description', 'aria-valuetext', 'title', 'placeholder', 'aria-valuenow'):
@@ -322,6 +326,16 @@ def extract(root, manifest):
             units = markdown_units(source)
         ordinals = Counter()
         for unit in units:
+            if unit['surface'] == 'model-span':
+                key = unit['text']
+                text_part = 'Model span ' + canonical(dict(attribute=unit['context'], key=key, attrs=unit['attrs']))
+                sentence_hash = digest(text_part)
+                ordinals[sentence_hash] += 1
+                occurrences.append(dict(id=f"{rel}::{sentence_hash}::{ordinals[sentence_hash]}", file=rel,
+                    digest=sentence_hash, ordinal=ordinals[sentence_hash], text=text_part, raw=key,
+                    surface='model-span', block=text_part, context=unit['context'], region=unit['region'],
+                    marker=None, before='', after='', attrs=unit['attrs'], binding_line=unit.get('binding_line')))
+                continue
             text, keys = unit['text'], {}
             # Remove invisible key sentinels after recording the preceding token's end.
             for m in list(re.finditer(r'〖([^〗]+)〗', text))[::-1]:
@@ -377,6 +391,8 @@ def nonclaim_rule(occ):
     if occ['surface'] in {'heading', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'paragraph', 'li', 'p'}:
         if not before.strip(' *#') and re.match(r'[.)]\s', after) and re.fullmatch(r'\d+(?:\.\d+)?', raw):
             return 'section-or-step'
+    if re.search(r'§§?\s*$', before) and re.fullmatch(r'\d+(?:\.\d+)*', raw):
+        return 'section-symbol-reference'
     if re.search(r'\b(?:section|step|figure|fig\.|table|defect|item|chapter|level)\s+#?$', before, re.I) and raw.isdigit():
         return 'cross-reference'
     if re.search(r'\bv$', before) and re.fullmatch(r'\d+(?:\.\d+)?', raw):
@@ -411,12 +427,15 @@ def model_issue(occ, owner, flat):
     return water_basis_issue(occ, key)
 
 
+DELIVERY = re.compile(r'\bdeliver(?:s|ed|ing|y|ies|ing-water)?\b', re.I)
+
+
 def water_basis_issue(occ, key):
     if key.endswith(('.cycle.tph', '.cycle.kwhPerTonne', '.cycle.deliveredT')):
-        words = occ['block'] + ' ' + occ['context']
-        if re.search(r'\bdeliver(?:ed|y|s)?\b', words, re.I) and not re.search(r'\breleas(?:ed|e)\b', words, re.I):
+        words = occ['text'] + ' ' + occ['context']
+        if DELIVERY.search(words):
             return dict(kind='water-basis', key=key, observed=occ['raw'],
-                        expected='released water; arrival at the fire is not computed by this key')
+                        expected='water requested, kept aboard and delivered per cycle over the planned lines; released water is not suppression; bind a reviewed exact-input plan')
     return None
 
 
@@ -449,6 +468,7 @@ def validate_entry(entry):
     if kind not in KINDS:
         raise ValueError('invalid owner kind')
     required = {
+        'model-span': ['key', 'attribute', 'producer', 'format'],
         'ledger': ['record', 'key', 'reason'],
         'model': ['key', 'precision', 'unit', 'scenario'],
         'generated': ['generator', 'region'], 'delegated': ['inventory'],
@@ -476,7 +496,16 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
     if owner is None:
         return dict(kind='unowned', observed=occ['raw'], expected='an accountable owner and check')
     kind = owner['kind']
+    if rules is None and (kind in {'ledger', 'model-span'} or owner.get('rule') == 'section-symbol-reference'):
+        from claims_rules import Context
+        rules = Context(root, [occ['file']])
+    if kind == 'model-span':
+        return rules.span_issue(occ, entry)
     if kind == 'ledger':
+        if occ['marker']:
+            issue = water_basis_issue(occ, 'classes.' + occ['marker'])
+            if issue:
+                return issue
         if rules is None:
             from claims_rules import Context
             rules = Context(root, [occ['file']])
@@ -488,6 +517,10 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
             return dict(kind='wrong-gate', observed=entry['gate'], expected='claimscheck')
         return model_issue(occ, owner, flat)
     if kind == 'nonclaim':
+        if owner['rule'] == 'section-symbol-reference':
+            issue = rules.reference_issue(occ)
+            if issue:
+                return issue
         if owner['rule'] != 'exact' and nonclaim_rule(occ) != owner['rule']:
             return dict(kind='nonclaim-rule-miss', observed=nonclaim_rule(occ), expected=owner['rule'])
     elif kind == 'labelled':
@@ -578,8 +611,8 @@ def check(root, manifest, figures, register_path, accept_new=False):
     defects_path = register_path.parent / 'known-defects.json'
     ratchet_path = register_path.parent / 'accepted-defects.json'
     defects = read_json(defects_path)
-    if defects.get('version') != 1 or not 1 <= len(defects['headlines']) <= 6:
-        raise ValueError('known defects need one to six public headline groups')
+    if defects.get('version') != 1 or not 1 <= len(defects['headlines']) <= 7:
+        raise ValueError('known defects need one to seven public headline groups')
     known = {}
     for defect in defects['defects']:
         if not defect.get('closes') or not defect.get('problem') or defect['headline'] not in defects['headlines']:
@@ -693,8 +726,8 @@ def check(root, manifest, figures, register_path, accept_new=False):
         accepted['runs'].append(dict(added=sorted(pending), digest=digest(canonical(pending))))
         write_json(ratchet_path, accepted)
     print(SCOPE)
-    print('file | occurrences | model | generated | delegated | cited | nonclaim | labelled | ledger | known defect | unregistered')
-    columns = ['occurrences', 'model', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger', 'known-defect', 'unregistered']
+    print('file | occurrences | model | model-span | generated | delegated | cited | nonclaim | labelled | ledger | known defect | unregistered')
+    columns = ['occurrences', 'model', 'model-span', 'generated', 'delegated', 'cited', 'nonclaim', 'labelled', 'ledger', 'known-defect', 'unregistered']
     for file, row in counts.items():
         print(file + ' | ' + ' | '.join(str(row[c]) for c in columns))
         rules = ', '.join(f'{k[5:]}={v}' for k, v in sorted(row.items()) if k.startswith('rule:'))
@@ -763,16 +796,21 @@ def carry(root, manifest, figures, register_path):
             old = old_known.get(occ['id'])
             defects.append(old if old and old['failure'] == problem else defect_for(occ, problem))
     new_reg = dict(version=1, delegations={}, entries=entries)
-    new_def = dict(version=1, headlines=old_def['headlines'], defects=defects)
+    headlines = dict(old_def['headlines'])
+    headlines['reference'] = 'Section references need an existing target.'
+    new_def = dict(version=1, headlines=headlines, defects=defects)
     new_known = {oid: d for d in defects for oid in d['occurrences']}
     accepted_path = out / 'accepted-defects.json'
     accepted = read_json(accepted_path)
     effective = dict(accepted['accepted'])
+    resolved = {}
     for t in accepted.get('transitions', []):
         for oid, c in t['changes'].items():
             if c['after'] is None:
                 effective.pop(oid, None)
+                resolved[oid] = c
             else:
+                resolved.pop(oid, None)
                 effective[oid] = c['after']
     changes = {}
     current = {o['id']: o for o in extracted['occurrences']}
@@ -788,6 +826,14 @@ def carry(root, manifest, figures, register_path):
                                 source_before=accepted['source_digests'].get(oid),
                                 entry_digest=digest(canonical(new_entries[oid])) if oid in new_entries else None,
                                 reason='same-rule revalidation' if oid in current else 'source occurrence retired')
+    for oid, prior in resolved.items():
+        if oid not in current:
+            continue
+        after = digest(canonical(new_known[oid])) if oid in new_known else None
+        entry_digest = digest(canonical(new_entries[oid]))
+        if after is not None or entry_digest != prior['entry_digest']:
+            changes[oid] = dict(before=None, after=after, source_before=prior['source_before'],
+                                entry_digest=entry_digest, reason='verified owner revalidated by current rules')
     if changes:
         accepted.setdefault('transitions', []).append(dict(changes=changes, digest=digest(canonical(changes))))
         write_json(accepted_path, accepted)
