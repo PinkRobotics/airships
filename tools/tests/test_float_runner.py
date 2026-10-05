@@ -21,6 +21,17 @@ class RunnerPolicy(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     plants.workers()
 
+    def test_command_timeout_default_and_override(self):
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(plants.command_timeout(), 240)
+        for requested, expected in [('1', 1), ('240', 240), ('1800', 1800)]:
+            with patch.dict(os.environ, FLOAT_PLANT_TIMEOUT=requested):
+                self.assertEqual(plants.command_timeout(), expected)
+        for requested in ('0', '-1', '1.5', 'invalid'):
+            with patch.dict(os.environ, FLOAT_PLANT_TIMEOUT=requested):
+                with self.assertRaises(ValueError):
+                    plants.command_timeout()
+
     def test_fast_subset_retains_every_control_and_fixed_order(self):
         full, fast = plants.selected_cases('all'), plants.selected_cases('fast')
         self.assertEqual(list(fast), [name for name in full if name in fast])

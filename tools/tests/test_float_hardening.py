@@ -2,6 +2,7 @@
 
 Run directly with --observe to record old-gate misses without suppressing their failures.
 FLOAT_PLANT_REPORT names an optional JSON evidence file outside the tracked tree.
+FLOAT_PLANT_TIMEOUT caps each planted command in seconds: 240 unless a slower runner sets more.
 """
 from __future__ import annotations
 from concurrent.futures import ProcessPoolExecutor
@@ -68,8 +69,16 @@ def specs():
     return cases
 
 
+def command_timeout():
+    value = os.environ.get('FLOAT_PLANT_TIMEOUT')
+    seconds = int(value) if value is not None else 240
+    if seconds < 1:
+        raise ValueError('FLOAT_PLANT_TIMEOUT must be a positive integer')
+    return seconds
+
+
 def command(root, argv):
-    p = subprocess.run(argv, cwd=root, text=True, capture_output=True, timeout=240)
+    p = subprocess.run(argv, cwd=root, text=True, capture_output=True, timeout=command_timeout())
     return p.returncode, p.stdout + p.stderr
 
 
