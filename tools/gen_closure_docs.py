@@ -77,6 +77,11 @@ names the evidence behind each `demonstrated` line, including its sizing allowan
     start = mass.index('| line |')
     end = mass.index('Sizing the battery', start)
     mass = mass[:start] + '\n'.join(table) + '\n\n' + mass[end:]
+    architecture = ('**2026-10-05:** This budget prices the first-generation hull of many permanently sealed '
+                    'vacuum cells; it has not been re-priced for the current one film on hoop rings over a two-walled truss.')
+    heading = '## The sealed-cell architecture is the answer to the shape problem — and it has a price'
+    if architecture not in mass:
+        mass = mass.replace(heading + '\n\n', heading + '\n\n' + architecture + '\n\n', 1)
     body = f'''**Displacement is a design variable and the payload is the requirement.** Shell mass
 per enclosed volume is held constant in this conditional study. Area-scaled equipment grows
 more slowly than volume. The complete bill can therefore close by growing the hull only when:
@@ -120,7 +125,9 @@ fraction. Neither is measured here, and these conditional sizes do not validate 
     # This sentence transcribed an obsolete fraction; the model's floor is ten percent.
     mass = mass.replace('`sundries_frac` is 5% at the floor', '`sundries_frac` is 10% at the floor')
     plan = (ROOT/'docs/VERIFICATION-PLAN.md').read_text()
-    plan_body = f'''> **Air density is {rho:.3f} kg/m³ at 2,500 m:** a shell at or above it has no net lift
+    plan_body = f'''{architecture}
+
+> **Air density is {rho:.3f} kg/m³ at 2,500 m:** a shell at or above it has no net lift
 > at any size. The complete budget can be grown until it closes only below
 > **ρ/(1 + f) = {wall:.3f} kg/m³ in the floor case**, because sundries include the shell.
 

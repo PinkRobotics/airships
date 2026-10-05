@@ -19,6 +19,8 @@ against it.
 
 ## The critical path: one number decides whether this can exist
 
+**2026-10-05:** This budget prices the first-generation hull of many permanently sealed vacuum cells; it has not been re-priced for the current one film on hoop rings over a two-walled truss.
+
 > **Air density is 0.957 kg/m³ at 2,500 m:** a shell at or above it has no net lift
 > at any size. The complete budget can be grown until it closes only below
 > **ρ/(1 + f) = 0.870 kg/m³ in the floor case**, because sundries include the shell.

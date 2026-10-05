@@ -105,6 +105,8 @@ it **never closes**: shell plus its 10% sundries costs 0.990 kg/m³, above the a
 
 ## The sealed-cell architecture is the answer to the shape problem — and it has a price
 
+**2026-10-05:** This budget prices the first-generation hull of many permanently sealed vacuum cells; it has not been re-priced for the current one film on hoop rings over a two-walled truss.
+
 The hull is not one evacuated envelope. **It is many permanently sealed vacuum cells**, which
 this project has never written down anywhere and which changes the structural argument twice:
 
