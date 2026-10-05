@@ -28,6 +28,8 @@ Run `make check` for all gates, including those browser and PDF checks. CI runs 
 - `goldenui`: the monitor text carries a running trace whose history depends on machine speed before the clock is pinned.
 - `pdfcheck`: the PDFs are compared exactly against TeX Live 2025 output.
 
+On CI, `seasoncheck` and `evaccheck` skip the tests that need raw captured inputs, which are deliberately not in the repository: the raw agency data that `SEASON_CAPTURE` points to, and the evacuation capture in `inputs/evac-capture/`. Each skipped test is printed by name as not run and counted in its gate's summary line, so a green CI run has not exercised them. On a machine that holds the captures, `SEASON_CAPTURE=<capture folder> make seasoncheck` and `make evaccheck` run them.
+
 The full `make floatplants` run, which writes the receipt, stays a local gate. `make check` can rewrite tracked telemetry or PDFs; inspect `git status --short` afterwards. A passing suite checks the recorded study and its known failures; it does not establish a buildable aircraft.
 
 ## Reproduce and move a number
