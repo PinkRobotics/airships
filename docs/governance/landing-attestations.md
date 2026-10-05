@@ -195,3 +195,16 @@
 | Order | sha256 `35c721ad5dbd1f70…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 16 — License the content, drop the link-only papers, extend the claims register
+
+| field | value |
+|---|---|
+| Landed | 2026-10-04 21:02:00 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `c10d2c3194ae01a7943f9caec49e1633bb8917d2` → `30c6f4497073cea16c9f088bff093e02e0fe889d`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `30c6f4497073cea16c9f088bff093e02e0fe889d`, tree `7301a47fc312711112ead2659e86e47eb50e898f`, from `pr/c16` in `/home/tyler/data/t/pr-c16`, parent `7083ed68a5dd7f046da9bc69e9b27b32b909f699`, governance `gov-58411c1d7d58` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 30c6f4497…` → rc=0, HONOURED-XO 30c6f4497073cea16c9f088bff093e02e0fe889d — the last record for this sha (store line 820) is XO-SIGNED. (store `/home/tyler/data/helm/tmp/fo-verdicts.tsv`) |
+| Evidence before landing | `/usr/bin/env PATH=/home/tyler/.local/node/bin:/snap/bin:/usr/local/bin:/usr/bin:/bin TMPDIR=/home/tyler/data/pinkrobotics/tmp/boyce-land-c16-1004 FLOAT_PLANT_WORKERS=8 make ciparity energycheck energydoccheck servedenergycheck figfresh ledgercheck floatplantcheck floatpagecheck floatverdictcheck noticecheck linkcheck` rc=0 (gate timeout 1800 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `89ccda35b01beef0…` from `/home/tyler/dev/helm` (informational) |
+| Order | sha256 `a531bd08424374ba…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
