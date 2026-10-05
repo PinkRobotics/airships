@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
-import { grossLiftKg, ledger } from '../../sim/physics.js?v=fc85766f';
+import { grossLiftKg, ledger } from '../../sim/physics.js?v=ae2bcece';
 // Follow the stamped imports so the live density dial is the ledger's singleton.
 const source = readFileSync(new URL('../../sim/physics.js', import.meta.url), 'utf8');
 const dep = async file => import(new URL(source.match(new RegExp(`from '(\\./${file}\\.js[^']*)'`))[1],

@@ -1,6 +1,6 @@
 /* Necessary stored-energy accounting only; never used by the plan selector. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,selectServedPlan} from '../../sim/index.js?v=fc85766f';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,selectServedPlan} from '../../sim/index.js?v=ae2bcece';
 import {writeGenerated} from './energy-output.mjs';
 export const NECESSARY_ENERGY_SCOPE='Ideal, lossless chronological accounting with nominal class storage fully usable and the plan initial nitrogen inventory charged. No losses, health, state-of-charge window, reserve, external recharge or thermal limit. This is not an endurance rule, a mission-completion verdict or a battery model. Solar and nitrogen recovery are the existing bus inputs, not a promised recharge system.';
 export function necessaryEnergy(c,m,p,steps=2000){

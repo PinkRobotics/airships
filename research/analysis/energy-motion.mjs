@@ -1,6 +1,6 @@
 /* Hull-only sampled signed authority screen; no force owner or verdict is changed. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=fc85766f';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=ae2bcece';
 import {writeGenerated} from './energy-output.mjs';
 export const ADDED_MASS_COEFFICIENT = 0.70;
 export const ADDED_MASS_VALUES = [ADDED_MASS_COEFFICIENT, 1.0];
