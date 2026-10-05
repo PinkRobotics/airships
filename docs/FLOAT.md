@@ -148,8 +148,11 @@ leak problem, which is a different document (#63).
 
 - **Size is not a lever.** Every mass term scales as L³, the same as the displaced volume:
   tube (length × section), joints (od³), film (areal density × area). Margins and kg/m³ are
-  both invariant under geometric scaling. Verified two ways — analytically, and by sweeping
-  0.4–3.0 m against real catalogue tube, which stays within ±8%.
+  both invariant under geometric scaling in the analytic model. The linked
+  [scale tool](../tools/scale_study.py) tests 25 uncited tube geometries at **0.98 and 1.0 m**,
+  requiring the bench article's margins (or 30% more) and estimating joint mass as OD³.
+  Its lightest parity cases are **18.00 and 17.43 kg/m³**, respectively. This invented
+  catalogue is a geometry experiment, not procurement evidence.
 - **What size DOES buy** is manufacturability (§3, R3), 64% fewer joints per m³ from 0.7 to
   1.3 m, and a 41% wider permeation budget. All real, none of it buoyancy.
 - **Vacuum, not helium.** Gated in `research/analysis/helium.md`.
