@@ -74,6 +74,8 @@ import time
 
 import numpy as np
 
+from data_compare import first_difference, numeric_equal, parse_json
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -321,7 +323,7 @@ RANK = ["P4", "P9", "P15", "P16", "P6", "P5", "P1", "P8", "P7", "P10", "P3", "P1
 # report prints, so the default is half of the last of those digits: 0.0005 mm is four orders
 # below the smallest change any design decision in this repository has produced, and above any
 # difference a numpy version can make. Integers, booleans and strings are compared exactly,
-# because they cannot drift; only a decision can move them.
+# because they cannot drift; only a decision can move them. Zero float tolerances use the data comparison rule.
 DEFAULT_TOL = 5e-4
 CONTRACT_TOL = {
     "massG": 0.01,               # the manifest publishes node mass at 2 dp
@@ -389,6 +391,26 @@ def arm_frame(d):
     e1 = np.cross(d, ref)
     e1 /= np.linalg.norm(e1)
     return e1, np.cross(d, e1)
+
+
+class FieldPoints(np.ndarray):
+    """Keep three-coordinate SDF projections independent of BLAS kernels.
+
+    Float32 samples on a surface can change sign when a matrix-vector product
+    uses fused arithmetic or changes its reduction order. Use the same three
+    products and left-to-right sums for a single point and a whole probe batch.
+    The imported field, sampling grid and sign test remain the same.
+    """
+    def __matmul__(self, vector):
+        points = np.asarray(self)
+        if points.ndim == 2 and points.shape[1] == 3 and np.shape(vector) == (3,):
+            return ((points[:, 0] * vector[0] + points[:, 1] * vector[1])
+                    + points[:, 2] * vector[2])
+        return points @ vector
+
+
+def field_points(points):
+    return np.asarray(points, np.float32).view(FieldPoints)
 
 
 def build_graph(prm):
@@ -492,7 +514,7 @@ def field(P, inf, prm, ribs=None):
     that is correct. P7 is what proves the ribs are there; nothing else may lean on them.
     """
     p = prm if ribs is None or ribs == prm["ribs"] else dict(prm, ribs=ribs)
-    return node_sdf(np.asarray(P, np.float32),
+    return node_sdf(field_points(P),
                     [a.astype(np.float32) for a in inf["armsPrint"]],
                     [n.astype(np.float32) for n in inf["landsPrint"]], p,
                     inf["role"] == "hexHub", inf["base"], inf["stubs"], inf["bores"],
@@ -988,7 +1010,7 @@ def probe_node(u, g, prm):
     for ribs, chunks in batches.items():
         if not chunks:
             continue
-        P = np.vstack(chunks).astype(np.float32)
+        P = field_points(np.vstack(chunks))
         p = dict(prm)
         p["ribs"] = ribs
         s = node_sdf(P, [a.astype(np.float32) for a in arms],
@@ -1711,9 +1733,11 @@ def _moved(key, was, now):
     if isinstance(was, list) and isinstance(now, list):
         return len(was) != len(now) or any(_moved(key, a, b) for a, b in zip(was, now))
     if isinstance(was, bool) or isinstance(now, bool):
+        return type(was) is not type(now) or was != now
+    if type(was) is int and type(now) is int:
         return was != now
     if isinstance(was, (int, float)) and isinstance(now, (int, float)):
-        return abs(float(was) - float(now)) > _tol_for(key)
+        return not numeric_equal(float(was), float(now), tolerance=_tol_for(key))
     return was != now                      # None against a number lands here, and should
 
 
@@ -1956,7 +1980,7 @@ def comparable_report(report):
     clean = json.loads(json.dumps(report))
     for key in ('runtimeS', 'fieldS'):
         del clean['verdict'][key]
-    return json.dumps(clean, sort_keys=True, separators=(',', ':'))
+    return clean
 
 
 def main() -> None:
@@ -2591,7 +2615,7 @@ def main() -> None:
             rec = manifest["nodes"][ni] if ni < len(manifest.get("nodes", [])) else {}
             got = rec.get("armEngagementMm")
             want = [round(s, 3) for s in g["info"][u]["stubs"]]
-            if got is not None and [round(x, 3) for x in got] != want:
+            if got is not None and first_difference([round(x, 3) for x in got], want):
                 p1_bad.append(f"node_{ni}: manifest armEngagementMm {got} but the graph gives "
                               f"{want} — the STLs were cut for a different spanning tree")
                 break
@@ -4035,7 +4059,7 @@ def main() -> None:
             moved.append(f"KNOWN row {cid}/{key} measures nothing — the prover no longer "
                          f"produces that key")
             continue
-        if abs(got - exp) > tol:
+        if not numeric_equal(float(got), float(exp), tolerance=tol):
             moved.append(f"KNOWN row {cid}/{key} expected {exp} +/- {tol}, measured {got} — "
                          f"the defect moved. If this is the fix, delete the row; if it is a "
                          f"side effect, it needs a reason.")
@@ -4235,8 +4259,11 @@ def main() -> None:
         # Elapsed time measures the host, not the article. All other recorded values,
         # including known failures and the contract, must still match the generated report.
         try:
-            recorded = json.loads(REPORT.read_text())
-            report_drift = comparable_report(recorded) != comparable_report(report)
+            recorded = parse_json(REPORT.read_text())
+            difference = first_difference(comparable_report(recorded), comparable_report(report))
+            report_drift = difference is not None
+            if difference:
+                print(f"assembly report difference: {difference}")
         except (OSError, ValueError, KeyError, TypeError) as exc:
             print(f"assembly report cannot be compared: {type(exc).__name__}")
             report_drift = True
@@ -4612,6 +4639,13 @@ def build_order_access(g, S, Q, RAD, prm, exhaustive):
                      "clearanceRuleMm": "r_i + r_j from stock_build per member"}}
 
 
+def minimum_candidate_in_order(candidates):
+    """Keep the true minimum; label ties under the data rule in discovery order."""
+    minimum = min(row[0] for row in candidates)
+    row = next(row for row in candidates if numeric_equal(row[0], minimum))
+    return (minimum, *row[1:])
+
+
 def free_end_sweep(g, prm, tree_order, S, Q, RAD):
     """A4 — the one motion in the build that is legal, measured precisely.
 
@@ -4623,7 +4657,7 @@ def free_end_sweep(g, prm, tree_order, S, Q, RAD):
     members = g["members"]
     r_arm = prm["pipe_id"] / 2.0 - prm["clearance"] + prm["rib_h"]   # spigot crest radius
     need = r_arm + float(RAD.max())         # arm capsule plus the widest pipe it can meet
-    worst = (1e9, None, None)
+    candidates = []
     placed = []
     for k, parent, arriving in tree_order:      # BFS discovery order, not member index
         a, b = parent, arriving
@@ -4651,9 +4685,11 @@ def free_end_sweep(g, prm, tree_order, S, Q, RAD):
             dd = (seg_seg_dist(P1, Q1, S[idx][None, :, :], Q[idx][None, :, :])
                   - RAD[idx][None, :]).min()
             gap = float(dd) - r_arm
-            if gap < worst[0]:
-                worst = (gap, k, s)
+            candidates.append((gap, k, s))
         placed.append(k)
+    # Symmetric members can tie to round-off. Use the first discovery/retraction
+    # candidate equal to the true minimum under the shared data comparison rule.
+    worst = minimum_candidate_in_order(candidates)
     ok = worst[0] > 0
     return {"lines": [
         f"along the {len(tree_order)}-member spanning tree, walked in discovery order, the "

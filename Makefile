@@ -197,6 +197,7 @@ contractcheck:  ## The frozen connection contract must exist and cover this arti
 # arms, and this goes red with those nine arms named rather than passing on an unchanged
 # triangle count. Nothing in this file re-freezes it — see `contractfreeze`.
 assemblycheck:  ## Measure connections, compare the frozen contract and recorded report
+	$(PY) -B -m unittest discover -s tools/tests -p 'test_assembly_compare.py'
 	$(PY) tools/check_assembly.py
 
 assemblygenerate:  ## Generate the measured assembly report; inspect every changed physical value
