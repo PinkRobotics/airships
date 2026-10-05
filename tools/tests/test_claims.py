@@ -25,6 +25,7 @@ class ClaimsFixture:
         self.put('dist.manifest', 'served index.html\nexcluded docs\n')
         self.put('research/figures.json', '{"length":110}')
         self.put('research/sources.json', '{"sources":[]}')
+        self.put('research/claims/carry-report-baseline.json', '{"version":1,"text":"Fixture snapshot."}')
         self.put('research/claims/known-defects.json', json.dumps(dict(
             version=1, headlines={'unowned': 'Some figures lack an owner.'}, defects=[])))
 
@@ -41,7 +42,17 @@ class ClaimsFixture:
                    unit='m', scenario={'basis': 'fixture'}), gate) for o in self.extract()]
         claims.write_json(self.root / 'research/claims/register.json',
                           dict(version=1, delegations={}, entries=entries))
+        self.write_audits()
         return entries
+
+    def write_audits(self):
+        path = self.root / 'research/claims/register.json'
+        register = claims.read_json(path)
+        defects = claims.read_json(path.parent / 'known-defects.json')
+        ids = {e['id'] for e in register['entries']}
+        defects['defects'] = [d for d in defects['defects'] if set(d['occurrences']) <= ids]
+        for name, content in claims.audit_outputs(self.root, path, register, defects).items():
+            self.put('research/claims/' + name, content)
 
     def check(self, accept=False):
         output = io.StringIO()
@@ -61,6 +72,7 @@ class ClaimsFixture:
         data = claims.read_json(path)
         data['defects'] = [defect]
         claims.write_json(path, data)
+        self.write_audits()
         return o, defect
 
 
@@ -210,6 +222,7 @@ port 1234
         self.put('index.html', '<p>Current length 110 m.</p>')
         self.register()
         self.put('research/claims/known-defects.json', '{"version":1,"headlines":{"unowned":"Unowned."},"defects":[]}')
+        self.write_audits()
         self.assertEqual(self.check()[0], 0)
 
     def test_generated_regions_are_checked(self):
@@ -428,6 +441,7 @@ class OwnershipRulesTest(ClaimsFixture, unittest.TestCase):
         accepted['transitions'] = [dict(changes=changes, digest=claims.digest(claims.canonical(changes)))]
         claims.write_json(self.root/'research/claims/accepted-defects.json', accepted)
         self.put('research/claims/known-defects.json', '{"version":1,"headlines":{"unowned":"Unowned."},"defects":[]}')
+        self.write_audits()
         self.assertEqual(self.check()[0], 0)
         self.put('research/figures.json', '{"length":111}')
         self.assertIn('no longer has a verified owner', self.check()[1])
@@ -583,9 +597,32 @@ class ResidueRulesTest(ClaimsFixture, unittest.TestCase):
         self.known();self.check(True)
         with contextlib.redirect_stdout(io.StringIO()):
             claims.carry(self.root,self.root/'dist.manifest',self.root/'research/figures.json',self.root/'research/claims/register.json')
-        self.assertIn('Length 110 m.',(self.root/'research/claims/page-defects.md').read_text())
-        self.put('research/claims/page-defects.md','stale')
-        self.assertIn('stale residue',self.check()[1])
+        self.assertIn('Length 110 m.',(self.root/'research/claims/page-defects.tsv').read_text())
+        self.put('research/claims/page-defects.tsv','stale')
+        self.assertIn('missing or stale audit table',self.check()[1])
+
+    def test_every_audit_table_is_required_and_exact(self):
+        self.register()
+        self.assertEqual(self.check()[0], 0)
+        for name in ('page-defects.tsv', 'nonclaim-reclassifications.tsv', 'carry-report.tsv'):
+            path = self.root / 'research/claims' / name
+            original = path.read_text()
+            for mutation in ('append', 'missing'):
+                with self.subTest(name=name, mutation=mutation):
+                    if mutation == 'append':
+                        path.write_text(original + 'The 52 m hull floats.\n')
+                    else:
+                        path.unlink()
+                    status, output = self.check()
+                    self.assertEqual(status, 1)
+                    self.assertIn(name + ': missing or stale audit table', output)
+                    path.write_text(original)
+                    self.assertEqual(self.check()[0], 0)
+
+    def test_tsv_preserves_quoted_cells(self):
+        import csv
+        rows = [['Sentence', 'Reason'], ['A pipe | and tab\tinside.', 'A newline\ninside.']]
+        self.assertEqual(list(csv.reader(io.StringIO(claims.tsv(rows)), delimiter='\t')), rows)
 
 
 class DocumentScopeTest(ClaimsFixture, unittest.TestCase):
