@@ -7,10 +7,10 @@ to accept.
 ## Running it
 
 ```sh
-python3 -m http.server 8875        # from the repository root
+python3 tools/serve.py --port 0    # from the repository root
 ```
 
-Open <http://127.0.0.1:8875/>. No build step, no bundler, no dependency to install. Every page is
+Open the loopback URL the tool prints. It uses a system-chosen port with caching off, so a reload reads the current files. No build step, no bundler, no dependency to install. Every page is
 static HTML importing ES modules directly, and that is a constraint, not an accident: a reader who
 wants to check a figure should be able to read the file that computes it without first
 reconstructing a toolchain.

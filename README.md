@@ -4,7 +4,7 @@ We study vacuum lift and water transport with published assumptions and a simula
 
 Four steps start at the repository root:
 
-1. **Get green checks:** `make quick` runs the selected Python and Node gates without TeX; ledger regeneration still needs Chromium. A measured time is below. `make check` adds browser behaviour, fresh figure/analysis generation and PDF checks; allow about 30 minutes. Green can include recorded failed engineering proofs; read the `NOT PROVEN` lines.
+1. **Get green checks:** `make quick` runs the selected Python and Node gates without TeX; ledger regeneration still needs Chromium. A measured time is below. `make check` adds browser behaviour, fresh figure/analysis generation and PDF checks; allow nearer an hour on the shared validation machine. Green can include recorded failed engineering proofs; read the `NOT PROVEN` lines.
 2. **Reproduce a number and move an assumption:** use the [energy and float commands below](#reproduce-and-move-a-number). The float command changes only safety factor, with the record basis fixed.
 3. **Inspect the latest change:** `git log -1 --format=full` shows the commit and its trailers; the [public log](https://pinkrobotics.ca/log/) records published landings and related execution costs. Builder trailers name the model; checker/verdict and audit trailers identify the recorded review where present. The log does not yet expose a named independent checker with retrievable evidence for every landing, or complete cost for every carried order; whole-run cost is not a per-landing allocation. Its [JSON](https://pinkrobotics.ca/log/data/activity.json) is readable without scripts. Compare its revision with your clone; the served site changes on publication.
 4. **Read a float figure with its basis:** the [float ledger](docs/FLOAT-LEDGER.md#evidence-and-knockdowns) defines evidence classes, altitudes, safety factors and what would move each result. No row is a weighed or physically tested object. The live [float case](https://pinkrobotics.ca/airships/float/) and [ledger](https://pinkrobotics.ca/airships/float/ledger.html) carry those distinctions beside the figures.
@@ -19,7 +19,7 @@ mkdir -p "$TMPDIR"
 make quick
 ```
 
-A cold start with empty scratch and no persistent test server took **8 min 12 s (491.63 s)** on the validation machine. Machine load changes this time.
+A cold start with empty scratch and no persistent test server took **8 min 12 s (491.63 s)** on the validation machine. A review on a busy shared machine took **28 min 2 s** on 2026-10-05. Machine load changes this time.
 
 `quick` is an ordered subset of `check`: model arithmetic and energy documents, source and port rules, dated capture tests, analysis-note figures, the float ledger and pages, geometry/assembly records, Node suites, README and documentation links, notices, parity mutations and builder records. It does not exercise browser rendering/interactions, regenerate the browser-derived figure and analysis records, or check PDFs. No agency feed is requested.
 
