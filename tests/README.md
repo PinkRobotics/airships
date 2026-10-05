@@ -32,7 +32,7 @@ make test        # the browser suites, headless
 make test-node   # Node suites; browser-compatible 3D fallback if Node is absent
 make golden      # replay the seeded model and diff its captured outputs
 make goldenui    # diff the rendered-page snapshot
-make check       # the same ordered main gates as CI; Node is required
+make check       # all local gates; CI omits CI_REFERENCE_CHECK; Node is required
 ```
 
 **In a browser**, to read it rather than script it — no toolchain, no install:

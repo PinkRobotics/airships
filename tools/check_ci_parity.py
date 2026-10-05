@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Compare the executable CI gate command with Makefile's check prerequisites.
 
-The main job runs the explicit check prerequisites in order. CI_OUTSIDE_CHECK
+The main job runs check less CI_REFERENCE_CHECK, in order. CI_OUTSIDE_CHECK
 names real targets, each run exactly once by a literal make step in an independent,
 unconditional job. Unsupported indirection fails. No gate names are copied here.
 """
@@ -63,7 +63,23 @@ def outside_gates(text):
     return gates
 
 
-def check_split(doc, outside):
+def reference_gates(text):
+    """The one literal reference list, with a reason directly above each entry."""
+    rows = re.findall(r'^CI_REFERENCE_CHECK[ \t]*:=[ \t]*([^\n]*)', text, re.M)
+    if not rows:
+        return []
+    if len(rows) != 1:
+        raise ValueError('expected one literal CI_REFERENCE_CHECK assignment')
+    gates = validate_gates(rows[0].split('#', 1)[0].split())
+    block = re.search(r'((?:^#[^\n]*\n)+)^CI_REFERENCE_CHECK[ \t]*:=', text, re.M)
+    reasons = block[1] if block else ''
+    for gate in gates:
+        if not re.search(r'^# ' + re.escape(gate) + r': .*\w.*$', reasons, re.M):
+            raise ValueError(f'reference gate {gate} needs its reason line')
+    return gates
+
+
+def check_split(doc, outside, reference=()):
     # PyYAML's YAML 1.1 loader reads the unquoted GitHub key "on" as True.
     events = doc.get('on', doc.get(True))
     if outside and (not isinstance(events, dict) or set(events) != {'push', 'pull_request'}):
@@ -75,6 +91,9 @@ def check_split(doc, outside):
         for step in job.get('steps', []):
             run = step.get('run', '')
             command = shlex.split(run)
+            if any(re.search(r'(?<![A-Za-z0-9_-])' + re.escape(gate)
+                             + r'(?![A-Za-z0-9_-])', run) for gate in reference):
+                raise ValueError('reference gate appears in a CI step')
             if 'make' in command and command[0] != 'make':
                 raise ValueError('CI make gates require a literal make step')
             if not command or command[0] != 'make':
@@ -105,16 +124,22 @@ def check(root=ROOT):
     text = (root / 'Makefile').read_text()
     local = make_gates(text)
     outside = outside_gates(text)
+    reference = reference_gates(text)
     if set(local) & set(outside):
         raise ValueError('CI_OUTSIDE_CHECK and check must be disjoint')
+    if set(reference) & set(outside):
+        raise ValueError('CI_REFERENCE_CHECK and CI_OUTSIDE_CHECK must be disjoint')
+    if not set(reference) <= set(local):
+        raise ValueError('every reference gate must be a check prerequisite')
     workflow = (root / '.github/workflows/ci.yml').read_text()
     remote = ci_gates(workflow)
-    if local != remote:
-        missing = [g for g in local if g not in remote]
-        extra = [g for g in remote if g not in local]
+    expected = [g for g in local if g not in reference]
+    if expected != remote:
+        missing = [g for g in expected if g not in remote]
+        extra = [g for g in remote if g not in expected]
         raise ValueError(f"CI parity FAIL: missing={missing}, extra={extra}; "
-                         f"ordered lists equal={local == remote}")
-    check_split(yaml.safe_load(workflow), outside)
+                         f"ordered lists equal={expected == remote}")
+    check_split(yaml.safe_load(workflow), outside, reference)
     return local
 
 
@@ -127,7 +152,8 @@ def main():
     except (OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as exc:
         print(f"CI parity: {exc}", file=sys.stderr)
         return 1
-    print(f"CI parity PASS: {len(gates)} ordered main gates: {' '.join(gates)}")
+    print(f"CI parity PASS: {len(gates)} ordered local gates: {' '.join(gates)}")
+    print('Reference-only checks: ' + ' '.join(reference_gates((args.root / 'Makefile').read_text())))
     print('Independent CI targets: ' + ' '.join(outside_gates((args.root / 'Makefile').read_text())))
     return 0
 

@@ -23,7 +23,12 @@ A cold start with empty scratch and no persistent test server took **8 min 12 s 
 
 `quick` is an ordered subset of `check`: model arithmetic and energy documents, source and port rules, dated capture tests, analysis-note figures, the float ledger and pages, geometry/assembly records, Node suites, README and documentation links, notices, parity mutations and builder records. It does not exercise browser rendering/interactions, regenerate the browser-derived figure and analysis records, or check PDFs. No agency feed is requested.
 
-Run `make check` for all gates, including those browser and PDF checks. It can rewrite tracked telemetry or PDFs; inspect `git status --short` afterwards. A passing suite checks the recorded study and its known failures; it does not establish a buildable aircraft.
+Run `make check` for all gates, including those browser and PDF checks. CI runs `check` less exactly `CI_REFERENCE_CHECK` in the Makefile, plus the plants in parallel shards. The reference list is:
+
+- `goldenui`: the monitor text carries a running trace whose history depends on machine speed before the clock is pinned.
+- `pdfcheck`: the PDFs are compared exactly against TeX Live 2025 output.
+
+The full `make floatplants` run, which writes the receipt, stays a local gate. `make check` can rewrite tracked telemetry or PDFs; inspect `git status --short` afterwards. A passing suite checks the recorded study and its known failures; it does not establish a buildable aircraft.
 
 ## Reproduce and move a number
 

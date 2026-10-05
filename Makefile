@@ -1,7 +1,7 @@
 # The whole contributor interface. `make` on its own prints it.
 #
 # Checks need Node, Python dependencies from requirements.txt, Chromium, and the PDF
-# toolchain (latexmk, pdfLaTeX, TeX Gyre fonts, poppler). CI installs Node 22 and these tools.
+# toolchain (latexmk, pdfLaTeX, TeX Gyre fonts, poppler). CI uses Node 22 and Chromium.
 
 PY     ?= python3
 CHROME ?= chromium
@@ -78,13 +78,16 @@ linkcheck:  ## Check tracked documentation links and anchors; list external URLs
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_check_links.py'
 	$(PY) tools/check_links.py
 
+# goldenui: monitor trace history depends on machine speed before the clock is pinned.
+# pdfcheck: PDFs are compared exactly against TeX Live 2025 output.
+CI_REFERENCE_CHECK := goldenui pdfcheck
 CI_OUTSIDE_CHECK := floatplants
 
 # A smaller gate set that omits the browser page suites and PDF build.
 # ledgercheck still drives a browser when regenerating the float ledger.
 quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Main CI gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs

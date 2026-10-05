@@ -18,6 +18,7 @@ import stranger_run as stranger
 class ParityTests(unittest.TestCase):
     def test_current_workflow_and_deleting_each_gate(self):
         gates = parity.check()
+        gates = [g for g in gates if g not in parity.reference_gates((parity.ROOT / 'Makefile').read_text())]
         workflow = (parity.ROOT / '.github/workflows/ci.yml').read_text()
         doc = parity.yaml.safe_load(workflow)
         step = next(s for s in doc['jobs']['checks']['steps'] if s.get('id') == 'check-gates')
@@ -140,6 +141,44 @@ class SplitParityTests(unittest.TestCase):
             doc['on'] = events
             with self.subTest(events=events), self.assertRaises(ValueError):
                 self.check(doc=doc)
+
+
+class ReferenceParityTests(unittest.TestCase):
+    check = SplitParityTests.check
+
+    def setUp(self):
+        SplitParityTests.setUp(self)
+        self.make = ('# reference: exact output from the reference toolchain.\n'
+                     'CI_REFERENCE_CHECK := reference\n' + self.make.replace(
+                         'check: first second', 'check: first reference second'))
+
+    def test_reference_is_local_and_real_tree_is_green(self):
+        self.assertEqual(self.check(), ['first', 'reference', 'second'])
+        text = (parity.ROOT / 'Makefile').read_text()
+        self.assertEqual(parity.check(), parity.make_gates(text))
+        self.assertEqual(parity.reference_gates(text), ['goldenui', 'pdfcheck'])
+
+    def test_reference_cannot_appear_in_ci_or_leave_check(self):
+        doc = self.copy(self.doc)
+        doc['jobs']['checks']['steps'][0]['run'] += ' reference'
+        with self.assertRaisesRegex(ValueError, 'extra='):
+            self.check(doc=doc)
+        for command in ('echo reference', "bash -c 'make reference'"):
+            doc = self.copy(self.doc)
+            doc['jobs']['plants']['steps'].append({'run': command})
+            with self.subTest(command=command), self.assertRaisesRegex(ValueError, 'reference gate appears'):
+                self.check(doc=doc)
+        with self.assertRaisesRegex(ValueError, 'check prerequisite'):
+            self.check(make=self.make.replace('first reference second', 'first second'))
+
+    def test_reason_literal_and_disjoint_contract(self):
+        with self.assertRaisesRegex(ValueError, 'reason line'):
+            self.check(make=self.make.replace('# reference: exact output from the reference toolchain.\n', ''))
+        for value in ('$(REFERENCES)', 'reference reference'):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.check(make=self.make.replace(':= reference', ':= '+value))
+        with self.assertRaisesRegex(ValueError, 'disjoint'):
+            self.check(make=self.make.replace(':= plants', ':= reference') + '\nreference:\n')
 
 
 class StrangerTests(unittest.TestCase):

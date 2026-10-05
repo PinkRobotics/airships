@@ -53,13 +53,13 @@ jobs:
           "$CHROMIUM_BINARY" --version
       # check_ci_parity.py reads this command as YAML and compares its ordered goals
       # to Makefile's check prerequisites. Keep it a literal make invocation.
-      - name: Every make check gate
+      - name: Every CI check gate
         id: check-gates
         run: >-
           make --keep-going ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck
           labelledcheck claimscheck figcheck
           analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck
-          nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty
+          nodescheck contractcheck assemblycheck golden test test-node firstparty
           interaction readmecheck noticecheck linkcheck mutationcheck buildercheck
 
   floatplants:
