@@ -4,9 +4,10 @@
 figure anywhere in this project said what fraction of real fires have a lake worth shuttling
 to. It bounds the market rather than the vehicle, and it had never been asked.
 
-It has now. **Water is not the constraint. In twenty BC fire seasons there is not a single
-fire of ten hectares or more without an adequate source in range of any class — and the median
-one is under five kilometres from water.**
+The stored twenty-season record has geometrically qualifying water within 300 km of every
+fire of ten hectares or more, at each tested threshold. The reference class's median leg is
+under five kilometres. This does not establish usable depth, access or an accepted mission;
+the accepted and stand-down counts are reported below.
 
 ## Method
 
@@ -15,7 +16,7 @@ more, 2006 through 2025, 10.93 million hectares burned** — and reduces each to
 centroid of its largest ring, keeping the simplified ring itself for the 615 fires of 1,000 ha
 or more. `research/analysis/water-availability.js` joins that against the 13,646-body
 Freshwater Atlas extract the monitor already uses, inside a real browser against the live
-model, so every throughput figure is `planCycle`'s own.
+model, so every rate comes from a plan its served selector accepts.
 
 Distance is to a body's **closest approach**, not its centroid: a 30 km lake with its tip
 beside the fire is near water, and its centroid says otherwise.
@@ -35,24 +36,41 @@ Every fire in the record has qualifying water within 300 km at every threshold t
 48.65 km. The binary question is settled. What remains is a distance distribution, and it is a
 short one.
 
-## The published throughput is conservative by nearly a factor of two
+## Rates from accepted plans
 
-The reports work a 15 km one-way leg. The real median is 4.71 km, and the ledger is dominated
-by transit:
+<!-- logistics:rates:start -->
+The flight model assumes a buoyant fleet for these logistics quotients; this does not establish that a drawn hull floats.
 
-| | at the 15 km worked example | at the real median | mean over all 3,286 fires | mean weighted by hectares burned |
+| Class | 15 km worked example t/h | Median leg t/h | Mean accepted fire legs t/h | Mean accepted legs, hectare-weighted t/h |
 |---|---|---|---|---|
-| P-100 | 175.5 t/h | **332.3 t/h** | 322.0 t/h | 321.9 t/h |
-| P-1000 | 1,696.7 t/h | 1,981.5 t/h | 1,996.2 t/h | 1,859.9 t/h |
-| P-10000 | 13,183.4 t/h | 10,863.4 t/h | 11,134.8 t/h | 9,353.4 t/h |
+| P-100 | 111.7 | 229.7 | 225.8 | 244.7 |
+| P-1000 | 505.0 | 580.4 | 531.1 | 495.9 |
+| P-10000 | 6,657.8 | 5,178.4 | 5,489.3 | 4,473.7 |
 
-The reference ship delivers **1.9× its published rate** against the real distribution of BC
-fires. The P-10000 goes the other way — it needs 1,000 ha of water, the 202 bodies that
-qualify are unevenly spread, and the big northern fires are far from them: weighted by
-hectares burned its median leg is 33.84 km and it delivers 71% of the worked-example figure.
+15 km worked example:
 
-That inversion is worth stating plainly, because it is the reference-class argument arriving
-from a direction nobody chose. The small ship is the one the geography suits.
+| Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
+|---|---|---|---|---|---|
+| P-100 | 15.00 | ready / rapid | 65.000 | 35.000 | 5.201 |
+| P-1000 | 15.00 | ready / endurance | 215.591 | 784.409 | 26.489 |
+| P-10000 | 15.00 | ready / rapid | 2626.200 | 7373.800 | 200.116 |
+
+Median leg:
+
+| Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
+|---|---|---|---|---|---|
+| P-100 | 4.71 | ready / rapid | 50.000 | 50.000 | 2.021 |
+| P-1000 | 11.04 | ready / endurance | 206.333 | 793.667 | 22.656 |
+| P-10000 | 23.95 | ready / rapid | 2626.200 | 7373.800 | 237.750 |
+
+| Class | Accepted fire legs | Not served | Stand-downs | Unavailable |
+|---|---|---|---|---|
+| P-100 | 3286 | 0 | 0 | 0 |
+| P-1000 | 2897 | 389 | 389 | 0 |
+| P-10000 | 3286 | 0 | 0 | 0 |
+
+The selector is `selectServedPlan`, requested balanced, record energy basis, still air. It chooses among the served pages' bounded controls at each exact leg; this is not a global optimum. Stand-down or unavailable legs supply no rate and are excluded from both means. Geometric water access above is a separate count.
+<!-- logistics:rates:end -->
 
 ## A large fire is not a point, and it does not change the answer
 
@@ -86,8 +104,9 @@ holding station needs a disc it fits inside — 0.95 ha for a P-100, 20.59 ha fo
 The shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 ha would roughly
 double its qualifying bodies and cut its median leg from 23.95 to 19.01 km.
 
-Volume is a non-issue: a P-100 working flat out for twelve hours draws 2,106 t, which is
-**2.1 cm** off a minimum-size body.
+<!-- logistics:drawdown:start -->
+A P-100 repeating the accepted 15 km plan for twelve hours releases 1,340 t, a geometric drawdown of 1.3 cm on a minimum-size body. Continuous supply and lake access are assumed.
+<!-- logistics:drawdown:end -->
 
 ## What this analysis cannot answer, and it is the important one
 

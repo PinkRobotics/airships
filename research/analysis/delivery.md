@@ -117,46 +117,48 @@ already implies, spread the release across a wider swath and shorten the run.
 This is the single highest-value change on this page, and it needs no new physics: it is the
 intake hose, pointed the other way.
 
-## Only the reference ship's drop makes suppression sense
+## What the accepted plans release
 
-Coverage level — US gallons per 100 ft² — is how every aerial drop is prescribed. Grass takes
-CL 1–2; heavy timber and slash take CL 6–8. What one pass lays, at the model's own `dropKm`:
-
-| swath | P-100 (100 t over 1.2 km) | P-1000 (1,000 t over 2.5 km) | P-10000 (10,000 t over 5 km) |
+<!-- logistics:one-pass:start -->
+| Swath | P-100 CL | P-1000 CL | P-10000 CL |
 |---|---|---|---|
-| 20 m | CL 10.2 | CL 49.1 | CL 245.4 |
-| 30 m | **CL 6.8** | CL 32.7 | CL 163.6 |
-| 50 m | **CL 4.1** | CL 19.6 | CL 98.2 |
-| 80 m | CL 2.6 | CL 12.3 | CL 61.4 |
+| 20 m | 6.6 | 10.6 | 64.5 |
+| 30 m | 4.4 | 7.1 | 43.0 |
+| 50 m | 2.7 | 4.2 | 25.8 |
+| 80 m | 1.7 | 2.6 | 16.1 |
 
-**The P-100 lands inside a real prescription at every plausible swath.** The others are absurd
-— CL 163 is 6.7 cm of standing water over a 30 m by 5 km strip. Their drop runs are one to two
-orders of magnitude too short for their payloads. A third independent argument for the
-reference-class decision, this time from fire doctrine.
+| Class | Released t | Run km | Retained t |
+|---|---|---|---|
+| P-100 | 65.000 | 1.2 | 35.000 |
+| P-1000 | 215.591 | 2.5 | 784.409 |
+| P-10000 | 2626.200 | 5.0 | 7373.800 |
+
+These are tank-release quotients for the accepted 15 km plans, at assumed swaths. No ground deposition or suppression is established.
+<!-- logistics:one-pass:end -->
 
 ## The metric that means something
 
 AFUE counts objectives achieved, not litres, and for large aircraft the objective is nearly
 always line. BC campaign fires, 615 with mapped perimeters: median **40.6 km**, p90 146.3 km.
 
-What one P-100 lays in 24 hours at a 30 m swath, at the real 4.71 km median leg:
+A conditional line-length comparison for a P-100 at the median leg:
 
-| prescription | line per 24 h | perimeters it could line daily |
+<!-- logistics:daily:start -->
+| Prescription | Geometric line km per 24 h | Stored simplified perimeters no longer than that line |
 |---|---|---|
-| CL 2 (grass) | 326.2 km | 97.9% |
-| CL 4 (normal timber) | **163.1 km** | **91.4%** |
-| CL 6 | 108.7 km | 84.9% |
-| CL 8 (heavy timber, slash) | 81.6 km | 76.6% |
+| CL 2 | 225.5 km | 95.3% |
+| CL 4 | 112.8 km | 85.5% |
+| CL 6 | 75.2 km | 73.5% |
+| CL 8 | 56.4 km | 64.9% |
 
-**One P-100 could put a normal timber prescription around the entire perimeter of nine out of
-ten BC campaign fires in a day** — or a heavy-timber one around three in four. That is a
-logistics claim, not an effectiveness claim, and it is the one this project can defend.
+At the 4.71 km median leg the accepted rapid plan releases 50.000 t and retains 50.000 t per cycle. Its rate is 229.7 t/h, with 2.021 MWh supplied per 13.058 minute cycle. Repeating it for 24 hours gives 5,514 t released and requires 222.9 MWh of supplied effort. Stand-downs across the fire-leg dataset: 0.
 
-**Two caveats it must be quoted with.** First, **energy**: 7,975 t/day is about 100 MWh at the
-published cycle and 150 MWh at `descent.md`'s corrected one, against 6.5 MWh/day from the solar
-skin. The rest has to arrive by tender, and the tender fleet is named in the README and
-deliberately never modelled. Every 24-hour figure on this page is a statement about the
-*aircraft*, not about a system that has been shown to supply it. Second, **persistence**: CL 4
+The table compares line length at an assumed 30 m swath with stored simplified final perimeter lengths. Those outlines are lower bounds on a convoluted edge. It establishes neither deposition nor coverage of an actual fire, continuous operation or supply, suppression, or a changed fire outcome.
+<!-- logistics:daily:end -->
+
+**Two caveats accompany this arithmetic.** First, **energy**: the supplied effort above must
+arrive from storage, the generator or a tender; solar credit is reported separately in the
+[energy model](../../docs/ENERGY-MODEL-2026-10.md). The tender fleet is not modelled. Second, **persistence**: CL 4
 is 1.63 mm of water, which evaporates in tens of minutes to a few hours in fire weather. Water
 is not retardant. A wet line is a delaying action and a fuel-moisture change, not a barrier
 that is still there tomorrow — which is exactly why the pre-treatment mission wants *repeated*

@@ -257,8 +257,11 @@ be fatal:
 the class the geography suits. The floor budget's closure wall includes shell sundries; Jenett's published shell clears it with 41.6% margin before packing losses. Over half the
 reference ship's cycle energy is being spent on nitrogen it does not need in the cycle. The
 sealed-cell architecture — undocumented until today — is the answer to the shape penalty that
-would otherwise be fatal. And measured in line rather than tonnes, one P-100 could put a timber
-prescription around the perimeter of nine out of ten BC campaign fires in a day.
+would otherwise be fatal.
+
+<!-- logistics:line-comparison:start -->
+At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
+<!-- logistics:line-comparison:end -->
 
 **Worse than we thought.** The letdown costs 30–54× what the ledger says. `ALT.drop` at 450 m
 does not deliver water, and the ship's own rotors make an updraft 86× the mass flow of the water

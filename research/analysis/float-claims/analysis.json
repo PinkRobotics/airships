@@ -282,43 +282,15 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "8d7c8825b02b9858",
-      "line": 54,
+      "line": 55,
       "text": "**The cryogenic line is now the second-largest item in the vehicle and the worst-supported.** Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg), and NASA's ow",
       "class": "other-quantity",
       "reason": "These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
     },
     {
       "file": "research/analysis/mass-budget.md",
-      "key": "9b4f8c182bf3f3ca",
-      "line": 75,
-      "text": "> ## A vacuum shell must mass less than 0.957 kg per m³ of enclosed volume. > That is ISA air density at the 2,500 m working altitude. Above it there is no net lift at > any size, at any scale, ever.",
-      "class": "bound",
-      "reason": "The shell-density requirement is the budget analysis air-density limit at its stated working altitude.",
-      "bindings": [
-        {
-          "source": "research/analysis/mass-budget.json",
-          "pointer": "/classes/P100/shellDensityWallKgPerM3",
-          "shown": "0.957",
-          "altitude": "target"
-        }
-      ],
-      "context": [
-        "2500"
-      ]
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "1b499ca8da5e6296",
-      "line": 81,
-      "text": "| source | shell | verdict | |---|---|---| | Jenett et al. 2019, discrete lattice | 0.508 kg/m³ | **passes, with 47% margin** | | Jenett + 50% for joints and skin | 0.75 kg/m³ | passes, with 22% | | M",
-      "class": "literature",
-      "reason": "These densities and margins refer to Jenett, Metlen and Akhmeteli shell studies, plus the explicitly added allowance, not the drawn project hull.",
-      "source": "research/analysis/mass-budget.py EVIDENCE; Jenett 2019, Metlen 2013, Akhmeteli and Gavrilin 2021"
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
       "key": "f56e261377ae00a3",
-      "line": 147,
+      "line": 148,
       "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
       "class": "other-quantity",
       "reason": "This lists unpriced cryogenic and thermal equipment masses and heat rejection quantities; it does not establish a structural float result."
@@ -326,7 +298,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "ecf313cd35581cdc",
-      "line": 170,
+      "line": 171,
       "text": "`barrier_floor()` sizes a film that only has to **seal**, with load-carrying left to the lattice under it: a film bulging into a lattice cell carries the atmosphere as membrane tension, σ = pR/2t. At",
       "class": "other-quantity",
       "reason": "The membrane law estimates barrier areal mass and its component mass on the assumed hull; it does not size the load-carrying hull."
@@ -334,7 +306,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "a7ba68c7cfd96080",
-      "line": 175,
+      "line": 176,
       "text": "Metlen measured 3.45 kg/m² for a real membrane, eighty times more, because his membrane was *also* the structure. That gap is the whole question of whether the two functions separate, and it is a mate",
       "class": "literature",
       "reason": "The membrane areal mass is attributed to Metlen and compared with the separate barrier component, not a project hull density.",
@@ -343,7 +315,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "3911cda2eb237df7",
-      "line": 181,
+      "line": 182,
       "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
       "class": "conditional",
       "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
@@ -434,27 +406,8 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
-      "key": "b63183a0e7d7775b",
-      "line": 26,
-      "text": "> **A vacuum shell must mass less than 0.9569 kg per m³ of enclosed volume** — air density at > the 2,500 m working altitude. Heavier and there is no net lift at any size, ever. Lighter and > the hull",
-      "class": "bound",
-      "reason": "This is the air-density requirement at the stated working altitude, not a sized or drawn structure.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
-          "shown": "0.9569",
-          "altitude": "target"
-        }
-      ],
-      "context": [
-        "2500"
-      ]
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
       "key": "8ecf68ea14aa6a6a",
-      "line": 57,
+      "line": 60,
       "text": "At floating densities lattice members are slender enough that **Euler buckling governs, not yield** — by more than an order of magnitude for every material tested. Solid rods therefore give strength ∝",
       "class": "bound",
       "reason": "The discussion contrasts the solid-rod branch with the hollow-tube exponent; its no-float statement concerns that closed-form solid-rod branch.",
@@ -474,7 +427,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "b71022074f407881",
-      "line": 70,
+      "line": 73,
       "text": "| | effect on the reference shell | |---|---| | **1. Fibre properties used as laminate properties.** M60J's 588 GPa / 3.82 GPa / 1930 is the *fibre*. A laminate at 60% fibre volume is ~354 / 2.29 / 16",
       "class": "history",
       "reason": "This is the recorded sequence of five corrections to the earlier reference-shell calculation, including the discarded film accounting.",
@@ -483,7 +436,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "c0e16a9f019fcce8",
-      "line": 83,
+      "line": 86,
       "text": "| cell size | 0.5 m | 1 m | 2 m | 4 m | |---|---|---|---|---| | film sized to hold an atmosphere | 0.347 | 0.347 | 0.347 | 0.347 kg/m³ | | minimum-gauge foil laminate instead | 0.300 | 0.150 | 0.075 |",
       "class": "other-quantity",
       "reason": "The table compares the interior film component under two barrier assumptions; these are not complete shell densities or a float verdict."
@@ -491,7 +444,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "e7d5c1b5cf90fb2f",
-      "line": 102,
+      "line": 105,
       "text": "The envelope-only figure was 0.002 in an earlier version — an unsourced 17 g/m² film assigned to a surface that must hold a full atmosphere over 2 m spans. A review priced it with the model's own memb",
       "class": "history",
       "reason": "This records the earlier unpriced envelope film and the membrane recalculation that replaced it, preserving the old and replacement figures.",
@@ -500,7 +453,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "069530d9e7c01329",
-      "line": 109,
+      "line": 112,
       "text": "**That trade — containment against 0.35 kg/m³ — is the sharpest unresolved question in the design.** It is worth a third of the shortfall, and the earlier version of this page paid for it without clai",
       "class": "bound",
       "reason": "The containment trade quotes the generated interior-film density rounded to two decimals.",
@@ -515,7 +468,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "9dc27a03a9cc2912",
-      "line": 123,
+      "line": 126,
       "text": "Lattice + nodes + film, at 2 m cells, against air at 0.957 kg/m³ at 2,500 m:",
       "class": "bound",
       "reason": "The material table compares its fixed cell-size calculations against the working-altitude air density.",
@@ -535,7 +488,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "292ba211c3cb29fd",
-      "line": 193,
+      "line": 196,
       "text": "| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status | |---|---|---|---|---|---| | 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only | | 1 | 1.500 | 1.306 | 0.93",
       "class": "bound",
       "reason": "The hierarchy table compares formula densities at both altitudes; replacing floats with formula only prevents an undrawn higher-level strut being presented as a vehicle.",
@@ -653,7 +606,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "d258475f48ff5111",
-      "line": 221,
+      "line": 224,
       "class": "deferred",
       "reason": "Conditional design changes surround component deltas, hand-derived bulge factors and unsourced node estimates; the classes are interleaved.",
       "owner": "mixed-block"
@@ -661,7 +614,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "2773f904088426bf",
-      "line": 315,
+      "line": 318,
       "text": "How the membrane meshes with the structure — corrected once, and the correction recorded: an earlier version claimed every face was node-supported, from a lattice generator that admitted **two interle",
       "class": "history",
       "reason": "This records the correction from two interleaved octets to FCC sites and the resulting boundary-node topology.",
@@ -670,7 +623,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "009c6ce702751d35",
-      "line": 412,
+      "line": 415,
       "class": "deferred",
       "reason": "The paragraph combines current bulge geometry with an older article mass and derived buoyancy comparisons without separate source fields.",
       "owner": "mixed-block"
@@ -678,7 +631,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "3ac6d363e075961b",
-      "line": 514,
+      "line": 517,
       "text": "**Two SKUs, and the designer was right for the wrong reason.** He proposed the secondaries be a *smaller* carbon pipe. Carbon yes; smaller no — sized against the load they actually react, the ties com",
       "class": "history",
       "reason": "This records the dated saw-table correction, retained old span billing and the material replacement in the hybrid article.",
@@ -687,7 +640,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "a2502f4bccb5e023",
-      "line": 525,
+      "line": 528,
       "text": "The 51 printed joints are **weighed, not budgeted**: gen_nodes.py integrates each one from its own field and the article reads the manifest — **0.71 kg** since the sunken boundary frame (2026-08-11).",
       "class": "history",
       "reason": "This records the successive generated joint-mass estimates through the dated sunken-frame change, not a physical weighing.",
@@ -696,7 +649,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "18bd439f85b88e7d",
-      "line": 535,
+      "line": 538,
       "text": "**Then 21 g of that came back, and it is worth naming what bought it.** Giving the 36 rim members the 14×12 socket the stock build specifies — instead of the 10×8 every other member gets — pushed the",
       "class": "history",
       "reason": "This preserves the socket-diameter change and its signed joint-mass increments from the recorded article geometry revision.",
@@ -705,7 +658,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "75d491eb35d75d43",
-      "line": 546,
+      "line": 549,
       "text": "None of that makes this article fly, and it was never meant to. The bench article is **15.13 kg/m³**: its mass is 12.4 times displaced air at sea level and 15.8 times at 2,500 m. Its structural sizing",
       "class": "bound",
       "reason": "The bench comparison gives the nominal displaced-air mass multiples at both altitudes and keeps the all-printed printer test distinct.",
@@ -744,7 +697,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "8f5537908a41d50a",
-      "line": 551,
+      "line": 554,
       "text": "**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **1.203 kg/m³**. Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m. The cor",
       "class": "bound",
       "reason": "The unit-subdivision article formula is compared with air at both altitudes; its material variants do not establish a floating design.",
@@ -786,7 +739,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "f5b9d60bab5d5b47",
-      "line": 558,
+      "line": 561,
       "class": "deferred",
       "reason": "The paragraph mixes earlier joint masses and load commentary with present generator and assembly claims.",
       "owner": "mixed-block"
@@ -794,7 +747,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "beebb7b516280293",
-      "line": 684,
+      "line": 687,
       "text": "The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**. The octet demand is 3,372 N per strut, with safety factor already included. Its Euler margins are ×1.8 pinn",
       "class": "bound",
       "reason": "The hybrid article has computed joint mass and insufficient displaced-air mass at both altitudes; higher-level booms are explicitly prospective, with drawings and load tests still needed.",
@@ -1203,54 +1156,6 @@
       "reason": "The current mass-budget.json supplies the nitrogen energy shares. Subtracting refrigeration does not replan the infeasible cycle and does not establish delivery."
     },
     {
-      "file": "research/analysis/mass-budget.md",
-      "key": "453ddd403e3d6e65",
-      "line": 90,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "d5e5d6f2d4a1b556",
-      "line": 105,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "4c34921208176514",
-      "line": 126,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "37861baab012415b",
-      "line": 191,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Current mass-budget.json supplies the energy-dependent battery allowance and conditional hull sizes. The prose is transcribed and checked by analysischeck; equipment-budget closure is not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "546ec7f8346a2c23",
-      "class": "method",
-      "context": [],
-      "reason": "Explains the assumed scale-invariant density model and its conditional closing equation; it establishes no drawn hull.",
-      "line": 71
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "84da69759f0eaf69",
-      "class": "method",
-      "context": [],
-      "reason": "Explains the assumed scale-invariant density model and its conditional closing equation; it establishes no drawn hull.",
-      "line": 67
-    },
-    {
       "file": "research/analysis/vacuum-cell.md",
       "key": "25a6495f025c3fbe",
       "class": "bound",
@@ -1270,7 +1175,7 @@
           "shown": "0.1"
         }
       ],
-      "line": 268
+      "line": 271
     },
     {
       "file": "research/analysis/vacuum-cell.md",
@@ -1278,7 +1183,7 @@
       "class": "deferred",
       "reason": "The table prints 0.515 from raw structure 0.514521413; JSON stores 0.5145, which double-rounds to 0.514. No ledger row holds this grading result; source precision needs an explicit binding.",
       "owner": "hand-arithmetic",
-      "line": 257
+      "line": 260
     },
     {
       "file": "research/analysis/vacuum-cell.md",
@@ -1286,7 +1191,7 @@
       "class": "method",
       "context": [],
       "reason": "Explains the generated grading comparison qualitatively; no numerical result is asserted in this block.",
-      "line": 263
+      "line": 266
     },
     {
       "file": "research/analysis/helium.md",
@@ -1308,6 +1213,97 @@
       "class": "conditional",
       "reason": "Lake-footprint and adequacy thresholds for the proposed station-holding operation; loosening thresholds is explicitly conditional, not evidence of structural float.",
       "line": 84
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "1d0bb66f58ef5a59",
+      "line": 69,
+      "class": "method",
+      "context": [
+        "1",
+        "0"
+      ],
+      "reason": "Defines the complete-bill scaling rule and charges shell sundries; no drawn-hull result."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "52efad35d141e750",
+      "line": 72,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "59681f4940f127e2",
+      "line": 102,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "8c1eb97e1e5756c8",
+      "line": 31,
+      "class": "deferred",
+      "owner": "hand-arithmetic",
+      "reason": "Reviewed wording correction based on the executed scale tool, budget evidence or dated architecture statement; not a structural float proof."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "921ebb2d16eb09f1",
+      "line": 80,
+      "class": "literature",
+      "source": "research/analysis/mass-budget.py EVIDENCE; Jenett 2019, Metlen 2013, Akhmeteli and Gavrilin 2021",
+      "reason": "Literature densities plus stated allowances; margins are against the corrected floor closure wall, not measured project hardware."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "b27adbb751c9821c",
+      "line": 89,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "d6f2a00d0f8b9742",
+      "line": 125,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "e9599fc5bc46e2e5",
+      "line": 76,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "ebaec9c6a4c8a971",
+      "line": 192,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "ba0f47d399379a56",
+      "line": 31,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "d4ce9e63c45d5fdc",
+      "line": 26,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
     }
   ]
 }

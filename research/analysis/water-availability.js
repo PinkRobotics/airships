@@ -6,7 +6,7 @@
  * bounds a market.
  *
  * Run through tools/js_eval.py against the live page, so every throughput is computed by the
- * model's own planCycle and every distance is checked against its own sim/water.js. This
+ * model's own exact-input served selector and every distance is checked against its own sim/water.js. This
  * project has been bitten enough times by a second copy of a calculation, and an analysis
  * that disagreed with the simulator would be worse than useless.
  *
@@ -24,7 +24,8 @@
  */
 (async () => {
   const S = window.AIRSHIPS.sim;
-  const { CLASSES, CLASS_ORDER, MODES, findSource, planCycle, havKm } = S;
+  const { CLASSES, CLASS_ORDER, findSource, havKm } = S;
+  const {acceptedLogistics} = await import('./research/analysis/accepted-logistics.js');
   const water = window.AIRSHIPS.app.water;
 
   const doc = await (await fetch('data/fire-history-bc.json')).json();
@@ -158,26 +159,57 @@
     };
   }
 
+  // Six owned workers keep regeneration bounded; output order is input order.
+  // Every worker imports the same selector as the pages, with no approximation.
+  const jobs = CLASS_ORDER.flatMap(id => {
+    const legs = fires.flatMap((f, i) => nearest[CLASSES[id].minSourceHa][i] === null ? [] :
+      [{fire:i, ha:f[2], km:nearest[CLASSES[id].minSourceHa][i]}]);
+    return Array.from({length:Math.ceil(legs.length/300)}, (_, i) =>
+      ({class:id, legs:legs.slice(i*300,(i+1)*300)}));
+  });
+  const results = new Array(jobs.length);
+  let next = 0;
+  await Promise.all(Array.from({length:Math.min(6,jobs.length)}, async () => {
+    const worker = new Worker('./research/analysis/logistics-worker.js', {type:'module'});
+    try {
+      while (next < jobs.length) {
+        const index = next++;
+        results[index] = await new Promise((resolve,reject) => {
+          worker.onmessage = ({data}) => data.error ? reject(Error(data.error)) : resolve(data.rows);
+          worker.onerror = event => reject(Error(event.message || 'logistics worker failed'));
+          worker.postMessage(jobs[index]);
+        });
+      }
+    } finally {worker.terminate();}
+  }));
+  const planRows = Object.fromEntries(CLASS_ORDER.map(id => [id,
+    results.flatMap((rows,i) => jobs[i].class === id ? rows : [])]));
+
   for (const id of CLASS_ORDER) {
     const cls = CLASSES[id];
     const t = cls.minSourceHa;
     const sw = out.thresholdSweep[t];
     if (!sw) throw new Error(`no sweep for minSourceHa=${t} on ${id}`);
 
-    const km = [], ha = [], tph = [];
+    const km = [], ha = [], accepted = [], byFire = [];
     let inSearch = 0, inSearchHa = 0, servedHa = 0;
     fires.forEach((f, i) => {
       const d = nearest[t][i];
       if (d === null) return;
       km.push(d); ha.push(f[2]); servedHa += f[2];
-      tph.push(planCycle(cls, MODES.balanced, d).tph);
+      const row = planRows[id][byFire.length];
+      byFire.push(row);
+      if (row.tph !== null) accepted.push(row);
       if (d <= cls.searchKm) { inSearch++; inSearchHa += f[2]; }
     });
 
     // Delivered tonnage is what a fleet is bought for, so the fleet-level rate is weighted by
     // how much land each fire actually burned, not by how many fires there were. The two
     // differ, and the count-weighted figure is the flattering one.
-    const wSum = ha.reduce((a, b) => a + b, 0);
+    const wSum = accepted.reduce((a, b) => a + b.ha, 0);
+    const workedExample = acceptedLogistics(cls, 15);
+    const medianByFire = acceptedLogistics(cls, sw.byFire.p50);
+    const medianByHectare = acceptedLogistics(cls, sw.byHectare.p50);
     out.classes[id] = {
       minSourceHa: t,
       searchKm: cls.searchKm,
@@ -186,12 +218,18 @@
       servedWithinClassSearchKm: { fires: inSearch, pctFires: pct(inSearch, fires.length),
                                    pctHa: pct(inSearchHa, totalHa) },
       distanceKm: { byFire: sw.byFire, byHectare: sw.byHectare },
+      acceptedPlans: {workedExample, medianByFire, medianByHectare, byFire},
+      logisticsService: {acceptedFires: accepted.length,
+        notServedFires: fires.length - accepted.length,
+        standDowns: byFire.filter(p => p.state === 'stand-down').length,
+        unavailable: byFire.filter(p => p.state === 'unavailable').length,
+        note: 'Means include accepted legs only; geometric water access is counted separately.'},
       throughputTph: {
-        atWorkedExample15km: r(planCycle(cls, MODES.balanced, 15).tph, 1),
-        atMedianByFire: r(planCycle(cls, MODES.balanced, sw.byFire.p50).tph, 1),
-        atMedianByHectare: r(planCycle(cls, MODES.balanced, sw.byHectare.p50).tph, 1),
-        meanOverFires: r(tph.reduce((a, b) => a + b, 0) / tph.length, 1),
-        meanOverHectares: r(tph.reduce((s, v, i) => s + v * ha[i], 0) / wSum, 1),
+        atWorkedExample15km: r(workedExample.tph, 1),
+        atMedianByFire: r(medianByFire.tph, 1),
+        atMedianByHectare: r(medianByHectare.tph, 1),
+        meanOverFires: r(accepted.reduce((a, b) => a + b.tph, 0) / accepted.length, 1),
+        meanOverHectares: r(accepted.reduce((s, v) => s + v.tph * v.ha, 0) / wSum, 1),
       },
     };
   }
@@ -247,7 +285,7 @@
     // A collapsible bucket fills as roughly a cylinder as deep as it is wide; that is the
     // shape a Bambi bucket takes and the least depth-hungry credible one.
     const bagD = Math.cbrt(4 * cls.anchorBagT / Math.PI);
-    const drawTph = planCycle(cls, MODES.balanced, 15).tph;
+    const drawTph = out.classes[id].acceptedPlans.workedExample.tph;
     const minBodyM3 = cls.minSourceHa * 10000 * 1.0;      // 1 m of drawdown, as a yardstick
     out.geometry[id] = {
       hullLenM: cls.lenM,
@@ -257,8 +295,8 @@
       anchorBagT: cls.anchorBagT,
       anchorBagDiameterM: r(bagD),
       depthToSubmergeBagM: r(bagD * 1.5),        // submerge it, and keep it off the bottom
-      drawTonnesPer12h: r(drawTph * 12, 0),
-      drawdownMetresPer12hOnMinBody: r(drawTph * 12 / minBodyM3, 4),
+      drawTonnesPer12h: drawTph === null ? null : r(drawTph * 12, 0),
+      drawdownMetresPer12hOnMinBody: drawTph === null ? null : r(drawTph * 12 / minBodyM3, 4),
       qualifyingBodiesInBC: water.filter(w => w[2] >= cls.minSourceHa).length,
     };
   }

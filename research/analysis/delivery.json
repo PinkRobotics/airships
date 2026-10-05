@@ -339,45 +339,80 @@
  },
  "classes": {
   "P100": {
-   "payloadT": 100,
+   "payloadT": 65,
+   "workedExamplePlan": {
+    "km": 15,
+    "state": "ready",
+    "reason": null,
+    "mode": "rapid",
+    "options": {
+     "speedMultiplier": 0.75,
+     "ballastT": 35,
+     "basis": "record"
+    },
+    "feasible": true,
+    "releasedT": 65,
+    "retainedT": 35,
+    "cycleMin": 34.91381074168799,
+    "suppliedMWh": 5.201373775171115,
+    "tph": 111.70364727168838
+   },
    "runKm": 1.2,
-   "releaseSeconds": 200.0,
+   "releaseSeconds": 130,
    "releaseRateM3s": 0.5,
    "coverageLevelBySwath": {
-    "20 m": 10.2,
-    "30 m": 6.8,
-    "50 m": 4.1,
-    "80 m": 2.6
+    "20 m": 6.6,
+    "30 m": 4.4,
+    "50 m": 2.7,
+    "80 m": 1.7
    },
    "equivalentLoads": {
-    "SEAT": 33.0,
-    "LAT (BAe-146)": 8.8,
-    "VLAT (DC-10)": 2.2
+    "SEAT": 21.5,
+    "LAT (BAe-146)": 5.7,
+    "VLAT (DC-10)": 1.4
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 4.09,
-    "CL4, 30 m swath": 2.05,
-    "CL8, 30 m swath": 1.02
+    "CL2, 30 m swath": 2.66,
+    "CL4, 30 m swath": 1.33,
+    "CL8, 30 m swath": 0.66
    },
    "_lineKmAtCL4": {
-    "20 m swath": 3.07,
-    "30 m swath": 2.05,
-    "50 m swath": 1.23,
-    "80 m swath": 0.77
+    "20 m swath": 1.99,
+    "30 m swath": 1.33,
+    "50 m swath": 0.8,
+    "80 m swath": 0.5
    },
    "atRealMedianLeg": {
     "legKm": 4.71,
-    "tph": 332.3,
-    "tonnesPer24h": 7975,
-    "latLoadsPer24h": 703,
-    "lineKmPer24hAtCL2_30mSwath": 326.2,
-    "lineKmPer24hAtCL4_30mSwath": 163.1,
-    "lineKmPer24hAtCL6_30mSwath": 108.7,
-    "lineKmPer24hAtCL8_30mSwath": 81.6,
-    "pctOfPerimetersLinedDailyAtCL2": 97.9,
-    "pctOfPerimetersLinedDailyAtCL4": 91.4,
-    "pctOfPerimetersLinedDailyAtCL6": 84.9,
-    "pctOfPerimetersLinedDailyAtCL8": 76.6
+    "plan": {
+     "km": 4.71,
+     "state": "ready",
+     "reason": null,
+     "mode": "rapid",
+     "options": {
+      "speedMultiplier": 1,
+      "ballastT": 50,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 50,
+     "retainedT": 50,
+     "cycleMin": 13.05788576300085,
+     "suppliedMWh": 2.021185450659828,
+     "tph": 229.7462280226417
+    },
+    "tph": 229.7462280226417,
+    "tonnesPer24h": 5514,
+    "suppliedMWhPer24h": 222.89267204320257,
+    "latLoadsPer24h": 486,
+    "lineKmPer24hAtCL2_30mSwath": 225.5,
+    "lineKmPer24hAtCL4_30mSwath": 112.8,
+    "lineKmPer24hAtCL6_30mSwath": 75.2,
+    "lineKmPer24hAtCL8_30mSwath": 56.4,
+    "pctOfPerimetersLinedDailyAtCL2": 95.3,
+    "pctOfPerimetersLinedDailyAtCL4": 85.5,
+    "pctOfPerimetersLinedDailyAtCL6": 73.5,
+    "pctOfPerimetersLinedDailyAtCL8": 64.9
    },
    "ownUpwash": {
     "start of release": {
@@ -405,45 +440,80 @@
    }
   },
   "P1000": {
-   "payloadT": 1000,
+   "payloadT": 215.591,
+   "workedExamplePlan": {
+    "km": 15,
+    "state": "ready",
+    "reason": null,
+    "mode": "endurance",
+    "options": {
+     "speedMultiplier": 1.5,
+     "ballastT": 784.409,
+     "basis": "record"
+    },
+    "feasible": true,
+    "releasedT": 215.591,
+    "retainedT": 784.409,
+    "cycleMin": 25.615761051693404,
+    "suppliedMWh": 26.488779273390886,
+    "tph": 504.9805068799572
+   },
    "runKm": 2.5,
-   "releaseSeconds": 334.0,
-   "releaseRateM3s": 3,
+   "releaseSeconds": 152.0,
+   "releaseRateM3s": 1.4229006,
    "coverageLevelBySwath": {
-    "20 m": 49.1,
-    "30 m": 32.7,
-    "50 m": 19.6,
-    "80 m": 12.3
+    "20 m": 10.6,
+    "30 m": 7.1,
+    "50 m": 4.2,
+    "80 m": 2.6
    },
    "equivalentLoads": {
-    "SEAT": 330.3,
-    "LAT (BAe-146)": 88.1,
-    "VLAT (DC-10)": 22.0
+    "SEAT": 71.2,
+    "LAT (BAe-146)": 19.0,
+    "VLAT (DC-10)": 4.7
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 40.9,
-    "CL4, 30 m swath": 20.45,
-    "CL8, 30 m swath": 10.23
+    "CL2, 30 m swath": 8.82,
+    "CL4, 30 m swath": 4.41,
+    "CL8, 30 m swath": 2.2
    },
    "_lineKmAtCL4": {
-    "20 m swath": 30.68,
-    "30 m swath": 20.45,
-    "50 m swath": 12.27,
-    "80 m swath": 7.67
+    "20 m swath": 6.61,
+    "30 m swath": 4.41,
+    "50 m swath": 2.65,
+    "80 m swath": 1.65
    },
    "atRealMedianLeg": {
     "legKm": 11.04,
-    "tph": 1981.5,
-    "tonnesPer24h": 47556,
-    "latLoadsPer24h": 4190,
-    "lineKmPer24hAtCL2_30mSwath": 1945.2,
-    "lineKmPer24hAtCL4_30mSwath": 972.6,
-    "lineKmPer24hAtCL6_30mSwath": 648.4,
-    "lineKmPer24hAtCL8_30mSwath": 486.3,
-    "pctOfPerimetersLinedDailyAtCL2": 100.0,
-    "pctOfPerimetersLinedDailyAtCL4": 99.5,
-    "pctOfPerimetersLinedDailyAtCL6": 99.0,
-    "pctOfPerimetersLinedDailyAtCL8": 98.5
+    "plan": {
+     "km": 11.04,
+     "state": "ready",
+     "reason": null,
+     "mode": "endurance",
+     "options": {
+      "speedMultiplier": 1.5,
+      "ballastT": 793.667,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 206.33299999999997,
+     "retainedT": 793.667,
+     "cycleMin": 21.329033600713014,
+     "suppliedMWh": 22.656448289479027,
+     "tph": 580.4285478544206
+    },
+    "tph": 580.4285478544206,
+    "tonnesPer24h": 13930,
+    "suppliedMWhPer24h": 1529.6185541082912,
+    "latLoadsPer24h": 1227,
+    "lineKmPer24hAtCL2_30mSwath": 569.8,
+    "lineKmPer24hAtCL4_30mSwath": 284.9,
+    "lineKmPer24hAtCL6_30mSwath": 189.9,
+    "lineKmPer24hAtCL8_30mSwath": 142.5,
+    "pctOfPerimetersLinedDailyAtCL2": 98.9,
+    "pctOfPerimetersLinedDailyAtCL4": 96.6,
+    "pctOfPerimetersLinedDailyAtCL6": 94.0,
+    "pctOfPerimetersLinedDailyAtCL8": 89.8
    },
    "ownUpwash": {
     "start of release": {
@@ -471,41 +541,76 @@
    }
   },
   "P10000": {
-   "payloadT": 10000,
+   "payloadT": 2626.2,
+   "workedExamplePlan": {
+    "km": 15,
+    "state": "ready",
+    "reason": null,
+    "mode": "rapid",
+    "options": {
+     "speedMultiplier": 1.25,
+     "ballastT": 7373.8,
+     "basis": "record"
+    },
+    "feasible": true,
+    "releasedT": 2626.2,
+    "retainedT": 7373.8,
+    "cycleMin": 23.667337661486002,
+    "suppliedMWh": 200.11600369218036,
+    "tph": 6657.783070227533
+   },
    "runKm": 5,
-   "releaseSeconds": 667.0,
-   "releaseRateM3s": 15,
+   "releaseSeconds": 214.0,
+   "releaseRateM3s": 12.269278125,
    "coverageLevelBySwath": {
-    "20 m": 245.4,
-    "30 m": 163.6,
-    "50 m": 98.2,
-    "80 m": 61.4
+    "20 m": 64.5,
+    "30 m": 43.0,
+    "50 m": 25.8,
+    "80 m": 16.1
    },
    "equivalentLoads": {
-    "SEAT": 3302.5,
-    "LAT (BAe-146)": 881.1,
-    "VLAT (DC-10)": 220.3
+    "SEAT": 867.3,
+    "LAT (BAe-146)": 231.4,
+    "VLAT (DC-10)": 57.8
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 409.04,
-    "CL4, 30 m swath": 204.52,
-    "CL8, 30 m swath": 102.26
+    "CL2, 30 m swath": 107.42,
+    "CL4, 30 m swath": 53.71,
+    "CL8, 30 m swath": 26.86
    },
    "_lineKmAtCL4": {
-    "20 m swath": 306.78,
-    "30 m swath": 204.52,
-    "50 m swath": 122.71,
-    "80 m swath": 76.69
+    "20 m swath": 80.57,
+    "30 m swath": 53.71,
+    "50 m swath": 32.23,
+    "80 m swath": 20.14
    },
    "atRealMedianLeg": {
     "legKm": 23.95,
-    "tph": 10863.4,
-    "tonnesPer24h": 260722,
-    "latLoadsPer24h": 22971,
-    "lineKmPer24hAtCL2_30mSwath": 10664.6,
-    "lineKmPer24hAtCL4_30mSwath": 5332.3,
-    "lineKmPer24hAtCL6_30mSwath": 3554.9,
-    "lineKmPer24hAtCL8_30mSwath": 2666.1,
+    "plan": {
+     "km": 23.95,
+     "state": "ready",
+     "reason": null,
+     "mode": "rapid",
+     "options": {
+      "speedMultiplier": 1.25,
+      "ballastT": 7373.8,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 2626.2,
+     "retainedT": 7373.8,
+     "cycleMin": 30.42869906223359,
+     "suppliedMWh": 237.75000462032315,
+     "tph": 5178.400814235585
+    },
+    "tph": 5178.400814235585,
+    "tonnesPer24h": 124282,
+    "suppliedMWhPer24h": 11251.220630663884,
+    "latLoadsPer24h": 10950,
+    "lineKmPer24hAtCL2_30mSwath": 5083.6,
+    "lineKmPer24hAtCL4_30mSwath": 2541.8,
+    "lineKmPer24hAtCL6_30mSwath": 1694.5,
+    "lineKmPer24hAtCL8_30mSwath": 1270.9,
     "pctOfPerimetersLinedDailyAtCL2": 100.0,
     "pctOfPerimetersLinedDailyAtCL4": 100.0,
     "pctOfPerimetersLinedDailyAtCL6": 100.0,

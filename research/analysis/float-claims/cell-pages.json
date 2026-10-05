@@ -11,7 +11,7 @@
     {
       "file": "cell/index.html",
       "key": "d2cda7c363c77cae",
-      "line": 125,
+      "line": 130,
       "text": "Every vacuum-balloon study in the literature analyses a single sphere, and reaches the same negative result: a shell thin enough to float buckles under one atmosphere. Akhmeteli & Gavrilin showed a perfect diamond sphere collapses at about 0.2 atm. The collapse is scale-free. No change of material engineers around it.",
       "class": "literature",
       "reason": "This paragraph attributes shell collapse to the single-sphere literature, specifically Akhmeteli and Gavrilin, rather than to this project’s drawn hull.",
@@ -20,7 +20,7 @@
     {
       "file": "cell/index.html",
       "key": "b6b9a20ee70858ba",
-      "line": 165,
+      "line": 170,
       "class": "method",
       "reason": "This general lattice scaling principle describes a buoyancy requirement and Euler scaling without declaring a project design successful.",
       "context": []
@@ -28,7 +28,7 @@
     {
       "file": "cell/index.html",
       "key": "dcd888aaffd39175",
-      "line": 275,
+      "line": 280,
       "text": "No drawn cell floats. A printed cell is still the experiment worth running, because it tests the model rather than the vehicle. It asks whether a cell of this architecture holds one atmosphere at the relative density predicted, and whether it fails where predicted.",
       "class": "bound",
       "reason": "The printed bench experiment tests vacuum loads; the ledger has no drawn cell with positive lift margin.",
@@ -43,7 +43,7 @@
     {
       "file": "cell/index.html",
       "key": "3727dd44c6ab44a9",
-      "line": 278,
+      "line": 283,
       "text": "printable material shell mass short of floating by what a printed cell is good for",
       "class": "other-quantity",
       "reason": "Column headings for printed-material shell density and the experiment each material could support; no result is stated in this header."
@@ -51,7 +51,7 @@
     {
       "file": "cell/index.html",
       "key": "bc0fef1d372c0890",
-      "line": 365,
+      "line": 370,
       "text": "$('#verdict').innerHTML = e.floats",
       "class": "calculator",
       "reason": "render uses evaluate and breach at the selected material and altitude; a density comparison is only a formula result, not proof of a drawn floating cell.",
@@ -61,7 +61,7 @@
     {
       "file": "cell/index.html",
       "key": "00baad2d158b5797",
-      "line": 429,
+      "line": 434,
       "text": "$('#breachNote').textContent = br.every(r => r.floats)",
       "class": "calculator",
       "reason": "render uses evaluate and breach at the selected material and altitude; a density comparison is only a formula result, not proof of a drawn floating cell.",
@@ -563,14 +563,6 @@
       ]
     },
     {
-      "file": "cell/index.html",
-      "key": "51b5ef9b30304311",
-      "class": "method",
-      "context": [],
-      "reason": "Defines the density comparison at fixed architecture; this principle names no calculated drawn-hull result.",
-      "line": 107
-    },
-    {
       "file": "cell/levels.html",
       "key": "1a6442210fbb1fd2",
       "class": "bound",
@@ -891,6 +883,14 @@
         "end": "<!-- served-energy:concept:end -->"
       },
       "line": 873
+    },
+    {
+      "file": "cell/index.html",
+      "key": "71abb55e40466d0e",
+      "line": 108,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
     }
   ]
 }

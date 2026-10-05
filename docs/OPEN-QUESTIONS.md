@@ -30,7 +30,7 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > | #0, #4 | **The cryogenic plant CANNOT be deleted** — a sealed-cell hull has no way to ballast with air, and an earlier claim that it could is retracted. But the ship makes nitrogen on every cycle it does not need, at **32.5%** of the P-100's cycle energy as the one model prices it since 2026-10-01 (52.5% of the smaller cycle published before). | `air-ballast.md` |
 > | #3, #14, #15 | **FIXED 2026-10-01 — one energy model.** The letdown is 0.390 / 4.279 / 35.398 MWh, a fifth of each cycle, against the 0.012 / 0.161 / 1.420 the window constant produced; cycle energy rose 45 / 115 / 224%. The bag's credit to the rotors is 0.7–5.2% of the cycle — not the 96% once claimed, nor the 27–49% this note then argued — and what it buys is water (2,248 t a cycle on the P-10000). | `descent.md`, `../docs/ENERGY-MODEL-2026-10.md` |
 > | #8 | **Re-opened, and now measurable.** `diskM2` was retired as inert on a measurement taken against a letdown too small to see it. With the rotors priced over the whole flight, ±20% on the disc moves the P-10000 cycle by +9.6% / −5.8% and `battMW` ±20% moves it −0.1% / +2.3% through the letdown clamp. | `descent.md` |
-> | #12 | **`ALT.drop` = 450 m does not deliver water** — and the ship's own rotors push air *upward* at 86× the mass flow of the water. The answer is sprayer leads. Measured in line rather than tonnes, one P-100 could wet the perimeter of 91.4% of BC campaign fires daily. | `delivery.md` |
+> | #12 | **`ALT.drop` = 450 m does not deliver water** — and the ship's own rotors push air *upward* at 86× the mass flow of the water. The answer is sprayer leads. The accepted-plan analysis reports a conditional geometric line-length comparison; it establishes no deposition or fire outcome. | `delivery.md` |
 >
 > Regenerate all of it with `make analysis`.
 >
@@ -109,6 +109,10 @@ the two halves of item 4 below, its Defect 6 is item 6, and item 5 has no entry 
 is not physics. Items 7–12 are documented here only; §11 predates them.
 
 ---
+
+<!-- logistics:line-summary:start -->
+At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
+<!-- logistics:line-summary:end -->
 
 ## 0. The sizing requirement that ties #1, #4 and #6 together
 

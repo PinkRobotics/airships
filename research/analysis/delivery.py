@@ -17,6 +17,7 @@ import argparse
 import json
 import math
 import pathlib
+import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 FIGURES = ROOT / "research" / "figures.json"
@@ -94,43 +95,70 @@ def main() -> None:
                 [d for d, v in sorted(TERMINAL_MS.items()) if v > u] or "none"}
         for k, u in UPDRAFT_MS.items()}
 
+    wa = ROOT / 'research/analysis/water-availability.json'
+    water = json.loads(wa.read_text())
+    # Replay the accepted controls for the release's actual duration (the route can
+    # take longer than emptying the tank at the installed pump rate).
+    script = """
+import fs from 'node:fs';
+import {CLASSES,MODES,planCycle} from './sim/index.js';
+const water=JSON.parse(fs.readFileSync('research/analysis/water-availability.json'));
+console.log(JSON.stringify(Object.fromEntries(Object.entries(water.classes).map(([cid,c])=>{
+ const row=c.acceptedPlans.workedExample;
+ if(row.state!=='ready')return [cid,null];
+ const p=planCycle(CLASSES[cid],MODES[row.mode],row.km,null,row.options);
+ if(!p.feasible)throw Error(cid+': accepted worked example no longer closes');
+ return [cid,p.dur.WATER_RELEASE*60];
+}))));
+"""
+    release_seconds = json.loads(subprocess.check_output(
+        ['node','--input-type=module','-e',script],cwd=ROOT,text=True))
+
     # 3. WHAT ONE PASS LAYS, against what an airtanker lays.
     for cid, cd in fig["classes"].items():
         spec, cyc = cd["spec"], cd["cycle"]
-        litres = cyc["deliveredT"] * 1000.0
+        plan = water['classes'][cid]['acceptedPlans']['workedExample']
+        worked_ready = plan['state'] == 'ready' and plan['feasible'] is True
+        if not worked_ready and any(plan[k] is not None for k in ('tph', 'releasedT', 'retainedT', 'suppliedMWh')):
+            raise ValueError(f'{cid}: inactive worked example supplies logistics terms')
+        litres = plan['releasedT'] * 1000.0 if worked_ready else None
         run_km = spec["dropKm"]
         rec = {
-            "payloadT": cyc["deliveredT"],
+            "payloadT": plan["releasedT"],
+            "workedExamplePlan": plan,
             "runKm": run_km,
-            "releaseSeconds": round(cyc["durations"]["WATER_RELEASE"] * 60, 0),
-            "releaseRateM3s": spec["fillM3s"],
+            "releaseSeconds": round(release_seconds[cid], 0) if worked_ready else None,
+            "releaseRateM3s": plan["releasedT"] / release_seconds[cid] if worked_ready else None,
             "coverageLevelBySwath": {
-                f"{s} m": round(coverage_level(litres, run_km, s), 1)
+                f"{s} m": round(coverage_level(litres, run_km, s), 1) if worked_ready else None
                 for s in (20, 30, 50, 80)},
-            "equivalentLoads": {k: round(litres / v, 1) for k, v in TANKER_L.items()},
+            "equivalentLoads": {k: round(litres / v, 1) if worked_ready else None for k, v in TANKER_L.items()},
             # The line a class could lay if it flew its payload at a chosen coverage level
             # instead of at its fixed dropKm. CL 4 is a normal timber prescription.
             "lineKmAtCL": {
                 f"CL{cl}, {s_} m swath": round(
-                    litres / (cl * GAL_PER_100FT2_IN_L_PER_M2 * s_) / 1000.0, 2)
+                    litres / (cl * GAL_PER_100FT2_IN_L_PER_M2 * s_) / 1000.0, 2) if worked_ready else None
                 for cl in (2, 4, 8) for s_ in (30,)},
             "_lineKmAtCL4": {
                 f"{s} m swath": round(
-                    litres / (4 * GAL_PER_100FT2_IN_L_PER_M2 * s) / 1000.0, 2)
+                    litres / (4 * GAL_PER_100FT2_IN_L_PER_M2 * s) / 1000.0, 2) if worked_ready else None
                 for s in (20, 30, 50, 80)},
         }
         # Daily logistics, at the real median leg from the water-availability analysis
         # rather than at the 15 km worked example, if that file has been generated.
-        wa = ROOT / "research" / "analysis" / "water-availability.json"
-        if wa.exists():
-            w = json.loads(wa.read_text())
-            tph = w["classes"][cid]["throughputTph"]["atMedianByFire"]
-            rec["atRealMedianLeg"] = {
-                "legKm": w["classes"][cid]["distanceKm"]["byFire"]["p50"],
-                "tph": tph,
-                "tonnesPer24h": round(tph * 24),
-                "latLoadsPer24h": round(tph * 24 * 1000 / TANKER_L["LAT (BAe-146)"]),
-            }
+        w = water['classes'][cid]
+        median = w['acceptedPlans']['medianByFire']
+        ready = median['state'] == 'ready' and median['feasible'] is True
+        tph = median['tph'] if ready else None
+        if not ready and median['tph'] is not None:
+            raise ValueError(f'{cid}: inactive median plan supplies a rate')
+        rec['atRealMedianLeg'] = {
+            'legKm': w['distanceKm']['byFire']['p50'], 'plan': median,
+            'tph': tph,
+            'tonnesPer24h': round(tph * 24) if ready else None,
+            'suppliedMWhPer24h': median['suppliedMWh'] * 1440 / median['cycleMin'] if ready else None,
+            'latLoadsPer24h': round(tph * 24 * 1000 / TANKER_L['LAT (BAe-146)']) if ready else None,
+        }
         out["classes"][cid] = rec
 
     # 4. THE METRIC THAT MEANS SOMETHING. AFUE never counts tonnes; it counts whether a drop
@@ -162,14 +190,17 @@ def main() -> None:
             "maxKm": round(perims[-1][0], 1),
         }
         for cid, r in out["classes"].items():
-            if "atRealMedianLeg" not in r:
+            if r["atRealMedianLeg"]["tph"] is None:
+                for cl in (2, 4, 6, 8):
+                    r["atRealMedianLeg"][f"lineKmPer24hAtCL{cl}_30mSwath"] = None
+                    r["atRealMedianLeg"][f"pctOfPerimetersLinedDailyAtCL{cl}"] = None
                 continue
-            t24 = r["atRealMedianLeg"]["tonnesPer24h"]
+            t24 = r["atRealMedianLeg"]["tph"] * 24
             for swath, cl in ((30, 2), (30, 4), (30, 6), (30, 8)):
                 km = t24 * 1000.0 / (cl * GAL_PER_100FT2_IN_L_PER_M2 * swath) / 1000.0
                 r["atRealMedianLeg"][f"lineKmPer24hAtCL{cl}_{swath}mSwath"] = round(km, 1)
             for cl in (2, 4, 6, 8):
-                kmc = r["atRealMedianLeg"][f"lineKmPer24hAtCL{cl}_30mSwath"]
+                kmc = t24 / (cl * GAL_PER_100FT2_IN_L_PER_M2 * 30)
                 r["atRealMedianLeg"][f"pctOfPerimetersLinedDailyAtCL{cl}"] = round(
                     100.0 * sum(1 for p, _ in perims if p <= kmc) / n, 1)
 
@@ -225,14 +256,20 @@ def main() -> None:
 
     print("\nWHAT ONE PASS LAYS")
     for cid, r in out["classes"].items():
+        if r["workedExamplePlan"]["state"] != "ready":
+            print(f"  {cid}: worked example not served; no release or coverage quotient")
+            continue
         print(f"  {cid}: {r['payloadT']:,.0f} t over {r['runKm']} km in "
               f"{r['releaseSeconds']:.0f} s")
         print(f"     coverage level by swath: "
               + ", ".join(f"{k} -> CL {v}" for k, v in r["coverageLevelBySwath"].items()))
-        print(f"     = {r['equivalentLoads']['LAT (BAe-146)']} LAT loads of water"
+        print(f"     accepted {r['workedExamplePlan']['mode']}: released {r['payloadT']} t, "
+              f"retained {r['workedExamplePlan']['retainedT']} t, supplied "
+              f"{r['workedExamplePlan']['suppliedMWh']:.6f} MWh/cycle; "
+              f"{r['equivalentLoads']['LAT (BAe-146)']} LAT loads of water"
               + (f"; at the real median leg {r['atRealMedianLeg']['tonnesPer24h']:,} t/24 h "
                  f"= {r['atRealMedianLeg']['latLoadsPer24h']:,} LAT loads/day"
-                 if "atRealMedianLeg" in r else ""))
+                 if r["atRealMedianLeg"]["tph"] is not None else "; median leg not served"))
 
 
 if __name__ == "__main__":

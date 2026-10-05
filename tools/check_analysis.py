@@ -51,7 +51,7 @@ def dig(doc, path: str):
 
 
 def num(x, fmt: str) -> str:
-    return format(x, fmt)
+    return "not served" if x is None else format(x, fmt)
 
 
 # (markdown file, json file, dotted path into it, python format spec)
@@ -361,6 +361,9 @@ def check_rows(directory=A):
         except (KeyError, TypeError, IndexError, ValueError):
             bad.append(f"{md}: {jname}.json has no {path} — the manifest is stale")
             continue
+        if value is None and jname not in ('water-availability', 'delivery'):
+            bad.append(f'{jname}.json {path}: unexpected unavailable figure')
+            continue
         want = num(value, fmt)
         checked += 1
         if not matches(text, want, CONTEXTS.get((md, path))):
@@ -433,6 +436,15 @@ def main() -> None:
         json.loads((ROOT / 'research/figures.json').read_text()))
     bad.extend(closure_bad)
     print(f'Closure conservation: {closures} reported closures; {len(closure_bad)} failures')
+
+    if subprocess.run(['node', 'tools/check_logistics.mjs'], cwd=ROOT).returncode:
+        bad.append('logistics rates lack exact-input accepted plans')
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_logistics.py'], cwd=ROOT).returncode:
+        bad.append('logistics refusal plants failed')
+
+    if subprocess.run([sys.executable, '-B', 'tools/gen_logistics_prose.py', '--check'], cwd=ROOT).returncode:
+        bad.append('accepted-plan logistics prose differs from generated numbers')
 
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
