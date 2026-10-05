@@ -124,4 +124,4 @@ case "$RESULT" in
      fi ;;
 esac
 
-case "$RESULT" in *"fail=0"*) exit 0 ;; *) exit 1 ;; esac
+case "$RESULT" in *"fail=0"*) python3 tools/check_model_lab.py --base "$BASE" ;; *) exit 1 ;; esac
