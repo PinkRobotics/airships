@@ -145,9 +145,10 @@ skin:  ## Re-solve the loaded skin (#63): membrane FEM, gore study, generated ou
 	$(PY) tools/gen_skin.py
 	@echo 'skin: run `make stamp` — ship/skin.generated.js changed.'
 
-# A full re-solve and byte comparison, not a hash shortcut: the solver recomputes the result,
+# A full re-solve and data comparison: the solver recomputes the result,
 # and this repository has twice shipped a gate that lied by comparing a stale file.
 skincheck:  ## The committed loaded-skin outputs must match a full re-solve, every gate green
+	$(PY) -B -m unittest discover -s tools/tests -p 'test_data_compare.py'
 	$(PY) tools/gen_skin.py --check
 
 nodes:  ## Regrow every computed joint STL from the SDF rule (research/geometry/nodes)
