@@ -326,8 +326,8 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     add("Gas barrier skin",
         ev("barrier_kg_per_m2", case, spec["dispM3"]) * area / 1000.0,
         f"{area:,.0f} m2 hull surface")
-    add("Solar skin", ev("solar_kg_per_m2", case) * spec["solarM2"] / 1000.0,
-        f"{spec['solarM2']:,.0f} m2 projected")
+    add("Solar skin", ev("solar_kg_per_m2", case) * spec["solarSheetM2"] / 1000.0,
+        f"{spec['solarSheetM2']:,.0f} m2 gross PV sheet (independent material-area assumption)")
     add("Battery pack", batt_mwh * 1e6 / ev("battery_wh_per_kg", case) / 1000.0,
         f"{batt_mwh:,.2f} MWh",
         "Sized for endurance between recharges, not for a cycle. The ship as specified "

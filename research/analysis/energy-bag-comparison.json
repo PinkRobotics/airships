@@ -67,7 +67,7 @@
         "kwhPerTonne": 205.21409967098202,
         "cycleMin": 104.78431372549021,
         "peakRotorMW": 30.903416007187595,
-        "hoursOnBattery": 1.7420604815459673,
+        "hoursOnBattery": 1.73249033758496,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "modelled cycle",
@@ -89,7 +89,7 @@
         "kwhPerTonne": 205.3535690353686,
         "cycleMin": 104.78431372549021,
         "peakRotorMW": 30.903416007187595,
-        "hoursOnBattery": 1.7408495258188816,
+        "hoursOnBattery": 1.7312926456961402,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "modelled cycle",
@@ -117,7 +117,7 @@
         "kwhPerTonne": 147.63897057282068,
         "cycleMin": 104.78431372549021,
         "peakRotorMW": 30.903416007187595,
-        "hoursOnBattery": 2.4438291430404258,
+        "hoursOnBattery": 2.425037115074485,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "modelled cycle",
@@ -139,7 +139,7 @@
         "kwhPerTonne": 147.77843993720722,
         "cycleMin": 104.78431372549021,
         "peakRotorMW": 30.903416007187595,
-        "hoursOnBattery": 2.4414467034869225,
+        "hoursOnBattery": 2.422691156996975,
         "deliveredT": 100,
         "ballastT": 0,
         "energyMeaning": "modelled cycle",
@@ -160,148 +160,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00010012579173235281,
-          "phase": "SOURCE_APPROACH",
-          "progress": 0.7139960117803305,
-          "limits": [
-            "bus power"
-          ]
-        },
-        "cycleMWh": 24.276407693718426,
-        "kwhPerTonne": 133.72852449234819,
-        "cycleMin": 28.290167706476527,
-        "peakRotorMW": 153.7964607485324,
-        "hoursOnBattery": 2.3891387894908456,
-        "deliveredT": 181.53499999999997,
-        "ballastT": 818.465,
-        "energyMeaning": "modelled cycle",
-        "lastInfeasible": 818.46460546875,
-        "threshold": 818.4646064453125,
-        "printed": 818.465,
-        "limitSteps": 1024,
-        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
-      },
-      "completed": {
-        "basis": "record",
-        "feasible": true,
-        "bindingLimits": [
-          "bus power"
-        ],
-        "worst": {
-          "unheldT": 0.000027829236330489948,
-          "phase": "SOURCE_APPROACH",
-          "progress": 0.7306625644013605,
-          "limits": [
-            "bus power"
-          ]
-        },
-        "cycleMWh": 21.471183543956045,
-        "kwhPerTonne": 167.54204741136482,
-        "cycleMin": 27.993606595365417,
-        "peakRotorMW": 134.48918135283546,
-        "hoursOnBattery": 2.680953941911979,
-        "deliveredT": 128.154,
-        "ballastT": 871.846,
-        "energyMeaning": "modelled cycle",
-        "lastInfeasible": 871.8453198242189,
-        "threshold": 871.8453203125001,
-        "printed": 871.846,
-        "limitSteps": 1024,
-        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
-      },
-      "extraRetainedT": 53.38099999999997
-    },
-    {
-      "class": "P1000",
-      "km": 15,
-      "basis": "favourable",
-      "carried": {
-        "basis": "favourable",
-        "feasible": true,
-        "bindingLimits": [
-          "bus power"
-        ],
-        "worst": {
-          "unheldT": 0.00010012579173235281,
-          "phase": "SOURCE_APPROACH",
-          "progress": 0.7139960117803305,
-          "limits": [
-            "bus power"
-          ]
-        },
-        "cycleMWh": 19.076934715804523,
-        "kwhPerTonne": 105.0868136491835,
-        "cycleMin": 28.290167706476527,
-        "peakRotorMW": 153.7964607485324,
-        "hoursOnBattery": 3.061235814297688,
-        "deliveredT": 181.53499999999997,
-        "ballastT": 818.465,
-        "energyMeaning": "modelled cycle",
-        "lastInfeasible": 818.46460546875,
-        "threshold": 818.4646064453125,
-        "printed": 818.465,
-        "limitSteps": 1024,
-        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
-      },
-      "completed": {
-        "basis": "favourable",
-        "feasible": true,
-        "bindingLimits": [
-          "bus power"
-        ],
-        "worst": {
-          "unheldT": 0.000027829236330489948,
-          "phase": "SOURCE_APPROACH",
-          "progress": 0.7306625644013605,
-          "limits": [
-            "bus power"
-          ]
-        },
-        "cycleMWh": 16.9820264097996,
-        "kwhPerTonne": 132.51265204207127,
-        "cycleMin": 27.993606595365417,
-        "peakRotorMW": 134.48918135283546,
-        "hoursOnBattery": 3.415070421308841,
-        "deliveredT": 128.154,
-        "ballastT": 871.846,
-        "energyMeaning": "modelled cycle",
-        "lastInfeasible": 871.8453198242189,
-        "threshold": 871.8453203125001,
-        "printed": 871.846,
-        "limitSteps": 1024,
-        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
-      },
-      "extraRetainedT": 53.38099999999997
-    },
-    {
-      "class": "P1000",
-      "km": 60,
-      "basis": "record",
-      "carried": {
-        "basis": "record",
-        "feasible": true,
-        "bindingLimits": [
-          "bus power"
-        ],
-        "worst": {
-          "unheldT": 0.0002753363121428265,
+          "unheldT": 0.0002871272496349775,
           "phase": "SOURCE_APPROACH",
           "progress": 0.7139960117458126,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 65.08189677012051,
-        "kwhPerTonne": 281.0171972077018,
-        "cycleMin": 86.32228395721924,
-        "peakRotorMW": 165.92480299462042,
-        "hoursOnBattery": 2.7287331305134988,
-        "deliveredT": 231.59400000000005,
-        "ballastT": 768.406,
+        "cycleMWh": 24.230994450692044,
+        "kwhPerTonne": 134.0632525225986,
+        "cycleMin": 28.28576770647653,
+        "peakRotorMW": 153.50353639324263,
+        "hoursOnBattery": 2.379446039574212,
+        "deliveredT": 180.74300000000005,
+        "ballastT": 819.257,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 768.4057485351561,
-        "threshold": 768.4057490234375,
-        "printed": 768.406,
+        "lastInfeasible": 819.25679296875,
+        "threshold": 819.2567939453124,
+        "printed": 819.257,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -312,28 +188,152 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00028011176738118593,
+          "unheldT": 0.0004200227174351312,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.7306626591260423,
+          "progress": 0.7306625752605149,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 58.9651522689212,
-        "kwhPerTonne": 328.5259536723117,
-        "cycleMin": 86.03278395721924,
-        "peakRotorMW": 146.61461255255537,
-        "hoursOnBattery": 3.010325268694845,
-        "deliveredT": 179.48400000000004,
-        "ballastT": 820.516,
+        "cycleMWh": 21.428268705009675,
+        "kwhPerTonne": 168.293203366212,
+        "cycleMin": 27.989012150920974,
+        "peakRotorMW": 134.19591631855943,
+        "hoursOnBattery": 2.66852459667333,
+        "deliveredT": 127.327,
+        "ballastT": 872.673,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 820.5157543945313,
-        "threshold": 820.5157548828125,
-        "printed": 820.516,
+        "lastInfeasible": 872.6728540039062,
+        "threshold": 872.6728544921875,
+        "printed": 872.673,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 52.110000000000014
+      "extraRetainedT": 53.416000000000054
+    },
+    {
+      "class": "P1000",
+      "km": 15,
+      "basis": "favourable",
+      "carried": {
+        "basis": "favourable",
+        "feasible": true,
+        "bindingLimits": [
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 0.0002871272496349775,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960117458126,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 19.042593734521127,
+        "kwhPerTonne": 105.35729590922537,
+        "cycleMin": 28.28576770647653,
+        "peakRotorMW": 153.50353639324263,
+        "hoursOnBattery": 3.0436591047436674,
+        "deliveredT": 180.74300000000005,
+        "ballastT": 819.257,
+        "energyMeaning": "modelled cycle",
+        "lastInfeasible": 819.25679296875,
+        "threshold": 819.2567939453124,
+        "printed": 819.257,
+        "limitSteps": 1024,
+        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
+      },
+      "completed": {
+        "basis": "favourable",
+        "feasible": true,
+        "bindingLimits": [
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 0.0004200227174351312,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7306625752605149,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 16.949531048171004,
+        "kwhPerTonne": 133.11812143670238,
+        "cycleMin": 27.989012150920974,
+        "peakRotorMW": 134.19591631855943,
+        "hoursOnBattery": 3.392935274134706,
+        "deliveredT": 127.327,
+        "ballastT": 872.673,
+        "energyMeaning": "modelled cycle",
+        "lastInfeasible": 872.6728540039062,
+        "threshold": 872.6728544921875,
+        "printed": 872.673,
+        "limitSteps": 1024,
+        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
+      },
+      "extraRetainedT": 53.416000000000054
+    },
+    {
+      "class": "P1000",
+      "km": 60,
+      "basis": "record",
+      "carried": {
+        "basis": "record",
+        "feasible": true,
+        "bindingLimits": [
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 0.0003437172839539926,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7139960117458126,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 64.98367464168888,
+        "kwhPerTonne": 281.5339859704049,
+        "cycleMin": 86.31798395721924,
+        "peakRotorMW": 165.63187863938617,
+        "hoursOnBattery": 2.714726086274517,
+        "deliveredT": 230.82000000000005,
+        "ballastT": 769.18,
+        "energyMeaning": "modelled cycle",
+        "lastInfeasible": 769.1798178710937,
+        "threshold": 769.1798183593751,
+        "printed": 769.18,
+        "limitSteps": 1024,
+        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
+      },
+      "completed": {
+        "basis": "record",
+        "feasible": true,
+        "bindingLimits": [
+          "bus power"
+        ],
+        "worst": {
+          "unheldT": 0.00013189522564971412,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.7306623210102108,
+          "limits": [
+            "bus power"
+          ]
+        },
+        "cycleMWh": 58.87464070832478,
+        "kwhPerTonne": 329.4994974693433,
+        "cycleMin": 86.02831173499703,
+        "peakRotorMW": 146.32158272636153,
+        "hoursOnBattery": 2.9929114928160616,
+        "deliveredT": 178.67899999999997,
+        "ballastT": 821.321,
+        "energyMeaning": "modelled cycle",
+        "lastInfeasible": 821.3204960937501,
+        "threshold": 821.3204970703125,
+        "printed": 821.321,
+        "limitSteps": 1024,
+        "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
+      },
+      "extraRetainedT": 52.141000000000076
     },
     {
       "class": "P1000",
@@ -346,24 +346,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.0002753363121428265,
+          "unheldT": 0.0003437172839539926,
           "phase": "SOURCE_APPROACH",
           "progress": 0.7139960117458126,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 51.25077790407953,
-        "kwhPerTonne": 221.29579308652,
-        "cycleMin": 86.32228395721924,
-        "peakRotorMW": 165.92480299462042,
-        "hoursOnBattery": 3.492142343928325,
-        "deliveredT": 231.59400000000005,
-        "ballastT": 768.406,
+        "cycleMWh": 51.18823088909976,
+        "kwhPerTonne": 221.76687847283492,
+        "cycleMin": 86.31798395721924,
+        "peakRotorMW": 165.63187863938617,
+        "hoursOnBattery": 3.4667970581141057,
+        "deliveredT": 230.82000000000005,
+        "ballastT": 769.18,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 768.4057485351561,
-        "threshold": 768.4057490234375,
-        "printed": 768.406,
+        "lastInfeasible": 769.1798178710937,
+        "threshold": 769.1798183593751,
+        "printed": 769.18,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -374,28 +374,28 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00028011176738118593,
+          "unheldT": 0.00013189522564971412,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.7306626591260423,
+          "progress": 0.7306623210102108,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 47.4033962325217,
-        "kwhPerTonne": 264.10931466048055,
-        "cycleMin": 86.03278395721924,
-        "peakRotorMW": 146.61461255255537,
-        "hoursOnBattery": 3.7736401668419584,
-        "deliveredT": 179.48400000000004,
-        "ballastT": 820.516,
+        "cycleMWh": 47.34578957673645,
+        "kwhPerTonne": 264.97679960564176,
+        "cycleMin": 86.02831173499703,
+        "peakRotorMW": 146.32158272636153,
+        "hoursOnBattery": 3.743682555795076,
+        "deliveredT": 178.67899999999997,
+        "ballastT": 821.321,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 820.5157543945313,
-        "threshold": 820.5157548828125,
-        "printed": 820.516,
+        "lastInfeasible": 821.3204960937501,
+        "threshold": 821.3204970703125,
+        "printed": 821.321,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 52.110000000000014
+      "extraRetainedT": 52.141000000000076
     },
     {
       "class": "P10000",
@@ -408,24 +408,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.004965536577401508,
+          "unheldT": 0.005036574678342731,
           "phase": "SOURCE_APPROACH",
           "progress": 0.6669362957670824,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 257.9905422234201,
-        "kwhPerTonne": 88.16614604246625,
-        "cycleMin": 31.669115666163904,
-        "peakRotorMW": 1405.7100289591617,
-        "hoursOnBattery": 4.1374769043519235,
-        "deliveredT": 2926.1859999999997,
-        "ballastT": 7073.814,
+        "cycleMWh": 257.80346559792906,
+        "kwhPerTonne": 88.1874123561044,
+        "cycleMin": 31.66597455505279,
+        "peakRotorMW": 1404.7855793754807,
+        "hoursOnBattery": 4.132189996164312,
+        "deliveredT": 2923.3590000000004,
+        "ballastT": 7076.641,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7073.813287597656,
-        "threshold": 7073.8132880859375,
-        "printed": 7073.814,
+        "lastInfeasible": 7076.640361328125,
+        "threshold": 7076.640361816407,
+        "printed": 7076.641,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -436,28 +436,28 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.0027384822205931414,
+          "unheldT": 0.004094784179869748,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.6769361072167307,
+          "progress": 0.6769361789156118,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 233.5201830831508,
-        "kwhPerTonne": 92.37334398329702,
-        "cycleMin": 31.226691221719463,
-        "peakRotorMW": 1288.9271220576034,
-        "hoursOnBattery": 4.511684348409781,
-        "deliveredT": 2528.004,
-        "ballastT": 7471.996,
+        "cycleMWh": 233.33865298928853,
+        "kwhPerTonne": 92.40779779520888,
+        "cycleMin": 31.22346122171946,
+        "peakRotorMW": 1288.0022301563374,
+        "hoursOnBattery": 4.505362397489061,
+        "deliveredT": 2525.0969999999998,
+        "ballastT": 7474.903,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7471.99541015625,
-        "threshold": 7471.995411132812,
-        "printed": 7471.996,
+        "lastInfeasible": 7474.90200390625,
+        "threshold": 7474.9020048828115,
+        "printed": 7474.903,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 398.1819999999998
+      "extraRetainedT": 398.2620000000006
     },
     {
       "class": "P10000",
@@ -470,24 +470,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.004965536577401508,
+          "unheldT": 0.005036574678342731,
           "phase": "SOURCE_APPROACH",
           "progress": 0.6669362957670824,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 231.50022893194125,
-        "kwhPerTonne": 79.11329933638575,
-        "cycleMin": 31.669115666163904,
-        "peakRotorMW": 1405.7100289591617,
-        "hoursOnBattery": 4.616825495419224,
-        "deliveredT": 2926.1859999999997,
-        "ballastT": 7073.814,
+        "cycleMWh": 231.32967182906754,
+        "kwhPerTonne": 79.1314620712227,
+        "cycleMin": 31.66597455505279,
+        "peakRotorMW": 1404.7855793754807,
+        "hoursOnBattery": 4.609963850107948,
+        "deliveredT": 2923.3590000000004,
+        "ballastT": 7076.641,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7073.813287597656,
-        "threshold": 7073.8132880859375,
-        "printed": 7073.814,
+        "lastInfeasible": 7076.640361328125,
+        "threshold": 7076.640361816407,
+        "printed": 7076.641,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -498,28 +498,28 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.0027384822205931414,
+          "unheldT": 0.004094784179869748,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.6769361072167307,
+          "progress": 0.6769361789156118,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 209.29766988363792,
-        "kwhPerTonne": 82.7916687962669,
-        "cycleMin": 31.226691221719463,
-        "peakRotorMW": 1288.9271220576034,
-        "hoursOnBattery": 5.040938935932806,
-        "deliveredT": 2528.004,
-        "ballastT": 7471.996,
+        "cycleMWh": 209.13225571901086,
+        "kwhPerTonne": 82.82147407367356,
+        "cycleMin": 31.22346122171946,
+        "peakRotorMW": 1288.0022301563374,
+        "hoursOnBattery": 5.032716818369081,
+        "deliveredT": 2525.0969999999998,
+        "ballastT": 7474.903,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7471.99541015625,
-        "threshold": 7471.995411132812,
-        "printed": 7471.996,
+        "lastInfeasible": 7474.90200390625,
+        "threshold": 7474.9020048828115,
+        "printed": 7474.903,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 398.1819999999998
+      "extraRetainedT": 398.2620000000006
     },
     {
       "class": "P10000",
@@ -532,24 +532,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00530881641770975,
+          "unheldT": 0.004885833634943992,
           "phase": "SOURCE_APPROACH",
           "progress": 0.6669362957670824,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 488.1986729408813,
-        "kwhPerTonne": 160.6190373691574,
-        "cycleMin": 80.66377839115134,
-        "peakRotorMW": 1426.2349158368563,
-        "hoursOnBattery": 5.590715222212051,
-        "deliveredT": 3039.482,
-        "ballastT": 6960.518,
+        "cycleMWh": 487.8797411367054,
+        "kwhPerTonne": 160.6629048021088,
+        "cycleMin": 80.66065061337358,
+        "peakRotorMW": 1425.3104662537207,
+        "hoursOnBattery": 5.5797768524217695,
+        "deliveredT": 3036.6670000000004,
+        "ballastT": 6963.333,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 6960.517568359375,
-        "threshold": 6960.517568847657,
-        "printed": 6960.518,
+        "lastInfeasible": 6963.33214794922,
+        "threshold": 6963.332148437501,
+        "printed": 6963.333,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -560,28 +560,28 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00003189995732100215,
+          "unheldT": 0.0023477372342313174,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.6769358742418752,
+          "progress": 0.6769359191109564,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 445.9567869024749,
-        "kwhPerTonne": 168.74150039445252,
-        "cycleMin": 80.22306505781802,
-        "peakRotorMW": 1309.4539385391663,
-        "hoursOnBattery": 6.0950043642594,
-        "deliveredT": 2642.84,
-        "ballastT": 7357.16,
+        "cycleMWh": 445.6518257398897,
+        "kwhPerTonne": 168.81077086712273,
+        "cycleMin": 80.21985283559579,
+        "peakRotorMW": 1308.5296409906625,
+        "hoursOnBattery": 6.081850254164781,
+        "deliveredT": 2639.9489999999996,
+        "ballastT": 7360.051,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7357.159888671875,
-        "threshold": 7357.159889160156,
-        "printed": 7357.16,
+        "lastInfeasible": 7360.050749511719,
+        "threshold": 7360.05075,
+        "printed": 7360.051,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 396.6419999999998
+      "extraRetainedT": 396.71800000000076
     },
     {
       "class": "P10000",
@@ -594,24 +594,24 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00530881641770975,
+          "unheldT": 0.004885833634943992,
           "phase": "SOURCE_APPROACH",
           "progress": 0.6669362957670824,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 431.0730458736326,
-        "kwhPerTonne": 141.8245101874703,
-        "cycleMin": 80.66377839115134,
-        "peakRotorMW": 1426.2349158368563,
-        "hoursOnBattery": 6.344285505255741,
-        "deliveredT": 3039.482,
-        "ballastT": 6960.518,
+        "cycleMWh": 430.8006974351382,
+        "kwhPerTonne": 141.86629532811406,
+        "cycleMin": 80.66065061337358,
+        "peakRotorMW": 1425.3104662537207,
+        "hoursOnBattery": 6.329542177476559,
+        "deliveredT": 3036.6670000000004,
+        "ballastT": 6963.333,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 6960.517568359375,
-        "threshold": 6960.517568847657,
-        "printed": 6960.518,
+        "lastInfeasible": 6963.33214794922,
+        "threshold": 6963.332148437501,
+        "printed": 6963.333,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
@@ -622,28 +622,28 @@
           "bus power"
         ],
         "worst": {
-          "unheldT": 0.00003189995732100215,
+          "unheldT": 0.0023477372342313174,
           "phase": "SOURCE_APPROACH",
-          "progress": 0.6769358742418752,
+          "progress": 0.6769359191109564,
           "limits": [
             "bus power"
           ]
         },
-        "cycleMWh": 395.16568721544974,
-        "kwhPerTonne": 149.52312179906832,
-        "cycleMin": 80.22306505781802,
-        "peakRotorMW": 1309.4539385391663,
-        "hoursOnBattery": 6.892982135350834,
-        "deliveredT": 2642.84,
-        "ballastT": 7357.16,
+        "cycleMWh": 394.90518815281035,
+        "kwhPerTonne": 149.5881883145509,
+        "cycleMin": 80.21985283559579,
+        "peakRotorMW": 1308.5296409906625,
+        "hoursOnBattery": 6.875412809614139,
+        "deliveredT": 2639.9489999999996,
+        "ballastT": 7360.051,
         "energyMeaning": "modelled cycle",
-        "lastInfeasible": 7357.159888671875,
-        "threshold": 7357.159889160156,
-        "printed": 7357.16,
+        "lastInfeasible": 7360.050749511719,
+        "threshold": 7360.05075,
+        "printed": 7360.051,
         "limitSteps": 1024,
         "search": "first feasible bracket at 1% payload spacing; same-resolution bisection and upward rounding"
       },
-      "extraRetainedT": 396.6419999999998
+      "extraRetainedT": 396.71800000000076
     }
   ]
 }

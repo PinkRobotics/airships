@@ -53,7 +53,7 @@ construction may finally allow, and what §4.1 says has not been shown yet.
 of water, 110 m<!--f:P100.spec.lenM--> long — smaller than the Hindenburg — flying a
 34.2-minute<!--f:P100.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way and
 delivering 175 t/h<!--f:P100.cycle.tph--> indefinitely, at
-13.91 → 80.42 → 81.92 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
+13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
 against roughly 560 for a very large airtanker flying eight sorties, and the airtanker stops at
 dusk.
 
@@ -74,8 +74,8 @@ part of this concept that is not a scaling exercise on prior art.
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 **Why scale is interesting, and why it is not the plan.** Energy per tonne falls as the ships get
-bigger — 13.91 → 80.42 → 81.92 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the reference ship against
-5.43 → 69.76 → 69.44<!--f:P10000.cycle.kwhPerTonne--> at ten thousand tonnes — because buoyancy scales with volume
+bigger — 13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the reference ship against
+5.43 → 69.76 → 69.42<!--f:P10000.cycle.kwhPerTonne--> at ten thousand tonnes — because buoyancy scales with volume
 and drag with area. The square-cube law works against nearly every other vehicle and for this one.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
@@ -149,10 +149,10 @@ fire is not near water.** How often that is true is the open question §8 now li
 | Delivery per hour | 175 t<!--f:P100.cycle.tph--> | 1,697 t<!--f:P1000.cycle.tph--> | 13,183 t<!--f:P10000.cycle.tph--> |
 | Energy per tonne (earlier 1) | 13.91 | 8.45 | 5.43 |
 | Energy per tonne (earlier 2) | 80.42 | 62.50 | 69.76 |
-| Energy per tonne (current) | 81.92 kWh<!--f:P100.cycle.kwhPerTonne--> | 62.31 kWh<!--f:P1000.cycle.kwhPerTonne--> | 69.44 kWh<!--f:P10000.cycle.kwhPerTonne--> |
+| Energy per tonne (current) | 81.89 kWh<!--f:P100.cycle.kwhPerTonne--> | 62.25 kWh<!--f:P1000.cycle.kwhPerTonne--> | 69.42 kWh<!--f:P10000.cycle.kwhPerTonne--> |
 | Energy per cycle (earlier 1) | 1.391 | 8.454 | 54.325 |
 | Energy per cycle (earlier 2) | 8.042 | 62.500 | 697.586 |
-| Energy per cycle (current) | 8.192 MWh<!--f:P100.cycle.eCycleMWh--> | 62.314 MWh<!--f:P1000.cycle.eCycleMWh--> | 694.378 MWh<!--f:P10000.cycle.eCycleMWh--> |
+| Energy per cycle (current) | 8.189 MWh<!--f:P100.cycle.eCycleMWh--> | 62.251 MWh<!--f:P1000.cycle.eCycleMWh--> | 694.174 MWh<!--f:P10000.cycle.eCycleMWh--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -196,7 +196,7 @@ These energy figures come from the earlier flight model, which understates the f
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 The leverage is in the exponent: induced rotor power goes as thrust^1.5, so the letdown term falls
-from 34.20 MWh to 1.420 → 117.284 → 117.219 MWh<!--f:P10000.energy.letdownMWh--> — 96%. Alternatives, costed and
+from 34.20 MWh to 1.420 → 117.284 → 117.168 MWh<!--f:P10000.energy.letdownMWh--> — 96%. Alternatives, costed and
 rejected in the open: nitrogen ballast **475 MWh**, a 1,350 m hose **44 MWh** at 2 m bore and
 140 bar, retention **directly reduces the product**.
 
@@ -295,15 +295,15 @@ curvature, cell temperature, soiling and conversion, on a projected area.
 | P-100 (earlier 1) |  | 0.32 |  |
 | P-100 (earlier 2) |  | 1.24 | 35.4 |
 | P-100 (earlier 3) | 1.20 | 7.89 | 9.2 |
-| P-100 (current) | 0.27 MW<!--f:P100.energy.solarMW--> | 8.04<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 8.07<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) |  | 3.09 |  |
 | P-1000 (earlier 2) |  | 7.71 | 22.9 |
 | P-1000 (earlier 3) | 5.60 | 61.76 | 9.2 |
-| P-1000 (current) | 1.26 MW<!--f:P1000.energy.solarMW--> | 61.57<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 61.68<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) |  | 24.81 |  |
 | P-10000 (earlier 2) |  | 50.23 | 61.1 |
 | P-10000 (earlier 3) | 24.00 | 693.49 | 30.2 |
-| P-10000 (current) | 5.40 MW<!--f:P10000.energy.solarMW--> | 690.28<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 690.78<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -329,7 +329,7 @@ These energy figures come from the earlier flight model, which understates the f
 
 It is **0.20<!--f:assumptions.rtLN2-->** now — 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. The P-10000's cycle rose 43.019 →
-**54.325 → 697.586 → 694.378 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
+**54.325 → 697.586 → 694.174 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
 now fail the build if `rtLN2 × eLN2 × 1000` exceeds 173.4.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
@@ -403,7 +403,7 @@ P-100, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 |---|---:|
 | Return transit (drag + cryogenic plant) (earlier 1) | 0.981 |
 | Return transit (drag + cryogenic plant) (earlier 2) | 4.212 |
-| Return transit (drag + cryogenic plant) (current) | 4.409<!--f:P100.energy.ledgerMWh.RETURN_TRANSIT--> |
+| Return transit (drag + cryogenic plant) (current) | 4.407<!--f:P100.energy.ledgerMWh.RETURN_TRANSIT--> |
 | Outbound transit (earlier 1) | 0.286 |
 | Outbound transit (earlier 2) | 0.632 |
 | Outbound transit (current) | 0.576<!--f:P100.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
@@ -413,13 +413,13 @@ P-100, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 | Pumping (current) | 0.864<!--f:P100.energy.ledgerMWh.WATER_FILL--> |
 | Letdown (earlier 1) | 0.012 |
 | Letdown (earlier 2) | 2.296 |
-| Letdown (current) | 2.305<!--f:P100.energy.letdownMWh--> |
+| Letdown (current) | 2.302<!--f:P100.energy.letdownMWh--> |
 | Anchor (earlier 1) | 0.006 |
 | Anchor (current) | 0.003<!--f:P100.energy.anchorHoistMWh--> |
 | Nitrogen recovery (credit) | −0.165<!--f:P100.energy.ledgerMWh.recovery--> |
 | **Total** (earlier 1) | 1.391 |
 | **Total** (earlier 2) | 8.042 |
-| **Total** (current) | 8.192<!--f:P100.cycle.eCycleMWh--> |
+| **Total** (current) | 8.189<!--f:P100.cycle.eCycleMWh--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -438,13 +438,13 @@ stated on the site rather than hidden:
 |---|---:|---:|
 | P-100 (earlier 1) | 1.24 |  |
 | P-100 (earlier 2) | 7.89 | 9.2 |
-| P-100 (current) | 8.04 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 8.07 MWh<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) | 7.71 |  |
 | P-1000 (earlier 2) | 61.76 | 9.2 |
-| P-1000 (current) | 61.57 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 61.68 MWh<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) | 50.23 |  |
 | P-10000 (earlier 2) | 693.49 | 30.2 |
-| P-10000 (current) | 690.28 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 690.78 MWh<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -467,11 +467,13 @@ These energy figures come from the earlier flight model, which understates the f
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
-- **Continuous draw, reference ship:** 1.391 → 8.042 → 8.192 MWh<!--f:P100.cycle.eCycleMWh--> per
-  34.2-minute<!--f:P100.cycle.cycleMin--> cycle = **2.20 MW average**, or **1.93 MW imported** net
-  of the corrected solar (0.27 MW<!--f:P100.energy.solarMW-->).
+<!-- solar:supply:start -->
+- **Continuous supplied effort, reference ship, unsupported prescribed profile:** 1.391 → 8.042 → 8.189 MWh<!--f:P100.cycle.eCycleMWh--> per
+  34.2-minute<!--f:P100.cycle.cycleMin--> cycle = **14.37 MW average**, or **14.16 MW imported** net
+  of the assumed projected solar (0.21 MW<!--f:P100.energy.solarMW-->). These quotients establish no delivery or endurance.
+<!-- solar:supply:end -->
 - **Energy cost per tonne delivered** at 4.914 ¢/kWh: **$0.62/t**
-  (13.91 → 80.42 → 81.92 kWh/t<!--f:P100.cycle.kwhPerTonne-->). A full 100-tonne drop costs about **$62** of
+  (13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne-->). A full 100-tonne drop costs about **$62** of
   electricity.
 - **A ten-ship P-100 fleet** — 1,750 t/h between them, day and night — imports about **19 MW**.
   At Schedule 1830 that is on the order of **CA$0.9M per month**. Forty ships, delivering

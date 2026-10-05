@@ -17,7 +17,7 @@ export const CLASS_PAIRS = {
   diaM: 'nominalDiameterM', diskM2: 'publishedDiscAreaM2', genMW: 'generatorContinuousPowerMW',
   battMWh: 'batteryEnergyMWh', battMW: 'batteryPeakPowerMW', cryoMW: 'cryogenicPowerMW',
   ln2CapT: 'ln2TankCapacityTonnes', hoseM: 'hoseLengthM', anchorM: 'anchorCableM',
-  anchorBagT: 'anchorBagTonnes', solarM2: 'solarAreaM2', cruiseKph: 'cruiseKph',
+  anchorBagT: 'anchorBagTonnes', solarM2: 'solarAreaM2', solarSheetM2: 'solarSheetAreaM2', cruiseKph: 'cruiseKph',
   fillM3s: 'fillRateM3s', hoseDeployMin: 'hoseDeployMin', hoseRetractMin: 'hoseRetractMin',
 };
 
@@ -164,7 +164,7 @@ const constantPairs = [
   ...['eLN2','rtLN2','pumpEta','propEta','Cd','rhoAir','rhoSL','solarWPerM2']
     .map(k => [`DEFAULTS.${k}`, `ASSUMPTIONS.${k}`]),
   ['DEFAULTS.rhoSL','RHO_SL'], ['DEFAULTS.rhoAir','RHO_AIR'],
-  ...['ALT','ALT_DROP_TOP','TERRAIN_MSL','WORK_ALT_MSL','MODES','RHO_WORK'].map(k => [k,k]),
+  ...['ALT','ALT_DROP_TOP','TERRAIN_MSL','WORK_ALT_MSL','MODES','RHO_WORK','SOLAR_PROJECTED_FRACTION'].map(k => [k,k]),
   ...['T0','LAPSE','G0','R'].map(k => [`ISA.${k}`,`ISA.${k}`]),
 ];
 

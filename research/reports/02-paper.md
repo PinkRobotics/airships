@@ -234,8 +234,8 @@ These energy figures come from the earlier flight model, which understates the f
 
 **The leverage is in the exponent.** Induced rotor power goes as thrust^1.5, so moving load off
 the rotors pays superlinearly: carrying 90% of the hold on the bag drops the required rotor power
-from 1,748 MW to 52.3 → 1405.7 MW<!--f:P10000.energy.downMW-->, a 97% reduction, and the letdown term from
-34.20 MWh to 1.420 → 117.284 → 117.219 MWh<!--f:P10000.energy.letdownMWh-->.
+from 1,748 MW to 52.3 → 1404.8 MW<!--f:P10000.energy.downMW-->, a 97% reduction, and the letdown term from
+34.20 MWh to 1.420 → 117.284 → 117.168 MWh<!--f:P10000.energy.letdownMWh-->.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -247,7 +247,7 @@ Three consequences worth stating plainly:
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 - **Every class carries one, including the P-100 whose descent closes without it.** Removing its
-  bag costs 1.526 MWh a cycle against 1.391 → 8.042 → 8.192<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
+  bag costs 1.526 MWh a cycle against 1.391 → 8.042 → 8.189<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
   that does not need the mechanism. A bucket is cheaper than thrust everywhere.
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
@@ -278,23 +278,23 @@ transcribed:
 |---|---:|
 | `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) (earlier 1) | 16.611 |
 | `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) (earlier 2) | 112.360 |
-| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) (current) | 114.038<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
+| `RETURN_TRANSIT` (drag × 0.55 + cryogenic plant) (current) | 114.037<!--f:P10000.energy.ledgerMWh.RETURN_TRANSIT--> |
 | `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) (earlier 1) | 10.900 |
 | `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) (earlier 2) | 213.327 |
-| `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) (current) | 214.046<!--f:P10000.energy.ledgerMWh.WATER_FILL--> |
+| `WATER_FILL` (pumping 10,000 t up 300 m<!--f:P10000.spec.hoseM-->) (current) | 213.959<!--f:P10000.energy.ledgerMWh.WATER_FILL--> |
 | `other` (hotel + manoeuvring drag) | 13.772[historical] |
 | `OUTBOUND_TRANSIT` (drag, loaded) (earlier 1) | 12.926 |
 | `OUTBOUND_TRANSIT` (drag, loaded) (earlier 2) | 34.838 |
 | `OUTBOUND_TRANSIT` (drag, loaded) (current) | 34.345<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
 | `letdown` (rotor work, with the anchor deployed) (earlier 1) | 1.420 |
 | `letdown` (rotor work, with the anchor deployed) (earlier 2) | 117.284 |
-| `letdown` (rotor work, with the anchor deployed) (current) | 117.219<!--f:P10000.energy.letdownMWh--> |
+| `letdown` (rotor work, with the anchor deployed) (current) | 117.168<!--f:P10000.energy.letdownMWh--> |
 | `anchor` (lifting the bag 15 m) (earlier 1) | 0.596 |
 | `anchor` (lifting the bag 15 m) (current) | 0.596<!--f:P10000.energy.anchorHoistMWh--> |
 | `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
 | **total** (earlier 1) | 54.325 |
 | **total** (earlier 2) | 697.586 |
-| **total** (current) | 694.378<!--f:P10000.cycle.eCycleMWh--> |
+| **total** (current) | 694.174<!--f:P10000.cycle.eCycleMWh--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -315,8 +315,8 @@ These energy figures come from the earlier flight model, which understates the f
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
-13.91 → 80.42 → 81.92 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
-8.45 → 62.50 → 62.31<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43 → 69.76 → 69.44<!--f:P10000.cycle.kwhPerTonne--> for
+13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
+8.45 → 62.50 → 62.25<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43 → 69.76 → 69.42<!--f:P10000.cycle.kwhPerTonne--> for
 the largest. Larger is cheaper per tonne, as the square-cube law demands — which is the reason to
 model the larger classes at all, and §6 is the reason not to assume you can build them.
 
@@ -360,13 +360,13 @@ These energy figures come from the earlier flight model, which understates the f
 |---|---:|---:|---:|---:|---:|
 | P-100 (earlier 1) |  |  | 1.391 | 1.24 |  |
 | P-100 (earlier 2) |  |  | 8.042 | 7.89 | 9.2 |
-| P-100 (current) | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.192<!--f:P100.cycle.eCycleMWh--> | 8.04<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.189<!--f:P100.cycle.eCycleMWh--> | 8.07<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) |  |  | 8.454 | 7.71 |  |
 | P-1000 (earlier 2) |  |  | 62.500 | 61.76 | 9.2 |
-| P-1000 (current) | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 62.314<!--f:P1000.cycle.eCycleMWh--> | 61.57<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 62.251<!--f:P1000.cycle.eCycleMWh--> | 61.68<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) |  |  | 54.325 | 50.23 |  |
 | P-10000 (earlier 2) |  |  | 697.586 | 693.49 | 30.2 |
-| P-10000 (current) | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 694.378<!--f:P10000.cycle.eCycleMWh--> | 690.28<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 694.174<!--f:P10000.cycle.eCycleMWh--> | 690.78<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -435,8 +435,12 @@ a half times the best cell ever made in a laboratory.
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 flexible module ×
-0.81 for curvature, cell temperature, soiling and conversion, applied to a *projected* area —
-`solarM2` is 80–87% of each hull's plan ellipse, so the curvature is paid for once, in the area.
+0.81 for curvature, cell temperature, soiling and conversion, applied to a *projected* area.
+
+<!-- solar:area:start -->
+`solarM2` is 85% of each current capsule's projected footprint, a named design assumption
+rather than a validated panel layout. See the [generated areas](../analysis/solar-area.json).
+<!-- solar:area:end -->
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
@@ -445,15 +449,15 @@ It is `CFG.solarWPerM2 = 45`<!--f:assumptions.solarWPerM2--> now: 264 × 0.21 fl
 | P-100 (earlier 1) |  |  | 0.32 |  |
 | P-100 (earlier 2) |  |  | 1.24 | 35.4 |
 | P-100 (earlier 3) | 1.20 | 0.68 | 7.89 | 9.2 |
-| P-100 (current) | 0.27 MW<!--f:P100.energy.solarMW--> | 0.15 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.04<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.07<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) |  |  | 3.09 |  |
 | P-1000 (earlier 2) |  |  | 7.71 | 22.9 |
 | P-1000 (earlier 3) | 5.60 | 3.30 | 61.76 | 9.2 |
-| P-1000 (current) | 1.26 MW<!--f:P1000.energy.solarMW--> | 0.74 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 61.57<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 61.68<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) |  |  | 24.81 |  |
 | P-10000 (earlier 2) |  |  | 50.23 | 61.1 |
 | P-10000 (earlier 3) | 24.00 | 18.20 | 693.49 | 30.2 |
-| P-10000 (current) | 5.40 MW<!--f:P10000.energy.solarMW--> | 4.10 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 690.28<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 690.78<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -484,7 +488,7 @@ These energy figures come from the earlier flight model, which understates the f
 It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
-54.325 → 697.586 → 694.378<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
+54.325 → 697.586 → 694.174<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
 copy of the constant, because a second law is not a tuning bound.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.

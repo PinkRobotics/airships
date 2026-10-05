@@ -60,6 +60,13 @@ the best flight design NASA has published**, and it is kept at that value only s
 see exactly what the budget is being given for free. At the demonstrated figure the plant alone
 is 390 t on a 100 t allowance.
 
+<!-- solar:budget-note:start -->
+The enlargement passages below retain the earlier sizing publication. The
+[generated solar-input comparison](#solar-input-sensitivity-of-the-existing-budget-diagnostic)
+records the changed power-input sensitivity separately; those earlier values are not
+updated sizing claims. The closure condition itself remains unverified here.
+<!-- solar:budget-note:end -->
+
 ## But the allowance is not a law, and this is the correction that matters
 
 **Displacement is a design variable and the payload is the requirement.** Shell mass
@@ -197,3 +204,39 @@ wall is **0.870 kg/m³**, reduced further by packing losses and larger sundries 
 
 What decides this sealed-cell budget is the density of one complete cell and its packing
 fraction. Neither is measured here, and these conditional sizes do not validate a hull.
+
+<!-- solar:budget-comparison:start -->
+## Solar-input sensitivity of the existing budget diagnostic
+
+This comparison preserves the pre-correction publication on the left and refreshes the
+existing diagnostic on the right from `mass-budget.json`. The reason is the projected
+solar-area correction; gross material area stays a separate assumption. Neither column
+establishes a buildable hull or validates the enlarged-hull closure condition. If this
+record is regenerated on an integrated tree, other model corrections can also contribute
+to the differences; this comparison does not isolate their individual effects.
+
+| Class | Nominal floor t | Three-cycle floor t | Three-cycle floor / dry | Existing 0.508 kg/m³ diagnostic volume m³ | Existing volume / baseline |
+|---|---|---|---|---|---|
+| P100 | 216.1 → 216.1 | 226.2 → 226.1 | 2.26 → 2.26 | 457,324 → 457,275 | 2.08 → 2.08 |
+| P1000 | 1803.6 → 1803.6 | 1950.9 → 1950.5 | 1.95 → 1.95 | 3,855,851 → 3,854,933 | 1.75 → 1.75 |
+| P10000 | 19524.2 → 19524.2 | 19707.1 → 19705.8 | 1.97 → 1.97 | 38,938,209 → 38,935,172 | 1.77 → 1.77 |
+
+P-100 density sweep of the same existing diagnostic; current values precede the preserved publication:
+
+| Shell kg/m³ | Current volume m³ | Current / baseline | Current length × diameter | Earlier volume m³ | Earlier / baseline | Earlier length × diameter |
+|---|---|---|---|---|---|---|
+| 0.264 | 294,277 | 1.34 | 121 × 61 m | 294,309 | 1.34 | 121 × 61 m |
+| 0.350 | 336,595 | 1.53 | 127 × 63 m | 336,631 | 1.53 | 127 × 63 m |
+| 0.508 | 457,275 | 2.08 | 140 × 70 m | 457,324 | 2.08 | 140 × 70 m |
+| 0.600 | 577,685 | 2.63 | 152 × 76 m | 577,748 | 2.63 | 152 × 76 m |
+| 0.750 | 1,010,200 | 4.59 | 183 × 91 m | 1,010,309 | 4.59 | 183 × 91 m |
+| 0.900 | 3,908,466 | 17.77 | 287 × 144 m | 3,908,881 | 17.77 | 287 × 144 m |
+
+Current P-100 packing diagnostics (their earlier dimensions remain in the numeric reference):
+
+| Existing diagnostic | phi=0.74 | phi=0.85 | phi=1.0 |
+|---|---|---|---|
+| hull at shell 0.264 | 462,288 m³; 141 × 70 m | 372,397 m³; 131 × 66 m | 294,277 m³; 121 × 61 m |
+| hull at shell 0.508 | 1,045,498 m³; 185 × 92 m | 677,468 m³; 160 × 80 m | 457,275 m³; 140 × 70 m |
+| hull at shell 0.750 | not closed | 3,483,033 m³; 276 × 138 m | 1,010,200 m³; 183 × 91 m |
+<!-- solar:budget-comparison:end -->

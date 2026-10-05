@@ -132,6 +132,26 @@ class Context:
         if occ['file']=='research/analysis/energy-motion.md' and region=='energy:motion':
             return dict(kind='generated',generator='research/analysis/energy-motion.mjs',
                         region=region,source='research/analysis/energy-motion.json'), 'energydoccheck'
+        checked_regions = {
+            ('research/analysis/water-availability.md','logistics:rates'):'tools/gen_logistics_prose.py',
+            ('research/analysis/water-availability.md','logistics:drawdown'):'tools/gen_logistics_prose.py',
+            ('research/analysis/delivery.md','logistics:one-pass'):'tools/gen_logistics_prose.py',
+            ('research/analysis/delivery.md','logistics:daily'):'tools/gen_logistics_prose.py',
+            ('docs/OPEN-QUESTIONS.md','logistics:line-summary'):'tools/gen_logistics_prose.py',
+            ('docs/VERIFICATION-PLAN.md','logistics:line-comparison'):'tools/gen_logistics_prose.py',
+            ('docs/PHYSICS.md','atmosphere:physics'):'research/analysis/loaded-atmosphere.mjs',
+            ('docs/OPEN-QUESTIONS.md','atmosphere:recovery'):'research/analysis/loaded-atmosphere.mjs',
+            ('research/reports/02-paper.md','solar:area'):'tools/gen_solar_prose.py',
+            ('research/reports/03-diligence.md','solar:supply'):'tools/gen_solar_prose.py',
+            ('docs/VERIFICATION-PLAN.md','solar:daily'):'tools/gen_solar_prose.py',
+            ('research/analysis/mass-budget.md','solar:budget-note'):'tools/gen_solar_budget_comparison.py',
+            ('research/analysis/mass-budget.md','solar:budget-comparison'):'tools/gen_solar_budget_comparison.py',
+            ('docs/OPEN-QUESTIONS.md','solar:budget-reference'):'tools/gen_solar_budget_comparison.py',
+            ('docs/VERIFICATION-PLAN.md','solar:budget-reference'):'tools/gen_solar_budget_comparison.py',
+        }
+        generator = checked_regions.get((occ['file'],region))
+        if generator:
+            return dict(kind='generated',generator=generator,region=region), 'analysischeck'
         if occ['file']=='README.md' and region and region.startswith('readme:'):
             return dict(kind='generated',generator='tools/gen_readme.py',region=region), 'readmecheck'
         if region and region.startswith('served-energy:'):

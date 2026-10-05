@@ -74,7 +74,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 2.55029 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 9.987 | 1.883 |
 | P100 | 2.55029 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | record | cheapest found | verticalCd | 2 | closes | 0.000 | 9.987 | 1.909 |
-| P100 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 16.317 | 9.987 | 2.232 |
+| P100 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 16.463 | 9.987 | 2.231 |
 | P100 | 2.55029 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 9.987 | 1.894 |
 | P100 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.000 | 9.987 | 1.894 |
@@ -82,7 +82,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 10.193 | 1.376 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 10.193 | 1.395 |
 | P100 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | -25.048 | 10.193 | 1.421 |
-| P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 11.173 | 10.193 | 1.703 |
+| P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 11.319 | 10.193 | 1.703 |
 | P100 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 10.193 | 1.395 |
 | P100 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 10.193 | 1.416 |
 | P100 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 10.193 | 1.395 |
@@ -90,7 +90,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 14.769 | 3.193 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | -32.297 | 14.769 | 3.220 |
-| P100 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 30.732 | 14.769 | 3.681 |
+| P100 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 30.877 | 14.769 | 3.680 |
 | P100 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 14.769 | 3.204 |
 | P100 | 7.480511 | record | cheapest found | clMax | 1 | closes | 0.000 | 14.769 | 3.204 |
@@ -98,7 +98,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 7.480511 | record | full delivery | verticalCd | 0 | closes | -0.000 | 231.583 | 54.846 |
 | P100 | 7.480511 | record | full delivery | verticalCd | 1 | closes | -0.000 | 231.583 | 54.831 |
 | P100 | 7.480511 | record | full delivery | verticalCd | 2 | closes | 0.000 | 231.583 | 54.816 |
-| P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.55 | does not close | 16.326 | 231.583 | 61.734 |
+| P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.55 | does not close | 16.488 | 231.583 | 61.630 |
 | P100 | 7.480511 | record | full delivery | rotorEfficiency | 0.7 | closes | -0.000 | 231.583 | 54.831 |
 | P100 | 7.480511 | record | full delivery | clMax | 0.5 | closes | -0.000 | 231.583 | 54.831 |
 | P100 | 7.480511 | record | full delivery | clMax | 1 | closes | -0.000 | 231.583 | 54.831 |
@@ -106,7 +106,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 14.769 | 2.683 |
 | P100 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 14.769 | 2.682 |
 | P100 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | -32.297 | 14.769 | 2.687 |
-| P100 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 30.732 | 14.769 | 3.059 |
+| P100 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 30.877 | 14.769 | 3.058 |
 | P100 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 14.769 | 2.682 |
 | P100 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 14.769 | 2.722 |
 | P100 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 14.769 | 2.682 |
@@ -114,139 +114,139 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | P100 | 7.480511 | favourable | full delivery | verticalCd | 0 | closes | -0.000 | 231.583 | 53.662 |
 | P100 | 7.480511 | favourable | full delivery | verticalCd | 1 | closes | -0.000 | 231.583 | 53.647 |
 | P100 | 7.480511 | favourable | full delivery | verticalCd | 2 | closes | 0.000 | 231.583 | 53.633 |
-| P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 16.326 | 231.583 | 60.105 |
+| P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 16.488 | 231.583 | 60.004 |
 | P100 | 7.480511 | favourable | full delivery | rotorEfficiency | 0.7 | closes | -0.000 | 231.583 | 53.647 |
 | P100 | 7.480511 | favourable | full delivery | clMax | 0.5 | closes | -0.000 | 231.583 | 53.995 |
 | P100 | 7.480511 | favourable | full delivery | clMax | 1 | closes | -0.000 | 231.583 | 53.647 |
 | P100 | 7.480511 | favourable | full delivery | clMax | 1.5 | closes | -0.000 | 231.583 | 53.556 |
-| P100 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | -0.000 | 56.989 | 12.596 |
-| P100 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | -0.000 | 56.989 | 12.572 |
-| P100 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 2.179 | 56.989 | 12.557 |
-| P100 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 52.625 | 56.989 | 14.081 |
-| P100 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | -0.000 | 56.989 | 12.572 |
-| P100 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | -0.000 | 56.989 | 12.572 |
-| P100 | 51.913032 | record | cheapest found | clMax | 1 | closes | -0.000 | 56.989 | 12.572 |
-| P100 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | -0.000 | 56.989 | 12.572 |
+| P100 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | -0.000 | 56.977 | 12.576 |
+| P100 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | -0.000 | 56.977 | 12.551 |
+| P100 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 2.180 | 56.977 | 12.537 |
+| P100 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 52.587 | 56.977 | 14.055 |
+| P100 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | -0.000 | 56.977 | 12.551 |
+| P100 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | -0.000 | 56.977 | 12.551 |
+| P100 | 51.913032 | record | cheapest found | clMax | 1 | closes | -0.000 | 56.977 | 12.551 |
+| P100 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | -0.000 | 56.977 | 12.551 |
 | P100 | 51.913032 | record | full delivery | verticalCd | 0 | closes | 0.000 | 64.955 | 14.033 |
 | P100 | 51.913032 | record | full delivery | verticalCd | 1 | closes | 0.000 | 64.955 | 14.011 |
 | P100 | 51.913032 | record | full delivery | verticalCd | 2 | closes | -0.000 | 64.955 | 13.998 |
-| P100 | 51.913032 | record | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 15.913 |
+| P100 | 51.913032 | record | full delivery | rotorEfficiency | 0.55 | does not close | 41.318 | 64.955 | 15.909 |
 | P100 | 51.913032 | record | full delivery | rotorEfficiency | 0.7 | closes | 0.000 | 64.955 | 14.011 |
 | P100 | 51.913032 | record | full delivery | clMax | 0.5 | closes | 0.000 | 64.955 | 14.011 |
 | P100 | 51.913032 | record | full delivery | clMax | 1 | closes | 0.000 | 64.955 | 14.011 |
 | P100 | 51.913032 | record | full delivery | clMax | 1.5 | closes | 0.000 | 64.955 | 14.011 |
-| P100 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | -0.000 | 66.529 | 10.092 |
-| P100 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 66.529 | 10.043 |
-| P100 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 2.179 | 66.529 | 9.999 |
-| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.868 | 66.529 | 10.837 |
-| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 66.529 | 10.043 |
-| P100 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 66.529 | 10.156 |
-| P100 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 66.529 | 10.043 |
-| P100 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 66.529 | 10.009 |
+| P100 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 66.517 | 10.074 |
+| P100 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | -0.000 | 66.517 | 10.025 |
+| P100 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 2.178 | 66.517 | 9.982 |
+| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 52.828 | 66.517 | 10.816 |
+| P100 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | -0.000 | 66.517 | 10.025 |
+| P100 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | -0.000 | 66.517 | 10.138 |
+| P100 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | -0.000 | 66.517 | 10.025 |
+| P100 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | -0.000 | 66.517 | 9.991 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 0 | closes | 0.000 | 64.955 | 11.021 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 1 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | verticalCd | 2 | closes | -0.000 | 64.955 | 10.954 |
-| P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 41.174 | 64.955 | 11.817 |
+| P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.55 | does not close | 41.318 | 64.955 | 11.814 |
 | P100 | 51.913032 | favourable | full delivery | rotorEfficiency | 0.7 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | clMax | 0.5 | closes | 0.000 | 64.955 | 11.099 |
 | P100 | 51.913032 | favourable | full delivery | clMax | 1 | closes | 0.000 | 64.955 | 10.984 |
 | P100 | 51.913032 | favourable | full delivery | clMax | 1.5 | closes | 0.000 | 64.955 | 10.947 |
-| P1000 | 2.55029 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 12.461 | 12.190 |
-| P1000 | 2.55029 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 12.461 | 12.419 |
-| P1000 | 2.55029 | record | cheapest found | verticalCd | 2 | does not close | 79.562 | 12.461 | 12.494 |
-| P1000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 90.838 | 12.461 | 14.899 |
-| P1000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 12.461 | 12.419 |
-| P1000 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 12.461 | 12.419 |
-| P1000 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.000 | 12.461 | 12.419 |
-| P1000 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 12.461 | 12.419 |
-| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 12.461 | 10.158 |
-| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 12.461 | 10.428 |
-| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 79.562 | 12.461 | 10.543 |
-| P1000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 90.838 | 12.461 | 12.042 |
-| P1000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 12.461 | 10.428 |
-| P1000 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 12.461 | 10.604 |
-| P1000 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 12.461 | 10.428 |
-| P1000 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 12.461 | 10.370 |
-| P1000 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 14.367 | 15.246 |
-| P1000 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 14.367 | 15.500 |
-| P1000 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | 79.558 | 14.367 | 15.629 |
-| P1000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 91.172 | 14.367 | 18.034 |
-| P1000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 14.367 | 15.500 |
-| P1000 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 14.367 | 15.500 |
-| P1000 | 7.480511 | record | cheapest found | clMax | 1 | closes | 0.000 | 14.367 | 15.500 |
-| P1000 | 7.480511 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 14.367 | 15.500 |
-| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 17.522 | 15.625 |
-| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 17.522 | 15.861 |
-| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | 59.383 | 17.522 | 16.008 |
-| P1000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 92.579 | 17.522 | 18.060 |
-| P1000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 17.522 | 15.861 |
-| P1000 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 17.522 | 16.107 |
-| P1000 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 17.522 | 15.861 |
-| P1000 | 7.480511 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 17.522 | 15.780 |
-| P1000 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 65.346 | 60.628 |
-| P1000 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 65.346 | 60.694 |
-| P1000 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 59.355 | 65.346 | 60.663 |
-| P1000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 97.750 | 65.346 | 69.198 |
-| P1000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 65.346 | 60.694 |
-| P1000 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 65.346 | 60.694 |
-| P1000 | 51.913032 | record | cheapest found | clMax | 1 | closes | 0.000 | 65.346 | 60.694 |
-| P1000 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 65.346 | 60.694 |
-| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 65.346 | 49.899 |
-| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 65.346 | 49.999 |
-| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 59.355 | 65.346 | 49.997 |
-| P1000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 97.750 | 65.346 | 53.837 |
-| P1000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 65.346 | 49.999 |
-| P1000 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 65.346 | 50.427 |
-| P1000 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 65.346 | 49.999 |
-| P1000 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 65.346 | 49.872 |
-| P10000 | 2.55029 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 17.041 | 148.203 |
-| P10000 | 2.55029 | record | cheapest found | verticalCd | 1 | closes | 0.004 | 17.041 | 149.063 |
-| P10000 | 2.55029 | record | cheapest found | verticalCd | 2 | does not close | 359.236 | 17.041 | 149.680 |
-| P10000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 936.572 | 17.041 | 180.390 |
-| P10000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.004 | 17.041 | 149.063 |
-| P10000 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.004 | 17.041 | 149.063 |
-| P10000 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.004 | 17.041 | 149.063 |
-| P10000 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.004 | 17.041 | 149.063 |
-| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 17.041 | 138.146 |
-| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.004 | 17.041 | 139.155 |
-| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 359.236 | 17.041 | 139.913 |
-| P10000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 936.572 | 17.041 | 165.459 |
-| P10000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.004 | 17.041 | 139.155 |
-| P10000 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.004 | 17.041 | 139.975 |
-| P10000 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.004 | 17.041 | 139.155 |
-| P10000 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.004 | 17.041 | 138.907 |
-| P10000 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 18.672 | 162.160 |
-| P10000 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.005 | 18.672 | 163.208 |
-| P10000 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | 359.237 | 18.672 | 164.000 |
-| P10000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 937.004 | 18.672 | 196.501 |
-| P10000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 18.672 | 163.208 |
-| P10000 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | 0.005 | 18.672 | 163.208 |
-| P10000 | 7.480511 | record | cheapest found | clMax | 1 | closes | 0.005 | 18.672 | 163.208 |
-| P10000 | 7.480511 | record | cheapest found | clMax | 1.5 | closes | 0.005 | 18.672 | 163.208 |
-| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 18.672 | 150.220 |
-| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.005 | 18.672 | 151.372 |
-| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | 359.237 | 18.672 | 152.263 |
-| P10000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 937.004 | 18.672 | 178.639 |
-| P10000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 18.672 | 151.372 |
-| P10000 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.005 | 18.672 | 152.195 |
-| P10000 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.005 | 18.672 | 151.372 |
-| P10000 | 7.480511 | favourable | cheapest found | clMax | 1.5 | closes | 0.005 | 18.672 | 151.124 |
-| P10000 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 59.529 | 401.482 |
-| P10000 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | 0.005 | 59.529 | 401.805 |
-| P10000 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 259.550 | 59.529 | 402.009 |
-| P10000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 960.053 | 59.529 | 471.900 |
-| P10000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 59.529 | 401.805 |
-| P10000 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | 0.005 | 59.529 | 401.805 |
-| P10000 | 51.913032 | record | cheapest found | clMax | 1 | closes | 0.005 | 59.529 | 401.805 |
-| P10000 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | 0.005 | 59.529 | 401.805 |
-| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 59.529 | 363.060 |
-| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.005 | 59.529 | 363.463 |
-| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 259.550 | 59.529 | 363.738 |
-| P10000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 960.053 | 59.529 | 413.856 |
-| P10000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 59.529 | 363.463 |
-| P10000 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.005 | 59.529 | 365.034 |
-| P10000 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.005 | 59.529 | 363.463 |
-| P10000 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.005 | 59.529 | 363.006 |
+| P1000 | 2.55029 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 12.457 | 12.163 |
+| P1000 | 2.55029 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 12.457 | 12.392 |
+| P1000 | 2.55029 | record | cheapest found | verticalCd | 2 | does not close | 79.560 | 12.457 | 12.467 |
+| P1000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 90.714 | 12.457 | 14.866 |
+| P1000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 12.457 | 12.392 |
+| P1000 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 12.457 | 12.392 |
+| P1000 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.000 | 12.457 | 12.392 |
+| P1000 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 12.457 | 12.392 |
+| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 12.457 | 10.134 |
+| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 12.457 | 10.404 |
+| P1000 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 79.560 | 12.457 | 10.519 |
+| P1000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 90.714 | 12.457 | 12.014 |
+| P1000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 12.457 | 10.404 |
+| P1000 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 12.457 | 10.580 |
+| P1000 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 12.457 | 10.404 |
+| P1000 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 12.457 | 10.347 |
+| P1000 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 14.362 | 15.218 |
+| P1000 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | -0.000 | 14.362 | 15.471 |
+| P1000 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | 79.556 | 14.362 | 15.600 |
+| P1000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 91.048 | 14.362 | 17.998 |
+| P1000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | -0.000 | 14.362 | 15.471 |
+| P1000 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | -0.000 | 14.362 | 15.471 |
+| P1000 | 7.480511 | record | cheapest found | clMax | 1 | closes | -0.000 | 14.362 | 15.471 |
+| P1000 | 7.480511 | record | cheapest found | clMax | 1.5 | closes | -0.000 | 14.362 | 15.471 |
+| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 17.518 | 15.594 |
+| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 17.518 | 15.831 |
+| P1000 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | 59.383 | 17.518 | 15.977 |
+| P1000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 92.456 | 17.518 | 18.023 |
+| P1000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 17.518 | 15.831 |
+| P1000 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 17.518 | 16.075 |
+| P1000 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 17.518 | 15.831 |
+| P1000 | 7.480511 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 17.518 | 15.750 |
+| P1000 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 65.341 | 60.550 |
+| P1000 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | 0.000 | 65.341 | 60.616 |
+| P1000 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 59.355 | 65.341 | 60.585 |
+| P1000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 97.629 | 65.341 | 69.100 |
+| P1000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 65.341 | 60.616 |
+| P1000 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | 0.000 | 65.341 | 60.616 |
+| P1000 | 51.913032 | record | cheapest found | clMax | 1 | closes | 0.000 | 65.341 | 60.616 |
+| P1000 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | 0.000 | 65.341 | 60.616 |
+| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 65.341 | 49.847 |
+| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.000 | 65.341 | 49.948 |
+| P1000 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 59.355 | 65.341 | 49.946 |
+| P1000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 97.629 | 65.341 | 53.776 |
+| P1000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.000 | 65.341 | 49.948 |
+| P1000 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.000 | 65.341 | 50.375 |
+| P1000 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.000 | 65.341 | 49.948 |
+| P1000 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.000 | 65.341 | 49.821 |
+| P10000 | 2.55029 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 17.038 | 148.089 |
+| P10000 | 2.55029 | record | cheapest found | verticalCd | 1 | closes | 0.005 | 17.038 | 148.948 |
+| P10000 | 2.55029 | record | cheapest found | verticalCd | 2 | does not close | 359.237 | 17.038 | 149.565 |
+| P10000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 936.138 | 17.038 | 180.248 |
+| P10000 | 2.55029 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 17.038 | 148.948 |
+| P10000 | 2.55029 | record | cheapest found | clMax | 0.5 | closes | 0.005 | 17.038 | 148.948 |
+| P10000 | 2.55029 | record | cheapest found | clMax | 1 | closes | 0.005 | 17.038 | 148.948 |
+| P10000 | 2.55029 | record | cheapest found | clMax | 1.5 | closes | 0.005 | 17.038 | 148.948 |
+| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 17.038 | 138.037 |
+| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 1 | closes | 0.005 | 17.038 | 139.046 |
+| P10000 | 2.55029 | favourable | cheapest found | verticalCd | 2 | does not close | 359.237 | 17.038 | 139.804 |
+| P10000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 936.138 | 17.038 | 165.325 |
+| P10000 | 2.55029 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 17.038 | 139.046 |
+| P10000 | 2.55029 | favourable | cheapest found | clMax | 0.5 | closes | 0.005 | 17.038 | 139.866 |
+| P10000 | 2.55029 | favourable | cheapest found | clMax | 1 | closes | 0.005 | 17.038 | 139.046 |
+| P10000 | 2.55029 | favourable | cheapest found | clMax | 1.5 | closes | 0.005 | 17.038 | 138.798 |
+| P10000 | 7.480511 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 18.669 | 162.039 |
+| P10000 | 7.480511 | record | cheapest found | verticalCd | 1 | closes | 0.004 | 18.669 | 163.086 |
+| P10000 | 7.480511 | record | cheapest found | verticalCd | 2 | does not close | 359.236 | 18.669 | 163.878 |
+| P10000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 936.569 | 18.669 | 196.350 |
+| P10000 | 7.480511 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.004 | 18.669 | 163.086 |
+| P10000 | 7.480511 | record | cheapest found | clMax | 0.5 | closes | 0.004 | 18.669 | 163.086 |
+| P10000 | 7.480511 | record | cheapest found | clMax | 1 | closes | 0.004 | 18.669 | 163.086 |
+| P10000 | 7.480511 | record | cheapest found | clMax | 1.5 | closes | 0.004 | 18.669 | 163.086 |
+| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 18.669 | 150.106 |
+| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 1 | closes | 0.004 | 18.669 | 151.258 |
+| P10000 | 7.480511 | favourable | cheapest found | verticalCd | 2 | does not close | 359.236 | 18.669 | 152.149 |
+| P10000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 936.569 | 18.669 | 178.499 |
+| P10000 | 7.480511 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.004 | 18.669 | 151.258 |
+| P10000 | 7.480511 | favourable | cheapest found | clMax | 0.5 | closes | 0.004 | 18.669 | 152.080 |
+| P10000 | 7.480511 | favourable | cheapest found | clMax | 1 | closes | 0.004 | 18.669 | 151.258 |
+| P10000 | 7.480511 | favourable | cheapest found | clMax | 1.5 | closes | 0.004 | 18.669 | 151.010 |
+| P10000 | 51.913032 | record | cheapest found | verticalCd | 0 | closes | 0.000 | 59.526 | 401.249 |
+| P10000 | 51.913032 | record | cheapest found | verticalCd | 1 | closes | 0.005 | 59.526 | 401.572 |
+| P10000 | 51.913032 | record | cheapest found | verticalCd | 2 | does not close | 259.550 | 59.526 | 401.776 |
+| P10000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.55 | does not close | 959.617 | 59.526 | 471.608 |
+| P10000 | 51.913032 | record | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 59.526 | 401.572 |
+| P10000 | 51.913032 | record | cheapest found | clMax | 0.5 | closes | 0.005 | 59.526 | 401.572 |
+| P10000 | 51.913032 | record | cheapest found | clMax | 1 | closes | 0.005 | 59.526 | 401.572 |
+| P10000 | 51.913032 | record | cheapest found | clMax | 1.5 | closes | 0.005 | 59.526 | 401.572 |
+| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 0 | closes | 0.000 | 59.526 | 362.856 |
+| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 1 | closes | 0.005 | 59.526 | 363.260 |
+| P10000 | 51.913032 | favourable | cheapest found | verticalCd | 2 | does not close | 259.550 | 59.526 | 363.535 |
+| P10000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.55 | does not close | 959.617 | 59.526 | 413.609 |
+| P10000 | 51.913032 | favourable | cheapest found | rotorEfficiency | 0.7 | closes | 0.005 | 59.526 | 363.260 |
+| P10000 | 51.913032 | favourable | cheapest found | clMax | 0.5 | closes | 0.005 | 59.526 | 364.829 |
+| P10000 | 51.913032 | favourable | cheapest found | clMax | 1 | closes | 0.005 | 59.526 | 363.260 |
+| P10000 | 51.913032 | favourable | cheapest found | clMax | 1.5 | closes | 0.005 | 59.526 | 362.803 |
 
 The signed screen checks every phase against simultaneous authority in both directions. The full per-phase signed demands at coefficients 0.70 and 1.00 are in the matching JSON. This is a hull-only sampled diagnostic, not dynamic validation. The fleet replays its selected controls at each mission’s exact inputs; this table does not promise interpolation.
 

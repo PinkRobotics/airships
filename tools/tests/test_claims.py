@@ -720,6 +720,22 @@ class ReadmeProducerTest(ClaimsFixture, unittest.TestCase):
         self.assertEqual(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate))['kind'],'stale-generated-region')
 
 
+class ObjectionProducerTest(ClaimsFixture, unittest.TestCase):
+    def test_solar_owner_is_exact_and_refuses_stale_text(self):
+        from claims_rules import Context
+        source='Outside 120 m.\n\n<!-- solar:area:start -->\nCoverage 85%.\n<!-- solar:area:end -->\n'
+        file='research/reports/02-paper.md'
+        self.put(file,source)
+        self.put('tools/gen_solar_prose.py','import json\nprint('+repr(json.dumps({file:source}))+')\n')
+        occ=self.extract();inside=next(o for o in occ if o['raw']=='85')
+        ctx=Context(self.root,[file]);owner,gate=ctx.generator_owner(inside)
+        self.assertEqual(gate,'analysischeck')
+        self.assertIsNone(ctx.generated_issue(inside,claims.entry_for(inside,owner,gate)))
+        self.assertIsNone(ctx.generator_owner(next(o for o in occ if o['raw']=='120')))
+        self.put(file,source.replace('85%','86%'))
+        self.assertEqual(Context(self.root,[file]).generated_issue(inside,claims.entry_for(inside,owner,gate))['kind'],'stale-generated-region')
+
+
 class GeneratedDeferralTest(ClaimsFixture, unittest.TestCase):
     def test_generated_region_cannot_clear_its_recorded_deferral(self):
         from claims_rules import Context

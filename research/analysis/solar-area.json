@@ -1,0 +1,40 @@
+{
+  "generator": "research/analysis/solar-area.mjs",
+  "coverage": {
+    "fraction": 0.85,
+    "basis": "Unvalidated design assumption: 85% of the current projected capsule footprint carries collecting area. No panel layout or yield validation is claimed."
+  },
+  "materialArea": "solarSheetM2 is the independent assumed gross sheet area used by the mass budget. It supplies no extra power credit; curved material area and horizontal projected collection area are different quantities.",
+  "classes": {
+    "P100": {
+      "name": "P-100",
+      "lengthM": 110,
+      "diameterM": 55,
+      "footprintM2": 5400.829444277281,
+      "projectedSolarM2": 4590.705027635689,
+      "projectedFraction": 0.8499999999999999,
+      "grossSheetM2": 6000,
+      "creditedSolarMW": 0.206581726243606
+    },
+    "P1000": {
+      "name": "P-1000",
+      "lengthM": 238,
+      "diameterM": 119,
+      "footprintM2": 25283.023391871266,
+      "projectedSolarM2": 21490.569883090575,
+      "projectedFraction": 0.85,
+      "grossSheetM2": 28000,
+      "creditedSolarMW": 0.9670756447390759
+    },
+    "P10000": {
+      "name": "P-10000",
+      "lengthM": 512,
+      "diameterM": 256,
+      "footprintM2": 117007.85403641517,
+      "projectedSolarM2": 99456.67593095289,
+      "projectedFraction": 0.85,
+      "grossSheetM2": 120000,
+      "creditedSolarMW": 4.4755504168928795
+    }
+  }
+}

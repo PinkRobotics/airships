@@ -452,6 +452,21 @@ def main() -> None:
                        '-s', 'tools/tests', '-p', 'test_loaded_atmosphere.py'], cwd=ROOT).returncode:
         bad.append('loaded-atmosphere counterexample or drift plants failed')
 
+    if subprocess.run(['node', 'research/analysis/solar-area.mjs', '--check'], cwd=ROOT).returncode:
+        bad.append('projected solar areas differ from current capsule geometry')
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_solar_area.py'], cwd=ROOT).returncode:
+        bad.append('solar collector fails to follow a hull dimension change')
+
+    if subprocess.run([sys.executable, '-B', 'tools/gen_solar_prose.py', '--check'], cwd=ROOT).returncode:
+        bad.append('current solar prose differs from generated power and energy')
+
+    if subprocess.run([sys.executable, '-B', 'tools/gen_solar_budget_comparison.py', '--check'], cwd=ROOT).returncode:
+        bad.append('solar budget comparison differs from fresh sizing diagnostics')
+
+    if subprocess.run(['node', 'tools/gen_served_route_selections.mjs', '--check'], cwd=ROOT).returncode:
+        bad.append('captured route inputs have stale served controls')
+
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
     physics = (ROOT / "docs/PHYSICS.md").read_text()

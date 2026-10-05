@@ -15,21 +15,59 @@ REASONS = {
     'A': 'Refined force extrema and both sides of seams replace sampled phase peaks.',
     'B': 'Bisect held force with the least-power split until the available bus is spent.',
     'C': 'Bound return-join acceleration throughout the finite profile search.',
+    'SOLAR': 'Projected solar collection is 85% of each current capsule footprint, an unvalidated coverage assumption; physical sheet area remains a separate material-budget assumption. The table gives class and publication summaries; the [complete per-field movement record](../research/analysis/solar-input-changes.json) includes route records and golden snapshots. Regeneration on an integrated tree can include other model corrections; this publication comparison does not isolate their individual effects.',
 }
 
 
-def changes(old, new, path=''):
+def changes(old, new, path='', published_only=True):
     if isinstance(old, dict) and isinstance(new, dict):
         for key in sorted(old.keys() | new.keys()):
-            yield from changes(old.get(key), new.get(key), path + '.' + key)
+            yield from changes(old.get(key), new.get(key), path + '.' + key, published_only)
     elif isinstance(old, list) and isinstance(new, list):
         for i in range(max(len(old), len(new))):
             yield from changes(old[i] if i < len(old) else None,
-                               new[i] if i < len(new) else None, f'{path}[{i}]')
+                               new[i] if i < len(new) else None, f'{path}[{i}]', published_only)
     elif type(old) in (int, float) and type(new) in (int, float):
         digits = 6 if path.endswith(('.progress', '.rho', '.dragDensity')) else 3
-        if round(old, digits) != round(new, digits):
+        if old != new and (not published_only or round(old, digits) != round(new, digits)):
             yield dict(field=path.lstrip('.'), old=old, new=new, decimals=digits)
+
+
+def changed_text_and_flags(old, new, path=''):
+    if isinstance(old, dict) and isinstance(new, dict):
+        for key in sorted(old.keys() | new.keys()):
+            yield from changed_text_and_flags(old.get(key), new.get(key), path + '.' + key)
+    elif isinstance(old, list) and isinstance(new, list):
+        for i in range(max(len(old), len(new))):
+            yield from changed_text_and_flags(old[i] if i < len(old) else None,
+                                             new[i] if i < len(new) else None, f'{path}[{i}]')
+    elif type(old) is type(new) and old != new and (
+            isinstance(old, bool) or isinstance(old, str) and (re.search(r'\d', old) or re.search(r'\d', new))):
+        yield dict(field=path.lstrip('.'), old=old, new=new)
+
+
+def added_or_removed_numbers(old, new, path=''):
+    if isinstance(old, dict) and isinstance(new, dict):
+        for key in sorted(old.keys() | new.keys()):
+            yield from added_or_removed_numbers(old.get(key), new.get(key), path + '.' + key)
+    elif isinstance(old, list) and isinstance(new, list):
+        for i in range(max(len(old), len(new))):
+            yield from added_or_removed_numbers(old[i] if i < len(old) else None,
+                                                new[i] if i < len(new) else None, f'{path}[{i}]')
+    elif old is None and isinstance(new, (dict, list)):
+        empty = {} if isinstance(new, dict) else []
+        yield from added_or_removed_numbers(empty, new, path)
+    elif new is None and isinstance(old, (dict, list)):
+        empty = {} if isinstance(old, dict) else []
+        yield from added_or_removed_numbers(old, empty, path)
+    elif (type(old) in (int, float) and new is None or
+          old is None and type(new) in (int, float)):
+        yield dict(field=path.lstrip('.'), old=old, new=new)
+
+
+def public_fields(rows):
+    # Phase-position keys use '@'; encode it so paths cannot resemble email addresses.
+    return [dict(row, field=row['field'].replace('%', '%25').replace('@', '%40')) for row in rows]
 
 
 def main():
@@ -53,7 +91,11 @@ def main():
         for row in changes(json.loads(before.read_text()), json.loads(file.read_text())):
             rows.append(dict(file=rel.as_posix(), **row))
     # These generated artifacts also publish model numbers outside the energy directory.
-    for rel in map(Path, ['research/figures.json', 'tests/golden/seed7-snapshot.json', 'tests/golden/ui-seed7-snapshot.json']):
+    extra = ['research/figures.json', 'tests/golden/seed7-snapshot.json', 'tests/golden/ui-seed7-snapshot.json']
+    if args.part == 'SOLAR':
+        extra += ['research/analysis/mass-budget.json', 'research/analysis/water-availability.json',
+                  'research/analysis/delivery.json', 'research/validation/report.json']
+    for rel in map(Path, extra):
         before, after = args.before/rel, args.after/rel
         if before.exists() and after.exists():
             for row in changes(json.loads(before.read_text()), json.loads(after.read_text())):
@@ -64,6 +106,29 @@ def main():
     b = re.search(pattern, (args.after/test).read_text())
     if a and b and a[1] != b[1]:
         rows.append(dict(file=test.as_posix(), field='namedEndurance.worstUnheldT', old=float(a[1]), new=float(b[1]), decimals=9))
+    if args.part == 'SOLAR':
+        complete = ROOT/'research/analysis/solar-input-changes.json'
+        extra_changes=[]; exact=[]; membership=[]
+        for before in sorted(args.before.rglob('*.json')):
+            rel=before.relative_to(args.before);after=args.after/rel
+            if after.exists():
+                exact += [dict(file=rel.as_posix(), **r) for r in
+                          changes(json.loads(before.read_text()), json.loads(after.read_text()), published_only=False)]
+                extra_changes += [dict(file=rel.as_posix(), **r) for r in
+                                  changed_text_and_flags(json.loads(before.read_text()), json.loads(after.read_text()))]
+                membership += [dict(file=rel.as_posix(), **r) for r in
+                               added_or_removed_numbers(json.loads(before.read_text()), json.loads(after.read_text()))]
+        exact += [r for r in rows if r['file']==test.as_posix()]
+        complete.write_text(json.dumps(dict(reason=REASONS['SOLAR'],
+            comparison='Field paths compare publication positions. Candidate-pool changes alter array membership and order; match route and controls before treating a positional flag change as a verdict change for identical inputs.', changes=public_fields(exact),
+            fieldEncoding='Field paths encode percent as %25 and at-sign as %40; percent-decode once to recover the source keys. Values are unchanged.',
+            textAndFlagChanges=public_fields(extra_changes), addedOrRemovedNumericFields=public_fields(membership)), indent=2)+'\n')
+        print(f'Recorded complete solar comparison: {len(exact)} changed numeric fields; '
+              f'{len(membership)} added or removed numeric fields; {len(extra_changes)} text or flag changes.')
+        summaries = {'research/figures.json', 'research/analysis/energy-documents.json',
+                     'research/analysis/delivery.json', test.as_posix()}
+        rows = [r for r in rows if r['file'] in summaries or
+                (r['file'] == 'research/analysis/water-availability.json' and '.byFire[' not in r['field'])]
     data['parts'] = [p for p in data['parts'] if p['part'] != args.part]
     data['parts'].append(dict(part=args.part, reason=REASONS[args.part], changes=rows))
     data['parts'].sort(key=lambda p: p['part'])

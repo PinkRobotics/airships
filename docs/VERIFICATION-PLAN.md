@@ -234,10 +234,12 @@ be fatal:
    BC's off-season is eight months.
 2. **Stored energy at breach.** ~22 GJ on a P-100. The cellular architecture is the mitigation
    and it is untested (E4).
-3. **The energy supply chain.** 100–150 MWh per ship per day at the throughputs quoted here,
-   against 6.5 MWh/day of solar. The tender fleet is named in the README and deliberately never
+<!-- solar:daily:start -->
+3. **The energy supply chain.** 222.9 MWh of supplied effort per P-100 per day at the accepted median-leg rate,
+   against 4.96 MWh/day of assumed solar. The tender fleet is named in the README and deliberately never
    modelled. **Every 24-hour figure in this folder is a claim about the aircraft, not about a
    system shown to supply it.**
+<!-- solar:daily:end -->
 4. **Certification and airspace.** No airworthiness basis exists for a 200 t uncrewed 190 m
    aircraft. The repo names ICAO, FAA and EASA and never names Transport Canada, CARs, NAV
    CANADA, BVLOS or RPAS.
@@ -279,3 +281,7 @@ valve even given an envelope to open. The retraction is kept in place at
 hand-transcribed figures while asserting they were generated. A review caught nine of them
 stale — the exact failure `tools/check_figures_fresh.py` was written to kill, reproduced one
 directory over. `tools/check_analysis.py` now gates them and runs in `make check`.
+
+<!-- solar:budget-reference:start -->
+Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 457,275 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
+<!-- solar:budget-reference:end -->

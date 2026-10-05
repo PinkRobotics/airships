@@ -3,15 +3,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { ASSUMPTIONS, resolveClass, CLASS_IDS } from '../model/config.js?v=d3e69408';
-import { buildLayout } from '../model/layout.js?v=d3e69408';
-import { proxyField } from '../model/density.js?v=d3e69408';
-import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=d3e69408';
-import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=d3e69408';
-import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=d3e69408';
-import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=d3e69408';
-import { defaultState } from '../physics/state.js?v=d3e69408';
-import { dot, len, norm, cross } from '../core/math.js?v=d3e69408';
+import { ASSUMPTIONS, resolveClass, CLASS_IDS } from '../model/config.js?v=91301eab';
+import { buildLayout } from '../model/layout.js?v=91301eab';
+import { proxyField } from '../model/density.js?v=91301eab';
+import { buildActuators, totalThrustN, idealDiscThrust, idealDiscPower } from '../control/actuators.js?v=91301eab';
+import { allocate, clampToEnvelope, demoWrench, solve6 } from '../control/allocator.js?v=91301eab';
+import { massState, forceSet, inertia, angularAccelDegS2, RHO_LN2, ln2VolumeM3 } from '../physics/mass.js?v=91301eab';
+import { energyFlows, derivePower, ln2Ledger, pumpPowerMW } from '../physics/energy.js?v=91301eab';
+import { defaultState } from '../physics/state.js?v=91301eab';
+import { dot, len, norm, cross } from '../core/math.js?v=91301eab';
 
 const rig = (id = 'P100') => {
   const cls = resolveClass(id);

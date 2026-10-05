@@ -43,25 +43,25 @@ The flight model assumes a buoyant fleet for these logistics quotients; this doe
 
 | Class | 15 km worked example t/h | Median leg t/h | Mean accepted fire legs t/h | Mean accepted legs, hectare-weighted t/h |
 |---|---|---|---|---|
-| P-100 | 111.7 | 229.7 | 225.8 | 244.7 |
-| P-1000 | 505.0 | 580.4 | 531.1 | 495.9 |
-| P-10000 | 6,657.8 | 5,178.4 | 5,489.3 | 4,473.7 |
+| P-100 | 111.7 | 229.7 | 225.3 | 243.1 |
+| P-1000 | 503.2 | 578.3 | 528.9 | 493.9 |
+| P-10000 | 6,651.6 | 5,173.4 | 5,484.2 | 4,469.5 |
 
 15 km worked example:
 
 | Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
 |---|---|---|---|---|---|
 | P-100 | 15.00 | ready / rapid | 65.000 | 35.000 | 5.201 |
-| P-1000 | 15.00 | ready / endurance | 215.591 | 784.409 | 26.489 |
-| P-10000 | 15.00 | ready / rapid | 2626.200 | 7373.800 | 200.116 |
+| P-1000 | 15.00 | ready / endurance | 214.790 | 785.210 | 26.444 |
+| P-10000 | 15.00 | ready / rapid | 2623.413 | 7376.587 | 199.983 |
 
 Median leg:
 
 | Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
 |---|---|---|---|---|---|
 | P-100 | 4.71 | ready / rapid | 50.000 | 50.000 | 2.021 |
-| P-1000 | 11.04 | ready / endurance | 206.333 | 793.667 | 22.656 |
-| P-10000 | 23.95 | ready / rapid | 2626.200 | 7373.800 | 237.750 |
+| P-1000 | 11.04 | ready / endurance | 205.529 | 794.471 | 22.616 |
+| P-10000 | 23.95 | ready / rapid | 2623.413 | 7376.587 | 237.606 |
 
 | Class | Accepted fire legs | Not served | Stand-downs | Unavailable |
 |---|---|---|---|---|

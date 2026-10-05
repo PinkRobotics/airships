@@ -17138,6 +17138,378 @@
     "end": "<!-- atmosphere:recovery:end -->"
    },
    "reason": "Reviewed Order 11f: exact qualified reference-atmosphere region and per-class neutral boundary are freshly recomputed by analysischeck; no structural float endorsement."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "6f5d417e60d8c496",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-comparison:start -->",
+    "end": "<!-- solar:budget-comparison:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "eac3dfff95f7c47d",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-comparison:start -->",
+    "end": "<!-- solar:budget-comparison:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "2684621038aa8c03",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "2684621038aa8c03",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement."
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "key": "01b78156a125e2d8",
+   "class": "generated",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:model:start -->",
+    "end": "<!-- energy:model:end -->"
+   },
+   "reason": "Reviewed Order 11f: generated solar-input publication summary, with complete per-field movement record; diagnostic figures remain conditional on plan feasibility."
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "key": "51a85d6713eb374a",
+   "line": 248,
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
+   "region": {
+    "start": "<!-- energy:physics:start -->",
+    "end": "<!-- energy:physics:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "research/reports/02-paper.md",
+   "key": "0927c48cdfc7f881",
+   "line": 249,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate deliver"
+  },
+  {
+   "file": "research/reports/03-diligence.md",
+   "key": "7e4d798e928b5c0a",
+   "line": 76,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate deliver"
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "51a85d6713eb374a",
+   "line": 618,
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
+   "region": {
+    "start": "<!-- energy:question-14:start -->",
+    "end": "<!-- energy:question-14:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "1a39512443a3e6ec",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:question-8:start -->",
+    "end": "<!-- energy:question-8:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 432
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "4d3bbb48ccdb64c7",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:question-15:start -->",
+    "end": "<!-- energy:question-15:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 656
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "0d595a5d191322be",
+   "class": "question",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Open verification requirements enumerate unresolved mooring, energy, certification, lake access and profile checks; station holding is a proposed use requiring proof.",
+   "line": 230
+  },
+  {
+   "file": "concept/index.html",
+   "key": "8b54835eed9c9c95",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   },
+   "line": 870
+  },
+  {
+   "file": "concept/index.html",
+   "key": "0618c93a680402a6",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures reg",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   },
+   "line": 870
+  },
+  {
+   "file": "concept/index.html",
+   "key": "c3832bc6d2ce2558",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   },
+   "line": 870
+  },
+  {
+   "file": "index.html",
+   "key": "8b54835eed9c9c95",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   },
+   "line": 785
+  },
+  {
+   "file": "index.html",
+   "key": "0618c93a680402a6",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck. Energy figures reg",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   },
+   "line": 785
+  },
+  {
+   "file": "index.html",
+   "key": "c3832bc6d2ce2558",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Quasi-static wording and diagnostic pointer clarify the existing model scope; the unchanged quantities retain the same checked bindings or simulation assumption.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   },
+   "line": 785
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "51a85d6713eb374a",
+   "line": 354,
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "research/analysis/energy-omissions.md",
+   "key": "51a85d6713eb374a",
+   "line": 5,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "1a39512443a3e6ec",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 112
+  },
+  {
+   "file": "research/analysis/energy-requirements.md",
+   "key": "1a39512443a3e6ec",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the indepen",
+   "line": 5
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "32e17fc19033d91a",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 290
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "3b6dc9c71e5b3983",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 208
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "4d3bbb48ccdb64c7",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 39
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "6bfba8fc86cd7588",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 270
+  },
+  {
+   "file": "research/analysis/energy-motion.md",
+   "key": "2356adaad1bf13d9",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the indepen",
+   "line": 15
+  },
+  {
+   "file": "research/analysis/energy-unheld.md",
+   "key": "4d3bbb48ccdb64c7",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the indepen",
+   "line": 5
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "49b7e59c30048404",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 1125
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "49b7e59c30048404",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 285
   }
  ],
  "replacements": [
@@ -17536,6 +17908,156 @@
    "oldKey": "5f1cfcb63f141be4",
    "newKey": "a5d040474e6adeb0",
    "reason": "Order 11f: qualify this live model requirement with its computed reference-pressure boundary."
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "oldKey": "bb875fc9630dff24",
+   "newKey": "51a85d6713eb374a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/reports/02-paper.md",
+   "oldKey": "df617d531ce4c71b",
+   "newKey": "0927c48cdfc7f881",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/reports/03-diligence.md",
+   "oldKey": "833fe0560c16639a",
+   "newKey": "7e4d798e928b5c0a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "bb875fc9630dff24",
+   "newKey": "51a85d6713eb374a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "e07ff2ae324a782e",
+   "newKey": "1a39512443a3e6ec",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "75c157a553f8ce66",
+   "newKey": "4d3bbb48ccdb64c7",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "3b00cb50d5ced1f9",
+   "newKey": "0d595a5d191322be",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "b971231eb2960d96",
+   "newKey": "8b54835eed9c9c95",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "d8fd0a0255f4dfc7",
+   "newKey": "0618c93a680402a6",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "463828b53ba9c176",
+   "newKey": "c3832bc6d2ce2558",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "b971231eb2960d96",
+   "newKey": "8b54835eed9c9c95",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "d8fd0a0255f4dfc7",
+   "newKey": "0618c93a680402a6",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "463828b53ba9c176",
+   "newKey": "c3832bc6d2ce2558",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "bb875fc9630dff24",
+   "newKey": "51a85d6713eb374a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/analysis/energy-omissions.md",
+   "oldKey": "bb875fc9630dff24",
+   "newKey": "51a85d6713eb374a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "e07ff2ae324a782e",
+   "newKey": "1a39512443a3e6ec",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/analysis/energy-requirements.md",
+   "oldKey": "e07ff2ae324a782e",
+   "newKey": "1a39512443a3e6ec",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "155bdee399753927",
+   "newKey": "32e17fc19033d91a",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "3a48dd0a8bc6ae56",
+   "newKey": "3b6dc9c71e5b3983",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "75c157a553f8ce66",
+   "newKey": "4d3bbb48ccdb64c7",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "oldKey": "7ce88483f4562efc",
+   "newKey": "6bfba8fc86cd7588",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/analysis/energy-motion.md",
+   "oldKey": "2f6897f0edc93c67",
+   "newKey": "2356adaad1bf13d9",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "research/analysis/energy-unheld.md",
+   "oldKey": "75c157a553f8ce66",
+   "newKey": "4d3bbb48ccdb64c7",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "2684621038aa8c03",
+   "newKey": "49b7e59c30048404",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "2684621038aa8c03",
+   "newKey": "49b7e59c30048404",
+   "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
   }
  ]
 }

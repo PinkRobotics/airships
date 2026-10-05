@@ -32,5 +32,5 @@ for(const r of data.rows){
  }
 }
 const named=planCycle(CLASSES.P100,MODES.endurance,15,null,{basis:'favourable'});
-assert.equal(named.feasible,false);assert.ok(Math.abs(named.worst.unheldT-1.927956588)<1e-8);
+assert.equal(named.feasible,false);assert.ok(Math.abs(named.worst.unheldT-2.135058508)<1e-8);
 console.log(`PASS unheld table: ${data.rows.length} rows, ${count} failing phases; named case stays infeasible, ${named.worst.unheldT.toFixed(9)} t unheld.`);

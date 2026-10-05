@@ -90,5 +90,15 @@ class ReportLinks(unittest.TestCase):
                     self.assertIn(route + 'index.html' if route.endswith('/') else route, published(ROOT))
 
 
+class SolarMarkers(unittest.TestCase):
+    def test_checked_solar_markers_keep_prose_and_unknown_comments_fail(self):
+        text='<!-- solar:area:start -->85% coverage<!-- solar:area:end -->'
+        converted=md2tex.inline(text, set(), 'report')
+        self.assertIn('85', converted)
+        self.assertNotIn('<!--', converted)
+        with self.assertRaises(SystemExit):
+            md2tex.inline('85% <!-- solar:unknown:start -->', set(), 'report')
+
+
 if __name__ == '__main__':
     unittest.main()

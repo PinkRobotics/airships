@@ -1102,21 +1102,492 @@ Bound return-join acceleration throughout the finite profile search.
 | tests/golden/seed7-snapshot.json#plans[35].eCycleMWh | 6.642 | 6.644 |
 | tests/golden/seed7-snapshot.json#plans[35].kwhPerTonne | 66.419 | 66.439 |
 
+### Part SOLAR
+
+Projected solar collection is 85% of each current capsule footprint, an unvalidated coverage assumption; physical sheet area remains a separate material-budget assumption. The table gives class and publication summaries; the [complete per-field movement record](../research/analysis/solar-input-changes.json) includes route records and golden snapshots. Regeneration on an integrated tree can include other model corrections; this publication comparison does not isolate their individual effects.
+
+| Generated record and field | Earlier | Current |
+|---|---|---|
+| research/analysis/energy-documents.json#classes[0].groundSolarDays | 24.641 | 58.189 |
+| research/analysis/energy-documents.json#classes[0].solarMW | 0.270 | 0.207 |
+| research/analysis/energy-documents.json#classes[0].tankSolarDays | 26.420 | 62.390 |
+| research/analysis/energy-documents.json#classes[1].groundSolarDays | 58.924 | 162.233 |
+| research/analysis/energy-documents.json#classes[1].solarMW | 1.260 | 0.967 |
+| research/analysis/energy-documents.json#classes[1].tankSolarDays | 63.179 | 173.948 |
+| research/analysis/energy-documents.json#classes[2].groundSolarDays | 112.939 | 183.696 |
+| research/analysis/energy-documents.json#classes[2].solarMW | 5.400 | 4.476 |
+| research/analysis/energy-documents.json#classes[2].tankSolarDays | 121.094 | 196.960 |
+| research/analysis/energy-documents.json#readmeExamples[0].cycleMWh | 694.378 | 694.174 |
+| research/analysis/energy-documents.json#readmeExamples[0].hoursOnBattery | 2.198 | 2.196 |
+| research/analysis/energy-documents.json#readmeExamples[0].kwhPerTonne | 69.438 | 69.417 |
+| research/analysis/energy-documents.json#readmeExamples[0].peakRotorMW | 1405.710 | 1404.786 |
+| research/analysis/energy-documents.json#readmeExamples[0].worst.unheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#readmeExamples[1].cycleMWh | 766.285 | 765.904 |
+| research/analysis/energy-documents.json#readmeExamples[1].kwhPerTonne | 76.629 | 76.590 |
+| research/analysis/energy-documents.json#readmeExamples[1].peakRotorMW | 1405.710 | 1404.786 |
+| research/analysis/energy-documents.json#readmeExamples[1].worst.unheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#readmeExamples[2].cycleMWh | 976.506 | 976.302 |
+| research/analysis/energy-documents.json#readmeExamples[2].hoursOnBattery | 2.685 | 2.682 |
+| research/analysis/energy-documents.json#readmeExamples[2].kwhPerTonne | 97.651 | 97.630 |
+| research/analysis/energy-documents.json#readmeExamples[2].peakRotorMW | 1419.393 | 1418.469 |
+| research/analysis/energy-documents.json#readmeExamples[2].worst.unheldT | 6998.258 | 7001.076 |
+| research/analysis/energy-documents.json#readmeExamples[3].cycleMWh | 1178.889 | 1178.435 |
+| research/analysis/energy-documents.json#readmeExamples[3].hoursOnBattery | 2.221 | 2.220 |
+| research/analysis/energy-documents.json#readmeExamples[3].kwhPerTonne | 117.889 | 117.844 |
+| research/analysis/energy-documents.json#readmeExamples[3].peakRotorMW | 1419.393 | 1418.469 |
+| research/analysis/energy-documents.json#readmeExamples[3].worst.unheldT | 6998.258 | 7001.076 |
+| research/analysis/energy-documents.json#records[0].asDrawn.cycleMWh | 8.192 | 8.189 |
+| research/analysis/energy-documents.json#records[0].asDrawn.hoursOnBattery | 1.418 | 1.412 |
+| research/analysis/energy-documents.json#records[0].asDrawn.kwhPerTonne | 81.923 | 81.892 |
+| research/analysis/energy-documents.json#records[0].asDrawn.peakRotorMW | 31.475 | 31.411 |
+| research/analysis/energy-documents.json#records[0].asDrawn.worst.progress | 0.810707 | 0.810716 |
+| research/analysis/energy-documents.json#records[0].asDrawn.worst.unheldT | 34.556 | 34.759 |
+| research/analysis/energy-documents.json#records[0].channels.rotors | 6.896 | 6.893 |
+| research/analysis/energy-documents.json#records[0].letdownMWh | 2.305 | 2.302 |
+| research/analysis/energy-documents.json#records[0].phaseEnergy.RETURN_TRANSIT | 4.409 | 4.407 |
+| research/analysis/energy-documents.json#records[0].solarMWh | 0.154 | 0.118 |
+| research/analysis/energy-documents.json#records[1].asDrawn.cycleMWh | 6.402 | 6.401 |
+| research/analysis/energy-documents.json#records[1].asDrawn.hoursOnBattery | 1.824 | 1.814 |
+| research/analysis/energy-documents.json#records[1].asDrawn.kwhPerTonne | 64.017 | 64.011 |
+| research/analysis/energy-documents.json#records[1].asDrawn.peakRotorMW | 31.475 | 31.411 |
+| research/analysis/energy-documents.json#records[1].letdownMWh | 1.443 | 1.442 |
+| research/analysis/energy-documents.json#records[1].phaseEnergy.SOURCE_APPROACH | 0.934 | 0.933 |
+| research/analysis/energy-documents.json#records[1].solarMWh | 0.154 | 0.118 |
+| research/analysis/energy-documents.json#records[2].asDrawn.hoursOnBattery | 1.742 | 1.732 |
+| research/analysis/energy-documents.json#records[2].solarMWh | 0.472 | 0.361 |
+| research/analysis/energy-documents.json#records[3].asDrawn.hoursOnBattery | 2.444 | 2.425 |
+| research/analysis/energy-documents.json#records[3].solarMWh | 0.472 | 0.361 |
+| research/analysis/energy-documents.json#records[4].asDrawn.cycleMWh | 62.314 | 62.251 |
+| research/analysis/energy-documents.json#records[4].asDrawn.hoursOnBattery | 1.149 | 1.147 |
+| research/analysis/energy-documents.json#records[4].asDrawn.kwhPerTonne | 62.314 | 62.251 |
+| research/analysis/energy-documents.json#records[4].asDrawn.peakRotorMW | 153.796 | 153.504 |
+| research/analysis/energy-documents.json#records[4].asDrawn.worst.unheldT | 818.465 | 819.257 |
+| research/analysis/energy-documents.json#records[4].channels.rotors | 54.910 | 54.846 |
+| research/analysis/energy-documents.json#records[4].letdownMWh | 11.572 | 11.548 |
+| research/analysis/energy-documents.json#records[4].phaseEnergy.BUOYANCY_ESCAPE | 4.950 | 4.943 |
+| research/analysis/energy-documents.json#records[4].phaseEnergy.RETURN_TRANSIT | 22.956 | 22.942 |
+| research/analysis/energy-documents.json#records[4].phaseEnergy.SOURCE_APPROACH | 6.201 | 6.189 |
+| research/analysis/energy-documents.json#records[4].phaseEnergy.WATER_FILL | 12.217 | 12.202 |
+| research/analysis/energy-documents.json#records[4].phaseEnergy.WATER_RELEASE | 11.501 | 11.485 |
+| research/analysis/energy-documents.json#records[4].solarMWh | 0.743 | 0.570 |
+| research/analysis/energy-documents.json#records[5].asDrawn.cycleMWh | 61.355 | 61.259 |
+| research/analysis/energy-documents.json#records[5].asDrawn.hoursOnBattery | 1.167 | 1.165 |
+| research/analysis/energy-documents.json#records[5].asDrawn.kwhPerTonne | 61.355 | 61.259 |
+| research/analysis/energy-documents.json#records[5].asDrawn.peakRotorMW | 153.796 | 153.504 |
+| research/analysis/energy-documents.json#records[5].asDrawn.worst.unheldT | 818.465 | 819.257 |
+| research/analysis/energy-documents.json#records[5].channels.prop | 13.795 | 13.774 |
+| research/analysis/energy-documents.json#records[5].channels.rotors | 43.189 | 43.113 |
+| research/analysis/energy-documents.json#records[5].letdownMWh | 9.319 | 9.299 |
+| research/analysis/energy-documents.json#records[5].phaseEnergy.BUOYANCY_ESCAPE | 5.042 | 5.032 |
+| research/analysis/energy-documents.json#records[5].phaseEnergy.RETURN_TRANSIT | 24.266 | 24.219 |
+| research/analysis/energy-documents.json#records[5].phaseEnergy.SOURCE_APPROACH | 6.201 | 6.189 |
+| research/analysis/energy-documents.json#records[5].phaseEnergy.WATER_FILL | 12.217 | 12.202 |
+| research/analysis/energy-documents.json#records[5].phaseEnergy.WATER_RELEASE | 10.726 | 10.712 |
+| research/analysis/energy-documents.json#records[5].solarMWh | 0.743 | 0.570 |
+| research/analysis/energy-documents.json#records[6].asDrawn.cycleMWh | 141.533 | 141.451 |
+| research/analysis/energy-documents.json#records[6].asDrawn.hoursOnBattery | 1.334 | 1.331 |
+| research/analysis/energy-documents.json#records[6].asDrawn.kwhPerTonne | 141.533 | 141.451 |
+| research/analysis/energy-documents.json#records[6].asDrawn.peakRotorMW | 165.925 | 165.632 |
+| research/analysis/energy-documents.json#records[6].asDrawn.worst.unheldT | 768.406 | 769.180 |
+| research/analysis/energy-documents.json#records[6].channels.rotors | 116.474 | 116.391 |
+| research/analysis/energy-documents.json#records[6].letdownMWh | 28.433 | 28.387 |
+| research/analysis/energy-documents.json#records[6].phaseEnergy.BUOYANCY_ESCAPE | 4.952 | 4.945 |
+| research/analysis/energy-documents.json#records[6].phaseEnergy.RETURN_TRANSIT | 91.689 | 91.654 |
+| research/analysis/energy-documents.json#records[6].phaseEnergy.SOURCE_APPROACH | 6.625 | 6.614 |
+| research/analysis/energy-documents.json#records[6].phaseEnergy.WATER_FILL | 12.870 | 12.857 |
+| research/analysis/energy-documents.json#records[6].phaseEnergy.WATER_RELEASE | 11.501 | 11.485 |
+| research/analysis/energy-documents.json#records[6].solarMWh | 1.955 | 1.501 |
+| research/analysis/energy-documents.json#records[7].asDrawn.cycleMWh | 142.484 | 142.271 |
+| research/analysis/energy-documents.json#records[7].asDrawn.hoursOnBattery | 1.325 | 1.323 |
+| research/analysis/energy-documents.json#records[7].asDrawn.kwhPerTonne | 142.484 | 142.271 |
+| research/analysis/energy-documents.json#records[7].asDrawn.peakRotorMW | 165.925 | 165.632 |
+| research/analysis/energy-documents.json#records[7].asDrawn.worst.unheldT | 768.406 | 769.180 |
+| research/analysis/energy-documents.json#records[7].channels.prop | 48.970 | 48.902 |
+| research/analysis/energy-documents.json#records[7].channels.rotors | 80.226 | 80.081 |
+| research/analysis/energy-documents.json#records[7].letdownMWh | 19.757 | 19.711 |
+| research/analysis/energy-documents.json#records[7].phaseEnergy.BUOYANCY_ESCAPE | 5.042 | 5.032 |
+| research/analysis/energy-documents.json#records[7].phaseEnergy.RETURN_TRANSIT | 97.026 | 96.860 |
+| research/analysis/energy-documents.json#records[7].phaseEnergy.SOURCE_APPROACH | 6.625 | 6.614 |
+| research/analysis/energy-documents.json#records[7].phaseEnergy.WATER_FILL | 12.870 | 12.857 |
+| research/analysis/energy-documents.json#records[7].phaseEnergy.WATER_RELEASE | 10.726 | 10.712 |
+| research/analysis/energy-documents.json#records[7].solarMWh | 1.955 | 1.501 |
+| research/analysis/energy-documents.json#records[8].asDrawn.cycleMWh | 694.378 | 694.174 |
+| research/analysis/energy-documents.json#records[8].asDrawn.hoursOnBattery | 2.198 | 2.196 |
+| research/analysis/energy-documents.json#records[8].asDrawn.kwhPerTonne | 69.438 | 69.417 |
+| research/analysis/energy-documents.json#records[8].asDrawn.peakRotorMW | 1405.710 | 1404.786 |
+| research/analysis/energy-documents.json#records[8].asDrawn.worst.unheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#records[8].channels.rotors | 652.671 | 652.467 |
+| research/analysis/energy-documents.json#records[8].letdownMWh | 117.219 | 117.168 |
+| research/analysis/energy-documents.json#records[8].phaseEnergy.BUOYANCY_ESCAPE | 41.117 | 41.103 |
+| research/analysis/energy-documents.json#records[8].phaseEnergy.RETURN_TRANSIT | 114.038 | 114.037 |
+| research/analysis/energy-documents.json#records[8].phaseEnergy.SOURCE_APPROACH | 87.524 | 87.475 |
+| research/analysis/energy-documents.json#records[8].phaseEnergy.WATER_FILL | 214.046 | 213.959 |
+| research/analysis/energy-documents.json#records[8].phaseEnergy.WATER_RELEASE | 205.208 | 205.156 |
+| research/analysis/energy-documents.json#records[8].solarMWh | 4.096 | 3.395 |
+| research/analysis/energy-documents.json#records[9].asDrawn.cycleMWh | 766.285 | 765.904 |
+| research/analysis/energy-documents.json#records[9].asDrawn.kwhPerTonne | 76.629 | 76.590 |
+| research/analysis/energy-documents.json#records[9].asDrawn.peakRotorMW | 1405.710 | 1404.786 |
+| research/analysis/energy-documents.json#records[9].asDrawn.worst.unheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#records[9].channels.prop | 114.142 | 114.014 |
+| research/analysis/energy-documents.json#records[9].channels.rotors | 630.390 | 630.138 |
+| research/analysis/energy-documents.json#records[9].letdownMWh | 116.531 | 116.470 |
+| research/analysis/energy-documents.json#records[9].phaseEnergy.BUOYANCY_ESCAPE | 46.787 | 46.761 |
+| research/analysis/energy-documents.json#records[9].phaseEnergy.RETURN_TRANSIT | 190.778 | 190.653 |
+| research/analysis/energy-documents.json#records[9].phaseEnergy.SOURCE_APPROACH | 87.661 | 87.606 |
+| research/analysis/energy-documents.json#records[9].phaseEnergy.WATER_FILL | 214.046 | 213.959 |
+| research/analysis/energy-documents.json#records[9].phaseEnergy.WATER_RELEASE | 200.785 | 200.698 |
+| research/analysis/energy-documents.json#records[9].solarMWh | 4.096 | 3.395 |
+| research/analysis/energy-documents.json#records[10].asDrawn.cycleMWh | 1113.855 | 1113.650 |
+| research/analysis/energy-documents.json#records[10].asDrawn.hoursOnBattery | 2.846 | 2.843 |
+| research/analysis/energy-documents.json#records[10].asDrawn.kwhPerTonne | 111.385 | 111.365 |
+| research/analysis/energy-documents.json#records[10].asDrawn.peakRotorMW | 1426.235 | 1425.310 |
+| research/analysis/energy-documents.json#records[10].asDrawn.worst.unheldT | 6960.523 | 6963.338 |
+| research/analysis/energy-documents.json#records[10].channels.rotors | 990.500 | 990.295 |
+| research/analysis/energy-documents.json#records[10].letdownMWh | 218.149 | 218.096 |
+| research/analysis/energy-documents.json#records[10].phaseEnergy.BUOYANCY_ESCAPE | 41.182 | 41.168 |
+| research/analysis/energy-documents.json#records[10].phaseEnergy.RETURN_TRANSIT | 465.681 | 465.676 |
+| research/analysis/energy-documents.json#records[10].phaseEnergy.SOURCE_APPROACH | 88.429 | 88.380 |
+| research/analysis/energy-documents.json#records[10].phaseEnergy.WATER_FILL | 215.650 | 215.565 |
+| research/analysis/energy-documents.json#records[10].phaseEnergy.WATER_RELEASE | 205.208 | 205.156 |
+| research/analysis/energy-documents.json#records[10].solarMWh | 8.494 | 7.040 |
+| research/analysis/energy-documents.json#records[11].asDrawn.cycleMWh | 1386.308 | 1385.793 |
+| research/analysis/energy-documents.json#records[11].asDrawn.hoursOnBattery | 2.283 | 2.282 |
+| research/analysis/energy-documents.json#records[11].asDrawn.kwhPerTonne | 138.631 | 138.579 |
+| research/analysis/energy-documents.json#records[11].asDrawn.peakRotorMW | 1426.235 | 1425.310 |
+| research/analysis/energy-documents.json#records[11].asDrawn.worst.unheldT | 6960.523 | 6963.338 |
+| research/analysis/energy-documents.json#records[11].channels.prop | 382.918 | 382.673 |
+| research/analysis/energy-documents.json#records[11].channels.rotors | 956.133 | 955.863 |
+| research/analysis/energy-documents.json#records[11].letdownMWh | 216.463 | 216.383 |
+| research/analysis/energy-documents.json#records[11].phaseEnergy.BUOYANCY_ESCAPE | 46.786 | 46.760 |
+| research/analysis/energy-documents.json#records[11].phaseEnergy.RETURN_TRANSIT | 749.322 | 749.061 |
+| research/analysis/energy-documents.json#records[11].phaseEnergy.SOURCE_APPROACH | 88.693 | 88.638 |
+| research/analysis/energy-documents.json#records[11].phaseEnergy.WATER_FILL | 215.650 | 215.565 |
+| research/analysis/energy-documents.json#records[11].phaseEnergy.WATER_RELEASE | 200.785 | 200.698 |
+| research/analysis/energy-documents.json#records[11].solarMWh | 8.494 | 7.040 |
+| research/analysis/energy-documents.json#sensitivity[0].rows[0].worstUnheldT | 7962.261 | 7964.681 |
+| research/analysis/energy-documents.json#sensitivity[0].rows[1].energyPct | -4.070 | -4.069 |
+| research/analysis/energy-documents.json#sensitivity[0].rows[1].worstUnheldT | 6238.393 | 6241.601 |
+| research/analysis/energy-documents.json#sensitivity[1].rows[0].energyPct | -0.573 | -0.574 |
+| research/analysis/energy-documents.json#sensitivity[1].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[1].rows[1].energyPct | 0.573 | 0.574 |
+| research/analysis/energy-documents.json#sensitivity[1].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[2].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[2].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[3].rows[0].worstUnheldT | 7076.519 | 7079.347 |
+| research/analysis/energy-documents.json#sensitivity[3].rows[1].worstUnheldT | 7072.019 | 7074.846 |
+| research/analysis/energy-documents.json#sensitivity[4].rows[0].worstUnheldT | 7072.661 | 7075.487 |
+| research/analysis/energy-documents.json#sensitivity[4].rows[1].worstUnheldT | 7050.832 | 7053.663 |
+| research/analysis/energy-documents.json#sensitivity[5].rows[0].energyPct | -33.632 | -33.629 |
+| research/analysis/energy-documents.json#sensitivity[5].rows[0].worstUnheldT | 2825.763 | 2828.403 |
+| research/analysis/energy-documents.json#sensitivity[5].rows[1].energyPct | 27.982 | 27.970 |
+| research/analysis/energy-documents.json#sensitivity[5].rows[1].worstUnheldT | 11375.223 | 11378.211 |
+| research/analysis/energy-documents.json#sensitivity[6].rows[0].worstUnheldT | 7078.004 | 7080.832 |
+| research/analysis/energy-documents.json#sensitivity[6].rows[1].worstUnheldT | 7069.636 | 7072.462 |
+| research/analysis/energy-documents.json#sensitivity[7].rows[0].worstUnheldT | 7069.596 | 7072.423 |
+| research/analysis/energy-documents.json#sensitivity[7].rows[1].worstUnheldT | 7076.634 | 7079.461 |
+| research/analysis/energy-documents.json#sensitivity[8].rows[0].energyPct | -0.034 | -0.028 |
+| research/analysis/energy-documents.json#sensitivity[8].rows[0].worstUnheldT | 7077.122 | 7079.384 |
+| research/analysis/energy-documents.json#sensitivity[8].rows[1].energyPct | 0.034 | 0.028 |
+| research/analysis/energy-documents.json#sensitivity[8].rows[1].worstUnheldT | 7070.517 | 7073.909 |
+| research/analysis/energy-documents.json#sensitivity[9].rows[0].energyPct | 8.241 | 8.243 |
+| research/analysis/energy-documents.json#sensitivity[9].rows[0].worstUnheldT | 7064.367 | 7067.193 |
+| research/analysis/energy-documents.json#sensitivity[9].rows[1].worstUnheldT | 7080.121 | 7082.949 |
+| research/analysis/energy-documents.json#sensitivity[10].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[10].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[11].rows[0].energyPct | 0.632 | 0.626 |
+| research/analysis/energy-documents.json#sensitivity[11].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[11].rows[1].energyPct | -0.945 | -0.943 |
+| research/analysis/energy-documents.json#sensitivity[11].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[12].rows[0].energyPct | 15.662 | 15.654 |
+| research/analysis/energy-documents.json#sensitivity[12].rows[0].worstUnheldT | 7071.659 | 7074.486 |
+| research/analysis/energy-documents.json#sensitivity[12].rows[1].energyPct | -10.700 | -10.699 |
+| research/analysis/energy-documents.json#sensitivity[12].rows[1].worstUnheldT | 7075.979 | 7078.806 |
+| research/analysis/energy-documents.json#sensitivity[13].rows[0].energyPct | -36.384 | -36.380 |
+| research/analysis/energy-documents.json#sensitivity[13].rows[1].energyPct | 29.956 | 29.942 |
+| research/analysis/energy-documents.json#sensitivity[13].rows[1].worstUnheldT | 11627.482 | 11630.309 |
+| research/analysis/energy-documents.json#sensitivity[14].rows[0].energyPct | 4.035 | 4.034 |
+| research/analysis/energy-documents.json#sensitivity[14].rows[0].worstUnheldT | 7431.335 | 7433.975 |
+| research/analysis/energy-documents.json#sensitivity[14].rows[1].energyPct | -3.384 | -3.382 |
+| research/analysis/energy-documents.json#sensitivity[14].rows[1].worstUnheldT | 6769.651 | 6772.639 |
+| research/analysis/energy-documents.json#sensitivity[15].rows[0].energyPct | -15.229 | -15.237 |
+| research/analysis/energy-documents.json#sensitivity[15].rows[0].worstUnheldT | 7958.524 | 7961.549 |
+| research/analysis/energy-documents.json#sensitivity[15].rows[1].energyPct | 14.003 | 14.011 |
+| research/analysis/energy-documents.json#sensitivity[15].rows[1].worstUnheldT | 6241.696 | 6244.370 |
+| research/analysis/energy-documents.json#sensitivity[16].rows[0].worstUnheldT | 7103.872 | 7106.767 |
+| research/analysis/energy-documents.json#sensitivity[16].rows[1].energyPct | -0.594 | -0.593 |
+| research/analysis/energy-documents.json#sensitivity[16].rows[1].worstUnheldT | 7001.267 | 7004.036 |
+| research/analysis/energy-documents.json#sensitivity[17].rows[0].energyPct | -0.034 | -0.028 |
+| research/analysis/energy-documents.json#sensitivity[17].rows[0].worstUnheldT | 7077.122 | 7079.384 |
+| research/analysis/energy-documents.json#sensitivity[17].rows[1].energyPct | 0.034 | 0.028 |
+| research/analysis/energy-documents.json#sensitivity[17].rows[1].worstUnheldT | 7070.517 | 7073.909 |
+| research/analysis/energy-documents.json#sensitivity[18].rows[0].energyPct | 4.926 | 4.924 |
+| research/analysis/energy-documents.json#sensitivity[18].rows[0].worstUnheldT | 7962.261 | 7964.681 |
+| research/analysis/energy-documents.json#sensitivity[18].rows[1].energyPct | -7.118 | -7.104 |
+| research/analysis/energy-documents.json#sensitivity[18].rows[1].worstUnheldT | 6238.393 | 6241.601 |
+| research/analysis/energy-documents.json#sensitivity[19].rows[0].energyPct | -0.243 | -0.244 |
+| research/analysis/energy-documents.json#sensitivity[19].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[19].rows[1].energyPct | 0.243 | 0.244 |
+| research/analysis/energy-documents.json#sensitivity[19].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[20].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[20].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[21].rows[0].worstUnheldT | 7076.519 | 7079.347 |
+| research/analysis/energy-documents.json#sensitivity[21].rows[1].worstUnheldT | 7072.019 | 7074.846 |
+| research/analysis/energy-documents.json#sensitivity[22].rows[0].worstUnheldT | 7072.661 | 7075.487 |
+| research/analysis/energy-documents.json#sensitivity[22].rows[1].worstUnheldT | 7050.832 | 7053.663 |
+| research/analysis/energy-documents.json#sensitivity[23].rows[0].energyPct | -41.471 | -41.457 |
+| research/analysis/energy-documents.json#sensitivity[23].rows[0].worstUnheldT | 2825.763 | 2828.403 |
+| research/analysis/energy-documents.json#sensitivity[23].rows[1].energyPct | 25.441 | 25.432 |
+| research/analysis/energy-documents.json#sensitivity[23].rows[1].worstUnheldT | 11375.223 | 11378.211 |
+| research/analysis/energy-documents.json#sensitivity[24].rows[0].worstUnheldT | 7078.004 | 7080.832 |
+| research/analysis/energy-documents.json#sensitivity[24].rows[1].worstUnheldT | 7069.636 | 7072.462 |
+| research/analysis/energy-documents.json#sensitivity[25].rows[0].worstUnheldT | 7069.596 | 7072.423 |
+| research/analysis/energy-documents.json#sensitivity[25].rows[1].worstUnheldT | 7076.634 | 7079.461 |
+| research/analysis/energy-documents.json#sensitivity[26].rows[0].energyPct | -0.058 | -0.048 |
+| research/analysis/energy-documents.json#sensitivity[26].rows[0].worstUnheldT | 7077.122 | 7079.384 |
+| research/analysis/energy-documents.json#sensitivity[26].rows[1].energyPct | 0.058 | 0.048 |
+| research/analysis/energy-documents.json#sensitivity[26].rows[1].worstUnheldT | 7070.517 | 7073.909 |
+| research/analysis/energy-documents.json#sensitivity[27].rows[0].worstUnheldT | 7064.367 | 7067.193 |
+| research/analysis/energy-documents.json#sensitivity[27].rows[1].energyPct | -4.149 | -4.146 |
+| research/analysis/energy-documents.json#sensitivity[27].rows[1].worstUnheldT | 7080.121 | 7082.949 |
+| research/analysis/energy-documents.json#sensitivity[28].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[28].rows[1].energyPct | -1.251 | -1.252 |
+| research/analysis/energy-documents.json#sensitivity[28].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[29].rows[0].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[29].rows[1].energyPct | -0.723 | -0.720 |
+| research/analysis/energy-documents.json#sensitivity[29].rows[1].worstUnheldT | 7073.819 | 7076.646 |
+| research/analysis/energy-documents.json#sensitivity[30].rows[0].energyPct | 14.095 | 14.096 |
+| research/analysis/energy-documents.json#sensitivity[30].rows[0].worstUnheldT | 7071.659 | 7074.486 |
+| research/analysis/energy-documents.json#sensitivity[30].rows[1].energyPct | -9.490 | -9.488 |
+| research/analysis/energy-documents.json#sensitivity[30].rows[1].worstUnheldT | 7075.979 | 7078.806 |
+| research/analysis/energy-documents.json#sensitivity[31].rows[0].energyPct | -45.989 | -45.974 |
+| research/analysis/energy-documents.json#sensitivity[31].rows[1].energyPct | 26.837 | 26.827 |
+| research/analysis/energy-documents.json#sensitivity[31].rows[1].worstUnheldT | 11627.482 | 11630.309 |
+| research/analysis/energy-documents.json#sensitivity[32].rows[0].energyPct | 2.471 | 2.470 |
+| research/analysis/energy-documents.json#sensitivity[32].rows[0].worstUnheldT | 7431.335 | 7433.975 |
+| research/analysis/energy-documents.json#sensitivity[32].rows[1].energyPct | -2.902 | -2.888 |
+| research/analysis/energy-documents.json#sensitivity[32].rows[1].worstUnheldT | 6769.651 | 6772.639 |
+| research/analysis/energy-documents.json#sensitivity[33].rows[0].energyPct | -15.868 | -15.881 |
+| research/analysis/energy-documents.json#sensitivity[33].rows[0].worstUnheldT | 7958.524 | 7961.549 |
+| research/analysis/energy-documents.json#sensitivity[33].rows[1].energyPct | 11.090 | 11.113 |
+| research/analysis/energy-documents.json#sensitivity[33].rows[1].worstUnheldT | 6241.696 | 6244.370 |
+| research/analysis/energy-documents.json#sensitivity[34].rows[0].energyPct | 0.848 | 0.847 |
+| research/analysis/energy-documents.json#sensitivity[34].rows[0].worstUnheldT | 7103.872 | 7106.767 |
+| research/analysis/energy-documents.json#sensitivity[34].rows[1].worstUnheldT | 7001.267 | 7004.036 |
+| research/analysis/energy-documents.json#sensitivity[35].rows[0].energyPct | -0.058 | -0.048 |
+| research/analysis/energy-documents.json#sensitivity[35].rows[0].worstUnheldT | 7077.122 | 7079.384 |
+| research/analysis/energy-documents.json#sensitivity[35].rows[1].energyPct | 0.058 | 0.048 |
+| research/analysis/energy-documents.json#sensitivity[35].rows[1].worstUnheldT | 7070.517 | 7073.909 |
+| research/figures.json#classes.P100.bases.favourable.cycleMWh | 6.402 | 6.401 |
+| research/figures.json#classes.P100.bases.favourable.hoursOnBattery | 1.824 | 1.814 |
+| research/figures.json#classes.P100.bases.favourable.kwhPerTonne | 64.017 | 64.011 |
+| research/figures.json#classes.P100.bases.favourable.peakRotorMW | 31.475 | 31.411 |
+| research/figures.json#classes.P100.bases.record.cycleMWh | 8.192 | 8.189 |
+| research/figures.json#classes.P100.bases.record.hoursOnBattery | 1.418 | 1.412 |
+| research/figures.json#classes.P100.bases.record.kwhPerTonne | 81.923 | 81.892 |
+| research/figures.json#classes.P100.bases.record.peakRotorMW | 31.475 | 31.411 |
+| research/figures.json#classes.P100.bases.record.worst.progress | 0.810707 | 0.810716 |
+| research/figures.json#classes.P100.bases.record.worst.unheldT | 34.556 | 34.759 |
+| research/figures.json#classes.P100.cycle.eCycleMWh | 8.192 | 8.189 |
+| research/figures.json#classes.P100.cycle.kwhPerTonne | 81.920 | 81.890 |
+| research/figures.json#classes.P100.cycle.worst.progress | 0.810707 | 0.810716 |
+| research/figures.json#classes.P100.cycle.worst.unheldT | 34.556 | 34.759 |
+| research/figures.json#classes.P100.descent.letdownClipMin | 3.010 | 3.050 |
+| research/figures.json#classes.P100.descent.rotorClipMWh | 0.252 | 0.255 |
+| research/figures.json#classes.P100.descent.rotorClipMin | 3.010 | 3.050 |
+| research/figures.json#classes.P100.energy.deficitPerCycleMWh | 8.040 | 8.070 |
+| research/figures.json#classes.P100.energy.downMW | 31.500 | 31.400 |
+| research/figures.json#classes.P100.energy.ledgerByChannelMWh.rotors | 6.896 | 6.893 |
+| research/figures.json#classes.P100.energy.ledgerMWh.RETURN_TRANSIT | 4.409 | 4.407 |
+| research/figures.json#classes.P100.energy.letdownMWh | 2.305 | 2.302 |
+| research/figures.json#classes.P100.energy.solarMW | 0.270 | 0.210 |
+| research/figures.json#classes.P100.energy.solarPerCycleMWh | 0.150 | 0.120 |
+| research/figures.json#classes.P100.spec.solarM2 | 6000.000 | 4590.705 |
+| research/figures.json#classes.P1000.bases.favourable.cycleMWh | 61.355 | 61.259 |
+| research/figures.json#classes.P1000.bases.favourable.hoursOnBattery | 1.167 | 1.165 |
+| research/figures.json#classes.P1000.bases.favourable.kwhPerTonne | 61.355 | 61.259 |
+| research/figures.json#classes.P1000.bases.favourable.peakRotorMW | 153.796 | 153.504 |
+| research/figures.json#classes.P1000.bases.favourable.worst.unheldT | 818.465 | 819.257 |
+| research/figures.json#classes.P1000.bases.record.cycleMWh | 62.314 | 62.251 |
+| research/figures.json#classes.P1000.bases.record.hoursOnBattery | 1.149 | 1.147 |
+| research/figures.json#classes.P1000.bases.record.kwhPerTonne | 62.314 | 62.251 |
+| research/figures.json#classes.P1000.bases.record.peakRotorMW | 153.796 | 153.504 |
+| research/figures.json#classes.P1000.bases.record.worst.unheldT | 818.465 | 819.257 |
+| research/figures.json#classes.P1000.cycle.eCycleMWh | 62.314 | 62.251 |
+| research/figures.json#classes.P1000.cycle.kwhPerTonne | 62.310 | 62.250 |
+| research/figures.json#classes.P1000.cycle.worst.unheldT | 818.465 | 819.257 |
+| research/figures.json#classes.P1000.descent.rotorClipMWh | 7.349 | 7.413 |
+| research/figures.json#classes.P1000.descent.rotorClipMin | 13.080 | 13.100 |
+| research/figures.json#classes.P1000.energy.deficitPerCycleMWh | 61.570 | 61.680 |
+| research/figures.json#classes.P1000.energy.downMW | 153.800 | 153.500 |
+| research/figures.json#classes.P1000.energy.ledgerByChannelMWh.rotors | 54.910 | 54.846 |
+| research/figures.json#classes.P1000.energy.ledgerMWh.BUOYANCY_ESCAPE | 4.950 | 4.943 |
+| research/figures.json#classes.P1000.energy.ledgerMWh.RETURN_TRANSIT | 22.956 | 22.942 |
+| research/figures.json#classes.P1000.energy.ledgerMWh.SOURCE_APPROACH | 6.201 | 6.189 |
+| research/figures.json#classes.P1000.energy.ledgerMWh.WATER_FILL | 12.217 | 12.202 |
+| research/figures.json#classes.P1000.energy.ledgerMWh.WATER_RELEASE | 11.501 | 11.485 |
+| research/figures.json#classes.P1000.energy.letdownMWh | 11.572 | 11.548 |
+| research/figures.json#classes.P1000.energy.solarMW | 1.260 | 0.970 |
+| research/figures.json#classes.P1000.energy.solarPerCycleMWh | 0.740 | 0.570 |
+| research/figures.json#classes.P1000.spec.solarM2 | 28000.000 | 21490.570 |
+| research/figures.json#classes.P10000.bases.favourable.cycleMWh | 766.285 | 765.904 |
+| research/figures.json#classes.P10000.bases.favourable.kwhPerTonne | 76.629 | 76.590 |
+| research/figures.json#classes.P10000.bases.favourable.peakRotorMW | 1405.710 | 1404.786 |
+| research/figures.json#classes.P10000.bases.favourable.worst.unheldT | 7073.819 | 7076.646 |
+| research/figures.json#classes.P10000.bases.record.cycleMWh | 694.378 | 694.174 |
+| research/figures.json#classes.P10000.bases.record.hoursOnBattery | 2.198 | 2.196 |
+| research/figures.json#classes.P10000.bases.record.kwhPerTonne | 69.438 | 69.417 |
+| research/figures.json#classes.P10000.bases.record.peakRotorMW | 1405.710 | 1404.786 |
+| research/figures.json#classes.P10000.bases.record.worst.unheldT | 7073.819 | 7076.646 |
+| research/figures.json#classes.P10000.cycle.eCycleMWh | 694.378 | 694.174 |
+| research/figures.json#classes.P10000.cycle.kwhPerTonne | 69.440 | 69.420 |
+| research/figures.json#classes.P10000.cycle.worst.unheldT | 7073.819 | 7076.646 |
+| research/figures.json#classes.P10000.descent.letdownClipMin | 3.250 | 3.260 |
+| research/figures.json#classes.P10000.descent.rotorClipMWh | 39.209 | 39.413 |
+| research/figures.json#classes.P10000.descent.rotorClipMin | 13.100 | 13.140 |
+| research/figures.json#classes.P10000.energy.deficitPerCycleMWh | 690.280 | 690.780 |
+| research/figures.json#classes.P10000.energy.downMW | 1405.700 | 1404.800 |
+| research/figures.json#classes.P10000.energy.ledgerByChannelMWh.rotors | 652.671 | 652.467 |
+| research/figures.json#classes.P10000.energy.ledgerMWh.BUOYANCY_ESCAPE | 41.117 | 41.103 |
+| research/figures.json#classes.P10000.energy.ledgerMWh.RETURN_TRANSIT | 114.038 | 114.037 |
+| research/figures.json#classes.P10000.energy.ledgerMWh.SOURCE_APPROACH | 87.524 | 87.475 |
+| research/figures.json#classes.P10000.energy.ledgerMWh.WATER_FILL | 214.046 | 213.959 |
+| research/figures.json#classes.P10000.energy.ledgerMWh.WATER_RELEASE | 205.208 | 205.156 |
+| research/figures.json#classes.P10000.energy.letdownMWh | 117.219 | 117.168 |
+| research/figures.json#classes.P10000.energy.solarMW | 5.400 | 4.480 |
+| research/figures.json#classes.P10000.energy.solarPerCycleMWh | 4.100 | 3.390 |
+| research/figures.json#classes.P10000.spec.solarM2 | 120000.000 | 99456.676 |
+| research/figures.json#sensitivity.dispM3.hi | 30.000 | 29.900 |
+| research/analysis/water-availability.json#classes.P100.throughputTph.meanOverFires | 225.800 | 225.300 |
+| research/analysis/water-availability.json#classes.P100.throughputTph.meanOverHectares | 244.700 | 243.100 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.cycleMin | 21.329 | 21.325 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.options.ballastT | 793.667 | 794.471 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.releasedT | 206.333 | 205.529 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.retainedT | 793.667 | 794.471 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.suppliedMWh | 22.656 | 22.616 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByFire.tph | 580.429 | 578.288 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.cycleMin | 24.153 | 24.148 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.options.ballastT | 793.667 | 794.471 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.releasedT | 206.333 | 205.529 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.retainedT | 793.667 | 794.471 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.suppliedMWh | 24.940 | 24.897 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.medianByHectare.tph | 512.574 | 510.671 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.cycleMin | 25.616 | 25.611 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.options.ballastT | 784.409 | 785.210 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.releasedT | 215.591 | 214.790 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.retainedT | 784.409 | 785.210 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.suppliedMWh | 26.489 | 26.444 |
+| research/analysis/water-availability.json#classes.P1000.acceptedPlans.workedExample.tph | 504.981 | 503.192 |
+| research/analysis/water-availability.json#classes.P1000.throughputTph.atMedianByFire | 580.400 | 578.300 |
+| research/analysis/water-availability.json#classes.P1000.throughputTph.atMedianByHectare | 512.600 | 510.700 |
+| research/analysis/water-availability.json#classes.P1000.throughputTph.atWorkedExample15km | 505.000 | 503.200 |
+| research/analysis/water-availability.json#classes.P1000.throughputTph.meanOverFires | 531.100 | 528.900 |
+| research/analysis/water-availability.json#classes.P1000.throughputTph.meanOverHectares | 495.900 | 493.900 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.cycleMin | 30.429 | 30.426 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.options.ballastT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.releasedT | 2626.200 | 2623.413 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.retainedT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.suppliedMWh | 237.750 | 237.606 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByFire.tph | 5178.401 | 5173.432 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.cycleMin | 37.900 | 37.897 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.options.ballastT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.releasedT | 2626.200 | 2623.413 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.retainedT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.suppliedMWh | 278.075 | 277.918 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.medianByHectare.tph | 4157.551 | 4153.479 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.cycleMin | 23.667 | 23.664 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.options.ballastT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.releasedT | 2626.200 | 2623.413 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.retainedT | 7373.800 | 7376.587 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.suppliedMWh | 200.116 | 199.983 |
+| research/analysis/water-availability.json#classes.P10000.acceptedPlans.workedExample.tph | 6657.783 | 6651.588 |
+| research/analysis/water-availability.json#classes.P10000.throughputTph.atMedianByFire | 5178.400 | 5173.400 |
+| research/analysis/water-availability.json#classes.P10000.throughputTph.atMedianByHectare | 4157.600 | 4153.500 |
+| research/analysis/water-availability.json#classes.P10000.throughputTph.atWorkedExample15km | 6657.800 | 6651.600 |
+| research/analysis/water-availability.json#classes.P10000.throughputTph.meanOverFires | 5489.300 | 5484.200 |
+| research/analysis/water-availability.json#classes.P10000.throughputTph.meanOverHectares | 4473.700 | 4469.500 |
+| research/analysis/water-availability.json#geometry.P1000.drawTonnesPer12h | 6060.000 | 6038.000 |
+| research/analysis/water-availability.json#geometry.P10000.drawTonnesPer12h | 79893.000 | 79819.000 |
+| research/analysis/delivery.json#classes.P1000._lineKmAtCL4.20 m swath | 6.610 | 6.590 |
+| research/analysis/delivery.json#classes.P1000._lineKmAtCL4.30 m swath | 4.410 | 4.390 |
+| research/analysis/delivery.json#classes.P1000._lineKmAtCL4.50 m swath | 2.650 | 2.640 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.latLoadsPer24h | 1227.000 | 1223.000 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.lineKmPer24hAtCL2_30mSwath | 569.800 | 567.700 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.lineKmPer24hAtCL4_30mSwath | 284.900 | 283.900 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.lineKmPer24hAtCL6_30mSwath | 189.900 | 189.200 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.lineKmPer24hAtCL8_30mSwath | 142.500 | 141.900 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.cycleMin | 21.329 | 21.325 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.options.ballastT | 793.667 | 794.471 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.releasedT | 206.333 | 205.529 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.retainedT | 793.667 | 794.471 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.suppliedMWh | 22.656 | 22.616 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.plan.tph | 580.429 | 578.288 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.suppliedMWhPer24h | 1529.619 | 1527.184 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.tonnesPer24h | 13930.000 | 13879.000 |
+| research/analysis/delivery.json#classes.P1000.atRealMedianLeg.tph | 580.429 | 578.288 |
+| research/analysis/delivery.json#classes.P1000.coverageLevelBySwath.20 m | 10.600 | 10.500 |
+| research/analysis/delivery.json#classes.P1000.coverageLevelBySwath.30 m | 7.100 | 7.000 |
+| research/analysis/delivery.json#classes.P1000.equivalentLoads.LAT (BAe-146) | 19.000 | 18.900 |
+| research/analysis/delivery.json#classes.P1000.equivalentLoads.SEAT | 71.200 | 70.900 |
+| research/analysis/delivery.json#classes.P1000.lineKmAtCL.CL2, 30 m swath | 8.820 | 8.790 |
+| research/analysis/delivery.json#classes.P1000.lineKmAtCL.CL4, 30 m swath | 4.410 | 4.390 |
+| research/analysis/delivery.json#classes.P1000.payloadT | 215.591 | 214.790 |
+| research/analysis/delivery.json#classes.P1000.releaseRateM3s | 1.423 | 1.418 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.cycleMin | 25.616 | 25.611 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.options.ballastT | 784.409 | 785.210 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.releasedT | 215.591 | 214.790 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.retainedT | 784.409 | 785.210 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.suppliedMWh | 26.489 | 26.444 |
+| research/analysis/delivery.json#classes.P1000.workedExamplePlan.tph | 504.981 | 503.192 |
+| research/analysis/delivery.json#classes.P10000._lineKmAtCL4.20 m swath | 80.570 | 80.480 |
+| research/analysis/delivery.json#classes.P10000._lineKmAtCL4.30 m swath | 53.710 | 53.650 |
+| research/analysis/delivery.json#classes.P10000._lineKmAtCL4.50 m swath | 32.230 | 32.190 |
+| research/analysis/delivery.json#classes.P10000._lineKmAtCL4.80 m swath | 20.140 | 20.120 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.latLoadsPer24h | 10950.000 | 10939.000 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.lineKmPer24hAtCL2_30mSwath | 5083.600 | 5078.700 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.lineKmPer24hAtCL4_30mSwath | 2541.800 | 2539.400 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.lineKmPer24hAtCL6_30mSwath | 1694.500 | 1692.900 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.lineKmPer24hAtCL8_30mSwath | 1270.900 | 1269.700 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.cycleMin | 30.429 | 30.426 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.options.ballastT | 7373.800 | 7376.587 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.releasedT | 2626.200 | 2623.413 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.retainedT | 7373.800 | 7376.587 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.suppliedMWh | 237.750 | 237.606 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.plan.tph | 5178.401 | 5173.432 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.suppliedMWhPer24h | 11251.221 | 11245.542 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.tonnesPer24h | 124282.000 | 124162.000 |
+| research/analysis/delivery.json#classes.P10000.atRealMedianLeg.tph | 5178.401 | 5173.432 |
+| research/analysis/delivery.json#classes.P10000.coverageLevelBySwath.20 m | 64.500 | 64.400 |
+| research/analysis/delivery.json#classes.P10000.coverageLevelBySwath.30 m | 43.000 | 42.900 |
+| research/analysis/delivery.json#classes.P10000.equivalentLoads.LAT (BAe-146) | 231.400 | 231.100 |
+| research/analysis/delivery.json#classes.P10000.equivalentLoads.SEAT | 867.300 | 866.400 |
+| research/analysis/delivery.json#classes.P10000.lineKmAtCL.CL2, 30 m swath | 107.420 | 107.310 |
+| research/analysis/delivery.json#classes.P10000.lineKmAtCL.CL4, 30 m swath | 53.710 | 53.650 |
+| research/analysis/delivery.json#classes.P10000.lineKmAtCL.CL8, 30 m swath | 26.860 | 26.830 |
+| research/analysis/delivery.json#classes.P10000.payloadT | 2626.200 | 2623.413 |
+| research/analysis/delivery.json#classes.P10000.releaseRateM3s | 12.269 | 12.256 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.cycleMin | 23.667 | 23.664 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.options.ballastT | 7373.800 | 7376.587 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.releasedT | 2626.200 | 2623.413 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.retainedT | 7373.800 | 7376.587 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.suppliedMWh | 200.116 | 199.983 |
+| research/analysis/delivery.json#classes.P10000.workedExamplePlan.tph | 6657.783 | 6651.588 |
+| tests/energy/unheld.mjs#namedEndurance.worstUnheldT | 1.927956588 | 2.135058508 |
+
 ## Independent stationary cross-check
 
 The stationary-fill anchors are at 300 m above ground, 1,300 m above sea level, with local ISA density 1.0793 kg/m³. The analysis full bus means battery plus generator rating. The cycle instead receives the nitrogen recovery available in that phase, plus day-average solar.
 
 | Class | Mode | Full-bus model / independent t | Actual mode bus MW | Other draw MW | Mode thrust model / independent t | Full-bus empty floor t |
 |---|---|---|---|---|---|---|
-| P100 | rapid | 159.325 / 159.325 | 31.301 | 2.122 | 133.601 / 133.601 | 0.000 |
-| P100 | balanced | 159.325 / 159.325 | 32.345 | 2.122 | 136.769 / 136.769 | 0.000 |
-| P100 | endurance | 159.325 / 159.325 | 33.976 | 2.122 | 141.645 / 141.645 | 0.000 |
-| P1000 | rapid | 785.857 / 785.857 | 153.791 | 12.572 | 644.818 / 644.818 | 588.503 |
-| P1000 | balanced | 785.857 / 785.857 | 156.354 | 12.572 | 652.596 / 652.596 | 588.503 |
-| P1000 | endurance | 785.857 / 785.857 | 160.356 | 12.572 | 664.651 / 664.651 | 588.503 |
-| P10000 | rapid | 7551.654 / 7551.654 | 1408.970 | 61.860 | 6877.378 / 6877.378 | 6191.946 |
-| P10000 | balanced | 7551.654 / 7551.654 | 1412.584 | 61.860 | 6889.674 / 6889.674 | 6191.946 |
-| P10000 | endurance | 7551.654 / 7551.654 | 1418.228 | 61.860 | 6908.854 / 6908.854 | 6191.946 |
+| P100 | rapid | 159.325 / 159.325 | 31.238 | 2.122 | 133.407 / 133.407 | 0.000 |
+| P100 | balanced | 159.325 / 159.325 | 32.282 | 2.122 | 136.578 / 136.578 | 0.000 |
+| P100 | endurance | 159.325 / 159.325 | 33.912 | 2.122 | 141.457 / 141.457 | 0.000 |
+| P1000 | rapid | 785.857 / 785.857 | 153.498 | 12.572 | 643.926 / 643.926 | 588.503 |
+| P1000 | balanced | 785.857 / 785.857 | 156.061 | 12.572 | 651.709 / 651.709 | 588.503 |
+| P1000 | endurance | 785.857 / 785.857 | 160.063 | 12.572 | 663.772 / 663.772 | 588.503 |
+| P10000 | rapid | 7551.654 / 7551.654 | 1408.045 | 61.860 | 6874.232 / 6874.232 | 6191.946 |
+| P10000 | balanced | 7551.654 / 7551.654 | 1411.659 | 61.860 | 6886.530 / 6886.530 | 6191.946 |
+| P10000 | endurance | 7551.654 / 7551.654 | 1417.304 | 61.860 | 6905.714 / 6905.714 | 6191.946 |
 
 A retained-water floor depends on altitude, available supply and the other loads aboard. The generated cross-check names nitrogen, newly loaded water and bag support at the stationary fill instant.
 
@@ -1127,41 +1598,41 @@ A retained-water floor depends on altitude, available supply and the other loads
 | P100 | 15 | record | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.594 |
 | P100 | 15 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.270 |
 | P100 | 15 | favourable | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.594 |
-| P100 | 15 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.967 |
-| P100 | 60 | record | cheapest | 1.618 | 0.000 | newWaterT 29.515; nitrogenT 1.188 |
-| P100 | 60 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 1.426 |
-| P100 | 60 | favourable | cheapest | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 1.426 |
-| P100 | 60 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 1.426 |
-| P1000 | 15 | record | cheapest | 784.409 | 584.761 | newWaterT 64.677; nitrogenT 4.367 |
-| P1000 | 15 | favourable | cheapest | 784.409 | 584.761 | newWaterT 64.677; nitrogenT 4.367 |
-| P1000 | 60 | record | cheapest | 729.494 | 521.392 | newWaterT 81.152; nitrogenT 17.469 |
-| P1000 | 60 | favourable | cheapest | 729.494 | 521.392 | newWaterT 81.152; nitrogenT 17.469 |
-| P10000 | 15 | record | cheapest | 7373.800 | 6049.412 | newWaterT 787.860; nitrogenT 4.113 |
-| P10000 | 15 | favourable | cheapest | 7373.800 | 6049.412 | newWaterT 787.860; nitrogenT 4.113 |
-| P10000 | 60 | record | cheapest | 6990.703 | 5684.660 | newWaterT 902.789; nitrogenT 33.110 |
-| P10000 | 60 | favourable | cheapest | 6990.703 | 5684.660 | newWaterT 902.789; nitrogenT 33.110 |
+| P100 | 15 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.270 |
+| P100 | 60 | record | cheapest | 1.800 | 0.000 | newWaterT 29.460; nitrogenT 1.188 |
+| P100 | 60 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.391 |
+| P100 | 60 | favourable | cheapest | 0.093 | 0.000 | newWaterT 29.972; nitrogenT 1.426 |
+| P100 | 60 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.391 |
+| P1000 | 15 | record | cheapest | 785.210 | 585.543 | newWaterT 64.437; nitrogenT 4.367 |
+| P1000 | 15 | favourable | cheapest | 785.210 | 585.543 | newWaterT 64.437; nitrogenT 4.367 |
+| P1000 | 60 | record | cheapest | 730.276 | 522.451 | newWaterT 80.917; nitrogenT 17.469 |
+| P1000 | 60 | favourable | cheapest | 730.276 | 522.451 | newWaterT 80.917; nitrogenT 17.469 |
+| P10000 | 15 | record | cheapest | 7376.587 | 6053.350 | newWaterT 787.024; nitrogenT 4.113 |
+| P10000 | 15 | favourable | cheapest | 7376.587 | 6053.350 | newWaterT 787.024; nitrogenT 4.113 |
+| P10000 | 60 | record | cheapest | 6993.521 | 5688.357 | newWaterT 901.944; nitrogenT 33.110 |
+| P10000 | 60 | favourable | cheapest | 6993.521 | 5688.357 | newWaterT 901.944; nitrogenT 33.110 |
 | P100 | 2.55029 | record | cheapest | 45.000 | 0.000 | newWaterT 16.500; nitrogenT 0.052 |
 | P100 | 2.55029 | favourable | cheapest | 50.000 | 0.000 | newWaterT 15.000; nitrogenT 0.076 |
 | P100 | 7.480511 | record | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 0.148 |
 | P100 | 7.480511 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.447 |
 | P100 | 7.480511 | favourable | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 0.148 |
 | P100 | 7.480511 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.447 |
-| P100 | 51.913032 | record | cheapest | 2.771 | 0.000 | newWaterT 29.169; nitrogenT 1.028 |
+| P100 | 51.913032 | record | cheapest | 2.953 | 0.000 | newWaterT 29.114; nitrogenT 1.028 |
 | P100 | 51.913032 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.069 |
-| P100 | 51.913032 | favourable | cheapest | 1.291 | 0.000 | newWaterT 29.613; nitrogenT 1.234 |
+| P100 | 51.913032 | favourable | cheapest | 1.473 | 0.000 | newWaterT 29.558; nitrogenT 1.234 |
 | P100 | 51.913032 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.069 |
-| P1000 | 2.55029 | record | cheapest | 833.024 | 674.034 | newWaterT 50.093; nitrogenT 0.499 |
-| P1000 | 2.55029 | favourable | cheapest | 833.024 | 674.034 | newWaterT 50.093; nitrogenT 0.499 |
-| P1000 | 7.480511 | record | cheapest | 829.708 | 654.860 | newWaterT 51.088; nitrogenT 1.220 |
-| P1000 | 7.480511 | favourable | cheapest | 793.667 | 629.062 | newWaterT 61.900; nitrogenT 2.178 |
-| P1000 | 51.913032 | record | cheapest | 739.303 | 526.689 | newWaterT 78.209; nitrogenT 15.114 |
-| P1000 | 51.913032 | favourable | cheapest | 739.303 | 526.689 | newWaterT 78.209; nitrogenT 15.114 |
-| P10000 | 2.55029 | record | cheapest | 7386.698 | 6085.633 | newWaterT 783.991; nitrogenT 0.871 |
-| P10000 | 2.55029 | favourable | cheapest | 7386.698 | 6085.633 | newWaterT 783.991; nitrogenT 0.871 |
-| P10000 | 7.480511 | record | cheapest | 7382.002 | 6072.408 | newWaterT 785.399; nitrogenT 2.051 |
-| P10000 | 7.480511 | favourable | cheapest | 7382.002 | 6072.408 | newWaterT 785.399; nitrogenT 2.051 |
-| P10000 | 51.913032 | record | cheapest | 7006.985 | 5727.276 | newWaterT 897.904; nitrogenT 28.647 |
-| P10000 | 51.913032 | favourable | cheapest | 7006.985 | 5727.276 | newWaterT 897.904; nitrogenT 28.647 |
+| P1000 | 2.55029 | record | cheapest | 833.822 | 675.101 | newWaterT 49.853; nitrogenT 0.499 |
+| P1000 | 2.55029 | favourable | cheapest | 833.822 | 675.101 | newWaterT 49.853; nitrogenT 0.499 |
+| P1000 | 7.480511 | record | cheapest | 830.505 | 655.836 | newWaterT 50.848; nitrogenT 1.220 |
+| P1000 | 7.480511 | favourable | cheapest | 794.471 | 630.001 | newWaterT 61.659; nitrogenT 2.178 |
+| P1000 | 51.913032 | record | cheapest | 740.088 | 527.749 | newWaterT 77.974; nitrogenT 15.114 |
+| P1000 | 51.913032 | favourable | cheapest | 740.088 | 527.749 | newWaterT 77.974; nitrogenT 15.114 |
+| P10000 | 2.55029 | record | cheapest | 7389.486 | 6089.609 | newWaterT 783.154; nitrogenT 0.871 |
+| P10000 | 2.55029 | favourable | cheapest | 7389.486 | 6089.609 | newWaterT 783.154; nitrogenT 0.871 |
+| P10000 | 7.480511 | record | cheapest | 7384.791 | 6076.370 | newWaterT 784.563; nitrogenT 2.051 |
+| P10000 | 7.480511 | favourable | cheapest | 7384.791 | 6076.370 | newWaterT 784.563; nitrogenT 2.051 |
+| P10000 | 51.913032 | record | cheapest | 7009.805 | 5731.011 | newWaterT 897.059; nitrogenT 28.647 |
+| P10000 | 51.913032 | favourable | cheapest | 7009.805 | 5731.011 | newWaterT 897.059; nitrogenT 28.647 |
 
 ## Interfaces
 

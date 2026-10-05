@@ -122,16 +122,16 @@ intake hose, pointed the other way.
 <!-- logistics:one-pass:start -->
 | Swath | P-100 CL | P-1000 CL | P-10000 CL |
 |---|---|---|---|
-| 20 m | 6.6 | 10.6 | 64.5 |
-| 30 m | 4.4 | 7.1 | 43.0 |
+| 20 m | 6.6 | 10.5 | 64.4 |
+| 30 m | 4.4 | 7.0 | 42.9 |
 | 50 m | 2.7 | 4.2 | 25.8 |
 | 80 m | 1.7 | 2.6 | 16.1 |
 
 | Class | Released t | Run km | Retained t |
 |---|---|---|---|
 | P-100 | 65.000 | 1.2 | 35.000 |
-| P-1000 | 215.591 | 2.5 | 784.409 |
-| P-10000 | 2626.200 | 5.0 | 7373.800 |
+| P-1000 | 214.790 | 2.5 | 785.210 |
+| P-10000 | 2623.413 | 5.0 | 7376.587 |
 
 These are tank-release quotients for the accepted 15 km plans, at assumed swaths. No ground deposition or suppression is established.
 <!-- logistics:one-pass:end -->

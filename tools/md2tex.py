@@ -171,6 +171,8 @@ def inline(s: str, keys: set[str], src: str) -> str:
             unit = '~' + unit.lstrip()
         return stash(r'\lining{' + txt.replace('-', '--') + '}') + stash(unit)
 
+    # Exact analysischeck-owned solar regions carry provenance, not PDF prose.
+    s = re.sub(r'<!-- solar:(?:area|supply):(?:start|end) -->', '', s)
     s = CITE.sub(cite, s)
     # Any marker left over had no number in front of it — check_figures says the same thing.
     if '<!--' in s:

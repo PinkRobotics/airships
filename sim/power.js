@@ -1,4 +1,4 @@
-import { ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=ae2bcece';
+import { capsuleFootprintM2, ALT, ALT_DROP_TOP, CFG, PHASES, TERRAIN_MSL, WORK_ALT_MSL, VZ_MAX, sourceAltM } from './config.js?v=ae2bcece';
 import { easeSm, easeTrap } from './geo.js?v=ae2bcece';
 import { diskMW, ledger, pumpMW } from './physics.js?v=ae2bcece';
 
@@ -18,7 +18,7 @@ export const ROTOR_EFFICIENCY_VALUES = [0.55, 0.70];
 export const FORCE_TOL = 1e-6;
 export const LIMIT_STEPS = 1024;
 export function aeroGeometry(cls) {
-  return { areaM2: cls.diaM * (cls.lenM - cls.diaM) + Math.PI * (cls.diaM / 2) ** 2,
+  return { areaM2: capsuleFootprintM2(cls),
     spanM: cls.diaM, efficiency: AERO_SPAN_EFFICIENCY };
 }
 /** Hotel load as a fraction of the generator rating (a proxy for the hull's own systems). */
