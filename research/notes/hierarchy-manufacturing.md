@@ -218,3 +218,24 @@ must correspond to the proposed specimen. A failure-load comparison or a validat
 mechanistic model would then have to establish the transfer. This paper's stated
 stiffness discrepancy alone does not do so, and it does not remove the separate
 compression-strength floor in the current model.
+
+## Erratum — 2026-10-05: the historical A/B rule's direction
+
+The registered prediction above remains exactly as written and remains history. With
+k = (P_B/P_A)_measured / (P_B/P_A)_theory, a larger k means more retained strength.
+The original decision thresholds were stated for the inverse **knockdown K = 1/k**:
+**K > 2.9 retires; K ≤ 1.7 funds; the interval between is undecided.**
+The same historical rule in k is **k < 1/2.9 (approximately 0.345) retires;
+k ≥ 1/1.7 (approximately 0.588) funds**. Use the exact reciprocals at the boundaries,
+not the rounded displays. At k = 0.1, 1.0 and 3.0 the corrected decisions are respectively
+retire, fund and fund: better retained strength cannot reverse a favourable result.
+These are hypothetical evaluations of the historical rule, not measurements or a new
+registered prediction.
+
+The old 2.9× tolerance came from the earlier margin arithmetic. It does **not** follow
+from the current compression-capped model: hierarchy levels 2–4 now each cost
+1.1243 kg/m³ and have lift/mass 0.851 at 2,500 m, below unity. The compression-strength
+floor governs these rows; improving a hierarchy coefficient alone cannot bypass it.
+The corrected historical direction therefore supplies no current authority to fund a
+floating level-2 claim. A new strength basis, sized load path and reviewed registration
+would be needed before such a claim could be made.
