@@ -45,6 +45,20 @@
   const APPSTATE = window.AIRSHIPS ? window.AIRSHIPS.app : S;
   APPSTATE.paused = true;
   APPSTATE.simTime = 4200;
+  /* PAINT THE OPERATION PANEL AT THE PINNED TIME. Its narrative is repainted by the 1.5 s
+     tick only while the clock runs, so once the clock is paused the panel keeps whatever
+     that tick last painted before the pin, and which tick that was depends on how fast this
+     load went: the same hull has read 68% of its outbound leg on one run and 69% on another.
+     Run the clock for one tick at speed zero, where neither the time nor the energy ledger
+     can move, then pause it again. */
+  {
+    const speed = APPSTATE.speed;
+    APPSTATE.speed = 0;
+    APPSTATE.paused = false;
+    await new Promise(r => setTimeout(r, 1600));
+    APPSTATE.paused = true;
+    APPSTATE.speed = speed;
+  }
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
   await new Promise(r => setTimeout(r, 1600));   // the 1.5 s slow-text tick
   const txt = (sel) => {

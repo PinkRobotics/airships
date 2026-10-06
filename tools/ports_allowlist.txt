@@ -1,7 +1,6 @@
 # Exact matching-occurrence counts. A changed count or a stale row fails portcheck.
 # path | shape | count | reason
-CONTRIBUTING.md | address:8875 | 3 | Local development, print preview and mobile inspection instructions use the person's server.
-CONTRIBUTING.md | argument:8875 | 1 | The contributor's manual http.server command retains the documented development address.
+CONTRIBUTING.md | address:8875 | 2 | The golden-output commands address the person's development server on its default port.
 Makefile | address:8875 | 1 | The serve help line advertises the person's development address.
 Makefile | assignment:8875 | 1 | The serve target retains its human-facing default; gates do not read this variable.
 tests/README.md | address:8875 | 2 | Manual browser and test-page inspection uses the person's development server.

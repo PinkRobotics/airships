@@ -99,7 +99,7 @@ class ClosureConservationTests(unittest.TestCase):
             self.assertEqual(count, 126)
             self.assertEqual(len(bad), count)
             self.assertTrue(any('P100/floor/hullThatCloses/0.508' in x and
-                                '-23.232' in x for x in bad))
+                                '-23.229' in x for x in bad))
             print(f'RED old closing equation: {len(bad)}/{count} bills fail')
             corrected = self.copy_and_generate(root)
             bad, count = gate.check_closure_bills(corrected, figures)

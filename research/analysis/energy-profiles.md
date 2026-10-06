@@ -45,7 +45,7 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | Class | km | Basis | Mode | Minutes | MWh | kWh/t | Signed gap tf / direction (coefficient 0.70) | Inertia qualification |
 |---|---:|---|---|---:|---:|---:|---|---|
 | P100 | 15 | record | rapid | 176.468 | 42.788 | 427.878 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 15 | favourable | rapid | 176.468 | 41.030 | 410.302 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | favourable | rapid | 176.468 | 41.030 | 410.302 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
 | P100 | 60 | record | balanced | 73.412 | 15.531 | 155.311 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
 | P100 | 60 | favourable | balanced | 73.412 | 12.160 | 121.596 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
 

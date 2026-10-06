@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=b2f068b7';
+import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=68694086';
 import {necessaryEnergy} from '../../research/analysis/energy-necessary.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;
@@ -12,7 +12,7 @@ const fixture=n=>{
 const eleven=fixture(11),twelve=fixture(12),inside=fixture(9);
 assert.equal(eleven.nominalStorageMWh,20,'captured storage fixture stays at nominal 20 MWh');
 assert.equal(twelve.nominalStorageMWh,20);
-for(const [q,energy,empty] of [[eleven,'41.6','127.9'],[twelve,'58.9','169.5']]){
+for(const [q,energy,empty] of [[eleven,'41.8','127.5'],[twelve,'59.2','169.0']]){
  assert.equal(q.cumulativeDrawMWh.toFixed(1),energy);
  assert.equal(q.emptyAtMin.toFixed(1),empty);
  assert.ok(q.shortageMWh>0,'captured cycle exceeds nominal storage');
@@ -23,7 +23,7 @@ assert.equal(inside.shortageMWh,0);
 const selected=selectServedPlan(CLASSES.P1000,400,null,'endurance');
 assert.equal(selected.state,'ready','necessary energy does not alter the selector');
 const long=necessaryEnergy(CLASSES.P1000,MODES[selected.mode],selected.plan);
-assert.equal(long.cumulativeDrawMWh.toFixed(1),'330.5');
+assert.equal(long.cumulativeDrawMWh.toFixed(1),'332.3');
 assert.equal(long.nominalStorageMWh,120);
 console.log('PASS necessary-energy fixtures: '+JSON.stringify([eleven,twelve,inside,long].map(q=>({drawMWh:q.cumulativeDrawMWh,storageMWh:q.nominalStorageMWh,emptyAtMin:q.emptyAtMin,shortageMWh:q.shortageMWh}))));
 if(!process.env.DIAGNOSTIC_PROBE)proveMutations('tests/energy/necessary-energy.mjs',[

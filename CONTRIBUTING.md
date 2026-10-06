@@ -44,7 +44,8 @@ opening `/index.html?selftest=1`, or call `AIRSHIPS.sim.selftest()` in devtools 
 loads the model. It is the same seventeen checks either way.
 
 **Golden outputs.** Two dumps, one for the model and one for what the page renders. Both need the
-server running, headless Chromium available, and `TMPDIR` set to a writable scratch folder:
+server running on its default port (`python3 tools/serve.py`, the address the commands below use),
+headless Chromium available, and `TMPDIR` set to a writable scratch folder:
 
 ```sh
 python3 tools/js_eval.py "http://127.0.0.1:8875/index.html?seed=7&data=snapshot" \

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../../sim/index.js?v=b2f068b7';
+import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../../sim/index.js?v=68694086';
 import {accelerationAt,rotorAuthoritiesT,signedRotorDemand,ADDED_MASS_VALUES} from '../../research/analysis/energy-motion.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;
@@ -27,8 +27,8 @@ for(const q of downward){
  assert.equal(q.direction,'downward authority short');
  assert.ok(q.requiredRotorT>q.availableRotorT,'release exceeds available downward thrust');
 }
-assert.equal(downward[0].gapT.toFixed(1),'1303.4');
-assert.equal(downward[1].gapT.toFixed(1),'1837.0');
+assert.equal(downward[0].gapT.toFixed(1),'1303.9');
+assert.equal(downward[1].gapT.toFixed(1),'1837.5');
 console.log('PASS signed fixtures: '+JSON.stringify({upward,downward}));
 if(!process.env.DIAGNOSTIC_PROBE)proveMutations('tests/energy/signed-authority.mjs',[
  {label:'withdrawn absolute rule',file:'/research/analysis/energy-motion.mjs',

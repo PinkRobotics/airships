@@ -476,12 +476,12 @@ Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples
 
 | Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
 |---|---|---|---|---|---|---|
-| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.6 | 20 | 127.9 | 21.6 | index.html |
-| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 58.9 | 20 | 169.5 | 38.9 | index.html |
-| fullDeliveryBest | P100 / 15.000000 / record | 42.0 | 20 | 129.3 | 22.0 | index.html; concept/index.html |
-| fullDeliveryBest | P100 / 15.000000 / favourable | 37.8 | 20 | 123.9 | 17.8 | index.html; concept/index.html |
-| asDrawn | P100 / 60.000000 / record | 20.1 | 20 | 104.7 | 0.1 | index.html; concept/index.html |
-| ready selector | P1000 / 400.000000 / record | 330.5 | 120 | 233.1 | 210.5 | concept/energy-analysis.html |
+| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.8 | 20 | 127.5 | 21.8 | index.html |
+| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 59.2 | 20 | 169.0 | 39.2 | index.html |
+| fullDeliveryBest | P100 / 15.000000 / record | 42.2 | 20 | 129.0 | 22.2 | index.html; concept/index.html |
+| fullDeliveryBest | P100 / 15.000000 / favourable | 40.4 | 20 | 133.1 | 20.4 | index.html; concept/index.html |
+| asDrawn | P100 / 60.000000 / record | 20.2 | 20 | 104.5 | 0.2 | index.html; concept/index.html |
+| ready selector | P1000 / 400.000000 / record | 332.3 | 120 | 232.3 | 212.3 | concept/energy-analysis.html |
 
 Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
 
