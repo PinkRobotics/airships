@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../../sim/index.js?v=ae2bcece';
+import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../../sim/index.js?v=b2f068b7';
 import {accelerationAt,rotorAuthoritiesT,signedRotorDemand,ADDED_MASS_VALUES} from '../../research/analysis/energy-motion.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;

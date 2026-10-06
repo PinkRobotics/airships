@@ -17606,6 +17606,194 @@
    "line": 57,
    "class": "other-quantity",
    "reason": "Reviewed replacement of this exact live text for Order 11f; These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "f67704ec2f23e367",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed replacement of this exact live text for Order 11f; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 1221
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "9736d2ee6d3c5655",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-reference:start -->",
+    "end": "<!-- solar:budget-reference:end -->"
+   },
+   "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed replacement of this exact live text for Order 11f; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 285
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "539c86c6f8eb5e55",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-comparison:start -->",
+    "end": "<!-- solar:budget-comparison:end -->"
+   },
+   "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 221
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "c4d5ec100b137e14",
+   "class": "generated",
+   "generator": "tools/gen_solar_budget_comparison.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- solar:budget-comparison:start -->",
+    "end": "<!-- solar:budget-comparison:end -->"
+   },
+   "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+   "line": 229
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "ea3d8828ac7f735f",
+   "line": 10,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "Regenerated two-copy dry-air-constant counterfactual includes corrected shell sundries; model comparisons are not current drawn-hull float evidence."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "key": "c34c747fa6ae00c9",
+   "line": 42,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "8eb84675306f20aa",
+   "line": 40,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+  },
+  {
+   "file": "concept/index.html",
+   "key": "460f919966656d49",
+   "class": "generated",
+   "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   },
+   "line": 873
+  },
+  {
+   "file": "concept/index.html",
+   "key": "127c69ba27d5155c",
+   "class": "generated",
+   "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:concept:start -->",
+    "end": "<!-- served-energy:concept:end -->"
+   },
+   "line": 873
+  },
+  {
+   "file": "index.html",
+   "key": "460f919966656d49",
+   "class": "generated",
+   "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   },
+   "line": 785
+  },
+  {
+   "file": "index.html",
+   "key": "127c69ba27d5155c",
+   "class": "generated",
+   "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+   "generator": "tools/gen_energy_pages.mjs",
+   "gate": "servedenergycheck",
+   "verifier": "tools/check_served_energy.py",
+   "region": {
+    "start": "<!-- served-energy:home:start -->",
+    "end": "<!-- served-energy:home:end -->"
+   },
+   "line": 785
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "367f2b48f1904f20",
+   "line": 112,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "bf8c32695baa79c7",
+   "line": 99,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "key": "c2e236d3b029c316",
+   "line": 135,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+  },
+  {
+   "file": "research/analysis/energy-motion.md",
+   "key": "14659ce4219dcb03",
+   "class": "generated",
+   "reason": "The reviewed signed diagnostic table is inside an exactly regenerated region and checked against its JSON; this is not structural float or flight validation.",
+   "line": 16,
+   "generator": "research/analysis/energy-motion.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:motion:start -->",
+    "end": "<!-- energy:motion:end -->"
+   }
+  },
+  {
+   "file": "research/analysis/energy-profiles.md",
+   "key": "a32afb5d3a54c779",
+   "line": 12,
+   "class": "generated",
+   "reason": "Reviewed profile quantities and signed/storage notes are inside an exactly regenerated analysis region; no structural float or flight validation is claimed.",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   }
   }
  ],
  "replacements": [
@@ -18190,6 +18378,102 @@
    "oldKey": "8d7c8825b02b9858",
    "newKey": "6a85018e2a380807",
    "reason": "Order 11f: replace this reviewed live paragraph with its corrected model-dependent wording."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "49b7e59c30048404",
+   "newKey": "f67704ec2f23e367",
+   "reason": "Order 11f: replay the same reviewed producer and exact region after integrated-model regeneration; retain its disposition."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "49b7e59c30048404",
+   "newKey": "9736d2ee6d3c5655",
+   "reason": "Order 11f: replay the same reviewed producer and exact region after integrated-model regeneration; retain its disposition."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "oldKey": "6f5d417e60d8c496",
+   "newKey": "539c86c6f8eb5e55",
+   "reason": "Order 11f: replay the same reviewed producer and exact region after integrated-model regeneration; retain its disposition."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "oldKey": "eac3dfff95f7c47d",
+   "newKey": "c4d5ec100b137e14",
+   "reason": "Order 11f: replay the same reviewed producer and exact region after integrated-model regeneration; retain its disposition."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "oldKey": "108524260000ecb2",
+   "newKey": "ea3d8828ac7f735f",
+   "reason": "Same generated dry-air-constant table after the combined regeneration: the water logistics now read the accepted plans, which the constant moves, so 762 rows become 13,147. The reviewed disposition is retained."
+  },
+  {
+   "file": "docs/OPEN-QUESTIONS.md",
+   "oldKey": "bb5889d9aba2fb07",
+   "newKey": "c34c747fa6ae00c9",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "50ecb580271a0f21",
+   "newKey": "8eb84675306f20aa",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "a02e4cf5c5f7c2c0",
+   "newKey": "460f919966656d49",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "concept/index.html",
+   "oldKey": "e2ded21f1c116946",
+   "newKey": "127c69ba27d5155c",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "a02e4cf5c5f7c2c0",
+   "newKey": "460f919966656d49",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "index.html",
+   "oldKey": "e2ded21f1c116946",
+   "newKey": "127c69ba27d5155c",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "oldKey": "59681f4940f127e2",
+   "newKey": "367f2b48f1904f20",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "oldKey": "b27adbb751c9821c",
+   "newKey": "bf8c32695baa79c7",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "research/analysis/mass-budget.md",
+   "oldKey": "d6f2a00d0f8b9742",
+   "newKey": "c2e236d3b029c316",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "research/analysis/energy-motion.md",
+   "oldKey": "139cd74606112874",
+   "newKey": "14659ce4219dcb03",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
+  },
+  {
+   "file": "research/analysis/energy-profiles.md",
+   "oldKey": "1ddca6a59f91cd35",
+   "newKey": "a32afb5d3a54c779",
+   "reason": "Same generated block after the combined regeneration: only its numbers changed; the wording and the reviewed disposition are retained."
   }
  ]
 }

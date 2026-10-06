@@ -281,16 +281,8 @@
     },
     {
       "file": "research/analysis/mass-budget.md",
-      "key": "8d7c8825b02b9858",
-      "line": 55,
-      "text": "**The cryogenic line is now the second-largest item in the vehicle and the worst-supported.** Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg), and NASA's ow",
-      "class": "other-quantity",
-      "reason": "These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
       "key": "f56e261377ae00a3",
-      "line": 148,
+      "line": 158,
       "text": "- **The cryogenic plant** — 12 to 390 t across the columns, the widest spread in the budget, and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be necessary (it",
       "class": "other-quantity",
       "reason": "This lists unpriced cryogenic and thermal equipment masses and heat rejection quantities; it does not establish a structural float result."
@@ -298,7 +290,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "ecf313cd35581cdc",
-      "line": 171,
+      "line": 181,
       "text": "`barrier_floor()` sizes a film that only has to **seal**, with load-carrying left to the lattice under it: a film bulging into a lattice cell carries the atmosphere as membrane tension, σ = pR/2t. At",
       "class": "other-quantity",
       "reason": "The membrane law estimates barrier areal mass and its component mass on the assumed hull; it does not size the load-carrying hull."
@@ -306,7 +298,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "a7ba68c7cfd96080",
-      "line": 176,
+      "line": 186,
       "text": "Metlen measured 3.45 kg/m² for a real membrane, eighty times more, because his membrane was *also* the structure. That gap is the whole question of whether the two functions separate, and it is a mate",
       "class": "literature",
       "reason": "The membrane areal mass is attributed to Metlen and compared with the separate barrier component, not a project hull density.",
@@ -315,7 +307,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "3911cda2eb237df7",
-      "line": 182,
+      "line": 192,
       "text": "| question | discipline | what would settle it | |---|---|---| | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected",
       "class": "conditional",
       "reason": "The table asks what would establish cell, packing, battery and equipment assumptions; it states no completed structure or delivery result."
@@ -823,14 +815,6 @@
       ]
     },
     {
-      "file": "research/analysis/water-availability.md",
-      "key": "b912908abf18eab4",
-      "line": 43,
-      "class": "deferred",
-      "reason": "Publishes delivery throughput on fire-distance inputs and the earlier flight-cycle model; a payload quantity allowance would hide a delivery result.",
-      "owner": "energy-model"
-    },
-    {
       "file": "research/validation/report.md",
       "key": "793a9b3b231227b3",
       "line": 5,
@@ -1205,19 +1189,19 @@
       "key": "7752c3f62e50c121",
       "class": "conditional",
       "reason": "Lake depth is a qualified operational scenario, explicitly not a conclusion that any vehicle can hover at a particular lake.",
-      "line": 103
+      "line": 122
     },
     {
       "file": "research/analysis/water-availability.md",
       "key": "018f5f5793cd7741",
       "class": "conditional",
       "reason": "Lake-footprint and adequacy thresholds for the proposed station-holding operation; loosening thresholds is explicitly conditional, not evidence of structural float.",
-      "line": 84
+      "line": 102
     },
     {
       "file": "research/analysis/mass-budget.md",
       "key": "1d0bb66f58ef5a59",
-      "line": 69,
+      "line": 79,
       "class": "method",
       "context": [
         "1",
@@ -1228,15 +1212,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "52efad35d141e750",
-      "line": 72,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "59681f4940f127e2",
-      "line": 102,
+      "line": 82,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
@@ -1252,31 +1228,15 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "921ebb2d16eb09f1",
-      "line": 80,
+      "line": 90,
       "class": "literature",
       "source": "research/analysis/mass-budget.py EVIDENCE; Jenett 2019, Metlen 2013, Akhmeteli and Gavrilin 2021",
       "reason": "Literature densities plus stated allowances; margins are against the corrected floor closure wall, not measured project hardware."
     },
     {
       "file": "research/analysis/mass-budget.md",
-      "key": "b27adbb751c9821c",
-      "line": 89,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
-      "key": "d6f2a00d0f8b9742",
-      "line": 125,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
-    },
-    {
-      "file": "research/analysis/mass-budget.md",
       "key": "e9599fc5bc46e2e5",
-      "line": 76,
+      "line": 86,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
@@ -1284,7 +1244,7 @@
     {
       "file": "research/analysis/mass-budget.md",
       "key": "ebaec9c6a4c8a971",
-      "line": 192,
+      "line": 202,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
@@ -1304,6 +1264,73 @@
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "6a85018e2a380807",
+      "line": 58,
+      "class": "other-quantity",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; These are cryogenic equipment specific masses, a plant allowance and its reference dry-mass allowance, not a hull float result."
+    },
+    {
+      "file": "research/analysis/water-availability.md",
+      "key": "a4ac3bd3487d2916",
+      "line": 41,
+      "class": "deferred",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; Publishes delivery throughput on fire-distance inputs and the earlier flight-cycle model; a payload quantity allowance would hide a delivery result.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "367f2b48f1904f20",
+      "line": 112,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "539c86c6f8eb5e55",
+      "class": "generated",
+      "generator": "tools/gen_solar_budget_comparison.py",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- solar:budget-comparison:start -->",
+        "end": "<!-- solar:budget-comparison:end -->"
+      },
+      "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+      "line": 221
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "bf8c32695baa79c7",
+      "line": 99,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "c2e236d3b029c316",
+      "line": 135,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
+    },
+    {
+      "file": "research/analysis/mass-budget.md",
+      "key": "c4d5ec100b137e14",
+      "class": "generated",
+      "generator": "tools/gen_solar_budget_comparison.py",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- solar:budget-comparison:start -->",
+        "end": "<!-- solar:budget-comparison:end -->"
+      },
+      "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+      "line": 229
     }
   ]
 }

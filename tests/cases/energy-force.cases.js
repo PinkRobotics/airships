@@ -1,7 +1,7 @@
 /* Independent force audit adapted from gpt-6-sol's implementation.
  * The equations use observed state and class geometry, without the model's force helpers. */
 import {describe,it,ok,close,eq} from '../harness.js';
-import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt} from '../../sim/index.js?v=ae2bcece';
+import {CLASSES,MODES,PHASES,CFG,planCycle,drawAt} from '../../sim/index.js?v=b2f068b7';
 const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
 export function auditForce(c,p,s) {
   const target=s.led.liftT-s.massT, owned=sum(s.owners)+s.unheldT;

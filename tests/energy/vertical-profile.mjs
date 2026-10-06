@@ -1,8 +1,8 @@
 /* Vertical controls, integrated distance and upward-authority counterexamples. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,gsAt,verticalProfiles} from '../../sim/index.js?v=ae2bcece';
-import {searchedProfile} from '../../sim/profile.js?v=ae2bcece';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,gsAt,verticalProfiles} from '../../sim/index.js?v=b2f068b7';
+import {searchedProfile} from '../../sim/profile.js?v=b2f068b7';
 let count=0,worst=0,where={};
 function velocity(p,g,id,x) {
   const a=Math.max(0,x-.001),b=Math.min(1,x+.001);

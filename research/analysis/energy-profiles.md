@@ -11,30 +11,30 @@ Retained water uses five-percent payload steps plus each bisected first closing 
 
 | Class | km | Basis | Mode | Speed | Climb / letdown rate, m/s; airspeed, m/s | Water kept, t | Delivered, t | Minutes | MWh | kWh/t | Signed gap tf / direction (coefficient 0.70) | Qualification |
 |---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
-| P100 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 34.196 | 8.192 | 81.923 | |  |
+| P100 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 34.196 | 8.189 | 81.892 | |  |
 | P100 | 15 | record | rapid | 0.75 | prescribed | 35.000 | 65.000 | 34.914 | 5.201 | 80.021 | 0.000 / none | quasi-static closure; hull-only sampled screen does not validate dynamics |
-| P100 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 34.196 | 6.402 | 64.017 | |  |
+| P100 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 100.000 | 34.196 | 6.401 | 64.011 | |  |
 | P100 | 15 | favourable | rapid | 0.75 | prescribed | 35.000 | 65.000 | 34.914 | 3.793 | 58.359 | 0.737 / upward authority short | quasi-static closure; dynamic profile unresolved |
 | P100 | 60 | record | as drawn: closes | 1 | prescribed | 0.000 | 100.000 | 104.784 | 20.521 | 205.214 | | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | rapid | 1.5 | prescribed | 1.618 | 98.382 | 64.420 | 14.100 | 143.315 | 17.368 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | rapid | 1.5 | prescribed | 1.800 | 98.200 | 64.408 | 14.077 | 143.350 | 17.392 / downward authority short | quasi-static closure; dynamic profile unresolved |
 | P100 | 60 | favourable | as drawn: closes | 1 | prescribed | 0.000 | 100.000 | 104.784 | 14.764 | 147.639 | | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | rapid | 1.25 | prescribed | 0.000 | 100.000 | 75.440 | 11.263 | 112.630 | 18.843 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 35.362 | 62.314 | 62.314 | |  |
-| P1000 | 15 | record | endurance | 1.5 | prescribed | 784.409 | 215.591 | 25.616 | 26.489 | 122.866 | 158.588 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 35.362 | 61.355 | 61.355 | |  |
-| P1000 | 15 | favourable | endurance | 1.5 | prescribed | 784.409 | 215.591 | 25.616 | 21.539 | 99.905 | 158.588 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 93.116 | 141.533 | 141.533 | |  |
-| P1000 | 60 | record | endurance | 1.5 | prescribed | 729.494 | 270.506 | 74.049 | 68.866 | 254.583 | 208.657 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 93.116 | 142.484 | 142.484 | |  |
-| P1000 | 60 | favourable | endurance | 1.5 | prescribed | 729.494 | 270.506 | 74.049 | 56.659 | 209.457 | 208.657 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 45.512 | 694.378 | 69.438 | |  |
-| P10000 | 15 | record | rapid | 1.25 | prescribed | 7373.800 | 2626.200 | 23.667 | 200.116 | 76.200 | 1303.406 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 45.512 | 766.285 | 76.629 | |  |
-| P10000 | 15 | favourable | rapid | 1.25 | prescribed | 7373.800 | 2626.200 | 23.667 | 183.419 | 69.842 | 1303.406 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 94.381 | 1113.855 | 111.385 | |  |
-| P10000 | 60 | record | balanced | 1.25 | prescribed | 6990.703 | 3009.297 | 66.573 | 439.851 | 146.164 | 1034.217 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 94.381 | 1386.308 | 138.631 | |  |
-| P10000 | 60 | favourable | balanced | 1.25 | prescribed | 6990.703 | 3009.297 | 66.573 | 397.762 | 132.178 | 1034.217 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | rapid | 1.25 | prescribed | 0.093 | 99.907 | 75.434 | 11.253 | 112.637 | 18.948 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 35.362 | 62.251 | 62.251 | |  |
+| P1000 | 15 | record | endurance | 1.5 | prescribed | 785.210 | 214.790 | 25.611 | 26.444 | 123.115 | 158.723 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 35.362 | 61.259 | 61.259 | |  |
+| P1000 | 15 | favourable | endurance | 1.5 | prescribed | 785.210 | 214.790 | 25.611 | 21.504 | 100.115 | 158.723 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | record | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 93.116 | 141.451 | 141.451 | |  |
+| P1000 | 60 | record | endurance | 1.5 | prescribed | 730.276 | 269.724 | 74.045 | 68.780 | 255.003 | 208.809 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 1000.000 | 93.116 | 142.271 | 142.271 | |  |
+| P1000 | 60 | favourable | endurance | 1.5 | prescribed | 730.276 | 269.724 | 74.045 | 56.603 | 209.856 | 208.809 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 45.512 | 694.174 | 69.417 | |  |
+| P10000 | 15 | record | rapid | 1.25 | prescribed | 7376.587 | 2623.413 | 23.664 | 199.983 | 76.230 | 1303.910 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 45.512 | 765.904 | 76.590 | |  |
+| P10000 | 15 | favourable | rapid | 1.25 | prescribed | 7376.587 | 2623.413 | 23.664 | 183.296 | 69.869 | 1303.910 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | record | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 94.381 | 1113.650 | 111.365 | |  |
+| P10000 | 60 | record | balanced | 1.25 | prescribed | 6993.521 | 3006.479 | 66.570 | 439.602 | 146.218 | 1034.639 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | favourable | as drawn: does not close | 1 | prescribed | 0.000 | 10000.000 | 94.381 | 1385.793 | 138.579 | |  |
+| P10000 | 60 | favourable | balanced | 1.25 | prescribed | 6993.521 | 3006.479 | 66.570 | 397.547 | 132.230 | 1034.639 / downward authority short | quasi-static closure; dynamic profile unresolved |
 
 ## Full delivery where found
 
@@ -44,10 +44,10 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | Mode | Minutes | MWh | kWh/t | Signed gap tf / direction (coefficient 0.70) | Inertia qualification |
 |---|---:|---|---|---:|---:|---:|---|---|
-| P100 | 15 | record | rapid | 176.468 | 42.788 | 427.878 | 18.843 / downward authority short | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 15 | favourable | rapid | 163.432 | 38.497 | 384.967 | 18.843 / downward authority short | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | rapid | 75.440 | 14.848 | 148.479 | 18.843 / downward authority short | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | rapid | 75.440 | 11.263 | 112.630 | 18.843 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | record | rapid | 176.468 | 42.788 | 427.878 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 15 | favourable | rapid | 176.468 | 41.030 | 410.302 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | balanced | 73.412 | 15.531 | 155.311 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | balanced | 73.412 | 12.160 | 121.596 | 19.033 / downward authority short | quasi-static closure; dynamic profile unresolved |
 
 ## Coefficient ranges for each selected feasible profile
 

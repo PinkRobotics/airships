@@ -1,9 +1,9 @@
 /* The worked example and the class cards. Shared with the how-it-works page.
  */
-import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures } from '../sim/index.js?v=ae2bcece';
-import { $, kvRows } from './dom.js?v=ae2bcece';
-import { replanAll } from './fleet.js?v=ae2bcece';
-import { S } from './store.js?v=ae2bcece';
+import { CFG, CLASSES, CLASS_ORDER, MODES, fmt, fmtMin, planCycle, energyComparison, feasibilityText, selectServedPlan, workedFigures } from '../sim/index.js?v=b2f068b7';
+import { $, kvRows } from './dom.js?v=b2f068b7';
+import { replanAll } from './fleet.js?v=b2f068b7';
+import { S } from './store.js?v=b2f068b7';
 
 export const DIALS = [
   { k: "exampleKm", label: "Worked example one-way distance", unit: " km", min: 3, max: 150, step: 1, d: 0, note: "distance between water and fire for the tiles below" },

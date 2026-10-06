@@ -11,10 +11,10 @@
  * defect 2's fix: planCycle integrates the same `drawAt`, so the budget the site publishes is
  * the integral of what the instruments show, not a second estimate of it.
  */
-import { PHASES } from './config.js?v=ae2bcece';
-import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=ae2bcece';
-import { anchorHang, drawAt } from './power.js?v=ae2bcece';
-import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=ae2bcece';
+import { PHASES } from './config.js?v=b2f068b7';
+import { bez, bezBearing, easeSm, easeTrap, lerpAng } from './geo.js?v=b2f068b7';
+import { anchorHang, drawAt } from './power.js?v=b2f068b7';
+import { arrivalCurve, segAt, stationFor, tIdx } from './targets.js?v=b2f068b7';
 
 // The anchor rule moved to power.js on 2026-10-01 (the power model needs it before stateAt
 // does); it is re-exported here so sim/index.js and app/anchorview.js are unchanged.

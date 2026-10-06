@@ -40,7 +40,7 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 <!-- closure-correction:start -->
 
 > **2026-10-05 correction to #11:** shell sundries were omitted from the resized
-> bill. The 0.508 kg/m³ floor now closes conditionally at 516,827 m³,
+> bill. The 0.508 kg/m³ floor now closes conditionally at 516,771 m³,
 > a 146 m hull. Its closure wall is 0.870 kg/m³; 0.957 kg/m³ is the lift wall.
 > This complete equipment bill does not validate a drawn hull.
 
@@ -333,9 +333,9 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 | Class | km | Basis | Full-payload mode | Delivered t | Minutes | MWh | kWh/t | Profile note |
 |---|---|---|---|---|---|---|---|---|
 | P100 | 15 | record | rapid | 100.000 | 176.468 | 42.788 | 427.878 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 15 | favourable | rapid | 100.000 | 163.432 | 38.497 | 384.967 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | rapid | 100.000 | 75.440 | 14.848 | 148.479 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | rapid | 100.000 | 75.440 | 11.263 | 112.630 | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | favourable | rapid | 100.000 | 176.468 | 41.030 | 410.302 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | balanced | 100.000 | 73.412 | 15.531 | 155.311 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | balanced | 100.000 | 73.412 | 12.160 | 121.596 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-3:end -->
 
 <!-- energy:question-4:start -->
@@ -345,30 +345,30 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne | Profile note |
 |---|---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.192 | 81.923 |  |
+| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.189 | 81.892 |  |
 | P100 | 15 | record | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 5.201 | 80.021 | quasi-static closure; hull-only sampled screen does not validate dynamics |
-| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.402 | 64.017 |  |
+| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.401 | 64.011 |  |
 | P100 | 15 | favourable | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 3.793 | 58.359 | quasi-static closure; dynamic profile unresolved |
 | P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.521 | 205.214 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.382 | 1.618 | 64.420 | 14.100 | 143.315 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.200 | 1.800 | 64.408 | 14.077 | 143.350 | quasi-static closure; dynamic profile unresolved |
 | P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.764 | 147.639 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 100.000 | 0.000 | 75.440 | 11.263 | 112.630 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.314 | 62.314 |  |
-| P1000 | 15 | record | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 26.489 | 122.866 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.355 | 61.355 |  |
-| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 215.591 | 784.409 | 25.616 | 21.539 | 99.905 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.533 | 141.533 |  |
-| P1000 | 60 | record | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 68.866 | 254.583 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.484 | 142.484 |  |
-| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 270.506 | 729.494 | 74.049 | 56.659 | 209.457 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.378 | 69.438 |  |
-| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 200.116 | 76.200 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 766.285 | 76.629 |  |
-| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2626.200 | 7373.800 | 23.667 | 183.419 | 69.842 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.855 | 111.385 |  |
-| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 439.851 | 146.164 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1386.308 | 138.631 |  |
-| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3009.297 | 6990.703 | 66.573 | 397.762 | 132.178 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 99.907 | 0.093 | 75.434 | 11.253 | 112.637 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.251 | 62.251 |  |
+| P1000 | 15 | record | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 26.444 | 123.115 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.259 | 61.259 |  |
+| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 21.504 | 100.115 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.451 | 141.451 |  |
+| P1000 | 60 | record | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 68.780 | 255.003 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.271 | 142.271 |  |
+| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 56.603 | 209.856 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.174 | 69.417 |  |
+| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 199.983 | 76.230 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 765.904 | 76.590 |  |
+| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 183.296 | 69.869 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.650 | 111.365 |  |
+| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 439.602 | 146.218 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1385.793 | 138.579 |  |
+| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 397.547 | 132.230 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-4:end -->
 
 ## 5. Esri basemap tiles — FIXED 2026-10-01
@@ -1219,5 +1219,5 @@ Which sources and reference states support the deferred figures for outside airc
 `python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
 
 <!-- solar:budget-reference:start -->
-Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 457,275 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
+Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 516,771 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
 <!-- solar:budget-reference:end -->

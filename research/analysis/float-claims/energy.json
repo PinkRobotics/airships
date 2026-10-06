@@ -28,20 +28,6 @@
   },
   {
    "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "bb875fc9630dff24",
-   "line": 360,
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py"
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
    "key": "451c1bbcffc340c7",
    "line": 372,
    "class": "method",
@@ -55,14 +41,6 @@
    "class": "method",
    "context": [],
    "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
-  },
-  {
-   "file": "research/analysis/energy-omissions.md",
-   "key": "bb875fc9630dff24",
-   "line": 7,
-   "class": "deferred",
-   "owner": "energy-model",
-   "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record."
   },
   {
    "file": "research/analysis/energy-omissions.md",
@@ -219,20 +197,6 @@
    "line": 73
   },
   {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "e07ff2ae324a782e",
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 116
-  },
-  {
    "file": "docs/ENERGY-MODEL-2026-10.md",
    "key": "3d913a50c47892f1",
    "class": "generated",
@@ -244,93 +208,7 @@
     "start": "<!-- energy:model:start -->",
     "end": "<!-- energy:model:end -->"
    },
-   "line": 1107
-  },
-  {
-   "file": "research/analysis/energy-requirements.md",
-   "key": "e07ff2ae324a782e",
-   "class": "deferred",
-   "owner": "energy-model",
-   "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the independent comparison.",
-   "line": 7
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "155bdee399753927",
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 294
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "3a48dd0a8bc6ae56",
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 212
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "75c157a553f8ce66",
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison. Energy figures regenerated after the independent",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 39
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "7ce88483f4562efc",
-   "class": "generated",
-   "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent comparison.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 274
-  },
-  {
-   "file": "research/analysis/energy-motion.md",
-   "key": "139cd74606112874",
-   "class": "generated",
-   "reason": "The reviewed signed diagnostic table is inside an exactly regenerated region and checked against its JSON; this is not structural float or flight validation.",
-   "line": 16,
-   "generator": "research/analysis/energy-motion.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "region": {
-    "start": "<!-- energy:motion:start -->",
-    "end": "<!-- energy:motion:end -->"
-   }
-  },
-  {
-   "file": "research/analysis/energy-unheld.md",
-   "key": "75c157a553f8ce66",
-   "class": "deferred",
-   "owner": "energy-model",
-   "reason": "This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the independent comparison. Energy figures regenerated after the indepe",
-   "line": 5
+   "line": 1578
   },
   {
    "file": "docs/ENERGY-MODEL-2026-10.md",
@@ -414,8 +292,144 @@
    "reason": "Signed rotor-demand equations define a sampled diagnostic, without a structural float or flight verdict."
   },
   {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "1a39512443a3e6ec",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 116
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "32e17fc19033d91a",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 294
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "3b6dc9c71e5b3983",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 212
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "4d3bbb48ccdb64c7",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 39
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "51a85d6713eb374a",
+   "line": 360,
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py"
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "6bfba8fc86cd7588",
+   "class": "generated",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement. Energy figures regenerated after the independent ",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 274
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "key": "01b78156a125e2d8",
+   "class": "generated",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:model:start -->",
+    "end": "<!-- energy:model:end -->"
+   },
+   "reason": "Reviewed Order 11f: generated solar-input publication summary, with complete per-field movement record; diagnostic figures remain conditional on plan feasibility.",
+   "line": 1109
+  },
+  {
+   "file": "research/analysis/energy-omissions.md",
+   "key": "51a85d6713eb374a",
+   "line": 7,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record."
+  },
+  {
+   "file": "research/analysis/energy-requirements.md",
+   "key": "1a39512443a3e6ec",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the indepen",
+   "line": 7
+  },
+  {
+   "file": "research/analysis/energy-unheld.md",
+   "key": "4d3bbb48ccdb64c7",
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "Reviewed replacement of this exact live text for Order 11f; This generated energy analysis has no exact paired region markers or --emit region contract; it remains unreviewed by the float record. Energy figures regenerated after the indepen",
+   "line": 5
+  },
+  {
+   "file": "research/analysis/energy-motion.md",
+   "key": "14659ce4219dcb03",
+   "class": "generated",
+   "reason": "The reviewed signed diagnostic table is inside an exactly regenerated region and checked against its JSON; this is not structural float or flight validation.",
+   "line": 16,
+   "generator": "research/analysis/energy-motion.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:motion:start -->",
+    "end": "<!-- energy:motion:end -->"
+   }
+  },
+  {
    "file": "research/analysis/energy-profiles.md",
-   "key": "1ddca6a59f91cd35",
+   "key": "a32afb5d3a54c779",
    "line": 12,
    "class": "generated",
    "reason": "Reviewed profile quantities and signed/storage notes are inside an exactly regenerated analysis region; no structural float or flight validation is claimed.",

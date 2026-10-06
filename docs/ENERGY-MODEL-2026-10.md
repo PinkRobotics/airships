@@ -102,7 +102,7 @@ Dated measurement at landing 16, 2026-10-05: absolute inertial force minus the a
 
 | Population | Withdrawn absolute / signed | Reason |
 |---|---|---|
-| candidates | 284 / 354 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| candidates | 264 / 334 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
 | capturedMissions | 16 / 21 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
 
 
@@ -161,18 +161,18 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | does not close | 34.196 | 8.192 | 81.923 | 1.418 |  |
-| P100 | 15 | favourable | does not close | 34.196 | 6.402 | 64.017 | 1.824 |  |
-| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.742 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.444 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | does not close | 35.362 | 62.314 | 62.314 | 1.149 |  |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.355 | 61.355 | 1.167 |  |
-| P1000 | 60 | record | does not close | 93.116 | 141.533 | 141.533 | 1.334 |  |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.484 | 142.484 | 1.325 |  |
-| P10000 | 15 | record | does not close | 45.512 | 694.378 | 69.438 | 2.198 |  |
-| P10000 | 15 | favourable | does not close | 45.512 | 766.285 | 76.629 | 1.990 |  |
-| P10000 | 60 | record | does not close | 94.381 | 1113.855 | 111.385 | 2.846 |  |
-| P10000 | 60 | favourable | does not close | 94.381 | 1386.308 | 138.631 | 2.283 |  |
+| P100 | 15 | record | does not close | 34.196 | 8.189 | 81.892 | 1.412 |  |
+| P100 | 15 | favourable | does not close | 34.196 | 6.401 | 64.011 | 1.814 |  |
+| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.732 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
+| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.425 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | does not close | 35.362 | 62.251 | 62.251 | 1.147 |  |
+| P1000 | 15 | favourable | does not close | 35.362 | 61.259 | 61.259 | 1.165 |  |
+| P1000 | 60 | record | does not close | 93.116 | 141.451 | 141.451 | 1.331 |  |
+| P1000 | 60 | favourable | does not close | 93.116 | 142.271 | 142.271 | 1.323 |  |
+| P10000 | 15 | record | does not close | 45.512 | 694.174 | 69.417 | 2.196 |  |
+| P10000 | 15 | favourable | does not close | 45.512 | 765.904 | 76.590 | 1.990 |  |
+| P10000 | 60 | record | does not close | 94.381 | 1113.650 | 111.365 | 2.843 |  |
+| P10000 | 60 | favourable | does not close | 94.381 | 1385.793 | 138.579 | 2.282 |  |
 
 ## Corrections from the energy comparison
 

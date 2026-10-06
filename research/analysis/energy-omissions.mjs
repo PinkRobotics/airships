@@ -1,7 +1,7 @@
-import {MISSION_QUALIFIER} from '../../sim/energy-label.js?v=ae2bcece';
+import {MISSION_QUALIFIER} from '../../sim/energy-label.js?v=b2f068b7';
 import {writeGenerated} from './energy-output.mjs';
 import fs from 'node:fs';
-import {CLASSES,CFG,TERRAIN_MSL,sourceAltM,ledger,aeroGeometry,WINCH_MPS,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=ae2bcece';
+import {CLASSES,CFG,TERRAIN_MSL,sourceAltM,ledger,aeroGeometry,WINCH_MPS,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=b2f068b7';
 const budget=JSON.parse(fs.readFileSync('research/analysis/mass-budget.json'));
 const evidence=budget.evidence;
 export const specificEnergies=evidence.battery_wh_per_kg;

@@ -65,10 +65,9 @@ source; it is retained so a reader can see what the budget is given for free. At
 65 t/MW industrial comparison, the plant alone is 390 t on a 100 t allowance.
 
 <!-- solar:budget-note:start -->
-The enlargement passages below retain the earlier sizing publication. The
-[generated solar-input comparison](#solar-input-sensitivity-of-the-existing-budget-diagnostic)
-records the changed power-input sensitivity separately; those earlier values are not
-updated sizing claims. The closure condition itself remains unverified here.
+The [generated publication comparison](#solar-input-sensitivity-of-the-existing-budget-diagnostic)
+records the preceding power-input publication beside the current integrated diagnostic.
+It does not isolate each model correction or validate the enlarged-hull closure condition.
 <!-- solar:budget-note:end -->
 
 ## But the allowance is not a law, and this is the correction that matters
@@ -99,19 +98,19 @@ And the hull that closes, in the floor case:
 
 | shell | volume that closes | × baseline | hull |
 |---|---|---|---|
-| 0.264 kg/m³ | 306,126 m³ | 1.39× | 123 × 61 m |
-| 0.350 kg/m³ | 357,547 m³ | 1.63× | 129 × 65 m |
-| 0.508 kg/m³ (Jenett, published) | 516,827 m³ | 2.35× | 146 × 73 m |
-| 0.600 kg/m³ | 697,329 m³ | 3.17× | 162 × 81 m |
-| 0.750 kg/m³ | 1,609,984 m³ | 7.32× | 214 × 107 m |
+| 0.264 kg/m³ | 306,093 m³ | 1.39× | 123 × 61 m |
+| 0.350 kg/m³ | 357,508 m³ | 1.63× | 129 × 65 m |
+| 0.508 kg/m³ (Jenett, published) | 516,771 m³ | 2.35× | 146 × 73 m |
+| 0.600 kg/m³ | 697,253 m³ | 3.17× | 162 × 81 m |
+| 0.750 kg/m³ | 1,609,811 m³ | 7.32× | 214 × 107 m |
 | 0.900 kg/m³ | **never** | — | — |
 
 **At the best published shell density the reference ship conditionally closes at 146 × 73 m —
 still shorter than the Hindenburg.** Its volume is **2.35× the reference**.
 This is a complete equipment-bill balance under constant shell density, not a checked structure.
 
-The conditional volume grows from 516,827 m³ at 0.508 kg/m³ to
-1,609,984 m³ at 0.75 kg/m³ (214 × 107 m). At 0.90 kg/m³
+The conditional volume grows from 516,771 m³ at 0.508 kg/m³ to
+1,609,811 m³ at 0.75 kg/m³ (214 × 107 m). At 0.90 kg/m³
 it **never closes**: shell plus its 10% sundries costs 0.990 kg/m³, above the air density.
 
 ## The sealed-cell architecture is the answer to the shape problem — and it has a price
@@ -136,9 +135,9 @@ scaled by the packing fraction φ:
 | | φ = 0.74 (close-packed spheres) | φ = 0.85 | φ = 1.0 (space-filling cells) |
 |---|---|---|---|
 | effective closure wall | 0.644 kg/m³ | 0.739 kg/m³ | 0.870 kg/m³ |
-| hull at shell 0.264 | 492,108 m³, 144 × 72 m | 391,542 m³, 133 × 67 m | 306,126 m³, 123 × 61 m |
-| hull at shell 0.508 | 1,415,326 m³, 205 × 102 m | 816,375 m³, 170 × 85 m | 516,827 m³, 146 × 73 m |
-| hull at shell 0.750 | **never** | **never** | 1,609,984 m³, 214 × 107 m |
+| hull at shell 0.264 | 492,055 m³, 144 × 72 m | 391,499 m³, 133 × 67 m | 306,093 m³, 123 × 61 m |
+| hull at shell 0.508 | 1,415,173 m³, 205 × 102 m | 816,286 m³, 170 × 85 m | 516,771 m³, 146 × 73 m |
+| hull at shell 0.750 | **never** | **never** | 1,609,811 m³, 214 × 107 m |
 
 The packing wall is ρφ/(1 + f); the table uses the floor f = 0.10. Credible (f = 0.15) and demonstrated (f = 0.20) lower each wall further.
 
@@ -221,26 +220,26 @@ to the differences; this comparison does not isolate their individual effects.
 
 | Class | Nominal floor t | Three-cycle floor t | Three-cycle floor / dry | Existing 0.508 kg/m³ diagnostic volume m³ | Existing volume / baseline |
 |---|---|---|---|---|---|
-| P100 | 216.1 → 216.1 | 226.2 → 226.1 | 2.26 → 2.26 | 457,324 → 457,275 | 2.08 → 2.08 |
-| P1000 | 1803.6 → 1803.6 | 1950.9 → 1950.5 | 1.95 → 1.95 | 3,855,851 → 3,854,933 | 1.75 → 1.75 |
-| P10000 | 19524.2 → 19524.2 | 19707.1 → 19705.8 | 1.97 → 1.97 | 38,938,209 → 38,935,172 | 1.77 → 1.77 |
+| P100 | 216.1 → 216.1 | 226.2 → 226.1 | 2.26 → 2.26 | 457,324 → 516,771 | 2.08 → 2.35 |
+| P1000 | 1803.6 → 1803.6 | 1950.9 → 1950.5 | 1.95 → 1.95 | 3,855,851 → 4,353,131 | 1.75 → 1.98 |
+| P10000 | 19524.2 → 19524.2 | 19707.1 → 19705.8 | 1.97 → 1.97 | 38,938,209 → 43,946,913 | 1.77 → 2.00 |
 
 P-100 density sweep of the same existing diagnostic; current values precede the preserved publication:
 
 | Shell kg/m³ | Current volume m³ | Current / baseline | Current length × diameter | Earlier volume m³ | Earlier / baseline | Earlier length × diameter |
 |---|---|---|---|---|---|---|
-| 0.264 | 294,277 | 1.34 | 121 × 61 m | 294,309 | 1.34 | 121 × 61 m |
-| 0.350 | 336,595 | 1.53 | 127 × 63 m | 336,631 | 1.53 | 127 × 63 m |
-| 0.508 | 457,275 | 2.08 | 140 × 70 m | 457,324 | 2.08 | 140 × 70 m |
-| 0.600 | 577,685 | 2.63 | 152 × 76 m | 577,748 | 2.63 | 152 × 76 m |
-| 0.750 | 1,010,200 | 4.59 | 183 × 91 m | 1,010,309 | 4.59 | 183 × 91 m |
-| 0.900 | 3,908,466 | 17.77 | 287 × 144 m | 3,908,881 | 17.77 | 287 × 144 m |
+| 0.264 | 306,093 | 1.39 | 123 × 61 m | 294,309 | 1.34 | 121 × 61 m |
+| 0.350 | 357,508 | 1.63 | 129 × 65 m | 336,631 | 1.53 | 127 × 63 m |
+| 0.508 | 516,771 | 2.35 | 146 × 73 m | 457,324 | 2.08 | 140 × 70 m |
+| 0.600 | 697,253 | 3.17 | 162 × 81 m | 577,748 | 2.63 | 152 × 76 m |
+| 0.750 | 1,609,811 | 7.32 | 214 × 107 m | 1,010,309 | 4.59 | 183 × 91 m |
+| 0.900 | not closed | | | 3,908,881 | 17.77 | 287 × 144 m |
 
 Current P-100 packing diagnostics (their earlier dimensions remain in the numeric reference):
 
 | Existing diagnostic | phi=0.74 | phi=0.85 | phi=1.0 |
 |---|---|---|---|
-| hull at shell 0.264 | 462,288 m³; 141 × 70 m | 372,397 m³; 131 × 66 m | 294,277 m³; 121 × 61 m |
-| hull at shell 0.508 | 1,045,498 m³; 185 × 92 m | 677,468 m³; 160 × 80 m | 457,275 m³; 140 × 70 m |
-| hull at shell 0.750 | not closed | 3,483,033 m³; 276 × 138 m | 1,010,200 m³; 183 × 91 m |
+| hull at shell 0.264 | 492,055 m³; 144 × 72 m | 391,499 m³; 133 × 67 m | 306,093 m³; 123 × 61 m |
+| hull at shell 0.508 | 1,415,173 m³; 205 × 102 m | 816,286 m³; 170 × 85 m | 516,771 m³; 146 × 73 m |
+| hull at shell 0.750 | not closed | not closed | 1,609,811 m³; 214 × 107 m |
 <!-- solar:budget-comparison:end -->

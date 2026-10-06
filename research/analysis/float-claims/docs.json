@@ -735,17 +735,8 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "6b0c1774a1601ead",
-      "line": 54,
-      "class": "flight-model",
-      "reason": "This is the simulated fleet displacement requirement at its working altitude, conditional on the stated dry-mass allowance and the bound float assumption.",
-      "text": "**FAIL-SAFE FLOAT-UP SETS THE DISPLACEMENT.** The requirement, decided 2026-08-09, is that a hull be positively buoyant at its working altitude *while fully loaded with water and unable to drop it*. Nitrogen ballast is excluded from that mass because it vents to atmosphere in seconds; water is the load a ship can be stuck with. The working altitude is h_t + `ALT.cruise` = 2,500 m MSL, which is the thinnest air in the cycle, so sizing there sizes for everywhere. At ρ_work = 0.95686 kg/m³ a loaded tonne needs 2,194.7 m³ of displacement with a 5% margin; the classes carry 2,200 m³ per tonne of payload:",
-      "assumption": "14d0a1037fdafa03"
-    },
-    {
-      "file": "docs/PHYSICS.md",
       "key": "125e635150f8ce26",
-      "line": 62,
+      "line": 69,
       "class": "flight-model",
       "reason": "These are fleet allowance results for the flight model at its working density, including float-up margin; they are not masses of drawn structural hulls.",
       "text": "| | displacement | L at ρ_work | dry | payload | float-up margin | surplus, empty | |---|---:|---:|---:|---:|---:|---:| | P-100 | 220,000 m³ | 210.5 t | 100 t | 100 t | +5.25% | 110.5 t | | P-1000 | 2,200,000 m³ | 2,105.1 t | 1,000 t | 1,000 t | +5.25% | 1,105.1 t | | P-10000 | 22,000,000 m³ | 21,050.9 t | 10,000 t | 10,000 t | +5.25% | 11,050.9 t |",
@@ -754,7 +745,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "240fc309e5542a5c",
-      "line": 102,
+      "line": 109,
       "class": "flight-model",
       "reason": "Loaded and empty break-even densities come from the simulated payload-equals-dry-mass allowance; the bound assumption prevents treating them as structural closure.",
       "text": "> ρ* = 2 m_pay / V = **0.90909 kg/m³** loaded, **0.45455 kg/m³** empty",
@@ -763,7 +754,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "4880a0dacd114df0",
-      "line": 104,
+      "line": 111,
       "class": "history",
       "reason": "The paragraph preserves the previous break-even density and altitude beside the replacement from the dated displacement correction.",
       "text": "0.90909 kg/m³ is ISA density at 3,000 m — 500 m above the cruise ceiling. It used to be 1.1111 kg/m³, which is 1,005 m, below the drop run. That is the whole of the fix, in one number.",
@@ -772,7 +763,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "e0142dcb4b1c3218",
-      "line": 116,
+      "line": 123,
       "class": "deferred",
       "reason": "One paragraph combines gas fractions, an assumed structural share, a generated hierarchy comparison and the mission rationale.",
       "owner": "mixed-block"
@@ -780,7 +771,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "a3ec55b9312dca9d",
-      "line": 140,
+      "line": 147,
       "class": "deferred",
       "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-02 hand-figure correction that follows it in docs/PHYSICS.md is retained.",
       "owner": "energy-model"
@@ -788,7 +779,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "0ebc46a34b9431ff",
-      "line": 166,
+      "line": 173,
       "class": "history",
       "reason": "The dated correction explicitly labels the two breach densities as hand figures with no generator and points to their unresolved load and material basis.",
       "text": "Correction, 2026-10-02: 0.162 kg/m³ and 3.59 kg/m³ are hand figures with no generator. Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing.",
@@ -797,7 +788,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "9e8b27cfca4a70bc",
-      "line": 190,
+      "line": 197,
       "class": "other-quantity",
       "reason": "The table compares material modulus and density for a classical shell requirement; it is not a computed bill or float result for any project hull.",
       "text": "| Material | E (GPa) | ρ_m (kg/m³) | E/ρ_m² | fraction of requirement | |---|---:|---:|---:|---:| | aluminium 6061 | 70 | 2,700 | 9,602 | 0.02× | | silicon carbide | 410 | 3,210 | 39,790 | 0.08× | | carbon/epoxy, unidirectional | 150 | 1,600 | 58,594 | 0.12× | | boron carbide | 460 | 2,520 | 72,436 | 0.14× | | beryllium | 287 | 1,850 | 83,857 | 0.17× | | diamond | 1,050 | 3,510 | 85,227 | 0.17× |"
@@ -805,7 +796,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "f7d310e9a77f501d",
-      "line": 208,
+      "line": 215,
       "class": "deferred",
       "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
       "owner": "mixed-block"
@@ -813,7 +804,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "b9210dbcdec09981",
-      "line": 218,
+      "line": 225,
       "class": "conditional",
       "reason": "The areal-density ceiling is explicitly an assumed fleet budget, and the paragraph says it does not establish whether a shell can be built.",
       "text": "σ rises with size because dry mass scales as V while area scales as V^(2/3). The lift budget allows at most σ_max = ρ_work V / S_wet — 11.08, 23.66 and 51.12 kg/m² for the three classes — and the assumed values are 47.5% of that in every case, identically, because m_dry = m_pay = L/2.1051 by construction. So the shell, the machinery, the batteries and the rotors together are given a little under half of what buoyancy would permit. That is a statement about the lift budget only. It says nothing about whether such a shell can be built."
@@ -821,7 +812,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "e650efaae304632e",
-      "line": 226,
+      "line": 233,
       "class": "history",
       "reason": "This records the displacement-resize trade from the original spheroid study; docs/PHYSICS.md dates the later capsule correction separately, in the 2026-10-02 paragraph under its areal-density table.",
       "text": "**Fail-safe float-up made this harder, and that is the price of it.** Growing the hull 22% added 14% to the wetted area without adding anything to the dry allowance, so every square metre of shell now has to come in 13% lighter than it did. The requirement is a safety property and the areal density is the hardest unsolved problem in the project; buying the first with the second is a deliberate trade and it is stated rather than netted off.",
@@ -829,22 +820,8 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "bb875fc9630dff24",
-      "line": 243,
-      "class": "generated",
-      "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
-      "region": {
-        "start": "<!-- energy:physics:start -->",
-        "end": "<!-- energy:physics:end -->"
-      },
-      "generator": "research/analysis/energy-documents.mjs",
-      "gate": "energydoccheck",
-      "verifier": "tools/check_energy_docs.py"
-    },
-    {
-      "file": "docs/PHYSICS.md",
       "key": "451c1bbcffc340c7",
-      "line": 255,
+      "line": 262,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -852,7 +829,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "5ee2543ddd270d0b",
-      "line": 333,
+      "line": 340,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -866,7 +843,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "382335bf5ffcf978",
-      "line": 345,
+      "line": 352,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -891,7 +868,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "dd021e7abaca30e6",
-      "line": 265,
+      "line": 272,
       "class": "method",
       "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": [],
@@ -903,7 +880,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 131
+      "line": 138
     },
     {
       "file": "docs/PHYSICS.md",
@@ -911,7 +888,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 173
+      "line": 180
     },
     {
       "file": "docs/FLOAT.md",
@@ -928,7 +905,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "1e313d903b4a4f94",
-      "line": 391,
+      "line": 398,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -942,7 +919,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "6a45c9a3dd10599c",
-      "line": 397,
+      "line": 404,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -956,7 +933,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "0b5195293e15ccdd",
-      "line": 423,
+      "line": 430,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -974,6 +951,34 @@
       "class": "deferred",
       "owner": "hand-arithmetic",
       "reason": "Reviewed wording correction based on the executed scale tool, budget evidence or dated architecture statement; not a structural float proof."
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "08a025ee44bf4004",
+      "class": "generated",
+      "generator": "research/analysis/loaded-atmosphere.mjs",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- atmosphere:physics:start -->",
+        "end": "<!-- atmosphere:physics:end -->"
+      },
+      "reason": "Reviewed Order 11f: exact qualified reference-atmosphere region and per-class neutral boundary are freshly recomputed by analysischeck; no structural float endorsement.",
+      "line": 54
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "51a85d6713eb374a",
+      "line": 250,
+      "class": "generated",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py"
     }
   ]
 }

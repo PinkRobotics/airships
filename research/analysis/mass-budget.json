@@ -63,7 +63,7 @@
    },
    "demonstrated": {
     "value": 149.0,
-    "source": "Chin et al. 2021 \u2014 the X-57 pack NASA actually flew, from 225 Wh/kg cells at a cell-to-pack factor of 0.66.",
+    "source": "Chin et al. 2021, printed p. 2 \u2014 a built X-57 pack, from 225 Wh/kg cells at a cell-to-pack factor of 0.66. The electric aircraft did not fly (NASA X-57 Systems Engineering Lessons Learned, printed p. 4).",
     "evidenceClass": "literature pack"
    }
   },
@@ -115,7 +115,7 @@
   "cryo_t_per_mw": {
    "floor": {
     "value": 2.0,
-    "source": "NO SOURCE, and 34x better than NASA's best published flight-optimised liquefier. Recorded as a stated gift to the budget, not an estimate."
+    "source": "NO SOURCE; 34x lighter than the NASA Mars-surface oxygen liquefaction estimate. A stated gift to the budget, not an estimate."
    },
    "credible": {
     "value": 20.0,
@@ -123,7 +123,7 @@
    },
    "demonstrated": {
     "value": 65.0,
-    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; corroborated by NASA GRC's 68.6 t/MW reverse turbo-Brayton flight concept.",
+    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; comparator: Hauser et al., Table 1, printed p. 3, estimate 136.5 kg at 1,990 W input (68.6 t/MW) for Mars-surface oxygen liquefaction, including cryocooler and radiator; not a flight design.",
     "evidenceClass": "ground hardware + flight concept"
    }
   },
@@ -244,7 +244,7 @@
       {
        "item": "Solar skin",
        "tonnes": 2.16,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -349,7 +349,7 @@
       {
        "item": "Solar skin",
        "tonnes": 3.9,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -456,7 +456,7 @@
       {
        "item": "Solar skin",
        "tonnes": 7.2,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
@@ -577,13 +577,13 @@
       {
        "item": "Solar skin",
        "tonnes": 2.16,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 49.15,
-       "driver": "24.58 MWh",
+       "tonnes": 49.13,
+       "driver": "24.57 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -659,46 +659,46 @@
        "note": ""
       }
      ],
-     "totalT": 226.2,
+     "totalT": 226.1,
      "overBy": 2.26,
      "shellAloneOverBy": 1.12,
      "everythingButShellT": 114.4,
-     "baseExShellExSundriesT": 93.83,
+     "baseExShellExSundriesT": 93.81,
      "closureWallKgPerM3": 0.8698718181818181,
      "shellBudgetLeftT": -2.9,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 306126,
+       "volumeM3": 306093,
        "timesBaseline": 1.39,
        "lenM": 123,
        "diaM": 61
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 357547,
+       "volumeM3": 357508,
        "timesBaseline": 1.63,
        "lenM": 129,
        "diaM": 65
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 516827,
+       "volumeM3": 516771,
        "timesBaseline": 2.35,
        "lenM": 146,
        "diaM": 73
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 697329,
+       "volumeM3": 697253,
        "timesBaseline": 3.17,
        "lenM": 162,
        "diaM": 81
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 1609984,
+       "volumeM3": 1609811,
        "timesBaseline": 7.32,
        "lenM": 214,
        "diaM": 107
@@ -712,14 +712,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 492108,
+        "volumeM3": 492055,
         "timesBaseline": 2.24,
         "lenM": 144,
         "diaM": 72
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1415326,
+        "volumeM3": 1415173,
         "timesBaseline": 6.43,
         "lenM": 205,
         "diaM": 102
@@ -732,14 +732,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 391542,
+        "volumeM3": 391499,
         "timesBaseline": 1.78,
         "lenM": 133,
         "diaM": 67
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 816375,
+        "volumeM3": 816286,
         "timesBaseline": 3.71,
         "lenM": 170,
         "diaM": 85
@@ -752,21 +752,21 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 306126,
+        "volumeM3": 306093,
         "timesBaseline": 1.39,
         "lenM": 123,
         "diaM": 61
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 516827,
+        "volumeM3": 516771,
         "timesBaseline": 2.35,
         "lenM": 146,
         "diaM": 73
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 1609984,
+        "volumeM3": 1609811,
         "timesBaseline": 7.32,
         "lenM": 214,
         "diaM": 107
@@ -791,13 +791,13 @@
       {
        "item": "Solar skin",
        "tonnes": 3.9,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 81.92,
-       "driver": "24.58 MWh",
+       "tonnes": 81.89,
+       "driver": "24.57 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -868,7 +868,7 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 63.12,
+       "tonnes": 63.11,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
@@ -877,42 +877,42 @@
      "overBy": 4.84,
      "shellAloneOverBy": 1.65,
      "everythingButShellT": 318.9,
-     "baseExShellExSundriesT": 255.78,
+     "baseExShellExSundriesT": 255.75,
      "closureWallKgPerM3": 0.8320513043478261,
      "shellBudgetLeftT": -168.8,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 624845,
+       "volumeM3": 624789,
        "timesBaseline": 2.84,
        "lenM": 156,
        "diaM": 78
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 742475,
+       "volumeM3": 742409,
        "timesBaseline": 3.37,
        "lenM": 165,
        "diaM": 82
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 1131845,
+       "volumeM3": 1131746,
        "timesBaseline": 5.14,
        "lenM": 190,
        "diaM": 95
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 1622922,
+       "volumeM3": 1622781,
        "timesBaseline": 7.38,
        "lenM": 214,
        "diaM": 107
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 5256540,
+       "volumeM3": 5256107,
        "timesBaseline": 23.89,
        "lenM": 317,
        "diaM": 158
@@ -926,14 +926,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 1036982,
+        "volumeM3": 1036891,
         "timesBaseline": 4.71,
         "lenM": 184,
         "diaM": 92
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 3825538,
+        "volumeM3": 3825217,
         "timesBaseline": 17.39,
         "lenM": 285,
         "diaM": 142
@@ -946,14 +946,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 811229,
+        "volumeM3": 811158,
         "timesBaseline": 3.69,
         "lenM": 170,
         "diaM": 85
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1917293,
+        "volumeM3": 1917127,
         "timesBaseline": 8.71,
         "lenM": 226,
         "diaM": 113
@@ -966,21 +966,21 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 624845,
+        "volumeM3": 624789,
         "timesBaseline": 2.84,
         "lenM": 156,
         "diaM": 78
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1131845,
+        "volumeM3": 1131746,
         "timesBaseline": 5.14,
         "lenM": 190,
         "diaM": 95
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 5256540,
+        "volumeM3": 5256107,
         "timesBaseline": 23.89,
         "lenM": 317,
         "diaM": 158
@@ -1007,14 +1007,14 @@
       {
        "item": "Solar skin",
        "tonnes": 7.2,
-       "driver": "6,000 m2 projected",
+       "driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
-       "tonnes": 164.94,
-       "driver": "24.58 MWh",
+       "tonnes": 164.88,
+       "driver": "24.57 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
        "evidenceClass": "literature pack"
       },
@@ -1097,7 +1097,7 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 190.86,
+       "tonnes": 190.84,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
@@ -1107,43 +1107,43 @@
      "overBy": 11.45,
      "shellAloneOverBy": 2.55,
      "everythingButShellT": 889.9,
-     "baseExShellExSundriesT": 699.08,
+     "baseExShellExSundriesT": 699.02,
      "closureWallKgPerM3": 0.7973825,
      "shellBudgetLeftT": -615.7,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 1905951,
+       "volumeM3": 1905810,
        "timesBaseline": 8.66,
        "lenM": 226,
        "diaM": 113
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 2382366,
+       "volumeM3": 2382193,
        "timesBaseline": 10.83,
        "lenM": 243,
        "diaM": 122
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 4267783,
+       "volumeM3": 4267493,
        "timesBaseline": 19.4,
        "lenM": 296,
        "diaM": 148
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 7456404,
+       "volumeM3": 7455940,
        "timesBaseline": 33.89,
        "lenM": 356,
        "diaM": 178
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 114136998,
-       "timesBaseline": 518.8,
+       "volumeM3": 114133989,
+       "timesBaseline": 518.79,
        "lenM": 884,
        "diaM": 442
       },
@@ -1156,15 +1156,15 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 3620276,
-        "timesBaseline": 16.46,
+        "volumeM3": 3620025,
+        "timesBaseline": 16.45,
         "lenM": 280,
         "diaM": 140
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 34369616,
-        "timesBaseline": 156.23,
+        "volumeM3": 34368157,
+        "timesBaseline": 156.22,
         "lenM": 592,
         "diaM": 296
        },
@@ -1176,14 +1176,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 2635904,
+        "volumeM3": 2635715,
         "timesBaseline": 11.98,
         "lenM": 252,
         "diaM": 126
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 9429428,
+        "volumeM3": 9428866,
         "timesBaseline": 42.86,
         "lenM": 385,
         "diaM": 192
@@ -1196,22 +1196,22 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 1905951,
+        "volumeM3": 1905810,
         "timesBaseline": 8.66,
         "lenM": 226,
         "diaM": 113
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 4267783,
+        "volumeM3": 4267493,
         "timesBaseline": 19.4,
         "lenM": 296,
         "diaM": 148
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 114136998,
-        "timesBaseline": 518.8,
+        "volumeM3": 114133989,
+        "timesBaseline": 518.79,
         "lenM": 884,
         "diaM": 442
        }
@@ -1232,8 +1232,8 @@
     "valveAreaM2For60s": 11.13,
     "valveAreaM2For300s": 2.23,
     "ln2RouteMWhToFillTanks": 69.8,
-    "ln2RouteDaysOnSolar": 10.8,
-    "airRouteDaysOnSolarToReEvacuate": 1.7,
+    "ln2RouteDaysOnSolar": 13.8,
+    "airRouteDaysOnSolarToReEvacuate": 2.1,
     "energyRatioLn2OverAir": 6.4,
     "cycleCryoMWh": 0.824,
     "cycleRecoveryMWh": 0.165,
@@ -1245,8 +1245,8 @@
     "residualForRotorsT": 12.4,
     "rotorCapT": 140.5,
     "marginX": 11.3,
-    "cycleMWhAsBuilt": 8.192,
-    "cycleMWhWithoutCryo": 7.534,
+    "cycleMWhAsBuilt": 8.189,
+    "cycleMWhWithoutCryo": 7.531,
     "cycleSavingPct": 8.0
    },
    "batterySensitivity": {
@@ -1259,24 +1259,24 @@
       "requiredShellKgPerM3": 0.0612
      },
      "4 cycles": {
-      "batteryMWh": 32.77,
+      "batteryMWh": 32.76,
       "batteryT": 65.5,
       "totalT": 121.2,
       "leftForShellT": -19.3,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.54,
-      "batteryT": 131.1,
+      "batteryMWh": 65.51,
+      "batteryT": 131.0,
       "totalT": 193.3,
       "leftForShellT": -84.8,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.07,
-      "batteryT": 262.1,
-      "totalT": 337.5,
-      "leftForShellT": -215.9,
+      "batteryMWh": 131.02,
+      "batteryT": 262.0,
+      "totalT": 337.4,
+      "leftForShellT": -215.8,
       "requiredShellKgPerM3": 0.0
      }
     },
@@ -1289,54 +1289,54 @@
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 32.77,
+      "batteryMWh": 32.76,
       "batteryT": 109.2,
       "totalT": 325.5,
       "leftForShellT": -196.1,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.54,
-      "batteryT": 218.5,
-      "totalT": 451.2,
-      "leftForShellT": -305.4,
+      "batteryMWh": 65.51,
+      "batteryT": 218.4,
+      "totalT": 451.1,
+      "leftForShellT": -305.3,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.07,
-      "batteryT": 436.9,
-      "totalT": 702.4,
-      "leftForShellT": -523.8,
+      "batteryMWh": 131.02,
+      "batteryT": 436.7,
+      "totalT": 702.2,
+      "leftForShellT": -523.7,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
       "batteryMWh": 16.38,
-      "batteryT": 110.0,
+      "batteryT": 109.9,
       "totalT": 772.9,
-      "leftForShellT": -560.8,
+      "leftForShellT": -560.7,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 32.77,
-      "batteryT": 219.9,
-      "totalT": 904.9,
-      "leftForShellT": -670.7,
+      "batteryMWh": 32.76,
+      "batteryT": 219.8,
+      "totalT": 904.8,
+      "leftForShellT": -670.6,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.54,
-      "batteryT": 439.8,
-      "totalT": 1168.8,
-      "leftForShellT": -890.6,
+      "batteryMWh": 65.51,
+      "batteryT": 439.7,
+      "totalT": 1168.6,
+      "leftForShellT": -890.5,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.07,
-      "batteryT": 879.7,
-      "totalT": 1696.6,
-      "leftForShellT": -1330.5,
+      "batteryMWh": 131.02,
+      "batteryT": 879.4,
+      "totalT": 1696.2,
+      "leftForShellT": -1330.2,
       "requiredShellKgPerM3": 0.0
      }
     }
@@ -1368,7 +1368,7 @@
       {
        "item": "Solar skin",
        "tonnes": 10.08,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -1473,7 +1473,7 @@
       {
        "item": "Solar skin",
        "tonnes": 18.2,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -1580,7 +1580,7 @@
       {
        "item": "Solar skin",
        "tonnes": 33.6,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
@@ -1701,13 +1701,13 @@
       {
        "item": "Solar skin",
        "tonnes": 10.08,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 373.88,
-       "driver": "186.94 MWh",
+       "tonnes": 373.51,
+       "driver": "186.75 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -1778,51 +1778,51 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 177.36,
+       "tonnes": 177.32,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 1950.9,
+     "totalT": 1950.5,
      "overBy": 1.95,
      "shellAloneOverBy": 1.12,
-     "everythingButShellT": 833.3,
-     "baseExShellExSundriesT": 655.96,
+     "everythingButShellT": 832.9,
+     "baseExShellExSundriesT": 655.59,
      "closureWallKgPerM3": 0.8698718181818181,
-     "shellBudgetLeftT": 253.1,
-     "requiredShellKgPerM3": 0.1151,
+     "shellBudgetLeftT": 253.5,
+     "requiredShellKgPerM3": 0.1152,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 2586598,
+       "volumeM3": 2585982,
        "timesBaseline": 1.18,
        "lenM": 251,
        "diaM": 126
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 3018762,
+       "volumeM3": 3018043,
        "timesBaseline": 1.37,
        "lenM": 264,
        "diaM": 132
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 4354166,
+       "volumeM3": 4353131,
        "timesBaseline": 1.98,
        "lenM": 299,
        "diaM": 149
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 5862066,
+       "volumeM3": 5860674,
        "timesBaseline": 2.66,
        "lenM": 330,
        "diaM": 165
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 13414662,
+       "volumeM3": 13411495,
        "timesBaseline": 6.1,
        "lenM": 435,
        "diaM": 217
@@ -1836,14 +1836,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 4147229,
-        "timesBaseline": 1.89,
+        "volumeM3": 4146243,
+        "timesBaseline": 1.88,
         "lenM": 294,
         "diaM": 147
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 11812748,
+        "volumeM3": 11809956,
         "timesBaseline": 5.37,
         "lenM": 417,
         "diaM": 208
@@ -1856,15 +1856,15 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 3304183,
+        "volumeM3": 3303397,
         "timesBaseline": 1.5,
         "lenM": 273,
         "diaM": 136
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 6853713,
-        "timesBaseline": 3.12,
+        "volumeM3": 6852087,
+        "timesBaseline": 3.11,
         "lenM": 348,
         "diaM": 174
        },
@@ -1876,21 +1876,21 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 2586598,
+        "volumeM3": 2585982,
         "timesBaseline": 1.18,
         "lenM": 251,
         "diaM": 126
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 4354166,
+        "volumeM3": 4353131,
         "timesBaseline": 1.98,
         "lenM": 299,
         "diaM": 149
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 13414662,
+        "volumeM3": 13411495,
         "timesBaseline": 6.1,
         "lenM": 435,
         "diaM": 217
@@ -1915,13 +1915,13 @@
       {
        "item": "Solar skin",
        "tonnes": 18.2,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 623.14,
-       "driver": "186.94 MWh",
+       "tonnes": 622.51,
+       "driver": "186.75 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -1992,52 +1992,52 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 490.37,
+       "tonnes": 490.27,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 3759.5,
+     "totalT": 3758.8,
      "overBy": 3.76,
      "shellAloneOverBy": 1.65,
-     "everythingButShellT": 2109.5,
-     "baseExShellExSundriesT": 1619.11,
+     "everythingButShellT": 2108.8,
+     "baseExShellExSundriesT": 1618.48,
      "closureWallKgPerM3": 0.8320513043478261,
-     "shellBudgetLeftT": -749.5,
+     "shellBudgetLeftT": -748.9,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 4489714,
+       "volumeM3": 4488555,
        "timesBaseline": 2.04,
        "lenM": 302,
        "diaM": 151
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 5331771,
+       "volumeM3": 5330399,
        "timesBaseline": 2.42,
        "lenM": 320,
        "diaM": 160
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 8113697,
+       "volumeM3": 8111626,
        "timesBaseline": 3.69,
        "lenM": 368,
        "diaM": 184
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 11611940,
+       "volumeM3": 11609001,
        "timesBaseline": 5.28,
        "lenM": 414,
        "diaM": 207
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 37238525,
-       "timesBaseline": 16.93,
+       "volumeM3": 37229536,
+       "timesBaseline": 16.92,
        "lenM": 611,
        "diaM": 306
       },
@@ -2050,14 +2050,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 7436643,
+        "volumeM3": 7434741,
         "timesBaseline": 3.38,
         "lenM": 357,
         "diaM": 179
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 27192579,
+        "volumeM3": 27185907,
         "timesBaseline": 12.36,
         "lenM": 550,
         "diaM": 275
@@ -2070,14 +2070,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 5823583,
+        "volumeM3": 5822086,
         "timesBaseline": 2.65,
         "lenM": 329,
         "diaM": 165
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 13704034,
+        "volumeM3": 13700583,
         "timesBaseline": 6.23,
         "lenM": 438,
         "diaM": 219
@@ -2090,22 +2090,22 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 4489714,
+        "volumeM3": 4488555,
         "timesBaseline": 2.04,
         "lenM": 302,
         "diaM": 151
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 8113697,
+        "volumeM3": 8111626,
         "timesBaseline": 3.69,
         "lenM": 368,
         "diaM": 184
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 37238525,
-        "timesBaseline": 16.93,
+        "volumeM3": 37229536,
+        "timesBaseline": 16.92,
         "lenM": 611,
         "diaM": 306
        }
@@ -2131,14 +2131,14 @@
       {
        "item": "Solar skin",
        "tonnes": 33.6,
-       "driver": "28,000 m2 projected",
+       "driver": "28,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
-       "tonnes": 1254.64,
-       "driver": "186.94 MWh",
+       "tonnes": 1253.38,
+       "driver": "186.75 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
        "evidenceClass": "literature pack"
       },
@@ -2221,53 +2221,53 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 1321.58,
+       "tonnes": 1321.33,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
-     "totalT": 7929.5,
+     "totalT": 7928.0,
      "overBy": 7.93,
      "shellAloneOverBy": 2.55,
-     "everythingButShellT": 5377.5,
-     "baseExShellExSundriesT": 4055.9,
+     "everythingButShellT": 5376.0,
+     "baseExShellExSundriesT": 4054.64,
      "closureWallKgPerM3": 0.7973825,
-     "shellBudgetLeftT": -3222.6,
+     "shellBudgetLeftT": -3221.3,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 10316849,
+       "volumeM3": 10314178,
        "timesBaseline": 4.69,
        "lenM": 398,
        "diaM": 199
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 12604724,
+       "volumeM3": 12601490,
        "timesBaseline": 5.73,
        "lenM": 426,
        "diaM": 213
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 21017213,
+       "volumeM3": 21011979,
        "timesBaseline": 9.55,
        "lenM": 505,
-       "diaM": 253
+       "diaM": 252
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 33683820,
+       "volumeM3": 33675734,
        "timesBaseline": 15.31,
        "lenM": 591,
        "diaM": 295
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 276223068,
-       "timesBaseline": 125.56,
+       "volumeM3": 276176004,
+       "timesBaseline": 125.53,
        "lenM": 1192,
        "diaM": 596
       },
@@ -2280,15 +2280,15 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 18226844,
+        "volumeM3": 18222263,
         "timesBaseline": 8.28,
         "lenM": 482,
         "diaM": 241
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 112658254,
-        "timesBaseline": 51.21,
+        "volumeM3": 112635037,
+        "timesBaseline": 51.2,
         "lenM": 884,
         "diaM": 442
        },
@@ -2300,14 +2300,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 13791414,
+        "volumeM3": 13787892,
         "timesBaseline": 6.27,
         "lenM": 439,
         "diaM": 219
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 40861087,
+        "volumeM3": 40851454,
         "timesBaseline": 18.57,
         "lenM": 630,
         "diaM": 315
@@ -2320,22 +2320,22 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 10316849,
+        "volumeM3": 10314178,
         "timesBaseline": 4.69,
         "lenM": 398,
         "diaM": 199
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 21017213,
+        "volumeM3": 21011979,
         "timesBaseline": 9.55,
         "lenM": 505,
-        "diaM": 253
+        "diaM": 252
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 276223068,
-        "timesBaseline": 125.56,
+        "volumeM3": 276176004,
+        "timesBaseline": 125.53,
         "lenM": 1192,
         "diaM": 596
        }
@@ -2356,8 +2356,8 @@
     "valveAreaM2For60s": 111.32,
     "valveAreaM2For300s": 22.26,
     "ln2RouteMWhToFillTanks": 697.5,
-    "ln2RouteDaysOnSolar": 23.1,
-    "airRouteDaysOnSolarToReEvacuate": 3.6,
+    "ln2RouteDaysOnSolar": 30.0,
+    "airRouteDaysOnSolarToReEvacuate": 4.6,
     "energyRatioLn2OverAir": 6.4,
     "cycleCryoMWh": 3.37,
     "cycleRecoveryMWh": 0.674,
@@ -2369,98 +2369,98 @@
     "residualForRotorsT": 124.4,
     "rotorCapT": 683.3,
     "marginX": 5.5,
-    "cycleMWhAsBuilt": 62.314,
-    "cycleMWhWithoutCryo": 59.618,
+    "cycleMWhAsBuilt": 62.251,
+    "cycleMWhWithoutCryo": 59.555,
     "cycleSavingPct": 4.3
    },
    "batterySensitivity": {
     "floor": {
      "2 cycles": {
-      "batteryMWh": 124.63,
-      "batteryT": 249.3,
-      "totalT": 584.5,
-      "leftForShellT": 377.8,
-      "requiredShellKgPerM3": 0.1717
+      "batteryMWh": 124.5,
+      "batteryT": 249.0,
+      "totalT": 584.2,
+      "leftForShellT": 378.0,
+      "requiredShellKgPerM3": 0.1718
      },
      "4 cycles": {
-      "batteryMWh": 249.26,
-      "batteryT": 498.5,
-      "totalT": 858.7,
-      "leftForShellT": 128.5,
-      "requiredShellKgPerM3": 0.0584
+      "batteryMWh": 249.0,
+      "batteryT": 498.0,
+      "totalT": 858.1,
+      "leftForShellT": 129.0,
+      "requiredShellKgPerM3": 0.0586
      },
      "8 cycles": {
-      "batteryMWh": 498.51,
-      "batteryT": 997.0,
-      "totalT": 1407.0,
-      "leftForShellT": -370.0,
+      "batteryMWh": 498.01,
+      "batteryT": 996.0,
+      "totalT": 1405.9,
+      "leftForShellT": -369.0,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 997.02,
-      "batteryT": 1994.0,
-      "totalT": 2503.7,
-      "leftForShellT": -1367.0,
+      "batteryMWh": 996.02,
+      "batteryT": 1992.0,
+      "totalT": 2501.5,
+      "leftForShellT": -1365.0,
       "requiredShellKgPerM3": 0.0
      }
     },
     "credible": {
      "2 cycles": {
-      "batteryMWh": 124.63,
-      "batteryT": 415.4,
-      "totalT": 1623.1,
-      "leftForShellT": -541.8,
+      "batteryMWh": 124.5,
+      "batteryT": 415.0,
+      "totalT": 1622.6,
+      "leftForShellT": -541.4,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 249.26,
-      "batteryT": 830.9,
-      "totalT": 2100.8,
-      "leftForShellT": -957.3,
+      "batteryMWh": 249.0,
+      "batteryT": 830.0,
+      "totalT": 2099.9,
+      "leftForShellT": -956.4,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 498.51,
-      "batteryT": 1661.7,
-      "totalT": 3056.3,
-      "leftForShellT": -1788.1,
+      "batteryMWh": 498.01,
+      "batteryT": 1660.0,
+      "totalT": 3054.4,
+      "leftForShellT": -1786.4,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 997.02,
-      "batteryT": 3323.4,
-      "totalT": 4967.3,
-      "leftForShellT": -3449.8,
+      "batteryMWh": 996.02,
+      "batteryT": 3320.1,
+      "totalT": 4963.4,
+      "leftForShellT": -3446.5,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
-      "batteryMWh": 124.63,
-      "batteryT": 836.4,
-      "totalT": 4365.2,
-      "leftForShellT": -2804.4,
+      "batteryMWh": 124.5,
+      "batteryT": 835.6,
+      "totalT": 4364.2,
+      "leftForShellT": -2803.5,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 249.26,
-      "batteryT": 1672.9,
-      "totalT": 5368.9,
-      "leftForShellT": -3640.8,
+      "batteryMWh": 249.0,
+      "batteryT": 1671.2,
+      "totalT": 5366.9,
+      "leftForShellT": -3639.1,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 498.51,
-      "batteryT": 3345.7,
-      "totalT": 7376.4,
-      "leftForShellT": -5313.6,
+      "batteryMWh": 498.01,
+      "batteryT": 3342.3,
+      "totalT": 7372.3,
+      "leftForShellT": -5310.3,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 997.02,
-      "batteryT": 6691.4,
-      "totalT": 11391.2,
-      "leftForShellT": -8659.4,
+      "batteryMWh": 996.02,
+      "batteryT": 6684.7,
+      "totalT": 11383.1,
+      "leftForShellT": -8652.6,
       "requiredShellKgPerM3": 0.0
      }
     }
@@ -2492,7 +2492,7 @@
       {
        "item": "Solar skin",
        "tonnes": 43.2,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -2597,7 +2597,7 @@
       {
        "item": "Solar skin",
        "tonnes": 78.0,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
@@ -2704,7 +2704,7 @@
       {
        "item": "Solar skin",
        "tonnes": 144.0,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
@@ -2825,13 +2825,13 @@
       {
        "item": "Solar skin",
        "tonnes": 43.2,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 4166.27,
-       "driver": "2,083.13 MWh",
+       "tonnes": 4165.04,
+       "driver": "2,082.52 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -2902,51 +2902,51 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 1791.56,
+       "tonnes": 1791.43,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 19707.1,
+     "totalT": 19705.8,
      "overBy": 1.97,
      "shellAloneOverBy": 1.12,
-     "everythingButShellT": 8531.1,
-     "baseExShellExSundriesT": 6739.56,
+     "everythingButShellT": 8529.8,
+     "baseExShellExSundriesT": 6738.33,
      "closureWallKgPerM3": 0.8698718181818181,
-     "shellBudgetLeftT": 2351.3,
+     "shellBudgetLeftT": 2352.6,
      "requiredShellKgPerM3": 0.1069,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 26153849,
+       "volumeM3": 26151807,
        "timesBaseline": 1.19,
        "lenM": 542,
        "diaM": 271
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 30509802,
+       "volumeM3": 30507420,
        "timesBaseline": 1.39,
        "lenM": 571,
        "diaM": 285
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 43950341,
+       "volumeM3": 43946913,
        "timesBaseline": 2.0,
        "lenM": 645,
        "diaM": 322
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 59094862,
+       "volumeM3": 59090257,
        "timesBaseline": 2.69,
        "lenM": 712,
        "diaM": 356
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 134527367,
+       "volumeM3": 134516924,
        "timesBaseline": 6.11,
        "lenM": 936,
        "diaM": 468
@@ -2960,14 +2960,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 41869396,
+        "volumeM3": 41866130,
         "timesBaseline": 1.9,
         "lenM": 634,
         "diaM": 317
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 118580779,
+        "volumeM3": 118571567,
         "timesBaseline": 5.39,
         "lenM": 898,
         "diaM": 449
@@ -2980,14 +2980,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 33384914,
+        "volumeM3": 33382309,
         "timesBaseline": 1.52,
         "lenM": 588,
         "diaM": 294
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 69037481,
+        "volumeM3": 69032105,
         "timesBaseline": 3.14,
         "lenM": 750,
         "diaM": 375
@@ -3000,21 +3000,21 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 26153849,
+        "volumeM3": 26151807,
         "timesBaseline": 1.19,
         "lenM": 542,
         "diaM": 271
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 43950341,
+        "volumeM3": 43946913,
         "timesBaseline": 2.0,
         "lenM": 645,
         "diaM": 322
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 134527367,
+        "volumeM3": 134516924,
         "timesBaseline": 6.11,
         "lenM": 936,
         "diaM": 468
@@ -3039,13 +3039,13 @@
       {
        "item": "Solar skin",
        "tonnes": 78.0,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": ""
       },
       {
        "item": "Battery pack",
-       "tonnes": 6943.78,
-       "driver": "2,083.13 MWh",
+       "tonnes": 6941.74,
+       "driver": "2,082.52 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
       },
       {
@@ -3116,51 +3116,51 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 4441.07,
+       "tonnes": 4440.76,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 34048.2,
+     "totalT": 34045.8,
      "overBy": 3.4,
      "shellAloneOverBy": 1.65,
-     "everythingButShellT": 17548.2,
-     "baseExShellExSundriesT": 13107.11,
+     "everythingButShellT": 17545.8,
+     "baseExShellExSundriesT": 13105.07,
      "closureWallKgPerM3": 0.8320513043478261,
-     "shellBudgetLeftT": -4411.5,
+     "shellBudgetLeftT": -4409.4,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 39128910,
+       "volumeM3": 39125169,
        "timesBaseline": 1.78,
        "lenM": 620,
        "diaM": 310
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 46444007,
+       "volumeM3": 46439579,
        "timesBaseline": 2.11,
        "lenM": 657,
        "diaM": 328
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 70570850,
+       "volumeM3": 70564170,
        "timesBaseline": 3.21,
        "lenM": 755,
        "diaM": 378
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 100833083,
+       "volumeM3": 100823617,
        "timesBaseline": 4.58,
        "lenM": 850,
        "diaM": 425
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 320622702,
+       "volumeM3": 320593888,
        "timesBaseline": 14.57,
        "lenM": 1251,
        "diaM": 625
@@ -3174,14 +3174,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 64704306,
+        "volumeM3": 64698171,
         "timesBaseline": 2.94,
         "lenM": 734,
         "diaM": 367
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 234804321,
+        "volumeM3": 234782900,
         "timesBaseline": 10.67,
         "lenM": 1127,
         "diaM": 564
@@ -3194,14 +3194,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 50713716,
-        "timesBaseline": 2.31,
+        "volumeM3": 50708886,
+        "timesBaseline": 2.3,
         "lenM": 676,
         "diaM": 338
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 118894844,
+        "volumeM3": 118883731,
         "timesBaseline": 5.4,
         "lenM": 898,
         "diaM": 449
@@ -3214,21 +3214,21 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 39128910,
+        "volumeM3": 39125169,
         "timesBaseline": 1.78,
         "lenM": 620,
         "diaM": 310
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 70570850,
+        "volumeM3": 70564170,
         "timesBaseline": 3.21,
         "lenM": 755,
         "diaM": 378
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 320622702,
+        "volumeM3": 320593888,
         "timesBaseline": 14.57,
         "lenM": 1251,
         "diaM": 625
@@ -3255,14 +3255,14 @@
       {
        "item": "Solar skin",
        "tonnes": 144.0,
-       "driver": "120,000 m2 projected",
+       "driver": "120,000 m2 gross PV sheet (independent material-area assumption)",
        "note": "",
        "evidenceClass": "installed allowance"
       },
       {
        "item": "Battery pack",
-       "tonnes": 13980.77,
-       "driver": "2,083.13 MWh",
+       "tonnes": 13976.66,
+       "driver": "2,082.52 MWh",
        "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
        "evidenceClass": "literature pack"
       },
@@ -3345,53 +3345,53 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 10608.19,
+       "tonnes": 10607.37,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
-     "totalT": 63649.2,
+     "totalT": 63644.2,
      "overBy": 6.36,
      "shellAloneOverBy": 2.55,
-     "everythingButShellT": 38129.2,
-     "baseExShellExSundriesT": 27520.97,
+     "everythingButShellT": 38124.2,
+     "baseExShellExSundriesT": 27516.86,
      "closureWallKgPerM3": 0.7973825,
-     "shellBudgetLeftT": -19187.6,
+     "shellBudgetLeftT": -19183.5,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 70673689,
+       "volumeM3": 70665490,
        "timesBaseline": 3.21,
        "lenM": 755,
        "diaM": 378
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 85274807,
+       "volumeM3": 85264955,
        "timesBaseline": 3.88,
        "lenM": 804,
        "diaM": 402
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 136773120,
+       "volumeM3": 136757528,
        "timesBaseline": 6.22,
        "lenM": 941,
        "diaM": 471
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 209313841,
+       "volumeM3": 209290356,
        "timesBaseline": 9.51,
        "lenM": 1085,
        "diaM": 542
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 1198109717,
-       "timesBaseline": 54.46,
+       "volumeM3": 1197991864,
+       "timesBaseline": 54.45,
        "lenM": 1941,
        "diaM": 970
       },
@@ -3404,14 +3404,14 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 120034518,
+        "volumeM3": 120020778,
         "timesBaseline": 5.46,
         "lenM": 901,
         "diaM": 451
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 588350479,
+        "volumeM3": 588288402,
         "timesBaseline": 26.74,
         "lenM": 1531,
         "diaM": 766
@@ -3424,14 +3424,14 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 92737677,
-        "timesBaseline": 4.22,
+        "volumeM3": 92726986,
+        "timesBaseline": 4.21,
         "lenM": 827,
         "diaM": 414
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 248347093,
+        "volumeM3": 248319442,
         "timesBaseline": 11.29,
         "lenM": 1149,
         "diaM": 574
@@ -3444,22 +3444,22 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 70673689,
+        "volumeM3": 70665490,
         "timesBaseline": 3.21,
         "lenM": 755,
         "diaM": 378
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 136773120,
+        "volumeM3": 136757528,
         "timesBaseline": 6.22,
         "lenM": 941,
         "diaM": 471
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 1198109717,
-        "timesBaseline": 54.46,
+        "volumeM3": 1197991864,
+        "timesBaseline": 54.45,
         "lenM": 1941,
         "diaM": 970
        }
@@ -3480,8 +3480,8 @@
     "valveAreaM2For60s": 1113.22,
     "valveAreaM2For300s": 222.64,
     "ln2RouteMWhToFillTanks": 6975.0,
-    "ln2RouteDaysOnSolar": 53.8,
-    "airRouteDaysOnSolarToReEvacuate": 8.4,
+    "ln2RouteDaysOnSolar": 64.9,
+    "airRouteDaysOnSolarToReEvacuate": 10.1,
     "energyRatioLn2OverAir": 6.4,
     "cycleCryoMWh": 9.504,
     "cycleRecoveryMWh": 1.9,
@@ -3493,98 +3493,98 @@
     "residualForRotorsT": 1343.6,
     "rotorCapT": 7079.2,
     "marginX": 5.3,
-    "cycleMWhAsBuilt": 694.378,
-    "cycleMWhWithoutCryo": 686.774,
+    "cycleMWhAsBuilt": 694.174,
+    "cycleMWhWithoutCryo": 686.57,
     "cycleSavingPct": 1.1
    },
    "batterySensitivity": {
     "floor": {
      "2 cycles": {
-      "batteryMWh": 1388.76,
-      "batteryT": 2777.5,
-      "totalT": 5885.9,
-      "leftForShellT": 3740.1,
+      "batteryMWh": 1388.35,
+      "batteryT": 2776.7,
+      "totalT": 5885.0,
+      "leftForShellT": 3740.9,
       "requiredShellKgPerM3": 0.17
      },
      "4 cycles": {
-      "batteryMWh": 2777.51,
-      "batteryT": 5555.0,
-      "totalT": 8941.1,
-      "leftForShellT": 962.6,
+      "batteryMWh": 2776.7,
+      "batteryT": 5553.4,
+      "totalT": 8939.4,
+      "leftForShellT": 964.2,
       "requiredShellKgPerM3": 0.0438
      },
      "8 cycles": {
-      "batteryMWh": 5555.02,
-      "batteryT": 11110.0,
-      "totalT": 15051.7,
-      "leftForShellT": -4592.4,
+      "batteryMWh": 5553.39,
+      "batteryT": 11106.8,
+      "totalT": 15048.1,
+      "leftForShellT": -4589.2,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11110.05,
-      "batteryT": 22220.1,
-      "totalT": 27272.7,
-      "leftForShellT": -15702.5,
+      "batteryMWh": 11106.78,
+      "batteryT": 22213.6,
+      "totalT": 27265.5,
+      "leftForShellT": -15695.9,
       "requiredShellKgPerM3": 0.0
      }
     },
     "credible": {
      "2 cycles": {
-      "batteryMWh": 1388.76,
-      "batteryT": 4629.2,
-      "totalT": 12411.4,
-      "leftForShellT": -2096.9,
+      "batteryMWh": 1388.35,
+      "batteryT": 4627.8,
+      "totalT": 12409.8,
+      "leftForShellT": -2095.5,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 2777.51,
-      "batteryT": 9258.4,
-      "totalT": 17735.0,
-      "leftForShellT": -6726.1,
+      "batteryMWh": 2776.7,
+      "batteryT": 9255.7,
+      "totalT": 17731.8,
+      "leftForShellT": -6723.3,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 5555.02,
-      "batteryT": 18516.7,
-      "totalT": 28382.1,
-      "leftForShellT": -15984.4,
+      "batteryMWh": 5553.39,
+      "batteryT": 18511.3,
+      "totalT": 28375.8,
+      "leftForShellT": -15979.0,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11110.05,
-      "batteryT": 37033.5,
-      "totalT": 49676.3,
-      "leftForShellT": -34501.2,
+      "batteryMWh": 11106.78,
+      "batteryT": 37022.6,
+      "totalT": 49663.8,
+      "leftForShellT": -34490.3,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
-      "batteryMWh": 1388.76,
-      "batteryT": 9320.5,
-      "totalT": 27432.9,
-      "leftForShellT": -14527.4,
+      "batteryMWh": 1388.35,
+      "batteryT": 9317.8,
+      "totalT": 27429.6,
+      "leftForShellT": -14524.6,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 2777.51,
-      "batteryT": 18641.0,
-      "totalT": 38617.5,
-      "leftForShellT": -23847.9,
+      "batteryMWh": 2776.7,
+      "batteryT": 18635.5,
+      "totalT": 38610.9,
+      "leftForShellT": -23842.4,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 5555.02,
-      "batteryT": 37282.0,
-      "totalT": 60986.7,
-      "leftForShellT": -42488.9,
+      "batteryMWh": 5553.39,
+      "batteryT": 37271.1,
+      "totalT": 60973.5,
+      "leftForShellT": -42478.0,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11110.05,
-      "batteryT": 74564.1,
-      "totalT": 105725.1,
-      "leftForShellT": -79770.9,
+      "batteryMWh": 11106.78,
+      "batteryT": 74542.2,
+      "totalT": 105698.8,
+      "leftForShellT": -79749.0,
       "requiredShellKgPerM3": 0.0
      }
     }

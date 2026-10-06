@@ -1,9 +1,9 @@
-import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=ae2bcece';
+import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=b2f068b7';
 import {writeGenerated} from './energy-output.mjs';
 /* Human-readable tables from replayable model inputs; no slow search here. */
 import fs from 'node:fs';
 import {batteryMass,specificEnergies} from './energy-omissions.mjs';
-import {CLASSES} from '../../sim/index.js?v=ae2bcece';
+import {CLASSES} from '../../sim/index.js?v=b2f068b7';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const outputs={},emit=process.argv.includes('--emit');
 const save=(path,body)=>{outputs[path]=body;if(!emit)writeGenerated(path,body);};

@@ -1,6 +1,6 @@
 /* The stricter completed-hoist rule is a sensitivity, not the default force owner. */
 import fs from 'node:fs';
-import {CLASSES,MODES,ballastRequirement} from '../../sim/index.js?v=ae2bcece';
+import {CLASSES,MODES,ballastRequirement} from '../../sim/index.js?v=b2f068b7';
 const rows=[];
 for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){
  const carried=ballastRequirement(c,MODES.balanced,km,{basis});

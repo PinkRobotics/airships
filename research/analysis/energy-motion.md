@@ -15,149 +15,149 @@ Each phase reports its largest signed gap at the original samples, including sim
 
 | Class | km | Basis | Phase | C | Gap tf | Direction | Required rotor tf | Shed tf | Downward reserve tf | Acceleration m/s² | Withdrawn absolute gap tf |
 |---|---:|---|---|---:|---:|---|---:|---:|---:|---:|---:|
-| P100 | 15 | record | SOURCE_APPROACH | 0.70 | 2.603 | downward authority short | 136.048 | 133.445 | 0.000 | -0.005211 | 1.441 |
-| P100 | 15 | record | SOURCE_APPROACH | 1.00 | 2.657 | downward authority short | 136.122 | 133.465 | 0.000 | -0.009633 | 1.824 |
-| P100 | 15 | record | WATER_FILL | 0.70 | 0.000 | none | 79.996 | 79.996 | 56.774 | 0.000000 | 0.000 |
-| P100 | 15 | record | WATER_FILL | 1.00 | 0.000 | none | 79.996 | 79.996 | 56.774 | 0.000000 | 0.000 |
+| P100 | 15 | record | SOURCE_APPROACH | 0.70 | 2.787 | downward authority short | 136.048 | 133.261 | 0.000 | -0.005211 | 1.441 |
+| P100 | 15 | record | SOURCE_APPROACH | 1.00 | 2.841 | downward authority short | 136.122 | 133.281 | 0.000 | -0.009633 | 1.824 |
+| P100 | 15 | record | WATER_FILL | 0.70 | 0.000 | none | 79.996 | 79.996 | 56.582 | 0.000000 | 0.000 |
+| P100 | 15 | record | WATER_FILL | 1.00 | 0.000 | none | 79.996 | 79.996 | 56.582 | 0.000000 | 0.000 |
 | P100 | 15 | record | OUTBOUND_TRANSIT | 0.70 | 4.731 | upward authority short | -4.731 | 0.000 | 155.778 | -0.019172 | 0.000 |
 | P100 | 15 | record | OUTBOUND_TRANSIT | 1.00 | 4.612 | upward authority short | -4.612 | 0.000 | 155.851 | -0.015686 | 0.000 |
-| P100 | 15 | record | WATER_RELEASE | 0.70 | 18.843 | downward authority short | 154.013 | 130.928 | 4.242 | -0.865511 | 18.843 |
-| P100 | 15 | record | WATER_RELEASE | 1.00 | 24.955 | downward authority short | 160.125 | 130.928 | 4.242 | -0.865511 | 24.955 |
-| P100 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.240 | 0.227038 | 1.816 |
-| P100 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.240 | 0.227038 | 3.419 |
-| P100 | 15 | record | RETURN_TRANSIT | 0.70 | 34.096 | downward authority short | 143.670 | 109.573 | 0.000 | 0.014764 | 4.047 |
-| P100 | 15 | record | RETURN_TRANSIT | 1.00 | 34.003 | downward authority short | 143.489 | 109.486 | 0.000 | 0.012433 | 5.109 |
-| P100 | 15 | favourable | SOURCE_APPROACH | 0.70 | 2.603 | downward authority short | 136.048 | 133.445 | 0.000 | -0.005211 | 1.441 |
-| P100 | 15 | favourable | SOURCE_APPROACH | 1.00 | 2.657 | downward authority short | 136.122 | 133.465 | 0.000 | -0.009633 | 1.824 |
-| P100 | 15 | favourable | WATER_FILL | 0.70 | 0.000 | none | 79.996 | 79.996 | 56.774 | 0.000000 | 0.000 |
-| P100 | 15 | favourable | WATER_FILL | 1.00 | 0.000 | none | 79.996 | 79.996 | 56.774 | 0.000000 | 0.000 |
-| P100 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 5.459 | upward authority short | -5.459 | 0.000 | 124.493 | 0.148648 | 0.000 |
-| P100 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 6.500 | upward authority short | -6.500 | 0.000 | 124.493 | 0.148648 | 0.000 |
-| P100 | 15 | favourable | WATER_RELEASE | 0.70 | 18.843 | downward authority short | 154.013 | 130.928 | 4.242 | -0.865511 | 18.843 |
-| P100 | 15 | favourable | WATER_RELEASE | 1.00 | 24.955 | downward authority short | 160.125 | 130.928 | 4.242 | -0.865511 | 24.955 |
-| P100 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.240 | 0.227038 | 1.816 |
-| P100 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.240 | 0.227038 | 3.419 |
-| P100 | 15 | favourable | RETURN_TRANSIT | 0.70 | 0.000 | none | 62.774 | 62.774 | 71.511 | 0.000000 | 0.000 |
-| P100 | 15 | favourable | RETURN_TRANSIT | 1.00 | 0.000 | none | 62.774 | 62.774 | 71.511 | 0.000000 | 0.000 |
-| P100 | 60 | record | SOURCE_APPROACH | 0.70 | 0.000 | none | 127.078 | 127.078 | 30.620 | 0.000000 | 0.000 |
-| P100 | 60 | record | SOURCE_APPROACH | 1.00 | 0.000 | none | 127.078 | 127.078 | 30.620 | 0.000000 | 0.000 |
-| P100 | 60 | record | WATER_FILL | 0.70 | 0.000 | none | 76.153 | 76.153 | 77.953 | 0.000000 | 0.000 |
-| P100 | 60 | record | WATER_FILL | 1.00 | 0.000 | none | 76.153 | 76.153 | 77.953 | 0.000000 | 0.000 |
-| P100 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 37.436 | 37.436 | 98.636 | 0.000000 | 0.000 |
-| P100 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 37.436 | 37.436 | 98.636 | 0.000000 | 0.000 |
-| P100 | 60 | record | WATER_RELEASE | 0.70 | 18.843 | downward authority short | 154.013 | 130.928 | 4.242 | -0.865511 | 18.843 |
-| P100 | 60 | record | WATER_RELEASE | 1.00 | 24.955 | downward authority short | 160.125 | 130.928 | 4.242 | -0.865511 | 24.955 |
-| P100 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.240 | 0.227038 | 1.816 |
-| P100 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.240 | 0.227038 | 3.419 |
-| P100 | 60 | record | RETURN_TRANSIT | 0.70 | 0.000 | none | 118.658 | 118.658 | 30.194 | 0.000000 | 0.000 |
-| P100 | 60 | record | RETURN_TRANSIT | 1.00 | 0.000 | none | 118.658 | 118.658 | 30.194 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | SOURCE_APPROACH | 0.70 | 0.000 | none | 110.581 | 110.581 | 44.307 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | SOURCE_APPROACH | 1.00 | 0.000 | none | 110.581 | 110.581 | 44.307 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | WATER_FILL | 0.70 | 0.000 | none | 76.153 | 76.153 | 77.953 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | WATER_FILL | 1.00 | 0.000 | none | 76.153 | 76.153 | 77.953 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 37.436 | 37.436 | 98.636 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 37.436 | 37.436 | 98.636 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | WATER_RELEASE | 0.70 | 18.843 | downward authority short | 154.013 | 130.928 | 4.242 | -0.865511 | 18.843 |
-| P100 | 60 | favourable | WATER_RELEASE | 1.00 | 24.955 | downward authority short | 160.125 | 130.928 | 4.242 | -0.865511 | 24.955 |
-| P100 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.240 | 0.227038 | 1.816 |
-| P100 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.240 | 0.227038 | 3.419 |
-| P100 | 60 | favourable | RETURN_TRANSIT | 0.70 | 0.000 | none | 62.774 | 62.774 | 71.511 | 0.000000 | 0.000 |
-| P100 | 60 | favourable | RETURN_TRANSIT | 1.00 | 0.000 | none | 62.774 | 62.774 | 71.511 | 0.000000 | 0.000 |
-| P1000 | 15 | record | SOURCE_APPROACH | 0.70 | 809.220 | downward authority short | 1377.950 | 568.731 | 0.000 | 0.019955 | 65.076 |
-| P1000 | 15 | record | SOURCE_APPROACH | 1.00 | 808.091 | downward authority short | 1376.156 | 568.065 | 0.000 | 0.012115 | 82.010 |
-| P1000 | 15 | record | WATER_FILL | 0.70 | 418.096 | downward authority short | 1070.692 | 652.596 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 15 | record | WATER_FILL | 1.00 | 418.096 | downward authority short | 1070.692 | 652.596 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 15 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 15 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 15 | record | WATER_RELEASE | 0.70 | 725.953 | downward authority short | 1392.402 | 666.449 | 0.000 | -0.311584 | 85.233 |
-| P1000 | 15 | record | WATER_RELEASE | 1.00 | 747.958 | downward authority short | 1414.406 | 666.449 | 0.000 | -0.311584 | 107.404 |
-| P1000 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 598.415 | downward authority short | 1264.829 | 666.414 | 0.000 | 0.155362 | 47.186 |
-| P1000 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 587.685 | downward authority short | 1254.111 | 666.425 | 0.000 | 0.148638 | 59.680 |
-| P1000 | 15 | record | RETURN_TRANSIT | 0.70 | 587.331 | downward authority short | 1215.713 | 628.382 | 0.000 | 0.000002 | 26.684 |
-| P1000 | 15 | record | RETURN_TRANSIT | 1.00 | 587.331 | downward authority short | 1215.713 | 628.382 | 0.000 | 0.000002 | 33.528 |
-| P1000 | 15 | favourable | SOURCE_APPROACH | 0.70 | 809.220 | downward authority short | 1377.950 | 568.731 | 0.000 | 0.019955 | 65.076 |
-| P1000 | 15 | favourable | SOURCE_APPROACH | 1.00 | 808.091 | downward authority short | 1376.156 | 568.065 | 0.000 | 0.012115 | 82.010 |
-| P1000 | 15 | favourable | WATER_FILL | 0.70 | 418.096 | downward authority short | 1070.692 | 652.596 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 15 | favourable | WATER_FILL | 1.00 | 418.096 | downward authority short | 1070.692 | 652.596 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 14.839 | upward authority short | -14.839 | 54.351 | 537.875 | 0.188128 | 0.000 |
-| P1000 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 28.054 | upward authority short | -28.054 | 54.351 | 537.875 | 0.188128 | 0.000 |
-| P1000 | 15 | favourable | WATER_RELEASE | 0.70 | 725.953 | downward authority short | 1392.402 | 666.449 | 0.000 | -0.311584 | 85.233 |
-| P1000 | 15 | favourable | WATER_RELEASE | 1.00 | 747.958 | downward authority short | 1414.406 | 666.449 | 0.000 | -0.311584 | 107.404 |
-| P1000 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 598.240 | downward authority short | 1264.654 | 666.413 | 0.000 | 0.157485 | 47.186 |
-| P1000 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 587.310 | downward authority short | 1253.722 | 666.412 | 0.000 | 0.152177 | 59.680 |
-| P1000 | 15 | favourable | RETURN_TRANSIT | 0.70 | 501.611 | downward authority short | 1104.582 | 602.971 | 0.000 | 0.000002 | 26.684 |
-| P1000 | 15 | favourable | RETURN_TRANSIT | 1.00 | 501.611 | downward authority short | 1104.582 | 602.971 | 0.000 | 0.000002 | 33.528 |
-| P1000 | 60 | record | SOURCE_APPROACH | 0.70 | 759.010 | downward authority short | 1360.059 | 601.050 | 0.000 | 0.020311 | 65.595 |
-| P1000 | 60 | record | SOURCE_APPROACH | 1.00 | 757.848 | downward authority short | 1358.196 | 600.348 | 0.000 | 0.012472 | 82.529 |
-| P1000 | 60 | record | WATER_FILL | 0.70 | 361.633 | downward authority short | 1059.686 | 698.053 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 60 | record | WATER_FILL | 1.00 | 361.633 | downward authority short | 1059.686 | 698.053 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 60 | record | WATER_RELEASE | 0.70 | 725.953 | downward authority short | 1392.402 | 666.449 | 0.000 | -0.311584 | 85.233 |
-| P1000 | 60 | record | WATER_RELEASE | 1.00 | 747.958 | downward authority short | 1414.406 | 666.449 | 0.000 | -0.311584 | 107.404 |
-| P1000 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 585.232 | downward authority short | 1251.629 | 666.397 | 0.000 | 0.204148 | 60.555 |
-| P1000 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 571.080 | downward authority short | 1237.460 | 666.381 | 0.000 | 0.196881 | 76.589 |
-| P1000 | 60 | record | RETURN_TRANSIT | 0.70 | 564.883 | downward authority short | 1193.265 | 628.382 | 0.000 | 0.000000 | 2.364 |
-| P1000 | 60 | record | RETURN_TRANSIT | 1.00 | 564.883 | downward authority short | 1193.265 | 628.382 | 0.000 | 0.000000 | 2.963 |
-| P1000 | 60 | favourable | SOURCE_APPROACH | 0.70 | 759.010 | downward authority short | 1360.059 | 601.050 | 0.000 | 0.020311 | 65.595 |
-| P1000 | 60 | favourable | SOURCE_APPROACH | 1.00 | 757.848 | downward authority short | 1358.196 | 600.348 | 0.000 | 0.012472 | 82.529 |
-| P1000 | 60 | favourable | WATER_FILL | 0.70 | 361.633 | downward authority short | 1059.686 | 698.053 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 60 | favourable | WATER_FILL | 1.00 | 361.633 | downward authority short | 1059.686 | 698.053 | 0.000 | 0.000000 | 0.000 |
-| P1000 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 296.183 | 0.000000 | 0.000 |
-| P1000 | 60 | favourable | WATER_RELEASE | 0.70 | 725.953 | downward authority short | 1392.402 | 666.449 | 0.000 | -0.311584 | 85.233 |
-| P1000 | 60 | favourable | WATER_RELEASE | 1.00 | 747.958 | downward authority short | 1414.406 | 666.449 | 0.000 | -0.311584 | 107.404 |
-| P1000 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 585.125 | downward authority short | 1251.524 | 666.399 | 0.000 | 0.205283 | 60.555 |
-| P1000 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 570.844 | downward authority short | 1237.227 | 666.383 | 0.000 | 0.199152 | 76.589 |
-| P1000 | 60 | favourable | RETURN_TRANSIT | 0.70 | 479.163 | downward authority short | 1082.133 | 602.971 | 0.000 | 0.000000 | 2.271 |
-| P1000 | 60 | favourable | RETURN_TRANSIT | 1.00 | 479.163 | downward authority short | 1082.133 | 602.971 | 0.000 | 0.000000 | 2.846 |
-| P10000 | 15 | record | SOURCE_APPROACH | 0.70 | 7056.745 | downward authority short | 12993.634 | 5936.889 | 0.000 | 0.005837 | 317.520 |
-| P10000 | 15 | record | SOURCE_APPROACH | 1.00 | 7052.681 | downward authority short | 12989.570 | 5936.889 | 0.000 | 0.005837 | 399.484 |
-| P10000 | 15 | record | WATER_FILL | 0.70 | 3843.580 | downward authority short | 10733.254 | 6889.674 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 15 | record | WATER_FILL | 1.00 | 3843.580 | downward authority short | 10733.254 | 6889.674 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 15 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.600 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 15 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.600 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 15 | record | WATER_RELEASE | 0.70 | 6301.587 | downward authority short | 13300.762 | 6999.175 | 0.000 | -0.077896 | 213.082 |
-| P10000 | 15 | record | WATER_RELEASE | 1.00 | 6356.597 | downward authority short | 13355.773 | 6999.175 | 0.000 | -0.077896 | 268.511 |
-| P10000 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 5788.353 | downward authority short | 12790.443 | 7002.090 | 0.000 | 0.102592 | 338.586 |
-| P10000 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 5718.115 | downward authority short | 12723.644 | 7005.530 | 0.000 | 0.096624 | 428.235 |
+| P100 | 15 | record | WATER_RELEASE | 0.70 | 19.033 | downward authority short | 154.013 | 130.928 | 4.052 | -0.865511 | 19.033 |
+| P100 | 15 | record | WATER_RELEASE | 1.00 | 25.145 | downward authority short | 160.125 | 130.928 | 4.052 | -0.865511 | 25.145 |
+| P100 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.050 | 0.227038 | 2.006 |
+| P100 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.050 | 0.227038 | 3.609 |
+| P100 | 15 | record | RETURN_TRANSIT | 0.70 | 34.299 | downward authority short | 143.670 | 109.370 | 0.000 | 0.014764 | 4.047 |
+| P100 | 15 | record | RETURN_TRANSIT | 1.00 | 34.206 | downward authority short | 143.489 | 109.283 | 0.000 | 0.012433 | 5.109 |
+| P100 | 15 | favourable | SOURCE_APPROACH | 0.70 | 2.787 | downward authority short | 136.048 | 133.261 | 0.000 | -0.005211 | 1.441 |
+| P100 | 15 | favourable | SOURCE_APPROACH | 1.00 | 2.841 | downward authority short | 136.122 | 133.281 | 0.000 | -0.009633 | 1.824 |
+| P100 | 15 | favourable | WATER_FILL | 0.70 | 0.000 | none | 79.996 | 79.996 | 56.582 | 0.000000 | 0.000 |
+| P100 | 15 | favourable | WATER_FILL | 1.00 | 0.000 | none | 79.996 | 79.996 | 56.582 | 0.000000 | 0.000 |
+| P100 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 5.459 | upward authority short | -5.459 | 0.000 | 124.289 | 0.148648 | 0.000 |
+| P100 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 6.500 | upward authority short | -6.500 | 0.000 | 124.289 | 0.148648 | 0.000 |
+| P100 | 15 | favourable | WATER_RELEASE | 0.70 | 19.033 | downward authority short | 154.013 | 130.928 | 4.052 | -0.865511 | 19.033 |
+| P100 | 15 | favourable | WATER_RELEASE | 1.00 | 25.145 | downward authority short | 160.125 | 130.928 | 4.052 | -0.865511 | 25.145 |
+| P100 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.050 | 0.227038 | 2.006 |
+| P100 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.050 | 0.227038 | 3.609 |
+| P100 | 15 | favourable | RETURN_TRANSIT | 0.70 | 0.000 | none | 62.774 | 62.774 | 71.287 | 0.000000 | 0.000 |
+| P100 | 15 | favourable | RETURN_TRANSIT | 1.00 | 0.000 | none | 62.774 | 62.774 | 71.287 | 0.000000 | 0.000 |
+| P100 | 60 | record | SOURCE_APPROACH | 0.70 | 0.000 | none | 127.078 | 127.078 | 30.440 | 0.000000 | 0.000 |
+| P100 | 60 | record | SOURCE_APPROACH | 1.00 | 0.000 | none | 127.078 | 127.078 | 30.440 | 0.000000 | 0.000 |
+| P100 | 60 | record | WATER_FILL | 0.70 | 0.000 | none | 76.153 | 76.153 | 77.772 | 0.000000 | 0.000 |
+| P100 | 60 | record | WATER_FILL | 1.00 | 0.000 | none | 76.153 | 76.153 | 77.772 | 0.000000 | 0.000 |
+| P100 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 37.436 | 37.436 | 98.444 | 0.000000 | 0.000 |
+| P100 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 37.436 | 37.436 | 98.444 | 0.000000 | 0.000 |
+| P100 | 60 | record | WATER_RELEASE | 0.70 | 19.033 | downward authority short | 154.013 | 130.928 | 4.052 | -0.865511 | 19.033 |
+| P100 | 60 | record | WATER_RELEASE | 1.00 | 25.145 | downward authority short | 160.125 | 130.928 | 4.052 | -0.865511 | 25.145 |
+| P100 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.050 | 0.227038 | 2.006 |
+| P100 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.050 | 0.227038 | 3.609 |
+| P100 | 60 | record | RETURN_TRANSIT | 0.70 | 0.000 | none | 118.658 | 118.658 | 29.985 | 0.000000 | 0.000 |
+| P100 | 60 | record | RETURN_TRANSIT | 1.00 | 0.000 | none | 118.658 | 118.658 | 29.985 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | SOURCE_APPROACH | 0.70 | 0.000 | none | 110.581 | 110.581 | 44.125 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | SOURCE_APPROACH | 1.00 | 0.000 | none | 110.581 | 110.581 | 44.125 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | WATER_FILL | 0.70 | 0.000 | none | 76.153 | 76.153 | 77.772 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | WATER_FILL | 1.00 | 0.000 | none | 76.153 | 76.153 | 77.772 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 37.436 | 37.436 | 98.444 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 37.436 | 37.436 | 98.444 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | WATER_RELEASE | 0.70 | 19.033 | downward authority short | 154.013 | 130.928 | 4.052 | -0.865511 | 19.033 |
+| P100 | 60 | favourable | WATER_RELEASE | 1.00 | 25.145 | downward authority short | 160.125 | 130.928 | 4.052 | -0.865511 | 25.145 |
+| P100 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 0.000 | none | 124.874 | 130.930 | 4.050 | 0.227038 | 2.006 |
+| P100 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 0.000 | none | 123.271 | 130.930 | 4.050 | 0.227038 | 3.609 |
+| P100 | 60 | favourable | RETURN_TRANSIT | 0.70 | 0.000 | none | 62.774 | 62.774 | 71.287 | 0.000000 | 0.000 |
+| P100 | 60 | favourable | RETURN_TRANSIT | 1.00 | 0.000 | none | 62.774 | 62.774 | 71.287 | 0.000000 | 0.000 |
+| P1000 | 15 | record | SOURCE_APPROACH | 0.70 | 810.009 | downward authority short | 1377.950 | 567.941 | 0.000 | 0.019955 | 65.076 |
+| P1000 | 15 | record | SOURCE_APPROACH | 1.00 | 808.879 | downward authority short | 1376.156 | 567.277 | 0.000 | 0.012115 | 82.010 |
+| P1000 | 15 | record | WATER_FILL | 0.70 | 418.983 | downward authority short | 1070.692 | 651.709 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 15 | record | WATER_FILL | 1.00 | 418.983 | downward authority short | 1070.692 | 651.709 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 15 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 15 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 15 | record | WATER_RELEASE | 0.70 | 726.819 | downward authority short | 1392.402 | 665.583 | 0.000 | -0.311584 | 85.233 |
+| P1000 | 15 | record | WATER_RELEASE | 1.00 | 748.823 | downward authority short | 1414.406 | 665.583 | 0.000 | -0.311584 | 107.404 |
+| P1000 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 599.280 | downward authority short | 1264.829 | 665.548 | 0.000 | 0.155362 | 47.186 |
+| P1000 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 588.550 | downward authority short | 1254.111 | 665.560 | 0.000 | 0.148638 | 59.680 |
+| P1000 | 15 | record | RETURN_TRANSIT | 0.70 | 588.232 | downward authority short | 1215.713 | 627.481 | 0.000 | 0.000002 | 26.684 |
+| P1000 | 15 | record | RETURN_TRANSIT | 1.00 | 588.232 | downward authority short | 1215.713 | 627.481 | 0.000 | 0.000002 | 33.528 |
+| P1000 | 15 | favourable | SOURCE_APPROACH | 0.70 | 810.009 | downward authority short | 1377.950 | 567.941 | 0.000 | 0.019955 | 65.076 |
+| P1000 | 15 | favourable | SOURCE_APPROACH | 1.00 | 808.879 | downward authority short | 1376.156 | 567.277 | 0.000 | 0.012115 | 82.010 |
+| P1000 | 15 | favourable | WATER_FILL | 0.70 | 418.983 | downward authority short | 1070.692 | 651.709 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 15 | favourable | WATER_FILL | 1.00 | 418.983 | downward authority short | 1070.692 | 651.709 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 14.839 | upward authority short | -14.839 | 54.351 | 536.864 | 0.188128 | 0.000 |
+| P1000 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 28.054 | upward authority short | -28.054 | 54.351 | 536.864 | 0.188128 | 0.000 |
+| P1000 | 15 | favourable | WATER_RELEASE | 0.70 | 726.819 | downward authority short | 1392.402 | 665.583 | 0.000 | -0.311584 | 85.233 |
+| P1000 | 15 | favourable | WATER_RELEASE | 1.00 | 748.823 | downward authority short | 1414.406 | 665.583 | 0.000 | -0.311584 | 107.404 |
+| P1000 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 599.105 | downward authority short | 1264.654 | 665.548 | 0.000 | 0.157485 | 47.186 |
+| P1000 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 588.175 | downward authority short | 1253.722 | 665.547 | 0.000 | 0.152177 | 59.680 |
+| P1000 | 15 | favourable | RETURN_TRANSIT | 0.70 | 502.532 | downward authority short | 1104.582 | 602.050 | 0.000 | 0.000002 | 26.684 |
+| P1000 | 15 | favourable | RETURN_TRANSIT | 1.00 | 502.532 | downward authority short | 1104.582 | 602.050 | 0.000 | 0.000002 | 33.528 |
+| P1000 | 60 | record | SOURCE_APPROACH | 0.70 | 759.781 | downward authority short | 1360.059 | 600.279 | 0.000 | 0.020311 | 65.595 |
+| P1000 | 60 | record | SOURCE_APPROACH | 1.00 | 758.618 | downward authority short | 1358.196 | 599.578 | 0.000 | 0.012472 | 82.529 |
+| P1000 | 60 | record | WATER_FILL | 0.70 | 362.490 | downward authority short | 1059.686 | 697.196 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 60 | record | WATER_FILL | 1.00 | 362.490 | downward authority short | 1059.686 | 697.196 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 60 | record | WATER_RELEASE | 0.70 | 726.819 | downward authority short | 1392.402 | 665.583 | 0.000 | -0.311584 | 85.233 |
+| P1000 | 60 | record | WATER_RELEASE | 1.00 | 748.823 | downward authority short | 1414.406 | 665.583 | 0.000 | -0.311584 | 107.404 |
+| P1000 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 586.098 | downward authority short | 1251.629 | 665.532 | 0.000 | 0.204148 | 60.555 |
+| P1000 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 571.945 | downward authority short | 1237.460 | 665.516 | 0.000 | 0.196881 | 76.589 |
+| P1000 | 60 | record | RETURN_TRANSIT | 0.70 | 565.784 | downward authority short | 1193.265 | 627.481 | 0.000 | 0.000000 | 2.364 |
+| P1000 | 60 | record | RETURN_TRANSIT | 1.00 | 565.784 | downward authority short | 1193.265 | 627.481 | 0.000 | 0.000000 | 2.963 |
+| P1000 | 60 | favourable | SOURCE_APPROACH | 0.70 | 759.781 | downward authority short | 1360.059 | 600.279 | 0.000 | 0.020311 | 65.595 |
+| P1000 | 60 | favourable | SOURCE_APPROACH | 1.00 | 758.618 | downward authority short | 1358.196 | 599.578 | 0.000 | 0.012472 | 82.529 |
+| P1000 | 60 | favourable | WATER_FILL | 0.70 | 362.490 | downward authority short | 1059.686 | 697.196 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 60 | favourable | WATER_FILL | 1.00 | 362.490 | downward authority short | 1059.686 | 697.196 | 0.000 | 0.000000 | 0.000 |
+| P1000 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 374.360 | 374.360 | 295.308 | 0.000000 | 0.000 |
+| P1000 | 60 | favourable | WATER_RELEASE | 0.70 | 726.819 | downward authority short | 1392.402 | 665.583 | 0.000 | -0.311584 | 85.233 |
+| P1000 | 60 | favourable | WATER_RELEASE | 1.00 | 748.823 | downward authority short | 1414.406 | 665.583 | 0.000 | -0.311584 | 107.404 |
+| P1000 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 585.990 | downward authority short | 1251.524 | 665.534 | 0.000 | 0.205283 | 60.555 |
+| P1000 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 571.709 | downward authority short | 1237.227 | 665.517 | 0.000 | 0.199152 | 76.589 |
+| P1000 | 60 | favourable | RETURN_TRANSIT | 0.70 | 480.084 | downward authority short | 1082.133 | 602.050 | 0.000 | 0.000000 | 2.299 |
+| P1000 | 60 | favourable | RETURN_TRANSIT | 1.00 | 480.084 | downward authority short | 1082.133 | 602.050 | 0.000 | 0.000000 | 2.881 |
+| P10000 | 15 | record | SOURCE_APPROACH | 0.70 | 7059.572 | downward authority short | 12993.634 | 5934.062 | 0.000 | 0.005837 | 317.520 |
+| P10000 | 15 | record | SOURCE_APPROACH | 1.00 | 7055.508 | downward authority short | 12989.570 | 5934.062 | 0.000 | 0.005837 | 399.484 |
+| P10000 | 15 | record | WATER_FILL | 0.70 | 3846.724 | downward authority short | 10733.254 | 6886.530 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 15 | record | WATER_FILL | 1.00 | 3846.724 | downward authority short | 10733.254 | 6886.530 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 15 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.600 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 15 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.600 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 15 | record | WATER_RELEASE | 0.70 | 6304.663 | downward authority short | 13300.762 | 6996.099 | 0.000 | -0.077896 | 213.082 |
+| P10000 | 15 | record | WATER_RELEASE | 1.00 | 6359.674 | downward authority short | 13355.773 | 6996.099 | 0.000 | -0.077896 | 268.511 |
+| P10000 | 15 | record | BUOYANCY_ESCAPE | 0.70 | 5791.429 | downward authority short | 12790.443 | 6999.015 | 0.000 | 0.102592 | 338.586 |
+| P10000 | 15 | record | BUOYANCY_ESCAPE | 1.00 | 5721.190 | downward authority short | 12723.644 | 7002.455 | 0.000 | 0.096624 | 428.235 |
 | P10000 | 15 | record | RETURN_TRANSIT | 0.70 | 4994.043 | downward authority short | 12400.538 | 7406.495 | 0.000 | 0.000000 | 291.890 |
 | P10000 | 15 | record | RETURN_TRANSIT | 1.00 | 4994.043 | downward authority short | 12400.538 | 7406.495 | 0.000 | 0.000000 | 367.367 |
-| P10000 | 15 | favourable | SOURCE_APPROACH | 0.70 | 7056.745 | downward authority short | 12993.634 | 5936.889 | 0.000 | 0.005837 | 317.520 |
-| P10000 | 15 | favourable | SOURCE_APPROACH | 1.00 | 7052.681 | downward authority short | 12989.570 | 5936.889 | 0.000 | 0.005837 | 399.484 |
-| P10000 | 15 | favourable | WATER_FILL | 0.70 | 3843.580 | downward authority short | 10733.254 | 6889.674 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 15 | favourable | WATER_FILL | 1.00 | 3843.580 | downward authority short | 10733.254 | 6889.674 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.600 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.600 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 15 | favourable | WATER_RELEASE | 0.70 | 6301.587 | downward authority short | 13300.762 | 6999.175 | 0.000 | -0.077896 | 213.082 |
-| P10000 | 15 | favourable | WATER_RELEASE | 1.00 | 6356.597 | downward authority short | 13355.773 | 6999.175 | 0.000 | -0.077896 | 268.511 |
-| P10000 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 5784.437 | downward authority short | 12785.088 | 7000.651 | 0.000 | 0.106401 | 338.586 |
-| P10000 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 5710.897 | downward authority short | 12713.077 | 7002.180 | 0.000 | 0.102084 | 428.235 |
-| P10000 | 15 | favourable | RETURN_TRANSIT | 0.70 | 3942.166 | downward authority short | 10957.468 | 7015.301 | 0.000 | -0.000000 | 291.890 |
-| P10000 | 15 | favourable | RETURN_TRANSIT | 1.00 | 3942.166 | downward authority short | 10957.468 | 7015.301 | 0.000 | -0.000000 | 367.367 |
-| P10000 | 60 | record | SOURCE_APPROACH | 0.70 | 6943.413 | downward authority short | 12942.922 | 5999.509 | 0.000 | 0.005837 | 318.246 |
-| P10000 | 60 | record | SOURCE_APPROACH | 1.00 | 6939.349 | downward authority short | 12938.858 | 5999.509 | 0.000 | 0.005837 | 400.211 |
-| P10000 | 60 | record | WATER_FILL | 0.70 | 3739.448 | downward authority short | 10702.213 | 6962.765 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 60 | record | WATER_FILL | 1.00 | 3739.448 | downward authority short | 10702.213 | 6962.765 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.601 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.601 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 60 | record | WATER_RELEASE | 0.70 | 6301.587 | downward authority short | 13300.762 | 6999.175 | 0.000 | -0.077896 | 213.082 |
-| P10000 | 60 | record | WATER_RELEASE | 1.00 | 6356.597 | downward authority short | 13355.773 | 6999.175 | 0.000 | -0.077896 | 268.511 |
-| P10000 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 5537.080 | downward authority short | 12536.878 | 6999.798 | 0.000 | 0.189160 | 605.553 |
-| P10000 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 5407.629 | downward authority short | 12409.501 | 7001.872 | 0.000 | 0.177806 | 765.889 |
+| P10000 | 15 | favourable | SOURCE_APPROACH | 0.70 | 7059.572 | downward authority short | 12993.634 | 5934.062 | 0.000 | 0.005837 | 317.520 |
+| P10000 | 15 | favourable | SOURCE_APPROACH | 1.00 | 7055.508 | downward authority short | 12989.570 | 5934.062 | 0.000 | 0.005837 | 399.484 |
+| P10000 | 15 | favourable | WATER_FILL | 0.70 | 3846.724 | downward authority short | 10733.254 | 6886.530 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 15 | favourable | WATER_FILL | 1.00 | 3846.724 | downward authority short | 10733.254 | 6886.530 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 15 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.600 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 15 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.600 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 15 | favourable | WATER_RELEASE | 0.70 | 6304.663 | downward authority short | 13300.762 | 6996.099 | 0.000 | -0.077896 | 213.082 |
+| P10000 | 15 | favourable | WATER_RELEASE | 1.00 | 6359.674 | downward authority short | 13355.773 | 6996.099 | 0.000 | -0.077896 | 268.511 |
+| P10000 | 15 | favourable | BUOYANCY_ESCAPE | 0.70 | 5787.512 | downward authority short | 12785.088 | 6997.576 | 0.000 | 0.106401 | 338.586 |
+| P10000 | 15 | favourable | BUOYANCY_ESCAPE | 1.00 | 5713.972 | downward authority short | 12713.077 | 6999.105 | 0.000 | 0.102084 | 428.235 |
+| P10000 | 15 | favourable | RETURN_TRANSIT | 0.70 | 3945.298 | downward authority short | 10957.468 | 7012.169 | 0.000 | -0.000000 | 291.890 |
+| P10000 | 15 | favourable | RETURN_TRANSIT | 1.00 | 3945.298 | downward authority short | 10957.468 | 7012.169 | 0.000 | -0.000000 | 367.367 |
+| P10000 | 60 | record | SOURCE_APPROACH | 0.70 | 6946.228 | downward authority short | 12942.922 | 5996.695 | 0.000 | 0.005837 | 318.246 |
+| P10000 | 60 | record | SOURCE_APPROACH | 1.00 | 6942.164 | downward authority short | 12938.858 | 5996.695 | 0.000 | 0.005837 | 400.211 |
+| P10000 | 60 | record | WATER_FILL | 0.70 | 3742.576 | downward authority short | 10702.213 | 6959.637 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 60 | record | WATER_FILL | 1.00 | 3742.576 | downward authority short | 10702.213 | 6959.637 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 60 | record | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.601 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 60 | record | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.601 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 60 | record | WATER_RELEASE | 0.70 | 6304.663 | downward authority short | 13300.762 | 6996.099 | 0.000 | -0.077896 | 213.082 |
+| P10000 | 60 | record | WATER_RELEASE | 1.00 | 6359.674 | downward authority short | 13355.773 | 6996.099 | 0.000 | -0.077896 | 268.511 |
+| P10000 | 60 | record | BUOYANCY_ESCAPE | 0.70 | 5540.155 | downward authority short | 12536.878 | 6996.723 | 0.000 | 0.189160 | 605.553 |
+| P10000 | 60 | record | BUOYANCY_ESCAPE | 1.00 | 5410.703 | downward authority short | 12409.501 | 6998.797 | 0.000 | 0.177806 | 765.889 |
 | P10000 | 60 | record | RETURN_TRANSIT | 0.70 | 4518.750 | downward authority short | 11865.839 | 7347.089 | 0.000 | 0.000000 | 22.770 |
 | P10000 | 60 | record | RETURN_TRANSIT | 1.00 | 4518.750 | downward authority short | 11865.839 | 7347.089 | 0.000 | 0.000000 | 28.576 |
-| P10000 | 60 | favourable | SOURCE_APPROACH | 0.70 | 6943.413 | downward authority short | 12942.922 | 5999.509 | 0.000 | 0.005837 | 318.246 |
-| P10000 | 60 | favourable | SOURCE_APPROACH | 1.00 | 6939.349 | downward authority short | 12938.858 | 5999.509 | 0.000 | 0.005837 | 400.211 |
-| P10000 | 60 | favourable | WATER_FILL | 0.70 | 3739.448 | downward authority short | 10702.213 | 6962.765 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 60 | favourable | WATER_FILL | 1.00 | 3739.448 | downward authority short | 10702.213 | 6962.765 | 0.000 | 0.000000 | 0.000 |
-| P10000 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.601 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.601 | 3743.601 | 3308.831 | 0.000000 | 0.000 |
-| P10000 | 60 | favourable | WATER_RELEASE | 0.70 | 6301.587 | downward authority short | 13300.762 | 6999.175 | 0.000 | -0.077896 | 213.082 |
-| P10000 | 60 | favourable | WATER_RELEASE | 1.00 | 6356.597 | downward authority short | 13355.773 | 6999.175 | 0.000 | -0.077896 | 268.511 |
-| P10000 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 5534.177 | downward authority short | 12533.582 | 6999.405 | 0.000 | 0.192567 | 605.553 |
-| P10000 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 5401.553 | downward authority short | 12402.070 | 7000.517 | 0.000 | 0.183483 | 765.889 |
-| P10000 | 60 | favourable | RETURN_TRANSIT | 0.70 | 3878.849 | downward authority short | 10894.150 | 7015.301 | 0.000 | 0.000000 | 22.769 |
-| P10000 | 60 | favourable | RETURN_TRANSIT | 1.00 | 3878.849 | downward authority short | 10894.150 | 7015.301 | 0.000 | 0.000000 | 28.576 |
+| P10000 | 60 | favourable | SOURCE_APPROACH | 0.70 | 6946.228 | downward authority short | 12942.922 | 5996.695 | 0.000 | 0.005837 | 318.246 |
+| P10000 | 60 | favourable | SOURCE_APPROACH | 1.00 | 6942.164 | downward authority short | 12938.858 | 5996.695 | 0.000 | 0.005837 | 400.211 |
+| P10000 | 60 | favourable | WATER_FILL | 0.70 | 3742.576 | downward authority short | 10702.213 | 6959.637 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 60 | favourable | WATER_FILL | 1.00 | 3742.576 | downward authority short | 10702.213 | 6959.637 | 0.000 | 0.000000 | 0.000 |
+| P10000 | 60 | favourable | OUTBOUND_TRANSIT | 0.70 | 0.000 | none | 3743.601 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 60 | favourable | OUTBOUND_TRANSIT | 1.00 | 0.000 | none | 3743.601 | 3743.601 | 3305.724 | 0.000000 | 0.000 |
+| P10000 | 60 | favourable | WATER_RELEASE | 0.70 | 6304.663 | downward authority short | 13300.762 | 6996.099 | 0.000 | -0.077896 | 213.082 |
+| P10000 | 60 | favourable | WATER_RELEASE | 1.00 | 6359.674 | downward authority short | 13355.773 | 6996.099 | 0.000 | -0.077896 | 268.511 |
+| P10000 | 60 | favourable | BUOYANCY_ESCAPE | 0.70 | 5537.252 | downward authority short | 12533.582 | 6996.330 | 0.000 | 0.192567 | 605.553 |
+| P10000 | 60 | favourable | BUOYANCY_ESCAPE | 1.00 | 5404.628 | downward authority short | 12402.070 | 6997.442 | 0.000 | 0.183483 | 765.889 |
+| P10000 | 60 | favourable | RETURN_TRANSIT | 0.70 | 3881.981 | downward authority short | 10894.150 | 7012.169 | 0.000 | 0.000000 | 22.769 |
+| P10000 | 60 | favourable | RETURN_TRANSIT | 1.00 | 3881.981 | downward authority short | 10894.150 | 7012.169 | 0.000 | 0.000000 | 28.576 |
 
 <!-- energy:motion:end -->

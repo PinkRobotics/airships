@@ -37,7 +37,7 @@ closure sizes balance the conditional equipment bill and do not validate a drawn
 | Metlen 2013, frame with a real membrane | ≈0.94 kg/m³ equivalent | passes the lift wall; fails the closure wall by 8.1% |
 | Akhmeteli & Gavrilin 2021, sandwich sphere | 1.16 kg/m³ | fails both; 33.4% above the closure wall |
 
-The 0.508 kg/m³ floor closes at 516,827 m³, a 146 m ship, shorter than
+The 0.508 kg/m³ floor closes at 516,771 m³, a 146 m ship, shorter than
 the Hindenburg; 0.75 needs 7.32× the baseline volume. At 0.90 it never closes.
 
 Two things also matter:
@@ -283,5 +283,5 @@ stale — the exact failure `tools/check_figures_fresh.py` was written to kill, 
 directory over. `tools/check_analysis.py` now gates them and runs in `make check`.
 
 <!-- solar:budget-reference:start -->
-Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 457,275 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
+The generated comparison preserves the preceding power-input publication beside the current integrated diagnostic. The existing P-100 0.508 kg/m³ sizing routine now returns 516,771 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
 <!-- solar:budget-reference:end -->

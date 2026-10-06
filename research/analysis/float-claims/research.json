@@ -109,22 +109,6 @@
       "owner": "hand-arithmetic"
     },
     {
-      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
-      "key": "6fc32539a64a1507",
-      "line": 22,
-      "class": "deferred",
-      "reason": "Battery energy per dry mass is asserted equal across classes, although the paragraph itself gives 120 MWh per 1,000 t for the middle class. The claimed universal 200 Wh/kg requirement belongs to the energy correction.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
-      "key": "63d38ae343d99809",
-      "line": 26,
-      "class": "deferred",
-      "reason": "The battery-over-budget result is extended to every class despite the different middle-class capacity. This is an energy-budget closure claim, not merely a component mass.",
-      "owner": "energy-model"
-    },
-    {
       "file": "research/notes/helium-and-hydrogen.md",
       "key": "1a82fbbf72b695b6",
       "line": 57,
@@ -895,14 +879,6 @@
     },
     {
       "file": "research/reports/02-paper.md",
-      "key": "df617d531ce4c71b",
-      "line": 249,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
-    },
-    {
-      "file": "research/reports/02-paper.md",
       "key": "b12c732da8d1beff",
       "line": 339,
       "class": "deferred",
@@ -946,16 +922,8 @@
     },
     {
       "file": "research/reports/02-paper.md",
-      "key": "e85fc7fc9d51ad1c",
-      "line": 409,
-      "class": "deferred",
-      "reason": "The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/reports/02-paper.md",
       "key": "23fbf28b79f4b242",
-      "line": 557,
+      "line": 575,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
@@ -982,14 +950,6 @@
       "class": "conditional",
       "reason": "The vacuum-lift proposal explicitly depends on making the shell light enough, and the paragraph says that construction has not been shown.",
       "text": "Buoyant flight is the only way to get payload without paying for lift continuously, and it is the only way to build a firefighting aircraft that never has to land. Helium is expensive and leaks; vacuu"
-    },
-    {
-      "file": "research/reports/03-diligence.md",
-      "key": "833fe0560c16639a",
-      "line": 76,
-      "class": "deferred",
-      "owner": "energy-model",
-      "reason": "Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate delivery."
     },
     {
       "file": "research/reports/03-diligence.md",
@@ -1186,7 +1146,7 @@
     {
       "file": "research/reports/03-diligence.md",
       "key": "afc909b5c7222354",
-      "line": 600,
+      "line": 602,
       "class": "deferred",
       "reason": "This requirement list also asserts energy availability and delivery consequences; a blanket conditional class would cover result claims outside this scope.",
       "owner": "energy-model"
@@ -1194,7 +1154,7 @@
     {
       "file": "research/reports/03-diligence.md",
       "key": "d3d00f5e3f523e79",
-      "line": 647,
+      "line": 649,
       "class": "conditional",
       "reason": "The proposed expert studies and example sizes are future work, explicitly conditional on what the mass estimates find.",
       "text": "**Recommended next step, at minimal cost:** commission a lattice-structure mass breakdown at 100 m and 219 m radius from a group that builds them, and an independent pack-level mass estimate for a 2,0"
@@ -1258,6 +1218,72 @@
       "reason": "Displacement is a flight-model scenario that assumes ascent; it does not establish a float result for the drawn hull.",
       "owner": "energy-model",
       "line": 103
+    },
+    {
+      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
+      "key": "3a4b79f906d30524",
+      "class": "generated",
+      "generator": "research/analysis/battery-ratios.mjs",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- battery:ratios:start -->",
+        "end": "<!-- battery:ratios:end -->"
+      },
+      "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+      "line": 32
+    },
+    {
+      "file": "research/notes/chin-2021-battery-cell-to-pack.md",
+      "key": "610127ad8f1797a9",
+      "class": "generated",
+      "generator": "research/analysis/battery-ratios.mjs",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- battery:ratios:start -->",
+        "end": "<!-- battery:ratios:end -->"
+      },
+      "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+      "line": 27
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "0927c48cdfc7f881",
+      "line": 249,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate deliver"
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "610127ad8f1797a9",
+      "class": "generated",
+      "generator": "research/analysis/battery-ratios.mjs",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- battery:ratios:start -->",
+        "end": "<!-- battery:ratios:end -->"
+      },
+      "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
+      "line": 421
+    },
+    {
+      "file": "research/reports/02-paper.md",
+      "key": "e973f7bd5a7c0677",
+      "line": 409,
+      "class": "deferred",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; The list mixes structural precedents with the incorrect claim that every class has the same battery energy per dry mass; its energy-budget conclusion remains owned elsewhere.",
+      "owner": "energy-model"
+    },
+    {
+      "file": "research/reports/03-diligence.md",
+      "key": "7e4d798e928b5c0a",
+      "line": 76,
+      "class": "deferred",
+      "owner": "energy-model",
+      "reason": "Reviewed replacement of this exact live text for Order 11f; Energy citations now use the force model, but this mixed explanatory prose still includes unsupported prescribed-cycle claims. The retained interim notice does not validate deliver"
     }
   ]
 }
