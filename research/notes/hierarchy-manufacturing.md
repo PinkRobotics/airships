@@ -190,3 +190,31 @@ is 1.090 at sea level and 0.851 at 2,500 m. None reaches unity at working altitu
 Additional hierarchy cannot bypass the constituent compression floor, so the
 original note's strength-reserve argument is no longer a current model result.
 The [cell analysis](../analysis/vacuum-cell.md) records the old and new rows.
+
+## Clarification — 2026-10-05: Meza's comparison is stiffness
+
+The original research record above is retained. Meza et al., PNAS 112(37),
+11502–11507 (2015), [doi:10.1073/pnas.1509120112](https://doi.org/10.1073/pnas.1509120112),
+compare computed and measured **stiffness** in both passages behind this note's
+68.5% and polymer 10.7% figures:
+
+Printed p. 11503:
+
+> The absolute computed stiffnesses were, on average, 10.7% lower for polymer, 30.2% higher for composite, and 68.5% higher for hollow samples compared with experimental data (Fig. 5), which hints that geometric and/or material imperfections contribute significantly to a reduction in the effective stiffness.
+
+Printed p. 11506:
+
+> The simulations overpredicted the stiffnesses of composite and hollow ceramic hierarchical lattices by 30.2% and 68.5%, respectively, which suggests that waviness-induced defects significantly contribute to this reduction.
+
+Thus 1.685 (rounded here to 1.69) is a simulated-to-measured stiffness ratio
+for those hollow specimens, not a measured strength knockdown. The polymer comparison
+is also stiffness: the simulation underpredicts it. The original process band and margin
+arithmetic must not treat these figures as measured strength coefficients.
+
+Stiffness affects elastic buckling, but transferring this deficit to a failure-load
+coefficient requires a failure-mode argument: the member's stiffness components, geometry,
+load path, defect form and amplitude, and the governing instability or material failure
+must correspond to the proposed specimen. A failure-load comparison or a validated
+mechanistic model would then have to establish the transfer. This paper's stated
+stiffness discrepancy alone does not do so, and it does not remove the separate
+compression-strength floor in the current model.
