@@ -965,6 +965,12 @@ def geometric_lines_and_jitter_fit_or_are_refused_in_words():
     return run('D')
 
 
+@test
+def impossible_calendar_days_refuse_the_policy():
+    from assurance import run
+    return run('E')
+
+
 def main():
     only = sys.argv[1:]
     chosen = [fn for fn in TESTS if not only or any(o in fn.__name__ for o in only)]

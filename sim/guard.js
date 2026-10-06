@@ -43,7 +43,17 @@ const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const BASES = ["loss", "order", "alert", "new"];
 
 function isDate(s) {
-  return typeof s === "string" && DATE.test(s);
+  if (typeof s !== "string" || !DATE.test(s)) return false;
+  // Gregorian calendar round-trip via ordinal day, with no clock dependency.
+  const [year, month, day] = s.split("-").map(Number);
+  if (month < 1 || month > 12 || day < 1) return false;
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const days = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  let ordinal = day;
+  for (let m = 1; m < month; m++) ordinal += days[m - 1];
+  let roundMonth = 1;
+  while (roundMonth <= 12 && ordinal > days[roundMonth - 1]) ordinal -= days[roundMonth++ - 1];
+  return roundMonth === month && ordinal === day;
 }
 
 /* A fire number the way every season file writes it: one capital letter, then digits.
@@ -112,7 +122,7 @@ export function loadEvac(doc) {
     if (!f.everOrder && !f.everAlert)
       return bad(`${f.fire}: under neither an order nor an alert, so no record holds it`);
     if (!isDate(f.firstSeen) || !isDate(f.lastSeen) || f.firstSeen > f.lastSeen)
-      return bad(`${f.fire}: firstSeen and lastSeen must be dates, in order`);
+      return bad(`${f.fire}: firstSeen and lastSeen must be real calendar dates, in order`);
     if (!Array.isArray(f.orderOutlines))
       return bad(`${f.fire}: orderOutlines is missing`);
     if (!f.everOrder && f.orderOutlines.length)
@@ -193,7 +203,9 @@ export function loadGuard(doc, ctx = {}) {
   if (!Array.isArray(doc.noFleet)) return bad("noFleet is missing");
   const noFleet = [];
   for (const w of doc.noFleet) {
-    if (!w || typeof w !== "object" || !isDate(w.from) || !isDate(w.to) || w.from > w.to
+    if (w && (!isDate(w.from) || !isDate(w.to)))
+      return bad("a no-fleet window has an invalid calendar date (from or to)");
+    if (!w || typeof w !== "object" || w.from > w.to
         || typeof w.basis !== "string" || !w.basis || typeof w.source !== "string"
         || !/^https?:\/\//.test(w.source))
       return bad(`a no-fleet window is not {from, to, basis, source} with a link`);
@@ -229,6 +241,7 @@ export function loadGuard(doc, ctx = {}) {
   if (!Array.isArray(doc.places)) return bad("places is missing");
   const places = [];
   for (const p of doc.places) {
+    if (p && !isDate(p.date)) return bad("a place entry has an invalid calendar date");
     if (p && !isLL(p.ll))
       return bad(`a place entry (${p.name || "unnamed"}): a coordinate must be finite longitude/latitude in range`);
     if (!p || typeof p !== "object" || typeof p.name !== "string" || !p.name
