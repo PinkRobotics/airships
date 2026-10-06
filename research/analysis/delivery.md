@@ -171,10 +171,16 @@ The table compares line length at an assumed 30 m swath with stored simplified f
 **Two caveats accompany this arithmetic.** First, **energy**: the supplied effort above must
 arrive from storage, the generator or a tender; solar credit is reported separately in the
 [energy model](../../docs/ENERGY-MODEL-2026-10.md). The tender fleet is not modelled. Second, **persistence**: CL 4
-is 1.63 mm of water, which evaporates in tens of minutes to a few hours in fire weather. Water
-is not retardant. A wet line is a delaying action and a fuel-moisture change, not a barrier
-that is still there tomorrow — which is exactly why the pre-treatment mission wants *repeated*
-passes over a corridor, and why an aircraft that never stops is the right shape for it.
+is 1.63 mm of even-spread water equivalent. The earlier drying range, tens of minutes to a few
+hours in fire weather, was an **unsourced estimate for exposed free water on fuel surfaces**,
+not a measurement of absorbed fuel moisture or useful treatment lifetime. Water is not
+retardant. [Wheatley et al.](https://doi.org/10.1071/WF22218)
+did not directly sample litter moisture; their modelled drying of wetted litter is distinct
+from the measured change in ambient humidity. How long this pre-treatment stays useful in
+named fuels is **unknown**. A corridor stays treated only if each part is revisited within
+that useful time, so the length an aircraft can keep treated is at most its treatment line
+rate times that time. Flying without stopping is necessary to sustain that continuous line
+rate, but is not sufficient: useful wetting, revisit timing and supply must also be established.
 
 ## Night is not a consolation prize, it is the design point
 
