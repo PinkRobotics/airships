@@ -37,7 +37,7 @@ names the evidence behind each `demonstrated` line, including its sizing allowan
 | Propulsion motors | 1.9 | 2.3 | 6.0 | bench component |
 | Drives, cabling, thermal | 1.9 | 2.7 | 9.0 | unsourced fraction |
 | Rotors and hubs | 13.2 | 17.5 | 22.5 | rotorcraft practice |
-| Cryogenic plant | 12.0 | 120.0 | 390.0 | ground hardware + flight concept |
+| Cryogenic plant | 12.0 | 120.0 | 390.0 | ground hardware + surface-system estimate |
 | LN2 tankage | 7.8 | 12.4 | 23.2 | cryotank practice |
 | Water tanks and plumbing | 2.1 | 2.2 | 2.3 | fabric practice + plumbing allowance |
 | Pump | 0.2 | 0.3 | 0.8 | bench motor + wet-end allowance |
