@@ -100,6 +100,7 @@ MANIFEST = [
      ".1f"),
     ("delivery.md", "delivery", "perimeters/km/p50", ".1f"),
     ("delivery.md", "delivery", "classes/P100/ownUpwash/end of release/airMassFlowKgS", ",d"),
+    ("delivery.md", "delivery", "references/terminalMs/2.0", ".1f"),
 
 
     ("vacuum-cell.md", "vacuum-cell", "theWall/rhoAirAtWorkAltKgPerM3", ".4f"),
@@ -308,6 +309,8 @@ for cid in ("P100", "P1000", "P10000"):
 # Bind these rows to their quantity, or to the labelled table cell, as well as
 # requiring a whole numeric token. {number} is always the shared matcher.
 CONTEXTS = {
+    ("delivery.md", "references/terminalMs/2.0"):
+        r"For 2 mm drops, terminal speed is {number} m/s",
     ("vacuum-cell.md", "sp8007Comparison/tubeROverT"): r"model's R/t = {number}",
     ("vacuum-cell.md", "sp8007Comparison/gammaEq9"): r"Isotropic gamma = {number}",
     ("vacuum-cell.md", "sp8007Comparison/kLocal"): r"assumed K_LOCAL = {number}",

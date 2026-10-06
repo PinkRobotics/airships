@@ -14,8 +14,8 @@ what happens between the tank and the fuel.
 **The primary use is not attacking a burning fire.** It is putting water on ground *before* it
 burns — soaking fuel ahead of a front, wetting a containment corridor in advance, raising fuel
 and atmospheric moisture over a landscape during a heat event. Direct attack on an active fire
-is the **hardest and most extreme case**, kept because a concept that survives it survives
-anything, not because it is the concept.
+is the **hardest and most extreme case**. It is retained to expose delivery limits, not as
+evidence that the vehicle can survive them.
 
 That distinction decides most of this page, because every hard number below comes from the fire
 itself — the convection column, the fire-generated turbulence, the urgency that forces a
@@ -24,8 +24,13 @@ unburned fuel. There is no reason not to fly low and slow. There is no reason no
 the calm hour. The physics that makes direct attack marginal is the physics of the fire, and in
 the primary mission the fire is not there yet.
 
-So read what follows as the extreme case, and note that the extreme case is survivable too —
-just not from 450 m.
+Read what follows as the extreme case, with a limit on free-drop delivery at any release
+height: a drop cannot descend where air at and below the release rises faster than it falls.
+For 2 mm drops, terminal speed is 6.5 m/s.
+This is the `TERMINAL_MS` input in `delivery.py`.
+Lowering the sprayers does not remove that limit; the proposed operating
+envelope is release **outside active convection columns**. Direct-attack survival has not
+been established.
 
 ## Water cannot fall faster than about 9 m/s
 
@@ -92,8 +97,9 @@ descend.
 ## Which is the argument for putting the sprayers on leads
 
 The vehicle already lowers a 300 m hose to pick water up. **Lowering sprayer leads to put it
-down is the same mechanism in reverse**, and it solves the drift, the column and the ship's own
-wake at once — because below the disc the rotor flow is a sink, and a sink falls off as 1/z²:
+down is the same mechanism in reverse**: the shorter fall reduces drift, and the release is
+farther from the ship's own wake. Below the disc the rotor flow is approximated as a sink,
+which falls off as 1/z². This does not remove ambient rising air in a fire column:
 
 | distance below the hull | induced flow, P-100 |
 |---|---|
@@ -107,8 +113,9 @@ wake at once — because below the disc the rotor flow is a sink, and a sink fal
 is not valid close under the very large discs of the bigger classes, and their near field has
 not been computed.)*
 
-**A few hundred metres of lead puts the release outside the ship's own flow field entirely**,
-and puts it at airtanker release height while the hull stays at a safe one. The release height
+**A few hundred metres of lead greatly reduces the calculated rotor sink flow at release**
+and shortens the fall while keeping the hull higher. It does not establish a safe hull height
+or descent through an active column. The release height
 stops being a compromise between hull clearance and delivery, and becomes a **control input** —
 long lead in calm air for a precise line, short lead when turbulence says stay high, and the
 choice made per pass. Multiple leads, like the multiple pumps and multiple bags the fleet
