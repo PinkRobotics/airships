@@ -76,6 +76,10 @@ names the evidence behind each `demonstrated` line, including its sizing allowan
     table.append('| × the 100 t allowance | ' + ' | '.join(f"{r['cases'][c]['overBy']:.2f}×" for c in ('floor','credible','demonstrated')) + ' | |')
     start = mass.index('| line |')
     end = mass.index('Sizing the battery', start)
+    # The floor sentence is another generator's region; its start marker stays.
+    opener = '<!-- mass-budget:floor:start -->\n'
+    if mass[end - len(opener):end] == opener:
+        end -= len(opener)
     mass = mass[:start] + '\n'.join(table) + '\n\n' + mass[end:]
     architecture = ('**2026-10-05:** This budget prices the first-generation hull of many permanently sealed '
                     'vacuum cells; it has not been re-priced for the current one film on hoop rings over a two-walled truss.')
@@ -121,7 +125,11 @@ wall is **{wall:.3f} kg/m³**, reduced further by packing losses and larger sund
 
 What decides this sealed-cell budget is the density of one complete cell and its packing
 fraction. Neither is measured here, and these conditional sizes do not validate a hull.'''
-    mass = mass[:mass.index('## The honest summary')] + '## The honest summary\n\n' + summary + '\n'
+    head = mass.index('## The honest summary')
+    # A later section or generated region (the solar-input comparison) belongs to another generator; keep it.
+    later = re.search(r'\n(?=<!-- [\w:-]+:start -->|## )', mass[head + 1:])
+    rest = '\n' + mass[head + 1 + later.end():] if later else ''
+    mass = mass[:head] + '## The honest summary\n\n' + summary + '\n' + rest
     # This sentence transcribed an obsolete fraction; the model's floor is ten percent.
     mass = mass.replace('`sundries_frac` is 5% at the floor', '`sundries_frac` is 10% at the floor')
     plan = (ROOT/'docs/VERIFICATION-PLAN.md').read_text()
