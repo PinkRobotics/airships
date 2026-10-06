@@ -292,6 +292,29 @@ def run_one(base, files, name, observe=False):
         return row
 
 
+class PlantAnchors(unittest.TestCase):
+    """Every plant still finds its anchor in this tree. The plants themselves run only in the
+    full suite, so a generator that rewrites an anchored sentence must fail the fast self-test
+    here rather than strand a plant until the next full run."""
+    def test_every_plant_anchor_occurs_once(self):
+        previous = Path.cwd()
+        try:
+            os.chdir(ROOT)  # Callbacks read relative paths, as in run_case.
+            for name, spec in specs().items():
+                for file, old, new in spec.get('edits', ()):
+                    with self.subTest(plant=name, file=file):
+                        count = (ROOT / file).read_text().count(old)
+                        self.assertEqual(count, 1, f'{file}: plant anchor occurs {count} times')
+                for file, fn in spec.get('py_edits', ()):
+                    with self.subTest(plant=name, file=file):
+                        self.assertIsInstance(fn((ROOT / file).read_text()), str)
+                for file, fn in spec.get('json_edits', ()):
+                    with self.subTest(plant=name, file=file):
+                        fn(json.loads((ROOT / file).read_text()))
+        finally:
+            os.chdir(previous)
+
+
 class PlantedTree(unittest.TestCase):
     def test_counterexamples(self):
         scratch = Path(os.environ['TMPDIR'])

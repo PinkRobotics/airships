@@ -20,10 +20,11 @@ def register(change):
            edits=[('README.md', "Its 52 m hull’s lift is 0.558 of its mass",
                    "Its 52 m hull’s lift is 0.658 of its mass")],
            gates=('ledgercheck', 'floatpagecheck', 'readmecheck'))
+    # #fleetNote is generated as one line inside the served-energy:fleet block.
     change('A1-index',
            'index.html: "no drawn hull does" -> "the 52 m hull does" (false verdict)',
-           edits=[('index.html', 'The flight model assumes a hull that floats;\n          <a href="float/">no drawn hull does</a>.',
-                   'The flight model assumes a hull that floats;\n          <a href="float/">the 52 m hull does</a>.')])
+           edits=[('index.html', 'The flight model assumes a hull that floats; <a href="float/">no drawn hull does</a>.',
+                   'The flight model assumes a hull that floats; <a href="float/">the 52 m hull does</a>.')])
     change('A1-engineering',
            'engineering/index.html: cap-range 0.751 -> 0.851',
            edits=[('engineering/index.html', 'runs from 0.751 to 0.998 at sea level',
