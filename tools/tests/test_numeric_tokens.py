@@ -40,7 +40,7 @@ class NumericTokenTests(unittest.TestCase):
             root = Path(td)
             analysis = root / 'research/analysis'
             analysis.mkdir(parents=True)
-            paths = {gate.A / md for md, _, _, _ in gate.MANIFEST}
+            paths = {gate.document_path(md) for md, _, _, _ in gate.MANIFEST}
             paths |= {gate.A / (name + '.json') for _, name, _, _ in gate.MANIFEST}
             for src in paths:
                 dest = root / src.resolve().relative_to(gate.ROOT)

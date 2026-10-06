@@ -58,17 +58,102 @@ export function rhoAir(altM) {
   return (101325 / (287.05 * 288.15)) * Math.pow(t / 288.15, 9.80665 / (287.05 * 0.0065) - 1);
 }
 
-/* Materials. sigma is the strength that governs a PRESSURE VESSEL, which is the weakest
- * direction — for a filament-printed part that is the interlayer (Z), not the in-plane (X-Y)
- * number a datasheet leads with. */
+/* Materials. sigma is tensile strength; sigmaCompression caps compressed struts and
+ * the compression-side extreme fibre in bending. Missing compression data explicitly
+ * retains the tensile value as an unsourced assumption. Printed interlayer (Z) and
+ * in-plane (X-Y) properties remain separate; a vendor UD coupon is not a part allowable. */
 export const MATERIALS = {
-  M60J_LAM: { name: 'M60J UD laminate, Vf 0.6', E: 354e9, sigma: 2.29e9, rho: 1658, orthotropic: true, printable: false },
-  T700_LAM: { name: 'T700 UD laminate, Vf 0.6', E: 135e9, sigma: 2.50e9, rho: 1600, orthotropic: true, printable: false },
-  CFF:      { name: 'Continuous carbon fibre, printed (Markforged-class)', E: 60e9, sigma: 800e6, rho: 1400, orthotropic: true, printable: true },
-  PAHT_XY:  { name: 'Bambu PAHT-CF, in-plane (X-Y)', E: 3.86e9, sigma: 92e6, rho: 1060, orthotropic: true, printable: true },
-  PAHT_Z:   { name: 'Bambu PAHT-CF, interlayer (Z)', E: 2.18e9, sigma: 47e6, rho: 1060, orthotropic: true, printable: true },
-  TI64:     { name: 'Ti-6Al-4V, laser powder-bed sintered', E: 114e9, sigma: 1.10e9, rho: 4430, orthotropic: false, printable: true },
-  AEROGEL:  { name: 'Silica aerogel, monolithic', E: 10e6, sigma: 0.5e6, rho: 120, orthotropic: false, printable: true },
+  "M60J_LAM": {
+    "name": "M60J UD laminate, Vf 0.6",
+    "E": 354000000000.0,
+    "sigma": 2010000000.0,
+    "sigmaCompression": 790000000.0,
+    "rho": 1658,
+    "orthotropic": true,
+    "printable": false,
+    "tensileSource": "Toray M60J datasheet, p. 1, composite properties: ASTM D3039, 60% fibre volume, #2500 epoxy; https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf",
+    "compressionSource": "Toray M60J datasheet, p. 1, composite properties: SACMA SRM 1R-94, 60% fibre volume, #2500 epoxy; https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf",
+    "compressionSourced": true,
+    "source": "Toray M60J composite tensile and compressive strengths, p. 1; typical UD coupon values, not allowables for the undrawn hierarchical wall. The retained 354 GPa modulus and 1658 kg/m3 density are the prior mixture estimates."
+  },
+  "T700_LAM": {
+    "name": "T700 UD laminate, Vf 0.6",
+    "E": 135000000000.0,
+    "sigma": 2860000000.0,
+    "sigmaCompression": 1450000000.0,
+    "rho": 1600,
+    "orthotropic": true,
+    "printable": false,
+    "tensileSource": "Toray T700S datasheet Rev. 11/24/2025, p. 1: ASTM D3039, 60% fibre volume; https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+    "compressionSource": "Toray T700S datasheet Rev. 11/24/2025, p. 1: SACMA SRM 1R-94, 60% fibre volume; https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+    "compressionSourced": true,
+    "source": "Toray T700S typical UD composite strengths, p. 1, used as the named T700 laminate proxy. Modulus and density retain the prior representative inputs; these are not coupon allowables for the built tubes or hull strength worlds."
+  },
+  "CFF": {
+    "name": "Continuous carbon fibre, printed (Markforged-class)",
+    "E": 60000000000.0,
+    "sigma": 800000000.0,
+    "sigmaCompression": 420000000.0,
+    "rho": 1400,
+    "orthotropic": true,
+    "printable": true,
+    "tensileSource": "Markforged Composites material datasheet Rev. 5.0, p. 1: ASTM D3039; https://static.markforged.com/downloads/composites-data-sheet.pdf",
+    "compressionSource": "Markforged Composites material datasheet Rev. 5.0, p. 1: ASTM D6641, unidirectional carbon plaques; https://static.markforged.com/downloads/composites-data-sheet.pdf",
+    "compressionSourced": true,
+    "source": "Markforged Rev. 5.0 typical UD plaque strengths, p. 1; layout and process dependent, not an allowable for a hierarchical strut. The prior representative 1400 kg/m3 density is retained; it is not the datasheet's plaque density."
+  },
+  "PAHT_XY": {
+    "name": "Bambu PAHT-CF, in-plane (X-Y)",
+    "E": 3860000000.0,
+    "sigma": 92000000.0,
+    "rho": 1060,
+    "sigmaCompression": 92000000.0,
+    "compressionSourced": false,
+    "tensileSource": "Bambu PAHT-CF TDS V2, p. 2, ISO 527 / GB/T 1040, X-Y; https://wiki.bambulab.com/filament-acc/asacf-pahtcf/65f1b18a6d6142d794a1a6a00f1496ef.pdf",
+    "compressionSource": "compressive strength not sourced; tensile value used. Bambu PAHT-CF TDS V2, pp. 1–3, gives no compression result.",
+    "orthotropic": true,
+    "printable": true,
+    "source": "Bambu Lab PAHT-CF TDS, ISO 527: 3860 +/- 230 MPa, 92 +/- 7 MPa, 1.06 g/cm3."
+  },
+  "PAHT_Z": {
+    "name": "Bambu PAHT-CF, interlayer (Z)",
+    "E": 2180000000.0,
+    "sigma": 47000000.0,
+    "rho": 1060,
+    "sigmaCompression": 47000000.0,
+    "compressionSourced": false,
+    "tensileSource": "Bambu PAHT-CF TDS V2, p. 2, ISO 527 / GB/T 1040, Z; https://wiki.bambulab.com/filament-acc/asacf-pahtcf/65f1b18a6d6142d794a1a6a00f1496ef.pdf",
+    "compressionSource": "compressive strength not sourced; tensile value used. Bambu PAHT-CF TDS V2, pp. 1–3, gives no compression result.",
+    "orthotropic": true,
+    "printable": true,
+    "source": "Same TDS, Z direction: 2180 +/- 130 MPa, 47 +/- 5 MPa. THE DIRECTION THAT GOVERNS a printed pressure vessel."
+  },
+  "TI64": {
+    "name": "Ti-6Al-4V, laser powder-bed sintered",
+    "E": 114000000000.0,
+    "sigma": 1100000000.0,
+    "rho": 4430,
+    "sigmaCompression": 1100000000.0,
+    "compressionSourced": false,
+    "tensileSource": "Prior representative stress-relieved LPBF input, not tied to a specific machine, coupon or datasheet page; retained unsourced.",
+    "compressionSource": "compressive strength not sourced; tensile value used. EOS Titanium Ti64 material datasheet, mechanical-properties tables in the process sheets, gives tensile but no compression result; https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64",
+    "orthotropic": false,
+    "printable": true,
+    "source": "Representative LPBF values, stress-relieved. Isotropic, so it takes no orthotropic penalty — the one advantage metal has here."
+  },
+  "AEROGEL": {
+    "name": "Silica aerogel, monolithic",
+    "E": 10000000.0,
+    "sigma": 500000.0,
+    "rho": 120,
+    "sigmaCompression": 500000.0,
+    "compressionSourced": false,
+    "tensileSource": "Prior order-of-magnitude input, no specific formulation or source page; retained unsourced.",
+    "compressionSource": "compressive strength not sourced; tensile value used. Aerogel Technologies Classic Aerogel Products tables give no compression value for this unnamed formulation; https://www.aerogeltechnologies.com/classic-aerogels/classic-aerogel-products/",
+    "orthotropic": false,
+    "printable": true,
+    "source": "Order-of-magnitude literature values. Included to test the internal-support idea, not as a shell candidate; its numbers fall outside the thin-wall assumptions every relation here makes."
+  }
 };
 
 export const eEff = m => m.E * (m.orthotropic ? ORTHO_PENALTY : 1);
@@ -85,10 +170,10 @@ export function monolithic(m, p = P_ATM) {
 export function solidStrut(m, p = P_ATM) {
   const k = ALIGN * Math.PI * Math.PI / (4 * C_PHI), pd = p * LATTICE_SF;
   const phiB = Math.sqrt(pd / (k * m.E));
-  const phiY = pd / (ALIGN * m.sigma);
+  const phiY = pd / (ALIGN * m.sigmaCompression);
   const phi = Math.max(phiB, phiY);
   return { architecture: 'solid-strut lattice', phi, rho: phi * m.rho,
-           governs: phiB > phiY ? 'strut buckling' : 'material yield', phiB, phiY };
+           governs: phiB > phiY ? 'strut buckling' : 'compressive strength', phiB, phiY };
 }
 
 /* THE BUILT ARTICLE'S GEOMETRY, PINNED (2026-08-12), mirrored from the Python. The
@@ -106,12 +191,12 @@ export function tubeStrut(m, p = P_ATM) {
   const k = ALIGN * kl / Math.sqrt(c);
   const pd = p * LATTICE_SF;
   const phiB = Math.pow(pd / (k * eEff(m)), 2 / 3);
-  const phiY = pd / (ALIGN * m.sigma);
+  const phiY = pd / (ALIGN * m.sigmaCompression);
   const phi = Math.max(phiB, phiY);
   const psi = Math.sqrt(phi / c);          // tube wall / tube radius
   const lam = Math.sqrt(a * psi);          // tube radius / strut length
   return { architecture: 'tubular-strut lattice', phi, rho: phi * m.rho,
-           governs: phiB > phiY ? 'strut buckling' : 'material yield',
+           governs: phiB > phiY ? 'strut buckling' : 'compressive strength',
            psi, lam, wallPerStrutLength: psi * lam, tubeROverT: 1 / psi, phiB, phiY };
 }
 
@@ -224,9 +309,8 @@ export function envelopeFilmKgPerM3(spanM = 2.0, datm = 1.0) {
 
 /* Hierarchy: each level of structure-inside-structure improves the strength-density
  * EXPONENT — (n+2)/(n+1), tending to the linear scaling Jenett assumes. Lakes, Nature 361
- * (1993). It converges fast, level 2 is the one that matters — and the ladder ends where
- * the material's strength begins: the solid still carries 3p/phi, so phi can never fall
- * below the yield floor. Levels 3 and 4 hit it for every material here. */
+ * (1993). The solid still carries 3p/phi, so hierarchy cannot bypass its compression
+ * floor. M60J levels 2–4 hit it; none reaches unity at 2,500 m. */
 export function ladder(m, levels = 5, film = null, nodes = NODE_MASS_FRAC) {
   const ee = eEff(m);
   const kl = K_CLASSICAL * K_LOCAL;
@@ -235,7 +319,7 @@ export function ladder(m, levels = 5, film = null, nodes = NODE_MASS_FRAC) {
   const k = ALIGN * kl / Math.sqrt(c);
   const pd = P_ATM * LATTICE_SF;
   const x = pd / (k * ee);
-  const phiYield = pd / (ALIGN * m.sigma);
+  const phiYield = pd / (ALIGN * m.sigmaCompression);
   if (film === null) film = envelopeFilmKgPerM3();
   const names = ['solid rod', 'hollow tube', 'tube of tubes', 'third order', 'fourth order'];
   const out = [];
@@ -246,8 +330,11 @@ export function ladder(m, levels = 5, film = null, nodes = NODE_MASS_FRAC) {
     const lat = phi * m.rho;
     out.push({ levels: n, exponent: alpha, phi, lattice: lat,
                total: lat * (1 + nodes) + film,
+               liftToMassSeaLevel: rhoAir(0) / (lat * (1 + nodes) + film),
+               liftToMassAt2500m: rhoAir(2500) / (lat * (1 + nodes) + film),
+               strengthCapProperty: 'compression',
                yieldCapped: phiYield > phiB,
-               solidStressOverStrength: 3 * pd / phi / m.sigma,
+               solidStressOverStrength: 3 * pd / phi / m.sigmaCompression,
                name: names[n] || `order ${n}` });
   }
   return out;
@@ -491,7 +578,7 @@ export function memberDemands(span, sf = LATTICE_SF, p = P_ATM) {
 export function filmEdgeLoads(span, sf = LATTICE_SF) {
   const f = kelvinFaces(span);
   const a = f.edgeM;
-  const sigmaU = MATERIALS.T700_LAM.sigma;
+  const sigmaU = Math.min(MATERIALS.T700_LAM.sigma, MATERIALS.T700_LAM.sigmaCompression);
   const row = (member, w, length, propped = false, ro = 0.005, ri = 0.004) => {
     const Z = (Math.PI / 4 * (ro ** 4 - ri ** 4)) / ro;
     const s = propped ? length / 2 : length;
@@ -676,7 +763,7 @@ export function stockBuild() {
            perStrutDemandN: fDemand,
            eulerMarginPinned: pcrPinned / fDemand,
            eulerMarginSocketed: pcrSocketed / fDemand,
-           stressMargin: m.sigma * area / fDemand,
+           stressMargin: m.sigmaCompression * area / fDemand,
            rimDemandN: rimDemand, rimEulerMargin: pcrRim / rimDemand,
            spokeDemandN: spokeDemand, spokeEulerMargin: pcrPinned / spokeDemand,
            tieDemandN: tieDemand,

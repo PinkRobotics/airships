@@ -39,11 +39,18 @@ PROBE = """(() => {
       tubeStrut: C.ARCHS.tubeStrut(m).rho,
       total: C.totalShell(m, 2.0).total,
       phi: C.ARCHS.tubeStrut(m).phi,
+      tensileStrengthPa: m.sigma, compressiveStrengthPa: m.sigmaCompression,
+      tensileSource: m.tensileSource, compressionSource: m.compressionSource,
+      compressionSourced: m.compressionSourced,
     };
   }
   out.ladders = {};
   for (const k of ['M60J_LAM', 'T700_LAM', 'CFF', 'PAHT_Z']) {
-    out.ladders[k] = C.ladder(C.MATERIALS[k]).map(r => r.total);
+    out.ladders[k] = C.ladder(C.MATERIALS[k]).map(r => ({
+      total: r.total, liftToMassSeaLevel: r.liftToMassSeaLevel,
+      liftToMassAt2500m: r.liftToMassAt2500m,
+      solidStressOverStrength: r.solidStressOverStrength,
+      yieldCapped: r.yieldCapped, strengthCapProperty: r.strengthCapProperty }));
   }
   out.printerChain = C.printerChain(C.MATERIALS.PAHT_Z).map(r => ({
     strutM: r.strutM, cellM: r.cellM, enclosedL: r.enclosedL,
@@ -151,10 +158,20 @@ def main() -> None:
     for key in js["materials"]:
         if key not in py["materials"]:
             bad.append(f"{key}: present in ship/model.js, missing from the Python")
+            continue
+        for field in ('tensileStrengthPa', 'compressiveStrengthPa', 'tensileSource',
+                      'compressionSource', 'compressionSourced'):
+            checked += 1
+            if js['materials'][key][field] != py['materials'][key][field]:
+                bad.append(f'{key}.{field}: material property or source differs')
 
-    def cmp(label: str, want, got, dp: int) -> None:
+    def cmp(label: str, want, got, dp: int | None) -> None:
         nonlocal checked
         checked += 1
+        if dp is None:
+            if got != want:
+                bad.append(f"{label}: python {want}, js {got}")
+            return
         if abs(round(got, dp) - want) > TOL:
             bad.append(f"{label}: python {want}, js {round(got, dp)}")
 
@@ -171,7 +188,14 @@ def main() -> None:
     for mat, totals in js["ladders"].items():
         pyl = py["hierarchy"]["ladders"][mat]
         for n, got in enumerate(totals):
-            cmp(f"ladder[{mat}][{n}].total", pyl[str(n)]["totalKgPerM3"], got, 4)
+            row = pyl[str(n)]
+            for pfield, jfield, digits in (("totalKgPerM3", "total", 4),
+                    ("liftToMassSeaLevel", "liftToMassSeaLevel", 3),
+                    ("liftToMassAt2500m", "liftToMassAt2500m", 3),
+                    ("solidStressOverStrength", "solidStressOverStrength", 3)):
+                cmp(f"ladder[{mat}][{n}].{pfield}", row[pfield], got[jfield], digits)
+            for field in ("yieldCapped", "strengthCapProperty"):
+                cmp(f"ladder[{mat}][{n}].{field}", row[field], got[field], None)
 
     # The printer chain, all four rows.
     py_rows = list(py["printerChain"]["rows"].values())

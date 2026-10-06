@@ -54,6 +54,10 @@ def num(x, fmt: str) -> str:
     return "not served" if x is None else format(x, fmt)
 
 
+def document_path(name: str, root=ROOT):
+    return root / name if name.startswith('docs/') else root / 'research/analysis' / name
+
+
 # (markdown file, json file, dotted path into it, python format spec)
 # The format spec is how the number is written in the prose — so a change of units or of
 # rounding in the note is caught as loudly as a change of value in the model.
@@ -322,7 +326,7 @@ CONTEXTS = {
     ("vacuum-cell.md", "stockBuild/printed/nodesKg"):
         r"article reads the manifest — \*\*{number} kg\*\*",
     ("vacuum-cell.md", "memberDemands/crushDivisor"): r"3 × 32 = \*\*{number}\*\*",
-    ("vacuum-cell.md", "filmEdgeLoads/rows/0/failsAtAtm"): r"rim tore off at {number}\s+atmospheres",
+    ("vacuum-cell.md", "filmEdgeLoads/rows/0/failsAtAtm"): r"unbraced rim capacity is {number}\s+atmospheres",
     ("vacuum-cell.md", "filmEdgeLoads/bulgeVolumeLostPct"): r"spoked,\s+{number}%",
     ("vacuum-cell.md", "designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/outerEnvelopeOnlyKgPerM3"):
         r"^\| barrier on the outer envelope only \| {number} \|",
@@ -351,6 +355,28 @@ for phi, densities in (("0.74", ("0.264", "0.508")), ("0.85", ("0.264", "0.508")
             + r"[^|]*× {number} m")
 
 
+# Compression correction: every ladder density and paired-altitude ratio owns its row.
+for level in range(5):
+    for column, field, fmt in ((2, 'totalKgPerM3', '.3f'),
+                               (3, 'liftToMassSeaLevel', '.3f'),
+                               (4, 'liftToMassAt2500m', '.3f')):
+        pointer = f'hierarchy/ladder/{level}/{field}'
+        row = ('vacuum-cell.md', 'vacuum-cell', pointer, fmt)
+        if row not in MANIFEST:
+            MANIFEST.append(row)
+        CONTEXTS[('vacuum-cell.md', pointer)] = (
+            r'^\| ' + str(level) + r' \|' + r'[^|]*\|' * (column - 1) + r' {number} \|')
+MANIFEST.append(('helium.md', 'helium', 'breakeven/minimumStructureOverHydrogenBreakEven', '.1f'))
+CONTEXTS[('helium.md', 'breakeven/minimumStructureOverHydrogenBreakEven')] = r'deepest hierarchy level is {number} times'
+
+
+MANIFEST.append(('vacuum-cell.md', 'vacuum-cell', 'hierarchy/ladder/2/solidStressOverStrength', '.0%'))
+CONTEXTS[('vacuum-cell.md', 'hierarchy/ladder/2/solidStressOverStrength')] = r'Hierarchy level 2 runs at {number} of the model'
+for field, phrase in (('usefulFraction/vacuumLevel2StructurePct', r'compression cap gives a {number}% structural share'),
+                      ('breakeven/minimumStructureOverHydrogenBreakEven', r'deepest hierarchy level costs {number} times')):
+    MANIFEST.append(('docs/PHYSICS.md', 'helium', field, '.1f'))
+    CONTEXTS[('docs/PHYSICS.md', field)] = phrase
+
 def matches(text, want, context=None):
     pattern = numeric_pattern(want)
     if context is not None:
@@ -365,7 +391,7 @@ def check_rows(directory=A):
         if jname not in cache:
             cache[jname] = json.loads((directory / f"{jname}.json").read_text())
         doc = cache[jname]
-        text = (directory / md).read_text()
+        text = document_path(md, directory.parent.parent).read_text()
         try:
             value = dig(doc, path)
         except (KeyError, TypeError, IndexError, ValueError):
@@ -532,6 +558,9 @@ def main() -> None:
 
     if subprocess.run([sys.executable, 'docs/audit/26-10-02-structure-questions.py', '--check'], cwd=ROOT).returncode:
         bad.append('outside-structures questions differ from their measured records')
+
+    if subprocess.run([sys.executable, 'tools/gen_structures_docs.py'], cwd=ROOT).returncode:
+        bad.append('corrected structures tables differ from fresh generation')
 
     if bad:
         print("ANALYSIS GATE FAILED — the notes disagree with their own generated data:\n")

@@ -1,6 +1,1345 @@
 {
  "entries": [
   {
+   "file": "research/analysis/helium.md",
+   "key": "2d571c4e2e67260b",
+   "class": "bound",
+   "reason": "Reviewed wording qualification: the existing compression-floor conclusion applies to the M60J ladder; all physical quantities and their numerical bindings are unchanged.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/vacuumLevel2Pct",
+     "shown": "-17.5"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/hindenburgH2Pct",
+     "shown": "49"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/hindenburgDeadKgPerM3",
+     "shown": "0.590"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/zr3HeliumPct",
+     "shown": "41"
+    }
+   ],
+   "context": [
+    "126",
+    "2",
+    "2500"
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "eaff6c0dc5b09ce8",
+   "class": "bound",
+   "reason": "Reviewed wording qualification: the existing compression-floor conclusion applies to the M60J ladder; all physical quantities and their numerical bindings are unchanged.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/designPoint/buildUp/lattice",
+     "shown": "1.115"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+     "shown": "1.306"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+     "shown": "0.851"
+    }
+   ],
+   "context": [
+    "0.605",
+    "0.943",
+    "08",
+    "1",
+    "1.65",
+    "1.78",
+    "12",
+    "2",
+    "2026",
+    "2500"
+   ]
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "key": "cc6feee27b469071",
+   "class": "bound",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/gasTaxPct/hydrogen",
+     "shown": "7"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/gasTaxPct/helium",
+     "shown": "14"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/vacuumLevel2StructurePct",
+     "shown": "117.5"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+     "shown": "0.067"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/breakeven/minimumStructureOverHydrogenBreakEven",
+     "shown": "16.9"
+    }
+   ],
+   "context": [
+    "2",
+    "2500"
+   ],
+   "reason": "Current unbuilt structural share and hierarchy break-even comparison match generated helium figures; former figures are explicitly dated correction context."
+  },
+  {
+   "file": "ship/index.html",
+   "key": "d0ab41e034def2d7",
+   "class": "bound",
+   "reason": "Current compression-capped density and absent subdivision crossing are checked against the model; the browser checks the no-crossing sentence.",
+   "context": [
+    "2,500"
+   ],
+   "bindings": [
+    {
+     "case": "weightless-M60J_LAM",
+     "field": "mass",
+     "route": "wM60.densityAtN1"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/weightlessArticle/rows/CFF/minNSeaLevel",
+     "equals": null
+    }
+   ]
+  },
+  {
+   "file": "ship/index.html",
+   "key": "6d87617ea26a2c5f",
+   "class": "bound",
+   "reason": "The material study uses the current compression-capped density and explicitly records that the printed-carbon subdivision sweep has no sea-level crossing.",
+   "context": [
+    "2,500"
+   ],
+   "bindings": [
+    {
+     "case": "weightless-M60J_LAM",
+     "field": "mass",
+     "route": "wM60.densityAtN1"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/weightlessArticle/rows/CFF/minNSeaLevel",
+     "equals": null
+    }
+   ]
+  },
+  {
+   "file": "research/notes/helium-and-hydrogen.md",
+   "key": "415b6f9381737f13",
+   "class": "bound",
+   "reason": "Current density and both density margins are checked; expressly previous figures are dated correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.seaLevel.margin",
+     "shown": "0.1007"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.target.margin",
+     "shown": "-0.1674"
+    }
+   ],
+   "context": [
+    "0.4186",
+    "0.5383",
+    "0.6867",
+    "1",
+    "2",
+    "2500",
+    "790"
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "106bd1a458011c46",
+   "class": "bound",
+   "reason": "Current compressed-face strength and capacities are checked; explicitly former figures are retained as dated correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/T700_LAM/compressiveStrengthPa",
+     "shown": "1450",
+     "scale": 1e-06
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "mass",
+     "shown": "16.09"
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "extras.toolPrintedMassToTargetLift",
+     "shown": "16.81"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/governingCheck/failsAtAtm",
+     "shown": "1.65"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/filmEdgeLoads/rows/0/failsAtAtm",
+     "shown": "0.26"
+    }
+   ],
+   "context": [
+    "0.44",
+    "0.45",
+    "0.59",
+    "1.01",
+    "1.89",
+    "10.76",
+    "11.24",
+    "2.84",
+    "2290",
+    "2500",
+    "3.25"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "ea74596718124316",
+   "class": "method",
+   "context": [
+    "05",
+    "10",
+    "1658",
+    "2026",
+    "354"
+   ],
+   "reason": "Clarifies that the retained dated sequence is superseded by separate compression inputs without changing stiffness or density."
+  },
+  {
+   "file": "ship/model.js",
+   "key": "e936ef79083fea96",
+   "class": "literature",
+   "reason": "Identifies the maker coupon source and explicitly retained representative stiffness and density; this is not a hierarchical-wall strength allowable.",
+   "source": "Toray M60J datasheet p. 1; Markforged Composites datasheet Rev. 5.0 p. 1"
+  },
+  {
+   "file": "ship/model.js",
+   "key": "3c83954ea75891ba",
+   "class": "literature",
+   "reason": "Identifies the maker coupon source and explicitly retained representative stiffness and density; this is not a hierarchical-wall strength allowable.",
+   "source": "Toray M60J datasheet p. 1; Markforged Composites datasheet Rev. 5.0 p. 1"
+  },
+  {
+   "file": "research/notes/helium-and-hydrogen.md",
+   "key": "4db2aa5879b64fee",
+   "class": "bound",
+   "reason": "Current density and both density margins are checked; expressly previous figures are dated correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.seaLevel.margin",
+     "shown": "0.1007"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.target.margin",
+     "shown": "-0.1674"
+    }
+   ],
+   "context": [
+    "0.4186",
+    "0.5383",
+    "0.6867",
+    "1",
+    "2",
+    "2500",
+    "790"
+   ]
+  },
+  {
+   "file": "research/notes/hierarchy-manufacturing.md",
+   "key": "dab610a64385dd4e",
+   "class": "bound",
+   "reason": "The appended correction binds the current compression cap, density and altitude ratios without changing the dated manufacturing record.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/M60J_LAM/compressiveStrengthPa",
+     "shown": "790",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+     "shown": "0.851"
+    }
+   ],
+   "context": [
+    "08",
+    "1",
+    "10",
+    "2",
+    "2026",
+    "2500",
+    "4",
+    "60",
+    "94"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "6fc056199af974aa",
+   "class": "bound",
+   "reason": "Current ladder values are bound; left-hand figures explicitly preserve the superseded tensile-cap calculation.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+     "shown": "7.9859"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/0/liftToMassSeaLevel",
+     "shown": "0.153"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/0/liftToMassAt2500m",
+     "shown": "0.120"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+     "shown": "1.3060"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/liftToMassSeaLevel",
+     "shown": "0.938"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/liftToMassAt2500m",
+     "shown": "0.733"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+     "shown": "0.851"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/3/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/3/liftToMassAt2500m",
+     "shown": "0.851"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/4/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/4/liftToMassAt2500m",
+     "shown": "0.851"
+    }
+   ],
+   "context": [
+    "0",
+    "0.120",
+    "0.4034",
+    "0.5383",
+    "1",
+    "1.090",
+    "1.3060",
+    "1.778",
+    "2",
+    "2.276",
+    "2.372",
+    "2500",
+    "3",
+    "3.037",
+    "4"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "4c79fda141bc51fa",
+   "class": "bound",
+   "reason": "Both strength columns match the material JSON; source pages and explicitly unsourced compression substitutions are stated in the same rows.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/M60J_LAM/tensileStrengthPa",
+     "shown": "2010",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/M60J_LAM/compressiveStrengthPa",
+     "shown": "790",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/T700_LAM/tensileStrengthPa",
+     "shown": "2860",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/T700_LAM/compressiveStrengthPa",
+     "shown": "1450",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/CFF/tensileStrengthPa",
+     "shown": "800",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/CFF/compressiveStrengthPa",
+     "shown": "420",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/PAHT_XY/tensileStrengthPa",
+     "shown": "92",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/PAHT_XY/compressiveStrengthPa",
+     "shown": "92",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/PAHT_Z/tensileStrengthPa",
+     "shown": "47",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/PAHT_Z/compressiveStrengthPa",
+     "shown": "47",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/TI64/tensileStrengthPa",
+     "shown": "1100",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/TI64/compressiveStrengthPa",
+     "shown": "1100",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/AEROGEL/tensileStrengthPa",
+     "shown": "0.5",
+     "scale": 1e-06
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/AEROGEL/compressiveStrengthPa",
+     "shown": "0.5",
+     "scale": 1e-06
+    }
+   ],
+   "context": [
+    "0.6",
+    "1",
+    "11",
+    "2",
+    "2025",
+    "24",
+    "2500",
+    "4",
+    "5.0",
+    "527",
+    "6",
+    "94"
+   ]
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "a6c2df0249f79bd8",
+   "class": "bound",
+   "reason": "New model results are checked against the generated helium analysis; expressly previous numbers remain dated correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel2/structure",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel2/net",
+     "shown": "-0.1674"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/vacuumLevel2Pct",
+     "shown": "-17.5"
+    }
+   ],
+   "context": [
+    "0.4186",
+    "0.5383",
+    "05",
+    "10",
+    "2",
+    "2026",
+    "2500",
+    "43.7"
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "4b8d3f914eec2b00",
+   "class": "bound",
+   "reason": "Current compressed-face strength and capacities are checked; explicitly former figures are retained as dated correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/materials/T700_LAM/compressiveStrengthPa",
+     "shown": "1450",
+     "scale": 1e-06
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "mass",
+     "shown": "16.09"
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "extras.toolPrintedMassToTargetLift",
+     "shown": "16.81"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/governingCheck/failsAtAtm",
+     "shown": "1.65"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/filmEdgeLoads/rows/0/failsAtAtm",
+     "shown": "0.26"
+    }
+   ],
+   "context": [
+    "0.44",
+    "0.45",
+    "0.59",
+    "1.01",
+    "1.89",
+    "10.76",
+    "11.24",
+    "2.84",
+    "2500",
+    "3.25"
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "560dd177a55a9c85",
+   "class": "bound",
+   "reason": "Current hierarchy densities and both altitude ratios are bound; preceding historical coefficient corrections are retained as context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/designPoint/buildUp/lattice",
+     "shown": "1.115"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+     "shown": "1.306"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.1243"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+     "shown": "1.090"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+     "shown": "0.851"
+    }
+   ],
+   "context": [
+    "0.605",
+    "0.943",
+    "08",
+    "1",
+    "1.65",
+    "1.78",
+    "12",
+    "2",
+    "2026",
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "fd5d53054e772333",
+   "class": "method",
+   "reason": "Explains the generated negative-net-lift bulk rows without claiming a measured structural result.",
+   "context": [
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "cd3146ace3d33783",
+   "class": "generated",
+   "reason": "This exact structural table is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+   "generator": "tools/gen_structures_docs.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- structures:bulk:start -->",
+    "end": "<!-- structures:bulk:end -->"
+   }
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "0744d0dd40ca6594",
+   "class": "bound",
+   "context": [
+    "5"
+   ],
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/costPctOfNetLift",
+     "shown": "11.4"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/outerSurfaceDifferentialAtm",
+     "shown": "0.1"
+    }
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "05821d6c232e8ba2",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/perStrutDemandN",
+     "shown": "3372"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/eulerMarginPinned",
+     "shown": "1.8"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/eulerMarginSocketed",
+     "shown": "4.3"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/pipe/stressMargin",
+     "shown": "12"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/printed/nodes",
+     "shown": "51"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/skinKg",
+     "shown": "28",
+     "scale": 1000
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/totalKg",
+     "shown": "2.69"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "at.seaLevel.lift",
+     "shown": "218",
+     "scale": 1000
+    },
+    {
+     "case": "bench-nominal",
+     "field": "at.target.lift",
+     "shown": "170",
+     "scale": 1000
+    },
+    {
+     "case": "bench-nominal",
+     "field": "at.seaLevel.floats",
+     "equals": false
+    },
+    {
+     "case": "bench-nominal",
+     "field": "at.target.floats",
+     "equals": false
+    }
+   ],
+   "context": [
+    "1.5",
+    "10",
+    "12.2",
+    "14",
+    "180",
+    "2500",
+    "36",
+    "8"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "3b3ac6c62ea4c30c",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/weightlessArticle/rows/M60J_LAM/densityAtN1",
+     "shown": "2.393"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/weightlessArticle/rows/T700_LAM/densityAtN1",
+     "shown": "2.236"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/weightlessArticle/rows/CFF/densityAtN1",
+     "shown": "3.708"
+    },
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/atmosphere/rhoSeaLevel",
+     "shown": "1.225",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+     "shown": "0.957",
+     "altitude": "target"
+    }
+   ],
+   "context": [
+    "0.30",
+    "1.5",
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "16f1e307cfc83699",
+   "class": "generated",
+   "reason": "This exact structural table is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+   "generator": "tools/gen_structures_docs.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- structures:hierarchy:start -->",
+    "end": "<!-- structures:hierarchy:end -->"
+   },
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/0/exponent",
+     "shown": "2.000"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+     "shown": "7.986"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-0",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.153"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-0",
+     "field": "at.target.liftToMass",
+     "shown": "0.120"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/exponent",
+     "shown": "1.500"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+     "shown": "1.306"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-1",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "0.938"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-1",
+     "field": "at.target.liftToMass",
+     "shown": "0.733"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/exponent",
+     "shown": "1.333"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.124"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "1.090"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.target.liftToMass",
+     "shown": "0.851"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/3/exponent",
+     "shown": "1.250"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+     "shown": "1.124"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-3",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "1.090"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-3",
+     "field": "at.target.liftToMass",
+     "shown": "0.851"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/4/exponent",
+     "shown": "1.200"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+     "shown": "1.124"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-4",
+     "field": "at.seaLevel.liftToMass",
+     "shown": "1.090"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-4",
+     "field": "at.target.liftToMass",
+     "shown": "0.851"
+    }
+   ],
+   "context": [
+    "0",
+    "1",
+    "2",
+    "2500",
+    "3",
+    "4"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "9232cd9d52b9168e",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/totalIfOuterEnvelopeOnly",
+     "shown": "1.306"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.124"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+     "shown": "0.957",
+     "altitude": "target"
+    },
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/atmosphere/rhoSeaLevel",
+     "shown": "1.225",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/seaLevel/min",
+     "shown": "0.751",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/seaLevel/max",
+     "shown": "0.998",
+     "altitude": "seaLevel"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/target/min",
+     "shown": "0.586",
+     "altitude": "target"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/ranges/favourable/target/max",
+     "shown": "0.780",
+     "altitude": "target"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/disagreementCount",
+     "shown": "20"
+    },
+    {
+     "source": "research/analysis/cap-readings.json",
+     "pointer": "/noneReachesOne",
+     "equals": true
+    }
+   ],
+   "context": [
+    "0.30",
+    "0.605",
+    "0.65",
+    "1.2",
+    "1.5",
+    "1450",
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "fd2b677dde2958d7",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+     "shown": "1.124"
+    }
+   ],
+   "context": [
+    "1",
+    "2",
+    "2009",
+    "3",
+    "4",
+    "8110"
+   ]
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "829b7a97a21e00dc",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/vacuumLevel2Pct",
+     "shown": "-17.5"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/hindenburgH2Pct",
+     "shown": "49"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/hindenburgDeadKgPerM3",
+     "shown": "0.590"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/zr3HeliumPct",
+     "shown": "41"
+    }
+   ],
+   "context": [
+    "126",
+    "2",
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "35378bd8865d3b4f",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+     "shown": "0.067"
+    }
+   ],
+   "context": [
+    "2500"
+   ]
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "11eaaae62762ad8f",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumIdeal/gas",
+     "shown": "0"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumIdeal/structure",
+     "shown": "0"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumIdeal/net",
+     "shown": "0.957"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel1/gas",
+     "shown": "0"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel1/structure",
+     "shown": "1.306"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel1/net",
+     "shown": "-0.349"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel2/gas",
+     "shown": "0"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel2/structure",
+     "shown": "1.124"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/vacuumLevel2/net",
+     "shown": "-0.167"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/hydrogen/gas",
+     "shown": "0.067"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/hydrogen/net",
+     "shown": "0.890"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/helium/gas",
+     "shown": "0.132"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/helium/net",
+     "shown": "0.825"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/helium97/gas",
+     "shown": "0.157"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/ledger/helium97/net",
+     "shown": "0.800"
+    }
+   ],
+   "context": [
+    "2",
+    "97"
+   ],
+   "heading": "At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:"
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "key": "c375cb83a8ec7098",
+   "class": "bound",
+   "reason": "The hierarchy break-even multiple is now computed; earlier gas comparison inputs and operational objectives remain context.",
+   "bindings": [
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/breakeven/minimumStructureOverHydrogenBreakEven",
+     "shown": "16.9"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+     "shown": "0.067"
+    }
+   ],
+   "context": [
+    "7.5"
+   ]
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "1d4e3e4dc7388631",
+   "class": "question",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "mass",
+     "shown": "1.1243"
+    }
+   ],
+   "context": [
+    "0.30",
+    "1.5",
+    "1993",
+    "2"
+   ]
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "key": "da9d9b902f66ffb1",
+   "class": "bound",
+   "reason": "Both corrected bending capacities match the cell JSON; the remaining dimensions and nylon scenario are experimental description and requirements.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/filmEdgeLoads/rows/0/failsAtAtm",
+     "shown": "0.26"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/stockBuild/governingCheck/failsAtAtm",
+     "shown": "1.65"
+    }
+   ],
+   "context": [
+    "12",
+    "15",
+    "20",
+    "251",
+    "3"
+   ]
+  },
+  {
+   "file": "research/notes/helium-and-hydrogen.md",
+   "key": "57236b181bf135c8",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "context": [
+    "0.3",
+    "0.30",
+    "0.45",
+    "1.5",
+    "15",
+    "1930",
+    "2",
+    "2500"
+   ],
+   "bindings": [
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.seaLevel.margin",
+     "shown": "0.1007"
+    },
+    {
+     "case": "hierarchy-M60J_LAM-2",
+     "field": "at.target.margin",
+     "shown": "-0.1674"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/hindenburgH2Pct",
+     "shown": "49"
+    },
+    {
+     "source": "research/analysis/helium.json",
+     "pointer": "/usefulFraction/zr3HeliumPct",
+     "shown": "41"
+    }
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "f6350a3b2e418384",
+   "class": "bound",
+   "reason": "The subdivision multiple is bound to the repriced generated scenario; the twofold joint saving remains a labelled prospective estimate.",
+   "bindings": [
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "extras.toolPrintedMassToTargetLift",
+     "shown": "16.81"
+    }
+   ],
+   "context": [
+    "2"
+   ]
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "key": "16496cbd222b6422",
+   "class": "bound",
+   "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+   "bindings": [
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/atmosphere/rhoTarget",
+     "shown": "0.9569"
+    },
+    {
+     "source": "research/analysis/float-ledger.json",
+     "pointer": "/atmosphere/rhoSeaLevel",
+     "shown": "1.2250"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "extras.structureKgPerCubicMEnclosed",
+     "shown": "15.1"
+    },
+    {
+     "case": "bench-nominal",
+     "field": "at.target.massToLift",
+     "shown": "15.8"
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "mass",
+     "shown": "16.09"
+    },
+    {
+     "case": "subdivision-6.0-n-4",
+     "field": "extras.toolPrintedMassToTargetLift",
+     "shown": "16.81"
+    }
+   ],
+   "context": [
+    "2500",
+    "3"
+   ]
+  },
+  {
    "file": "3d/anim/clips.js",
    "key": "6c8b4c9bc81a948f",
    "class": "method",
@@ -17829,6 +19168,120 @@
   }
  ],
  "replacements": [
+  {
+   "file": "ship/index.html",
+   "oldKey": "32f84b775e71860a",
+   "newKey": "d0ab41e034def2d7",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/notes/helium-and-hydrogen.md",
+   "oldKey": "3a36c9a6ee7e0640",
+   "newKey": "57236b181bf135c8",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "beebb7b516280293",
+   "newKey": "05821d6c232e8ba2",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "bce63b20375510e7",
+   "newKey": "9232cd9d52b9168e",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "b993f3fb134efe3b",
+   "newKey": "fd5d53054e772333",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "8f5537908a41d50a",
+   "newKey": "3b3ac6c62ea4c30c",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "4a90bc90c03df733",
+   "newKey": "cd3146ace3d33783",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "292ba211c3cb29fd",
+   "newKey": "16f1e307cfc83699",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "25a6495f025c3fbe",
+   "newKey": "0744d0dd40ca6594",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "oldKey": "cff89e96ebc9429e",
+   "newKey": "35378bd8865d3b4f",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "oldKey": "ce01ce14271f9324",
+   "newKey": "11eaaae62762ad8f",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "oldKey": "4d4c441a48ebffe0",
+   "newKey": "2d571c4e2e67260b",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "oldKey": "4873cc8fcb0ee991",
+   "newKey": "c375cb83a8ec7098",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "research/analysis/helium.md",
+   "oldKey": "3eec66729fbc3617",
+   "newKey": "fd2b677dde2958d7",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "5ef2fdd3cfa2f7bd",
+   "newKey": "1d4e3e4dc7388631",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "docs/VERIFICATION-PLAN.md",
+   "oldKey": "0f73916e7e8a977a",
+   "newKey": "da9d9b902f66ffb1",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "docs/PHYSICS.md",
+   "oldKey": "e0142dcb4b1c3218",
+   "newKey": "cc6feee27b469071",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "oldKey": "d74bb76f2699ef6f",
+   "newKey": "16496cbd222b6422",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
+  {
+   "file": "docs/FLOAT.md",
+   "oldKey": "6d988ead164ea911",
+   "newKey": "f6350a3b2e418384",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
   {
    "file": "ship/index.html",
    "oldKey": "28bbe89043db2044",

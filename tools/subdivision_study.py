@@ -17,7 +17,7 @@ This prices that. Nothing here is a new physics model:
   * the stress in the solid is 3*p*SF/phi, which the model notes is EXACT for any
     stretch-dominated truss under hydrostatic load and independent of topology
   * the strut must beat that stress in Euler AND in local wall buckling, the latter with
-    the repo's own NASA SP-8007 knockdown (K_LOCAL) and orthotropy penalty
+    the repo's assumed local-wall knockdown (K_LOCAL) and orthotropy penalty
   * every member lying in a face must also beat the film's transverse bending load, using
     film_edge_loads' membrane construction at the lattice pitch and the same 1.5 factor
   * joints are counted by the model and priced by the od^3 law measured on the real 51-node
@@ -119,7 +119,7 @@ def film_bending(span, n, sec):
     for name, line_load in film_line_loads(span, n).items():
         moment = line_load * length ** 2 / 8.0
         stress = moment / sec["z"]
-        fails_at_atm = MAT["sigma"] / stress
+        fails_at_atm = MAT["sigmaCompression"] / stress
         cases[name] = {"lineLoadNPerM": line_load, "momentNm": moment,
                        "stressMPa": stress / 1e6,
                        "marginAtSF": fails_at_atm / vc.LATTICE_SF,
@@ -302,7 +302,7 @@ def best_article(span, n):
             euler = math.pi ** 2 * MAT["E"] * sec["inertia"] / length ** 2
             local = (vc.K_CLASSICAL * vc.K_LOCAL * vc.ORTHO_PENALTY * MAT["E"]
                      * (w / 1000) / sec["ro"]) * sec["area"]
-            axial = MAT["sigma"] * sec["area"]
+            axial = MAT["sigmaCompression"] * sec["area"]
             if min(euler, local, axial) < force:
                 continue
             bend = film_bending(span, n, sec)

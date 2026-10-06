@@ -25,7 +25,7 @@ PUB = json.load(open(ROOT / "research/analysis/vacuum-cell.json"))
 S0 = 2 * vc.DEMO_PITCH_PINNED_M
 RHO = vc.MATERIALS["T700_LAM"]["rho"]
 E = vc.MATERIALS["T700_LAM"]["E"]
-SIG = vc.MATERIALS["T700_LAM"]["sigma"]
+SIG = vc.MATERIALS["T700_LAM"]["sigmaCompression"]
 SF = vc.LATTICE_SF
 TH_HH = math.acos(-1.0 / 3.0)          # hexagon-hexagon dihedral
 

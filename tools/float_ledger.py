@@ -1761,6 +1761,8 @@ def history():
 def history_md(rows):
     def cell(s):return quote(S(str(s).replace('|','\\|').replace('<','&lt;').replace('>','&gt;'),'checked history'))
     return ('## The history of being wrong\n\n'
+            'The figures in this section are dated records, not current model results. '
+            '“Standing” describes only this checked sequence; current tables above govern after later corrections. '
             'This is the checked sequence below, not an assertion of exhaustive history. Each identity '
             'uses author date and subject, then resolves to the hash in this repository. The quoted '
             'value is read from that commit’s own file. Rewriting hashes does not change the identity. '

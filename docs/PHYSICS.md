@@ -118,16 +118,24 @@ number.
 
 A gas envelope trades lift for the mass of the lifting gas. A vacuum envelope keeps all of
 the lift and must instead survive one atmosphere of external pressure without collapsing.
-That is a stability problem, not a strength problem, and it does not scale kindly.
+Both stability and compressive strength constrain the model, and it does not scale kindly.
 
 Be honest about the size of that trade: the gas tax is small — hydrogen costs 7% of the
 displaced-air mass and helium 14% — while the structure that survives the atmosphere costs
-this project's *target* design 47% of it. **Vacuum does not win on lift**; the break-even
-structure against hydrogen is 0.067 kg/m³, six times below even the deepest hierarchy
+the unbuilt level-2 formula 117.5% of it at 2,500 m with the sourced compression cap. **Vacuum does not win on lift**; the break-even
+structure against hydrogen is 0.067 kg/m³, 16.9 times below even the deepest hierarchy
 level. The decision to build vacuum anyway is the mission's — no feedstock, no gas
 logistics tail, crush-safe fixed displacement, the array as airframe — and it is worked,
 with the market numbers, in `research/analysis/helium.md`. That is the challenge this
 document exists to map.
+
+**Structural-input correction — 2026-10-05.** The earlier 47% structural share and sixfold hierarchy comparison were superseded.
+
+The sourced compression cap gives a 117.5% structural share at 2,500 m.
+
+The deepest hierarchy level costs 16.9 times the hydrogen break-even.
+
+No modelled M60J hierarchy level reaches unity at working altitude. These are unbuilt formula results, not measured hull performance.
 
 **THE HULL IS NOT ONE ENVELOPE. It is many permanently sealed vacuum cells**, and this
 document did not say so until 2026-08-10, which is long enough for it to have caused a

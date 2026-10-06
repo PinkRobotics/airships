@@ -446,6 +446,18 @@ class Document:
 
     def body(self, text: str) -> str:
         lines = text.split('\n')
+        # Exact bookkeeping markers for the two freshly checked structural tables.
+        # Unknown comments and malformed pairs still take the raw-markup refusal.
+        if self.doc == 'docs/FLOAT.md':
+            for name in ('subdivision', 'transitions'):
+                start = f'<!-- structures:{name}:start -->'
+                end = f'<!-- structures:{name}:end -->'
+                if start not in lines and end not in lines:
+                    continue
+                if lines.count(start) != 1 or lines.count(end) != 1 or lines.index(start) >= lines.index(end):
+                    self.stop(1, 'malformed structural-table marker pair')
+                lines[lines.index(start)] = ''
+                lines[lines.index(end)] = ''
         if lines[-1] != '' or '\r' in text:
             self.stop(len(lines), 'a file with a carriage return, or without a last line feed')
         lines.pop()

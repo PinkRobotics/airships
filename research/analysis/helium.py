@@ -7,7 +7,7 @@ The project never wrote this answer down, and the draft answers it kept implying
 in the concept's favour. The generated truth: **a vacuum cell can never beat a gas envelope
 on net lift** — a perfect massless vacuum shell out-lifts pure hydrogen by 7.5%, so any
 structure heavier than 0.067 kg/m3 loses the lift argument outright, and even the fourth
-hierarchy level is six times heavier than that. The case for vacuum is OPERATIONAL AND
+hierarchy level is heavier than that. The case for vacuum is OPERATIONAL AND
 STRATEGIC: fleet-scale supply independence, no gas logistics tail at remote fire bases,
 crush-safe fixed displacement over a fire, and the array being the airframe. Those are real,
 they describe this project's mission — and for a single ship, a demonstrator, or anything
@@ -142,6 +142,7 @@ def main() -> None:
 
     # Useful fractions: structure-included lift per gross, vacuum vs the demonstrated rigids.
     useful = {
+        "vacuumLevel2StructurePct": round(100.0 * ladder["2"]["totalKgPerM3"] / wall, 1),
         "vacuumLevel2Pct": round(100.0 * (wall - ladder["2"]["totalKgPerM3"]) / wall, 1),
         "hindenburgH2Pct": 49.0,
         "hindenburgDeadKgPerM3": round(HINDENBURG_DEAD_T * 1000.0 / HINDENBURG_VOLUME_M3, 3),
@@ -157,8 +158,9 @@ def main() -> None:
         "breakeven": {
             "structureToTieHydrogenKgPerM3": round(breakeven_h2, 4),
             "structureToTieHeliumKgPerM3": round(breakeven_he, 4),
+            "minimumStructureOverHydrogenBreakEven": round(ladder["4"]["totalKgPerM3"] / breakeven_h2, 1),
             "verdict": "Vacuum never wins on lift: the break-even structure against "
-                       "hydrogen is ~6x below even the fourth hierarchy level. The case "
+                       "hydrogen is below every modelled hierarchy level. The case "
                        "for vacuum is operational and strategic, not aerostatic.",
         },
         "heliumMarket": {
@@ -199,6 +201,8 @@ def main() -> None:
                      "read regulation.",
         },
         "usefulFraction": useful,
+        "gasTaxPct": {"hydrogen": round(100.0 * rho_h2 / wall, 1),
+                      "helium": round(100.0 * rho_he / wall, 1)},
     }
 
     if args.json:

@@ -29,6 +29,7 @@ prose with no data binding at all — caught by scanning the level's copy for na
 from __future__ import annotations
 
 import json
+import re
 import math
 import os
 import pathlib
@@ -105,8 +106,11 @@ __CHECKED_TEXT__
   const wArt = C.weightlessArticle(wall);
   out.checks.push(['wM60rho', shown('[data-n="wM60.densityAtN1"]'),
                    wArt.find(r => r.key === 'M60J_LAM').densityAtN1.toFixed(3)]);
-  out.checks.push(['wCFFminN', shown('[data-n="wCFF.minNSeaLevel"]'),
-                   wArt.find(r => r.key === 'CFF').minNSeaLevel.toFixed(0)]);
+  const cffN = wArt.find(r => r.key === 'CFF').minNSeaLevel;
+  out.checks.push(['wCFFcrossing', document.querySelector('[data-cff-crossing]').textContent.trim(),
+    cffN === null
+      ? 'The continuous-fibre printed variant has no sea-level crossing in the modelled subdivision sweep.'
+      : `The continuous-fibre printed variant crosses sea-level air density at subdivision ${cffN}.`]);
   out.checks.push(['hexSpokes', shown('[data-n="demo.hexSpokeStruts"]'),
                    C.kelvinLatticeCounts(1).hexSpokeStruts.toFixed(0)]);
   // The bending check that governs the article — the page must quote the model's own
@@ -302,12 +306,11 @@ __CHECKED_TEXT__
     const g = m.group || 'UNGROUPED';
     out.memberGroups[g] = (out.memberGroups[g] || 0) + 1;
   }
-  // The breach table must not contradict the sentence above it. At the CORRECTED level-2
-  // target (0.605 landed 2026-08-12) the claim is: rows float through L=2, and the L=3
-  // two-adjacent-cells case does not. The gate holds the table to exactly that shape, so
-  // a physics change in either direction forces the copy to move with it.
+  // At the sourced compression cap, every level-2 local-load row misses unity,
+  // including normal operation. Hold both the rows and the adjacent verdict.
   out.breachRows = Array.from(document.querySelectorAll('[data-t="breach"] tr')).map(
     (tr) => tr.querySelector('.fail') ? 'fail' : 'pass');
+  out.breachVerdict = document.querySelector('[data-breach-verdict]').textContent;
   out.rail = document.querySelectorAll('#rail button').length;
   out.sections = document.querySelectorAll('#panel section').length;
 
@@ -813,10 +816,12 @@ def main() -> None:
     for name, got, want in res.get("checks", []):
         if got != want:
             bad.append(f"displayed {name}: page shows {got!r}, model computes {want!r}")
-    if res.get("breachRows") != ["pass", "pass", "pass", "fail"]:
+    if res.get("breachRows") != ["fail", "fail", "fail", "fail"]:
         bad.append(f"breach table rows read {res.get('breachRows')} — the claim above it "
-                   "says float through L=2 and fail at L=3 (corrected coefficient); the "
+                   "says no row reaches unity with the compression cap; the "
                    "copy and the physics have diverged")
+    if 'No row reaches unity at working altitude, including normal operation' not in re.sub(r'\s+', ' ', res.get('breachVerdict', '')):
+        bad.append('the local-load verdict must state the compression-capped normal-operation deficit')
     # The parts view must actually cycle, keep drawing, and tell the truth on its label.
     if res.get("partsCycle") != "joinery,pipes,all":
         bad.append(f"parts button cycled {res.get('partsCycle')!r}, expected "

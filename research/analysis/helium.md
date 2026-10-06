@@ -9,7 +9,7 @@ Summaries being public-domain primary data (stored in `research/papers/`, notes 
 > **The decision is vacuum. This page exists so the decision is never argued from a false
 > premise.** A vacuum cell does not beat a gas envelope on lift — a perfect massless vacuum
 > shell out-lifts pure hydrogen by only 7.5%, so any structure heavier than 0.067 kg/m³
-> loses the pure-lift comparison, and even the deepest hierarchy level is six times that.
+> loses the pure-lift comparison, and even the deepest hierarchy level is 16.9 times that.
 > The reasons to build vacuum are the mission's, not the aerostatics': **no feedstock at
 > all** in a fleet whose gas bill would move the market it depends on; **no gas logistics
 > tail** at remote fire bases, for decades; **crush-safe, fixed displacement** in the one
@@ -26,29 +26,24 @@ At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:
 |---|---|---|---|
 | vacuum, ideal massless shell | 0 | 0 | +0.957 |
 | vacuum, single-level lattice (demonstrable) | 0 | 1.306 | **-0.349** |
-| vacuum, level-2 hierarchy (the target) | 0 | 0.538 | +0.419 |
+| vacuum, level-2 hierarchy (unbuilt formula) | 0 | 1.124 | -0.167 |
 | hydrogen, pure | 0.067 | envelope extra | +0.890 |
 | helium, pure | 0.132 | envelope extra | +0.825 |
 | helium at 97% operating purity | 0.157 | envelope extra | +0.800 |
 
 **The break-even structure to tie hydrogen is 0.067 kg/m³** — out of reach at any hierarchy
 level this project has modelled. The demonstrable single-level design does not float at all,
-while a helium fabric ship floats today. The path runs through the level-2 target, and
-nothing about that is hidden: it is a prediction of this project's model, and experiment E5
+while a helium fabric ship floats today. No modelled hierarchy level reaches unity at 2,500 m with the sourced compression cap. The formula is unbuilt, and experiment E5
 in `docs/VERIFICATION-PLAN.md` is the cheap test that moves it.
 
 ## What the trade actually buys
 
 **Structure double-duty.** A gas ship's gas is not its only overhead — it needs an envelope
 and, at scale, a frame that the cell array already is. Structure-included useful fractions:
-the level-2 vacuum target delivers **43.7%** of gross lift as useful lift, against the
+the level-2 vacuum formula has a **-17.5%** useful fraction (a deficit), against the
 *Hindenburg*'s demonstrated 49% on hydrogen (dead weight 0.590 kg/m³ of volume) and 41% for
 the same LZ-126 hull flown on helium as USS *Los Angeles* (airships.net flight ledger).
-Since the classical 0.605 coefficient landed (2026-08-12) that figure sits BETWEEN the two
-gas ships rather than above both — the honest price of the correction: level 2 now beats
-the helium hull it must replace and trails the hydrogen one nobody will fly again. The
-margin the argument needs is still on the ladder above level 2, and hierarchy has to earn
-it under real loads. The figure excludes deviatoric load, creep, ground handling and
+The sourced compressive cap now puts the formula below both historical useful fractions. No modelled M60J hierarchy level recovers positive net lift at 2,500 m; an additional level cannot bypass the constituent compression floor. The figure excludes deviatoric load, creep, ground handling and
 packing fraction, and `vacuum-cell.md` says so.
 
 **Supply independence is a fleet property, and this fleet is the point.** One P-100 fill is
@@ -96,4 +91,6 @@ current IEA/DOE figure.
    2009 is paywalled; the figure here is order-of-magnitude).
 3. Hydrogen $/kg pinned to a current IEA/DOE figure.
 4. The level-2 coefficient demonstrated — the useful-fraction argument stands on
-   0.538 kg/m³, a prediction of this project's model; E5 is the test.
+   1.124 kg/m³, a prediction of this project's model; E5 is the test.
+
+**Correction — 2026-10-05.** The M60J compression cap changes the level-2 structure from 0.5383 to 1.1243 kg/m³. Net lift at 2,500 m changes from +0.4186 to -0.1674 kg/m³; useful fraction changes from +43.7% to -17.5%. The gas rows are unchanged. This follows the separate compressive property in the [cell analysis](vacuum-cell.md), not a new gas or atmosphere assumption.

@@ -268,7 +268,7 @@ class Context:
             import claims
             bindings = []
             for md, name, pointer, fmt in gate.MANIFEST:
-                rel = (self.root / 'research/analysis' / md).resolve().relative_to(self.root).as_posix()
+                rel = gate.document_path(md, self.root).resolve().relative_to(self.root).as_posix()
                 pattern = gate.CONTEXTS.get((md,pointer))
                 if rel != occ['file'] or pattern is None:
                     continue
@@ -286,7 +286,10 @@ class Context:
                         prefix=claims.clean_markdown(self.body(rel)[line_start:m.start('quantity')])[-40:]))
             self.analysis_cache[occ['file']] = bindings
         for b in bindings:
-            if occ['raw'] != b['want'] or occ['text'] not in b['line']:
+            # The numeric extractor keeps the number and leaves a percent sign in
+            # its text; the manifest still matches the complete percentage display.
+            token = b['want'][:-1] if b['fmt'].endswith('%') else b['want']
+            if occ['raw'] != token or occ['text'] not in b['line']:
                 continue
             if b['column'] is not None:
                 parts=occ['context'].split(' | ')

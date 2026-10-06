@@ -92,7 +92,7 @@ marked TO VERIFY are supplier or shop-floor questions no calculation here can se
 | the target: air at 2,500 m | **0.9569** |
 | (at sea level, if you prefer the easier bar) | 1.2250 |
 | the computed article, nominal volume | **~15.1 — that is 15.8×** |
-| best checked R1 configuration (§3) | **10.76 — 11.24×** |
+| best checked R1 configuration (§3) | **16.09 — 16.81×** |
 
 **Definition of done.** A bill of materials, computed by this repository's own model and
 held by a gate, that comes in under 0.9569 kg/m³ *including* tube, joints, film, barrier and
@@ -179,7 +179,7 @@ predate that correction and must be recomputed before they are combined with it.
 
 | # | route | takes it to | status |
 |---|---|---|---|
-| **R1** | subdivide the lattice so the film needs no separate frame | **11.24× the wall** | film bending priced; not designed |
+| **R1** | subdivide the lattice so the film needs no separate frame | **16.81× the wall** | film bending priced; not designed |
 | **R2** | lighten the joints | up to ~2× on the total | not started |
 
 | # | route | takes it to | status |
@@ -208,6 +208,11 @@ struts — 948 members and 201 joints instead of 216 and 51.
 | 3.0 | 4 | 1289 | 265 mm | 13.0 × 1.00 mm | 8.10 | 2.94 | 0.05 | 11.09 | 11.59 | 3.43 | 21.43 | 24.94 | 1.06 |
 | **6.0** | **4** | **1289** | **530 mm** | **25.5 × 2.00 mm** | **7.93** | **2.77** | **0.05** | **10.76** | **11.24** | **3.22** | **21.40** | **24.42** | **1.01** |
 
+**Current compression-property calculation — 2026-10-05.** The dated table above remains the earlier run; the following table is freshly generated with the sourced compression cap.
+
+<!-- structures:subdivision:start -->
+<!-- structures:subdivision:end -->
+
 **Result — 2026-08-12. The old R1 figures do not survive.** Every axial-only tube fails
 film bending. The governing members are the subdivided struts along the 24
 hexagon-square cell edges: the adjacent triangular and square panels have unequal membrane
@@ -224,6 +229,11 @@ The five published transitions are:
 | 4.0 m | 2 | 30.5 × 1.00 mm | 0.35 | 0.53 atm | 38.0 × 2.00 mm | 12.51 |
 | 3.0 m | 4 | 11.5 × 0.40 mm | 0.38 | 0.56 atm | 13.0 × 1.00 mm | 11.09 |
 | 6.0 m | 4 | 23.0 × 0.75 mm | 0.36 | 0.53 atm | 25.5 × 2.00 mm | 10.76 |
+
+**Current compression-property calculation — 2026-10-05.** The dated table above remains the earlier run; the following table is freshly generated with the sourced compression cap.
+
+<!-- structures:transitions:start -->
+<!-- structures:transitions:end -->
 
 Every transition is printed by the tool, not computed in this note. All rows use the model's
 T700 laminate properties and full-vacuum, one-atmosphere film loading. Sections come from the
@@ -299,7 +309,7 @@ real product:
   "sku": "supplier part number",
   "odMm": 30.0, "idMm": 28.0, "wallMm": 1.0,
   "material": "T700-class roll-wrapped", "layup": "[0/±45/90]",
-  "eGPa": 135, "sigmaMPa": 2500, "rhoKgM3": 1600,
+  "eGPa": 135, "tensileMPa": 2860, "compressiveMPa": 1450, "rhoKgM3": 1600,
   "lengthMm": 2000, "priceCurrency": "CAD", "price": 0.0, "moq": 1,
   "supplier": "", "url": "", "checked": "2026-08-11",
   "notes": "modulus is the supplier's claim or my estimate — say which"
@@ -336,6 +346,17 @@ the floor order measured it first: the old 0.943 claim was computed with the coe
 missing, crediting walls with 1.65× their stated capacity). With film and nodes the level-1
 closed form is 1.306 kg/m³, and the level-2 hierarchy that clears the wall does so at 1.78×,
 not 2.13×. R1 separately shows that a face member's transverse film load can govern section
+modulus. R4 must therefore be re-priced against bending strength before combining any bound
+with R1; the old claim that their tube lines could simply be added is withdrawn, and so is
+"under the wall on its own".
+
+**Current hierarchy calculation — 2026-10-05.**
+
+The model's own axial-only design-point lattice in M60J is **1.115 kg/m³ — OVER the wall on
+its own** since the classical 0.605 local-buckling coefficient landed (2026-08-12, audit O1;
+the floor order measured it first: the old 0.943 claim was computed with the coefficient
+missing, crediting walls with 1.65× their stated capacity). With film and nodes the level-1
+closed form is 1.306 kg/m³. With the sourced M60J compression cap, the level-2 formula is 1.1243 kg/m³: lift/mass is 1.090 at sea level and 0.851 at 2,500 m. No M60J level reaches unity at working altitude. The old 1.78× working-altitude ratio used a tensile-derived cap. R1 separately shows that a face member's transverse film load can govern section
 modulus. R4 must therefore be re-priced against bending strength before combining any bound
 with R1; the old claim that their tube lines could simply be added is withdrawn, and so is
 "under the wall on its own".
@@ -466,7 +487,7 @@ Both failure modes are held **exactly constant** by scaling the tube diameter wi
 
 Verified rather than asserted — `scale_study.py` at the pure geometric scale, main
 14.11 × 11.29 and rim 19.76 × 16.94, reports octet 1.82 / spoke 2.75 / tie 2.45 / rim 4.12
-and rim bending at 2.84 atm, which are today's numbers to the last digit.
+and rim bending at 1.65 atm, which are today's numbers to the last digit.
 
 **And so is the mass budget.** Tube mass grows as `L³` alongside the volume, so the
 article's density at 0.709 m is its density at 1 m (**15.13 kg/m³ either way, on the
@@ -482,7 +503,7 @@ not the multiplier.
 Because someone will ask. At `span = 1.0` on today's 10×8 / 14×12:
 
     octet Euler 0.46   spoke 0.69   tie 0.62   rim 1.04
-    rim bending 2475 MPa, fails at 1.01 atm
+    rim bending 2475 MPa, fails at 0.59 atm
 
 The interior members buckle at less than half their load and the rim reaches ultimate at
 the atmosphere it is meant to hold. **Not a degraded article — a broken one.**
@@ -522,7 +543,7 @@ all four miss both. The sizing basis and factors are in the
 Achieved margins at the recommended 1.000 m parity point — every one above today's:
 
     octet 2.11 (was 1.82)   spoke 3.19 (2.75)   tie 2.83 (2.45)   rim 5.73 (4.12)
-    rim bending fails at 3.25 atm (2.84)
+    rim bending fails at 1.89 atm (1.65)
 
 **The old “stock tube beats geometric scaling” comparison no longer holds for the
 reported parity row.** The old table gave 15.38 kg/m³; the fresh tool gives 17.43 kg/m³,
@@ -753,3 +774,7 @@ the demand grows 1.99×. If those numbers are unacceptable, **16 × 13 puts the 
 and it is a designer's call, not an implementer's.
 
 ---
+
+### Compressive-face correction — 2026-10-05
+
+The original material-swap paragraph above is retained as a dated study; its 2,290/2,500 MPa strength comparison used tensile inputs and its mass comparison has not been re-solved here. The structural checks now use the laminate’s compressive strength, not its tensile strength: 1,450 MPa for T700. The governing face is the compressed extreme fibre at pinned midspan (at the support for the fixed-end alternative); the opposite tensile face has a higher strength. The best film-safe subdivision changes from 10.76 to 16.09 kg/m³, or 11.24 to 16.81 times the 2,500 m air-density wall. The complete regenerated rows show each changed section and margin. At unchanged stock sections, the spoked rim’s ultimate pressure changes from 2.84 to 1.65 atm, and the unbraced rim from 0.45 to 0.26 atm (the earlier prose rounded this as 0.44). The fixed-tube one-metre rim changes from 1.01 to 0.59 atm. At the one-metre catalogue parity point it changes from 3.25 to 1.89 atm; mass, selected sections and Euler margins there are unchanged. These typical coupon properties do not qualify a purchased tube or a combined failure mode.

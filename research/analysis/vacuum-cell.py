@@ -95,36 +95,80 @@ LATTICE_SF = 1.5
 
 MATERIALS = {
     "M60J_LAM": dict(
-        name="M60J UD laminate, Vf 0.6", E=354e9, sigma=2.29e9, rho=1658,
+        name="M60J UD laminate, Vf 0.6", E=354e9, sigma=2.010e9,
+        sigmaCompression=790e6, rho=1658,
         orthotropic=True, printable=False,
-        source="Toray M60JB FIBRE is 588 GPa / 3.82 GPa / 1930 kg/m3. A laminate at 60% fibre "
-               "volume is roughly 354 GPa / 2.29 GPa / 1658. Jenett et al. quote the fibre "
-               "figures as though they were composite figures and this project inherited that; "
-               "the laminate numbers are what a part is actually made of."),
+        tensileSource="Toray M60J datasheet, p. 1, composite properties: ASTM D3039, "
+                      "60% fibre volume, #2500 epoxy; https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf",
+        compressionSource="Toray M60J datasheet, p. 1, composite properties: SACMA SRM 1R-94, "
+                          "60% fibre volume, #2500 epoxy; https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf",
+        compressionSourced=True,
+        source="Toray M60J composite tensile and compressive strengths, p. 1; typical UD "
+               "coupon values, not allowables for the undrawn hierarchical wall. The retained "
+               "354 GPa modulus and 1658 kg/m3 density are the prior mixture estimates."),
     "T700_LAM": dict(
-        name="T700 UD laminate, Vf 0.6", E=135e9, sigma=2.50e9, rho=1600,
+        name="T700 UD laminate, Vf 0.6", E=135e9, sigma=2.860e9,
+        sigmaCompression=1450e6, rho=1600,
         orthotropic=True, printable=False,
-        source="Standard-modulus aerospace prepreg, laminate values."),
+        tensileSource="Toray T700S datasheet Rev. 11/24/2025, p. 1: ASTM D3039, "
+                      "60% fibre volume; https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+        compressionSource="Toray T700S datasheet Rev. 11/24/2025, p. 1: SACMA SRM 1R-94, "
+                          "60% fibre volume; https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+        compressionSourced=True,
+        source="Toray T700S typical UD composite strengths, p. 1, used as the named T700 "
+               "laminate proxy. Modulus and density retain the prior representative inputs; "
+               "these are not coupon allowables for the built tubes or hull strength worlds."),
     "CFF": dict(
         name="Continuous carbon fibre, printed (Markforged-class)", E=60e9, sigma=800e6,
-        rho=1400, orthotropic=True, printable=True,
-        source="Representative published values. NOT vendor-verified in this session."),
+        sigmaCompression=420e6, rho=1400, orthotropic=True, printable=True,
+        tensileSource="Markforged Composites material datasheet Rev. 5.0, p. 1: ASTM D3039; "
+                      "https://static.markforged.com/downloads/composites-data-sheet.pdf",
+        compressionSource="Markforged Composites material datasheet Rev. 5.0, p. 1: ASTM D6641, "
+                          "unidirectional carbon plaques; https://static.markforged.com/downloads/composites-data-sheet.pdf",
+        compressionSourced=True,
+        source="Markforged Rev. 5.0 typical UD plaque strengths, p. 1; layout and process "
+               "dependent, not an allowable for a hierarchical strut. The prior representative "
+               "1400 kg/m3 density is retained; it is not the datasheet's plaque density."),
     "PAHT_XY": dict(
         name="Bambu PAHT-CF, in-plane (X-Y)", E=3.86e9, sigma=92e6, rho=1060,
+        sigmaCompression=92e6, compressionSourced=False,
+        tensileSource="Bambu PAHT-CF TDS V2, p. 2, ISO 527 / GB/T 1040, X-Y; "
+                      "https://wiki.bambulab.com/filament-acc/asacf-pahtcf/65f1b18a6d6142d794a1a6a00f1496ef.pdf",
+        compressionSource="compressive strength not sourced; tensile value used. "
+                          "Bambu PAHT-CF TDS V2, pp. 1–3, gives no compression result.",
         orthotropic=True, printable=True,
         source="Bambu Lab PAHT-CF TDS, ISO 527: 3860 +/- 230 MPa, 92 +/- 7 MPa, 1.06 g/cm3."),
     "PAHT_Z": dict(
         name="Bambu PAHT-CF, interlayer (Z)", E=2.18e9, sigma=47e6, rho=1060,
+        sigmaCompression=47e6, compressionSourced=False,
+        tensileSource="Bambu PAHT-CF TDS V2, p. 2, ISO 527 / GB/T 1040, Z; "
+                      "https://wiki.bambulab.com/filament-acc/asacf-pahtcf/65f1b18a6d6142d794a1a6a00f1496ef.pdf",
+        compressionSource="compressive strength not sourced; tensile value used. "
+                          "Bambu PAHT-CF TDS V2, pp. 1–3, gives no compression result.",
         orthotropic=True, printable=True,
         source="Same TDS, Z direction: 2180 +/- 130 MPa, 47 +/- 5 MPa. THE DIRECTION THAT "
                "GOVERNS a printed pressure vessel."),
     "TI64": dict(
         name="Ti-6Al-4V, laser powder-bed sintered", E=114e9, sigma=1.10e9, rho=4430,
+        sigmaCompression=1.10e9, compressionSourced=False,
+        tensileSource="Prior representative stress-relieved LPBF input, not tied to a "
+                      "specific machine, coupon or datasheet page; retained unsourced.",
+        compressionSource="compressive strength not sourced; tensile value used. "
+                          "EOS Titanium Ti64 material datasheet, mechanical-properties tables "
+                          "in the process sheets, gives tensile but no compression result; "
+                          "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64",
         orthotropic=False, printable=True,
         source="Representative LPBF values, stress-relieved. Isotropic, so it takes no "
                "orthotropic penalty — the one advantage metal has here."),
     "AEROGEL": dict(
         name="Silica aerogel, monolithic", E=10e6, sigma=0.5e6, rho=120,
+        sigmaCompression=0.5e6, compressionSourced=False,
+        tensileSource="Prior order-of-magnitude input, no specific formulation or source "
+                      "page; retained unsourced.",
+        compressionSource="compressive strength not sourced; tensile value used. "
+                          "Aerogel Technologies Classic Aerogel Products tables give no "
+                          "compression value for this unnamed formulation; "
+                          "https://www.aerogeltechnologies.com/classic-aerogels/classic-aerogel-products/",
         orthotropic=False, printable=True,
         source="Order-of-magnitude literature values. Included to test the internal-support "
                "idea, not as a shell candidate; its numbers fall outside the thin-wall "
@@ -170,11 +214,11 @@ def arch_solid_strut(m: dict, p: float = P_ATM) -> dict:
     k = ALIGN * math.pi ** 2 / (4.0 * C_PHI)
     pd = p * LATTICE_SF
     phi_b = math.sqrt(pd / (k * m["E"]))
-    phi_y = pd / (ALIGN * m["sigma"])
+    phi_y = pd / (ALIGN * m["sigmaCompression"])
     phi = max(phi_b, phi_y)
     return {"architecture": "solid-strut lattice", "phi": phi,
             "latticeKgPerM3": phi * m["rho"],
-            "governs": "strut buckling" if phi_b > phi_y else "material yield"}
+            "governs": "strut buckling" if phi_b > phi_y else "compressive strength"}
 
 
 # THE BUILT ARTICLE'S GEOMETRY, PINNED (2026-08-12). Every article-A row used to re-read
@@ -199,13 +243,13 @@ def arch_tube_strut(m: dict, p: float = P_ATM) -> dict:
     k = ALIGN * kl / math.sqrt(c)
     pd = p * LATTICE_SF
     phi_b = (pd / (k * ee)) ** (2.0 / 3.0)
-    phi_y = pd / (ALIGN * m["sigma"])
+    phi_y = pd / (ALIGN * m["sigmaCompression"])
     phi = max(phi_b, phi_y)
     psi = math.sqrt(phi / c)
     lam = math.sqrt(a * psi)
     return {"architecture": "tubular-strut lattice", "phi": phi,
             "latticeKgPerM3": phi * m["rho"],
-            "governs": "strut buckling" if phi_b > phi_y else "material yield",
+            "governs": "strut buckling" if phi_b > phi_y else "compressive strength",
             "wallOverTubeRadius": psi, "tubeRadiusOverStrutLength": lam,
             "wallThicknessPerStrutLength": psi * lam, "tubeROverT": 1.0 / psi,
             "eEffPa": ee}
@@ -481,14 +525,18 @@ def film_edge_loads(span: float, sf: float = LATTICE_SF,
                 "kgPerM": math.pi * (ro ** 2 - ri ** 2) * MATERIALS["T700_LAM"]["rho"]}
 
     pipe = tube(0.010, 0.008)
-    sigma_u = MATERIALS["T700_LAM"]["sigma"]
+    # Compression-side extreme fibre governs: loaded side at pinned midspan,
+    # opposite side at fixed ends. Both moment signs use the weaker property.
+    sigma_u = min(MATERIALS["T700_LAM"]["sigma"], MATERIALS["T700_LAM"]["sigmaCompression"])
 
     def row(name, w, length, sec, propped=False):
         span_eff = length / 2.0 if propped else length
         m_pin = w * span_eff ** 2 / 8.0
         m_cl = w * span_eff ** 2 / 12.0
         s_pin, s_cl = m_pin / sec["Z"], m_cl / sec["Z"]
-        return {"member": name, "lineLoadNPerM": round(w),
+        return {"member": name, "strengthCapProperty": "compression",
+                "governingFace": "compressed extreme fibre; loaded side at pinned midspan, opposite side at fixed ends",
+                "lineLoadNPerM": round(w),
                 "spanM": round(span_eff, 4),
                 "momentPinnedNm": round(m_pin, 1), "momentClampedNm": round(m_cl, 1),
                 "stressPinnedMPa": round(s_pin / 1e6), "stressClampedMPa": round(s_cl / 1e6),
@@ -613,7 +661,7 @@ def total_shell(m: dict, cell_span_m: float, p: float = P_ATM,
 
 def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
                      nodes: float = NODE_MASS_FRAC) -> dict:
-    """STRUCTURE INSIDE STRUCTURE, which is the path rather than a curiosity.
+    """STRUCTURE INSIDE STRUCTURE, an unbuilt exponent mechanism with a compression floor.
 
     Each level of self-similar hierarchy improves the strength-versus-density EXPONENT, and
     the exponent is what everything here turns on. A solid rod gives sigma* ~ phi^2. Make the
@@ -624,8 +672,8 @@ def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
 
     Reference for the ladder: Lakes, "Materials with structural hierarchy", Nature 361 (1993).
 
-    The practical news is that it converges fast. The second level is the one that matters:
-    it takes the reference design from under the wall to comfortably over it.
+    With the sourced M60J compression cap, levels 2–4 all hit the same material
+    floor. None reaches unity at 2,500 m; hierarchy alone cannot remove that floor.
     """
     ee = e_eff(m)
     kl = K_CLASSICAL * K_LOCAL
@@ -636,9 +684,9 @@ def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
     x = pd / (k * ee)
     # The yield cap a review caught this ladder omitting: whatever buckling permits, the
     # SOLID still has to carry 3p/phi without breaking, so phi can never fall below
-    # pd/(ALIGN*sigma) — the same cap arch_tube_strut applies. Levels 3 and 4 hit it for
-    # every material here: hierarchy's returns end where the material's strength begins.
-    phi_yield = pd / (ALIGN * m["sigma"])
+    # pd/(ALIGN*sigmaCompression), the same cap arch_tube_strut applies.
+    # For M60J levels 2–4 hit it: exponent gains cannot bypass constituent compression.
+    phi_yield = pd / (ALIGN * m["sigmaCompression"])
     if film is None:
         film = envelope_film_kg_per_m3()
     names = ["solid rod", "hollow tube", "tube of tubes", "third order", "fourth order"]
@@ -653,7 +701,10 @@ def hierarchy_ladder(m: dict, levels: int = 5, film: float | None = None,
                        "latticeKgPerM3": round(lat, 4),
                        "totalKgPerM3": round(tot, 4),
                        "yieldCapped": phi_yield > phi_b,
-                       "solidStressOverStrength": round(3.0 * pd / phi / m["sigma"], 3),
+                       "strengthCapProperty": "compression",
+                       "liftToMassSeaLevel": round(rho_air(0) / tot, 3),
+                       "liftToMassAt2500m": round(rho_air(2500) / tot, 3),
+                       "solidStressOverStrength": round(3.0 * pd / phi / m["sigmaCompression"], 3),
                        "name": names[n] if n < len(names) else f"order {n}",
                        "note": "each level costs joints, tolerance and inspection; the "
                                "coefficient degrades even as the exponent improves"}
@@ -1132,7 +1183,7 @@ def stock_build() -> dict:
                  "perStrutDemandN": round(f_demand),
                  "eulerMarginPinned": round(pcr_pinned / f_demand, 2),
                  "eulerMarginSocketed": round(pcr_socketed / f_demand, 2),
-                 "stressMargin": round(m["sigma"] * area / f_demand, 1),
+                 "stressMargin": round(m["sigmaCompression"] * area / f_demand, 1),
                  "rimDemandN": round(rim_demand),
                  "rimEulerMargin": round(pcr_rim / rim_demand, 2),
                  "spokeDemandN": round(spoke_demand),
@@ -2057,10 +2108,10 @@ def main() -> None:
                                "net lift at any size. It is the whole go/no-go."},
         "materials": {}, "designPoint": {}, "nullResults": {}, "verdict": {},
         "hierarchy": {
-            "why": "Each level of self-similar structure improves the strength-density "
-                   "EXPONENT, which is the only thing that matters here. (n+2)/(n+1), "
-                   "tending to linear — which is Jenett's assumption, reached rather than "
-                   "assumed. Lakes, Nature 361 (1993).",
+            "why": "Each level improves the ideal buckling strength-density exponent "
+                   "(n+2)/(n+1), tending to linear. Coefficients, joints and the constituent "
+                   "compression cap also matter; the exponent alone does not remove the "
+                   "strength floor. Lakes, Nature 361 (1993).",
             "ladder": None,
         },
     }
@@ -2071,6 +2122,9 @@ def main() -> None:
         out["materials"][key] = {
             "name": m["name"], "printable": m["printable"], "source": m["source"],
             "orthotropic": m["orthotropic"],
+            "tensileStrengthPa": m["sigma"], "compressiveStrengthPa": m["sigmaCompression"],
+            "tensileSource": m["tensileSource"], "compressionSource": m["compressionSource"],
+            "compressionSourced": m["compressionSourced"],
             "materialIndex": round(material_index(m), 4),
             "specificStrengthMNmPerKg": round(m["sigma"] / m["rho"] / 1e6, 4),
             "monolithicKgPerM3": round(arch_monolithic(m)["latticeKgPerM3"], 3),
@@ -2209,11 +2263,12 @@ def main() -> None:
     first_float = next((v for v in out["hierarchy"]["ladder"].values()
                         if v["totalKgPerM3"] < wall), None)
     out["hierarchy"]["floatsFromLevel"] = first_float["levels"] if first_float else None
+    level2_ratio = wall / out["hierarchy"]["ladder"]["2"]["totalKgPerM3"]
+    level2_position = "at or above unity" if level2_ratio >= 1 else "below unity"
     out["hierarchy"]["headline"] = (
-        f"One more level of hierarchy than the current design carries takes it from "
-        f"{out['hierarchy']['ladder']['1']['totalKgPerM3']} to "
-        f"{out['hierarchy']['ladder']['2']['totalKgPerM3']} kg/m3 — from under the wall to "
-        f"{round(wall / out['hierarchy']['ladder']['2']['totalKgPerM3'], 2)}x over it.")
+        f"The M60J level-2 density is "
+        f"{out['hierarchy']['ladder']['2']['totalKgPerM3']} kg/m3; "
+        f"lift/mass at 2500 m is {round(level2_ratio, 2)} ({level2_position}).")
     # Ladders for the printable materials too, because the demonstrator page asks the obvious
     # next question: what would a PRINTED cell need? (Answer: even Markforged-class continuous
     # fibre never floats on this ladder — the flight article is wound or pultruded.)

@@ -12,7 +12,7 @@ two are held identical by `tools/check_cell_parity.py`.
 > Its lattice uses safety factor 1.5, full sea-level pressure, and local-wall knockdown 0.30.
 > Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m.
 > The classical buckling coefficient is 0.605.
-> The level-two formula gives **0.538 kg/m³**; no higher-level strut is drawn or tested.
+> The level-two formula gives **1.124 kg/m³**, above working-altitude air density; no higher-level strut is drawn or tested.
 > The crush coupon in `docs/VERIFICATION-PLAN.md` (E5) tests the hierarchy assumption.
 > A drawn structure also needs joints, film, connections and load checks, as the [ledger](../../docs/FLOAT-LEDGER.md) explains.
 >
@@ -92,6 +92,32 @@ allowance remain unverified.
 | **3. Nodes.** They join twelve tubes, weigh 10–30%, and carry no load — so their solid raises φ without raising capacity, and it counts twice. | ×1.15 |
 | **4. A safety factor.** Every strut sat *exactly* at its Euler load, all of them simultaneously, with no knockdown — while the monolithic branch got 0.2 and the sealing film got 8. | ×1.31 |
 | **5. The interior sealing film, which the model computed and never counted.** | +0.347 |
+
+**Strength-property clarification — 2026-10-05.** The dated correction sequence above is retained. The 354 GPa modulus and 1658 kg/m³ density remain the prior mixture estimates; compression now uses the separate composite property in the material table below.
+
+
+### Strength inputs: tension and compression are different properties
+
+The modulus and density inputs are unchanged. Compression caps the solid-strut,
+tubular-strut and hierarchy branches and the demonstrator's axial stress check.
+For film-loaded members, the compressed extreme fibre governs: the loaded side at
+pinned midspan and the opposite side at fixed ends. Both moment signs use the
+weaker of the tensile and compressive properties. These typical values are inputs
+to a formula, not allowables for the undrawn hierarchical wall or the built tubes.
+
+| material | tensile MPa | compression MPa | strength source and page |
+|---|---:|---:|---|
+| M60J UD, fibre volume 0.6 | 2,010 | 790 | [Toray M60J](https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf), p. 1; ASTM D3039 / SACMA SRM 1R-94, #2500 epoxy |
+| T700 UD proxy, fibre volume 0.6 | 2,860 | 1,450 | [Toray T700S](https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf), p. 1, Rev. 11/24/2025; ASTM D3039 / SACMA SRM 1R-94 |
+| continuous carbon, printed | 800 | 420 | [Markforged Rev. 5.0](https://static.markforged.com/downloads/composites-data-sheet.pdf), p. 1; UD plaques, ASTM D3039 / D6641; prior representative density retained |
+| PAHT-CF X-Y | 92 | 92 | Bambu TDS V2, p. 2, ISO 527; **compressive strength not sourced; tensile value used** |
+| PAHT-CF Z | 47 | 47 | Bambu TDS V2, p. 2, ISO 527; **compressive strength not sourced; tensile value used** |
+| LPBF Ti-6Al-4V | 1,100 | 1,100 | prior representative tensile input, source not tied to a coupon; EOS Ti64 tables supply no compression result; **compressive strength not sourced; tensile value used** |
+| monolithic silica aerogel | 0.5 | 0.5 | prior order-of-magnitude input, unnamed formulation; maker's product tables supply no applicable compression result; **compressive strength not sourced; tensile value used** |
+
+The T700S and Markforged sheets are proxies for the named model classes; their test
+layups do not qualify the undrawn cross-plied tube or hierarchy. The drawn hull's
+separate coupon-strength worlds are unchanged.
 
 **Correction 5 is the one worth understanding.** If every cell is individually sealed — the
 entire premise — the film is not a skin over the hull, it is the array's **internal** surface,
@@ -203,34 +229,29 @@ no valve and no pump. Load introduction at the array boundary. Packing fraction.
 lattice-scale imperfection knockdown, as distinct from the strut-scale safety factor now
 applied.
 
-## Hierarchy is the path, and it is short
+## Hierarchy reaches the compressive-strength floor
 
 Each level of self-similar structure improves the strength-density exponent: (n+2)/(n+1),
 tending to linear. Lakes, *Materials with structural hierarchy*, Nature 361 (1993).
 
-| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status |
-|---|---|---|---|---|---|
-| 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only |
-| 1 | 1.500 | 1.306 | 0.938 | 0.733 | formula only |
-| 2 | 1.333 | 0.538 | 2.276 | 1.778 | formula only |
-| 3 | 1.250 | 0.403 | 3.037 | 2.372 | formula only; yield-capped |
-| 4 | 1.200 | 0.403 | 3.037 | 2.372 | formula only; yield-capped |
+<!-- structures:hierarchy:start -->
+<!-- structures:hierarchy:end -->
 
-**The ladder ends where the material's strength begins** — a correction a review caught.
-Buckling permits ever-lower solid fractions, but the solid still carries 3p/φ, so φ can never
-fall below the yield floor. Levels 3 and 4 both hit it: their rows are the *strength* of the
-laminate, not the exponent, and the reserve they promise is 2.37×, not the 3.9–5.7× an
-earlier version published. Level 2 itself runs the solid at **89% of laminate strength** —
-a margin worth knowing about before anyone leans on it.
+**The ladder ends at the compressive-strength floor.** The solid still carries 3p/φ. With the sourced M60J compression cap, levels 2–4 all reach the same density and none reaches unity at 2,500 m. Extra hierarchy does not buy a strength reserve in these rows; each additional level still adds manufacturing and inspection work.
 
-**It converges fast, and the second level is the one that matters.** Beyond it the returns
-end at the yield floor while the manufacturing cost does not — every level adds joints,
-tolerance stack and inspection, and the *coefficient* degrades even as the exponent improves.
-So the design target is two levels, and the third buys strength reserve only.
+Hierarchy level 2 runs at 100% of the model's compressive cap. This is a typical UD coupon input, not an allowable for the undrawn hierarchical wall. Its transfer to that wall remains a test question.
 
-That also settles the argument with the literature rather than continuing it. Jenett assumes
-linear scaling; linear is the n→∞ limit; hierarchy is the mechanism that gets there. He was
-describing the destination, and this page is describing the road.
+**Correction — 2026-10-05 (compression property).** The earlier cap was 2,290 MPa, derived from fibre tensile strength and fibre fraction. Toray's composite-properties table (M60J datasheet, p. 1, 60% fibre volume, #2500 epoxy) gives 2,010 MPa in tension and 790 MPa in compression. Moduli, densities, K_LOCAL and safety factors are unchanged.
+
+| level | density before → after, kg/m³ | sea-level lift/mass before → after | 2,500 m lift/mass before → after | cap before → after |
+|---|---|---|---|---|
+| 0 | 7.9859 → 7.9859 | 0.153 → 0.153 | 0.120 → 0.120 | uncapped → uncapped |
+| 1 | 1.3060 → 1.3060 | 0.938 → 0.938 | 0.733 → 0.733 | uncapped → uncapped |
+| 2 | 0.5383 → 1.1243 | 2.276 → 1.090 | 1.778 → 0.851 | uncapped → compression-capped |
+| 3 | 0.4034 → 1.1243 | 3.037 → 1.090 | 2.372 → 0.851 | tensile-derived cap → compression-capped |
+| 4 | 0.4034 → 1.1243 | 3.037 → 1.090 | 2.372 → 0.851 | tensile-derived cap → compression-capped |
+
+The previous prose's “89% of laminate strength” was already inconsistent with the previous JSON's 73.8%; the corrected row is 100% of compressive strength. The former “2.37× reserve”, “second level is the one that matters” and “third buys strength reserve only” conclusions no longer follow. The exponent mechanism is a research direction; it does not close the altitude mass deficit with these material inputs.
 
 ## The path, as a list
 
@@ -272,21 +293,15 @@ Model: equal-volume zones, the lattice in each zone sized for its **cumulative**
 (j/N atm), level-2 struts (mass ∝ p^¾), films holding one step over a 2 m span, the
 envelope film priced for the differential it actually sees:
 
-| N levels | structure | gas held | films | net lift |
-|---|---|---|---|---|
-| 1 — hard vacuum | 0.515 | 0.000 | 0.024 | **+0.418** |
-| 2 | 0.410 | 0.239 | 0.186 | +0.122 |
-| 10 | 0.319 | 0.431 | 0.037 | +0.170 |
+<!-- structures:bulk:start -->
+<!-- structures:bulk:end -->
 
-**In bulk, grading surrenders over half the net lift** — the gas costs lift everywhere while
-the deep lattice still carries nearly the full atmosphere — and it hands the array's
-rigidity and trim to trapped gas and its temperature, which is exactly the property the
-sealed-vacuum architecture exists to avoid.
+**With the compression cap, none of these bulk rows has positive net lift at 2,500 m.** The gas costs lift while the deep lattice still carries nearly the full atmosphere. Trapped gas also ties rigidity and trim to temperature.
 
 **At the boundary, the honest envelope price changes the verdict for the better.** Stage the
 outermost 5% of the volume in ten steps and the envelope film's differential — and so its
 mass — falls tenfold, a saving of about the same size as the band's gas: the whole
-arrangement nets **-1.9% of net lift, a small saving**, while the outer surface sees
+arrangement nets **11.4% of net lift by signed division** (the reference has negative net lift, so this is not an available-lift saving), while the outer surface sees
 **0.1 atm** instead of one. Membrane strain, barrier-crazing risk and the consequence of an
 outer-face breach all fall tenfold with it. The band is half a metre deep on this hull, so
 its steps are sub-cell-scale layers — which is the seal-at-every-scale doctrine anyway, and
@@ -416,15 +431,15 @@ each panel's membrane leaves the face plane at a fixed angle, and at a dihedral 
 two panels' tensions **add along the bisector** rather than cancelling as they do inside a
 flat face. With the hexagons bare that is **41,744 N/m** on a
 251 mm rim member: 5,649 MPa of bending in a 10x8 pultruded
-tube against T700's 2,500. **The rim tore off at 0.44
+tube against the T700 proxy's 1,450 MPa compressive strength. **The model's unbraced rim capacity is 0.26
 atmospheres** — the article could not have held half the load it exists to hold, and no
 gate would have noticed, because the model computed no bending stress anywhere.
 
 Spoking the hexagons cuts the panel, and bending falls as the **cube** of the bracing
 pitch: the same edge drops to 13,915 N/m, and moving the 36 cell
-edges to a 14x12 section takes the article to **2.84 atm**, a
-margin of x1.89 on the 1.5-atmosphere design load.
-Propping a spoke at midspan would reach 10.08 atm; that is the
+edges to a 14x12 section takes the article to **1.65 atm**, a
+margin of x1.10 on the 1.5-atmosphere design load.
+Propping a spoke at midspan would reach 5.85 atm; that is the
 next increment, priced and not yet built.
 
 **And bracing buys something bigger than strength.** Each panel bulges *inward* by a
@@ -566,9 +581,9 @@ The bench article is **15.13 kg/m³**: its mass is 12.4 times displaced air at s
 Its structural sizing uses safety factor 1.5 against full sea-level pressure; the stock-tube path does not apply the closed-form local-wall check.
 The all-printed variant is 7.48 kg, about 34 times its sea-level displaced air; it tests the printer chain.
 
-**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **1.203 kg/m³**.
+**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **2.393 kg/m³**.
 Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m.
-The corresponding T700 density is 2.236 kg/m³; printed continuous fibre is 2.269 kg/m³.
+The corresponding T700 density is 2.236 kg/m³; printed continuous fibre is 3.708 kg/m³.
 The sizing uses safety factor 1.5 against full sea-level pressure and local-wall knockdown 0.30.
 Odd subdivision counts need boundary members because the hexagon planes contain no lattice sites; even counts have sites in those planes.
 Boundary joints, the membrane and the higher-level struts still need a drawn and tested design.
@@ -701,7 +716,7 @@ true laminate properties, which no chopped-fibre print does.
 
 The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**.
 The octet demand is 3,372 N per strut, with safety factor already included.
-Its Euler margins are ×1.8 pinned and ×4.3 with socket fixity; the stress margin is ×21.
+Its Euler margins are ×1.8 pinned and ×4.3 with socket fixity; the compressive-stress margin is ×12.2.
 Every other family has its own demand and margin in the table above.
 All 51 joint masses are computed from geometry; none has been physically weighed.
 The ties are carbon, so the printed mass is the nodes alone.

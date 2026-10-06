@@ -104,6 +104,9 @@ def markdown_text(doc: str, text: str, live: set[str]) -> str:
         elif fenced or line.startswith('    '):
             flush()
             parts.append(line)
+        elif doc == 'docs/FLOAT.md' and re.fullmatch(r'<!-- structures:(?:subdivision|transitions):(?:start|end) -->', line):
+            # These paired generator markers are comments, with no rendered text.
+            flush()
         elif re.fullmatch(r'-{3,}', line) or re.fullmatch(r'\|(?: *:?-+:? *\|)+', line):
             flush()
         else:
@@ -341,6 +344,17 @@ class Links(ScratchTrees):
 
 
 class Rendering(ScratchTrees):
+    def test_structural_markers_are_invisible_and_malformed_pairs_are_refused(self):
+        start = '<!-- structures:subdivision:start -->'
+        end = '<!-- structures:subdivision:end -->'
+        source = '# Float case\n\n' + start + '\n\nPriced structural table.\n\n' + end + '\n'
+        self.assertIn('Priced structural table.', self.body(source))
+        self.assertNotIn('structures:', self.body(source))
+        for text in (source.replace(end, ''), source.replace(start, start + '\n' + start),
+                     source.replace(start, 'MARKER_START').replace(end, start).replace('MARKER_START', end)):
+            with self.subTest(text=text), self.assertRaises(pages.Unknown):
+                self.body(text)
+
     def test_heading_ids_follow_the_github_scheme(self):
         body = self.body('# Float case\n\n## Pressure schedule — not computed\n\n'
                          '## A1. What "one metre" means, and the one decision to make first\n\n'

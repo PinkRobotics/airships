@@ -178,3 +178,15 @@ has checked for this geometry.
 - State the design rule as a requirement, not a preference: the level-2 wall must be
   stretch-dominated and continuously manufactured, because only that combination keeps the
   measured knockdown bands inside the 2.9× the margin can absorb.
+
+## Clarification — 2026-10-05: the compression cap and the margin arithmetic
+
+The original note above is retained as the 2026-08-10 research record. Its “margin
+arithmetic” uses a superseded tensile-derived material cap. The current cell model
+uses the M60J datasheet's composite compressive strength, 790 MPa (p. 1, SACMA SRM
+1R-94, 60% fibre volume, #2500 epoxy), while leaving modulus and density unchanged.
+Levels 2–4 now each cost 1.1243 kg/m³ with nodes and outer-envelope film; lift/mass
+is 1.090 at sea level and 0.851 at 2,500 m. None reaches unity at working altitude.
+Additional hierarchy cannot bypass the constituent compression floor, so the
+original note's strength-reserve argument is no longer a current model result.
+The [cell analysis](../analysis/vacuum-cell.md) records the old and new rows.

@@ -113,7 +113,7 @@ re-based to primary references (Burgess's *Airship Design*, the Navy's ZR-3 reco
 redistributable; catalogued only.
 
 The comparison uses an unbuilt level-2 M60J hierarchy formula, not a drawn hull.
-At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.6867 kg/m³ at sea level and 0.4186 kg/m³ at 2,500 m.
+At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.1007 kg/m³ at sea level and −0.1674 kg/m³ at 2,500 m: the corrected hierarchy does not float at that altitude.
 It assumes local-wall knockdown 0.30 and node mass 15%; material properties, joint mass, film convention and a drawn, tested structure remain unverified.
 Comparing that formula with the historical 49%/41% useful fractions remains arithmetic on unequal evidence: 1930s duralumin and cotton against a target laminate.
 The number a modern helium rigid would achieve, **0.3–0.45 kg/m³ in the draft, is an invented
@@ -178,3 +178,7 @@ those measured numbers. What is *not* yet supported: every historical dead-weigh
 hydrogen (memory), and the modern-rigid strawman (invented). The comparison's conclusion does
 not currently depend on any of the unsupported four — but the hydrogen flank does, and it
 stays open until FAA-P-8110-2 is read and an uncrewed hydrogen fire ship is costed honestly.
+
+### Structural-input correction — 2026-10-05
+
+The preceding formula comparison formerly used a tensile-derived cap for a compressed M60J laminate. Using Toray's page-1 composite compressive strength of 790 MPa changes level 2 from 0.5383 to 1.1243 kg/m³. At sea level, its density margin changes from +0.6867 to +0.1007 kg/m³. At 2,500 m, its margin changes from +0.4186 to −0.1674 kg/m³. These are formula results, not measured vehicle performance; the historical airship evidence above is unchanged.

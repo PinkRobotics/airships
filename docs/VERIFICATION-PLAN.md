@@ -134,9 +134,9 @@ none is a choice:
 
 - **THE BOUNDARY IS SIZED BY THE FILM, NOT BY CRUSH, and that is new.** Writing the
   film-edge load model for the first time showed the rim failing at
-  **0.44 atmospheres** with the hexagon faces unbraced — the
+  **0.26 atmospheres** with the hexagon faces unbraced — the
   article could not have survived Stage B. Six spokes per hexagon plus the heavier rim
-  section take it to 2.84 atm. **E5 must therefore load a rim
+  section take it to 1.65 atm. **E5 must therefore load a rim
   member in BENDING as well as a strut in compression**; the bending case is the one that
   governs, and it had never been tested because it had never been computed.
 - **It will not float and is not supposed to** — a printed-nylon lattice is ~20× the wall at
@@ -184,7 +184,7 @@ on partitions rated for zero differential, not the steady state after it.
 
 ### E5 — the level-2 coefficient, A/B
 
-**What would test the level-2 prediction?** The M60J formula gives 0.5383 kg/m³ with outer-envelope film and a node allowance.
+**What would test the level-2 prediction?** The M60J formula gives 1.1243 kg/m³ with outer-envelope film and a node allowance.
 Its structural safety factor is 1.5 against full sea-level pressure, with assumed local-wall knockdown 0.30.
 This is a formula without a drawn hierarchical strut, as the [float ledger](FLOAT-LEDGER.md) records.
 Lakes’ 1993 exponent argument does not supply a measurement of this structure.

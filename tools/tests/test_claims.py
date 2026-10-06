@@ -649,6 +649,24 @@ class DocumentScopeTest(ClaimsFixture, unittest.TestCase):
             others=[o for o in occ if o['raw']=='110'][1:]
             self.assertTrue(all(ctx.analysis_owner(o) is None for o in others))
 
+    def test_computed_percentage_owns_only_its_complete_display(self):
+        from claims_rules import Context
+        import check_analysis as gate
+        from unittest.mock import patch
+        self.put('index.html', '')
+        self.put('research/analysis/fixture.json', '{"utilisation":1.0}')
+        with patch.object(gate, 'MANIFEST', [('fixture.md', 'fixture', 'utilisation', '.0%')]), \
+             patch.object(gate, 'CONTEXTS', {('fixture.md', 'utilisation'): r'Utilisation is {number} of the cap'}):
+            self.put('research/analysis/fixture.md', 'Utilisation is 100% of the cap; unrelated 100.\n')
+            numbers = [o for o in self.extract() if o['raw'] == '100']
+            ctx = Context(self.root, ['research/analysis/fixture.md'])
+            self.assertEqual(ctx.analysis_owner(numbers[0])['region'], 'research/analysis/fixture.json#utilisation')
+            self.assertIsNone(ctx.analysis_owner(numbers[1]))
+            for text in ('Utilisation is 99% of the cap.\n', 'Utilisation is 100 of the cap.\n'):
+                self.put('research/analysis/fixture.md', text)
+                ctx = Context(self.root, ['research/analysis/fixture.md'])
+                self.assertTrue(all(ctx.analysis_owner(o) is None for o in self.extract()))
+
     def test_generated_markdown_is_held_by_check_producer(self):
         from claims_rules import Context
         self.put('index.html','')
