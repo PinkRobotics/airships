@@ -30,6 +30,7 @@ TOL = 1e-9
 PROBE = """(() => {
   const C = window.CELL;
   const out = { rhoAir: {}, materials: {} };
+  out.sp8007 = C.sp8007Comparison(C.MATERIALS.M60J_LAM);
   for (const h of [0, 1000, 2500, 5000]) out.rhoAir[h] = C.rhoAir(h);
   for (const [k, m] of Object.entries(C.MATERIALS)) {
     out.materials[k] = {
@@ -156,6 +157,15 @@ def main() -> None:
         checked += 1
         if abs(round(got, dp) - want) > TOL:
             bad.append(f"{label}: python {want}, js {round(got, dp)}")
+
+    for field, got in js['sp8007'].items():
+        want = py['sp8007Comparison'][field]
+        checked += 1
+        if isinstance(want, bool):
+            if got is not want:
+                bad.append(f'sp8007.{field}: python {want}, js {got}')
+        elif abs(want - got) > TOL:
+            bad.append(f'sp8007.{field}: python {want}, js {got}')
 
     # Hierarchy ladders, four materials x five levels.
     for mat, totals in js["ladders"].items():

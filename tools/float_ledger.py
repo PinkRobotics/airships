@@ -704,9 +704,18 @@ def knockdown_registry(F) -> dict:
     K["local-wall"] = dict(
         name=f"knockdown on the classical local wall-buckling coefficient ({NO}K_LOCAL{NC})",
         value=N(F.k_local, 2), status="assumed",
-        basis=f"The model's comment names NASA {NO}SP-8007{NC} and calls its own value "
-              "mildly conservative for an isotropic wall. No page, figure or test establishes "
-              "this numerical choice for the model's composite wall; treated here as assumed.")
+        basis=f"NASA {NO}SP-8007{NC} Rev {NO}2{NC}, printed pp. {NO}23–25{NC}, "
+              f"Eqs. {NO}9–10{NC}, gives isotropic gamma "
+              f"{num(qp(F.P, 'sp8007Comparison/gammaEq9', MODEL), 3)} at the model's "
+              f"R/t {num(qp(F.P, 'sp8007Comparison/tubeROverT', MODEL), 1)}. "
+              f"The assumed {num(F.k_local, 2)} is "
+              f"{num(qp(F.P, 'sp8007Comparison/kLocalOverGamma', MODEL), 3)} of it. "
+              f"L/R {num(qp(F.P, 'sp8007Comparison/tubeLOverR', MODEL), 1)} is beyond "
+              f"the experimentally correlated L/r ≤ {NO}5{NC} range. The monograph warns "
+              "that the classical load becomes unconservative at large L/r and thin struts "
+              "need column and shell-column interaction checks; the model sizes the modes "
+              "to coincide but does not evaluate their interaction. No test establishes "
+              "this numerical choice for its orthotropic wall; it remains assumed.")
     K["classical"] = dict(
         name=f"classical thin-cylinder buckling coefficient ({NO}K_CLASSICAL{NC})",
         value=N(F.k_classical, 3), status="literature",

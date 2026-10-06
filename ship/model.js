@@ -21,8 +21,13 @@ export const C_PHI = 6 * Math.SQRT2 * Math.PI;   // octet truss: phi = C_PHI (r/
 /* EXACT under hydrostatic load, and topology-independent: every strut in any
  * stretch-dominated truss takes the same affine strain, so solid stress is 3p/phi. */
 export const ALIGN = 1 / 3;
-// sigma_cr = 0.605*E*t/R classically, times the SP-8007-style knockdown. K_CLASSICAL is
-// physics (part of the formula, like Euler's pi^2); K_LOCAL is the knockdown ON it. Four
+// sigma_cr = 0.605*E*t/R classically, times the ASSUMED K_LOCAL knockdown.
+// sp8007Comparison computes SP-8007 Rev 2, printed pp. 23–24, Eqs. 9–10:
+// gamma ~0.668 at R/t = 54; 0.3 is ~0.45 of it, not a validated composite allowance.
+// Printed p. 25 cautions: no experimental correlation for L/r > 5; Eq. 1 is
+// unconservative at large L/r; evaluate column buckling and shell-column interaction.
+// This model's L/R ~38 and coincident Euler/local modes need that unevaluated interaction.
+// K_CLASSICAL is physics (like Euler's pi^2); K_LOCAL is the knockdown ON it. Four
 // closed-form routes dropped the classical coefficient until 2026-08-12 (audit O1); the
 // product is the capacity everywhere now. Mirrored in the Python.
 export const K_CLASSICAL = 0.605;
@@ -111,6 +116,18 @@ export function tubeStrut(m, p = P_ATM) {
 }
 
 export const ARCHS = { monolithic, solidStrut, tubeStrut };
+
+export function sp8007Comparison(m) {
+  const t = tubeStrut(m), rt = t.tubeROverT;
+  const gamma = 1 - 0.901 * (1 - Math.exp(-Math.sqrt(rt) / 16));
+  const lr = 1 / t.lam;
+  const local = K_CLASSICAL * K_LOCAL * t.psi;
+  const column = Math.PI ** 2 / 2 * t.lam ** 2;
+  return { tubeROverT: rt, gammaEq9: gamma, kLocal: K_LOCAL,
+           kLocalOverGamma: K_LOCAL / gamma, tubeLOverR: lr,
+           eq10RadiusRange: rt < 1500, outsideVerifiedLengthRange: lr > 5,
+           coincidentModes: Math.abs(local - column) <= 1e-12 * Math.max(local, column) };
+}
 
 /* The sealing film only has to SEAL — the lattice under it carries the load. It bulges into
  * one opening and holds the atmosphere as membrane tension, sigma = pR/2t. */

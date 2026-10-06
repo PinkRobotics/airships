@@ -56,9 +56,14 @@ ALIGN = 1.0 / 3.0
 
 # Local buckling of a thin cylinder in axial compression: sigma_cr = 0.605*E*t/R
 # classically, times a knockdown. K_CLASSICAL is the physics (part of the formula, like
-# Euler's pi^2); K_LOCAL is the SP-8007-style knockdown ON it (about 0.33 at these
-# proportions, so 0.3 is mildly conservative for an ISOTROPIC wall — see ORTHO_PENALTY
-# for what a composite wall does). Until 2026-08-12 four closed-form routes applied the
+# Euler's pi^2); K_LOCAL is an ASSUMED knockdown ON it. sp8007_comparison() computes
+# NASA SP-8007 Rev 2, printed pp. 23–24, Eqs. 9–10: gamma is about 0.668 at R/t = 54;
+# 0.3 is about 0.45 of that value, not a validated composite-wall allowance.
+# Printed p. 25 cautions that Eq. 9 lacks experimental correlation for L/r > 5,
+# Eq. 1 becomes unconservative at large L/r, and thin struts need column buckling
+# and shell-column interaction checks. This model has L/R about 38 and sizes Euler
+# and local-wall modes to coincide; their interaction is not evaluated. ORTHO_PENALTY
+# treats a separate laminate effect. Until 2026-08-12 four closed-form routes applied the
 # knockdown but dropped the classical coefficient itself — crediting walls with 1/0.605 =
 # 1.65x their stated capacity (audit O1; the floor order measured every consequence
 # before this landed). The product K_CLASSICAL * K_LOCAL is the capacity everywhere now.
@@ -208,6 +213,26 @@ def arch_tube_strut(m: dict, p: float = P_ATM) -> dict:
 
 ARCHS = {"monolithic": arch_monolithic, "solidStrut": arch_solid_strut,
          "tubeStrut": arch_tube_strut}
+
+
+def sp8007_comparison(m: dict) -> dict:
+    """Comparison only: SP-8007 Rev 2, printed pp. 23–25, Eqs. 9–10.
+
+    The isotropic empirical curve does not validate this long, orthotropic strut.
+    K_LOCAL remains the assumed input; no interaction allowance is inferred.
+    """
+    t = arch_tube_strut(m)
+    rt = t["tubeROverT"]
+    gamma = 1.0 - 0.901 * (1.0 - math.exp(-math.sqrt(rt) / 16.0))
+    lr = 1.0 / t["tubeRadiusOverStrutLength"]
+    local = K_CLASSICAL * K_LOCAL * t["wallOverTubeRadius"]
+    column = math.pi ** 2 / 2.0 * t["tubeRadiusOverStrutLength"] ** 2
+    return dict(tubeROverT=rt, gammaEq9=gamma, kLocal=K_LOCAL,
+                kLocalOverGamma=K_LOCAL / gamma, tubeLOverR=lr,
+                eq10RadiusRange=rt < 1500.0,
+                outsideVerifiedLengthRange=lr > 5.0,
+                coincidentModes=math.isclose(local, column, rel_tol=1e-12),
+                source="NASA SP-8007 Rev 2, printed pp. 23–25, Eqs. 9–10; isotropic comparison only")
 
 
 def barrier_kg_per_m2(cell_span_m: float, sigma_f: float = 5.8e9, rho_f: float = 1560,
@@ -2013,6 +2038,7 @@ def _ship_band_round(b: dict) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", metavar="OUT")
+    ap.add_argument("--check", action="store_true", help="compare the JSON with a fresh calculation")
     args = ap.parse_args()
     fig = json.loads(FIGURES.read_text())
     wall = fig["atmosphere"]["rhoAtWorkAlt"]
@@ -2060,6 +2086,7 @@ def main() -> None:
         }
 
     ref = MATERIALS["M60J_LAM"]
+    out["sp8007Comparison"] = sp8007_comparison(ref)
     t = arch_tube_strut(ref)
     tot = total_shell(ref, cell)
     net = wall - tot["totalKgPerM3"]
@@ -2211,8 +2238,16 @@ def main() -> None:
     # (design-space sweeps, sensitivity) stays in tools/ship_scoping.py.
     out["ship0"] = ship0_summary()
 
+    body = json.dumps(out, indent=1)
+    if args.check:
+        path = pathlib.Path(args.json) if args.json else ROOT / "research/analysis/vacuum-cell.json"
+        if not path.exists() or path.read_text() != body:
+            raise SystemExit("vacuum-cell: JSON differs from fresh calculation")
+        print("vacuum-cell: JSON equals fresh calculation")
+        print("SP-8007 comparison: " + json.dumps(out["sp8007Comparison"], sort_keys=True))
+        return
     if args.json:
-        pathlib.Path(args.json).write_text(json.dumps(out, indent=1))
+        pathlib.Path(args.json).write_text(body)
 
     w = 34
     print(f"\nTHE WALL: {wall:.4f} kg per m3 enclosed. Cell {cell:.0f} m, "

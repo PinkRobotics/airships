@@ -58,6 +58,11 @@ def num(x, fmt: str) -> str:
 # The format spec is how the number is written in the prose — so a change of units or of
 # rounding in the note is caught as loudly as a change of value in the model.
 MANIFEST = [
+    ("vacuum-cell.md", "vacuum-cell", "sp8007Comparison/tubeROverT", ".4f"),
+    ("vacuum-cell.md", "vacuum-cell", "sp8007Comparison/gammaEq9", ".6f"),
+    ("vacuum-cell.md", "vacuum-cell", "sp8007Comparison/kLocal", ".2f"),
+    ("vacuum-cell.md", "vacuum-cell", "sp8007Comparison/kLocalOverGamma", ".6f"),
+    ("vacuum-cell.md", "vacuum-cell", "sp8007Comparison/tubeLOverR", ".4f"),
     ("mass-budget.md", "mass-budget", "classes/P100/shellDensityWallKgPerM3", ".3f"),
     ("mass-budget.md", "mass-budget", "classes/P100/cases/floor/overBy", ".2f"),
     ("mass-budget.md", "mass-budget", "classes/P100/rightSized/floor/overBy", ".2f"),
@@ -291,6 +296,11 @@ for cid in ("P100", "P1000", "P10000"):
 # Bind these rows to their quantity, or to the labelled table cell, as well as
 # requiring a whole numeric token. {number} is always the shared matcher.
 CONTEXTS = {
+    ("vacuum-cell.md", "sp8007Comparison/tubeROverT"): r"model's R/t = {number}",
+    ("vacuum-cell.md", "sp8007Comparison/gammaEq9"): r"Isotropic gamma = {number}",
+    ("vacuum-cell.md", "sp8007Comparison/kLocal"): r"assumed K_LOCAL = {number}",
+    ("vacuum-cell.md", "sp8007Comparison/kLocalOverGamma"): r"is {number} of that value",
+    ("vacuum-cell.md", "sp8007Comparison/tubeLOverR"): r"tube has L/R = {number}",
     ("descent.md", "classes/P10000/rotorsBlindToTheBag/creditSavesPctOfCycle"):
         r"^\| P10000 \| record \|[^|]*\| {number} \|",
     ("descent.md", "classes/P10000/withoutTheBag/bagCostsPerTonnePct"):

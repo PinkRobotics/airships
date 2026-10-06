@@ -68,6 +68,21 @@ what the mass turns on. That is the contribution, and it is a narrower and faire
 the one this page made first: Jenett explicitly discusses the strength-exponent shift, cites a
 threshold for it, and bounds his claim to relative densities above 10⁻³.
 
+**Knockdown comparison.**
+
+The model's R/t = 54.0001.
+
+Isotropic gamma = 0.668196 from SP-8007 Rev 2, printed pp. 23–24, Eqs. 9–10.
+
+The assumed K_LOCAL = 0.30 is 0.448970 of that value.
+
+The tube has L/R = 38.3172, outside the experimentally correlated L/r ≤ 5 range.
+
+Printed p. 25 warns that the classical load becomes unconservative at large L/r and
+thin struts need column buckling and shell-column interaction checks. Euler and
+local-wall modes coincide in this model; their interaction and a composite-wall
+allowance remain unverified.
+
 ## The five corrections, in the order they bite
 
 | | effect on the reference shell |
