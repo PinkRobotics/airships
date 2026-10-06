@@ -197,12 +197,17 @@ flying. The delivery physics and the endurance advantage point the same way.
 
 ## What this does not resolve
 
-**AFUE's 0.56.** Probability of success was 0.72 with ground engagement and 0.56 without, and
-without crews the modal outcome was *not effective*. An uncrewed fleet is the 0.56 case by
-construction unless it is working *for* ground resources — which points at a product that is
-not "drops water on fires" but **"puts water where crews and corridors need it, before they
-need it"**. That is the pre-treatment mission again, and it is a logistics problem, which is
-what this vehicle is good at.
+**AFUE's observed contrast.** In its non-random sample of airtanker retardant drops,
+[AFUE](../papers/usfs-2020-afue.pdf) reports probability of success of 0.72 with ground
+engagement and 0.56 without. The [denominator](../papers/usfs-2020-afue.pdf) is drops
+with **known, interacting outcomes**, and the numerator is effective drops; the
+[sampling design](../papers/usfs-2020-afue.pdf) is observational. Ground engagement
+concerns crews on the ground, not whether the
+aircraft carries a pilot. These values are neither a causal crew effect nor a success
+probability for this unbuilt fleet. The recommendation remains to work **for ground crews**,
+putting water where crews and corridors need it before they need it. AFUE's metric is
+objectives achieved, not tonnes; this project's water arithmetic establishes logistics,
+not effectiveness.
 
 **Swath width is assumed.** Nothing models a drop pattern; 20–80 m brackets airtanker practice.
 A slow release from leads should be narrower and far more controllable, which would be an
