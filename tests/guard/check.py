@@ -941,6 +941,12 @@ def the_guard_s_own_counts_for_the_record():
     return "; ".join(rows)
 
 
+@test
+def every_protected_part_reaches_the_dispatcher():
+    from assurance import run
+    return run('A')
+
+
 def main():
     only = sys.argv[1:]
     chosen = [fn for fn in TESTS if not only or any(o in fn.__name__ for o in only)]

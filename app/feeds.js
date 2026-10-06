@@ -50,11 +50,14 @@ export const DAY = QP.get("day");
 export const REPLAY = QP.get("data") === "snapshot" && !DAY;
 
 export function normalize(firesGJ, perimsGJ) {
-  const rings = {};
+  const rings = {}, footprints = {};
+  // Drawing may be thinned; clearance always receives every supplied outer part.
+  // Separate perimeter features for the same fire also contribute to the footprint.
   for (const f of (perimsGJ && perimsGJ.features) || []) {
     const num = fireNumber(f.properties.FIRE_NUMBER) || f.properties.FIRE_NUMBER;
     const g = f.geometry; if (!g || !num) continue;
     const polys = g.type === "MultiPolygon" ? g.coordinates : [g.coordinates];
+    footprints[num] = (footprints[num] || []).concat(polys.map(p => p[0].map(q => q.slice())));
     let best = null, ba = -1;
     for (const p of polys) {
       const r = p[0];
@@ -88,6 +91,7 @@ export function normalize(firesGJ, perimsGJ) {
       note: p.FIRE_STATUS === "Fire of Note" || p.FIRE_OF_NOTE_IND === "Y" || p.FIRE_OF_NOTE_IND === "Yes",
       ll: [g.coordinates[0], g.coordinates[1]],
       ring: rings[fireNumber(p.FIRE_NUMBER) || p.FIRE_NUMBER] || null,
+      footprint: footprints[fireNumber(p.FIRE_NUMBER) || p.FIRE_NUMBER] || null,
     });
   }
   fires.sort((a, b) => b.sizeHa - a.sizeHa);

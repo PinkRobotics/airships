@@ -331,15 +331,15 @@ export function keepOutsFor(G, fires, ctx = {}, date = null) {
   for (const f of fires) {
     const g = guardedFire(G, f, ctx);
     if (!g || !(g.keepOutKm > 0)) continue;
-    const region = { kind: "fire", who: f.id || f.name, why: g.why, rKm: g.keepOutKm,
-                     ll: f.ll, edge: null, ring: null };
-    if (f.ring && f.ring.length > 2) {
-      region.ring = f.ring;
-      region.edge = ringPoints(f.ring);
+    const parts = f.footprint || (f.ring && f.ring.allRings) || (f.ring ? [f.ring] : []);
+    if (parts.length) {
+      for (const ring of parts)
+        out.push({ kind: "fire", who: f.id || f.name, why: g.why, rKm: g.keepOutKm,
+                   ll: f.ll, ring, edge: ringPoints(ring) });
     } else {
-      region.rKm = g.keepOutKm + fireRadiusKm(f);
+      out.push({ kind: "fire", who: f.id || f.name, why: g.why,
+                 rKm: g.keepOutKm + fireRadiusKm(f), ll: f.ll, edge: null, ring: null });
     }
-    out.push(region);
   }
   if (date)
     for (const p of G.places)
