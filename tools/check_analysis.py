@@ -140,6 +140,9 @@ MANIFEST = [
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/internalInterfaceAreaM2", ",.0f"),
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/interfaceCount", "d"),
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/filmSpanM", ".1f"),
+    *[("vacuum-cell.md", "vacuum-cell", f"gradedPressure/band/resizedFilm/{field}", ".1f")
+      for field in ("fullWorkingStressMPa", "reducedWorkingStressMPa",
+                    "unchangedThicknessReducedStressMPa")],
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/outerSurfaceDifferentialAtm",
      ".1f"),
 
@@ -331,6 +334,12 @@ CONTEXTS = {
         r"The band needs \*\*{number} complete internal interfaces\*\*",
     ("vacuum-cell.md", "gradedPressure/band/filmSpanM"):
         r"Each film is priced at a \*\*{number} m lateral span\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/resizedFilm/fullWorkingStressMPa"):
+        r"The resized film at full differential works at \*\*{number} MPa\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/resizedFilm/reducedWorkingStressMPa"):
+        r"The resized film at reduced differential also works at \*\*{number} MPa\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/resizedFilm/unchangedThicknessReducedStressMPa"):
+        r"Retaining the original thickness instead gives \*\*{number} MPa\*\*",
     ("vacuum-cell.md", "gradedPressure/band/outerSurfaceDifferentialAtm"):
         r"outer surface sees\s+\*\*{number} atm\*\*",
     ("vacuum-cell.md", "demonstrator/massOverDisplaced"):

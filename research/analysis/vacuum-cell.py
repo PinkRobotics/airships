@@ -1256,6 +1256,13 @@ def graded_pressure(m: dict, wall: float) -> dict:
     atmosphere, but that alone does not establish a mass saving for the complete band.
     Trapped gas also ties rigidity and trim to temperature. A net-lift percentage is
     unavailable when the ungraded reference has nonpositive net lift.
+
+    Film-stress correction, 2026-10-05: the outer film is resized with the differential,
+    so pressure and thickness fall together and working stress remains unchanged. Linear
+    elastic material strain therefore does not fall with the mass saving. Keeping the
+    original thickness would lower stress, at the cost of foregoing that film mass saving.
+    Barrier crazing and breach transients are not calculated here; the assumed pressure
+    steps alone do not establish their consequences.
     """
     lad = hierarchy_ladder(m, film=0.0)
     lat2 = lad["2"]["phi"] * m["rho"]        # level-2 lattice density at the full atmosphere
@@ -1283,6 +1290,16 @@ def graded_pressure(m: dict, wall: float) -> dict:
     # Nine complete, homothetic surfaces enclose successive equal-volume zones.
     # The reference envelope area already includes its declared hull geometry.
     film_span = 2.0
+    # Reconstruct the working stress from pressure, dome radius and resized thickness.
+    # barrier_kg_per_m2 sizes at fixed stress; reducing pressure and thickness together
+    # therefore leaves stress (and linear elastic material strain) unchanged.
+    a = film_span / 2.0
+    h = 0.25 * a
+    bulge_radius = (a * a + h * h) / (2.0 * h)
+    full_thickness = barrier_kg_per_m2(film_span) / 1560.0
+    reduced_thickness = full_thickness / nb
+    full_stress = P_ATM * bulge_radius / (2.0 * full_thickness)
+    reduced_stress = (P_ATM / nb) * bulge_radius / (2.0 * reduced_thickness)
     interface_areas = [HULL_ENVELOPE_M2 * (1.0 - f * j / nb) ** (2.0 / 3.0)
                        for j in range(1, nb)]
     interface_area = sum(interface_areas)
@@ -1304,6 +1321,17 @@ def graded_pressure(m: dict, wall: float) -> dict:
             "interfaceAreasM2": [round(a, 6) for a in interface_areas],
             "internalInterfaceAreaM2": round(interface_area, 6),
             "filmSpanM": film_span,
+            "resizedFilm": {
+                "fullDifferentialAtm": 1.0, "reducedDifferentialAtm": 1.0 / nb,
+                "fullThicknessM": round(full_thickness, 12),
+                "reducedThicknessM": round(reduced_thickness, 12),
+                "fullWorkingStressPa": round(full_stress, 1),
+                "reducedWorkingStressPa": round(reduced_stress, 1),
+                "fullWorkingStressMPa": round(full_stress / 1e6, 1),
+                "reducedWorkingStressMPa": round(reduced_stress / 1e6, 1),
+                "unchangedThicknessReducedStressMPa": round(
+                    (P_ATM / nb) * bulge_radius / (2.0 * full_thickness) / 1e6, 1),
+            },
             "interfaceGeometry": "complete homothetic interfaces; equal-volume zones",
             "geometryNote": "5% of the dated 190 x 47 m spheroid reference behind 22,592 m2 of envelope is a band about "
                             "half a metre deep, so its ten steps are sub-cell-scale layers "

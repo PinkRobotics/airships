@@ -99,6 +99,12 @@ def outputs():
             "so a percentage of available net lift is unavailable. "
             "The former internal-film charge was 0.0017 kg/m³ and the former same-input "
             "net cost −0.0191 kg/m³; pricing the complete interfaces corrects that calculation. "
+            "The resized outer film works at "
+            f"{band['resizedFilm']['fullWorkingStressMPa']:.1f} MPa at full differential and "
+            f"{band['resizedFilm']['reducedWorkingStressMPa']:.1f} MPa at reduced differential: "
+            "thinner film saves mass at unchanged working stress and linear elastic material "
+            "strain. Lower stress requires retaining the original thickness; barrier crazing "
+            "and breach transients are not computed. "
             "See the cell analysis "
             "for the dated correction and load-path assumptions.</p>")
     body = put(body, 'band-pressure', text, '')
@@ -126,7 +132,7 @@ def main():
     if stale:
         print('structures documents differ from fresh generation: ' + ', '.join(stale))
         return 1
-    print('structures documents: hierarchy, bulk, subdivision and pressure-band regions match')
+    print('structures documents: hierarchy, bulk, subdivision, plenum and pressure-band regions match')
     return 0
 
 

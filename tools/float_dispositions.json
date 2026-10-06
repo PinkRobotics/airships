@@ -2,6 +2,19 @@
  "entries": [
   {
    "file": "cell/band.html",
+   "key": "12bd1c804bc9a458",
+   "class": "generated",
+   "reason": "This exact structural region is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+   "generator": "tools/gen_structures_docs.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- structures:band-pressure:start -->",
+    "end": "<!-- structures:band-pressure:end -->"
+   }
+  },
+  {
+   "file": "cell/band.html",
    "key": "8168a0b7f1f0b783",
    "class": "generated",
    "reason": "This exact structural region is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
@@ -19235,6 +19248,12 @@
   }
  ],
  "replacements": [
+  {
+   "file": "cell/band.html",
+   "oldKey": "8168a0b7f1f0b783",
+   "newKey": "12bd1c804bc9a458",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
   {
    "file": "research/analysis/vacuum-cell.md",
    "oldKey": "0744d0dd40ca6594",

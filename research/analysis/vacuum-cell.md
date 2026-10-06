@@ -323,6 +323,20 @@ complete interfaces give 0.0211 and +0.0002 kg/m³. The earlier tensile-cap publ
 called the band a −1.9% net-lift saving; that percentage does not describe
 the current compression-capped reference.
 
+**Film-stress correction — 2026-10-05.** The earlier band paragraph claimed that
+membrane strain, barrier-crazing risk and breach consequence all fell tenfold with film
+mass. The sizing function reduces thickness with pressure at fixed working stress.
+
+The resized film at full differential works at **725.0 MPa**.
+
+The resized film at reduced differential also works at **725.0 MPa**.
+
+The thinner film saves mass at unchanged working stress and linear elastic material
+strain. Retaining the original thickness instead gives **72.5 MPa** at the reduced
+differential, but forgoes the outer-film mass saving. Crazing risk is not computed by
+this model. A smaller pressure step is an assumed operating condition; the earlier
+breach-consequence claim had no computed transient or containment basis and is withdrawn.
+
 ## The pumped plenum: the same doctrine, made active
 
 The graded band stages pressure with sealed gas; the **pumped plenum** does it with a pump:

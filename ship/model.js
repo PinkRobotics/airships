@@ -1521,6 +1521,12 @@ export function gradedPressure(m, wall) {
   // Equal-volume homothetic zones require nine complete internal interfaces.
   // Layer depth does not set lateral span; the declared film span stays 2 m.
   const filmSpanM = 2.0;
+  const a = filmSpanM / 2, h = 0.25 * a;
+  const bulgeRadius = (a * a + h * h) / (2 * h);
+  const fullThicknessM = barrierKgPerM2(filmSpanM) / 1560;
+  const reducedThicknessM = fullThicknessM / nb;
+  const fullWorkingStressPa = P_ATM * bulgeRadius / (2 * fullThicknessM);
+  const reducedWorkingStressPa = (P_ATM / nb) * bulgeRadius / (2 * reducedThicknessM);
   const interfaceAreasM2 = Array.from({length: nb - 1}, (_, i) =>
     HULL_ENVELOPE_M2 * Math.pow(1 - f * (i + 1) / nb, 2 / 3));
   const internalInterfaceAreaM2 = interfaceAreasM2.reduce((a, b) => a + b, 0);
@@ -1537,6 +1543,14 @@ export function gradedPressure(m, wall) {
             costPctOfDisplacedAir: 100 * netCost / wall,
             interfaceCount: interfaceAreasM2.length, interfaceAreasM2,
             internalInterfaceAreaM2, filmSpanM,
+            resizedFilm: {
+              fullDifferentialAtm: 1, reducedDifferentialAtm: 1 / nb,
+              fullThicknessM, reducedThicknessM, fullWorkingStressPa, reducedWorkingStressPa,
+              fullWorkingStressMPa: fullWorkingStressPa / 1e6,
+              reducedWorkingStressMPa: reducedWorkingStressPa / 1e6,
+              unchangedThicknessReducedStressMPa:
+                (P_ATM / nb) * bulgeRadius / (2 * fullThicknessM) / 1e6,
+            },
             interfaceGeometry: 'complete homothetic interfaces; equal-volume zones' },
   };
 }

@@ -234,6 +234,16 @@ def main() -> None:
             js['graded']['band']['interfaceAreasM2'][i], 6)
     cmp('graded.band.filmsDeltaKgPerM3', pg['band']['filmsDeltaKgPerM3'],
         js['graded']['band']['filmDelta'], 4)
+    for field, value in pg['band']['resizedFilm'].items():
+        dp = (12 if field.endswith('ThicknessM') else
+              None if field.endswith('DifferentialAtm') else 1)
+        cmp('graded.band.resizedFilm.' + field, value,
+            js['graded']['band']['resizedFilm'][field], dp)
+        if dp == 12 and round(js['graded']['band']['resizedFilm'][field], dp) != value:
+            bad.append('graded.band.resizedFilm.' + field + ': thickness differs at JSON precision')
+    resized = pg['band']['resizedFilm']
+    if resized['fullWorkingStressPa'] != resized['reducedWorkingStressPa']:
+        bad.append('graded.band.resizedFilm: pressure-sized films must have equal working stress')
 
     # Cell shapes and the shared-wall fractions.
     for name, rec in py["cellShapes"].items():
