@@ -163,7 +163,7 @@ console.log(JSON.stringify(Object.fromEntries(Object.entries(water.classes).map(
 
     # 4. THE METRIC THAT MEANS SOMETHING. AFUE never counts tonnes; it counts whether a drop
     # achieved its objective, and the objective for most large-aircraft drops is line. So
-    # convert the fleet's day into kilometres of line at a real prescription, and put it
+    # convert the fleet's day into geometric line kilometres at a coverage level, and put it
     # against the perimeters of the fires it would be flown at.
     hist = ROOT / "data" / "fire-history-bc.json"
     if hist.exists():

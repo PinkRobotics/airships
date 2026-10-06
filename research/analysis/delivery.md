@@ -119,6 +119,13 @@ intake hose, pointed the other way.
 
 ## What the accepted plans release
 
+Coverage level expresses liquid volume per ground area in US gallons per 100 ft². The fuel
+coverage levels in the [USFS AT-802 drop guide](https://www.fs.usda.gov/t-d/pubs/pdfpubs/pdf17512802P/1751-2802P_AT-802DropGuide_Sec508_03-01-19_150dpi.pdf)
+(Table 1, PDF p. 3) are **retardant prescriptions**, not prescriptions for plain water.
+The table below is an **even-spread water depth in coverage-level units**: released tonnes
+over the accepted plan's run and an assumed swath, with all released water assigned to that
+rectangle. It is not a measured ground pattern or a dose reaching a named fuel layer.
+
 <!-- logistics:one-pass:start -->
 | Swath | P-100 CL | P-1000 CL | P-10000 CL |
 |---|---|---|---|
@@ -135,6 +142,11 @@ intake hose, pointed the other way.
 
 These are tank-release quotients for the accepted 15 km plans, at assumed swaths. No ground deposition or suppression is established.
 <!-- logistics:one-pass:end -->
+
+This arithmetic supports a comparison of released payload and run length, not a water
+prescription or suppression performance. A water prescription would need a ground-pattern
+test, including deposition in the intended fuel layer, and a wetting test in named fuels
+under stated weather conditions.
 
 ## The metric that means something
 

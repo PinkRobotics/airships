@@ -55,7 +55,7 @@ def render():
     onepass += '\nThese are tank-release quotients for the accepted 15 km plans, at assumed swaths. No ground deposition or suppression is established.\n'
     median = d['classes']['P100']['atRealMedianLeg']
     p = median['plan']
-    daily = table(['Prescription','Geometric line km per 24 h','Stored simplified perimeters no longer than that line'],
+    daily = table(['Coverage level','Geometric line km per 24 h','Stored simplified perimeters no longer than that line'],
         [[f'CL {cl}',number(median[f'lineKmPer24hAtCL{cl}_30mSwath'])+' km',
           number(median[f'pctOfPerimetersLinedDailyAtCL{cl}'])+'%'] for cl in (2,4,6,8)])
     if median['tph'] is None:

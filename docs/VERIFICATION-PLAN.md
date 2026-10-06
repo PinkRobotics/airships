@@ -212,7 +212,7 @@ into shape on first pump-down.
 3. **A spacecraft thermal engineer.** *"Thirty megawatts of drives inside a vacuum envelope with
    no convection. What does rejecting that heat weigh?"*
 4. **A BC Wildfire Service operations chief.** *"One aircraft, 5,500 tonnes of water a day,
-   113 km of wet line at a timber prescription, working at night — and its best use may be soaking
+   113 km of geometric line in retardant coverage-level units, under suitable conditions — and its best use may be soaking
    ground **before** a fire arrives rather than fighting one. Is that useful, and would it
    compete with the skimmers for the same lakes?"* **This decides what the vehicle is for.**
 5. **A fire-behaviour scientist.** *"What is pre-treatment worth, how long does a water line
