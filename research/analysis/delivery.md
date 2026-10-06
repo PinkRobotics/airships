@@ -189,11 +189,20 @@ that useful time, so the length an aircraft can keep treated is at most its trea
 rate times that time. Flying without stopping is necessary to sustain that continuous line
 rate, but is not sufficient: useful wetting, revisit timing and supply must also be established.
 
-## Night is not a consolation prize, it is the design point
+## Night as a conditional design point
 
-Everything here improves after dark, for physical reasons: columns collapse, winds drop,
-humidity rises so less is lost in the fall and fuel moisture recovers, and nothing else is
-flying. The delivery physics and the endurance advantage point the same way.
+Typical cooler, moister nights can favour the proposed pre-treatment mission; some nights
+do not. [Luo et al.](https://doi.org/10.1038/s41586-024-07028-5) document
+overnight burning promoted by drought, so darkness does not ensure quiet fire behaviour.
+The [USFS Helicopter Night Operations Study](https://www.fs.usda.gov/sites/default/files/media/2014/17/cr-2013-report-nanfo-ecm7351935.pdf#page=131)
+describes night firefighting in Los Angeles County
+and San Diego; night airspace cannot be assumed empty.
+
+Night remains a design point under suitable weather and visibility, a release outside
+active columns, cleared and deconflicted airspace, and coordination with incident command
+and ground crews. Those conditions must be checked for each operation. The model has no
+daily weather cycle, vertical air motion or air traffic ([physics limits](../../docs/PHYSICS.md#12-what-the-model-deliberately-does-not-attempt)),
+so it has not computed a night advantage.
 
 ## What this does not resolve
 
