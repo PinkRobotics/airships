@@ -52,7 +52,7 @@ def page_coordinate_refusal():
         print(json.dumps(outcomes[-1],sort_keys=True),flush=True)
         if malformed:
             assert not v['ok'] and v['recordOnly'] and v['missions']==v['ready']==0,v
-            assert 'coordinate' in v['reason'] and ('coordinate' in v['words'] or 'guard' in v['words']),v
+            assert 'coordinate' in v['reason'] and 'coordinate' in v['words'],v
         else:assert v['ok'] and not v['recordOnly'] and v['ready']>0,v
     return outcomes
 

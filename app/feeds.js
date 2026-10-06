@@ -212,9 +212,13 @@ async function mirrorEvac(maxAgeMin) {
  * when the fleet may never work that fire; needsShip, the map, the tables and the cockpit
  * all read it, so the reason shown is the reason enforced. */
 export function applyGuard(fires) {
+  if (S.guard && S.guard.ok) {
+    const checked = loadGuard(S.guard.doc, { viewFires: fires });
+    if (!checked.ok) { S.guard = checked; setView(S.day, checked.reason); }
+  }
   for (const f of fires) {
     const g = guardedFire(S.guard, f, { seasonOfNote: S.seasonOfNote });
-    if (g && g.why === "invalid-fire") setView(S.day, g.reason);
+    if (g && (g.why === "invalid-fire" || g.why === "invalid-geometry")) setView(S.day, g.reason);
     if (f) f.guarded = g;
   }
   return fires.filter(Boolean);

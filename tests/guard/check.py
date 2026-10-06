@@ -953,6 +953,12 @@ def thinning_closes_every_accepted_ring():
     return run('B')
 
 
+@test
+def invalid_coordinates_refuse_the_loader_and_the_page():
+    from assurance import run
+    return run('C')
+
+
 def main():
     only = sys.argv[1:]
     chosen = [fn for fn in TESTS if not only or any(o in fn.__name__ for o in only)]
