@@ -64,7 +64,7 @@ PROBE = """(() => {
                  bandNetCost: g.band.netCost, band: g.band };
   out.cellShapes = C.cellShapes();
   out.sharedWall = C.sharedWall(2.0);
-  out.plenum = C.pumpedPlenum().map(r => r.cellOperatingMarginX);
+  out.plenum = C.pumpedPlenum();
   out.weightless = C.weightlessArticle(__WALL__).map(r =>
     [r.densityAtN1, r.minNSeaLevel === null ? -1 : r.minNSeaLevel,
      r.minNAt2500m === null ? -1 : r.minNAt2500m]);
@@ -246,10 +246,16 @@ def main() -> None:
     cmp("sharedWall.interiorOverEnvelope", psw["interiorOverEnvelope"],
         js["sharedWall"]["interiorOverEnvelope"], 1)
 
-    # The pumped plenum's operating-margin ladder.
+    # The plenum's film pressure factor and force-balanced structural margin.
     pp = list(py["pumpedPlenum"]["rows"].values())
     for i, got in enumerate(js["plenum"]):
-        cmp(f"plenum[{i}].margin", pp[i]["cellOperatingMarginX"], got, 2)
+        for field in pp[i]:
+            cmp(f"plenum[{i}].{field}", pp[i][field], got[field], 2)
+        row = pp[i]
+        if (row['directPressureFraction'] + row['mountTransferredPressureFraction'] != 1
+                or row['totalStructurePressureFraction'] != 1
+                or row['structureMarginX'] != py['constants']['latticeSafetyFactor']):
+            bad.append(f'plenum[{i}]: pressure fractions must return the full structural load')
 
     # The hybrid stock build: purchased pipe, printed ties, margins.
     ps, jsb = py["stockBuild"], js["stock"]

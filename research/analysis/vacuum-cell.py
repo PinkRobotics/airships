@@ -1324,22 +1324,24 @@ def graded_pressure(m: dict, wall: float) -> dict:
 def pumped_plenum() -> dict:
     """A soft outer shell holding a LOSSY, ACTIVELY PUMPED partial vacuum around the array.
 
-    Tyler's proposal, 2026-08-11, and it is the ACTIVE member of the family the graded band
+    The proposal dated 2026-08-11 is the ACTIVE member of the family the graded band
     and seal-at-every-scale belong to: put the sealed cells inside a plenum the ship keeps
-    at reduced pressure, and no cell operates against a full atmosphere.
+    at reduced pressure, so the sealed interior films see a reduced pressure differential.
 
     Statics is not fooled — force balance still delivers one atmosphere to the array
-    through the shell's mounts, so this buys NO lattice mass in normal operation. What it
-    buys is everything else, and each scales directly with the plenum pressure:
+    through the shell's mounts, so this buys NO lattice mass in normal operation. The
+    direct pressure fraction p and the mount-transferred fraction 1-p sum to one. The
+    nominal structural margin therefore stays at LATTICE_SF for every row; no separate
+    relieved structural load path is drawn or sized.
 
-      - OPERATING MARGIN. Cells are designed (and the demonstrator is proven) at a full
-        atmosphere; operated at p_plenum their crush margin multiplies by 1/p_plenum.
+      - FILM DIFFERENTIAL. The film's pressure difference falls to p_plenum times the
+        full-atmosphere value. This is a film pressure factor, not a crush-margin multiplier.
       - PERMEATION. The pressure difference driving gas into a sealed-for-life cell drops
-        to p_plenum of its no-plenum value — the service-life budget stretches accordingly.
+        to p_plenum of its no-plenum value; a service lifetime is not computed here.
       - BREACH. A holed cell floods to p_plenum, not to ambient; every contingency in the
-        breach ladder softens by the same factor.
-      - REDUNDANCY. Pump failure is a slow drift back to the 1 atm case the cells were
-        designed for — margin erodes toward the design point, nothing breaks.
+        breach load, filling transient and mount concentration still need analysis.
+      - REDUNDANCY. Pump failure returns the film differential toward its full-atmosphere
+        design case. Its rate and consequences are not computed by this static table.
 
     The price is a pump fighting the shell's leak rate for the life of the ship, and that
     power is NOT quantified here: it needs a shell leak-rate assumption nobody has made
@@ -1349,9 +1351,16 @@ def pumped_plenum() -> dict:
     """
     rows = {}
     for p in (1.0, 0.5, 0.25, 0.1):
+        direct = p
+        through_mounts = 1.0 - p
+        total = direct + through_mounts
         rows[f"{p:.2f}"] = {
             "plenumAtm": p,
-            "cellOperatingMarginX": round(LATTICE_SF / p, 2),
+            "filmPressureDifferenceFactor": round(p, 2),
+            "structureMarginX": round(LATTICE_SF / total, 2),
+            "directPressureFraction": round(direct, 2),
+            "mountTransferredPressureFraction": round(through_mounts, 2),
+            "totalStructurePressureFraction": round(total, 2),
             "permeationDriveX": round(p, 2),
             "breachFloodsToAtm": round(p, 2),
         }

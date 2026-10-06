@@ -779,19 +779,26 @@ export function stockBuild() {
 }
 
 /* The pumped plenum: a soft, lossy, actively pumped partial vacuum across the whole ship,
- * so no interior cell operates against a full atmosphere. The ACTIVE member of the graded-
+ * so sealed interior films see a reduced pressure differential. The ACTIVE member of the graded-
  * band family. Statics unchanged — the shell's mounts deliver the withheld atmosphere into
- * the array as structure load, so no lattice saving; what it buys is margin, permeation
- * life and breach softening, each scaling directly with the plenum pressure, plus graceful
- * pump-failure (a slow drift back to the 1 atm design case). Pump power needs a shell
- * leak-rate assumption that remains deliberately unchosen. */
+ * the array as structure load. Direct pressure p plus mount-transferred pressure 1-p
+ * equals one, so nominal structural margin stays at LATTICE_SF. The film differential
+ * falls with plenum pressure; this is not a crush-margin multiplier. Lifetime, breach
+ * transients and pump-failure rate are not computed. Pump power needs a shell leak-rate
+ * assumption that remains deliberately unchosen. */
 export function pumpedPlenum() {
-  return [1.0, 0.5, 0.25, 0.1].map(p => ({
+  return [1.0, 0.5, 0.25, 0.1].map(p => {
+    const direct = p, throughMounts = 1 - p, total = direct + throughMounts;
+    return {
     plenumAtm: p,
-    cellOperatingMarginX: LATTICE_SF / p,
+    filmPressureDifferenceFactor: p,
+    structureMarginX: LATTICE_SF / total,
+    directPressureFraction: direct,
+    mountTransferredPressureFraction: throughMounts,
+    totalStructurePressureFraction: total,
     permeationDriveX: p,
     breachFloodsToAtm: p,
-  }));
+  }; });
 }
 
 /* Could a sealed article of this design weigh ZERO? Sized here, per rung of the material

@@ -47,6 +47,13 @@ def outputs():
             for n, r in vc['gradedPressure']['bulk'].items() if n in ('1', '2', '10')]
     headers = ['N levels', 'structure', 'gas held', 'films', 'net lift']
     body = put(body, 'bulk', table(headers, rows), '| ' + ' | '.join(headers) + ' |')
+    rows = [[p + ' atm' + (' (no plenum)' if p == '1.00' else ''),
+             f"×{r['filmPressureDifferenceFactor']:.2f}", f"×{r['structureMarginX']:.2f}",
+             f"×{r['permeationDriveX']:.2f}", f"{r['breachFloodsToAtm']:.2f} atm"]
+            for p, r in vc['pumpedPlenum']['rows'].items()]
+    headers = ['plenum', 'film differential / full atmosphere', 'nominal structural margin',
+               'permeation drive', 'a breach floods to']
+    body = put(body, 'plenum', table(headers, rows), '')
     result = {name: body}
 
     name = 'docs/FLOAT.md'

@@ -327,26 +327,30 @@ the current compression-capped reference.
 
 The graded band stages pressure with sealed gas; the **pumped plenum** does it with a pump:
 a soft outer shell across the whole ship holding as much vacuum as it can — lossy, actively
-pumped, never sealed — so that **no interior cell operates against a full atmosphere**. It
+pumped, never sealed — so that **sealed interior films see a reduced pressure differential**. It
 is already what the section-and-bay picture shows, and it deserves stating as doctrine.
 
 Statics is not fooled: the shell's mounts deliver the withheld atmosphere into the array as
-structure load, so the plenum buys **no lattice mass**. What it buys scales directly with
-the plenum pressure, and every line of it is margin rather than mass:
+structural load, so the plenum buys **no lattice mass**. The film's differential falls with
+plenum pressure; the structure still carries the direct fraction plus the fraction through
+the mounts, which equals a full atmosphere. No separate relieved structural load path has
+been drawn or sized. The nominal structural margin stays at the declared safety factor.
 
-| plenum | cell operating margin | permeation drive | a breach floods to |
-|---|---|---|---|
-| 1.00 atm (no plenum) | ×1.50 | ×1.00 | 1.00 atm |
-| 0.50 atm | ×3.00 | ×0.50 | 0.50 atm |
-| 0.25 atm | ×6.00 | ×0.25 | 0.25 atm |
-| 0.10 atm | ×15.00 | ×0.10 | 0.10 atm |
+<!-- structures:plenum:start -->
+<!-- structures:plenum:end -->
 
-Pump failure is a slow drift back to the 1 atm case the cells were designed for — margin
-erodes toward the design point, nothing breaks. The price is a pump fighting the shell's
-leak rate for the life of the ship; that power line needs a leak-rate assumption nobody has
-made yet and is left open rather than invented. **The prototype requirement is unchanged on
-purpose: one cell, zero net weight, against a full atmosphere, outside any ship** — the
-plenum is what the ship then adds around it, as redundancy and as reach.
+**Plenum correction — 2026-10-05.** The former “cell operating margin” column read
+×1.50, ×3.00, ×6.00 and ×15.00. It divided the structural safety factor by the film's
+pressure fraction while its own mounts returned the rest of the structural load. The
+replacement columns distinguish film differential from the unchanged structural margin.
+
+Pump failure returns the film differential toward the full-atmosphere design case; this
+static calculation does not determine its rate or consequences. Permeation drive is a
+pressure factor, not a computed lifetime. A holed cell's equilibrium pressure is the
+plenum's, but filling transients and mount load concentrations need separate analysis.
+The price is a pump fighting the shell's leak rate for the life of the ship; that power
+line needs a leak-rate assumption and remains open. **The prototype requirement is
+unchanged: one cell, zero net weight, against a full atmosphere, outside any ship.**
 
 ## The cell shape: the interlocking near-sphere is also the film-optimal one
 

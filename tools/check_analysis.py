@@ -189,10 +189,11 @@ MANIFEST = [
      "designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/outerEnvelopeOnlyKgPerM3",
      ".3f"),
 
-    # The pumped plenum: operating margin and permeation drive at the quoted pressures.
-    ("vacuum-cell.md", "vacuum-cell", "pumpedPlenum/rows/0.50/cellOperatingMarginX", ".2f"),
-    ("vacuum-cell.md", "vacuum-cell", "pumpedPlenum/rows/0.25/cellOperatingMarginX", ".2f"),
-    ("vacuum-cell.md", "vacuum-cell", "pumpedPlenum/rows/0.10/cellOperatingMarginX", ".2f"),
+    # Film differential and structural margin occupy separate generated columns.
+    *[("vacuum-cell.md", "vacuum-cell", f"pumpedPlenum/rows/{p}/{field}", ".2f")
+      for p in ("1.00", "0.50", "0.25", "0.10")
+      for field in ("plenumAtm", "filmPressureDifferenceFactor", "structureMarginX",
+                    "permeationDriveX", "breachFloodsToAtm")],
 
     # Cell shape: the Kelvin cell's film saving over the cube baseline.
     ("vacuum-cell.md", "vacuum-cell", "cellShapes/truncatedOctahedron/filmSavingVsCubePct",
@@ -388,6 +389,21 @@ for field, phrase in (('usefulFraction/vacuumLevel2StructurePct', r'compression 
                       ('breakeven/minimumStructureOverHydrogenBreakEven', r'deepest hierarchy level costs {number} times')):
     MANIFEST.append(('docs/PHYSICS.md', 'helium', field, '.1f'))
     CONTEXTS[('docs/PHYSICS.md', field)] = phrase
+
+# Each plenum column owns its own pressure row, rather than a repeated witness.
+for pressure in ("1.00", "0.50", "0.25", "0.10"):
+    for field, preceding in (("filmPressureDifferenceFactor", ""),
+                             ("structureMarginX", r"[^|]*\| "),
+                             ("permeationDriveX", r"[^|]*\|[^|]*\| ")):
+        CONTEXTS[("vacuum-cell.md", f"pumpedPlenum/rows/{pressure}/{field}")] = (
+            r"^\| " + re.escape(pressure) + r" atm(?: \(no plenum\))? \| "
+            + preceding + r"×{number} \|")
+    CONTEXTS[("vacuum-cell.md", f"pumpedPlenum/rows/{pressure}/plenumAtm")] = (
+        r"^\| {number} atm(?: \(no plenum\))? \|")
+    CONTEXTS[("vacuum-cell.md", f"pumpedPlenum/rows/{pressure}/breachFloodsToAtm")] = (
+        r"^\| " + re.escape(pressure) + r" atm(?: \(no plenum\))? \|"
+        + r"[^|]*\|" * 3 + r" {number} atm \|")
+
 
 def matches(text, want, context=None):
     pattern = numeric_pattern(want)
