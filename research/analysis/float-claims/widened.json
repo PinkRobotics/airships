@@ -28,6 +28,7 @@
   "research/validation/constant-study.md",
   "ship/catalog.js",
   "ship/explorer.js",
+  "ship/model.js",
   "sim/README.md",
   "sim/config.js",
   "sim/energy-label.js",
@@ -455,7 +456,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 361
+   "line": 362
   },
   {
    "file": "app/cockpit/panels.js",
@@ -463,7 +464,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 206
+   "line": 207
   },
   {
    "file": "app/cockpit/panels.js",
@@ -511,7 +512,7 @@
    "class": "method",
    "context": [],
    "reason": "Tooltip explicitly says structural float is unproven and the configured class is used only in the simulation.",
-   "line": 200
+   "line": 203
   },
   {
    "file": "app/cockpit/tables.js",
@@ -519,7 +520,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-   "line": 200
+   "line": 203
   },
   {
    "file": "app/worked.js",
@@ -652,6 +653,22 @@
     }
    ],
    "line": 2334
+  },
+  {
+   "file": "ship/model.js",
+   "key": "3c83954ea75891ba",
+   "class": "literature",
+   "reason": "Identifies the maker coupon source and explicitly retained representative stiffness and density; this is not a hierarchical-wall strength allowable.",
+   "source": "Toray M60J datasheet p. 1; Markforged Composites datasheet Rev. 5.0 p. 1",
+   "line": 77
+  },
+  {
+   "file": "ship/model.js",
+   "key": "e936ef79083fea96",
+   "class": "literature",
+   "reason": "Identifies the maker coupon source and explicitly retained representative stiffness and density; this is not a hierarchical-wall strength allowable.",
+   "source": "Toray M60J datasheet p. 1; Markforged Composites datasheet Rev. 5.0 p. 1",
+   "line": 103
   },
   {
    "file": "sim/README.md",

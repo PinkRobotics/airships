@@ -1,6 +1,6 @@
 /* Per-class battery allowance from current configuration and budget evidence. */
 import fs from 'node:fs';
-import {CLASSES,ledger,WORK_ALT_MSL} from '../../sim/index.js?v=68694086';
+import {CLASSES,ledger,WORK_ALT_MSL} from '../../sim/index.js?v=816a54f9';
 const budget=JSON.parse(fs.readFileSync('research/analysis/mass-budget.json'));
 const referenceWhKg=budget.evidence.battery_wh_per_kg.demonstrated.value;
 const floorWhKg=budget.evidence.battery_wh_per_kg.floor.value;

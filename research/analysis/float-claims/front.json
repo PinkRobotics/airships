@@ -160,21 +160,6 @@
     },
     {
       "file": "index.html",
-      "key": "8d56ce71bd34e6f8",
-      "class": "generated",
-      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
-      "context": [],
-      "generator": "tools/gen_fallback.py",
-      "gate": "fallbackcheck",
-      "verifier": "tools/gen_fallback.py",
-      "region": {
-        "start": "<!--FALLBACK-->",
-        "end": "<!--/FALLBACK-->"
-      },
-      "line": 1045
-    },
-    {
-      "file": "index.html",
       "key": "56517a00b3f39dcc",
       "class": "generated",
       "reason": "Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
@@ -340,6 +325,21 @@
         "end": "<!-- served-energy:home:end -->"
       },
       "line": 785
+    },
+    {
+      "file": "index.html",
+      "key": "1fab75da65a3d69c",
+      "class": "generated",
+      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+      "context": [],
+      "generator": "tools/gen_fallback.py",
+      "gate": "fallbackcheck",
+      "verifier": "tools/gen_fallback.py",
+      "region": {
+        "start": "<!--FALLBACK-->",
+        "end": "<!--/FALLBACK-->"
+      },
+      "line": 1045
     }
   ]
 }

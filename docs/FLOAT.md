@@ -211,6 +211,13 @@ struts — 948 members and 201 joints instead of 216 and 51.
 **Current compression-property calculation — 2026-10-05.** The dated table above remains the earlier run; the following table is freshly generated with the sourced compression cap.
 
 <!-- structures:subdivision:start -->
+| span | n | joints | strut | tube OD × wall | tube | joints | film | kg/m³ | × wall | Euler | local | compression | film @ SF 1.5 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1.0 | 2 | 201 | 177 mm | 10.5 × 0.75 mm | 12.32 | 6.52 | 0.09 | 18.94 | 19.79 | 6.97 | 27.29 | 19.84 | 1.03 |
+| 2.0 | 2 | 201 | 354 mm | 21.0 × 1.50 mm | 12.32 | 6.52 | 0.09 | 18.94 | 19.79 | 6.97 | 27.29 | 19.84 | 1.03 |
+| 4.0 | 2 | 201 | 707 mm | 48.5 × 2.00 mm | 9.79 | 10.05 | 0.09 | 19.93 | 20.83 | 7.85 | 12.52 | 15.77 | 1.00 |
+| 3.0 | 4 | 1289 | 265 mm | 16.5 × 1.00 mm | 10.47 | 6.01 | 0.05 | 16.53 | 17.27 | 7.36 | 21.81 | 18.69 | 1.04 |
+| 6.0 | 4 | 1289 | 530 mm | 32.5 × 2.00 mm | 10.30 | 5.74 | 0.05 | 16.09 | 16.81 | 7.02 | 21.79 | 18.39 | 1.00 |
 <!-- structures:subdivision:end -->
 
 **Result — 2026-08-12. The old R1 figures do not survive.** Every axial-only tube fails
@@ -233,6 +240,13 @@ The five published transitions are:
 **Current compression-property calculation — 2026-10-05.** The dated table above remains the earlier run; the following table is freshly generated with the sourced compression cap.
 
 <!-- structures:transitions:start -->
+| article A span | n | axial-only tube | film margin @ SF 1.5 | ultimate pressure | film-sized tube | repriced kg/m³ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1.0 m | 2 | 7.5 × 0.30 mm | 0.23 | 0.35 atm | 10.5 × 0.75 mm | 18.94 |
+| 2.0 m | 2 | 15.5 × 0.50 mm | 0.21 | 0.32 atm | 21.0 × 1.50 mm | 18.94 |
+| 4.0 m | 2 | 30.5 × 1.00 mm | 0.20 | 0.31 atm | 48.5 × 2.00 mm | 19.93 |
+| 3.0 m | 4 | 11.5 × 0.40 mm | 0.22 | 0.33 atm | 16.5 × 1.00 mm | 16.53 |
+| 6.0 m | 4 | 23.0 × 0.75 mm | 0.21 | 0.31 atm | 32.5 × 2.00 mm | 16.09 |
 <!-- structures:transitions:end -->
 
 Every transition is printed by the tool, not computed in this note. All rows use the model's

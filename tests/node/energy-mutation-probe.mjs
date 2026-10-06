@@ -1,4 +1,4 @@
-import {CLASSES,MODES,planCycle,drawAt} from '../../sim/index.js?v=68694086';
+import {CLASSES,MODES,planCycle,drawAt} from '../../sim/index.js?v=816a54f9';
 import {assertInstant} from '../cases/energy-closure.cases.js';
 for(const c of Object.values(CLASSES))for(const basis of ['record','favourable']){
  const p=planCycle(c,MODES.balanced,15,null,{basis});

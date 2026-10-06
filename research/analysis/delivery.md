@@ -163,7 +163,7 @@ always line. BC campaign fires, 615 with mapped perimeters: median **40.6 km**, 
 A conditional line-length comparison for a P-100 at the median leg:
 
 <!-- logistics:daily:start -->
-| Prescription | Geometric line km per 24 h | Stored simplified perimeters no longer than that line |
+| Coverage level | Geometric line km per 24 h | Stored simplified perimeters no longer than that line |
 |---|---|---|
 | CL 2 | 225.5 km | 95.3% |
 | CL 4 | 112.8 km | 85.5% |

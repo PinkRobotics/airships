@@ -487,29 +487,6 @@
     },
     {
       "file": "ship/index.html",
-      "key": "32f84b775e71860a",
-      "line": 678,
-      "text": "The material study is a formula, not the bench article. With M60J-class tube, the finite-article estimate gives [data-n=\"wM60.densityAtN1\" data-f=\"3\"] kg/m³, below sea-level air density but above air at 2,500 m. The continuous-fibre printed variant needs [data-n=\"wCFF.minNSeaLevel\" data-f=\"0\"] sub-cells per half-span to fall below sea-level air density in the formula. These estimates need drawn members, joints and tests; they do not establish a floating cell.",
-      "class": "bound",
-      "reason": "The M60J unit-subdivision density and CFF subdivision threshold are different material estimates; neither supplies a drawn floating cell.",
-      "context": [
-        "2,500"
-      ],
-      "bindings": [
-        {
-          "case": "weightless-M60J_LAM",
-          "field": "mass",
-          "route": "wM60.densityAtN1"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/weightlessArticle/rows/CFF/minNSeaLevel",
-          "route": "wCFF.minNSeaLevel"
-        }
-      ]
-    },
-    {
-      "file": "ship/index.html",
       "key": "2cd73a54996a7b18",
       "line": 686,
       "text": "The same geometry printed end to end in nylon, the variant that proves the printer chain rather than the physics, comes to [data-n=\"demo.totalKg\" data-f=\"2\"] kg against [data-n=\"demo.displacedAirKg\" data-mul=\"1000\" data-f=\"0\"] g of displaced air.",
@@ -892,6 +869,28 @@
         }
       ],
       "line": 439
+    },
+    {
+      "file": "ship/index.html",
+      "key": "d0ab41e034def2d7",
+      "class": "bound",
+      "reason": "Current compression-capped density and absent subdivision crossing are checked against the model; the browser checks the no-crossing sentence.",
+      "context": [
+        "2,500"
+      ],
+      "bindings": [
+        {
+          "case": "weightless-M60J_LAM",
+          "field": "mass",
+          "route": "wM60.densityAtN1"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/CFF/minNSeaLevel",
+          "equals": null
+        }
+      ],
+      "line": 678
     }
   ]
 }

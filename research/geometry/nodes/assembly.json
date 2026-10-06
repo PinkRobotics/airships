@@ -122178,7 +122178,7 @@
    "lines": [
     "gap-opening flexibility 8.7748e-05 to 1.6761e-04 mm/N, so opening a gap by the full 20 mm stub costs 119,325 to 227,926 N. 200 N of hand force opens 0.0175 to 0.0335 mm; 0 of 216 members exceed 0.1 mm on the finished article. That is why the closing ends carry a 2 mm pilot and not a shortened stub plus optimism: 'just spring it in' is the natural response to P1 and it is wrong by four orders of magnitude. Even the pilot's own 2 mm would cost 11,933 N to spring, which is why it is swung in instead. This is a pin-jointed LOWER bound on stiffness.",
     "length error is not free: 5,966 to 11,396 N per mm of it. 0.10 mm of cut error locks in 597 to 1,140 N, and 0.196 to 0.375 mm locks in the whole 2238 N demand of the spoke \u2014 the smallest of the six family demands, and therefore the member with the least room for a locked-in force. Holding the locked-in force under 10% of demand needs every cut, and every printed base, inside 0.020 to 0.038 mm \u2014 finer than one FDM layer, and finer than the margins two of the passing proofs pass on. It is published as a tolerance column on cutList and gated by nothing, because no shop capability is cited anywhere in this repository to hold it to.",
-    "and every number above is isothermal, dry and short-term: MATERIALS.PAHT_XY carries ['E', 'name', 'orthotropic', 'printable', 'rho', 'sigma', 'source'] and none of ['cte', 'moistureGrowth', 'creepKnockdown', 'durationOfLoad']. At 5,966 to 11,396 N per mm of length error, a strain that changes a 39.7 mm printed load path by one FDM layer is worth hundreds of newtons of self-stress in a frame with 166 redundant loops. No coefficient is invented here to price it: the vacuum load is permanent and every capacity in this file is a short-term ISO 527 tensile number, which is stated on every margin.",
+    "and every number above is isothermal, dry and short-term: MATERIALS.PAHT_XY carries ['E', 'compressionSource', 'compressionSourced', 'name', 'orthotropic', 'printable', 'rho', 'sigma', 'sigmaCompression', 'source', 'tensileSource'] and none of ['cte', 'moistureGrowth', 'creepKnockdown', 'durationOfLoad']. At 5,966 to 11,396 N per mm of length error, a strain that changes a 39.7 mm printed load path by one FDM layer is worth hundreds of newtons of self-stress in a frame with 166 redundant loops. No coefficient is invented here to price it: the vacuum load is permanent and every capacity in this file is a short-term ISO 527 tensile number, which is stated on every margin.",
     "the bow alternative: 20 mm of end shortening on a 251 mm member needs 45.08 mm of bow and 3.54% surface strain; 20 mm of end shortening on a 177 mm member needs 37.90 mm of bow and 5.95% surface strain; 3 mm of end shortening on a 177 mm member needs 14.68 mm of bow and 2.31% surface strain, against roughly 1.5% ultimate. Even 3 mm breaks a tie."
    ],
    "data": {
@@ -123773,7 +123773,7 @@
   "proofsPassed": 12,
   "frozen": 18,
   "advisories": 7,
-  "runtimeS": 200.0,
-  "fieldS": 59.4
+  "runtimeS": 207.8,
+  "fieldS": 64.0
  }
 }

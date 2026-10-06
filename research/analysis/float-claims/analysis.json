@@ -70,19 +70,11 @@
     {
       "file": "research/analysis/delivery.md",
       "key": "2c9ef1cd33d06099",
-      "line": 77,
+      "line": 82,
       "text": "**A buoyant hull holds station by thrusting downward, so its rotors accelerate air *upward*.** That is the opposite sign to a helicopter, and it happens directly over the release.",
       "class": "flight-model",
       "reason": "Rotor upwash follows the simulated downward thrust on an assumed buoyant hull; this is not a built-aircraft result.",
       "assumption": "825a11694ea5056f"
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "4873cc8fcb0ee991",
-      "line": 9,
-      "class": "deferred",
-      "reason": "The ideal-vacuum advantage over hydrogen and sixfold hierarchy comparison are derived figures without matching generated fields.",
-      "owner": "hand-arithmetic"
     },
     {
       "file": "research/analysis/helium.md",
@@ -101,182 +93,6 @@
       ],
       "context": [
         "2500"
-      ]
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "ce01ce14271f9324",
-      "line": 25,
-      "text": "| architecture | gas | structure | net | |---|---|---|---| | vacuum, ideal massless shell | 0 | 0 | +0.957 | | vacuum, single-level lattice (demonstrable) | 0 | 1.306 | **-0.349** | | vacuum, level-2",
-      "class": "bound",
-      "reason": "Each gas, shell and net density is the helium analysis row at the atmosphere stated in the line that introduces this table; the hierarchy remains a target.",
-      "bindings": [
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumIdeal/gas",
-          "shown": "0"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumIdeal/structure",
-          "shown": "0"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumIdeal/net",
-          "shown": "0.957"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel1/gas",
-          "shown": "0"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel1/structure",
-          "shown": "1.306"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel1/net",
-          "shown": "-0.349"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel2/gas",
-          "shown": "0"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel2/structure",
-          "shown": "0.538"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/vacuumLevel2/net",
-          "shown": "0.419"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/hydrogen/gas",
-          "shown": "0.067"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/hydrogen/net",
-          "shown": "0.890"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/helium/gas",
-          "shown": "0.132"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/helium/net",
-          "shown": "0.825"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/helium97/gas",
-          "shown": "0.157"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/ledger/helium97/net",
-          "shown": "0.800"
-        }
-      ],
-      "context": [
-        "-2",
-        "2",
-        "97"
-      ],
-      "heading": "At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:"
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "cff89e96ebc9429e",
-      "line": 34,
-      "text": "**The break-even structure to tie hydrogen is 0.067 kg/m³** — out of reach at any hierarchy level this project has modelled. The demonstrable single-level design does not float at all, while a helium",
-      "class": "bound",
-      "reason": "The hydrogen break-even is the generated gas density; the paragraph distinguishes the nonfloating single-level formula from existing gas ships.",
-      "bindings": [
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
-          "shown": "0.067"
-        }
-      ],
-      "context": [
-        "-2",
-        "2"
-      ]
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "4d4c441a48ebffe0",
-      "line": 42,
-      "text": "**Structure double-duty.** A gas ship's gas is not its only overhead — it needs an envelope and, at scale, a frame that the cell array already is. Structure-included useful fractions: the level-2 vacu",
-      "class": "bound",
-      "reason": "The useful-fraction comparison uses the generated hierarchy prediction and the two historical gas-airship fractions, with the omitted loads stated.",
-      "bindings": [
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/vacuumLevel2Pct",
-          "shown": "43.7"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/hindenburgH2Pct",
-          "shown": "49"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/hindenburgDeadKgPerM3",
-          "shown": "0.590"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/zr3HeliumPct",
-          "shown": "41"
-        }
-      ],
-      "context": [
-        "-08",
-        "-12",
-        "-126",
-        "-2",
-        "0.605",
-        "08",
-        "12",
-        "126",
-        "2",
-        "2026"
-      ]
-    },
-    {
-      "file": "research/analysis/helium.md",
-      "key": "3eec66729fbc3617",
-      "line": 94,
-      "text": "1. FAA-P-8110-2 (or its successor) read, not remembered. 2. The ~1 L/m²/day envelope-permeability spec traced to a readable source (Liao & Pasternak 2009 is paywalled; the figure here is order-of-magn",
-      "class": "bound",
-      "reason": "The proposed hierarchy test now cites the current level-two density, replacing the pre-correction coefficient.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
-          "shown": "0.538"
-        }
-      ],
-      "context": [
-        "-2",
-        "1",
-        "2",
-        "2009",
-        "3",
-        "4",
-        "8110"
       ]
     },
     {
@@ -323,81 +139,6 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
-      "key": "bce63b20375510e7",
-      "line": 10,
-      "text": "> ## Where this landed, and where it goes > The single-level formula with outer-envelope film gives **1.306 kg/m³**. > Its lattice uses safety factor 1.5, full sea-level pressure, and local-wall knock",
-      "class": "bound",
-      "reason": "The first comparison distinguishes closed-form cell densities from a drawn structure and gives both atmospheric limits, then the unchecked cap range and census count.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/totalIfOuterEnvelopeOnly",
-          "shown": "1.306"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
-          "shown": "0.538"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
-          "shown": "0.957",
-          "altitude": "target"
-        },
-        {
-          "source": "research/analysis/float-ledger.json",
-          "pointer": "/atmosphere/rhoSeaLevel",
-          "shown": "1.225",
-          "altitude": "seaLevel"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/ranges/favourable/seaLevel/min",
-          "shown": "0.751",
-          "altitude": "seaLevel"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/ranges/favourable/seaLevel/max",
-          "shown": "0.998",
-          "altitude": "seaLevel"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/ranges/favourable/target/min",
-          "shown": "0.586",
-          "altitude": "target"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/ranges/favourable/target/max",
-          "shown": "0.780",
-          "altitude": "target"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/disagreementCount",
-          "shown": "20"
-        },
-        {
-          "source": "research/analysis/cap-readings.json",
-          "pointer": "/noneReachesOne",
-          "equals": true
-        }
-      ],
-      "context": [
-        "1.5",
-        "0.30",
-        "2500",
-        "0.605",
-        "0.65",
-        "1450",
-        "1.2"
-      ]
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
       "key": "8ecf68ea14aa6a6a",
       "line": 60,
       "text": "At floating densities lattice members are slender enough that **Euler buckling governs, not yield** — by more than an order of magnitude for every material tested. Solid rods therefore give strength ∝",
@@ -419,7 +160,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "b71022074f407881",
-      "line": 73,
+      "line": 88,
       "text": "| | effect on the reference shell | |---|---| | **1. Fibre properties used as laminate properties.** M60J's 588 GPa / 3.82 GPa / 1930 is the *fibre*. A laminate at 60% fibre volume is ~354 / 2.29 / 16",
       "class": "history",
       "reason": "This is the recorded sequence of five corrections to the earlier reference-shell calculation, including the discarded film accounting.",
@@ -428,7 +169,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "c0e16a9f019fcce8",
-      "line": 86,
+      "line": 127,
       "text": "| cell size | 0.5 m | 1 m | 2 m | 4 m | |---|---|---|---|---| | film sized to hold an atmosphere | 0.347 | 0.347 | 0.347 | 0.347 kg/m³ | | minimum-gauge foil laminate instead | 0.300 | 0.150 | 0.075 |",
       "class": "other-quantity",
       "reason": "The table compares the interior film component under two barrier assumptions; these are not complete shell densities or a float verdict."
@@ -436,7 +177,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "e7d5c1b5cf90fb2f",
-      "line": 105,
+      "line": 146,
       "text": "The envelope-only figure was 0.002 in an earlier version — an unsourced 17 g/m² film assigned to a surface that must hold a full atmosphere over 2 m spans. A review priced it with the model's own memb",
       "class": "history",
       "reason": "This records the earlier unpriced envelope film and the membrane recalculation that replaced it, preserving the old and replacement figures.",
@@ -445,7 +186,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "069530d9e7c01329",
-      "line": 112,
+      "line": 153,
       "text": "**That trade — containment against 0.35 kg/m³ — is the sharpest unresolved question in the design.** It is worth a third of the shortfall, and the earlier version of this page paid for it without clai",
       "class": "bound",
       "reason": "The containment trade quotes the generated interior-film density rounded to two decimals.",
@@ -460,7 +201,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "9dc27a03a9cc2912",
-      "line": 126,
+      "line": 167,
       "text": "Lattice + nodes + film, at 2 m cells, against air at 0.957 kg/m³ at 2,500 m:",
       "class": "bound",
       "reason": "The material table compares its fixed cell-size calculations against the working-altitude air density.",
@@ -479,126 +220,8 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
-      "key": "292ba211c3cb29fd",
-      "line": 196,
-      "text": "| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status | |---|---|---|---|---|---| | 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only | | 1 | 1.500 | 1.306 | 0.93",
-      "class": "bound",
-      "reason": "The hierarchy table compares formula densities at both altitudes; replacing floats with formula only prevents an undrawn higher-level strut being presented as a vehicle.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/0/exponent",
-          "shown": "2.000"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/0/totalKgPerM3",
-          "shown": "7.986"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-0",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.153"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-0",
-          "field": "at.target.liftToMass",
-          "shown": "0.120"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/1/exponent",
-          "shown": "1.500"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/1/totalKgPerM3",
-          "shown": "1.306"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-1",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "0.938"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-1",
-          "field": "at.target.liftToMass",
-          "shown": "0.733"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/2/exponent",
-          "shown": "1.333"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
-          "shown": "0.538"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-2",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "2.276"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-2",
-          "field": "at.target.liftToMass",
-          "shown": "1.778"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/3/exponent",
-          "shown": "1.250"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/3/totalKgPerM3",
-          "shown": "0.403"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-3",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "3.037"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-3",
-          "field": "at.target.liftToMass",
-          "shown": "2.372"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/4/exponent",
-          "shown": "1.200"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/hierarchy/ladder/4/totalKgPerM3",
-          "shown": "0.403"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-4",
-          "field": "at.seaLevel.liftToMass",
-          "shown": "3.037"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-4",
-          "field": "at.target.liftToMass",
-          "shown": "2.372"
-        }
-      ],
-      "context": [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "2500"
-      ]
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
       "key": "d258475f48ff5111",
-      "line": 224,
+      "line": 267,
       "class": "deferred",
       "reason": "Conditional design changes surround component deltas, hand-derived bulge factors and unsourced node estimates; the classes are interleaved.",
       "owner": "mixed-block"
@@ -606,7 +229,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "2773f904088426bf",
-      "line": 318,
+      "line": 398,
       "text": "How the membrane meshes with the structure — corrected once, and the correction recorded: an earlier version claimed every face was node-supported, from a lattice generator that admitted **two interle",
       "class": "history",
       "reason": "This records the correction from two interleaved octets to FCC sites and the resulting boundary-node topology.",
@@ -615,7 +238,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "009c6ce702751d35",
-      "line": 415,
+      "line": 495,
       "class": "deferred",
       "reason": "The paragraph combines current bulge geometry with an older article mass and derived buoyancy comparisons without separate source fields.",
       "owner": "mixed-block"
@@ -623,7 +246,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "3ac6d363e075961b",
-      "line": 517,
+      "line": 597,
       "text": "**Two SKUs, and the designer was right for the wrong reason.** He proposed the secondaries be a *smaller* carbon pipe. Carbon yes; smaller no — sized against the load they actually react, the ties com",
       "class": "history",
       "reason": "This records the dated saw-table correction, retained old span billing and the material replacement in the hybrid article.",
@@ -632,7 +255,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "a2502f4bccb5e023",
-      "line": 528,
+      "line": 608,
       "text": "The 51 printed joints are **weighed, not budgeted**: gen_nodes.py integrates each one from its own field and the article reads the manifest — **0.71 kg** since the sunken boundary frame (2026-08-11).",
       "class": "history",
       "reason": "This records the successive generated joint-mass estimates through the dated sunken-frame change, not a physical weighing.",
@@ -641,7 +264,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "18bd439f85b88e7d",
-      "line": 538,
+      "line": 618,
       "text": "**Then 21 g of that came back, and it is worth naming what bought it.** Giving the 36 rim members the 14×12 socket the stock build specifies — instead of the 10×8 every other member gets — pushed the",
       "class": "history",
       "reason": "This preserves the socket-diameter change and its signed joint-mass increments from the recorded article geometry revision.",
@@ -650,7 +273,7 @@
     {
       "file": "research/analysis/vacuum-cell.md",
       "key": "75d491eb35d75d43",
-      "line": 549,
+      "line": 629,
       "text": "None of that makes this article fly, and it was never meant to. The bench article is **15.13 kg/m³**: its mass is 12.4 times displaced air at sea level and 15.8 times at 2,500 m. Its structural sizing",
       "class": "bound",
       "reason": "The bench comparison gives the nominal displaced-air mass multiples at both altitudes and keeps the all-printed printer test distinct.",
@@ -688,131 +311,11 @@
     },
     {
       "file": "research/analysis/vacuum-cell.md",
-      "key": "8f5537908a41d50a",
-      "line": 554,
-      "text": "**The finite article is a formula, not a floating design.** At unit subdivision, the level-two M60J-class result is **1.203 kg/m³**. Air is 1.225 kg/m³ at sea level and 0.957 kg/m³ at 2,500 m. The cor",
-      "class": "bound",
-      "reason": "The unit-subdivision article formula is compared with air at both altitudes; its material variants do not establish a floating design.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/weightlessArticle/rows/M60J_LAM/densityAtN1",
-          "shown": "1.203"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/weightlessArticle/rows/T700_LAM/densityAtN1",
-          "shown": "2.236"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/weightlessArticle/rows/CFF/densityAtN1",
-          "shown": "2.269"
-        },
-        {
-          "source": "research/analysis/float-ledger.json",
-          "pointer": "/atmosphere/rhoSeaLevel",
-          "shown": "1.225",
-          "altitude": "seaLevel"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
-          "shown": "0.957",
-          "altitude": "target"
-        }
-      ],
-      "context": [
-        "2500",
-        "1.5",
-        "0.30"
-      ]
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
       "key": "f5b9d60bab5d5b47",
-      "line": 561,
+      "line": 641,
       "class": "deferred",
       "reason": "The paragraph mixes earlier joint masses and load commentary with present generator and assembly claims.",
       "owner": "mixed-block"
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "beebb7b516280293",
-      "line": 687,
-      "text": "The hybrid article uses **180 cuts of 10×8 mm roll-wrapped pipe and 36 rim edges at 14×12**. The octet demand is 3,372 N per strut, with safety factor already included. Its Euler margins are ×1.8 pinn",
-      "class": "bound",
-      "reason": "The hybrid article has computed joint mass and insufficient displaced-air mass at both altitudes; higher-level booms are explicitly prospective, with drawings and load tests still needed.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/pipe/perStrutDemandN",
-          "shown": "3372"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/pipe/eulerMarginPinned",
-          "shown": "1.8"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/pipe/eulerMarginSocketed",
-          "shown": "4.3"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/pipe/stressMargin",
-          "shown": "21"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/printed/nodes",
-          "shown": "51"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/skinKg",
-          "shown": "28",
-          "scale": 1000
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/stockBuild/totalKg",
-          "shown": "2.69"
-        },
-        {
-          "case": "bench-nominal",
-          "field": "at.seaLevel.lift",
-          "shown": "218",
-          "scale": 1000
-        },
-        {
-          "case": "bench-nominal",
-          "field": "at.target.lift",
-          "shown": "170",
-          "scale": 1000
-        },
-        {
-          "case": "bench-nominal",
-          "field": "at.seaLevel.floats",
-          "equals": false
-        },
-        {
-          "case": "bench-nominal",
-          "field": "at.target.floats",
-          "equals": false
-        }
-      ],
-      "context": [
-        "180",
-        "10",
-        "8",
-        "36",
-        "14",
-        "12",
-        "2500",
-        "1.5"
-      ]
     },
     {
       "file": "research/validation/report.md",
@@ -1140,49 +643,11 @@
       "reason": "The current mass-budget.json supplies the nitrogen energy shares. Subtracting refrigeration does not replan the infeasible cycle and does not establish delivery."
     },
     {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "25a6495f025c3fbe",
-      "class": "bound",
-      "context": [
-        "5"
-      ],
-      "reason": "The signed net-lift change and outer differential match the generated graded-band source; this remains a model comparison.",
-      "bindings": [
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/gradedPressure/band/costPctOfNetLift",
-          "shown": "-1.9"
-        },
-        {
-          "source": "research/analysis/vacuum-cell.json",
-          "pointer": "/gradedPressure/band/outerSurfaceDifferentialAtm",
-          "shown": "0.1"
-        }
-      ],
-      "line": 271
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "4a90bc90c03df733",
-      "class": "deferred",
-      "reason": "The table prints 0.515 from raw structure 0.514521413; JSON stores 0.5145, which double-rounds to 0.514. No ledger row holds this grading result; source precision needs an explicit binding.",
-      "owner": "hand-arithmetic",
-      "line": 260
-    },
-    {
-      "file": "research/analysis/vacuum-cell.md",
-      "key": "b993f3fb134efe3b",
-      "class": "method",
-      "context": [],
-      "reason": "Explains the generated grading comparison qualitatively; no numerical result is asserted in this block.",
-      "line": 266
-    },
-    {
       "file": "research/analysis/helium.md",
       "key": "2b3268716b38817f",
       "class": "other-quantity",
       "reason": "Sealed-volume behaviour and ballonet/ballast trade do not establish positive static lift for the drawn structure.",
-      "line": 63
+      "line": 58
     },
     {
       "file": "research/analysis/water-availability.md",
@@ -1331,6 +796,843 @@
       "class": "deferred",
       "owner": "hand-arithmetic",
       "reason": "Reviewed wording correction based on the executed scale tool, budget evidence or dated architecture statement; not a structural float proof."
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "11eaaae62762ad8f",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/structure",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumIdeal/net",
+          "shown": "0.957"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/structure",
+          "shown": "1.306"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel1/net",
+          "shown": "-0.349"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/gas",
+          "shown": "0"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/structure",
+          "shown": "1.124"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/net",
+          "shown": "-0.167"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/hydrogen/gas",
+          "shown": "0.067"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/hydrogen/net",
+          "shown": "0.890"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium/gas",
+          "shown": "0.132"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium/net",
+          "shown": "0.825"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium97/gas",
+          "shown": "0.157"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/helium97/net",
+          "shown": "0.800"
+        }
+      ],
+      "context": [
+        "2",
+        "97"
+      ],
+      "heading": "At 2,500 m (air 0.9569 kg/m³), net lift per m³ before any airframe:",
+      "line": 25
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "2d571c4e2e67260b",
+      "class": "bound",
+      "reason": "Reviewed wording qualification: the existing compression-floor conclusion applies to the M60J ladder; all physical quantities and their numerical bindings are unchanged.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/vacuumLevel2Pct",
+          "shown": "-17.5"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgH2Pct",
+          "shown": "49"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgDeadKgPerM3",
+          "shown": "0.590"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/zr3HeliumPct",
+          "shown": "41"
+        }
+      ],
+      "context": [
+        "126",
+        "2",
+        "2500"
+      ],
+      "line": 41
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "35378bd8865d3b4f",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+          "shown": "0.067"
+        }
+      ],
+      "context": [
+        "2500"
+      ],
+      "line": 34
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "a6c2df0249f79bd8",
+      "class": "bound",
+      "reason": "New model results are checked against the generated helium analysis; expressly previous numbers remain dated correction context.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/structure",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/ledger/vacuumLevel2/net",
+          "shown": "-0.1674"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/vacuumLevel2Pct",
+          "shown": "-17.5"
+        }
+      ],
+      "context": [
+        "0.4186",
+        "0.5383",
+        "05",
+        "10",
+        "2",
+        "2026",
+        "2500",
+        "43.7"
+      ],
+      "line": 96
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "c375cb83a8ec7098",
+      "class": "bound",
+      "reason": "The hierarchy break-even multiple is now computed; earlier gas comparison inputs and operational objectives remain context.",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/minimumStructureOverHydrogenBreakEven",
+          "shown": "16.9"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+          "shown": "0.067"
+        }
+      ],
+      "context": [
+        "7.5"
+      ],
+      "line": 9
+    },
+    {
+      "file": "research/analysis/helium.md",
+      "key": "fd2b677dde2958d7",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.124"
+        }
+      ],
+      "context": [
+        "1",
+        "2",
+        "2009",
+        "3",
+        "4",
+        "8110"
+      ],
+      "line": 89
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "05821d6c232e8ba2",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/perStrutDemandN",
+          "shown": "3372"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/eulerMarginPinned",
+          "shown": "1.8"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/eulerMarginSocketed",
+          "shown": "4.3"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/pipe/stressMargin",
+          "shown": "12"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/printed/nodes",
+          "shown": "51"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/skinKg",
+          "shown": "28",
+          "scale": 1000
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/totalKg",
+          "shown": "2.69"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.seaLevel.lift",
+          "shown": "218",
+          "scale": 1000
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.lift",
+          "shown": "170",
+          "scale": 1000
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.seaLevel.floats",
+          "equals": false
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.floats",
+          "equals": false
+        }
+      ],
+      "context": [
+        "1.5",
+        "10",
+        "12.2",
+        "14",
+        "180",
+        "2500",
+        "36",
+        "8"
+      ],
+      "line": 767
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "16f1e307cfc83699",
+      "class": "generated",
+      "reason": "This exact structural table is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+      "generator": "tools/gen_structures_docs.py",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- structures:hierarchy:start -->",
+        "end": "<!-- structures:hierarchy:end -->"
+      },
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/exponent",
+          "shown": "2.000"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+          "shown": "7.986"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-0",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.153"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-0",
+          "field": "at.target.liftToMass",
+          "shown": "0.120"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/exponent",
+          "shown": "1.500"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+          "shown": "1.306"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "0.938"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-1",
+          "field": "at.target.liftToMass",
+          "shown": "0.733"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/exponent",
+          "shown": "1.333"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.124"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "1.090"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.liftToMass",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/exponent",
+          "shown": "1.250"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+          "shown": "1.124"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-3",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "1.090"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-3",
+          "field": "at.target.liftToMass",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/exponent",
+          "shown": "1.200"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+          "shown": "1.124"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-4",
+          "field": "at.seaLevel.liftToMass",
+          "shown": "1.090"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-4",
+          "field": "at.target.liftToMass",
+          "shown": "0.851"
+        }
+      ],
+      "context": [
+        "0",
+        "1",
+        "2",
+        "2500",
+        "3",
+        "4"
+      ],
+      "line": 237
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "3b3ac6c62ea4c30c",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/M60J_LAM/densityAtN1",
+          "shown": "2.393"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/T700_LAM/densityAtN1",
+          "shown": "2.236"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/weightlessArticle/rows/CFF/densityAtN1",
+          "shown": "3.708"
+        },
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoSeaLevel",
+          "shown": "1.225",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        }
+      ],
+      "context": [
+        "0.30",
+        "1.5",
+        "2500"
+      ],
+      "line": 634
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "49af977b9a870f5a",
+      "class": "bound",
+      "reason": "Current complete-interface band cost matches the cell JSON; a nonpositive reference makes an available-net-lift percentage unavailable.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/netCostKgPerM3",
+          "shown": "0.0002"
+        }
+      ],
+      "context": [],
+      "line": 326
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "4c79fda141bc51fa",
+      "class": "bound",
+      "reason": "Both strength columns match the material JSON; source pages and explicitly unsourced compression substitutions are stated in the same rows.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/M60J_LAM/tensileStrengthPa",
+          "shown": "2010",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/M60J_LAM/compressiveStrengthPa",
+          "shown": "790",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/T700_LAM/tensileStrengthPa",
+          "shown": "2860",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/T700_LAM/compressiveStrengthPa",
+          "shown": "1450",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/CFF/tensileStrengthPa",
+          "shown": "800",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/CFF/compressiveStrengthPa",
+          "shown": "420",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/PAHT_XY/tensileStrengthPa",
+          "shown": "92",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/PAHT_XY/compressiveStrengthPa",
+          "shown": "92",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/PAHT_Z/tensileStrengthPa",
+          "shown": "47",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/PAHT_Z/compressiveStrengthPa",
+          "shown": "47",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/TI64/tensileStrengthPa",
+          "shown": "1100",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/TI64/compressiveStrengthPa",
+          "shown": "1100",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/AEROGEL/tensileStrengthPa",
+          "shown": "0.5",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/AEROGEL/compressiveStrengthPa",
+          "shown": "0.5",
+          "scale": 1e-06
+        }
+      ],
+      "context": [
+        "0.6",
+        "1",
+        "11",
+        "2",
+        "2025",
+        "24",
+        "2500",
+        "4",
+        "5.0",
+        "527",
+        "6",
+        "94"
+      ],
+      "line": 108
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "621824fe31f31115",
+      "class": "bound",
+      "reason": "Complete-interface film mass is computed at the declared lateral span.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/filmsDeltaKgPerM3",
+          "shown": "0.0211"
+        }
+      ],
+      "context": [],
+      "line": 324
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "6fc056199af974aa",
+      "class": "bound",
+      "reason": "Current ladder values are bound; left-hand figures explicitly preserve the superseded tensile-cap calculation.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/totalKgPerM3",
+          "shown": "7.9859"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/liftToMassSeaLevel",
+          "shown": "0.153"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/0/liftToMassAt2500m",
+          "shown": "0.120"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+          "shown": "1.3060"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/liftToMassSeaLevel",
+          "shown": "0.938"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/liftToMassAt2500m",
+          "shown": "0.733"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+          "shown": "1.090"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/liftToMassSeaLevel",
+          "shown": "1.090"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/liftToMassAt2500m",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/liftToMassSeaLevel",
+          "shown": "1.090"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/liftToMassAt2500m",
+          "shown": "0.851"
+        }
+      ],
+      "context": [
+        "0",
+        "0.120",
+        "0.4034",
+        "0.5383",
+        "1",
+        "1.090",
+        "1.3060",
+        "1.778",
+        "2",
+        "2.276",
+        "2.372",
+        "2500",
+        "3",
+        "3.037",
+        "4"
+      ],
+      "line": 253
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "9232cd9d52b9168e",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/designPoint/filmIsAChoiceAndTheModelPickedOneIncoherently/totalIfOuterEnvelopeOnly",
+          "shown": "1.306"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.124"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/theWall/rhoAirAtWorkAltKgPerM3",
+          "shown": "0.957",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoSeaLevel",
+          "shown": "1.225",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/min",
+          "shown": "0.751",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/seaLevel/max",
+          "shown": "0.998",
+          "altitude": "seaLevel"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/min",
+          "shown": "0.586",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/ranges/favourable/target/max",
+          "shown": "0.780",
+          "altitude": "target"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/disagreementCount",
+          "shown": "20"
+        },
+        {
+          "source": "research/analysis/cap-readings.json",
+          "pointer": "/noneReachesOne",
+          "equals": true
+        }
+      ],
+      "context": [
+        "0.30",
+        "0.605",
+        "0.65",
+        "1.2",
+        "1.5",
+        "1450",
+        "2500"
+      ],
+      "line": 10
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "c885c7c903d081ec",
+      "class": "bound",
+      "reason": "The new charge and verdict match the current cell JSON; expressly former figures and date remain correction context.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/filmsDeltaKgPerM3",
+          "shown": "0.0211"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/gradedPressure/band/netCostKgPerM3",
+          "shown": "0.0002"
+        }
+      ],
+      "context": [
+        "-0.0191",
+        "-1.9",
+        "0.0017",
+        "05",
+        "10",
+        "2026"
+      ],
+      "line": 332
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "cd3146ace3d33783",
+      "class": "generated",
+      "reason": "This exact structural table is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+      "generator": "tools/gen_structures_docs.py",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- structures:bulk:start -->",
+        "end": "<!-- structures:bulk:end -->"
+      },
+      "line": 303
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "ea74596718124316",
+      "class": "method",
+      "context": [
+        "05",
+        "10",
+        "1658",
+        "2026",
+        "354"
+      ],
+      "reason": "Clarifies that the retained dated sequence is superseded by separate compression inputs without changing stiffness or density.",
+      "line": 96
+    },
+    {
+      "file": "research/analysis/vacuum-cell.md",
+      "key": "fd5d53054e772333",
+      "class": "method",
+      "reason": "Explains the generated negative-net-lift bulk rows without claiming a measured structural result.",
+      "context": [
+        "2500"
+      ],
+      "line": 311
     }
   ]
 }

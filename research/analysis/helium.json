@@ -22,13 +22,13 @@
   },
   "vacuumLevel2": {
    "gas": 0.0,
-   "structure": 0.5383,
-   "net": 0.4186
+   "structure": 1.1243,
+   "net": -0.1674
   },
   "vacuumLevel3": {
    "gas": 0.0,
-   "structure": 0.4034,
-   "net": 0.5535
+   "structure": 1.1243,
+   "net": -0.1674
   },
   "hydrogen": {
    "gas": 0.0666,
@@ -52,7 +52,8 @@
  "breakeven": {
   "structureToTieHydrogenKgPerM3": 0.0666,
   "structureToTieHeliumKgPerM3": 0.1322,
-  "verdict": "Vacuum never wins on lift: the break-even structure against hydrogen is ~6x below even the fourth hierarchy level. The case for vacuum is operational and strategic, not aerostatic."
+  "minimumStructureOverHydrogenBreakEven": 16.9,
+  "verdict": "Vacuum never wins on lift: the break-even structure against hydrogen is below every modelled hierarchy level. The case for vacuum is operational and strategic, not aerostatic."
  },
  "heliumMarket": {
   "price2021UsdPerM3": 7.57,
@@ -89,9 +90,14 @@
   "flank": "An uncrewed compartmentalised hydrogen ship shares most of the vacuum ship's strategic advantages at fabric-ship TRL. The project must cost it explicitly; a wildfire is the hardest place to argue flammability away, and that argument is currently made from memory, not from a read regulation."
  },
  "usefulFraction": {
-  "vacuumLevel2Pct": 43.7,
+  "vacuumLevel2StructurePct": 117.5,
+  "vacuumLevel2Pct": -17.5,
   "hindenburgH2Pct": 49.0,
   "hindenburgDeadKgPerM3": 0.59,
   "zr3HeliumPct": 41.0
+ },
+ "gasTaxPct": {
+  "hydrogen": 7.0,
+  "helium": 13.8
  }
 }

@@ -235,6 +235,13 @@ Each level of self-similar structure improves the strength-density exponent: (n+
 tending to linear. Lakes, *Materials with structural hierarchy*, Nature 361 (1993).
 
 <!-- structures:hierarchy:start -->
+| levels | exponent | density kg/m³ | lift/mass at sea level | lift/mass at 2,500 m | status |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 2.000 | 7.986 | 0.153 | 0.120 | formula only |
+| 1 | 1.500 | 1.306 | 0.938 | 0.733 | formula only |
+| 2 | 1.333 | 1.124 | 1.090 | 0.851 | formula only; compression-capped |
+| 3 | 1.250 | 1.124 | 1.090 | 0.851 | formula only; compression-capped |
+| 4 | 1.200 | 1.124 | 1.090 | 0.851 | formula only; compression-capped |
 <!-- structures:hierarchy:end -->
 
 **The ladder ends at the compressive-strength floor.** The solid still carries 3p/φ. With the sourced M60J compression cap, levels 2–4 all reach the same density and none reaches unity at 2,500 m. Extra hierarchy does not buy a strength reserve in these rows; each additional level still adds manufacturing and inspection work.
@@ -294,6 +301,11 @@ Model: equal-volume zones, the lattice in each zone sized for its **cumulative**
 envelope film priced for the differential it actually sees:
 
 <!-- structures:bulk:start -->
+| N levels | structure | gas held | films | net lift |
+| --- | --- | --- | --- | --- |
+| 1 — hard vacuum | 1.101 | 0.000 | 0.024 | -0.167 |
+| 2 | 0.877 | 0.239 | 0.186 | -0.345 |
+| 10 | 0.682 | 0.431 | 0.037 | -0.193 |
 <!-- structures:bulk:end -->
 
 **With the compression cap, none of these bulk rows has positive net lift at 2,500 m.** The gas costs lift while the deep lattice still carries nearly the full atmosphere. Trapped gas also ties rigidity and trim to temperature.
@@ -351,6 +363,12 @@ the mounts, which equals a full atmosphere. No separate relieved structural load
 been drawn or sized. The nominal structural margin stays at the declared safety factor.
 
 <!-- structures:plenum:start -->
+| plenum | film differential / full atmosphere | nominal structural margin | permeation drive | a breach floods to |
+| --- | --- | --- | --- | --- |
+| 1.00 atm (no plenum) | ×1.00 | ×1.50 | ×1.00 | 1.00 atm |
+| 0.50 atm | ×0.50 | ×1.50 | ×0.50 | 0.50 atm |
+| 0.25 atm | ×0.25 | ×1.50 | ×0.25 | 0.25 atm |
+| 0.10 atm | ×0.10 | ×1.50 | ×0.10 | 0.10 atm |
 <!-- structures:plenum:end -->
 
 **Plenum correction — 2026-10-05.** The former “cell operating margin” column read

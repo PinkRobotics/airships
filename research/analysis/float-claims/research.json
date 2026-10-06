@@ -128,46 +128,6 @@
     },
     {
       "file": "research/notes/helium-and-hydrogen.md",
-      "key": "3a36c9a6ee7e0640",
-      "line": 115,
-      "class": "bound",
-      "reason": "Both density margins belong to the unbuilt M60J hierarchy formula. Historical gas-ship fractions remain comparison inputs; the modern rigid density is explicitly an invented assumption.",
-      "text": "The comparison uses an unbuilt level-2 M60J hierarchy formula, not a drawn hull. At structural safety factor 1.5 against full sea-level pressure, its density margin is 0.6867 kg/m³ at sea level and 0.4186 kg/m³ at 2,500 m. It assumes local-wall knockdown 0.30 and node mass 15%; material properties, joint mass, film convention and a drawn, tested structure remain unverified. Comparing that formula with the historical 49%/41% useful fractions remains arithmetic on unequal evidence: 1930s duralumin and cotton against a target laminate. The number a modern helium rigid would achieve, **0.3–0.45 kg/m³ in the draft, is an invented OOM guess** (audit: invented); no modern transport-scale rigid exists to measure, and nothing published by LTA Research yet fills the gap.",
-      "context": [
-        "2",
-        "1.5",
-        "0.30",
-        "15",
-        "2500",
-        "1930",
-        "0.3",
-        "0.45"
-      ],
-      "bindings": [
-        {
-          "case": "hierarchy-M60J_LAM-2",
-          "field": "at.seaLevel.margin",
-          "shown": "0.6867"
-        },
-        {
-          "case": "hierarchy-M60J_LAM-2",
-          "field": "at.target.margin",
-          "shown": "0.4186"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/hindenburgH2Pct",
-          "shown": "49"
-        },
-        {
-          "source": "research/analysis/helium.json",
-          "pointer": "/usefulFraction/zr3HeliumPct",
-          "shown": "41"
-        }
-      ]
-    },
-    {
-      "file": "research/notes/helium-and-hydrogen.md",
       "key": "bd9cdaa0bc6dd5a6",
       "line": 127,
       "class": "conditional",
@@ -203,11 +163,10 @@
     {
       "file": "research/notes/hierarchy-manufacturing.md",
       "key": "9453f52ff408fbaf",
-      "line": 44,
-      "class": "literature",
-      "reason": "The coefficients and manufacturing penalties describe the cited specimens; constituent assumptions used in this note’s estimates remain explicitly labelled.",
-      "text": "**And every measured coefficient lands below the ideal.** Meza's 0.015 sits ≈7× under the A = 0.1 that Jenett 2019 assumes for an ideal lattice and ≈20× under the octet ideal. Their own finite-element predictions overshot the hollow-tube measurements by 68.5% — a **1.69× defect knockdown, attributed to sinusoidal wall waviness from the two-photon writing process** (MEASURED) — while their monolithically printed polymer specimens came in ~11% *above* prediction (MEASURED): monolithic printing at ~micron scale was coefficient-clean, the hollow-tube coating process was not. ARMADAS (Gregg 2024, in `papers/` with supplement) measured injection-molding knit lines at **3.5× on coupon strength** (108.52 → 31.101 MPa, tables S5/S6, MEASURED). Assembled single-level lattices land at A ≈ 0.06 (Cheung 2013, Science, catalogued only) and A ≈ 0.019 (ARMADAS) — but both of those coefficients divide by constituent properties this note had to assume (quasi-iso laminate values for Cheung; ρ_s ≈ 1,340 kg/m³ for StatTech NN-40CF, a DATASHEET-class value not stated in the paper), so treat them as estimates, and note the audit's finding that they are our arithmetic, not the papers'.",
-      "source": "Meza et al. (2015); Gregg et al. (2024), supplementary Tables S5/S6; Cheung (2013); Jenett (2019)."
+      "class": "history",
+      "reason": "The dated note misread a stiffness discrepancy as a measured strength penalty; its original text remains history, and the appended clarification identifies the actual property.",
+      "date": "2026-08-10",
+      "line": 44
     },
     {
       "file": "research/notes/hierarchy-manufacturing.md",
@@ -508,14 +467,6 @@
       "line": 24,
       "class": "deferred",
       "reason": "Rotor power and thrust are extrapolated to induced velocity and wake reach over a fire. These hull performance estimates require the energy and delivery model, not a structural float disposition.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "research/notes/usfs-2022-retardant-airtanker-bases.md",
-      "key": "a3fcb185745ff691",
-      "line": 39,
-      "class": "deferred",
-      "reason": "The paragraph makes a delivery-behaviour claim about a 10,000 t release, mixing a source caveat with an unmodelled coherent-body hypothesis. It is not merely a water mass.",
       "owner": "energy-model"
     },
     {
@@ -1284,6 +1235,180 @@
       "class": "deferred",
       "reason": "The source table combines hull comparisons with a battery-over-budget energy result; it remains one inventoried block.",
       "owner": "energy-model"
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "415b6f9381737f13",
+      "class": "bound",
+      "reason": "Current density and both density margins are checked; expressly previous figures are dated correction context.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.seaLevel.margin",
+          "shown": "0.1007"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.margin",
+          "shown": "-0.1674"
+        }
+      ],
+      "context": [
+        "0.4186",
+        "0.5383",
+        "0.6867",
+        "1",
+        "2",
+        "2500",
+        "790"
+      ],
+      "line": 184
+    },
+    {
+      "file": "research/notes/helium-and-hydrogen.md",
+      "key": "57236b181bf135c8",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "context": [
+        "0.3",
+        "0.30",
+        "0.45",
+        "1.5",
+        "15",
+        "1930",
+        "2",
+        "2500"
+      ],
+      "bindings": [
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.seaLevel.margin",
+          "shown": "0.1007"
+        },
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "at.target.margin",
+          "shown": "-0.1674"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/hindenburgH2Pct",
+          "shown": "49"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/zr3HeliumPct",
+          "shown": "41"
+        }
+      ],
+      "line": 115
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "046fe73f3312f678",
+      "class": "literature",
+      "reason": "Meza printed pp. 11503 and 11506 explicitly compare stiffness; the ratio is not transferred to strength without a failure-mode argument.",
+      "source": "Meza et al., PNAS 112(37), 11502–11507 (2015), printed pp. 11503 and 11506; doi:10.1073/pnas.1509120112",
+      "line": 209
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "cdfa4488145594d7",
+      "class": "bound",
+      "reason": "Current density and altitude ratios are bound for all three capped levels; the former tolerance remains historical and is expressly withdrawn as current funding authority.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/3/liftToMassAt2500m",
+          "shown": "0.851"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/4/liftToMassAt2500m",
+          "shown": "0.851"
+        }
+      ],
+      "context": [
+        "2",
+        "2.9",
+        "2500",
+        "4"
+      ],
+      "line": 235
+    },
+    {
+      "file": "research/notes/hierarchy-manufacturing.md",
+      "key": "dab610a64385dd4e",
+      "class": "bound",
+      "reason": "The appended correction binds the current compression cap, density and altitude ratios without changing the dated manufacturing record.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/M60J_LAM/compressiveStrengthPa",
+          "shown": "790",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+          "shown": "1.090"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+          "shown": "0.851"
+        }
+      ],
+      "context": [
+        "08",
+        "1",
+        "10",
+        "2",
+        "2026",
+        "2500",
+        "4",
+        "60",
+        "94"
+      ],
+      "line": 184
+    },
+    {
+      "file": "research/notes/usfs-2022-retardant-airtanker-bases.md",
+      "key": "567001e3922262a1",
+      "class": "deferred",
+      "reason": "The paragraph makes a delivery-behaviour claim about a 10,000 t release, mixing a source caveat with an unmodelled coherent-body hypothesis. It is not merely a water mass.",
+      "owner": "energy-model",
+      "line": 39
     }
   ]
 }

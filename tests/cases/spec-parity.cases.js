@@ -3,9 +3,9 @@
  * The import boundary keeps 3d standalone; this test is the sanctioned checked-copy seam.
  */
 import { describe, it, eq, close, deepEq } from '../harness.js';
-import * as sim from '../../sim/config.js?v=68694086';
-import { ISA, airDensity } from '../../sim/atmosphere.js?v=68694086';
-import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=68694086';
+import * as sim from '../../sim/config.js?v=816a54f9';
+import { ISA, airDensity } from '../../sim/atmosphere.js?v=816a54f9';
+import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=816a54f9';
 import * as viz from '../../3d/model/config.js?v=91301eab';
 import * as mission from '../../3d/anim/mission.js?v=91301eab';
 import * as mass from '../../3d/physics/mass.js?v=91301eab';

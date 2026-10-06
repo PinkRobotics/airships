@@ -237,50 +237,6 @@
     },
     {
       "file": "docs/FLOAT.md",
-      "key": "d74bb76f2699ef6f",
-      "line": 90,
-      "class": "bound",
-      "reason": "The goal table compares ISA density with the nominal bench article and the rounded subdivision-tool result; the latter is not a fabricated article.",
-      "text": "| | kg/m³ | |---|---| | the target: air at 2,500 m | **0.9569** | | (at sea level, if you prefer the easier bar) | 1.2250 | | the computed article, nominal volume | **~15.1 — that is 15.8×** | | best checked R1 configuration (§3) | **10.76 — 11.24×** |",
-      "bindings": [
-        {
-          "source": "research/analysis/float-ledger.json",
-          "pointer": "/atmosphere/rhoTarget",
-          "shown": "0.9569"
-        },
-        {
-          "source": "research/analysis/float-ledger.json",
-          "pointer": "/atmosphere/rhoSeaLevel",
-          "shown": "1.2250"
-        },
-        {
-          "case": "bench-nominal",
-          "field": "extras.structureKgPerCubicMEnclosed",
-          "shown": "15.1"
-        },
-        {
-          "case": "bench-nominal",
-          "field": "at.target.massToLift",
-          "shown": "15.8"
-        },
-        {
-          "case": "subdivision-6.0-n-4",
-          "field": "mass",
-          "shown": "10.76"
-        },
-        {
-          "case": "subdivision-6.0-n-4",
-          "field": "extras.toolPrintedMassToTargetLift",
-          "shown": "11.24"
-        }
-      ],
-      "context": [
-        "2500",
-        "3"
-      ]
-    },
-    {
-      "file": "docs/FLOAT.md",
       "key": "6d8b9465002bd8fe",
       "line": 97,
       "class": "conditional",
@@ -339,14 +295,6 @@
     },
     {
       "file": "docs/FLOAT.md",
-      "key": "6d988ead164ea911",
-      "line": 180,
-      "class": "deferred",
-      "reason": "The 11.24 subdivision multiple and the earlier twofold joint-saving estimate have no matching current generated fields.",
-      "owner": "hand-arithmetic"
-    },
-    {
-      "file": "docs/FLOAT.md",
       "key": "24c0a1635404ecf6",
       "line": 190,
       "class": "conditional",
@@ -365,7 +313,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "f9bbe01b616ac078",
-      "line": 220,
+      "line": 232,
       "class": "history",
       "reason": "The dated subdivision result records five axial-only to film-sized transitions; the old failures remain beside their repriced densities.",
       "text": "| article A span | n | axial-only tube | film margin @ SF 1.5 | ultimate pressure | film-sized tube | repriced kg/m³ | |---|---|---|---|---|---|---| | 1.0 m | 2 | 7.5 × 0.30 mm | 0.40 | 0.60 atm | 9.5 × 0.50 mm | 12.51 | | 2.0 m | 2 | 15.5 × 0.50 mm | 0.36 | 0.54 atm | 19.0 × 1.00 mm | 12.51 | | 4.0 m | 2 | 30.5 × 1.00 mm | 0.35 | 0.53 atm | 38.0 × 2.00 mm | 12.51 | | 3.0 m | 4 | 11.5 × 0.40 mm | 0.38 | 0.56 atm | 13.0 × 1.00 mm | 11.09 | | 6.0 m | 4 | 23.0 × 0.75 mm | 0.36 | 0.53 atm | 25.5 × 2.00 mm | 10.76 |",
@@ -374,7 +322,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "91f7e6710734dd23",
-      "line": 242,
+      "line": 266,
       "class": "other-quantity",
       "reason": "This paragraph explains purchased strut counts and the mesh-based joint allowance in article A; it makes no lift-to-mass or closure claim.",
       "text": "The mass ledger now states one object consistently: standalone article A. The affine crush demand retains the periodic lattice's `96 n³` measure, while purchased tube mass uses all physical struts reported by `kelvin_lattice_counts` (948 at n = 2; 6,840 at n = 4). Joint mass starts from the corrected measured 0.715 kg n=1 set and remains an OD-cubed estimate. Film mass is re-priced at the actual even-n triangular/square panel spans."
@@ -382,7 +330,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "da9d85afd580eae9",
-      "line": 267,
+      "line": 291,
       "class": "other-quantity",
       "reason": "These are proposed joint processes and candidate material densities; no combined cell density or float result is claimed.",
       "text": "- **Shell and vent them.** They are solid today for a stated reason — *\"sparse infill is a virtual leak\"* — but that argument is about trapped volume, and a shell **vented to the vacuum** has no trapped volume. This may be most of the win for very little work. Settle the leak question first, in writing. - **Topology-optimise.** A hub transferring axial loads between tube ends is a classic case; the SDF generator already produces the field, so the optimiser has somewhere to live. - **Stop printing them.** A mitred, bonded tube-to-tube joint has no hub at all. Bond area and alignment jigging become the problem instead — cost them honestly. - **Change the material.** PAHT-CF is 1,060 kg/m³. Continuous-fibre print (CFF, 1,400) is denser but far stronger, so less of it; the trade needs computing, not guessing. - **Fewer arms.** Valence drives hub volume superlinearly. This couples to R1 — check whether n = 2 concentrates or spreads the arm count before assuming either."
@@ -390,7 +338,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "c2db8d5597d11aeb",
-      "line": 280,
+      "line": 304,
       "class": "other-quantity",
       "reason": "Joint share, joint mass and tube mass describe component accounting, distinguishing intermediate bills from the current mesh and saw-table quantities.",
       "text": "**Target to aim at:** the model's own design point allows joints at **15% of lattice mass**. The published **19.5%** was 0.465 kg of joints divided by 2.390 kg of tube. The current computed article is **36.7%**: 0.715 kg of mesh-integrated joints divided by 1.948 kg of saw-table tube (`stock_build()`). The intermediate **29.9%** used the corrected joint mass but the old tube bill. The change is geometry and billing, not a physical weighing; the 15% allowance has not been demonstrated. The even-n valence-specific joint has not yet been generated, so the OD-cubed R1 price is an estimate rather than a measured fraction."
@@ -398,7 +346,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "62be8d15992cea91",
-      "line": 328,
+      "line": 352,
       "class": "history",
       "reason": "The dated material-swap comparison precedes the joint and cut-list corrections; it is the original trade study, not a new computed article.",
       "text": "- **octet struts** fail in Euler and local buckling → want **E/ρ**. M60J is 2.6× T700 on E. - **boundary members** (while they exist, i.e. odd n) fail in **bending** → want **σ/ρ**. M60J is *worse* here: 2,290 MPa against T700's 2,500, at higher density. A naive swap to M60J makes the current article **heavier** — verified, 21.5 kg/m³ against 16.2.",
@@ -407,7 +355,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "7e0ebac870f93487",
-      "line": 333,
+      "line": 357,
       "class": "history",
       "reason": "The dated coefficient correction preserves the old and replacement lattice/hierarchy figures and withdraws the old combined-route inference.",
       "text": "The model's own axial-only design-point lattice in M60J is **1.115 kg/m³ — OVER the wall on its own** since the classical 0.605 local-buckling coefficient landed (2026-08-12, audit O1; the floor order measured it first: the old 0.943 claim was computed with the coefficient missing, crediting walls with 1.65× their stated capacity). With film and nodes the level-1 closed form is 1.306 kg/m³, and the level-2 hierarchy that clears the wall does so at 1.78×, not 2.13×. R1 separately shows that a face member's transverse film load can govern section modulus. R4 must therefore be re-priced against bending strength before combining any bound with R1; the old claim that their tube lines could simply be added is withdrawn, and so is \"under the wall on its own\".",
@@ -416,14 +364,14 @@
     {
       "file": "docs/FLOAT.md",
       "key": "d4ae4ccdbb8c30e0",
-      "line": 419,
+      "line": 454,
       "class": "conditional",
       "reason": "Retargeting is an optional handling and barrier proposal whose own words deny a route to floating."
     },
     {
       "file": "docs/FLOAT.md",
       "key": "6146b3d65515de8a",
-      "line": 429,
+      "line": 464,
       "class": "history",
       "reason": "Appendix A retains the original one-metre retargeting geometry and loads, as introduced by its dated brief; this is not a built article.",
       "text": "| | 0.7085 m | 1.000 m | |---|---|---| | square face to square face | 709 mm | **1000 mm** | | hexagon face to hexagon face (`S·√3/2`) | 614 mm | 866 mm | | corner to corner | 793 mm | 1118 mm | | edge / long member | 250.5 mm | **353.6 mm** | | short member (`a/√2`) | 177.1 mm | **250.0 mm** | | enclosed | 178 L | **500 L** | | surface area | 1.681 m² | 3.348 m² | | load on one hexagon | 1.68 tf | 3.36 tf | | load on the whole surface | 17.4 tf | 34.6 tf | | cells per m³ of ship (BCC, 2 per S³) | 5.61 | 2.00 |",
@@ -432,7 +380,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "9325aca8a3922752",
-      "line": 456,
+      "line": 491,
       "class": "method",
       "reason": "The table derives geometric scaling exponents for load, stress and Euler margin; its numbers are algebraic context.",
       "context": [
@@ -444,7 +392,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "ccb0730867c2a5cd",
-      "line": 471,
+      "line": 506,
       "class": "history",
       "reason": "This dated span-study explanation retains the old and corrected mass multiples and attributes their change to the frame and saw-table corrections.",
       "text": "**And so is the mass budget.** Tube mass grows as `L³` alongside the volume, so the article's density at 0.709 m is its density at 1 m (**15.13 kg/m³ either way, on the saw-table bill**). A bigger cell of this architecture is not lighter per litre. It still does not float and this change will not make it float — the wall it must beat is 0.9569 kg/m³ and the article is over it by the same factor at every size — 16.9× when this section was computed, 15.8× after the sunken frame and the P14 saw-table billing (see the correction at the head of this document); the invariance is the point, not the multiplier.",
@@ -453,7 +401,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "120124f5ae1074d3",
-      "line": 498,
+      "line": 533,
       "class": "bound",
       "reason": "The scale-study introduction names both ISA density comparisons and explicitly limits the four results to study scenarios.",
       "text": "**Current run of `python3 tools/scale_study.py`.** The joint correction raises the four totals; it does not alter their selected tube sections. These are study scenarios, not tested articles. Air is 1.2250 kg/m³ at sea level and 0.9569 kg/m³ at 2,500 m; all four miss both. The sizing basis and factors are in the [ledger's one-metre rows](FLOAT-LEDGER.md#one-metre-study--catalogue-sweep).",
@@ -476,7 +424,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "b2f9cc620c8f8dd1",
-      "line": 504,
+      "line": 539,
       "class": "bound",
       "reason": "Each scale row binds its density and component bill; the selected tube strings are also checked. Spans, margin targets and tube identifiers label the four scenarios.",
       "text": "| span | target | main | rim | tube | joints | film | total | kg/m³ | |---|---|---|---|---|---|---|---|---| | 1.000 | PARITY with today | 16x14 | 24x22 | 5.71 kg | 2.93 kg | 79 g | **8.72 kg** | 17.43 | | 1.000 | +30% on every margin | 18x16 | 26x24 | 6.40 kg | 4.17 kg | 79 g | **10.65 kg** | 21.30 | | 0.980 | PARITY with today | 16x14 | 22x20 | 5.47 kg | 2.93 kg | 75 g | **8.47 kg** | 18.00 | | 0.980 | +30% on every margin | 18x16 | 25x23 | 6.21 kg | 4.17 kg | 75 g | **10.45 kg** | 22.22 |",
@@ -637,7 +585,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "d0078071ca5438c0",
-      "line": 513,
+      "line": 548,
       "class": "history",
       "reason": "The enclosing disclosure calls this the published old table; the superseded joint masses and totals remain as the correction record.",
       "text": "| span | target | main | rim | tube | joints | film | total | kg/m³ | |---|---|---|---|---|---|---|---|---| | 1.000 | parity with today | **16 × 14** | **24 × 22** | 5.71 kg | 1.90 kg | 79 g | **7.69 kg** | 15.38 | | 1.000 | +30% on every margin | 18 × 16 | 26 × 24 | 6.40 kg | 2.71 kg | 79 g | 9.19 kg | 18.38 | | 0.980 | parity with today | 16 × 14 | 22 × 20 | 5.47 kg | 1.90 kg | 75 g | 7.45 kg | 15.83 | | 0.980 | +30% on every margin | 18 × 16 | 25 × 23 | 6.21 kg | 2.71 kg | 75 g | 9.00 kg | 19.12 |",
@@ -646,7 +594,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "ddc1d3aa88bcafee",
-      "line": 527,
+      "line": 562,
       "class": "history",
       "reason": "This correction compares the earlier parity-table density and joint base with the replacement saw-cut and full-socket bill; both sides are retained.",
       "text": "**The old “stock tube beats geometric scaling” comparison no longer holds for the reported parity row.** The old table gave 15.38 kg/m³; the fresh tool gives 17.43 kg/m³, above the current article's 15.13 kg/m³. The joint estimate changed from a 0.465 kg base to 0.715 kg after the full-socket geometry correction; the current article also bills saw cuts instead of centre spans. At the one-metre parity point, 2.93 kg of joints is 33.6% of the 8.72 kg study total, replacing the old “25%” comparison.",
@@ -655,7 +603,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "1efbf9b5194018d7",
-      "line": 640,
+      "line": 675,
       "class": "history",
       "reason": "The original one-metre retargeting appendix records the predicted film areal-density change; no new procurement or float result is asserted here.",
       "text": "Also moving: the film's required areal density scales with the span, 16.6 → **23.6 g/m²** on the hexagons. Still an ordinary product, but it is a different order.",
@@ -664,7 +612,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "927a33094fc00c04",
-      "line": 672,
+      "line": 707,
       "class": "history",
       "reason": "This is the original appendix comparison of part counts and printed joint masses per volume, before the explicitly recorded joint correction.",
       "text": "| | 0.709 m | 1.000 m | |---|---|---| | cells | 5.61 | 2.00 | | printed joints | **287** | **102** | | tube cuts | 1214 | 432 | | printed mass | 2.61 kg | 3.81 kg | | grams per joint | 9.1 g | 37.3 g |",
@@ -673,7 +621,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "de78651b952e0ac4",
-      "line": 688,
+      "line": 723,
       "class": "history",
       "reason": "The dated span-retargeting appendix keeps its area-to-volume and permeation-budget calculation; these are not structural float ratios.",
       "text": "| span | m²/m³ | decade budget | |---|---|---| | 0.7085 | 9.4506 | 2.90 cm³/(m²·day) | | 0.980 | 6.8328 | 4.01 cm³/(m²·day) | | 1.000 | 6.6962 | **4.09 cm³/(m²·day)** |",
@@ -682,7 +630,7 @@
     {
       "file": "docs/FLOAT.md",
       "key": "7fb2e42c15068a45",
-      "line": 739,
+      "line": 774,
       "class": "history",
       "reason": "The original retargeted-node execution records its computed mesh masses and an extrapolated joint estimate, not a physical weighing.",
       "text": "**Node mass: 11.7 g → 49.8 g, a factor of 4.26** against the `(16/10)³ = 4.10` the cube law predicts. The law holds; use 4.26 for the estimate. 51 joints ≈ **1.98 kg**.",
@@ -762,16 +710,8 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "e0142dcb4b1c3218",
-      "line": 123,
-      "class": "deferred",
-      "reason": "One paragraph combines gas fractions, an assumed structural share, a generated hierarchy comparison and the mission rationale.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/PHYSICS.md",
       "key": "a3ec55b9312dca9d",
-      "line": 147,
+      "line": 155,
       "class": "deferred",
       "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-02 hand-figure correction that follows it in docs/PHYSICS.md is retained.",
       "owner": "energy-model"
@@ -779,7 +719,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "0ebc46a34b9431ff",
-      "line": 173,
+      "line": 181,
       "class": "history",
       "reason": "The dated correction explicitly labels the two breach densities as hand figures with no generator and points to their unresolved load and material basis.",
       "text": "Correction, 2026-10-02: 0.162 kg/m³ and 3.59 kg/m³ are hand figures with no generator. Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing.",
@@ -788,7 +728,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "9e8b27cfca4a70bc",
-      "line": 197,
+      "line": 205,
       "class": "other-quantity",
       "reason": "The table compares material modulus and density for a classical shell requirement; it is not a computed bill or float result for any project hull.",
       "text": "| Material | E (GPa) | ρ_m (kg/m³) | E/ρ_m² | fraction of requirement | |---|---:|---:|---:|---:| | aluminium 6061 | 70 | 2,700 | 9,602 | 0.02× | | silicon carbide | 410 | 3,210 | 39,790 | 0.08× | | carbon/epoxy, unidirectional | 150 | 1,600 | 58,594 | 0.12× | | boron carbide | 460 | 2,520 | 72,436 | 0.14× | | beryllium | 287 | 1,850 | 83,857 | 0.17× | | diamond | 1,050 | 3,510 | 85,227 | 0.17× |"
@@ -796,7 +736,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "f7d310e9a77f501d",
-      "line": 215,
+      "line": 223,
       "class": "deferred",
       "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
       "owner": "mixed-block"
@@ -804,7 +744,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "b9210dbcdec09981",
-      "line": 225,
+      "line": 233,
       "class": "conditional",
       "reason": "The areal-density ceiling is explicitly an assumed fleet budget, and the paragraph says it does not establish whether a shell can be built.",
       "text": "σ rises with size because dry mass scales as V while area scales as V^(2/3). The lift budget allows at most σ_max = ρ_work V / S_wet — 11.08, 23.66 and 51.12 kg/m² for the three classes — and the assumed values are 47.5% of that in every case, identically, because m_dry = m_pay = L/2.1051 by construction. So the shell, the machinery, the batteries and the rotors together are given a little under half of what buoyancy would permit. That is a statement about the lift budget only. It says nothing about whether such a shell can be built."
@@ -812,7 +752,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "e650efaae304632e",
-      "line": 233,
+      "line": 241,
       "class": "history",
       "reason": "This records the displacement-resize trade from the original spheroid study; docs/PHYSICS.md dates the later capsule correction separately, in the 2026-10-02 paragraph under its areal-density table.",
       "text": "**Fail-safe float-up made this harder, and that is the price of it.** Growing the hull 22% added 14% to the wetted area without adding anything to the dry allowance, so every square metre of shell now has to come in 13% lighter than it did. The requirement is a safety property and the areal density is the hardest unsolved problem in the project; buying the first with the second is a deliberate trade and it is stated rather than netted off.",
@@ -821,7 +761,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "451c1bbcffc340c7",
-      "line": 262,
+      "line": 270,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -829,7 +769,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "5ee2543ddd270d0b",
-      "line": 340,
+      "line": 348,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -843,7 +783,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "382335bf5ffcf978",
-      "line": 352,
+      "line": 360,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -868,7 +808,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "dd021e7abaca30e6",
-      "line": 272,
+      "line": 280,
       "class": "method",
       "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": [],
@@ -880,7 +820,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 138
+      "line": 146
     },
     {
       "file": "docs/PHYSICS.md",
@@ -888,7 +828,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 180
+      "line": 188
     },
     {
       "file": "docs/FLOAT.md",
@@ -905,7 +845,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "1e313d903b4a4f94",
-      "line": 398,
+      "line": 406,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -919,7 +859,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "6a45c9a3dd10599c",
-      "line": 404,
+      "line": 412,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -933,7 +873,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "0b5195293e15ccdd",
-      "line": 430,
+      "line": 438,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -969,7 +909,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "51a85d6713eb374a",
-      "line": 250,
+      "line": 258,
       "class": "generated",
       "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -979,6 +919,198 @@
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
       "verifier": "tools/check_energy_docs.py"
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "106bd1a458011c46",
+      "class": "bound",
+      "reason": "Current compressed-face strength and capacities are checked; explicitly former figures are retained as dated correction context.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/materials/T700_LAM/compressiveStrengthPa",
+          "shown": "1450",
+          "scale": 1e-06
+        },
+        {
+          "case": "subdivision-6.0-n-4",
+          "field": "mass",
+          "shown": "16.09"
+        },
+        {
+          "case": "subdivision-6.0-n-4",
+          "field": "extras.toolPrintedMassToTargetLift",
+          "shown": "16.81"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/governingCheck/failsAtAtm",
+          "shown": "1.65"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/filmEdgeLoads/rows/0/failsAtAtm",
+          "shown": "0.26"
+        }
+      ],
+      "context": [
+        "0.44",
+        "0.45",
+        "0.59",
+        "1.01",
+        "1.89",
+        "10.76",
+        "11.24",
+        "2.84",
+        "2290",
+        "2500",
+        "3.25"
+      ],
+      "line": 794
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "16496cbd222b6422",
+      "class": "bound",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoTarget",
+          "shown": "0.9569"
+        },
+        {
+          "source": "research/analysis/float-ledger.json",
+          "pointer": "/atmosphere/rhoSeaLevel",
+          "shown": "1.2250"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "extras.structureKgPerCubicMEnclosed",
+          "shown": "15.1"
+        },
+        {
+          "case": "bench-nominal",
+          "field": "at.target.massToLift",
+          "shown": "15.8"
+        },
+        {
+          "case": "subdivision-6.0-n-4",
+          "field": "mass",
+          "shown": "16.09"
+        },
+        {
+          "case": "subdivision-6.0-n-4",
+          "field": "extras.toolPrintedMassToTargetLift",
+          "shown": "16.81"
+        }
+      ],
+      "context": [
+        "2500",
+        "3"
+      ],
+      "line": 90
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "eaff6c0dc5b09ce8",
+      "class": "bound",
+      "reason": "Reviewed wording qualification: the existing compression-floor conclusion applies to the M60J ladder; all physical quantities and their numerical bindings are unchanged.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/designPoint/buildUp/lattice",
+          "shown": "1.115"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/1/totalKgPerM3",
+          "shown": "1.306"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/totalKgPerM3",
+          "shown": "1.1243"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassSeaLevel",
+          "shown": "1.090"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/hierarchy/ladder/2/liftToMassAt2500m",
+          "shown": "0.851"
+        }
+      ],
+      "context": [
+        "0.605",
+        "0.943",
+        "08",
+        "1",
+        "1.65",
+        "1.78",
+        "12",
+        "2",
+        "2026",
+        "2500"
+      ],
+      "line": 369
+    },
+    {
+      "file": "docs/FLOAT.md",
+      "key": "f6350a3b2e418384",
+      "class": "bound",
+      "reason": "The subdivision multiple is bound to the repriced generated scenario; the twofold joint saving remains a labelled prospective estimate.",
+      "bindings": [
+        {
+          "case": "subdivision-6.0-n-4",
+          "field": "extras.toolPrintedMassToTargetLift",
+          "shown": "16.81"
+        }
+      ],
+      "context": [
+        "2"
+      ],
+      "line": 180
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "cc6feee27b469071",
+      "class": "bound",
+      "bindings": [
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/gasTaxPct/hydrogen",
+          "shown": "7"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/gasTaxPct/helium",
+          "shown": "14"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/usefulFraction/vacuumLevel2StructurePct",
+          "shown": "117.5"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/structureToTieHydrogenKgPerM3",
+          "shown": "0.067"
+        },
+        {
+          "source": "research/analysis/helium.json",
+          "pointer": "/breakeven/minimumStructureOverHydrogenBreakEven",
+          "shown": "16.9"
+        }
+      ],
+      "context": [
+        "2",
+        "2500"
+      ],
+      "reason": "Current unbuilt structural share and hierarchy break-even comparison match generated helium figures; former figures are explicitly dated correction context.",
+      "line": 123
     }
   ]
 }

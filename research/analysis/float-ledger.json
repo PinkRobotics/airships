@@ -37,7 +37,7 @@
       "name": "knockdown on the classical local wall-buckling coefficient (K_LOCAL)",
       "value": 0.3,
       "status": "assumed",
-      "basis": "The model's comment names NASA SP-8007 and calls its own value mildly conservative for an isotropic wall. No page, figure or test establishes this numerical choice for the model's composite wall; treated here as assumed."
+      "basis": "NASA SP-8007 Rev 2, printed pp. 23–25, Eqs. 9–10, gives isotropic gamma 0.668 at the model's R/t 54.0. The assumed 0.30 is 0.449 of it. L/R 38.3 is beyond the experimentally correlated L/r ≤ 5 range. The monograph warns that the classical load becomes unconservative at large L/r and thin struts need column and shell-column interaction checks; the model sizes the modes to coincide but does not evaluate their interaction. No test establishes this numerical choice for its orthotropic wall; it remains assumed."
     },
     "classical": {
       "name": "classical thin-cylinder buckling coefficient (K_CLASSICAL)",
@@ -16966,7 +16966,7 @@
           "floatsToday": false,
           "extras": {
             "publishedTargetLiftToMass": 0.587,
-            "materialSource": "Toray M60JB FIBRE is 588 GPa / 3.82 GPa / 1930 kg/m3. A laminate at 60% fibre volume is roughly 354 GPa / 2.29 GPa / 1658. Jenett et al. quote the fibre figures as though they were composite figures and this project inherited that; the laminate numbers are what a part is actually made of."
+            "materialSource": "Toray M60J composite tensile and compressive strengths, p. 1; typical UD coupon values, not allowables for the undrawn hierarchical wall. The retained 354 GPa modulus and 1658 kg/m3 density are the prior mixture estimates."
           },
           "filmSizing": {
             "safetyFactor": 4.0,
@@ -17041,7 +17041,7 @@
           "floatsToday": false,
           "extras": {
             "publishedTargetLiftToMass": 0.354,
-            "materialSource": "Standard-modulus aerospace prepreg, laminate values."
+            "materialSource": "Toray T700S typical UD composite strengths, p. 1, used as the named T700 laminate proxy. Modulus and density retain the prior representative inputs; these are not coupon allowables for the built tubes or hull strength worlds."
           },
           "filmSizing": {
             "safetyFactor": 4.0,
@@ -17116,7 +17116,7 @@
           "floatsToday": false,
           "extras": {
             "publishedTargetLiftToMass": 0.246,
-            "materialSource": "Representative published values. NOT vendor-verified in this session."
+            "materialSource": "Markforged Rev. 5.0 typical UD plaque strengths, p. 1; layout and process dependent, not an allowable for a hierarchical strut. The prior representative 1400 kg/m3 density is retained; it is not the datasheet's plaque density."
           },
           "filmSizing": {
             "safetyFactor": 4.0,
@@ -17571,7 +17571,7 @@
           "label": "M60J_LAM, hierarchy level 2",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 0.5383,
+          "mass": 1.1243,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -17612,19 +17612,19 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 2.276,
-              "massToLift": 0.44,
-              "margin": 0.6867,
+              "liftToMass": 1.09,
+              "massToLift": 0.92,
+              "margin": 0.1007,
               "floats": true
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 1.778,
-              "massToLift": 0.56,
-              "margin": 0.4186,
-              "floats": true
+              "liftToMass": 0.851,
+              "massToLift": 1.17,
+              "margin": -0.1674,
+              "floats": false
             }
           },
           "readsOneOrMore": true,
@@ -17647,7 +17647,7 @@
           "label": "M60J_LAM, hierarchy level 3",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 0.4034,
+          "mass": 1.1243,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -17688,19 +17688,19 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 3.037,
-              "massToLift": 0.33,
-              "margin": 0.8216,
+              "liftToMass": 1.09,
+              "massToLift": 0.92,
+              "margin": 0.1007,
               "floats": true
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 2.372,
-              "massToLift": 0.42,
-              "margin": 0.5535,
-              "floats": true
+              "liftToMass": 0.851,
+              "massToLift": 1.17,
+              "margin": -0.1674,
+              "floats": false
             }
           },
           "readsOneOrMore": true,
@@ -17723,7 +17723,7 @@
           "label": "M60J_LAM, hierarchy level 4",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 0.4034,
+          "mass": 1.1243,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -17764,19 +17764,19 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 3.037,
-              "massToLift": 0.33,
-              "margin": 0.8216,
+              "liftToMass": 1.09,
+              "massToLift": 0.92,
+              "margin": 0.1007,
               "floats": true
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 2.372,
-              "massToLift": 0.42,
-              "margin": 0.5535,
-              "floats": true
+              "liftToMass": 0.851,
+              "massToLift": 1.17,
+              "margin": -0.1674,
+              "floats": false
             }
           },
           "readsOneOrMore": true,
@@ -18101,7 +18101,7 @@
           "label": "T700_LAM, hierarchy level 4",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 0.4687,
+          "mass": 0.6024,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -18142,18 +18142,18 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 2.614,
-              "massToLift": 0.38,
-              "margin": 0.7563,
+              "liftToMass": 2.034,
+              "massToLift": 0.49,
+              "margin": 0.6226,
               "floats": true
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 2.042,
-              "massToLift": 0.49,
-              "margin": 0.4882,
+              "liftToMass": 1.588,
+              "massToLift": 0.63,
+              "margin": 0.3545,
               "floats": true
             }
           },
@@ -18327,7 +18327,7 @@
           "label": "CFF, hierarchy level 2",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 1.6685,
+          "mass": 1.7716,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -18368,18 +18368,18 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.734,
-              "massToLift": 1.36,
-              "margin": -0.4435,
+              "liftToMass": 0.691,
+              "massToLift": 1.45,
+              "margin": -0.5466,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.573,
-              "massToLift": 1.74,
-              "margin": -0.7116,
+              "liftToMass": 0.54,
+              "massToLift": 1.85,
+              "margin": -0.8147,
               "floats": false
             }
           },
@@ -18402,7 +18402,7 @@
           "label": "CFF, hierarchy level 3",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 1.063,
+          "mass": 1.7716,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -18443,24 +18443,23 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 1.152,
-              "massToLift": 0.87,
-              "margin": 0.162,
-              "floats": true
+              "liftToMass": 0.691,
+              "massToLift": 1.45,
+              "margin": -0.5466,
+              "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.9,
-              "massToLift": 1.11,
-              "margin": -0.1061,
+              "liftToMass": 0.54,
+              "massToLift": 1.85,
+              "margin": -0.8147,
               "floats": false
             }
           },
-          "readsOneOrMore": true,
+          "readsOneOrMore": false,
           "floatsToday": false,
-          "notAFloatingDesignBecause": "This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open.",
           "extras": {
             "filmConvention": "outer envelope only",
             "exponent": 1.25
@@ -18478,7 +18477,7 @@
           "label": "CFF, hierarchy level 4",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 0.9414,
+          "mass": 1.7716,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -18519,24 +18518,23 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 1.301,
-              "massToLift": 0.77,
-              "margin": 0.2836,
-              "floats": true
+              "liftToMass": 0.691,
+              "massToLift": 1.45,
+              "margin": -0.5466,
+              "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 1.016,
-              "massToLift": 0.98,
-              "margin": 0.0155,
-              "floats": true
+              "liftToMass": 0.54,
+              "massToLift": 1.85,
+              "margin": -0.8147,
+              "floats": false
             }
           },
-          "readsOneOrMore": true,
+          "readsOneOrMore": false,
           "floatsToday": false,
-          "notAFloatingDesignBecause": "This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open.",
           "extras": {
             "filmConvention": "outer envelope only",
             "exponent": 1.2
@@ -19000,7 +18998,7 @@
           "label": "continuous fibre, printed, finite article at unit subdivision",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 2.269,
+          "mass": 3.708,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19041,18 +19039,18 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.54,
-              "massToLift": 1.85,
-              "margin": -1.044,
+              "liftToMass": 0.33,
+              "massToLift": 3.03,
+              "margin": -2.483,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.422,
-              "massToLift": 2.37,
-              "margin": -1.3121,
+              "liftToMass": 0.258,
+              "massToLift": 3.88,
+              "margin": -2.7511,
               "floats": false
             }
           },
@@ -19142,7 +19140,7 @@
           "label": "M60J-class, wound, finite article at unit subdivision",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 1.203,
+          "mass": 2.393,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19183,24 +19181,23 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 1.018,
-              "massToLift": 0.98,
-              "margin": 0.022,
-              "floats": true
+              "liftToMass": 0.512,
+              "massToLift": 1.95,
+              "margin": -1.168,
+              "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.795,
-              "massToLift": 1.26,
-              "margin": -0.2461,
+              "liftToMass": 0.4,
+              "massToLift": 2.5,
+              "margin": -1.4361,
               "floats": false
             }
           },
-          "readsOneOrMore": true,
+          "readsOneOrMore": false,
           "floatsToday": false,
-          "notAFloatingDesignBecause": "This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open.",
           "filmSizing": {
             "safetyFactor": 4.0,
             "efficiency": 0.5,
@@ -19221,7 +19218,7 @@
           "label": "Span 1.0 m, subdivision 2",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 12.51,
+          "mass": 18.94,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19257,27 +19254,27 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.098,
-              "massToLift": 10.21,
-              "margin": -11.285,
+              "liftToMass": 0.065,
+              "massToLift": 15.46,
+              "margin": -17.715,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.076,
-              "massToLift": 13.07,
-              "margin": -11.5531,
+              "liftToMass": 0.051,
+              "massToLift": 19.79,
+              "margin": -17.9831,
               "floats": false
             }
           },
           "readsOneOrMore": false,
           "floatsToday": false,
           "extras": {
-            "toolPrintedMassToTargetLift": 13.07,
-            "tubeKgPerCubicM": 7.58,
-            "jointKgPerCubicM": 4.83,
+            "toolPrintedMassToTargetLift": 19.79,
+            "tubeKgPerCubicM": 12.32,
+            "jointKgPerCubicM": 6.52,
             "filmKgPerCubicM": 0.09,
             "filmMarginAtFactor": 1.03,
             "governor": "hexagon-square edge"
@@ -19295,7 +19292,7 @@
           "label": "Span 2.0 m, subdivision 2",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 12.51,
+          "mass": 18.94,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19331,27 +19328,27 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.098,
-              "massToLift": 10.21,
-              "margin": -11.285,
+              "liftToMass": 0.065,
+              "massToLift": 15.46,
+              "margin": -17.715,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.076,
-              "massToLift": 13.07,
-              "margin": -11.5531,
+              "liftToMass": 0.051,
+              "massToLift": 19.79,
+              "margin": -17.9831,
               "floats": false
             }
           },
           "readsOneOrMore": false,
           "floatsToday": false,
           "extras": {
-            "toolPrintedMassToTargetLift": 13.07,
-            "tubeKgPerCubicM": 7.58,
-            "jointKgPerCubicM": 4.83,
+            "toolPrintedMassToTargetLift": 19.79,
+            "tubeKgPerCubicM": 12.32,
+            "jointKgPerCubicM": 6.52,
             "filmKgPerCubicM": 0.09,
             "filmMarginAtFactor": 1.03,
             "governor": "hexagon-square edge"
@@ -19369,7 +19366,7 @@
           "label": "Span 4.0 m, subdivision 2",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 12.51,
+          "mass": 19.93,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19405,29 +19402,29 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.098,
-              "massToLift": 10.21,
-              "margin": -11.285,
+              "liftToMass": 0.061,
+              "massToLift": 16.27,
+              "margin": -18.705,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.076,
-              "massToLift": 13.07,
-              "margin": -11.5531,
+              "liftToMass": 0.048,
+              "massToLift": 20.83,
+              "margin": -18.9731,
               "floats": false
             }
           },
           "readsOneOrMore": false,
           "floatsToday": false,
           "extras": {
-            "toolPrintedMassToTargetLift": 13.07,
-            "tubeKgPerCubicM": 7.58,
-            "jointKgPerCubicM": 4.83,
+            "toolPrintedMassToTargetLift": 20.83,
+            "tubeKgPerCubicM": 9.79,
+            "jointKgPerCubicM": 10.05,
             "filmKgPerCubicM": 0.09,
-            "filmMarginAtFactor": 1.03,
+            "filmMarginAtFactor": 1.0,
             "governor": "hexagon-square edge"
           },
           "filmSizing": {
@@ -19443,7 +19440,7 @@
           "label": "Span 3.0 m, subdivision 4",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 11.09,
+          "mass": 16.53,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19479,29 +19476,29 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.11,
-              "massToLift": 9.05,
-              "margin": -9.865,
+              "liftToMass": 0.074,
+              "massToLift": 13.49,
+              "margin": -15.305,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.086,
-              "massToLift": 11.59,
-              "margin": -10.1331,
+              "liftToMass": 0.058,
+              "massToLift": 17.28,
+              "margin": -15.5731,
               "floats": false
             }
           },
           "readsOneOrMore": false,
           "floatsToday": false,
           "extras": {
-            "toolPrintedMassToTargetLift": 11.59,
-            "tubeKgPerCubicM": 8.1,
-            "jointKgPerCubicM": 2.94,
+            "toolPrintedMassToTargetLift": 17.27,
+            "tubeKgPerCubicM": 10.47,
+            "jointKgPerCubicM": 6.01,
             "filmKgPerCubicM": 0.05,
-            "filmMarginAtFactor": 1.06,
+            "filmMarginAtFactor": 1.04,
             "governor": "hexagon-square edge"
           },
           "filmSizing": {
@@ -19517,7 +19514,7 @@
           "label": "Span 6.0 m, subdivision 4",
           "quantity": "lift ÷ mass, mass ÷ lift, and the margin lift − mass",
           "massUnit": "kg/m³",
-          "mass": 10.76,
+          "mass": 16.09,
           "safetyFactor": {
             "value": 1.5,
             "kind": "the model's lattice factor, shown beside the declared one"
@@ -19553,29 +19550,29 @@
               "altitudeM": 0,
               "rhoAirKgPerCubicM": 1.225,
               "lift": 1.225,
-              "liftToMass": 0.114,
-              "massToLift": 8.78,
-              "margin": -9.535,
+              "liftToMass": 0.076,
+              "massToLift": 13.13,
+              "margin": -14.865,
               "floats": false
             },
             "target": {
               "altitudeM": 2500,
               "rhoAirKgPerCubicM": 0.9569,
               "lift": 0.9569,
-              "liftToMass": 0.089,
-              "massToLift": 11.25,
-              "margin": -9.8031,
+              "liftToMass": 0.059,
+              "massToLift": 16.82,
+              "margin": -15.1331,
               "floats": false
             }
           },
           "readsOneOrMore": false,
           "floatsToday": false,
           "extras": {
-            "toolPrintedMassToTargetLift": 11.24,
-            "tubeKgPerCubicM": 7.93,
-            "jointKgPerCubicM": 2.77,
+            "toolPrintedMassToTargetLift": 16.81,
+            "tubeKgPerCubicM": 10.3,
+            "jointKgPerCubicM": 5.74,
             "filmKgPerCubicM": 0.05,
-            "filmMarginAtFactor": 1.01,
+            "filmMarginAtFactor": 1.0,
             "governor": "hexagon-square edge"
           },
           "filmSizing": {
@@ -21046,8 +21043,8 @@
   "sourceArtifacts": [
     {
       "path": "research/analysis/vacuum-cell.json",
-      "freshSha": "ba0e5d646029c54ce8899eef685ce5a4fe118f119878d972158f67f9a2c5ff1b",
-      "committedSha": "ba0e5d646029c54ce8899eef685ce5a4fe118f119878d972158f67f9a2c5ff1b",
+      "freshSha": "c9fd3359eeb8909bb93a164b040a8deab99d3b826420a405d70923a197e5e6fa",
+      "committedSha": "c9fd3359eeb8909bb93a164b040a8deab99d3b826420a405d70923a197e5e6fa",
       "committedEqualsFresh": true,
       "changedNumbers": []
     },
@@ -21060,8 +21057,8 @@
     },
     {
       "path": "research/analysis/mass-budget.json",
-      "freshSha": "b3ff38d723f6c0b64c591d63f903c30781e6fef494d011e18e9217b54ae8bf5c",
-      "committedSha": "b3ff38d723f6c0b64c591d63f903c30781e6fef494d011e18e9217b54ae8bf5c",
+      "freshSha": "644bff7a29b501cccfeba0314d4dd4a269780f1b52549b0d1c5db945eeecdc6d",
+      "committedSha": "644bff7a29b501cccfeba0314d4dd4a269780f1b52549b0d1c5db945eeecdc6d",
       "committedEqualsFresh": true,
       "changedNumbers": []
     }
@@ -21137,9 +21134,6 @@
     "hierarchy-T700_LAM-2",
     "hierarchy-T700_LAM-3",
     "hierarchy-T700_LAM-4",
-    "hierarchy-CFF-3",
-    "hierarchy-CFF-4",
-    "weightless-M60J_LAM",
     "fleet-P100-empty",
     "fleet-P100-loaded",
     "fleet-P1000-empty",

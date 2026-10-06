@@ -36,7 +36,7 @@ The structural SF column is separate from film sizing. Modern film-bearing model
 | general-instability knockdown γ on the ring, web and spoke capacity (Bryant's form, minimised over the buckling wave number) | 0.30 | assumed | The record basis sizes the hull with this knockdown. No test and no citation in this repository stands behind the value. |
 | imperfection knockdown priced as a stability reserve (K_SHELL) | 0.20 | assumed | On the record basis the ledger also buys the mass that would hold the hull at this lower knockdown — its stability-reserve line. No source is cited. |
 | general-instability knockdown γ, the frame-practice world | 0.65 | assumed | Marked [TO VERIFY — SHIP-2 knockdown tests] in the model. A practice is named (ring-framed pressure hulls with out-of-round control); no source is cited and no test exists. Reported beside the record, never sized at, and no reserve is priced on this basis. |
-| knockdown on the classical local wall-buckling coefficient (K_LOCAL) | 0.30 | assumed | The model's comment names NASA SP-8007 and calls its own value mildly conservative for an isotropic wall. No page, figure or test establishes this numerical choice for the model's composite wall; treated here as assumed. |
+| knockdown on the classical local wall-buckling coefficient (K_LOCAL) | 0.30 | assumed | NASA SP-8007 Rev 2, printed pp. 23–25, Eqs. 9–10, gives isotropic gamma 0.668 at the model's R/t 54.0. The assumed 0.30 is 0.449 of it. L/R 38.3 is beyond the experimentally correlated L/r ≤ 5 range. The monograph warns that the classical load becomes unconservative at large L/r and thin struts need column and shell-column interaction checks; the model sizes the modes to coincide but does not evaluate their interaction. No test establishes this numerical choice for its orthotropic wall; it remains assumed. |
 | classical thin-cylinder buckling coefficient (K_CLASSICAL) | 0.605 | literature | Textbook theory — part of the formula, not a knockdown. Until the correction recorded in the history, four closed-form routes left it out. |
 | orthotropic-wall penalty on the laminate modulus (ORTHO_PENALTY) | 0.5699 | assumed | Derived in the model for a cross-ply tube wall at its best fibre split. No source is cited and no tube has been tested. |
 | joint mass efficiency η: joints billed as member mass × (one ÷ η − one) | 0.85 | assumed | Marked [TO VERIFY] in the scoping tool. No joint of this hull has been designed. |
@@ -73,7 +73,7 @@ are *unreviewed or [TO VERIFY]*.
 | imperfection knockdown priced as a stability reserve (K_SHELL) | 0.20 | assumed | On the record basis the ledger also buys the mass that would hold the hull at this lower knockdown — its stability-reserve line. No source is cited. |
 | general-instability knockdown γ, the frame-practice world | 0.65 | assumed | Marked [TO VERIFY — SHIP-2 knockdown tests] in the model. A practice is named (ring-framed pressure hulls with out-of-round control); no source is cited and no test exists. Reported beside the record, never sized at, and no reserve is priced on this basis. |
 | classical thin-cylinder buckling coefficient (K_CLASSICAL) | 0.605 | literature | Textbook theory — part of the formula, not a knockdown. Until the correction recorded in the history, four closed-form routes left it out. |
-| knockdown on the classical local wall-buckling coefficient (K_LOCAL) | 0.30 | assumed | The model's comment names NASA SP-8007 and calls its own value mildly conservative for an isotropic wall. No page, figure or test establishes this numerical choice for the model's composite wall; treated here as assumed. |
+| knockdown on the classical local wall-buckling coefficient (K_LOCAL) | 0.30 | assumed | NASA SP-8007 Rev 2, printed pp. 23–25, Eqs. 9–10, gives isotropic gamma 0.668 at the model's R/t 54.0. The assumed 0.30 is 0.449 of it. L/R 38.3 is beyond the experimentally correlated L/r ≤ 5 range. The monograph warns that the classical load becomes unconservative at large L/r and thin struts need column and shell-column interaction checks; the model sizes the modes to coincide but does not evaluate their interaction. No test establishes this numerical choice for its orthotropic wall; it remains assumed. |
 | orthotropic-wall penalty on the laminate modulus (ORTHO_PENALTY) | 0.5699 | assumed | Derived in the model for a cross-ply tube wall at its best fibre split. No source is cited and no tube has been tested. |
 | joint mass efficiency η: joints billed as member mass × (one ÷ η − one) | 0.85 | assumed | Marked [TO VERIFY] in the scoping tool. No joint of this hull has been designed. |
 
@@ -422,28 +422,28 @@ A material’s target-altitude margin may share digits with an unrelated ship’
 | Silica aerogel, monolithic | 126.1931 kg/m³ | 1.50 | 0.010 | −124.9681 | 0.008 | −125.2362 | unreviewed or [TO VERIFY] |
 | M60J_LAM, hierarchy level 0 | 7.9859 kg/m³ | 1.50 | 0.153 | −6.7609 | 0.120 | −7.0290 | unreviewed or [TO VERIFY] |
 | M60J_LAM, hierarchy level 1 | 1.3060 kg/m³ | 1.50 | 0.938 | −0.0810 | 0.733 | −0.3491 | unreviewed or [TO VERIFY] |
-| M60J_LAM, hierarchy level 2 | 0.5383 kg/m³ | 1.50 | 2.276 | +0.6867 | 1.778 | +0.4186 | unreviewed or [TO VERIFY] |
-| M60J_LAM, hierarchy level 3 | 0.4034 kg/m³ | 1.50 | 3.037 | +0.8216 | 2.372 | +0.5535 | unreviewed or [TO VERIFY] |
-| M60J_LAM, hierarchy level 4 | 0.4034 kg/m³ | 1.50 | 3.037 | +0.8216 | 2.372 | +0.5535 | unreviewed or [TO VERIFY] |
+| M60J_LAM, hierarchy level 2 | 1.1243 kg/m³ | 1.50 | 1.090 | +0.1007 | 0.851 | −0.1674 | unreviewed or [TO VERIFY] |
+| M60J_LAM, hierarchy level 3 | 1.1243 kg/m³ | 1.50 | 1.090 | +0.1007 | 0.851 | −0.1674 | unreviewed or [TO VERIFY] |
+| M60J_LAM, hierarchy level 4 | 1.1243 kg/m³ | 1.50 | 1.090 | +0.1007 | 0.851 | −0.1674 | unreviewed or [TO VERIFY] |
 | T700_LAM, hierarchy level 0 | 12.4661 kg/m³ | 1.50 | 0.098 | −11.2411 | 0.077 | −11.5092 | unreviewed or [TO VERIFY] |
 | T700_LAM, hierarchy level 1 | 2.3766 kg/m³ | 1.50 | 0.515 | −1.1516 | 0.403 | −1.4197 | unreviewed or [TO VERIFY] |
 | T700_LAM, hierarchy level 2 | 1.0469 kg/m³ | 1.50 | 1.170 | +0.1781 | 0.914 | −0.0900 | unreviewed or [TO VERIFY] |
 | T700_LAM, hierarchy level 3 | 0.6446 kg/m³ | 1.50 | 1.900 | +0.5804 | 1.484 | +0.3123 | unreviewed or [TO VERIFY] |
-| T700_LAM, hierarchy level 4 | 0.4687 kg/m³ | 1.50 | 2.614 | +0.7563 | 2.042 | +0.4882 | unreviewed or [TO VERIFY] |
+| T700_LAM, hierarchy level 4 | 0.6024 kg/m³ | 1.50 | 2.034 | +0.6226 | 1.588 | +0.3545 | unreviewed or [TO VERIFY] |
 | CFF, hierarchy level 0 | 16.3543 kg/m³ | 1.50 | 0.075 | −15.1293 | 0.059 | −15.3974 | unreviewed or [TO VERIFY] |
 | CFF, hierarchy level 1 | 3.5588 kg/m³ | 1.50 | 0.344 | −2.3338 | 0.269 | −2.6019 | unreviewed or [TO VERIFY] |
-| CFF, hierarchy level 2 | 1.6685 kg/m³ | 1.50 | 0.734 | −0.4435 | 0.573 | −0.7116 | unreviewed or [TO VERIFY] |
-| CFF, hierarchy level 3 | 1.0630 kg/m³ | 1.50 | 1.152 | +0.1620 | 0.900 | −0.1061 | unreviewed or [TO VERIFY] |
-| CFF, hierarchy level 4 | 0.9414 kg/m³ | 1.50 | 1.301 | +0.2836 | 1.016 | +0.0155 | unreviewed or [TO VERIFY] |
+| CFF, hierarchy level 2 | 1.7716 kg/m³ | 1.50 | 0.691 | −0.5466 | 0.540 | −0.8147 | unreviewed or [TO VERIFY] |
+| CFF, hierarchy level 3 | 1.7716 kg/m³ | 1.50 | 0.691 | −0.5466 | 0.540 | −0.8147 | unreviewed or [TO VERIFY] |
+| CFF, hierarchy level 4 | 1.7716 kg/m³ | 1.50 | 0.691 | −0.5466 | 0.540 | −0.8147 | unreviewed or [TO VERIFY] |
 | PAHT_Z, hierarchy level 0 | 64.8909 kg/m³ | 1.50 | 0.019 | −63.6659 | 0.015 | −63.9340 | unreviewed or [TO VERIFY] |
 | PAHT_Z, hierarchy level 1 | 24.4224 kg/m³ | 1.50 | 0.050 | −23.1974 | 0.039 | −23.4655 | unreviewed or [TO VERIFY] |
 | PAHT_Z, hierarchy level 2 | 14.9873 kg/m³ | 1.50 | 0.082 | −13.7623 | 0.064 | −14.0304 | unreviewed or [TO VERIFY] |
 | PAHT_Z, hierarchy level 3 | 11.8497 kg/m³ | 1.50 | 0.103 | −10.6247 | 0.081 | −10.8928 | unreviewed or [TO VERIFY] |
 | PAHT_Z, hierarchy level 4 | 11.8497 kg/m³ | 1.50 | 0.103 | −10.6247 | 0.081 | −10.8928 | unreviewed or [TO VERIFY] |
 | all-printed nylon, finite article at unit subdivision | 24.1690 kg/m³ | 1.50 | 0.051 | −22.9440 | 0.040 | −23.2121 | unreviewed or [TO VERIFY] |
-| continuous fibre, printed, finite article at unit subdivision | 2.2690 kg/m³ | 1.50 | 0.540 | −1.0440 | 0.422 | −1.3121 | unreviewed or [TO VERIFY] |
+| continuous fibre, printed, finite article at unit subdivision | 3.7080 kg/m³ | 1.50 | 0.330 | −2.4830 | 0.258 | −2.7511 | unreviewed or [TO VERIFY] |
 | T700, wound, finite article at unit subdivision | 2.2360 kg/m³ | 1.50 | 0.548 | −1.0110 | 0.428 | −1.2791 | unreviewed or [TO VERIFY] |
-| M60J-class, wound, finite article at unit subdivision | 1.2030 kg/m³ | 1.50 | 1.018 | +0.0220 | 0.795 | −0.2461 | unreviewed or [TO VERIFY] |
+| M60J-class, wound, finite article at unit subdivision | 2.3930 kg/m³ | 1.50 | 0.512 | −1.1680 | 0.400 | −1.4361 | unreviewed or [TO VERIFY] |
 
 Repository structural-model rows are sized for full vacuum against sea-level pressure (101,325 Pa); altitude changes lift only. Literature inputs and fleet allowances are not resized structures.
 
@@ -466,11 +466,11 @@ Not counted: bond adhesive; seam tape; aluminium barrier coating; fasteners; jig
 
 | Object and basis | Mass (or density) | SF | Lift ÷ mass at sea level | Margin at sea level (mass unit) | Lift ÷ mass at 2,500 m | Margin at 2,500 m (mass unit) | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Span 1.0 m, subdivision 2 | 12.5100 kg/m³ | 1.50 | 0.098 | −11.2850 | 0.076 | −11.5531 | unreviewed or [TO VERIFY] |
-| Span 2.0 m, subdivision 2 | 12.5100 kg/m³ | 1.50 | 0.098 | −11.2850 | 0.076 | −11.5531 | unreviewed or [TO VERIFY] |
-| Span 4.0 m, subdivision 2 | 12.5100 kg/m³ | 1.50 | 0.098 | −11.2850 | 0.076 | −11.5531 | unreviewed or [TO VERIFY] |
-| Span 3.0 m, subdivision 4 | 11.0900 kg/m³ | 1.50 | 0.110 | −9.8650 | 0.086 | −10.1331 | unreviewed or [TO VERIFY] |
-| Span 6.0 m, subdivision 4 | 10.7600 kg/m³ | 1.50 | 0.114 | −9.5350 | 0.089 | −9.8031 | unreviewed or [TO VERIFY] |
+| Span 1.0 m, subdivision 2 | 18.9400 kg/m³ | 1.50 | 0.065 | −17.7150 | 0.051 | −17.9831 | unreviewed or [TO VERIFY] |
+| Span 2.0 m, subdivision 2 | 18.9400 kg/m³ | 1.50 | 0.065 | −17.7150 | 0.051 | −17.9831 | unreviewed or [TO VERIFY] |
+| Span 4.0 m, subdivision 2 | 19.9300 kg/m³ | 1.50 | 0.061 | −18.7050 | 0.048 | −18.9731 | unreviewed or [TO VERIFY] |
+| Span 3.0 m, subdivision 4 | 16.5300 kg/m³ | 1.50 | 0.074 | −15.3050 | 0.058 | −15.5731 | unreviewed or [TO VERIFY] |
+| Span 6.0 m, subdivision 4 | 16.0900 kg/m³ | 1.50 | 0.076 | −14.8650 | 0.059 | −15.1331 | unreviewed or [TO VERIFY] |
 
 Repository structural-model rows are sized for full vacuum against sea-level pressure (101,325 Pa); altitude changes lift only. Literature inputs and fleet allowances are not resized structures.
 
@@ -600,7 +600,7 @@ Prior work: `research/analysis/vacuum-cell.py`, `main()` → `nullResults.partia
 
 ## The history of being wrong
 
-This is the checked sequence below, not an assertion of exhaustive history. Each identity uses author date and subject, then resolves to the hash in this repository. The quoted value is read from that commit’s own file. Rewriting hashes does not change the identity. Missing or ambiguous identities in complete history fail generation. Shallow clones carry this table forward with a diagnostic; they do not independently verify missing objects.
+The figures in this section are dated records, not current model results. “Standing” describes only this checked sequence; current tables above govern after later corrections. This is the checked sequence below, not an assertion of exhaustive history. Each identity uses author date and subject, then resolves to the hash in this repository. The quoted value is read from that commit’s own file. Rewriting hashes does not change the identity. Missing or ambiguous identities in complete history fail generation. Shallow clones carry this table forward with a diagnostic; they do not independently verify missing objects.
 
 | Author date, subject and resolved commit | Published value (quoted from the file) | Replacement and reason |
 | --- | --- | --- |
@@ -685,9 +685,6 @@ This is the checked sequence below, not an assertion of exhaustive history. Each
 | T700_LAM, hierarchy level 2 | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
 | T700_LAM, hierarchy level 3 | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
 | T700_LAM, hierarchy level 4 | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
-| CFF, hierarchy level 3 | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
-| CFF, hierarchy level 4 | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
-| M60J-class, wound, finite article at unit subdivision | This is a formula or an assumed allowance, not a fabricated floating design. The hierarchy has no drawn higher-level strut, and film and joint assumptions remain open. |
 | P100, empty structure allowance | The simulator assumes the dry structure equals the payload. It has not sized a hull. |
 | P100, loaded structure plus payload | The simulator assumes the dry structure equals the payload. It has not sized a hull. |
 | P1000, empty structure allowance | The simulator assumes the dry structure equals the payload. It has not sized a hull. |

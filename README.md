@@ -166,7 +166,7 @@ The command prints a loopback address on a port chosen by the system. Open that 
 Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
 
 <!-- readme:sources:start -->
-The [source catalogue](research/sources.json) contains **108 entries**.
+The [source catalogue](research/sources.json) contains **112 entries**.
 <!-- readme:sources:end -->
 
 [DATA-SOURCES.md](DATA-SOURCES.md) records the datasets, licences and query methods. The captured snapshot under [`data/`](data/) supports offline replay. Do not query emergency agency feeds to run this test.

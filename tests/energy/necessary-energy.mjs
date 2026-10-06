@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=68694086';
+import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=816a54f9';
 import {necessaryEnergy} from '../../research/analysis/energy-necessary.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;

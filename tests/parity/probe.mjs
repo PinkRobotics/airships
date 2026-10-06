@@ -1,10 +1,10 @@
 // Runtime reproduction for OPEN-QUESTIONS #16; no feeds, browser or generated inputs.
-import * as sim from '../../sim/config.js?v=68694086';
-import { buildMission, findSource, setSeed, stateAt } from '../../sim/index.js?v=68694086';
+import * as sim from '../../sim/config.js?v=816a54f9';
+import { buildMission, findSource, setSeed, stateAt } from '../../sim/index.js?v=816a54f9';
 import { buildActuators } from '../../3d/control/actuators.js?v=91301eab';
-import { planCycle } from '../../sim/plan.js?v=68694086';
-import { airDensity } from '../../sim/atmosphere.js?v=68694086';
-import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=68694086';
+import { planCycle } from '../../sim/plan.js?v=816a54f9';
+import { airDensity } from '../../sim/atmosphere.js?v=816a54f9';
+import { dragMW, pumpMW, ledger } from '../../sim/physics.js?v=816a54f9';
 import * as viz from '../../3d/model/config.js?v=91301eab';
 import * as mission from '../../3d/anim/mission.js?v=91301eab';
 import * as mass from '../../3d/physics/mass.js?v=91301eab';

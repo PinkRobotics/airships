@@ -819,14 +819,6 @@
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
-      "key": "0f73916e7e8a977a",
-      "line": 135,
-      "class": "deferred",
-      "reason": "These adjacent items combine earlier rim capacity, the nylon-study mass comparison, a present article description and experimental requirements.",
-      "owner": "mixed-block"
-    },
-    {
-      "file": "docs/VERIFICATION-PLAN.md",
       "key": "887c027737b61691",
       "line": 161,
       "class": "conditional",
@@ -841,21 +833,6 @@
       "reason": "The membrane coupon question contrasts a model component areal-mass estimate with Metlen’s structural membrane, not a whole-hull float claim.",
       "text": "Can a film that only has to *seal*, with load-carrying left to the lattice, hold one atmosphere across a cell in permanent creep for a service life? The derived floor is 43 g/m²; Metlen's real membrane is eighty times that, because his membrane was *also* structural. That gap is the whole question, and it is a coupon test.",
       "source": "research/analysis/mass-budget.py barrier_floor; Metlen and Palazotto 2013"
-    },
-    {
-      "file": "docs/VERIFICATION-PLAN.md",
-      "key": "5ef2fdd3cfa2f7bd",
-      "line": 187,
-      "class": "question",
-      "reason": "The proposed compression comparison quotes the current level-2 M60J formula, with its film convention and unverified structural basis.",
-      "text": "**What would test the level-2 prediction?** The M60J formula gives 0.5383 kg/m³ with outer-envelope film and a node allowance. Its structural safety factor is 1.5 against full sea-level pressure, with assumed local-wall knockdown 0.30. This is a formula without a drawn hierarchical strut, as the [float ledger](FLOAT-LEDGER.md) records. Lakes’ 1993 exponent argument does not supply a measurement of this structure. Which measured knockdowns apply to this geometry? Could equal-mass, equal-length compression tests of a plain tube and a tube whose wall contains smaller tubes establish the model’s failure-load ratio?",
-      "bindings": [
-        {
-          "case": "hierarchy-M60J_LAM-2",
-          "field": "mass",
-          "shown": "0.5383"
-        }
-      ]
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
@@ -1252,11 +1229,57 @@
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
+      "key": "1d4e3e4dc7388631",
+      "class": "question",
+      "reason": "Reviewed compression-property correction: update the live block and its generated numerical basis; dated source records stay separate.",
+      "bindings": [
+        {
+          "case": "hierarchy-M60J_LAM-2",
+          "field": "mass",
+          "shown": "1.1243"
+        }
+      ],
+      "context": [
+        "0.30",
+        "1.5",
+        "1993",
+        "2"
+      ],
+      "line": 187
+    },
+    {
+      "file": "docs/VERIFICATION-PLAN.md",
       "class": "deferred",
-      "reason": "Corrected closure wall and literature margin; remaining energy statements retain their original deferred evidence limits.",
+      "reason": "Corrected coverage-level wording; the mixed expert-question block retains its deferred evidence limits and does not establish suppression effectiveness.",
       "owner": "energy-model",
-      "key": "e500caedf15687d1",
+      "key": "70755a32b5da30d8",
       "line": 206
+    },
+    {
+      "file": "docs/VERIFICATION-PLAN.md",
+      "key": "da9d9b902f66ffb1",
+      "class": "bound",
+      "reason": "Both corrected bending capacities match the cell JSON; the remaining dimensions and nylon scenario are experimental description and requirements.",
+      "bindings": [
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/filmEdgeLoads/rows/0/failsAtAtm",
+          "shown": "0.26"
+        },
+        {
+          "source": "research/analysis/vacuum-cell.json",
+          "pointer": "/stockBuild/governingCheck/failsAtAtm",
+          "shown": "1.65"
+        }
+      ],
+      "context": [
+        "12",
+        "15",
+        "20",
+        "251",
+        "3"
+      ],
+      "line": 135
     }
   ]
 }
