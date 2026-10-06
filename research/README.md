@@ -77,7 +77,7 @@ record corrections; they are not claims that an earlier design is the present on
 
 `research/sources.json`, `research/notes/` and the three reports are the repository record. A page
 written from the same material for a reader who has not cloned anything is live at
-<https://pinkrobotics.ca/research/> — it leads with the nine sources that contradict the project,
+<https://pinkrobotics.ca/research/> — it distinguishes sources marked as contradicting the project from supporting and contextual evidence,
 and it carries the descent anchor in enough detail to be built from, deliberately: we are not
 patenting the mechanism, and a dated public description is what stops someone else doing so.
 
