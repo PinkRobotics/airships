@@ -291,8 +291,9 @@ function fireRadiusKm(fire) {
    vertices. Pure arithmetic on lon/lat; good to well inside the 25 km scales here. */
 function ringPoints(ring, stepKm = 2) {
   const pts = [];
-  for (let i = 0; i < ring.length - 1; i++) {
-    const a = ring[i], b = ring[i + 1];
+  // Every band consumer samples the last-to-first edge, even on an open input ring.
+  for (let i = 0; i < ring.length; i++) {
+    const a = ring[i], b = ring[(i + 1) % ring.length];
     const d = havKm(a, b);
     const n = Math.max(1, Math.ceil(d / stepKm));
     for (let k = 0; k < n; k++) pts.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]);

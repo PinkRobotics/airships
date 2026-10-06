@@ -947,6 +947,12 @@ def every_protected_part_reaches_the_dispatcher():
     return run('A')
 
 
+@test
+def thinning_closes_every_accepted_ring():
+    from assurance import run
+    return run('B')
+
+
 def main():
     only = sys.argv[1:]
     chosen = [fn for fn in TESTS if not only or any(o in fn.__name__ for o in only)]
