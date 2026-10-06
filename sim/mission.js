@@ -57,7 +57,19 @@ export function buildMission(fire, water, modeId, forceClsId, forceSrc, heat = [
   }
   m.bearing = trackBearing(m.intake, m.delivery);
   if (m.wind) m.wind.bearing = m.bearing;
-  m.segs = m.targets.map(t => dropSeg(m, t));
+  const accepted = [], segs = [];
+  m.refusedTargets = [];
+  for (const t of m.targets) {
+    const seg = dropSeg(m, t);
+    if (seg) { accepted.push(t); segs.push(seg); }
+    else m.refusedTargets.push({ ll: t.slice(), reason: "no tested geometric line fits inside the modelled fire" });
+  }
+  m.targets = accepted; m.segs = segs;
+  if (!segs.length) {
+    m.idle = true;
+    m.targetRefusal = "not flown: no tested geometric drop line has both ends inside the modelled fire";
+    return m;
+  }
   planTargets(m, heat);
   // The plan has to time the leg the ship actually FLIES. oneWayKm is source centre to fire
   // centre, but a hull leaves a hose STATION and arrives at the head of a drop LINE offset

@@ -610,6 +610,7 @@ export function applyHeat() {
     }
     if (picks.length >= 1) {
       m.targets = picks;
+      m.refusedTargets = []; // These are detection targets, with a different footprint rule.
       m.segs = picks.map(t => dropSeg(m, t, true));
       m.heat = true;
       planTargets(m, S.heat);

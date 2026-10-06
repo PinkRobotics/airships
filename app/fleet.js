@@ -77,6 +77,12 @@ export async function rebuildMissions() {
       // rule 3 in the boundary linter requires it — a call that passes live data is the
       // shape we want, even where the data does not yet change the answer.
       const m = buildMission(f, S.water, S.modeId, clsId, so, S.heat);
+      if (m.targetRefusal) {
+        // No usable geometric target: leave the hull free and show the fire's refusal.
+        heldOut.add(f.id); f.heldOut = m.targetRefusal;
+        k--; // This geometric refusal did not use the hull; try the next candidate.
+        continue;
+      }
       const noFly = forbiddenBy(m);
       if (noFly) {
         // A fire whose water line or drop line cannot avoid a keep-out distance is not

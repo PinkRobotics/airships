@@ -76,11 +76,15 @@
     const direct=sim.dropSeg(m,fire.ll,false);
     let cycleOutside=0;
     if(m.segs?.length)for(let n=-5;n<=100;n++)if(sim.segAt(m,n).some(p=>!sim.insideFire(fire,p)))cycleOutside++;
+    const checked={fire,heat:false,targets:[fire.ll],order:[0],segs:[[[-123.01,50.000009],[-122.99,50.000009]]]};
+    const jitterBaseInside=checked.segs[0].every(p=>sim.insideFire(fire,p));
+    let jitterOutside=0;
+    for(let n=1;n<=200;n++)if(sim.segAt(checked,n).some(p=>!sim.insideFire(fire,p)))jitterOutside++;
     const impossible=sim.dropSeg({...m,fire:{...fire,ring:[[-123,50],[-123,50],[-123,50],[-123,50]]}},fire.ll,false);
     S.guard=sim.loadGuard(plain());S.exercise=false;S.day='2030-09-01';S.daySource='day';S.recordOnly=false;S.heat=[];S.sel=null;
     S.fires=feeds.applyGuard([fire]);S.water=[[-123.1,50,10000,0,'Invented lake']];await fleet.rebuildMissions();
     return {direct:direct===null?'refused':direct.map(p=>sim.insideFire(fire,p)),baseOutside:(m.segs||[]).filter(s=>s.some(p=>!sim.insideFire(fire,p))).length,
-      cycleOutside,impossible:impossible===null?'refused':'accepted',refusedTargets:m.refusedTargets?.length||0,
+      cycleOutside,jitterBaseInside,jitterOutside,jitterSamples:200,impossible:impossible===null?'refused':'accepted',refusedTargets:m.refusedTargets?.length||0,
       dispatch:{ready:S.missions.filter(m=>!m.idle).length,heldOut:fire.heldOut,words:document.getElementById('firesTop').textContent}};
   }
   if (PART==='E') {

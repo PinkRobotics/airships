@@ -24,6 +24,7 @@ def run(part):
     elif part=='D':
         assert v['direct']=='refused' or all(v['direct']),v
         assert v['baseOutside']==v['cycleOutside']==0,v
+        assert v['jitterBaseInside'] and v['jitterSamples']==200 and v['jitterOutside']==0,v
         assert v['impossible']=='refused',v
         assert v['refusedTargets']>0,v
         assert v['dispatch']['heldOut'] and 'geometric' in v['dispatch']['words'],v

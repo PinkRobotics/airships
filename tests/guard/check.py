@@ -959,6 +959,12 @@ def invalid_coordinates_refuse_the_loader_and_the_page():
     return run('C')
 
 
+@test
+def geometric_lines_and_jitter_fit_or_are_refused_in_words():
+    from assurance import run
+    return run('D')
+
+
 def main():
     only = sys.argv[1:]
     chosen = [fn for fn in TESTS if not only or any(o in fn.__name__ for o in only)]
