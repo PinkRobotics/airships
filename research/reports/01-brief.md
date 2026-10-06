@@ -163,7 +163,7 @@ evidence *against*. Four are load-bearing:
 
 - **A structure light enough.** The model assumes a ship's dry mass equals its water payload.
   NASA's own lattice paper — the one this rests on — gives a bare shell 12% heavier than that
-  whole allowance, and at the battery density NASA has flown, the battery alone is 34% over.
+  whole allowance, and at the density of the pack NASA built for its electric X-plane (which did not fly), the battery alone is 34% over.
   **This is what the concept lives or dies on.** It looks like a manufacturing question rather
   than a physics one — which is the good news — and it is unanswered.
 - **A drop that arrives, and the right metric.** The US Forest Service says a release 1,000 ft

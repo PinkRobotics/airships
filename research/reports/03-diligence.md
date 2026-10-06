@@ -254,12 +254,12 @@ one is identical, and it is the one that decides whether any of them get built.
 | **Jenett et al. 2019** (NASA NTRS) — our own cited structural precedent | bare discrete-lattice shell, **0.508 kg/m³**, at every radius (their Table 2) | **12% over our entire dry allowance**, with nothing else fitted |
 | **Metlen & Palazotto 2013** | only real-materials design has structure/buoyancy **0.94** | structure alone consumes what we allocate to structure *and* payload |
 | **Akhmeteli & Gavrilin 2021** | payload fraction **0.1**, shell 1.16 kg/m³ | against our implied 0.5 |
-| **Chin et al. 2021 / Lvovich 2020** (NASA) | X-57 flew **149 Wh/kg** at pack level from 225 Wh/kg cells | our 2,000 MWh<!--f:P10000.spec.battMWh--> battery masses ~13,400 t — **the battery alone is 34% over the whole dry budget** |
+| **Chin et al. 2021 / Lvovich 2020** (NASA) | X-57 pack as built: **149 Wh/kg** at pack level from 225 Wh/kg cells; the aircraft did not fly | our 2,000 MWh<!--f:P10000.spec.battMWh--> battery masses ~13,400 t — **the battery alone is 34% over the whole dry budget** |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 Four sources, four different objections, one conclusion. The 2,000 MWh battery figure deserves
-emphasis: at the density NASA has actually flown, the battery by itself exceeds the entire dry mass
+emphasis: at the density of the pack NASA actually built, the battery by itself exceeds the entire dry mass
 allowance before any structure exists. Even at 500 Wh/kg — the point Lvovich says NASA sees no
 clear path past — the pack consumes 40% of a budget the hull already exceeds on its own.
 
@@ -604,8 +604,8 @@ tool rather than a resolution.
    these structures, plus an answer to the Derveni scale-invariance objection (§4.1). **This is the
    only §4 finding that both remains open and is capable of ending the concept** — §4.2 and §4.3
    are closed, and §4.4 changes what the product is rather than whether it can exist.
-2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; NASA
-   has flown 149 and sees no clear path past 500.
+2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; the pack NASA
+   built reached 149, and NASA sees no clear path past 500.
 3. **A drop from a height an 512 m hull can safely use that still arrives as water.** Currently
    contradicted by USFS guidance. Needs droplet physics and, eventually, a drop test.
 4. **A 12,400 t suspended bag, its cable, its pendulum dynamics, and hull station-keeping over
