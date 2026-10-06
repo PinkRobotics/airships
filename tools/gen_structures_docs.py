@@ -75,6 +75,27 @@ def outputs():
                'ultimate pressure', 'film-sized tube', 'repriced kg/m³']
     body = put(body, 'transitions', table(headers, transitions), '| ' + ' | '.join(headers) + ' |')
     result[name] = body
+
+    name = 'cell/band.html'
+    body = (ROOT / name).read_text()
+    band = vc['gradedPressure']['band']
+    text = ("<h2>Pressure staging: a separate cell calculation</h2>\n"
+            "<p>The graded-pressure band is an unbuilt cell concept, separate from the hull "
+            "calculator below. Its outer film sees "
+            f"{band['outerSurfaceDifferentialAtm']:.1f} atm, while "
+            f"{band['interfaceCount']} complete homothetic internal interfaces total "
+            f"{band['internalInterfaceAreaM2']:,.0f} m². At the declared "
+            f"{band['filmSpanM']:.1f} m film span, those internal films cost "
+            f"{band['filmsDeltaKgPerM3']:.4f} kg/m³ of enclosed volume; the whole band's "
+            f"net mass cost is {band['netCostKgPerM3']:+.4f} kg/m³. "
+            "The current compression-capped reference cannot lift itself at working altitude, "
+            "so a percentage of available net lift is unavailable. "
+            "The former internal-film charge was 0.0017 kg/m³ and the former same-input "
+            "net cost −0.0191 kg/m³; pricing the complete interfaces corrects that calculation. "
+            "See the cell analysis "
+            "for the dated correction and load-path assumptions.</p>")
+    body = put(body, 'band-pressure', text, '')
+    result[name] = body
     return result
 
 
@@ -98,7 +119,7 @@ def main():
     if stale:
         print('structures documents differ from fresh generation: ' + ', '.join(stale))
         return 1
-    print('structures documents: hierarchy, bulk and film-safe subdivision tables match')
+    print('structures documents: hierarchy, bulk, subdivision and pressure-band regions match')
     return 0
 
 

@@ -135,7 +135,11 @@ MANIFEST = [
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/bulk/2/netLiftKgPerM3", "+.3f"),
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/bulk/10/netLiftKgPerM3", "+.3f"),
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/bulk/10/structureKgPerM3", ".3f"),
-    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/costPctOfNetLift", ".1f"),
+    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/netCostKgPerM3", "+.4f"),
+    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/filmsDeltaKgPerM3", ".4f"),
+    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/internalInterfaceAreaM2", ",.0f"),
+    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/interfaceCount", "d"),
+    ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/filmSpanM", ".1f"),
     ("vacuum-cell.md", "vacuum-cell", "gradedPressure/band/outerSurfaceDifferentialAtm",
      ".1f"),
 
@@ -316,8 +320,16 @@ CONTEXTS = {
         r"^\| P-100 \|[^|]*\|[^|]*\|[^|]*\| \*\*{number}%\*\* \|",
     ("vacuum-cell.md", "printerChain/rows/0.6 mm x 2/enclosedL"):
         r"^\| \*\*0\.6 mm\*\* \| \*\*2\*\* \|[^\n]*\*\*{number} L\*\* \|",
-    ("vacuum-cell.md", "gradedPressure/band/costPctOfNetLift"):
-        r"arrangement nets \*\*{number}% of net lift",
+    ("vacuum-cell.md", "gradedPressure/band/netCostKgPerM3"):
+        r"The complete band's net mass cost is \*\*{number} kg/m³\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/filmsDeltaKgPerM3"):
+        r"Internal interface films cost \*\*{number} kg/m³\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/internalInterfaceAreaM2"):
+        r"The interfaces total \*\*{number} m²\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/interfaceCount"):
+        r"The band needs \*\*{number} complete internal interfaces\*\*",
+    ("vacuum-cell.md", "gradedPressure/band/filmSpanM"):
+        r"Each film is priced at a \*\*{number} m lateral span\*\*",
     ("vacuum-cell.md", "gradedPressure/band/outerSurfaceDifferentialAtm"):
         r"outer surface sees\s+\*\*{number} atm\*\*",
     ("vacuum-cell.md", "demonstrator/massOverDisplaced"):

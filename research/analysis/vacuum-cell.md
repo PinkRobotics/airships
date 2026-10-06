@@ -298,16 +298,30 @@ envelope film priced for the differential it actually sees:
 
 **With the compression cap, none of these bulk rows has positive net lift at 2,500 m.** The gas costs lift while the deep lattice still carries nearly the full atmosphere. Trapped gas also ties rigidity and trim to temperature.
 
-**At the boundary, the honest envelope price changes the verdict for the better.** Stage the
-outermost 5% of the volume in ten steps and the envelope film's differential — and so its
-mass — falls tenfold, a saving of about the same size as the band's gas: the whole
-arrangement nets **11.4% of net lift by signed division** (the reference has negative net lift, so this is not an available-lift saving), while the outer surface sees
-**0.1 atm** instead of one. Membrane strain, barrier-crazing risk and the consequence of an
-outer-face breach all fall tenfold with it. The band is half a metre deep on this hull, so
-its steps are sub-cell-scale layers — which is the seal-at-every-scale doctrine anyway, and
-film mass is span-proportional so thin layers cost no more. What the band still costs is
-operational: trapped gas ties its trim to temperature, and the outermost cells must survive
-the ground-level case like everything else.
+**At the boundary, price the complete interfaces.** The outermost 5% of the volume
+is staged in ten equal-volume pressure steps, retaining the reference hull's shape.
+The envelope's outer surface sees **0.1 atm** instead of one.
+
+The band needs **9 complete internal interfaces**.
+
+The interfaces total **199,921 m²** on the dated reference geometry.
+
+Each film is priced at a **2.0 m lateral span**, independent of the roughly half-metre
+radial band depth. No finer lateral support grid is drawn or priced.
+
+Internal interface films cost **0.0211 kg/m³** of enclosed hull volume.
+
+The complete band's net mass cost is **+0.0002 kg/m³**, including gas, lattice change,
+internal films and the thinner outer envelope. The compression-capped reference already
+has negative net lift; a percentage of available net lift is therefore unavailable.
+Trapped gas still ties trim to temperature, and the outermost cells must survive the
+ground-level case. Pressure staging alone does not establish a strain or breach margin.
+
+**Interface correction — 2026-10-05.** At the same compression-capped material inputs,
+the previous internal-film charge was 0.0017 kg/m³ and the band cost was −0.0191 kg/m³;
+complete interfaces give 0.0211 and +0.0002 kg/m³. The earlier tensile-cap publication
+called the band a −1.9% net-lift saving; that percentage does not describe
+the current compression-capped reference.
 
 ## The pumped plenum: the same doctrine, made active
 

@@ -61,7 +61,7 @@ PROBE = """(() => {
   const g = C.gradedPressure(C.MATERIALS.M60J_LAM, __WALL__);
   out.graded = { bulk: g.bulk.map(r => [r.structure, r.gas, r.films, r.netLift]),
                  bandCostPct: g.band.costPctOfNetLift,
-                 bandNetCost: g.band.netCost };
+                 bandNetCost: g.band.netCost, band: g.band };
   out.cellShapes = C.cellShapes();
   out.sharedWall = C.sharedWall(2.0);
   out.plenum = C.pumpedPlenum().map(r => r.cellOperatingMarginX);
@@ -222,9 +222,18 @@ def main() -> None:
                                    "netLiftKgPerM3")):
             cmp(f"graded.bulk[{n}].{field}", prow[field], jrow[j], 4)
     cmp("graded.band.costPctOfNetLift", pg["band"]["costPctOfNetLift"],
-        js["graded"]["bandCostPct"], 1)
+        js["graded"]["bandCostPct"], None if pg["band"]["costPctOfNetLift"] is None else 1)
     cmp("graded.band.netCostKgPerM3", pg["band"]["netCostKgPerM3"],
         js["graded"]["bandNetCost"], 4)
+    for field, dp in [('referenceNetLiftKgPerM3', 4), ('costPctOfDisplacedAir', 3),
+                      ('interfaceCount', None), ('internalInterfaceAreaM2', 6),
+                      ('filmSpanM', None), ('interfaceGeometry', None)]:
+        cmp('graded.band.' + field, pg['band'][field], js['graded']['band'][field], dp)
+    for i, area in enumerate(pg['band']['interfaceAreasM2']):
+        cmp(f'graded.band.interfaceAreasM2[{i}]', area,
+            js['graded']['band']['interfaceAreasM2'][i], 6)
+    cmp('graded.band.filmsDeltaKgPerM3', pg['band']['filmsDeltaKgPerM3'],
+        js['graded']['band']['filmDelta'], 4)
 
     # Cell shapes and the shared-wall fractions.
     for name, rec in py["cellShapes"].items():

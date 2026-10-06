@@ -1,6 +1,73 @@
 {
  "entries": [
   {
+   "file": "cell/band.html",
+   "key": "8168a0b7f1f0b783",
+   "class": "generated",
+   "reason": "This exact structural region is regenerated from current model inputs and independently compared by analysischeck and ledgercheck.",
+   "generator": "tools/gen_structures_docs.py",
+   "gate": "analysischeck",
+   "verifier": "tools/check_analysis.py",
+   "region": {
+    "start": "<!-- structures:band-pressure:start -->",
+    "end": "<!-- structures:band-pressure:end -->"
+   }
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "c885c7c903d081ec",
+   "class": "bound",
+   "reason": "The new charge and verdict match the current cell JSON; expressly former figures and date remain correction context.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/filmsDeltaKgPerM3",
+     "shown": "0.0211"
+    },
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/netCostKgPerM3",
+     "shown": "0.0002"
+    }
+   ],
+   "context": [
+    "-0.0191",
+    "-1.9",
+    "0.0017",
+    "05",
+    "10",
+    "2026"
+   ]
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "621824fe31f31115",
+   "class": "bound",
+   "reason": "Complete-interface film mass is computed at the declared lateral span.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/filmsDeltaKgPerM3",
+     "shown": "0.0211"
+    }
+   ],
+   "context": []
+  },
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "key": "49af977b9a870f5a",
+   "class": "bound",
+   "reason": "Current complete-interface band cost matches the cell JSON; a nonpositive reference makes an available-net-lift percentage unavailable.",
+   "bindings": [
+    {
+     "source": "research/analysis/vacuum-cell.json",
+     "pointer": "/gradedPressure/band/netCostKgPerM3",
+     "shown": "0.0002"
+    }
+   ],
+   "context": []
+  },
+  {
    "file": "research/analysis/helium.md",
    "key": "2d571c4e2e67260b",
    "class": "bound",
@@ -19168,6 +19235,12 @@
   }
  ],
  "replacements": [
+  {
+   "file": "research/analysis/vacuum-cell.md",
+   "oldKey": "0744d0dd40ca6594",
+   "newKey": "49af977b9a870f5a",
+   "reason": "Reviewed composition of existing intermediate hash dispositions for direct replay; the terminal block and its numerical bindings are unchanged."
+  },
   {
    "file": "ship/index.html",
    "oldKey": "32f84b775e71860a",

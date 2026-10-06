@@ -844,9 +844,10 @@ export function weightlessArticle(wall) {
  * local step — refuted by a reviewer's force balance: gas transmits compression only up to
  * its own pressure, so the solid carries P_atm minus the local gas pressure and the load
  * ACCUMULATES inward. Zone j's lattice is sized for its cumulative j/N atm; the envelope
- * film is priced for the differential it actually sees. In bulk, grading surrenders over
- * half the net lift; as a thin outer band, the tenfold-lighter envelope film pays for the
- * band's gas — roughly free in mass, tenfold gentler on the outer surface. */
+ * film is priced for the differential it actually sees. The boundary correction also
+ * charges complete homothetic internal interfaces at the declared lateral span. The
+ * thinner outer envelope alone does not determine the complete band's mass verdict or
+ * establish a strain or breach margin. */
 /* =====================================================================================
  * SHIP 0 — the film-on-rings wall and the two-walled skeleton, sized live.
  *
@@ -1510,7 +1511,13 @@ export function gradedPressure(m, wall) {
   const f = 0.05, nb = 10;
   const gasCost = f * wall * (nb - 1) / (2 * nb);
   const structDelta = f * lat2 * (stackFactor(nb) - 1) * (1 + NODE_MASS_FRAC);
-  const filmDelta = f * filmAtm / nb;
+  // Equal-volume homothetic zones require nine complete internal interfaces.
+  // Layer depth does not set lateral span; the declared film span stays 2 m.
+  const filmSpanM = 2.0;
+  const interfaceAreasM2 = Array.from({length: nb - 1}, (_, i) =>
+    HULL_ENVELOPE_M2 * Math.pow(1 - f * (i + 1) / nb, 2 / 3));
+  const internalInterfaceAreaM2 = interfaceAreasM2.reduce((a, b) => a + b, 0);
+  const filmDelta = internalInterfaceAreaM2 * barrierKgPerM2(filmSpanM) / nb / HULL_VOLUME_M3;
   const envelopeDelta = envelopeFilmKgPerM3(2.0, 1 / nb) - envelopeFilmKgPerM3(2.0, 1);
   const netCost = gasCost + structDelta + filmDelta + envelopeDelta;
   return {
@@ -1518,6 +1525,11 @@ export function gradedPressure(m, wall) {
     band: { bandVolumeFraction: f, levels: nb,
             outerSurfaceDifferentialAtm: 1 / nb,
             gasCost, structDelta, filmDelta, envelopeDelta, netCost,
-            costPctOfNetLift: 100 * netCost / bulk[0].netLift },
+            costPctOfNetLift: bulk[0].netLift > 0 ? 100 * netCost / bulk[0].netLift : null,
+            referenceNetLiftKgPerM3: bulk[0].netLift,
+            costPctOfDisplacedAir: 100 * netCost / wall,
+            interfaceCount: interfaceAreasM2.length, interfaceAreasM2,
+            internalInterfaceAreaM2, filmSpanM,
+            interfaceGeometry: 'complete homothetic interfaces; equal-volume zones' },
   };
 }

@@ -1248,14 +1248,14 @@ def graded_pressure(m: dict, wall: float) -> dict:
     The outer envelope's film is priced for the differential it actually sees: the full
     atmosphere ungraded, one step behind a graded band.
 
-    The answer: IN BULK, grading surrenders over half the net lift — the gas costs lift
-    everywhere while the deep lattice still carries almost the full atmosphere — and it
-    hands the array's rigidity and trim to trapped gas and its temperature. AT THE BOUNDARY
-    the corrected envelope price changes the verdict for the better: a thin graded band
-    cuts the envelope film's differential tenfold, and that saving covers the band's gas.
-    The band is roughly free in mass and buys the surface everything else wants — a tenth
-    of the membrane strain, of the crazing risk, and of the consequence of an outer-face
-    breach.
+    Correction, 2026-10-05: the boundary's internal films are nine complete homothetic
+    interfaces, not the film density of a cell array multiplied by the band's small volume
+    fraction. Equal-volume zones preserve the reference hull's shape; each interface is
+    priced at the declared 2 m unsupported span and one pressure step. Radial layer depth
+    does not determine lateral film span. The outer envelope still sees a tenth of an
+    atmosphere, but that alone does not establish a mass saving for the complete band.
+    Trapped gas also ties rigidity and trim to temperature. A net-lift percentage is
+    unavailable when the ungraded reference has nonpositive net lift.
     """
     lad = hierarchy_ladder(m, film=0.0)
     lat2 = lad["2"]["phi"] * m["rho"]        # level-2 lattice density at the full atmosphere
@@ -1280,7 +1280,13 @@ def graded_pressure(m: dict, wall: float) -> dict:
     ref = bulk["1"]
     gas_cost = f * wall * (nb - 1) / (2.0 * nb)
     struct_delta = f * lat2 * (stack_factor(nb) - 1.0) * (1.0 + NODE_MASS_FRAC)
-    film_delta = f * film_atm / nb
+    # Nine complete, homothetic surfaces enclose successive equal-volume zones.
+    # The reference envelope area already includes its declared hull geometry.
+    film_span = 2.0
+    interface_areas = [HULL_ENVELOPE_M2 * (1.0 - f * j / nb) ** (2.0 / 3.0)
+                       for j in range(1, nb)]
+    interface_area = sum(interface_areas)
+    film_delta = interface_area * barrier_kg_per_m2(film_span) / nb / HULL_VOLUME_M3
     envelope_delta = envelope_film_kg_per_m3(2.0, 1.0 / nb) - envelope_film_kg_per_m3(2.0, 1.0)
     net_cost = gas_cost + struct_delta + film_delta + envelope_delta
     band = {"bandVolumeFraction": f, "levels": nb,
@@ -1290,18 +1296,23 @@ def graded_pressure(m: dict, wall: float) -> dict:
             "filmsDeltaKgPerM3": round(film_delta, 4),
             "envelopeDeltaKgPerM3": round(envelope_delta, 4),
             "netCostKgPerM3": round(net_cost, 4),
-            "costPctOfNetLift": round(100.0 * net_cost / ref["netLiftKgPerM3"], 1),
+            "costPctOfNetLift": (round(100.0 * net_cost / ref["netLiftKgPerM3"], 1)
+                                 if ref["netLiftKgPerM3"] > 0 else None),
+            "referenceNetLiftKgPerM3": ref["netLiftKgPerM3"],
+            "costPctOfDisplacedAir": round(100.0 * net_cost / wall, 3),
+            "interfaceCount": len(interface_areas),
+            "interfaceAreasM2": [round(a, 6) for a in interface_areas],
+            "internalInterfaceAreaM2": round(interface_area, 6),
+            "filmSpanM": film_span,
+            "interfaceGeometry": "complete homothetic interfaces; equal-volume zones",
             "geometryNote": "5% of the dated 190 x 47 m spheroid reference behind 22,592 m2 of envelope is a band about "
                             "half a metre deep, so its ten steps are sub-cell-scale layers "
-                            "— which is the seal-at-every-scale doctrine anyway, and film "
-                            "mass is span-proportional so thinner layers cost no more.",
-            "note": "The corrected envelope price is what turns the band from cheap to "
-                    "roughly free: dropping the outer film's differential tenfold saves "
-                    "about as much as the band's gas weighs. The band's own lattice still "
-                    "carries its cumulative load — a third more than the vacuum it "
-                    "replaces would need at the same depth — and the trapped gas ties trim "
-                    "to temperature, which is a real operational price even when the mass "
-                    "is a wash."}
+                            "bounded by complete interfaces. Their lateral film span remains "
+                            "2 m; no finer support grid is drawn or priced.",
+            "note": "The complete internal interfaces are charged in addition to the "
+                    "gas, cumulative-load lattice and resized outer envelope. The sign of "
+                    "netCostKgPerM3 is the band verdict; a percentage of net lift is not "
+                    "an available-lift measure when the reference cannot lift itself."}
     return {"assumptions": "level-2 struts (mass ~ p^0.75); zone lattice sized for its "
                            "CUMULATIVE load j/N atm (statics), the core for the full "
                            "atmosphere; films hold one step over a 2 m cell span; envelope "
@@ -2345,7 +2356,9 @@ def main() -> None:
               f"net {r['netLiftKgPerM3']:+.3f}")
     b = out["gradedPressure"]["band"]
     print(f"  band: outer {b['bandVolumeFraction']:.0%} graded in {b['levels']} steps costs "
-          f"{b['costPctOfNetLift']:.1f}% of net lift; the envelope sees "
+          f"{b['netCostKgPerM3']:+.4f} kg/m3; {b['interfaceCount']} interfaces, "
+          f"{b['internalInterfaceAreaM2']:.3f} m2, span {b['filmSpanM']:.1f} m; "
+          f"net-lift percentage {b['costPctOfNetLift']}; the envelope sees "
           f"{b['outerSurfaceDifferentialAtm']:.1f} atm instead of 1.")
 
     print("\nCELL SHAPES — shared-wall area coefficient (cube = 3.0):")
