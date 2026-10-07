@@ -26,6 +26,7 @@ const long=necessaryEnergy(CLASSES.P1000,MODES[selected.mode],selected.plan);
 assert.equal(long.cumulativeDrawMWh.toFixed(1),'332.3');
 assert.equal(long.nominalStorageMWh,120);
 console.log('PASS necessary-energy fixtures: '+JSON.stringify([eleven,twelve,inside,long].map(q=>({drawMWh:q.cumulativeDrawMWh,storageMWh:q.nominalStorageMWh,emptyAtMin:q.emptyAtMin,shortageMWh:q.shortageMWh}))));
+await import('./printed-storage.mjs');
 if(!process.env.DIAGNOSTIC_PROBE)proveMutations('tests/energy/necessary-energy.mjs',[
  {label:'planted storage change',file:'/sim/config.js',old:'genMW: 8, battMWh: 20,',replacement:'genMW: 8, battMWh: 80,',
   assertion:'captured storage fixture stays at nominal 20 MWh'}

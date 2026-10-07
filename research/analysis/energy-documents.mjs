@@ -10,16 +10,14 @@ const historical=read('energy-closure-history'),profiles=read('energy-profiles')
 const archived=read('energy-document-history');
 const unheld=read('energy-unheld'),cross=read('energy-crosschecks'),omissions=read('energy-omissions');
 const necessary=read('energy-necessary');
+import {storageNote} from './energy-storage-notes.mjs';
+import {prescribed,documentSensitivity} from './energy-printed-profiles.mjs';
 const motion=read('energy-motion');
-const canonical=x=>JSON.stringify(x,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b))):v);
-const profileKey=b=>canonical({class:b.class,km:b.km,mode:b.mode,options:{basis:'record',...b.options}});
-const shortProfiles=new Set(necessary.shortages.routes.map(profileKey));
-const profileNote=b=>b.inertia.qualification+(shortProfiles.has(profileKey(b))?'; '+STORAGE_PROFILE_NOTE:'');
+const profileNote=b=>b.inertia.qualification+([storageNote(b)].filter(Boolean).map(n=>'; '+n).join(''));
 function asDrawnNote(r){
- const feasible=r.asDrawn.feasible;if(!feasible)return '';
  const q=motion.rows.find(q=>q.class===r.class&&q.km===r.km&&q.basis===r.basis);
- return [q?.worstSignedGaps.some(q=>q.gapT>1e-6)?DYNAMIC_PROFILE_NOTE:null,
-  shortProfiles.has(profileKey({class:r.class,km:r.km,mode:'balanced',options:{basis:r.basis}}))?STORAGE_PROFILE_NOTE:null].filter(Boolean).join('; ');
+ return [r.asDrawn.feasible&&q?.worstSignedGaps.some(q=>q.gapT>1e-6)?DYNAMIC_PROFILE_NOTE:null,
+  storageNote(prescribed(r))].filter(Boolean).join('; ');
 }
 const records=[];
 for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){
@@ -64,13 +62,13 @@ const profileTable=table(['Class','km','Basis','Profile','Delivered t','Kept t',
 const fullTable=table(['Class','km','Basis','Full-payload mode','Delivered t','Minutes','MWh','kWh/t','Profile note'],profiles.rows.filter(r=>r.fullDeliveryBest).map(r=>{const b=r.fullDeliveryBest;return [r.class,r.km,r.basis,b.mode,f(b.deliveredT),f(b.cycleMin),f(b.cycleMWh),f(b.kwhPerTonne),profileNote(b)];}));
 const searchHistory=read('energy-profile-history');
 const movementTable=table(['Class','km','Basis','Kept t: earlier / current','Delivered t: earlier / current','Minutes: earlier / current','kWh/t: earlier / current','Effect'],searchHistory.movements.map(r=>{const pair=k=>[r.before?.[k],r.after?.[k]].map(v=>f(v)).join(' / ');return [r.class,r.km,r.basis,pair('ballastT'),pair('deliveredT'),pair('cycleMin'),pair('kwhPerTonne'),r.after&&r.before?(Math.abs(r.after.kwhPerTonne-r.before.kwhPerTonne)<0.0005?'Same cost at printed precision':r.after.kwhPerTonne<r.before.kwhPerTonne?'Lower cost in this changed search space':'Higher cost in this changed search space'):'Search result changed'];}));
-const historyTable=table(['Class','km','Quantity','Earlier published','Intermediate published','Record as drawn','Favourable as drawn','Reason'],historical.flatMap(h=>['cycleMWh','kwhPerTonne','peakRotorMW','hoursOnBattery'].map(key=>{
+const historyTable=table(['Class','km','Quantity','Earlier published','Intermediate published','Record as drawn','Favourable as drawn','Reason','Current record / favourable storage notes'],historical.flatMap(h=>['cycleMWh','kwhPerTonne','peakRotorMW','hoursOnBattery'].map(key=>{
  const a=records.find(r=>r.class===h.class&&r.km===h.km&&r.basis==='record').asDrawn,b=records.find(r=>r.class===h.class&&r.km===h.km&&r.basis==='favourable').asDrawn;
- return [h.class,h.km,key,f(h.old[key]),f(h.first[key]),f(a[key]),f(b[key]),'Limited and priced force owners; local density; bus reservation; paid bag inventory; smooth profile'];
+ return [h.class,h.km,key,f(h.old[key]),f(h.first[key]),f(a[key]),f(b[key]),'Limited and priced force owners; local density; bus reservation; paid bag inventory; smooth profile',['record','favourable'].map(basis=>storageNote(prescribed({...h,basis}))).join(' / ')];
 })));
 const reportChanges=read('energy-report-corrections').changes;
-const reportsTable=table(['Report and former line','Generated field','Earlier printed','Current record','Current favourable','Reason'],reportChanges.map(r=>{const [id,group,...field]=r.key.split('.'),c=CLASSES[id],p=planCycle(c,MODES.balanced,15,null,{basis:'favourable'});const values={cycle:p,descent:{rotorCapT:p.rotorMaxT},energy:{letdownMWh:p.letdownMWh,anchorHoistMWh:p.anchorHoistMWh,ledgerMWh:p.E,deficitPerCycleMWh:p.eCycleMWh-c.solarM2*CFG.solarWPerM2/1e6*p.cycleMin/60}};let v=values[group];for(const key of field)v=v?.[key];return [r.file+':'+r.line,r.key,r.old,r.new,f(v),r.cause];}));
-const correctionTable=table(['Earlier publication','Quantity','Earlier value','Current record / favourable','Cause and effect'],[
+const reportsTable=table(['Report and former line (historical cells outside storage diagnostic)','Generated field','Earlier printed','Current record','Current favourable','Reason','Current record / favourable storage notes'],reportChanges.map(r=>{const [id,group,...field]=r.key.split('.'),c=CLASSES[id],p=planCycle(c,MODES.balanced,15,null,{basis:'favourable'});const values={cycle:p,descent:{rotorCapT:p.rotorMaxT},energy:{letdownMWh:p.letdownMWh,anchorHoistMWh:p.anchorHoistMWh,ledgerMWh:p.E,deficitPerCycleMWh:p.eCycleMWh-c.solarM2*CFG.solarWPerM2/1e6*p.cycleMin/60}};let v=values[group];for(const key of field)v=v?.[key];return [r.file+':'+r.line,r.key,r.old,r.new,f(v),r.cause,['record','favourable'].map(basis=>storageNote(prescribed({class:id,km:15,basis}))).join(' / ')];}));
+const correctionTable=table(['Earlier publication (outside storage diagnostic)','Quantity','Earlier value','Current record / favourable','Cause and effect'],[
  ...classes.map((c,i)=>['PHYSICS section 6',c.class+' balanced cruise MW',[1.06,9.16,69.68][i],f(c.dragMW)+' / '+f(c.dragMW),'Capsule frontal area and local density; higher hull drag']),
  ...classes.filter(c=>c.class!=='P1000').map(c=>['PHYSICS section 5',c.class+' electrical fill MWh',c.class==='P100'?.091:9.08,f(c.pumpElectricalMWh)+' / '+f(c.pumpElectricalMWh),'Correct head in the published arithmetic; higher pumping bill']),
  ['PHYSICS section 5','P100 ideal fill MWh',.068,f(classes[0].pumpIdealMWh)+' / '+f(classes[0].pumpIdealMWh),'Correct head; higher potential energy'],
@@ -88,9 +86,9 @@ const checkText=`## How this was checked\n\nTwo ledger implementations used gpt-
 const unheldText=fs.readFileSync('research/analysis/energy-unheld.md','utf8').replace(/^# /,'## ').replace('(energy-profiles.md)','(../research/analysis/energy-profiles.md)');
 const inertia=read('energy-served-inertia');
 const inertiaCounts=inertia.summary;
-const inertiaTable=items=>table(['Case','Class / km / basis','C','Phase / progress','Acceleration m/s²','Signed demand tf','Required rotor tf','Thrust to shed tf','Additional downward reserve tf','Signed gap tf / direction','Withdrawn absolute gap tf'],items.flatMap(r=>r.worstSignedGaps.map((q,j)=>[
+const inertiaTable=items=>table(['Case','Class / km / basis','C','Phase / progress','Acceleration m/s²','Signed demand tf','Required rotor tf','Thrust to shed tf','Additional downward reserve tf','Signed gap tf / direction','Withdrawn absolute gap tf','Storage note'],items.flatMap(r=>r.worstSignedGaps.map((q,j)=>[
  r.capture?`${r.capture} / ${r.mission} (zero-based)`:`candidate ${r.candidate+1}`,
- `${r.class} / ${f(r.km,6)} / ${r.basis??'record'}`,f(q.coefficient,2),`${q.phase} / ${f(q.progress,6)}`,f(q.accelerationMps2,6),f(q.forceT),f(q.requiredRotorT),f(q.upwardByRotorShedT),f(q.downwardReserveT),`${f(q.gapT)} / ${q.direction}`,f(r.withdrawnAbsoluteGaps[j].gapT)])));
+ `${r.class} / ${f(r.km,6)} / ${r.basis??'record'}`,f(q.coefficient,2),`${q.phase} / ${f(q.progress,6)}`,f(q.accelerationMps2,6),f(q.forceT),f(q.requiredRotorT),f(q.upwardByRotorShedT),f(q.downwardReserveT),`${f(q.gapT)} / ${q.direction}`,f(r.withdrawnAbsoluteGaps[j].gapT),storageNote(r.controls?{class:r.class,km:r.km,mode:r.controls.mode,options:{...r.controls.options,basis:r.basis}}:{...r,options:{basis:r.basis??'record',...r.options}})])));
 const inertiaText='## Signed vertical authority screen of the served candidates\n\n'+
  `${inertia.method}\n\n${inertia.mass}\n\n${inertia.authority}\n\nSource: [${inertia.source.title}](${inertia.source.url}), ${inertia.source.page}, Table I. This potential-flow spheroid surrogate is not a measurement of the capsule hull.\n\n`+
  `${inertia.withdrawnMeasurement}\n\n`+
@@ -101,8 +99,8 @@ const inertiaText='## Signed vertical authority screen of the served candidates\
 const energyShortages=[...necessary.shortages.servedMissions,...necessary.shortages.routes];
 const necessaryText='## Necessary stored energy, ideal accounting\n\n'+MISSION_QUALIFIER+'\n\n'+necessary.scope+'\n\n'+necessary.method+'\n\n'+
  table(['Captured mission or printed profile','Class / km / basis','Draw MWh','Nominal storage MWh','First empty min','Shortage MWh','Pages'],energyShortages.map(r=>[
- r.capture?`${r.capture} mission ${r.mission} (zero-based)`:r.profile,`${r.class} / ${f(r.km,6)} / ${r.basis??'record'}`,f(r.accounting.cumulativeDrawMWh,1),f(r.accounting.nominalStorageMWh,0),f(r.accounting.emptyAtMin,1),f(r.accounting.shortageMWh,1),r.pages.join('; ')]))+'\n'+
- `Of ${necessary.summary.capturedMissions} captured cycles, ${necessary.summary.capturedShortages} exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.\n\n`+
+ r.capture?`${r.capture} mission ${r.mission} (zero-based)`:r.profile,`${r.class} / ${f(r.km,6)} / ${r.basis??'record'}`,`${f(r.accounting.cumulativeDrawMWh,1)} MWh`,`${f(r.accounting.nominalStorageMWh,0)} MWh`,`${f(r.accounting.emptyAtMin,1)} min`,`${f(r.accounting.shortageMWh,1)} MWh`,r.pages.join('; ')]))+'\n'+
+ `Of ${necessary.summary.capturedMissions} captured cycles, ${necessary.summary.capturedShortages} exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for ${necessary.summary.printedProfiles} deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. ${necessary.excludedProfileSets} Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.\n\n`+
  'Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.\n';
 const dynamicLimits=`## Signed demand, added mass and suspended-load limits
 
@@ -208,7 +206,7 @@ const closure='# Energy closure, 2026-10-02\n\nNo aircraft has flown. The fleet 
  'A different vehicle is a separate question. The [payload-exchange study](../research/analysis/payload-exchange.md) is analysis, not design.\n'+
  'Its half-load hull gives up fail-safe float-up and needs upward thrust, which the drawn rotors lack.\n'+
  'An approach at airspeed needs a demonstrated hand-over to the bag. Variable displacement needs changing sealed cells; cryogenic ballast needs added energy and plant mass.\n\n'+
- '## Earlier published figures beside the model\n\nEarlier figures remain dated history. They used incomplete force allocation. The intermediate steps are preserved in `energy-closure-history.json`.\n\n'+historyTable+'\n'+movementTable+'\nIndependent vertical controls and smooth joins change the finite search space. Neither comparison proves a global minimum.\n\n'+correctionTable+'\n'+reportsTable+'\n'+
+ '## Earlier published figures beside the model\n\nEarlier figures remain dated history and are outside the current necessary-energy diagnostic; current prescribed cells are covered. They used incomplete force allocation. The intermediate steps are preserved in `energy-closure-history.json`.\n\n'+historyTable+'\n'+movementTable+'\nIndependent vertical controls and smooth joins change the finite search space. Neither comparison proves a global minimum.\n\n'+correctionTable+'\n'+reportsTable+'\n'+
  'The [superseded document record](../research/analysis/energy-document-history.json) preserves the replaced energy text and its historical numbers. It is dated history, not a current model reading.\n\n'+
  omitted+'\n'+inertiaText+'\n'+necessaryText+'\n'+checkText;
 const fixes=fs.existsSync('research/analysis/energy-fix-changes.json')?read('energy-fix-changes').parts:[];
@@ -217,7 +215,7 @@ const model='# Energy model, 2026-10-02\n\nOne ledger owns the modelled force an
  '## Independent stationary cross-check\n\nThe stationary-fill anchors are at 300 m above ground, 1,300 m above sea level, with local ISA density 1.0793 kg/m³. The analysis full bus means battery plus generator rating. The cycle instead receives the nitrogen recovery available in that phase, plus day-average solar.\n\n'+
  table(['Class','Mode','Full-bus model / independent t','Actual mode bus MW','Other draw MW','Mode thrust model / independent t','Full-bus empty floor t'],cross.modes.map(r=>[r.class,r.mode,`${f(r.fullBusModelT)} / ${f(r.independentFullBusT)}`,f(r.modeBusMW),f(r.nonRotorMW),`${f(r.modeModelT)} / ${f(r.independentModeT)}`,f(r.wholeBusFloorT)]))+'\n'+
  'A retained-water floor depends on altitude, available supply and the other loads aboard. The generated cross-check names nitrogen, newly loaded water and bag support at the stationary fill instant.\n\n'+
- '## Retained-water floor at the stationary fill\n\n'+table(['Class','km','Basis','Profile','Kept t','Independent floor t','Other support t'],cross.profiles.map(r=>[r.class,r.km,r.basis,r.kind,f(r.retainedT),f(r.independentRetainedFloorT),Object.entries(r.otherSupport).map(([k,v])=>k+' '+f(v)).join('; ')]))+'\n## Interfaces\n\n`planCycle(class, mode, distance, wind, options)` computes a cycle. `drawAt` supplies each instantaneous ledger.\n'+
+ '## Retained-water floor at the stationary fill\n\n'+table(['Class','km','Basis','Profile','Kept t','Independent floor t','Other support t','Storage note'],cross.profiles.map(r=>[r.class,r.km,r.basis,r.kind,f(r.retainedT),f(r.independentRetainedFloorT),Object.entries(r.otherSupport).map(([k,v])=>k+' '+f(v)).join('; '),storageNote([...profiles.rows,...feasible.rows].find(q=>q.class===r.class&&q.km===r.km&&q.basis===r.basis)[r.kind==='cheapest'?'best':'fullDeliveryBest'])]))+'\n## Interfaces\n\n`planCycle(class, mode, distance, wind, options)` computes a cycle. `drawAt` supplies each instantaneous ledger.\n'+
  '`cheapestFeasible` performs the slow stated-space search; it is not suitable for a page-load fleet search.\n'+
  'Generated tables cover only their printed distances; they do not promise interpolation. The monitor replays each candidate at the mission’s exact distance, wind and mode and serves only a profile that closes.\n';
 const pumpTable=table(['Class','Head m','Pump MW','Ideal MWh','Electrical MWh'],classes.map(c=>[c.class,c.sourceM,f(c.pumpMW),f(c.pumpIdealMWh),f(c.pumpElectricalMWh)]));
@@ -238,7 +236,7 @@ let physics='## 3. Storage inside the dry-mass target\n\n'+omitted+'\n## 4. The 
  'Battery hours divide usable storage by the modelled energy deficit. They are reported, but do not gate the force-and-bus feasibility verdict. On an infeasible row this is an accounting quotient, not demonstrated endurance.\n'+
  'Every phase draws from the same ledger. The phase and channel integrals are stored in `energy-documents.json`.\n\n'+
  '## 10. Sensitivity\n\nThese sweeps change one input at a time around the prescribed P-10000 balanced profile at the worked distance.\nAll displayed energy changes are supplied-effort changes when the row is infeasible.\n\n'+
- table(['Basis','Input','Energy change at −20%','Energy change at +20%','Verdict at −20% / +20%'],sensitivity.map(r=>[r.basis,r.key,f(r.rows[0].energyPct,1)+'%',f(r.rows[1].energyPct,1)+'%',r.rows.map(s=>s.feasible?'closes':'does not close').join(' / ')]))+'\n'+
+ table(['Basis','Input','Energy change at −20%','Energy change at +20%','Verdict at −20% / +20%','Storage notes at −20% / +20%'],sensitivity.map(r=>[r.basis,r.key,f(r.rows[0].energyPct,1)+'%',f(r.rows[1].energyPct,1)+'%',r.rows.map(s=>s.feasible?'closes':'does not close').join(' / '),r.rows.map(s=>storageNote(documentSensitivity(r,s))).join(' / ')]))+'\n'+
  'The old fixed-density input has no effect because the force and power laws now use local ISA density. Drop distance can change the force-price integral even when metering fixes release time.\n\n'+
  '## 11. Corrections and remaining limits\n\nEarlier energy figures are retained beside current values in [the closure document](ENERGY-CLOSURE-2026-10.md).\nThe former unowned aerodynamic share, phase power discounts, split densities and silent bus overdraw have been removed.\n'+
  'Local-density force balance leaves the named endurance example infeasible; the generated unheld table records every failing phase.\n\n'+search+'\n';

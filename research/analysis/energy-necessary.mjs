@@ -2,15 +2,17 @@
 import fs from 'node:fs';
 import {CLASSES,MODES,PHASES,planCycle,drawAt,selectServedPlan} from '../../sim/index.js?v=816a54f9';
 import {writeGenerated} from './energy-output.mjs';
+import {printedProfiles,profileKey} from './energy-printed-profiles.mjs';
+import {CFG,setConfig} from '../../sim/index.js';
 export const NECESSARY_ENERGY_SCOPE='Ideal, lossless chronological accounting with nominal class storage fully usable and the plan initial nitrogen inventory charged. No losses, health, state-of-charge window, reserve, external recharge or thermal limit. This is not an endurance rule, a mission-completion verdict or a battery model. Solar and nitrogen recovery are the existing bus inputs, not a promised recharge system.';
-export function necessaryEnergy(c,m,p,steps=2000){
+export function necessaryEnergy(c,m,p,steps=2000,drawOptions={}){
  let cumulativeDrawMWh=0,elapsedMin=0,maximumDrawMWh=0,minimumDrawMWh=0,emptyAtMin=null;
  const phases=[];
  for(const [phase] of PHASES){
   if(!(p.dur[phase]>0))continue;
   const begin=cumulativeDrawMWh,dtHours=p.dur[phase]/60/steps;
   for(let i=0;i<steps;i++){
-   const powerMW=drawAt(c,m,p,phase,(i+.5)/steps).electrical.batteryPowerMW;
+   const powerMW=drawAt(c,m,p,phase,(i+.5)/steps,drawOptions).electrical.batteryPowerMW;
    const drawMWh=powerMW*dtHours;
    if(emptyAtMin===null&&cumulativeDrawMWh<=c.battMWh&&cumulativeDrawMWh+drawMWh>c.battMWh)
     emptyAtMin=elapsedMin+(c.battMWh-cumulativeDrawMWh)/powerMW*60;
@@ -26,36 +28,34 @@ export function necessaryEnergy(c,m,p,steps=2000){
   emptyAtMin,shortageMWh:Math.max(0,maximumDrawMWh-c.battMWh),phases};
 }
 export function necessaryEnergyRecord(input){
- const c=CLASSES[input.class],m=MODES[input.mode];
- const p=planCycle(c,m,input.km,null,input.options);
- if(!p.feasible)throw new Error('Energy diagnostic requires a named quasi-static feasible profile');
- return {...input,quasiStaticFeasible:p.feasible,cycleMin:p.cycleMin,initialNitrogenT:p.ln2MakeT,
-  accounting:necessaryEnergy(c,m,p)};
+ const prior={...CFG};
+ try {
+  if(input.config)setConfig(input.config);
+  const c=input.hardware?{...CLASSES[input.class],...input.hardware}:CLASSES[input.class],m=MODES[input.mode];
+  const p=planCycle(c,m,input.km,null,input.options);
+  return {...input,quasiStaticFeasible:input.drawOptions?null:p.feasible,forceVerdictNote:input.drawOptions?'Force verdict not replayed for disabled-credit supplied-effort diagnostic':null,cycleMin:p.cycleMin,initialNitrogenT:p.ln2MakeT,
+   accounting:necessaryEnergy(c,m,p,2000,input.drawOptions)};
+ } finally { setConfig(prior); }
 }
 export function generateNecessaryEnergy(){
  const read=f=>JSON.parse(fs.readFileSync(f));
  const servedMissions=read('tests/energy/served-route-distances.json').missions.map(r=>necessaryEnergyRecord({
   ...r,options:{...r.options,basis:'record'},pages:['index.html']}));
- const routes=[];
- // Include each feasible profile whose quantities the served prose prints.
- for(const row of read('research/analysis/energy-profiles.json').rows){
-  const profileKinds=[['best',row.best],['fullDeliveryBest',row.fullDeliveryBest]];
-  if(row.class==='P100'&&row.km===60&&row.asDrawn.feasible)
-   profileKinds.push(['asDrawn',{class:row.class,km:row.km,mode:'balanced',options:{basis:row.basis}}]);
-  for(const [profile,b] of profileKinds){
-   if(!b)continue;
-   routes.push(necessaryEnergyRecord({class:b.class,km:b.km,basis:row.basis,mode:b.mode,options:b.options,profile,
-    pages:['index.html','concept/index.html'],location:profile==='fullDeliveryBest'?'p100-selected (P100 only); linked full-delivery table':profile==='asDrawn'?'p100-as-drawn':'generated selected-profile summaries'}));
-  }
- }
+ const inputs=printedProfiles();
+ const routes=inputs.map(necessaryEnergyRecord);
  // An existing ready-selector counterexample, shown explicitly on the diagnostic page.
  const long=selectServedPlan(CLASSES.P1000,400,null,'endurance');
  if(long.state!=='ready')throw new Error('Long-route quasi-static verdict changed');
- routes.push(necessaryEnergyRecord({class:'P1000',km:400,basis:'record',mode:long.mode,options:long.options,
+ if(!routes.some(r=>profileKey(r)===profileKey({class:'P1000',km:400,mode:long.mode,options:long.options})))routes.push(necessaryEnergyRecord({class:'P1000',km:400,basis:'record',mode:long.mode,options:long.options,
   profile:'ready selector',pages:['concept/energy-analysis.html'],location:'necessary-energy; the shared page selector returns ready for these exact inputs'}));
  const shortages=items=>items.filter(r=>r.accounting.shortageMWh>1e-6);
  return {method:'Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples per phase, in PHASES order. Record cumulative draw at every phase end; interpolate the first nominal-storage crossing inside its sample.',
   scope:NECESSARY_ENERGY_SCOPE,servedMissions,routes,
+  excludedProfileSets:'Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics.',
+  coverage:Object.fromEntries([...new Set(inputs.flatMap(r=>r.occurrences.map(o=>o.profileSet)))].map(population=>{
+   const rows=inputs.filter(r=>r.occurrences.some(o=>o.profileSet===population));
+   return [population,{uniqueProfiles:rows.length,printedOccurrences:rows.reduce((n,r)=>n+r.occurrences.filter(o=>o.profileSet===population).length,0)}];
+  })),
   shortages:{servedMissions:shortages(servedMissions),routes:shortages(routes)},
   summary:{capturedMissions:servedMissions.length,capturedShortages:shortages(servedMissions).length,
    printedProfiles:routes.length,printedProfileShortages:shortages(routes).length}};

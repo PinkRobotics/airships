@@ -5,6 +5,8 @@ written by `payload-exchange.py`, which shares no code with `sim/`. Keys are giv
 as `P1000.` stands for `classes.P1000.`, and `*.` stands for every class. Nothing here says the ship flies,
 and nothing says it cannot be made to.
 
+The study uses its own Python force and cycle sketch rather than a replayable `planCycle` profile. Its sketch-cycle and combination rows are outside the necessary stored-energy diagnostic; the affected rows are marked below.
+
 ## 1. The problem, from the class constants
 
 A fixed-displacement hull has one lift at each altitude and cannot change it. The ship is sized to float
@@ -73,14 +75,14 @@ sketch (section 2h) puts the P-1000 letdown gap at 641 t where the earlier profi
 Water that stays in the hull is ballast the lake supplied for free. The amount needed lies between two bounds:
 the hover bound, where a slow letdown lets the whole bus hold the hull at the lake, and the earlier profile.
 
-| class, km | hover bound (η 0.70) | this study's sketch | earlier lever | delivered (sketch) | cycle MWh (sketch) | kWh per delivered tonne (sketch / earlier lever) | minutes added |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| P-100, 15 | 0 t | 0 t | 34 t on the drawn letdown; no ballast repairs the loaded climb | 100 t | 7.2 | 71.9 / none | 0 |
-| P-100, 60 | 0 t | 0 t | 0 t | 100 t | 20.2 | 202.1 / none | 0 |
-| P-1000, 15 | 588.5 t | 640.4 t | 869.2 t | 359.6 t | 31.3 | 87.0 / 166.8 | −7.1 |
-| P-1000, 60 | 588.5 t | 595.0 t | 817.4 t | 405.0 t | 88.0 | 217.4 / 322.9 | −6.6 |
-| P-10000, 15 | 6,191.9 t | 6,538.1 t | 7,396.8 t | 3,461.9 t | 265.4 | 76.7 / 90.8 | −14.5 |
-| P-10000, 60 | 6,191.9 t | 6,272.7 t | 7,280.8 t | 3,727.3 t | 560.3 | 150.3 / 164.4 | −13.9 |
+| class, km | hover bound (η 0.70) | this study's sketch | earlier lever | delivered (sketch) | cycle MWh (sketch) | kWh per delivered tonne (sketch / earlier lever) | minutes added | Storage diagnostic |
+|---|---:|---:|---:|---:|---:|---:|---:| --- |
+| P-100, 15 | 0 t | 0 t | 34 t on the drawn letdown; no ballast repairs the loaded climb | 100 t | 7.2 | 71.9 / none | 0 | outside: separate study sketch |
+| P-100, 60 | 0 t | 0 t | 0 t | 100 t | 20.2 | 202.1 / none | 0 | outside: separate study sketch |
+| P-1000, 15 | 588.5 t | 640.4 t | 869.2 t | 359.6 t | 31.3 | 87.0 / 166.8 | −7.1 | outside: separate study sketch |
+| P-1000, 60 | 588.5 t | 595.0 t | 817.4 t | 405.0 t | 88.0 | 217.4 / 322.9 | −6.6 | outside: separate study sketch |
+| P-10000, 15 | 6,191.9 t | 6,538.1 t | 7,396.8 t | 3,461.9 t | 265.4 | 76.7 / 90.8 | −14.5 | outside: separate study sketch |
+| P-10000, 60 | 6,191.9 t | 6,272.7 t | 7,280.8 t | 3,727.3 t | 560.3 | 150.3 / 164.4 | −13.9 | outside: separate study sketch |
 
 Keys: `*.routes.b.keptAtHover_fullBusT.0.7`, `*.routes.b.byKm.{15,60}.0.7.{keptT, deliveredT, cycleMWh,
 kwhPerDeliveredT, minutesAdded}`, `*.routes.b.byKm.*.earlierLever`, `*.routes.b.byKm.*.keptRangeT`. At η 0.55 the
@@ -173,11 +175,11 @@ is 1,567,630 m³, a change of −28.7%, and a hull area of −20.2% [`*.routes.d
 The wall may weigh 40% more per cubic metre at the same dry target [`*.routes.d.allowedWallMassPerM3Change`].
 The hull is 213 × 106 m [`P1000.routes.d.lenM`, `.diaM`].
 
-| class | push down, empty at the lake | its hover power (η 0.70 / 0.55) | push up, loaded at work | its hover power (η 0.70, ideal / at reverse factor 0.5) | cycle MWh at 15 km, reverse 1.0 / 0.5 | kWh per tonne | closes in the sketch |
-|---|---:|---:|---:|---:|---:|---:|---|
-| P-100 | 69.2 t | 10.9 / 13.8 MW | 50.0 t | 7.1 / 14.2 MW | 3.4 / 3.9 | 34 / 39 | yes |
-| P-1000 | 691.9 t | 157.0 / 199.8 MW | 500.0 t | 102.4 / 204.8 MW | 38.6 / 46.1 | 39 / 46 | yes |
-| P-10000 | 6,918.7 t | 1,359.3 / 1,730.0 MW | 5,000.0 t | 886.9 / 1,773.7 MW | 330.7 / 385.8 | 33 / 39 | yes |
+| class | push down, empty at the lake | its hover power (η 0.70 / 0.55) | push up, loaded at work | its hover power (η 0.70, ideal / at reverse factor 0.5) | cycle MWh at 15 km, reverse 1.0 / 0.5 | kWh per tonne | closes in the sketch | Storage diagnostic |
+|---|---:|---:|---:|---:|---:|---:|---| --- |
+| P-100 | 69.2 t | 10.9 / 13.8 MW | 50.0 t | 7.1 / 14.2 MW | 3.4 / 3.9 | 34 / 39 | yes | outside: separate study sketch |
+| P-1000 | 691.9 t | 157.0 / 199.8 MW | 500.0 t | 102.4 / 204.8 MW | 38.6 / 46.1 | 39 / 46 | yes | outside: separate study sketch |
+| P-10000 | 6,918.7 t | 1,359.3 / 1,730.0 MW | 5,000.0 t | 886.9 / 1,773.7 MW | 330.7 / 385.8 | 33 / 39 | yes | outside: separate study sketch |
 
 Keys: `*.routes.d.byEta.{0.7,0.55}.{downThrustT_emptyAtHold, downHoverMW, upThrustT_loadedAtWork, upHoverMW_ideal,
 upHoverMW_reverseRange}`, `*.routes.d.sketch15.{reverse1.0,reverse0.5}.{cycleMWh, kwhPerDeliveredT, closes}`. At 60 km
@@ -231,15 +233,15 @@ per cycle [`P10000.routes.f.byKm.15.earlierWorst.{optimumCollins_arnaizDelPozo20
 
 ### 2g. Combinations, P-1000 at 15 km on the drawn bus
 
-| pair | closes | delivered | condition | vehicle change |
-|---|---|---:|---|---|
-| a + b | yes | 359.6 t (sketch); 130.8 t on the earlier letdown | slow letdown, whole bus on the rotors | no |
-| b + c | only if shown | 411.5 t | C_L 0.34 at 53.9 m/s, and a hand-over through the hover interval with 588.5 t aboard | no |
-| c + bag | no | | the hover interval has no actuator | no |
-| a + f | no | | the drawn plant makes 24.6 t per cycle against 868.6 t | no |
-| b + f | yes | 155.4 t | the plant replaces the tonnes it can make | no |
-| a + d | yes | 1,000 t | smaller hull, reversible rotors, float-up given up | yes |
-| a + e | yes | 1,000 t | cells that change volume by 24.8% every cycle, 44 MWh electrical | yes |
+| pair | closes | delivered | condition | vehicle change | Storage diagnostic |
+|---|---|---:|---|---| --- |
+| a + b | yes | 359.6 t (sketch); 130.8 t on the earlier letdown | slow letdown, whole bus on the rotors | no | outside: separate study sketch |
+| b + c | only if shown | 411.5 t | C_L 0.34 at 53.9 m/s, and a hand-over through the hover interval with 588.5 t aboard | no | outside: separate study sketch |
+| c + bag | no | | the hover interval has no actuator | no | outside: separate study sketch |
+| a + f | no | | the drawn plant makes 24.6 t per cycle against 868.6 t | no | outside: separate study sketch |
+| b + f | yes | 155.4 t | the plant replaces the tonnes it can make | no | outside: separate study sketch |
+| a + d | yes | 1,000 t | smaller hull, reversible rotors, float-up given up | yes | outside: separate study sketch |
+| a + e | yes | 1,000 t | cells that change volume by 24.8% every cycle, 44 MWh electrical | yes | outside: separate study sketch |
 
 Keys: `P1000.routes.g.{a+b, b+c, c+bag, a+f, b+f, a+d, a+e}`. On the drawn vehicle, nothing closes the P-1000 at
 15 km with full delivery.
