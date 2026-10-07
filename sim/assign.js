@@ -26,14 +26,17 @@ export function assign(fire, water) {
   };
   let pick = scan(tier);
   let note = "";
-  // The out-of-control bump is a preference, not a law: if the bigger ship must haul three
-  // times as far, the smaller ship's shorter cycles deliver more water per hour. Logistics win.
+  // The out-of-control bump is a preference. This distance heuristic prefers the smaller
+  // class when the selected larger-class station is beyond 40 km and three times the
+  // smaller-class station distance. It compares no accepted-plan delivery rates.
   if (pick && tier > base) {
     const alt = scan(base);
     if (alt && alt.t < pick.t && pick.src.km > Math.max(40, alt.src.km * 3)) {
-      note = ` A ${pick.cls.name} was indicated by the out-of-control status, but its nearest ` +
-        `suitable water is ${pick.src.km.toFixed(0)} km away; the ${alt.cls.name} cycling from ` +
-        `${alt.src.km.toFixed(1)} km delivers more water per hour, so logistics decide.`;
+      note = ` A ${pick.cls.name} was indicated by the out-of-control status. Its selected source's ` +
+        `nearest qualifying drafting station is ${pick.src.km.toFixed(0)} km from the incident point; ` +
+        `the ${alt.cls.name} station is ${alt.src.km.toFixed(1)} km away. The distance rule prefers ` +
+        `the smaller class because the larger-class station is beyond 40 km and three times ` +
+        `the smaller-class distance. Accepted-plan delivery rates are not compared.`;
       pick = alt;
     }
   }
