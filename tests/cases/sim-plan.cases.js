@@ -182,12 +182,15 @@ describe('plan · wind', () => {
     eq(blown.windUsed, true, 'windUsed');
   });
 
-  it('a storm is clamped to between 0.35x and 1.8x the airspeed', () => {
+  it('a stipulated wind faster than selected airspeed refuses the return track', () => {
     resetConfig();
-    const kph = CLASSES.P100.cruiseKph * MODES.balanced.speed;    // 90 km/h
+    const kph = CLASSES.P100.cruiseKph * MODES.balanced.speed;
     const gale = planCycle(CLASSES.P100, MODES.balanced, 30, wind(400, 270, 90));
-    close(gale.gsOut, kph * 1.8, 1e-9, 'tailwind clamp');
-    close(gale.gsRet, kph * 0.35, 1e-9, 'headwind clamp');
+    close(gale.gsOut, kph + 400, 1e-9, 'physical outbound speed');
+    close(gale.gsRet, kph - 400, 1e-9, 'physical return speed');
+    eq(gale.trackPossible, false, 'impossible track');
+    eq(gale.tph, null, 'no rate for a refused track');
+    ok(gale.trackReason.includes('return leg has no positive ground speed'), 'named refusal');
   });
 
   it('a crosswind costs nothing in this first-order model', () => {

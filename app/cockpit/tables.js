@@ -137,6 +137,8 @@ export function renderFires() {
     const m = f.mission, plans = S.missions.filter(x => x.fire === f && missionReady(x));
     const tph = plans.reduce((n,x) => n + x.plan.tph, 0);
     const notes = [...new Set(plans.flatMap(x=>diagnosticNotes(x.cls,x.legKm,x.selection,x.wind??null)))];
+    for (const refused of S.missions.filter(x => x.fire === f && x.served && !missionReady(x)))
+      notes.push(inactiveText(refused));
     if (f.heldOut) notes.push(f.heldOut);
     const refusedTargets = plans.reduce((n,x) => n + (x.refusedTargets?.length || 0), 0);
     if (refusedTargets) notes.push(refusedTargets + " geometric targets refused: no tested line fits inside the modelled fire");

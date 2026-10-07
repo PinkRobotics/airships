@@ -133,6 +133,24 @@
   }finally{
    S.missions.pop();S.fires.pop();tables.renderRoster();tables.renderFires();
   }
+  // Stipulated along-track boundary wind: kinematic refusal must survive every UI path.
+  const impossibleWind={spd:180,dir:270,bearing:90};
+  const trackSelection=SIM.selectServedPlan(SIM.CLASSES.P100,4.71,impossibleWind,'balanced');
+  if(trackSelection.state!=='stand-down'||!trackSelection.reason.includes('return leg has no positive ground speed'))
+   throw new Error('track refusal missing from selector');
+  const trackFire={...seed.fire,id:'track-refusal-fixture',sizeHa:1e9};
+  const trackMission={...seed,name:'Track refusal fixture',cls:SIM.CLASSES.P100,legKm:4.71,wind:impossibleWind,
+   fire:trackFire,selection:trackSelection,plan:null,planState:trackSelection.state,planReason:trackSelection.reason,idle:true,served:true};
+  trackFire.mission=trackMission;S.missions.push(trackMission);S.fires.push(trackFire);
+  try{
+   window.APP.selRow(S.missions.length-1);
+   if(!document.querySelector('[data-plan-inactive]')?.textContent.includes('return leg has no positive ground speed')||
+      document.querySelector('#cpOps [data-energy-quantity]'))throw new Error('cockpit lost track refusal or publishes a rate');
+   tables.renderRoster();tables.renderFires();
+   const row=document.querySelector('#firesTop [data-fid="track-refusal-fixture"]');
+   if(!row?.textContent.includes('return leg has no positive ground speed')||row.querySelector('[data-energy-fleet-fire]'))
+    throw new Error('fleet totals lost track refusal or count refused rate');
+  }finally{S.missions.pop();S.fires.pop();tables.renderRoster();tables.renderFires();}
   // A fresh capture replaces mission objects. A retired selection must not publish
   // its old numbers while the replacement mission is being planned at new inputs.
   const savedMissions=S.missions;

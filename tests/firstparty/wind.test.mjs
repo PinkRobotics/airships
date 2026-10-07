@@ -35,3 +35,43 @@ test('edge samples work; outside grid is refused instead of extrapolating', () =
   assert.equal(windForMission(g, { intake: [-124, 54], delivery: [-124, 54] }).spd, 50);
   assert.throws(() => windForMission(g, { intake: [-140, 60], delivery: [-140, 60] }), /outside/);
 });
+
+
+// Stipulated uniform boundary winds; these are test inputs, not observed weather.
+import {CLASSES,MODES,planCycle,selectServedPlan,drawAt,bindServedMission,missionReady,planStatusText} from '../../sim/index.js';
+const controls = {speedMultiplier:1,ballastT:50,basis:'record'};
+const legKm = 4.71; // Representative diagnostic leg, not a flown route.
+const along = spd => ({spd,dir:270,bearing:90});
+const almost = (a,b,tol=1e-9) => assert.ok(Math.abs(a-b)<tol, `${a} != ${b}`);
+test('stipulated along_180 refuses the leg, selector, rate and mission activity', () => {
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,along(180),{...controls,speedMultiplier:1.5});
+  assert.equal(p.trackPossible,false);
+  assert.equal(p.feasible,false);
+  assert.match(p.trackReason,/return.*positive ground speed/);
+  assert.equal(p.tph,null);
+  almost(p.selectedAirKph,155.25);
+  const selected=selectServedPlan(CLASSES.P100,legKm,along(180),'balanced');
+  assert.equal(selected.state,'stand-down');
+  assert.match(selected.reason,/return.*positive ground speed/);
+  assert.equal(selected.plan,null);
+  assert.match(planStatusText(selected),/return.*positive ground speed/);
+  const mission={cls:CLASSES.P100,legKm,wind:along(180),mode:MODES.balanced};
+  bindServedMission(mission);
+  assert.equal(missionReady(mission),false);
+  assert.match(mission.planReason,/return.*positive ground speed/);
+});
+test('stipulated along_72 uses physical speed below the old floor and charges selected airspeed', () => {
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,along(72),controls);
+  almost(p.gsRet,31.5);
+  almost(p.gsOut,175.5);
+  for(const id of ['OUTBOUND_TRANSIT','RETURN_TRANSIT'])
+    almost(drawAt(CLASSES.P100,MODES.rapid,p,id,.5).airV*3.6,103.5);
+});
+test('stipulated tailwind passes the former upper bound without substituting speed', () => {
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,along(90),controls);
+  assert.equal(p.trackPossible,true);
+  almost(p.gsOut,193.5);
+  almost(p.gsRet,13.5);
+  for(const id of ['OUTBOUND_TRANSIT','RETURN_TRANSIT'])
+    almost(drawAt(CLASSES.P100,MODES.rapid,p,id,.5).airV*3.6,103.5);
+});

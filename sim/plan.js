@@ -10,6 +10,8 @@ import { dragMW, ledger, pumpMW } from './physics.js?v=31a23fa3';
 import { searchedProfile, prescribedReturnJoins } from './profile.js?v=31a23fa3';
 import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=31a23fa3';
 
+import {trackWind} from './wind.js';
+
 export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
   if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');
   const movingPhaseRateMultiplier = options.movingPhaseRateMultiplier ?? 1;
@@ -19,18 +21,17 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   const rotorEfficiency = options.rotorEfficiency ?? CFG.propEta;
   if (!(Number.isFinite(rotorEfficiency) && rotorEfficiency > 0 && rotorEfficiency <= 1))
     throw new RangeError('rotorEfficiency must be in (0, 1]');
-  // Airspeed is the vehicle's; ground speed belongs to the day. When a live 850 hPa wind is
-  // known for the route, each leg gets its along-track component — one leg's tailwind is the
-  // other's headwind. Clamped so a storm cannot produce absurd legs in a first-order model.
+  // The selected airspeed and actual route wind determine physical ground progress.
+  // A timing refusal is separate from the quasi-static force-and-bus predicate.
   const kph = cls.cruiseKph * mode.speed * speedMultiplier;
-  let gsOut = kph, gsRet = kph, tailOut = 0;
-  if (wind && wind.spd != null && wind.bearing != null) {
-    const toDir = (wind.dir + 180) % 360;
-    const comp = b => wind.spd * Math.cos((toDir - b) * Math.PI / 180);
-    tailOut = comp(wind.bearing);
-    gsOut = Math.min(kph * 1.8, Math.max(kph * 0.35, kph + tailOut));
-    gsRet = Math.min(kph * 1.8, Math.max(kph * 0.35, kph + comp((wind.bearing + 180) % 360)));
-  }
+  const track = trackWind(kph, wind);
+  let {gsOut, gsRet, tailOut} = track;
+  if (!track.trackPossible) return {
+    ...track, feasible: false, bindingLimits: [track.trackReason], worst: null,
+    basis: options.basis || 'record', speedMultiplier, movingPhaseRateMultiplier,
+    cycleMin: null, tph: null, eCycleMWh: null, kwhPerTonne: null, dur: null,
+    deliveredT: null, retainedT: null, planSteps: null,
+  };
   const fill = Math.max(0.01, cls.fillM3s * CFG.fillMul);
   /* TWO LEDGERS, BECAUSE THE TWO QUESTIONS HAVE DIFFERENT WORST CASES.
    *
@@ -137,7 +138,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
 
   /* Quasi-static force and energy closure is evaluated by power.js. */
   const partial = { bagCreditRule: options.bagCreditRule, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, verticalCd: options.verticalCd, basis: options.basis || 'record', clMax: options.clMax,
-    requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT, dur, anchorFromAglM, retainedT, deliveredT, ln2MakeT, gsOut, gsRet, passes,
+    requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT, dur, anchorFromAglM, retainedT, deliveredT, ln2MakeT, gsOut, gsRet, tailOut, selectedAirKph: kph, passes,
     anchorT, dragMW: dragMW(cls, mode, led.rho), pumpMW: pumpMW(cls) };
   const shape = cycleGeometry(cls, partial);
   const altitudeGeometry = Object.fromEntries(['srcAlt','holdAgl','altTop','altEsc'].map(k=>[k,shape[k]]));
@@ -238,7 +239,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
     // Whole-cycle rotor clipping; battLimited covers every running channel and phase.
     rotorClipMin: I.rotorClipMin, rotorClipMWh: I.rotorClipMWh, letdownClipMin: I.letdownClipMin,
     retainedT, deliveredT, rotorMaxT, busMW, passes,
-    gsOut, gsRet, tailOut, windUsed: !!(wind && wind.spd != null && wind.bearing != null),
+    gsOut, gsRet, tailOut, selectedAirKph: kph, windUsed: track.windUsed, trackPossible: true, trackReason: null,
     ln2MakeT, cryoLimited, battLimited, descentShort,
     // The rotors' peak draw over the cycle and the phase it falls in. It is the drop run on
     // every class: the hull is held at the drop altitude while the water leaves it.

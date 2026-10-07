@@ -262,9 +262,9 @@ export function loadAt(cls, plan, id, prog, cryoFrac) {
     simplification — a wind through the disks would lower the induced power, not raise it). */
 function airV(cls, mode, plan, id, prog, gs) {
   if(plan.profile?.phases[id])return profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60).airV;
-  const kph = cls.cruiseKph * mode.speed * (plan.speedMultiplier ?? CFG.speedMul) * (plan.movingPhaseRateMultiplier ?? 1);
-  if (id === "OUTBOUND_TRANSIT") return Math.abs(gs - (plan.gsOut - kph)) / 3.6;
-  if (id === "RETURN_TRANSIT") return Math.abs(gs - (plan.gsRet - kph)) / 3.6;
+  // Use the actual wind, never a difference recovered from a timing bound.
+  if (id === "OUTBOUND_TRANSIT") return Math.abs(gs - (plan.tailOut || 0)) / 3.6;
+  if (id === "RETURN_TRANSIT") return Math.abs(gs + (plan.tailOut || 0)) / 3.6;
   return gs / 3.6;
 }
 
