@@ -1,5 +1,5 @@
 import {writeGenerated} from './energy-output.mjs';
-import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js';
+import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js?v=01e992e3';
 import {storageNote} from './energy-storage-notes.mjs';
 import {prescribed} from './energy-printed-profiles.mjs';
 /* Render the current descent reading. The older prose remains dated history. */

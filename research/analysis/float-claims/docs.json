@@ -761,7 +761,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "5ee2543ddd270d0b",
-      "line": 354,
+      "line": 358,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -775,7 +775,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "382335bf5ffcf978",
-      "line": 366,
+      "line": 370,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -829,7 +829,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "1e313d903b4a4f94",
-      "line": 412,
+      "line": 453,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -843,7 +843,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "6a45c9a3dd10599c",
-      "line": 418,
+      "line": 459,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -857,7 +857,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "0b5195293e15ccdd",
-      "line": 444,
+      "line": 485,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -1125,6 +1125,20 @@
       "class": "deferred",
       "reason": "Station answers describe a geometric screen and preserve the budget's physical limitations. Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
       "owner": "mixed-block"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "class": "generated",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+      "key": "ca39d5d1c9f82d22",
+      "line": 435
     }
   ]
 }

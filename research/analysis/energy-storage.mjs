@@ -1,7 +1,7 @@
 /* Lossless recovery quotients and analytic ground-tank storage sensitivities. */
 import fs from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {CLASSES,CFG,ledger,TERRAIN_MSL} from '../../sim/index.js';
+import {CLASSES,CFG,ledger,TERRAIN_MSL} from '../../sim/index.js?v=01e992e3';
 import {writeGenerated} from './energy-output.mjs';
 
 export function storageBalance(makeTDay,capacityT,targetT,rateDay){

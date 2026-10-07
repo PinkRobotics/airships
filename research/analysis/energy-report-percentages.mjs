@@ -1,6 +1,6 @@
 /* Dated report readings beside an exact current bag-intervention replay. */
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle,LN2_RECOVERY_KWH_PER_T} from '../../sim/index.js?v=31a23fa3';
+import {CLASSES,MODES,planCycle,LN2_RECOVERY_KWH_PER_T} from '../../sim/index.js?v=01e992e3';
 import {writeGenerated} from './energy-output.mjs';
 const recordPath='research/analysis/energy-report-percentages.json';
 const papers=['research/reports/02-paper.md','research/reports/03-diligence.md'];

@@ -1,7 +1,7 @@
 /* Fixed-control ground-comparator sensitivities. No search or model-default change. */
 import fs from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {CLASSES,MODES,CFG,resetConfig,setConfig,planCycle,drawAt,cryoOnFrac} from '../../sim/index.js';
+import {CLASSES,MODES,CFG,resetConfig,setConfig,planCycle,drawAt,cryoOnFrac} from '../../sim/index.js?v=01e992e3';
 import {writeGenerated} from './energy-output.mjs';
 
 export const PLANT_ENERGY_NOTE='The liquefaction dial is an assumed all-in energy figure with no all-in source in the repository. Intake, separation, compression, liquefaction, transfer and heat rejection have no specified complete boundary.';

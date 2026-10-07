@@ -1,13 +1,13 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady, diagnosticNotes, FEASIBILITY_SCOPE } from '../../sim/index.js?v=31a23fa3';
-import { timeSinceDrop } from '../cockpit/panels.js?v=31a23fa3';
-import { $, SHORT, esc } from '../dom.js?v=31a23fa3';
-import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=31a23fa3';
-import {figure,inactiveText} from "../served-ui.js?v=31a23fa3";
-import { FLEET } from '../fleet.js?v=31a23fa3';
-import { select } from '../map/interact.js?v=31a23fa3';
-import { S } from '../store.js?v=31a23fa3';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady, diagnosticNotes, FEASIBILITY_SCOPE } from '../../sim/index.js?v=01e992e3';
+import { timeSinceDrop } from '../cockpit/panels.js?v=01e992e3';
+import { $, SHORT, esc } from '../dom.js?v=01e992e3';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=01e992e3';
+import {figure,inactiveText} from "../served-ui.js?v=01e992e3";
+import { FLEET } from '../fleet.js?v=01e992e3';
+import { select } from '../map/interact.js?v=01e992e3';
+import { S } from '../store.js?v=01e992e3';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -82,7 +82,7 @@ function wireGrid(el, activate) {
   roveToSelection(el);
 }
 
-import {windBasis} from '../../sim/wind.js';
+import {windBasis} from '../../sim/wind.js?v=01e992e3';
 
 export function renderFires() {
   const el = $("firesTop");

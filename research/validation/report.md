@@ -111,7 +111,7 @@ The new public grossLiftKg computes gas lift before structure. The existing clas
 
 Only straight-line cruise transit and the printed scoop duration map. The necessary inequality is partial time <= listed turnaround (plus the predeclared 0.5-minute planning tolerance). Shorter mapped times do not validate the missing phases.
 
-**Called:** sim/plan.js:13 (planCycle)
+**Called:** sim/plan.js:17 (planCycle)
 
 **Tolerance:** Half a minute reflects the whole-minute planning list, not flight-test accuracy. The stated 10-12 seconds is represented by 11 +/- 1 seconds. Transit plus fill is only a partial-cycle bound; the fill time is an input replay, not independent validation.
 

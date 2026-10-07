@@ -6,7 +6,7 @@ Old: JS 287.0528; Python 287.05. New: 8314.32 J/(kmol K) / 28.9644 kg/kmol = 287
 JS constant relative change: 9.47724824983e-07 (9.47724824983e-05%).
 Python constant relative change: 1.07021322579e-05 (0.00107021322579%).
 
-10414 changed leaves: 10378 numeric; 36 text or flag; 0 added; 0 removed.
+10663 changed leaves: 10627 numeric; 36 text or flag; 0 added; 0 removed.
 Baseline regeneration drift: 187 leaves.
 
 Old means a fresh original-constant run. Published old is the committed cache; any difference between these columns predates the constant change.
@@ -21,7 +21,7 @@ A large relative effect on a small residual does not imply a large physical chan
 | --- | ---: | ---: | --- | ---: |
 | research/figures.json | 39 | 7.98782140486e-06 | /classes/P100/bases/favourable/worst/unheldT | 3.1715713307e-07 |
 | research/analysis/mass-budget.json | 151 | 0.000308071472582 | /classes/P1000/airBallast/idealWorkMWh | 2.80946738916e-06 |
-| research/analysis/delivery.json | 78 | 0.0416666666667 | /classes/P1000/coverageLevelBySwath/80 m | 0.000312341283098 |
+| research/analysis/delivery.json | 327 | 0.0416666666667 | /classes/P1000/coverageLevelBySwath/80 m | 5.57531900154e-08 |
 | research/analysis/vacuum-cell.json | 6 | 0.00109529025192 | /ship0/worldsFramePractice/s1050_sf12/ratioSL | 7.21759672315e-06 |
 | research/analysis/helium.json | 2 | 1.33901073887e-05 | /atmosphere/pPa | 8.32444322608e-06 |
 | research/analysis/water-availability.json | 9619 | 0.0665661880026 | /classes/P1000/acceptedPlans/byFire/737/releasedT | 1.12998364312e-06 |
@@ -32,15 +32,15 @@ A large relative effect on a small residual does not imply a large physical chan
 
 ## Relative magnitudes by decade
 
-10375 defined numeric relative effects; 39 undefined or categorical. Rounding-scale band: magnitude below 1e-12 (6 nonzero effects). This names a floating-point rounding scale, not a proof that every effect in it is rounding.
+10624 defined numeric relative effects; 39 undefined or categorical. Rounding-scale band: magnitude below 1e-12 (6 nonzero effects). This names a floating-point rounding scale, not a proof that every effect in it is rounding.
 
 | Relative magnitude band | Leaves |
 | --- | ---: |
 | [1e-15, 1e-14) | 2 |
 | [1e-14, 1e-13) | 4 |
 | [1e-9, 1e-8) | 1 |
-| [1e-8, 1e-7) | 82 |
-| [1e-7, 1e-6) | 3300 |
+| [1e-8, 1e-7) | 328 |
+| [1e-7, 1e-6) | 3303 |
 | [1e-6, 1e-5) | 6804 |
 | [1e-5, 1e-4) | 47 |
 | [1e-4, 1e-3) | 49 |
@@ -56,7 +56,7 @@ A large relative effect on a small residual does not imply a large physical chan
 
 Complete rows remain in constant-study.json, changed_fields. The Markdown byte budget can omit special rows; exact counts follow.
 
-Selected numeric rows: 86; listed: 86; omitted by row cap: 10289; omitted by byte budget: 0.
+Selected numeric rows: 86; listed: 86; omitted by row cap: 10538; omitted by byte budget: 0.
 
 | Published/generated file | Field | Published old | Fresh old | Standard R | Constant effect | Relative effect |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |

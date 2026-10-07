@@ -1,0 +1,1736 @@
+{
+  "scope": "Conditional comparison with favourable simplifications at published profiles’ fixed controls, with no re-search. It is not a bound, design or aircraft result. Original force allocation and priced independent-disk area stay; the negative-axial level-flight substitute stays. Rotor speed is fixed, drive efficiency and profile-speed factor are unity, and no stall, compressibility or accessory loss is assigned.",
+  "modelScope": "Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.",
+  "inputs": {
+    "scope": "Reviewer’s stipulated sensitivity inputs, derived from the published CH-47D comparison family; not measured properties of these rotors.",
+    "source": "johnson-2017-ndarc-validation",
+    "locator": "December 2017 revision: Table 1, printed page 10; Tables 3a–b, printed pages 12–13",
+    "tipSpeedFtS": 707,
+    "metresPerFoot": 0.3048,
+    "solidity": 0.0849,
+    "inducedFactor": 1.15,
+    "basicMeanBladeDrag": 0.0085,
+    "driveEfficiency": 1,
+    "profileSpeedFactor": 1
+  },
+  "samplesPerPhase": 2000,
+  "theory": {
+    "source": "johnson-2009-ndarc",
+    "locator": "sections 11-5 to 11-5.1, printed pages 95–96",
+    "method": "Mechanical axial power plus stipulated induced factor times ideal induced power plus blade profile power; the induced factor does not multiply mechanical power. Comparison total = original midpoint cycle effort minus finely sampled original rotor effort plus finely sampled comparison rotor demand."
+  },
+  "profiles": [
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 6.622158442923587,
+      "originalRotorMWh": 5.302456391695017,
+      "comparisonRotorMWh": 5.730186116698902,
+      "comparisonDemandMWh": 7.049888167927472,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75975,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4270641765735577,
+        "profileMW": 2.4270641765735577
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.843459432804109,
+      "originalRotorMWh": 2.5588682077511384,
+      "comparisonRotorMWh": 3.5569261511840726,
+      "comparisonDemandMWh": 5.841517376237043,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75775,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.42694325225554,
+        "profileMW": 2.42694325225554
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 10.696
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 12.706219266998506,
+      "originalRotorMWh": 6.526742030939768,
+      "comparisonRotorMWh": 7.6005002446865,
+      "comparisonDemandMWh": 13.779977480745238,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.99275,
+        "rotorT": 0.040029563710498574,
+        "originalMW": 0.00018596205722780883,
+        "comparisonMW": 2.435720202101434,
+        "profileMW": 2.4355770978329185
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 9.07
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 10.03477308740956,
+      "originalRotorMWh": 3.5217063467750016,
+      "comparisonRotorMWh": 5.631901895402676,
+      "comparisonDemandMWh": 12.144968636037234,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "OUTBOUND_TRANSIT",
+        "progress": 0.70425,
+        "rotorT": 0.0000012508647166953324,
+        "originalMW": 2.563651675380809e-8,
+        "comparisonMW": 2.1707621249597815,
+        "profileMW": 2.1707621070142196
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 24.472360372481326,
+      "originalRotorMWh": 16.05426773936337,
+      "comparisonRotorMWh": 17.445216708911644,
+      "comparisonDemandMWh": 25.8633093420296,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 19.81521794008433,
+      "originalRotorMWh": 8.925632515611108,
+      "comparisonRotorMWh": 11.81352886134683,
+      "comparisonDemandMWh": 22.703114285820053,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 755.174
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 65.35090111647223,
+      "originalRotorMWh": 32.691714136786786,
+      "comparisonRotorMWh": 39.35864846595391,
+      "comparisonDemandMWh": 72.01783544563935,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65725,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.325553956654602,
+        "profileMW": 11.325553956654602
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 755.174
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 54.09893365845424,
+      "originalRotorMWh": 15.419764728198547,
+      "comparisonRotorMWh": 25.57121127867619,
+      "comparisonDemandMWh": 64.25038020893189,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65725,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.325553956654602,
+        "profileMW": 11.325553956654602
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7054.504
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 202.10225864122967,
+      "originalRotorMWh": 149.7995060902585,
+      "comparisonRotorMWh": 179.47299732921294,
+      "comparisonDemandMWh": 231.77574988018412,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7054.504
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 184.20863583156236,
+      "originalRotorMWh": 118.63024744208158,
+      "comparisonRotorMWh": 154.77197052397892,
+      "comparisonDemandMWh": 220.3503589134597,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7006.366
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 402.7449803506874,
+      "originalRotorMWh": 224.28026467427347,
+      "comparisonRotorMWh": 318.24207610494386,
+      "comparisonDemandMWh": 496.70679178135777,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1,
+        "ballastT": 6990.332
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 368.5711874673336,
+      "originalRotorMWh": 208.95997519310168,
+      "comparisonRotorMWh": 335.7239802604794,
+      "comparisonDemandMWh": 495.33519253471127,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 3.9870421261460476,
+      "originalRotorMWh": 3.400118909753034,
+      "comparisonRotorMWh": 3.557745930522599,
+      "comparisonDemandMWh": 4.1446691469156125,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 3.634360650181771,
+      "originalRotorMWh": 2.905973947518069,
+      "comparisonRotorMWh": 3.160815203349718,
+      "comparisonDemandMWh": 3.88920190601342,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 6.116996285676532,
+      "originalRotorMWh": 4.870012505987382,
+      "comparisonRotorMWh": 5.3111082500151,
+      "comparisonDemandMWh": 6.55809202970425,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75625,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426852252536138,
+        "profileMW": 2.426852252536138
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.681252944768284,
+      "originalRotorMWh": 2.500130878168437,
+      "comparisonRotorMWh": 3.4424772671449766,
+      "comparisonDemandMWh": 5.623599333744823,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75825,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426973527392865,
+        "profileMW": 2.426973527392865
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 12.412
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 10.494635279012188,
+      "originalRotorMWh": 5.583563886069005,
+      "comparisonRotorMWh": 6.4070163865823995,
+      "comparisonDemandMWh": 11.318087779525584,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.78925,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.428787941812233,
+        "profileMW": 2.428787941812233
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 11.122
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 8.258355216470505,
+      "originalRotorMWh": 3.0549302199432393,
+      "comparisonRotorMWh": 4.737742399656994,
+      "comparisonDemandMWh": 9.941167396184259,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.90125,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4338937563122487,
+        "profileMW": 2.4338937563122487
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 820.194
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 15.072504028818093,
+      "originalRotorMWh": 11.699555244897718,
+      "comparisonRotorMWh": 12.189732163596895,
+      "comparisonDemandMWh": 15.56268094751727,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 820.194
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 12.437944289833041,
+      "originalRotorMWh": 7.661847898749678,
+      "comparisonRotorMWh": 8.95250069625503,
+      "comparisonDemandMWh": 13.728597087338393,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 809.246
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 23.764260094217256,
+      "originalRotorMWh": 15.775908820064991,
+      "comparisonRotorMWh": 17.075535224383792,
+      "comparisonDemandMWh": 25.063886498536057,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 809.246
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 19.245996136650707,
+      "originalRotorMWh": 8.854977518591028,
+      "comparisonRotorMWh": 11.600570854200114,
+      "comparisonDemandMWh": 21.991589472259793,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 769.965
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 53.17533727616625,
+      "originalRotorMWh": 27.383485071912187,
+      "comparisonRotorMWh": 32.66231847779209,
+      "comparisonDemandMWh": 58.454170682046154,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65725,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.325553956654602,
+        "profileMW": 11.325553956654602
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 769.965
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 44.03827170228983,
+      "originalRotorMWh": 13.361013795291829,
+      "comparisonRotorMWh": 21.498703506670015,
+      "comparisonDemandMWh": 52.17596141366802,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65725,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.325553956654602,
+        "profileMW": 11.325553956654602
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7065.275
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 154.89001538075502,
+      "originalRotorMWh": 126.3573382243337,
+      "comparisonRotorMWh": 146.66306346427112,
+      "comparisonDemandMWh": 175.19574062069245,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7065.275
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 143.5281867633458,
+      "originalRotorMWh": 106.67696038328845,
+      "comparisonRotorMWh": 130.84247085718744,
+      "comparisonDemandMWh": 167.69369723724478,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7055.424
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 197.76949010334013,
+      "originalRotorMWh": 147.92108935348182,
+      "comparisonRotorMWh": 176.45039408808762,
+      "comparisonDemandMWh": 226.29879483794593,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7055.424
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 180.400980767007,
+      "originalRotorMWh": 117.67478441370751,
+      "comparisonRotorMWh": 152.4598808795275,
+      "comparisonDemandMWh": 215.18607723282702,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7019.85
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 345.31065915375797,
+      "originalRotorMWh": 202.72455750042582,
+      "comparisonRotorMWh": 278.2126164398479,
+      "comparisonDemandMWh": 420.79871809318007,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7019.85
+      },
+      "baselineFeasible": true,
+      "originalTotalMWh": 314.9549864836896,
+      "originalRotorMWh": 149.6603289310618,
+      "comparisonRotorMWh": 236.2851681368432,
+      "comparisonDemandMWh": 401.579825689471,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P10000",
+      "km": 47.3898629193257,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7019.85
+      },
+      "capture": "exercise",
+      "mission": 0,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 345.3106587927494,
+      "originalRotorMWh": 202.72455736884797,
+      "comparisonRotorMWh": 278.2126161890225,
+      "comparisonDemandMWh": 420.79871761292395,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P1000",
+      "km": 15.63918398847924,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "capture": "exercise",
+      "mission": 1,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 24.94650616751634,
+      "originalRotorMWh": 16.21098880753699,
+      "comparisonRotorMWh": 17.678511654725227,
+      "comparisonDemandMWh": 26.414029014704578,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P1000",
+      "km": 14.300044988660485,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 809.246
+      },
+      "capture": "exercise",
+      "mission": 2,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 23.887499516814852,
+      "originalRotorMWh": 15.819421966816048,
+      "comparisonRotorMWh": 17.13749378249252,
+      "comparisonDemandMWh": 25.205571332491324,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P1000",
+      "km": 28.87013872084708,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "capture": "exercise",
+      "mission": 3,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 34.94611866117332,
+      "originalRotorMWh": 19.198089598382662,
+      "comparisonRotorMWh": 22.494355229618478,
+      "comparisonDemandMWh": 38.24238429240914,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P1000",
+      "km": 32.62935428636302,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "capture": "exercise",
+      "mission": 4,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 38.003566954641904,
+      "originalRotorMWh": 20.197160610005646,
+      "comparisonRotorMWh": 24.021086041045475,
+      "comparisonDemandMWh": 41.82749238568174,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65475,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.321565561866114,
+        "profileMW": 11.321565561866114
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P1000",
+      "km": 27.253676611450906,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "capture": "exercise",
+      "mission": 5,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 33.63539974350742,
+      "originalRotorMWh": 18.772469629991956,
+      "comparisonRotorMWh": 21.840526884463618,
+      "comparisonDemandMWh": 36.70345699797908,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 19.302440551988337,
+      "basis": "record",
+      "kind": "served",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "capture": "exercise",
+      "mission": 6,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 7.77679426263096,
+      "originalRotorMWh": 6.111881503638688,
+      "comparisonRotorMWh": 6.721358401094441,
+      "comparisonDemandMWh": 8.386271160086713,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75975,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4270641765735577,
+        "profileMW": 2.4270641765735577
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 20.05473739559659,
+      "basis": "record",
+      "kind": "served",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "capture": "exercise",
+      "mission": 7,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 7.980246037471504,
+      "originalRotorMWh": 6.254970720899734,
+      "comparisonRotorMWh": 6.895748184044574,
+      "comparisonDemandMWh": 8.621023500616344,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75825,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426973527392865,
+        "profileMW": 2.426973527392865
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 5.730095857645837,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 8,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.172905714902157,
+      "originalRotorMWh": 3.5231213668854573,
+      "comparisonRotorMWh": 3.725836501141145,
+      "comparisonDemandMWh": 4.375620849157845,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 7.331040674971225,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 9,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.539451360622348,
+      "originalRotorMWh": 3.7630395221832726,
+      "comparisonRotorMWh": 4.057853814137447,
+      "comparisonDemandMWh": 4.834265652576522,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 13.980788057029073,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 10,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 7.431325305143939,
+      "originalRotorMWh": 6.0042420274057475,
+      "comparisonRotorMWh": 6.606286464859861,
+      "comparisonDemandMWh": 8.033369742598051,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64375,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4265087309347875,
+        "profileMW": 2.4265087309347875
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 9.775576436528567,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 11,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 5.322518738228609,
+      "originalRotorMWh": 4.332819048524901,
+      "comparisonRotorMWh": 4.75567191262108,
+      "comparisonDemandMWh": 5.745371602324788,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64475,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4265516717247135,
+        "profileMW": 2.4265516717247135
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 5.541039739304714,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 12,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.128827359675683,
+      "originalRotorMWh": 3.494025431832417,
+      "comparisonRotorMWh": 3.685949257916783,
+      "comparisonDemandMWh": 4.320751185760049,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 9.470464595920046,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 13,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 5.114570609864963,
+      "originalRotorMWh": 4.160985870493544,
+      "comparisonRotorMWh": 4.574615729389074,
+      "comparisonDemandMWh": 5.528200468760493,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64475,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4265516717247135,
+        "profileMW": 2.4265516717247135
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 5.200783703884123,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 14,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.049022341822176,
+      "originalRotorMWh": 3.4412455078254403,
+      "comparisonRotorMWh": 3.613793995976352,
+      "comparisonDemandMWh": 4.221570829973087,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 4.938018038358277,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "exercise",
+      "mission": 15,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 3.9870421352457965,
+      "originalRotorMWh": 3.4001189157801632,
+      "comparisonRotorMWh": 3.557745938725274,
+      "comparisonDemandMWh": 4.144669158190908,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 6.872957528739268,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "replay",
+      "mission": 0,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.435809253534642,
+      "originalRotorMWh": 3.6955589139917837,
+      "comparisonRotorMWh": 3.9638920421339656,
+      "comparisonDemandMWh": 4.704142381676824,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 14.714511358632635,
+      "basis": "record",
+      "kind": "served",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
+      },
+      "capture": "replay",
+      "mission": 1,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 6.261482490240132,
+      "originalRotorMWh": 4.968436467105497,
+      "comparisonRotorMWh": 5.435885967908612,
+      "comparisonDemandMWh": 6.728931991043247,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75625,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426852252536138,
+        "profileMW": 2.426852252536138
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 19.388470917637715,
+      "basis": "record",
+      "kind": "served",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "capture": "replay",
+      "mission": 2,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 7.80004914000335,
+      "originalRotorMWh": 6.128233515420658,
+      "comparisonRotorMWh": 6.741293894918825,
+      "comparisonDemandMWh": 8.413109519501518,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75975,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4270641765735577,
+        "profileMW": 2.4270641765735577
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 22.610554763687116,
+      "basis": "record",
+      "kind": "served",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "capture": "replay",
+      "mission": 3,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 8.672318193330671,
+      "originalRotorMWh": 6.741968397918519,
+      "comparisonRotorMWh": 7.488691314333773,
+      "comparisonDemandMWh": 9.419041109745926,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.75775,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.42694325225554,
+        "profileMW": 2.42694325225554
+      }
+    },
+    {
+      "dataset": "served-reference-median",
+      "class": "P100",
+      "km": 4.71,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35,
+        "basis": "record"
+      },
+      "provenance": "water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median",
+      "baselineFeasible": true,
+      "originalTotalMWh": 3.9329320811398447,
+      "originalRotorMWh": 3.364169916824504,
+      "comparisonRotorMWh": 3.5088781614360793,
+      "comparisonDemandMWh": 4.07764032575142,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "served-reference-median",
+      "class": "P1000",
+      "km": 4.71,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225,
+        "basis": "record"
+      },
+      "provenance": "water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median",
+      "baselineFeasible": true,
+      "originalTotalMWh": 15.397658128889733,
+      "originalRotorMWh": 12.095672886888789,
+      "comparisonRotorMWh": 12.499796524767472,
+      "comparisonDemandMWh": 15.801781766768416,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65575,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.323160906430202,
+        "profileMW": 11.323160906430202
+      }
+    },
+    {
+      "dataset": "served-reference-median",
+      "class": "P10000",
+      "km": 4.71,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.25,
+        "ballastT": 7006.366,
+        "basis": "record"
+      },
+      "provenance": "water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median",
+      "baselineFeasible": true,
+      "originalTotalMWh": 156.51648906476436,
+      "originalRotorMWh": 128.28213071703772,
+      "comparisonRotorMWh": 148.18420016277148,
+      "comparisonDemandMWh": 176.41855851049812,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    },
+    {
+      "dataset": "served-median",
+      "class": "P100",
+      "km": 14.14,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35,
+        "basis": "record"
+      },
+      "provenance": "energy-feasible.json#distanceSelection.median; current accepted served selector",
+      "baselineFeasible": true,
+      "originalTotalMWh": 7.510854375494381,
+      "originalRotorMWh": 6.067015962420553,
+      "comparisonRotorMWh": 6.676178750244438,
+      "comparisonDemandMWh": 8.120017163318266,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64375,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.4265087309347875,
+        "profileMW": 2.4265087309347875
+      }
+    },
+    {
+      "dataset": "served-median",
+      "class": "P1000",
+      "km": 14.14,
+      "basis": "record",
+      "kind": "served",
+      "mode": "endurance",
+      "options": {
+        "speedMultiplier": 1.5,
+        "ballastT": 820.194,
+        "basis": "record"
+      },
+      "provenance": "energy-feasible.json#distanceSelection.median; current accepted served selector",
+      "baselineFeasible": true,
+      "originalTotalMWh": 23.209400696269572,
+      "originalRotorMWh": 15.234155834463024,
+      "comparisonRotorMWh": 16.6297109591447,
+      "comparisonDemandMWh": 24.604955820951247,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.65475,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 11.321565561866114,
+        "profileMW": 11.321565561866114
+      }
+    },
+    {
+      "dataset": "served-median",
+      "class": "P10000",
+      "km": 14.14,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.25,
+        "ballastT": 7055.424,
+        "basis": "record"
+      },
+      "provenance": "energy-feasible.json#distanceSelection.median; current accepted served selector",
+      "baselineFeasible": true,
+      "originalTotalMWh": 197.76738828919795,
+      "originalRotorMWh": 147.92018048951937,
+      "comparisonRotorMWh": 176.44892958584816,
+      "comparisonDemandMWh": 226.29613738552675,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.56175,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 146.49035768915226,
+        "profileMW": 146.49035768915226
+      }
+    }
+  ]
+}

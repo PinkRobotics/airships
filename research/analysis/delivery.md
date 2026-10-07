@@ -7,6 +7,7 @@ measure useful work. The Forest Service's training-jettison dissipation statemen
 comparison, not a deposition model. AFUE measures objectives rather than tank tonnage.
 
 <!-- logistics:release-air:start -->
+The model release is 450 m above terrain at 1000 m MSL, hence 1450 m MSL; its reference-atmosphere density is 1.063334 kg/m³. These are model inputs, not sampled fire weather.
 <!-- logistics:release-air:end -->
 
 Computed by `research/analysis/delivery.py`. This is the first time this project has looked at
@@ -45,9 +46,37 @@ been established.
 ## Free-drop speed depends on the air
 
 <!-- logistics:drop-reference:start -->
+For 2 mm drops, terminal speed is 6.5 m/s in the sea-level reference table; at the model release it is 6.903 m/s.
+
+The retained Gunn–Kinzer table describes free drops in sea-level reference air, rather than a density-independent property of water. Drops near and above 5.5 mm can break up. The density adjustment in [Ghiggi et al.](https://doi.org/10.5194/amt-19-4943-2026), Appendix B1, Eq. B1, printed p. 4967, is applied to that table through the model's dry standard-atmosphere column.
+
+| Diameter mm | Sea-level reference m/s | At release m/s | At ground m/s | Fall time s |
+|---|---|---|---|---|
+| 0.5 | 2.1 | 2.218 | 2.181 | 204.609 |
+| 1 | 4.0 | 4.233 | 4.158 | 107.260 |
+| 2 | 6.5 | 6.903 | 6.774 | 65.810 |
+| 3 | 8.1 | 8.633 | 8.462 | 52.653 |
+| 5 | 9.1 | 9.767 | 9.553 | 46.589 |
+
+This empirical correction holds diameter fixed and integrates inverse terminal speed down to the ground. It does not solve break-up, evaporation, entrainment, initial acceleration, humidity or a separate viscosity correction. No deposition or flight envelope follows.
 <!-- logistics:drop-reference:end -->
 
 <!-- logistics:drop-drift:start -->
+**The pattern smears, and the smear is worse than the drift.** A stipulated uniform 10 m/s wind translates the pattern, while the spread of fall times stretches it. At the model release height, 0.5 mm drops fall for 204.609 s and 5 mm drops for 46.589 s. The resulting along-wind spread is 1580.207 m, against the 1.2 km planned release run. This is a fixed-diameter, no-updraft sensitivity, not a ground pattern.
+
+**The mean drift is also conditional:**
+
+| Release example / height AGL m | Fall time, 2 mm s | Drift at 3 m/s, m | Drift at 5 m/s, m | Drift at 10 m/s, m | Drift at 15 m/s, m |
+|---|---|---|---|---|---|
+| single-engine airtanker / 18 | 2.656 | 8 | 13 | 27 | 40 |
+| large airtanker / 53 | 7.816 | 23 | 39 | 78 | 117 |
+| very large airtanker / 122 | 17.965 | 54 | 90 | 180 | 269 |
+| USFS 'completely dissipates' / 305 | 44.740 | 134 | 224 | 447 | 671 |
+| P-series ALT.drop / 450 | 65.810 | 197 | 329 | 658 | 987 |
+| sprayer lead, hull 450 m - 300 m lead / 150 | 22.075 | 66 | 110 | 221 | 331 |
+| sprayer lead, hull 450 m - 400 m lead / 50 | 7.374 | 22 | 37 | 74 | 111 |
+
+Each wind is a stipulated uniform horizontal input; the reference jettison heights are comparisons, and every row uses the same model terrain and atmospheric column.
 <!-- logistics:drop-drift:end -->
 
 *(The three airtanker rows are USFS **training-jettison** heights, which is the only published
@@ -58,6 +87,15 @@ Wildlife Service that it does not reach listed species. It is evidence for the d
 this arithmetic, not the same finding as it.)*
 
 <!-- logistics:drop-updraft:start -->
+**Free drops descend only where their downward speed relative to the air exceeds the local upward air motion.** The following updrafts are stipulated screens, not observed weather or operating limits. Diameter is held fixed.
+
+| Stipulated case | Updraft m/s | Diameters descending throughout the reference column, mm |
+|---|---|---|
+| quiet flank | 5 | 2, 3, 5 |
+| active flank | 10 | none in reference air |
+| crown fire column | 25 | none in reference air |
+
+A stipulated 15 K warming at unchanged pressure raises the 5 mm release speed from 9.767 to 10.027 m/s, near the 10 m/s screen. This is a threshold case: reference-speed precision and empirical/model uncertainty do not establish a robust crossing, and release-level speed does not establish descent through the full column. No quantitative confidence interval is supplied by this calculation.
 <!-- logistics:drop-updraft:end -->
 
 This is true of every airtanker ever flown, which is why aerial suppression lays line in
@@ -78,7 +116,7 @@ The producer replays the accepted 15 km balanced reference plan (record basis), 
 | start of release | 450 m | 1.063334 kg/m³ | 100.0 t | 33.933 tf | 7.9 m/s | 15.8 m/s | 21,035 kg/s |
 | end of release | 580 m | 1.049682 kg/m³ | 29.1 t | 101.877 tf | 13.8 m/s | 27.6 m/s | 36,212 kg/s |
 
-The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. The upward-flow sign motivates further investigation; ideal-disc arithmetic alone does not establish deposition or suppression.
+The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. At the end of release, the ideal induced upward velocity of 13.8 m/s exceeds the largest tabulated density-corrected release-level fall speed, 9.767 m/s. This compares the named endpoint with fixed-diameter drop speeds in the model air; it does not represent every drop or a ground pattern. The upward-flow sign motivates further investigation; ideal-disc arithmetic alone does not establish deposition or suppression.
 <!-- editorial:release-illustration:end -->
 
 ## Which is the argument for putting the sprayers on leads

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readWind, windForMission, WIND_MAX_AGE_MS } from '../../app/wind.js?v=31a23fa3';
+import { readWind, windForMission, WIND_MAX_AGE_MS } from '../../app/wind.js?v=01e992e3';
 
 const now = Date.parse('2026-10-02T02:30:00Z');
 const doc = () => ({ fetchedAt: '2026-10-02T02:20:00Z', data: {
@@ -38,7 +38,7 @@ test('edge samples work; outside grid is refused instead of extrapolating', () =
 
 
 // Stipulated uniform boundary winds; these are test inputs, not observed weather.
-import {CLASSES,MODES,planCycle,selectServedPlan,drawAt,bindServedMission,missionReady,planStatusText} from '../../sim/index.js';
+import {CLASSES,MODES,planCycle,selectServedPlan,drawAt,bindServedMission,missionReady,planStatusText} from '../../sim/index.js?v=01e992e3';
 const controls = {speedMultiplier:1,ballastT:50,basis:'record'};
 const legKm = 4.71; // Representative diagnostic leg, not a flown route.
 const along = spd => ({spd,dir:270,bearing:90});

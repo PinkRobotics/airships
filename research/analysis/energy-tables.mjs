@@ -1,5 +1,5 @@
-import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js?v=31a23fa3';
-import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=31a23fa3';
+import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js?v=01e992e3';
+import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=01e992e3';
 import {writeGenerated} from './energy-output.mjs';
 import {plantEnergyTable,COLD_READY_NOTE,plantDutyTable} from './energy-plant.mjs';
 /* Human-readable tables from replayable model inputs; no slow search here. */
@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import {batteryMass,specificEnergies} from './energy-omissions.mjs';
 import {regimeTable} from './energy-rotor-regime.mjs';
 import {powerTable} from './energy-rotor-power.mjs';
-import {CLASSES} from '../../sim/index.js?v=31a23fa3';
+import {CLASSES} from '../../sim/index.js?v=01e992e3';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const outputs={},emit=process.argv.includes('--emit');
 const save=(path,body)=>{outputs[path]=body;if(!emit)writeGenerated(path,body);};

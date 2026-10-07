@@ -1,0 +1,164 @@
+{
+  "scope": "Ground-tank comparators at the model’s fixed day-average solar, hotel load, plant energy and tank capacity; no operating schedule or new design is searched. Neither loss rate is an airborne property. Recovery is not shown impossible or established.",
+  "equations": {
+    "lossless": "target / make",
+    "fixed": "dM/dt = make - rate * capacity, bounded below by empty inventory",
+    "proportional": "dM/dt = make - rate * M, starting empty and limited by installed capacity"
+  },
+  "requirement": "Fixed loss must be below the listed energy-based limit for positive accumulation. Equality leaves no net make. The limit excludes startup, cold maintenance, buffering and conversion losses; it is a requirement, not a selected tank property.",
+  "rows": [
+    {
+      "class": "P100",
+      "solarMW": 0.206581726243606,
+      "hotelMW": 0.16,
+      "netMW": 0.046581726243605986,
+      "capacityT": 155,
+      "targetT": 144.56133929726047,
+      "makeTDay": 2.484358732992319,
+      "solarFractionRatedPct": 0.7763621040600998,
+      "losslessGroundDays": 58.188593047164986,
+      "losslessTankDays": 62.390345621829006,
+      "maximumFixedLossPctCapacityDay": 1.602812085801496,
+      "sensitivity": [
+        {
+          "id": "chart-tms",
+          "label": "Ground TMS tank comparator",
+          "source": "chart-2024-oil-field-nitrogen-tanks",
+          "url": "https://files.chartindustries.com/11660611_OilField.pdf",
+          "locator": "Printed page 2, LIN evaporation row",
+          "lossFractionDay": 0.009,
+          "fixed": {
+            "lossTDay": 1.3949999999999998,
+            "netTDay": 1.0893587329923193,
+            "days": 132.70315362522524
+          },
+          "proportional": {
+            "equilibriumT": 276.03985922136883,
+            "capacityLimitedEquilibriumT": 155,
+            "days": 82.41130900756592
+          }
+        },
+        {
+          "id": "chart-dagt",
+          "label": "Ground DAGT tank comparator",
+          "source": "chart-2025-drop-and-go-trailer",
+          "url": "https://files.chartindustries.com/22305633_DropAndGoTrailerDAGTSpecSheet.pdf",
+          "locator": "PDF page 2, LIN NER row of the larger trailer",
+          "lossFractionDay": 0.0024,
+          "fixed": {
+            "lossTDay": 0.37199999999999994,
+            "netTDay": 2.1123587329923192,
+            "days": 68.43597966547954
+          },
+          "proportional": {
+            "equilibriumT": 1035.1494720801331,
+            "capacityLimitedEquilibriumT": 155,
+            "days": 62.6746020461992
+          }
+        }
+      ]
+    },
+    {
+      "class": "P1000",
+      "solarMW": 0.9670756447390759,
+      "hotelMW": 0.8,
+      "netMW": 0.16707564473907588,
+      "capacityT": 1550,
+      "targetT": 1445.6133929726047,
+      "makeTDay": 8.910701052750714,
+      "solarFractionRatedPct": 0.5569188157969196,
+      "losslessGroundDays": 162.23340727229842,
+      "losslessTankDays": 173.94815411538448,
+      "maximumFixedLossPctCapacityDay": 0.5748839388871428,
+      "sensitivity": [
+        {
+          "id": "chart-tms",
+          "label": "Ground TMS tank comparator",
+          "source": "chart-2024-oil-field-nitrogen-tanks",
+          "url": "https://files.chartindustries.com/11660611_OilField.pdf",
+          "locator": "Printed page 2, LIN evaporation row",
+          "lossFractionDay": 0.009,
+          "fixed": {
+            "lossTDay": 13.95,
+            "netTDay": -5.039298947249286,
+            "days": null
+          },
+          "proportional": {
+            "equilibriumT": 990.0778947500794,
+            "capacityLimitedEquilibriumT": 990.0778947500794,
+            "days": null
+          }
+        },
+        {
+          "id": "chart-dagt",
+          "label": "Ground DAGT tank comparator",
+          "source": "chart-2025-drop-and-go-trailer",
+          "url": "https://files.chartindustries.com/22305633_DropAndGoTrailerDAGTSpecSheet.pdf",
+          "locator": "PDF page 2, LIN NER row of the larger trailer",
+          "lossFractionDay": 0.0024,
+          "fixed": {
+            "lossTDay": 3.7199999999999998,
+            "netTDay": 5.190701052750714,
+            "days": 278.5006068123552
+          },
+          "proportional": {
+            "equilibriumT": 3712.7921053127975,
+            "capacityLimitedEquilibriumT": 1550,
+            "days": 205.51999253936398
+          }
+        }
+      ]
+    },
+    {
+      "class": "P10000",
+      "solarMW": 4.4755504168928795,
+      "hotelMW": 3,
+      "netMW": 1.4755504168928795,
+      "capacityT": 15500,
+      "targetT": 14456.13392972605,
+      "makeTDay": 78.6960222342869,
+      "solarFractionRatedPct": 1.4755504168928795,
+      "losslessGroundDays": 183.69586567779137,
+      "losslessTankDays": 196.96039977541378,
+      "maximumFixedLossPctCapacityDay": 0.5077162724792703,
+      "sensitivity": [
+        {
+          "id": "chart-tms",
+          "label": "Ground TMS tank comparator",
+          "source": "chart-2024-oil-field-nitrogen-tanks",
+          "url": "https://files.chartindustries.com/11660611_OilField.pdf",
+          "locator": "Printed page 2, LIN evaporation row",
+          "lossFractionDay": 0.009,
+          "fixed": {
+            "lossTDay": 139.5,
+            "netTDay": -60.8039777657131,
+            "days": null
+          },
+          "proportional": {
+            "equilibriumT": 8744.002470476324,
+            "capacityLimitedEquilibriumT": 8744.002470476324,
+            "days": null
+          }
+        },
+        {
+          "id": "chart-dagt",
+          "label": "Ground DAGT tank comparator",
+          "source": "chart-2025-drop-and-go-trailer",
+          "url": "https://files.chartindustries.com/22305633_DropAndGoTrailerDAGTSpecSheet.pdf",
+          "locator": "PDF page 2, LIN NER row of the larger trailer",
+          "lossFractionDay": 0.0024,
+          "fixed": {
+            "lossTDay": 37.199999999999996,
+            "netTDay": 41.496022234286905,
+            "days": 348.3739681867961
+          },
+          "proportional": {
+            "equilibriumT": 32790.009264286215,
+            "capacityLimitedEquilibriumT": 15500,
+            "days": 242.23892231656694
+          }
+        }
+      ]
+    }
+  ]
+}

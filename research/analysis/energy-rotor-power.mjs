@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {S,profiles,replay,read,format,table,label} from './energy-rotor-common.mjs';
 import {writeGenerated} from './energy-output.mjs';
-import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js';
+import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js?v=01e992e3';
 export {ROTOR_POWER_SCOPE};
 export const COMPARISON_INPUTS={scope:'Reviewer’s stipulated sensitivity inputs, derived from the published CH-47D comparison family; not measured properties of these rotors.',
  source:'johnson-2017-ndarc-validation',locator:'December 2017 revision: Table 1, printed page 10; Tables 3a–b, printed pages 12–13',

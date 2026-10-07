@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 const stamp=JSON.parse(fs.readFileSync(new URL('../../sim/version.json',import.meta.url))).version;
 export const S=await import(new URL(`../../sim/index.js?v=${stamp}`,import.meta.url));
-const {resolveClass}=await import('../../3d/model/config.js');
+const {resolveClass}=await import('../../3d/model/config.js?v=ceaf69ab');
 export const read=name=>JSON.parse(fs.readFileSync(`research/analysis/${name}.json`,'utf8'));
 export const format=(v,digits=3)=>Number(v).toFixed(digits);
 export function table(heads,rows){

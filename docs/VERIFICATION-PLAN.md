@@ -80,13 +80,16 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 <!-- editorial:release-register:start -->
 | # | Question | Answer | Record |
 |---|---|---|---|
-| 12 | What does the release illustration represent? | Ideal-disc estimates at the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. | `release-states.json`, `delivery.json` |
+| 12 | What does the release illustration represent? | Ideal-disc estimates at the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. At the end of release, the ideal induced upward velocity of 13.8 m/s exceeds the largest tabulated density-corrected release-level fall speed, 9.767 m/s. This compares the named endpoint with fixed-diameter drop speeds in the model air; it does not represent every drop or a ground pattern. | `release-states.json`, `delivery.json` |
 <!-- editorial:release-register:end -->
 | # | question | answer | where |
 |---|---|---|---|
 | 11 | Does the mass budget close? | **Not as specified** (2.16× at its most favourable). But the hull is free to grow, so it becomes the shell-density question above. | `mass-budget.md` |
 
 <!-- editorial:drop-register:start -->
+| # | Question | Answer | Record |
+|---|---|---|---|
+| 12 | Does water released at the drop altitude land as one pattern? | **Not established.** From the 450 m `ALT.drop` release height, the smallest modelled drops (0.5 mm) fall for 204.6 s and the largest (5.0 mm) for 46.6 s; in a stipulated uniform 10 m/s wind they drift 2,046 m and 466 m, a **1,580 m** along-wind spread, longer than the P-100's 1.2 km drop run. These are fixed-diameter, no-updraft sensitivities, not a ground pattern; release height and deposition remain open. | `delivery.json` |
 <!-- editorial:drop-register:end -->
 
 ### Needs an experiment
@@ -300,7 +303,7 @@ At the accepted median-leg rate, the conditional CL 4 line-length quotient is 93
 
 
 <!-- editorial:release-conclusion:start -->
-**Release basis.** The illustration follows the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. The release-height assumption and ground deposition remain open; no fire outcome is inferred.
+**Release basis.** The illustration follows the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. At the end of release, the ideal induced upward velocity of 13.8 m/s exceeds the largest tabulated density-corrected release-level fall speed, 9.767 m/s. This compares the named endpoint with fixed-diameter drop speeds in the model air; it does not represent every drop or a ground pattern. The release-height assumption and ground deposition remain open; no fire outcome is inferred.
 <!-- editorial:release-conclusion:end -->
 The first-generation sealed-cell budget retains the cryogenic plant. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery
 layout remain unpriced. The thermal analysis exists; the cooling installation's mass is still open.

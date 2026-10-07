@@ -1,7 +1,7 @@
 /* Refresh diagnostics and selected controls without claiming a new optimum.
  * Run the slow energy-feasible.mjs search when a profile shape changes. */
 import fs from 'node:fs';
-import {CLASSES,MODES,planCycle,energySummary,closureRequirements} from '../../sim/index.js?v=31a23fa3';
+import {CLASSES,MODES,planCycle,energySummary,closureRequirements} from '../../sim/index.js?v=01e992e3';
 import {profileDetails} from './energy-profile-details.mjs';
 import {writeGenerated} from './energy-output.mjs';
 const load=name=>JSON.parse(fs.readFileSync(`research/analysis/${name}.json`));

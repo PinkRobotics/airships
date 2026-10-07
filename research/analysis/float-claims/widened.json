@@ -125,7 +125,7 @@
    "class": "method",
    "context": [],
    "reason": "Required viewer qualifications explicitly call the reference conceptual and allocation simulated; the complete buoyant cell is a future gate, not an achieved result.",
-   "line": 507
+   "line": 512
   },
   {
    "file": "3d/anim/clips.js",
@@ -211,7 +211,7 @@
    "reason": "Display text is computed from the named model field or function; test-node exercises the script model. The template is not a typed float result.",
    "function": "finenessRatio",
    "gate": "test-node",
-   "line": 590
+   "line": 591
   },
   {
    "file": "3d/model/metadata.js",
@@ -473,7 +473,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 358
+   "line": 360
   },
   {
    "file": "app/cockpit/panels.js",
@@ -481,7 +481,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 202
+   "line": 204
   },
   {
    "file": "app/cockpit/panels.js",
@@ -489,7 +489,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-   "line": 98
+   "line": 100
   },
   {
    "file": "app/cockpit/shipviz.js",
@@ -529,7 +529,7 @@
    "class": "method",
    "context": [],
    "reason": "Tooltip explicitly says structural float is unproven and the configured class is used only in the simulation.",
-   "line": 203
+   "line": 208
   },
   {
    "file": "app/cockpit/tables.js",
@@ -537,7 +537,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-   "line": 203
+   "line": 208
   },
   {
    "file": "app/worked.js",
@@ -605,8 +605,36 @@
   },
   {
    "file": "research/analysis/energy-feasible.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "196c713a249ad138",
+   "line": 231
+  },
+  {
+   "file": "research/analysis/energy-feasible.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "6cc34a6b6dbe2ec3",
+   "line": 233
+  },
+  {
+   "file": "research/analysis/energy-feasible.md",
    "key": "6ec14366bd6a0608",
-   "line": 16,
+   "line": 18,
    "class": "generated",
    "generator": "research/analysis/energy-tables.mjs",
    "gate": "energydoccheck",
@@ -628,6 +656,14 @@
    "reason": "Describes an external paper or patent, not a result for the drawn hull; the note names the source and its comparison limits.",
    "source": "The primary paper or patent cited in this same research note",
    "line": 22
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "1b3668bd10a8f549",
+   "line": 20,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "The full dry-air-constant leaf table is replaced by a computed per-output magnitude summary; the complete leaf record remains in JSON. Its deferred disposition is retained."
   },
   {
    "file": "research/validation/constant-study.md",
@@ -655,24 +691,16 @@
   },
   {
    "file": "research/validation/constant-study.md",
-   "key": "96a831481b04e29d",
-   "line": 61,
+   "key": "584abaa3f83d33bc",
+   "line": 35,
    "class": "deferred",
    "owner": "hand-arithmetic",
    "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
   },
   {
    "file": "research/validation/constant-study.md",
-   "key": "b91db2cb1c4e4fbe",
-   "line": 20,
-   "class": "deferred",
-   "owner": "hand-arithmetic",
-   "reason": "The full dry-air-constant leaf table is replaced by a computed per-output magnitude summary; the complete leaf record remains in JSON. Its deferred disposition is retained."
-  },
-  {
-   "file": "research/validation/constant-study.md",
-   "key": "f422b260a941128c",
-   "line": 35,
+   "key": "96a831481b04e29d",
+   "line": 61,
    "class": "deferred",
    "owner": "hand-arithmetic",
    "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
@@ -743,6 +771,20 @@
   },
   {
    "file": "sim/README.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:simulator:start -->",
+    "end": "<!-- energy:simulator:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "2f33d93dd1531f1d",
+   "line": 101
+  },
+  {
+   "file": "sim/README.md",
    "key": "382335bf5ffcf978",
    "class": "method",
    "context": [],
@@ -771,7 +813,7 @@
    "class": "method",
    "context": [],
    "reason": "Current served-plan boundary: feasibility is conditional and does not establish structural float or flight performance.",
-   "line": 4
+   "line": 5
   },
   {
    "file": "sim/narrate.js",
@@ -781,7 +823,7 @@
     "0"
    ],
    "reason": "Explicit simulation narration describes model rotor power, altitude and water state; expressions remain unresolved source placeholders, not flight evidence.",
-   "line": 47
+   "line": 49
   },
   {
    "file": "sim/narrate.js",
@@ -789,7 +831,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation narration describes the selected climb profile and hose animation; it does not claim physical flight or a positive structural margin.",
-   "line": 37
+   "line": 39
   },
   {
    "file": "sim/narrate.js",
@@ -799,7 +841,7 @@
    "context": [],
    "function": "narrate",
    "gate": "servedenergycheck",
-   "line": 43
+   "line": 45
   },
   {
    "file": "sim/narrate.js",
@@ -807,7 +849,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 24
+   "line": 26
   },
   {
    "file": "sim/power.js",
@@ -815,7 +857,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 195
+   "line": 200
   },
   {
    "file": "sim/selftest.js",

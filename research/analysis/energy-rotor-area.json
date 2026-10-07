@@ -1,0 +1,1622 @@
+{
+  "scope": "Sensitivity at selected profiles’ fixed controls; no re-search, design change or aircraft result. Failed-row MWh is clipped supplied effort, not completion energy.",
+  "convention": "The drawing sums both blade disks at every coaxial station, approximately matching diskM2. A pair shares one stream, so its aerodynamic area is nearer one projected footprint; pricing treats its disks as independent. Footprints sum station areas without assigning additional inter-station overlap.",
+  "credit": {
+    "value": 0.9,
+    "scope": "Favourable stipulated sensitivity input from the reviewer; not a measured property of these rotors.",
+    "source": "johnson-2009-ndarc",
+    "locator": "section 11-5.1.3, printed page 101"
+  },
+  "method": "Plan once with the original class and selected controls, then integrate that plan with footprint area. The stipulated credit is encoded as footprint area divided by credit squared; this is a hover-equivalent extension to the existing inflow law, not a validated coaxial envelope.",
+  "geometry": [
+    {
+      "class": "P100",
+      "stations": 4,
+      "bladeDisks": 8,
+      "diameterM": 20,
+      "pricedM2": 2500,
+      "drawnSumM2": 2513.2741228718346,
+      "footprintM2": 1256.6370614359173,
+      "rho": 0.9568587008868916,
+      "pricedCapT": 153.05870056133205,
+      "footprintCapT": 121.69740201492087,
+      "sameThrustHoverPowerRatio": 1.4104739588693906
+    },
+    {
+      "class": "P1000",
+      "stations": 6,
+      "bladeDisks": 12,
+      "diameterM": 36,
+      "pricedM2": 12000,
+      "drawnSumM2": 12214.512237157116,
+      "footprintM2": 6107.256118578558,
+      "rho": 0.9568587008868916,
+      "pricedCapT": 754.9504308113778,
+      "footprintCapT": 602.7539517491266,
+      "sameThrustHoverPowerRatio": 1.4017402900112002
+    },
+    {
+      "class": "P10000",
+      "stations": 14,
+      "bladeDisks": 28,
+      "diameterM": 85,
+      "pricedM2": 160000,
+      "drawnSumM2": 158886.0484553038,
+      "footprintM2": 79443.0242276519,
+      "rho": 0.9568587008868916,
+      "pricedCapT": 7254.654724904949,
+      "footprintCapT": 5744.629307849136,
+      "sameThrustHoverPowerRatio": 1.419162435510841
+    }
+  ],
+  "profiles": [
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 6.622158442923587,
+        "rotorMWh": 5.302415830355085,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 9.30989678678777,
+        "rotorMWh": 7.990154174219261,
+        "worst": {
+          "unheldT": 13.685953754209137,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8225681219277803,
+          "limits": [
+            "bus power"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 8.445761581748949,
+        "rotorMWh": 7.126018969180445,
+        "worst": {
+          "unheldT": 7.003874261630415,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8207493065232254,
+          "limits": [
+            "bus power"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 4.843459432804109,
+        "rotorMWh": 2.5585605578087773,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": true,
+        "cycleMWh": 6.0229980715140625,
+        "rotorMWh": 3.205752323996147,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprintCredit": {
+        "feasible": true,
+        "cycleMWh": 5.640045296115223,
+        "rotorMWh": 2.9914221441247326,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 10.696
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 12.706219266998506,
+        "rotorMWh": 6.526407247982154,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4736328125,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 16.91832385665646,
+        "rotorMWh": 10.738511837640107,
+        "worst": {
+          "unheldT": 16.81357590713425,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 15.495322543516462,
+        "rotorMWh": 9.315510524500114,
+        "worst": {
+          "unheldT": 9.32508554873776,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 9.07
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 10.03477308740956,
+        "rotorMWh": 3.5207502213533783,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.0009765625,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 11.683451400851204,
+        "rotorMWh": 4.109015452951659,
+        "worst": {
+          "unheldT": 16.986697990075143,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 11.199905257396017,
+        "rotorMWh": 3.964153225561178,
+        "worst": {
+          "unheldT": 9.423230969695027,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 24.472360372481326,
+        "rotorMWh": 16.056080174814454,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 33.40827941722013,
+        "rotorMWh": 24.99199921955328,
+        "worst": {
+          "unheldT": 59.3374826331214,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 30.212891876000832,
+        "rotorMWh": 21.796611678333967,
+        "worst": {
+          "unheldT": 29.127826741731838,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 808.225
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 19.81521794008433,
+        "rotorMWh": 8.928060430179162,
+        "worst": {
+          "unheldT": -1.1368683772161603e-13,
+          "phase": "WATER_RELEASE",
+          "progress": 0.82421875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 23.661794101053424,
+        "rotorMWh": 11.461020104651938,
+        "worst": {
+          "unheldT": 59.3374826331214,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 22.419278634727867,
+        "rotorMWh": 10.641623227368909,
+        "worst": {
+          "unheldT": 29.127826741731838,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 755.174
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 65.35090111647223,
+        "rotorMWh": 32.692598224171135,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 86.82376003318672,
+        "rotorMWh": 54.165457140885586,
+        "worst": {
+          "unheldT": 63.36332550999771,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 79.01027503727579,
+        "rotorMWh": 46.3519721449747,
+        "worst": {
+          "unheldT": 31.29092566352176,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P1000",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 755.174
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 54.09893365845424,
+        "rotorMWh": 15.421601826807214,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 61.25316705242587,
+        "rotorMWh": 18.698852470316368,
+        "worst": {
+          "unheldT": 63.36332550999771,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 58.99776513337574,
+        "rotorMWh": 17.69757653870164,
+        "worst": {
+          "unheldT": 31.29092566352176,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7054.504
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 202.10225864122967,
+        "rotorMWh": 149.78100783387134,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 287.90593794357414,
+        "rotorMWh": 235.58468713621605,
+        "worst": {
+          "unheldT": 609.4016651753573,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 259.54463722035706,
+        "rotorMWh": 207.2233864129989,
+        "worst": {
+          "unheldT": 312.0067843935067,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 15,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7054.504
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 184.20863583156236,
+        "rotorMWh": 118.6129836532549,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 242.67201261960125,
+        "rotorMWh": 162.2533585513411,
+        "worst": {
+          "unheldT": 609.4016651753573,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 224.7010846754399,
+        "rotorMWh": 149.61657129806494,
+        "worst": {
+          "unheldT": 312.0067843935067,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7006.366
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 402.7449803506874,
+        "rotorMWh": 224.2540095127931,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 548.4115834867277,
+        "rotorMWh": 369.9206126488341,
+        "worst": {
+          "unheldT": 612.9788486237458,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 497.714700527896,
+        "rotorMWh": 319.22372969000224,
+        "worst": {
+          "unheldT": 314.0043068776631,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 60,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1,
+        "ballastT": 6990.332
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 368.5711874673336,
+        "rotorMWh": 208.91574079707345,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 485.5746956452366,
+        "rotorMWh": 281.94330825977613,
+        "worst": {
+          "unheldT": 614.1702539647231,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 448.3714745110735,
+        "rotorMWh": 260.8216872689511,
+        "worst": {
+          "unheldT": 314.66983354193417,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 3.9870421261460476,
+        "rotorMWh": 3.4001252016096273,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": true,
+        "cycleMWh": 5.53591259659647,
+        "rotorMWh": 4.948995672060048,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      },
+      "footprintCredit": {
+        "feasible": true,
+        "cycleMWh": 4.999927775686457,
+        "rotorMWh": 4.413010851150037,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 3.634360650181771,
+        "rotorMWh": 2.9059285246698745,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": true,
+        "cycleMWh": 4.8585665849641995,
+        "rotorMWh": 4.057293425531289,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      },
+      "footprintCredit": {
+        "feasible": true,
+        "cycleMWh": 4.442008695261055,
+        "rotorMWh": 3.6633974855650084,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.46875,
+          "limits": []
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 6.116996285676532,
+        "rotorMWh": 4.869982682442122,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 8.599950249326652,
+        "rotorMWh": 7.35293664609223,
+        "worst": {
+          "unheldT": 13.0104754046083,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8207261922452057,
+          "limits": [
+            "bus power"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 7.782430620312385,
+        "rotorMWh": 6.535417017077971,
+        "worst": {
+          "unheldT": 6.513646291184074,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8191230982896675,
+          "limits": [
+            "bus power"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 4.681252944768284,
+        "rotorMWh": 2.499804835190072,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": true,
+        "cycleMWh": 5.826534610910501,
+        "rotorMWh": 3.1404777343845227,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      },
+      "footprintCredit": {
+        "feasible": true,
+        "cycleMWh": 5.454100679164272,
+        "rotorMWh": 2.9277146434859813,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 12.412
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 10.494635279012188,
+        "rotorMWh": 5.583311357106831,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.719999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 13.869704089577247,
+        "rotorMWh": 8.958380167671903,
+        "worst": {
+          "unheldT": 16.629653487332035,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 12.767755231004337,
+        "rotorMWh": 7.856431309098989,
+        "worst": {
+          "unheldT": 9.220320420521574,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P100",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 11.122
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 8.258355216470505,
+        "rotorMWh": 3.0543338194335887,
+        "worst": {
+          "unheldT": -1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.00390625,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 9.645952057559558,
+        "rotorMWh": 3.626339268325886,
+        "worst": {
+          "unheldT": 16.76760668123518,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 9.238916420317832,
+        "rotorMWh": 3.479627159996162,
+        "worst": {
+          "unheldT": 9.298742255439024,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 820.194
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 15.072504028818093,
+        "rotorMWh": 11.701344279141663,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 21.402288740273164,
+        "rotorMWh": 18.03112899059675,
+        "worst": {
+          "unheldT": 58.42491232117737,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 19.175090981526914,
+        "rotorMWh": 15.803931231850468,
+        "worst": {
+          "unheldT": 28.637685290510376,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 820.194
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 12.437944289833041,
+        "rotorMWh": 7.66401122857207,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 15.678800508424274,
+        "rotorMWh": 10.055566685762074,
+        "worst": {
+          "unheldT": 58.42491232117737,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 14.628223750315486,
+        "rotorMWh": 9.278507709043849,
+        "worst": {
+          "unheldT": 28.637685290510376,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 809.246
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 23.764260094217256,
+        "rotorMWh": 15.77770988227579,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 32.58581115073981,
+        "rotorMWh": 24.599260938798295,
+        "worst": {
+          "unheldT": 59.25962403898711,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 29.43278476385386,
+        "rotorMWh": 21.446234551912376,
+        "worst": {
+          "unheldT": 29.08596835957337,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 809.246
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 19.245996136650707,
+        "rotorMWh": 8.857317844229721,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "WATER_RELEASE",
+          "progress": 0.8505859375,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 23.07156014092087,
+        "rotorMWh": 11.385807601338232,
+        "worst": {
+          "unheldT": 59.25962403898711,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 21.835901965233706,
+        "rotorMWh": 10.56830432105874,
+        "worst": {
+          "unheldT": 29.08596835957337,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 769.965
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 53.17533727616625,
+        "rotorMWh": 27.38469066823916,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 70.49520359155262,
+        "rotorMWh": 44.70455698362565,
+        "worst": {
+          "unheldT": 62.24301728919113,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 64.19715424292727,
+        "rotorMWh": 38.40650763500023,
+        "worst": {
+          "unheldT": 30.688373055539387,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P1000",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "endurance",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 769.965
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 44.03827170228983,
+        "rotorMWh": 13.36364880855364,
+        "worst": {
+          "unheldT": -1.1368683772161603e-13,
+          "phase": "WATER_RELEASE",
+          "progress": 0.939999999999,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 50.1115711658893,
+        "rotorMWh": 16.425782852721078,
+        "worst": {
+          "unheldT": 62.24301728919113,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 48.171154723249536,
+        "rotorMWh": 15.458844430384932,
+        "worst": {
+          "unheldT": 30.688373055539387,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6291166313317862,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 4.938018,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7065.275
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 154.89001538075502,
+        "rotorMWh": 126.34023805714862,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 223.39372007950715,
+        "rotorMWh": 194.84394275590054,
+        "worst": {
+          "unheldT": 608.6012550412916,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 201.43070062445912,
+        "rotorMWh": 172.880923300853,
+        "worst": {
+          "unheldT": 311.56000311139906,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 4.938018,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7065.275
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 143.5281867633458,
+        "rotorMWh": 106.66038321111324,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 194.00032877660675,
+        "rotorMWh": 147.1818314975158,
+        "worst": {
+          "unheldT": 608.6012550412916,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 178.6522131168753,
+        "rotorMWh": 135.35594725593626,
+        "worst": {
+          "unheldT": 311.56000311139906,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 14.140417,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7055.424
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 197.76949010334013,
+        "rotorMWh": 147.90269646632592,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 282.2175680157256,
+        "rotorMWh": 232.3507743787114,
+        "worst": {
+          "unheldT": 609.3333431505835,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 254.35504465890102,
+        "rotorMWh": 204.48825102188673,
+        "worst": {
+          "unheldT": 311.9686664825176,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 14.140417,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7055.424
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 180.400980767007,
+        "rotorMWh": 117.65747879616767,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 238.2121623790674,
+        "rotorMWh": 161.00972921296983,
+        "worst": {
+          "unheldT": 609.3333431505835,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 220.45554861384528,
+        "rotorMWh": 148.45233828667864,
+        "worst": {
+          "unheldT": 311.9686664825176,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 47.389863,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 7019.85
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 345.31065915375797,
+        "rotorMWh": 202.70093490704218,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 471.3404744332621,
+        "rotorMWh": 328.7307501865459,
+        "worst": {
+          "unheldT": 611.9769094003041,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 427.8680376570342,
+        "rotorMWh": 285.25831341031824,
+        "worst": {
+          "unheldT": 313.44472172991664,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "anchor cable reach"
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "energy-feasible",
+      "class": "P10000",
+      "km": 47.389863,
+      "basis": "favourable",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 7019.85
+      },
+      "baseline": {
+        "feasible": true,
+        "cycleMWh": 314.9549864836896,
+        "rotorMWh": 149.64680072647474,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        }
+      },
+      "footprint": {
+        "feasible": false,
+        "cycleMWh": 392.751258078025,
+        "rotorMWh": 201.4761176595557,
+        "worst": {
+          "unheldT": 611.9769094003041,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      },
+      "footprintCredit": {
+        "feasible": false,
+        "cycleMWh": 368.2348946604126,
+        "rotorMWh": 186.39197395051585,
+        "worst": {
+          "unheldT": 313.44472172991664,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5310628163610082,
+          "limits": [
+            "bus power",
+            "aerodynamic coefficient",
+            "anchor cable reach"
+          ]
+        }
+      }
+    }
+  ]
+}

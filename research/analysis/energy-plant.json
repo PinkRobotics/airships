@@ -1,0 +1,1716 @@
+{
+  "scope": "Sensitivities at each selected profile’s fixed controls, with unchanged plant input and no re-search. Ground comparators are neither airborne specifications nor lower bounds. Lost closure concerns these controls only.",
+  "assumption": "The liquefaction dial is an assumed all-in energy figure with no all-in source in the repository. Intake, separation, compression, liquefaction, transfer and heat rejection have no specified complete boundary.",
+  "baselineSpecificEnergy": 0.45,
+  "recoveredMWhT": 0.09000000000000001,
+  "comparators": {
+    "scope": "Ground comparators and stipulated sensitivity inputs; no airborne property or lower bound is inferred.",
+    "liquidDensityKgL": {
+      "value": 0.808,
+      "meaning": "Stipulated liquid-density conversion retained from the reviewed model convention, not a measured airborne plant property."
+    },
+    "liquidAir": {
+      "id": "doe-liquid-air",
+      "label": "Ground liquid-air engineering comparator",
+      "source": "rimpel-2023-liquid-air-combined-cycle",
+      "locator": "Printed page 31, Table 8: atmospheric liquid-air Claude case",
+      "specificEnergyMWhT": 0.685
+    },
+    "stirlin": {
+      "id": "stirlin-supplied-cooling",
+      "label": "Ground StirLIN hardware with supplied cooling",
+      "source": "stirling-2016-stirlin-specification",
+      "locator": "Printed pages 9 and 11: customer cooling utility, atmospheric usable-output row and separate chiller option",
+      "inputKW": 34,
+      "usableLitresHour": 21,
+      "massKg": 2200,
+      "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
+    },
+    "storage": [
+      {
+        "id": "chart-tms",
+        "label": "Ground TMS tank comparator",
+        "source": "chart-2024-oil-field-nitrogen-tanks",
+        "url": "https://files.chartindustries.com/11660611_OilField.pdf",
+        "locator": "Printed page 2, LIN evaporation row",
+        "lossFractionDay": 0.009
+      },
+      {
+        "id": "chart-dagt",
+        "label": "Ground DAGT tank comparator",
+        "source": "chart-2025-drop-and-go-trailer",
+        "url": "https://files.chartindustries.com/22305633_DropAndGoTrailerDAGTSpecSheet.pdf",
+        "locator": "PDF page 2, LIN NER row of the larger trailer",
+        "lossFractionDay": 0.0024
+      }
+    ]
+  },
+  "tables": {
+    "energy-profiles": [
+      {
+        "class": "P100",
+        "km": 15,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "balanced",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 0.75,
+          "ballastT": 29.052
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 6.622158442923587,
+          "makeT": 2.4400871459694984,
+          "returnMin": 15.686274509803921,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 6.732288373215202,
+            "makeT": 1.60297695720624,
+            "returnMin": 15.686274509803921,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 6.871276008720648,
+            "makeT": 0.5479861591695502,
+            "returnMin": 15.686274509803921,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 15.686274509803921,
+          "operatingMin": 15.686274509803921,
+          "firstPositiveSampleLN2T": 0.0000024400871459694982
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 5.845514761005546,
+          "makeT": 0,
+          "returnMin": 15.686274509803921,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 15,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "balanced",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 0.75,
+          "ballastT": 30
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 4.843459432804109,
+          "makeT": 2.4400871459694984,
+          "returnMin": 15.686274509803921,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 4.943746228556919,
+            "makeT": 1.60297695720624,
+            "returnMin": 15.686274509803921,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 5.070307452053577,
+            "makeT": 0.5479861591695502,
+            "returnMin": 15.686274509803921,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 15.686274509803921,
+          "operatingMin": 15.686274509803921,
+          "firstPositiveSampleLN2T": 0.0000024400871459694982
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 4.038082208178867,
+          "makeT": 0,
+          "returnMin": 15.686274509803921,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 60,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 10.696
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 12.706219266998506,
+          "makeT": 2.4249313251870808,
+          "returnMin": 27.280477408354653,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 12.821411922347473,
+            "makeT": 1.593020578590053,
+            "returnMin": 27.280477408354653,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 12.966872264789368,
+            "makeT": 0.5445825184293669,
+            "returnMin": 27.280477408354653,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 27.280477408354653,
+          "operatingMin": 27.280477408354653,
+          "firstPositiveSampleLN2T": 0.0000024249313251870807
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 11.9513295451406,
+          "makeT": 0,
+          "returnMin": 27.280477408354653,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 60,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 9.07
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 10.03477308740956,
+          "makeT": 2.9099175902244965,
+          "returnMin": 32.736572890025585,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 10.163830527900931,
+            "makeT": 1.9116246943080635,
+            "returnMin": 32.736572890025585,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 10.326819989237597,
+            "makeT": 0.6534990221152402,
+            "returnMin": 32.736572890025585,
+            "worstUnheldT": -1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 32.736572890025585,
+          "operatingMin": 32.73657289002558,
+          "firstPositiveSampleLN2T": 0.000002909917590224497
+        },
+        "noLiquid": {
+          "feasible": false,
+          "cycleMWh": 9.101974877788145,
+          "makeT": 0,
+          "returnMin": 32.736572890025585,
+          "worstUnheldT": 0.8367507660077536
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 15,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 808.225
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 24.472360372481326,
+          "makeT": 8.9126559714795,
+          "returnMin": 8.02139037433155,
+          "worstUnheldT": 5.684341886080802e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 24.810517935585,
+            "makeT": 5.855029470315,
+            "returnMin": 8.02139037433155,
+            "worstUnheldT": 5.684341886080802e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 25.237026185144995,
+            "makeT": 2.001572821642026,
+            "returnMin": 8.02139037433155,
+            "worstUnheldT": 5.684341886080802e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 8.02139037433155,
+          "operatingMin": 8.02139037433155,
+          "firstPositiveSampleLN2T": 0.0000089126559714795
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 21.448016582224454,
+          "makeT": 0,
+          "returnMin": 8.02139037433155,
+          "worstUnheldT": 5.684341886080802e-14
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 15,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 808.225
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 19.81521794008433,
+          "makeT": 8.9126559714795,
+          "returnMin": 8.02139037433155,
+          "worstUnheldT": -1.1368683772161603e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 20.13884980470461,
+            "makeT": 5.855029470315,
+            "returnMin": 8.02139037433155,
+            "worstUnheldT": -1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 20.546983967208824,
+            "makeT": 2.001572821642026,
+            "returnMin": 8.02139037433155,
+            "worstUnheldT": -1.1368683772161603e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 8.02139037433155,
+          "operatingMin": 8.02139037433155,
+          "firstPositiveSampleLN2T": 0.0000089126559714795
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 16.74840069338055,
+          "makeT": 0,
+          "returnMin": 8.02139037433155,
+          "worstUnheldT": -1.1368683772161603e-13
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 60,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 755.174
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 65.35090111647223,
+          "makeT": 35.650623885918,
+          "returnMin": 32.0855614973262,
+          "worstUnheldT": 1.1368683772161603e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 66.28819943255908,
+            "makeT": 23.42011788126,
+            "returnMin": 32.0855614973262,
+            "worstUnheldT": 1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": false,
+            "cycleMWh": 67.88378064227864,
+            "makeT": 8.006291286568104,
+            "returnMin": 32.0855614973262,
+            "worstUnheldT": 12.073490042539333
+          }
+        ],
+        "coldReady": {
+          "returnMin": 32.0855614973262,
+          "operatingMin": 32.0855614973262,
+          "firstPositiveSampleLN2T": 0.000035650623885918
+        },
+        "noLiquid": {
+          "feasible": false,
+          "cycleMWh": 52.956451564895275,
+          "makeT": 0,
+          "returnMin": 32.0855614973262,
+          "worstUnheldT": 28.83833230336336
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 60,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 755.174
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 54.09893365845424,
+          "makeT": 35.650623885918,
+          "returnMin": 32.0855614973262,
+          "worstUnheldT": 1.1368683772161603e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 54.82357347632137,
+            "makeT": 23.42011788126,
+            "returnMin": 32.0855614973262,
+            "worstUnheldT": 1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": false,
+            "cycleMWh": 56.14641075995584,
+            "makeT": 8.006291286568104,
+            "returnMin": 32.0855614973262,
+            "worstUnheldT": 12.073490042539333
+          }
+        ],
+        "coldReady": {
+          "returnMin": 32.0855614973262,
+          "operatingMin": 32.0855614973262,
+          "firstPositiveSampleLN2T": 0.000035650623885918
+        },
+        "noLiquid": {
+          "feasible": false,
+          "cycleMWh": 41.07539616239191,
+          "makeT": 0,
+          "returnMin": 32.0855614973262,
+          "worstUnheldT": 28.83833230336336
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 15,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7054.504
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 202.10225864122967,
+          "makeT": 8.393993048724507,
+          "returnMin": 5.665945307889043,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 202.4105533506166,
+            "makeT": 5.51430200281172,
+            "returnMin": 5.665945307889043,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 202.79911125687158,
+            "makeT": 1.885093333024731,
+            "returnMin": 5.665945307889043,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 5.665945307889043,
+          "operatingMin": 5.665945307889043,
+          "firstPositiveSampleLN2T": 0.000008393993048724507
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 199.22364947894272,
+          "makeT": 0,
+          "returnMin": 5.665945307889043,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 15,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 7054.504
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 184.20863583156236,
+          "makeT": 8.393993048724507,
+          "returnMin": 5.665945307889043,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 184.512960300286,
+            "makeT": 5.51430200281172,
+            "returnMin": 5.665945307889043,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 184.89651311670872,
+            "makeT": 1.885093333024731,
+            "returnMin": 5.665945307889043,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 5.665945307889043,
+          "operatingMin": 5.665945307889043,
+          "firstPositiveSampleLN2T": 0.000008393993048724507
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 181.31845092753082,
+          "makeT": 0,
+          "returnMin": 5.665945307889043,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 60,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7006.366
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 402.7449803506874,
+          "makeT": 33.57597219489803,
+          "returnMin": 22.66378123155617,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 404.1268272540697,
+            "makeT": 22.05720801124688,
+            "returnMin": 22.66378123155617,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 405.86903996165614,
+            "makeT": 7.540373332098924,
+            "returnMin": 22.66378123155617,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 22.66378123155617,
+          "operatingMin": 22.66378123155617,
+          "firstPositiveSampleLN2T": 0.00003357597219489803
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 391.6651062567243,
+          "makeT": 0,
+          "returnMin": 22.66378123155617,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 60,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1,
+          "ballastT": 6990.332
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 368.5711874673336,
+          "makeT": 41.96996524362253,
+          "returnMin": 28.32972653944521,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 370.33803771382475,
+            "makeT": 27.571510014058596,
+            "returnMin": 28.32972653944521,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 372.56599446203865,
+            "makeT": 9.425466665123652,
+            "returnMin": 28.32972653944521,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 28.32972653944521,
+          "operatingMin": 28.32972653944521,
+          "firstPositiveSampleLN2T": 0.00004196996524362253
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 354.83730471570533,
+          "makeT": 0,
+          "returnMin": 28.32972653944521,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      }
+    ],
+    "energy-feasible": [
+      {
+        "class": "P100",
+        "km": 4.938018,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "verticalProfile": {
+            "climbRateMps": 2,
+            "letdownRateMps": 2,
+            "climbAirspeedMps": 5,
+            "letdownAirspeedMps": 5
+          },
+          "ballastT": 35
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 3.9870421261460476,
+          "makeT": 0.5554212173913045,
+          "returnMin": 6.248488695652174,
+          "worstUnheldT": -1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 4.008198391678136,
+            "makeT": 0.36487525230085693,
+            "returnMin": 6.248488695652174,
+            "worstUnheldT": -1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 4.034865817920611,
+            "makeT": 0.12473453669156014,
+            "returnMin": 6.248488695652174,
+            "worstUnheldT": -1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 6.248488695652174,
+          "operatingMin": 6.248488695652174,
+          "firstPositiveSampleLN2T": 5.554212173913044e-7
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 3.798779984569501,
+          "makeT": 0,
+          "returnMin": 6.248488695652174,
+          "worstUnheldT": -1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 4.938018,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "verticalProfile": {
+            "climbRateMps": 2,
+            "letdownRateMps": 2,
+            "climbAirspeedMps": 5,
+            "letdownAirspeedMps": 5
+          },
+          "ballastT": 35
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 3.634360650181771,
+          "makeT": 0.5554212173913045,
+          "returnMin": 6.248488695652174,
+          "worstUnheldT": -1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 3.655395107411779,
+            "makeT": 0.36487525230085693,
+            "returnMin": 6.248488695652174,
+            "worstUnheldT": -1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 3.681909043512718,
+            "makeT": 0.12473453669156014,
+            "returnMin": 6.248488695652174,
+            "worstUnheldT": -1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 6.248488695652174,
+          "operatingMin": 6.248488695652174,
+          "firstPositiveSampleLN2T": 5.554212173913044e-7
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 3.4457434935660496,
+          "makeT": 0,
+          "returnMin": 6.248488695652174,
+          "worstUnheldT": -1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 14.140417,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "balanced",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 0.75,
+          "ballastT": 32.232
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 6.116996285676532,
+          "makeT": 2.3002566506899047,
+          "returnMin": 14.787364183006535,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 6.218707460623548,
+            "makeT": 1.511117507752492,
+            "returnMin": 14.787364183006535,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 6.347064988430966,
+            "makeT": 0.5165835200590541,
+            "returnMin": 14.787364183006535,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 14.787364183006535,
+          "operatingMin": 14.787364183006531,
+          "firstPositiveSampleLN2T": 0.0000023002566506899053
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 5.378695043091,
+          "makeT": 0,
+          "returnMin": 14.787364183006535,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 14.140417,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "balanced",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 0.75,
+          "ballastT": 30
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 4.681252944768284,
+          "makeT": 2.3002566506899047,
+          "returnMin": 14.787364183006535,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 4.774966650711272,
+            "makeT": 1.511117507752492,
+            "returnMin": 14.787364183006535,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 4.893218124586384,
+            "makeT": 0.5165835200590541,
+            "returnMin": 14.787364183006535,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 14.787364183006535,
+          "operatingMin": 14.787364183006531,
+          "firstPositiveSampleLN2T": 0.0000023002566506899053
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 3.9195890631029626,
+          "makeT": 0,
+          "returnMin": 14.787364183006535,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 47.389863,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 12.412
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 10.494635279012188,
+          "makeT": 1.915286054750403,
+          "returnMin": 21.546968115942033,
+          "worstUnheldT": 1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 10.580359566358812,
+            "makeT": 1.2582171162593887,
+            "returnMin": 21.546968115942033,
+            "worstUnheldT": -1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 10.688557881580415,
+            "makeT": 0.4301281823427111,
+            "returnMin": 21.546968115942033,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 21.546968115942033,
+          "operatingMin": 21.546968115942033,
+          "firstPositiveSampleLN2T": 0.0000019152860547504027
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 9.88296050963697,
+          "makeT": 0,
+          "returnMin": 21.546968115942033,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P100",
+        "km": 47.389863,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 11.122
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 8.258355216470505,
+          "makeT": 2.298343265700484,
+          "returnMin": 25.856361739130442,
+          "worstUnheldT": -1.4210854715202004e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 8.355256187984597,
+            "makeT": 1.5098605395112665,
+            "returnMin": 25.856361739130442,
+            "worstUnheldT": 1.4210854715202004e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 8.4775920659943,
+            "makeT": 0.5161538188112533,
+            "returnMin": 25.856361739130442,
+            "worstUnheldT": 1.4210854715202004e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 25.856361739130442,
+          "operatingMin": 25.856361739130442,
+          "firstPositiveSampleLN2T": 0.0000022983432657004838
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 7.506966639140244,
+          "makeT": 0,
+          "returnMin": 25.856361739130442,
+          "worstUnheldT": 1.4210854715202004e-14
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 4.938018,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 820.194
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 15.072504028818093,
+          "makeT": 2.9340570409982174,
+          "returnMin": 2.6406513368983955,
+          "worstUnheldT": 5.684341886080802e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 15.177060421087273,
+            "makeT": 1.9274827276630624,
+            "returnMin": 2.6406513368983955,
+            "worstUnheldT": 5.684341886080802e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 15.30885295076067,
+            "makeT": 0.6589201747719409,
+            "returnMin": 2.6406513368983955,
+            "worstUnheldT": 5.684341886080802e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 2.6406513368983955,
+          "operatingMin": 2.6406513368983955,
+          "firstPositiveSampleLN2T": 0.0000029340570409982173
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 14.056993205423058,
+          "makeT": 0,
+          "returnMin": 2.6406513368983955,
+          "worstUnheldT": 5.684341886080802e-14
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 4.938018,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 820.194
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 12.437944289833041,
+          "makeT": 2.9340570409982174,
+          "returnMin": 2.6406513368983955,
+          "worstUnheldT": 5.684341886080802e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 12.540691302665206,
+            "makeT": 1.9274827276630624,
+            "returnMin": 2.6406513368983955,
+            "worstUnheldT": 5.684341886080802e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 12.67020174367036,
+            "makeT": 0.6589201747719409,
+            "returnMin": 2.6406513368983955,
+            "worstUnheldT": 5.684341886080802e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 2.6406513368983955,
+          "operatingMin": 2.6406513368983955,
+          "firstPositiveSampleLN2T": 0.0000029340570409982173
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 11.417155850058768,
+          "makeT": 0,
+          "returnMin": 2.6406513368983955,
+          "worstUnheldT": 5.684341886080802e-14
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 14.140417,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 809.246
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 23.764260094217256,
+          "makeT": 8.40191146761735,
+          "returnMin": 7.561720320855614,
+          "worstUnheldT": 5.684341886080802e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 24.081318471410704,
+            "makeT": 5.519503883836214,
+            "returnMin": 7.561720320855614,
+            "worstUnheldT": 5.684341886080802e-14
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 24.481188588643,
+            "makeT": 1.8868716235923244,
+            "returnMin": 7.561720320855614,
+            "worstUnheldT": 5.684341886080802e-14
+          }
+        ],
+        "coldReady": {
+          "returnMin": 7.561720320855614,
+          "operatingMin": 7.561720320855614,
+          "firstPositiveSampleLN2T": 0.000008401911467617349
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 20.90815680329284,
+          "makeT": 0,
+          "returnMin": 7.561720320855614,
+          "worstUnheldT": 5.684341886080802e-14
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 14.140417,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 809.246
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 19.245996136650707,
+          "makeT": 8.40191146761735,
+          "returnMin": 7.561720320855614,
+          "worstUnheldT": 1.1368683772161603e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 19.550114755522106,
+            "makeT": 5.519503883836214,
+            "returnMin": 7.561720320855614,
+            "worstUnheldT": 1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 19.933620944656052,
+            "makeT": 1.8868716235923244,
+            "returnMin": 7.561720320855614,
+            "worstUnheldT": 1.1368683772161603e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 7.561720320855614,
+          "operatingMin": 7.561720320855614,
+          "firstPositiveSampleLN2T": 0.000008401911467617349
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 16.352064633151475,
+          "makeT": 0,
+          "returnMin": 7.561720320855614,
+          "worstUnheldT": 1.1368683772161603e-13
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 47.389863,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 769.965
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 53.17533727616625,
+          "makeT": 28.157969696969698,
+          "returnMin": 25.342172727272725,
+          "worstUnheldT": 5.684341886080802e-14
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 53.83300264306125,
+            "makeT": 18.49793629727936,
+            "returnMin": 25.342172727272725,
+            "worstUnheldT": 1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": false,
+            "cycleMWh": 55.12298455472722,
+            "makeT": 6.3236174534759355,
+            "returnMin": 25.342172727272725,
+            "worstUnheldT": 0.7994475707553192
+          }
+        ],
+        "coldReady": {
+          "returnMin": 25.342172727272725,
+          "operatingMin": 25.342172727272725,
+          "firstPositiveSampleLN2T": 0.000028157969696969696
+        },
+        "noLiquid": {
+          "feasible": false,
+          "cycleMWh": 43.28425049003417,
+          "makeT": 0,
+          "returnMin": 25.342172727272725,
+          "worstUnheldT": 14.047332303379335
+        }
+      },
+      {
+        "class": "P1000",
+        "km": 47.389863,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 769.965
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 44.03827170228983,
+          "makeT": 28.157969696969698,
+          "returnMin": 25.342172727272725,
+          "worstUnheldT": -1.1368683772161603e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 44.56389877613623,
+            "makeT": 18.49793629727936,
+            "returnMin": 25.342172727272725,
+            "worstUnheldT": 1.1368683772161603e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": false,
+            "cycleMWh": 45.68512515285745,
+            "makeT": 6.3236174534759355,
+            "returnMin": 25.342172727272725,
+            "worstUnheldT": 0.7994475707553192
+          }
+        ],
+        "coldReady": {
+          "returnMin": 25.342172727272725,
+          "operatingMin": 25.342172727272725,
+          "firstPositiveSampleLN2T": 0.000028157969696969696
+        },
+        "noLiquid": {
+          "feasible": false,
+          "cycleMWh": 33.75771115243677,
+          "makeT": 0,
+          "returnMin": 25.342172727272725,
+          "worstUnheldT": 14.047332303379335
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 4.938018,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7065.275
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 154.89001538075502,
+          "makeT": 2.7633125844317656,
+          "returnMin": 1.8652359944914418,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 154.98853948054563,
+            "makeT": 1.815314836488021,
+            "returnMin": 1.8652359944914418,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 155.1127089067318,
+            "makeT": 0.6205749873437408,
+            "returnMin": 1.8652359944914418,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 1.8652359944914418,
+          "operatingMin": 1.8652359944914418,
+          "firstPositiveSampleLN2T": 0.0000027633125844317655
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 153.93371543545297,
+          "makeT": 0,
+          "returnMin": 1.8652359944914418,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 4.938018,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 7065.275
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 143.5281867633458,
+          "makeT": 2.7633125844317656,
+          "returnMin": 1.8652359944914418,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 143.62609581033513,
+            "makeT": 1.815314836488021,
+            "returnMin": 1.8652359944914418,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 143.74949005262746,
+            "makeT": 0.6205749873437408,
+            "returnMin": 1.8652359944914418,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 1.8652359944914418,
+          "operatingMin": 1.8652359944914418,
+          "firstPositiveSampleLN2T": 0.0000027633125844317655
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 142.57009391259157,
+          "makeT": 0,
+          "returnMin": 1.8652359944914418,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 14.140417,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7055.424
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 197.76949010334013,
+          "makeT": 7.912970800271054,
+          "returnMin": 5.341255290182962,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 198.0594465085555,
+            "makeT": 5.1983019855795245,
+            "returnMin": 5.341255290182962,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 198.42489033307228,
+            "makeT": 1.7770670541926372,
+            "returnMin": 5.341255290182962,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 5.341255290182962,
+          "operatingMin": 5.341255290182962,
+          "firstPositiveSampleLN2T": 0.000007912970800271053
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 195.0538813846589,
+          "makeT": 0,
+          "returnMin": 5.341255290182962,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 14.140417,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 7055.424
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 180.400980767007,
+          "makeT": 7.912970800271054,
+          "returnMin": 5.341255290182962,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 180.68735069413353,
+            "makeT": 5.1983019855795245,
+            "returnMin": 5.341255290182962,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 181.0482733240732,
+            "makeT": 1.7770670541926372,
+            "returnMin": 5.341255290182962,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 5.341255290182962,
+          "operatingMin": 5.341255290182962,
+          "firstPositiveSampleLN2T": 0.000007912970800271053
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 177.67491541972993,
+          "makeT": 0,
+          "returnMin": 5.341255290182962,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 47.389863,
+        "basis": "record",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7019.85
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 345.31065915375797,
+          "makeT": 26.519345373467115,
+          "returnMin": 17.900558127090303,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 346.37009939500444,
+            "makeT": 17.421467763591533,
+            "returnMin": 17.900558127090303,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 347.70566278190256,
+            "makeT": 5.955620986283692,
+            "returnMin": 17.900558127090303,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 17.900558127090303,
+          "operatingMin": 17.900558127090303,
+          "firstPositiveSampleLN2T": 0.000026519345373467115
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 336.4658442365969,
+          "makeT": 0,
+          "returnMin": 17.900558127090303,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      },
+      {
+        "class": "P10000",
+        "km": 47.389863,
+        "basis": "favourable",
+        "selection": "cheapest found",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 7019.85
+        },
+        "baseline": {
+          "feasible": true,
+          "cycleMWh": 314.9549864836896,
+          "makeT": 26.519345373467115,
+          "returnMin": 17.900558127090303,
+          "worstUnheldT": -9.094947017729282e-13
+        },
+        "sensitivity": [
+          {
+            "id": "doe-liquid-air",
+            "label": "Ground liquid-air engineering comparator",
+            "specificEnergyMWhT": 0.685,
+            "recoveryFraction": 0.13138686131386862,
+            "feasible": true,
+            "cycleMWh": 315.98201633808543,
+            "makeT": 17.421467763591533,
+            "returnMin": 17.900558127090303,
+            "worstUnheldT": -9.094947017729282e-13
+          },
+          {
+            "id": "stirlin-supplied-cooling",
+            "label": "Ground StirLIN hardware with supplied cooling",
+            "specificEnergyMWhT": 2.0037718057520038,
+            "recoveryFraction": 0.04491529411764707,
+            "feasible": true,
+            "cycleMWh": 317.2766835223676,
+            "makeT": 5.955620986283692,
+            "returnMin": 17.900558127090303,
+            "worstUnheldT": -9.094947017729282e-13
+          }
+        ],
+        "coldReady": {
+          "returnMin": 17.900558127090303,
+          "operatingMin": 17.900558127090303,
+          "firstPositiveSampleLN2T": 0.000026519345373467115
+        },
+        "noLiquid": {
+          "feasible": true,
+          "cycleMWh": 306.01560051012876,
+          "makeT": 0,
+          "returnMin": 17.900558127090303,
+          "worstUnheldT": -9.094947017729282e-13
+        }
+      }
+    ]
+  }
+}

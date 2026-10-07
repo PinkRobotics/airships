@@ -1,6 +1,6 @@
 /* Choosing where to draw water, and where over that water to hover.
  */
-import { havKm } from './geo.js?v=31a23fa3';
+import { havKm } from './geo.js?v=01e992e3';
 
 // One station generator serves selection and mission construction. Only these in-radius
 // stations are offered to the cycle planner; mapped area still proves neither depth nor access.

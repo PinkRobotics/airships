@@ -200,7 +200,7 @@
     "start": "<!-- energy:model:start -->",
     "end": "<!-- energy:model:end -->"
    },
-   "line": 1590
+   "line": 1627
   },
   {
    "file": "docs/ENERGY-MODEL-2026-10.md",
@@ -214,7 +214,7 @@
     "start": "<!-- energy:model:start -->",
     "end": "<!-- energy:model:end -->"
    },
-   "line": 498
+   "line": 535
   },
   {
    "file": "docs/ENERGY-CLOSURE-2026-10.md",
@@ -233,7 +233,7 @@
   {
    "file": "docs/ENERGY-MODEL-2026-10.md",
    "key": "1e313d903b4a4f94",
-   "line": 54,
+   "line": 91,
    "class": "generated",
    "generator": "research/analysis/energy-documents.mjs",
    "gate": "energydoccheck",
@@ -247,7 +247,7 @@
   {
    "file": "docs/ENERGY-MODEL-2026-10.md",
    "key": "6a45c9a3dd10599c",
-   "line": 60,
+   "line": 97,
    "class": "generated",
    "generator": "research/analysis/energy-documents.mjs",
    "gate": "energydoccheck",
@@ -261,7 +261,7 @@
   {
    "file": "docs/ENERGY-MODEL-2026-10.md",
    "key": "0b5195293e15ccdd",
-   "line": 86,
+   "line": 123,
    "class": "generated",
    "generator": "research/analysis/energy-documents.mjs",
    "gate": "energydoccheck",
@@ -309,7 +309,7 @@
     "end": "<!-- energy:model:end -->"
    },
    "reason": "Reviewed Order 11f: generated solar-input publication summary, with complete per-field movement record; diagnostic figures remain conditional on plan feasibility.",
-   "line": 1121
+   "line": 1158
   },
   {
    "file": "research/analysis/energy-omissions.md",
@@ -363,20 +363,6 @@
   },
   {
    "file": "docs/ENERGY-CLOSURE-2026-10.md",
-   "key": "f1044a7823a7e92a",
-   "class": "generated",
-   "reason": "The fresh producer adds storage/reserve scope or replays changed simulated assignments and signed phases. Retain the original quantity-specific class; this is no structural float or flight endorsement.",
-   "region": {
-    "start": "<!-- energy:closure:start -->",
-    "end": "<!-- energy:closure:end -->"
-   },
-   "generator": "research/analysis/energy-documents.mjs",
-   "gate": "energydoccheck",
-   "verifier": "tools/check_energy_docs.py",
-   "line": 298
-  },
-  {
-   "file": "docs/ENERGY-CLOSURE-2026-10.md",
    "key": "f8764f7f3b238ddc",
    "class": "generated",
    "reason": "The fresh producer adds storage/reserve scope or replays changed simulated assignments and signed phases. Retain the original quantity-specific class; this is no structural float or flight endorsement.",
@@ -406,7 +392,7 @@
   {
    "file": "research/analysis/energy-profiles.md",
    "key": "6ec14366bd6a0608",
-   "line": 14,
+   "line": 16,
    "class": "generated",
    "reason": "The printed table remains inside the exact checked profile region; its separate qualification now carries the float statement. Retain generated scope and the explicit absence of structural float proof.",
    "generator": "research/analysis/energy-tables.mjs",
@@ -440,6 +426,62 @@
    "class": "deferred",
    "owner": "energy-model",
    "reason": "The separate sketch is explicitly outside route storage accounting and retains its deferred class. Mixed payload-exchange prose has no paired generated region; its separate analysis checks do not qualify it for the generated-region class."
+  },
+  {
+   "file": "docs/ENERGY-CLOSURE-2026-10.md",
+   "key": "a4f8b9496df9b7bf",
+   "class": "generated",
+   "reason": "The fresh producer adds storage/reserve scope or replays changed simulated assignments and signed phases. Retain the original quantity-specific class; this is no structural float or flight endorsement.",
+   "region": {
+    "start": "<!-- energy:closure:start -->",
+    "end": "<!-- energy:closure:end -->"
+   },
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "line": 298
+  },
+  {
+   "file": "docs/ENERGY-MODEL-2026-10.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-documents.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- energy:model:start -->",
+    "end": "<!-- energy:model:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "ca39d5d1c9f82d22",
+   "line": 73
+  },
+  {
+   "file": "research/analysis/energy-profiles.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "196c713a249ad138",
+   "line": 169
+  },
+  {
+   "file": "research/analysis/energy-profiles.md",
+   "class": "generated",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   },
+   "reason": "Exact regenerated weather, rotor or plant region has a producer and gate; this computational ownership establishes no flown aircraft, physical float or fire outcome.",
+   "key": "2037906e0fa52665",
+   "line": 171
   }
  ]
 }

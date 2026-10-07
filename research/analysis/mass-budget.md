@@ -66,6 +66,23 @@ source; it is retained so a reader can see what the budget is given for free. Th
 budget allowance and the exact ground comparisons are distinguished below.
 
 <!-- mass-budget:plant-comparators:start -->
+The [ground StirLIN specification](https://www.criotecnica.com.br/wp-content/uploads/2017/06/stirlin2_specification.pdf) gives 34 kW input, 2200 kg equipment and 21 usable atmospheric litres/hour. Its supplied cooling is excluded (the cooling interface and specification table); the [family datasheet](https://stirlingcryogenics.com/wp-content/uploads/2023/06/DS-StirLIN-family-ENG-28-06-2023.pdf) also excludes optional chiller power.
+
+The exact input-matched ground ratio is 64.705882 t/MW; the unchanged rounded budget allowance is 65.0 t/MW. The stipulated liquid-density conversion is 0.808 kg/L. The output-matched ground ratio is 129.655823 t of ground equipment per tonne/hour of usable liquid.
+
+Arithmetic on banks of ground modules, not a scaling law, not an airborne estimate and not a lower bound. Cooling is a supplied utility: its mass and power are excluded. Integrated ground storage may overlap the separate tankage allowance. All other nominal equipment stays at its floor allowance. No optional cooling unit quantity is established here; no cooling-option variant is used.
+
+| Class | Ground comparison | Plant t | Total nominal equipment t | Exceeds dry allowance |
+|---|---|---:|---:|---|
+| P100 | Existing nominal floor | 12.00 | 216.08 | yes |
+| P100 | Supplied cooling; input matched | 388.24 | 629.95 | yes |
+| P100 | Supplied cooling; output matched | 1728.74 | 2104.50 | yes |
+| P1000 | Existing nominal floor | 60.00 | 1803.65 | yes |
+| P1000 | Supplied cooling; input matched | 1941.18 | 3872.95 | yes |
+| P1000 | Supplied cooling; output matched | 8643.72 | 11245.74 | yes |
+| P10000 | Existing nominal floor | 200.00 | 19524.22 | yes |
+| P10000 | Supplied cooling; input matched | 6470.59 | 26421.87 | yes |
+| P10000 | Supplied cooling; output matched | 28812.41 | 50997.87 | yes |
 <!-- mass-budget:plant-comparators:end -->
 
 <!-- solar:budget-note:start -->

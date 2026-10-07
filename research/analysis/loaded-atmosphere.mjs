@@ -1,7 +1,7 @@
 /* Loaded-model density boundary at fixed reference pressure; no weather inference.
  * Run from the repository root. --check compares JSON and both qualified sentences. */
 import fs from 'node:fs';
-import {CLASSES,ISA,WORK_ALT_MSL,isaPressurePa,isaTemperatureK,ledger} from '../../sim/index.js?v=31a23fa3';
+import {CLASSES,ISA,WORK_ALT_MSL,isaPressurePa,isaTemperatureK,ledger} from '../../sim/index.js?v=01e992e3';
 const height=WORK_ALT_MSL,pressure=isaPressurePa(height),temperature=isaTemperatureK(height);
 const classes=Object.fromEntries(Object.entries(CLASSES).map(([id,c])=>{
  const normal=ledger(c,height),loadedT=normal.dryT+c.payloadT;

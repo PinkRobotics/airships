@@ -123,7 +123,7 @@
    },
    "demonstrated": {
     "value": 65.0,
-    "source": "Stirling StirLIN-2, 34 kW in 2,200 kg; comparator: Hauser et al., Table 1, printed p. 3, estimate 136.5 kg at 1,990 W input (68.6 t/MW) for Mars-surface oxygen liquefaction, including cryocooler and radiator; not a flight design.",
+    "source": "Ground StirLIN hardware with supplied cooling, matched by input power; cooling equipment mass and power excluded; this rounded budget allowance does not match the model liquid output. Comparator: Hauser et al., Table 1, printed p. 3, estimate 136.5 kg at 1,990 W input (68.6 t/MW) for Mars-surface oxygen liquefaction, including cryocooler and radiator; not a flight design.",
     "evidenceClass": "ground hardware + surface-system estimate"
    }
   },
@@ -1217,6 +1217,38 @@
        }
       }
      }
+    }
+   },
+   "plantComparisons": {
+    "scope": "Arithmetic on banks of ground modules, not a scaling law, not an airborne estimate and not a lower bound. Cooling is a supplied utility: its mass and power are excluded. Integrated ground storage may overlap the separate tankage allowance. All other nominal equipment stays at its floor allowance.",
+    "source": {
+     "id": "stirlin-supplied-cooling",
+     "label": "Ground StirLIN hardware with supplied cooling",
+     "source": "stirling-2016-stirlin-specification",
+     "locator": "Printed pages 9 and 11: customer cooling utility, atmospheric usable-output row and separate chiller option",
+     "inputKW": 34,
+     "usableLitresHour": 21,
+     "massKg": 2200,
+     "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
+    },
+    "densityKgL": 0.808,
+    "massPerOutputTph": 129.65582272512967,
+    "inputTPerMW": 64.70588235294117,
+    "modelOutputTph": 13.333333333333332,
+    "baselineFloor": {
+     "plantT": 12.0,
+     "totalT": 216.08,
+     "exceedsAllowance": true
+    },
+    "inputMatched": {
+     "plantT": 388.24,
+     "totalT": 629.95,
+     "exceedsAllowance": true
+    },
+    "outputMatched": {
+     "plantT": 1728.74,
+     "totalT": 2104.5,
+     "exceedsAllowance": true
     }
    },
    "airBallast": {
@@ -2343,6 +2375,38 @@
      }
     }
    },
+   "plantComparisons": {
+    "scope": "Arithmetic on banks of ground modules, not a scaling law, not an airborne estimate and not a lower bound. Cooling is a supplied utility: its mass and power are excluded. Integrated ground storage may overlap the separate tankage allowance. All other nominal equipment stays at its floor allowance.",
+    "source": {
+     "id": "stirlin-supplied-cooling",
+     "label": "Ground StirLIN hardware with supplied cooling",
+     "source": "stirling-2016-stirlin-specification",
+     "locator": "Printed pages 9 and 11: customer cooling utility, atmospheric usable-output row and separate chiller option",
+     "inputKW": 34,
+     "usableLitresHour": 21,
+     "massKg": 2200,
+     "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
+    },
+    "densityKgL": 0.808,
+    "massPerOutputTph": 129.65582272512967,
+    "inputTPerMW": 64.70588235294117,
+    "modelOutputTph": 66.66666666666667,
+    "baselineFloor": {
+     "plantT": 60.0,
+     "totalT": 1803.65,
+     "exceedsAllowance": true
+    },
+    "inputMatched": {
+     "plantT": 1941.18,
+     "totalT": 3872.95,
+     "exceedsAllowance": true
+    },
+    "outputMatched": {
+     "plantT": 8643.72,
+     "totalT": 11245.74,
+     "exceedsAllowance": true
+    }
+   },
    "airBallast": {
     "floodedM3": 1300425,
     "floodedPctOfHull": 59.1,
@@ -3465,6 +3529,38 @@
        }
       }
      }
+    }
+   },
+   "plantComparisons": {
+    "scope": "Arithmetic on banks of ground modules, not a scaling law, not an airborne estimate and not a lower bound. Cooling is a supplied utility: its mass and power are excluded. Integrated ground storage may overlap the separate tankage allowance. All other nominal equipment stays at its floor allowance.",
+    "source": {
+     "id": "stirlin-supplied-cooling",
+     "label": "Ground StirLIN hardware with supplied cooling",
+     "source": "stirling-2016-stirlin-specification",
+     "locator": "Printed pages 9 and 11: customer cooling utility, atmospheric usable-output row and separate chiller option",
+     "inputKW": 34,
+     "usableLitresHour": 21,
+     "massKg": 2200,
+     "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
+    },
+    "densityKgL": 0.808,
+    "massPerOutputTph": 129.65582272512967,
+    "inputTPerMW": 64.70588235294117,
+    "modelOutputTph": 222.22222222222223,
+    "baselineFloor": {
+     "plantT": 200.0,
+     "totalT": 19524.22,
+     "exceedsAllowance": true
+    },
+    "inputMatched": {
+     "plantT": 6470.59,
+     "totalT": 26421.87,
+     "exceedsAllowance": true
+    },
+    "outputMatched": {
+     "plantT": 28812.41,
+     "totalT": 50997.87,
+     "exceedsAllowance": true
     }
    },
    "airBallast": {
