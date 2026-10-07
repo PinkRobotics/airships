@@ -11,8 +11,10 @@ from, and how far the total is from the allowance.
 
 Every model quantity is read from research/figures.json, which `make factsheet` regenerates
 from the live model and `tools/check_figures_fresh.py` refuses to let drift. Nothing about
-the vehicle is typed in here. What IS typed in here is the external evidence — the specific
-masses — and each one carries its source in the table below.
+the vehicle is typed in here. What IS typed in here is external evidence and explicitly named
+assumptions — the specific masses and strength-policy coefficients. Each carries its basis
+in the table below. The anchor rope coefficients in every column are assumptions, not a
+qualified product or evidence that an anchor cable has been built or flown.
 
 THREE COLUMNS, and the leftmost is the point. `floor` takes the single most favourable
 published or derivable number for every line simultaneously, which no real vehicle gets.
@@ -149,17 +151,17 @@ EVIDENCE = {
         "credible": (1.5, "The same, with wear plies at the fill and dump interfaces."),
         "demonstrated": (2.5, "Bambi-bucket-class reinforced fabric."),
     },
-    # UHMWPE rope. Fibre tenacity 3.5-4.0 N/tex at 970 kg/m3; rope realisation about 60-70%
-    # of fibre. 2.4 N/tex at rope level is the working figure, so a rope's break load is
-    # 2.4e6 N per kg/m of linear density.
+    # Assumed minimum break strength per linear density for UHMWPE rope; not a
+    # qualified product, diameter or working-load rating. Column labels describe
+    # budget cases, not proof that an anchor cable has been demonstrated.
     "rope_n_per_kg_per_m": {
-        "floor": (2.0e6, "UHMWPE at 2.0 N/tex — the optimistic end of realised rope tenacity."),
-        "credible": (1.5e6, "Commercial 12-strand UHMWPE data sheets realise 1.4-1.6 N/tex, "
-                            "well under the 3.5-4.0 N/tex of the bare fibre."),
-        "demonstrated": (1.4e6, "The pessimistic end of the same data sheets."),
+        "floor": (2.0e6, "Assumed minimum-strength coefficient; optimistic rope realisation."),
+        "credible": (1.5e6, "Assumed minimum-strength coefficient, not a selected rope product."),
+        "demonstrated": (1.4e6, "Assumed lower coefficient; no anchor rope has been qualified."),
     },
-    "rope_safety_factor": {"floor": (3.0, "n/a"), "credible": (5.0, "n/a"),
-                           "demonstrated": (7.0, "n/a")},
+    "rope_safety_factor": {"floor": (3.0, "Assumed minimum-strength/load ratio"),
+                           "credible": (5.0, "Assumed minimum-strength/load ratio"),
+                           "demonstrated": (7.0, "Assumed minimum-strength/load ratio")},
     "hose_kg_per_m_per_m_bore": {
         "floor": (10.0, "Reinforced layflat discharge hose, mass per metre per metre of "
                         "bore, at the 30 bar this head needs."),
@@ -361,12 +363,16 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     add("Hose", ev("hose_kg_per_m_per_m_bore", case) * bore * spec["hoseM"] / 1000.0,
         f"{spec['hoseM']} m x {bore * 1000:.0f} mm bore")
 
-    # Anchor: cable sized by the bag's pull, bag by its own wetted area, winch by the power
-    # to haul the bag clear of the surface at the model's own 5 m/s.
+    # Design load including pickup is bag-water weight with quasi-static pickup.
+    # Dynamic snatch, cable/bag dry weight and termination/wear/creep allowances are absent.
+    # Minimum break strength = this design load times the assumed safety factor.
+    # Bag wetted area and the winch's assumed lift speed price separate mass lines.
     pull_n = spec["anchorBagT"] * 1000.0 * 9.81
     lin = pull_n * ev("rope_safety_factor", case) / ev("rope_n_per_kg_per_m", case)
     add("Anchor cable", lin * spec["anchorCableM"] / 1000.0,
-        f"{pull_n / 1e6:.1f} MN at SF {ev('rope_safety_factor', case):.0f}")
+        f"{pull_n / 1e6:.1f} MN quasi-static pickup load at SF {ev('rope_safety_factor', case):.0f}",
+        "Assumed minimum break strength = design load x safety factor; cable self-weight, "
+        "dynamic snatch and terminations omitted. No rope product or diameter qualified.")
     bag_area = 4.84 * (spec["anchorBagT"]) ** (2.0 / 3.0)
     add("Anchor bag", ev("fabric_kg_per_m2", case) * bag_area / 1000.0,
         f"{spec['anchorBagT']} m3 bag")

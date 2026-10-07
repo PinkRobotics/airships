@@ -345,8 +345,9 @@ export function updateCockpit() {
     put("fvO", fmt(overheadT) + " t <small>dry + LN₂</small>");
     put("fvP", fmt(st.water) + " t <small>" + (payFrac * 100).toFixed(0) + "% of water requested " +
       fmt(m.cls.payloadT) + " t</small>");
-    // WEIGHT AND PULL. Tonnes of lake water in the bag, and what that is as a force on the
-    // cable — 12,400 t is 122 MN, which is the number that sizes the rope.
+    // This is the model held-water load. The rope budget uses minimum break strength,
+    // quasi-static pickup and safety factor 5 in its credible case; dynamic pickup and
+    // cable/bag dry weight are omitted from that design load. See mass-budget.py.
     const anchorMN = (st.anchorN || 0) / 1e6;
     put("fvK", st.anchorT > 0.5
       ? fmt(st.anchorT) + " t <small>pulling " + anchorMN.toFixed(0) + " MN on "

@@ -98,8 +98,15 @@ class ClosureConservationTests(unittest.TestCase):
             bad, count = gate.check_closure_bills(old, figures)
             self.assertEqual(count, 126)
             self.assertEqual(len(bad), count)
-            self.assertTrue(any('P100/floor/hullThatCloses/0.508' in x and
-                                '-23.229' in x for x in bad))
+            label = 'P100/floor/hullThatCloses/0.508'
+            witnesses = [x for x in bad if x.startswith(label + ':')]
+            self.assertEqual(len(witnesses), 1)
+            row = old['classes']['P100']['rightSized']['floor']['hullThatCloses']['0.508']
+            expected = -0.508 * row['volumeM3'] * old['evidence']['sundries_frac']['floor']['value'] / 1000
+            residual = float(witnesses[0].split(' = ', 1)[1].split(' t;', 1)[0])
+            self.assertLess(residual, 0)
+            rounding = 0.5 * figures['atmosphere']['rhoAtWorkAlt'] / 1000 + 1e-6
+            self.assertAlmostEqual(residual, expected, delta=rounding)
             print(f'RED old closing equation: {len(bad)}/{count} bills fail')
             corrected = self.copy_and_generate(root)
             bad, count = gate.check_closure_bills(corrected, figures)

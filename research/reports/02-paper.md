@@ -254,8 +254,11 @@ Three consequences worth stating plainly:
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
   ceiling.
-- **A cable is a much better thing to hang than a hose.** 121.6 MN is about 440 mm of UHMWPE
-  massing 125 t — 1.25% of payload in rope, and **not charged as dry mass anywhere in this model.**
+- **Cable mass is a strength-policy estimate, not a diameter rating.** The minimum-strength basis and omitted pickup loads are disclosed below; the bottom-up budget includes the installed cable.
+
+<!-- anchor-rope:basis:start -->
+Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
+<!-- anchor-rope:basis:end -->
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -410,8 +413,8 @@ than a scaling limit.
 
 - **Jenett et al. 2019** (NASA NTRS) — the structural precedent this project cites — gives a bare
   discrete-lattice shell at **0.508 kg/m³** in its own Table 2, at every radius. That is 12% over
-  our *entire* dry allowance, before skin, joints, rotors, tanks, batteries, or the 125 t of
-  anchor cable §6.3 admits is uncharged.
+  our *entire* dry allowance, before skin, joints, rotors, tanks, batteries, or the installed
+  anchor cable charged by the bottom-up budget under the assumptions in §6.3.
 - **Metlen & Palazotto 2013**'s only real-materials vacuum-lift design has a
   structure-to-buoyancy ratio of **0.94** — structure alone consuming what we allocate to
   structure and payload together.
@@ -577,7 +580,7 @@ In descending order of how likely it is to kill the concept:
    literature is there. This is the concept's single point of failure and no amount of care in the
    rest of the model substitutes for it.
 2. **Batteries at 200 Wh/kg pack-level with the rest of the vehicle free.** Not available.
-3. **A 12,400 t bucket on a 440 mm cable, and a hull that can hold station over water while it
+3. **A 12,400 t bucket on an unqualified cable (minimum-strength policy in §6.3), and a hull that can hold station over water while it
    hangs there.** The mechanism is a scaled Bambi bucket at 1,265 times the largest
    ever built (9,800 L) — the principle is 43 years old and the engineering is not. Pendulum dynamics under an 512 m hull are not modelled.
 4. **A drop from 450 m that arrives as water rather than as mist.** Currently contradicted by the

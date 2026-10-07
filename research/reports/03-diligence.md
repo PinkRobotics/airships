@@ -212,10 +212,14 @@ comparator and the current unsupported replay are separated in the generated not
 | Risk | Status |
 |---|---|
 | **Scale** | 12,400 t against the largest bucket ever built, 9,800 L. **1,265×.** The principle is 43 years old; the engineering is not. |
-| **Cable** | 121.6 MN needs ~440 mm of UHMWPE massing 125 t — **not charged as dry mass anywhere in the model**, on a budget already over (§4.1). |
+| **Cable** | Rope product and diameter are unselected. The minimum-strength, quasi-static pickup and safety-factor basis is disclosed below; the bottom-up budget charges its cable mass. |
 | **Pendulum** | 12,400 t swinging on one cable under an 512 m hull. Not modelled at all. |
 | **Rotor wash on water** | The P-10000 has ~79 kg/m² disc loading against a Black Hawk's ~47, across 14 rotors whose combined disc area equals a single 451 m disc. A hovering Black Hawk must be over 160 ft up before surface wash falls below 30 mph (Suter 2005). The model has no wash physics, and the anchor requires a stationary hover over the surface it is disturbing. |
 | **Station-keeping** | The mechanism requires a dead stop, no yaw while lines are down, and departure only when pumps clear the water. The model enforces these; nothing validates that a hull this size can hold station in the wind over a lake. |
+
+<!-- anchor-rope:basis:start -->
+Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
+<!-- anchor-rope:basis:end -->
 
 **Positive IP note:** this is the one part of the concept that is not obvious from prior art, and
 it is currently published openly. If there is defensible IP here, it is being given away. That is a

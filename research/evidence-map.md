@@ -92,6 +92,12 @@ Where a row carries two categories, the dominant one is given first.
 | `retainedT` | 0 t on every class, mode, distance and wind | `plan.js` | **PHYSICS** — a consequence of the bag row | Honestly reported, and the removal-of-the-anchor test in `tests/cases/sim-plan.cases.js` exercises the live path. Without the anchor: 0 / 48.8 / 1 056.3 t. |
 | Bambi bucket precedent | in service since 1983, commercial units near 10 t | README, `config.js`, `PHYSICS.md` | **CITED** in prose, no catalogue entry | The precedent is real and correctly used to say the *principle* is unchanged and the *engineering* is not. The scale ratio is stated three incompatible ways: "This is 1,200" (`config.js`), "the P-10000's is 2,400" (`PHYSICS.md` §11), "240 times the commercial scale" (`OPEN-QUESTIONS.md` §4). The correct figure is ~1 240×. |
 
+**Current rope correction:** the table above is the dated earlier audit. This correction withdraws its earlier diameter and omission claims.
+
+<!-- anchor-rope:basis:start -->
+Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
+<!-- anchor-rope:basis:end -->
+
 ### Rotor and drag relations
 
 | figure | value | where it comes from | rests on | strength |

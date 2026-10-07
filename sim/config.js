@@ -235,13 +235,9 @@ export const VZ_MAX = 6;
  * reduces rotor effort; the current force ledger, rather than earlier unaided-descent
  * claims, decides whether a prescribed cycle closes. The fleet has not flown.
  *
- * The cable grows with the bag: 12,400 t is 122 MN, which is about 440 mm of UHMWPE massing
- * 125 t. That is 1.25% of the P-10000's payload in rope, and it is NOT charged as dry mass
- * anywhere in this model — one of the omissions listed in docs/OPEN-QUESTIONS.md.
- *
- * A cable is a far better thing to hang than a pipe. 1,056 t is 10.4 MN; in steel wire that is
- * a 163 mm rope massing 216 t, and in UHMWPE (Dyneema and kin) it is 128 mm and about 11 t.
- * Synthetic rope is what makes this idea cheap, exactly as it did for deep-tow oceanography.
+ * anchor-rope:basis:start
+ * Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
+ * anchor-rope:basis:end
  *
  * NOT MODELLED, and material: 1,056 t swinging on one cable under an 876 m hull is a pendulum
  * nobody here has analysed, the bag has to survive being filled and dumped every cycle, and

@@ -571,7 +571,8 @@ independently, and neither was cited when the assumption was made:
 - **Jenett et al. 2019** (NASA NTRS, in `research/papers/`) — the discrete cellular lattice this
   project cites as its structural precedent — gives a bare shell of **0.508 kg/m³** in its own
   Table 2, at every radius. That is 12% over our *entire* dry allowance before skin, joints,
-  rotors, tanks, batteries or the 125 t of anchor cable this model also does not charge.
+  rotors, tanks, batteries or the installed anchor cable that the bottom-up budget charges
+  under its stated minimum-strength, quasi-static pickup and safety-factor policy.
 - **Metlen & Palazotto 2013**'s only real-materials vacuum-lift design has a
   structure-to-buoyancy ratio of **0.94** — structure alone consuming what we allocate to
   structure *and* payload.
@@ -1117,6 +1118,12 @@ An earlier attempt gave the big hulls 1,350 m hoses so they could fill from alti
 the dense air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at
 the pod. A cable is a much better thing to hang than a pipe: 12,400 t is 122 MN, which is about
 440 mm of UHMWPE massing 125 t — and that rope is **not** charged as dry mass anywhere yet.
+
+**Current rope correction:** the paragraph above is archived history. This correction withdraws its earlier diameter and omission claims.
+
+<!-- anchor-rope:basis:start -->
+Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
+<!-- anchor-rope:basis:end -->
 
 **2. Two power models that disagree by 2.8×.** `planCycle` builds an energy budget from five terms
 and reports 90.2 MWh for the sampled P-10000 mission. Integrating `stateAt`'s per-system draw over
