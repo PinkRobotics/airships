@@ -62,9 +62,15 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 | 13 | Do the fires have water? | The mapped shoreline screen is a geometric result, not proof of usable water. The [station study](../research/analysis/water-availability.md) records selected-source refusals, detours and invented exercise legs. Depth, permissions, replenishment, intake access and hull clearance remain unresolved. | `water-availability.json`, `water-availability.md` |
 | — | Is the published throughput representative? | **Conservative by 1.9×** — but see the vertical-profile caveat below. | `water-availability.md` |
 | 0, 4 | Can we delete the cryogenic plant? | **Open for the current architecture.** The first-generation sealed-cell hull could not admit air as ballast; its retraction is retained. The current raft-and-membrane layout has no record settling the emergency-ballast choice. | `air-ballast.md` |
-| — | Is the nitrogen needed in the *normal cycle*? | **No.** The anchor already holds the descent with 21.5× margin. The routine make costs **52.5% / 36.4% / 16.6%** of cycle energy and is invisible inside a line labelled "return transit". | `air-ballast.md` |
-| 3, 14, 15 | What does the letdown cost? | **30–54× more than published**; +50 to +92% on cycle energy. The anchor saves 4.7–49.2%, not 96%, because the cable is in the water for only 4–46% of the fall. | `descent.md` |
-| 8 | Is `diskM2` inert? | **No — reopened.** It was retired on a measurement taken against a letdown 53× too small. Doubling the disc now saves 9.9% of the cycle. | `descent.md` |
+<!-- editorial:nitrogen-register:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:nitrogen-register:end -->
+<!-- editorial:descent-register:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:descent-register:end -->
+<!-- editorial:disc-register:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:disc-register:end -->
 | 12 | Is `ALT.drop` = 450 m survivable? | **No.** 1,645 m of along-wind smear from the drop spectrum alone, and the ship's own rotors push **43,051 kg/s of air upward** — 86× the water it releases. | `delivery.md` |
 | 11 | Does the mass budget close? | **Not as specified** (2.16× at its most favourable). But the hull is free to grow, so it becomes the shell-density question above. | `mass-budget.md` |
 
@@ -259,8 +265,11 @@ Generated from the owning record during the combined regeneration.
 ## What the analysis changed
 
 **Better than we thought.** Water is not a constraint anywhere in BC, and the reference ship is
-the class the geography suits. The floor budget's closure wall includes shell sundries; Jenett's published shell clears it with 41.6% margin before packing losses. Over half the
-reference ship's cycle energy is being spent on nitrogen it does not need in the cycle. The
+the class the geography suits. The floor budget's closure wall includes shell sundries; Jenett's published shell clears it with a margin before packing losses.
+
+<!-- editorial:nitrogen-conclusion:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:nitrogen-conclusion:end --> The
 sealed-cell architecture — undocumented until today — is the answer to the shape penalty that
 would otherwise be fatal.
 
@@ -268,7 +277,9 @@ would otherwise be fatal.
 At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
 <!-- logistics:line-comparison:end -->
 
-**Worse than we thought.** The letdown costs 30–54× what the ledger says. `ALT.drop` at 450 m
+<!-- editorial:descent-conclusion:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:descent-conclusion:end --> `ALT.drop` at 450 m
 does not deliver water, and the ship's own rotors make an updraft 86× the mass flow of the water
 it is releasing. The cryogenic plant cannot be deleted, and ground practice for it is ~65 t/MW
 against a budget floor of 2. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery

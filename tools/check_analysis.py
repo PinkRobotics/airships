@@ -591,6 +591,8 @@ def main() -> None:
     if subprocess.run(['node', 'tools/gen_anchor_budget_notes.mjs', '--check'], cwd=ROOT).returncode:
         bad.append('anchor budget notes differ from current mass-budget records')
 
+    if subprocess.run(['node', 'tools/gen_editorial_controls.mjs', '--check'], cwd=ROOT).returncode:
+        bad.append('editorial prescribed diagnostics differ from the live model')
     if subprocess.run([sys.executable, '-B', 'tools/gen_editorial_prose.py', '--check'], cwd=ROOT).returncode:
         bad.append('editorial answers differ from their producing records or cooling basis')
 

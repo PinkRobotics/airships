@@ -29,7 +29,7 @@ stopped being a list of doubts and started being a list of results:
 | `mass-budget` | Does `dryT = payloadT` close? | Not as specified. Growth alone does not establish a floating structure; the [float case](../docs/FLOAT.md) states the missing structural checks and mass terms. |
 | `water-availability` | How close are mapped water and generated drafting stations? | Mapped shore proximity is distinct from reachable drafting stations; depth, access and permission remain unestablished. |
 | `air-ballast` | Does a vacuum hull need a cryogenic plant? | **Yes — this one is a retraction.** Sealed cells cannot ballast with air. Kept in place, because a fix that erases its own argument cannot be audited. |
-| `descent` | What does getting down cost? | 30–54× what the ledger says. |
+| `descent` | What does getting down cost? | The current force-owner ledger prices the prescribed letdown; its diagnostics do not establish an operational saving. See `analysis/descent.json`. |
 | `delivery` | Does the water arrive? | Not from 450 m. And tonnes is the wrong metric — line is. |
 | `vacuum-cell` | Can the shell exist? | No drawn hull floats. The [float ledger](../docs/FLOAT-LEDGER.md) separates the bench article, closed-form bounds and hull of record. |
 | `helium` | Why not helium? | **The decision is vacuum; this note keeps it honest.** Vacuum never wins on pure lift (break-even against hydrogen: 0.067 kg/m³), so the case is what the mission needs: no feedstock at fleet scale, no gas logistics tail at remote bases, crush-safe fixed displacement over a fire, and the array being the airframe. The challenge that buys is structural — and it is the rest of this repository. |

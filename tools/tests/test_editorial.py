@@ -74,3 +74,16 @@ class CurrentHull(unittest.TestCase):
             for f in ('docs/VERIFICATION-PLAN.md','research/analysis/mass-budget.md'):
                 p=root/f;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('What do drives need to reject heat with no convection?')
             self.assertTrue(editorial.cooling_errors(root))
+
+class CurrentEnergy(unittest.TestCase):
+    def test_record_changes_propagate_to_register_and_conclusions(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
+            root=Path(folder)
+            files=('energy-documents','editorial-controls','mass-budget','descent','release-states')
+            for name in files:
+                f='research/analysis/'+name+'.json';p=root/f;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((editorial.ROOT/f).read_bytes())
+            p=root/'research/analysis/mass-budget.json';j=json.loads(p.read_text());j['classes']['P100']['descentWithoutNitrogen']['cycleSavingPct']=12.3;j['classes']['P100']['descentWithoutNitrogen']['marginX']=4.5;p.write_text(json.dumps(j))
+            p=root/'research/analysis/editorial-controls.json';j=json.loads(p.read_text());j['classes']['P100']['doubledDiscChangePct']=33.333;j['classes']['P100']['netNitrogenPct']=12.345;p.write_text(json.dumps(j))
+            s=editorial.sections(root)
+            self.assertIn('12.3%',s['nitrogen-register']);self.assertIn('4.5×',s['nitrogen-register']);self.assertIn('33.3%',s['disc-register']);self.assertIn('12.3%',s['nitrogen-conclusion'])
+            self.assertIn('not a saving in operation',s['disc-register'])

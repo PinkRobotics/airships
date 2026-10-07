@@ -11,13 +11,14 @@ CONTRACTS={
  'turbulence':'docs/PHYSICS.md',
  'certification':'docs/VERIFICATION-PLAN.md',
  'drop-hull':'research/reports/03-diligence.md',
+ **{name:'docs/VERIFICATION-PLAN.md' for name in ('nitrogen-register','descent-register','disc-register','nitrogen-conclusion','descent-conclusion')},
 }
 
 def sections(root=ROOT):
     classes=json.loads((root/'research/analysis/energy-documents.json').read_text())['classes']
     ref=next(c for c in classes if c['class']=='P100');big=max(classes,key=lambda c:c['lengthM'])
     dims='; '.join(f"{c['class']}: {c['lengthM']:g} m long × {c['diameterM']:g} m diameter" for c in classes)
-    return {
+    result = {
       'current-hull': "**Current architecture.** The concept drawing uses one film on hoop rings over a two-walled "
         "truss, with machinery on an ambient-pressure raft outside the vacuum. Compartment membranes are intended "
         "to limit breach damage; their arrangement remains open. No drawn hull floats. The configured fleet is "
@@ -34,6 +35,35 @@ def sections(root=ROOT):
         "arrives as water.** The source guidance contradicts the current release premise. Needs droplet physics "
         "and, eventually, a drop test; no model quantity establishes ground deposition.",
     }
+    replay=json.loads((root/'research/analysis/editorial-controls.json').read_text())
+    budget=json.loads((root/'research/analysis/mass-budget.json').read_text())['classes']
+    descent=json.loads((root/'research/analysis/descent.json').read_text())['classes']
+    rows=replay['classes'];controls=replay['controls'];ids=list(rows)
+    basis=f"Prescribed {controls['mode']}, {controls['km']:g} km, {controls['basis']}-basis controls"
+    statuses='; '.join(f"{r['name']}: prescribedCloses={str(r['prescribedCloses']).lower()}" for r in rows.values())
+    nitrogen=' / '.join(f"{budget[c]['descentWithoutNitrogen']['cycleSavingPct']:.1f}%" for c in ids)
+    credits=' / '.join(f"{descent[c]['rotorsBlindToTheBag']['creditSavesPctOfCycle']:.1f}%" for c in ids)
+    letdown=' / '.join(f"{descent[c]['letdown']['mwh']:.3f} MWh" for c in ids)
+    margin=budget['P100']['descentWithoutNitrogen']['marginX']
+    disc=rows['P100']['doubledDiscChangePct']
+    result.update({
+      'nitrogen-register': f"| — | Is nitrogen needed in the normal cycle? | {basis}: the budget's net routine-make fraction is "
+        f"**{nitrogen}** for the configured classes. Its reference anchor/hold diagnostic is **{margin:.1f}×**. "
+        f"{statuses}. This compares priced effort on nonclosing cycles; it does not establish that nitrogen can be omitted in operation. | `mass-budget.json`, `editorial-controls.json` |",
+      'descent-register': f"| 3, 14, 15 | What does the letdown cost? | {basis}: the current descent ledger already prices "
+        f"**{letdown}**. The record-basis bag-credit diagnostics are **{credits}** of cycle effort. "
+        "These are diagnostic comparisons on cycles that do not close, not operational savings. | `descent.json` |",
+      'disc-register': f"| 8 | Is `diskM2` inert? | **No.** On the same prescribed controls, doubling the reference disc "
+        f"changes diagnostic supplied cycle effort by **{disc:.1f}%**. The prescribed cycle does not close; "
+        "this is not a saving in operation. | `editorial-controls.json` |",
+      'nitrogen-conclusion': f"On the {basis.lower()}, the reference net nitrogen-make fraction is "
+        f"**{rows['P100']['netNitrogenPct']:.1f}%** of supplied cycle effort. The prescribed cycle does not close. "
+        "The comparison is diagnostic and does not establish a routine nitrogen saving in operation.",
+      'descent-conclusion': f"**Current letdown ledger.** {basis}: **{letdown}** for the configured classes, already "
+        "included in `descent.json`. These are prescribed diagnostics on cycles that do not close; "
+        "the earlier underpriced letdown calculation is superseded by this force-owner ledger.",
+    })
+    return result
 
 def outputs(root=ROOT):
     result={}
