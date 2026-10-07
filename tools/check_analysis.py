@@ -367,6 +367,34 @@ CONTEXTS = {
         r"^\| Gas barrier skin \|[^|]*\| {number} \|",
     ("water-availability.md", "geometry/P100/hullStationDiscHa"): r"{number} ha for a P-100,",
 }
+# Station and exercise cells bind to quantities at exact table positions. The producer
+# also compares the complete region, so a missing or substituted hull cannot pass.
+for cid, label in (("P100", "P-100"), ("P1000", "P-1000"), ("P10000", "P-10000")):
+    paths = ["nearestWithinClassSearchKm", "noSelectedSource",
+             "nearestDistanceKm/byFire/p50", "nearestDistanceKm/byFire/p90",
+             "selectedStationKm/byFire/p50", "selectedStationKm/byFire/p90",
+             "selectionsOfferingOutOfRadiusStation"]
+    patterns = [r"{number} \|", r"[^|]*\| {number} \|",
+                r"[^|]*\|[^|]*\| {number} /", r"[^|]*\|[^|]*\|[^|]*/ {number} \|",
+                r"[^|]*\|[^|]*\|[^|]*\| {number} /", r"[^|]*\|[^|]*\|[^|]*\|[^|]*/ {number} \|",
+                r"[^|]*\|[^|]*\|[^|]*\|[^|]*\| {number} \|"]
+    for path, pattern in zip(paths, patterns):
+        key=f"stationGeometry/{cid}/{path}"
+        MANIFEST.append(("water-availability.md", "water-availability", key, "d" if "/" not in path else ".2f"))
+        CONTEXTS[("water-availability.md",key)]=r"^\| "+re.escape(label)+r" \| "+pattern
+    for path, pattern in (("pctModelFlewFurther",r"{number} \|[^|]*\|$"),
+                          ("detourKm/p90",r"[^|]*\| {number} \|$")):
+        key=f"crossCheck/{cid}/{path}"
+        MANIFEST.append(("water-availability.md", "water-availability", key, ".2f"))
+        CONTEXTS[("water-availability.md",key)]=r"^\| "+re.escape(label)+r" \| "+pattern
+for i, row in enumerate(load("water-availability").get("plannedExercise",{}).get("rows",[])):
+    prefix=r"^\| "+re.escape(row["hull"])+r" \| "+re.escape(row["incident"])+r" \| "+re.escape(row["class"])+r" \| "
+    for field, suffix in (("nearestStationKm",r"{number} \|"),
+                          ("meanPlannedLegKm",r"[^|]*\| {number} \|")):
+        key=f"plannedExercise/rows/{i}/{field}"
+        MANIFEST.append(("water-availability.md", "water-availability", key, ".2f"))
+        CONTEXTS[("water-availability.md",key)]=prefix+suffix
+
 for density in ("0.264", "0.350", "0.508", "0.600", "0.750"):
     # The right-sized table has one density per row; its final cell is length × diameter.
     CONTEXTS[("mass-budget.md", f"classes/P100/rightSized/floor/hullThatCloses/{density}/diaM")] = (
@@ -594,6 +622,9 @@ def main() -> None:
 
     if subprocess.run([sys.executable, 'tools/gen_closure_audit.py', '--check'], cwd=ROOT).returncode:
         bad.append('closure audit differs from current records')
+
+    if subprocess.run([sys.executable, 'tools/gen_water_station_note.py', '--check'], cwd=ROOT).returncode:
+        bad.append('water station distributions and invented-exercise legs differ from their record')
 
     result = subprocess.run([sys.executable, 'tools/check_member_census.py'], cwd=ROOT)
     if result.returncode:

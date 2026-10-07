@@ -44,7 +44,7 @@ def main():
             for name in ('water-availability', 'descent'):
                 output = scratch / f'{name}.json'
                 run([sys.executable, 'tools/js_eval.py',
-                     f'{base}index.html?seed=7&data=snapshot',
+                     f'{base}index.html' + ('?view=exercise' if name == 'water-availability' else '?seed=7&data=snapshot'),
                      f'research/analysis/{name}.js', str(output), '20'])
                 compare(ANALYSIS / output.name, output)
 

@@ -1,5 +1,7 @@
 export { ANCHOR_DATUM, anchorGeometry } from './config.js';
 
+export { sourceStations } from './water.js';
+
 /* The simulation, as one import.
  *
  * WHAT THIS IS. A first-order model of a fleet of water-carrying airships working real

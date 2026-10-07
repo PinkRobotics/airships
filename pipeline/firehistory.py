@@ -3,9 +3,11 @@
 
     python3 pipeline/firehistory.py data/fire-history-bc.json
 
-OPEN-QUESTIONS #13 asks what fraction of real fires have an adequate water source within
-range. The monitor answers that for whatever is burning today; this file answers it for
-twenty fire seasons, which is the only version of the question that bounds a market.
+OPEN-QUESTIONS #13 asks about operational water availability. This extract preserves dated
+points and outlines for geographic distance studies. The water study reports mapped shore
+proximity and generated station distances; the monitor qualifies and plans at generated
+stations. Neither establishes depth, permission, sustainable draw or water availability for
+a real operation.
 
 Downloads BC's historical fire perimeters (PROT_HISTORICAL_FIRE_POLYS_SP) for fires of
 10 hectares or more since 2006, and writes a compact JSON:

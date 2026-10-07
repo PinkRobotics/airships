@@ -62,7 +62,7 @@ def render():
         daily += f"\nThe median leg is {median['legKm']:.2f} km; its selector state is {p['state']}. No daily release, supplied-energy or perimeter quotient is available.\n"
         summary = 'The P-100 median leg is not served by an accepted plan; no daily line-length or perimeter comparison is supplied.\n'
     else:
-        daily += (f"\nAt the {median['legKm']:.2f} km median leg the accepted {p['mode']} plan releases "
+        daily += (f"\nAt the {median['legKm']:.2f} km median shore-proxy distance the accepted {p['mode']} plan releases "
                   f"{p['releasedT']:.3f} t and retains {p['retainedT']:.3f} t per cycle. "
                   f"Its rate is {median['tph']:.1f} t/h, with {p['suppliedMWh']:.3f} MWh supplied "
                   f"per {p['cycleMin']:.3f} minute cycle. Repeating it for 24 hours gives "

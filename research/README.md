@@ -27,7 +27,7 @@ stopped being a list of doubts and started being a list of results:
 | | question | the short answer |
 |---|---|---|
 | `mass-budget` | Does `dryT = payloadT` close? | Not as specified. Growth alone does not establish a floating structure; the [float case](../docs/FLOAT.md) states the missing structural checks and mass terms. |
-| `water-availability` | Do the fires have water? | All of them, median 4.71 km. Depth, not area, is the open question. |
+| `water-availability` | How close are mapped water and generated drafting stations? | Mapped shore proximity is distinct from reachable drafting stations; depth, access and permission remain unestablished. |
 | `air-ballast` | Does a vacuum hull need a cryogenic plant? | **Yes — this one is a retraction.** Sealed cells cannot ballast with air. Kept in place, because a fix that erases its own argument cannot be audited. |
 | `descent` | What does getting down cost? | 30–54× what the ledger says. |
 | `delivery` | Does the water arrive? | Not from 450 m. And tonnes is the wrong metric — line is. |

@@ -26,7 +26,7 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > | entry | what the analysis found | where |
 > |---|---|---|
 > | #11 | **The go/no-go is one number nobody had written down: a vacuum shell must mass less than 0.957 kg/m³ of enclosed volume.** Jenett's published 0.508 clears it with 47% margin and the hull is free to grow — 353,975 m³, a 223 m ship. What decides it is the shell density of one *sealed cell* and the *packing fraction*. | `mass-budget.md` |
-> | #13 | **Water is not a constraint.** 3,286 BC fires over 20 seasons; all have an adequate source in range; median 4.71 km. The binding unknown is lake *depth*, which the Freshwater Atlas does not carry. | `water-availability.md` |
+> | #13 | **Mapped shore proximity is measured separately from drafting stations.** The water study records geometric distances, with no claim of operational availability; depth, access and permission remain unknown. | `water-availability.md` |
 > | #0, #4 | **The cryogenic plant CANNOT be deleted** — a sealed-cell hull has no way to ballast with air, and an earlier claim that it could is retracted. But the ship makes nitrogen on every cycle it does not need, at **32.5%** of the P-100's cycle energy as the one model prices it since 2026-10-01 (52.5% of the smaller cycle published before). | `air-ballast.md` |
 > | #3, #14, #15 | **FIXED 2026-10-01 — one energy model.** The letdown is 0.390 / 4.279 / 35.398 MWh, a fifth of each cycle, against the 0.012 / 0.161 / 1.420 the window constant produced; cycle energy rose 45 / 115 / 224%. The bag's credit to the rotors is 0.7–5.2% of the cycle — not the 96% once claimed, nor the 27–49% this note then argued — and what it buys is water (2,248 t a cycle on the P-10000). | `descent.md`, `../docs/ENERGY-MODEL-2026-10.md` |
 > | #8 | **Re-opened, and now measurable.** `diskM2` was retired as inert on a measurement taken against a letdown too small to see it. With the rotors priced over the whole flight, ±20% on the disc moves the P-10000 cycle by +9.6% / −5.8% and `battMW` ±20% moves it −0.1% / +2.3% through the letdown clamp. | `descent.md` |
@@ -623,10 +623,10 @@ reader from the fire community will raise them in the first five minutes. They b
 
 ---
 
-## 13. Nobody has asked how often the mission exists
+## 13. Water geometry is measured; operational availability remains open
 
 The whole concept is a duty cycle between a fire and a lake. `sim/plan.js` takes the one-way
-distance as an input and `sim/water.js` picks the nearest adequate source, but **no figure anywhere
+distance as an input and `sim/water.js` applies a size-weighted choice among reachable generated drafting stations, but **no figure anywhere
 in this project says what fraction of real fires have an adequate source within range.**
 
 Adequate means more than nearby. A P-10000 draws 10,000 t a cycle at
@@ -639,10 +639,11 @@ vehicle. If the answer is "most fires in the interior", the concept has a custom
 quarter of them", the fleet is a niche tool and the P-100 is the interesting class rather than the
 P-10000.
 
-**DECISION: none yet, and this one is cheap.** The data is already mirrored in `data/`: BC fire
-perimeters and a water extract. Joining them is an afternoon. It has not been done because the
-project has been auditing its physics, which is a reasonable order of work and not an excuse for
-leaving the question unasked.
+**Partial answer: geographic measures.** The water-availability study joins the dated
+points and mapped water already in `data/`, and reports mapped shore proximity separately
+from generated drafting stations. Planned legs are reported for the invented exercise alone.
+Operational availability remains open: station depth, access, permission and sustainable draw
+are not established by that spatial join.
 
 
 ---

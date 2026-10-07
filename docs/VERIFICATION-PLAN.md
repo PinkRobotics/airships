@@ -59,7 +59,7 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 
 | # | question | answer | where |
 |---|---|---|---|
-| 13 | Do the fires have water? | **Yes, all of them.** 3,286 BC fires ≥10 ha over 20 seasons; every one has a qualifying source within 300 km at every threshold to 5,000 ha, and 98.97% are within the reference ship's own 25 km. Median **4.71 km**. | `water-availability.md` |
+| 13 | Do the fires have water? | The mapped shoreline screen is a geometric result, not proof of usable water. The [station study](../research/analysis/water-availability.md) records selected-source refusals, detours and invented exercise legs. Depth, permissions, replenishment, intake access and hull clearance remain unresolved. | `water-availability.json`, `water-availability.md` |
 | — | Is the published throughput representative? | **Conservative by 1.9×** — but see the vertical-profile caveat below. | `water-availability.md` |
 | 0, 4 | Can we delete the cryogenic plant? | **No — retracted.** A sealed-cell hull has no way to ballast with air. The plant is the only emergency ballast source there is. | `air-ballast.md` |
 | — | Is the nitrogen needed in the *normal cycle*? | **No.** The anchor already holds the descent with 21.5× margin. The routine make costs **52.5% / 36.4% / 16.6%** of cycle energy and is invisible inside a line labelled "return transit". | `air-ballast.md` |
@@ -247,9 +247,9 @@ be fatal:
    vehicle drafts from, and a hull holding station takes a lake out of their rotation.
 6. **Icing, lightning, hail, gust loading, noise, and the cost of anything.** All named nowhere,
    or in a single word inside a catch-all.
-7. **The vertical flight profile.** The cycle model has no climb-rate check, so at the 4.71 km
-   median leg the profile implies ~11.9 m/s against a `VZ_MAX` of 6. The 1.9× throughput
-   headline is optimistic by roughly a third for this reason and should be quoted as such.
+7. **The vertical flight profile.** The served model checks its bounded vertical controls and
+   reserve; the earlier shore-distance throughput and unchecked-climb headline are withdrawn.
+   These accepted-plan quotients remain conditional calculations, not demonstrated flight.
 
 ---
 

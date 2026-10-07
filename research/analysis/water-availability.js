@@ -1,30 +1,13 @@
-/* OPEN-QUESTIONS #13: how often does the mission actually exist?
- *
- * The concept is a shuttle between a fire and a lake, and until now no figure anywhere in this
- * project said what fraction of real fires have a lake worth shuttling to. The monitor answers
- * it for whatever is burning today. Twenty seasons is the only version of the question that
- * bounds a market.
- *
- * Run through tools/js_eval.py against the live page, so every throughput is computed by the
- * model's own exact-input served selector and every distance is checked against its own sim/water.js. This
- * project has been bitten enough times by a second copy of a calculation, and an analysis
- * that disagreed with the simulator would be worse than useless.
- *
- *   make water-availability
- *
- * Two structural notes, both of which are also findings.
- *
- * `findSource(ll, cls, water, minHa, maxKm)` reads `cls` for NOTHING except the defaults of
- * those last two arguments. Override both and the class is inert. So the sweep below is
- * indexed by adequacy threshold, not by class, and the three classes are mapped onto it
- * afterwards: the first draft of this file computed every number three times and got three
- * identical answers.
- *
- * And `findSource` does not return the nearest source — see nearestAdequate() below.
+/* Mapped shore proximity and generated drafting-station geometry are separate measures.
+ * Dated points and final perimeters are geographic inputs only: no historical mission is
+ * built or dispatched. Diagnostic rates at shore distances remain explicitly unsupported.
+ * The source policy and station distances use the simulator's own generator. Planned legs
+ * are recorded only for the separate invented exercise, when that view is loaded.
+ * Regenerate with tools/js_eval.py, as in series/regen.sh; no network input is refreshed.
  */
 (async () => {
   const S = window.AIRSHIPS.sim;
-  const { CLASSES, CLASS_ORDER, findSource, havKm } = S;
+  const { CLASSES, CLASS_ORDER, MODES, findSource, sourceStations, planCycle, havKm, legKmFor, stationFor } = S;
   const {acceptedLogistics} = await import('./research/analysis/accepted-logistics.js');
   const water = window.AIRSHIPS.app.water;
 
@@ -59,21 +42,8 @@
     return out;
   }
 
-  /* NEAREST IS NOT WHAT findSource RETURNS, and finding that out is half of this analysis.
-   *
-   * `findSource` scores candidates as `d / min(12, (area/minHa)^0.35)` — it deliberately
-   * flies past a qualifying pond to reach a lake, which is the right operational behaviour
-   * and the wrong measurement for "how far is the water". Worse, the trade depends on the
-   * search radius: widen it and a bigger, further body can win, so the same fire gets a
-   * different answer at 25 km and at 300 km. The first draft of this file cross-checked the
-   * two against each other and found 27 disagreements, which is exactly what that is.
-   *
-   * So the two questions are computed separately. This function answers "where is the
-   * nearest water that qualifies" by pure distance. It mirrors sim/water.js's distance rule
-   * exactly — closest approach to the simplified outline where one exists, centroid
-   * otherwise — and the cross-check below proves it, by requiring the two to agree to
-   * floating point whenever they pick the SAME body.
-   */
+  // Keep the original closest mapped outline-vertex/centroid measure unchanged.
+  // It is mapped shore proximity, not a drafting station or operational availability.
   function nearestAdequate(ll, minHa, maxKm) {
     let best = null, bestKm = Infinity;
     for (let i = 0; i < water.length; i++) {
@@ -130,12 +100,13 @@
       firesWithPerimeter: fires.filter(f => f[5]).length,
       waterBodies: water.length,
       farKm: FAR_KM,
-      note: 'Distance is to the closest approach of the water body, not its centroid.',
+      note: 'The legacy distance and threshold tables measure mapped shore proximity (outline vertices, centroid without an outline). Station geometry is separate; no historical dispatch is constructed.',
     },
     classes: {},
     thresholdSweep: {},
     geometry: {},
     crossCheck: {},
+    stationGeometry: {},
   };
 
   for (const t of THRESHOLDS) {
@@ -234,44 +205,76 @@
     };
   }
 
-  /* Two things at once.
-   *
-   * THE PROOF that nearestAdequate() computes the same distance the model does: run both at
-   * the class's own settings, and wherever they choose the SAME body require the kilometres
-   * to agree to floating point. Selection may differ; arithmetic may not.
-   *
-   * THE FINDING: how much further the model's size preference flies than the nearest
-   * qualifying water. That detour is a deliberate operational choice — a fleet drawing a
-   * full payload every few minutes should not be working a pond — and nobody has priced it.
-   */
+  function nearestStation(ll, cls, maxKm) {
+    let best = null;
+    for (let i = 0; i < water.length; i++) {
+      const w = water[i];
+      if (w[2] < cls.minSourceHa) continue;
+      if (Math.abs(w[1] - ll[1]) * 111 - (w.spanKm || 0) > maxKm) continue;
+      const stations = sourceStations(w, ll, maxKm);
+      if (!stations.length) continue;
+      const km = Math.min(...stations.map(st => havKm(st, ll)));
+      if (!best || km < best.km) best = { idx: i, km };
+    }
+    return best;
+  }
+
+  // Distances from dated points only. This loop never builds a fire mission.
   for (const id of CLASS_ORDER) {
-    const cls = CLASSES[id];
+    const cls = CLASSES[id], nearestKm = [], nearestHa = [], selectedKm = [], selectedHa = [];
     let sameBody = 0, kmMismatch = 0, modelFurther = 0, bothFound = 0, existenceGap = 0;
+    let inSearch = 0, selected = 0, beyondRadius = 0;
     const detour = [], detourHa = [];
-    fires.forEach((f) => {
-      const ll = [f[0], f[1]];
-      const near = nearestAdequate(ll, cls.minSourceHa, cls.searchKm);
+    for (const f of fires) {
+      const ll = [f[0], f[1]], far = nearestStation(ll, cls, FAR_KM);
+      if (far) { nearestKm.push(far.km); nearestHa.push(f[2]); }
+      const near = far && far.km <= cls.searchKm ? far : null;
+      if (near) inSearch++;
       const chosen = findSource(ll, cls, water);
-      if (!near || !chosen) { if (!!near !== !!chosen) existenceGap++; return; }
+      if (chosen) {
+        selected++; selectedKm.push(chosen.km); selectedHa.push(f[2]);
+        if (chosen.stations.some(st => havKm(st, ll) > cls.searchKm)) beyondRadius++;
+      }
+      if (!near || !chosen) { if (!!near !== !!chosen) existenceGap++; continue; }
       bothFound++;
       if (near.idx === chosen.idx) {
         sameBody++;
         if (Math.abs(near.km - chosen.km) > 1e-9) kmMismatch++;
       }
       if (chosen.km > near.km + 1e-9) modelFurther++;
-      detour.push(chosen.km - near.km);
-      detourHa.push(f[2]);
-    });
-    out.crossCheck[id] = {
-      bothFound,
-      sameBodyChosen: sameBody,
-      kmMismatchWhenSameBody: kmMismatch,          // must be 0
-      existenceGap,                                 // must be 0
-      modelFlewFurtherThanNearest: modelFurther,
-      pctModelFlewFurther: pct(modelFurther, bothFound),
-      detourKm: quantiles(detour),
-      detourKmByHectare: quantiles(detour, detourHa),
+      detour.push(chosen.km - near.km); detourHa.push(f[2]);
+    }
+    if (kmMismatch || existenceGap || beyondRadius) throw new Error('station qualification mismatch on ' + id);
+    out.stationGeometry[id] = {
+      nearestWithinFarKm: nearestKm.length,
+      nearestWithinClassSearchKm: inSearch,
+      pctWithinClassSearchKm: pct(inSearch, fires.length),
+      nearestDistanceKm: { byFire: quantiles(nearestKm), byHectare: quantiles(nearestKm, nearestHa) },
+      selectedSources: selected, noSelectedSource: fires.length - selected,
+      selectedStationKm: { byFire: quantiles(selectedKm), byHectare: quantiles(selectedKm, selectedHa) },
+      selectionsOfferingOutOfRadiusStation: beyondRadius,
     };
+    out.crossCheck[id] = {
+      metric: 'nearest generated station versus size-weighted station selection, within the class radius',
+      bothFound, sameBodyChosen: sameBody, kmMismatchWhenSameBody: kmMismatch, existenceGap,
+      modelFlewFurtherThanNearest: modelFurther, pctModelFlewFurther: pct(modelFurther, bothFound),
+      detourKm: quantiles(detour), detourKmByHectare: quantiles(detour, detourHa),
+    };
+  }
+
+  // Actual planned legs belong to the invented exercise alone. Every row names a model
+  // mission, and is geometric planning evidence, never historical-fire or flight evidence.
+  const exercise = window.AIRSHIPS.app;
+  out.plannedExercise = { note: 'Invented exercise only; no aircraft flew. Empty unless this generator runs on the exercise view.', rows: [] };
+  if (exercise.exercise) {
+    out.plannedExercise.rows = exercise.missions.filter(m => m.water && m.cls).map(m => {
+      const n = Math.max(1, m.order?.length || m.targets.length);
+      return { hull: m.name, incident: m.fire.id, class: m.cls.id, source: m.water[4],
+        nearestStationKm: r(Math.min(...m.stations.map(st => havKm(m.fire.ll, st)))),
+        cycleStationKm: quantiles(Array.from({length:n}, (_,i) => havKm(m.fire.ll, stationFor(m,i+1)))),
+        meanPlannedLegKm: r(legKmFor(m)), state: m.planState };
+    });
+    out.plannedExercise.meanLegKm = quantiles(out.plannedExercise.rows.map(m => m.meanPlannedLegKm));
   }
 
   // What the ship's own dimensions demand of a water body, as opposed to what config.js

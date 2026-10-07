@@ -4,10 +4,10 @@
 figure anywhere in this project said what fraction of real fires have a lake worth shuttling
 to. It bounds the market rather than the vehicle, and it had never been asked.
 
-The stored twenty-season record has geometrically qualifying water within 300 km of every
-fire of ten hectares or more, at each tested threshold. The reference class's median leg is
-under five kilometres. This does not establish usable depth, access or an accepted mission;
-the accepted and stand-down counts are reported below.
+The stored twenty-season record measures mapped shore proximity. Drafting-station geometry
+and invented exercise legs are reported separately. None establishes usable depth, access,
+permission or a dispatch of a recorded fire; accepted-plan quotients and stand-down counts
+at the stated proxy distances are reported below.
 
 ## Method
 
@@ -16,16 +16,23 @@ more, 2006 through 2025, 10.93 million hectares burned** — and reduces each to
 centroid of its largest ring, keeping the simplified ring itself for the 615 fires of 1,000 ha
 or more. `research/analysis/water-availability.js` joins that against the 13,646-body
 Freshwater Atlas extract the monitor already uses, inside a real browser against the live
-model, so every rate comes from a plan its served selector accepts.
+model. The rate tables are accepted-plan quotients at shore-proxy distances, not a dispatch
+of any recorded fire or a demonstration of flight.
 
-Distance is to a body's **closest approach**, not its centroid: a 30 km lake with its tip
-beside the fire is near water, and its centroid says otherwise.
+**Mapped shore proximity** means distance to the closest vertex of the simplified outline,
+or the centroid where no outline exists. It is neither an exact shoreline distance nor a
+flown leg. The separate station measure uses `sim/water.js`'s generated drafting points.
+Selection keeps the size-weighted heuristic, using the nearest qualifying station on each
+source; all stations offered to its mission fall within the class's search radius from the
+incident point. The cycle planner chooses among those stations for the drop lines. Its mean
+planned leg is published separately because a station-to-line route differs from a distance
+to the incident point.
 
-## The answer
+## Mapped shore proximity
 
-Nearest source that meets each class's own adequacy threshold:
+Nearest mapped body meeting each class's area threshold, measured at its shore proxy:
 
-| | threshold | qualifying bodies | median, by fire | p90 | median, by hectare burned | in range of the class |
+| | threshold | qualifying bodies | median, by fire | p90 | median, by hectare burned | shore proxy within the class search radius |
 |---|---|---|---|---|---|---|
 | P-100 | 10 ha | 13,646 | **4.71 km** | 12.92 km | 5.38 km | **98.97%** of fires, 99.21% of hectares |
 | P-1000 | 100 ha | 1,623 | 11.04 km | 32.19 km | 13.68 km | **100%** |
@@ -33,8 +40,8 @@ Nearest source that meets each class's own adequacy threshold:
 
 Every fire in the record has qualifying water within 300 km at every threshold tested, up to
 5,000 ha — where only 56 bodies in the province qualify and the median distance is still
-48.65 km. The binary question is settled. What remains is a distance distribution, and it is a
-short one.
+48.65 km. These are distances from recorded points to mapped water, not proof that a source
+can supply an aircraft or that a mission exists.
 
 ## Rates from accepted plans
 
@@ -72,7 +79,7 @@ Median leg:
 The selector is `selectServedPlan`, requested balanced, record energy basis, still air. It chooses among the served pages' bounded controls at each exact leg; this is not a global optimum. Stand-down or unavailable legs supply no rate and are excluded from both means. Geometric water access above is a separate count.
 <!-- logistics:rates:end -->
 
-## A large fire is not a point, and it does not change the answer
+## Mapped shore proximity around the recorded perimeter
 
 For the 615 fires of 1,000 ha or more, sampling twelve points around the perimeter and taking
 the **worst-served** one:
@@ -83,18 +90,23 @@ the **worst-served** one:
 | 100 ha | 15.61 km | 38.42 km |
 | 1,000 ha | 36.90 km | 86.81 km |
 
-The far edge of a median campaign fire is 7.5 km from P-100 water. Even the p90 is inside the
-class's 25 km search radius.
+At the reference area threshold the sampled perimeter's median worst shore-proxy distance
+is 7.5 km. Its p90 shore proxy is within the class's 25 km radius; station coverage of those
+perimeter samples is not measured here.
 
-## Two things this found in the model
+## Generated drafting stations and planned exercise legs
 
-**`findSource` does not return the nearest source.** It scores candidates as
-`d / min(12, (area/minHa)^0.35)` — deliberately flying past a qualifying pond to reach a lake,
-which is right operationally. But nobody has priced it: the model flies further than the
-nearest adequate water on **45.4% / 43.0% / 31.5%** of fires, with a p90 detour of 9.25 /
-24.16 / 29.07 km. The median detour is zero, so this is a tail behaviour, and on the tail it is
-large enough to halve throughput. The size preference is an unjustified constant of the kind
-`OPEN-QUESTIONS` #7 counts, and it now has a measured cost.
+The size preference remains an explicitly unvalidated area heuristic. Keeping it avoids
+changing the model's source-size preference while repairing its distance basis. It does not
+establish sustainable repeated draw. The table compares the nearest generated station with
+the size-weighted selection and checks that selection offers no station outside its radius.
+The historical-point rows are geometry only. The flown-leg rows belong to the separately
+labelled invented exercise: no fire shown there happened and no aircraft flew.
+
+<!-- water-stations:start -->
+<!-- water-stations:end -->
+
+## Source-area and depth limits
 
 **2026-10-02 correction:** the station-disc calculation now uses the capsule-era fleet lengths.
 The [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) retains the former figures.
@@ -102,7 +114,7 @@ The [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) ret
 **The adequacy thresholds are far more conservative than the ship's own geometry.** A hull
 holding station needs a disc it fits inside — 0.95 ha for a P-100, 20.59 ha for a P-10000.
 The shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 ha would roughly
-double its qualifying bodies and cut its median leg from 23.95 to 19.01 km.
+double its qualifying bodies and cut its median mapped shore-proxy distance from 23.95 to 19.01 km.
 
 <!-- logistics:drawdown:start -->
 A P-100 repeating the accepted 15 km plan for twelve hours releases 1,340 t, a geometric drawdown of 1.3 cm on a minimum-size body. Continuous supply and lake access are assumed.
@@ -121,8 +133,8 @@ to fill:
 
 Nothing in this dataset says how many of those 13,646 bodies are 8 m deep where a ship would
 hover, let alone 38 m. Small interior lakes are routinely shallower than that, and shallow is
-exactly what a 10 ha lake tends to be. **This is now the binding uncertainty in the water
-question, and it has moved from "is there a lake" to "is that lake deep enough".**
+exactly what a 10 ha lake tends to be. Depth remains an unresolved requirement alongside
+station geometry, access and permission.
 
 It is also answerable. BC holds bathymetry for a substantial subset of its lakes, and the
 question is a join away for anyone with access to it.
@@ -139,5 +151,5 @@ question is a join away for anyone with access to it.
   and any legal right to draft water are all absent from the Atlas and from this analysis. A
   lake that qualifies geometrically may be closed to a fleet for reasons that have nothing to
   do with hydrology.
-- **Perimeters are the final footprint**, not where the fire was when it mattered. The
-  distance a ship would actually fly on day two of a campaign is shorter than the figure here.
+- **Perimeters are the final footprint**, not an operational target or an incident-time
+  dispatch request. This study measures distances and makes no counterfactual fire claim.

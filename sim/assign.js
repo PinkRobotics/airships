@@ -56,10 +56,10 @@ export function assign(fire, water) {
   if (pick.t === startTier || relaxed) {
     why = `${pick.cls.name} selected: the incident is ${fmtHa(fire.sizeHa)}` +
       (fire.note ? ", a fire of note," : fire.status === "Out of Control" ? ", out of control," : "") +
-      ` and the selected source is ${pick.src.km.toFixed(1)} km away.`;
+      ` and the selected source's nearest qualifying drafting station is ${pick.src.km.toFixed(1)} km from the incident point.`;
   } else {
     why = `${pick.cls.name} selected: a ${CLASSES[CLASS_ORDER[startTier]].name} was indicated by size, ` +
-      `but no source meeting its ${CLASSES[CLASS_ORDER[startTier]].minSourceHa} ha intake rule lies within ` +
+      `but no generated station on water meeting its ${CLASSES[CLASS_ORDER[startTier]].minSourceHa} ha intake rule lies within ` +
       `${CLASSES[CLASS_ORDER[startTier]].searchKm} km — the larger class reaches ${pick.src.km.toFixed(1)} km.`;
   }
   return { cls: pick.cls, src: pick.src, why: why + note, relaxed };

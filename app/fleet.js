@@ -41,12 +41,18 @@ export async function rebuildMissions() {
       const small = findSource(f.ll, cls, S.water, cls.minSourceHa / 3, src.km / 3);
       if (small) { src = small; relaxed = true; }
     }
-    return (srcMemo[key] = src ? { src, relaxed } : null);
+    if (!src) return (srcMemo[key] = null);
+    // Rank the geometric route's mean drafting-station leg, before accepted energy plans
+    // are computed. A target refusal can leave no leg; keep it eligible for the later
+    // explicit refusal path, using its station distance until that path records the reason.
+    const geometry = buildMission({ ...f, mission: null }, S.water, S.modeId, clsId, { src, relaxed }, S.heat);
+    const rankKm = Number.isFinite(geometry.legKm) ? geometry.legKm : src.km;
+    return (srcMemo[key] = { src, relaxed, rankKm });
   };
   const fit = (f, clsId) => {
     const so = srcFor(f, clsId);
     if (!so) return -Infinity;
-    let v = pri(f) - so.src.km / 40;
+    let v = pri(f) - so.rankKm / 40;
     if (clsId === "P10000" && f.sizeHa < 3000) v -= 3;
     if (clsId === "P1000" && f.sizeHa < 300) v -= 2;
     if (clsId === "P100" && f.sizeHa > 5000) v -= 1.5;
@@ -99,8 +105,9 @@ export async function rebuildMissions() {
       m.shipId = m.name;                              // unique across the fleet; keys the ledger
       m.why = `${m.name} (${CLASSES[clsId].name}) considered by the fleet allocator: ${fmtHa(f.sizeHa)}` +
         (f.note ? ", a wildfire of note" : ", out of control") +
-        `, order ${rankOf.get(f.id)} of ${cand.length} fires it could reach; the selected source is ` +
-        `${so.src.km.toFixed(1)} km away.` +
+        `, order ${rankOf.get(f.id)} of ${cand.length} eligible incidents; the selected source's nearest ` +
+        `qualifying drafting station is ${so.src.km.toFixed(1)} km from the incident point, ` +
+        `with a mean planned leg of ${m.legKm.toFixed(1)} km.` +
         (so.relaxed ? " Smaller-than-preferred water accepted for proximity." : "");
       if (!f.mission) f.mission = m;
       S.missions.push(m);
