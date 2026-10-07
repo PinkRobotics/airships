@@ -103,3 +103,31 @@ class AcceptedRelease(unittest.TestCase):
         s=editorial.sections()['release-illustration']
         self.assertIn('Local density',s);self.assertIn('retaining',s);self.assertIn('ideal-disc',s)
         self.assertIn('Neither quantity measures outlet flow',s)
+
+class ReleaseSpeedComparison(unittest.TestCase):
+    def test_endpoint_comparison_follows_corrected_record(self):
+        import subprocess
+        r=json.loads(subprocess.check_output(['node','tools/gen_release_states.mjs','--record'],cwd=editorial.ROOT,text=True))
+        delivery=json.loads((editorial.ROOT/'research/analysis/delivery.json').read_text())
+        h=next(h for h in delivery['fall'] if 'ALT.drop' in h)
+        expected=max(row['terminalAtReleaseMs'] for row in delivery['fall'][h].values())
+        self.assertEqual(r['dropComparison']['largestTabulatedReleaseSpeedMs'],expected)
+        self.assertIn('no updraft',r['dropComparison']['basis'])
+    def test_named_endpoint_and_boundary_are_printed(self):
+        s=editorial.sections()['release-illustration']
+        for words in ('At the end of release','largest tabulated density-corrected','does not represent every drop'):
+            self.assertIn(words,s)
+
+    def test_release_states_bootstrap_without_delivery_record(self):
+        import shutil,subprocess
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
+            root=Path(folder)
+            shutil.copytree(editorial.ROOT/'sim',root/'sim')
+            (root/'package.json').write_text('{"type":"module"}\n')
+            for file in ('tools/gen_release_states.mjs','research/analysis/water-availability.json'):
+                target=root/file;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(editorial.ROOT/file,target)
+            self.assertFalse((root/'research/analysis/delivery.json').exists())
+            command=['node','tools/gen_release_states.mjs','--record','--release-only']
+            result=json.loads(subprocess.check_output(command,cwd=root,text=True))
+            self.assertEqual(set(result['classes']),{'P100','P1000','P10000'})
+            self.assertNotIn('dropComparison',result)

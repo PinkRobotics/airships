@@ -69,7 +69,8 @@ def sections(root=ROOT):
         f"included in `descent.json`. {all_states} These are prescribed diagnostics; "
         "the earlier underpriced letdown calculation is superseded by this force-owner ledger.",
     })
-    release=json.loads((root/'research/analysis/release-states.json').read_text())['classes']['P100']
+    release_record=json.loads((root/'research/analysis/release-states.json').read_text())
+    release=release_record['classes']['P100']
     if release['state']!='ready':
         for name in ('release-illustration','release-inflow','release-register','release-conclusion'):
             result[name]='Accepted reference release unavailable; no ideal-disc release estimate is published.'
@@ -84,6 +85,11 @@ def sections(root=ROOT):
         comparison+=f"**{ratio} times** the nominal **{release['waterBenchmarkKgS']:g} kg/s** water-rate benchmark from configured intake capacity. "
         comparison+=f"The accepted plan's mean tank release rate is {release['acceptedMeanWaterReleaseKgS']:,.1f} kg/s. "
         comparison+="Neither quantity measures outlet flow, a wake, drift or where water lands."
+        speed=release_record['dropComparison']['largestTabulatedReleaseSpeedMs']
+        relation='exceeds' if end['inducedUpwashAtDiscMs']>speed else 'does not exceed'
+        comparison+=(f" At the end of release, the ideal induced upward velocity of {end['inducedUpwashAtDiscMs']:.1f} m/s "
+            f"{relation} the largest tabulated density-corrected release-level fall speed, {speed:.3f} m/s. "
+            "This compares the named endpoint with fixed-diameter drop speeds in the model air; it does not represent every drop or a ground pattern.")
         result.update({
           'release-illustration': "The producer replays "+basis+". The release endpoints use local air density, water aboard and rotor force ownership:\n\n"
             "| State | AGL altitude | Local density | Water aboard | Rotor hold | Ideal induced velocity upward | Ideal far-wake velocity | Ideal air flow |\n"

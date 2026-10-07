@@ -28,12 +28,22 @@ export function replayRelease(cid,row){
   benchmarkBasis:'Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.',
   acceptedMeanWaterReleaseKgS:p.deliveredT*1000/(p.dur.WATER_RELEASE*60),airToWaterBenchmarkRatio:end.airMassFlowKgS/benchmark};
 }
-export function record(){
+export function record({releaseOnly=false}={}){
  const water=JSON.parse(fs.readFileSync(path.join(root,'research/analysis/water-availability.json')));
+ if(releaseOnly){
  return {producer:'tools/gen_release_states.mjs',classes:Object.fromEntries(Object.keys(CLASSES).map(cid=>[cid,replayRelease(cid,water.classes[cid].acceptedPlans.workedExample)]))};
+ }
+ const delivery=JSON.parse(fs.readFileSync(path.join(root,'research/analysis/delivery.json')));
+ const heights=Object.keys(delivery.fall).filter(h=>h.includes('ALT.drop'));
+ if(heights.length!==1)throw Error('delivery needs one corrected ALT.drop fall row');
+ const largest=Math.max(...Object.values(delivery.fall[heights[0]]).map(r=>r.terminalAtReleaseMs));
+ if(!(largest>0&&Number.isFinite(largest)))throw Error('corrected drop speed unavailable');
+ return {producer:'tools/gen_release_states.mjs',dropComparison:{largestTabulatedReleaseSpeedMs:largest,
+  basis:'Density-corrected fixed-diameter drop speeds at ALT.drop in delivery.json; no updraft or deposition model.'},
+  classes:Object.fromEntries(Object.keys(CLASSES).map(cid=>[cid,replayRelease(cid,water.classes[cid].acceptedPlans.workedExample)]))};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)){
- const j=record(),body=JSON.stringify(j,null,2)+'\n';
+ const j=record({releaseOnly:process.argv.includes('--release-only')}),body=JSON.stringify(j,null,2)+'\n';
  if(process.argv.includes('--record'))console.log(JSON.stringify(j));
  else if(process.argv.includes('--emit'))console.log(JSON.stringify({[file]:body}));
  else if(process.argv.includes('--check')){

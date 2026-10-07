@@ -319,7 +319,7 @@ console.log(JSON.stringify(Object.fromEntries(Object.entries(water.classes).map(
     # drop that is an updraft of the ship's own making, in exactly the place the water is
     # released, and by this document's own criterion it competes with the drop's descent.
     release = json.loads(subprocess.check_output(
-        ["node", "tools/gen_release_states.mjs", "--record"], cwd=ROOT, text=True))["classes"]
+        ["node", "tools/gen_release_states.mjs", "--record", "--release-only"], cwd=ROOT, text=True))["classes"]
     for cid, r in release.items():
         if r["state"] != "ready":
             out["classes"][cid]["ownUpwash"] = {"state": r["state"], "basis": r["reason"]}
