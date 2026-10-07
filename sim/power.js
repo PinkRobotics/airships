@@ -114,10 +114,20 @@ export function ventTph(plan, id) {
   return 0;
 }
 
-/** What the expansion generators return in this phase, MW: the vented nitrogen's stored energy
-    at the round-trip efficiency, capped at the generators' rating. Storage, not a source. */
+/** Declared recovery ceiling, kWh per tonne of liquid nitrogen.
+ * Arnaiz-del-Pozo et al., Entropy 22, 959 (2020), printed pp. 6 and 8:
+ * pure nitrogen feed at 4 bar; flow-exergy difference from MP GAN to MP LIN.
+ * This state-specific process comparator is a model limit, not measured airborne
+ * expander recovery or a universal liquid-exergy value at every ambient state.
+ * DOI: 10.3390/e22090959. */
+export const LN2_RECOVERY_KWH_PER_T = 173.4;
+/** Requested round-trip work, limited per tonne before the generator power cap.
+ * Higher liquefaction consumption does not raise the declared recoverable work. */
 export function regenMW(cls, plan, id) {
-  return Math.min(cls.genMW, ventTph(plan, id) * CFG.eLN2 * CFG.rtLN2);
+  const flowTph = ventTph(plan, id);
+  // Retain the original multiplication order below the ceiling, including defaults.
+  return Math.min(cls.genMW, flowTph * CFG.eLN2 * CFG.rtLN2,
+    flowTph * (LN2_RECOVERY_KWH_PER_T / 1000));
 }
 
 /** The bus the descent can draw on: the battery plus what the generators return while the

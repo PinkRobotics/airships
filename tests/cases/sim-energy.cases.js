@@ -3,6 +3,7 @@ import './energy-closure.cases.js';
 import './energy-force.cases.js';
 import './energy-profile.cases.js';
 import './energy-assumptions.cases.js';
+import './nitrogen-ceiling.cases.js';
 import './energy-planner.cases.js';
 import {describe,it,ok,close,eq,deepEq} from '../harness.js';
 import {CFG,WORK_ALT_MSL,ledger,CLASSES,CLASS_ORDER,MODES,PHASES,drawAt,planCycle,integrateCycle,inducedMW,diskMW,stateAt,buildMission,findSource,resetConfig,setSeed} from '../../sim/index.js?v=816a54f9';

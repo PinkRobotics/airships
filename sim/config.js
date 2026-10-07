@@ -16,17 +16,11 @@
 
 export const DEFAULTS = {
   eLN2: 0.45,      // kWh per kg to liquefy nitrogen from air (demonstration assumption)
-  /* THE NITROGEN STORE CANNOT RETURN MORE WORK THAN THE LIQUID HOLDS, and until 2026-08-09 this
-   * said it did. At 0.50 against eLN2 = 0.45 the model recovered 225 kWh from a tonne of LN2
-   * whose physical exergy at 1 bar against a 288 K ambient is 173.4 kWh/t (Arnaiz-del-Pozo et
-   * al. 2020; corroborated at 205-214 kWh/t under more favourable assumptions). That is 1.3x
-   * the available work before any turbine, and it was a perpetual-motion line item on a public
-   * page.
-   *
-   * 0.20 recovers 90 kWh/t, which is 52% of the exergy — about what a cryogenic expander gets
-   * without an external heat source, and consistent with liquid-air storage plant that reaches
-   * 50-60% round trip only by recycling waste heat this vehicle does not have. The hard ceiling
-   * is 173.4/450 = 0.385 and nothing may exceed it. See research/notes/, OPEN-QUESTIONS #10. */
+  /* Nitrogen recovery is a storage credit. regenMW in power.js holds requested work
+   * per tonne to LN2_RECOVERY_KWH_PER_T, then to the generator rating. The limit
+   * comes from the cited liquefaction process's feed/product flow-exergy difference,
+   * not a measured airborne expander. Production consumption and round-trip fraction
+   * remain demonstration assumptions; changing either cannot raise the ceiling. */
   rtLN2: 0.20,     // electrical round-trip efficiency of the nitrogen store
   /* WHAT THE SKIN ACTUALLY MAKES, day-averaged, and it used to be a magic 200 in five files.
    *

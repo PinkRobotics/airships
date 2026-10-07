@@ -909,10 +909,14 @@ nav.estate .wrap{display:block}
       <details class="d">
         <summary>The nitrogen battery: charge, hold, partially recover.</summary>
         <div class="dbody">
-          <div class="eq">E_charge = m_LN₂ × e_liq&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;E_back = E_charge × η_rt</div>
+          <div class="eq">E_charge = m_LN₂ × e_liq&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;E_back = min(E_charge × η_rt, m_LN₂ × declared recovery ceiling)</div>
           <p class="eqwhy">Liquefying nitrogen from the air costs a configured 0.45 kWh/kg
             (adjustable 0.30–0.80); expansion recovers a configured 20% round trip (adjustable
-            10–38%, capped at the exergy of the liquid). Both are demonstration assumptions, not specifications for an airborne
+            10–38%, with recovered work per tonne held to the model's declared ceiling).
+            The ceiling uses the feed/product flow-exergy difference in
+            <a href="https://doi.org/10.3390/e22090959">Arnaiz-del-Pozo et al. (2020), pp. 6 and 8</a>:
+            pure nitrogen feed at 4 bar, not measured airborne expander recovery.
+            Both controls are demonstration assumptions, not specifications for an airborne
             plant, and both are dials above precisely because they materially move the answer.
             The monitor names the selected plan's limiting constraint; a mode name does not establish endurance. <a href="#cycle">The cycle section</a> explains the nitrogen safety argument.</p>
         </div>
@@ -1077,7 +1081,7 @@ nav.estate .wrap{display:block}
         <li>The model and its assumptions are published so they can be checked, and
           corrections are dated in public. The 2026-08-09 solar and nitrogen corrections are
           both written up on <a href="https://pinkrobotics.ca/research/">the research page</a>, with a test that
-          fails the build if the nitrogen number ever climbs back over its exergy ceiling.</li>
+          checks every selectable nitrogen-control pair, including both extremes, and fails if recovered work exceeds the declared ceiling.</li>
         <li>Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the <a href="https://pinkrobotics.ca/log/">work log</a>. The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record. The crew's work includes the physics model, its Python mirror and the parity gate that holds them equal, the 3D reference vehicle, the assembly prover, and the fleet monitor. The next step is a bench cell that holds vacuum for months. Two test campaigns then decide whether the ship exists: buckling knockdown tests and chord coupons. The current numbers are on <a href="https://pinkrobotics.ca/">the main page</a>.</li>
       </ul>
     </div>
@@ -1205,7 +1209,7 @@ const DIALS = [
   { k: "pumpEta", label: "Pump system efficiency", unit: "", min: 0.5, max: 0.9, step: 0.05, d: 2, note: "pumps, hose losses and electrics, all-in" },
   { k: "Cd", label: "Hull drag coefficient", unit: "", min: 0.03, max: 0.12, step: 0.005, d: 3, note: "streamlined-body assumption; cube-law sensitive" },
   { k: "eLN2", label: "LN₂ production energy", unit: " kWh/kg", min: 0.3, max: 0.8, step: 0.05, d: 2, note: "demonstration assumption, not a plant spec" },
-  { k: "rtLN2", label: "LN₂ round-trip efficiency", unit: "", min: 0.10, max: 0.38, step: 0.02, d: 2, note: "fraction of liquefaction energy recovered — capped at the exergy of the liquid, 173.4 kWh/t" },
+  { k: "rtLN2", label: "LN₂ round-trip efficiency", unit: "", min: 0.10, max: 0.38, step: 0.02, d: 2, note: "requested fraction of liquefaction energy recovered; model holds recovery to 173.4 kWh/t (cited feed/product flow-exergy difference, not measured airborne recovery)" },
   { k: "cryoMul", label: "Cryogenic capacity multiplier", unit: "×", min: 0.5, max: 2, step: 0.1, d: 1, note: "scales the onboard liquefaction plant" },
 ];
 function renderAsm() {

@@ -39,7 +39,7 @@ export {
 export { pumpMW, dragMW, diskMW, ledger } from './physics.js?v=816a54f9';
 export {
   BUS_CEILING, ROTOR_EFFICIENCY_VALUES, AERO_CL_MAX, AERO_CL_VALUES, AERO_SPAN_EFFICIENCY, VERTICAL_CD, FORCE_TOL, LIMIT_STEPS, HOTEL_FRAC, WINCH_IDLE_FRAC, HOIST_M, WINCH_ETA, WINCH_MPS,
-  LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS,
+  LETDOWN_FROM, VENT_APPROACH, PLAN_STEPS, LN2_RECOVERY_KWH_PER_T,
   inducedMW, rotorMaxTonnes, ventTph, regenMW, descentBusMW, cryoOnFrac, cycleGeometry,
   altAt, gsAt, loadAt, drawAt, integrateCycle, cycleLimits, aeroGeometry, rotorThrustLimitT,
 } from './power.js?v=816a54f9';
