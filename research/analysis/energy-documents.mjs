@@ -1,15 +1,26 @@
-import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js?v=01e992e3';
 /* Render the energy documents from model records. --emit writes only JSON to stdout. */
 import fs from 'node:fs';
-import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=01e992e3';
-import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=01e992e3';
-import {specificEnergies,batteryMass} from './energy-omissions.mjs';
-import {COLD_READY_NOTE} from './energy-plant.mjs';
-import {storageTables} from './energy-storage.mjs';
-import {PLANT_ENERGY_NOTE} from './energy-plant.mjs';
-import {areaText} from './energy-rotor-area.mjs';
-import {regimeSentence} from './energy-rotor-regime.mjs';
-import {reportCorrection,reportModelQualification} from './energy-report-percentages.mjs';
+const args=process.argv.slice(2);
+if(args.length>1||args.some(arg=>!['--check','--emit'].includes(arg))){
+ console.error('Usage: node research/analysis/energy-documents.mjs [--check | --emit]');
+ process.exit(2);
+}
+const check=args[0]==='--check';
+const {OPERATING_MARGIN_TEXT}=await import('../../sim/operating-margin.js?v=01e992e3');
+const {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE}=await import('../../sim/energy-label.js?v=01e992e3');
+const {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA}=await import('../../sim/index.js?v=01e992e3');
+const {specificEnergies,batteryMass}=await import('./energy-omissions.mjs');
+const {COLD_READY_NOTE}=await import('./energy-plant.mjs');
+const {storageTables}=await import('./energy-storage.mjs');
+const {PLANT_ENERGY_NOTE}=await import('./energy-plant.mjs');
+const {areaText}=await import('./energy-rotor-area.mjs');
+const {regimeSentence}=await import('./energy-rotor-regime.mjs');
+const {reportCorrection,reportModelQualification}=await import('./energy-report-percentages.mjs');
+const {storageNote}=await import('./energy-storage-notes.mjs');
+const {prescribed,documentSensitivity}=await import('./energy-printed-profiles.mjs');
+// Some documents also supply the prose outside generated regions. In check
+// mode a missing document is an output error, rather than an uncaught read.
+const readDocument=path=>check&&!fs.existsSync(path)?'':fs.readFileSync(path,'utf8');
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const f=(x,n=3)=>x==null?'none':Number(x).toFixed(n);
 const table=(heads,rows)=>'| '+heads.join(' | ')+' |\n|'+heads.map(()=>'---').join('|')+'|\n'+rows.map(r=>'| '+r.join(' | ')+' |').join('\n')+'\n';
@@ -17,8 +28,6 @@ const historical=read('energy-closure-history'),profiles=read('energy-profiles')
 const archived=read('energy-document-history');
 const unheld=read('energy-unheld'),cross=read('energy-crosschecks'),omissions=read('energy-omissions');
 const necessary=read('energy-necessary');
-import {storageNote} from './energy-storage-notes.mjs';
-import {prescribed,documentSensitivity} from './energy-printed-profiles.mjs';
 const motion=read('energy-motion');
 const profileNote=b=>b.inertia.qualification+([storageNote(b)].filter(Boolean).map(n=>'; '+n).join(''));
 function asDrawnNote(r){
@@ -269,7 +278,7 @@ const simulator='# The simulator and its energy ledger\n\nThe modules in this di
  'The detailed generated tables are in `research/analysis/energy-*.json`. Run `make energycheck energydoccheck` to replay their claims.\n'+
  'No aircraft has flown. The fleet remains simulated.\n';
 const region=(id,text)=>`<!-- energy:${id}:start -->\n${text.trim()}\n<!-- energy:${id}:end -->\n`;
-let oldPhysics=fs.readFileSync('docs/PHYSICS.md','utf8');
+let oldPhysics=readDocument('docs/PHYSICS.md');
 // Keep the shell and buoyancy sections outside this energy revision.
 const notation=region('notation','## Energy notation\n\n'+table(['Input','Value or source'],[
  ['Air density','Local ISA density at each force and power evaluation'],['Sea-level density kg/m³',CFG.rhoSL],
@@ -309,7 +318,7 @@ const questionBodies={
   'How would an approach at airspeed transfer load to the bag? How would variable displacement work with sealed cells? Can cryogenic ballast be produced within the available time and dry mass?\n\n'+
   'The current unheld phases and their signed force provide the requirement that each analysis must address.\n\n'+unheldText]
 };
-let questions=fs.readFileSync('docs/OPEN-QUESTIONS.md','utf8');
+let questions=readDocument('docs/OPEN-QUESTIONS.md');
 for(const [number,[title,body]] of Object.entries(questionBodies)) {
  const marker='<!-- energy:question-'+number+':start -->';
  const pos=questions.includes(marker)?questions.indexOf(marker):questions.indexOf('## '+number+'. ');
@@ -338,7 +347,9 @@ const outputs={
 for(const [path,anchor] of [
  ['research/reports/02-paper.md','**The leverage is in the exponent.**'],
  ['research/reports/03-diligence.md','The leverage is in the exponent:']]){
- let text=fs.readFileSync(path,'utf8');
+ if(check&&!fs.existsSync(path)){outputs[path]='';continue;}
+ try {
+ let text=readDocument(path);
  const id='dated-percentages',start=`<!-- energy:${id}:start -->`,end=`<!-- energy:${id}:end -->`;
  const correction=region(id,reportCorrection(read('energy-report-percentages')));
  if(text.includes(start)){
@@ -359,6 +370,20 @@ for(const [path,anchor] of [
   text=text.replace(heading,qualification+'\n'+heading);
  }
  outputs[path]=text;
+ }catch(error){
+  if(!check)throw error;
+  // A damaged editable report is stale; still check every other output.
+  outputs[path]=null;
+ }
 }
-if(process.argv.includes('--emit'))console.log(JSON.stringify(outputs));
-else {for(const [path,text] of Object.entries(outputs))fs.writeFileSync(path,text);console.log('Generated the energy record and four bound documents.');}
+if(args[0]==='--emit')console.log(JSON.stringify(outputs));
+else if(check){
+ const bad=[];
+ for(const [path,text] of Object.entries(outputs)){
+  if(!fs.existsSync(path))bad.push(`${path}: missing generated energy output`);
+  else if(text===null||!fs.readFileSync(path).equals(Buffer.from(text)))bad.push(`${path}: stale generated energy output`);
+ }
+ for(const error of bad)console.error(error);
+ process.exitCode=bad.length?1:0;
+ if(!bad.length)console.log('Checked eight generated energy outputs.');
+}else {for(const [path,text] of Object.entries(outputs))fs.writeFileSync(path,text);console.log('Generated the energy record and four bound documents.');}

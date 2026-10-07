@@ -4,9 +4,9 @@ import {CLASSES,MODES,planCycle,LN2_RECOVERY_KWH_PER_T} from '../../sim/index.js
 import {writeGenerated} from './energy-output.mjs';
 const recordPath='research/analysis/energy-report-percentages.json';
 const papers=['research/reports/02-paper.md','research/reports/03-diligence.md'];
-const texts=papers.map(p=>fs.readFileSync(p,'utf8'));
 const one=(text,pattern)=>{const hits=[...text.matchAll(pattern)];if(hits.length!==1)throw new Error(`Expected one dated report comparator: ${pattern}`);return hits[0];};
 function historicalReadings(){
+ const texts=papers.map(p=>fs.readFileSync(p,'utf8'));
  const dates=texts.map(t=>one(t,/Pink Robotics · (\d{4}-\d{2}-\d{2}) · v1/g)[1]);
  const letdown=one(texts[1],/from ([\d.]+) MWh to ([\d.]+) →[^\n]+ — (\d+)%/g);
  const rotor=one(texts[0],/model's assumed [^\n]+gave a stated (\d+)% reduction;[\s\S]*?Its comparison was ([\d,]+) MW to ([\d.]+) →[^\n]+/g);
