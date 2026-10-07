@@ -502,8 +502,7 @@ These energy figures come from the earlier flight model, which understates the f
 It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
-54.325 → 697.586 → 694.174<!--f:P10000.cycle.eCycleMWh-->. Two tests enforce `rtLN2 × eLN2 × 1000 ≤ 173.4`, one on each
-copy of the constant, because a second law is not a tuning bound.
+54.325 → 697.586 → 694.174<!--f:P10000.cycle.eCycleMWh-->. The shared power model limits requested recovered work per tonne before the generator cap; tests cover every selectable control pair, including both extremes.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 

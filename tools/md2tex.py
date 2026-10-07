@@ -310,6 +310,8 @@ def directive(kind: str, arg: str) -> str:
 
 
 def convert(md: str, keys: set[str], src: str) -> str:
+    # These checked report regions contribute all prose; omit only their delimiters.
+    md = re.sub(r'(?m)^<!-- energy:(?:dated-percentages|model-qualification):(?:start|end) -->[ \t]*\n?', '', md)
     lines = md.split('\n')
     out: list[str] = []
     i, skip_next = 0, False

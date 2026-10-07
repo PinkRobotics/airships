@@ -203,8 +203,9 @@ rejected in the open: nitrogen ballast **475 MWh**, a 1,350 m hose **44 MWh** at
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 The mechanism cannot be over-sized: the most water a ship can lift is its own surplus lift, so the
-physics supplies its own ceiling. And it pays on every class — removing the P-100's bag, which it
-does not need, costs 34% more energy per cycle.
+physics supplies its own ceiling. The report dated 2026-08-09 said that removing the P-100’s bag, which it
+does not need, costs 34% more energy per cycle. This is a dated report reading; its original
+comparator and the current unsupported replay are separated in the generated note above.
 
 ### 3.2 Its exposure
 
@@ -329,8 +330,7 @@ These energy figures come from the earlier flight model, which understates the f
 
 It is **0.20<!--f:assumptions.rtLN2-->** now — 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. The P-10000's cycle rose 43.019 →
-**54.325 → 697.586 → 694.174 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. Two tests, one on each copy of the constant,
-now fail the build if `rtLN2 × eLN2 × 1000` exceeds 173.4.
+**54.325 → 697.586 → 694.174 MWh<!--f:P10000.cycle.eCycleMWh-->**, 6.6%. The shared power model limits requested recovered work per tonne before the generator cap; tests cover every selectable control pair, including both extremes.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 

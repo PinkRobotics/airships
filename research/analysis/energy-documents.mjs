@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=816a54f9';
 import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=816a54f9';
 import {specificEnergies,batteryMass} from './energy-omissions.mjs';
+import {reportCorrection,reportModelQualification} from './energy-report-percentages.mjs';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));
 const f=(x,n=3)=>x==null?'none':Number(x).toFixed(n);
 const table=(heads,rows)=>'| '+heads.join(' | ')+' |\n|'+heads.map(()=>'---').join('|')+'|\n'+rows.map(r=>'| '+r.join(' | ')+' |').join('\n')+'\n';
@@ -324,5 +325,30 @@ const outputs={
  'docs/OPEN-QUESTIONS.md':questions,
  'docs/PHYSICS.md':oldPhysics.slice(0,start)+region('physics',physics)+'\n'+oldPhysics.slice(end).replace(/^\s+/,'')
 };
+for(const [path,anchor] of [
+ ['research/reports/02-paper.md','**The leverage is in the exponent.**'],
+ ['research/reports/03-diligence.md','The leverage is in the exponent:']]){
+ let text=fs.readFileSync(path,'utf8');
+ const id='dated-percentages',start=`<!-- energy:${id}:start -->`,end=`<!-- energy:${id}:end -->`;
+ const correction=region(id,reportCorrection(read('energy-report-percentages')));
+ if(text.includes(start)){
+  if(text.split(start).length!==2||text.split(end).length!==2)throw new Error(`${path}: duplicate correction region`);
+  text=text.slice(0,text.indexOf(start))+correction+text.slice(text.indexOf(end)+end.length).replace(/^\n/,'');
+ }else{
+  if(text.split(anchor).length!==2)throw new Error(`${path}: expected one correction anchor`);
+  text=text.replace(anchor,correction+'\n'+anchor);
+ }
+ const qid='model-qualification',qs=`<!-- energy:${qid}:start -->`,qe=`<!-- energy:${qid}:end -->`;
+ const qualification=region(qid,reportModelQualification(read('energy-report-percentages')));
+ const heading=path.endsWith('02-paper.md')?'### 8.3 `rtLN2` returned more work than the nitrogen contains — FIXED 2026-08-09':'### 4.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09';
+ if(text.includes(qs)){
+  if(text.split(qs).length!==2||text.split(qe).length!==2)throw new Error(`${path}: duplicate model qualification`);
+  text=text.slice(0,text.indexOf(qs))+qualification+text.slice(text.indexOf(qe)+qe.length).replace(/^\n/,'');
+ }else{
+  if(text.split(heading).length!==2)throw new Error(`${path}: expected one model qualification anchor`);
+  text=text.replace(heading,qualification+'\n'+heading);
+ }
+ outputs[path]=text;
+}
 if(process.argv.includes('--emit'))console.log(JSON.stringify(outputs));
 else {for(const [path,text] of Object.entries(outputs))fs.writeFileSync(path,text);console.log('Generated the energy record and four bound documents.');}

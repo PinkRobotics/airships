@@ -34,7 +34,7 @@ def main():
             compare(ANALYSIS / output.name, output)
 
         # Diagnostics compare their own committed JSON without writing it.
-        for name in ('energy-served-inertia', 'energy-motion', 'energy-necessary', 'energy-zero-sun'):
+        for name in ('energy-served-inertia', 'energy-motion', 'energy-necessary', 'energy-zero-sun', 'energy-report-percentages'):
             run(['node', f'research/analysis/{name}.mjs', '--check'])
 
         # Use only the dated capture. No agency refresh is part of this target.

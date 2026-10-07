@@ -66,5 +66,10 @@ export function printedProfiles(){
   add(r.input,'zero-sunlight sensitivity','selected profile with averaged sunlight',['docs/ENERGY-CLOSURE-2026-10.md']);
   add({...r.input,config:{solarWPerM2:0}},'zero-sunlight sensitivity','same selected profile with zero sunlight',['docs/ENERGY-CLOSURE-2026-10.md']);
  }
+ if(fs.existsSync('research/analysis/energy-report-percentages.json')){
+  const r=read('energy-report-percentages').replay;
+  add(r.input,'report bag replay','current report replay with bag',['research/reports/02-paper.md','research/reports/03-diligence.md']);
+  add({...r.input,hardware:r.intervention.hardware},'report bag replay','current report replay without bag',['research/reports/02-paper.md','research/reports/03-diligence.md']);
+ }
  return [...unique.values()].map(r=>({...r,pages:[...new Set(r.occurrences.flatMap(o=>o.pages))]}));
 }

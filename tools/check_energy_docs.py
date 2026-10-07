@@ -52,7 +52,7 @@ def main():
     for path,region in FILES.items():errors.extend(unbound(path,(ROOT/path).read_text(),region))
     if errors:print('\n'.join(errors));return 1
     checks=[['node',f'research/analysis/{name}.mjs','--check'] for name in
-            ['energy-omissions','energy-unheld','energy-descent','energy-close','energy-model-change','energy-profile-details','energy-served-inertia','energy-necessary','energy-zero-sun']]
+            ['energy-omissions','energy-unheld','energy-descent','energy-close','energy-model-change','energy-profile-details','energy-served-inertia','energy-necessary','energy-zero-sun','energy-report-percentages']]
     checks.insert(0,['node','research/analysis/energy-tables.mjs','--check'])
     checks += [['node','research/analysis/energy-motion.mjs','--check']]
     checks += [['node','tools/gen_energy_pages.mjs','--check']]

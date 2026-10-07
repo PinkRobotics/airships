@@ -205,9 +205,9 @@ export const VZ_MAX = 6;
  *
  * `anchorBagT` IS SIZED TO DO THE WHOLE DESCENT, not to cover a shortfall, and that is where
  * most of the value turned out to be. Rotor power goes as thrust^1.5, so taking load off the
- * rotors pays superlinearly: the letdown WAS 45% of the P-10000's cycle energy, and a bag that
- * carries 90% of the hold reduces it by 96% — to 3.1%. Cycle energy falls 91.47 -> 45.87 MWh on
- * the largest class with throughput unchanged.
+ * rotors pays superlinearly. Earlier undated percentages in this comment were withdrawn
+ * on 2026-10-05: they did not describe the current model. The generated report-percentage
+ * record keeps dated report comparators beside a named replay and both force verdicts.
  *
  * This is the second most powerful number in the whole model — ±20% moves cycle energy +12.5% /
  * -3.2%, more than any tunable except cruise speed — and it has no slider and no derivation.
