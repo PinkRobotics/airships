@@ -23,7 +23,7 @@ class RunnerPolicy(unittest.TestCase):
 
     def test_command_timeout_default_and_override(self):
         with patch.dict(os.environ, {}, clear=True):
-            self.assertEqual(plants.command_timeout(), 240)
+            self.assertEqual(plants.command_timeout(), 600)
         for requested, expected in [('1', 1), ('240', 240), ('1800', 1800)]:
             with patch.dict(os.environ, FLOAT_PLANT_TIMEOUT=requested):
                 self.assertEqual(plants.command_timeout(), expected)
