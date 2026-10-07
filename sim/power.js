@@ -80,9 +80,11 @@ function anchorAt(cls, plan, g, id, prog) {
  * Induced power of the rotor disks, MW, for a thrust `thrustN` while moving edgewise through
  * the air at `airV` m/s and axially INTO the thrust direction at `axialV` m/s (for rotors that
  * push down, that is the rate of descent). Glauert's relation, solved by bisection: the function
- * v -> v * sqrt(V^2 + (v_c + v)^2) is increasing, and the root lies in [0, v_h]. Momentum theory
- * has nothing to say about a rotor moving WITH its slipstream (a hull climbing while the rotors
- * push down), so axialV below zero is priced as level flight. No conservative error bound is claimed for that regime.
+ * v -> v * sqrt(V^2 + (v_c + v)^2) is increasing, and the root lies in [0, v_h] for nonnegative
+ * axialV. Momentum theory covers normal-working and windmill-brake states, but not the
+ * recirculating states between them. This model implements neither the windmill-brake branch
+ * nor a model for those intermediate states: climb against hold-down thrust (axialV below zero)
+ * is priced as level flight, with no conservative error bound. No regenerative power is credited.
  * At V = 0 and v_c = 0 this returns diskMW exactly.
  */
 export function inducedMW(cls, thrustN, airV = 0, axialV = 0, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {

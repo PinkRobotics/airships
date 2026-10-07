@@ -101,7 +101,10 @@ def hover_mw(thrust_t, rho, A, eta=PROP_ETA):
 
 def glauert_mw(thrust_t, rho, A, vc=0.0, V=0.0, eta=PROP_ETA):
     """Rotor power pushing with thrust T while the air comes INTO the disk axially at vc (hold-down in descent)
-    and edgewise at V. vc < 0 (climb against hold-down) is priced as level flight: no bound claimed."""
+    and edgewise at V. Momentum theory covers normal-working and windmill-brake states, but not
+    the recirculating states between them. Neither windmill-brake nor intermediate-state power
+    is implemented here. vc < 0 (climb against hold-down) is priced as level flight with no bound;
+    no regenerative power is credited."""
     T = thrust_t * 1000 * G
     if T <= 0: return 0.0
     vc = max(0.0, vc); V = abs(V)
