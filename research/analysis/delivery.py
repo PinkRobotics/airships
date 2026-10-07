@@ -26,9 +26,8 @@ FIGURES = ROOT / "research" / "figures.json"
 # per 100 square feet. Everything in aerial suppression is specified in it.
 GAL_PER_100FT2_IN_L_PER_M2 = 3.78541 / 9.2903        # 0.4074
 
-# Terminal velocity of free water drops, Gunn & Kinzer (1949), sea level. Drops larger than
-# about 5.5 mm are aerodynamically unstable and break up, so ~9 m/s is the ceiling on how
-# fast released water can fall — not a modelling choice, a property of water.
+# Gunn–Kinzer free-drop speeds in sea-level reference air. Local terminal speeds
+# are density-adjusted below; this table is not a density-independent fall ceiling.
 TERMINAL_MS = {0.5: 2.1, 1.0: 4.0, 2.0: 6.5, 3.0: 8.1, 5.0: 9.1}
 MAX_STABLE_DROP_MM = 5.5
 
@@ -41,12 +40,9 @@ REFERENCE_HEIGHTS_M = {
     "large airtanker": 53,             # 150-200 ft, midpoint
     "very large airtanker": 122,       # 300-500 ft, midpoint
     "USFS 'completely dissipates'": 305,   # 1,000 ft
-    "P-series ALT.drop": 450,
     # The design answer: the hull stays high and the SPRAYERS come down on leads, the same
     # way the intake hose already goes down 300 m to the water. Release height is then the
     # hull's altitude minus the lead, and it is a control input rather than a compromise.
-    "sprayer lead, hull 450 m - 300 m lead": 150,
-    "sprayer lead, hull 450 m - 400 m lead": 50,
 }
 
 # Load capacities for the comparison, litres.
@@ -63,37 +59,151 @@ def coverage_level(litres: float, run_km: float, swath_m: float) -> float:
     return l_per_m2 / GAL_PER_100FT2_IN_L_PER_M2
 
 
+# Beard density adjustment as printed in Ghiggi et al., Appendix B1 Eq. B1.
+# The source's reference density is retained; the local column comes from sim/.
+CORRECTION_RHO0 = 1.225
+WARM_SENSITIVITY_K = 15  # Stipulated fixed-pressure sensitivity, not observed weather.
+DRIFT_WINDS_MS = (3, 5, 10, 15)  # Stipulated uniform drift inputs.
+
+
+def terminal_speed(diameter_mm, reference_ms, rho):
+    return reference_ms * (CORRECTION_RHO0 / rho) ** (0.375 + 0.025 * diameter_mm)
+
+
+def model_air():
+    script = """
+import {ALT,CFG,TERRAIN_MSL,airDensity,isaTemperatureK} from './sim/index.js';
+const rho=z=>airDensity(TERRAIN_MSL+z,CFG.rhoSL);
+const heights={'single-engine airtanker':18,'large airtanker':53,'very large airtanker':122,
+ "USFS 'completely dissipates'":305,'P-series ALT.drop':ALT.drop,
+ [`sprayer lead, hull ${ALT.drop} m - 300 m lead`]:Math.max(0,ALT.drop-300),
+ [`sprayer lead, hull ${ALT.drop} m - 400 m lead`]:Math.max(0,ALT.drop-400)};
+const columns=Object.fromEntries(Object.entries(heights).map(([name,h])=>{
+ const count=Math.max(1,Math.ceil(h)),dz=h/count;
+ return [name,{heightM:h,releaseRho:rho(h),groundRho:rho(0),temperatureK:isaTemperatureK(TERRAIN_MSL+h),
+  dz,samples:Array.from({length:count},(_,i)=>rho((i+.5)*dz))}];
+}));
+console.log(JSON.stringify({terrainMslM:TERRAIN_MSL,releaseAglM:ALT.drop,
+ releaseMslM:TERRAIN_MSL+ALT.drop,rhoAtRelease:rho(ALT.drop),rhoAtGround:rho(0),
+ temperatureAtReleaseK:isaTemperatureK(TERRAIN_MSL+ALT.drop),columns}));
+"""
+    return json.loads(subprocess.check_output(['node', '--input-type=module', '-e', script], cwd=ROOT, text=True))
+
+
+def fall_record(diameter, reference_ms, column):
+    seconds = math.fsum(column['dz'] / terminal_speed(diameter, reference_ms, rho)
+                        for rho in column['samples'])
+    return {'fallSeconds': round(seconds, 1), 'fallSecondsExact': seconds,
+            'seaLevelTableFallSeconds': column['heightM'] / reference_ms,
+            'terminalAtReleaseMs': terminal_speed(diameter, reference_ms, column['releaseRho']),
+            'terminalAtGroundMs': terminal_speed(diameter, reference_ms, column['groundRho']),
+            'driftM': {f'{w} m/s': round(w * seconds) for w in DRIFT_WINDS_MS},
+            'driftExactM': {f'{w} m/s': w * seconds for w in DRIFT_WINDS_MS}}
+
+
+def table(head, rows):
+    return '| ' + ' | '.join(head) + ' |\n|' + '|'.join('---' for _ in head) + '|\n' + ''.join(
+        '| ' + ' | '.join(map(str, row)) + ' |\n' for row in rows)
+
+
+def weather_prose(out):
+    a = out['atmosphere']; fall = out['fall']['P-series ALT.drop']; ref = out['references']
+    source = next(s for s in json.loads((ROOT/'research/sources.json').read_text())['sources']
+                  if s['id'] == 'ghiggi-2026-disdrodb')
+    link = f"[Ghiggi et al.]({source['url']})"
+    release = (f"The model release is {a['releaseAglM']:g} m above terrain at "
+               f"{a['terrainMslM']:g} m MSL, hence {a['releaseMslM']:g} m MSL; "
+               f"its reference-atmosphere density is {a['rhoAtRelease']:.6f} kg/m³. "
+               'These are model inputs, not sampled fire weather.\n')
+    two = fall['2.0 mm']
+    reference = (f"For 2 mm drops, terminal speed is {TERMINAL_MS[2.0]:.1f} m/s in the sea-level reference table; "
+                 f"at the model release it is {two['terminalAtReleaseMs']:.3f} m/s.\n\n"
+                 'The retained Gunn–Kinzer table describes free drops in sea-level reference air, '
+                 'rather than a density-independent property of water. Drops near and above '
+                 f"{MAX_STABLE_DROP_MM:g} mm can break up. The density adjustment in {link}, "
+                 f"{source['locator']}, is applied to that table through the model's dry standard-atmosphere column.\n\n")
+    reference += table(['Diameter mm','Sea-level reference m/s','At release m/s','At ground m/s','Fall time s'],
+                       [[f'{d:g}', f'{v:.1f}', f"{fall[f'{d} mm']['terminalAtReleaseMs']:.3f}",
+                         f"{fall[f'{d} mm']['terminalAtGroundMs']:.3f}", f"{fall[f'{d} mm']['fallSecondsExact']:.3f}"]
+                        for d,v in TERMINAL_MS.items()])
+    reference += ('\nThis empirical correction holds diameter fixed and integrates inverse terminal speed '
+                  'down to the ground. It does not solve break-up, evaporation, entrainment, initial '
+                  'acceleration, humidity or a separate viscosity correction. No deposition or flight envelope follows.\n')
+    small = fall['0.5 mm']; large = fall['5.0 mm']; wind = 10
+    smear = (f"**The pattern smears, and the smear is worse than the drift.** A stipulated uniform "
+             f"{wind:g} m/s wind translates the pattern, while the spread of fall times stretches it. "
+             f"At the model release height, {min(TERMINAL_MS):g} mm drops fall for {small['fallSecondsExact']:.3f} s "
+             f"and {max(TERMINAL_MS):g} mm drops for {large['fallSecondsExact']:.3f} s. The resulting "
+             f"along-wind spread is {wind*(small['fallSecondsExact']-large['fallSecondsExact']):.3f} m, "
+             f"against the {out['classes']['P100']['runKm']:g} km planned release run. "
+             'This is a fixed-diameter, no-updraft sensitivity, not a ground pattern.\n\n'
+             '**The mean drift is also conditional:**\n\n')
+    smear += table(['Release example / height AGL m','Fall time, 2 mm s']+[f'Drift at {w} m/s, m' for w in DRIFT_WINDS_MS],
+                   [[name+f" / {h:g}", f"{out['fall'][name]['2.0 mm']['fallSecondsExact']:.3f}"]+
+                    [str(out['fall'][name]['2.0 mm']['driftM'][f'{w} m/s']) for w in DRIFT_WINDS_MS]
+                    for name,h in ref['dropHeightsM'].items()])
+    smear += ('\nEach wind is a stipulated uniform horizontal input; the reference jettison heights '
+              'are comparisons, and every row uses the same model terrain and atmospheric column.\n')
+    updraft = ('**Free drops descend only where their downward speed relative to the air exceeds '
+               'the local upward air motion.** The following updrafts are stipulated screens, '
+               'not observed weather or operating limits. Diameter is held fixed.\n\n')
+    updraft += table(['Stipulated case','Updraft m/s','Diameters descending throughout the reference column, mm'],
+                     [[k, f"{r['updraftMs']:g}", ', '.join(f'{d:g}' for d in r['dropsThatStillDescendMm'])
+                       if isinstance(r['dropsThatStillDescendMm'],list) else 'none in reference air']
+                      for k,r in out['updraftVerdict'].items()])
+    warm = out['warmSensitivity']
+    updraft += (f"\nA stipulated {warm['deltaK']:g} K warming at unchanged pressure raises the "
+                f"{max(TERMINAL_MS):g} mm release speed from {large['terminalAtReleaseMs']:.3f} "
+                f"to {warm['fiveMmAtReleaseMs']:.3f} m/s, near the "
+                f"{UPDRAFT_MS['active flank']:g} m/s screen. This is a threshold case: "
+                'reference-speed precision and empirical/model uncertainty do not establish a robust '
+                'crossing, and release-level speed does not establish descent through the full column. '
+                'No quantitative confidence interval is supplied by this calculation.\n')
+    return {'release-air':release, 'drop-reference':reference, 'drop-drift':smear, 'drop-updraft':updraft}
+
+
+def render_weather(out):
+    text = (ROOT/'research/analysis/delivery.md').read_text()
+    for key,body in weather_prose(out).items():
+        start=f'<!-- logistics:{key}:start -->'; end=f'<!-- logistics:{key}:end -->'
+        if text.count(start)!=1 or text.count(end)!=1:
+            raise ValueError(f'delivery.md: missing unique {key} region')
+        left,rest=text.split(start); _,right=rest.split(end)
+        text=left+start+'\n'+body+end+right
+    return text
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", metavar="OUT")
+    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--emit", action="store_true")
     args = ap.parse_args()
     fig = json.loads(FIGURES.read_text())
 
-    out = {"generated": {"by": "research/analysis/delivery.py",
-                         "figures": fig["generated"]},
-           "fall": {}, "classes": {}, "references": {
-               "dropHeightsM": REFERENCE_HEIGHTS_M,
-               "updraftMs": UPDRAFT_MS,
-               "maxStableDropMm": MAX_STABLE_DROP_MM,
-               "terminalMs": TERMINAL_MS}}
-
-    # 1. THE FALL. How long, and how far downwind, from each candidate release height.
-    for h_name, h in REFERENCE_HEIGHTS_M.items():
-        rec = {}
-        for d, v in TERMINAL_MS.items():
-            t = h / v
-            rec[f"{d} mm"] = {
-                "fallSeconds": round(t, 1),
-                "driftM": {f"{w} m/s": round(w * t) for w in (3, 5, 10, 15)},
-            }
-        out["fall"][h_name] = rec
-
-    # 2. THE COLUMN. A drop cannot descend through an updraft faster than it falls.
-    out["updraftVerdict"] = {
-        k: {"updraftMs": u,
-            "dropsThatStillDescendMm":
-                [d for d, v in sorted(TERMINAL_MS.items()) if v > u] or "none"}
-        for k, u in UPDRAFT_MS.items()}
+    air = model_air()
+    heights = {name: c['heightM'] for name,c in air['columns'].items()}
+    out = {"generated": {"by": "research/analysis/delivery.py", "figures": fig["generated"]},
+           "fall": {}, "classes": {}, "atmosphere": {k:v for k,v in air.items() if k != 'columns'},
+           "references": {"dropHeightsM": heights, "updraftMs": UPDRAFT_MS,
+                          "maxStableDropMm": MAX_STABLE_DROP_MM, "terminalMs": TERMINAL_MS,
+                          "densityCorrection": {"rho0KgM3": CORRECTION_RHO0,
+                              "source": "ghiggi-2026-disdrodb", "exponentIntercept": .375,
+                              "exponentPerMm": .025}}}
+    for name,column in air['columns'].items():
+        out['fall'][name] = {f'{d} mm': fall_record(d, v, column) for d,v in TERMINAL_MS.items()}
+    out['updraftVerdict'] = {
+        name: {'updraftMs': u,
+               'dropsThatStillDescendMm': [d for d in TERMINAL_MS
+                    if min(out['fall']['P-series ALT.drop'][f'{d} mm']['terminalAtReleaseMs'],
+                           out['fall']['P-series ALT.drop'][f'{d} mm']['terminalAtGroundMs']) > u] or 'none',
+               'uncertainty': 'Threshold screens only; empirical and atmosphere uncertainty is not quantified. A warm release near the threshold establishes no robust full-column descent.'}
+        for name,u in UPDRAFT_MS.items()}
+    warm_rho = air['rhoAtRelease'] * air['temperatureAtReleaseK'] / (air['temperatureAtReleaseK'] + WARM_SENSITIVITY_K)
+    out['warmSensitivity'] = {'kind': 'stipulated fixed-pressure sensitivity', 'deltaK': WARM_SENSITIVITY_K,
+                             'rhoAtRelease': warm_rho,
+                             'fiveMmAtReleaseMs': terminal_speed(5.0, TERMINAL_MS[5.0], warm_rho),
+                             'verdict': 'near threshold; no robust full-column descent established'}
 
     wa = ROOT / 'research/analysis/water-availability.json'
     water = json.loads(wa.read_text())
@@ -230,12 +340,30 @@ console.log(JSON.stringify(Object.fromEntries(Object.entries(water.classes).map(
                     airToWaterMassRatio=round(r["airToWaterBenchmarkRatio"], 1))
         out["classes"][cid]["ownUpwash"] = rows
 
+    encoded = json.dumps(out, indent=1)
+    fresh_note = render_weather(out)
+    if args.emit:
+        print(json.dumps({'research/analysis/delivery.md': fresh_note}))
+        return
+    if args.check:
+        stale = []
+        if (ROOT/'research/analysis/delivery.json').read_text() != encoded:
+            stale.append('delivery.json')
+        if (ROOT/'research/analysis/delivery.md').read_text() != fresh_note:
+            stale.append('delivery.md weather regions')
+        if stale:
+            raise SystemExit('delivery weather RED: ' + ', '.join(stale))
+        print('delivery weather: record and four regions match model atmosphere')
+        return
     if args.json:
-        pathlib.Path(args.json).write_text(json.dumps(out, indent=1))
+        output = pathlib.Path(args.json)
+        output.write_text(encoded)
+        if output.resolve() == (ROOT/'research/analysis/delivery.json').resolve():
+            (ROOT/'research/analysis/delivery.md').write_text(fresh_note)
 
     print("\nFALL TIME AND DRIFT (2 mm drops, the modal size that survives)")
     print(f"{'release height':<32}{'fall s':>8}{'drift @3':>10}{'@5':>8}{'@10':>8}{'@15':>8}")
-    for k, h in REFERENCE_HEIGHTS_M.items():
+    for k, h in heights.items():
         f = out["fall"][k]["2.0 mm"]
         d = f["driftM"]
         print(f"{k + f' ({h} m)':<32}{f['fallSeconds']:>8.1f}"

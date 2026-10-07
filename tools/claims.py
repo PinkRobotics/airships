@@ -585,7 +585,7 @@ def failure(occ, entry, flat, root, inventories, sources, rules=None):
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])
             return rules.analysis_issue(occ, entry)
-        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs', 'tools/gen_logistics_prose.py', 'research/analysis/loaded-atmosphere.mjs', 'tools/gen_solar_prose.py', 'tools/gen_solar_budget_comparison.py', 'research/analysis/battery-ratios.mjs', 'tools/gen_editorial_prose.py', 'tools/gen_assembly_prose.py'}:
+        if owner['generator'] in {'tools/gen_energy_pages.mjs', 'research/analysis/energy-documents.mjs', 'tools/gen_float_pages.py', 'tools/noticegen.py', 'tools/gen_readme.py', 'research/analysis/energy-tables.mjs', 'research/analysis/energy-omissions.mjs', 'research/analysis/energy-unheld.mjs', 'research/analysis/energy-descent.mjs', 'research/analysis/energy-motion.mjs', 'tools/gen_logistics_prose.py', 'research/analysis/loaded-atmosphere.mjs', 'tools/gen_solar_prose.py', 'tools/gen_solar_budget_comparison.py', 'research/analysis/battery-ratios.mjs', 'tools/gen_editorial_prose.py', 'tools/gen_assembly_prose.py', 'research/analysis/delivery.py'}:
             if rules is None:
                 from claims_rules import Context
                 rules = Context(root, [occ['file']])

@@ -2,9 +2,12 @@
 
 The flight model assumes a hull that floats; no drawn hull does. See [the float case](../../docs/FLOAT.md).
 
-`docs/OPEN-QUESTIONS.md` #12, in two halves: the US Forest Service says a load released
-1,000 ft above the vegetation "would completely dissipate", and `ALT.drop` is 450 m — 1,476 ft;
-and AFUE, the largest field study of aerial suppression ever run, never counts tonnes at all.
+`docs/OPEN-QUESTIONS.md` asks whether a high release reaches the fuel and whether tonnes
+measure useful work. The Forest Service's training-jettison dissipation statement is a
+comparison, not a deposition model. AFUE measures objectives rather than tank tonnage.
+
+<!-- logistics:release-air:start -->
+<!-- logistics:release-air:end -->
 
 Computed by `research/analysis/delivery.py`. This is the first time this project has looked at
 what happens between the tank and the fuel.
@@ -34,35 +37,18 @@ survival or changed fire outcome.
 
 Read what follows as the extreme case, with a limit on free-drop delivery at any release
 height: a drop cannot descend where air at and below the release rises faster than it falls.
-For 2 mm drops, terminal speed is 6.5 m/s.
-This is the `TERMINAL_MS` input in `delivery.py`.
+The free-drop reference and local corrected speeds are generated below.
 Lowering the sprayers does not remove that limit; the proposed operating
 envelope is release **outside active convection columns**. Direct-attack survival has not
 been established.
 
-## Water cannot fall faster than about 9 m/s
+## Free-drop speed depends on the air
 
-Drops larger than roughly 5.5 mm are aerodynamically unstable and break up, so released water
-arrives as 1–5 mm drops at 4–9 m/s (Gunn & Kinzer). That is a property of water. Three things
-follow.
+<!-- logistics:drop-reference:start -->
+<!-- logistics:drop-reference:end -->
 
-**The pattern smears, and the smear is worse than the drift.** A uniform wind merely
-*translates* a pattern — that is aimable bias, not destruction. What destroys it is the spread
-across the drop spectrum, because small drops hang and large ones do not. From 450 m a 0.5 mm
-drop is airborne for 214 s and a 5 mm drop for 49 s, so one release in a 10 m/s wind is
-stretched over **1,645 m along-wind — longer than the whole 1.2 km drop run.**
-
-**And the mean drift is large on its own:**
-
-| release height | fall time, 2 mm | drift at 3 m/s | 5 m/s | 10 m/s | 15 m/s |
-|---|---|---|---|---|---|
-| SEAT jettison, 18 m | 2.8 s | 8 m | 14 m | 28 m | 42 m |
-| large airtanker jettison, 53 m | 8.2 s | 24 m | 41 m | 82 m | 122 m |
-| very large airtanker jettison, 122 m | 18.8 s | 56 m | 94 m | 188 m | 282 m |
-| USFS "completely dissipates", 305 m | 46.9 s | 141 m | 235 m | 469 m | 704 m |
-| **`ALT.drop`, 450 m** | **69.2 s** | **208 m** | **346 m** | **692 m** | **1,038 m** |
-| **sprayers on a 300 m lead → 150 m** | **23.1 s** | 69 m | 116 m | **231 m** | 347 m |
-| **sprayers on a 400 m lead → 50 m** | **7.7 s** | 23 m | 39 m | **77 m** | 116 m |
+<!-- logistics:drop-drift:start -->
+<!-- logistics:drop-drift:end -->
 
 *(The three airtanker rows are USFS **training-jettison** heights, which is the only published
 table; real operational drops are lower again — DC-10 practice is 150–300 ft AGL. And the
@@ -71,14 +57,8 @@ long-term retardant jettisoned over a designated area, in a document arguing to 
 Wildlife Service that it does not reach listed species. It is evidence for the direction of
 this arithmetic, not the same finding as it.)*
 
-**A drop cannot descend through rising air faster than it falls.** Once a load has broken up
-into free drops:
-
-| | updraft | drops that still descend |
-|---|---|---|
-| quiet flank | 5 m/s | 2, 3 and 5 mm |
-| active flank | 10 m/s | **none** |
-| crown fire column | 25 m/s | **none** |
+<!-- logistics:drop-updraft:start -->
+<!-- logistics:drop-updraft:end -->
 
 This is true of every airtanker ever flown, which is why aerial suppression lays line in
 *unburned* fuel beside and ahead of a fire rather than dropping onto flame. It is a statement

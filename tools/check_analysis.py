@@ -552,6 +552,8 @@ def main() -> None:
                        '-s', 'tools/tests', '-p', 'test_logistics.py'], cwd=ROOT).returncode:
         bad.append('logistics refusal plants failed')
 
+    if subprocess.run([sys.executable, '-B', 'research/analysis/delivery.py', '--check'], cwd=ROOT).returncode:
+        bad.append('delivery weather prose or record differs from model atmosphere')
     if subprocess.run([sys.executable, '-B', 'tools/gen_logistics_prose.py', '--check'], cwd=ROOT).returncode:
         bad.append('accepted-plan logistics prose differs from generated numbers')
 
