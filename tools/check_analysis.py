@@ -536,6 +536,11 @@ def check_closure_bills(document, figures):
 
 def main() -> None:
     cache, bad, checked = check_rows()
+    if subprocess.run([sys.executable, '-B', 'tools/gen_assembly_prose.py', '--check'], cwd=ROOT).returncode:
+        bad.append('assembly prose differs from the computed proof census')
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_editorial.py'], cwd=ROOT).returncode:
+        bad.append('editorial drift and evidence refusal tests failed')
     closure_bad, closures = check_closure_bills(cache['mass-budget'],
         json.loads((ROOT / 'research/figures.json').read_text()))
     bad.extend(closure_bad)
