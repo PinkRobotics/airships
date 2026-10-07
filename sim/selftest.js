@@ -78,7 +78,8 @@ export function selftest() {
         + `${l.liftT.toFixed(1)} t of lift against ${loadedT.toFixed(1)} t`);
   }
   // UNPOWERED RECOVERY. A dead ship floats up, so the nitrogen it can carry has to be able to
-  // bring it back down and land it with no rotors. The binding altitude is the GROUND, where
+  // bring it back down and land it with no rotors. This checks capacity, not accumulation
+  // or retention; storage loss and cold-state duty are not modelled. The binding altitude is the GROUND, where
   // the air is densest and the empty hull most buoyant — not the ceiling it starts from.
   for (const cid of CLASS_ORDER) {
     const c = CLASSES[cid], needT = ledger(c, TERRAIN_MSL).surplusT;

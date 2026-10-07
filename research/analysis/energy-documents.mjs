@@ -5,6 +5,7 @@ import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../..
 import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=31a23fa3';
 import {specificEnergies,batteryMass} from './energy-omissions.mjs';
 import {COLD_READY_NOTE} from './energy-plant.mjs';
+import {storageTables} from './energy-storage.mjs';
 import {PLANT_ENERGY_NOTE} from './energy-plant.mjs';
 import {areaText} from './energy-rotor-area.mjs';
 import {regimeSentence} from './energy-rotor-regime.mjs';
@@ -77,7 +78,7 @@ const reportsTable=table(['Report and former line (historical cells outside stor
  ...classes.map((c,i)=>['PHYSICS section 6',c.class+' balanced cruise MW',[1.06,9.16,69.68][i],f(c.dragMW)+' / '+f(c.dragMW),'Capsule frontal area and local density; higher hull drag']),
  ...classes.filter(c=>c.class!=='P1000').map(c=>['PHYSICS section 5',c.class+' electrical fill MWh',c.class==='P100'?.091:9.08,f(c.pumpElectricalMWh)+' / '+f(c.pumpElectricalMWh),'Correct head in the published arithmetic; higher pumping bill']),
  ['PHYSICS section 5','P100 ideal fill MWh',.068,f(classes[0].pumpIdealMWh)+' / '+f(classes[0].pumpIdealMWh),'Correct head; higher potential energy'],
- ...classes.map((c,i)=>['PHYSICS section 8',c.class+' ground-surplus solar days',[2.6,5.7,12.9][i],f(c.groundSolarDays)+' / '+f(c.groundSolarDays),'Day-average solar replaces retired peak assumption; slower recovery']),
+ ...classes.map((c,i)=>['PHYSICS section 8, superseded peak-solar record dated 2026-08-09',c.class+' ground-surplus lossless energy quotient, days',[2.6,5.7,12.9][i],f(c.groundSolarDays)+' / '+f(c.groundSolarDays),'Day-average solar replaces retired peak assumption; longer lossless quotient, accumulation and retention unshown']),
  ...classes.map((c,i)=>['PHYSICS section 8',c.class+' full tank MWh',[65,651,6505][i],f(c.tankEnergyMWh)+' / '+f(c.tankEnergyMWh),'Earlier energy used ground surplus, not tank capacity; higher tank bill']),
  ...classes.map((c,i)=>['sim README',c.class+' hull dimensions m',['190 × 47','404 × 102','876 × 219'][i],c.lengthM+' × '+c.diameterM,'Configured capsule; shorter and wider, no performance conclusion']),
  ['sim README','Nitrogen recovery fraction',.50,CFG.rtLN2+' / '+CFG.rtLN2,'Storage recovery constrained by exergy; less recovered energy'],
@@ -224,7 +225,7 @@ const closure='# Energy closure, 2026-10-02\n\nNo aircraft has flown. The fleet 
  omitted+'\n'+inertiaText+'\n'+necessaryText+'\n'+checkText;
 const fixes=fs.existsSync('research/analysis/energy-fix-changes.json')?read('energy-fix-changes').parts:[];
 const fixText='## Corrections from the energy comparison\n\nEach earlier and current value below refers to the same generated field. Infeasible rows remain diagnostic supplied effort. Values that round identically at the published precision are omitted. The JSON preserves exact values.\n\n'+fixes.map(p=>`### Part ${p.part}\n\n${p.reason}\n\n`+table(['Generated record and field','Earlier','Current'],p.changes.map(r=>[`${r.file}#${r.field}`,f(r.old,r.decimals),f(r.new,r.decimals)]))).join('\n');
-const model='# Energy model, 2026-10-02\n\nOne ledger owns the modelled force and power. This is an unvalidated simulation, not a flight performance claim.\n\n'+laws+'\n'+dynamicLimits+'\n'+necessaryText+'\n'+search+'\n'+MISSION_QUALIFIER+'\n\n'+baselineTable+'\n'+fixText+'\n'+
+let model='# Energy model, 2026-10-02\n\nOne ledger owns the modelled force and power. This is an unvalidated simulation, not a flight performance claim.\n\n'+laws+'\n'+dynamicLimits+'\n'+necessaryText+'\n'+search+'\n'+MISSION_QUALIFIER+'\n\n'+baselineTable+'\n'+fixText+'\n'+
  '## Independent stationary cross-check\n\nThe stationary-fill anchors are at 300 m above ground, 1,300 m above sea level, with local ISA density 1.0793 kg/m³. The analysis full bus means battery plus generator rating. The cycle instead receives the nitrogen recovery available in that phase, plus day-average solar.\n\n'+
  table(['Class','Mode','Full-bus model / independent t','Actual mode bus MW','Other draw MW','Mode thrust model / independent t','Full-bus empty floor t'],cross.modes.map(r=>[r.class,r.mode,`${f(r.fullBusModelT)} / ${f(r.independentFullBusT)}`,f(r.modeBusMW),f(r.nonRotorMW),`${f(r.modeModelT)} / ${f(r.independentModeT)}`,f(r.wholeBusFloorT)]))+'\n'+
  'A retained-water floor depends on altitude, available supply and the other loads aboard. The generated cross-check names nitrogen, newly loaded water and bag support at the stationary fill instant.\n\n'+
@@ -232,7 +233,9 @@ const model='# Energy model, 2026-10-02\n\nOne ledger owns the modelled force an
  '`cheapestFeasible` performs the slow stated-space search; it is not suitable for a page-load fleet search.\n'+
  'Generated tables cover only their printed distances; they do not promise interpolation. The monitor replays each candidate at the mission’s exact distance, wind and mode and serves only a profile that closes with the required operating reserve.\n';
 const pumpTable=table(['Class','Head m','Pump MW','Ideal MWh','Electrical MWh'],classes.map(c=>[c.class,c.sourceM,f(c.pumpMW),f(c.pumpIdealMWh),f(c.pumpElectricalMWh)]));
-const solarTable=table(['Class','Tank t','Tank fill MWh','Ground-surplus t','Ground-surplus MWh','Solar days: ground / tank','Tank days at rated plant'],classes.map(c=>[c.class,c.tankMassT,f(c.tankEnergyMWh),f(c.groundMassT),f(c.groundEnergyMWh),`${f(c.groundSolarDays)} / ${f(c.tankSolarDays)}`,f(c.tankPlantDays)]));
+const solarTable=table(['Class','Tank t','Tank fill MWh','Ground-surplus t','Ground-surplus MWh','Lossless solar energy quotient, days: ground / tank','Tank days at rated plant'],classes.map(c=>[c.class,c.tankMassT,f(c.tankEnergyMWh),f(c.groundMassT),f(c.groundEnergyMWh),`${f(c.groundSolarDays)} / ${f(c.tankSolarDays)}`,f(c.tankPlantDays)]));
+const recoveryTables=storageTables();
+model+='\n## Nitrogen recovery accounting\n\nSolar days below are lossless energy quotients, not a demonstrated recovery trajectory.\n\n'+solarTable+'\n'+recoveryTables;
 let physics='## 3. Storage inside the dry-mass target\n\n'+omitted+'\n## 4. The prescribed delivery cycle\n\n'+MISSION_QUALIFIER+'\n\n'+baselineTable+'\n'+profileTable+'\n'+
  PLANT_ENERGY_NOTE+'\n\n'+
  COLD_READY_NOTE+'\n\n'+
@@ -246,7 +249,8 @@ let physics='## 3. Storage inside the dry-mass target\n\n'+omitted+'\n## 4. The 
  '## 8. Nitrogen storage and recovery\n\nNitrogen is storage, not an energy source. Recovery is bounded by the stored nitrogen and the generator rating.\n\n'+
  `Liquefaction costs ${CFG.eLN2} MWh per tonne in this model; round-trip recovery is ${CFG.rtLN2}. Solar is ${CFG.solarWPerM2} W/m² as a day average.\n\n`+
  solarTable+'\n'+
- 'Solar-only days subtract hotel load and assume the day-average sun throughout. Tank capacity and ground-surplus ballast are different masses; their energy bills must not be interchanged.\n\n'+
+ 'Solar-only days are lossless energy quotients: liquefaction energy divided by day-average solar power after hotel load. Nothing evaporates in that division. It supplies no buffering schedule or cold-maintenance duty, and does not show that ballast can be made and retained. Tank capacity and ground-surplus ballast are different masses; their energy bills must not be interchanged.\n\n'+
+ recoveryTables+'\n'+
  '## 9. Cycle energy and endurance\n\n'+necessaryText+'\n'+baselineTable+'\n'+
  'Battery hours divide usable storage by the modelled energy deficit. They are reported, but do not gate the force-and-bus feasibility verdict. On an infeasible row this is an accounting quotient, not demonstrated endurance.\n'+
  'Every phase draws from the same ledger. The phase and channel integrals are stored in `energy-documents.json`.\n\n'+
@@ -293,8 +297,8 @@ const questionBodies={
  8:['What rotor area, thrust and storage mass can be built?',
   MISSION_QUALIFIER+' What evidence supports the installed disk area, downward-only thrust and battery rating together? Can any required storage mass fit inside the dry-mass target?\n\n'+reqTable],
  9:['How long can recovery take through a real day and night?',
-  `The model uses ${CFG.solarWPerM2} W/m² as a day average. What storage and charging losses apply when instantaneous sunlight is zero?\n\n`+
-  table(['Class','Day-average solar MW','Ground-surplus solar days','Full-tank solar days'],classes.map(c=>[c.class,f(c.solarMW),f(c.groundSolarDays),f(c.tankSolarDays)]))],
+  `The model uses ${CFG.solarWPerM2} W/m² as a day average. The days below are lossless energy quotients, not accumulation or retention results. What storage and charging losses apply when instantaneous sunlight is zero?\n\n`+
+  table(['Class','Day-average solar MW','Ground-surplus lossless energy quotient, days','Full-tank lossless energy quotient, days'],classes.map(c=>[c.class,f(c.solarMW),f(c.groundSolarDays),f(c.tankSolarDays)]))+'\n'+recoveryTables],
  10:['What nitrogen recovery fraction is demonstrable?',
   `Liquefaction costs ${CFG.eLN2} MWh/t and recovery returns ${CFG.rtLN2} of that investment. Can a complete airborne system reproduce that fraction without an external heat source?\n\n`+
   'Which plant and tank masses belong in the dry ledger, and what duty cycle can they sustain?'],

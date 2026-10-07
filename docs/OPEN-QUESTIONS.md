@@ -138,18 +138,20 @@ battery is flat. The ship must then:
 4. land empty on ballast alone.
 <!-- atmosphere:recovery:end -->
 
-Taking days to do it is acceptable. Being unable to do it is not.
+Taking days to do it is acceptable. Being unable to do it is not. Recharging on solar alone is a requirement: the energy suffices on paper as a lossless quotient, while making and retaining the required ballast has not been shown. The capacity self-test checks that the tanks can hold it, not that the plant and storage can accumulate it. The generated recovery question below gives the energy-based loss requirement and ground-tank sensitivities.
 
 That fourth step is the demanding one, because it sizes the cryogenic plant and the nitrogen
 tankage: the LN₂ aboard must be able to exceed the *empty* hull's surplus buoyancy at
 altitude. With the hull already grown for fail-safe float-up when full, that is roughly a
 payload's worth of nitrogen.
 
+**CURRENT RECOVERY STATUS: PARTLY SPECIFIED.** Capacity and lossless energy accounting are specified; production and retention remain open. The following sizing tables are the superseded 2026-08-09 record from the earlier peak-solar model, with no storage loss. The recorded “DONE” below refers to that historical sizing work, not demonstrated production and retention.
+
 **DONE 2026-08-09.** Built, with one correction to the sizing table below. What was
 planned, at ρ = 0.96 kg/m³ (about 2,500 m MSL: 1,500 m over a 1,000 m plateau), a 5%
 float-up margin when fully loaded, and the model's own `eLN2` = 0.45 kWh/kg:
 
-| class | hull grows | LN₂ to sink an empty hull | capacity today | tankage | energy | on solar alone | at rated cryo power |
+| class | hull grows | LN₂ to sink an empty hull | capacity in that record | tankage | energy | lossless solar energy quotient | at rated cryo power |
 |---|---|---|---|---|---|---|---|
 | P-100 | +21.5% | 110 t | 50 t | 136 m³ | 49 MWh | 1.7 days | 0.3 days |
 | P-1000 | +21.5% | 1,100 t | 500 t | 1,363 m³ | 495 MWh | 3.7 days | 0.7 days |
@@ -164,10 +166,10 @@ binding altitude is the BOTTOM of the descent, where the hull is most buoyant: a
 empty surplus is 144.6 t per 100 t of payload — 31% more ballast than the table asks for.
 Step 4 of the requirement says "land", so the tanks are sized to land.
 
-What was actually built, at ISA density computed honestly rather than rounded, and with the
-ballast sized at ground level:
+The corrected 2026-08-09 sizing record from that earlier peak-solar model used ISA density and
+ground-level ballast. This superseded table also gives lossless energy quotients, not measured tank or aircraft results:
 
-| class | displacement | hull grows | LN₂ to land an empty hull | tank | tankage | energy | on solar alone | at rated cryo power |
+| class | displacement | hull grows | LN₂ to land an empty hull | tank | tankage | energy | lossless solar energy quotient | at rated cryo power |
 |---|---|---|---|---|---|---|---|---|
 | P-100 | 180,000 → 220,000 m³ | +22.2% | 144.6 t | 155 t | 192 m³ | 65 MWh | 2.6 days | 0.45 days |
 | P-1000 | 1.8 → 2.2 ×10⁶ m³ | +22.2% | 1,445.6 t | 1,550 t | 1,921 m³ | 651 MWh | 5.7 days | 0.90 days |
@@ -180,21 +182,11 @@ class needed the rotor-lift exception #1 allows, and none was granted one.
 
 Four things fall out of it.
 
-**The tankage is still free and the energy still is not.** 19,207 m³ of nitrogen is 0.087%
-of the P-10000's hull volume — volumetrically irrelevant. The constraint is entirely the
-time to liquefy it.
+**Liquid volume and tank mass are different allowances.** The liquid occupies little of the hull volume, while insulated tanks are a material mass allowance in the budget. Storage loss, cold readiness and the production schedule constrain recovery as well as the lossless energy bill.
 
-**The plant did not need scaling; the tanks did.** `cryoMW` is unchanged at 6 / 30 / 100 MW.
-A P-10000 fills a fail-safe ballast load in 2.7 days at rated power, and "taking days to do
-it is acceptable" was the standard. The tanks were the undersized part, by a factor of about
-three.
+**Plant rating and tank capacity do not establish recovery.** The earlier sizing record increased capacity while retaining the plant rating. Rated-power and solar-only quotients still omit cold maintenance, startup and storage loss; neither supplies a production and retention trajectory.
 
-**"A couple of days" is right only at rated plant power.** The plants are sized well above
-what the solar skin can feed — 100 MW against 24 MW gross on the P-10000, 21 MW after the
-hotel load — so an unpowered ship recovering on solar alone takes about thirteen days, not
-three. Both are published. Thirteen is the true unaided worst case and it is the one the
-fail-safe claim rests on. It is also optimistic in a way worth stating: the model's solar is
-a flat 200 W/m² day and night, so a real recovery is several times longer again.
+**Solar recovery days are lossless energy quotients.** The generated recovery question below uses the current day-average solar budget after hotel load. Those quotients are neither a worst-case time nor a demonstration that a real plant can operate at that average input and retain the ballast. The ground-tank sensitivities show why a storage-loss requirement is needed; they do not prove recovery impossible with every tank.
 
 **This is what battery tenders are for.** Delivering charged cells collapses the recovery
 from days to hours and is the same mechanism that sets the normal cycle rate — the tender

@@ -44,7 +44,8 @@ Two independent reviews also found the mechanism would not have worked even give
 
 **Emergency ballast, and it is the only source a sealed-cell hull has.** A dead ship floats up,
 recharges on solar, liquefies nitrogen until it is heavy enough, and lands. It is slow — 69.8
-MWh and about 10.8 days on solar alone for a P-100 — and slow was always the accepted standard
+MWh and about 10.8 days on solar alone for a P-100 in the retained 2026-08-10 mass-budget capture
+(a superseded lossless energy quotient from its earlier solar model) — and slow was always the accepted standard
 for total-failure recovery. There is no alternative mechanism, which makes the plant's mass
 non-negotiable and its **complete absence of any published mass estimate** the worst-supported
 number in the vehicle (`mass-budget.md` carries it at 12 to 120 t across three columns).

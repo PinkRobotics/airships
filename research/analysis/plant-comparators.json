@@ -20,5 +20,23 @@
     "usableLitresHour": 21,
     "massKg": 2200,
     "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
-  }
+  },
+  "storage": [
+    {
+      "id": "chart-tms",
+      "label": "Ground TMS tank comparator",
+      "source": "chart-2024-oil-field-nitrogen-tanks",
+      "url": "https://files.chartindustries.com/11660611_OilField.pdf",
+      "locator": "Printed page 2, LIN evaporation row",
+      "lossFractionDay": 0.009
+    },
+    {
+      "id": "chart-dagt",
+      "label": "Ground DAGT tank comparator",
+      "source": "chart-2025-drop-and-go-trailer",
+      "url": "https://files.chartindustries.com/22305633_DropAndGoTrailerDAGTSpecSheet.pdf",
+      "locator": "PDF page 2, LIN NER row of the larger trailer",
+      "lossFractionDay": 0.0024
+    }
+  ]
 }

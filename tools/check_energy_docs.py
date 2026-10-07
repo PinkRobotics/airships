@@ -61,6 +61,7 @@ def main():
     checks += [['node','tools/gen_energy_pages.mjs','--check']]
     checks += [['python3','tests/energy/hover-floor.py','--check'],['node','tests/energy/replay.mjs']]
     checks += [['node','research/analysis/energy-plant.mjs','--check']]
+    checks += [['node','research/analysis/energy-storage.mjs','--check']]
     for command in checks:
         result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
         if result.returncode:
