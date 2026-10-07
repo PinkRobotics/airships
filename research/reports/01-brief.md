@@ -7,21 +7,23 @@
 <!--tex:skip-->
 **A briefing · 2026-08-09 · Pink Robotics**
 
-<!--tex:headline THE IDEA | Water is how fires are stopped. The only questions have ever been how much of it you can put on one, how fast, and for how long --- and the answers today are \emph{not enough, not fast enough, and not for long}. This is a design for a machine that changes all three at once.-->
+<!--tex:headline THE IDEA | This briefing studies the requested load and repeating water-source-to-target duty cycle of a proposed buoyant vehicle, alongside established conventional aerial resources. Nothing of this design has been built or flown.-->
 
 ## The problem is the round trip
 
-A very large airtanker carries about seventy tonnes. It arrives, releases in seconds, and then
-spends the next half hour to hour-and-a-half flying to a base, loading, and flying back. Its
-instantaneous delivery is spectacular; its *sustained* delivery — the number that decides whether
-a fire line holds — is set almost entirely by the turnaround.
+Base-refilled airtankers return to a loading base between drops. Helicopters with buckets
+can draft from nearby open water. Water-scooping aircraft already repeat source-to-target
+circuits: the CL-415 and amphibious AT-802 are examples in
+[NWCG's water-scooping standard](https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/publication/pms518.pdf),
+chapter 3. The [manufacturer's Canadair programme description](https://dehavilland.com/aircraft-sales/de-havilland-aircraft-of-canada-limited-launches-dhc-515-firefighter/)
+also identifies the established CL-215 and CL-415 family. These sources describe conventional
+resources; they do not establish a comparative hourly rate on the mission studied here.
 
-Helicopters with buckets shorten the turnaround by dipping from a lake nearby, and pay for it in
-payload: a heavy-lift helicopter carries about ten tonnes.
-
-Nothing occupies the gap between them — a machine that dips like a helicopter and carries like a
-tanker — because for a rotorcraft every kilogram of lift is bought continuously with power, so
-payload and endurance trade directly against each other.
+The proposal under study combines a buoyant hull's requested water load with a repeating
+water-source-to-target duty cycle. Its load, cycle and force requirements are model questions;
+no aircraft of this design has been built or flown. Local refill is an established aviation
+capability, and a comparison must include scooping aircraft alongside helicopters and
+base-refilled airtankers.
 
 **Buoyant flight does not have that trade.** A hull that displaces its own weight in air holds
 altitude at zero power. Carrying more costs the price of a bigger hull, once. Put a buoyant
@@ -52,11 +54,13 @@ Everything below is that ship unless it says otherwise.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
-175 tonnes an hour sounds modest beside a very large airtanker's seventy-tonne drop. It is not the
-same quantity. **The airtanker's number is one drop; this one is every hour, indefinitely, through
-the night.** Over a twelve-hour operational day one P-100 puts down about 2,100 tonnes against
-roughly 560 for an airtanker flying eight sorties — and the airtanker then stops, while this does
-not. In energy terms a full drop costs about seventy dollars of electricity.
+**Comparison boundary.** The table is an unsupported model profile, not a resource contest
+or a measured operating rate. No conventional fleet is simulated on a shared invented mission:
+source-to-target distance, scooping-water suitability, base distance, fuel, duty limits,
+support and tactical objective are omitted. A capacity specification and a conditional model
+rate cannot establish comparative daily delivery or suppression. A resource comparison would
+need the same invented task and those inputs for helicopters, scooping aircraft and
+base-refilled airtankers.
 
 **Nothing in that table has been built** — no hull, no rotor, no cable. It is what the model says,
 which is why the model is published and why the last third of this page is the four things that

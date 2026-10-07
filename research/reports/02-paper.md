@@ -7,7 +7,7 @@
 <!--tex:skip-->
 **Pink Robotics · 2026-08-09 · v1**
 
-<!--tex:headline THE RESULT | A buoyant hull that never lands turns aerial firefighting from a sortie problem into a flow-rate problem. The reference vehicle here is the \textbf{P-100}: 110 m long, smaller than the Hindenburg, delivering \textbf{175 tonnes an hour indefinitely} --- about 2,100 tonnes in a twelve-hour day against roughly 560 for a very large airtanker, and it does not stop at dusk. Two larger classes are modelled to find where the arithmetic breaks; it breaks on the descent, not on the structure or the power. This paper is that arithmetic and the list of what would have to be true.-->
+<!--tex:headline THE RESULT | This paper studies a proposed buoyant hull and a repeating water-source-to-target duty cycle. Its requested loads and conditional cycle arithmetic do not establish flight or comparative daily delivery. Conventional helicopters, scooping aircraft and base-refilled airtankers remain relevant comparators.-->
 
 > **Status.** Every headline quantity below is an output of the simulation in this repository,
 > cited by key and verified automatically against `research/figures.json`; figures from catalogued
@@ -23,15 +23,19 @@ The flight model assumes a hull that floats; no drawn hull does, as the [structu
 
 ## 1. The problem, and why an airship is a plausible shape for it
 
-Aerial firefighting is a duty cycle problem before it is an aviation problem. A very large
-airtanker carries something like 70 t, releases it in seconds, and then spends 30–90 minutes
-flying to a base, loading, and flying back. Its instantaneous delivery rate is enormous and its
-*sustained* rate is set almost entirely by the turnaround. Helicopters with buckets shorten the
-turnaround by dipping from a nearby lake, and pay for it in payload — a Chinook carries about 10 t.
+Base-refilled airtankers return to a loading base between drops. Helicopters with buckets
+can draft from nearby open water. Water-scooping aircraft already repeat source-to-target
+circuits: the CL-415 and amphibious AT-802 are examples in
+[NWCG's water-scooping standard](https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/publication/pms518.pdf),
+chapter 3. The [manufacturer's Canadair programme description](https://dehavilland.com/aircraft-sales/de-havilland-aircraft-of-canada-limited-launches-dhc-515-firefighter/)
+also identifies the established CL-215 and CL-415 family. These sources describe conventional
+resources; they do not establish a comparative hourly rate on the mission studied here.
 
-The gap in the middle is a vehicle that dips like a helicopter and carries like a tanker. Nothing
-occupies it, and the reason is that lift-per-unit-mass for rotorcraft is bought continuously with
-power, so payload and endurance trade against each other directly.
+The proposal under study combines a buoyant hull's requested water load with a repeating
+water-source-to-target duty cycle. Its load, cycle and force requirements are model questions;
+no aircraft of this design has been built or flown. Local refill is an established aviation
+capability, and a comparison must include scooping aircraft alongside helicopters and
+base-refilled airtankers.
 
 Buoyant flight does not have that trade. A hull that displaces its own weight in air holds
 altitude at zero power, and the marginal cost of carrying more is the cost of building a bigger
@@ -155,9 +159,11 @@ That is 175 t/h<!--f:P100.cycle.tph--> sustained, and 1.75<!--f:P100.cycle.drops
 an hour. Transit is 23.5 of the 34.2 minutes on this class and the model names it as the
 bottleneck: water handling is fixed by the pumps while transit grows with every kilometre.
 
-**Compare it to the right quantity.** 175 t/h is not a rival to an airtanker's seventy-tonne drop;
-it is a rival to that airtanker's *day*. Twelve hours of a P-100 is about 2,100 tonnes against
-roughly 560 for eight sorties, and the airtanker then stops while the airship does not.
+**Comparison boundary.** These diagnostic rates are conditional model quantities, not a
+comparison with a conventional aircraft's day. Helicopters, scooping aircraft and
+base-refilled airtankers have different refill circuits. The repository supplies no shared
+invented mission for those resources, no base or fuel schedule, and no common tactical
+objective; their daily delivery and relative effectiveness are not established here.
 
 **The drop is one pass**, not three. Three circuits meant two turns of a large hull over a fire,
 which is a manoeuvre the model had no business assuming. A single long release removes them.

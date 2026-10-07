@@ -37,10 +37,10 @@ Where nothing is known, the section says so rather than estimating.
 
 ## 1. The thesis in one page
 
-**Claim.** Aerial firefighting is limited by turnaround, not by drop size. A very large airtanker
-delivers seventy tonnes in seconds and then spends most of an hour not delivering anything. A
-vehicle that dips from a lake like a helicopter but carries like a tanker would change the
-*sustained* rate — the one that decides whether a line holds — by orders of magnitude.
+Conventional helicopters, water-scooping aircraft and base-refilled airtankers have distinct
+refill circuits. The proposal studies a buoyant hull's requested load and repeating
+water-source-to-target cycle; local water refill already exists in conventional aviation.
+No comparative mission performance is established by that proposal.
 
 Buoyant flight is the only way to get payload without paying for lift continuously, and it is the
 only way to build a firefighting aircraft that never has to land. Helium is expensive and leaks;
@@ -53,9 +53,9 @@ construction may finally allow, and what §4.1 says has not been shown yet.
 of water, 110 m<!--f:P100.spec.lenM--> long — smaller than the Hindenburg — flying a
 34.2-minute<!--f:P100.cycle.cycleMin--> cycle at 15 km<!--f:worked.oneWayKm--> each way and
 delivering 175 t/h<!--f:P100.cycle.tph--> indefinitely, at
-13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne-->. Over a twelve-hour day that is about 2,100 tonnes
-against roughly 560 for a very large airtanker flying eight sorties, and the airtanker stops at
-dusk.
+13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne-->. A daily resource comparison is not established:
+helicopters, scooping aircraft and base-refilled airtankers are not modelled on a shared
+invented task with common source-to-target, base, fuel, support and tactical inputs.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -156,9 +156,9 @@ fire is not near water.** How often that is true is item 13 of `docs/OPEN-QUESTI
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
-A 747 supertanker drops about 70 t and then flies to a base. **The comparison that matters is per
-day, not per drop**: twelve hours of a P-100 is about 2,100 t against roughly 560 t for eight
-airtanker sorties, and the airship works at night. The square-cube law then says a larger hull
+A resource comparison needs helicopters, scooping aircraft and base-refilled airtankers on
+one shared invented mission. Their daily delivery, fuel and support schedules, and tactical
+objectives have not been modelled here. The square-cube law then says a larger hull
 delivers a tonne for less — 2.7× less at the top of the table — which is why the concept has room
 to grow and not a reason to start there.
 
