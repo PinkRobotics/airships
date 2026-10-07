@@ -143,7 +143,8 @@ export function descentBusMW(cls, plan) {
   return cls.battMW + regenMW(cls, plan, "SOURCE_APPROACH");
 }
 
-/** The fraction of the return leg the cryo plant runs: exactly long enough to make ln2MakeT. */
+/** Cold-ready assumption: production starts immediately on return, with no startup,
+ * standby or restart cost; the run fraction only limits output, not thermal readiness. */
 export function cryoOnFrac(cls, mode, plan) {
   const cryoCapMW = cls.cryoMW * CFG.cryoMul * mode.cryoShare;
   const capT = cryoCapMW * (plan.dur.RETURN_TRANSIT / 60) / CFG.eLN2;   // t the leg could make
@@ -256,6 +257,7 @@ export function loadAt(cls, plan, id, prog, cryoFrac) {
       return { water: cls.payloadT - plan.deliveredT * ((pi + e) / nP), ln2: 0 };
     }
     case "BUOYANCY_ESCAPE": return { water: plan.retainedT, ln2: 0 };
+    // Cold-ready assumption: liquid is credited from the first positive return sample.
     default: return { water: plan.retainedT,   // RETURN_TRANSIT: the plant fills the tanks
       ln2: L * (cryoFrac > 0 ? Math.min(1, prog / cryoFrac) : 1) };
   }
@@ -331,6 +333,7 @@ export function drawAt(cls, mode, plan, id, prog, opts = {}) {
   if (id === 'SOURCE_APPROACH') draw.winch = pumpMW(cls) * WINCH_IDLE_FRAC + hoistMW;
   if (id === 'WATER_FILL') draw.pumps = plan.pumpMW;
   if (id === 'OUTBOUND_TRANSIT' && prog < 0.18) draw.winch = pumpMW(cls) * WINCH_IDLE_FRAC;
+  // This production-only draw has no startup, standby or restart term (cold-ready assumption).
   if (id === 'RETURN_TRANSIT' && prog < cryoFrac) draw.cryo = cls.cryoMW * CFG.cryoMul * mode.cryoShare;
   const nonRotorMW = Object.values(draw).reduce((a, b) => a + b, 0);
   const availableMW = Math.max(0, busMW - nonRotorMW);

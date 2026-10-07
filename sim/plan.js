@@ -79,6 +79,8 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   dur.RETURN_TRANSIT = Math.max(1.2, oneWayKm / gsRet * 60 * rampF);
 
   // Nitrogen: the return leg's cryo output, bounded by the tanks and by what descent needs.
+  // Cold-ready assumption: production starts at the first instant of the return leg,
+  // as if already cold, with no startup, standby or restart cost. This is not a result.
   const cryoCapMW = cls.cryoMW * CFG.cryoMul * mode.cryoShare;
   const ln2NeedT = Math.min(ledLow.surplusT * 0.8, cls.ln2CapT);
   let ln2MakeT = Math.min(ln2NeedT, cryoCapMW * (dur.RETURN_TRANSIT / 60) * 1000 / CFG.eLN2 / 1000);

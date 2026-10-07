@@ -239,8 +239,8 @@ into shape on first pump-down.
 5. **A fire-behaviour scientist.** *"What is pre-treatment worth, how long does a water line
    persist, and what is the right effectiveness metric for a machine with unlimited water and
    no crews under it?"*
-6. **A battery pack engineer**, and **a cryogenic plant engineer** — for the two mass lines with
-   the widest unsupported spreads.
+6. **A battery pack engineer**, and **a cryogenic plant engineer** — for the mass lines with
+   the widest unsupported spreads. Questions for the cryogenic evaluator: what complete bill from ambient intake to usable liquid specifies purity, separation, compression, liquefaction, transfer, equipment mass and electrical input? What start state, restart behaviour and standby duty support cyclic liquid output? What nitrogen purity, oxygen-enriched process-exhaust routing, oxygen-deficiency detection, cold-contact protection and pressure relief are required? These are questions, with nothing modelled here. The ground-plant comparator used in this plan is hardware with supplied cooling, matched by input power; it is not a complete airborne-system estimate.
 
 7. **A rotorcraft aerodynamicist and flight-controls evaluator.** *"These rotors are priced as actuator disks with one hover merit, and the largest class’s drawn diameters are speculative. Which rotor, drive and control family would you assess, what happens to the wake while the hull rises through its own slipstream, and what does it cost?"* Assess blade geometry, rotor speed and pitch policy, coupled coaxial and hull flow, and transient thrust and gimbal response before interpreting quasi-static closure as aircraft capability.
 

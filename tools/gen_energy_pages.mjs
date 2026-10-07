@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../sim/energy-label.js';
 import {CLASSES,MODES,PHASES,planCycle} from '../sim/index.js';
 import {batteryMass} from '../research/analysis/energy-omissions.mjs';
+import {COLD_READY_NOTE} from '../research/analysis/energy-plant.mjs';
 import {PLANT_ENERGY_NOTE} from '../research/analysis/energy-plant.mjs';
 const load=name=>JSON.parse(fs.readFileSync('research/analysis/'+name+'.json'));
 // sim/energy-notes.js imports the model at the site stamper's version, read from the stamper's own record
@@ -97,6 +98,7 @@ for(const cls of ['P1000','P10000']){
  qualification+=`${CLASSES[cls].name}'s largest unheld force ranges from ${N(Math.min(...cases))} to ${N(Math.max(...cases))} tf on both bases. `;
 }
 qualification+='Model feasibility does not establish structural float, transient control or flight performance.';
+qualification+=' '+COLD_READY_NOTE;
 qualification+=' '+PLANT_ENERGY_NOTE;
 text+=sentence('qualifications',qualification,['research/analysis/energy-requirements.json#rows[km=15].dragSensitivity[*].{verticalCd,feasible,worst.unheldT}','research/analysis/energy-rotor-range.json#assumption']);
 text+=sentence('diagnostic-pointer',pointerText,pointerKeys);
@@ -114,7 +116,7 @@ analysis+=sentence('analysis-cryo','The study finds that making the exchange bal
 function region(name,body){return `<!-- served-energy:${name}:start -->\n${body}\n<!-- served-energy:${name}:end -->`;}
 const home=region('home','<details class="d"><summary>Energy · feasible simulated plans</summary><div class="dbody">\n'+text+analysis+'\n</div></details>');
 const concept=region('concept','<details class="d"><summary>What the generated energy records say</summary><div class="dbody">\n'+text.replaceAll('href="concept/','href="')+analysis+'\n</div></details>');
-const homeWorked=region('worked',sentence('worked-record',`The generated ${N(p15.km,0)} km P-100 ${p15.best.mode} example requests ${N(CLASSES.P100.payloadT,0)} t, keeps ${N(p15.best.ballastT)} t aboard and delivers ${N(p15.best.deliveredT)} t in ${N(p15.best.cycleMin)} minutes; supplied energy is ${N(p15.best.cycleMWh)} MWh on the record basis and ${N(fav15.best.cycleMWh)} MWh on the favourable basis. This is a feasible simulated example, separate from each mission's own route. Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility. ${MISSION_QUALIFIER}${noteText(p15.best)}`,[key('energy-profiles','P100',15,'record','best'),'research/analysis/energy-necessary.json#pairedP100.suppliedMWh']));
+const homeWorked=region('worked',sentence('worked-record',`The generated ${N(p15.km,0)} km P-100 ${p15.best.mode} example requests ${N(CLASSES.P100.payloadT,0)} t, keeps ${N(p15.best.ballastT)} t aboard and delivers ${N(p15.best.deliveredT)} t in ${N(p15.best.cycleMin)} minutes; supplied energy is ${N(p15.best.cycleMWh)} MWh on the record basis and ${N(fav15.best.cycleMWh)} MWh on the favourable basis. This is a feasible simulated example, separate from each mission's own route. Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility. ${MISSION_QUALIFIER} ${COLD_READY_NOTE}${noteText(p15.best)}`,[key('energy-profiles','P100',15,'record','best'),'research/analysis/energy-necessary.json#pairedP100.suppliedMWh']));
 const fleet=region('fleet',`<p class="small" id="fleetNote" style="margin-top:var(--s2);font-size:var(--t-12)">The fleet is simulated. The flight model assumes a hull that floats; <a href="float/">no drawn hull does</a>. ${MISSION_QUALIFIER}</p>`+sentence('fleet-diagnostic-pointer',pointerText,pointerKeys));
 const conceptFleet=region('fleet',sentence('fleet-qualifier',MISSION_QUALIFIER,[])+sentence('fleet-diagnostic-pointer',pointerText.replaceAll('href="concept/','href="'),pointerKeys));
 const outputs={'index.html':{home,worked:homeWorked,fleet},'concept/index.html':{concept,fleet:conceptFleet}};
