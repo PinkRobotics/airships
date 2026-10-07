@@ -96,6 +96,14 @@ const inertiaText='## Signed vertical authority screen of the served candidates\
  `The ${inertiaCounts.capturedMissions.cases} captures select the same ready controls. The signed screen flags ${inertiaCounts.capturedMissions.signed}; the other ${inertiaCounts.capturedMissions.cases-inertiaCounts.capturedMissions.signed} are not validated by a hull-only sampled screen either. No quasi-static verdict changes.\n\n`+
  inertiaTable(inertia.servedMissions)+'\n'+
  'Every candidate is replayed in still air at every printed or captured distance for its class, on both bases. Infeasible cases remain diagnostics. The JSON also records each phase and both simultaneous authorities at its largest signed gap.\n\n'+inertiaTable(inertia.rows)+'\n';
+const zeroSun=read('energy-zero-sun');
+const zeroSunText='## Zero-sunlight sensitivity of the selected profiles\n\n'+zeroSun.scope+'\n\n'+zeroSun.limitation+'\n\n'+
+ table(['Class','km','Basis','Mode','Averaged solar MW','Current verdict','Zero-sunlight verdict','Zero-sunlight worst unheld tf / phase','Zero-sunlight supplied MWh','Storage note'],zeroSun.rows.map(r=>[
+  r.input.class,`selected ${r.input.km} km`,r.input.basis,r.input.mode,`${f(r.averagedSolarMW)} MW bus input`,r.current.feasible?'closes':'does not close',r.zeroSun.feasible?'closes':'does not close',
+  `${f(r.zeroSun.worst.unheldT)} / ${r.zeroSun.worst.phase}`,`${f(r.zeroSun.suppliedMWh)} MWh zero-sunlight replay`,storageNote({...r.input,config:{solarWPerM2:0}})]))+'\n'+
+ zeroSun.rows.filter(r=>r.input.km===15&&r.input.basis==='record').map(r=>
+  `${r.input.class}, ${r.input.mode}, ${r.input.km} km record: averaged sunlight ${r.current.feasible?'closes':'does not close'}; zero sunlight ${r.zeroSun.feasible?'closes':'does not close'}${r.zeroSun.feasible?'':`, with ${f(r.zeroSun.worst.unheldT)} tf unheld in ${r.zeroSun.worst.phase.toLowerCase().replaceAll('_',' ')}`}.`).join(' ')+'\n\n'+
+ 'Record: `research/analysis/energy-zero-sun.json`; generator: `research/analysis/energy-zero-sun.mjs`.\n';
 const energyShortages=[...necessary.shortages.servedMissions,...necessary.shortages.routes];
 const necessaryText='## Necessary stored energy, ideal accounting\n\n'+MISSION_QUALIFIER+'\n\n'+necessary.scope+'\n\n'+necessary.method+'\n\n'+
  table(['Captured mission or printed profile','Class / km / basis','Draw MWh','Nominal storage MWh','First empty min','Shortage MWh','Pages'],energyShortages.map(r=>[
@@ -200,7 +208,7 @@ Check initial stores, usable energy, reserve, recharge and thermal policy when a
 This would move mission profiles, cycle minutes, rates, peaks and energy, and ultimately an authorised completion predicate. A release-only time change cannot establish full-cycle cost without bag and actuator inputs; no replanning count or universal time/energy factor is asserted here.
 `;
 const closure='# Energy closure, 2026-10-02\n\nNo aircraft has flown. The fleet is simulated. Nothing here says a past fire would have burned differently.\n\n'+
- `${MISSION_QUALIFIER} An infeasible row prices supplied effort along an unsupported profile. Its energy and battery-hours quotient do not establish delivery or endurance.\n\n`+profileTable+'\n'+unheldText+'\n'+
+ `${MISSION_QUALIFIER} An infeasible row prices supplied effort along an unsupported profile. Its energy and battery-hours quotient do not establish delivery or endurance.\n\n`+profileTable+'\n'+zeroSunText+'\n'+unheldText+'\n'+
  'Neither larger class delivers its nameplate payload on the drawn hardware in this search; its delivered and retained figures appear above on both bases.\n\n'+
  '## Full payload where the search finds it\n\n'+MISSION_QUALIFIER+'\n\n'+fullTable+'\n'+'## What would close the gap\n\nFirst consider a slower letdown at lower airspeed and a climb the surplus can drive.\nThen consider water kept aboard, with its cost in delivered tonnes.\nThe battery-and-thrust requirements come next, with their implied mass.\n\n'+reqTable+'\n'+
  'A different vehicle is a separate question. The [payload-exchange study](../research/analysis/payload-exchange.md) is analysis, not design.\n'+

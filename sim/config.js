@@ -36,10 +36,10 @@ export const DEFAULTS = {
    * The 0.81 covers what is left: incidence varying across a curved skin, hot cells on a dark
    * hull, dust from a fire, and conversion losses.
    *
-   * IT IS A 24-HOUR AVERAGE, which makes it honest for energy over a cycle and wrong for power
-   * at an instant: there is no sun at 03:00 and this number says there is 45 W/m2 of it. The
-   * ledger only ever integrates, so the error does not reach any published figure, but the
-   * storage gauge draws it and a night shift is flattered. See OPEN-QUESTIONS #9. */
+   * It is a 24-hour average, credited to instantaneous bus supply before rotor thrust
+   * allocation. It therefore enters force closure as well as the energy integral, and
+   * can change published verdicts. The zero-sunlight record holds the selected controls
+   * and collecting area fixed; no night search was run. See OPEN-QUESTIONS #9. */
   solarWPerM2: 45, // W/m2 of ELECTRICAL output per m2 of projected skin, 24 h averaged
   hoseMul: 1,      // scales every class's hose; the LENGTH is per class, see CLASSES[*].hoseM
   pumpEta: 0.75,   // pump + hose + electrical efficiency, all-in

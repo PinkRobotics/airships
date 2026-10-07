@@ -62,5 +62,9 @@ export function printedProfiles(){
   add({...base,hardware:{anchorBagT:0}},'descent','bag hardware removed',pages);
   add({...base,drawOptions:{anchorCredit:false}},'descent','same path with bag force credit disabled',pages);
  }
+ if(fs.existsSync('research/analysis/energy-zero-sun.json'))for(const r of read('energy-zero-sun').rows){
+  add(r.input,'zero-sunlight sensitivity','selected profile with averaged sunlight',['docs/ENERGY-CLOSURE-2026-10.md']);
+  add({...r.input,config:{solarWPerM2:0}},'zero-sunlight sensitivity','same selected profile with zero sunlight',['docs/ENERGY-CLOSURE-2026-10.md']);
+ }
  return [...unique.values()].map(r=>({...r,pages:[...new Set(r.occurrences.flatMap(o=>o.pages))]}));
 }
