@@ -166,6 +166,7 @@ class Context:
             ('research/reports/03-diligence.md','solar:supply'):'tools/gen_solar_prose.py',
             ('docs/VERIFICATION-PLAN.md','solar:daily'):'tools/gen_solar_prose.py',
             ('research/analysis/mass-budget.md','solar:budget-note'):'tools/gen_solar_budget_comparison.py',
+            ('research/analysis/mass-budget.md','mass-budget:plant-comparators'):'tools/gen_mass_budget_prose.py',
             ('research/analysis/mass-budget.md','solar:budget-comparison'):'tools/gen_solar_budget_comparison.py',
             ('docs/OPEN-QUESTIONS.md','solar:budget-reference'):'tools/gen_solar_budget_comparison.py',
             ('docs/VERIFICATION-PLAN.md','solar:budget-reference'):'tools/gen_solar_budget_comparison.py',

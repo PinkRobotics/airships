@@ -75,7 +75,8 @@ class ClosureConservationTests(unittest.TestCase):
     """Plants live only in disposable copies under the caller's TMPDIR."""
     def copy_and_generate(self, root, old_equation=False):
         for rel in ('research/figures.json', 'research/analysis/mass-budget.py',
-                    'research/analysis/vacuum-cell.py'):
+                    'research/analysis/vacuum-cell.py',
+                    'research/analysis/plant-comparators.json'):
             dest = root / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(gate.ROOT / rel, dest)

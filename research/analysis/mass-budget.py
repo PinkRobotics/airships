@@ -123,8 +123,10 @@ EVIDENCE = {
     # published figure prices one. The range spans skid-mounted industrial practice (about
     # 20 t/MW at the small end) down to a number nobody has any right to assume.
     # NO AIRBORNE FIGURE EXISTS, and the ground figures are far worse than an earlier version
-    # of this table assumed. Stirling StirLIN-2: 34 kW in 2,200 kg = 64.7 t/MW. StirLIN-1
-    # Compact: 71.4 t/MW. Hauser, Johnson & Sutherlin, AIAA 2016-0721,
+    # of this table assumed. The ground StirLIN hardware comparator has supplied cooling,
+    # excluded from its mass and electrical input. Input matching does not match useful
+    # liquid output; plant_comparisons keeps those arithmetic cases separate.
+    # Hauser, Johnson & Sutherlin, AIAA 2016-0721,
     # Table 1, printed p. 3, estimates a Mars-surface oxygen liquefaction system:
     # 136.5 kg including cryocooler and radiator, at 1,990 W input, or 68.6 t/MW.
     # That comparator is not airborne hardware or a flight-qualified mass bound.
@@ -135,7 +137,9 @@ EVIDENCE = {
         "floor": (2.0, "NO SOURCE; 34x lighter than the NASA Mars-surface oxygen "
                        "liquefaction estimate. A stated gift to the budget, not an estimate."),
         "credible": (20.0, "NO SOURCE. A three-fold improvement on ground practice."),
-        "demonstrated": (65.0, "Stirling StirLIN-2, 34 kW in 2,200 kg; comparator: "
+        "demonstrated": (65.0, "Ground StirLIN hardware with supplied cooling, matched by input power; "
+                               "cooling equipment mass and power excluded; this rounded budget "
+                               "allowance does not match the model liquid output. Comparator: "
                                "Hauser et al., Table 1, printed p. 3, estimate 136.5 kg "
                                "at 1,990 W input (68.6 t/MW) for Mars-surface oxygen "
                                "liquefaction, including cryocooler and radiator; not a flight design."),
@@ -385,6 +389,37 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     return lines
 
 
+def plant_comparisons(spec, lift, energy, cycle, assumptions):
+    """Ground module arithmetic; other nominal equipment stays at its floor allowance."""
+    inputs = json.loads((ROOT / "research/analysis/plant-comparators.json").read_text())
+    source = inputs["stirlin"]
+    density = inputs["liquidDensityKgL"]["value"]
+    output_tph = source["usableLitresHour"] * density / 1000
+    input_t_per_mw = source["massKg"] / source["inputKW"]
+    mass_per_output_tph = source["massKg"] / 1000 / output_tph
+    model_output_tph = spec["cryoMW"] / assumptions["eLN2"]
+    original = budget(spec, lift, energy, cycle, "floor", rightsize=False)
+    other_t = sum(x["tonnes"] for x in original
+                  if x["item"] not in ("Cryogenic plant", "Sundries and margin"))
+    def comparison(plant_t):
+        plant_t = round(plant_t, 2)
+        subtotal = other_t + plant_t
+        total = subtotal + round(subtotal * ev("sundries_frac", "floor"), 2)
+        return {"plantT": plant_t, "totalT": round(total, 2),
+                "exceedsAllowance": total > spec["payloadT"]}
+    return {"scope": "Arithmetic on banks of ground modules, not a scaling law, "
+                     "not an airborne estimate and not a lower bound. Cooling is a "
+                     "supplied utility: its mass and power are excluded. Integrated "
+                     "ground storage may overlap the separate tankage allowance. "
+                     "All other nominal equipment stays at its floor allowance.",
+            "source": source, "densityKgL": density,
+            "massPerOutputTph": mass_per_output_tph,
+            "inputTPerMW": input_t_per_mw, "modelOutputTph": model_output_tph,
+            "baselineFloor": comparison(ev("cryo_t_per_mw", "floor") * spec["cryoMW"]),
+            "inputMatched": comparison(input_t_per_mw * spec["cryoMW"]),
+            "outputMatched": comparison(mass_per_output_tph * model_output_tph)}
+
+
 # Blower trains are heavy machines next to flight motors; this is the number the air-ballast
 # line is most sensitive to and it is an estimate, not a source.
 BLOWER_KW_PER_KG = 1.0
@@ -493,6 +528,7 @@ def main() -> None:
             "liftAtWorkAltT": lift["atWorkAltT"],
             "cases": {},
             "rightSized": {},
+            "plantComparisons": plant_comparisons(spec, lift, energy, cycle, fig["assumptions"]),
             "airBallast": air_ballast(spec, lift, energy, fig["assumptions"],
                                       fig["atmosphere"]),
         }

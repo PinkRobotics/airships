@@ -56,13 +56,17 @@ Sizing the battery to three prescribed cycles raises the floor from **216.1 t, 2
 The cycle is infeasible; this energy-based allowance does not establish endurance. The cryogenic plant stays: see the retraction in `air-ballast.md`.
 
 **The cryogenic line is now the second-largest item in the vehicle and the worst-supported.**
-Published skid-mounted liquefiers run about 65 t/MW (Stirling StirLIN-2: 34 kW in 2,200 kg),
-and Hauser, Johnson and Sutherlin's [NASA Mars-surface oxygen liquefaction estimate](https://ntrs.nasa.gov/api/citations/20160004210/downloads/20160004210.pdf),
+The ground StirLIN hardware comparator has supplied cooling and is matched by input power;
+its cooling equipment mass and power are excluded. This does not match useful liquid output.
+Hauser, Johnson and Sutherlin's [NASA Mars-surface oxygen liquefaction estimate](https://ntrs.nasa.gov/api/citations/20160004210/downloads/20160004210.pdf),
 Table 1, printed p. 3, totals 136.5 kg including cryocooler and radiator at 1,990 W input:
 68.6 t/MW. This is a surface-system estimate, not a flight design or an airborne mass bound.
 The floor of 2.0 t/MW in this table is **34× lighter than that estimate** and has no published
-source; it is retained so a reader can see what the budget is given for free. At the
-65 t/MW industrial comparison, the plant alone is 390 t on a 100 t allowance.
+source; it is retained so a reader can see what the budget is given for free. The rounded
+budget allowance and the exact ground comparisons are distinguished below.
+
+<!-- mass-budget:plant-comparators:start -->
+<!-- mass-budget:plant-comparators:end -->
 
 <!-- solar:budget-note:start -->
 The [generated publication comparison](#solar-input-sensitivity-of-the-existing-budget-diagnostic)

@@ -445,6 +445,32 @@ for pressure in ("1.00", "0.50", "0.25", "0.10"):
         + r"[^|]*\|" * 3 + r" {number} atm \|")
 
 
+# Supplied-cooling ground arithmetic: each figure owns its own row and quantity.
+for cid in ("P100", "P1000", "P10000"):
+    for key, label in (("baselineFloor", "Existing nominal floor"),
+                       ("inputMatched", "Supplied cooling; input matched"),
+                       ("outputMatched", "Supplied cooling; output matched")):
+        for field, preceding in (("plantT", ""), ("totalT", r"[^|]*\| ")):
+            path = f"classes/{cid}/plantComparisons/{key}/{field}"
+            MANIFEST.append(("mass-budget.md", "mass-budget", path, ".2f"))
+            CONTEXTS[("mass-budget.md", path)] = (
+                r"^\| " + cid + r" \| " + re.escape(label) + r" \| "
+                + preceding + r"{number} \|")
+for field, fmt, context in (
+    ("source/inputKW", ".0f", r"gives {number} kW input"),
+    ("source/massKg", ".0f", r"input, {number} kg equipment"),
+    ("source/usableLitresHour", ".0f", r"and {number} usable atmospheric litres/hour"),
+    ("inputTPerMW", ".6f", r"input-matched ground ratio is {number} t/MW"),
+    ("densityKgL", ".3f", r"stipulated liquid-density conversion is {number} kg/L"),
+    ("massPerOutputTph", ".6f", r"output-matched ground ratio is {number} t")):
+    path = "classes/P100/plantComparisons/" + field
+    MANIFEST.append(("mass-budget.md", "mass-budget", path, fmt))
+    CONTEXTS[("mass-budget.md", path)] = context
+path = "evidence/cryo_t_per_mw/demonstrated/value"
+MANIFEST.append(("mass-budget.md", "mass-budget", path, ".1f"))
+CONTEXTS[("mass-budget.md", path)] = r"rounded budget allowance is {number} t/MW"
+
+
 def matches(text, want, context=None):
     pattern = numeric_pattern(want)
     if context is not None:
@@ -599,6 +625,10 @@ def main() -> None:
         bad.append('editorial prescribed diagnostics differ from the live model')
     if subprocess.run([sys.executable, '-B', 'tools/gen_editorial_prose.py', '--check'], cwd=ROOT).returncode:
         bad.append('editorial answers differ from their producing records or cooling basis')
+
+    if subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                       '-s', 'tools/tests', '-p', 'test_plant_mass.py'], cwd=ROOT).returncode:
+        bad.append('ground plant output arithmetic or wrong-manifest plant failed')
 
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
