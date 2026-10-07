@@ -779,9 +779,9 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     const alt = Math.max(0, state.altitudeM || 0);
     const fill = clamp01(state.anchorFill || 0);
     const out = clamp01(state.anchorProgress || 0);
-    // A bag with water in it is held clear of the surface — that is what makes it ballast rather
-    // than a thing floating in a lake. The lift ramps in over the last of the fill so the moment
-    // it becomes heavy is the moment it comes out, with no step.
+    // This lift is a display pose, not pickup-clearance or tension validation.
+    // The force model separately assumes held water transfers its weight to the cable.
+    // A below-capacity pickup may never reach this nominal-full lift threshold.
     const clearM = h.podLengthM * 0.9 + 6;
     const lift = clearM * clamp01((fill - 0.80) / 0.20);
     // Altitude places the water relative to the hull-centre origin. The final winch point

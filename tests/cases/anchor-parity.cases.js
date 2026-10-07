@@ -1,19 +1,11 @@
 import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js';
 import { buildLayout } from '../../3d/model/layout.js';
 
-/* The two things that draw the descent anchor must agree about when it moves.
- *
- * `3d/anim/mission.js` → `anchorAt()` drives the WebGL model. `app/anchorview.js` → `anchorView()`
- * draws the schematic avatar beside it. They are separate implementations because the 3D library
- * imports nothing outside itself — a boundary the linter enforces — so neither can call the other
- * and the rule exists twice.
- *
- * That is exactly the arrangement that let the vehicle specification drift between its two copies
- * once already, and it drifted here within a day: the model was moved onto an altitude-derived
- * rule and the avatar was left on a hand-authored curve against phase progress, so the bucket
- * went down in one picture seconds before the other. This file is the same answer
- * `spec-parity.cases.js` gives — compare them, over the whole envelope, rather than trusting a
- * comment that says they match.
+/* Production drawings consume the model's actual held-water inventory and
+ * deployment flag against one nominal installed bag capacity. Real plan states
+ * exercise that path, including a pickup smaller than the bag.
+ * The standalone demonstrations retain a copied geometry rule; its contact and
+ * final winch attachment are checked against independent class geometry here.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
 import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=816a54f9';
@@ -37,6 +29,28 @@ describe('the anchor reads the same in the model and in the avatar', () => {
       close(winch.p[1], 0, 1e-10, 'attachment is centred across the beam');
       close(winch.p[2], -cls.diaM / 2, 1e-10, `${id}: attachment below hull centre`);
     }
+  });
+
+  it('real plan inventory, including a below-capacity plan, drives both drawings', () => {
+    for (const id of CLASS_ORDER) for (const km of [400, 60]) {
+      const cls = CLASSES[id], viz = resolveClass(id);
+      const plan = planCycle(cls, MODES.balanced, km, null, {basis: 'record'});
+      for (const phase of ['WATER_FILL', ...PHASES.filter(p => p !== 'WATER_FILL')]) for (const prog of [0, 0.02, 0.15, 0.3, 0.5, 0.8, 0.99]) {
+        const d = drawAt(cls, MODES.balanced, plan, phase, prog);
+        const state = {phase, prog, alt: d.alt, gs: d.gs, water: d.water,
+          ln2: d.ln2, draw: d.draw || {}, anchorT: d.anchor.tonnes,
+          anchorCableOut: d.anchor.cableP};
+        const expected = Math.min(1, Math.max(0, state.anchorT / cls.anchorBagT));
+        const avatar = anchorView(cls, d.alt, phase, prog, plan.anchorT / cls.anchorBagT, d.gs, state);
+        const model = fromMonitorState(state, cls, viz, {anchorT: plan.anchorT});
+        close(avatar.fillF, expected, 1e-9, `${id}/${km}/${phase}/${prog}: schematic held water`);
+        close(model.anchorFill, expected, 1e-9, `${id}/${km}/${phase}/${prog}: 3D held water`);
+        eq(avatar.cableP, state.anchorCableOut, 'schematic deployment comes from the model');
+        eq(model.anchorProgress, state.anchorCableOut, '3D deployment comes from the model');
+      }
+    }
+    const cls = CLASSES.P100, plan = planCycle(cls, MODES.balanced, 400, null, {basis: 'record'});
+    ok(plan.anchorT < cls.anchorBagT, 'the regression includes a plan below nominal bag capacity');
   });
 
   it('first contact is cable length above the nominal keel, below hull-centre altitude', () => {

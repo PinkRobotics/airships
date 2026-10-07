@@ -766,8 +766,8 @@ export function build(classId, opts = {}) {
       cable.visible = false;
       cable.dynamic = { kind: 'anchorCable', winch: aw.id, seg: 20,
         radius: Math.max(0.22, R * 0.007) };
-      // The bag at unit scale is the FULL bag. The driver scales it down as it empties, so the
-      // thing on screen is always the true size of the water it is holding.
+      // Unit scale represents nominal full capacity. The driver follows actual fill with a
+      // collapsed-fabric size floor, so this is a stylised bag, not a measured water shape.
       const bag = child(water, {
         id: 'AnchorBag', category: 'water', material: 'bag',
         p: [aw.p[0], aw.p[1], aw.p[2] - 2],
