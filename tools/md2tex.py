@@ -312,7 +312,27 @@ def directive(kind: str, arg: str) -> str:
 def convert(md: str, keys: set[str], src: str) -> str:
     # These checked report regions contribute all prose; omit only their delimiters.
     md = re.sub(r'(?m)^<!-- energy:(?:dated-percentages|model-qualification):(?:start|end) -->[ \t]*\n?', '', md)
-    lines = md.split('\n')
+    # Retain every word inside these named report regions. Only balanced exact
+    # whole-line delimiters are removed; unknown or malformed comments still fail.
+    rope = ('<!-- anchor-rope:basis:start -->', '<!-- anchor-rope:basis:end -->')
+    fence_pairs = {
+        '02-paper.md': (rope,),
+        '03-diligence.md': (rope, ('<!-- editorial:drop-hull:start -->', '<!-- editorial:drop-hull:end -->')),
+    }.get(src, ())
+    intervals = []
+    for fences in fence_pairs:
+        if not any(fence in md for fence in fences):
+            continue
+        if any(md.count(fence) != 1 for fence in fences) or md.index(fences[0]) > md.index(fences[1]):
+            raise SystemExit(f'{src}: missing, duplicate or reversed report fence')
+        lines = md.split('\n')
+        if any(fence not in lines for fence in fences):
+            raise SystemExit(f'{src}: report fence must occupy an exact whole line')
+        intervals.append((md.index(fences[0]), md.index(fences[1])))
+    if any(a[1] >= b[0] for a,b in zip(sorted(intervals), sorted(intervals)[1:])):
+        raise SystemExit(f'{src}: overlapping report fences')
+    fence_lines = {fence for pair in fence_pairs for fence in pair}
+    lines = [line for line in md.split('\n') if line not in fence_lines]
     out: list[str] = []
     i, skip_next = 0, False
     while i < len(lines):

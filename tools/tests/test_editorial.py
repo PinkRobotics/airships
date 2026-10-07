@@ -41,3 +41,36 @@ class EvidenceWords(unittest.TestCase):
         self.assertTrue(evidence_errors(['The programme needs tests and the joints are tested.'],self.ledger))
         self.assertTrue(evidence_errors(['No uncertainty remains: the joints have been weighed.'],self.ledger))
         self.assertTrue(evidence_errors(['The model is not final because the joints were weighed.'],self.ledger))
+
+import gen_editorial_prose as editorial
+class ReportFences(unittest.TestCase):
+    def test_known_balanced_report_fences_preserve_prose(self):
+        import md2tex
+        for src,name in [('02-paper.md','anchor-rope:basis'),('03-diligence.md','anchor-rope:basis'),('03-diligence.md','editorial:drop-hull')]:
+            text=f'<!-- {name}:start -->\nA qualified model paragraph.\n<!-- {name}:end -->\n'
+            result=md2tex.convert(text,set(),src)
+            self.assertIn('A qualified model paragraph.',result)
+            self.assertNotIn('<!--',result)
+    def test_unknown_inline_duplicate_reversed_and_unbalanced_fences_fail(self):
+        import md2tex
+        start='<!-- anchor-rope:basis:start -->';end='<!-- anchor-rope:basis:end -->'
+        for src,text in [('02-paper.md',start+'\nMissing end.\n'),('02-paper.md',end+'\nReversed.\n'+start),('02-paper.md',start+'\n'+start+'\nDuplicate.\n'+end),('02-paper.md','Inline '+start+' text '+end),('01-brief.md',start+'\nWrong report.\n'+end),('02-paper.md','<!-- unknown:basis:start -->\nUnknown.\n<!-- unknown:basis:end -->')]:
+            with self.subTest(src=src,text=text):
+                with self.assertRaises(SystemExit):md2tex.convert(text,set(),src)
+
+class CurrentHull(unittest.TestCase):
+    def test_lengths_follow_record_mutation(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
+            root=Path(folder);f='research/analysis/energy-documents.json';p=root/f;p.parent.mkdir(parents=True)
+            for name in ('editorial-controls','mass-budget','descent','release-states'):
+                q=root/('research/analysis/'+name+'.json');q.write_bytes((editorial.ROOT/q.relative_to(root)).read_bytes())
+            j=json.loads((editorial.ROOT/f).read_text());j['classes'][0]['lengthM']=123;j['classes'][-1]['lengthM']=567;p.write_text(json.dumps(j))
+            s=editorial.sections(root)
+            self.assertIn('123 m reference hull',s['certification']);self.assertIn('567 m',s['drop-hull']);self.assertIn('567 m',s['turbulence'])
+    def test_current_cooling_location(self):self.assertEqual(editorial.cooling_errors(),[])
+    def test_original_cooling_premise_is_red(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
+            root=Path(folder)
+            for f in ('docs/VERIFICATION-PLAN.md','research/analysis/mass-budget.md'):
+                p=root/f;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('What do drives need to reject heat with no convection?')
+            self.assertTrue(editorial.cooling_errors(root))

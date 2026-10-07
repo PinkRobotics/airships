@@ -108,5 +108,27 @@ class SolarMarkers(unittest.TestCase):
             md2tex.inline('85% <!-- solar:unknown:start -->', set(), 'report')
 
 
+class EditorialRegionMarkers(unittest.TestCase):
+    def test_exact_checked_fences_preserve_ordered_list_and_prose(self):
+        plain = '1. First item\n2. Current configured hull\n3. Final item'
+        marked = ('1. First item\n<!-- editorial:drop-hull:start -->\n'
+                  '2. Current configured hull\n<!-- editorial:drop-hull:end -->\n3. Final item')
+        self.assertEqual(md2tex.convert(marked, set(), '03-diligence.md'),
+                         md2tex.convert(plain, set(), '03-diligence.md'))
+
+    def test_unknown_inline_unbalanced_and_wrong_report_fences_fail(self):
+        start = '<!-- editorial:drop-hull:start -->'
+        end = '<!-- editorial:drop-hull:end -->'
+        valid = start + '\nCurrent configured hull\n' + end
+        cases = [(valid, '02-paper.md'), (start + '\nHull', '03-diligence.md'),
+                 (valid + '\n' + end, '03-diligence.md'),
+                 (end + '\nHull\n' + start, '03-diligence.md'),
+                 (start + ' Hull ' + end, '03-diligence.md'),
+                 ('<!-- editorial:unknown:start -->Hull', '03-diligence.md')]
+        for text, source in cases:
+            with self.subTest(text=text, source=source), self.assertRaises(SystemExit):
+                md2tex.convert(text, set(), source)
+
+
 if __name__ == '__main__':
     unittest.main()

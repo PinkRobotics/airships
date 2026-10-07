@@ -61,7 +61,7 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 |---|---|---|---|
 | 13 | Do the fires have water? | The mapped shoreline screen is a geometric result, not proof of usable water. The [station study](../research/analysis/water-availability.md) records selected-source refusals, detours and invented exercise legs. Depth, permissions, replenishment, intake access and hull clearance remain unresolved. | `water-availability.json`, `water-availability.md` |
 | — | Is the published throughput representative? | **Conservative by 1.9×** — but see the vertical-profile caveat below. | `water-availability.md` |
-| 0, 4 | Can we delete the cryogenic plant? | **No — retracted.** A sealed-cell hull has no way to ballast with air. The plant is the only emergency ballast source there is. | `air-ballast.md` |
+| 0, 4 | Can we delete the cryogenic plant? | **Open for the current architecture.** The first-generation sealed-cell hull could not admit air as ballast; its retraction is retained. The current raft-and-membrane layout has no record settling the emergency-ballast choice. | `air-ballast.md` |
 | — | Is the nitrogen needed in the *normal cycle*? | **No.** The anchor already holds the descent with 21.5× margin. The routine make costs **52.5% / 36.4% / 16.6%** of cycle energy and is invisible inside a line labelled "return transit". | `air-ballast.md` |
 | 3, 14, 15 | What does the letdown cost? | **30–54× more than published**; +50 to +92% on cycle energy. The anchor saves 4.7–49.2%, not 96%, because the cable is in the water for only 4–46% of the fall. | `descent.md` |
 | 8 | Is `diskM2` inert? | **No — reopened.** It was retired on a measurement taken against a letdown 53× too small. Doubling the disc now saves 9.9% of the cycle. | `descent.md` |
@@ -243,9 +243,9 @@ be fatal:
    modelled. **Every 24-hour figure in this folder is a claim about the aircraft, not about a
    system shown to supply it.**
 <!-- solar:daily:end -->
-4. **Certification and airspace.** No airworthiness basis exists for a 200 t uncrewed 190 m
-   aircraft. The repo names ICAO, FAA and EASA and never names Transport Canada, CARs, NAV
-   CANADA, BVLOS or RPAS.
+<!-- editorial:certification:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:certification:end -->
 5. **Competing with the existing fleet for the same lakes.** CL-415s scoop the water this
    vehicle drafts from, and a hull holding station takes a lake out of their rotation.
 6. **Icing, lightning, hail, gust loading, noise, and the cost of anything.** All named nowhere,

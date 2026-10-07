@@ -91,7 +91,7 @@ export function stateAt(m, tRaw) {
        * A station-keeping ship has no track to take a bearing from, and leaving it at the
        * default sent the hull snapping to due north going in and again coming out — the worst
        * seam on the page. It used to fix that by turning onto the departure heading over the
-       * last third of the fill, which solved the seam and created something worse: an 876 m
+       * last third of the fill, which solved the seam and created something worse: the largest configured
        * hull yawing with a hose, a pump pod and an anchor cable all hanging in the water under
        * it. That is how you tangle lines.
        *

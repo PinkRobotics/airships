@@ -231,7 +231,7 @@ export function phaseShape(cls, phase, prog, opts = {}) {
       s.verticalSpeedMps = lerp(5.5, 1.5, p);
       s.waterFraction = 0; s.ln2Fraction = ln2Low;
       // NOSE UP, VISIBLY. This is the one moment in the cycle the hull is being thrown rather
-      // than flown, and 2.6 degrees of pitch did not read as anything at all against an 876 m
+      // than flown, and 2.6 degrees of pitch did not read as anything at all against the largest configured
       // body. 6 degrees at the moment of release, easing off as the climb is arrested — still
       // inside what a hull this size would do, and now legible.
       s.attitude = { rollRad: 0, pitchRad: 0.105 * Math.pow(1 - p, 0.7), yawRad: 0 };

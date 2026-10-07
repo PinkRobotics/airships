@@ -240,7 +240,7 @@ describe('state · continuity across every phase seam', () => {
 
   it('nothing yaws while there is line in the water', () => {
     /* The fill used to turn onto the departure heading over its last third, which fixed a seam
-     * and created something worse: an 876 m hull rotating with a hose, a pump pod and an anchor
+     * and created something worse: the largest configured hull rotating with a hose, a pump pod and an anchor
      * cable all hanging in the lake. That is how lines tangle. The turn lives in the climb-out
      * now, after the pod is clear. */
     for (const id of CLASS_ORDER) {

@@ -87,7 +87,7 @@ export function resetConfig() {
  *
  * `drop` used to be lower than the pickup, which had the ship flying its most dangerous
  * minutes closer to the ground than its calmest ones. It is a fire: the column is turbulent,
- * the terrain is not flat, and an 876 m hull cannot manoeuvre out of a surprise. 450 m puts
+ * the terrain is not flat, and the largest configured hull cannot manoeuvre out of a surprise. 450 m puts
  * the P-10000's keel ~350 m over the canopy, above the worst of the fire's own air, and gives
  * the drop the fall it needs to arrive as rain instead of a column.
  */
@@ -239,15 +239,15 @@ export const VZ_MAX = 6;
  * Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records.
  * anchor-rope:basis:end
  *
- * NOT MODELLED, and material: 1,056 t swinging on one cable under an 876 m hull is a pendulum
+ * NOT MODELLED, and material: 1,056 t swinging on one cable under the largest configured hull is a pendulum
  * nobody here has analysed, the bag has to survive being filled and dumped every cycle, and
  * the winch is assumed to run at 5 m/s in both directions. See docs/OPEN-QUESTIONS.md.
  */
 /* THE REFERENCE VEHICLE, named once so nothing has to guess.
  *
  * The P-100 is the class the documents work through, the class the monitor opens on, and the
- * only one of the three smaller than something that has already flown — 190 m against the
- * Hindenburg's 245. The other two exist because energy per tonne falls with size and because we
+ * reference of the three configured classes; their current dimensions are read from CLASSES.
+ * Historical aircraft comparisons do not establish flight evidence for this fleet. The other two exist because energy per tonne falls with size and because we
  * wanted to know what stops you; the answer is the descent, and it is in docs/PHYSICS.md §7.
  * Neither is a proposal, and a page that opens on the largest of them says otherwise before a
  * word is read. */

@@ -610,8 +610,9 @@ tool rather than a resolution.
    are closed, and §4.4 changes what the product is rather than whether it can exist.
 2. **A battery at ≥200 Wh/kg pack level, with the rest of the vehicle free.** Not available; the pack NASA
    built reached 149, and NASA sees no clear path past 500.
-3. **A drop from a height an 512 m hull can safely use that still arrives as water.** Currently
-   contradicted by USFS guidance. Needs droplet physics and, eventually, a drop test.
+<!-- editorial:drop-hull:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:drop-hull:end -->
 4. **A 12,400 t suspended bag, its cable, its pendulum dynamics, and hull station-keeping over
    water in wind.** The mechanism is sound in principle and unbuilt at 1,265× the precedent.
 5. **An interconnection.** ~50 MW continuous per large ship, in a 13.4 GW province, during peak

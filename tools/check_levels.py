@@ -102,6 +102,12 @@ PROBE = r"""(async () => {
     const {CLASSES} = await import('/sim/config.js');
     for (const entry of out.classLengths) entry.expected = CLASSES[entry.key].lenM;
   }
+  const ladder=document.querySelector('#ladder');
+  if(ladder){
+    const {CLASSES}=await import('/sim/config.js');
+    out.referenceLadder={value:ladder.querySelector('text:nth-of-type(2)')?.textContent,
+      expected:CLASSES.P100.lenM};
+  }
   return out;
 })()"""
 
@@ -138,6 +144,10 @@ def check_page(page, td, base) -> tuple[list[str], int]:
             bad.append(f"cell calculator {case['material']}: sizing formula presented as a floating cell")
         if "do not establish" not in case["breach"]:
             bad.append(f"cell calculator {case['material']}: breach estimate missing its limitation")
+    if res.get('referenceLadder'):
+        entry=res['referenceLadder']
+        if entry['value']!=f"{entry['expected']} m":
+            bad.append('reference hull scale ladder differs from the configured model')
     for entry in res.get("classLengths", []):
         if float(entry["value"].replace(",", "")) != round(entry["expected"]):
             bad.append(f"class length {entry['key']} does not match its configured capsule")

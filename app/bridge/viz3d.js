@@ -196,7 +196,7 @@ export function updateM3D(m, st) {
        * on a P-10000 is 640 m during the approach — more than half a hull length.
        *
        * Capped at 0.7 of the hull, because framing the full drop from 790 m would shrink an
-       * 876 m airship to a splinter. Past the cap the cable does leave frame, which is the
+       * configured large airship to a splinter. Past the cap the cable does leave frame, which is the
        * honest reading of "the lake is a long way down" rather than a missing component. */
       const cable = c3.anchorCableM || 0;
       const anchorOut = cable > 0 && st.alt <= anchorGeometry(cable, m.cls.diaM).contactAltitudeM + cable * 0.25

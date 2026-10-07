@@ -591,6 +591,9 @@ def main() -> None:
     if subprocess.run(['node', 'tools/gen_anchor_budget_notes.mjs', '--check'], cwd=ROOT).returncode:
         bad.append('anchor budget notes differ from current mass-budget records')
 
+    if subprocess.run([sys.executable, '-B', 'tools/gen_editorial_prose.py', '--check'], cwd=ROOT).returncode:
+        bad.append('editorial answers differ from their producing records or cooling basis')
+
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
     physics = (ROOT / "docs/PHYSICS.md").read_text()

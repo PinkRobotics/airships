@@ -252,7 +252,7 @@ describe('plan · rates', () => {
 describe('plan · the mechanisms the copy describes', () => {
   it('the drop is ONE run, flown slowly, not repeated passes', () => {
     /* It used to shuttle: three passes for a P-10000, an odd count so the run still ended at
-     * the far end. Every turn is an 876 m hull reversing over the fire it is dropping on, and
+     * the far end. Every turn is the largest configured hull reversing over the fire it is dropping on, and
      * the water lands on the same line either way — the turns were pure overhead, 4.3 minutes
      * of a 49.8 minute cycle. One pass, flown at the rate the sprayers meter: about 22 km/h. */
     resetConfig();

@@ -137,11 +137,16 @@ The deepest hierarchy level costs 16.9 times the hydrogen break-even.
 
 No modelled M60J hierarchy level reaches unity at working altitude. These are unbuilt formula results, not measured hull performance.
 
-**THE HULL IS NOT ONE ENVELOPE. It is many permanently sealed vacuum cells**, and this
-document did not say so until 2026-08-10, which is long enough for it to have caused a
-mistake — an analysis proposed ballasting by admitting air, which a sealed-cell hull cannot
-do, and the retraction is at `research/analysis/air-ballast.md`. The model has no geometry
-below `dispM3`, so nothing in the code implies it either.
+<!-- editorial:current-hull:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:current-hull:end -->
+
+**THE HULL IS NOT ONE ENVELOPE** describes the first-generation cell-array architecture
+recorded here on 2026-08-10: many permanently sealed vacuum cells. This architecture is
+superseded by the drawing described above. Its analysis proposed ballasting by admitting air,
+which a sealed-cell hull cannot do; the retraction remains at `research/analysis/air-ballast.md`.
+The following cell-array discussion belongs to that first-generation study. The mission
+model represents displacement and allowances, not a structurally checked drawing.
 
 **Nothing lives inside a cell.** Machinery sits in ambient-pressure bays *within the hull*,
 surrounded by cells, bolted to a structure the cells are themselves part of. The cells pull
@@ -150,14 +155,14 @@ intended cell is a space-filling near-spherical solid whose walls are printed to
 to carry services between neighbours — lighter-than-air building blocks that are stronger
 assembled than alone, so the array is the substructure and much of the superstructure too.
 
-Four consequences, and they are not small:
+Four consequences of the first-generation cell-array architecture:
 
 - **There is no valve, and cracking a cell open is irreversible in the field.** Nothing aboard
   can expel an atmosphere once it is admitted. Ballast therefore has to be *made* — which is
   what the cryogenic plant is for, and why it cannot be deleted.
 - **The buckling radius is the cell's, not the hull's.** Every vacuum design in the literature
   is a sphere because a sphere is optimal against external pressure, and the first study used
-  fineness-4 spheroids. The current configured hulls are capsules. On a monocoque that penalty is severe enough to be fatal
+  fineness-4 spheroids. On a monocoque that penalty is severe enough to be fatal
   (see `research/analysis/mass-budget.md`). With small cells the outer body becomes a fairing
   and the penalty largely goes away. **This is the reason the shape of the ship and the shape
   of its pressure vessels are allowed to differ.**
@@ -604,9 +609,9 @@ Listed so nobody has to discover them by reading code.
   transit times only, clamped to between 0.35× and 1.8× airspeed. No vertical motion, no
   shear, no gusts, no icing, no convective column, no diurnal cycle. Altitude profiles are
   unaffected by wind entirely.
-- **Turbulence and gust loading.** An 876 m hull in the convective column over a fire is a
-  structural and control problem the model does not represent. The 450 m drop altitude was
-  chosen with that in mind and is a guess.
+<!-- editorial:turbulence:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:turbulence:end -->
 - **Fire behaviour.** Nothing in the model says whether a fire grows, spreads or is
   contained. Water delivered is not fire extinguished, and no suppression effectiveness is
   claimed, modelled or implied. Fire size and perimeter are read from the provincial feed

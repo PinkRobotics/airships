@@ -134,6 +134,16 @@ class Context:
                         region=region,source='research/analysis/energy-motion.json'), 'energydoccheck'
         if occ['file']=='research/analysis/fleet-envelope.md' and region=='fleet-envelope:summary':
             return dict(kind='generated',generator='tools/gen_operations_records.py',region=region), 'servedenergycheck'
+        if region and region.startswith('editorial:'):
+            import gen_editorial_prose as editorial
+            name=region.split(':',1)[1]
+            assembly={'assembly-status','assembly-demand','assembly-failures','assembly-geometry'}
+            if name in assembly and occ['file']=='research/analysis/vacuum-cell.md':
+                return dict(kind='generated',generator='tools/gen_assembly_prose.py',region=region), 'analysischeck'
+            if name=='joint-bill' and occ['file']=='docs/VERIFICATION-PLAN.md':
+                return dict(kind='generated',generator='tools/gen_assembly_prose.py',region=region), 'analysischeck'
+            if editorial.CONTRACTS.get(name)==occ['file']:
+                return dict(kind='generated',generator='tools/gen_editorial_prose.py',region=region), 'analysischeck'
         checked_regions = {
             ('research/analysis/air-ballast.md','anchor-budget:nitrogen-table'):'tools/gen_anchor_budget_notes.mjs',
             ('research/analysis/air-ballast.md','anchor-budget:nitrogen-current'):'tools/gen_anchor_budget_notes.mjs',

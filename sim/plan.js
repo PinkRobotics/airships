@@ -121,7 +121,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
    * the ship covers the line once in that time or shuttles over it.
    *
    * It used to shuttle: three passes for a P-10000, an odd count so the run still ended at the
-   * far end. Every turn is an 876 m hull reversing over a fire it is dropping on, which is the
+   * far end. Every turn is the largest configured hull reversing over a fire it is dropping on, which is the
    * least plausible manoeuvre in the cycle and buys nothing — the water lands on the same line
    * either way. So the pass count is 1 and the ship simply flies slower: 10,000 t along a 4 km
    * line takes 11 minutes, which is about 22 km/h. A crawl, and a crawl is what a machine laying
