@@ -48,7 +48,7 @@
   for (const id of Q.CLASS_ORDER) for (const mode of Object.keys(Q.MODES).sort())
     for (const km of [5, 15, 30, 60, 120]) for (let w = 0; w < WINDS.length; w++) {
       const p = Q.planCycle(Q.CLASSES[id], Q.MODES[mode], km, WINDS[w]);
-      out.plans.push({ cls: id, mode, km, wind: w,
+      out.plans.push({ cls: id, mode, km, wind: w, windBasis: p.windBasis,
         cycleMin: R(p.cycleMin), tph: R(p.tph), eCycleMWh: R(p.eCycleMWh),
         kwhPerTonne: R(p.kwhPerTonne), retainedT: R(p.retainedT), deliveredT: R(p.deliveredT),
         passes: p.passes, downMW: R(p.downMW), ln2MakeT: R(p.ln2MakeT), eBack: R(p.eBack),
@@ -62,7 +62,7 @@
   out.fleet = act.map(m => ({ name: m.name, cls: m.cls.id, fire: m.fire.id,
     sizeHa: R(m.fire.sizeHa, 3), status: m.fire.status, src: m.water && m.water[4],
     oneWayKm: R(m.oneWayKm), legKm: R(m.legKm), cycleSec: R(m.cycleSec),
-    tph: R(m.plan.tph), passes: m.plan.passes, stations: (m.stations || []).length,
+    tph: R(m.plan.tph), windBasis: m.plan.windBasis, passes: m.plan.passes, stations: (m.stations || []).length,
     targets: (m.targets || []).length, heat: !!m.heat, offset: R(m.offset) }));
   out.idle = APPSTATE.missions.filter(m => m.idle).length;
   out.uncovered = APPSTATE.uncovered;

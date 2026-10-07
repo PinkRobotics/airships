@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {CLASSES,MODES,planCycle} from '../sim/index.js';
-const files=['research/analysis/fleet-route-control-seeds.json','sim/config.js','sim/atmosphere.js','sim/physics.js','sim/power.js','sim/profile.js','sim/plan.js','sim/requirements.js','sim/operating-margin.js'];
+const files=['research/analysis/fleet-route-control-seeds.json','sim/config.js','sim/atmosphere.js','sim/physics.js','sim/power.js','sim/profile.js','sim/plan.js','sim/wind.js','sim/requirements.js','sim/operating-margin.js'];
 const strip=s=>s.replace(/(\.m?js)\?v=[A-Za-z0-9_.-]+(['"])/g,'$1$2');
 const hashes=Object.fromEntries(files.map(file=>[file,crypto.createHash('sha256').update(strip(fs.readFileSync(file,'utf8'))).digest('hex')]));
 const pool={P100:[],P1000:[],P10000:[]};

@@ -12,6 +12,8 @@ import { S } from '../store.js?v=31a23fa3';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
+import {windBasis} from '../../sim/wind.js';
+
 const polygonWords = () => S.daySource === "live" ? "current polygon" : "published polygon";
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
@@ -172,7 +174,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ? '<button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(-1)">← phase</button> <button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(1)">phase →</button>'
       : "";
     requestAnimationFrame(sizeAvatar);
-    O.innerHTML = `<p class="cycnote" data-plan-wind>Routes: ${m.plan.windUsed ? "wind-informed legs and selected vertical profile." : "wind not measured; still-air plan."}</p><div class="ops3">
+    O.innerHTML = `<p class="cycnote" data-plan-wind>Routes: ${m.plan.windUsed ? "wind-informed legs via the wind triangle; timing informs the vertical profile." : "wind not measured; still-air plan."}</p><div class="ops3">
       <div><h4>Operation · ${S.exercise ? "exercise · invented fire" : S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id) + " <small>" + esc(f.id) + "</small>", "live"],
         ...(!S.exercise && f.geo ? [["record description", esc(f.geo), "live"]] : []),
@@ -195,7 +197,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     </div>`;
     $("opsCycle").innerHTML = cycleBar(m, null) +
       `<p class="cycnote" id="opsNow"></p>` +
-      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))}</p><p class="cycnote"><span data-planned-mode="${m.mode.id}">Planned ${esc(m.mode.label.toLowerCase())} mode</span> · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${MODEL_STATUS} ${FEASIBILITY_SCOPE} ${diagnosticNotes(m.cls,m.legKm,m.selection,m.wind??null).join(". ")}</p>`;
+      `<p class="cycnote">${figure(m,"tph",m.plan.tph,fmt(m.plan.tph))} t/h to this fire · ${esc(windBasis(m.plan))} ${cycleEnergyText(energyComparison(m.cls,m.mode,m.legKm,m.wind,m.plan))}</p><p class="cycnote"><span data-planned-mode="${m.mode.id}">Planned ${esc(m.mode.label.toLowerCase())} mode</span> · water requested ${figure(m,"requestedT",m.cls.payloadT,fmtT(m.cls.payloadT))} · kept aboard ${figure(m,"retainedT",m.plan.retainedT,fmtT(m.plan.retainedT))} · delivered ${figure(m,"deliveredT",m.plan.deliveredT,fmtT(m.plan.deliveredT))} per cycle. Altitude, airspeed and phase times follow the selected plan; map tracks are schematic. No aircraft has flown.</p><p class="cycnote">${MODEL_STATUS} ${FEASIBILITY_SCOPE} ${diagnosticNotes(m.cls,m.legKm,m.selection,m.wind??null).join(". ")}</p>`;
     $("opsNarr").innerHTML = ["LAST", "NOW", "NEXT", "PLAN"].map((kk, i) =>
       `<div class="n-row"><span class="n-k${kk === "NOW" ? "" : " past"}">${kk}</span><p class="n-b" id="opsN${i}"></p></div>`).join("");
     $("cpForces").innerHTML = '<dl class="kv">' + [
@@ -239,7 +241,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
             ["water source", esc(srcName(mm)), "sim"],
             ["planned leg", mm.legKm.toFixed(1) + " km", "sim"],
             ["cycle", fmtMin(mm.plan.cycleMin), "sim"],
-            ["per hour", fmt(mm.plan.tph) + " t <small>(" + fmt(mm.plan.tph * 1000) + " L)</small>", "sim"],
+            ["per hour", fmt(mm.plan.tph) + " t <small>(" + fmt(mm.plan.tph * 1000) + " L)</small><small>" + esc(windBasis(mm.plan)) + "</small>", "sim"],
           ]) + `<p style="margin-top:var(--s3)"><button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:6px 12px;background:none;color:var(--faint);cursor:pointer" onclick="APP.selShip()">Open the cockpit →</button></p>`) +
       (S.recordOnly ? "" :
       `<p style="margin-top:var(--s3);font-size:var(--t-11);color:var(--faint)">Nothing under “Simulated response” is an operational recommendation, and none of it says whether this fire grows or is contained. ${FEASIBILITY_SCOPE} ${mm&&!mm.idle?diagnosticNotes(mm.cls,mm.legKm,mm.selection,mm.wind??null).join(". "):""}</p>`) + `</div>
@@ -360,7 +362,7 @@ export function updateCockpit() {
     }
     put("fvA", fmt(st.alt) + " m <small>nominal</small>");
     put("fvWd", m.wind ? fmt(m.wind.spd) + " km/h from " + fmt(m.wind.dir) + "°" : "unavailable");
-    put("fvG", m.plan.windUsed ? "out " + fmt(m.plan.gsOut) + " · back " + fmt(m.plan.gsRet) + " km/h" : fmt(m.plan.gsOut) + " km/h still air");
+    put("fvG", m.plan.windUsed ? "out " + fmt(m.plan.gsOut) + " · back " + fmt(m.plan.gsRet) + " km/h · wind triangle" : fmt(m.plan.gsOut) + " km/h still air");
     put("fvH", st.phase === "WATER_FILL" ? "station-keeping — holds position exactly" : "en route");
   }
 }

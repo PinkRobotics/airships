@@ -75,3 +75,71 @@ test('stipulated tailwind passes the former upper bound without substituting spe
   for(const id of ['OUTBOUND_TRANSIT','RETURN_TRANSIT'])
     almost(drawAt(CLASSES.P100,MODES.rapid,p,id,.5).airV*3.6,103.5);
 });
+
+
+import {readFileSync} from 'node:fs';
+const cross = spd => ({spd,dir:0,bearing:90});
+test('saved forecast magnitude on a representative crosswind route uses triangle timing', () => {
+  const capture=JSON.parse(readFileSync(new URL('./fixtures/wind-response.json',import.meta.url)))[0];
+  const spd=capture.hourly.wind_speed_850hPa[0], dir=capture.hourly.wind_direction_850hPa[0];
+  const w={spd,dir,bearing:(dir+90)%360}; // Rotate representative track; no incident reconstruction.
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,w,controls);
+  const speed=Math.sqrt(103.5**2-spd**2);
+  almost(p.gsOut,speed);almost(p.gsRet,speed);
+  almost(p.gsOut,91.538844264,1e-6);
+  almost(p.cycleMin,13.897366,1e-6);
+  almost(p.tph*24,5180.837776,1e-6);
+  assert.match(p.windBasis,/one pressure-level wind vector per route; straight level legs; no shear, turns, gusts or vertical air motion/);
+  for(const id of ['OUTBOUND_TRANSIT','RETURN_TRANSIT'])
+    almost(drawAt(CLASSES.P100,MODES.rapid,p,id,.5).airV*3.6,103.5);
+});
+test('stipulated cross_120 and equality refuse the selected slower track', () => {
+  for(const spd of [120,103.5]){
+    const p=planCycle(CLASSES.P100,MODES.rapid,legKm,cross(spd),controls);
+    assert.equal(p.trackPossible,false);
+    assert.match(p.trackReason,/crosswind.*selected airspeed/);
+    assert.equal(p.tph,null);
+  }
+});
+test('stipulated sub-airspeed pure crosswind lowers both ground speeds equally', () => {
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,cross(36),controls);
+  almost(p.gsOut,Math.sqrt(103.5**2-36**2));almost(p.gsRet,p.gsOut);
+  assert.ok(p.gsOut<103.5);
+});
+test('zero wind leaves every numeric field identical to the still-air plan', () => {
+  const still=planCycle(CLASSES.P100,MODES.rapid,legKm,null,controls);
+  const zero=planCycle(CLASSES.P100,MODES.rapid,legKm,cross(0),controls);
+  const numbers = value => Array.isArray(value)?value.flatMap(numbers):value&&typeof value==='object'
+    ?Object.keys(value).sort().flatMap(k=>numbers(value[k])):typeof value==='number'?[value]:[];
+  assert.deepEqual(numbers(zero),numbers(still));
+});
+
+
+test('searched profile carries both wind components and charges the full air vector', () => {
+  const options={...controls,verticalProfile:{climbRateMps:2,letdownRateMps:2,climbAirspeedMps:5,letdownAirspeedMps:5}};
+  const p=planCycle(CLASSES.P100,MODES.rapid,50,cross(36),options);
+  for(const id of ['OUTBOUND_TRANSIT','RETURN_TRANSIT']){
+    const leg=p.profile.legs[id];almost(Math.abs(leg.crosswindMps),10);
+    const segments=p.profile.phases[id],level=segments.find(s=>s.from===s.to);
+    assert.ok(level);
+    almost(level.airspeedMps,Math.sqrt(103.5**2-36**2)/3.6);
+    const before=segments.slice(0,segments.indexOf(level)).reduce((n,s)=>n+s.seconds,0);
+    const progress=(before+level.seconds/2)/(p.dur[id]*60);
+    almost(drawAt(CLASSES.P100,MODES.rapid,p,id,progress).airV*3.6,103.5);
+  }
+});
+test('stipulated wind at selected airspeed cannot gain round-trip progress from rounding', () => {
+  const V=CLASSES.P100.cruiseKph*MODES.rapid.speed;
+  for(const dir of [3,13,30,45,90,180,270]) {
+    const p=planCycle(CLASSES.P100,MODES.rapid,legKm,{spd:V,dir,bearing:90},controls);
+    assert.equal(p.trackPossible,false,`stipulated direction ${dir}`);
+    assert.match(p.trackReason,/crosswind|ground speed|wind magnitude/);
+    assert.equal(p.tph,null);
+  }
+});
+test('nonzero wind with unsupported whole-phase dilation is refused with a reason', () => {
+  const p=planCycle(CLASSES.P100,MODES.rapid,legKm,along(36),{...controls,movingPhaseRateMultiplier:.5});
+  assert.equal(p.trackPossible,false);
+  assert.match(p.trackReason,/whole-phase dilation.*no represented track/);
+  assert.equal(p.tph,null);
+});

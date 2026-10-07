@@ -261,10 +261,13 @@ export function loadAt(cls, plan, id, prog, cryoFrac) {
     ground speed is the day's; everywhere else no wind is applied to the rotors (a stated
     simplification — a wind through the disks would lower the induced power, not raise it). */
 function airV(cls, mode, plan, id, prog, gs) {
-  if(plan.profile?.phases[id])return profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60).airV;
+  if(plan.profile?.phases[id]) {
+    const point=profilePoint(plan.profile.phases[id],prog*plan.dur[id]*60);
+    return Math.hypot(point.airV,plan.profile.legs[id]?.crosswindMps||0);
+  }
   // Use the actual wind, never a difference recovered from a timing bound.
-  if (id === "OUTBOUND_TRANSIT") return Math.abs(gs - (plan.tailOut || 0)) / 3.6;
-  if (id === "RETURN_TRANSIT") return Math.abs(gs + (plan.tailOut || 0)) / 3.6;
+  if (id === "OUTBOUND_TRANSIT") return Math.hypot(gs - (plan.tailOut || 0), plan.crossOut || 0) / 3.6;
+  if (id === "RETURN_TRANSIT") return Math.hypot(gs + (plan.tailOut || 0), plan.crossOut || 0) / 3.6;
   return gs / 3.6;
 }
 

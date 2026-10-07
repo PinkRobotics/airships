@@ -151,6 +151,21 @@
    if(!row?.textContent.includes('return leg has no positive ground speed')||row.querySelector('[data-energy-fleet-fire]'))
     throw new Error('fleet totals lost track refusal or count refused rate');
   }finally{S.missions.pop();S.fires.pop();tables.renderRoster();tables.renderFires();}
+  // Saved forecast magnitude on a representative perpendicular route; no service request.
+  const forecast=(await (await fetch('tests/firstparty/fixtures/wind-response.json')).json())[0];
+  const forecastDir=forecast.hourly.wind_direction_850hPa[0];
+  const crossWind={spd:forecast.hourly.wind_speed_850hPa[0],dir:forecastDir,bearing:(forecastDir+90)%360};
+  const crossSelection=SIM.selectServedPlan(SIM.CLASSES.P100,4.71,crossWind,'balanced');
+  if(crossSelection.state!=='ready')throw new Error('crosswind rate fixture unavailable');
+  const crossMission={...seed,name:'Triangle rate fixture',cls:SIM.CLASSES.P100,mode:SIM.MODES[crossSelection.mode],
+   legKm:4.71,wind:crossWind,selection:crossSelection,plan:crossSelection.plan,planState:'ready',idle:false,served:true};
+  S.missions.push(crossMission);
+  try{
+   window.APP.selRow(S.missions.length-1);
+   const words=document.querySelector('#opsCycle')?.textContent||'';
+   for(const basis of ['pressure-level wind vector per route','straight level legs','no shear, turns, gusts or vertical air motion'])
+    if(!words.includes(basis))throw new Error('windy rate lacks its basis: '+basis);
+  }finally{S.missions.pop();}
   // A fresh capture replaces mission objects. A retired selection must not publish
   // its old numbers while the replacement mission is being planned at new inputs.
   const savedMissions=S.missions;

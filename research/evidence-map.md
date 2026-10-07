@@ -133,7 +133,7 @@ Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break
 | `passes` | 1 | literal in `plan.js` | **ASSUMED**, honestly | A literal, correctly described as one. The reasoning for going from three passes to one — an 876 m hull should not reverse over the fire it is dropping on, and the water lands on the same line either way — is sound. |
 | `dropKm` | 1.2 / 2.5 / 5 km | `CLASSES[*]` | **ARBITRARY**, currently inert | Bounded above by `dropSeg()` shrinking the line to fit the fire, which is a real constraint; the values themselves are chosen. |
 | `VZ_MAX`, `altTop`, the 0.30 climb factor | 6 m/s; `min(1500, 300 + 108·t_short)` | `config.js`, `state.js` | **ARBITRARY** | The *shape* is right — a ship does not climb to 1 500 m on a two-minute hop — and the fix it replaced (a P-1000 diving at 44 m/s) was real. The constants are picked. |
-| wind treatment | along-track component, clamped 0.35–1.8× airspeed | `planCycle()` | **PHYSICS** (vector projection) on **CITED** data (Open-Meteo 850 hPa) + **ARBITRARY** clamps | The projection is correct and the leg asymmetry is tested. One vector per route, no vertical motion, no shear — stated in §12 of `PHYSICS.md`. The clamps are unjustified. |
+| wind treatment | Wind-triangle timing with track refusal | `sim/wind.js`, `planCycle()` and `power.js` | **PHYSICS** (straight-track wind triangle) on a supplied pressure-level vector | This row is maintained with the current model: crosswind cancellation reduces forward air progress, and a track with no positive ground speed at selected airspeed is refused. The power calculation uses the full air vector. No shear, turns, gusts or vertical air motion are represented. |
 | `mode` multipliers | speed 1.15/1.0/0.8, hose, climb, cryoShare, fixed | `MODES` | **ARBITRARY** | Twelve unjustified numbers. A test in `sim-plan.cases.js` says outright that "the mode ordering has flipped five times and is not load-bearing", which is the honest way to carry them. |
 
 ### Throughput
@@ -483,7 +483,7 @@ Numbers the project uses but never derives or cites.
 
 4. **The 0.55 and 0.4 drag multipliers, the 0.6 aero-trim share, the 2% hotel load, the 15 m
    anchor lift, the 0.85 winch efficiency, the 15% transit ramp, the 0.45 drop-speed fraction,
-   the 0.8 nitrogen target fraction, the 0.35–1.8 wind clamps, the 0.92 bus threshold, the
+   the 0.8 nitrogen target fraction, the simulator wind clamps recorded on 2026-08-09 (0.35–1.8×), the 0.92 bus threshold, the
    1.12 authority stretch, the 0.25 retention threshold.** Thirteen free constants in one file.
    Between them they set roughly 40% of the published energy and about a fifth of the cycle
    time.

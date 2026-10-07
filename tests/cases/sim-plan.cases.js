@@ -157,17 +157,25 @@ describe('plan · wind', () => {
     }
     const north = planCycle(CLASSES.P1000, MODES.balanced, 40, { spd: 40, dir: 270, bearing: 0 });
     eq(north.windUsed, true, 'a zero-degree bearing is present');
+    const opts={movingPhaseRateMultiplier:.75};
+    const still=planCycle(CLASSES.P1000,MODES.balanced,40,null,opts);
+    const absent=planCycle(CLASSES.P1000,MODES.balanced,40,{spd:40,dir:270,bearing:null},opts);
+    eq(absent.windUsed,false,'unprojected vector is unused with phase dilation');
+    close(absent.cycleMin,still.cycleMin,1e-9,'missing bearing retains still-air timing');
   });
 
-  it('a tailwind out is a headwind home: the two ground speeds average to the airspeed', () => {
+  it('opposite wind components give leg speeds symmetric about forward airspeed', () => {
     resetConfig();
     const kph = CLASSES.P1000.cruiseKph * MODES.balanced.speed;   // 110 km/h
     for (const dir of [0, 45, 90, 180, 270, 315]) {
       for (const bearing of [0, 30, 90, 175, 260]) {
         const p = planCycle(CLASSES.P1000, MODES.balanced, 40, wind(20, dir, bearing));
-        // 20 km/h against 110 km/h of airspeed is nowhere near the 0.35x/1.8x clamps.
-        close((p.gsOut + p.gsRet) / 2, kph, 1e-9, `dir ${dir} bearing ${bearing}: legs are not symmetric about the airspeed`);
-        close(p.gsOut, kph + p.tailOut, 1e-9, `dir ${dir} bearing ${bearing}: gsOut vs the reported tail component`);
+        // The stipulated vector has along-track and cross-track components.
+        const angle=((dir+180)%360-bearing)*Math.PI/180;
+        const cross=20*Math.sin(angle),forward=Math.sqrt(kph*kph-cross*cross);
+        close((p.gsOut + p.gsRet) / 2, forward, 1e-9, `dir ${dir} bearing ${bearing}: forward airspeed`);
+        close(p.gsOut, forward + p.tailOut, 1e-9, `dir ${dir} bearing ${bearing}: outbound triangle`);
+        close(Math.hypot(forward,cross), kph, 1e-9, 'selected vector airspeed');
       }
     }
   });
@@ -193,13 +201,14 @@ describe('plan · wind', () => {
     ok(gale.trackReason.includes('return leg has no positive ground speed'), 'named refusal');
   });
 
-  it('a crosswind costs nothing in this first-order model', () => {
-    // The model takes the along-track component only; there is no drift angle and no
-    // penalty for flying one. Pinned so the simplification stays visible.
+  it('a stipulated crosswind reduces both ground speeds and lengthens the cycle', () => {
     resetConfig();
     const still = planCycle(CLASSES.P1000, MODES.balanced, 40);
     const cross = planCycle(CLASSES.P1000, MODES.balanced, 40, wind(60, 90, 0));
-    close(cross.cycleMin, still.cycleMin, 1e-9, 'a pure crosswind changes the cycle');
+    const forward=Math.sqrt(still.gsOut**2-60**2);
+    close(cross.gsOut,forward,1e-9,'outbound triangle');
+    close(cross.gsRet,forward,1e-9,'return triangle');
+    ok(cross.cycleMin > still.cycleMin,'crosswind lengthens the cycle');
   });
 });
 

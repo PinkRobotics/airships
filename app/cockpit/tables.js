@@ -82,6 +82,8 @@ function wireGrid(el, activate) {
   roveToSelection(el);
 }
 
+import {windBasis} from '../../sim/wind.js';
+
 export function renderFires() {
   const el = $("firesTop");
   if (!el) return;
@@ -139,6 +141,7 @@ export function renderFires() {
     const notes = [...new Set(plans.flatMap(x=>diagnosticNotes(x.cls,x.legKm,x.selection,x.wind??null)))];
     for (const refused of S.missions.filter(x => x.fire === f && x.served && !missionReady(x)))
       notes.push(inactiveText(refused));
+    if (plans.some(x => x.plan.windUsed)) notes.push(windBasis(plans.find(x => x.plan.windUsed).plan));
     if (f.heldOut) notes.push(f.heldOut);
     const refusedTargets = plans.reduce((n,x) => n + (x.refusedTargets?.length || 0), 0);
     if (refusedTargets) notes.push(refusedTargets + " geometric targets refused: no tested line fits inside the modelled fire");
@@ -274,7 +277,7 @@ export function renderTable() {
       (m.idle ? `<td colspan="4">${esc(m.served ? inactiveText(m) : "no suitable mapped source")}</td>` :
         `<td>${m.cls.name}</td><td>${esc(srcName(m))}</td><td class="num">${m.legKm.toFixed(1)}</td>` +
         `<td class="num">${fmt(m.plan.cycleMin)}</td>`) +
-      `<td class="num">${m.idle ? "—" : fmt(m.plan.tph)}</td>` +
+      `<td class="num">${m.idle ? "—" : fmt(m.plan.tph) + "<small>" + esc(windBasis(m.plan)) + "</small>"}</td>` +
       `<td class="phase">${m.idle ? "idle" : ""}</td></tr>`;
   });
   $("ftbody").innerHTML = rows.join("");

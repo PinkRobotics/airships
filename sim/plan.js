@@ -12,6 +12,8 @@ import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry,
 
 import {trackWind} from './wind.js';
 
+import {windBasis} from './wind.js';
+
 export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
   if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');
   const movingPhaseRateMultiplier = options.movingPhaseRateMultiplier ?? 1;
@@ -25,7 +27,13 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   // A timing refusal is separate from the quasi-static force-and-bus predicate.
   const kph = cls.cruiseKph * mode.speed * speedMultiplier;
   const track = trackWind(kph, wind);
-  let {gsOut, gsRet, tailOut} = track;
+  let {gsOut, gsRet, tailOut, crossOut} = track;
+  // Whole-phase dilation scales ground motion without a vector-wind control solution.
+  // Refuse that combination rather than silently scaling the weather with the aircraft.
+  if (movingPhaseRateMultiplier < 1 && track.windUsed && wind.spd > 0) {
+    track.trackPossible = false;
+    track.trackReason = 'nonzero route wind with whole-phase dilation has no represented track';
+  }
   if (!track.trackPossible) return {
     ...track, feasible: false, bindingLimits: [track.trackReason], worst: null,
     basis: options.basis || 'record', speedMultiplier, movingPhaseRateMultiplier,
@@ -138,7 +146,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
 
   /* Quasi-static force and energy closure is evaluated by power.js. */
   const partial = { bagCreditRule: options.bagCreditRule, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, verticalCd: options.verticalCd, basis: options.basis || 'record', clMax: options.clMax,
-    requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT, dur, anchorFromAglM, retainedT, deliveredT, ln2MakeT, gsOut, gsRet, tailOut, selectedAirKph: kph, passes,
+    requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT, dur, anchorFromAglM, retainedT, deliveredT, ln2MakeT, gsOut, gsRet, tailOut, crossOut, selectedAirKph: kph, passes,
     anchorT, dragMW: dragMW(cls, mode, led.rho), pumpMW: pumpMW(cls) };
   const shape = cycleGeometry(cls, partial);
   const altitudeGeometry = Object.fromEntries(['srcAlt','holdAgl','altTop','altEsc'].map(k=>[k,shape[k]]));
@@ -161,7 +169,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   }
   if (options.verticalProfile) {
     if(movingPhaseRateMultiplier!==1)throw new RangeError('independent profile cannot use moving-phase dilation');
-    partial.profile=searchedProfile(partial,shape,oneWayKm,options.verticalProfile,tailOut/3.6);
+    partial.profile=searchedProfile(partial,shape,oneWayKm,options.verticalProfile,partial.tailOut/3.6,partial.crossOut/3.6);
   }
   if (movingPhaseRateMultiplier < 1) {
     for (const phase of Object.keys(dur)) if (phase !== 'WATER_FILL') dur[phase] /= movingPhaseRateMultiplier;
@@ -239,7 +247,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
     // Whole-cycle rotor clipping; battLimited covers every running channel and phase.
     rotorClipMin: I.rotorClipMin, rotorClipMWh: I.rotorClipMWh, letdownClipMin: I.letdownClipMin,
     retainedT, deliveredT, rotorMaxT, busMW, passes,
-    gsOut, gsRet, tailOut, selectedAirKph: kph, windUsed: track.windUsed, trackPossible: true, trackReason: null,
+    gsOut, gsRet, tailOut, crossOut, alongAirKph: track.alongAirKph, selectedAirKph: kph, windUsed: track.windUsed, windBasis: windBasis(track), trackPossible: true, trackReason: null,
     ln2MakeT, cryoLimited, battLimited, descentShort,
     // The rotors' peak draw over the cycle and the phase it falls in. It is the drop run on
     // every class: the hull is held at the drop altitude while the water leaves it.
