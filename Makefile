@@ -19,6 +19,32 @@ help:  ## List these targets
 	  | sed -E 's/^([a-z0-9-]+):.*## +/\1\t/' \
 	  | awk -F'\t' '{printf "  make %-15s %s\n", $$1, $$2}'
 
+# About a minute: existing fast gates only, chosen for model arithmetic first. No browser, no port,
+# no lock, and no tracked file is written. Some of these gates keep scratch under TMPDIR, so the
+# recipe makes its own empty directory (in TMPDIR if set, else the system default), points TMPDIR
+# at it and removes it on exit. The closing line carries no model number.
+.PHONY: smoke
+smoke:  ## About a minute: replay the model's energy arithmetic, parity and import rules; no browser, no port
+	@set -e; d=$$(mktemp -d "$${TMPDIR:-/tmp}/smoke.XXXXXX"); trap 'rm -rf "$$d"' EXIT; export TMPDIR="$$d"; \
+	for c in \
+	  "node tests/energy/replay.mjs" \
+	  "node tests/energy/vertical-profile.mjs" \
+	  "node tests/energy/peaks.mjs" \
+	  "node tests/energy/bus.mjs" \
+	  "node tests/node/force-mutations.mjs" \
+	  "$(PY) tests/energy/first-principles.py" \
+	  "$(PY) tests/energy/hover-floor.py" \
+	  "$(PY) tests/energy/payload-exchange.py" \
+	  "$(PY) tools/check_energy_docs.py --self-test" \
+	  "node tests/parity/run.mjs" \
+	  "node --test 3d/tests/spec-required.test.mjs" \
+	  "$(PY) tools/check_boundaries.py" \
+	  "$(PY) 3d/scripts/stamp-version.py --check" \
+	  "$(PY) tools/stamp_site.py --check"; do \
+	  echo "smoke: $$c"; $$c; \
+	done; \
+	echo 'smoke OK: ran the energy replays, force, fuel-bus and vertical-profile arithmetic, the sim/3d parity and required-spec suites, the import boundaries and the version stamps. No browser, no port, no tracked file written. This is not make quick.'
+
 serve:  ## Serve the repository on 127.0.0.1:8875 with caching off (override with PORT=)
 	$(PY) tools/serve.py --port $(PORT)
 
