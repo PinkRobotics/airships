@@ -11,6 +11,8 @@ CONTRACTS={
  'turbulence':'docs/PHYSICS.md',
  'certification':'docs/VERIFICATION-PLAN.md',
  'drop-hull':'research/reports/03-diligence.md',
+ **{name:'research/analysis/delivery.md' for name in ('release-illustration','release-inflow')},
+ **{name:'docs/VERIFICATION-PLAN.md' for name in ('release-register','release-conclusion')},
  **{name:'docs/VERIFICATION-PLAN.md' for name in ('nitrogen-register','descent-register','disc-register','nitrogen-conclusion','descent-conclusion')},
 }
 
@@ -46,23 +48,59 @@ def sections(root=ROOT):
     letdown=' / '.join(f"{descent[c]['letdown']['mwh']:.3f} MWh" for c in ids)
     margin=budget['P100']['descentWithoutNitrogen']['marginX']
     disc=rows['P100']['doubledDiscChangePct']
+    reference_state=("The prescribed reference cycle does not close." if not rows['P100']['prescribedCloses'] else
+        "The prescribed reference cycle closes in this model; that is not operational validation.")
+    all_states=("The prescribed cycles do not close." if not any(r['prescribedCloses'] for r in rows.values()) else
+        "Prescribed closure status: "+statuses+".")
     result.update({
       'nitrogen-register': f"| — | Is nitrogen needed in the normal cycle? | {basis}: the budget's net routine-make fraction is "
         f"**{nitrogen}** for the configured classes. Its reference anchor/hold diagnostic is **{margin:.1f}×**. "
-        f"{statuses}. This compares priced effort on nonclosing cycles; it does not establish that nitrogen can be omitted in operation. | `mass-budget.json`, `editorial-controls.json` |",
+        f"{statuses}. {all_states} This compares priced effort on the prescribed records; it does not establish that nitrogen can be omitted in operation. | `mass-budget.json`, `editorial-controls.json` |",
       'descent-register': f"| 3, 14, 15 | What does the letdown cost? | {basis}: the current descent ledger already prices "
         f"**{letdown}**. The record-basis bag-credit diagnostics are **{credits}** of cycle effort. "
-        "These are diagnostic comparisons on cycles that do not close, not operational savings. | `descent.json` |",
+        f"{all_states} These are diagnostic effort comparisons, not operational savings. | `descent.json` |",
       'disc-register': f"| 8 | Is `diskM2` inert? | **No.** On the same prescribed controls, doubling the reference disc "
-        f"changes diagnostic supplied cycle effort by **{disc:.1f}%**. The prescribed cycle does not close; "
+        f"changes diagnostic supplied cycle effort by **{disc:.1f}%**. {reference_state} "
         "this is not a saving in operation. | `editorial-controls.json` |",
       'nitrogen-conclusion': f"On the {basis.lower()}, the reference net nitrogen-make fraction is "
-        f"**{rows['P100']['netNitrogenPct']:.1f}%** of supplied cycle effort. The prescribed cycle does not close. "
+        f"**{rows['P100']['netNitrogenPct']:.1f}%** of supplied cycle effort. {reference_state} "
         "The comparison is diagnostic and does not establish a routine nitrogen saving in operation.",
       'descent-conclusion': f"**Current letdown ledger.** {basis}: **{letdown}** for the configured classes, already "
-        "included in `descent.json`. These are prescribed diagnostics on cycles that do not close; "
+        f"included in `descent.json`. {all_states} These are prescribed diagnostics; "
         "the earlier underpriced letdown calculation is superseded by this force-owner ledger.",
     })
+    release=json.loads((root/'research/analysis/release-states.json').read_text())['classes']['P100']
+    if release['state']!='ready':
+        for name in ('release-illustration','release-inflow','release-register','release-conclusion'):
+            result[name]='Accepted reference release unavailable; no ideal-disc release estimate is published.'
+    else:
+        plan=release['plan'];start=release['states']['start of release'];end=release['states']['end of release']
+        state_rows='\n'.join(f"| {label} | {s['altitudeAglM']:.0f} m | {s['densityKgM3']:.6f} kg/m³ | "
+            f"{s['waterAboardT']:.1f} t | {s['heldT']:.3f} tf | {s['inducedUpwashAtDiscMs']:.1f} m/s | "
+            f"{s['wakeMs']:.1f} m/s | {s['airMassFlowKgS']:,.0f} kg/s |" for label,s in release['states'].items())
+        basis=f"the accepted {plan['km']:g} km {plan['mode']} reference plan ({plan['options']['basis']} basis), releasing {plan['releasedT']:g} t and retaining {plan['retainedT']:g} t"
+        ratio=f"{release['airToWaterBenchmarkRatio']:.1f}"
+        comparison=f"The endpoint ideal-disc air-flow estimate is **{end['airMassFlowKgS']:,.0f} kg/s**, "
+        comparison+=f"**{ratio} times** the nominal **{release['waterBenchmarkKgS']:g} kg/s** water-rate benchmark from configured intake capacity. "
+        comparison+=f"The accepted plan's mean tank release rate is {release['acceptedMeanWaterReleaseKgS']:,.1f} kg/s. "
+        comparison+="Neither quantity measures outlet flow, a wake, drift or where water lands."
+        result.update({
+          'release-illustration': "The producer replays "+basis+". The release endpoints use local air density, water aboard and rotor force ownership:\n\n"
+            "| State | AGL altitude | Local density | Water aboard | Rotor hold | Ideal induced velocity upward | Ideal far-wake velocity | Ideal air flow |\n"
+            "|---|---|---|---|---|---|---|---|\n"+state_rows+"\n\n"+comparison+
+            " The upward-flow sign motivates further investigation; ideal-disc arithmetic alone does not establish deposition or suppression.",
+          'release-inflow': "Point-sink heuristic using the accepted release endpoint's ideal-disc volume flow; this is not a measured wake:\n\n"
+            "| Distance below hull | Reference heuristic inflow |\n|---|---|\n"+
+            '\n'.join(f"| {z} | {v:.2f} m/s |" for z,v in release['inflowBelowHullMs'].items() if z!='25 m below'),
+          'release-register': "| 12 | What does the release illustration represent? | Ideal-disc estimates at "+basis+". "+comparison+" | `release-states.json`, `delivery.json` |",
+          'release-conclusion': "**Release basis.** The illustration follows "+basis+". "+comparison+
+            " The release-height assumption and ground deposition remain open; no fire outcome is inferred.",
+        })
+    # Standalone region fences end a Markdown table. Each produced answer therefore
+    # carries its own table header rather than leaving pipe text outside a table.
+    header='| # | Question | Answer | Record |\n|---|---|---|---|\n'
+    for name in ('nitrogen-register','descent-register','disc-register','release-register'):
+        if result[name].startswith('|'):result[name]=header+result[name]
     return result
 
 def outputs(root=ROOT):
@@ -88,7 +126,7 @@ def cooling_errors(root=ROOT):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');p.add_argument('--emit',action='store_true');p.add_argument('--root',type=Path,default=ROOT);args=p.parse_args()
     try:result=outputs(args.root)
-    except (ValueError,KeyError) as exc:print('editorial prose RED: '+str(exc));return 1
+    except (OSError,ValueError,KeyError) as exc:print('editorial prose RED: '+str(exc));return 1
     if args.emit:print(json.dumps(result));return 0
     bad=cooling_errors(args.root)
     stale=[f for f,body in result.items() if (args.root/f).read_text()!=body]

@@ -62,7 +62,7 @@ console.log(JSON.stringify({cid:'P100',row,refused:{feasible:refused.feasible,tp
             shutil.copytree(ROOT/'sim',tree/'sim')
             for file in ['research/analysis/accepted-logistics.js','research/analysis/water-availability.json',
                          'research/analysis/delivery.py','research/figures.json','data/fire-history-bc.json',
-                         'tools/gen_logistics_prose.py','research/analysis/water-availability.md',
+                         'tools/gen_release_states.mjs','tools/gen_logistics_prose.py','research/analysis/water-availability.md',
                          'research/analysis/delivery.md','docs/OPEN-QUESTIONS.md','docs/VERIFICATION-PLAN.md']:
                 target=tree/file;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy(ROOT/file,target)
             config=tree/'sim/config.js';original=config.read_text()

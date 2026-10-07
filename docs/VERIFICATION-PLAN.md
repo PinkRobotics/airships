@@ -71,7 +71,11 @@ Generated from the owning record during the combined regeneration.
 <!-- editorial:disc-register:start -->
 Generated from the owning record during the combined regeneration.
 <!-- editorial:disc-register:end -->
-| 12 | Is `ALT.drop` = 450 m survivable? | **No.** 1,645 m of along-wind smear from the drop spectrum alone, and the ship's own rotors push **43,051 kg/s of air upward** — 86× the water it releases. | `delivery.md` |
+<!-- editorial:release-register:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:release-register:end -->
+| # | question | answer | where |
+|---|---|---|---|
 | 11 | Does the mass budget close? | **Not as specified** (2.16× at its most favourable). But the hull is free to grow, so it becomes the shell-density question above. | `mass-budget.md` |
 
 ### Needs an experiment
@@ -269,9 +273,9 @@ the class the geography suits. The floor budget's closure wall includes shell su
 
 <!-- editorial:nitrogen-conclusion:start -->
 Generated from the owning record during the combined regeneration.
-<!-- editorial:nitrogen-conclusion:end --> The
-sealed-cell architecture — undocumented until today — is the answer to the shape penalty that
-would otherwise be fatal.
+<!-- editorial:nitrogen-conclusion:end -->
+The first-generation sealed-cell study addressed the shape penalty by separating cell
+geometry from the hull's outer shape. The current film-and-truss drawing needs its own structural case.
 
 <!-- logistics:line-comparison:start -->
 At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
@@ -279,10 +283,13 @@ At the accepted median-leg rate, the conditional CL 4 line-length quotient is 11
 
 <!-- editorial:descent-conclusion:start -->
 Generated from the owning record during the combined regeneration.
-<!-- editorial:descent-conclusion:end --> `ALT.drop` at 450 m
-does not deliver water, and the ship's own rotors make an updraft 86× the mass flow of the water
-it is releasing. The cryogenic plant cannot be deleted, and ground practice for it is ~65 t/MW
-against a budget floor of 2. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery
+<!-- editorial:descent-conclusion:end -->
+
+
+<!-- editorial:release-conclusion:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:release-conclusion:end -->
+The first-generation sealed-cell budget retains the cryogenic plant. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery
 layout remain unpriced. The thermal analysis exists; the cooling installation's mass is still open.
 
 **Retracted.** Air-admission ballast. It is impossible in a sealed-cell hull, it was not novel

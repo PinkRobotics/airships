@@ -82,17 +82,9 @@ first tens of metres — that descends much faster, which is how airtankers work
 **A buoyant hull holds station by thrusting downward, so its rotors accelerate air *upward*.**
 That is the opposite sign to a helicopter, and it happens directly over the release.
 
-For a P-100 holding an emptying hull down during the run:
-
-| | held down | induced velocity **upward** at the disc | wake | air moved |
-|---|---|---|---|---|
-| start of release | 34.4 t | 7.8 m/s | 15.7 m/s | 21,525 kg/s |
-| end of release | 137.4 t | **15.7 m/s** | 31.3 m/s | **43,051 kg/s** |
-
-Against a water release of **500 kg/s**. The ship moves **86 times more air upward than it
-releases water downward**, at a velocity that exceeds the terminal velocity of every drop it is
-making. By this document's own criterion, a release into the ship's own disc flow does not
-descend.
+<!-- editorial:release-illustration:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:release-illustration:end -->
 
 ## Which is the argument for putting the sprayers on leads
 
@@ -101,13 +93,9 @@ down is the same mechanism in reverse**: the shorter fall reduces drift, and the
 farther from the ship's own wake. Below the disc the rotor flow is approximated as a sink,
 which falls off as 1/z². This does not remove ambient rising air in a fire column:
 
-| distance below the hull | induced flow, P-100 |
-|---|---|
-| 50 m | 2.49 m/s |
-| 100 m | 0.62 m/s |
-| 200 m | 0.16 m/s |
-| 300 m | 0.07 m/s |
-| 400 m | 0.04 m/s |
+<!-- editorial:release-inflow:start -->
+Generated from the owning record during the combined regeneration.
+<!-- editorial:release-inflow:end -->
 
 *(Point-sink far field, valid for distances well beyond the disc radius — 28 m on a P-100. It
 is not valid close under the very large discs of the bigger classes, and their near field has

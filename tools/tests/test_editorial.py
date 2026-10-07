@@ -87,3 +87,19 @@ class CurrentEnergy(unittest.TestCase):
             s=editorial.sections(root)
             self.assertIn('12.3%',s['nitrogen-register']);self.assertIn('4.5×',s['nitrogen-register']);self.assertIn('33.3%',s['disc-register']);self.assertIn('12.3%',s['nitrogen-conclusion'])
             self.assertIn('not a saving in operation',s['disc-register'])
+
+class AcceptedRelease(unittest.TestCase):
+    def test_replay_refuses_changed_water_record(self):
+        import subprocess
+        script="""import {replayRelease,record} from './tools/gen_release_states.mjs';
+        const r=record().classes.P100;let failed=false;
+        try{replayRelease('P100',{...r.plan,retainedT:r.plan.retainedT+1});}catch(e){failed=true;}
+        if(!failed)process.exit(1);
+        if(replayRelease('P100',{state:'unavailable'}).states)process.exit(2);
+        console.log('release refusal: altered water record rejected; unavailable plan has no estimate');"""
+        p=subprocess.run(['node','--input-type=module','-e',script],cwd=editorial.ROOT,capture_output=True,text=True)
+        self.assertEqual(p.returncode,0,p.stdout+p.stderr)
+    def test_basis_and_local_density_are_visible(self):
+        s=editorial.sections()['release-illustration']
+        self.assertIn('Local density',s);self.assertIn('retaining',s);self.assertIn('ideal-disc',s)
+        self.assertIn('Neither quantity measures outlet flow',s)

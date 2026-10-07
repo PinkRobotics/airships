@@ -208,34 +208,26 @@ console.log(JSON.stringify(Object.fromEntries(Object.entries(water.classes).map(
     # means its rotors accelerate air UPWARD — the opposite sign to a helicopter. Over the
     # drop that is an updraft of the ship's own making, in exactly the place the water is
     # released, and by this document's own criterion it competes with the drop's descent.
-    RHO = 1.10
-    for cid, cd in fig["classes"].items():
-        spec = cd["spec"]
-        rows = {}
-        # From an empty hull's surplus up to a loaded one: what the rotors hold during release.
-        for frac, label in ((0.25, "start of release"), (1.0, "end of release")):
-            held_t = cd["lift"]["surplusAtSourceT"] * frac
-            thrust = held_t * 1000.0 * 9.81
-            vi = math.sqrt(thrust / (2.0 * RHO * spec["diskM2"]))
-            rows[label] = {
-                "heldT": round(held_t, 1),
-                "inducedUpwashAtDiscMs": round(vi, 1),
-                "wakeMs": round(2 * vi, 1),
-                "airMassFlowKgS": round(RHO * spec["diskM2"] * vi),
-            }
-        # HOW FAR DOWN DO YOU HAVE TO GO TO ESCAPE IT? Below the disc the rotor is a sink:
-        # the volume flow Q = A*vi spreads over a hemisphere of radius z, so the induced
-        # velocity falls as 1/z^2. This is why hanging the sprayers on a lead works — a few
-        # hundred metres of lead puts the release outside the ship's own flow field entirely.
-        vi_end = math.sqrt(cd["lift"]["surplusAtSourceT"] * 1000.0 * 9.81
-                           / (2.0 * RHO * spec["diskM2"]))
-        q = spec["diskM2"] * vi_end
-        rows["inflowBelowHullMs"] = {
-            f"{z} m below": round(q / (2.0 * math.pi * z * z), 2)
-            for z in (25, 50, 100, 200, 300, 400)}
-        rows["waterReleaseKgS"] = spec["fillM3s"] * 1000.0
-        rows["airToWaterMassRatio"] = round(
-            rows["end of release"]["airMassFlowKgS"] / (spec["fillM3s"] * 1000.0))
+    release = json.loads(subprocess.check_output(
+        ["node", "tools/gen_release_states.mjs", "--record"], cwd=ROOT, text=True))["classes"]
+    for cid, r in release.items():
+        if r["state"] != "ready":
+            out["classes"][cid]["ownUpwash"] = {"state": r["state"], "basis": r["reason"]}
+            continue
+        rows = {label: {
+            "heldT": round(state["heldT"], 1),
+            "altitudeAglM": state["altitudeAglM"],
+            "densityKgM3": state["densityKgM3"],
+            "waterAboardT": state["waterAboardT"],
+            "inducedUpwashAtDiscMs": round(state["inducedUpwashAtDiscMs"], 1),
+            "wakeMs": round(state["wakeMs"], 1),
+            "airMassFlowKgS": round(state["airMassFlowKgS"]),
+        } for label, state in r["states"].items()}
+        rows.update(state="ready", basis=r["basis"], acceptedPlan=r["plan"],
+                    inflowBelowHullMs={z: round(v, 2) for z,v in r["inflowBelowHullMs"].items()},
+                    waterReleaseKgS=r["waterBenchmarkKgS"], waterBenchmarkBasis=r["benchmarkBasis"],
+                    acceptedMeanWaterReleaseKgS=r["acceptedMeanWaterReleaseKgS"],
+                    airToWaterMassRatio=round(r["airToWaterBenchmarkRatio"], 1))
         out["classes"][cid]["ownUpwash"] = rows
 
     if args.json:
