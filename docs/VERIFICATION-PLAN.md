@@ -242,6 +242,8 @@ into shape on first pump-down.
 6. **A battery pack engineer**, and **a cryogenic plant engineer** — for the two mass lines with
    the widest unsupported spreads.
 
+7. **A rotorcraft aerodynamicist and flight-controls evaluator.** *"These rotors are priced as actuator disks with one hover merit, and the largest class’s drawn diameters are speculative. Which rotor, drive and control family would you assess, what happens to the wake while the hull rises through its own slipstream, and what does it cost?"* Assess blade geometry, rotor speed and pitch policy, coupled coaxial and hull flow, and transient thrust and gimbal response before interpreting quasi-static closure as aircraft capability.
+
 ---
 
 ## What is still missing entirely
