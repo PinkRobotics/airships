@@ -136,7 +136,7 @@ The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements betwee
 On the reference ship transit is 23.5 of 34.2 minutes and is the binding constraint, because it is
 the only term that grows with distance. That has a commercial consequence, and it is the one a
 buyer should press on: **the value of the concept collapses toward the value of a big pump if the
-fire is not near water.** How often that is true is the open question §8 now lists as item 13.
+fire is not near water.** How often that is true is item 13 of `docs/OPEN-QUESTIONS.md`.
 
 <!--tex:fig charts/render-release.png | Mid-release, rendered from the model. Ten thousand tonnes leaves along the length of the keel in one pass; the hull rises off the line as it goes, which is why the escape climb costs no propulsion.-->
 
@@ -317,7 +317,7 @@ take from this. First, the correction cut published endurance by roughly two thi
 shipped it the same day — that is the behaviour the rest of this report is asking you to price.
 Second, **no published throughput or energy-per-tonne figure moved at all**, because generation is
 not in the ledger that computes them. A 4.4× error in the vehicle's power supply was invisible to
-every test in the repository. That is §8's defect 6, it is still open, and it is the more
+every test in the repository. That is defect 6 in [the paper's table](02-paper.md#85-the-other-nine-in-one-line-each), it is still open, and it is the more
 important half of this entry.
 
 ### 4.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09

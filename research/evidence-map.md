@@ -2,7 +2,7 @@
 
 Every quantitative claim this project publishes, and what it actually rests on.
 
-Written 2026-08-09 against the working tree at that date. Every number in the right-hand
+Written 2026-08-09 against the working tree at that date; PHYSICS and OPEN-QUESTIONS section numbers are theirs of that date. Every number in the right-hand
 columns was either read out of the code or produced by running the model — `make test`
 (194 passed, 2 known-failing), `AIRSHIPS.sim.selftest()` (19 checks, pass), and a series of
 probe scripts driven through `tools/js_eval.py` against
@@ -169,7 +169,7 @@ Reconstructed from `plan.js` and verified to reproduce `eCycleMWh` exactly.
 
 | figure | value | where it comes from | rests on | strength |
 |---|---|---|---|---|
-| solar irradiance | **200 W/m², day and night** | hard-coded in `sim/state.js:351`, `selftest.js:108`, `app/cockpit/panels.js:107`, `3d/model/metadata.js:61`, `3d/physics/energy.js:73`, `3d/adapter/fable.js:201` | **ARBITRARY** | No derivation, no source, no dial, six copies, and — checked — **not in `sim/config.js`**, which the README's table calls the home of "every assumption, in one file". It is a peak-ish figure (≈20% efficiency at 1 000 W/m² insolation) applied continuously. `PHYSICS.md` §0 admits "a real recovery is several times longer again" and then publishes the optimistic figure anyway. |
+| solar irradiance | **200 W/m², day and night** | hard-coded in `sim/state.js:351`, `selftest.js:108`, `app/cockpit/panels.js:107`, `3d/model/metadata.js:61`, `3d/physics/energy.js:73`, `3d/adapter/fable.js:201` | **ARBITRARY** | No derivation, no source, no dial, six copies, and — checked — **not in `sim/config.js`**, which the README's table calls the home of "every assumption, in one file". It is a peak-ish figure (≈20% efficiency at 1 000 W/m² insolation) applied continuously. `OPEN-QUESTIONS.md` §0 admits "a real recovery is several times longer again" and then publishes the optimistic figure anyway. |
 | `solarM2` | 6 000 / 28 000 / 120 000 m² | `CLASSES[*]` | **ARBITRARY** | Computed against hull geometry: 85.5% / 86.5% / 79.6% of *planform* area. Near-total upper-surface coverage, chosen. |
 | solar power | 1.20 / 5.60 / 24.00 MW | `solarM2 × 200/1e6` | **PHYSICS** on the two rows above | Arithmetic solid, inputs arbitrary. |
 | per-cycle deficit | **0.62 / 3.68 / 24.81 MWh** | `figures.json` | **PHYSICS** on the budget above | The direction of this conclusion is robust and the project is right to publish it: solar covers 52% / 47% / 42% of spend at best. But it rests on a generation model that omits `genMW` entirely while the same file spends `genMW` on rotor thrust. |

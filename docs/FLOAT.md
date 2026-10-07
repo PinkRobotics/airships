@@ -479,7 +479,7 @@ face to face, so N cells occupy N × span. At `span = 1.000` a 10×10×10 block 
 10 m and there is no room for assembly tolerance between cells. At `span = 0.980` the same
 block is 9.8 m and every cell has 20 mm of slack to its neighbour.
 
-Nothing structural argues either way: **the margins are identical at both** (see §2 of the brief), and
+Nothing structural argues either way: **the margins are identical at both** (see §2), and
 0.98 gives up 5.7% of the enclosed volume. The film panels dimple *inward* under load, so
 no clearance is needed for bulge — this is a tolerance-and-jig question, not a physics one.
 The tables below carry both. **Ask the designer; do not pick silently.**

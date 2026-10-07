@@ -108,9 +108,9 @@ the specification; the Esri problem is not a model behaviour; and no assertion c
 because a term is absent from a sum. Those three are held to ordinary passing tests that
 record what the code does, and to this page.
 
-`docs/PHYSICS.md` §11 quantifies items 0–6, but numbers them differently: its Defects 4 and 5 are
-the two halves of item 4 below, its Defect 6 is item 6, and item 5 has no entry there because it
-is not physics. Items 7–12 are documented here only; §11 predates them.
+An earlier edition of `docs/PHYSICS.md` quantified items 0–6 in its §11 under different numbers (its Defects 4 and 5
+were the two halves of item 4 below, its Defect 6 was item 6, item 5 had no entry as it is not physics); the current
+PHYSICS carries no such list. Items 7–12 were documented here only.
 
 ---
 
@@ -244,7 +244,7 @@ the ship is IN, which is the whole point of this defect — and a cycle crosses 
 float-up and descent have *different* worst cases. Evaluating the descent at the ceiling with
 the rest of the plan was the same mistake one layer up. Struck at the source instead (#4), the
 P-10000 delivers 8,944 of 10,000 t at 10,821 t/h for 88.17 MWh and 9.86 kWh/t, back to
-"descent authority" as its bottleneck. Both steps are in `docs/PHYSICS.md` §9 and §10.
+"descent authority" as its bottleneck. These are earlier model readings, not figures in the current PHYSICS sections.
 
 **What did not move, and should have.** `CFG.rhoAir` is still a flat 1.10 kg/m³ for drag and
 every rotor calculation — ISA at about 1,107 m, against a working altitude of 2,500 m. Drag is
