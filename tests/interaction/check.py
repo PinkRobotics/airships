@@ -11,7 +11,7 @@ COMPUTES. Nothing asserted what the page does when somebody touches it, so nothi
 
 This driver touches things. It loads
 
-    /index.html?seed=7&data=snapshot
+    /index.html?seed=7&view=exercise
 
 in a headless browser, installs an error trap before the page's first line runs, and then
 performs real interactions — mouse events through the debugger's input domain for the map,
@@ -85,7 +85,11 @@ ROOT = HERE.parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from serve import serve_tree
 from devtools import page_target
-QUERY = "?seed=7&data=snapshot"
+# The seeded exercise, not the captured sample. Since one hull per fire
+# (research/analysis/fleet-envelope.md) the sample has one candidate fire, so one hull
+# flies and the step that clicks a second ship row would have nothing to click. The
+# exercise keeps several hulls flying and most fires unworked, which every step needs.
+QUERY = "?seed=7&view=exercise"
 CHROME = os.environ.get("CHROME", "chromium")
 
 GREEN, RED, AMBER, DIM, OFF = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
