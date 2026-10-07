@@ -82,7 +82,7 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 | question | discipline |
 |---|---|
 | **What packing fraction is achievable, and what does a space-filling cell cost against a spherical one?** | geometry / pressure vessels — *no hardware needed, and it moves the wall directly* |
-| **What does 30 MW of drives need to reject heat with no convective cooling?** | spacecraft thermal — a 17–38 t line that is in no budget anywhere |
+| **What cooling does the configured machinery need on its ambient-pressure raft outside the vacuum?** | aircraft thermal engineering — ducting, coolant loops and bay ventilation remain unpriced |
 | What does a 6 MW airborne nitrogen liquefier weigh? | cryogenic plant — ground practice is ~65 t/MW; our floor assumes 2 |
 | Can a 300–400 m sprayer lead, and a 1,500 m anchor cable with a 125 t bag, be flown stably? | flight dynamics / deep-tow marine |
 | Is the 0.6 rotor thrust share defensible? Is `rhoAir` = 1.10 defensible at 2,500 m? | rotor aerodynamics — removing the 0.6 alone multiplies the descent bill by 2.15× |
@@ -211,8 +211,9 @@ into shape on first pump-down.
 2. **A pressure-vessel geometer.** *"Spheres pack at 0.74 and are the ideal pressure shape;
    space-filling polyhedra pack at 1.0 and are not. Where is the optimum?"* No hardware, and it
    moves the go/no-go number directly.
-3. **A spacecraft thermal engineer.** *"Thirty megawatts of drives inside a vacuum envelope with
-   no convection. What does rejecting that heat weigh?"*
+3. **An aircraft thermal engineer.** *"The configured drives and plant sit on an ambient-pressure
+   raft outside the vacuum. What ducting, coolant loops and ventilation do their duty cycles need,
+   and what does that cooling system weigh at the working altitude?"*
 4. **A BC Wildfire Service operations chief.** *"One aircraft, 5,500 tonnes of water a day,
    113 km of geometric line in retardant coverage-level units, under suitable conditions — and its best use may be soaking
    ground **before** a fire arrives rather than fighting one. Is that useful, and would it
@@ -270,8 +271,8 @@ At the accepted median-leg rate, the conditional CL 4 line-length quotient is 11
 **Worse than we thought.** The letdown costs 30–54× what the ledger says. `ALT.drop` at 450 m
 does not deliver water, and the ship's own rotors make an updraft 86× the mass flow of the water
 it is releasing. The cryogenic plant cannot be deleted, and ground practice for it is ~65 t/MW
-against a budget floor of 2. And an entire line — thermal management with no convection — is
-missing from every budget in the project.
+against a budget floor of 2. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery
+layout remain unpriced. The thermal analysis exists; the cooling installation's mass is still open.
 
 **Retracted.** Air-admission ballast. It is impossible in a sealed-cell hull, it was not novel
 (Akhmeteli & Gavrilin propose it by name in the very paper this project cites for shell mass,

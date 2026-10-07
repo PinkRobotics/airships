@@ -159,13 +159,13 @@ of them are unsourced:
   and **no published figure prices a 6 MW airborne nitrogen liquefier**. It is now known to be
   necessary (it is the only emergency ballast source a sealed-cell hull has), which makes the
   absence of a mass estimate the single worst-supported number in the vehicle.
-- **Thermal management** — largely a false alarm, and worth recording as one. Machinery does
-  not sit inside a vacuum cell; it sits in ambient-pressure bays within the hull, so convection
-  works and this is an ordinary aircraft cooling problem with a modest altitude derate (air at
-  the working altitude is 78% of sea-level density). Had the machinery been inboard of the
-  vacuum it would have been a spacecraft thermal design: ~1.8 MW of waste heat needing 1,750 to
+- **Thermal management** — largely a false alarm, and worth recording as one. The current drawing puts machinery
+  on an ambient-pressure raft outside the vacuum, so convection works. This is an aircraft
+  cooling problem with a modest altitude derate (air at
+  the working altitude is 78% of sea-level density). A hypothetical alternative with machinery inside a vacuum
+  would require a spacecraft thermal design: ~1.8 MW of waste heat needing 1,750 to
   7,000 m² of radiator, **5 to 56 t**. There is still no line for the ducting, coolant loops and
-  bay ventilation, and it should be small — but it is not zero and it is not written down.
+  bay ventilation. Their installed mass remains open; ambient convection alone does not price it.
 
 Also missing: a mass line for `genMW` (8 MW of generation that `plan.js` uses in the thrust
 budget), load diffusion for a 1.2 MN anchor point into a shell designed for uniform pressure,
@@ -194,7 +194,7 @@ it is a materials test, not an analysis.
 | **What is the shell density of a real sealed cell — lattice, skin, seal, and the joint to its neighbours?** | structures / architected materials | a gram-level breakdown of one complete cell, and one built and evacuated |
 | **What packing fraction is achievable, and what does a space-filling cell cost against a spherical one?** | geometry / pressure vessels | a trade study; no hardware needed |
 | What is a realistic pack density for a few MWh that is neither an aviation pack nor a vendor cell claim? | battery engineering | an independent pack-level estimate |
-| **What does 30 MW of drives need to reject heat with no convection?** | spacecraft thermal | a radiator or conduction-path mass estimate |
+| **What cooling does the configured machinery need on its ambient-pressure raft outside the vacuum?** | aircraft thermal engineering | a duty-cycle heat balance and installed mass for ducting, coolant loops and bay ventilation |
 | What does a 6 MW airborne liquefier weigh? | cryogenic plant | a vendor or first-principles estimate — there is no published one |
 
 ## The honest summary
