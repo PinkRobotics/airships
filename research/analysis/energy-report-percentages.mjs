@@ -9,12 +9,12 @@ const one=(text,pattern)=>{const hits=[...text.matchAll(pattern)];if(hits.length
 function historicalReadings(){
  const dates=texts.map(t=>one(t,/Pink Robotics · (\d{4}-\d{2}-\d{2}) · v1/g)[1]);
  const letdown=one(texts[1],/from ([\d.]+) MWh to ([\d.]+) →[^\n]+ — (\d+)%/g);
- const rotor=one(texts[0],/from ([\d,]+) MW to ([\d.]+) →[^\n]+, a (\d+)% reduction/g);
- const bag=one(texts[0],/bag costs ([\d.]+) MWh a cycle against ([\d.]+) →[^\n]+: a (\d+)% saving/g);
+ const rotor=one(texts[0],/model's assumed [^\n]+gave a stated (\d+)% reduction;[\s\S]*?Its comparison was ([\d,]+) MW to ([\d.]+) →[^\n]+/g);
+ const bag=one(texts[0],/attributed a ([\d.]+) MWh penalty to removing it, against ([\d.]+) →[^\n]+That earlier (\d+)% saving/g);
  const more=one(texts[1],/does not need, costs (\d+)% more energy per cycle/g);
  return {letdown:{source:papers[1],published:dates[1],withoutMWh:Number(letdown[1]),withMWh:Number(letdown[2]),reportedReductionPct:Number(letdown[3])},
-  rotor:{source:papers[0],published:dates[0],withoutMW:Number(rotor[1].replaceAll(',','')),withMW:Number(rotor[2]),reportedReductionPct:Number(rotor[3])},
-  bag:{source:papers[0],published:dates[0],withoutMWh:Number(bag[1]),withMWh:Number(bag[2]),reportedSavingPct:Number(bag[3]),
+  rotor:{source:papers[0],published:dates[0],withoutMW:Number(rotor[2].replaceAll(',','')),withMW:Number(rotor[3]),reportedReductionPct:Number(rotor[1])},
+  bag:{source:papers[0],published:dates[0],reportedPenaltyMWh:Number(bag[1]),withMWh:Number(bag[2]),reportedSavingPct:Number(bag[3]),
    diligenceSource:papers[1],diligencePublished:dates[1],diligenceReportedIncreasePct:Number(more[1]),
    qualification:'These are retained report readings. No historical model replay was reconstructed, and these printed energy comparators do not substantiate either reported bag percentage.'}};
 }
@@ -39,7 +39,7 @@ export function reportCorrection(r){
   `The following older percentage language is retained as a report reading, with its original comparator. It does not apply to the current values at the right of the arrows.\n\n`+
   `- Report dated ${h.letdown.published}: P-10000 letdown ${f(h.letdown.withoutMWh,2)} → ${f(h.letdown.withMWh)} MWh, reported ${h.letdown.reportedReductionPct}% reduction.\n`+
   `- Report dated ${h.rotor.published}: P-10000 rotor power ${f(h.rotor.withoutMW,0)} → ${f(h.rotor.withMW,1)} MW, reported ${h.rotor.reportedReductionPct}% reduction.\n`+
-  `- Reports dated ${h.bag.published}: P-100 bag comparison ${f(h.bag.withoutMWh)} MWh without the bag versus ${f(h.bag.withMWh)} MWh with it; the paper reported ${h.bag.reportedSavingPct}% saving and the diligence report reported ${h.bag.diligenceReportedIncreasePct}% more without the bag. ${h.bag.qualification}\n\n`+
+  `- Reports dated ${h.bag.published}: P-100 reported bag-removal penalty ${f(h.bag.reportedPenaltyMWh)} MWh, against ${f(h.bag.withMWh)} MWh with it; the paper reported ${h.bag.reportedSavingPct}% saving and the diligence report reported ${h.bag.diligenceReportedIncreasePct}% more without the bag. ${h.bag.qualification}\n\n`+
   `Current named replay: ${b.input.class}, ${b.input.mode}, ${b.input.km} km one-way, ${b.input.basis} basis, still air. ${b.intervention.definition} With the bag: ${f(b.withBag.suppliedMWh,6)} MWh, ${v(b.withBag)}; without the bag: ${f(b.withoutBag.suppliedMWh,6)} MWh, ${v(b.withoutBag)}. The supplied-effort increase is ${f(b.increasePct,4)}%, using ${b.denominator}. ${b.qualification}\n\n`+
   `Current P-10000 prescribed ${r.letdown.input.km} km ${r.letdown.input.basis} letdown: ${f(r.letdown.suppliedMWh,6)} MWh; the cycle ${r.letdown.feasible?'closes':'does not close'}. No current letdown saving is inferred from the dated comparator.\n\n`+
   `The model now holds nitrogen recovery to ${f(r.nitrogenRecoveryCeilingKWhPerT,1)} kWh/t, the cited medium-pressure pure-nitrogen feed at 4 bar and feed/product flow-exergy difference, not measured airborne recovery. Averaged sunlight enters instantaneous bus power and force closure; the [zero-sunlight sensitivity](../../docs/ENERGY-CLOSURE-2026-10.md#zero-sunlight-sensitivity-of-the-selected-profiles) replays fixed selected controls. No night search was run.\n\n`+

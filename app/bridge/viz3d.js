@@ -1,3 +1,5 @@
+import { anchorGeometry } from '../../sim/index.js';
+
 /* The bridge to the 3D model: mounting it, feeding it state, and the synced camera.
  *
  * The 3D library knows nothing about this page. Everything page-specific — which view
@@ -197,7 +199,7 @@ export function updateM3D(m, st) {
        * 876 m airship to a splinter. Past the cap the cable does leave frame, which is the
        * honest reading of "the lake is a long way down" rather than a missing component. */
       const cable = c3.anchorCableM || 0;
-      const anchorOut = cable > 0 && st.alt <= (cable - c3.maxRadiusM) + cable * 0.25
+      const anchorOut = cable > 0 && st.alt <= anchorGeometry(cable, m.cls.diaM).contactAltitudeM + cable * 0.25
         && (st.phase === "SOURCE_APPROACH" || st.phase === "WATER_FILL"
           || (st.phase === "RETURN_TRANSIT" && st.prog > 0.94));
       /* THE FRAMING IS LATCHED WHILE THE ANCHOR IS OUT, and that is the whole point.

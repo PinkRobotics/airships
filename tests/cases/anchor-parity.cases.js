@@ -1,3 +1,6 @@
+import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js';
+import { buildLayout } from '../../3d/model/layout.js';
+
 /* The two things that draw the descent anchor must agree about when it moves.
  *
  * `3d/anim/mission.js` → `anchorAt()` drives the WebGL model. `app/anchorview.js` → `anchorView()`
@@ -26,6 +29,47 @@ describe('the anchor reads the same in the model and in the avatar', () => {
    * already dumped. Comparing one phase proves one phase. */
   const PHASES = ['SOURCE_APPROACH', 'WATER_FILL', 'OUTBOUND_TRANSIT', 'RETURN_TRANSIT',
     'WATER_RELEASE', 'BUOYANCY_ESCAPE'];
+
+  it('the final drawn winch keeps the independently defined nominal keel attachment', () => {
+    for (const id of CLASS_ORDER) {
+      const cls = CLASSES[id], winch = buildLayout(resolveClass(id)).anchorWinch;
+      close(winch.p[0], 0, 1e-10, 'attachment is at hull mid-length');
+      close(winch.p[1], 0, 1e-10, 'attachment is centred across the beam');
+      close(winch.p[2], -cls.diaM / 2, 1e-10, `${id}: attachment below hull centre`);
+    }
+  });
+
+  it('first contact is cable length above the nominal keel, below hull-centre altitude', () => {
+    // Independent geometry: keel height = centre altitude - diameter / 2.
+    // A vertical installed cable first touches at keel height = cable length.
+    for (const id of CLASS_ORDER) {
+      const cls = CLASSES[id], viz = resolveClass(id);
+      const contact = cls.anchorM + cls.diaM / 2;
+      for (const delta of [-1, 0, 1]) {
+        const alt = contact + delta;
+        const expected = Math.max(0, -delta / (cls.anchorM * 0.14));
+        const avatar = anchorView(cls, alt, 'SOURCE_APPROACH', 0.8, 1, 0);
+        const model = fromMonitorState({phase: 'SOURCE_APPROACH', prog: 0.8,
+          alt, gs: 0, water: 0, ln2: 0, draw: {}}, cls, viz, {anchorT: cls.anchorBagT});
+        close(avatar.fillF, expected, 1e-10, `${id}: schematic keel contact at ${alt}`);
+        close(model.anchorFill, expected, 1e-10, `${id}: 3D keel contact at ${alt}`);
+      }
+    }
+  });
+
+  it('the force ledger picks up water using the same independent keel reach', () => {
+    for (const id of CLASS_ORDER) {
+      const cls = CLASSES[id], plan = planCycle(cls, MODES.balanced, 15, null, {basis: 'record'});
+      const tau = HOIST_M / WINCH_MPS / (plan.dur.SOURCE_APPROACH * 60);
+      const end = drawAt(cls, MODES.balanced, plan, 'SOURCE_APPROACH', 1 - tau);
+      const keelHeight = end.alt - cls.diaM / 2;
+      const depth = Math.min(1, Math.max(0, (cls.anchorM - keelHeight) / (cls.anchorM * 0.14)));
+      const slow = Math.min(1, Math.max(0, 1 - end.gs / 3.6 / 2));
+      const expected = Math.min(plan.anchorT, cls.anchorBagT) * depth * slow;
+      const fill = drawAt(cls, MODES.balanced, plan, 'WATER_FILL', 0);
+      close(fill.anchor.tonnes, expected, 1e-8, `${id}: achieved inventory at fill seam`);
+    }
+  });
 
   for (const id of CLASS_ORDER) {
     it(`${id}: cable and bag agree in every phase, at every altitude`, () => {

@@ -686,7 +686,8 @@ await check('the anchor is never asked for when the ship could not use it', asyn
   // physics. Checked here across the whole envelope rather than at the two altitudes that
   // happen to be interesting.
   const cls = resolveClass('P10000');
-  const cable = cls.anchorCableM, reach = cable - cls.maxRadiusM;
+  // Independent hull-centre datum: keel height = altitude - published radius.
+  const cable = cls.anchorCableM, reach = cable + cls.nominalDiameterM / 2;
   for (let alt = 2000; alt >= 0; alt -= 25) {
     const a = anchorAt(cls, alt, 1);
     if (alt > reach + cable * 0.25) {

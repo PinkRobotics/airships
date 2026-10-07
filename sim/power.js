@@ -4,6 +4,8 @@ import { diskMW, ledger, pumpMW } from './physics.js?v=816a54f9';
 
 import {profilePoint} from './profile.js?v=816a54f9';
 
+import { anchorGeometry } from './config.js';
+
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
 export const BUS_CEILING = 1;
@@ -44,7 +46,7 @@ const FD = 1e-3;
  * No pickup on the return leg. Fill inherits the achieved approach inventory. */
 function anchorPotential(cls, fullT, id, prog, alt, gs, achievedT = 0) {
   const cap = Math.max(0, Math.min(fullT, cls.anchorBagT || 0));
-  const reach = (cls.anchorM || 0) - cls.diaM / 2;
+  const reach = anchorGeometry(cls.anchorM || 0, cls.diaM).contactAltitudeM;
   if (!(cap > 0) || alt > reach) return { cableP: 0, fillF: 0, tonnes: 0 };
   if (id === 'WATER_FILL') {
     const tonnes = Math.min(cap, achievedT) * Math.max(0, 1 - prog / 0.30);
@@ -479,7 +481,7 @@ export function anchorHang(cls, fullT, phaseId, prog, altAgl, gsKph) {
   const overLake = phaseId === "SOURCE_APPROACH"
     || (phaseId === "RETURN_TRANSIT" && prog > 0.94);
   if (!overLake || gsKph / 3.6 > 2) return done(0, 0);
-  const reachAlt = Math.max(0, cable - cls.diaM / 2);
+  const reachAlt = anchorGeometry(cable, cls.diaM).contactAltitudeM;
   if (altAgl > reachAlt + cable * 0.25) return done(0, 0);
   return done(1, Math.min(1, Math.max(0, (reachAlt - altAgl) / Math.max(1, cable * 0.14))));
 }

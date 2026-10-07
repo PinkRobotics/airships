@@ -26,6 +26,8 @@ import { ASSUMPTIONS, ALT, ALT_DROP_TOP, MODES, specNumber, sourceAltM } from '.
 // Preserve the public mission-module API; declarations live only in model/config.js.
 export { ALT, MODES } from '../model/config.js?v=91301eab';
 
+import { anchorGeometry } from '../model/config.js';
+
 /** Fastest the hull may be moving with the bag in the water, m/s. */
 export const ANCHOR_MAX_DIP_MPS = 2;
 
@@ -97,7 +99,7 @@ export function phaseAt(timeline, u) {
  * appears here and is not a fudge factor.
  *
  * @param {object} cls        resolved class
- * @param {number} altitudeM  the hull's height above the water
+ * @param {number} altitudeM  hull-centre height above the water (ANCHOR_DATUM)
  * @param {number} [full]     the fill this mission's descent needs, as a fraction of the bag
  */
 export function anchorAt(cls, altitudeM, full = 1, groundSpeedMps = 0) {
@@ -114,7 +116,7 @@ export function anchorAt(cls, altitudeM, full = 1, groundSpeedMps = 0) {
   // differ by half a metre — enough to put the bag's fill a percent apart between the model and
   // the avatar, which anchor-parity.cases.js caught. The driver still uses the real keel height
   // for the geometry; this is the choreography, and it only has to agree with the other copy.
-  const reachAlt = Math.max(0, cable - cls.nominalDiameterM / 2);   // altitude at first contact
+  const reachAlt = anchorGeometry(cable, cls.nominalDiameterM).contactAltitudeM;
   // Start lowering a quarter of a cable before it can touch, so the bag is ready when the ship
   // reaches the band it cannot hold itself in rather than being thrown after it.
   if (altitudeM > reachAlt + cable * 0.25) return { anchorProgress: 0, anchorFill: 0 };

@@ -35,6 +35,10 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > Regenerate all of it with `make analysis`.
 >
 > **2026-10-02 correction to #11:** the conditional capsule budget now gives 457,324 m³ and 140 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
+
+<!-- anchor-budget:question:start -->
+Generated from the owning record during the combined regeneration.
+<!-- anchor-budget:question:end -->
 > See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
 <!-- closure-correction:start -->
@@ -405,6 +409,13 @@ Can the nitrogen expander supply the modelled phase output after its mass, heat 
 <!-- energy:question-6:end -->
 
 ## 7. Thirty-two unjustified constants, and only fifteen of them are dialled
+
+**Current anchor correction:** the audit measurements below use an earlier sizing model.
+They do not establish achieved inventory or current cycle closure. The present bag sizes
+are an intention to carry about 90% of the source hold; the nominal-keel reach and actual
+held-water channel determine the split. Current prescribed profiles and supplied effort
+are generated in `research/analysis/descent.json`; this is not structural float or handling
+validation.
 
 An audit of every published figure (`research/evidence-map.md`, 89 claims) put 32 of them on
 constants with no stated justification anywhere — against 15 genuine stated assumptions. **The

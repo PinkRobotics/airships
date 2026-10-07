@@ -88,6 +88,17 @@ export function setAssumptions(patch) {
  * lifting volume, and that contrast is one of the things this model exists to show).
  * ------------------------------------------------------------------------------------------- */
 
+/** Altitudes are hull-centre heights above the source water (or reference ground).
+ * The nominal vertical cable attaches at the keel, half the published diameter below
+ * that centre. This is reach geometry, not a bag-immersion or pickup-load model.
+ * The standalone 3D configuration carries a parity-checked copy of this declaration. */
+export const ANCHOR_DATUM = 'hull-centre';
+export function anchorGeometry(cableM, diameterM) {
+  const attachmentBelowCentreM = Math.max(0, diameterM) / 2;
+  return { attachmentBelowCentreM,
+    contactAltitudeM: cableM > 0 ? cableM + attachmentBelowCentreM : 0 };
+}
+
 /** Liquid nitrogen at 1 atm, kg/m3. Known physics. */
 export const RHO_LN2 = 807;
 export const RHO_WATER = 1000;

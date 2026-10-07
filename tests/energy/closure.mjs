@@ -28,7 +28,7 @@ for (const c of Object.values(S.CLASSES)) for (const m of Object.values(S.MODES)
   const tag = `${c.id}/${m.id}/${km}/wind${wind?.spd || 0}/${basis}`;
   const p = S.planCycle(c, m, km, wind, { basis });
   const pi = planInfo(which, p); plans++;
-  const bagCap = Math.min(p.anchorT, c.anchorBagT) + 1e-9, reach = c.anchorM - c.diaM / 2;
+  const bagCap = Math.min(p.anchorT, c.anchorBagT) + 1e-9, reach = c.anchorM + c.diaM / 2;
   let scanOk = true, scanWorst = 0, scanWhere = '', maxBag = 0;
   for (const [id] of S.PHASES) for (let i = 0; i <= N; i++) {
     const x = i / N, raw = S.drawAt(c, m, p, id, x), s = norm(which, raw); instants++;

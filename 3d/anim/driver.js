@@ -784,10 +784,9 @@ export function updateDriver(d, dt, state, alloc = null, env = {}) {
     // it becomes heavy is the moment it comes out, with no step.
     const clearM = h.podLengthM * 0.9 + 6;
     const lift = clearM * clamp01((fill - 0.80) / 0.20);
-    // MEASURE THE DROP FROM THE WINCH, NOT FROM THE SHIP. altitudeM is the hull's, and the winch
-    // is on the keel — a hull radius below it, which is 110 m on a P-10000. Paying out `altitude`
-    // of cable therefore put the bag a hull radius UNDER the lake and left it there, full, while
-    // the whole point is that it comes out. The gap that matters is winch-to-surface.
+    // Altitude places the water relative to the hull-centre origin. The final winch point
+    // keeps the nominal keel attachment defined by anchorGeometry in the layout.
+    // Measure its gap to the water from that point; the lift above is a display pose.
     const gapM = waterZ === undefined ? 0 : Math.max(0, h.reel.p[2] - waterZ);
     const wantDepthM = out * Math.max(0, gapM - lift);
     updateHose(h, dt, {

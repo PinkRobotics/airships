@@ -49,6 +49,7 @@ for(const name of ['energy-profiles','energy-feasible']){
  if(data.distanceSelection){const d=data.distanceSelection;out+=`Golden allocator distances: minimum ${f(d.min)}, median ${f(d.median)}, maximum ${f(d.max)} km. ${d.reason}\n\n`;}
  out+=`The search uses speed multipliers ${data.space.speedMultipliers.join(', ')} and independent vertical controls ${JSON.stringify(data.space.verticalProfile)} in all three modes.\n\n`;
  out+='Retained water uses five-percent payload steps plus each bisected first closing threshold. The result is the cheapest feasible profile found in the stated space.\n\n';
+ out+='Profile quantities assume a hull that floats in the flight model; they do not establish structural float closure.\n\n';
  out+='| Class | km | Basis | Mode | Speed | Climb / letdown rate, m/s; airspeed, m/s | Water kept, t | Delivered, t | Minutes | MWh | kWh/t | Signed gap tf / direction (coefficient 0.70) | Qualification |\n|---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|\n';
  for(const r of data.rows){const a=r.asDrawn;out+=`| ${r.class} | ${r.km} | ${r.basis} | as drawn: ${a.feasible?'closes':'does not close'} | 1 | prescribed | ${f(a.ballastT)} | ${f(a.deliveredT)} | ${f(a.cycleMin)} | ${f(a.cycleMWh)} | ${f(a.kwhPerTonne)} | | ${asDrawnNote(r)} |\n`;const b=r.best;if(!b){out+=`| ${r.class} | ${r.km} | ${r.basis} | none in the stated space | | | | | | | | | |\n`;continue;}
  const inert=b.inertia.worstSignedGaps[0];

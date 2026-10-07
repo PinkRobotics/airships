@@ -168,7 +168,8 @@ def cycle_sketch(name, c, km, keptT=0.0, disp=None, lenM=None, diaM=None, two_wa
     bus = c['battMW'] + c['genMW']; hotel = c['genMW'] * HOTEL_FRAC
     pumpMW = RHO_WATER * G * HOSE_M * c['fillM3s'] / PUMP_ETA / 1e6
     surrogate = thrust_at_power(bus, rho_isa(ALT['hold']), A, eta=eta) if use_surrogate else float('inf')
-    reach = c['anchorM'] - diaM / 2
+    # Independent reconstruction of sim/config.js anchorGeometry's hull-centre datum.
+    reach = c['anchorM'] + diaM / 2
     moved = P - keptT                        # tonnes filled and released each cycle
     fill_min, rel_min = d['WF'] * moved / P, d['WR'] * moved / P
     phases = []  # (minutes, fn(s) -> (alt_msl, V, vz, water_t, bag_t, pumps_on))

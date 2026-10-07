@@ -17,18 +17,22 @@ assert.ok(upward.requiredRotorT<0,'upward fixture requires negative rotor thrust
 assert.ok(upward.gapT>1e-6,'signed screen flags unavailable upward authority');
 assert.equal(upward.direction,'upward authority short');
 assert.ok(Math.abs(upward.forceT)<upward.downwardReserveT,'withdrawn absolute comparison misses this instant');
+// BEGIN generated anchor upward pins
 assert.equal(upward.accelerationMps2.toFixed(4),'0.8135');
 assert.equal(upward.forceT.toFixed(2),'30.29');
 assert.equal(upward.upwardByRotorShedT.toFixed(2),'13.59');
 assert.equal(upward.requiredRotorT.toFixed(2),'-16.70');
+// END generated anchor upward pins
 const downward=instant(0,'WATER_RELEASE',1);
 for(const q of downward){
  assert.ok(q.forceT<0,'release deceleration has negative signed demand');
  assert.equal(q.direction,'downward authority short');
  assert.ok(q.requiredRotorT>q.availableRotorT,'release exceeds available downward thrust');
 }
+// BEGIN generated anchor downward pins
 assert.equal(downward[0].gapT.toFixed(1),'1303.9');
 assert.equal(downward[1].gapT.toFixed(1),'1837.5');
+// END generated anchor downward pins
 console.log('PASS signed fixtures: '+JSON.stringify({upward,downward}));
 if(!process.env.DIAGNOSTIC_PROBE)proveMutations('tests/energy/signed-authority.mjs',[
  {label:'withdrawn absolute rule',file:'/research/analysis/energy-motion.mjs',

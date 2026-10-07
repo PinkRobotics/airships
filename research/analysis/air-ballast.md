@@ -53,25 +53,23 @@ number in the vehicle (`mass-budget.md` carries it at 12 to 120 t across three c
 
 **The ship liquefies nitrogen on every normal cycle, and it does not need to.**
 
-| | LN₂ made per cycle | energy | net of recovery | share of the published cycle |
-|---|---|---|---|---|
-| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **8.0%** |
-| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 4.3% |
-| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 1.1% |
+<!-- anchor-budget:nitrogen-table:start -->
+Generated from the owning record during the combined regeneration.
+<!-- anchor-budget:nitrogen-table:end -->
 
 Correction, 2026-10-02: the regenerated shares are 8.0%, 4.3% and 1.1%, replacing 47.3%, 31.9% and 14.0%.
 The force ledger raises the supplied cycle energy used as the denominator.
 These prescribed cycles are infeasible, so the subtraction does not establish a flight saving.
 
-The table attributes 8.0% of a P-100's prescribed cycle energy to net liquefaction.
-The earlier sentence said over half while its table showed 47.3%.
-The net nitrogen term remains 0.658 MWh; the supplied cycle energy rises from 1.391 to 8.192 MWh.
-The [energy correction](../../docs/audit/26-10-02-energy-carry.md) records the dependent changes.
+<!-- anchor-budget:nitrogen-current:start -->
+Generated from the owning record during the combined regeneration.
+<!-- anchor-budget:nitrogen-current:end -->
 
 It is also unnecessary. `plan.js:64` makes `ln2MakeT` whatever the plant can produce in the
 time available — capacity times duration, not demand — so the ship refrigerates because it
-*can*. The descent does not need it, because the anchor is already sized to take 90% of the
-hold:
+*can*. The descent does not need it, because the installed anchor capacity is sized to take about 90% of the
+hold. That is a sizing intention, not held inventory throughout the approach;
+the following is a nominal static capacity comparison, not complete-cycle closure:
 
 | | surplus at the source | anchor | left for the rotors | rotor capacity | margin |
 |---|---|---|---|---|---|

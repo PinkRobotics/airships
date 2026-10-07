@@ -9,7 +9,18 @@ export function unheldRows(){
  for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){
   const p=planCycle(c,MODES.balanced,km,null,{basis}),phases=[];let elapsedMin=0;
   for(const [phase] of PHASES){
-   const peak=p.phasePeaks[phase],progress=peak.progress;
+   // Refine the printed phase peak locally beyond the verdict mesh. The reach
+   // seam can leave a few microtonnes between that mesh's finite refinement
+   // and the phase table's independently checked maximum; do not round it away.
+   const seed=p.phasePeaks[phase], magnitude=x=>Math.abs(drawAt(c,MODES.balanced,p,phase,x).unheldT);
+   let lo=Math.max(0,seed.progress-1/LIMIT_STEPS),hi=Math.min(1,seed.progress+1/LIMIT_STEPS);
+   for(let i=0;i<90;i++){
+    const a=lo+(hi-lo)/3,b=hi-(hi-lo)/3;
+    if(magnitude(a)<magnitude(b))lo=a;else hi=b;
+   }
+   const refined=(lo+hi)/2,progress=magnitude(refined)>Math.abs(seed.unheldT)?refined:seed.progress;
+   const sample=drawAt(c,MODES.balanced,p,phase,progress);
+   const peak={unheldT:sample.unheldT,phase,progress,limits:sample.limits};
    const s=drawAt(c,MODES.balanced,p,phase,progress);
    if(Math.abs(s.unheldT)>FORCE_TOL*Math.max(1,Math.abs(s.surplusT)))
      phases.push({...peak,secondsIntoPhase:progress*p.dur[phase]*60,cycleMinute:elapsedMin+progress*p.dur[phase],airspeedMps:s.airV,verticalSpeedMps:s.vz});
@@ -17,7 +28,7 @@ export function unheldRows(){
   }
   rows.push({class:c.id,km,basis,profile:'as drawn',mode:'balanced',feasible:p.feasible,cycleMin:p.cycleMin,phases});
  }
- return {meaning:'Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits. Positive is unsupported surplus lift; negative requires unavailable upward authority.',samplesPerPhase:LIMIT_STEPS+1,rows};
+ return {meaning:'Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits, with additional local refinement for the printed phase peak. Positive is unsupported surplus lift; negative requires unavailable upward authority.',samplesPerPhase:LIMIT_STEPS+1,rows};
 }
 const result=unheldRows();
 writeGenerated('research/analysis/energy-unheld.json',JSON.stringify(result,null,2)+'\n');

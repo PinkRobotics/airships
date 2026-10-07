@@ -96,8 +96,8 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   const rotorCapT = rotorMaxT;
   // The anchor goes FIRST and takes everything its bag will hold. It is not a way of covering
   // what the rotors cannot manage — it is the cheaper way of doing the job at all. Rotor power
-  // goes as thrust^1.5, so moving load onto the lake pays superlinearly, and the bags are sized
-  // to take about 90% of the hold. What is left is trim, not lift.
+  // goes as thrust^1.5, so moving load onto the lake pays superlinearly. Bag capacity is
+  // a sizing intention; drawAt credits only the inventory acquired on this approach.
   //
   // The bag cannot exceed what the ship can pick up, which is its own surplus: a bag equal to
   // the surplus leaves the hull neutral and it can lift no more than that. min() with holdT is

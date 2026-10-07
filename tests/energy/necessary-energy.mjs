@@ -12,7 +12,9 @@ const fixture=n=>{
 const eleven=fixture(11),twelve=fixture(12),inside=fixture(9);
 assert.equal(eleven.nominalStorageMWh,20,'captured storage fixture stays at nominal 20 MWh');
 assert.equal(twelve.nominalStorageMWh,20);
+// BEGIN generated anchor necessary pins
 for(const [q,energy,empty] of [[eleven,'41.8','127.5'],[twelve,'59.2','169.0']]){
+// END generated anchor necessary pins
  assert.equal(q.cumulativeDrawMWh.toFixed(1),energy);
  assert.equal(q.emptyAtMin.toFixed(1),empty);
  assert.ok(q.shortageMWh>0,'captured cycle exceeds nominal storage');
@@ -23,7 +25,9 @@ assert.equal(inside.shortageMWh,0);
 const selected=selectServedPlan(CLASSES.P1000,400,null,'endurance');
 assert.equal(selected.state,'ready','necessary energy does not alter the selector');
 const long=necessaryEnergy(CLASSES.P1000,MODES[selected.mode],selected.plan);
+// BEGIN generated anchor long pins
 assert.equal(long.cumulativeDrawMWh.toFixed(1),'332.3');
+// END generated anchor long pins
 assert.equal(long.nominalStorageMWh,120);
 console.log('PASS necessary-energy fixtures: '+JSON.stringify([eleven,twelve,inside,long].map(q=>({drawMWh:q.cumulativeDrawMWh,storageMWh:q.nominalStorageMWh,emptyAtMin:q.emptyAtMin,shortageMWh:q.shortageMWh}))));
 await import('./printed-storage.mjs');

@@ -103,6 +103,17 @@ export function sourceAltM(cls) {
   return cls.hoseM * CFG.hoseMul;
 }
 
+/** Altitudes are hull-centre heights above the source water (or reference ground).
+ * The nominal vertical cable attaches at the keel, half the published diameter below
+ * that centre. This is reach geometry, not a bag-immersion or pickup-load model.
+ * The standalone 3D configuration carries a parity-checked copy of this declaration. */
+export const ANCHOR_DATUM = 'hull-centre';
+export function anchorGeometry(cableM, diameterM) {
+  const attachmentBelowCentreM = Math.max(0, diameterM) / 2;
+  return { attachmentBelowCentreM,
+    contactAltitudeM: cableM > 0 ? cableM + attachmentBelowCentreM : 0 };
+}
+
 /* THE GROUND UNDER ALL OF THAT, and the altitude the buoyancy ledger is evaluated at.
  *
  * Every other altitude in this file is above ground. Buoyancy is not: it answers to the air
@@ -198,32 +209,31 @@ export const VZ_MAX = 6;
  * like the CH-47 (Arney, in production since 1983). This is 1,265 times that. The
  * principle is unchanged and the engineering is not, which is the honest way to describe it.
  *
- * `anchorM` is the cable, and it is shorter than it looks like it should be: the rotors can
- * hold the hull down unaided until the air thickens, which is 760 m above the water for a
- * P-10000 and 510 m for a P-1000, so the cable only has to reach the surface from there. 850
- * and 600 m with margin. The P-100 carries none — its descent closes with x1.94 headroom.
+ * `anchorM` is the installed cable length: 350 / 600 / 850 m on the three classes.
+ * Contact follows the hull-centre datum and nominal keel attachment defined by anchorGeometry.
+ * Earlier unaided-descent thresholds and headroom claims are superseded by the current force
+ * ledger; every class now carries an anchor. No physical handling validation is implied.
  *
- * `anchorBagT` IS SIZED TO DO THE WHOLE DESCENT, not to cover a shortfall, and that is where
- * most of the value turned out to be. Rotor power goes as thrust^1.5, so taking load off the
- * rotors pays superlinearly. Earlier undated percentages in this comment were withdrawn
- * on 2026-10-05: they did not describe the current model. The generated report-percentage
- * record keeps dated report comparators beside a named replay and both force verdicts.
+ * `anchorBagT` is a capacity chosen to reduce rotor hold-down effort. The earlier model
+ * attributed a large energy saving to a bag carrying most of the hold; those dated figures
+ * are not achieved flight or a current cycle verdict. Current supplied-effort comparisons
+ * and closure verdicts are generated in research/analysis/descent.json and descent.md. * Earlier percentages were withdrawn on 2026-10-05; their dated comparators and both
+ * replay force verdicts remain in the generated report-percentage record.
  *
- * This is the second most powerful number in the whole model — ±20% moves cycle energy +12.5% /
- * -3.2%, more than any tunable except cruise speed — and it has no slider and no derivation.
- * The 90% is a choice, not a result: the smallest bag that still delivers a full payload is
- * 1,099 t, and everything between there and 12,400 t buys energy rather than capability.
- * docs/OPEN-QUESTIONS.md #7. The bag is therefore 90% of what has to be held down at the source, with
- * the rotors keeping the last 10% for control rather than for lift: 125 / 1,250 / 12,400 t.
+ * Earlier bag-size sensitivity and minimum-capacity numbers belong to the dated audit in
+ * docs/OPEN-QUESTIONS.md #7, not the present force ledger. Capacity has no derived optimum.
+ * Sizing intention: bags of 125 / 1,250 / 12,400 t take about
+ * 90% of the source hold, leaving about 10% to the rotors. Achieved inventory depends on
+ * reach, approach and paid hoist; drawAt().anchor.tonnes, not capacity, decides the split.
  *
  * There is a natural ceiling on the bag and it is a pleasing one: the most water the ship can
  * lift out of the lake is exactly its own surplus lift. A bag equal to the surplus leaves the
  * hull neutral; anything more and it cannot pick it up. So the mechanism cannot be over-sized
  * without the physics saying so.
  *
- * EVERY class carries one, including the P-100, whose descent closes on rotors alone. It is
- * kept not because that class needs holding down but because a bucket is cheaper than thrust
- * everywhere, and because a fleet that has built the technology should use it.
+ * EVERY class carries one, including the P-100. The sizing concept assumes bag support
+ * reduces rotor effort; the current force ledger, rather than earlier unaided-descent
+ * claims, decides whether a prescribed cycle closes. The fleet has not flown.
  *
  * The cable grows with the bag: 12,400 t is 122 MN, which is about 440 mm of UHMWPE massing
  * 125 t. That is 1.25% of the P-10000's payload in rope, and it is NOT charged as dry mass

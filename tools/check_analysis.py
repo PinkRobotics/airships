@@ -555,6 +555,9 @@ def main() -> None:
                        '-s', 'tools/tests', '-p', 'test_mass_budget_prose.py'], cwd=ROOT).returncode:
         bad.append('floor sentence drift plants failed')
 
+    if subprocess.run(['node', 'tools/gen_anchor_budget_notes.mjs', '--check'], cwd=ROOT).returncode:
+        bad.append('anchor budget notes differ from current mass-budget records')
+
     # Lift per nominal surface is explicitly an allowance, not a hull mass.
     budget = cache["mass-budget"]["classes"]
     physics = (ROOT / "docs/PHYSICS.md").read_text()

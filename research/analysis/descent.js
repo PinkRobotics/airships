@@ -4,7 +4,7 @@
 (async () => {
   const S = window.AIRSHIPS.sim;
   const { CLASSES, CLASS_ORDER, MODES, CFG, PHASES, TERRAIN_MSL, BUS_CEILING, LETDOWN_FROM,
-    PLAN_STEPS, planCycle, ledger, drawAt, integrateCycle, cycleGeometry } = S;
+    PLAN_STEPS, planCycle, ledger, drawAt, integrateCycle, cycleGeometry, anchorGeometry } = S;
   const r = (x, n = 3) => (Number.isFinite(x) ? Number(x.toFixed(n)) : null);
   const G = 9.81;
 
@@ -16,7 +16,7 @@
     const plan = planCycle(cls, mode, CFG.exampleKm,null,{basis});
     const g = cycleGeometry(cls, plan);
     const cableM = cls.anchorM || 0;
-    const reachAglM = Math.max(0, cableM - cls.diaM / 2);      // the bag touches the water here
+    const reachAglM = anchorGeometry(cableM, cls.diaM).contactAltitudeM; // hull-centre contact altitude
 
     /* THE PROFILE. The letdown is the last (1 - LETDOWN_FROM) of the return leg — the descent
        from the ceiling to the hold altitude — and the approach: close the track, stop, then sink

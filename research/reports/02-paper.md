@@ -232,10 +232,12 @@ These energy figures come from the earlier flight model, which understates the f
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
-**The leverage is in the exponent.** Induced rotor power goes as thrust^1.5, so moving load off
-the rotors pays superlinearly: carrying 90% of the hold on the bag drops the required rotor power
-from 1,748 MW to 52.3 → 1404.8 MW<!--f:P10000.energy.downMW-->, a 97% reduction, and the letdown term from
-34.20 MWh to 1.420 → 117.284 → 117.168 MWh<!--f:P10000.energy.letdownMWh-->.
+**The leverage is in the exponent.** Induced rotor power goes as thrust^1.5. The earlier
+model's assumed 90% load transfer gave a stated 97% reduction; that is not an achieved
+current-cycle result. Its comparison was 1,748 MW to 52.3 → 1404.8 MW<!--f:P10000.energy.downMW-->,
+and 34.20 MWh of letdown effort against 1.420 → 117.284 → 117.168 MWh<!--f:P10000.energy.letdownMWh-->.
+The arrows' current terms are supplied effort on the prescribed profile. Actual held inventory,
+not nominal bag capacity, determines the present load split.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -246,9 +248,9 @@ Three consequences worth stating plainly:
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
-- **Every class carries one, including the P-100 whose descent closes without it.** Removing its
-  bag costs 1.526 MWh a cycle against 1.391 → 8.042 → 8.189<!--f:P100.cycle.eCycleMWh-->: a 34% saving on a class
-  that does not need the mechanism. A bucket is cheaper than thrust everywhere.
+- **Every class carries one.** The earlier P-100 sizing model claimed its descent closed
+  without the bag and attributed a 1.526 MWh penalty to removing it, against 1.391 → 8.042 → 8.189<!--f:P100.cycle.eCycleMWh-->. That earlier 34% saving is not a current achieved
+  result; the current force ledger and actual held inventory decide closure.
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
   ceiling.
