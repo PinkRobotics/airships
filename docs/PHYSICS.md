@@ -618,10 +618,16 @@ The older whole-phase dilation is named `movingPhaseRateMultiplier`; the new sea
 
 Listed so nobody has to discover them by reading code.
 
-- **Weather.** One 850 hPa wind vector per route, applied as an along-track component to
-  transit times only, clamped to between 0.35× and 1.8× airspeed. No vertical motion, no
-  shear, no gusts, no icing, no convective column, no diurnal cycle. Altitude profiles are
-  unaffected by wind entirely.
+- **Weather.** A route's pressure-level wind vector enters transit timing through the
+  straight, level wind triangle: cancelling crosswind leaves the forward air component,
+  to which the signed along-track wind is added. Crosswind at or above selected airspeed,
+  or a leg with no positive ground progress, is refused with its track reason; no clipped
+  speed is substituted. Whole-phase dilation with nonzero wind is also refused because
+  it has no represented vector track. The force-and-bus predicate remains separate.
+  Transit timing changes the shorter-leg ceiling and hence the prescribed altitude
+  profile; the independent profile search also receives the actual wind components.
+  This timing coupling is not a height-dependent weather solution. No vertical air
+  motion, shear, gusts, icing, convective column or diurnal cycle is represented.
 <!-- editorial:turbulence:start -->
 - **Turbulence and gust loading.** The largest configured hull is 512 m long. Its behaviour in a convective column is a structural and control problem the model does not represent. The configured release height is an assumption, not a gust-loading result.
 <!-- editorial:turbulence:end -->

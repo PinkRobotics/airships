@@ -143,3 +143,18 @@ test('nonzero wind with unsupported whole-phase dilation is refused with a reaso
   assert.match(p.trackReason,/whole-phase dilation.*no represented track/);
   assert.equal(p.tph,null);
 });
+
+
+test('stipulated along_36 changes ceiling through timing, as the weather boundary states', () => {
+  const still=planCycle(CLASSES.P100,MODES.rapid,legKm,null,controls);
+  const windy=planCycle(CLASSES.P100,MODES.rapid,legKm,along(36),controls);
+  almost(still.altitudeGeometry.altTop,646.9258312020461);
+  almost(windy.altitudeGeometry.altTop,557.3965844402276);
+  assert.ok(windy.dur.OUTBOUND_TRANSIT<still.dur.OUTBOUND_TRANSIT);
+  assert.ok(windy.altitudeGeometry.altTop<still.altitudeGeometry.altTop);
+  const physics=readFileSync(new URL('../../docs/PHYSICS.md',import.meta.url),'utf8');
+  const bullet=physics.slice(physics.indexOf('- **Weather.**'),physics.indexOf('- **Turbulence and gust loading.**'));
+  assert.match(bullet,/wind triangle/);
+  assert.match(bullet,/timing[\s\S]*profile/);
+  assert.doesNotMatch(bullet,/unaffected by wind|clamped/);
+});
