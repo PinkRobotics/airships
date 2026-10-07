@@ -43,7 +43,7 @@ def outputs(s):
     a=text.index('- `make test` ');b=text.index('- `make test-node` ',a)
     out[p]=text[:a]+body+'\n'+text[b:]
     p='research/reports/03-diligence.md';text=(ROOT/p).read_text()
-    row=f'| `tests/` | {tests} registered tests in {suites} suites, plus 103 more that need node. **{known} known-failing markers**; corrected defects run as ordinary assertions. |'
+    row=f'| `tests/` | {tests} registered tests in {suites} suites, plus {len(json.loads((ROOT/'research/test-inventory.json').read_text())['node']['names'])} native Node tests. **{known} known-failing markers**; corrected defects run as ordinary assertions. |'
     text,n=re.subn(r'^\| `tests/` \|[^\n]*',lambda m:row,text,flags=re.M)
     assert n==1
     text,n=re.subn(r'`make test` runs \d+ tests (?:including two deliberate failures|with \d+ known-failing markers) and',

@@ -303,7 +303,7 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
     """One class, one evidence case, every line in tonnes.
 
     `rightsize` applies the one change that is a decision rather than physics: size the
-    battery for the mission instead of for eighteen cycles of endurance.
+    battery for the prescribed mission; no endurance is established by a capacity quotient.
 
     IT NO LONGER DELETES THE CRYOGENIC TRAIN. An earlier version did, on the argument that a
     vacuum hull can ballast by admitting air. It cannot: the hull is many PERMANENTLY SEALED
@@ -332,8 +332,7 @@ def budget(spec: dict, lift: dict, energy: dict, cycle: dict, case: str,
         f"{spec['solarSheetM2']:,.0f} m2 gross PV sheet (independent material-area assumption)")
     add("Battery pack", batt_mwh * 1e6 / ev("battery_wh_per_kg", case) / 1000.0,
         f"{batt_mwh:,.2f} MWh",
-        "Sized for endurance between recharges, not for a cycle. The ship as specified "
-        "stores eighteen cycles of energy.")
+        "Nominal or mission-sized capacity for this case; not demonstrated endurance.")
 
     motor_t = spec["battMW"] * 1000.0 / ev("motor_kw_per_kg", case) / 1000.0
     add("Propulsion motors", motor_t, f"{spec['battMW']} MW peak bus")

@@ -94,7 +94,7 @@ def run_native():
     with tempfile.TemporaryDirectory() as td:
         record = Path(td) / 'native.jsonl'
         result = subprocess.run([
-            'node', '--test', '--test-reporter=tap', '--test-reporter-destination=stdout',
+            'node', '--test', '--test-concurrency=1', '--test-reporter=tap', '--test-reporter-destination=stdout',
             '--test-reporter=./tools/test_inventory_reporter.mjs',
             '--test-reporter-destination=' + str(record), *files('node')],
             cwd=ROOT, capture_output=True, text=True)
