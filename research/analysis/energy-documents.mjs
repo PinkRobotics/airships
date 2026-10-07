@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=31a23fa3';
 import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=31a23fa3';
 import {specificEnergies,batteryMass} from './energy-omissions.mjs';
+import {PLANT_ENERGY_NOTE} from './energy-plant.mjs';
 import {areaText} from './energy-rotor-area.mjs';
 import {regimeSentence} from './energy-rotor-regime.mjs';
 import {reportCorrection,reportModelQualification} from './energy-report-percentages.mjs';
@@ -232,6 +233,7 @@ const model='# Energy model, 2026-10-02\n\nOne ledger owns the modelled force an
 const pumpTable=table(['Class','Head m','Pump MW','Ideal MWh','Electrical MWh'],classes.map(c=>[c.class,c.sourceM,f(c.pumpMW),f(c.pumpIdealMWh),f(c.pumpElectricalMWh)]));
 const solarTable=table(['Class','Tank t','Tank fill MWh','Ground-surplus t','Ground-surplus MWh','Solar days: ground / tank','Tank days at rated plant'],classes.map(c=>[c.class,c.tankMassT,f(c.tankEnergyMWh),f(c.groundMassT),f(c.groundEnergyMWh),`${f(c.groundSolarDays)} / ${f(c.tankSolarDays)}`,f(c.tankPlantDays)]));
 let physics='## 3. Storage inside the dry-mass target\n\n'+omitted+'\n## 4. The prescribed delivery cycle\n\n'+MISSION_QUALIFIER+'\n\n'+baselineTable+'\n'+profileTable+'\n'+
+ PLANT_ENERGY_NOTE+'\n\n'+
  'Cycle durations and supplied energy are model outputs. A cycle that does not close supplies no justified delivery rate.\n\n'+
  '## 5. Pumping energy\n\nPump power is water density times gravity, flow and head, divided by pump efficiency.\nThe electrical fill energy is delivered water times gravity and head, divided by the same efficiency.\n\n'+pumpTable+'\n'+
  `The lumped pump efficiency is ${CFG.pumpEta}; it covers the pump, motor, drive and hose losses. Hose mass and detailed friction are not separately modelled.\n\n`+

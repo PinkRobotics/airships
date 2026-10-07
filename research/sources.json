@@ -1,5 +1,24 @@
 {
  "sources": [
+  {
+   "id": "stirling-2016-stirlin-specification",
+   "title": "StirLIN liquid nitrogen system technical specification",
+   "authors": [
+    "Stirling Cryogenics"
+   ],
+   "year": 2016,
+   "url": "https://www.criotecnica.com.br/wp-content/uploads/2017/06/stirlin2_specification.pdf",
+   "accessed": "2026-10-06",
+   "topic": "cryogenics-and-ln2",
+   "redistributable": false,
+   "licence": "No redistribution licence stated; link-only.",
+   "licenceReason": "The manufacturer-authored specification is publicly readable through a distributor; no permission to redistribute its bytes is stated. Only a link and a bounded reading are retained.",
+   "file": null,
+   "noCaptureReason": "Link-only manufacturer document; read at the published URL, not redistributed.",
+   "whatItEstablishes": "Printed pages 9 and 11 separate customer cooling water or optional chiller from the ground nitrogen system and give electrical input, mass and atmospheric usable output.",
+   "whatWeTakeFromIt": "A ground supplied-cooling energy and equipment comparator at fixed model controls, not a flight qualification, scaling law, airborne estimate or lower bound.",
+   "load": "supporting"
+  },
 {
    "id": "johnson-2017-ndarc-validation",
    "title": "NDARC — NASA Design and Analysis of Rotorcraft: Validation and Demonstration",
@@ -452,7 +471,7 @@
    "licenceReason": "MDPI Entropy is fully open access and the article's own front matter carries the CC BY 4.0 statement; the PubMed Central deposit (PMC7597247) records the same licence.",
    "file": "papers/arnaiz-del-pozo-2020-nitrogen-liquefaction.pdf",
    "whatItEstablishes": "For a realistic four-pressure-level Collins nitrogen liquefier, the optimum specific compression work is 430.7 kWh per tonne of liquid nitrogen at an 88% expanded flow fraction, against a reversible minimum of 173.4 kWh per tonne for the same change of state - a rational exergy efficiency of 40.3%, with about 40% of the destruction in the aftercoolers.",
-   "whatWeTakeFromIt": "The evidence for CFG.eLN2 = 0.45 kWh/kg, which stands with a 4% margin on the conservative side, and the evidence against CFG.rtLN2 = 0.50, which does not: 0.50 x 450 kWh/t recovers 225 kWh/t from a liquid whose exergy is 173.4 kWh/t here and at most about 210 kWh/t anywhere in the literature.",
+   "whatWeTakeFromIt": "The study liquefies already-pure nitrogen supplied at 4 bar; its compressor-work optimum is not an air-separation or complete air-to-liquid bill. CFG.eLN2 is an assumed all-in figure with no all-in source in the repository and no specified intake-to-product boundary. The study supplies an exergy constraint on recovered work, not conservative margin on the all-in assumption.",
    "load": "contradicts-us"
   },
   {
@@ -1671,7 +1690,7 @@
    "licenceReason": "A final technical report delivered under a US DOE award and published without restriction on OSTI. One caveat recorded in its own caption: Figure 3 is marked as taken without permission from a third-party publication, so that single figure should not be reused.",
    "file": "papers/rimpel-2023-liquid-air-combined-cycle.pdf",
    "whatItEstablishes": "That the widely quoted 439 kWh per tonne benchmark for air liquefaction is optimistic against engineering practice. A Wood Group EPC trade study for a 6,480 tonne-a-day train gives 685 kWh/t for a Claude cycle producing atmospheric-pressure liquid and 907 kWh/t for Linde-Hampson, which the report calls 'substantially worse than the initially assumed reference'. Adiabatic liquid-air storage with cold recycle reaches 297 kWh/t.",
-   "whatWeTakeFromIt": "The boundary condition on CFG.eLN2 = 0.45 kWh/kg. Our figure matches the 439 kWh/t literature benchmark, but this report is the engineering study saying a real standalone plant making atmospheric-pressure liquid runs at 685 kWh/t. The lower numbers in the liquid-air literature all assume cold returning from a discharge cycle, which an aircraft making nitrogen from air does not have.",
+   "whatWeTakeFromIt": "Its atmospheric liquid-air Claude case supplies a ground engineering comparator for a fixed-control sensitivity, not a nitrogen plant specification, an airborne value or a lower bound. Similarity to the literature benchmark does not source the assumed all-in nitrogen dial. Cold-recycle figures have a different system boundary.",
    "load": "supporting",
    "accessed": "2026-08-09"
   },

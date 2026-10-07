@@ -1,6 +1,7 @@
 import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js?v=31a23fa3';
 import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=31a23fa3';
 import {writeGenerated} from './energy-output.mjs';
+import {plantEnergyTable} from './energy-plant.mjs';
 /* Human-readable tables from replayable model inputs; no slow search here. */
 import fs from 'node:fs';
 import {batteryMass,specificEnergies} from './energy-omissions.mjs';
@@ -68,6 +69,7 @@ for(const name of ['energy-profiles','energy-feasible']){
  out+='\nThe signed screen checks every phase against simultaneous authority in both directions. The full per-phase signed demands at coefficients 0.70 and 1.00 are in the matching JSON. This is a hull-only sampled diagnostic, not dynamic validation. The fleet replays its selected controls at each mission’s exact inputs; this table does not promise interpolation.\n';
  out+=regimeTable(name);
  out+=powerTable(name);
+ out+=plantEnergyTable(name);
  out+='\n<!-- profile-tables:end -->\n';
  save(`research/analysis/${name}.md`,out);
 }

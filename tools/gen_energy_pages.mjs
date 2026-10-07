@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../sim/energy-label.js';
 import {CLASSES,MODES,PHASES,planCycle} from '../sim/index.js';
 import {batteryMass} from '../research/analysis/energy-omissions.mjs';
+import {PLANT_ENERGY_NOTE} from '../research/analysis/energy-plant.mjs';
 const load=name=>JSON.parse(fs.readFileSync('research/analysis/'+name+'.json'));
 // sim/energy-notes.js imports the model at the site stamper's version, read from the stamper's own record
 // (tools/stamp_site.py writes sim/version.json); a fixed version here went stale whenever the model changed.
@@ -96,6 +97,7 @@ for(const cls of ['P1000','P10000']){
  qualification+=`${CLASSES[cls].name}'s largest unheld force ranges from ${N(Math.min(...cases))} to ${N(Math.max(...cases))} tf on both bases. `;
 }
 qualification+='Model feasibility does not establish structural float, transient control or flight performance.';
+qualification+=' '+PLANT_ENERGY_NOTE;
 text+=sentence('qualifications',qualification,['research/analysis/energy-requirements.json#rows[km=15].dragSensitivity[*].{verticalCd,feasible,worst.unheldT}','research/analysis/energy-rotor-range.json#assumption']);
 text+=sentence('diagnostic-pointer',pointerText,pointerKeys);
 text+=sentence('fire-boundary','Nothing here says any fire would have burned differently. The fires are records or labelled inventions; the fleet is simulated and never flew.',['docs/ENERGY-MODEL-2026-10.md']);

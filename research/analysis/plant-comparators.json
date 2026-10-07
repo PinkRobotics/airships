@@ -1,0 +1,24 @@
+{
+  "scope": "Ground comparators and stipulated sensitivity inputs; no airborne property or lower bound is inferred.",
+  "liquidDensityKgL": {
+    "value": 0.808,
+    "meaning": "Stipulated liquid-density conversion retained from the reviewed model convention, not a measured airborne plant property."
+  },
+  "liquidAir": {
+    "id": "doe-liquid-air",
+    "label": "Ground liquid-air engineering comparator",
+    "source": "rimpel-2023-liquid-air-combined-cycle",
+    "locator": "Printed page 31, Table 8: atmospheric liquid-air Claude case",
+    "specificEnergyMWhT": 0.685
+  },
+  "stirlin": {
+    "id": "stirlin-supplied-cooling",
+    "label": "Ground StirLIN hardware with supplied cooling",
+    "source": "stirling-2016-stirlin-specification",
+    "locator": "Printed pages 9 and 11: customer cooling utility, atmospheric usable-output row and separate chiller option",
+    "inputKW": 34,
+    "usableLitresHour": 21,
+    "massKg": 2200,
+    "boundary": "Cooling is supplied separately; neither its equipment mass nor its power is included. The ground package includes storage, which may overlap separate model tankage."
+  }
+}
