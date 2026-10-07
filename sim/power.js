@@ -5,6 +5,7 @@ import { diskMW, ledger, pumpMW } from './physics.js?v=816a54f9';
 import {profilePoint} from './profile.js?v=816a54f9';
 
 import { anchorGeometry } from './config.js';
+import {instantOperatingMargins,operatingMarginRatio} from './operating-margin.js';
 
 const G = 9.81;
 /** The share of the bus the rotors may draw; the rest is for everything else aboard. */
@@ -401,7 +402,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
   let downMW = 0, downMWPhase = null, rotorClipMin = 0, letdownClipMin = 0;
   let peakBatteryMW = 0, peakRotorT = 0;
   let battLimited = false, feasible = true, worst = { unheldT: 0, phase: null, progress: 0, limits: [] };
-  const bound = new Set(), phasePeaks = {};
+  const bound = new Set(), phasePeaks = {}, operatingMargins = {};
   for (const [id] of PHASES) {
     if (!(plan.dur[id] > 0)) continue;
     const points = new Set([0, 1, .1, .15, .18, .25, .28, .3, .34, .55, .6, .7, .72, .75, .85, .94, cryoOnFrac(cls, mode, plan)]);
@@ -415,6 +416,9 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
     const xs = [...points].filter(x=>x>=0&&x<=1).sort((a,b)=>a-b);
     const at = p => drawAt(cls, mode, plan, id, p, opts);
     const note = (s, x) => {
+      for(const [limit,row] of Object.entries(instantOperatingMargins(s)))
+        if(!operatingMargins[limit]||row.relativeMargin<operatingMargins[limit].relativeMargin)
+          operatingMargins[limit]={...row,phase:id,progress:x};
       if (s.draw.rotors > downMW) { downMW = s.draw.rotors; downMWPhase = id; }
       peakBatteryMW = Math.max(peakBatteryMW, s.electrical.batteryPowerMW);
       peakRotorT = Math.max(peakRotorT, s.owners.rotorT);
@@ -433,7 +437,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
     let prev = at(xs[0]), prevprev = null; note(prev, xs[0]);
     for (let i=1; i<xs.length; i++) {
       const x=xs[i], s=at(x); note(s,x);
-      if (prevprev) for (const value of [q=>q.draw.rotors,q=>q.electrical.batteryPowerMW,q=>q.owners.rotorT,q=>Math.abs(q.unheldT)]) {
+      if (prevprev) for (const value of [q=>q.draw.rotors,q=>q.electrical.batteryPowerMW,q=>q.owners.rotorT,q=>Math.abs(q.unheldT),...['bus power','rotor thrust','downward authority','upward authority'].map(k=>q=>-operatingMarginRatio(q,k))]) {
         const epsilon = 1e-10 * Math.max(1, Math.abs(value(prev)));
         if (!(value(prev)>value(prevprev)+epsilon && value(prev)>value(s)+epsilon)) continue;
         let lo=xs[i-2], hi=x;
@@ -458,7 +462,7 @@ export function cycleLimits(cls, mode, plan, opts = {}) {
     }
   }
   return { downMW, downMWPhase, peakBatteryMW, peakRotorT, rotorClipMin, letdownClipMin, battLimited, feasible,
-    worst, phasePeaks, bindingLimits: [...bound], limitSteps: LIMIT_STEPS };
+    operatingMargins, worst, phasePeaks, bindingLimits: [...bound], limitSteps: LIMIT_STEPS };
 }
 
 /** Legacy schematic geometry only. Never used for force or energy credit. Actual inventory

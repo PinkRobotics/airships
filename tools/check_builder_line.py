@@ -27,7 +27,8 @@ def check(root=ROOT):
     commits = git("rev-list", "--first-parent", "--reverse", "HEAD").splitlines()
     start, checked, exempt, missing = None, 0, 0, []
     for commit in commits:
-        message = git("show", "-s", "--format=%B", commit)
+        # Metadata only: do not open historical files or emit a historical patch.
+        message = git("show", "--stat", "--format=%B", commit)
         named = any(BUILDER.match(line) for line in message.splitlines())
         if start is None:
             if not named:

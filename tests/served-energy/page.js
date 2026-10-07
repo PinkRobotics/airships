@@ -105,7 +105,11 @@
   S.missions.pop();
   // Use the model's bounded candidate set under measured wind, rather than
   // only proving the rendering of an artificially empty candidate list.
-  const wind={spd:40,dir:270,bearing:90};
+  const closingWind={spd:40,dir:270,bearing:90};
+  const closingWindSelection=SIM.selectServedPlan(SIM.CLASSES.P100,15,closingWind,'rapid');
+  if(closingWindSelection.state!=='ready')throw new Error('40 km/h reserved wind fixture does not close');
+  SIM.auditServedPlan(SIM.CLASSES.P100,15,closingWind,closingWindSelection);
+  const wind={spd:80,dir:270,bearing:90};
   const windySelection=SIM.selectServedPlan(SIM.CLASSES.P100,15,wind,'rapid');
   if(windySelection.state!=='stand-down')throw new Error('measured-wind stand-down fixture unexpectedly closes');
   const windyFire={...seed.fire,id:'wind-stand-down-fixture',sizeHa:1e9};

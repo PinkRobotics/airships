@@ -1696,6 +1696,28 @@ def git_output(*args):
 
 
 def history():
+    if os.environ.get('FLOAT_LEDGER_CARRY_HISTORY') == '1':
+        # An explicit closed-history run validates the existing row contract, not
+        # historical objects. Keep this weaker evidence distinct from verification.
+        old=json.loads(OUT_JSON.read_text())['history']
+        if len(old)!=len(HISTORY_SPECS):die('carried history has a different row set')
+        for row,spec in zip(old,HISTORY_SPECS):
+            if (row['id']!=spec['id'] or row['identity']!=spec['identity'] or
+                    row['quotedValue']!=spec['expected'] or
+                    row['replacementIdentity']!=spec['replacedBy']):
+                die('carried history does not match the checked identities and excerpts')
+            if not re.fullmatch(r'[0-9a-f]{40}',row['commit']):die('invalid carried commit')
+            if (spec['replacedBy'] is None)!=(row['replacementCommit'] is None):
+                die('carried replacement identity and commit disagree')
+            if row['replacementCommit'] is not None and not re.fullmatch(r'[0-9a-f]{40}',row['replacementCommit']):
+                die('invalid carried replacement commit')
+        print('float_ledger: explicit closed-history carry; row contract checked; historical files NOT independently checked.',file=sys.stderr)
+        def sourced(v):
+            if isinstance(v,str):return S(v,'explicit carried history')
+            if isinstance(v,list):return [sourced(x) for x in v]
+            if isinstance(v,dict):return {k:sourced(x) for k,x in v.items()}
+            return v
+        return sourced(old)
     try:
         log = git_output('log','HEAD','--format=%H%x09%aI%x09%s')
         shallow = git_output('rev-parse','--is-shallow-repository') == 'true'

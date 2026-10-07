@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../sim/index.js';
 import {accelerationAt,rotorAuthoritiesT,ADDED_MASS_VALUES} from '../research/analysis/energy-motion.mjs';
 const file='tests/energy/signed-authority.mjs';
-const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;
+const captures=JSON.parse(fs.readFileSync('tests/energy/diagnostic-fixtures.json')).missions;
 function instant(mission,phase,progress){
   const row=captures.find(r=>r.capture==='exercise'&&r.mission===mission);
   if(!row)throw new Error('Missing invented exercise fixture');
@@ -32,7 +32,7 @@ const blocks={upward:[
 // storage, chronology, shortage and storage-mutation assertions remain fixed.
 const energy=JSON.parse(fs.readFileSync('research/analysis/energy-necessary.json'));
 const energyFixture=n=>{
-  const row=energy.servedMissions.find(r=>r.capture==='exercise'&&r.mission===n);
+  const row=energy.diagnosticProfiles.find(r=>r.capture==='exercise'&&r.mission===n);
   if(!row)throw new Error('Missing necessary-energy fixture record');
   return row.accounting;
 };
@@ -40,7 +40,8 @@ const eleven=energyFixture(11),twelve=energyFixture(12);
 const long=energy.routes.find(r=>r.class==='P1000'&&r.km===400&&r.profile==='ready selector');
 if(!long)throw new Error('Missing long-route energy record');
 const necessaryBlocks={necessary:[`for(const [q,energy,empty] of [[eleven,'${eleven.cumulativeDrawMWh.toFixed(1)}','${eleven.emptyAtMin.toFixed(1)}'],[twelve,'${twelve.cumulativeDrawMWh.toFixed(1)}','${twelve.emptyAtMin.toFixed(1)}']]){`],
-  long:[`assert.equal(long.cumulativeDrawMWh.toFixed(1),'${long.accounting.cumulativeDrawMWh.toFixed(1)}');`]};
+  long:[`assert.equal(long.cumulativeDrawMWh.toFixed(1),'${long.accounting.cumulativeDrawMWh.toFixed(1)}');`],
+  'original-long':[`assert.equal(originalLong.cumulativeDrawMWh.toFixed(1),'${energy.diagnosticOriginalLong.accounting.cumulativeDrawMWh.toFixed(1)}','original long-route controls retained');`]};
 let body=fs.readFileSync(file,'utf8');
 for(const [name,lines] of Object.entries(blocks)){
   const start=`// BEGIN generated anchor ${name} pins`,end=`// END generated anchor ${name} pins`;

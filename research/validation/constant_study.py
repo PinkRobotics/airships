@@ -87,10 +87,10 @@ def write_study(result, output):
                               for arg in command['command']]
     output.write_text(json.dumps(result, indent=2)+'\n')
     lines = ['# Counterfactual dry-air constant study', '',
-             'Scratch copies only. All gas-specific constants and density dials stay unchanged. ',
+             'Scratch copies only. Only the chosen dry-air constant changes; other gas constants and density dials stay unchanged.',
              f'Old: JS 287.0528; Python 287.05. New: 8314.32 / 28.9644 = {result['standard_R_air']!r} J/(kg K).', '',
              f'{len(result['changed_fields'])} changed leaves. Baseline regeneration drift: {len(result['baseline_regeneration_drift'])} leaves.', '',
-             'Old means a fresh original-constant run. Published old is the committed cache; '
+             'Old means a fresh original-constant run. Published old names the captured current working-tree cache; '
              'any difference between these columns predates the constant change.', '',
              '| Published/generated file | Field | Published old | Fresh old | Standard R | Constant effect |',
              '| --- | --- | ---: | ---: | ---: | ---: |']
@@ -105,7 +105,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--normalize', action='store_true', help='rewrite report metadata from an already completed fresh run; no numerical changes')
+    ap.add_argument('--check', action='store_true', help='compare both report files with fresh original/standard-constant runs; write nothing to the repository')
     args = ap.parse_args()
+    if args.normalize and args.check:
+        ap.error('--normalize and --check are separate operations')
     if args.normalize:
         write_study(json.loads(args.out.read_text()), args.out)
         return
@@ -153,6 +156,17 @@ def main():
                   'standard_definition': '8314.32 J/(kmol K) / 28.9644 kg/kmol',
                   'replacements': replacements, 'outputs': OUTPUTS,
                   'baseline_regeneration_drift': baseline_drift, 'changed_fields': differences, 'commands': log}
+    if args.check:
+        with tempfile.TemporaryDirectory(prefix='constant-report-', dir=os.environ['TMPDIR']) as report:
+            fresh=Path(report)/args.out.name
+            write_study(result,fresh)
+            changed=[p.name for p in [args.out,args.out.with_suffix('.md')]
+                     if not p.is_file() or p.read_bytes()!=fresh.with_suffix(p.suffix).read_bytes()]
+        if changed:
+            print('FAIL stale constant study: '+', '.join(changed))
+            raise SystemExit(1)
+        print('PASS constant study: JSON and Markdown match fresh original and standard-constant runs')
+    else:
         write_study(result, args.out)
 
 

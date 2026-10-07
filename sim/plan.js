@@ -4,6 +4,7 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
+import {instantOperatingMargins} from './operating-margin.js';
 import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=816a54f9';
 import { dragMW, ledger, pumpMW } from './physics.js?v=816a54f9';
 import { searchedProfile, prescribedReturnJoins } from './profile.js?v=816a54f9';
@@ -187,7 +188,13 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   if(rejectEarly) {
     if(partial.profile&&!partial.profile.feasibleGeometry)return {feasible:false};
     for(const id of Object.keys(dur))for(const progress of [0,.15,.3,.5,.7,.85,1]) {
-      if(dur[id]>0&&!drawAt(cls,mode,partial,id,progress).feasible)return {feasible:false};
+      if(dur[id]>0){
+        const sample=drawAt(cls,mode,partial,id,progress);
+        if(!sample.feasible)return {feasible:false};
+        // A search may prune on policy too. Final acceptance always runs the full mesh.
+        if(rejectEarly.minimumOperatingMargin&&Object.values(instantOperatingMargins(sample)).some(r=>r.relativeMargin<rejectEarly.minimumOperatingMargin))
+          return {feasible:false,searchPruned:'operating reserve'};
+      }
     }
   }
   const I = integrateCycle(cls, mode, partial);
@@ -213,7 +220,7 @@ export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly =
   if (descentShort) bottleneck = "descent does not close at the source";
 
   return {
-    profile: partial.profile, bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
+    operatingMargins: I.operatingMargins, profile: partial.profile, bagCreditRule: options.bagCreditRule, verticalCd: options.verticalCd, rotorEfficiency, speedMultiplier, movingPhaseRateMultiplier, altitudeGeometry, releaseRiseFraction, peakBatteryMW: I.peakBatteryMW, peakRotorT: I.peakRotorT, basis: partial.basis, clMax: partial.clMax, feasible: I.feasible, worst: I.worst, bindingLimits: I.bindingLimits,
     requiredBatteryMW: options.requiredBatteryMW, requiredRotorT: options.requiredRotorT,
     phasePeaks: I.phasePeaks, returnJoinWidths: partial.returnJoinWidths,
     dur, cycleMin, tph, eCycleMWh: eCycle, kwhPerTonne: eCycle * 1000 / Math.max(1, deliveredT),

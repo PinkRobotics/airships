@@ -45,22 +45,28 @@
   const APPSTATE = window.AIRSHIPS ? window.AIRSHIPS.app : S;
   APPSTATE.paused = true;
   APPSTATE.simTime = 4200;
-  /* PAINT THE OPERATION PANEL AT THE PINNED TIME. Its narrative is repainted by the 1.5 s
-     tick only while the clock runs, so once the clock is paused the panel keeps whatever
-     that tick last painted before the pin, and which tick that was depends on how fast this
-     load went: the same hull has read 68% of its outbound leg on one run and 69% on another.
-     Run the clock for one tick at speed zero, where neither the time nor the energy ledger
-     can move, then pause it again. */
-  {
-    const speed = APPSTATE.speed;
-    APPSTATE.speed = 0;
-    APPSTATE.paused = false;
-    await new Promise(r => setTimeout(r, 1600));
-    APPSTATE.paused = true;
-    APPSTATE.speed = speed;
-  }
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-  await new Promise(r => setTimeout(r, 1600));   // the 1.5 s slow-text tick
+  await new Promise(r => setTimeout(r, 1600));
+  // The production slow-text tick deliberately skips paused simulations. Repaint
+  // that text explicitly from the pinned state instead of retaining a boot-time
+  // percentage. Load the same stamped module instance as the application.
+  if (window.AIRSHIPS) {
+    const main = document.querySelector('script[type="module"][src*="app/main.js"]');
+    if (!main) throw new Error('golden UI application module is absent');
+    const moduleURL = new URL('cockpit/panels.js', main.src);
+    moduleURL.search = new URL(main.src).search;
+    const panels = await import(moduleURL.href);
+    panels.updateCockpitText();
+    const mission = APPSTATE.sel?.m;
+    if (mission && !mission.idle) {
+      const Q = window.AIRSHIPS.sim;
+      const expected = Q.narrate(mission, Q.stateAt(mission, APPSTATE.simTime));
+      for (const [i, key] of ['last', 'now', 'next', 'plan'].entries()) {
+        if (document.getElementById('opsN' + i)?.textContent !== expected[key])
+          throw new Error('golden UI narration differs from the pinned state: ' + key);
+      }
+    }
+  }
   const txt = (sel) => {
     const e = document.querySelector(sel);
     const value = e?.textContent.replace(/\s+/g, ' ').trim();

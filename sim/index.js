@@ -77,4 +77,6 @@ export {VERTICAL_PROFILE_GRID,verticalProfiles,profilePoint} from './profile.js?
 export {selectServedPlan,bindServedMission,missionReady,auditServedPlan,modelIdentity,servedKey} from "./served-plan.js?v=816a54f9";
 export {workedFigures,planStatusText} from "./served-view.js?v=816a54f9";
 
+export {SERVED_RELATIVE_MARGIN,CONTROL_RELATIVE_MARGIN,OPERATING_MARGIN_LIMITS,instantOperatingMargins,hasOperatingMargin} from './operating-margin.js';
+
 export {diagnosticNotes} from './energy-notes.js?v=816a54f9';

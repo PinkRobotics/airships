@@ -30,6 +30,15 @@ const long=necessaryEnergy(CLASSES.P1000,MODES[selected.mode],selected.plan);
 assert.equal(long.cumulativeDrawMWh.toFixed(1),'332.3');
 // END generated anchor long pins
 assert.equal(long.nominalStorageMWh,120);
+assert.ok(long.shortageMWh>0,'current ready selector still exceeds nominal storage');
+const originalInput=JSON.parse(fs.readFileSync('tests/energy/diagnostic-fixtures.json')).originalLong;
+const originalPlan=planCycle(CLASSES[originalInput.class],MODES[originalInput.mode],originalInput.km,null,originalInput.options);
+assert.equal(originalPlan.feasible,true);
+const originalLong=necessaryEnergy(CLASSES[originalInput.class],MODES[originalInput.mode],originalPlan);
+assert.ok(originalLong.shortageMWh>0,'original long-route storage counterexample retained');
+// BEGIN generated anchor original-long pins
+// Owning-record assertion generated during regeneration.
+// END generated anchor original-long pins
 console.log('PASS necessary-energy fixtures: '+JSON.stringify([eleven,twelve,inside,long].map(q=>({drawMWh:q.cumulativeDrawMWh,storageMWh:q.nominalStorageMWh,emptyAtMin:q.emptyAtMin,shortageMWh:q.shortageMWh}))));
 await import('./printed-storage.mjs');
 if(!process.env.DIAGNOSTIC_PROBE)proveMutations('tests/energy/necessary-energy.mjs',[

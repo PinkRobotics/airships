@@ -9,7 +9,6 @@ Energy blocks qualify only inside paired markers that their checked generator re
 import json
 from pathlib import Path
 import re
-import subprocess
 import sys
 
 sys.dont_write_bytecode = True
@@ -24,9 +23,9 @@ GENERATOR = 'research/analysis/energy-documents.mjs'
 
 
 def write(path, value):
-    rel=path.relative_to(ROOT).as_posix()
-    old=subprocess.run(['git','show','HEAD:'+rel],cwd=ROOT,capture_output=True,text=True)
-    indent=2 if old.returncode==0 and old.stdout.splitlines()[1].startswith('  ') else 1
+    # Formatting follows the current file; refreshing records never needs old files.
+    lines=path.read_text().splitlines() if path.exists() else []
+    indent=2 if len(lines)>1 and lines[1].startswith('  ') else 1
     body=json.dumps(value,ensure_ascii=False,indent=indent)+'\n'
     if not path.exists() or path.read_text()!=body:path.write_text(body)
 

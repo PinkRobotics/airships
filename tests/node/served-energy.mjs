@@ -27,7 +27,11 @@ try{
  }else{
   validate(fixture);validate(stand);
   assert.equal(selectServedPlan(CLASSES.P1000,400,null,'endurance').state,'ready','battery-hours quotient is not an endurance rule');
-  assert.equal(selectServedPlan(CLASSES.P100,15,{spd:40,dir:270,bearing:90},'rapid').state,'stand-down','model wind refusal uses the bounded candidate set');
+  const moderateWind={spd:40,dir:270,bearing:90};
+  const windy=selectServedPlan(CLASSES.P100,15,moderateWind,'rapid');
+  assert.equal(windy.state,'ready','the regenerated controls close with reserve at this model wind input');
+  auditServedPlan(CLASSES.P100,15,moderateWind,windy,windy.mode);
+  assert.equal(selectServedPlan(CLASSES.P100,15,{spd:80,dir:270,bearing:90},'rapid').state,'stand-down','model wind refusal uses the bounded candidate set');
   assert.equal(selectServedPlan(cls,km,null,'balanced'),selection,'identical exact inputs are cached');
   assert.notEqual(selectServedPlan(cls,km+.01,null,'balanced').key,selection.key,'neighboring distance changes cache key');
   const wind={spd:0,dir:210,bearing:38,capture:'dated fixture'},w=selectServedPlan(cls,km,wind,'balanced');
@@ -39,3 +43,5 @@ try{
   console.log('PASS served selector: exact input and mode replay, wind distinction, all-input cache, retained/delivered water, labelled stand-down, malformed wind unavailable');
  }
 }catch(error){console.error('FAIL '+(mutation||'served selector')+': '+error.message);process.exitCode=1;}
+
+await import('./served-margin.mjs');

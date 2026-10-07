@@ -4,7 +4,7 @@ import test from 'node:test';
 import {CLASSES,assign,findSource,buildMission,bindServedMission,setSeed} from '../../sim/index.js';
 const fire={id:'EX901',exercise:true,ll:[0,50],sizeHa:100,note:false,status:'Out of Control',ring:null};
 const lake=(km,ha)=>[0,50+km/111.19492664455873,ha,0,'Invented source',null];
-for(const [near,far,label,smallerFaster] of [[5,50,'control',true],[10,41,'counterexample',false]]){
+for(const [near,far,label,smallerFaster] of [[3,60,'control',true],[10,41,'counterexample',false]]){
   test(`distance-rule reason remains true for the ${label}`, () => {
     setSeed(7);const water=[lake(near,10),lake(far,100)],a=assign(fire,water);
     assert.equal(a.cls.id,'P100');
