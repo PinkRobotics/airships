@@ -98,6 +98,7 @@ export async function rebuildMissions() {
         f.heldOut = "not flown: its water line or drop line would enter the " +
           noFly.rKm.toFixed(0) + " km kept clear around " + noFly.who +
           " (a fire the guard holds)";
+        k--;
         continue;
       }
       m.hullNo = k;
