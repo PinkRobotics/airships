@@ -70,6 +70,85 @@ def public_fields(rows):
     return [dict(row, field=row['field'].replace('%', '%25').replace('@', '%40')) for row in rows]
 
 
+SOLAR_GROUPS = {'changes': ('file', 'field', 'old', 'new', 'decimals'),
+                'textAndFlagChanges': ('file', 'field', 'old', 'new'),
+                'addedOrRemovedNumericFields': ('file', 'field', 'old', 'new')}
+SOLAR_KEYS = {'reason', 'comparison', 'fieldEncoding', *SOLAR_GROUPS}
+
+
+def write_if_changed(path, text):
+    if not path.exists() or path.read_text() != text:
+        path.write_text(text)
+
+
+def compact_solar_record(record):
+    """Front-code paths per file, keeping list order and every original value."""
+    if record.get('format') == 'compact-solar-v1':
+        expand_solar_record(record)  # validate even an already converted input
+        return record
+    if set(record) != SOLAR_KEYS:
+        raise ValueError('unrecognised solar record keys')
+    files = list(dict.fromkeys(row['file'] for key in SOLAR_GROUPS for row in record[key]))
+    ids = {file: i for i, file in enumerate(files)}
+    result = {key: value for key, value in record.items() if key not in SOLAR_GROUPS}
+    result.update(format='compact-solar-v1', files=files)
+    for key, keys in SOLAR_GROUPS.items():
+        previous = {}; rows = []
+        for row in record[key]:
+            if set(row) != set(keys) or not isinstance(row['field'], str):
+                raise ValueError('unrecognised solar row')
+            file = ids[row['file']]; field = row['field']; old = previous.get(file, '')
+            prefix = 0
+            while prefix < min(len(old), len(field)) and old[prefix] == field[prefix]:
+                prefix += 1
+            rows.append([file, prefix, field[prefix:], *[row[k] for k in keys[2:]]])
+            previous[file] = field
+        result[key] = rows
+    return result
+
+
+def expand_solar_record(record):
+    """Recover the old object rows, including their order and path encoding."""
+    if record.get('format') != 'compact-solar-v1':
+        if set(record) != SOLAR_KEYS:
+            raise ValueError('unrecognised solar record')
+        return record
+    if set(record) != SOLAR_KEYS | {'format', 'files'}:
+        raise ValueError('unrecognised compact solar keys')
+    files = record['files']
+    if not isinstance(files, list) or any(not isinstance(f, str) for f in files) or len(set(files)) != len(files):
+        raise ValueError('invalid solar file table')
+    result = {key: value for key, value in record.items() if key not in {'format', 'files', *SOLAR_GROUPS}}
+    for key, keys in SOLAR_GROUPS.items():
+        previous = {}; rows = []
+        for row in record[key]:
+            if not isinstance(row, list) or len(row) != len(keys) + 1:
+                raise ValueError('invalid compact solar row width')
+            file, prefix, suffix, *values = row
+            if type(file) is not int or not 0 <= file < len(files) or type(prefix) is not int or not isinstance(suffix, str):
+                raise ValueError('invalid solar path reference')
+            old = previous.get(file, '')
+            if not 0 <= prefix <= len(old):
+                raise ValueError('invalid solar path prefix')
+            field = old[:prefix] + suffix
+            rows.append(dict(zip(keys, [files[file], field, *values])))
+            previous[file] = field
+        result[key] = rows
+    return result
+
+
+def solar_record_text(record):
+    """Plain JSON, with each compact row on its own line."""
+    compact = compact_solar_record(record)
+    def encoded(value):
+        return json.dumps(value, separators=(',', ':'), allow_nan=False)
+    fields = []
+    for key, value in compact.items():
+        body = '[\n' + ',\n'.join(encoded(row) for row in value) + '\n]' if key in SOLAR_GROUPS else encoded(value)
+        fields.append(encoded(key) + ':' + body)
+    return '{\n' + ',\n'.join(fields) + '\n}\n'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--part', choices=REASONS, required=True)
@@ -119,10 +198,10 @@ def main():
                 membership += [dict(file=rel.as_posix(), **r) for r in
                                added_or_removed_numbers(json.loads(before.read_text()), json.loads(after.read_text()))]
         exact += [r for r in rows if r['file']==test.as_posix()]
-        complete.write_text(json.dumps(dict(reason=REASONS['SOLAR'],
+        write_if_changed(complete, solar_record_text(dict(reason=REASONS['SOLAR'],
             comparison='Field paths compare publication positions. Candidate-pool changes alter array membership and order; match route and controls before treating a positional flag change as a verdict change for identical inputs.', changes=public_fields(exact),
             fieldEncoding='Field paths encode percent as %25 and at-sign as %40; percent-decode once to recover the source keys. Values are unchanged.',
-            textAndFlagChanges=public_fields(extra_changes), addedOrRemovedNumericFields=public_fields(membership)), indent=2)+'\n')
+            textAndFlagChanges=public_fields(extra_changes), addedOrRemovedNumericFields=public_fields(membership))))
         print(f'Recorded complete solar comparison: {len(exact)} changed numeric fields; '
               f'{len(membership)} added or removed numeric fields; {len(extra_changes)} text or flag changes.')
         summaries = {'research/figures.json', 'research/analysis/energy-documents.json',
@@ -132,7 +211,7 @@ def main():
     data['parts'] = [p for p in data['parts'] if p['part'] != args.part]
     data['parts'].append(dict(part=args.part, reason=REASONS[args.part], changes=rows))
     data['parts'].sort(key=lambda p: p['part'])
-    output.write_text(json.dumps(data, indent=2)+'\n')
+    write_if_changed(output, json.dumps(data, indent=2)+'\n')
     print(f'Recorded part {args.part}: {len(rows)} moved generated numbers at published precision.')
 
 
