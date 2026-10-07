@@ -175,7 +175,7 @@ function tubeStrip(activeId) {
 /* ------------------------------------------------ the pane ----------------------------- */
 
 const STATUS = {
-  proven:     { label: 'proven on the article', cls: 'st-proven' },
+  computed:   { label: 'computed model bill', cls: 'st-computed' },
   decided:    { label: 'decided',               cls: 'st-decided' },
   scoping:    { label: 'scoping',               cls: 'st-scoping' },
   superseded: { label: 'superseded',            cls: 'st-dead' },

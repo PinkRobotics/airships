@@ -3,7 +3,7 @@
 
     python3 tools/subdivision_study.py
 
-The article as built is n = 1: the octet grid at one pitch per half-span. At that
+The modelled article is pinned at n = 1: the octet grid at one pitch per half-span. At that
 subdivision a hexagon face contains no lattice point of its own, so the film has to be
 carried by a separate apparatus — 36 rim edges, 48 spokes, 72 ties — which is 156 of the
 216 members and 69% of the tube by length. `kelvin_lattice_counts` reports
@@ -181,8 +181,8 @@ def face_edge_topology():
 
 def self_check():
     """Reproduce published crush and bending before trusting any subdivided result."""
-    # The BUILT article's span, pinned in the model — the live chain's optimum moved
-    # when the 0.605 landed, the built article did not.
+    # The modelled article's pinned span remains its geometry identity when the live
+    # sizing chain changes. This is a computed design point, not built hardware.
     span = 2 * vc.DEMO_PITCH_PINNED_M
     ro, ri = 0.005, 0.004
     area = math.pi * (ro ** 2 - ri ** 2)

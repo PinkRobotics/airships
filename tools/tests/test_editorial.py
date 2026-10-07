@@ -25,3 +25,19 @@ class AssemblyProse(unittest.TestCase):
     def test_typed_counts_are_rejected(self):
         result=assembly.outputs()[assembly.FILE]
         self.assertNotIn('The five proofs still failing',result)
+
+from check_cell_evidence import evidence_errors
+class EvidenceWords(unittest.TestCase):
+    def setUp(self):self.ledger=json.loads((assembly.ROOT/'research/analysis/float-ledger.json').read_text())
+    def test_old_cell_and_catalogue_claims_are_red(self):
+        for text in ('one cell, as built & billed','billed from the measured saw table and the weighed joints','kg, measured','proven on the article'):
+            self.assertTrue(evidence_errors([text],self.ledger),text)
+    def test_denial_and_proposed_tests_are_not_evidence_claims(self):
+        for text in ('No cell has been built and no joint has been physically weighed or tested.','equipment lines: named, not yet weighed','A future programme would test joints.','Closing the gap needs knockdown tests.'):
+            self.assertEqual(evidence_errors([text],self.ledger),[],text)
+    def test_computation_cannot_launder_physical_word(self):
+        self.assertTrue(evidence_errors(['Computed mass; the joints have been weighed.'],self.ledger))
+        self.assertTrue(evidence_errors(['No cell has been built, but its joints have been weighed.'],self.ledger))
+        self.assertTrue(evidence_errors(['The programme needs tests and the joints are tested.'],self.ledger))
+        self.assertTrue(evidence_errors(['No uncertainty remains: the joints have been weighed.'],self.ledger))
+        self.assertTrue(evidence_errors(['The model is not final because the joints were weighed.'],self.ledger))

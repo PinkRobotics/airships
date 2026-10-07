@@ -5,7 +5,7 @@
     python3 tools/gen_node_families.py --check    # exit 1 if the module has gone stale
 
 WHY THIS EXISTS. ship/model.js carries exactly ONE number out of the whole node manifest —
-NODE_MASS_MEASURED_KG — hand-copied, with a comment explaining that a browser cannot read a
+NODE_MASS_COMPUTED_KG — hand-copied, with a comment explaining that a browser cannot read a
 file off disk. (check_cell_parity holds it to the manifest; this docstring used to quote its
 value, 0.444, and was wrong within a day of the per-arm SKU fix moving it to 0.465. A
 number typed into a comment about not typing numbers is worth deleting rather than
@@ -22,7 +22,7 @@ that no browser can read. So the grouping is done here and the DEDUCTIONS are em
 the lengths are not. See cut_groups().
 
 TWO SOURCES, BOTH AUTHORITIES, NEITHER RE-DERIVED HERE:
-  research/geometry/nodes/manifest.json   what was actually printed — mass, volume, slot
+  research/geometry/nodes/manifest.json   computed print geometry — mass, volume, slot
                                           base, overhang, arm count, per node
   tools/gen_nodes.py::article_graph()     what each node is CONNECTED to, by member kind;
                                           imported, never reimplemented, because a second

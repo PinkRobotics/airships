@@ -417,7 +417,7 @@ export function computeCtx(matKey = 'PAHT_Z', altM = 2500) {
     stock, edge,
     // The printed joints, per family, straight from the manifest of the meshes that were
     // written. NOT from model.js — it carries one number out of the whole manifest
-    // (NODE_MASS_MEASURED_KG) and a browser cannot read the manifest itself.
+    // (NODE_MASS_COMPUTED_KG) and a browser cannot read the manifest itself.
     fam: NODE_FAMILIES, nodes: NODE_TOTALS, joint: JOINT,
     // The saw schedule and the membrane: model lengths and manifest seat depths in one
     // case, the model's own film arithmetic recovered from barrierKgPerM2 in the other.

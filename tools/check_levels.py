@@ -34,6 +34,7 @@ import sys
 from browser_scratch import browser_scratch
 from serve import serve_tree
 from browser_probe import run_probe
+from check_cell_evidence import check_served
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -151,6 +152,7 @@ def main() -> int:
     bad, figs = [], []
     with browser_scratch() as td:
         with serve_tree(ROOT) as base:
+            bad += check_served(ROOT, td, base)
             for page in PAGES:
                 page_bad, n = check_page(page, td, base)
                 bad += page_bad

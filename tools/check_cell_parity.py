@@ -73,7 +73,7 @@ PROBE = """(() => {
                 totalKg: s.totalKg, demandN: s.perStrutDemandN,
                 eulerPinned: s.eulerMarginPinned, eulerSocketed: s.eulerMarginSocketed,
                 tieEuler: s.tieEulerMargin, longCuts: s.longCuts, shortCuts: s.shortCuts,
-                nodesMeasuredConst: C.NODE_MASS_MEASURED_KG,
+                nodesMeasuredConst: C.NODE_MASS_COMPUTED_KG,
                 rimDemandN: s.rimDemandN, rimEuler: s.rimEulerMargin,
                 spokeDemandN: s.spokeDemandN, spokeEuler: s.spokeEulerMargin,
                 tieDemandN: s.tieDemandN,

@@ -1071,7 +1071,7 @@ def weightless_article(wall: float) -> dict:
 # manifest (research/geometry/nodes/manifest.json cutList, sunken-frame freeze of
 # 2026-08-11) — the tube the article actually saws. Centre-to-centre stays the physics
 # length (Euler spans, demands); BILLING at it was P14's standing finding: 48.8 m billed
-# where the saw table says 39.8. Like NODE_MASS_MEASURED_KG this is a measured constant,
+# where the saw table says 39.8. Like NODE_MASS_COMPUTED_KG this is a geometry-derived constant,
 # and check_assembly's P14 holds every row to the live manifest, so a regrow that moves
 # one cut goes red there instead of going stale here.
 CUT_SCHEDULE_MEASURED = (

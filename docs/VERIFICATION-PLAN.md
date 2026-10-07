@@ -126,8 +126,10 @@ none is a choice:
   centre-to-centre span (`make nodes` writes the cut list; nine lengths, not two). The
   sunken boundary frame shortens every boundary-adjacent member by its own ends'
   displacements, which is where the extra saw settings come from — with
-  **51 printed joints** (0.715 kg, measured
-  from their own geometry by `make nodes`, not budgeted). Assembles into a **709 mm Kelvin
+  <!-- editorial:joint-bill:start -->
+  **modelled printed joints** (computed geometry bill)
+  <!-- editorial:joint-bill:end -->
+  . Assembles into a **709 mm Kelvin
   cell, 178 litres**. Of the 216 members, 166 are CLOSING members that drop between two
   nodes already fixed in space: their 332 ends carry a 2 mm pilot inside a 2 mm cup, which is
   what `tools/check_assembly.py` proves against the swing-in bound end by end.
