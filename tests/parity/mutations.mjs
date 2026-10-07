@@ -16,8 +16,16 @@ process.on('exit', cleanup);   // also runs after a thrown error and after the h
 // spawnSync blocks the event loop, so run() yields to it after every child: a signal is then handled
 // within one child's run time (tens of milliseconds) and ends the process through the exit hook above.
 const yieldToLoop = () => new Promise(resolve => setImmediate(resolve));
-for (const [name, code] of [['SIGINT', 130], ['SIGTERM', 143], ['SIGHUP', 129]]) {
+const signalCodes = { SIGINT: 130, SIGTERM: 143, SIGHUP: 129 };
+for (const [name, code] of Object.entries(signalCodes)) {
   process.on(name, () => process.exit(code));
+}
+// Ctrl-C or a cancelled job signals the whole process group, so a child usually dies first. A child
+// ended by a signal is an interrupt, never a caught or missed mutation.
+function interrupted(r) {
+  if (!r.signal) return;
+  console.error(`interrupted: a child run ended by ${r.signal}`);
+  process.exit(signalCodes[r.signal] ?? 1);
 }
 const { version } = JSON.parse(readFileSync(new URL('../../sim/version.json', import.meta.url), 'utf8'));
 if (typeof version !== 'string' || !/^[0-9a-f]{8}$/.test(version)) {
@@ -34,6 +42,7 @@ const required = ['--test','3d/tests/spec-required.test.mjs'];
 let count = 0;
 async function run(args, expected, name) {
   const r = spawnSync(process.execPath,args,{cwd:copy,encoding:'utf8'});
+  interrupted(r);
   const output = r.stdout + r.stderr;
   if (r.error || r.status !== 1 || !output.includes(expected)) {
     throw new Error(`${name}: expected exit 1 containing ${expected}; got ${r.status}\n${output}`);
@@ -79,6 +88,7 @@ await change('duplicated density declaration','3d/physics/mass.js','RHO_WORK, AS
 cleanup();
 for (const args of [parity,required]) {
   const r = spawnSync(process.execPath,args,{cwd:root,encoding:'utf8'});
+  interrupted(r);
   if (r.status !== 0) throw new Error(`restored tree is not green\n${r.stdout}${r.stderr}`);
 }
 console.log(`RESTORED: ${count}/${count} mutations caught; parity and required-spec suites green`);
