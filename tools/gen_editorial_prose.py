@@ -12,7 +12,7 @@ CONTRACTS={
  'certification':'docs/VERIFICATION-PLAN.md',
  'drop-hull':'research/reports/03-diligence.md',
  **{name:'research/analysis/delivery.md' for name in ('release-illustration','release-inflow')},
- **{name:'docs/VERIFICATION-PLAN.md' for name in ('release-register','release-conclusion')},
+ **{name:'docs/VERIFICATION-PLAN.md' for name in ('drop-register','release-register','release-conclusion')},
  **{name:'docs/VERIFICATION-PLAN.md' for name in ('nitrogen-register','descent-register','disc-register','nitrogen-conclusion','descent-conclusion')},
 }
 
@@ -102,10 +102,26 @@ def sections(root=ROOT):
           'release-conclusion': "**Release basis.** The illustration follows "+basis+". "+comparison+
             " The release-height assumption and ground deposition remain open; no fire outcome is inferred.",
         })
+    # The drop row reads the delivery record's one ALT.drop fall row: the smallest and largest
+    # modelled drops' fall times and drift in one stipulated wind, set against the drop run.
+    delivery=json.loads((root/'research/analysis/delivery.json').read_text())
+    heights=[h for h in delivery['fall'] if 'ALT.drop' in h]
+    if len(heights)!=1:raise ValueError('delivery record needs one ALT.drop fall height')
+    fall=delivery['fall'][heights[0]];sizes=sorted(fall,key=lambda s:float(s.split()[0]));wind='10 m/s'
+    seconds=lambda size:fall[size].get('fallSecondsExact',fall[size]['fallSeconds'])
+    drift=lambda size:round(fall[size].get('driftExactM',fall[size]['driftM'])[wind])
+    small,large=drift(sizes[0]),drift(sizes[-1]);spread=small-large;run=delivery['classes']['P100']['runKm']*1000
+    compared='longer than' if spread>run else 'shorter than' if spread<run else 'equal to'
+    result['drop-register']=(f"| 12 | Does water released at the drop altitude land as one pattern? | **Not established.** "
+        f"From the {delivery['references']['dropHeightsM'][heights[0]]:g} m `ALT.drop` release height, the smallest modelled "
+        f"drops ({sizes[0]}) fall for {seconds(sizes[0]):.1f} s and the largest ({sizes[-1]}) for {seconds(sizes[-1]):.1f} s; "
+        f"in a stipulated uniform {wind} wind they drift {small:,} m and {large:,} m, a **{spread:,} m** along-wind spread, "
+        f"{compared} the P-100's {run/1000:g} km drop run. These are fixed-diameter, no-updraft sensitivities, not a ground "
+        "pattern; release height and deposition remain open. | `delivery.json` |")
     # Standalone region fences end a Markdown table. Each produced answer therefore
     # carries its own table header rather than leaving pipe text outside a table.
     header='| # | Question | Answer | Record |\n|---|---|---|---|\n'
-    for name in ('nitrogen-register','descent-register','disc-register','release-register'):
+    for name in ('nitrogen-register','descent-register','disc-register','release-register','drop-register'):
         if result[name].startswith('|'):result[name]=header+result[name]
     return result
 

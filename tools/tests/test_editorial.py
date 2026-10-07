@@ -62,7 +62,7 @@ class CurrentHull(unittest.TestCase):
     def test_lengths_follow_record_mutation(self):
         with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
             root=Path(folder);f='research/analysis/energy-documents.json';p=root/f;p.parent.mkdir(parents=True)
-            for name in ('editorial-controls','mass-budget','descent','release-states'):
+            for name in ('editorial-controls','mass-budget','descent','release-states','delivery'):
                 q=root/('research/analysis/'+name+'.json');q.write_bytes((editorial.ROOT/q.relative_to(root)).read_bytes())
             j=json.loads((editorial.ROOT/f).read_text());j['classes'][0]['lengthM']=123;j['classes'][-1]['lengthM']=567;p.write_text(json.dumps(j))
             s=editorial.sections(root)
@@ -79,7 +79,7 @@ class CurrentEnergy(unittest.TestCase):
     def test_record_changes_propagate_to_register_and_conclusions(self):
         with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
             root=Path(folder)
-            files=('energy-documents','editorial-controls','mass-budget','descent','release-states')
+            files=('energy-documents','editorial-controls','mass-budget','descent','release-states','delivery')
             for name in files:
                 f='research/analysis/'+name+'.json';p=root/f;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((editorial.ROOT/f).read_bytes())
             p=root/'research/analysis/mass-budget.json';j=json.loads(p.read_text());j['classes']['P100']['descentWithoutNitrogen']['cycleSavingPct']=12.3;j['classes']['P100']['descentWithoutNitrogen']['marginX']=4.5;p.write_text(json.dumps(j))
@@ -103,6 +103,30 @@ class AcceptedRelease(unittest.TestCase):
         s=editorial.sections()['release-illustration']
         self.assertIn('Local density',s);self.assertIn('retaining',s);self.assertIn('ideal-disc',s)
         self.assertIn('Neither quantity measures outlet flow',s)
+
+class DropRegister(unittest.TestCase):
+    def test_row_follows_delivery_record(self):
+        with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as folder:
+            root=Path(folder)
+            for name in ('energy-documents','editorial-controls','mass-budget','descent','release-states','delivery'):
+                f='research/analysis/'+name+'.json';p=root/f;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((editorial.ROOT/f).read_bytes())
+            p=root/'research/analysis/delivery.json';j=json.loads(p.read_text())
+            label=[h for h in j['fall'] if 'ALT.drop' in h][0];fall=j['fall'][label]
+            sizes=sorted(fall,key=lambda s:float(s.split()[0]))
+            for size,seconds,metres in ((sizes[0],111.1,2222),(sizes[-1],22.2,222)):
+                fall[size]['fallSeconds']=seconds;fall[size]['driftM']['10 m/s']=metres
+                if 'fallSecondsExact' in fall[size]:fall[size]['fallSecondsExact']=seconds
+                if 'driftExactM' in fall[size]:fall[size]['driftExactM']['10 m/s']=metres
+            j['references']['dropHeightsM'][label]=333;j['classes']['P100']['runKm']=2.5;p.write_text(json.dumps(j))
+            s=editorial.sections(root)['drop-register']
+            for text in ('From the 333 m `ALT.drop` release height','fall for 111.1 s','for 22.2 s',
+                         'drift 2,222 m and 222 m, a **2,000 m** along-wind spread, shorter than',"the P-100's 2.5 km drop run"):
+                self.assertIn(text,s)
+    def test_answer_is_a_sensitivity_not_a_pattern(self):
+        s=editorial.sections()['drop-register']
+        self.assertTrue(s.startswith('| # | Question | Answer | Record |'))
+        for text in ('Not established','not a ground pattern','deposition remain open','`delivery.json`'):self.assertIn(text,s)
+        self.assertNotIn('survivable',s)
 
 class ReleaseSpeedComparison(unittest.TestCase):
     def test_endpoint_comparison_follows_corrected_record(self):

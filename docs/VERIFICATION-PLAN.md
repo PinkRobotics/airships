@@ -86,6 +86,9 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 |---|---|---|---|
 | 11 | Does the mass budget close? | **Not as specified** (2.16× at its most favourable). But the hull is free to grow, so it becomes the shell-density question above. | `mass-budget.md` |
 
+<!-- editorial:drop-register:start -->
+<!-- editorial:drop-register:end -->
+
 ### Needs an experiment
 
 | question | experiment |
