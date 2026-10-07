@@ -720,15 +720,15 @@ these joints for weight safe to start: shrink a node and quietly take engagement
 the build goes red with the arms named.
 
 <!-- editorial:assembly-status:start -->
-Generated from the owning record during the combined regeneration.
+**12 of the 16 proofs pass** in the stored fast-mode assembly result. These are computational checks of geometry and load provenance, not physical tests.
 <!-- editorial:assembly-status:end -->
 
 <!-- editorial:assembly-geometry:start -->
-Generated from the owning record during the combined regeneration.
+The computed assembly checks include every one of the **332 closing ends** against its own pilot bound. This does not mean the insertion sweep checked every end. The seat is a real land of **28.274 mm²**. No slot starts closer than the declared **0.500 mm** to the feature it would foul. The fast-mode sweep checks the representatives named in the result; its failing representative and every frozen failure remain below.
 <!-- editorial:assembly-geometry:end -->
 
 <!-- editorial:assembly-demand:start -->
-Generated from the owning record during the combined regeneration.
+The demand-provenance check P12 passes: 0 ends with no derived axial demand, equilibrium residual 7868.4 N. A derived demand is not a demonstrated strength or equilibrium result.
 <!-- editorial:assembly-demand:end -->
 
 **0 rim member-ends have a socket drawn for the wrong tube**. The stock build
@@ -739,7 +739,14 @@ sitting inside the pipe's own bore. Those connections did not exist, and the des
 it by eye in a render before any gate did.
 
 <!-- editorial:assembly-failures:start -->
-Generated from the owning record during the combined regeneration.
+The 4 failed proofs (P8, P11, P13, P16) and all 18 frozen defects remain visible in `research/geometry/nodes/assembly.json` and its frozen contract. Agreement with that contract does not mean a defect-free or physically proven article.
+
+| Proof | Computed result |
+|---|---|
+| P8 — pilot-bound | 0 of 332 closing ends over their own s_max (3.177 / 3.228 / 3.205 / 3.140 / 3.135 / 3.152 / 2.733 / 2.701 / 2.764 mm), 1 of 10 swept representatives blocked |
+| P11 — printability | 13 landless nodes, 101 downward arms, 0 arm ends into air |
+| P13 — direction-aware-allowable | sigma_allow 92.0 x88 / 92.0 x16 / 92.0 x48 / 92.0 x32 / 91.9 x8 / 70.5 x32 / 69.8 x64 / 69.5 x72 / 69.2 x16 / 68.5 x8 / 47.1 x16 / 47.1 x32 |
+| P16 — margins-are-gated | axialBearing 416, bondShear 332, marginsUnproven 316, pressFit 432, pullOutDry 332, spigotBending 216, spigotDirect 336 |
 <!-- editorial:assembly-failures:end -->
  **0 sockets are open-sided
 grooves** since the frame sank (2026-08-11): a boundary node now settles beneath its mating

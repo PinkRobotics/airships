@@ -3,7 +3,7 @@ import {storageNote} from './energy-storage-notes.mjs';
 import {prescribed} from './energy-printed-profiles.mjs';
 /* Every phase with unheld vertical force, on the unchanged prescribed profile. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=816a54f9';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,FORCE_TOL,LIMIT_STEPS} from '../../sim/index.js?v=31a23fa3';
 export function unheldRows(){
  const rows=[];
  for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){

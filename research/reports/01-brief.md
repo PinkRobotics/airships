@@ -50,7 +50,7 @@ Everything below is that ship unless it says otherwise.
 | **Water delivered per hour** | **175 t<!--f:P100.cycle.tph-->** |
 | Energy per tonne delivered (earlier 1) | 13.9 |
 | Energy per tonne delivered (earlier 2) | 80.4 |
-| Energy per tonne delivered (current) | 81.9 kWh<!--f:P100.cycle.kwhPerTonne--> |
+| Energy per tonne delivered (current) | 78.1 kWh<!--f:P100.cycle.kwhPerTonne--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -71,8 +71,8 @@ would have to be true.
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 Buoyancy scales with volume and drag with area, so a bigger ship is a *cheaper* ship per tonne
-delivered: 13.9 → 80.4 → 81.9 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
-8.5 → 62.5 → 62.3<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4 → 69.8 → 69.4<!--f:P10000.cycle.kwhPerTonne--> on
+delivered: 13.9 → 80.4 → 78.1 kWh/t<!--f:P100.cycle.kwhPerTonne--> on the P-100,
+8.5 → 62.5 → 61.7<!--f:P1000.cycle.kwhPerTonne--> on a 1,000-tonne hull, 5.4 → 69.8 → 67.9<!--f:P10000.cycle.kwhPerTonne--> on
 a 10,000-tonne one delivering 13,183 t/h<!--f:P10000.cycle.tph-->. The square-cube law, which
 punishes almost every other kind of vehicle, is on this one's side.
 
@@ -146,9 +146,9 @@ a fair measure of how far past the reference ship the limit case sits.
 
 The P-100 does not need it — its descent closes on rotors alone with 1.97× headroom — and it
 carries one anyway, because a bucket is cheaper than thrust even when thrust would do: the bag
-costs 0.006 → 0.003 MWh<!--f:P100.energy.anchorHoistMWh--> a cycle and saves 29% of the cycle's energy.
+costs 0.006 → 0.006 MWh<!--f:P100.energy.anchorHoistMWh--> a cycle and saves 29% of the cycle's energy.
 On the largest class it stops being an efficiency and becomes the thing that makes the descent
-possible at all: 0.596 → 0.596 MWh<!--f:P10000.energy.anchorHoistMWh--> against 34.5 MWh of rotor work.
+possible at all: 0.596 → 0.597 MWh<!--f:P10000.energy.anchorHoistMWh--> against 34.5 MWh of rotor work.
 **Fifty-eight to one.** Rotors get disproportionately expensive as you load them, so every tonne
 handed to the lake is worth more than a tonne taken off the rotors. That is why the bag does the
 *whole* descent rather than just covering the shortfall that revealed it, and why every class
@@ -175,7 +175,7 @@ evidence *against*. Four are load-bearing:
   measures whether fire behaviour changed, not tonnes delivered, and finds success turns on ground
   crews being engaged with the drop. Tonnage is our metric and it may be the wrong one.
 - **An energy chain.** Every class runs a deficit every cycle. A P-100 has
-  9.2 → 1.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
+  9.2 → 1.5 hours<!--f:P100.energy.hoursOnBattery--> of work in it before the battery is flat. This
   fleet is a battery being spent, and the chain that recharges it is part of the design.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.

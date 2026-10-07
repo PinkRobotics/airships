@@ -2,8 +2,8 @@
  * Dated historical readings and the separate payload-exchange study have no
  * replayable current planCycle inputs and are explicitly outside this inventory. */
 import fs from 'node:fs';
-import {SERVED_CANDIDATES} from '../../sim/served-candidates.js';
-import {CLASSES,DEFAULTS} from '../../sim/index.js';
+import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=31a23fa3';
+import {CLASSES,DEFAULTS} from '../../sim/index.js?v=31a23fa3';
 export const canonical=x=>JSON.stringify(x,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b))):v);
 export const profileKey=b=>canonical({class:b.class,km:b.km,mode:b.mode??'balanced',options:{basis:b.basis??'record',...b.options},...(b.config?{config:b.config}:{}),...(b.hardware?{hardware:b.hardware}:{}),...(b.drawOptions?{drawOptions:b.drawOptions}:{})});
 export const prescribed=r=>({class:r.class,km:r.km,mode:'balanced',options:{basis:r.basis}});

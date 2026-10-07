@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=816a54f9';
+import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=31a23fa3';
 import {necessaryEnergy} from '../../research/analysis/energy-necessary.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 // Frozen mathematical counterexamples; changing dispatch cannot retire these failures.
@@ -14,7 +14,7 @@ const eleven=fixture(11),twelve=fixture(12),inside=fixture(9);
 assert.equal(eleven.nominalStorageMWh,20,'captured storage fixture stays at nominal 20 MWh');
 assert.equal(twelve.nominalStorageMWh,20);
 // BEGIN generated anchor necessary pins
-for(const [q,energy,empty] of [[eleven,'41.8','127.5'],[twelve,'59.2','169.0']]){
+for(const [q,energy,empty] of [[eleven,'40.6','130.4'],[twelve,'58.0','171.7']]){
 // END generated anchor necessary pins
  assert.equal(q.cumulativeDrawMWh.toFixed(1),energy);
  assert.equal(q.emptyAtMin.toFixed(1),empty);
@@ -27,7 +27,7 @@ const selected=selectServedPlan(CLASSES.P1000,400,null,'endurance');
 assert.equal(selected.state,'ready','necessary energy does not alter the selector');
 const long=necessaryEnergy(CLASSES.P1000,MODES[selected.mode],selected.plan);
 // BEGIN generated anchor long pins
-assert.equal(long.cumulativeDrawMWh.toFixed(1),'332.3');
+assert.equal(long.cumulativeDrawMWh.toFixed(1),'322.3');
 // END generated anchor long pins
 assert.equal(long.nominalStorageMWh,120);
 assert.ok(long.shortageMWh>0,'current ready selector still exceeds nominal storage');
@@ -37,7 +37,7 @@ assert.equal(originalPlan.feasible,true);
 const originalLong=necessaryEnergy(CLASSES[originalInput.class],MODES[originalInput.mode],originalPlan);
 assert.ok(originalLong.shortageMWh>0,'original long-route storage counterexample retained');
 // BEGIN generated anchor original-long pins
-// Owning-record assertion generated during regeneration.
+assert.equal(originalLong.cumulativeDrawMWh.toFixed(1),'331.8','original long-route controls retained');
 // END generated anchor original-long pins
 console.log('PASS necessary-energy fixtures: '+JSON.stringify([eleven,twelve,inside,long].map(q=>({drawMWh:q.cumulativeDrawMWh,storageMWh:q.nominalStorageMWh,emptyAtMin:q.emptyAtMin,shortageMWh:q.shortageMWh}))));
 await import('./printed-storage.mjs');

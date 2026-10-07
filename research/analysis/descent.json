@@ -10,7 +10,7 @@
   "P100": {
    "cableM": 350,
    "bagT": 125,
-   "reachAglM": 322.5,
+   "reachAglM": 377.5,
    "bus": {
     "battMW": 30,
     "genMW": 8,
@@ -51,33 +51,33 @@
     "fillAglM": 300,
     "anchorFromAglM": 300,
     "rotorsAloneFailBelowAglM": null,
-    "bagInTheWaterBelowAglM": 322.5,
+    "bagInTheWaterBelowAglM": 377.5,
     "bandNeitherRotorsNorBagM": 0,
     "letdownMinutes": 5.29
    },
    "letdown": {
-    "mwh": 2.302,
-    "pctOfCycle": 28.1,
+    "mwh": 2.052,
+    "pctOfCycle": 26.3,
     "peakRotorMW": 31.4,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 3.05,
-    "clippedMWh": 0.255,
-    "rotorsWholeCycleMWh": 6.893,
-    "rotorsPctOfCycle": 84.2
+    "clippedMinutes": 2.63,
+    "clippedMWh": 0.249,
+    "rotorsWholeCycleMWh": 6.513,
+    "rotorsPctOfCycle": 83.4
    },
    "cycle": {
-    "eCycleMWh": 8.189,
-    "kwhPerTonne": 81.89,
+    "eCycleMWh": 7.812,
+    "kwhPerTonne": 78.12,
     "deliveredT": 100,
     "bottleneck": "descent authority"
    },
    "rotorsBlindToTheBag": {
-    "letdownMWh": 2.37,
-    "eCycleMWh": 8.395,
+    "letdownMWh": 2.366,
+    "eCycleMWh": 8.394,
     "peakRotorMW": 31.4,
-    "creditSavesMWh": 0.205,
-    "creditSavesPctOfCycle": 2.4
+    "creditSavesMWh": 0.581,
+    "creditSavesPctOfCycle": 6.9
    },
    "withoutTheBag": {
     "feasible": false,
@@ -99,11 +99,11 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -2.4,
-    "bagCostsPerTonnePct": -2.4
+    "bagCostsCyclePct": -6.9,
+    "bagCostsPerTonnePct": -6.9
    },
    "hoist": {
-    "mwh": 0.003,
+    "mwh": 0.006,
     "formulaMgh": 0.006
    },
    "profile": [
@@ -528,21 +528,21 @@
      "gsKph": 0,
      "vzMps": -2.27,
      "surplusT": 134.8,
-     "bagT": 0,
-     "netAfterBagT": 134.8,
+     "bagT": 67.2,
+     "netAfterBagT": 67.6,
      "owners": {
-      "bagT": 0,
-      "rotorT": 133.46120950971064,
+      "bagT": 67.17811031117984,
+      "rotorT": 69.14149235730568,
       "aeroT": 0,
       "verticalDragT": -1.5285683279642441
      },
-     "unheldT": 2.8583931587748737,
-     "feasible": false,
-     "thrustT": 133.5,
-     "askedMW": 32.4,
-     "rotorsMW": 31.4,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 69.1,
+     "askedMW": 12,
+     "rotorsMW": 12,
      "busMW": 31.7,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -551,21 +551,21 @@
      "gsKph": 0,
      "vzMps": -1.9,
      "surplusT": 135.4,
-     "bagT": 0,
-     "netAfterBagT": 135.4,
+     "bagT": 125,
+     "netAfterBagT": 10.4,
      "owners": {
-      "bagT": 0,
-      "rotorT": 134.67340597089424,
+      "bagT": 125,
+      "rotorT": 11.504700910925244,
       "aeroT": 0,
       "verticalDragT": -1.0641763224088612
      },
-     "unheldT": 1.8312949400310004,
-     "feasible": false,
-     "thrustT": 134.7,
-     "askedMW": 32,
-     "rotorsMW": 31.4,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 11.5,
+     "askedMW": 0.9,
+     "rotorsMW": 0.9,
      "busMW": 31.7,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -574,19 +574,19 @@
      "gsKph": 0,
      "vzMps": -1.14,
      "surplusT": 135.9,
-     "bagT": 39,
-     "netAfterBagT": 96.9,
+     "bagT": 125,
+     "netAfterBagT": 10.9,
      "owners": {
-      "bagT": 39.02763729398474,
-      "rotorT": 97.28716808672101,
+      "bagT": 125,
+      "rotorT": 11.314805380705753,
       "aeroT": 0,
       "verticalDragT": -0.38380636155567477
      },
      "unheldT": 0,
      "feasible": true,
-     "thrustT": 97.3,
-     "askedMW": 18.9,
-     "rotorsMW": 18.9,
+     "thrustT": 11.3,
+     "askedMW": 0.8,
+     "rotorsMW": 0.8,
      "busMW": 31.7,
      "clipped": false
     },
@@ -597,19 +597,19 @@
      "gsKph": 0,
      "vzMps": -0.01,
      "surplusT": 136.2,
-     "bagT": 56.2,
-     "netAfterBagT": 80,
+     "bagT": 125,
+     "netAfterBagT": 11.2,
      "owners": {
-      "bagT": 56.159171029928004,
-      "rotorT": 79.99575087823557,
+      "bagT": 125,
+      "rotorT": 11.154921908163576,
       "aeroT": 0,
       "verticalDragT": -1.5781012482271784e-05
      },
      "unheldT": 0,
      "feasible": true,
-     "thrustT": 80,
-     "askedMW": 13.5,
-     "rotorsMW": 13.5,
+     "thrustT": 11.2,
+     "askedMW": 0.7,
+     "rotorsMW": 0.7,
      "busMW": 31.7,
      "clipped": false
     }
@@ -618,7 +618,7 @@
   "P1000": {
    "cableM": 600,
    "bagT": 1250,
-   "reachAglM": 540.5,
+   "reachAglM": 659.5,
    "bus": {
     "battMW": 150,
     "genMW": 40,
@@ -641,9 +641,9 @@
    "feasible": false,
    "cycleMin": 35.362448009506835,
    "worst": {
-    "unheldT": 819.2572871278336,
+    "unheldT": 800.681006414277,
     "phase": "SOURCE_APPROACH",
-    "progress": 0.7139960117803305,
+    "progress": 0.6291166313317862,
     "limits": [
      "bus power",
      "rotor thrust",
@@ -661,24 +661,24 @@
     "fillAglM": 300,
     "anchorFromAglM": 900,
     "rotorsAloneFailBelowAglM": 3000,
-    "bagInTheWaterBelowAglM": 540.5,
-    "bandNeitherRotorsNorBagM": 2459.5,
+    "bagInTheWaterBelowAglM": 659.5,
+    "bandNeitherRotorsNorBagM": 2340.5,
     "letdownMinutes": 5.7
    },
    "letdown": {
-    "mwh": 11.548,
-    "pctOfCycle": 18.6,
+    "mwh": 10.978,
+    "pctOfCycle": 17.8,
     "peakRotorMW": 153.5,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 4.97,
-    "clippedMWh": 7.413,
-    "rotorsWholeCycleMWh": 54.846,
-    "rotorsPctOfCycle": 88.1
+    "clippedMinutes": 4.71,
+    "clippedMWh": 7.046,
+    "rotorsWholeCycleMWh": 54.276,
+    "rotorsPctOfCycle": 88
    },
    "cycle": {
-    "eCycleMWh": 62.251,
-    "kwhPerTonne": 62.25,
+    "eCycleMWh": 61.68,
+    "kwhPerTonne": 61.68,
     "deliveredT": 1000,
     "bottleneck": "descent authority"
    },
@@ -686,8 +686,8 @@
     "letdownMWh": 13.109,
     "eCycleMWh": 64.966,
     "peakRotorMW": 153.5,
-    "creditSavesMWh": 2.716,
-    "creditSavesPctOfCycle": 4.2
+    "creditSavesMWh": 3.286,
+    "creditSavesPctOfCycle": 5.1
    },
    "withoutTheBag": {
     "feasible": false,
@@ -711,8 +711,8 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -4.2,
-    "bagCostsPerTonnePct": -4.2
+    "bagCostsCyclePct": -5.1,
+    "bagCostsPerTonnePct": -5.1
    },
    "hoist": {
     "mwh": 0.059,
@@ -1140,21 +1140,21 @@
      "gsKph": 0,
      "vzMps": -7.7,
      "surplusT": 1308,
-     "bagT": 0,
-     "netAfterBagT": 1308,
+     "bagT": 1250,
+     "netAfterBagT": 58,
      "owners": {
-      "bagT": 0,
-      "rotorT": 569.8968121918957,
+      "bagT": 1250,
+      "rotorT": 138.33423857106362,
       "aeroT": 0,
       "verticalDragT": -80.29333496231372
      },
-     "unheldT": 818.4374263791678,
-     "feasible": false,
-     "thrustT": 569.9,
-     "askedMW": 236.6,
-     "rotorsMW": 153.5,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 138.3,
+     "askedMW": 23.5,
+     "rotorsMW": 23.5,
      "busMW": 155,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -1230,7 +1230,7 @@
   "P10000": {
    "cableM": 850,
    "bagT": 12400,
-   "reachAglM": 722,
+   "reachAglM": 978,
    "bus": {
     "battMW": 1400,
     "genMW": 150,
@@ -1253,9 +1253,9 @@
    "feasible": false,
    "cycleMin": 45.51181498240322,
    "worst": {
-    "unheldT": 7076.6460365705825,
+    "unheldT": 6366.279945058271,
     "phase": "SOURCE_APPROACH",
-    "progress": 0.6669362957670824,
+    "progress": 0.5310628163979035,
     "limits": [
      "bus power",
      "rotor thrust",
@@ -1273,33 +1273,33 @@
     "fillAglM": 300,
     "anchorFromAglM": 1150,
     "rotorsAloneFailBelowAglM": 3000,
-    "bagInTheWaterBelowAglM": 722,
-    "bandNeitherRotorsNorBagM": 2278,
+    "bagInTheWaterBelowAglM": 978,
+    "bandNeitherRotorsNorBagM": 2022,
     "letdownMinutes": 7.28
    },
    "letdown": {
-    "mwh": 117.168,
-    "pctOfCycle": 16.9,
+    "mwh": 102.086,
+    "pctOfCycle": 15,
     "peakRotorMW": 1404.8,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 3.26,
-    "clippedMWh": 39.413,
-    "rotorsWholeCycleMWh": 652.467,
-    "rotorsPctOfCycle": 94
+    "clippedMinutes": 2.57,
+    "clippedMWh": 33.551,
+    "rotorsWholeCycleMWh": 637.385,
+    "rotorsPctOfCycle": 93.9
    },
    "cycle": {
-    "eCycleMWh": 694.174,
-    "kwhPerTonne": 69.42,
+    "eCycleMWh": 679.093,
+    "kwhPerTonne": 67.91,
     "deliveredT": 10000,
     "bottleneck": "descent authority"
    },
    "rotorsBlindToTheBag": {
-    "letdownMWh": 147.172,
+    "letdownMWh": 147.171,
     "eCycleMWh": 746.893,
     "peakRotorMW": 1404.8,
-    "creditSavesMWh": 52.719,
-    "creditSavesPctOfCycle": 7.1
+    "creditSavesMWh": 67.8,
+    "creditSavesPctOfCycle": 9.1
    },
    "withoutTheBag": {
     "feasible": false,
@@ -1323,11 +1323,11 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -7.1,
-    "bagCostsPerTonnePct": -7.1
+    "bagCostsCyclePct": -9.1,
+    "bagCostsPerTonnePct": -9.1
    },
    "hoist": {
-    "mwh": 0.596,
+    "mwh": 0.597,
     "formulaMgh": 0.596
    },
    "profile": [
@@ -1729,21 +1729,21 @@
      "gsKph": 0,
      "vzMps": -6.37,
      "surplusT": 12457.2,
-     "bagT": 0,
-     "netAfterBagT": 12457.2,
+     "bagT": 12400,
+     "netAfterBagT": 57.2,
      "owners": {
-      "bagT": 0,
-      "rotorT": 5931.41457100528,
+      "bagT": 12400,
+      "rotorT": 304.1923794022643,
       "aeroT": 0,
       "verticalDragT": -247.0006627512759
      },
-     "unheldT": 6772.777808396984,
-     "feasible": false,
-     "thrustT": 5931.4,
-     "askedMW": 1915.7,
-     "rotorsMW": 1404.8,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 304.2,
+     "askedMW": 32.3,
+     "rotorsMW": 32.3,
      "busMW": 1411.3,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -1752,21 +1752,21 @@
      "gsKph": 0,
      "vzMps": -6.37,
      "surplusT": 12897.2,
-     "bagT": 6651.9,
-     "netAfterBagT": 6245.3,
+     "bagT": 12400,
+     "netAfterBagT": 497.2,
      "owners": {
-      "bagT": 6651.89504373177,
-      "rotorT": 5604.843964590733,
+      "bagT": 12400,
+      "rotorT": 748.9922491552516,
       "aeroT": 0,
       "verticalDragT": -251.82910078805975
      },
-     "unheldT": 892.2532408327479,
-     "feasible": false,
-     "thrustT": 5604.8,
-     "askedMW": 1582,
-     "rotorsMW": 1289.5,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 749,
+     "askedMW": 93,
+     "rotorsMW": 93,
      "busMW": 1411.3,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -1844,7 +1844,7 @@
   "P100": {
    "cableM": 350,
    "bagT": 125,
-   "reachAglM": 322.5,
+   "reachAglM": 377.5,
    "bus": {
     "battMW": 30,
     "genMW": 8,
@@ -1886,33 +1886,33 @@
     "fillAglM": 300,
     "anchorFromAglM": 300,
     "rotorsAloneFailBelowAglM": null,
-    "bagInTheWaterBelowAglM": 322.5,
+    "bagInTheWaterBelowAglM": 377.5,
     "bandNeitherRotorsNorBagM": 0,
     "letdownMinutes": 5.29
    },
    "letdown": {
-    "mwh": 1.442,
-    "pctOfCycle": 22.5,
+    "mwh": 1.192,
+    "pctOfCycle": 19.8,
     "peakRotorMW": 31.4,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 0.65,
-    "clippedMWh": 0.008,
-    "rotorsWholeCycleMWh": 4.006,
-    "rotorsPctOfCycle": 62.6
+    "clippedMinutes": 0.23,
+    "clippedMWh": 0.002,
+    "rotorsWholeCycleMWh": 3.625,
+    "rotorsPctOfCycle": 60.2
    },
    "cycle": {
-    "eCycleMWh": 6.401,
-    "kwhPerTonne": 64.01,
+    "eCycleMWh": 6.024,
+    "kwhPerTonne": 60.24,
     "deliveredT": 100,
     "bottleneck": "descent authority"
    },
    "rotorsBlindToTheBag": {
-    "letdownMWh": 1.51,
-    "eCycleMWh": 6.607,
+    "letdownMWh": 1.506,
+    "eCycleMWh": 6.606,
     "peakRotorMW": 31.4,
-    "creditSavesMWh": 0.205,
-    "creditSavesPctOfCycle": 3.1
+    "creditSavesMWh": 0.581,
+    "creditSavesPctOfCycle": 8.8
    },
    "withoutTheBag": {
     "feasible": false,
@@ -1934,11 +1934,11 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -3.1,
-    "bagCostsPerTonnePct": -3.1
+    "bagCostsCyclePct": -8.8,
+    "bagCostsPerTonnePct": -8.8
    },
    "hoist": {
-    "mwh": 0.003,
+    "mwh": 0.006,
     "formulaMgh": 0.006
    },
    "profile": [
@@ -2363,21 +2363,21 @@
      "gsKph": 0,
      "vzMps": -2.27,
      "surplusT": 134.8,
-     "bagT": 0,
-     "netAfterBagT": 134.8,
+     "bagT": 67.2,
+     "netAfterBagT": 67.6,
      "owners": {
-      "bagT": 0,
-      "rotorT": 133.46120950971064,
+      "bagT": 67.17811031117984,
+      "rotorT": 69.14149235730568,
       "aeroT": 0,
       "verticalDragT": -1.5285683279642441
      },
-     "unheldT": 2.8583931587748737,
-     "feasible": false,
-     "thrustT": 133.5,
-     "askedMW": 32.4,
-     "rotorsMW": 31.4,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 69.1,
+     "askedMW": 12,
+     "rotorsMW": 12,
      "busMW": 31.7,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -2386,21 +2386,21 @@
      "gsKph": 0,
      "vzMps": -1.9,
      "surplusT": 135.4,
-     "bagT": 0,
-     "netAfterBagT": 135.4,
+     "bagT": 125,
+     "netAfterBagT": 10.4,
      "owners": {
-      "bagT": 0,
-      "rotorT": 134.67340597089424,
+      "bagT": 125,
+      "rotorT": 11.504700910925244,
       "aeroT": 0,
       "verticalDragT": -1.0641763224088612
      },
-     "unheldT": 1.8312949400310004,
-     "feasible": false,
-     "thrustT": 134.7,
-     "askedMW": 32,
-     "rotorsMW": 31.4,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 11.5,
+     "askedMW": 0.9,
+     "rotorsMW": 0.9,
      "busMW": 31.7,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -2409,19 +2409,19 @@
      "gsKph": 0,
      "vzMps": -1.14,
      "surplusT": 135.9,
-     "bagT": 39,
-     "netAfterBagT": 96.9,
+     "bagT": 125,
+     "netAfterBagT": 10.9,
      "owners": {
-      "bagT": 39.02763729398474,
-      "rotorT": 97.28716808672101,
+      "bagT": 125,
+      "rotorT": 11.314805380705753,
       "aeroT": 0,
       "verticalDragT": -0.38380636155567477
      },
      "unheldT": 0,
      "feasible": true,
-     "thrustT": 97.3,
-     "askedMW": 18.9,
-     "rotorsMW": 18.9,
+     "thrustT": 11.3,
+     "askedMW": 0.8,
+     "rotorsMW": 0.8,
      "busMW": 31.7,
      "clipped": false
     },
@@ -2432,19 +2432,19 @@
      "gsKph": 0,
      "vzMps": -0.01,
      "surplusT": 136.2,
-     "bagT": 56.2,
-     "netAfterBagT": 80,
+     "bagT": 125,
+     "netAfterBagT": 11.2,
      "owners": {
-      "bagT": 56.159171029928004,
-      "rotorT": 79.99575087823557,
+      "bagT": 125,
+      "rotorT": 11.154921908163576,
       "aeroT": 0,
       "verticalDragT": -1.5781012482271784e-05
      },
      "unheldT": 0,
      "feasible": true,
-     "thrustT": 80,
-     "askedMW": 13.5,
-     "rotorsMW": 13.5,
+     "thrustT": 11.2,
+     "askedMW": 0.7,
+     "rotorsMW": 0.7,
      "busMW": 31.7,
      "clipped": false
     }
@@ -2453,7 +2453,7 @@
   "P1000": {
    "cableM": 600,
    "bagT": 1250,
-   "reachAglM": 540.5,
+   "reachAglM": 659.5,
    "bus": {
     "battMW": 150,
     "genMW": 40,
@@ -2476,9 +2476,9 @@
    "feasible": false,
    "cycleMin": 35.362448009506835,
    "worst": {
-    "unheldT": 819.2572871278336,
+    "unheldT": 800.681006414277,
     "phase": "SOURCE_APPROACH",
-    "progress": 0.7139960117803305,
+    "progress": 0.6291166313317862,
     "limits": [
      "bus power",
      "rotor thrust",
@@ -2498,24 +2498,24 @@
     "fillAglM": 300,
     "anchorFromAglM": 900,
     "rotorsAloneFailBelowAglM": 3000,
-    "bagInTheWaterBelowAglM": 540.5,
-    "bandNeitherRotorsNorBagM": 2459.5,
+    "bagInTheWaterBelowAglM": 659.5,
+    "bandNeitherRotorsNorBagM": 2340.5,
     "letdownMinutes": 5.7
    },
    "letdown": {
-    "mwh": 9.299,
-    "pctOfCycle": 15.2,
+    "mwh": 8.729,
+    "pctOfCycle": 14.4,
     "peakRotorMW": 153.5,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 4.97,
-    "clippedMWh": 9.649,
-    "rotorsWholeCycleMWh": 43.113,
-    "rotorsPctOfCycle": 70.4
+    "clippedMinutes": 4.71,
+    "clippedMWh": 9.282,
+    "rotorsWholeCycleMWh": 42.543,
+    "rotorsPctOfCycle": 70.1
    },
    "cycle": {
-    "eCycleMWh": 61.259,
-    "kwhPerTonne": 61.26,
+    "eCycleMWh": 60.689,
+    "kwhPerTonne": 60.69,
     "deliveredT": 1000,
     "bottleneck": "descent authority"
    },
@@ -2523,8 +2523,8 @@
     "letdownMWh": 10.86,
     "eCycleMWh": 63.975,
     "peakRotorMW": 153.5,
-    "creditSavesMWh": 2.716,
-    "creditSavesPctOfCycle": 4.2
+    "creditSavesMWh": 3.286,
+    "creditSavesPctOfCycle": 5.1
    },
    "withoutTheBag": {
     "feasible": false,
@@ -2549,8 +2549,8 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -4.2,
-    "bagCostsPerTonnePct": -4.2
+    "bagCostsCyclePct": -5.1,
+    "bagCostsPerTonnePct": -5.1
    },
    "hoist": {
     "mwh": 0.059,
@@ -2978,21 +2978,21 @@
      "gsKph": 0,
      "vzMps": -7.7,
      "surplusT": 1308,
-     "bagT": 0,
-     "netAfterBagT": 1308,
+     "bagT": 1250,
+     "netAfterBagT": 58,
      "owners": {
-      "bagT": 0,
-      "rotorT": 569.8968121918957,
+      "bagT": 1250,
+      "rotorT": 138.33423857106362,
       "aeroT": 0,
       "verticalDragT": -80.29333496231372
      },
-     "unheldT": 818.4374263791678,
-     "feasible": false,
-     "thrustT": 569.9,
-     "askedMW": 236.6,
-     "rotorsMW": 153.5,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 138.3,
+     "askedMW": 23.5,
+     "rotorsMW": 23.5,
      "busMW": 155,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -3068,7 +3068,7 @@
   "P10000": {
    "cableM": 850,
    "bagT": 12400,
-   "reachAglM": 722,
+   "reachAglM": 978,
    "bus": {
     "battMW": 1400,
     "genMW": 150,
@@ -3091,9 +3091,9 @@
    "feasible": false,
    "cycleMin": 45.51181498240322,
    "worst": {
-    "unheldT": 7076.6460365705825,
+    "unheldT": 6366.279945058271,
     "phase": "SOURCE_APPROACH",
-    "progress": 0.6669362957670824,
+    "progress": 0.5310628163979035,
     "limits": [
      "bus power",
      "rotor thrust",
@@ -3113,33 +3113,33 @@
     "fillAglM": 300,
     "anchorFromAglM": 1150,
     "rotorsAloneFailBelowAglM": 3000,
-    "bagInTheWaterBelowAglM": 722,
-    "bandNeitherRotorsNorBagM": 2278,
+    "bagInTheWaterBelowAglM": 978,
+    "bandNeitherRotorsNorBagM": 2022,
     "letdownMinutes": 7.28
    },
    "letdown": {
-    "mwh": 116.47,
-    "pctOfCycle": 15.2,
+    "mwh": 101.388,
+    "pctOfCycle": 13.5,
     "peakRotorMW": 1404.8,
     "peakPhase": "SOURCE_APPROACH",
     "battLimited": true,
-    "clippedMinutes": 5.8,
-    "clippedMWh": 41.974,
-    "rotorsWholeCycleMWh": 630.138,
-    "rotorsPctOfCycle": 82.3
+    "clippedMinutes": 5.12,
+    "clippedMWh": 36.112,
+    "rotorsWholeCycleMWh": 615.055,
+    "rotorsPctOfCycle": 81.9
    },
    "cycle": {
-    "eCycleMWh": 765.904,
-    "kwhPerTonne": 76.59,
+    "eCycleMWh": 750.823,
+    "kwhPerTonne": 75.08,
     "deliveredT": 10000,
     "bottleneck": "descent authority"
    },
    "rotorsBlindToTheBag": {
-    "letdownMWh": 146.474,
+    "letdownMWh": 146.473,
     "eCycleMWh": 818.623,
     "peakRotorMW": 1404.8,
-    "creditSavesMWh": 52.719,
-    "creditSavesPctOfCycle": 6.4
+    "creditSavesMWh": 67.8,
+    "creditSavesPctOfCycle": 8.3
    },
    "withoutTheBag": {
     "feasible": false,
@@ -3164,11 +3164,11 @@
     "battLimited": true,
     "anchorHoistMWh": 0,
     "bagBuysDeliveredT": 0,
-    "bagCostsCyclePct": -6.4,
-    "bagCostsPerTonnePct": -6.4
+    "bagCostsCyclePct": -8.3,
+    "bagCostsPerTonnePct": -8.3
    },
    "hoist": {
-    "mwh": 0.596,
+    "mwh": 0.597,
     "formulaMgh": 0.596
    },
    "profile": [
@@ -3570,21 +3570,21 @@
      "gsKph": 0,
      "vzMps": -6.37,
      "surplusT": 12457.2,
-     "bagT": 0,
-     "netAfterBagT": 12457.2,
+     "bagT": 12400,
+     "netAfterBagT": 57.2,
      "owners": {
-      "bagT": 0,
-      "rotorT": 5931.41457100528,
+      "bagT": 12400,
+      "rotorT": 304.1923794022643,
       "aeroT": 0,
       "verticalDragT": -247.0006627512759
      },
-     "unheldT": 6772.777808396984,
-     "feasible": false,
-     "thrustT": 5931.4,
-     "askedMW": 1915.7,
-     "rotorsMW": 1404.8,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 304.2,
+     "askedMW": 32.3,
+     "rotorsMW": 32.3,
      "busMW": 1411.3,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",
@@ -3593,21 +3593,21 @@
      "gsKph": 0,
      "vzMps": -6.37,
      "surplusT": 12897.2,
-     "bagT": 6651.9,
-     "netAfterBagT": 6245.3,
+     "bagT": 12400,
+     "netAfterBagT": 497.2,
      "owners": {
-      "bagT": 6651.89504373177,
-      "rotorT": 5604.843964590733,
+      "bagT": 12400,
+      "rotorT": 748.9922491552516,
       "aeroT": 0,
       "verticalDragT": -251.82910078805975
      },
-     "unheldT": 892.2532408327479,
-     "feasible": false,
-     "thrustT": 5604.8,
-     "askedMW": 1582,
-     "rotorsMW": 1289.5,
+     "unheldT": 0,
+     "feasible": true,
+     "thrustT": 749,
+     "askedMW": 93,
+     "rotorsMW": 93,
      "busMW": 1411.3,
-     "clipped": true
+     "clipped": false
     },
     {
      "phase": "SOURCE_APPROACH",

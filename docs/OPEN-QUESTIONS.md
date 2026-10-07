@@ -37,14 +37,14 @@ Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew o
 > **2026-10-02 correction to #11:** the conditional capsule budget now gives 457,324 m³ and 140 m length. This is equipment-budget closure under an assumed shell density, not a checked design.
 
 <!-- anchor-budget:question:start -->
-Generated from the owning record during the combined regeneration.
+> Current anchor-reach correction to #11: the conditional equipment budget gives 510,406 m³ and 146 m length, replacing the earlier 457,324 m³ after corrected reach changed energy-based battery sizing. This is not a checked design.
 <!-- anchor-budget:question:end -->
 > See [the regeneration audit](audit/26-10-02-analysis-regeneration.md).
 
 <!-- closure-correction:start -->
 
 > **2026-10-05 correction to #11:** shell sundries were omitted from the resized
-> bill. The 0.508 kg/m³ floor now closes conditionally at 516,771 m³,
+> bill. The 0.508 kg/m³ floor now closes conditionally at 510,406 m³,
 > a 146 m hull. Its closure wall is 0.870 kg/m³; 0.957 kg/m³ is the lift wall.
 > This complete equipment bill does not validate a drawn hull.
 
@@ -115,7 +115,7 @@ PHYSICS carries no such list. Items 7–12 were documented here only.
 ---
 
 <!-- logistics:line-summary:start -->
-At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
+At the accepted median-leg rate, the conditional CL 4 line-length quotient is 93.0 km per day, longer than 80.0% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
 <!-- logistics:line-summary:end -->
 
 ## 0. The sizing requirement that ties #1, #4 and #6 together
@@ -334,12 +334,10 @@ The search stops at a peak letdown cap of 0.5 m/s. What lower bound would missio
 
 These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. Can shape-specific added-mass and control measurements close the signed authority gaps? Full-delivery profiles below are quasi-static analysis.
 
+No full-payload profile meets the control reserve target in this stated search.
+
 | Class | km | Basis | Full-payload mode | Delivered t | Minutes | MWh | kWh/t | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | rapid | 100.000 | 176.468 | 42.788 | 427.878 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 15 | favourable | rapid | 100.000 | 176.468 | 41.030 | 410.302 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | balanced | 100.000 | 73.412 | 15.531 | 155.311 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | balanced | 100.000 | 73.412 | 12.160 | 121.596 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-3:end -->
 
 <!-- energy:question-4:start -->
@@ -349,30 +347,30 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne | Profile note |
 |---|---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.189 | 81.892 |  |
-| P100 | 15 | record | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 5.201 | 80.021 | quasi-static closure; hull-only sampled screen does not validate dynamics |
-| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.401 | 64.011 |  |
-| P100 | 15 | favourable | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 3.793 | 58.359 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.521 | 205.214 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.200 | 1.800 | 64.408 | 14.077 | 143.350 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.764 | 147.639 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 99.907 | 0.093 | 75.434 | 11.253 | 112.637 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.251 | 62.251 |  |
-| P1000 | 15 | record | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 26.444 | 123.115 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.259 | 61.259 |  |
-| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 21.504 | 100.115 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.451 | 141.451 |  |
-| P1000 | 60 | record | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 68.780 | 255.003 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.271 | 142.271 |  |
-| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 56.603 | 209.856 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.174 | 69.417 |  |
-| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 199.983 | 76.230 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 765.904 | 76.590 |  |
-| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 183.296 | 69.869 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.650 | 111.365 |  |
-| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 439.602 | 146.218 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1385.793 | 138.579 |  |
-| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 397.547 | 132.230 | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 7.812 | 78.122 |  |
+| P100 | 15 | record | cheapest reserve-eligible profile found in the stated space | 70.948 | 29.052 | 40.108 | 6.622 | 93.338 | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.024 | 60.241 |  |
+| P100 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 70.000 | 30.000 | 40.076 | 4.843 | 69.192 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.150 | 201.503 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | cheapest reserve-eligible profile found in the stated space | 89.304 | 10.696 | 63.815 | 12.706 | 142.281 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.393 | 143.928 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 90.930 | 9.070 | 74.835 | 10.035 | 110.357 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.680 | 61.680 |  |
+| P1000 | 15 | record | cheapest reserve-eligible profile found in the stated space | 191.775 | 808.225 | 25.483 | 24.472 | 127.610 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 60.689 | 60.689 |  |
+| P1000 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 191.775 | 808.225 | 25.483 | 19.815 | 103.325 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 140.806 | 140.806 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | cheapest reserve-eligible profile found in the stated space | 244.826 | 755.174 | 73.907 | 65.351 | 266.928 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.626 | 141.626 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 244.826 | 755.174 | 73.907 | 54.099 | 220.969 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 679.093 | 67.909 |  |
+| P10000 | 15 | record | cheapest reserve-eligible profile found in the stated space | 2945.496 | 7054.504 | 24.022 | 202.102 | 68.614 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 750.823 | 75.082 |  |
+| P10000 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 2945.496 | 7054.504 | 24.022 | 184.209 | 62.539 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1098.254 | 109.825 |  |
+| P10000 | 60 | record | cheapest reserve-eligible profile found in the stated space | 2993.634 | 7006.366 | 58.071 | 402.745 | 134.534 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1370.397 | 137.040 |  |
+| P10000 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 3009.668 | 6990.332 | 70.313 | 368.571 | 122.462 | quasi-static closure; dynamic profile unresolved |
 <!-- energy:question-4:end -->
 
 ## 5. Esri basemap tiles — FIXED 2026-10-01
@@ -453,20 +451,20 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 Generated by `node research/analysis/energy-tables.mjs`. Each printed closing value is rounded up to three decimals and replayed at the verdict resolution.
 
-| Class | km | Basis | As drawn | Minutes: drawn / kept / power pair | Water kept, t | Delivered, t | kWh/t | Required battery, MW | Rotor thrust, t | Battery mass, t (500 / 300 / 149 Wh/kg) |
-|---|---:|---|---|---:|---:|---:|---:|---:|---:|---|
-| P100 | 15 | record | does not close | 34.196 / none / none | none | none | none | none | none | none |
-| P100 | 15 | favourable | does not close | 34.196 / none / none | none | none | none | none | none | none |
-| P100 | 60 | record | closes | 104.784 / 104.784 / 104.784 | 0.000 | 100.000 | 205.214 | 29.850 | 132.345 | 39.800 / 66.333 / 133.557 (exceeds dry target) |
-| P100 | 60 | favourable | closes | 104.784 / 104.784 / 104.784 | 0.000 | 100.000 | 147.639 | 28.658 | 132.345 | 38.211 / 63.684 / 128.224 (exceeds dry target) |
-| P1000 | 15 | record | does not close | 35.362 / 28.286 / 35.362 | 819.257 | 180.743 | 134.063 | 529.471 | 1390.813 | 847.154 / 1411.923 (exceeds dry target) / 2842.797 (exceeds dry target) |
-| P1000 | 15 | favourable | does not close | 35.362 / 28.286 / 35.362 | 819.257 | 180.743 | 105.357 | 529.471 | 1390.813 | 847.154 / 1411.923 (exceeds dry target) / 2842.797 (exceeds dry target) |
-| P1000 | 60 | record | does not close | 93.116 / 86.318 / 93.116 | 769.180 | 230.820 | 281.534 | 507.720 | 1373.163 | 812.352 / 1353.920 (exceeds dry target) / 2726.013 (exceeds dry target) |
-| P1000 | 60 | favourable | does not close | 93.116 / 86.318 / 93.116 | 769.180 | 230.820 | 221.767 | 507.720 | 1373.163 | 812.352 / 1353.920 (exceeds dry target) / 2726.013 (exceeds dry target) |
-| P10000 | 15 | record | does not close | 45.512 / 31.666 / 45.512 | 7076.641 | 2923.359 | 88.187 | 4214.569 | 13092.990 | 12041.626 (exceeds dry target) / 20069.376 (exceeds dry target) / 40408.140 (exceeds dry target) |
-| P10000 | 15 | favourable | does not close | 45.512 / 31.666 / 45.512 | 7076.641 | 2923.359 | 79.131 | 4214.569 | 13092.990 | 12041.626 (exceeds dry target) / 20069.376 (exceeds dry target) / 40408.140 (exceeds dry target) |
-| P10000 | 60 | record | does not close | 94.381 / 80.661 / 94.381 | 6963.333 | 3036.667 | 160.663 | 4170.754 | 13092.989 | 11916.440 (exceeds dry target) / 19860.733 (exceeds dry target) / 39988.054 (exceeds dry target) |
-| P10000 | 60 | favourable | does not close | 94.381 / 80.661 / 94.381 | 6963.333 | 3036.667 | 141.866 | 4170.754 | 13092.989 | 11916.440 (exceeds dry target) / 19860.733 (exceeds dry target) / 39988.054 (exceeds dry target) |
+| Class | km | Basis | As drawn | Minutes: drawn / kept / power pair | Water kept, t | Delivered, t | kWh/t | Required battery, MW | Rotor thrust, t | Battery mass, t (500 / 300 / 149 Wh/kg) | Storage notes |
+|---|---:|---|---|---:|---:|---:|---:|---:|---:|---|---|
+| P100 | 15 | record | does not close | 34.196 / none / none | none | none | none | none | none | none |  |
+| P100 | 15 | favourable | does not close | 34.196 / none / none | none | none | none | none | none | none |  |
+| P100 | 60 | record | closes | 104.784 / 104.784 / 104.784 | 0.000 | 100.000 | 201.503 | 29.850 | 131.166 | 39.800 / 66.333 / 133.557 (exceeds dry target) | retained-water: ; power pair:  |
+| P100 | 60 | favourable | closes | 104.784 / 104.784 / 104.784 | 0.000 | 100.000 | 143.928 | 28.658 | 131.166 | 38.211 / 63.684 / 128.224 (exceeds dry target) | retained-water: ; power pair:  |
+| P1000 | 15 | record | does not close | 35.362 / 28.389 / 35.362 | 800.681 | 199.319 | 123.582 | 521.681 | 1367.262 | 834.690 / 1391.149 (exceeds dry target) / 2800.972 (exceeds dry target) | retained-water: ; power pair:  |
+| P1000 | 15 | favourable | does not close | 35.362 / 28.389 / 35.362 | 800.681 | 199.319 | 96.228 | 521.681 | 1367.262 | 834.690 / 1391.149 (exceeds dry target) / 2800.972 (exceeds dry target) | retained-water: ; power pair:  |
+| P1000 | 60 | record | does not close | 93.116 / 86.423 / 93.116 | 750.235 | 249.765 | 267.061 | 499.667 | 1349.041 | 799.467 / 1332.445 (exceeds dry target) / 2682.776 (exceeds dry target) | unsupported profile; exceeds nominal storage in an ideal cycle; retained-water: ; power pair: quasi-static closure; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | does not close | 93.116 / 86.423 / 93.116 | 750.235 | 249.765 | 208.265 | 499.667 | 1349.041 | 799.467 / 1332.445 (exceeds dry target) / 2682.776 (exceeds dry target) | unsupported profile; exceeds nominal storage in an ideal cycle; retained-water: ; power pair: quasi-static closure; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | does not close | 45.512 / 32.455 / 45.512 | 6366.275 | 3633.725 | 79.727 | 3892.845 | 13092.990 | 11122.414 (exceeds dry target) / 18537.357 (exceeds dry target) / 37323.538 (exceeds dry target) | retained-water: ; power pair:  |
+| P10000 | 15 | favourable | does not close | 45.512 / 32.455 / 45.512 | 6366.275 | 3633.725 | 71.249 | 3892.845 | 13092.990 | 11122.414 (exceeds dry target) / 18537.357 (exceeds dry target) / 37323.538 (exceeds dry target) | retained-water: ; power pair:  |
+| P10000 | 60 | record | does not close | 94.381 / 81.453 / 94.381 | 6250.292 | 3749.708 | 148.256 | 3848.409 | 13092.989 | 10995.454 (exceeds dry target) / 18325.757 (exceeds dry target) / 36897.498 (exceeds dry target) | retained-water: ; power pair:  |
+| P10000 | 60 | favourable | does not close | 94.381 / 81.453 / 94.381 | 6250.292 | 3749.708 | 129.694 | 3848.409 | 13092.989 | 10995.454 (exceeds dry target) / 18325.757 (exceeds dry target) / 36897.498 (exceeds dry target) | retained-water: ; power pair:  |
 
 Cycle minutes are printed separately for the prescribed profile, retained-water requirement and power-and-thrust requirement.
 
@@ -482,14 +480,14 @@ The bag counts when the cable carries water; the hoist remains priced. Delaying 
 | P100 | 15 | favourable | none |
 | P100 | 60 | record | 0.000 |
 | P100 | 60 | favourable | 0.000 |
-| P1000 | 15 | record | 53.416 |
-| P1000 | 15 | favourable | 53.416 |
-| P1000 | 60 | record | 52.141 |
-| P1000 | 60 | favourable | 52.141 |
-| P10000 | 15 | record | 398.262 |
-| P10000 | 15 | favourable | 398.262 |
-| P10000 | 60 | record | 396.718 |
-| P10000 | 60 | favourable | 396.718 |
+| P1000 | 15 | record | 61.681 |
+| P1000 | 15 | favourable | 61.681 |
+| P1000 | 60 | record | 60.430 |
+| P1000 | 60 | favourable | 60.430 |
+| P10000 | 15 | record | 388.207 |
+| P10000 | 15 | favourable | 388.207 |
+| P10000 | 60 | record | 386.953 |
+| P10000 | 60 | favourable | 386.953 |
 
 ## Broadside-drag range
 
@@ -497,49 +495,49 @@ Each entry gives the signed worst unheld force in tonnes and the feasibility ver
 
 | Class | km | Basis | Coefficient 0 | Coefficient 1 | Coefficient 2 |
 |---|---:|---|---|---|---|
-| P100 | 15 | record | 13.274; does not close | 34.759; does not close | 56.679; does not close |
-| P100 | 15 | favourable | 1.330; does not close | -5.714; does not close | -32.818; does not close |
-| P100 | 60 | record | 0.000; closes | 0.000; closes | -0.000; closes |
-| P100 | 60 | favourable | 0.000; closes | 0.000; closes | -0.000; closes |
-| P1000 | 15 | record | 740.935; does not close | 819.257; does not close | 898.803; does not close |
-| P1000 | 15 | favourable | 740.935; does not close | 819.257; does not close | 898.803; does not close |
-| P1000 | 60 | record | 690.858; does not close | 769.180; does not close | 848.675; does not close |
-| P1000 | 60 | favourable | 690.858; does not close | 769.180; does not close | 848.675; does not close |
-| P10000 | 15 | record | 6817.101; does not close | 7076.646; does not close | 7336.191; does not close |
-| P10000 | 15 | favourable | 6817.101; does not close | 7076.646; does not close | 7336.191; does not close |
-| P10000 | 60 | record | 6703.793; does not close | 6963.338; does not close | 7222.883; does not close |
-| P10000 | 60 | favourable | 6703.793; does not close | 6963.338; does not close | 7222.883; does not close |
+| P100 | 15 | record | 13.274; does not close;  | 34.759; does not close;  | 56.679; does not close;  |
+| P100 | 15 | favourable | 0.798; does not close;  | -5.714; does not close;  | -32.818; does not close;  |
+| P100 | 60 | record | 0.000; closes;  | -0.000; closes;  | -0.000; closes;  |
+| P100 | 60 | favourable | 0.000; closes;  | -0.000; closes;  | -0.000; closes;  |
+| P1000 | 15 | record | 718.423; does not close;  | 800.681; does not close;  | 882.939; does not close;  |
+| P1000 | 15 | favourable | 718.423; does not close;  | 800.681; does not close;  | 882.939; does not close;  |
+| P1000 | 60 | record | 667.977; does not close; unsupported profile; exceeds nominal storage in an ideal cycle | 750.235; does not close; unsupported profile; exceeds nominal storage in an ideal cycle | 832.493; does not close; unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | 667.977; does not close; unsupported profile; exceeds nominal storage in an ideal cycle | 750.235; does not close; unsupported profile; exceeds nominal storage in an ideal cycle | 832.493; does not close; unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | 6167.429; does not close;  | 6366.280; does not close;  | 6565.131; does not close;  |
+| P10000 | 15 | favourable | 6167.429; does not close;  | 6366.280; does not close;  | 6565.131; does not close;  |
+| P10000 | 60 | record | 6096.904; does not close;  | 6250.297; does not close;  | 6449.148; does not close;  |
+| P10000 | 60 | favourable | 6096.904; does not close;  | 6250.297; does not close;  | 6449.148; does not close;  |
 
 ## Rotor-efficiency range
 
 Rotor figure of merit times drive efficiency. Hold-down descent is priced as climb, on the conservative side; climb against hold-down thrust is priced as level flight, with no bound claimed.
 
-| Class | km | Basis | Efficiency | Static thrust cap over local densities, t | Worst unheld force, t | Verdict |
-|---|---:|---|---:|---|---:|---|
-| P100 | 15 | record | 0.55 | 130.327 to 135.663 | 47.665 | does not close |
-| P100 | 15 | record | 0.7 | 153.059 to 159.325 | 34.759 | does not close |
-| P100 | 15 | favourable | 0.55 | 130.327 to 135.663 | 47.665 | does not close |
-| P100 | 15 | favourable | 0.7 | 153.059 to 159.325 | -5.714 | does not close |
-| P100 | 60 | record | 0.55 | 130.327 to 135.663 | 17.748 | does not close |
-| P100 | 60 | record | 0.7 | 153.059 to 159.325 | 0.000 | closes |
-| P100 | 60 | favourable | 0.55 | 130.327 to 135.663 | 15.997 | does not close |
-| P100 | 60 | favourable | 0.7 | 153.059 to 159.325 | 0.000 | closes |
-| P1000 | 15 | record | 0.55 | 646.328 to 669.145 | 911.439 | does not close |
-| P1000 | 15 | record | 0.7 | 759.061 to 785.857 | 819.257 | does not close |
-| P1000 | 15 | favourable | 0.55 | 646.328 to 669.145 | 911.439 | does not close |
-| P1000 | 15 | favourable | 0.7 | 759.061 to 785.857 | 819.257 | does not close |
-| P1000 | 60 | record | 0.55 | 642.828 to 669.145 | 866.379 | does not close |
-| P1000 | 60 | record | 0.7 | 754.950 to 785.857 | 769.180 | does not close |
-| P1000 | 60 | favourable | 0.55 | 642.828 to 669.145 | 866.379 | does not close |
-| P1000 | 60 | favourable | 0.7 | 754.950 to 785.857 | 769.180 | does not close |
-| P10000 | 15 | record | 0.55 | 6238.062 to 6430.112 | 8030.548 | does not close |
-| P10000 | 15 | record | 0.7 | 7326.107 to 7551.654 | 7076.646 | does not close |
-| P10000 | 15 | favourable | 0.55 | 6238.062 to 6430.112 | 8030.548 | does not close |
-| P10000 | 15 | favourable | 0.7 | 7326.107 to 7551.654 | 7076.646 | does not close |
-| P10000 | 60 | record | 0.55 | 6177.222 to 6430.112 | 7926.916 | does not close |
-| P10000 | 60 | record | 0.7 | 7254.655 to 7551.654 | 6963.338 | does not close |
-| P10000 | 60 | favourable | 0.55 | 6177.222 to 6430.112 | 7926.916 | does not close |
-| P10000 | 60 | favourable | 0.7 | 7254.655 to 7551.654 | 6963.338 | does not close |
+| Class | km | Basis | Efficiency | Static thrust cap over local densities, t | Worst unheld force, t | Verdict | Storage note |
+|---|---:|---|---:|---|---:|---|---|
+| P100 | 15 | record | 0.55 | 130.327 to 135.663 | 47.665 | does not close |  |
+| P100 | 15 | record | 0.7 | 153.059 to 159.325 | 34.759 | does not close |  |
+| P100 | 15 | favourable | 0.55 | 130.327 to 135.663 | 47.665 | does not close |  |
+| P100 | 15 | favourable | 0.7 | 153.059 to 159.325 | -5.714 | does not close |  |
+| P100 | 60 | record | 0.55 | 130.327 to 135.663 | 17.748 | does not close | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P100 | 60 | record | 0.7 | 153.059 to 159.325 | -0.000 | closes |  |
+| P100 | 60 | favourable | 0.55 | 130.327 to 135.663 | 15.997 | does not close |  |
+| P100 | 60 | favourable | 0.7 | 153.059 to 159.325 | -0.000 | closes |  |
+| P1000 | 15 | record | 0.55 | 646.328 to 669.145 | 892.273 | does not close |  |
+| P1000 | 15 | record | 0.7 | 759.061 to 785.857 | 800.681 | does not close |  |
+| P1000 | 15 | favourable | 0.55 | 646.328 to 669.145 | 892.273 | does not close |  |
+| P1000 | 15 | favourable | 0.7 | 759.061 to 785.857 | 800.681 | does not close |  |
+| P1000 | 60 | record | 0.55 | 642.828 to 669.145 | 846.818 | does not close | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | 0.7 | 754.950 to 785.857 | 750.235 | does not close | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | 0.55 | 642.828 to 669.145 | 846.818 | does not close | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | 0.7 | 754.950 to 785.857 | 750.235 | does not close | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | 0.55 | 6238.062 to 6430.112 | 7322.061 | does not close |  |
+| P10000 | 15 | record | 0.7 | 7326.107 to 7551.654 | 6366.280 | does not close |  |
+| P10000 | 15 | favourable | 0.55 | 6238.062 to 6430.112 | 7322.061 | does not close |  |
+| P10000 | 15 | favourable | 0.7 | 7326.107 to 7551.654 | 6366.280 | does not close |  |
+| P10000 | 60 | record | 0.55 | 6177.222 to 6430.112 | 7215.718 | does not close |  |
+| P10000 | 60 | record | 0.7 | 7254.655 to 7551.654 | 6250.297 | does not close |  |
+| P10000 | 60 | favourable | 0.55 | 6177.222 to 6430.112 | 7215.718 | does not close |  |
+| P10000 | 60 | favourable | 0.7 | 7254.655 to 7551.654 | 6250.297 | does not close |  |
 <!-- energy:question-8:end -->
 
 <!-- energy:question-9:start -->
@@ -695,57 +693,57 @@ The current unheld phases and their signed force provide the requirement that ea
 
 ## Where the prescribed hull is unheld
 
-Generated by `node research/analysis/energy-unheld.mjs`. Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits. Positive is unsupported surplus lift; negative requires unavailable upward authority.
+Generated by `node research/analysis/energy-unheld.mjs`. Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits, with additional local refinement for the printed phase peak. Positive is unsupported surplus lift; negative requires unavailable upward authority.
 
-| Class | km | Basis | Profile | Phase | Signed unheld, t | Progress | Cycle minute | Airspeed, m/s | Vertical speed, m/s | Limits |
-|---|---:|---|---|---|---:|---:|---:|---:|---:|---|
-| P100 | 15 | record | as drawn | SOURCE_APPROACH | 2.874 | 0.686371 | 1.373 | 0.000 | -2.296 | bus power, anchor cable reach |
-| P100 | 15 | record | as drawn | OUTBOUND_TRANSIT | -5.714 | 0.222832 | 7.955 | 25.000 | 9.745 | upward authority unavailable |
-| P100 | 15 | record | as drawn | RETURN_TRANSIT | 34.759 | 0.810716 | 31.969 | 25.000 | -8.821 | bus power |
-| P100 | 15 | favourable | as drawn | SOURCE_APPROACH | 2.874 | 0.686371 | 1.373 | 0.000 | -2.296 | bus power, aerodynamic coefficient, anchor cable reach |
-| P100 | 15 | favourable | as drawn | OUTBOUND_TRANSIT | -5.714 | 0.222832 | 7.955 | 25.000 | 9.745 | upward authority unavailable |
-| P100 | 60 | record | as drawn | no unheld phase | 0 | | | | | |
-| P100 | 60 | favourable | as drawn | no unheld phase | 0 | | | | | |
-| P1000 | 15 | record | as drawn | SOURCE_APPROACH | 819.257 | 0.713996 | 2.142 | 0.000 | -7.594 | bus power, rotor thrust, anchor cable reach |
-| P1000 | 15 | record | as drawn | WATER_FILL | 418.983 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |
-| P1000 | 15 | record | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 23.737 | 0.000 | 0.052 | bus power, rotor thrust |
-| P1000 | 15 | record | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 23.737 | 0.000 | 0.011 | bus power, rotor thrust |
-| P1000 | 15 | record | as drawn | RETURN_TRANSIT | 588.712 | 1.000000 | 35.362 | 9.167 | -0.000 | bus power, rotor thrust |
-| P1000 | 15 | favourable | as drawn | SOURCE_APPROACH | 819.257 | 0.713996 | 2.142 | 0.000 | -7.594 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P1000 | 15 | favourable | as drawn | WATER_FILL | 418.983 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P1000 | 15 | favourable | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 23.737 | 0.000 | 0.052 | bus power, rotor thrust, aerodynamic coefficient |
-| P1000 | 15 | favourable | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 23.737 | 0.000 | 0.011 | bus power, rotor thrust, aerodynamic coefficient |
-| P1000 | 15 | favourable | as drawn | RETURN_TRANSIT | 504.128 | 1.000000 | 35.362 | 9.167 | -0.000 | bus power, rotor thrust, aerodynamic coefficient |
-| P1000 | 60 | record | as drawn | SOURCE_APPROACH | 769.180 | 0.713996 | 2.142 | 0.000 | -7.594 | bus power, rotor thrust, anchor cable reach |
-| P1000 | 60 | record | as drawn | WATER_FILL | 362.490 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |
-| P1000 | 60 | record | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 52.614 | 0.000 | 0.052 | bus power, rotor thrust |
-| P1000 | 60 | record | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 52.614 | 0.000 | 0.014 | bus power, rotor thrust |
-| P1000 | 60 | record | as drawn | RETURN_TRANSIT | 566.252 | 1.000000 | 93.116 | 9.167 | -0.000 | bus power, rotor thrust |
-| P1000 | 60 | favourable | as drawn | SOURCE_APPROACH | 769.180 | 0.713996 | 2.142 | 0.000 | -7.594 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P1000 | 60 | favourable | as drawn | WATER_FILL | 362.490 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P1000 | 60 | favourable | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 52.614 | 0.000 | 0.052 | bus power, rotor thrust, aerodynamic coefficient |
-| P1000 | 60 | favourable | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 52.614 | 0.000 | 0.014 | bus power, rotor thrust, aerodynamic coefficient |
-| P1000 | 60 | favourable | as drawn | RETURN_TRANSIT | 481.668 | 1.000000 | 93.116 | 9.167 | -0.000 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 15 | record | as drawn | SOURCE_APPROACH | 7076.646 | 0.666936 | 3.335 | 0.000 | -6.485 | bus power, rotor thrust, anchor cable reach |
-| P10000 | 15 | record | as drawn | WATER_FILL | 3846.724 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |
-| P10000 | 15 | record | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 35.367 | 0.000 | 0.026 | bus power, rotor thrust |
-| P10000 | 15 | record | as drawn | BUOYANCY_ESCAPE | 6096.904 | 0.000000 | 35.367 | 0.000 | 0.008 | bus power, rotor thrust |
-| P10000 | 15 | record | as drawn | RETURN_TRANSIT | 4994.044 | 0.000000 | 37.367 | 30.694 | 0.000 | rotor thrust |
-| P10000 | 15 | favourable | as drawn | SOURCE_APPROACH | 7076.646 | 0.666936 | 3.335 | 0.000 | -6.485 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P10000 | 15 | favourable | as drawn | WATER_FILL | 3846.724 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P10000 | 15 | favourable | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 35.367 | 0.000 | 0.026 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 15 | favourable | as drawn | BUOYANCY_ESCAPE | 6096.904 | 0.000000 | 35.367 | 0.000 | 0.008 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 15 | favourable | as drawn | RETURN_TRANSIT | 3959.850 | 1.000000 | 45.512 | 10.833 | 0.000 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 60 | record | as drawn | SOURCE_APPROACH | 6963.338 | 0.666936 | 3.335 | 0.000 | -6.485 | bus power, rotor thrust, anchor cable reach |
-| P10000 | 60 | record | as drawn | WATER_FILL | 3742.576 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |
-| P10000 | 60 | record | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 59.801 | 0.000 | 0.026 | bus power, rotor thrust |
-| P10000 | 60 | record | as drawn | BUOYANCY_ESCAPE | 6096.903 | 0.000000 | 59.801 | 0.000 | 0.014 | bus power, rotor thrust |
-| P10000 | 60 | record | as drawn | RETURN_TRANSIT | 4518.750 | 0.000000 | 61.801 | 30.694 | 0.000 | rotor thrust |
-| P10000 | 60 | favourable | as drawn | SOURCE_APPROACH | 6963.338 | 0.666936 | 3.335 | 0.000 | -6.485 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P10000 | 60 | favourable | as drawn | WATER_FILL | 3742.576 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |
-| P10000 | 60 | favourable | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 59.801 | 0.000 | 0.026 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 60 | favourable | as drawn | BUOYANCY_ESCAPE | 6096.903 | 0.000000 | 59.801 | 0.000 | 0.014 | bus power, rotor thrust, aerodynamic coefficient |
-| P10000 | 60 | favourable | as drawn | RETURN_TRANSIT | 3896.501 | 1.000000 | 94.381 | 10.833 | -0.000 | bus power, rotor thrust, aerodynamic coefficient |
+| Class | km | Basis | Profile | Phase | Signed unheld, t | Progress | Cycle minute | Airspeed, m/s | Vertical speed, m/s | Limits | Storage note |
+|---|---:|---|---|---|---:|---:|---:|---:|---:|---|---|
+| P100 | 15 | record | as drawn | SOURCE_APPROACH | 2.334 | 0.604878 | 1.210 | 0.000 | -2.283 | bus power, anchor cable reach |  |
+| P100 | 15 | record | as drawn | OUTBOUND_TRANSIT | -5.714 | 0.222832 | 7.955 | 25.000 | 9.745 | upward authority unavailable |  |
+| P100 | 15 | record | as drawn | RETURN_TRANSIT | 34.759 | 0.810716 | 31.969 | 25.000 | -8.821 | bus power |  |
+| P100 | 15 | favourable | as drawn | SOURCE_APPROACH | 2.334 | 0.604878 | 1.210 | 0.000 | -2.283 | bus power, aerodynamic coefficient, anchor cable reach |  |
+| P100 | 15 | favourable | as drawn | OUTBOUND_TRANSIT | -5.714 | 0.222832 | 7.955 | 25.000 | 9.745 | upward authority unavailable |  |
+| P100 | 60 | record | as drawn | no unheld phase | 0 | | | | | |  |
+| P100 | 60 | favourable | as drawn | no unheld phase | 0 | | | | | |  |
+| P1000 | 15 | record | as drawn | SOURCE_APPROACH | 800.681 | 0.629117 | 1.887 | 0.000 | -7.829 | bus power, rotor thrust, anchor cable reach |  |
+| P1000 | 15 | record | as drawn | WATER_FILL | 418.983 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |  |
+| P1000 | 15 | record | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 23.737 | 0.000 | 0.052 | bus power, rotor thrust |  |
+| P1000 | 15 | record | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 23.737 | 0.000 | 0.011 | bus power, rotor thrust |  |
+| P1000 | 15 | record | as drawn | RETURN_TRANSIT | 588.712 | 1.000000 | 35.362 | 9.167 | -0.000 | bus power, rotor thrust |  |
+| P1000 | 15 | favourable | as drawn | SOURCE_APPROACH | 800.681 | 0.629117 | 1.887 | 0.000 | -7.829 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P1000 | 15 | favourable | as drawn | WATER_FILL | 418.983 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P1000 | 15 | favourable | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 23.737 | 0.000 | 0.052 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P1000 | 15 | favourable | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 23.737 | 0.000 | 0.011 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P1000 | 15 | favourable | as drawn | RETURN_TRANSIT | 504.128 | 1.000000 | 35.362 | 9.167 | -0.000 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P1000 | 60 | record | as drawn | SOURCE_APPROACH | 750.235 | 0.629117 | 1.887 | 0.000 | -7.829 | bus power, rotor thrust, anchor cable reach | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | as drawn | WATER_FILL | 362.490 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 52.614 | 0.000 | 0.052 | bus power, rotor thrust | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 52.614 | 0.000 | 0.014 | bus power, rotor thrust | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | as drawn | RETURN_TRANSIT | 566.252 | 1.000000 | 93.116 | 9.167 | -0.000 | bus power, rotor thrust | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | as drawn | SOURCE_APPROACH | 750.235 | 0.629117 | 1.887 | 0.000 | -7.829 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | as drawn | WATER_FILL | 362.490 | 0.300000 | 4.667 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | as drawn | WATER_RELEASE | 643.713 | 1.000000 | 52.614 | 0.000 | 0.052 | bus power, rotor thrust, aerodynamic coefficient | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | as drawn | BUOYANCY_ESCAPE | 643.717 | 0.000000 | 52.614 | 0.000 | 0.014 | bus power, rotor thrust, aerodynamic coefficient | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | as drawn | RETURN_TRANSIT | 481.668 | 1.000000 | 93.116 | 9.167 | -0.000 | bus power, rotor thrust, aerodynamic coefficient | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | as drawn | SOURCE_APPROACH | 6366.280 | 0.531063 | 2.655 | 0.000 | -5.749 | bus power, rotor thrust, anchor cable reach |  |
+| P10000 | 15 | record | as drawn | WATER_FILL | 3846.724 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |  |
+| P10000 | 15 | record | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 35.367 | 0.000 | 0.026 | bus power, rotor thrust |  |
+| P10000 | 15 | record | as drawn | BUOYANCY_ESCAPE | 6096.904 | 0.000000 | 35.367 | 0.000 | 0.008 | bus power, rotor thrust |  |
+| P10000 | 15 | record | as drawn | RETURN_TRANSIT | 4994.044 | 0.000000 | 37.367 | 30.694 | 0.000 | rotor thrust |  |
+| P10000 | 15 | favourable | as drawn | SOURCE_APPROACH | 6366.280 | 0.531063 | 2.655 | 0.000 | -5.749 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P10000 | 15 | favourable | as drawn | WATER_FILL | 3846.724 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P10000 | 15 | favourable | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 35.367 | 0.000 | 0.026 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P10000 | 15 | favourable | as drawn | BUOYANCY_ESCAPE | 6096.904 | 0.000000 | 35.367 | 0.000 | 0.008 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P10000 | 15 | favourable | as drawn | RETURN_TRANSIT | 3959.850 | 1.000000 | 45.512 | 10.833 | 0.000 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P10000 | 60 | record | as drawn | SOURCE_APPROACH | 6250.297 | 0.531063 | 2.655 | 0.000 | -5.749 | bus power, rotor thrust, anchor cable reach |  |
+| P10000 | 60 | record | as drawn | WATER_FILL | 3742.576 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, anchor cable reach |  |
+| P10000 | 60 | record | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 59.801 | 0.000 | 0.026 | bus power, rotor thrust |  |
+| P10000 | 60 | record | as drawn | BUOYANCY_ESCAPE | 6096.903 | 0.000000 | 59.801 | 0.000 | 0.014 | bus power, rotor thrust |  |
+| P10000 | 60 | record | as drawn | RETURN_TRANSIT | 4518.750 | 0.000000 | 61.801 | 30.694 | 0.000 | rotor thrust |  |
+| P10000 | 60 | favourable | as drawn | SOURCE_APPROACH | 6250.297 | 0.531063 | 2.655 | 0.000 | -5.749 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P10000 | 60 | favourable | as drawn | WATER_FILL | 3742.576 | 0.300000 | 8.333 | 0.000 | 0.000 | bus power, rotor thrust, aerodynamic coefficient, anchor cable reach |  |
+| P10000 | 60 | favourable | as drawn | WATER_RELEASE | 6096.900 | 1.000000 | 59.801 | 0.000 | 0.026 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P10000 | 60 | favourable | as drawn | BUOYANCY_ESCAPE | 6096.903 | 0.000000 | 59.801 | 0.000 | 0.014 | bus power, rotor thrust, aerodynamic coefficient |  |
+| P10000 | 60 | favourable | as drawn | RETURN_TRANSIT | 3896.501 | 1.000000 | 94.381 | 10.833 | -0.000 | bus power, rotor thrust, aerodynamic coefficient |  |
 
 The cheapest feasible profiles found in the stated space, including their minutes and delivery, are in [the profile table](../research/analysis/energy-profiles.md).
 <!-- energy:question-15:end -->
@@ -1004,14 +1002,24 @@ Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples
 
 | Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
 |---|---|---|---|---|---|---|
-| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.8 | 20 | 127.5 | 21.8 | index.html |
-| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 59.2 | 20 | 169.0 | 39.2 | index.html |
-| fullDeliveryBest | P100 / 15.000000 / record | 42.2 | 20 | 129.0 | 22.2 | index.html; concept/index.html |
-| fullDeliveryBest | P100 / 15.000000 / favourable | 40.4 | 20 | 133.1 | 20.4 | index.html; concept/index.html |
-| asDrawn | P100 / 60.000000 / record | 20.2 | 20 | 104.5 | 0.2 | index.html; concept/index.html |
-| ready selector | P1000 / 400.000000 / record | 332.3 | 120 | 232.3 | 212.3 | concept/energy-analysis.html |
+| energy-profiles row 6 asDrawn | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| energy-profiles row 7 asDrawn | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / record | 246.0 MWh | 120 MWh | 64.8 min | 126.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.2 MWh | 120 MWh | 85.4 min | 19.2 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.5 MWh | 120 MWh | 85.3 min | 19.5 MWh | research/analysis/energy-requirements.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / favourable | 175.3 MWh | 120 MWh | 74.8 min | 55.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.0 MWh | 120 MWh | 85.1 min | 20.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.3 MWh | 120 MWh | 85.0 min | 20.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P100 / 60.000000 / record | 23.6 MWh | 20 MWh | 97.5 min | 3.6 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 140.1 MWh | 120 MWh | 84.9 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 143.3 MWh | 120 MWh | 83.8 min | 23.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| ready selector | P1000 / 400.000000 / record | 322.3 MWh | 120 MWh | 233.6 min | 202.3 MWh | concept/energy-analysis.html |
 
-Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+Of 20 captured cycles, 0 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for 926 deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
 
 Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
 
@@ -1238,5 +1246,5 @@ Which sources and reference states support the deferred figures for outside airc
 `python3 tools/float_claims.py --stats` prints the current count; [the generated list](FLOAT-DEFERRED.md) identifies every block and its reason.
 
 <!-- solar:budget-reference:start -->
-Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 516,771 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
+Earlier enlarged-hull figures on this page retain the preceding power-input publication. The existing P-100 0.508 kg/m³ sizing routine now returns 510,406 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
 <!-- solar:budget-reference:end -->

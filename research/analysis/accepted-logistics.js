@@ -1,6 +1,6 @@
 /* Logistics uses the same bounded selector as the served pages, at the exact leg.
  * Released water is a tank quantity, not a ground deposition or suppression result. */
-import {selectServedPlan} from '../../sim/index.js?v=816a54f9';
+import {selectServedPlan} from '../../sim/index.js?v=31a23fa3';
 export function acceptedLogistics(cls, km) {
   const s = selectServedPlan(cls, km, null, 'balanced');
   const p = s.state === 'ready' && s.plan?.feasible ? s.plan : null;

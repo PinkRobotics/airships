@@ -113,7 +113,7 @@
     {
       "file": "index.html",
       "key": "22491643fb810667",
-      "line": 1033,
+      "line": 1034,
       "class": "bound",
       "reason": "The static simulation explanation names its float assumption and binds the drawn-hull verdict to the ledger.",
       "bindings": [
@@ -145,7 +145,7 @@
         "10000"
       ],
       "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-      "line": 967
+      "line": 968
     },
     {
       "file": "index.html",
@@ -170,7 +170,7 @@
         "start": "<!-- served-energy:home:start -->",
         "end": "<!-- served-energy:home:end -->"
       },
-      "line": 786
+      "line": 787
     },
     {
       "file": "index.html",
@@ -178,7 +178,7 @@
       "class": "flight-model",
       "reason": "The caption names a simulation render of the concept vehicle at an intake; the page states the simulated flight's float assumption once, and the caption says no aircraft has flown.",
       "assumption": "22491643fb810667",
-      "line": 1049
+      "line": 1050
     },
     {
       "file": "README.md",
@@ -268,7 +268,7 @@
       "class": "flight-model",
       "assumption": "22491643fb810667",
       "reason": "Alternative text explicitly labels a simulation render; station holding uses this page's bound float assumption, not a demonstrated vehicle.",
-      "line": 1047
+      "line": 1048
     },
     {
       "file": "README.md",
@@ -286,7 +286,7 @@
     },
     {
       "file": "index.html",
-      "key": "127c69ba27d5155c",
+      "key": "405e07fbf51fa867",
       "class": "generated",
       "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
       "generator": "tools/gen_energy_pages.mjs",
@@ -300,21 +300,7 @@
     },
     {
       "file": "index.html",
-      "key": "460f919966656d49",
-      "class": "generated",
-      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
-      "generator": "tools/gen_energy_pages.mjs",
-      "gate": "servedenergycheck",
-      "verifier": "tools/check_served_energy.py",
-      "region": {
-        "start": "<!-- served-energy:home:start -->",
-        "end": "<!-- served-energy:home:end -->"
-      },
-      "line": 785
-    },
-    {
-      "file": "index.html",
-      "key": "8b54835eed9c9c95",
+      "key": "4aefae7ba2de966d",
       "class": "generated",
       "reason": "Reviewed replacement of this exact live text for Order 11f; Exact generated energy region reads the reviewed model and analysis records; its regeneration and exact-input feasible examples are checked by servedenergycheck.",
       "generator": "tools/gen_energy_pages.mjs",
@@ -328,9 +314,9 @@
     },
     {
       "file": "index.html",
-      "key": "1fab75da65a3d69c",
+      "key": "5cfdc6714172ce3a",
       "class": "generated",
-      "reason": "Reviewed signed-screen and mission-limit wording; the existing disposition and any checked binding are retained.",
+      "reason": "The fresh producer adds storage/reserve scope or replays changed simulated assignments and signed phases. Retain the original quantity-specific class; this is no structural float or flight endorsement.",
       "context": [],
       "generator": "tools/gen_fallback.py",
       "gate": "fallbackcheck",
@@ -339,7 +325,21 @@
         "start": "<!--FALLBACK-->",
         "end": "<!--/FALLBACK-->"
       },
-      "line": 1045
+      "line": 1046
+    },
+    {
+      "file": "index.html",
+      "key": "d37f76e28b65e650",
+      "class": "generated",
+      "reason": "The fresh producer adds storage/reserve scope or replays changed simulated assignments and signed phases. Retain the original quantity-specific class; this is no structural float or flight endorsement.",
+      "generator": "tools/gen_energy_pages.mjs",
+      "gate": "servedenergycheck",
+      "verifier": "tools/check_served_energy.py",
+      "region": {
+        "start": "<!-- served-energy:home:start -->",
+        "end": "<!-- served-energy:home:end -->"
+      },
+      "line": 785
     }
   ]
 }

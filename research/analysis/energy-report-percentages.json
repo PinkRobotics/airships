@@ -1,0 +1,89 @@
+{
+  "generator": "research/analysis/energy-report-percentages.mjs",
+  "historical": {
+    "letdown": {
+      "source": "research/reports/03-diligence.md",
+      "published": "2026-08-09",
+      "withoutMWh": 34.2,
+      "withMWh": 1.42,
+      "reportedReductionPct": 96
+    },
+    "rotor": {
+      "source": "research/reports/02-paper.md",
+      "published": "2026-08-09",
+      "withoutMW": 1748,
+      "withMW": 52.3,
+      "reportedReductionPct": 97
+    },
+    "bag": {
+      "source": "research/reports/02-paper.md",
+      "published": "2026-08-09",
+      "reportedPenaltyMWh": 1.526,
+      "withMWh": 1.391,
+      "reportedSavingPct": 34,
+      "diligenceSource": "research/reports/03-diligence.md",
+      "diligencePublished": "2026-08-09",
+      "diligenceReportedIncreasePct": 34,
+      "qualification": "These are retained report readings. No historical model replay was reconstructed, and these printed energy comparators do not substantiate either reported bag percentage."
+    }
+  },
+  "replay": {
+    "input": {
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "mode": "balanced",
+      "options": {
+        "basis": "record"
+      }
+    },
+    "intervention": {
+      "hardware": {
+        "anchorM": 0,
+        "anchorBagT": 0
+      },
+      "definition": "Remove the bag and its cable; retain every other class and configuration input. Still air."
+    },
+    "withBag": {
+      "suppliedMWh": 7.8122225762469535,
+      "feasible": false,
+      "worst": {
+        "unheldT": 34.759341743690314,
+        "phase": "RETURN_TRANSIT",
+        "progress": 0.8107155900756077,
+        "limits": [
+          "bus power"
+        ]
+      }
+    },
+    "withoutBag": {
+      "suppliedMWh": 8.393678988550107,
+      "feasible": false,
+      "worst": {
+        "unheldT": 34.759341743690314,
+        "phase": "RETURN_TRANSIT",
+        "progress": 0.8107155900756077,
+        "limits": [
+          "bus power"
+        ]
+      }
+    },
+    "increasePct": 7.442906376875014,
+    "denominator": "with-bag supplied MWh",
+    "qualification": "Both force verdicts are reported. An unsupported path supplies no achieved cycle or demonstrated energy saving."
+  },
+  "letdown": {
+    "input": {
+      "class": "P10000",
+      "km": 15,
+      "basis": "record",
+      "mode": "balanced",
+      "options": {
+        "basis": "record"
+      }
+    },
+    "suppliedMWh": 102.08585513420041,
+    "feasible": false
+  },
+  "nitrogenRecoveryCeilingKWhPerT": 173.4
+}

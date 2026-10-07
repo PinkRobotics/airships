@@ -160,30 +160,30 @@
   "rope_n_per_kg_per_m": {
    "floor": {
     "value": 2000000.0,
-    "source": "UHMWPE at 2.0 N/tex \u2014 the optimistic end of realised rope tenacity."
+    "source": "Assumed minimum-strength coefficient; optimistic rope realisation."
    },
    "credible": {
     "value": 1500000.0,
-    "source": "Commercial 12-strand UHMWPE data sheets realise 1.4-1.6 N/tex, well under the 3.5-4.0 N/tex of the bare fibre."
+    "source": "Assumed minimum-strength coefficient, not a selected rope product."
    },
    "demonstrated": {
     "value": 1400000.0,
-    "source": "The pessimistic end of the same data sheets.",
+    "source": "Assumed lower coefficient; no anchor rope has been qualified.",
     "evidenceClass": "rope datasheet"
    }
   },
   "rope_safety_factor": {
    "floor": {
     "value": 3.0,
-    "source": "n/a"
+    "source": "Assumed minimum-strength/load ratio"
    },
    "credible": {
     "value": 5.0,
-    "source": "n/a"
+    "source": "Assumed minimum-strength/load ratio"
    },
    "demonstrated": {
     "value": 7.0,
-    "source": "n/a",
+    "source": "Assumed minimum-strength/load ratio",
     "evidenceClass": "unsourced safety factor"
    }
   },
@@ -251,7 +251,7 @@
        "item": "Battery pack",
        "tonnes": 40.0,
        "driver": "20.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -304,8 +304,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 0.64,
-       "driver": "1.2 MN at SF 3",
-       "note": ""
+       "driver": "1.2 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -356,7 +356,7 @@
        "item": "Battery pack",
        "tonnes": 66.67,
        "driver": "20.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -409,8 +409,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 1.43,
-       "driver": "1.2 MN at SF 5",
-       "note": ""
+       "driver": "1.2 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -464,7 +464,7 @@
        "item": "Battery pack",
        "tonnes": 134.23,
        "driver": "20.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -526,8 +526,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 2.15,
-       "driver": "1.2 MN at SF 7",
-       "note": "",
+       "driver": "1.2 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -582,9 +582,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 49.13,
-       "driver": "24.57 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 46.87,
+       "driver": "23.44 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -637,8 +637,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 0.64,
-       "driver": "1.2 MN at SF 3",
-       "note": ""
+       "driver": "1.2 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -654,54 +654,54 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 20.56,
+       "tonnes": 20.33,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 226.1,
-     "overBy": 2.26,
+     "totalT": 223.6,
+     "overBy": 2.24,
      "shellAloneOverBy": 1.12,
-     "everythingButShellT": 114.4,
-     "baseExShellExSundriesT": 93.81,
+     "everythingButShellT": 111.9,
+     "baseExShellExSundriesT": 91.55,
      "closureWallKgPerM3": 0.8698718181818181,
-     "shellBudgetLeftT": -2.9,
+     "shellBudgetLeftT": -0.6,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 306093,
-       "timesBaseline": 1.39,
-       "lenM": 123,
+       "volumeM3": 302312,
+       "timesBaseline": 1.37,
+       "lenM": 122,
        "diaM": 61
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 357508,
-       "timesBaseline": 1.63,
+       "volumeM3": 353095,
+       "timesBaseline": 1.6,
        "lenM": 129,
-       "diaM": 65
+       "diaM": 64
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 516771,
-       "timesBaseline": 2.35,
+       "volumeM3": 510406,
+       "timesBaseline": 2.32,
        "lenM": 146,
        "diaM": 73
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 697253,
-       "timesBaseline": 3.17,
-       "lenM": 162,
-       "diaM": 81
+       "volumeM3": 688683,
+       "timesBaseline": 3.13,
+       "lenM": 161,
+       "diaM": 80
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 1609811,
-       "timesBaseline": 7.32,
-       "lenM": 214,
-       "diaM": 107
+       "volumeM3": 1590194,
+       "timesBaseline": 7.23,
+       "lenM": 213,
+       "diaM": 106
       },
       "0.900": {
        "closes": false,
@@ -712,16 +712,16 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 492055,
-        "timesBaseline": 2.24,
-        "lenM": 144,
+        "volumeM3": 485992,
+        "timesBaseline": 2.21,
+        "lenM": 143,
         "diaM": 72
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1415173,
-        "timesBaseline": 6.43,
-        "lenM": 205,
+        "volumeM3": 1397900,
+        "timesBaseline": 6.35,
+        "lenM": 204,
         "diaM": 102
        },
        "0.750": {
@@ -732,15 +732,15 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 391499,
-        "timesBaseline": 1.78,
+        "volumeM3": 386669,
+        "timesBaseline": 1.76,
         "lenM": 133,
-        "diaM": 67
+        "diaM": 66
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 816286,
-        "timesBaseline": 3.71,
+        "volumeM3": 806266,
+        "timesBaseline": 3.66,
         "lenM": 170,
         "diaM": 85
        },
@@ -752,24 +752,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 306093,
-        "timesBaseline": 1.39,
-        "lenM": 123,
+        "volumeM3": 302312,
+        "timesBaseline": 1.37,
+        "lenM": 122,
         "diaM": 61
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 516771,
-        "timesBaseline": 2.35,
+        "volumeM3": 510406,
+        "timesBaseline": 2.32,
         "lenM": 146,
         "diaM": 73
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 1609811,
-        "timesBaseline": 7.32,
-        "lenM": 214,
-        "diaM": 107
+        "volumeM3": 1590194,
+        "timesBaseline": 7.23,
+        "lenM": 213,
+        "diaM": 106
        }
       }
      }
@@ -796,9 +796,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 81.89,
-       "driver": "24.57 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 78.12,
+       "driver": "23.44 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -851,8 +851,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 1.43,
-       "driver": "1.2 MN at SF 5",
-       "note": ""
+       "driver": "1.2 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -868,53 +868,53 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 63.11,
+       "tonnes": 62.55,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 483.9,
-     "overBy": 4.84,
+     "totalT": 479.5,
+     "overBy": 4.8,
      "shellAloneOverBy": 1.65,
-     "everythingButShellT": 318.9,
-     "baseExShellExSundriesT": 255.75,
+     "everythingButShellT": 314.5,
+     "baseExShellExSundriesT": 251.98,
      "closureWallKgPerM3": 0.8320513043478261,
-     "shellBudgetLeftT": -168.8,
+     "shellBudgetLeftT": -165.0,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 624789,
-       "timesBaseline": 2.84,
-       "lenM": 156,
+       "volumeM3": 617834,
+       "timesBaseline": 2.81,
+       "lenM": 155,
        "diaM": 78
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 742409,
-       "timesBaseline": 3.37,
-       "lenM": 165,
+       "volumeM3": 734168,
+       "timesBaseline": 3.34,
+       "lenM": 164,
        "diaM": 82
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 1131746,
-       "timesBaseline": 5.14,
-       "lenM": 190,
+       "volumeM3": 1119292,
+       "timesBaseline": 5.09,
+       "lenM": 189,
        "diaM": 95
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 1622781,
-       "timesBaseline": 7.38,
-       "lenM": 214,
+       "volumeM3": 1605092,
+       "timesBaseline": 7.3,
+       "lenM": 213,
        "diaM": 107
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 5256107,
-       "timesBaseline": 23.89,
-       "lenM": 317,
+       "volumeM3": 5201672,
+       "timesBaseline": 23.64,
+       "lenM": 316,
        "diaM": 158
       },
       "0.900": {
@@ -926,16 +926,16 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 1036891,
-        "timesBaseline": 4.71,
+        "volumeM3": 1025457,
+        "timesBaseline": 4.66,
         "lenM": 184,
         "diaM": 92
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 3825217,
-        "timesBaseline": 17.39,
-        "lenM": 285,
+        "volumeM3": 3784893,
+        "timesBaseline": 17.2,
+        "lenM": 284,
         "diaM": 142
        },
        "0.750": {
@@ -946,15 +946,15 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 811158,
-        "timesBaseline": 3.69,
-        "lenM": 170,
+        "volumeM3": 802168,
+        "timesBaseline": 3.65,
+        "lenM": 169,
         "diaM": 85
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1917127,
-        "timesBaseline": 8.71,
+        "volumeM3": 1896337,
+        "timesBaseline": 8.62,
         "lenM": 226,
         "diaM": 113
        },
@@ -966,23 +966,23 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 624789,
-        "timesBaseline": 2.84,
-        "lenM": 156,
+        "volumeM3": 617834,
+        "timesBaseline": 2.81,
+        "lenM": 155,
         "diaM": 78
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 1131746,
-        "timesBaseline": 5.14,
-        "lenM": 190,
+        "volumeM3": 1119292,
+        "timesBaseline": 5.09,
+        "lenM": 189,
         "diaM": 95
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 5256107,
-        "timesBaseline": 23.89,
-        "lenM": 317,
+        "volumeM3": 5201672,
+        "timesBaseline": 23.64,
+        "lenM": 316,
         "diaM": 158
        }
       }
@@ -1013,9 +1013,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 164.88,
-       "driver": "24.57 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "tonnes": 157.29,
+       "driver": "23.44 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -1077,8 +1077,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 2.15,
-       "driver": "1.2 MN at SF 7",
-       "note": "",
+       "driver": "1.2 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -1097,55 +1097,55 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 190.84,
+       "tonnes": 189.33,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
-     "totalT": 1145.1,
-     "overBy": 11.45,
+     "totalT": 1136.0,
+     "overBy": 11.36,
      "shellAloneOverBy": 2.55,
-     "everythingButShellT": 889.9,
-     "baseExShellExSundriesT": 699.02,
+     "everythingButShellT": 880.8,
+     "baseExShellExSundriesT": 691.43,
      "closureWallKgPerM3": 0.7973825,
-     "shellBudgetLeftT": -615.7,
+     "shellBudgetLeftT": -608.1,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 1905810,
-       "timesBaseline": 8.66,
-       "lenM": 226,
+       "volumeM3": 1887987,
+       "timesBaseline": 8.58,
+       "lenM": 225,
        "diaM": 113
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 2382193,
-       "timesBaseline": 10.83,
+       "volumeM3": 2360355,
+       "timesBaseline": 10.73,
        "lenM": 243,
-       "diaM": 122
+       "diaM": 121
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 4267493,
-       "timesBaseline": 19.4,
-       "lenM": 296,
-       "diaM": 148
+       "volumeM3": 4230861,
+       "timesBaseline": 19.23,
+       "lenM": 295,
+       "diaM": 147
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 7455940,
-       "timesBaseline": 33.89,
-       "lenM": 356,
+       "volumeM3": 7397171,
+       "timesBaseline": 33.62,
+       "lenM": 355,
        "diaM": 178
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 114133989,
-       "timesBaseline": 518.79,
-       "lenM": 884,
-       "diaM": 442
+       "volumeM3": 113753034,
+       "timesBaseline": 517.06,
+       "lenM": 883,
+       "diaM": 441
       },
       "0.900": {
        "closes": false,
@@ -1156,16 +1156,16 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 3620025,
-        "timesBaseline": 16.45,
-        "lenM": 280,
-        "diaM": 140
+        "volumeM3": 3588299,
+        "timesBaseline": 16.31,
+        "lenM": 279,
+        "diaM": 139
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 34368157,
-        "timesBaseline": 156.22,
-        "lenM": 592,
+        "volumeM3": 34183404,
+        "timesBaseline": 155.38,
+        "lenM": 591,
         "diaM": 296
        },
        "0.750": {
@@ -1176,16 +1176,16 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 2635715,
-        "timesBaseline": 11.98,
-        "lenM": 252,
-        "diaM": 126
+        "volumeM3": 2611791,
+        "timesBaseline": 11.87,
+        "lenM": 251,
+        "diaM": 125
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 9428866,
-        "timesBaseline": 42.86,
-        "lenM": 385,
+        "volumeM3": 9357720,
+        "timesBaseline": 42.54,
+        "lenM": 384,
         "diaM": 192
        },
        "0.750": {
@@ -1196,24 +1196,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 1905810,
-        "timesBaseline": 8.66,
-        "lenM": 226,
+        "volumeM3": 1887987,
+        "timesBaseline": 8.58,
+        "lenM": 225,
         "diaM": 113
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 4267493,
-        "timesBaseline": 19.4,
-        "lenM": 296,
-        "diaM": 148
+        "volumeM3": 4230861,
+        "timesBaseline": 19.23,
+        "lenM": 295,
+        "diaM": 147
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 114133989,
-        "timesBaseline": 518.79,
-        "lenM": 884,
-        "diaM": 442
+        "volumeM3": 113753034,
+        "timesBaseline": 517.06,
+        "lenM": 883,
+        "diaM": 441
        }
       }
      }
@@ -1245,98 +1245,98 @@
     "residualForRotorsT": 12.4,
     "rotorCapT": 140.5,
     "marginX": 11.3,
-    "cycleMWhAsBuilt": 8.189,
-    "cycleMWhWithoutCryo": 7.531,
-    "cycleSavingPct": 8.0
+    "cycleMWhAsBuilt": 7.812,
+    "cycleMWhWithoutCryo": 7.154,
+    "cycleSavingPct": 8.4
    },
    "batterySensitivity": {
     "floor": {
      "2 cycles": {
-      "batteryMWh": 16.38,
-      "batteryT": 32.8,
-      "totalT": 85.2,
-      "leftForShellT": 13.5,
-      "requiredShellKgPerM3": 0.0612
+      "batteryMWh": 15.62,
+      "batteryT": 31.2,
+      "totalT": 83.5,
+      "leftForShellT": 15.0,
+      "requiredShellKgPerM3": 0.0681
      },
      "4 cycles": {
-      "batteryMWh": 32.76,
-      "batteryT": 65.5,
-      "totalT": 121.2,
-      "leftForShellT": -19.3,
+      "batteryMWh": 31.25,
+      "batteryT": 62.5,
+      "totalT": 117.9,
+      "leftForShellT": -16.3,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.51,
-      "batteryT": 131.0,
-      "totalT": 193.3,
-      "leftForShellT": -84.8,
+      "batteryMWh": 62.5,
+      "batteryT": 125.0,
+      "totalT": 186.6,
+      "leftForShellT": -78.8,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.02,
-      "batteryT": 262.0,
-      "totalT": 337.4,
-      "leftForShellT": -215.8,
+      "batteryMWh": 124.99,
+      "batteryT": 250.0,
+      "totalT": 324.1,
+      "leftForShellT": -203.8,
       "requiredShellKgPerM3": 0.0
      }
     },
     "credible": {
      "2 cycles": {
-      "batteryMWh": 16.38,
-      "batteryT": 54.6,
-      "totalT": 262.7,
-      "leftForShellT": -141.5,
+      "batteryMWh": 15.62,
+      "batteryT": 52.1,
+      "totalT": 259.8,
+      "leftForShellT": -139.0,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 32.76,
-      "batteryT": 109.2,
-      "totalT": 325.5,
-      "leftForShellT": -196.1,
+      "batteryMWh": 31.25,
+      "batteryT": 104.2,
+      "totalT": 319.7,
+      "leftForShellT": -191.1,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.51,
-      "batteryT": 218.4,
-      "totalT": 451.1,
-      "leftForShellT": -305.3,
+      "batteryMWh": 62.5,
+      "batteryT": 208.3,
+      "totalT": 439.5,
+      "leftForShellT": -295.2,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.02,
-      "batteryT": 436.7,
-      "totalT": 702.2,
-      "leftForShellT": -523.7,
+      "batteryMWh": 124.99,
+      "batteryT": 416.6,
+      "totalT": 679.1,
+      "leftForShellT": -503.5,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
-      "batteryMWh": 16.38,
-      "batteryT": 109.9,
-      "totalT": 772.9,
-      "leftForShellT": -560.7,
+      "batteryMWh": 15.62,
+      "batteryT": 104.9,
+      "totalT": 766.8,
+      "leftForShellT": -555.7,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 32.76,
-      "batteryT": 219.8,
-      "totalT": 904.8,
-      "leftForShellT": -670.6,
+      "batteryMWh": 31.25,
+      "batteryT": 209.7,
+      "totalT": 892.6,
+      "leftForShellT": -660.5,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 65.51,
-      "batteryT": 439.7,
-      "totalT": 1168.6,
-      "leftForShellT": -890.5,
+      "batteryMWh": 62.5,
+      "batteryT": 419.4,
+      "totalT": 1144.3,
+      "leftForShellT": -870.2,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 131.02,
-      "batteryT": 879.4,
-      "totalT": 1696.2,
-      "leftForShellT": -1330.2,
+      "batteryMWh": 124.99,
+      "batteryT": 838.9,
+      "totalT": 1647.6,
+      "leftForShellT": -1289.7,
       "requiredShellKgPerM3": 0.0
      }
     }
@@ -1375,7 +1375,7 @@
        "item": "Battery pack",
        "tonnes": 240.0,
        "driver": "120.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -1428,8 +1428,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 11.04,
-       "driver": "12.3 MN at SF 3",
-       "note": ""
+       "driver": "12.3 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -1480,7 +1480,7 @@
        "item": "Battery pack",
        "tonnes": 400.0,
        "driver": "120.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -1533,8 +1533,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 24.52,
-       "driver": "12.3 MN at SF 5",
-       "note": ""
+       "driver": "12.3 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -1588,7 +1588,7 @@
        "item": "Battery pack",
        "tonnes": 805.37,
        "driver": "120.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -1650,8 +1650,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 36.79,
-       "driver": "12.3 MN at SF 7",
-       "note": "",
+       "driver": "12.3 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -1706,9 +1706,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 373.51,
-       "driver": "186.75 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 370.08,
+       "driver": "185.04 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -1761,8 +1761,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 11.04,
-       "driver": "12.3 MN at SF 3",
-       "note": ""
+       "driver": "12.3 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -1778,53 +1778,53 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 177.32,
+       "tonnes": 176.98,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 1950.5,
+     "totalT": 1946.7,
      "overBy": 1.95,
      "shellAloneOverBy": 1.12,
-     "everythingButShellT": 832.9,
-     "baseExShellExSundriesT": 655.59,
+     "everythingButShellT": 829.1,
+     "baseExShellExSundriesT": 652.16,
      "closureWallKgPerM3": 0.8698718181818181,
-     "shellBudgetLeftT": 253.5,
-     "requiredShellKgPerM3": 0.1152,
+     "shellBudgetLeftT": 256.9,
+     "requiredShellKgPerM3": 0.1168,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 2585982,
-       "timesBaseline": 1.18,
+       "volumeM3": 2580271,
+       "timesBaseline": 1.17,
        "lenM": 251,
-       "diaM": 126
+       "diaM": 125
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 3018043,
+       "volumeM3": 3011381,
        "timesBaseline": 1.37,
        "lenM": 264,
        "diaM": 132
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 4353131,
-       "timesBaseline": 1.98,
+       "volumeM3": 4343535,
+       "timesBaseline": 1.97,
        "lenM": 299,
        "diaM": 149
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 5860674,
+       "volumeM3": 5847772,
        "timesBaseline": 2.66,
        "lenM": 330,
        "diaM": 165
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 13411495,
-       "timesBaseline": 6.1,
-       "lenM": 435,
+       "volumeM3": 13382133,
+       "timesBaseline": 6.08,
+       "lenM": 434,
        "diaM": 217
       },
       "0.900": {
@@ -1836,16 +1836,16 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 4146243,
+        "volumeM3": 4137101,
         "timesBaseline": 1.88,
         "lenM": 294,
         "diaM": 147
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 11809956,
-        "timesBaseline": 5.37,
-        "lenM": 417,
+        "volumeM3": 11784074,
+        "timesBaseline": 5.36,
+        "lenM": 416,
         "diaM": 208
        },
        "0.750": {
@@ -1856,16 +1856,16 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 3303397,
+        "volumeM3": 3296107,
         "timesBaseline": 1.5,
-        "lenM": 273,
+        "lenM": 272,
         "diaM": 136
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 6852087,
+        "volumeM3": 6837015,
         "timesBaseline": 3.11,
-        "lenM": 348,
+        "lenM": 347,
         "diaM": 174
        },
        "0.750": {
@@ -1876,23 +1876,23 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 2585982,
-        "timesBaseline": 1.18,
+        "volumeM3": 2580271,
+        "timesBaseline": 1.17,
         "lenM": 251,
-        "diaM": 126
+        "diaM": 125
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 4353131,
-        "timesBaseline": 1.98,
+        "volumeM3": 4343535,
+        "timesBaseline": 1.97,
         "lenM": 299,
         "diaM": 149
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 13411495,
-        "timesBaseline": 6.1,
-        "lenM": 435,
+        "volumeM3": 13382133,
+        "timesBaseline": 6.08,
+        "lenM": 434,
         "diaM": 217
        }
       }
@@ -1920,9 +1920,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 622.51,
-       "driver": "186.75 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 616.8,
+       "driver": "185.04 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -1975,8 +1975,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 24.52,
-       "driver": "12.3 MN at SF 5",
-       "note": ""
+       "driver": "12.3 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -1992,54 +1992,54 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 490.27,
+       "tonnes": 489.42,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 3758.8,
-     "overBy": 3.76,
+     "totalT": 3752.2,
+     "overBy": 3.75,
      "shellAloneOverBy": 1.65,
-     "everythingButShellT": 2108.8,
-     "baseExShellExSundriesT": 1618.48,
+     "everythingButShellT": 2102.2,
+     "baseExShellExSundriesT": 1612.77,
      "closureWallKgPerM3": 0.8320513043478261,
-     "shellBudgetLeftT": -748.9,
+     "shellBudgetLeftT": -743.2,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 4488555,
+       "volumeM3": 4478056,
        "timesBaseline": 2.04,
        "lenM": 302,
        "diaM": 151
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 5330399,
+       "volumeM3": 5317963,
        "timesBaseline": 2.42,
-       "lenM": 320,
+       "lenM": 319,
        "diaM": 160
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 8111626,
-       "timesBaseline": 3.69,
-       "lenM": 368,
+       "volumeM3": 8092853,
+       "timesBaseline": 3.68,
+       "lenM": 367,
        "diaM": 184
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 11609001,
-       "timesBaseline": 5.28,
+       "volumeM3": 11582369,
+       "timesBaseline": 5.26,
        "lenM": 414,
        "diaM": 207
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 37229536,
-       "timesBaseline": 16.92,
+       "volumeM3": 37148063,
+       "timesBaseline": 16.89,
        "lenM": 611,
-       "diaM": 306
+       "diaM": 305
       },
       "0.900": {
        "closes": false,
@@ -2050,15 +2050,15 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 7434741,
-        "timesBaseline": 3.38,
+        "volumeM3": 7417503,
+        "timesBaseline": 3.37,
         "lenM": 357,
-        "diaM": 179
+        "diaM": 178
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 27185907,
-        "timesBaseline": 12.36,
+        "volumeM3": 27125439,
+        "timesBaseline": 12.33,
         "lenM": 550,
         "diaM": 275
        },
@@ -2070,15 +2070,15 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 5822086,
-        "timesBaseline": 2.65,
+        "volumeM3": 5808525,
+        "timesBaseline": 2.64,
         "lenM": 329,
-        "diaM": 165
+        "diaM": 164
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 13700583,
-        "timesBaseline": 6.23,
+        "volumeM3": 13669303,
+        "timesBaseline": 6.21,
         "lenM": 438,
         "diaM": 219
        },
@@ -2090,24 +2090,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 4488555,
+        "volumeM3": 4478056,
         "timesBaseline": 2.04,
         "lenM": 302,
         "diaM": 151
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 8111626,
-        "timesBaseline": 3.69,
-        "lenM": 368,
+        "volumeM3": 8092853,
+        "timesBaseline": 3.68,
+        "lenM": 367,
         "diaM": 184
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 37229536,
-        "timesBaseline": 16.92,
+        "volumeM3": 37148063,
+        "timesBaseline": 16.89,
         "lenM": 611,
-        "diaM": 306
+        "diaM": 305
        }
       }
      }
@@ -2137,9 +2137,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 1253.38,
-       "driver": "186.75 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "tonnes": 1241.88,
+       "driver": "185.04 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -2201,8 +2201,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 36.79,
-       "driver": "12.3 MN at SF 7",
-       "note": "",
+       "driver": "12.3 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -2221,54 +2221,54 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 1321.33,
+       "tonnes": 1319.03,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
-     "totalT": 7928.0,
-     "overBy": 7.93,
+     "totalT": 7914.2,
+     "overBy": 7.91,
      "shellAloneOverBy": 2.55,
-     "everythingButShellT": 5376.0,
-     "baseExShellExSundriesT": 4054.64,
+     "everythingButShellT": 5362.2,
+     "baseExShellExSundriesT": 4043.14,
      "closureWallKgPerM3": 0.7973825,
-     "shellBudgetLeftT": -3221.3,
+     "shellBudgetLeftT": -3209.8,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 10314178,
-       "timesBaseline": 4.69,
+       "volumeM3": 10289797,
+       "timesBaseline": 4.68,
        "lenM": 398,
        "diaM": 199
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 12601490,
-       "timesBaseline": 5.73,
+       "volumeM3": 12571979,
+       "timesBaseline": 5.71,
        "lenM": 426,
        "diaM": 213
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 21011979,
-       "timesBaseline": 9.55,
+       "volumeM3": 20964206,
+       "timesBaseline": 9.53,
        "lenM": 505,
        "diaM": 252
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 33675734,
-       "timesBaseline": 15.31,
+       "volumeM3": 33601922,
+       "timesBaseline": 15.27,
        "lenM": 591,
        "diaM": 295
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 276176004,
-       "timesBaseline": 125.53,
-       "lenM": 1192,
+       "volumeM3": 275746352,
+       "timesBaseline": 125.34,
+       "lenM": 1191,
        "diaM": 596
       },
       "0.900": {
@@ -2280,16 +2280,16 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 18222263,
-        "timesBaseline": 8.28,
-        "lenM": 482,
+        "volumeM3": 18180451,
+        "timesBaseline": 8.26,
+        "lenM": 481,
         "diaM": 241
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 112635037,
-        "timesBaseline": 51.2,
-        "lenM": 884,
+        "volumeM3": 112423098,
+        "timesBaseline": 51.1,
+        "lenM": 883,
         "diaM": 442
        },
        "0.750": {
@@ -2300,15 +2300,15 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 13787892,
-        "timesBaseline": 6.27,
-        "lenM": 439,
+        "volumeM3": 13755749,
+        "timesBaseline": 6.25,
+        "lenM": 438,
         "diaM": 219
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 40851454,
-        "timesBaseline": 18.57,
+        "volumeM3": 40763526,
+        "timesBaseline": 18.53,
         "lenM": 630,
         "diaM": 315
        },
@@ -2320,23 +2320,23 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 10314178,
-        "timesBaseline": 4.69,
+        "volumeM3": 10289797,
+        "timesBaseline": 4.68,
         "lenM": 398,
         "diaM": 199
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 21011979,
-        "timesBaseline": 9.55,
+        "volumeM3": 20964206,
+        "timesBaseline": 9.53,
         "lenM": 505,
         "diaM": 252
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 276176004,
-        "timesBaseline": 125.53,
-        "lenM": 1192,
+        "volumeM3": 275746352,
+        "timesBaseline": 125.34,
+        "lenM": 1191,
         "diaM": 596
        }
       }
@@ -2369,98 +2369,98 @@
     "residualForRotorsT": 124.4,
     "rotorCapT": 683.3,
     "marginX": 5.5,
-    "cycleMWhAsBuilt": 62.251,
-    "cycleMWhWithoutCryo": 59.555,
-    "cycleSavingPct": 4.3
+    "cycleMWhAsBuilt": 61.68,
+    "cycleMWhWithoutCryo": 58.984,
+    "cycleSavingPct": 4.4
    },
    "batterySensitivity": {
     "floor": {
      "2 cycles": {
-      "batteryMWh": 124.5,
-      "batteryT": 249.0,
-      "totalT": 584.2,
-      "leftForShellT": 378.0,
-      "requiredShellKgPerM3": 0.1718
+      "batteryMWh": 123.36,
+      "batteryT": 246.7,
+      "totalT": 581.7,
+      "leftForShellT": 380.3,
+      "requiredShellKgPerM3": 0.1729
      },
      "4 cycles": {
-      "batteryMWh": 249.0,
-      "batteryT": 498.0,
-      "totalT": 858.1,
-      "leftForShellT": 129.0,
-      "requiredShellKgPerM3": 0.0586
+      "batteryMWh": 246.72,
+      "batteryT": 493.4,
+      "totalT": 853.1,
+      "leftForShellT": 133.6,
+      "requiredShellKgPerM3": 0.0607
      },
      "8 cycles": {
-      "batteryMWh": 498.01,
-      "batteryT": 996.0,
-      "totalT": 1405.9,
-      "leftForShellT": -369.0,
+      "batteryMWh": 493.44,
+      "batteryT": 986.9,
+      "totalT": 1395.9,
+      "leftForShellT": -359.9,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 996.02,
-      "batteryT": 1992.0,
-      "totalT": 2501.5,
-      "leftForShellT": -1365.0,
+      "batteryMWh": 986.88,
+      "batteryT": 1973.8,
+      "totalT": 2481.4,
+      "leftForShellT": -1346.7,
       "requiredShellKgPerM3": 0.0
      }
     },
     "credible": {
      "2 cycles": {
-      "batteryMWh": 124.5,
-      "batteryT": 415.0,
-      "totalT": 1622.6,
-      "leftForShellT": -541.4,
+      "batteryMWh": 123.36,
+      "batteryT": 411.2,
+      "totalT": 1618.2,
+      "leftForShellT": -537.6,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 249.0,
-      "batteryT": 830.0,
-      "totalT": 2099.9,
-      "leftForShellT": -956.4,
+      "batteryMWh": 246.72,
+      "batteryT": 822.4,
+      "totalT": 2091.1,
+      "leftForShellT": -948.8,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 498.01,
-      "batteryT": 1660.0,
-      "totalT": 3054.4,
-      "leftForShellT": -1786.4,
+      "batteryMWh": 493.44,
+      "batteryT": 1644.8,
+      "totalT": 3036.9,
+      "leftForShellT": -1771.2,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 996.02,
-      "batteryT": 3320.1,
-      "totalT": 4963.4,
-      "leftForShellT": -3446.5,
+      "batteryMWh": 986.88,
+      "batteryT": 3289.6,
+      "totalT": 4928.4,
+      "leftForShellT": -3416.0,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
-      "batteryMWh": 124.5,
-      "batteryT": 835.6,
-      "totalT": 4364.2,
-      "leftForShellT": -2803.5,
+      "batteryMWh": 123.36,
+      "batteryT": 827.9,
+      "totalT": 4355.0,
+      "leftForShellT": -2795.8,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 249.0,
-      "batteryT": 1671.2,
-      "totalT": 5366.9,
-      "leftForShellT": -3639.1,
+      "batteryMWh": 246.72,
+      "batteryT": 1655.8,
+      "totalT": 5348.5,
+      "leftForShellT": -3623.8,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 498.01,
-      "batteryT": 3342.3,
-      "totalT": 7372.3,
-      "leftForShellT": -5310.3,
+      "batteryMWh": 493.44,
+      "batteryT": 3311.7,
+      "totalT": 7335.5,
+      "leftForShellT": -5279.6,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 996.02,
-      "batteryT": 6684.7,
-      "totalT": 11383.1,
-      "leftForShellT": -8652.6,
+      "batteryMWh": 986.88,
+      "batteryT": 6623.4,
+      "totalT": 11309.5,
+      "leftForShellT": -8591.3,
       "requiredShellKgPerM3": 0.0
      }
     }
@@ -2499,7 +2499,7 @@
        "item": "Battery pack",
        "tonnes": 4000.0,
        "driver": "2,000.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -2552,8 +2552,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 155.1,
-       "driver": "121.6 MN at SF 3",
-       "note": ""
+       "driver": "121.6 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -2604,7 +2604,7 @@
        "item": "Battery pack",
        "tonnes": 6666.67,
        "driver": "2,000.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -2657,8 +2657,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 344.66,
-       "driver": "121.6 MN at SF 5",
-       "note": ""
+       "driver": "121.6 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -2712,7 +2712,7 @@
        "item": "Battery pack",
        "tonnes": 13422.82,
        "driver": "2,000.00 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -2774,8 +2774,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 516.99,
-       "driver": "121.6 MN at SF 7",
-       "note": "",
+       "driver": "121.6 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -2830,9 +2830,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 4165.04,
-       "driver": "2,082.52 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 4074.56,
+       "driver": "2,037.28 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -2885,8 +2885,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 155.1,
-       "driver": "121.6 MN at SF 3",
-       "note": ""
+       "driver": "121.6 MN quasi-static pickup load at SF 3",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -2902,54 +2902,54 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 1791.43,
+       "tonnes": 1782.38,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 19705.8,
-     "overBy": 1.97,
+     "totalT": 19606.2,
+     "overBy": 1.96,
      "shellAloneOverBy": 1.12,
-     "everythingButShellT": 8529.8,
-     "baseExShellExSundriesT": 6738.33,
+     "everythingButShellT": 8430.2,
+     "baseExShellExSundriesT": 6647.85,
      "closureWallKgPerM3": 0.8698718181818181,
-     "shellBudgetLeftT": 2352.6,
-     "requiredShellKgPerM3": 0.1069,
+     "shellBudgetLeftT": 2443.1,
+     "requiredShellKgPerM3": 0.111,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 26151807,
-       "timesBaseline": 1.19,
-       "lenM": 542,
+       "volumeM3": 26001573,
+       "timesBaseline": 1.18,
+       "lenM": 541,
        "diaM": 271
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 30507420,
-       "timesBaseline": 1.39,
-       "lenM": 571,
+       "volumeM3": 30332221,
+       "timesBaseline": 1.38,
+       "lenM": 570,
        "diaM": 285
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 43946913,
-       "timesBaseline": 2.0,
-       "lenM": 645,
+       "volumeM3": 43694764,
+       "timesBaseline": 1.99,
+       "lenM": 644,
        "diaM": 322
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 59090257,
-       "timesBaseline": 2.69,
-       "lenM": 712,
-       "diaM": 356
+       "volumeM3": 58751533,
+       "timesBaseline": 2.67,
+       "lenM": 710,
+       "diaM": 355
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 134516924,
-       "timesBaseline": 6.11,
-       "lenM": 936,
-       "diaM": 468
+       "volumeM3": 133748713,
+       "timesBaseline": 6.08,
+       "lenM": 934,
+       "diaM": 467
       },
       "0.900": {
        "closes": false,
@@ -2960,17 +2960,17 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 41866130,
-        "timesBaseline": 1.9,
-        "lenM": 634,
+        "volumeM3": 41625887,
+        "timesBaseline": 1.89,
+        "lenM": 633,
         "diaM": 317
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 118571567,
-        "timesBaseline": 5.39,
-        "lenM": 898,
-        "diaM": 449
+        "volumeM3": 117893934,
+        "timesBaseline": 5.36,
+        "lenM": 896,
+        "diaM": 448
        },
        "0.750": {
         "closes": false,
@@ -2980,17 +2980,17 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 33382309,
-        "timesBaseline": 1.52,
-        "lenM": 588,
+        "volumeM3": 33190639,
+        "timesBaseline": 1.51,
+        "lenM": 587,
         "diaM": 294
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 69032105,
-        "timesBaseline": 3.14,
-        "lenM": 750,
-        "diaM": 375
+        "volumeM3": 68636613,
+        "timesBaseline": 3.12,
+        "lenM": 748,
+        "diaM": 374
        },
        "0.750": {
         "closes": false,
@@ -3000,24 +3000,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 26151807,
-        "timesBaseline": 1.19,
-        "lenM": 542,
+        "volumeM3": 26001573,
+        "timesBaseline": 1.18,
+        "lenM": 541,
         "diaM": 271
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 43946913,
-        "timesBaseline": 2.0,
-        "lenM": 645,
+        "volumeM3": 43694764,
+        "timesBaseline": 1.99,
+        "lenM": 644,
         "diaM": 322
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 134516924,
-        "timesBaseline": 6.11,
-        "lenM": 936,
-        "diaM": 468
+        "volumeM3": 133748713,
+        "timesBaseline": 6.08,
+        "lenM": 934,
+        "diaM": 467
        }
       }
      }
@@ -3044,9 +3044,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 6941.74,
-       "driver": "2,082.52 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy."
+       "tonnes": 6790.93,
+       "driver": "2,037.28 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance."
       },
       {
        "item": "Propulsion motors",
@@ -3099,8 +3099,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 344.66,
-       "driver": "121.6 MN at SF 5",
-       "note": ""
+       "driver": "121.6 MN quasi-static pickup load at SF 5",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified."
       },
       {
        "item": "Anchor bag",
@@ -3116,54 +3116,54 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 4440.76,
+       "tonnes": 4418.14,
        "driver": "avionics, control, mooring, fasteners",
        "note": ""
       }
      ],
-     "totalT": 34045.8,
-     "overBy": 3.4,
+     "totalT": 33872.4,
+     "overBy": 3.39,
      "shellAloneOverBy": 1.65,
-     "everythingButShellT": 17545.8,
-     "baseExShellExSundriesT": 13105.07,
+     "everythingButShellT": 17372.4,
+     "baseExShellExSundriesT": 12954.26,
      "closureWallKgPerM3": 0.8320513043478261,
-     "shellBudgetLeftT": -4409.4,
+     "shellBudgetLeftT": -4258.6,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 39125169,
-       "timesBaseline": 1.78,
-       "lenM": 620,
-       "diaM": 310
+       "volumeM3": 38848625,
+       "timesBaseline": 1.77,
+       "lenM": 619,
+       "diaM": 309
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 46439579,
-       "timesBaseline": 2.11,
-       "lenM": 657,
+       "volumeM3": 46112157,
+       "timesBaseline": 2.1,
+       "lenM": 655,
        "diaM": 328
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 70564170,
-       "timesBaseline": 3.21,
-       "lenM": 755,
-       "diaM": 378
+       "volumeM3": 70070346,
+       "timesBaseline": 3.19,
+       "lenM": 753,
+       "diaM": 377
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 100823617,
-       "timesBaseline": 4.58,
-       "lenM": 850,
-       "diaM": 425
+       "volumeM3": 100123752,
+       "timesBaseline": 4.55,
+       "lenM": 848,
+       "diaM": 424
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 320593888,
-       "timesBaseline": 14.57,
-       "lenM": 1251,
-       "diaM": 625
+       "volumeM3": 318463376,
+       "timesBaseline": 14.48,
+       "lenM": 1248,
+       "diaM": 624
       },
       "0.900": {
        "closes": false,
@@ -3174,17 +3174,17 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 64698171,
-        "timesBaseline": 2.94,
-        "lenM": 734,
-        "diaM": 367
+        "volumeM3": 64244622,
+        "timesBaseline": 2.92,
+        "lenM": 732,
+        "diaM": 366
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 234782900,
-        "timesBaseline": 10.67,
-        "lenM": 1127,
-        "diaM": 564
+        "volumeM3": 233199087,
+        "timesBaseline": 10.6,
+        "lenM": 1125,
+        "diaM": 562
        },
        "0.750": {
         "closes": false,
@@ -3194,17 +3194,17 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 50708886,
-        "timesBaseline": 2.3,
-        "lenM": 676,
-        "diaM": 338
+        "volumeM3": 50351865,
+        "timesBaseline": 2.29,
+        "lenM": 675,
+        "diaM": 337
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 118883731,
-        "timesBaseline": 5.4,
-        "lenM": 898,
-        "diaM": 449
+        "volumeM3": 118062158,
+        "timesBaseline": 5.37,
+        "lenM": 896,
+        "diaM": 448
        },
        "0.750": {
         "closes": false,
@@ -3214,24 +3214,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 39125169,
-        "timesBaseline": 1.78,
-        "lenM": 620,
-        "diaM": 310
+        "volumeM3": 38848625,
+        "timesBaseline": 1.77,
+        "lenM": 619,
+        "diaM": 309
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 70564170,
-        "timesBaseline": 3.21,
-        "lenM": 755,
-        "diaM": 378
+        "volumeM3": 70070346,
+        "timesBaseline": 3.19,
+        "lenM": 753,
+        "diaM": 377
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 320593888,
-        "timesBaseline": 14.57,
-        "lenM": 1251,
-        "diaM": 625
+        "volumeM3": 318463376,
+        "timesBaseline": 14.48,
+        "lenM": 1248,
+        "diaM": 624
        }
       }
      }
@@ -3261,9 +3261,9 @@
       },
       {
        "item": "Battery pack",
-       "tonnes": 13976.66,
-       "driver": "2,082.52 MWh",
-       "note": "Sized for endurance between recharges, not for a cycle. The ship as specified stores eighteen cycles of energy.",
+       "tonnes": 13673.01,
+       "driver": "2,037.28 MWh",
+       "note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
        "evidenceClass": "literature pack"
       },
       {
@@ -3325,8 +3325,8 @@
       {
        "item": "Anchor cable",
        "tonnes": 516.99,
-       "driver": "121.6 MN at SF 7",
-       "note": "",
+       "driver": "121.6 MN quasi-static pickup load at SF 7",
+       "note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
        "evidenceClass": "rope datasheet + assumed safety factor"
       },
       {
@@ -3345,55 +3345,55 @@
       },
       {
        "item": "Sundries and margin",
-       "tonnes": 10607.37,
+       "tonnes": 10546.64,
        "driver": "avionics, control, mooring, fasteners",
        "note": "",
        "evidenceClass": "airship weight statement + mass-growth allowance"
       }
      ],
-     "totalT": 63644.2,
-     "overBy": 6.36,
+     "totalT": 63279.8,
+     "overBy": 6.33,
      "shellAloneOverBy": 2.55,
-     "everythingButShellT": 38124.2,
-     "baseExShellExSundriesT": 27516.86,
+     "everythingButShellT": 37759.8,
+     "baseExShellExSundriesT": 27213.21,
      "closureWallKgPerM3": 0.7973825,
-     "shellBudgetLeftT": -19183.5,
+     "shellBudgetLeftT": -18879.9,
      "requiredShellKgPerM3": 0.0,
      "hullThatCloses": {
       "0.264": {
        "closes": true,
-       "volumeM3": 70665490,
-       "timesBaseline": 3.21,
-       "lenM": 755,
-       "diaM": 378
+       "volumeM3": 70059647,
+       "timesBaseline": 3.18,
+       "lenM": 753,
+       "diaM": 377
       },
       "0.350": {
        "closes": true,
-       "volumeM3": 85264955,
-       "timesBaseline": 3.88,
-       "lenM": 804,
-       "diaM": 402
+       "volumeM3": 84537049,
+       "timesBaseline": 3.84,
+       "lenM": 802,
+       "diaM": 401
       },
       "0.508": {
        "closes": true,
-       "volumeM3": 136757528,
-       "timesBaseline": 6.22,
-       "lenM": 941,
-       "diaM": 471
+       "volumeM3": 135605419,
+       "timesBaseline": 6.16,
+       "lenM": 939,
+       "diaM": 469
       },
       "0.600": {
        "closes": true,
-       "volumeM3": 209290356,
-       "timesBaseline": 9.51,
-       "lenM": 1085,
-       "diaM": 542
+       "volumeM3": 207554968,
+       "timesBaseline": 9.43,
+       "lenM": 1082,
+       "diaM": 541
       },
       "0.750": {
        "closes": true,
-       "volumeM3": 1197991864,
-       "timesBaseline": 54.45,
-       "lenM": 1941,
-       "diaM": 970
+       "volumeM3": 1189280915,
+       "timesBaseline": 54.06,
+       "lenM": 1936,
+       "diaM": 968
       },
       "0.900": {
        "closes": false,
@@ -3404,17 +3404,17 @@
       "phi=0.74": {
        "0.264": {
         "closes": true,
-        "volumeM3": 120020778,
-        "timesBaseline": 5.46,
-        "lenM": 901,
-        "diaM": 451
+        "volumeM3": 119005539,
+        "timesBaseline": 5.41,
+        "lenM": 899,
+        "diaM": 449
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 588288402,
-        "timesBaseline": 26.74,
-        "lenM": 1531,
-        "diaM": 766
+        "volumeM3": 583700654,
+        "timesBaseline": 26.53,
+        "lenM": 1527,
+        "diaM": 764
        },
        "0.750": {
         "closes": false,
@@ -3424,17 +3424,17 @@
       "phi=0.85": {
        "0.264": {
         "closes": true,
-        "volumeM3": 92726986,
-        "timesBaseline": 4.21,
-        "lenM": 827,
-        "diaM": 414
+        "volumeM3": 91937016,
+        "timesBaseline": 4.18,
+        "lenM": 825,
+        "diaM": 412
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 248319442,
-        "timesBaseline": 11.29,
-        "lenM": 1149,
-        "diaM": 574
+        "volumeM3": 246276169,
+        "timesBaseline": 11.19,
+        "lenM": 1145,
+        "diaM": 573
        },
        "0.750": {
         "closes": false,
@@ -3444,24 +3444,24 @@
       "phi=1.0": {
        "0.264": {
         "closes": true,
-        "volumeM3": 70665490,
-        "timesBaseline": 3.21,
-        "lenM": 755,
-        "diaM": 378
+        "volumeM3": 70059647,
+        "timesBaseline": 3.18,
+        "lenM": 753,
+        "diaM": 377
        },
        "0.508": {
         "closes": true,
-        "volumeM3": 136757528,
-        "timesBaseline": 6.22,
-        "lenM": 941,
-        "diaM": 471
+        "volumeM3": 135605419,
+        "timesBaseline": 6.16,
+        "lenM": 939,
+        "diaM": 469
        },
        "0.750": {
         "closes": true,
-        "volumeM3": 1197991864,
-        "timesBaseline": 54.45,
-        "lenM": 1941,
-        "diaM": 970
+        "volumeM3": 1189280915,
+        "timesBaseline": 54.06,
+        "lenM": 1936,
+        "diaM": 968
        }
       }
      }
@@ -3493,98 +3493,98 @@
     "residualForRotorsT": 1343.6,
     "rotorCapT": 7079.2,
     "marginX": 5.3,
-    "cycleMWhAsBuilt": 694.174,
-    "cycleMWhWithoutCryo": 686.57,
+    "cycleMWhAsBuilt": 679.093,
+    "cycleMWhWithoutCryo": 671.489,
     "cycleSavingPct": 1.1
    },
    "batterySensitivity": {
     "floor": {
      "2 cycles": {
-      "batteryMWh": 1388.35,
-      "batteryT": 2776.7,
-      "totalT": 5885.0,
-      "leftForShellT": 3740.9,
-      "requiredShellKgPerM3": 0.17
+      "batteryMWh": 1358.19,
+      "batteryT": 2716.4,
+      "totalT": 5818.6,
+      "leftForShellT": 3801.2,
+      "requiredShellKgPerM3": 0.1728
      },
      "4 cycles": {
-      "batteryMWh": 2776.7,
-      "batteryT": 5553.4,
-      "totalT": 8939.4,
-      "leftForShellT": 964.2,
-      "requiredShellKgPerM3": 0.0438
+      "batteryMWh": 2716.37,
+      "batteryT": 5432.7,
+      "totalT": 8806.6,
+      "leftForShellT": 1084.9,
+      "requiredShellKgPerM3": 0.0493
      },
      "8 cycles": {
-      "batteryMWh": 5553.39,
-      "batteryT": 11106.8,
-      "totalT": 15048.1,
-      "leftForShellT": -4589.2,
+      "batteryMWh": 5432.74,
+      "batteryT": 10865.5,
+      "totalT": 14782.7,
+      "leftForShellT": -4347.9,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11106.78,
-      "batteryT": 22213.6,
-      "totalT": 27265.5,
-      "leftForShellT": -15695.9,
+      "batteryMWh": 10865.49,
+      "batteryT": 21731.0,
+      "totalT": 26734.7,
+      "leftForShellT": -15213.4,
       "requiredShellKgPerM3": 0.0
      }
     },
     "credible": {
      "2 cycles": {
-      "batteryMWh": 1388.35,
-      "batteryT": 4627.8,
-      "totalT": 12409.8,
-      "leftForShellT": -2095.5,
+      "batteryMWh": 1358.19,
+      "batteryT": 4527.3,
+      "totalT": 12294.2,
+      "leftForShellT": -1995.0,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 2776.7,
-      "batteryT": 9255.7,
-      "totalT": 17731.8,
-      "leftForShellT": -6723.3,
+      "batteryMWh": 2716.37,
+      "batteryT": 9054.6,
+      "totalT": 17500.6,
+      "leftForShellT": -6522.3,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 5553.39,
-      "batteryT": 18511.3,
-      "totalT": 28375.8,
-      "leftForShellT": -15979.0,
+      "batteryMWh": 5432.74,
+      "batteryT": 18109.1,
+      "totalT": 27913.3,
+      "leftForShellT": -15576.8,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11106.78,
-      "batteryT": 37022.6,
-      "totalT": 49663.8,
-      "leftForShellT": -34490.3,
+      "batteryMWh": 10865.49,
+      "batteryT": 36218.3,
+      "totalT": 48738.9,
+      "leftForShellT": -33686.0,
       "requiredShellKgPerM3": 0.0
      }
     },
     "demonstrated": {
      "2 cycles": {
-      "batteryMWh": 1388.35,
-      "batteryT": 9317.8,
-      "totalT": 27429.6,
-      "leftForShellT": -14524.6,
+      "batteryMWh": 1358.19,
+      "batteryT": 9115.3,
+      "totalT": 27186.7,
+      "leftForShellT": -14322.2,
       "requiredShellKgPerM3": 0.0
      },
      "4 cycles": {
-      "batteryMWh": 2776.7,
-      "batteryT": 18635.5,
-      "totalT": 38610.9,
-      "leftForShellT": -23842.4,
+      "batteryMWh": 2716.37,
+      "batteryT": 18230.7,
+      "totalT": 38125.1,
+      "leftForShellT": -23437.6,
       "requiredShellKgPerM3": 0.0
      },
      "8 cycles": {
-      "batteryMWh": 5553.39,
-      "batteryT": 37271.1,
-      "totalT": 60973.5,
-      "leftForShellT": -42478.0,
+      "batteryMWh": 5432.74,
+      "batteryT": 36461.4,
+      "totalT": 60001.9,
+      "leftForShellT": -41668.2,
       "requiredShellKgPerM3": 0.0
      },
      "16 cycles": {
-      "batteryMWh": 11106.78,
-      "batteryT": 74542.2,
-      "totalT": 105698.8,
-      "leftForShellT": -79749.0,
+      "batteryMWh": 10865.49,
+      "batteryT": 72922.7,
+      "totalT": 103755.5,
+      "leftForShellT": -78129.6,
       "requiredShellKgPerM3": 0.0
      }
     }

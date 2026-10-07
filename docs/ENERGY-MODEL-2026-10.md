@@ -102,8 +102,8 @@ Dated measurement at landing 16, 2026-10-05: absolute inertial force minus the a
 
 | Population | Withdrawn absolute / signed | Reason |
 |---|---|---|
-| candidates | 264 / 334 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
-| capturedMissions | 16 / 21 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| candidates | 205 / 303 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| capturedMissions | 6 / 20 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
 
 
 ## Necessary stored energy, ideal accounting
@@ -116,21 +116,31 @@ Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples
 
 | Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
 |---|---|---|---|---|---|---|
-| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.8 | 20 | 127.5 | 21.8 | index.html |
-| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 59.2 | 20 | 169.0 | 39.2 | index.html |
-| fullDeliveryBest | P100 / 15.000000 / record | 42.2 | 20 | 129.0 | 22.2 | index.html; concept/index.html |
-| fullDeliveryBest | P100 / 15.000000 / favourable | 40.4 | 20 | 133.1 | 20.4 | index.html; concept/index.html |
-| asDrawn | P100 / 60.000000 / record | 20.2 | 20 | 104.5 | 0.2 | index.html; concept/index.html |
-| ready selector | P1000 / 400.000000 / record | 332.3 | 120 | 232.3 | 212.3 | concept/energy-analysis.html |
+| energy-profiles row 6 asDrawn | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| energy-profiles row 7 asDrawn | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / record | 246.0 MWh | 120 MWh | 64.8 min | 126.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.2 MWh | 120 MWh | 85.4 min | 19.2 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.5 MWh | 120 MWh | 85.3 min | 19.5 MWh | research/analysis/energy-requirements.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / favourable | 175.3 MWh | 120 MWh | 74.8 min | 55.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.0 MWh | 120 MWh | 85.1 min | 20.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.3 MWh | 120 MWh | 85.0 min | 20.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P100 / 60.000000 / record | 23.6 MWh | 20 MWh | 97.5 min | 3.6 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 140.1 MWh | 120 MWh | 84.9 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 143.3 MWh | 120 MWh | 83.8 min | 23.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| ready selector | P1000 / 400.000000 / record | 322.3 MWh | 120 MWh | 233.6 min | 202.3 MWh | concept/energy-analysis.html |
 
-Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+Of 20 captured cycles, 0 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for 926 deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
 
 Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
 
 ## What the profile search means
 
 The prescribed profile is retained as "as drawn".
-The result is the cheapest feasible profile found in the stated space, not a global optimum.
+The result is the cheapest reserve-eligible profile found in the stated space, not a global optimum.
 
 Cruise speed multipliers: 0.5, 0.75, 1, 1.25, 1.5.
 Modes: rapid, balanced, endurance.
@@ -153,7 +163,9 @@ The approach remains stationary.
 Segment time and ground distance are integrated; energy uses the same instantaneous ledger.
 A profile exceeding the route distance is refused.
 
-Retained water is searched at five-percent payload steps and at each bisected first closing threshold.
+Retained water is searched at five-percent payload steps and at each bisected first reserve-closing threshold.
+
+Served controls target 10% relative reserve in the profile search and exact-route selection; serving requires at least 5%. The selector first prefers controls meeting the target at this route, then minimizes kWh per delivered tonne within that tier. If none meets the target, it may use a minimum-reserve control; it never serves below the minimum. Both tiers also require unchanged physical closure. Reserve is (capacity minus demand) / capacity for unclipped bus demand, local rotor thrust and combined downward authority. Upward thrust is absent: its reserve is (surplus lift minus signed vertical drag) / max(1 tonne, absolute surplus lift). Each minimum is checked on the same seam-inclusive limit mesh and refined extrema as physical closure. Cable reach and pickup, aerodynamic credit and route geometry retain their exact rules: unavailable support earns no credit; the downward-authority reserve uses only support actually carried. Force residual is a numerical closure tolerance, not spare hardware. Battery energy, transient control, structure and weather uncertainty are outside this reserve policy. The 5% power convention follows [GSFC-STD-1000H, Table 1.06-1, page 12](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf); its extension to force and the 10% control target are this simulation's conservative selection choices, not spacecraft-standard compliance or a validated uncertainty allowance. The search target leaves room above the serving cutoff when recorded controls are replayed at other route distances.
 Printed requirements round upward at the verdict resolution and replay through the model.
 The older whole-phase dilation is named `movingPhaseRateMultiplier`; the new search does not use it.
 
@@ -161,18 +173,18 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | does not close | 34.196 | 8.189 | 81.892 | 1.412 |  |
-| P100 | 15 | favourable | does not close | 34.196 | 6.401 | 64.011 | 1.814 |  |
-| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.732 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.425 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | does not close | 35.362 | 62.251 | 62.251 | 1.147 |  |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.259 | 61.259 | 1.165 |  |
-| P1000 | 60 | record | does not close | 93.116 | 141.451 | 141.451 | 1.331 |  |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.271 | 142.271 | 1.323 |  |
-| P10000 | 15 | record | does not close | 45.512 | 694.174 | 69.417 | 2.196 |  |
-| P10000 | 15 | favourable | does not close | 45.512 | 765.904 | 76.590 | 1.990 |  |
-| P10000 | 60 | record | does not close | 94.381 | 1113.650 | 111.365 | 2.843 |  |
-| P10000 | 60 | favourable | does not close | 94.381 | 1385.793 | 138.579 | 2.282 |  |
+| P100 | 15 | record | does not close | 34.196 | 7.812 | 78.122 | 1.481 |  |
+| P100 | 15 | favourable | does not close | 34.196 | 6.024 | 60.241 | 1.930 |  |
+| P100 | 60 | record | closes | 104.784 | 20.150 | 201.503 | 1.765 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | closes | 104.784 | 14.393 | 143.928 | 2.489 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | does not close | 35.362 | 61.680 | 61.680 | 1.157 |  |
+| P1000 | 15 | favourable | does not close | 35.362 | 60.689 | 60.689 | 1.176 |  |
+| P1000 | 60 | record | does not close | 93.116 | 140.806 | 140.806 | 1.337 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | does not close | 93.116 | 141.626 | 141.626 | 1.329 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | does not close | 45.512 | 679.093 | 67.909 | 2.245 |  |
+| P10000 | 15 | favourable | does not close | 45.512 | 750.823 | 75.082 | 2.030 |  |
+| P10000 | 60 | record | does not close | 94.381 | 1098.254 | 109.825 | 2.883 |  |
+| P10000 | 60 | favourable | does not close | 94.381 | 1370.397 | 137.040 | 2.308 |  |
 
 ## Corrections from the energy comparison
 
@@ -1593,50 +1605,42 @@ A retained-water floor depends on altitude, available supply and the other loads
 
 ## Retained-water floor at the stationary fill
 
-| Class | km | Basis | Profile | Kept t | Independent floor t | Other support t |
-|---|---|---|---|---|---|---|
-| P100 | 15 | record | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.594 |
-| P100 | 15 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.270 |
-| P100 | 15 | favourable | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.594 |
-| P100 | 15 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.270 |
-| P100 | 60 | record | cheapest | 1.800 | 0.000 | newWaterT 29.460; nitrogenT 1.188 |
-| P100 | 60 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.391 |
-| P100 | 60 | favourable | cheapest | 0.093 | 0.000 | newWaterT 29.972; nitrogenT 1.426 |
-| P100 | 60 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.391 |
-| P1000 | 15 | record | cheapest | 785.210 | 585.543 | newWaterT 64.437; nitrogenT 4.367 |
-| P1000 | 15 | favourable | cheapest | 785.210 | 585.543 | newWaterT 64.437; nitrogenT 4.367 |
-| P1000 | 60 | record | cheapest | 730.276 | 522.451 | newWaterT 80.917; nitrogenT 17.469 |
-| P1000 | 60 | favourable | cheapest | 730.276 | 522.451 | newWaterT 80.917; nitrogenT 17.469 |
-| P10000 | 15 | record | cheapest | 7376.587 | 6053.350 | newWaterT 787.024; nitrogenT 4.113 |
-| P10000 | 15 | favourable | cheapest | 7376.587 | 6053.350 | newWaterT 787.024; nitrogenT 4.113 |
-| P10000 | 60 | record | cheapest | 6993.521 | 5688.357 | newWaterT 901.944; nitrogenT 33.110 |
-| P10000 | 60 | favourable | cheapest | 6993.521 | 5688.357 | newWaterT 901.944; nitrogenT 33.110 |
-| P100 | 2.55029 | record | cheapest | 45.000 | 0.000 | newWaterT 16.500; nitrogenT 0.052 |
-| P100 | 2.55029 | favourable | cheapest | 50.000 | 0.000 | newWaterT 15.000; nitrogenT 0.076 |
-| P100 | 7.480511 | record | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 0.148 |
-| P100 | 7.480511 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.447 |
-| P100 | 7.480511 | favourable | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 0.148 |
-| P100 | 7.480511 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 3.447 |
-| P100 | 51.913032 | record | cheapest | 2.953 | 0.000 | newWaterT 29.114; nitrogenT 1.028 |
-| P100 | 51.913032 | record | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.069 |
-| P100 | 51.913032 | favourable | cheapest | 1.473 | 0.000 | newWaterT 29.558; nitrogenT 1.234 |
-| P100 | 51.913032 | favourable | full delivery | 0.000 | 0.000 | newWaterT 30.000; nitrogenT 2.069 |
-| P1000 | 2.55029 | record | cheapest | 833.822 | 675.101 | newWaterT 49.853; nitrogenT 0.499 |
-| P1000 | 2.55029 | favourable | cheapest | 833.822 | 675.101 | newWaterT 49.853; nitrogenT 0.499 |
-| P1000 | 7.480511 | record | cheapest | 830.505 | 655.836 | newWaterT 50.848; nitrogenT 1.220 |
-| P1000 | 7.480511 | favourable | cheapest | 794.471 | 630.001 | newWaterT 61.659; nitrogenT 2.178 |
-| P1000 | 51.913032 | record | cheapest | 740.088 | 527.749 | newWaterT 77.974; nitrogenT 15.114 |
-| P1000 | 51.913032 | favourable | cheapest | 740.088 | 527.749 | newWaterT 77.974; nitrogenT 15.114 |
-| P10000 | 2.55029 | record | cheapest | 7389.486 | 6089.609 | newWaterT 783.154; nitrogenT 0.871 |
-| P10000 | 2.55029 | favourable | cheapest | 7389.486 | 6089.609 | newWaterT 783.154; nitrogenT 0.871 |
-| P10000 | 7.480511 | record | cheapest | 7384.791 | 6076.370 | newWaterT 784.563; nitrogenT 2.051 |
-| P10000 | 7.480511 | favourable | cheapest | 7384.791 | 6076.370 | newWaterT 784.563; nitrogenT 2.051 |
-| P10000 | 51.913032 | record | cheapest | 7009.805 | 5731.011 | newWaterT 897.059; nitrogenT 28.647 |
-| P10000 | 51.913032 | favourable | cheapest | 7009.805 | 5731.011 | newWaterT 897.059; nitrogenT 28.647 |
+| Class | km | Basis | Profile | Kept t | Independent floor t | Other support t | Storage note |
+|---|---|---|---|---|---|---|---|
+| P100 | 15 | record | cheapest | 29.052 | 0.000 | newWaterT 21.284; nitrogenT 1.196 |  |
+| P100 | 15 | favourable | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 1.196 |  |
+| P100 | 60 | record | cheapest | 10.696 | 0.000 | newWaterT 26.791; nitrogenT 1.188 |  |
+| P100 | 60 | favourable | cheapest | 9.070 | 0.000 | newWaterT 27.279; nitrogenT 1.426 |  |
+| P1000 | 15 | record | cheapest | 808.225 | 582.720 | newWaterT 57.533; nitrogenT 4.367 |  |
+| P1000 | 15 | favourable | cheapest | 808.225 | 582.720 | newWaterT 57.533; nitrogenT 4.367 |  |
+| P1000 | 60 | record | cheapest | 755.174 | 529.920 | newWaterT 73.448; nitrogenT 17.469 |  |
+| P1000 | 60 | favourable | cheapest | 755.174 | 529.920 | newWaterT 73.448; nitrogenT 17.469 |  |
+| P10000 | 15 | record | cheapest | 7054.504 | 5960.770 | newWaterT 883.649; nitrogenT 4.113 |  |
+| P10000 | 15 | favourable | cheapest | 7054.504 | 5960.770 | newWaterT 883.649; nitrogenT 4.113 |  |
+| P10000 | 60 | record | cheapest | 7006.366 | 5837.582 | newWaterT 898.090; nitrogenT 16.452 |  |
+| P10000 | 60 | favourable | cheapest | 6990.332 | 5797.351 | newWaterT 902.900; nitrogenT 20.565 |  |
+| P100 | 4.938018 | record | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.272 |  |
+| P100 | 4.938018 | favourable | cheapest | 35.000 | 0.000 | newWaterT 19.500; nitrogenT 0.272 |  |
+| P100 | 14.140417 | record | cheapest | 32.232 | 0.000 | newWaterT 20.330; nitrogenT 1.127 |  |
+| P100 | 14.140417 | favourable | cheapest | 30.000 | 0.000 | newWaterT 21.000; nitrogenT 1.127 |  |
+| P100 | 47.389863 | record | cheapest | 12.412 | 0.000 | newWaterT 26.276; nitrogenT 0.938 |  |
+| P100 | 47.389863 | favourable | cheapest | 11.122 | 0.000 | newWaterT 26.663; nitrogenT 1.126 |  |
+| P1000 | 4.938018 | record | cheapest | 820.194 | 649.202 | newWaterT 53.942; nitrogenT 1.438 |  |
+| P1000 | 4.938018 | favourable | cheapest | 820.194 | 649.202 | newWaterT 53.942; nitrogenT 1.438 |  |
+| P1000 | 14.140417 | record | cheapest | 809.246 | 588.013 | newWaterT 57.226; nitrogenT 4.117 |  |
+| P1000 | 14.140417 | favourable | cheapest | 809.246 | 588.013 | newWaterT 57.226; nitrogenT 4.117 |  |
+| P1000 | 47.389863 | record | cheapest | 769.965 | 538.029 | newWaterT 69.010; nitrogenT 13.797 |  |
+| P1000 | 47.389863 | favourable | cheapest | 769.965 | 538.029 | newWaterT 69.010; nitrogenT 13.797 |  |
+| P10000 | 4.938018 | record | cheapest | 7065.275 | 5988.844 | newWaterT 880.418; nitrogenT 1.354 |  |
+| P10000 | 4.938018 | favourable | cheapest | 7065.275 | 5988.844 | newWaterT 880.418; nitrogenT 1.354 |  |
+| P10000 | 14.140417 | record | cheapest | 7055.424 | 5963.161 | newWaterT 883.373; nitrogenT 3.877 |  |
+| P10000 | 14.140417 | favourable | cheapest | 7055.424 | 5963.161 | newWaterT 883.373; nitrogenT 3.877 |  |
+| P10000 | 47.389863 | record | cheapest | 7019.850 | 5871.720 | newWaterT 894.045; nitrogenT 12.994 |  |
+| P10000 | 47.389863 | favourable | cheapest | 7019.850 | 5871.720 | newWaterT 894.045; nitrogenT 12.994 |  |
 
 ## Interfaces
 
 `planCycle(class, mode, distance, wind, options)` computes a cycle. `drawAt` supplies each instantaneous ledger.
 `cheapestFeasible` performs the slow stated-space search; it is not suitable for a page-load fleet search.
-Generated tables cover only their printed distances; they do not promise interpolation. The monitor replays each candidate at the mission’s exact distance, wind and mode and serves only a profile that closes.
+Generated tables cover only their printed distances; they do not promise interpolation. The monitor replays each candidate at the mission’s exact distance, wind and mode and serves only a profile that closes with the required operating reserve.
 <!-- energy:model:end -->

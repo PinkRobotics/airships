@@ -50,11 +50,11 @@ The full `make floatplants` run, which writes the receipt, stays a local gate. `
 
    <!-- readme:example:start -->
    At 15 km, the prescribed P-10000 cycle takes **45.5 minutes** and does not close on the drawn hardware.
-   Its supplied effort is **694.17 MWh/cycle** on record and **765.90 MWh/cycle** on favourable.
-   The corresponding **69.42 / 76.59 kWh per planned tonne** do not establish delivered water.
+   Its supplied effort is **679.09 MWh/cycle** on record and **750.82 MWh/cycle** on favourable.
+   The corresponding **67.91 / 75.08 kWh per planned tonne** do not establish delivered water.
    At 45 km, the prescribed P-10000 cycle takes **78.1 minutes** and does not close on the drawn hardware.
-   Its supplied effort is **976.30 MWh/cycle** on record and **1178.44 MWh/cycle** on favourable.
-   The corresponding **97.63 / 117.84 kWh per planned tonne** do not establish delivered water.
+   Its supplied effort is **961.01 MWh/cycle** on record and **1163.15 MWh/cycle** on favourable.
+   The corresponding **96.10 / 116.31 kWh per planned tonne** do not establish delivered water.
    <!-- readme:example:end -->
 
 For a float number, import the model and change SF from 1.2 to 1.5 on the **record** basis. Geometry (52 × 104 m, 3 m wall), 1,050 MPa chords, knockdown 0.30 and full sea-level pressure stay fixed:
@@ -118,9 +118,9 @@ The P-100 is the reference class. Nobody is proposing to build a P-10000.
 | Minutes | 34.2 | 35.4 | 45.5 |
 | Requested payload, t | 100 | 1000 | 10000 |
 | Water kept, t | 0 | 0 | 0 |
-| Supplied MWh: record / favourable | 8.189 / 6.401 | 62.251 / 61.259 | 694.174 / 765.904 |
-| kWh per planned tonne: record / favourable | 81.892 / 64.011 | 62.251 / 61.259 | 69.417 / 76.590 |
-| Worst unheld t: record / favourable | 34.759 / -5.714 | 819.257 / 819.257 | 7076.646 / 7076.646 |
+| Supplied MWh: record / favourable | 7.812 / 6.024 | 61.680 / 60.689 | 679.093 / 750.823 |
+| kWh per planned tonne: record / favourable | 78.122 / 60.241 | 61.680 / 60.689 | 67.909 / 75.082 |
+| Worst unheld t: record / favourable | 34.759 / -5.714 | 800.681 / 800.681 | 6366.280 / 6366.280 |
 <!-- readme:headline:end -->
 
 <!-- readme:energy-reading:start -->
@@ -166,7 +166,7 @@ The command prints a loopback address on a port chosen by the system. Open that 
 Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
 
 <!-- readme:sources:start -->
-The [source catalogue](research/sources.json) contains **112 entries**.
+The [source catalogue](research/sources.json) contains **114 entries**.
 <!-- readme:sources:end -->
 
 [DATA-SOURCES.md](DATA-SOURCES.md) records the datasets, licences and query methods. The captured snapshot under [`data/`](data/) supports offline replay. Do not query emergency agency feeds to run this test.

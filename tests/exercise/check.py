@@ -199,7 +199,7 @@ def static_reference_is_labelled():
     guard.refuse_words('static exercise',list(regs.values()))
     # Pin the visually audited poster, including the label legible at 390 px.
     # A deliberate recapture requires another visual audit and this pin to move.
-    assert hashlib.sha256((ROOT/'media/map-snapshot.jpg').read_bytes()).hexdigest() == '949ecaa49bd747d2411aee4392d19af07529f96e725ee54b7cb528498dc7aa87', 'poster differs from the labelled, visually audited image'
+    assert hashlib.sha256((ROOT/'media/map-snapshot.jpg').read_bytes()).hexdigest() == 'ca4661706be9909d2ed6290c4bf8ec4389c958b76535d389e9e31aaba8ae2262', 'poster differs from the labelled, visually audited image'
     assert '?view=exercise' in (ROOT/'tests/golden/check.py').read_text()
     assert '?view=exercise' in (ROOT/'tools/gen_fallback.py').read_text()
     return 'fallback opens with exact exercise sentence; poster exists; both reference generators use exercise'

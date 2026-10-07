@@ -1,29 +1,29 @@
 {
-  "source": "Local captured route inputs from the shipped exercise, dated replays and sample; current controls replayed through the served selector. No emergency feed fetched.",
+  "source": "Local captured route inputs from the shipped exercise and dated replay; current controls replayed through the served selector. No emergency feed fetched.",
   "routes": [
     {
       "className": "P10000",
-      "km": 26.85399389108847
+      "km": 47.3898629193257
     },
     {
       "className": "P1000",
-      "km": 47.35869298928916
+      "km": 15.63918398847924
     },
     {
       "className": "P1000",
-      "km": 13.995451333858558
+      "km": 14.300044988660485
     },
     {
       "className": "P1000",
-      "km": 28.97194996027154
+      "km": 28.87013872084708
     },
     {
       "className": "P1000",
-      "km": 31.769483609968557
+      "km": 32.62935428636302
     },
     {
       "className": "P1000",
-      "km": 27.381496689706204
+      "km": 27.253676611450906
     },
     {
       "className": "P100",
@@ -31,75 +31,55 @@
     },
     {
       "className": "P100",
-      "km": 19.143703390013226
+      "km": 20.05473739559659
     },
     {
       "className": "P100",
-      "km": 17.308880868782595
+      "km": 5.730095857645837
     },
     {
       "className": "P100",
-      "km": 5.721509354570762
+      "km": 7.331040674971225
     },
     {
       "className": "P100",
-      "km": 6.986890699700569
+      "km": 13.980788057029073
     },
     {
       "className": "P100",
-      "km": 13.981185181372641
+      "km": 9.775576436528567
     },
     {
       "className": "P100",
-      "km": 9.689203515705072
+      "km": 5.541039739304714
     },
     {
       "className": "P100",
-      "km": 17.87231758154633
-    },
-    {
-      "className": "P100",
-      "km": 5.552226761333351
+      "km": 9.470464595920046
     },
     {
       "className": "P100",
       "km": 5.200783703884123
     },
     {
-      "className": "P10000",
-      "km": 14.676200835560907
-    },
-    {
-      "className": "P1000",
-      "km": 22.600690068840695
-    },
-    {
-      "className": "P1000",
-      "km": 26.34839625453041
-    },
-    {
-      "className": "P1000",
-      "km": 28.996840165435323
-    },
-    {
-      "className": "P1000",
-      "km": 14.676200835560907
+      "className": "P100",
+      "km": 4.938018038358277
     },
     {
       "className": "P100",
-      "km": 6.870925344083527
+      "km": 6.872957528739268
     },
     {
       "className": "P100",
-      "km": 19.394657677061478
+      "km": 14.714511358632635
     },
     {
       "className": "P100",
-      "km": 14.676052157400804
+      "km": 19.388470917637715
     },
     {
       "className": "P100",
-      "km": 22.60052973641698
+      "km": 22.610554763687116
     }
   ],
   "captures": [
@@ -113,75 +93,75 @@
     },
     {
       "capture": "replay.json",
-      "missions": 16
+      "missions": 4
     }
   ],
-  "method": "Unique class and exact one-way distance pairs from the local page captures; supplemented in the gate by every printed search distance and fleet-distance row.",
+  "method": "Unique class and exact one-way distance pairs after all captured missions have accepted plans, with jitter pinned to seed 7; supplemented in the gate by every printed search distance and fleet-distance row.",
   "missions": [
     {
       "capture": "exercise",
       "mission": 0,
       "class": "P10000",
-      "km": 26.85399389108847,
+      "km": 47.3898629193257,
       "mode": "rapid",
       "options": {
         "speedMultiplier": 1.25,
-        "ballastT": 7376.587
+        "ballastT": 7019.85
       }
     },
     {
       "capture": "exercise",
       "mission": 1,
       "class": "P1000",
-      "km": 47.35869298928916,
+      "km": 15.63918398847924,
       "mode": "endurance",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "ballastT": 808.225
       }
     },
     {
       "capture": "exercise",
       "mission": 2,
       "class": "P1000",
-      "km": 13.995451333858558,
+      "km": 14.300044988660485,
       "mode": "endurance",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 794.471
+        "ballastT": 809.246
       }
     },
     {
       "capture": "exercise",
       "mission": 3,
       "class": "P1000",
-      "km": 28.97194996027154,
+      "km": 28.87013872084708,
       "mode": "endurance",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "ballastT": 808.225
       }
     },
     {
       "capture": "exercise",
       "mission": 4,
       "class": "P1000",
-      "km": 31.769483609968557,
+      "km": 32.62935428636302,
       "mode": "endurance",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "ballastT": 808.225
       }
     },
     {
       "capture": "exercise",
       "mission": 5,
       "class": "P1000",
-      "km": 27.381496689706204,
+      "km": 27.253676611450906,
       "mode": "endurance",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "ballastT": 808.225
       }
     },
     {
@@ -189,31 +169,37 @@
       "mission": 6,
       "class": "P100",
       "km": 19.302440551988337,
-      "mode": "rapid",
+      "mode": "balanced",
       "options": {
         "speedMultiplier": 0.75,
-        "ballastT": 35
+        "ballastT": 29.052
       }
     },
     {
       "capture": "exercise",
       "mission": 7,
       "class": "P100",
-      "km": 19.143703390013226,
-      "mode": "rapid",
+      "km": 20.05473739559659,
+      "mode": "balanced",
       "options": {
         "speedMultiplier": 0.75,
-        "ballastT": 35
+        "ballastT": 29.052
       }
     },
     {
       "capture": "exercise",
       "mission": 8,
       "class": "P100",
-      "km": 17.308880868782595,
+      "km": 5.730095857645837,
       "mode": "rapid",
       "options": {
-        "speedMultiplier": 0.75,
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
         "ballastT": 35
       }
     },
@@ -221,265 +207,169 @@
       "capture": "exercise",
       "mission": 9,
       "class": "P100",
-      "km": 5.721509354570762,
+      "km": 7.331040674971225,
       "mode": "rapid",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 30
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
       }
     },
     {
       "capture": "exercise",
       "mission": 10,
       "class": "P100",
-      "km": 6.986890699700569,
+      "km": 13.980788057029073,
       "mode": "rapid",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 30
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
       }
     },
     {
       "capture": "exercise",
       "mission": 11,
       "class": "P100",
-      "km": 13.981185181372641,
+      "km": 9.775576436528567,
       "mode": "rapid",
       "options": {
-        "speedMultiplier": 0.75,
+        "speedMultiplier": 1.5,
         "verticalProfile": {
           "climbRateMps": 2,
-          "letdownRateMps": 0.5,
+          "letdownRateMps": 2,
           "climbAirspeedMps": 5,
-          "letdownAirspeedMps": 0
+          "letdownAirspeedMps": 5
         },
-        "ballastT": 0
+        "ballastT": 35
       }
     },
     {
       "capture": "exercise",
       "mission": 12,
       "class": "P100",
-      "km": 9.689203515705072,
+      "km": 5.541039739304714,
       "mode": "rapid",
       "options": {
-        "speedMultiplier": 0.5,
+        "speedMultiplier": 1.5,
         "verticalProfile": {
-          "climbRateMps": 0.5,
-          "letdownRateMps": 0.5,
-          "climbAirspeedMps": 0,
-          "letdownAirspeedMps": 0
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
         },
-        "ballastT": 0
+        "ballastT": 35
       }
     },
     {
       "capture": "exercise",
       "mission": 13,
       "class": "P100",
-      "km": 17.87231758154633,
+      "km": 9.470464595920046,
       "mode": "rapid",
       "options": {
-        "speedMultiplier": 0.75,
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
         "ballastT": 35
       }
     },
     {
       "capture": "exercise",
       "mission": 14,
-      "class": "P100",
-      "km": 5.552226761333351,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 30
-      }
-    },
-    {
-      "capture": "exercise",
-      "mission": 15,
       "class": "P100",
       "km": 5.200783703884123,
       "mode": "rapid",
       "options": {
         "speedMultiplier": 1.5,
-        "ballastT": 45
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      }
+    },
+    {
+      "capture": "exercise",
+      "mission": 15,
+      "class": "P100",
+      "km": 4.938018038358277,
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
       }
     },
     {
       "capture": "replay",
       "mission": 0,
-      "class": "P10000",
-      "km": 14.676200835560907,
+      "class": "P100",
+      "km": 6.872957528739268,
       "mode": "rapid",
       "options": {
-        "speedMultiplier": 1.25,
-        "ballastT": 7384.791
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
       }
     },
     {
       "capture": "replay",
       "mission": 1,
-      "class": "P1000",
-      "km": 22.600690068840695,
-      "mode": "endurance",
+      "class": "P100",
+      "km": 14.714511358632635,
+      "mode": "balanced",
       "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
       }
     },
     {
       "capture": "replay",
       "mission": 2,
-      "class": "P1000",
-      "km": 26.34839625453041,
-      "mode": "endurance",
+      "class": "P100",
+      "km": 19.388470917637715,
+      "mode": "balanced",
       "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 785.21
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
       }
     },
     {
       "capture": "replay",
       "mission": 3,
-      "class": "P1000",
-      "km": 28.996840165435323,
-      "mode": "endurance",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 785.21
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 4,
-      "class": "P1000",
-      "km": 14.676200835560907,
-      "mode": "endurance",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 794.471
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 5,
-      "class": "P1000",
-      "km": 22.600690068840695,
-      "mode": "endurance",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 785.21
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 6,
       "class": "P100",
-      "km": 6.870925344083527,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 30
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 7,
-      "class": "P100",
-      "km": 19.394657677061478,
-      "mode": "rapid",
+      "km": 22.610554763687116,
+      "mode": "balanced",
       "options": {
         "speedMultiplier": 0.75,
-        "ballastT": 35
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 8,
-      "class": "P100",
-      "km": 6.870925344083527,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 30
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 9,
-      "class": "P100",
-      "km": 14.676052157400804,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 0.75,
-        "ballastT": 35
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 10,
-      "class": "P100",
-      "km": 19.394657677061478,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 0.75,
-        "ballastT": 35
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 11,
-      "class": "P100",
-      "km": 22.60052973641698,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1,
-        "ballastT": 50
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 12,
-      "class": "P100",
-      "km": 6.870925344083527,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1.5,
-        "ballastT": 30
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 13,
-      "class": "P100",
-      "km": 14.676052157400804,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 0.75,
-        "ballastT": 35
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 14,
-      "class": "P100",
-      "km": 19.394657677061478,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 0.75,
-        "ballastT": 35
-      }
-    },
-    {
-      "capture": "replay",
-      "mission": 15,
-      "class": "P100",
-      "km": 22.60052973641698,
-      "mode": "rapid",
-      "options": {
-        "speedMultiplier": 1,
-        "ballastT": 50
+        "ballastT": 29.052
       }
     }
   ]

@@ -15,11 +15,11 @@ import {
   hullR, hullPoint, stationX, profileR, sectionScale,
   RHO_LN2, PACKAGING, capsuleRadiusForVolume, boxScaleForVolume,
   DUCT_SEAL_OF_DIAMETER, HULL_BAND_LIFT,
-} from './config.js?v=91301eab';
-import { segPointDist } from '../core/math.js?v=91301eab';
-import { streamFor, jitter } from '../core/prng.js?v=91301eab';
+} from './config.js?v=9096541f';
+import { segPointDist } from '../core/math.js?v=9096541f';
+import { streamFor, jitter } from '../core/prng.js?v=9096541f';
 
-import { anchorGeometry } from './config.js';
+import { anchorGeometry } from './config.js?v=9096541f';
 
 const pad = (n, w = 2) => String(n).padStart(w, '0');
 

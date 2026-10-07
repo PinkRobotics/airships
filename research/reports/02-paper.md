@@ -230,7 +230,7 @@ line is downward force at the cost of the lift needed to break the surface — 1
 | Cable | 350 m<!--f:P100.spec.anchorCableM--> | 600 m<!--f:P1000.spec.anchorCableM--> | 850 m<!--f:P10000.spec.anchorCableM--> |
 | Pull | 1.2 MN<!--f:P100.descent.anchorPullMN--> | 12.3 MN<!--f:P1000.descent.anchorPullMN--> | 121.6 MN<!--f:P10000.descent.anchorPullMN--> |
 | Energy cost (earlier 1) | 0.006 | 0.060 | 0.596 |
-| Energy cost (current) | 0.003 MWh<!--f:P100.energy.anchorHoistMWh--> | 0.059 MWh<!--f:P1000.energy.anchorHoistMWh--> | 0.596 MWh<!--f:P10000.energy.anchorHoistMWh--> |
+| Energy cost (current) | 0.006 MWh<!--f:P100.energy.anchorHoistMWh--> | 0.059 MWh<!--f:P1000.energy.anchorHoistMWh--> | 0.597 MWh<!--f:P10000.energy.anchorHoistMWh--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -238,10 +238,28 @@ These energy figures come from the earlier flight model, which understates the f
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
+<!-- energy:dated-percentages:start -->
+### Dated percentages and the current bag replay
+
+The following older percentage language is retained as a report reading, with its original comparator. It does not apply to the current values at the right of the arrows.
+
+- Report dated 2026-08-09: P-10000 letdown 34.20 → 1.420 MWh, reported 96% reduction.
+- Report dated 2026-08-09: P-10000 rotor power 1748 → 52.3 MW, reported 97% reduction.
+- Reports dated 2026-08-09: P-100 reported bag-removal penalty 1.526 MWh, against 1.391 MWh with it; the paper reported 34% saving and the diligence report reported 34% more without the bag. These are retained report readings. No historical model replay was reconstructed, and these printed energy comparators do not substantiate either reported bag percentage.
+
+Current named replay: P100, balanced, 15 km one-way, record basis, still air. Remove the bag and its cable; retain every other class and configuration input. Still air. With the bag: 7.812223 MWh, does not close; without the bag: 8.393679 MWh, does not close. The supplied-effort increase is 7.4429%, using with-bag supplied MWh. Both force verdicts are reported. An unsupported path supplies no achieved cycle or demonstrated energy saving.
+
+Current P-10000 prescribed 15 km record letdown: 102.085855 MWh; the cycle does not close. No current letdown saving is inferred from the dated comparator.
+
+The model now holds nitrogen recovery to 173.4 kWh/t, the cited medium-pressure pure-nitrogen feed at 4 bar and feed/product flow-exergy difference, not measured airborne recovery. Averaged sunlight enters instantaneous bus power and force closure; the [zero-sunlight sensitivity](../../docs/ENERGY-CLOSURE-2026-10.md#zero-sunlight-sensitivity-of-the-selected-profiles) replays fixed selected controls. No night search was run.
+
+Record and generator: `research/analysis/energy-report-percentages.json` and `research/analysis/energy-report-percentages.mjs`.
+<!-- energy:dated-percentages:end -->
+
 **The leverage is in the exponent.** Induced rotor power goes as thrust^1.5. The earlier
 model's assumed 90% load transfer gave a stated 97% reduction; that is not an achieved
 current-cycle result. Its comparison was 1,748 MW to 52.3 → 1404.8 MW<!--f:P10000.energy.downMW-->,
-and 34.20 MWh of letdown effort against 1.420 → 117.284 → 117.168 MWh<!--f:P10000.energy.letdownMWh-->.
+and 34.20 MWh of letdown effort against 1.420 → 117.284 → 102.086 MWh<!--f:P10000.energy.letdownMWh-->.
 The arrows' current terms are supplied effort on the prescribed profile. Actual held inventory,
 not nominal bag capacity, determines the present load split.
 
@@ -255,7 +273,7 @@ Three consequences worth stating plainly:
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
 - **Every class carries one.** The earlier P-100 sizing model claimed its descent closed
-  without the bag and attributed a 1.526 MWh penalty to removing it, against 1.391 → 8.042 → 8.189<!--f:P100.cycle.eCycleMWh-->. That earlier 34% saving is not a current achieved
+  without the bag and attributed a 1.526 MWh penalty to removing it, against 1.391 → 8.042 → 7.812<!--f:P100.cycle.eCycleMWh-->. That earlier 34% saving is not a current achieved
   result; the current force ledger and actual held inventory decide closure.
 - **The mechanism cannot be over-sized.** The most water a ship can lift out of a lake is its own
   surplus lift; a bag equal to the surplus leaves the hull neutral. The physics supplies the
@@ -299,13 +317,13 @@ transcribed:
 | `OUTBOUND_TRANSIT` (drag, loaded) (current) | 34.345<!--f:P10000.energy.ledgerMWh.OUTBOUND_TRANSIT--> |
 | `letdown` (rotor work, with the anchor deployed) (earlier 1) | 1.420 |
 | `letdown` (rotor work, with the anchor deployed) (earlier 2) | 117.284 |
-| `letdown` (rotor work, with the anchor deployed) (current) | 117.168<!--f:P10000.energy.letdownMWh--> |
+| `letdown` (rotor work, with the anchor deployed) (current) | 102.086<!--f:P10000.energy.letdownMWh--> |
 | `anchor` (lifting the bag 15 m) (earlier 1) | 0.596 |
-| `anchor` (lifting the bag 15 m) (current) | 0.596<!--f:P10000.energy.anchorHoistMWh--> |
+| `anchor` (lifting the bag 15 m) (current) | 0.597<!--f:P10000.energy.anchorHoistMWh--> |
 | `recovery` (nitrogen store, credited back) | −1.900<!--f:P10000.energy.ledgerMWh.recovery--> |
 | **total** (earlier 1) | 54.325 |
 | **total** (earlier 2) | 697.586 |
-| **total** (current) | 694.174<!--f:P10000.cycle.eCycleMWh--> |
+| **total** (current) | 679.093<!--f:P10000.cycle.eCycleMWh--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -326,8 +344,8 @@ These energy figures come from the earlier flight model, which understates the f
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
-13.91 → 80.42 → 81.89 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
-8.45 → 62.50 → 62.25<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43 → 69.76 → 69.42<!--f:P10000.cycle.kwhPerTonne--> for
+13.91 → 80.42 → 78.12 kWh/t<!--f:P100.cycle.kwhPerTonne--> delivered, against
+8.45 → 62.50 → 61.68<!--f:P1000.cycle.kwhPerTonne--> for the P-1000 and 5.43 → 69.76 → 67.91<!--f:P10000.cycle.kwhPerTonne--> for
 the largest. Larger is cheaper per tonne, as the square-cube law demands — which is the reason to
 model the larger classes at all, and §6 is the reason not to assume you can build them.
 
@@ -371,13 +389,13 @@ These energy figures come from the earlier flight model, which understates the f
 |---|---:|---:|---:|---:|---:|
 | P-100 (earlier 1) |  |  | 1.391 | 1.24 |  |
 | P-100 (earlier 2) |  |  | 8.042 | 7.89 | 9.2 |
-| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.189<!--f:P100.cycle.eCycleMWh--> | 8.07<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 7.812<!--f:P100.cycle.eCycleMWh--> | 7.69<!--f:P100.energy.deficitPerCycleMWh--> | 1.5 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) |  |  | 8.454 | 7.71 |  |
 | P-1000 (earlier 2) |  |  | 62.500 | 61.76 | 9.2 |
-| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 62.251<!--f:P1000.cycle.eCycleMWh--> | 61.68<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 61.680<!--f:P1000.cycle.eCycleMWh--> | 61.11<!--f:P1000.energy.deficitPerCycleMWh--> | 1.2 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) |  |  | 54.325 | 50.23 |  |
 | P-10000 (earlier 2) |  |  | 697.586 | 693.49 | 30.2 |
-| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 694.174<!--f:P10000.cycle.eCycleMWh--> | 690.78<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 679.093<!--f:P10000.cycle.eCycleMWh--> | 675.70<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -474,15 +492,15 @@ rather than a validated panel layout. See the [generated areas](../analysis/sola
 | P-100 (earlier 1) |  |  | 0.32 |  |
 | P-100 (earlier 2) |  |  | 1.24 | 35.4 |
 | P-100 (earlier 3) | 1.20 | 0.68 | 7.89 | 9.2 |
-| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 8.07<!--f:P100.energy.deficitPerCycleMWh--> | 1.4 h<!--f:P100.energy.hoursOnBattery--> |
+| P-100 (current) | 0.21 MW<!--f:P100.energy.solarMW--> | 0.12 MWh<!--f:P100.energy.solarPerCycleMWh--> | 7.69<!--f:P100.energy.deficitPerCycleMWh--> | 1.5 h<!--f:P100.energy.hoursOnBattery--> |
 | P-1000 (earlier 1) |  |  | 3.09 |  |
 | P-1000 (earlier 2) |  |  | 7.71 | 22.9 |
 | P-1000 (earlier 3) | 5.60 | 3.30 | 61.76 | 9.2 |
-| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 61.68<!--f:P1000.energy.deficitPerCycleMWh--> | 1.1 h<!--f:P1000.energy.hoursOnBattery--> |
+| P-1000 (current) | 0.97 MW<!--f:P1000.energy.solarMW--> | 0.57 MWh<!--f:P1000.energy.solarPerCycleMWh--> | 61.11<!--f:P1000.energy.deficitPerCycleMWh--> | 1.2 h<!--f:P1000.energy.hoursOnBattery--> |
 | P-10000 (earlier 1) |  |  | 24.81 |  |
 | P-10000 (earlier 2) |  |  | 50.23 | 61.1 |
 | P-10000 (earlier 3) | 24.00 | 18.20 | 693.49 | 30.2 |
-| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 690.78<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
+| P-10000 (current) | 4.48 MW<!--f:P10000.energy.solarMW--> | 3.39 MWh<!--f:P10000.energy.solarPerCycleMWh--> | 675.70<!--f:P10000.energy.deficitPerCycleMWh--> | 2.2 h<!--f:P10000.energy.hoursOnBattery--> |
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -497,6 +515,12 @@ These energy figures come from the earlier flight model, which understates the f
 
 *Still open:* 45 W/m² is a 24-hour average — right for energy over a cycle, wrong for power at an
 instant. There is no sun at 03:00 and the storage gauge draws it anyway.
+
+<!-- energy:model-qualification:start -->
+**Current model qualification of the adjacent dated sections.** Nitrogen recovery is held to 173.4 kWh/t in the model. Its source is the medium-pressure pure-nitrogen feed at 4 bar and feed/product flow-exergy difference in [Arnaiz-del-Pozo et al.](https://doi.org/10.3390/e22090959), printed pp. 6 and 8. The earlier state description and airborne-expander estimate below are withdrawn: the cited comparator is neither a universal liquid-exergy value nor measured airborne recovery. The shared power model limits requested recovered work per tonne before the generator cap; tests cover every selectable control pair, including both extremes.
+
+Averaged sunlight is credited to instantaneous bus power before rotor allocation, so it enters force closure as well as energy accounting. The adjacent older statements that solar cannot affect published ledger results are withdrawn. The [generated zero-sunlight sensitivity](../../docs/ENERGY-CLOSURE-2026-10.md#zero-sunlight-sensitivity-of-the-selected-profiles) holds selected controls and collecting area fixed. No night search was run; it does not show that no profile closes at night.
+<!-- energy:model-qualification:end -->
 
 ### 8.3 `rtLN2` returned more work than the nitrogen contains — FIXED 2026-08-09
 
@@ -513,7 +537,7 @@ These energy figures come from the earlier flight model, which understates the f
 It is **0.20<!--f:assumptions.rtLN2-->** now: 90 kWh/t, 52% of the exergy, about what a cryogenic
 expander returns with no external heat source. `E.recovery` fell from −4.751 to
 −1.900 MWh<!--f:P10000.energy.ledgerMWh.recovery--> and the P-10000's cycle rose to
-54.325 → 697.586 → 694.174<!--f:P10000.cycle.eCycleMWh-->. The shared power model limits requested recovered work per tonne before the generator cap; tests cover every selectable control pair, including both extremes.
+54.325 → 697.586 → 679.093<!--f:P10000.cycle.eCycleMWh-->. The shared power model limits requested recovered work per tonne before the generator cap; tests cover every selectable control pair, including both extremes.
 
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
@@ -564,7 +588,7 @@ git clone … && cd airships && make check
 
 - `make golden` re-runs 151 class/mode/distance/wind combinations and diffs every output against
   `tests/golden/seed7-snapshot.json`.
-- `make test` registers 236 tests in 60 suites, with 0 known-failing markers. Corrected defects run as ordinary assertions.
+- `make test` registers 241 tests in 61 suites, with 0 known-failing markers. Corrected defects run as ordinary assertions.
 - `make test-node` runs a further 103. Until 2026-08-09 it printed "SKIPPED — no node here" on the
   machine this is developed on, so those 103 were only ever executed by CI and two breaks were
   found by a red badge after a push. They run in a browser now, against the same files, and
@@ -593,7 +617,7 @@ In descending order of how likely it is to kill the concept:
    USFS's own guidance.
 5. **An energy import chain.** The fleet is a battery being spent, and the 2026-08-09 solar
    correction made that sharper rather than softer: the smallest class now has
-   9.2 → 1.4 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
+   9.2 → 1.5 hours<!--f:P100.energy.hoursOnBattery--> of work in it and the largest
    30.2 → 2.2<!--f:P10000.energy.hoursOnBattery-->. Nothing here changes that; §7.3 is where it is
    costed.
 

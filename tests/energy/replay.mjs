@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {validateFleetDistanceRecord} from '../../research/analysis/fleet-distance-set.mjs';
-import {CLASSES,MODES,planCycle,energySummary,REQUIREMENT_UNIT} from '../../sim/index.js?v=816a54f9';
+import {CLASSES,MODES,planCycle,energySummary,REQUIREMENT_UNIT} from '../../sim/index.js?v=31a23fa3';
 let checked=0;
 const fleet=JSON.parse(fs.readFileSync('research/analysis/energy-fleet-distances.json'));
 validateFleetDistanceRecord(fleet);

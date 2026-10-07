@@ -1,8 +1,8 @@
-import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js';
+import {OPERATING_MARGIN_TEXT} from '../../sim/operating-margin.js?v=31a23fa3';
 /* Render the energy documents from model records. --emit writes only JSON to stdout. */
 import fs from 'node:fs';
-import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=816a54f9';
-import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=816a54f9';
+import {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=31a23fa3';
+import {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA} from '../../sim/index.js?v=31a23fa3';
 import {specificEnergies,batteryMass} from './energy-omissions.mjs';
 import {reportCorrection,reportModelQualification} from './energy-report-percentages.mjs';
 const read=n=>JSON.parse(fs.readFileSync(`research/analysis/${n}.json`));

@@ -15,6 +15,6 @@
   window.process = { exit(code) { document.title = code ? `PROBE FAIL(${code})` : "PROBE clean"; } };
 </script>
 <script type="module">
-  try { await import("./probe-ports.mjs?v=91301eab"); }
+  try { await import("./probe-ports.mjs?v=9096541f"); }
   catch (e) { console.error(e); document.title = "PROBE ERROR: " + e.message; }
 </script>

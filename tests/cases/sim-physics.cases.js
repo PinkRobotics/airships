@@ -9,7 +9,7 @@ import { close, describe, eq, it, ok, throws } from '../harness.js';
 import {
   BUS_CEILING, CFG, CLASSES, CLASS_ORDER, DEFAULTS, MODES, TERRAIN_MSL, WORK_ALT_MSL,
   airDensity, diskMW, dragMW, ledger, planCycle, pumpMW, resetConfig, setConfig,
-} from '../../sim/index.js?v=816a54f9';
+} from '../../sim/index.js?v=31a23fa3';
 
 const P100 = CLASSES.P100, P1000 = CLASSES.P1000, P10000 = CLASSES.P10000;
 

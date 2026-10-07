@@ -54,7 +54,11 @@ number in the vehicle (`mass-budget.md` carries it at 12 to 120 t across three c
 **The ship liquefies nitrogen on every normal cycle, and it does not need to.**
 
 <!-- anchor-budget:nitrogen-table:start -->
-Generated from the owning record during the combined regeneration.
+| | LN₂ made per cycle | energy | net of recovery | share of the current supplied cycle |
+|---|---|---|---|---|
+| P-100 | 1.83 t | 0.824 MWh | 0.658 MWh | **8.4%** |
+| P-1000 | 7.49 t | 3.371 MWh | 2.696 MWh | 4.4% |
+| P-10000 | 21.12 t | 9.504 MWh | 7.604 MWh | 1.1% |
 <!-- anchor-budget:nitrogen-table:end -->
 
 Correction, 2026-10-02: the regenerated shares are 8.0%, 4.3% and 1.1%, replacing 47.3%, 31.9% and 14.0%.
@@ -62,7 +66,8 @@ The force ledger raises the supplied cycle energy used as the denominator.
 These prescribed cycles are infeasible, so the subtraction does not establish a flight saving.
 
 <!-- anchor-budget:nitrogen-current:start -->
-Generated from the owning record during the combined regeneration.
+The current table attributes 8.4% of the P-100's supplied prescribed-cycle energy to net liquefaction. The earlier 8.0% used 8.192 MWh; corrected anchor reach gives 7.812 MWh, with the net nitrogen term still 0.658 MWh. This does not establish feasible flight.
+The [earlier energy correction](../../docs/audit/26-10-02-energy-carry.md) retains its dated figures.
 <!-- anchor-budget:nitrogen-current:end -->
 
 It is also unnecessary. `plan.js:64` makes `ln2MakeT` whatever the plant can produce in the

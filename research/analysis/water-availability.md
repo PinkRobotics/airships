@@ -50,30 +50,30 @@ The flight model assumes a buoyant fleet for these logistics quotients; this doe
 
 | Class | 15 km worked example t/h | Median leg t/h | Mean accepted fire legs t/h | Mean accepted legs, hectare-weighted t/h |
 |---|---|---|---|---|
-| P-100 | 111.7 | 229.7 | 225.3 | 243.1 |
-| P-1000 | 503.2 | 578.3 | 528.9 | 493.9 |
-| P-10000 | 6,651.6 | 5,173.4 | 5,484.2 | 4,469.5 |
+| P-100 | 106.1 | 189.5 | 176.9 | 175.9 |
+| P-1000 | 451.5 | 509.3 | 535.9 | 497.4 |
+| P-10000 | 7,357.0 | 5,741.1 | 6,103.6 | 4,984.8 |
 
 15 km worked example:
 
 | Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
 |---|---|---|---|---|---|
-| P-100 | 15.00 | ready / rapid | 65.000 | 35.000 | 5.201 |
-| P-1000 | 15.00 | ready / endurance | 214.790 | 785.210 | 26.444 |
-| P-10000 | 15.00 | ready / rapid | 2623.413 | 7376.587 | 199.983 |
+| P-100 | 15.00 | ready / balanced | 70.948 | 29.052 | 6.622 |
+| P-1000 | 15.00 | ready / endurance | 191.775 | 808.225 | 24.472 |
+| P-10000 | 15.00 | ready / rapid | 2945.496 | 7054.504 | 202.102 |
 
 Median leg:
 
 | Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |
 |---|---|---|---|---|---|
-| P-100 | 4.71 | ready / rapid | 50.000 | 50.000 | 2.021 |
-| P-1000 | 11.04 | ready / endurance | 205.529 | 794.471 | 22.616 |
-| P-10000 | 23.95 | ready / rapid | 2623.413 | 7376.587 | 237.606 |
+| P-100 | 4.71 | ready / rapid | 65.000 | 35.000 | 3.933 |
+| P-1000 | 11.04 | ready / endurance | 179.806 | 820.194 | 20.646 |
+| P-10000 | 23.95 | ready / rapid | 2945.496 | 7054.504 | 241.048 |
 
 | Class | Accepted fire legs | Not served | Stand-downs | Unavailable |
 |---|---|---|---|---|
-| P-100 | 3286 | 0 | 0 | 0 |
-| P-1000 | 2897 | 389 | 389 | 0 |
+| P-100 | 3009 | 277 | 277 | 0 |
+| P-1000 | 3286 | 0 | 0 | 0 |
 | P-10000 | 3286 | 0 | 0 | 0 |
 
 The selector is `selectServedPlan`, requested balanced, record energy basis, still air. It chooses among the served pages' bounded controls at each exact leg; this is not a global optimum. Stand-down or unavailable legs supply no rate and are excluded from both means. Geometric water access above is a separate count.
@@ -104,6 +104,38 @@ The historical-point rows are geometry only. The flown-leg rows belong to the se
 labelled invented exercise: no fire shown there happened and no aircraft flew.
 
 <!-- water-stations:start -->
+| Class | Points with an in-radius station | No selected source | Nearest station median / p90, km | Selected station median / p90, km | Selections offering an out-of-radius station |
+|---|---:|---:|---:|---:|---:|
+| P-100 | 3251 | 35 | 4.98 / 13.14 | 7.07 / 19.17 | 0 |
+| P-1000 | 3286 | 0 | 12.14 / 33.29 | 15.62 / 57.08 | 0 |
+| P-10000 | 3286 | 0 | 25.90 / 70.05 | 28.10 / 93.98 | 0 |
+
+| Class | Selection farther than nearest station, % | p90 station detour, km |
+|---|---:|---:|
+| P-100 | 47.31 | 9.50 |
+| P-1000 | 45.01 | 25.97 |
+| P-10000 | 32.65 | 30.37 |
+
+Invented exercise geometry (empty when this study is run on another view):
+
+| Hull | Invented incident | Class | Nearest station, km | Mean planned leg, km | Plan state |
+|---|---|---|---:|---:|---|
+| Condor | EX090 | P10000 | 61.21 | 47.39 | ready |
+| Osprey | EX034 | P1000 | 19.19 | 15.64 | ready |
+| Pelican | EX094 | P1000 | 15.20 | 14.30 | ready |
+| Heron | EX044 | P1000 | 30.22 | 28.87 | ready |
+| Albatross | EX057 | P1000 | 33.47 | 32.63 | ready |
+| Skimmer | EX039 | P1000 | 28.45 | 27.25 | ready |
+| Kingfisher | EX074 | P100 | 20.17 | 19.30 | ready |
+| Tern | EX116 | P100 | 20.17 | 20.05 | ready |
+| Merganser | EX049 | P100 | 6.10 | 5.73 | ready |
+| Dipper | EX045 | P100 | 7.45 | 7.33 | ready |
+| Grebe | EX097 | P100 | 14.41 | 13.98 | ready |
+| Loon | EX058 | P100 | 10.11 | 9.78 | ready |
+| Swift | EX013 | P100 | 5.53 | 5.54 | ready |
+| Petrel | EX072 | P100 | 9.44 | 9.47 | ready |
+| Kestrel | EX078 | P100 | 5.26 | 5.20 | ready |
+| Auklet | EX075 | P100 | 4.94 | 4.94 | ready |
 <!-- water-stations:end -->
 
 ## Source-area and depth limits
@@ -117,7 +149,7 @@ The shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 
 double its qualifying bodies and cut its median mapped shore-proxy distance from 23.95 to 19.01 km.
 
 <!-- logistics:drawdown:start -->
-A P-100 repeating the accepted 15 km plan for twelve hours releases 1,340 t, a geometric drawdown of 1.3 cm on a minimum-size body. Continuous supply and lake access are assumed.
+A P-100 repeating the accepted 15 km plan for twelve hours releases 1,274 t, a geometric drawdown of 1.3 cm on a minimum-size body. Continuous supply and lake access are assumed.
 <!-- logistics:drawdown:end -->
 
 ## What this analysis cannot answer, and it is the important one

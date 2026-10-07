@@ -1,5 +1,5 @@
-import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js';
-import { buildLayout } from '../../3d/model/layout.js';
+import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js?v=31a23fa3';
+import { buildLayout } from '../../3d/model/layout.js?v=9096541f';
 
 /* Production drawings consume the model's actual held-water inventory and
  * deployment flag against one nominal installed bag capacity. Real plan states
@@ -8,10 +8,10 @@ import { buildLayout } from '../../3d/model/layout.js';
  * final winch attachment are checked against independent class geometry here.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=816a54f9';
-import { anchorView } from '../../app/anchorview.js?v=816a54f9';
-import { fromMonitorState } from '../../3d/adapter/fable.js?v=91301eab';
-import { resolveClass } from '../../3d/model/config.js?v=91301eab';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=31a23fa3';
+import { anchorView } from '../../app/anchorview.js?v=31a23fa3';
+import { fromMonitorState } from '../../3d/adapter/fable.js?v=9096541f';
+import { resolveClass } from '../../3d/model/config.js?v=9096541f';
 
 describe('the anchor reads the same in the model and in the avatar', () => {
   /* Compared END TO END: the avatar's rule against what the ADAPTER actually hands the 3D model,

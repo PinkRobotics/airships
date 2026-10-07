@@ -1,6 +1,6 @@
 /* Projected collection area derived from the current capsule footprint. */
 import fs from 'node:fs';
-import {CLASSES,DEFAULTS,SOLAR_PROJECTED_FRACTION,aeroGeometry} from '../../sim/index.js?v=816a54f9';
+import {CLASSES,DEFAULTS,SOLAR_PROJECTED_FRACTION,aeroGeometry} from '../../sim/index.js?v=31a23fa3';
 if (!(SOLAR_PROJECTED_FRACTION > 0 && SOLAR_PROJECTED_FRACTION <= 1)) throw new Error('projected coverage must be a fraction in (0, 1]');
 for (const c of Object.values(CLASSES)) {
  if (!(Number.isFinite(c.solarM2) && c.solarM2 > 0 && c.solarM2 <= aeroGeometry(c).areaM2)) throw new Error(c.id + ': collector exceeds current footprint or is invalid');

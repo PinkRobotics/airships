@@ -17,6 +17,7 @@ The fifth argument selects basis, retained water and profile controls. Record ba
 | profile.js | Independent vertical controls and segment distance |
 | plan.js | Cycle timetable and integrated ledger |
 | requirements.js | Replayed requirements and finite profile search |
+| operating-margin.js | Control target, serving floor and local resource headroom |
 | state.js | State and telemetry for a prescribed mission |
 | energy-view.js | Paired basis readings for existing page binders |
 | mission.js | Mission construction |
@@ -71,7 +72,7 @@ The feasible-profile records also contain that comparison for every phase.
 ## What the profile search means
 
 The prescribed profile is retained as "as drawn".
-The result is the cheapest feasible profile found in the stated space, not a global optimum.
+The result is the cheapest reserve-eligible profile found in the stated space, not a global optimum.
 
 Cruise speed multipliers: 0.5, 0.75, 1, 1.25, 1.5.
 Modes: rapid, balanced, endurance.
@@ -94,7 +95,9 @@ The approach remains stationary.
 Segment time and ground distance are integrated; energy uses the same instantaneous ledger.
 A profile exceeding the route distance is refused.
 
-Retained water is searched at five-percent payload steps and at each bisected first closing threshold.
+Retained water is searched at five-percent payload steps and at each bisected first reserve-closing threshold.
+
+Served controls target 10% relative reserve in the profile search and exact-route selection; serving requires at least 5%. The selector first prefers controls meeting the target at this route, then minimizes kWh per delivered tonne within that tier. If none meets the target, it may use a minimum-reserve control; it never serves below the minimum. Both tiers also require unchanged physical closure. Reserve is (capacity minus demand) / capacity for unclipped bus demand, local rotor thrust and combined downward authority. Upward thrust is absent: its reserve is (surplus lift minus signed vertical drag) / max(1 tonne, absolute surplus lift). Each minimum is checked on the same seam-inclusive limit mesh and refined extrema as physical closure. Cable reach and pickup, aerodynamic credit and route geometry retain their exact rules: unavailable support earns no credit; the downward-authority reserve uses only support actually carried. Force residual is a numerical closure tolerance, not spare hardware. Battery energy, transient control, structure and weather uncertainty are outside this reserve policy. The 5% power convention follows [GSFC-STD-1000H, Table 1.06-1, page 12](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf); its extension to force and the 10% control target are this simulation's conservative selection choices, not spacecraft-standard compliance or a validated uncertainty allowance. The search target leaves room above the serving cutoff when recorded controls are replayed at other route distances.
 Printed requirements round upward at the verdict resolution and replay through the model.
 The older whole-phase dilation is named `movingPhaseRateMultiplier`; the new search does not use it.
 

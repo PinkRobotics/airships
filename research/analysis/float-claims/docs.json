@@ -710,16 +710,8 @@
     },
     {
       "file": "docs/PHYSICS.md",
-      "key": "a3ec55b9312dca9d",
-      "line": 155,
-      "class": "deferred",
-      "reason": "One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-02 hand-figure correction that follows it in docs/PHYSICS.md is retained.",
-      "owner": "energy-model"
-    },
-    {
-      "file": "docs/PHYSICS.md",
       "key": "0ebc46a34b9431ff",
-      "line": 181,
+      "line": 187,
       "class": "history",
       "reason": "The dated correction explicitly labels the two breach densities as hand figures with no generator and points to their unresolved load and material basis.",
       "text": "Correction, 2026-10-02: 0.162 kg/m³ and 3.59 kg/m³ are hand figures with no generator. Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing.",
@@ -728,7 +720,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "9e8b27cfca4a70bc",
-      "line": 205,
+      "line": 211,
       "class": "other-quantity",
       "reason": "The table compares material modulus and density for a classical shell requirement; it is not a computed bill or float result for any project hull.",
       "text": "| Material | E (GPa) | ρ_m (kg/m³) | E/ρ_m² | fraction of requirement | |---|---:|---:|---:|---:| | aluminium 6061 | 70 | 2,700 | 9,602 | 0.02× | | silicon carbide | 410 | 3,210 | 39,790 | 0.08× | | carbon/epoxy, unidirectional | 150 | 1,600 | 58,594 | 0.12× | | boron carbide | 460 | 2,520 | 72,436 | 0.14× | | beryllium | 287 | 1,850 | 83,857 | 0.17× | | diamond | 1,050 | 3,510 | 85,227 | 0.17× |"
@@ -736,7 +728,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "f7d310e9a77f501d",
-      "line": 223,
+      "line": 229,
       "class": "deferred",
       "reason": "Each row joins a current capsule allowance to historical spheroid values; splitting rows cannot separate those bases.",
       "owner": "mixed-block"
@@ -744,7 +736,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "b9210dbcdec09981",
-      "line": 233,
+      "line": 239,
       "class": "conditional",
       "reason": "The areal-density ceiling is explicitly an assumed fleet budget, and the paragraph says it does not establish whether a shell can be built.",
       "text": "σ rises with size because dry mass scales as V while area scales as V^(2/3). The lift budget allows at most σ_max = ρ_work V / S_wet — 11.08, 23.66 and 51.12 kg/m² for the three classes — and the assumed values are 47.5% of that in every case, identically, because m_dry = m_pay = L/2.1051 by construction. So the shell, the machinery, the batteries and the rotors together are given a little under half of what buoyancy would permit. That is a statement about the lift budget only. It says nothing about whether such a shell can be built."
@@ -752,7 +744,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "e650efaae304632e",
-      "line": 241,
+      "line": 247,
       "class": "history",
       "reason": "This records the displacement-resize trade from the original spheroid study; docs/PHYSICS.md dates the later capsule correction separately, in the 2026-10-02 paragraph under its areal-density table.",
       "text": "**Fail-safe float-up made this harder, and that is the price of it.** Growing the hull 22% added 14% to the wetted area without adding anything to the dry allowance, so every square metre of shell now has to come in 13% lighter than it did. The requirement is a safety property and the areal density is the hardest unsolved problem in the project; buying the first with the second is a deliberate trade and it is stated rather than netted off.",
@@ -761,7 +753,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "451c1bbcffc340c7",
-      "line": 270,
+      "line": 276,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -769,7 +761,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "5ee2543ddd270d0b",
-      "line": 348,
+      "line": 354,
       "class": "generated",
       "reason": "Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -783,7 +775,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "382335bf5ffcf978",
-      "line": 360,
+      "line": 366,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -798,17 +790,9 @@
       "date": "2026-10-02"
     },
     {
-      "file": "research/README.md",
-      "key": "7fd53798bda44f34",
-      "line": 27,
-      "class": "deferred",
-      "reason": "Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
-      "owner": "mixed-block"
-    },
-    {
       "file": "docs/PHYSICS.md",
       "key": "dd021e7abaca30e6",
-      "line": 280,
+      "line": 286,
       "class": "method",
       "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": [],
@@ -820,7 +804,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 146
+      "line": 152
     },
     {
       "file": "docs/PHYSICS.md",
@@ -828,7 +812,7 @@
       "class": "method",
       "context": [],
       "reason": "States the intended cell architecture or the symbolic lift inequality; it claims no calculated design result.",
-      "line": 188
+      "line": 194
     },
     {
       "file": "docs/FLOAT.md",
@@ -845,20 +829,6 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "1e313d903b4a4f94",
-      "line": 406,
-      "class": "generated",
-      "generator": "research/analysis/energy-documents.mjs",
-      "gate": "energydoccheck",
-      "verifier": "tools/check_energy_docs.py",
-      "region": {
-        "start": "<!-- energy:physics:start -->",
-        "end": "<!-- energy:physics:end -->"
-      },
-      "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
-    },
-    {
-      "file": "docs/PHYSICS.md",
-      "key": "6a45c9a3dd10599c",
       "line": 412,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
@@ -872,8 +842,22 @@
     },
     {
       "file": "docs/PHYSICS.md",
+      "key": "6a45c9a3dd10599c",
+      "line": 418,
+      "class": "generated",
+      "generator": "research/analysis/energy-documents.mjs",
+      "gate": "energydoccheck",
+      "verifier": "tools/check_energy_docs.py",
+      "region": {
+        "start": "<!-- energy:physics:start -->",
+        "end": "<!-- energy:physics:end -->"
+      },
+      "reason": "Reviewed hull-only energy text is inside its exactly regenerated region; it does not establish structural float or flight."
+    },
+    {
+      "file": "docs/PHYSICS.md",
       "key": "0b5195293e15ccdd",
-      "line": 438,
+      "line": 444,
       "class": "generated",
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
@@ -909,7 +893,7 @@
     {
       "file": "docs/PHYSICS.md",
       "key": "51a85d6713eb374a",
-      "line": 258,
+      "line": 264,
       "class": "generated",
       "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -1111,6 +1095,36 @@
       ],
       "reason": "Current unbuilt structural share and hierarchy break-even comparison match generated helium figures; former figures are explicitly dated correction context.",
       "line": 123
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "key": "594a1aa6a090e5f2",
+      "line": 161,
+      "class": "deferred",
+      "reason": "Q cooling question preserves the original sealed-cell and structural deferrals. One inventory block joins geometry and ungenerated breach figures to a cryogenic-plant necessity claim. The latter belongs to the energy revision; the 2026-10-0",
+      "owner": "energy-model"
+    },
+    {
+      "file": "docs/PHYSICS.md",
+      "class": "generated",
+      "generator": "tools/gen_editorial_prose.py",
+      "gate": "analysischeck",
+      "verifier": "tools/check_analysis.py",
+      "region": {
+        "start": "<!-- editorial:current-hull:start -->",
+        "end": "<!-- editorial:current-hull:end -->"
+      },
+      "reason": "Exact record-derived region is freshly regenerated by its named gate; this computational ownership does not establish physical float or flight.",
+      "key": "9b07519d7aa2b8f8",
+      "line": 140
+    },
+    {
+      "file": "research/README.md",
+      "key": "e28685a36c42f0a5",
+      "line": 27,
+      "class": "deferred",
+      "reason": "Station answers describe a geometric screen and preserve the budget's physical limitations. Structural rows are interleaved with delivery, descent and gas-comparison results; no contiguous structural run covers the table.",
+      "owner": "mixed-block"
     }
   ]
 }

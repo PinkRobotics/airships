@@ -1,0 +1,475 @@
+{
+  "generator": "research/analysis/energy-zero-sun.mjs",
+  "scope": "Replay every printed selected profile at the same hardware, collecting area, route, basis, mode and controls, changing only solarWPerM2 to zero. Averaged sunlight is credited to instantaneous bus supply before rotor thrust allocation. Unsupported energy is diagnostic supplied effort.",
+  "limitation": "No night search was run. This record does not show that no profile closes at night, and establishes no flight performance.",
+  "rows": [
+    {
+      "input": {
+        "class": "P100",
+        "km": 15,
+        "basis": "record",
+        "mode": "balanced",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 0.75,
+          "ballastT": 29.052
+        }
+      },
+      "collectorM2": 4590.705027635689,
+      "averagedSolarMW": 0.206581726243606,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        },
+        "cycleMin": 40.107852723311545,
+        "suppliedMWh": 6.622158442923587,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        },
+        "cycleMin": 40.107852723311545,
+        "suppliedMWh": 6.622158442923587,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P100",
+        "km": 15,
+        "basis": "favourable",
+        "mode": "balanced",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 0.75,
+          "ballastT": 30
+        }
+      },
+      "collectorM2": 4590.705027635689,
+      "averagedSolarMW": 0.206581726243606,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        },
+        "cycleMin": 40.07625272331155,
+        "suppliedMWh": 4.843459432804109,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.630859375,
+          "limits": []
+        },
+        "cycleMin": 40.07625272331155,
+        "suppliedMWh": 4.843459432804109,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P100",
+        "km": 60,
+        "basis": "record",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 10.696
+        }
+      },
+      "collectorM2": 4590.705027635689,
+      "averagedSolarMW": 0.206581726243606,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4736328125,
+          "limits": []
+        },
+        "cycleMin": 63.814554816709304,
+        "suppliedMWh": 12.706219266998506,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4736328125,
+          "limits": []
+        },
+        "cycleMin": 63.814554816709304,
+        "suppliedMWh": 12.706219266998506,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P100",
+        "km": 60,
+        "basis": "favourable",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 9.07
+        }
+      },
+      "collectorM2": 4590.705027635689,
+      "averagedSolarMW": 0.206581726243606,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.0009765625,
+          "limits": []
+        },
+        "cycleMin": 74.83514578005116,
+        "suppliedMWh": 10.03477308740956,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.4210854715202004e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.0009765625,
+          "limits": []
+        },
+        "cycleMin": 74.83514578005116,
+        "suppliedMWh": 10.03477308740956,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P1000",
+        "km": 15,
+        "basis": "record",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 808.225
+        }
+      },
+      "collectorM2": 21490.569883090575,
+      "averagedSolarMW": 0.9670756447390759,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        },
+        "cycleMin": 25.48344994058229,
+        "suppliedMWh": 24.472360372481326,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 5.684341886080802e-14,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.599999999999,
+          "limits": []
+        },
+        "cycleMin": 25.48344994058229,
+        "suppliedMWh": 24.472360372481326,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P1000",
+        "km": 15,
+        "basis": "favourable",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 808.225
+        }
+      },
+      "collectorM2": 21490.569883090575,
+      "averagedSolarMW": 0.9670756447390759,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -1.1368683772161603e-13,
+          "phase": "WATER_RELEASE",
+          "progress": 0.82421875,
+          "limits": []
+        },
+        "cycleMin": 25.48344994058229,
+        "suppliedMWh": 19.81521794008433,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -1.1368683772161603e-13,
+          "phase": "WATER_RELEASE",
+          "progress": 0.82421875,
+          "limits": []
+        },
+        "cycleMin": 25.48344994058229,
+        "suppliedMWh": 19.81521794008433,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P1000",
+        "km": 60,
+        "basis": "record",
+        "mode": "endurance",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.5,
+          "ballastT": 755.174
+        }
+      },
+      "collectorM2": 21490.569883090575,
+      "averagedSolarMW": 0.9670756447390759,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        },
+        "cycleMin": 73.90651996434937,
+        "suppliedMWh": 65.35090111647223,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        },
+        "cycleMin": 73.90651996434937,
+        "suppliedMWh": 65.35090111647223,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P1000",
+        "km": 60,
+        "basis": "favourable",
+        "mode": "endurance",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.5,
+          "ballastT": 755.174
+        }
+      },
+      "collectorM2": 21490.569883090575,
+      "averagedSolarMW": 0.9670756447390759,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        },
+        "cycleMin": 73.90651996434937,
+        "suppliedMWh": 54.09893365845424,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": 1.1368683772161603e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.646484375,
+          "limits": []
+        },
+        "cycleMin": 73.90651996434937,
+        "suppliedMWh": 54.09893365845424,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P10000",
+        "km": 15,
+        "basis": "record",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7054.504
+        }
+      },
+      "collectorM2": 99456.67593095289,
+      "averagedSolarMW": 4.4755504168928795,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 24.022110994819336,
+        "suppliedMWh": 202.10225864122967,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 24.022110994819336,
+        "suppliedMWh": 202.10225864122967,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P10000",
+        "km": 15,
+        "basis": "favourable",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1.25,
+          "ballastT": 7054.504
+        }
+      },
+      "collectorM2": 99456.67593095289,
+      "averagedSolarMW": 4.4755504168928795,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 24.022110994819336,
+        "suppliedMWh": 184.20863583156236,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 24.022110994819336,
+        "suppliedMWh": 184.20863583156236,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P10000",
+        "km": 60,
+        "basis": "record",
+        "mode": "rapid",
+        "options": {
+          "basis": "record",
+          "speedMultiplier": 1.25,
+          "ballastT": 7006.366
+        }
+      },
+      "collectorM2": 99456.67593095289,
+      "averagedSolarMW": 4.4755504168928795,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 58.07126950882026,
+        "suppliedMWh": 402.7449803506874,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 58.07126950882026,
+        "suppliedMWh": 402.7449803506874,
+        "bindingLimits": []
+      }
+    },
+    {
+      "input": {
+        "class": "P10000",
+        "km": 60,
+        "basis": "favourable",
+        "mode": "rapid",
+        "options": {
+          "basis": "favourable",
+          "speedMultiplier": 1,
+          "ballastT": 6990.332
+        }
+      },
+      "collectorM2": 99456.67593095289,
+      "averagedSolarMW": 4.4755504168928795,
+      "current": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 70.31283744158088,
+        "suppliedMWh": 368.5711874673336,
+        "bindingLimits": []
+      },
+      "zeroSun": {
+        "feasible": true,
+        "worst": {
+          "unheldT": -9.094947017729282e-13,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.5341796875,
+          "limits": []
+        },
+        "cycleMin": 70.31283744158088,
+        "suppliedMWh": 368.5711874673336,
+        "bindingLimits": []
+      }
+    }
+  ]
+}

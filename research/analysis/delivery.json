@@ -339,48 +339,48 @@
  },
  "classes": {
   "P100": {
-   "payloadT": 65,
+   "payloadT": 70.94800000000001,
    "workedExamplePlan": {
     "km": 15,
     "state": "ready",
     "reason": null,
-    "mode": "rapid",
+    "mode": "balanced",
     "options": {
      "speedMultiplier": 0.75,
-     "ballastT": 35,
+     "ballastT": 29.052,
      "basis": "record"
     },
     "feasible": true,
-    "releasedT": 65,
-    "retainedT": 35,
-    "cycleMin": 34.91381074168799,
-    "suppliedMWh": 5.201373775171115,
-    "tph": 111.70364727168838
+    "releasedT": 70.94800000000001,
+    "retainedT": 29.052,
+    "cycleMin": 40.107852723311545,
+    "suppliedMWh": 6.622158442923587,
+    "tph": 106.13582405835977
    },
    "runKm": 1.2,
-   "releaseSeconds": 130,
-   "releaseRateM3s": 0.5,
+   "releaseSeconds": 142.0,
+   "releaseRateM3s": 0.498853125,
    "coverageLevelBySwath": {
-    "20 m": 6.6,
-    "30 m": 4.4,
-    "50 m": 2.7,
-    "80 m": 1.7
+    "20 m": 7.3,
+    "30 m": 4.8,
+    "50 m": 2.9,
+    "80 m": 1.8
    },
    "equivalentLoads": {
-    "SEAT": 21.5,
-    "LAT (BAe-146)": 5.7,
-    "VLAT (DC-10)": 1.4
+    "SEAT": 23.4,
+    "LAT (BAe-146)": 6.3,
+    "VLAT (DC-10)": 1.6
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 2.66,
-    "CL4, 30 m swath": 1.33,
-    "CL8, 30 m swath": 0.66
+    "CL2, 30 m swath": 2.9,
+    "CL4, 30 m swath": 1.45,
+    "CL8, 30 m swath": 0.73
    },
    "_lineKmAtCL4": {
-    "20 m swath": 1.99,
-    "30 m swath": 1.33,
-    "50 m swath": 0.8,
-    "80 m swath": 0.5
+    "20 m swath": 2.18,
+    "30 m swath": 1.45,
+    "50 m swath": 0.87,
+    "80 m swath": 0.54
    },
    "atRealMedianLeg": {
     "legKm": 4.71,
@@ -390,57 +390,90 @@
      "reason": null,
      "mode": "rapid",
      "options": {
-      "speedMultiplier": 1,
-      "ballastT": 50,
+      "speedMultiplier": 1.5,
+      "verticalProfile": {
+       "climbRateMps": 2,
+       "letdownRateMps": 2,
+       "climbAirspeedMps": 5,
+       "letdownAirspeedMps": 5
+      },
+      "ballastT": 35,
       "basis": "record"
      },
      "feasible": true,
-     "releasedT": 50,
-     "retainedT": 50,
-     "cycleMin": 13.05788576300085,
-     "suppliedMWh": 2.021185450659828,
-     "tph": 229.7462280226417
+     "releasedT": 65,
+     "retainedT": 35,
+     "cycleMin": 20.58417287519923,
+     "suppliedMWh": 3.9329320811398447,
+     "tph": 189.46595637558514
     },
-    "tph": 229.7462280226417,
-    "tonnesPer24h": 5514,
-    "suppliedMWhPer24h": 222.89267204320257,
-    "latLoadsPer24h": 486,
-    "lineKmPer24hAtCL2_30mSwath": 225.5,
-    "lineKmPer24hAtCL4_30mSwath": 112.8,
-    "lineKmPer24hAtCL6_30mSwath": 75.2,
-    "lineKmPer24hAtCL8_30mSwath": 56.4,
-    "pctOfPerimetersLinedDailyAtCL2": 95.3,
-    "pctOfPerimetersLinedDailyAtCL4": 85.5,
-    "pctOfPerimetersLinedDailyAtCL6": 73.5,
-    "pctOfPerimetersLinedDailyAtCL8": 64.9
+    "tph": 189.46595637558514,
+    "tonnesPer24h": 4547,
+    "suppliedMWhPer24h": 275.13479561109455,
+    "latLoadsPer24h": 401,
+    "lineKmPer24hAtCL2_30mSwath": 186.0,
+    "lineKmPer24hAtCL4_30mSwath": 93.0,
+    "lineKmPer24hAtCL6_30mSwath": 62.0,
+    "lineKmPer24hAtCL8_30mSwath": 46.5,
+    "pctOfPerimetersLinedDailyAtCL2": 93.8,
+    "pctOfPerimetersLinedDailyAtCL4": 80.0,
+    "pctOfPerimetersLinedDailyAtCL6": 67.6,
+    "pctOfPerimetersLinedDailyAtCL8": 56.7
    },
    "ownUpwash": {
     "start of release": {
-     "heldT": 34.4,
-     "inducedUpwashAtDiscMs": 7.8,
-     "wakeMs": 15.7,
-     "airMassFlowKgS": 21525
+     "heldT": 33.9,
+     "altitudeAglM": 450,
+     "densityKgM3": 1.0633339390546592,
+     "waterAboardT": 100,
+     "inducedUpwashAtDiscMs": 7.9,
+     "wakeMs": 15.8,
+     "airMassFlowKgS": 21035
     },
     "end of release": {
-     "heldT": 137.4,
-     "inducedUpwashAtDiscMs": 15.7,
-     "wakeMs": 31.3,
-     "airMassFlowKgS": 43051
+     "heldT": 101.9,
+     "altitudeAglM": 580,
+     "densityKgM3": 1.0496819433395959,
+     "waterAboardT": 29.051999999999992,
+     "inducedUpwashAtDiscMs": 13.8,
+     "wakeMs": 27.6,
+     "airMassFlowKgS": 36212
+    },
+    "state": "ready",
+    "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+    "acceptedPlan": {
+     "km": 15,
+     "state": "ready",
+     "reason": null,
+     "mode": "balanced",
+     "options": {
+      "speedMultiplier": 0.75,
+      "ballastT": 29.052,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 70.94800000000001,
+     "retainedT": 29.052,
+     "cycleMin": 40.107852723311545,
+     "suppliedMWh": 6.622158442923587,
+     "tph": 106.13582405835977
     },
     "inflowBelowHullMs": {
-     "25 m below": 9.97,
-     "50 m below": 2.49,
-     "100 m below": 0.62,
-     "200 m below": 0.16,
-     "300 m below": 0.07,
-     "400 m below": 0.04
+     "25 m below": 8.78,
+     "50 m below": 2.2,
+     "100 m below": 0.55,
+     "200 m below": 0.14,
+     "300 m below": 0.06,
+     "400 m below": 0.03
     },
-    "waterReleaseKgS": 500.0,
-    "airToWaterMassRatio": 86
+    "waterReleaseKgS": 500,
+    "waterBenchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+    "acceptedMeanWaterReleaseKgS": 498.8531250000001,
+    "airToWaterMassRatio": 72.4
    }
   },
   "P1000": {
-   "payloadT": 214.78999999999996,
+   "payloadT": 191.77499999999998,
    "workedExamplePlan": {
     "km": 15,
     "state": "ready",
@@ -448,40 +481,40 @@
     "mode": "endurance",
     "options": {
      "speedMultiplier": 1.5,
-     "ballastT": 785.21,
+     "ballastT": 808.225,
      "basis": "record"
     },
     "feasible": true,
-    "releasedT": 214.78999999999996,
-    "retainedT": 785.21,
-    "cycleMin": 25.611311051693406,
-    "suppliedMWh": 26.443958049633892,
-    "tph": 503.1917332926965
+    "releasedT": 191.77499999999998,
+    "retainedT": 808.225,
+    "cycleMin": 25.48344994058229,
+    "suppliedMWh": 24.472360372481326,
+    "tph": 451.52834591975494
    },
    "runKm": 2.5,
    "releaseSeconds": 152.0,
-   "releaseRateM3s": 1.4176139999999997,
+   "releaseRateM3s": 1.2657149999999997,
    "coverageLevelBySwath": {
-    "20 m": 10.5,
-    "30 m": 7.0,
-    "50 m": 4.2,
-    "80 m": 2.6
+    "20 m": 9.4,
+    "30 m": 6.3,
+    "50 m": 3.8,
+    "80 m": 2.4
    },
    "equivalentLoads": {
-    "SEAT": 70.9,
-    "LAT (BAe-146)": 18.9,
-    "VLAT (DC-10)": 4.7
+    "SEAT": 63.3,
+    "LAT (BAe-146)": 16.9,
+    "VLAT (DC-10)": 4.2
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 8.79,
-    "CL4, 30 m swath": 4.39,
-    "CL8, 30 m swath": 2.2
+    "CL2, 30 m swath": 7.84,
+    "CL4, 30 m swath": 3.92,
+    "CL8, 30 m swath": 1.96
    },
    "_lineKmAtCL4": {
-    "20 m swath": 6.59,
-    "30 m swath": 4.39,
-    "50 m swath": 2.64,
-    "80 m swath": 1.65
+    "20 m swath": 5.88,
+    "30 m swath": 3.92,
+    "50 m swath": 2.35,
+    "80 m swath": 1.47
    },
    "atRealMedianLeg": {
     "legKm": 11.04,
@@ -492,56 +525,83 @@
      "mode": "endurance",
      "options": {
       "speedMultiplier": 1.5,
-      "ballastT": 794.471,
+      "ballastT": 820.194,
       "basis": "record"
      },
      "feasible": true,
-     "releasedT": 205.529,
-     "retainedT": 794.471,
-     "cycleMin": 21.324566934046345,
-     "suppliedMWh": 22.61564488843703,
-     "tph": 578.2879454546581
+     "releasedT": 179.80600000000004,
+     "retainedT": 820.194,
+     "cycleMin": 21.18166137849079,
+     "suppliedMWh": 20.646286579913102,
+     "tph": 509.3254871383786
     },
-    "tph": 578.2879454546581,
-    "tonnesPer24h": 13879,
-    "suppliedMWhPer24h": 1527.1835878342881,
-    "latLoadsPer24h": 1223,
-    "lineKmPer24hAtCL2_30mSwath": 567.7,
-    "lineKmPer24hAtCL4_30mSwath": 283.9,
-    "lineKmPer24hAtCL6_30mSwath": 189.2,
-    "lineKmPer24hAtCL8_30mSwath": 141.9,
-    "pctOfPerimetersLinedDailyAtCL2": 98.9,
-    "pctOfPerimetersLinedDailyAtCL4": 96.6,
-    "pctOfPerimetersLinedDailyAtCL6": 94.0,
-    "pctOfPerimetersLinedDailyAtCL8": 89.8
+    "tph": 509.3254871383786,
+    "tonnesPer24h": 12224,
+    "suppliedMWhPer24h": 1403.603435246362,
+    "latLoadsPer24h": 1077,
+    "lineKmPer24hAtCL2_30mSwath": 500.0,
+    "lineKmPer24hAtCL4_30mSwath": 250.0,
+    "lineKmPer24hAtCL6_30mSwath": 166.7,
+    "lineKmPer24hAtCL8_30mSwath": 125.0,
+    "pctOfPerimetersLinedDailyAtCL2": 98.5,
+    "pctOfPerimetersLinedDailyAtCL4": 95.9,
+    "pctOfPerimetersLinedDailyAtCL6": 91.7,
+    "pctOfPerimetersLinedDailyAtCL8": 87.3
    },
    "ownUpwash": {
     "start of release": {
-     "heldT": 343.6,
-     "inducedUpwashAtDiscMs": 11.3,
-     "wakeMs": 22.6,
-     "airMassFlowKgS": 149153
+     "heldT": 339.3,
+     "altitudeAglM": 450,
+     "densityKgM3": 1.0633339390546592,
+     "waterAboardT": 1000,
+     "inducedUpwashAtDiscMs": 11.4,
+     "wakeMs": 22.8,
+     "airMassFlowKgS": 145733
     },
     "end of release": {
-     "heldT": 1374.4,
-     "inducedUpwashAtDiscMs": 22.6,
-     "wakeMs": 45.2,
-     "airMassFlowKgS": 298307
+     "heldT": 501.1,
+     "altitudeAglM": 580,
+     "densityKgM3": 1.0496819433395959,
+     "waterAboardT": 808.225,
+     "inducedUpwashAtDiscMs": 14.0,
+     "wakeMs": 27.9,
+     "airMassFlowKgS": 175949
+    },
+    "state": "ready",
+    "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+    "acceptedPlan": {
+     "km": 15,
+     "state": "ready",
+     "reason": null,
+     "mode": "endurance",
+     "options": {
+      "speedMultiplier": 1.5,
+      "ballastT": 808.225,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 191.77499999999998,
+     "retainedT": 808.225,
+     "cycleMin": 25.48344994058229,
+     "suppliedMWh": 24.472360372481326,
+     "tph": 451.52834591975494
     },
     "inflowBelowHullMs": {
-     "25 m below": 69.06,
-     "50 m below": 17.26,
-     "100 m below": 4.32,
-     "200 m below": 1.08,
-     "300 m below": 0.48,
-     "400 m below": 0.27
+     "25 m below": 42.68,
+     "50 m below": 10.67,
+     "100 m below": 2.67,
+     "200 m below": 0.67,
+     "300 m below": 0.3,
+     "400 m below": 0.17
     },
-    "waterReleaseKgS": 3000.0,
-    "airToWaterMassRatio": 99
+    "waterReleaseKgS": 3000,
+    "waterBenchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+    "acceptedMeanWaterReleaseKgS": 1265.7149999999997,
+    "airToWaterMassRatio": 58.6
    }
   },
   "P10000": {
-   "payloadT": 2623.4129999999996,
+   "payloadT": 2945.496,
    "workedExamplePlan": {
     "km": 15,
     "state": "ready",
@@ -549,40 +609,40 @@
     "mode": "rapid",
     "options": {
      "speedMultiplier": 1.25,
-     "ballastT": 7376.587,
+     "ballastT": 7054.504,
      "basis": "record"
     },
     "feasible": true,
-    "releasedT": 2623.4129999999996,
-    "retainedT": 7376.587,
-    "cycleMin": 23.664240994819334,
-    "suppliedMWh": 199.98267851480156,
-    "tph": 6651.587939560775
+    "releasedT": 2945.496,
+    "retainedT": 7054.504,
+    "cycleMin": 24.022110994819336,
+    "suppliedMWh": 202.1022586412297,
+    "tph": 7356.962093719156
    },
    "runKm": 5,
    "releaseSeconds": 214.0,
-   "releaseRateM3s": 12.256257609374998,
+   "releaseRateM3s": 13.760989125,
    "coverageLevelBySwath": {
-    "20 m": 64.4,
-    "30 m": 42.9,
-    "50 m": 25.8,
-    "80 m": 16.1
+    "20 m": 72.3,
+    "30 m": 48.2,
+    "50 m": 28.9,
+    "80 m": 18.1
    },
    "equivalentLoads": {
-    "SEAT": 866.4,
-    "LAT (BAe-146)": 231.1,
-    "VLAT (DC-10)": 57.8
+    "SEAT": 972.8,
+    "LAT (BAe-146)": 259.5,
+    "VLAT (DC-10)": 64.9
    },
    "lineKmAtCL": {
-    "CL2, 30 m swath": 107.31,
-    "CL4, 30 m swath": 53.65,
-    "CL8, 30 m swath": 26.83
+    "CL2, 30 m swath": 120.48,
+    "CL4, 30 m swath": 60.24,
+    "CL8, 30 m swath": 30.12
    },
    "_lineKmAtCL4": {
-    "20 m swath": 80.48,
-    "30 m swath": 53.65,
-    "50 m swath": 32.19,
-    "80 m swath": 20.12
+    "20 m swath": 90.36,
+    "30 m swath": 60.24,
+    "50 m swath": 36.14,
+    "80 m swath": 22.59
    },
    "atRealMedianLeg": {
     "legKm": 23.95,
@@ -593,24 +653,24 @@
      "mode": "rapid",
      "options": {
       "speedMultiplier": 1.25,
-      "ballastT": 7376.587,
+      "ballastT": 7054.504,
       "basis": "record"
      },
      "feasible": true,
-     "releasedT": 2623.4129999999996,
-     "retainedT": 7376.587,
-     "cycleMin": 30.425602395566923,
-     "suppliedMWh": 237.60583354620277,
-     "tph": 5173.43183393911
+     "releasedT": 2945.496,
+     "retainedT": 7054.504,
+     "cycleMin": 30.783472395566925,
+     "suppliedMWh": 241.0476014383405,
+     "tph": 5741.059934013505
     },
-    "tph": 5173.43183393911,
-    "tonnesPer24h": 124162,
-    "suppliedMWhPer24h": 11245.542351410742,
-    "latLoadsPer24h": 10939,
-    "lineKmPer24hAtCL2_30mSwath": 5078.7,
-    "lineKmPer24hAtCL4_30mSwath": 2539.4,
-    "lineKmPer24hAtCL6_30mSwath": 1692.9,
-    "lineKmPer24hAtCL8_30mSwath": 1269.7,
+    "tph": 5741.059934013505,
+    "tonnesPer24h": 137785,
+    "suppliedMWhPer24h": 11275.808707051414,
+    "latLoadsPer24h": 12140,
+    "lineKmPer24hAtCL2_30mSwath": 5636.0,
+    "lineKmPer24hAtCL4_30mSwath": 2818.0,
+    "lineKmPer24hAtCL6_30mSwath": 1878.7,
+    "lineKmPer24hAtCL8_30mSwath": 1409.0,
     "pctOfPerimetersLinedDailyAtCL2": 100.0,
     "pctOfPerimetersLinedDailyAtCL4": 100.0,
     "pctOfPerimetersLinedDailyAtCL6": 100.0,
@@ -618,27 +678,54 @@
    },
    "ownUpwash": {
     "start of release": {
-     "heldT": 3435.9,
-     "inducedUpwashAtDiscMs": 9.8,
-     "wakeMs": 19.6,
-     "airMassFlowKgS": 1722250
+     "heldT": 3393.3,
+     "altitudeAglM": 450,
+     "densityKgM3": 1.0633339390546592,
+     "waterAboardT": 10000,
+     "inducedUpwashAtDiscMs": 9.9,
+     "wakeMs": 19.8,
+     "airMassFlowKgS": 1682784
     },
     "end of release": {
-     "heldT": 13743.6,
-     "inducedUpwashAtDiscMs": 19.6,
-     "wakeMs": 39.1,
-     "airMassFlowKgS": 3444499
+     "heldT": 6038.5,
+     "altitudeAglM": 580,
+     "densityKgM3": 1.0496819433395959,
+     "waterAboardT": 7054.504,
+     "inducedUpwashAtDiscMs": 13.3,
+     "wakeMs": 26.6,
+     "airMassFlowKgS": 2230342
+    },
+    "state": "ready",
+    "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+    "acceptedPlan": {
+     "km": 15,
+     "state": "ready",
+     "reason": null,
+     "mode": "rapid",
+     "options": {
+      "speedMultiplier": 1.25,
+      "ballastT": 7054.504,
+      "basis": "record"
+     },
+     "feasible": true,
+     "releasedT": 2945.496,
+     "retainedT": 7054.504,
+     "cycleMin": 24.022110994819336,
+     "suppliedMWh": 202.1022586412297,
+     "tph": 7356.962093719156
     },
     "inflowBelowHullMs": {
-     "25 m below": 797.4,
-     "50 m below": 199.35,
-     "100 m below": 49.84,
-     "200 m below": 12.46,
-     "300 m below": 5.54,
-     "400 m below": 3.11
+     "25 m below": 541.07,
+     "50 m below": 135.27,
+     "100 m below": 33.82,
+     "200 m below": 8.45,
+     "300 m below": 3.76,
+     "400 m below": 2.11
     },
-    "waterReleaseKgS": 15000.0,
-    "airToWaterMassRatio": 230
+    "waterReleaseKgS": 15000,
+    "waterBenchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+    "acceptedMeanWaterReleaseKgS": 13760.989125,
+    "airToWaterMassRatio": 148.7
    }
   }
  },

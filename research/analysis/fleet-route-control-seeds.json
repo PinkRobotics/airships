@@ -1,0 +1,17 @@
+{
+  "source": "Frozen exact baseline controls for finite-pool route coverage; mathematical inputs, no aircraft flew.",
+  "baseCommit": "0a81bb37821bb1d3badc66440affbbe9ac2d87ae",
+  "capture": {
+    "file": "tests/energy/served-route-distances.json",
+    "sha256": "93c682f56fd78a7018ac22148412cd680ee86cf9e3c4fb28806f51a44cab7a92",
+    "mission": 12
+  },
+  "study": {
+    "file": "research/analysis/energy-feasible.json",
+    "sha256": "0573eb873d110074c0c391eb94a86e41d14fe7d43249b240ed07eb3ae5af8f91",
+    "selection": "Best record-basis profiles at the captured baseline minimum"
+  },
+  "reason": "A control is retained only when the generated pool without baseline seeds lacks that exact route; every served use still requires exact replay and the reserve floor.",
+  "rerun": "python3 -B series/route-seeds.py --prune",
+  "rows": []
+}

@@ -1,6 +1,6 @@
 /* Adversarial checks of the page selector's acceptance, distinct from model equations. */
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,CFG,PHASES,planCycle,selectServedPlan,auditServedPlan,stateAt,missionReady,workedFigures} from '../../sim/index.js?v=816a54f9';
+import {CLASSES,MODES,CFG,PHASES,planCycle,selectServedPlan,auditServedPlan,stateAt,missionReady,workedFigures} from '../../sim/index.js?v=31a23fa3';
 const cls=CLASSES.P100,km=15,selection=selectServedPlan(cls,km,null,'balanced');
 assert.equal(selection.state,'ready');
 const inactive=selectServedPlan(CLASSES.P10000,3,null,'balanced',[]);

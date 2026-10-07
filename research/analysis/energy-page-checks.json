@@ -1,16 +1,18 @@
 {
   "producer": "tools/gen_energy_page_checks.mjs",
   "model": {
-    "sim/config.js": "83ed182800f2493a8cb0da02a5c01c45963203796c3ff44344f65c971e482395",
+    "research/analysis/fleet-route-control-seeds.json": "6426e5b24e02cac232a4c612da8afb552479edb2c2a9817e5977bec04691bdf5",
+    "sim/config.js": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e",
     "sim/atmosphere.js": "19df19667cedc6dd7f345c4c214bbfc3bcc8caa897afc51c0e697314b255f8af",
     "sim/physics.js": "a9b57133f7428ca5873c5e6d5a54828a387f40c0d5928a955bba94ece6d907ed",
-    "sim/power.js": "7bcd63ff017cc21969d6904f53b920b4b306e64433a1c74ddc1a09f3ec17fe4c",
+    "sim/power.js": "d37558ead1060947df9e45b219f9bf00a86aa89ce03a09a0be7e390992d79bc1",
     "sim/profile.js": "a5b0f55c57a79aa4df77ac7d40dd8335eb789756d9d4175f9d20569095378e11",
-    "sim/plan.js": "1ed75ce8200136aaa8d66e95f73d21b3b3983ecba6d50e28dfc54f1a72dea355",
-    "sim/requirements.js": "b625658eb7b0b76845e51af20a219fd5262ad68afc458efe40473c7acd7da108"
+    "sim/plan.js": "74dd5df420a5aaad0a4670764bda3c0a26c465ac41f98ad923cc1ba3b9f4c748",
+    "sim/requirements.js": "7fe7e6385eb45170ddc658e47792e04a232147d1d63ce62a292eb216b0597693",
+    "sim/operating-margin.js": "12f9d7ef608d71ce16270e3599a0c0391e367572f34ae73461269eab7f552fac"
   },
   "checkSources": {
-    "tests/energy/closure.mjs": "5cdaf8919ac79f46606bf833a4edc6c844b48342dbda9d6c625c97465da16bb3",
+    "tests/energy/closure.mjs": "d3eb24beced27b9eb2cb09d1b1e7e0ed335c69611eeb1503be9dfdfc5f570db9",
     "tests/energy/model.mjs": "c1dae3433f6ce0d867ac8eb6db0896315510bb8ade3fc45ae0f756e7196eda92"
   },
   "report": {
@@ -18,9 +20,9 @@
     "N": 1000,
     "plans": 270,
     "instants": 1621620,
-    "feasiblePlans": 33,
+    "feasiblePlans": 35,
     "rotorUpInstants": 0,
-    "bagInstants": 153630,
+    "bagInstants": 192240,
     "aeroInstants": 580205,
     "violations": {},
     "worst": {},
@@ -34,11 +36,11 @@
     },
     "phaseKeyedConsumers": {},
     "hoistWorst": {
-      "rel": 0.01165027080865376,
-      "tag": "P1000/balanced/5/wind0/record",
-      "hoistMWh": 0.059409992912788645,
-      "expect": 0.06011029411764706,
-      "maxBagT": 1250
+      "rel": 0.021343974019496566,
+      "tag": "P1000/endurance/120/wind40/record",
+      "hoistMWh": 0.05545210340888528,
+      "expect": 0.05666148466549164,
+      "maxBagT": 1178.2816383038016
     },
     "verdictMismatches": []
   },
@@ -52,10 +54,10 @@
       "planSteps": 96,
       "peak": {
         "phase": "SOURCE_APPROACH",
-        "progress": 0.6927083333333334,
-        "rotorMW": 30.902977429146574,
+        "progress": 0.5989583333333334,
+        "rotorMW": 30.638685340200457,
         "supplyMW": 36.13599349094949,
-        "grossMW": 31.180697429146573
+        "grossMW": 30.916405340200455
       }
     },
     {
@@ -67,10 +69,10 @@
       "planSteps": 96,
       "peak": {
         "phase": "SOURCE_APPROACH",
-        "progress": 0.6927083333333334,
-        "rotorMW": 30.902977429146574,
+        "progress": 0.5989583333333334,
+        "rotorMW": 30.638685340200457,
         "supplyMW": 36.13599349094949,
-        "grossMW": 31.180697429146573
+        "grossMW": 30.916405340200455
       }
     }
   ]

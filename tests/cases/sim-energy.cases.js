@@ -6,7 +6,7 @@ import './energy-assumptions.cases.js';
 import './nitrogen-ceiling.cases.js';
 import './energy-planner.cases.js';
 import {describe,it,ok,close,eq,deepEq} from '../harness.js';
-import {CFG,WORK_ALT_MSL,ledger,CLASSES,CLASS_ORDER,MODES,PHASES,drawAt,planCycle,integrateCycle,inducedMW,diskMW,stateAt,buildMission,findSource,resetConfig,setSeed} from '../../sim/index.js?v=816a54f9';
+import {CFG,WORK_ALT_MSL,ledger,CLASSES,CLASS_ORDER,MODES,PHASES,drawAt,planCycle,integrateCycle,inducedMW,diskMW,stateAt,buildMission,findSource,resetConfig,setSeed} from '../../sim/index.js?v=31a23fa3';
 describe('one energy record',()=>{
   it('plan equals a finer independent phase integral on both bases',()=>{
     for(const c of Object.values(CLASSES))for(const basis of ['record','favourable']){

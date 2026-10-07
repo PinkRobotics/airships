@@ -1,0 +1,179 @@
+{
+  "producer": "tools/gen_release_states.mjs",
+  "classes": {
+    "P100": {
+      "state": "ready",
+      "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+      "plan": {
+        "km": 15,
+        "state": "ready",
+        "reason": null,
+        "mode": "balanced",
+        "options": {
+          "speedMultiplier": 0.75,
+          "ballastT": 29.052,
+          "basis": "record"
+        },
+        "feasible": true,
+        "releasedT": 70.94800000000001,
+        "retainedT": 29.052,
+        "cycleMin": 40.107852723311545,
+        "suppliedMWh": 6.622158442923587,
+        "tph": 106.13582405835977
+      },
+      "diskM2": 2500,
+      "states": {
+        "start of release": {
+          "progress": 0,
+          "altitudeAglM": 450,
+          "densityKgM3": 1.0633339390546592,
+          "waterAboardT": 100,
+          "nitrogenAboardT": 0,
+          "heldT": 33.93346659202504,
+          "inducedUpwashAtDiscMs": 7.912774295302457,
+          "wakeMs": 15.825548590604914,
+          "airMassFlowKgS": 21034.803650686044
+        },
+        "end of release": {
+          "progress": 1,
+          "altitudeAglM": 580,
+          "densityKgM3": 1.0496819433395959,
+          "waterAboardT": 29.051999999999992,
+          "nitrogenAboardT": 0,
+          "heldT": 101.87693697666958,
+          "inducedUpwashAtDiscMs": 13.799348339971205,
+          "wakeMs": 27.59869667994241,
+          "airMassFlowKgS": 36212.316955802504
+        }
+      },
+      "inflowBelowHullMs": {
+        "25 m below": 8.78493799901343,
+        "50 m below": 2.1962344997533574,
+        "100 m below": 0.5490586249383393,
+        "200 m below": 0.13726465623458484,
+        "300 m below": 0.061006513882037705,
+        "400 m below": 0.03431616405864621
+      },
+      "waterBenchmarkKgS": 500,
+      "benchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+      "acceptedMeanWaterReleaseKgS": 498.8531250000001,
+      "airToWaterBenchmarkRatio": 72.42463391160501
+    },
+    "P1000": {
+      "state": "ready",
+      "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+      "plan": {
+        "km": 15,
+        "state": "ready",
+        "reason": null,
+        "mode": "endurance",
+        "options": {
+          "speedMultiplier": 1.5,
+          "ballastT": 808.225,
+          "basis": "record"
+        },
+        "feasible": true,
+        "releasedT": 191.77499999999998,
+        "retainedT": 808.225,
+        "cycleMin": 25.48344994058229,
+        "suppliedMWh": 24.472360372481326,
+        "tph": 451.52834591975494
+      },
+      "diskM2": 12000,
+      "states": {
+        "start of release": {
+          "progress": 0,
+          "altitudeAglM": 450,
+          "densityKgM3": 1.0633339390546592,
+          "waterAboardT": 1000,
+          "nitrogenAboardT": 0,
+          "heldT": 339.33466592025025,
+          "inducedUpwashAtDiscMs": 11.42110592357406,
+          "wakeMs": 22.84221184714812,
+          "airMassFlowKgS": 145733.3946008941
+        },
+        "end of release": {
+          "progress": 1,
+          "altitudeAglM": 580,
+          "densityKgM3": 1.0496819433395959,
+          "waterAboardT": 808.225,
+          "nitrogenAboardT": 0,
+          "heldT": 501.06948353349554,
+          "inducedUpwashAtDiscMs": 13.968475052867268,
+          "wakeMs": 27.936950105734535,
+          "airMassFlowKgS": 175949.47246781253
+        }
+      },
+      "inflowBelowHullMs": {
+        "25 m below": 42.68451556069727,
+        "50 m below": 10.671128890174318,
+        "100 m below": 2.6677822225435794,
+        "200 m below": 0.6669455556358949,
+        "300 m below": 0.2964202469492866,
+        "400 m below": 0.16673638890897372
+      },
+      "waterBenchmarkKgS": 3000,
+      "benchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+      "acceptedMeanWaterReleaseKgS": 1265.7149999999997,
+      "airToWaterBenchmarkRatio": 58.64982415593751
+    },
+    "P10000": {
+      "state": "ready",
+      "basis": "Accepted worked-example plan replay, local density and water aboard; ideal-disc estimate, not wake or deposition evidence.",
+      "plan": {
+        "km": 15,
+        "state": "ready",
+        "reason": null,
+        "mode": "rapid",
+        "options": {
+          "speedMultiplier": 1.25,
+          "ballastT": 7054.504,
+          "basis": "record"
+        },
+        "feasible": true,
+        "releasedT": 2945.496,
+        "retainedT": 7054.504,
+        "cycleMin": 24.022110994819336,
+        "suppliedMWh": 202.1022586412297,
+        "tph": 7356.962093719156
+      },
+      "diskM2": 160000,
+      "states": {
+        "start of release": {
+          "progress": 0,
+          "altitudeAglM": 450,
+          "densityKgM3": 1.0633339390546592,
+          "waterAboardT": 10000,
+          "nitrogenAboardT": 0,
+          "heldT": 3393.3466592024997,
+          "inducedUpwashAtDiscMs": 9.890967869128065,
+          "wakeMs": 19.78193573825613,
+          "airMassFlowKgS": 1682784.2920548825
+        },
+        "end of release": {
+          "progress": 1,
+          "altitudeAglM": 580,
+          "densityKgM3": 1.0496819433395959,
+          "waterAboardT": 7054.504,
+          "nitrogenAboardT": 0,
+          "heldT": 6038.458066876221,
+          "inducedUpwashAtDiscMs": 13.279865566616637,
+          "wakeMs": 26.559731133233274,
+          "airMassFlowKgS": 2230341.6152407574
+        }
+      },
+      "inflowBelowHullMs": {
+        "25 m below": 541.0703996218601,
+        "50 m below": 135.26759990546503,
+        "100 m below": 33.81689997636626,
+        "200 m below": 8.454224994091565,
+        "300 m below": 3.7574333307073617,
+        "400 m below": 2.113556248522891
+      },
+      "waterBenchmarkKgS": 15000,
+      "benchmarkBasis": "Nominal water-rate benchmark from configured intake capacity, not measured outlet flow.",
+      "acceptedMeanWaterReleaseKgS": 13760.989125,
+      "airToWaterBenchmarkRatio": 148.6894410160505
+    }
+  }
+}

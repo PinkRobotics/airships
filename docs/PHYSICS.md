@@ -138,7 +138,8 @@ The deepest hierarchy level costs 16.9 times the hydrogen break-even.
 No modelled M60J hierarchy level reaches unity at working altitude. These are unbuilt formula results, not measured hull performance.
 
 <!-- editorial:current-hull:start -->
-Generated from the owning record during the combined regeneration.
+**Current architecture.** The concept drawing uses one film on hoop rings over a two-walled truss, with machinery on an ambient-pressure raft outside the vacuum. Compartment membranes are intended to limit breach damage; their arrangement remains open. No drawn hull floats. The configured fleet is P100: 110 m long × 55 m diameter; P1000: 238 m long × 119 m diameter; P10000: 512 m long × 256 m diameter. These are fleet-model assumptions, distinct from the drawn structural hull and any enlarged equipment-budget closure.
+The dimensions come from `energy-documents.json`, generated from `sim/config.js`.
 <!-- editorial:current-hull:end -->
 
 **THE HULL IS NOT ONE ENVELOPE** describes the first-generation cell-array architecture
@@ -290,45 +291,45 @@ These plans close only in the quasi-static force-and-bus model. Vertical dynamic
 
 | Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | does not close | 34.196 | 8.189 | 81.892 | 1.412 |  |
-| P100 | 15 | favourable | does not close | 34.196 | 6.401 | 64.011 | 1.814 |  |
-| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.732 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.425 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | does not close | 35.362 | 62.251 | 62.251 | 1.147 |  |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.259 | 61.259 | 1.165 |  |
-| P1000 | 60 | record | does not close | 93.116 | 141.451 | 141.451 | 1.331 |  |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.271 | 142.271 | 1.323 |  |
-| P10000 | 15 | record | does not close | 45.512 | 694.174 | 69.417 | 2.196 |  |
-| P10000 | 15 | favourable | does not close | 45.512 | 765.904 | 76.590 | 1.990 |  |
-| P10000 | 60 | record | does not close | 94.381 | 1113.650 | 111.365 | 2.843 |  |
-| P10000 | 60 | favourable | does not close | 94.381 | 1385.793 | 138.579 | 2.282 |  |
+| P100 | 15 | record | does not close | 34.196 | 7.812 | 78.122 | 1.481 |  |
+| P100 | 15 | favourable | does not close | 34.196 | 6.024 | 60.241 | 1.930 |  |
+| P100 | 60 | record | closes | 104.784 | 20.150 | 201.503 | 1.765 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | closes | 104.784 | 14.393 | 143.928 | 2.489 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | does not close | 35.362 | 61.680 | 61.680 | 1.157 |  |
+| P1000 | 15 | favourable | does not close | 35.362 | 60.689 | 60.689 | 1.176 |  |
+| P1000 | 60 | record | does not close | 93.116 | 140.806 | 140.806 | 1.337 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | does not close | 93.116 | 141.626 | 141.626 | 1.329 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | does not close | 45.512 | 679.093 | 67.909 | 2.245 |  |
+| P10000 | 15 | favourable | does not close | 45.512 | 750.823 | 75.082 | 2.030 |  |
+| P10000 | 60 | record | does not close | 94.381 | 1098.254 | 109.825 | 2.883 |  |
+| P10000 | 60 | favourable | does not close | 94.381 | 1370.397 | 137.040 | 2.308 |  |
 
 | Class | km | Basis | Profile | Delivered t | Kept t | Minutes | MWh | kWh/delivered tonne | Profile note |
 |---|---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 8.189 | 81.892 |  |
-| P100 | 15 | record | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 5.201 | 80.021 | quasi-static closure; hull-only sampled screen does not validate dynamics |
-| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.401 | 64.011 |  |
-| P100 | 15 | favourable | cheapest feasible profile found in the stated space | 65.000 | 35.000 | 34.914 | 3.793 | 58.359 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.521 | 205.214 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | record | cheapest feasible profile found in the stated space | 98.200 | 1.800 | 64.408 | 14.077 | 143.350 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.764 | 147.639 | quasi-static closure; dynamic profile unresolved |
-| P100 | 60 | favourable | cheapest feasible profile found in the stated space | 99.907 | 0.093 | 75.434 | 11.253 | 112.637 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 62.251 | 62.251 |  |
-| P1000 | 15 | record | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 26.444 | 123.115 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.259 | 61.259 |  |
-| P1000 | 15 | favourable | cheapest feasible profile found in the stated space | 214.790 | 785.210 | 25.611 | 21.504 | 100.115 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.451 | 141.451 |  |
-| P1000 | 60 | record | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 68.780 | 255.003 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 142.271 | 142.271 |  |
-| P1000 | 60 | favourable | cheapest feasible profile found in the stated space | 269.724 | 730.276 | 74.045 | 56.603 | 209.856 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 694.174 | 69.417 |  |
-| P10000 | 15 | record | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 199.983 | 76.230 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 765.904 | 76.590 |  |
-| P10000 | 15 | favourable | cheapest feasible profile found in the stated space | 2623.413 | 7376.587 | 23.664 | 183.296 | 69.869 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1113.650 | 111.365 |  |
-| P10000 | 60 | record | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 439.602 | 146.218 | quasi-static closure; dynamic profile unresolved |
-| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1385.793 | 138.579 |  |
-| P10000 | 60 | favourable | cheapest feasible profile found in the stated space | 3006.479 | 6993.521 | 66.570 | 397.547 | 132.230 | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | record | as drawn: does not close | 100.000 | 0.000 | 34.196 | 7.812 | 78.122 |  |
+| P100 | 15 | record | cheapest reserve-eligible profile found in the stated space | 70.948 | 29.052 | 40.108 | 6.622 | 93.338 | quasi-static closure; dynamic profile unresolved |
+| P100 | 15 | favourable | as drawn: does not close | 100.000 | 0.000 | 34.196 | 6.024 | 60.241 |  |
+| P100 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 70.000 | 30.000 | 40.076 | 4.843 | 69.192 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | as drawn: closes | 100.000 | 0.000 | 104.784 | 20.150 | 201.503 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | record | cheapest reserve-eligible profile found in the stated space | 89.304 | 10.696 | 63.815 | 12.706 | 142.281 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | as drawn: closes | 100.000 | 0.000 | 104.784 | 14.393 | 143.928 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 90.930 | 9.070 | 74.835 | 10.035 | 110.357 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 61.680 | 61.680 |  |
+| P1000 | 15 | record | cheapest reserve-eligible profile found in the stated space | 191.775 | 808.225 | 25.483 | 24.472 | 127.610 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | favourable | as drawn: does not close | 1000.000 | 0.000 | 35.362 | 60.689 | 60.689 |  |
+| P1000 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 191.775 | 808.225 | 25.483 | 19.815 | 103.325 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | record | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 140.806 | 140.806 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | record | cheapest reserve-eligible profile found in the stated space | 244.826 | 755.174 | 73.907 | 65.351 | 266.928 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 60 | favourable | as drawn: does not close | 1000.000 | 0.000 | 93.116 | 141.626 | 141.626 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 244.826 | 755.174 | 73.907 | 54.099 | 220.969 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | record | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 679.093 | 67.909 |  |
+| P10000 | 15 | record | cheapest reserve-eligible profile found in the stated space | 2945.496 | 7054.504 | 24.022 | 202.102 | 68.614 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 15 | favourable | as drawn: does not close | 10000.000 | 0.000 | 45.512 | 750.823 | 75.082 |  |
+| P10000 | 15 | favourable | cheapest reserve-eligible profile found in the stated space | 2945.496 | 7054.504 | 24.022 | 184.209 | 62.539 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | record | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1098.254 | 109.825 |  |
+| P10000 | 60 | record | cheapest reserve-eligible profile found in the stated space | 2993.634 | 7006.366 | 58.071 | 402.745 | 134.534 | quasi-static closure; dynamic profile unresolved |
+| P10000 | 60 | favourable | as drawn: does not close | 10000.000 | 0.000 | 94.381 | 1370.397 | 137.040 |  |
+| P10000 | 60 | favourable | cheapest reserve-eligible profile found in the stated space | 3009.668 | 6990.332 | 70.313 | 368.571 | 122.462 | quasi-static closure; dynamic profile unresolved |
 
 Cycle durations and supplied energy are model outputs. A cycle that does not close supplies no justified delivery rate.
 
@@ -459,8 +460,8 @@ Dated measurement at landing 16, 2026-10-05: absolute inertial force minus the a
 
 | Population | Withdrawn absolute / signed | Reason |
 |---|---|---|
-| candidates | 264 / 334 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
-| capturedMissions | 16 / 21 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| candidates | 205 / 303 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
+| capturedMissions | 6 / 20 | Signed demand must fit the authority in its own direction; profiles and verdicts are unchanged |
 
 
 ## 8. Nitrogen storage and recovery
@@ -489,31 +490,41 @@ Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples
 
 | Captured mission or printed profile | Class / km / basis | Draw MWh | Nominal storage MWh | First empty min | Shortage MWh | Pages |
 |---|---|---|---|---|---|---|
-| exercise mission 11 (zero-based) | P100 / 13.981185 / record | 41.8 | 20 | 127.5 | 21.8 | index.html |
-| exercise mission 12 (zero-based) | P100 / 9.689204 / record | 59.2 | 20 | 169.0 | 39.2 | index.html |
-| fullDeliveryBest | P100 / 15.000000 / record | 42.2 | 20 | 129.0 | 22.2 | index.html; concept/index.html |
-| fullDeliveryBest | P100 / 15.000000 / favourable | 40.4 | 20 | 133.1 | 20.4 | index.html; concept/index.html |
-| asDrawn | P100 / 60.000000 / record | 20.2 | 20 | 104.5 | 0.2 | index.html; concept/index.html |
-| ready selector | P1000 / 400.000000 / record | 332.3 | 120 | 232.3 | 212.3 | concept/energy-analysis.html |
+| energy-profiles row 6 asDrawn | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| energy-profiles row 7 asDrawn | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-profiles.md; research/analysis/energy-requirements.md; docs/ENERGY-MODEL-2026-10.md; docs/ENERGY-CLOSURE-2026-10.md; docs/PHYSICS.md; sim/README.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / record | 246.0 MWh | 120 MWh | 64.8 min | 126.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.2 MWh | 120 MWh | 85.4 min | 19.2 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / record | 139.5 MWh | 120 MWh | 85.3 min | 19.5 MWh | research/analysis/energy-requirements.md |
+| power-and-thrust requirement (nominal class energy capacity) | P1000 / 60.000000 / favourable | 175.3 MWh | 120 MWh | 74.8 min | 55.3 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.0 MWh | 120 MWh | 85.1 min | 20.0 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed drag sweep | P1000 / 60.000000 / favourable | 140.3 MWh | 120 MWh | 85.0 min | 20.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P100 / 60.000000 / record | 23.6 MWh | 20 MWh | 97.5 min | 3.6 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 140.1 MWh | 120 MWh | 84.9 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / record | 139.3 MWh | 120 MWh | 85.4 min | 19.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 143.3 MWh | 120 MWh | 83.8 min | 23.3 MWh | research/analysis/energy-requirements.md |
+| prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
+| ready selector | P1000 / 400.000000 / record | 322.3 MWh | 120 MWh | 233.6 min | 202.3 MWh | concept/energy-analysis.html |
 
-Of 32 captured cycles, 2 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order and each printed profile, including every shortage found. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+Of 20 captured cycles, 0 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for 926 deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
 
 Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
 
 | Class | km | Basis | As drawn | Minutes | Supplied MWh | kWh/planned tonne | Battery-hours quotient | Profile note |
 |---|---|---|---|---|---|---|---|---|
-| P100 | 15 | record | does not close | 34.196 | 8.189 | 81.892 | 1.412 |  |
-| P100 | 15 | favourable | does not close | 34.196 | 6.401 | 64.011 | 1.814 |  |
-| P100 | 60 | record | closes | 104.784 | 20.521 | 205.214 | 1.732 | quasi-static closure; dynamic profile unresolved; quasi-static closure; exceeds nominal storage in one ideal cycle |
-| P100 | 60 | favourable | closes | 104.784 | 14.764 | 147.639 | 2.425 | quasi-static closure; dynamic profile unresolved |
-| P1000 | 15 | record | does not close | 35.362 | 62.251 | 62.251 | 1.147 |  |
-| P1000 | 15 | favourable | does not close | 35.362 | 61.259 | 61.259 | 1.165 |  |
-| P1000 | 60 | record | does not close | 93.116 | 141.451 | 141.451 | 1.331 |  |
-| P1000 | 60 | favourable | does not close | 93.116 | 142.271 | 142.271 | 1.323 |  |
-| P10000 | 15 | record | does not close | 45.512 | 694.174 | 69.417 | 2.196 |  |
-| P10000 | 15 | favourable | does not close | 45.512 | 765.904 | 76.590 | 1.990 |  |
-| P10000 | 60 | record | does not close | 94.381 | 1113.650 | 111.365 | 2.843 |  |
-| P10000 | 60 | favourable | does not close | 94.381 | 1385.793 | 138.579 | 2.282 |  |
+| P100 | 15 | record | does not close | 34.196 | 7.812 | 78.122 | 1.481 |  |
+| P100 | 15 | favourable | does not close | 34.196 | 6.024 | 60.241 | 1.930 |  |
+| P100 | 60 | record | closes | 104.784 | 20.150 | 201.503 | 1.765 | quasi-static closure; dynamic profile unresolved |
+| P100 | 60 | favourable | closes | 104.784 | 14.393 | 143.928 | 2.489 | quasi-static closure; dynamic profile unresolved |
+| P1000 | 15 | record | does not close | 35.362 | 61.680 | 61.680 | 1.157 |  |
+| P1000 | 15 | favourable | does not close | 35.362 | 60.689 | 60.689 | 1.176 |  |
+| P1000 | 60 | record | does not close | 93.116 | 140.806 | 140.806 | 1.337 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P1000 | 60 | favourable | does not close | 93.116 | 141.626 | 141.626 | 1.329 | unsupported profile; exceeds nominal storage in an ideal cycle |
+| P10000 | 15 | record | does not close | 45.512 | 679.093 | 67.909 | 2.245 |  |
+| P10000 | 15 | favourable | does not close | 45.512 | 750.823 | 75.082 | 2.030 |  |
+| P10000 | 60 | record | does not close | 94.381 | 1098.254 | 109.825 | 2.883 |  |
+| P10000 | 60 | favourable | does not close | 94.381 | 1370.397 | 137.040 | 2.308 |  |
 
 Battery hours divide usable storage by the modelled energy deficit. They are reported, but do not gate the force-and-bus feasibility verdict. On an infeasible row this is an accounting quotient, not demonstrated endurance.
 Every phase draws from the same ledger. The phase and channel integrals are stored in `energy-documents.json`.
@@ -523,44 +534,44 @@ Every phase draws from the same ledger. The phase and channel integrals are stor
 These sweeps change one input at a time around the prescribed P-10000 balanced profile at the worked distance.
 All displayed energy changes are supplied-effort changes when the row is infeasible.
 
-| Basis | Input | Energy change at −20% | Energy change at +20% | Verdict at −20% / +20% |
-|---|---|---|---|---|
-| record | propEta | 4.6% | -4.1% | does not close / does not close |
-| record | Cd | -0.6% | 0.6% | does not close / does not close |
-| record | rhoAir | 0.0% | 0.0% | does not close / does not close |
-| record | pumpEta | 0.2% | -0.1% | does not close / does not close |
-| record | hoseMul | -0.1% | 0.2% | does not close / does not close |
-| record | rhoSL | -33.6% | 28.0% | does not close / does not close |
-| record | rtLN2 | 0.0% | -0.0% | does not close / does not close |
-| record | eLN2 | -0.0% | 0.0% | does not close / does not close |
-| record | solarWPerM2 | -0.0% | 0.0% | does not close / does not close |
-| record | cruiseKph | 8.2% | -4.0% | does not close / does not close |
-| record | anchorBagT | 3.5% | -1.4% | does not close / does not close |
-| record | dropKm | 0.6% | -0.9% | does not close / does not close |
-| record | fillM3s | 15.7% | -10.7% | does not close / does not close |
-| record | dispM3 | -36.4% | 29.9% | does not close / does not close |
-| record | diskM2 | 4.0% | -3.4% | does not close / does not close |
-| record | battMW | -15.2% | 14.0% | does not close / does not close |
-| record | anchorM | 1.5% | -0.6% | does not close / does not close |
-| record | solarM2 | -0.0% | 0.0% | does not close / does not close |
-| favourable | propEta | 4.9% | -7.1% | does not close / does not close |
-| favourable | Cd | -0.2% | 0.2% | does not close / does not close |
-| favourable | rhoAir | 0.0% | 0.0% | does not close / does not close |
-| favourable | pumpEta | 0.2% | -0.1% | does not close / does not close |
-| favourable | hoseMul | -0.1% | 0.1% | does not close / does not close |
-| favourable | rhoSL | -41.5% | 25.4% | does not close / does not close |
-| favourable | rtLN2 | 0.0% | -0.0% | does not close / does not close |
-| favourable | eLN2 | -0.0% | 0.0% | does not close / does not close |
-| favourable | solarWPerM2 | -0.0% | 0.0% | does not close / does not close |
-| favourable | cruiseKph | 6.5% | -4.1% | does not close / does not close |
-| favourable | anchorBagT | 3.2% | -1.3% | does not close / does not close |
-| favourable | dropKm | 0.6% | -0.7% | does not close / does not close |
-| favourable | fillM3s | 14.1% | -9.5% | does not close / does not close |
-| favourable | dispM3 | -46.0% | 26.8% | does not close / does not close |
-| favourable | diskM2 | 2.5% | -2.9% | does not close / does not close |
-| favourable | battMW | -15.9% | 11.1% | does not close / does not close |
-| favourable | anchorM | 0.8% | -0.5% | does not close / does not close |
-| favourable | solarM2 | -0.0% | 0.0% | does not close / does not close |
+| Basis | Input | Energy change at −20% | Energy change at +20% | Verdict at −20% / +20% | Storage notes at −20% / +20% |
+|---|---|---|---|---|---|
+| record | propEta | 4.7% | -4.2% | does not close / does not close |  /  |
+| record | Cd | -0.6% | 0.6% | does not close / does not close |  /  |
+| record | rhoAir | 0.0% | 0.0% | does not close / does not close |  /  |
+| record | pumpEta | 0.2% | -0.1% | does not close / does not close |  /  |
+| record | hoseMul | -0.2% | 0.2% | does not close / does not close |  /  |
+| record | rhoSL | -34.5% | 30.3% | does not close / does not close |  /  |
+| record | rtLN2 | 0.0% | -0.0% | does not close / does not close |  /  |
+| record | eLN2 | -0.0% | 0.0% | does not close / does not close |  /  |
+| record | solarWPerM2 | -0.0% | 0.0% | does not close / does not close |  /  |
+| record | cruiseKph | 8.4% | -4.1% | does not close / does not close |  /  |
+| record | anchorBagT | 4.4% | -1.5% | does not close / does not close |  /  |
+| record | dropKm | 0.6% | -1.0% | does not close / does not close |  /  |
+| record | fillM3s | 16.0% | -10.9% | does not close / does not close |  /  |
+| record | dispM3 | -37.3% | 32.4% | does not close / does not close |  /  |
+| record | diskM2 | 4.1% | -3.5% | does not close / does not close |  /  |
+| record | battMW | -15.1% | 13.8% | does not close / does not close |  /  |
+| record | anchorM | 1.0% | -0.3% | does not close / does not close |  /  |
+| record | solarM2 | -0.0% | 0.0% | does not close / does not close |  /  |
+| favourable | propEta | 5.0% | -7.3% | does not close / does not close |  /  |
+| favourable | Cd | -0.2% | 0.2% | does not close / does not close |  /  |
+| favourable | rhoAir | 0.0% | 0.0% | does not close / does not close |  /  |
+| favourable | pumpEta | 0.2% | -0.1% | does not close / does not close |  /  |
+| favourable | hoseMul | -0.1% | 0.1% | does not close / does not close |  /  |
+| favourable | rhoSL | -42.4% | 27.5% | does not close / does not close |  /  |
+| favourable | rtLN2 | 0.0% | -0.0% | does not close / does not close |  /  |
+| favourable | eLN2 | -0.0% | 0.0% | does not close / does not close |  /  |
+| favourable | solarWPerM2 | -0.0% | 0.0% | does not close / does not close |  /  |
+| favourable | cruiseKph | 6.6% | -4.2% | does not close / does not close |  /  |
+| favourable | anchorBagT | 4.0% | -1.4% | does not close / does not close |  /  |
+| favourable | dropKm | 0.6% | -0.7% | does not close / does not close |  /  |
+| favourable | fillM3s | 14.4% | -9.7% | does not close / does not close |  /  |
+| favourable | dispM3 | -47.0% | 29.0% | does not close / does not close |  /  |
+| favourable | diskM2 | 2.5% | -3.0% | does not close / does not close |  /  |
+| favourable | battMW | -15.8% | 10.9% | does not close / does not close |  /  |
+| favourable | anchorM | 0.4% | -0.3% | does not close / does not close |  /  |
+| favourable | solarM2 | -0.0% | 0.0% | does not close / does not close |  /  |
 
 The old fixed-density input has no effect because the force and power laws now use local ISA density. Drop distance can change the force-price integral even when metering fixes release time.
 
@@ -573,7 +584,7 @@ Local-density force balance leaves the named endurance example infeasible; the g
 ## What the profile search means
 
 The prescribed profile is retained as "as drawn".
-The result is the cheapest feasible profile found in the stated space, not a global optimum.
+The result is the cheapest reserve-eligible profile found in the stated space, not a global optimum.
 
 Cruise speed multipliers: 0.5, 0.75, 1, 1.25, 1.5.
 Modes: rapid, balanced, endurance.
@@ -596,7 +607,9 @@ The approach remains stationary.
 Segment time and ground distance are integrated; energy uses the same instantaneous ledger.
 A profile exceeding the route distance is refused.
 
-Retained water is searched at five-percent payload steps and at each bisected first closing threshold.
+Retained water is searched at five-percent payload steps and at each bisected first reserve-closing threshold.
+
+Served controls target 10% relative reserve in the profile search and exact-route selection; serving requires at least 5%. The selector first prefers controls meeting the target at this route, then minimizes kWh per delivered tonne within that tier. If none meets the target, it may use a minimum-reserve control; it never serves below the minimum. Both tiers also require unchanged physical closure. Reserve is (capacity minus demand) / capacity for unclipped bus demand, local rotor thrust and combined downward authority. Upward thrust is absent: its reserve is (surplus lift minus signed vertical drag) / max(1 tonne, absolute surplus lift). Each minimum is checked on the same seam-inclusive limit mesh and refined extrema as physical closure. Cable reach and pickup, aerodynamic credit and route geometry retain their exact rules: unavailable support earns no credit; the downward-authority reserve uses only support actually carried. Force residual is a numerical closure tolerance, not spare hardware. Battery energy, transient control, structure and weather uncertainty are outside this reserve policy. The 5% power convention follows [GSFC-STD-1000H, Table 1.06-1, page 12](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf); its extension to force and the 10% control target are this simulation's conservative selection choices, not spacecraft-standard compliance or a validated uncertainty allowance. The search target leaves room above the serving cutoff when recorded controls are replayed at other route distances.
 Printed requirements round upward at the verdict resolution and replay through the model.
 The older whole-phase dilation is named `movingPhaseRateMultiplier`; the new search does not use it.
 <!-- energy:physics:end -->
@@ -610,7 +623,7 @@ Listed so nobody has to discover them by reading code.
   shear, no gusts, no icing, no convective column, no diurnal cycle. Altitude profiles are
   unaffected by wind entirely.
 <!-- editorial:turbulence:start -->
-Generated from the owning record during the combined regeneration.
+- **Turbulence and gust loading.** The largest configured hull is 512 m long. Its behaviour in a convective column is a structural and control problem the model does not represent. The configured release height is an assumption, not a gust-loading result.
 <!-- editorial:turbulence:end -->
 - **Fire behaviour.** Nothing in the model says whether a fire grows, spreads or is
   contained. Water delivered is not fire extinguished, and no suppression effectiveness is

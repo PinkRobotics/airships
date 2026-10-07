@@ -83,7 +83,14 @@ first tens of metres — that descends much faster, which is how airtankers work
 That is the opposite sign to a helicopter, and it happens directly over the release.
 
 <!-- editorial:release-illustration:start -->
-Generated from the owning record during the combined regeneration.
+The producer replays the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The release endpoints use local air density, water aboard and rotor force ownership:
+
+| State | AGL altitude | Local density | Water aboard | Rotor hold | Ideal induced velocity upward | Ideal far-wake velocity | Ideal air flow |
+|---|---|---|---|---|---|---|---|
+| start of release | 450 m | 1.063334 kg/m³ | 100.0 t | 33.933 tf | 7.9 m/s | 15.8 m/s | 21,035 kg/s |
+| end of release | 580 m | 1.049682 kg/m³ | 29.1 t | 101.877 tf | 13.8 m/s | 27.6 m/s | 36,212 kg/s |
+
+The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. The upward-flow sign motivates further investigation; ideal-disc arithmetic alone does not establish deposition or suppression.
 <!-- editorial:release-illustration:end -->
 
 ## Which is the argument for putting the sprayers on leads
@@ -94,7 +101,15 @@ farther from the ship's own wake. Below the disc the rotor flow is approximated 
 which falls off as 1/z². This does not remove ambient rising air in a fire column:
 
 <!-- editorial:release-inflow:start -->
-Generated from the owning record during the combined regeneration.
+Point-sink heuristic using the accepted release endpoint's ideal-disc volume flow; this is not a measured wake:
+
+| Distance below hull | Reference heuristic inflow |
+|---|---|
+| 50 m below | 2.20 m/s |
+| 100 m below | 0.55 m/s |
+| 200 m below | 0.14 m/s |
+| 300 m below | 0.06 m/s |
+| 400 m below | 0.03 m/s |
 <!-- editorial:release-inflow:end -->
 
 *(Point-sink far field, valid for distances well beyond the disc radius — 28 m on a P-100. It
@@ -124,16 +139,16 @@ rectangle. It is not a measured ground pattern or a dose reaching a named fuel l
 <!-- logistics:one-pass:start -->
 | Swath | P-100 CL | P-1000 CL | P-10000 CL |
 |---|---|---|---|
-| 20 m | 6.6 | 10.5 | 64.4 |
-| 30 m | 4.4 | 7.0 | 42.9 |
-| 50 m | 2.7 | 4.2 | 25.8 |
-| 80 m | 1.7 | 2.6 | 16.1 |
+| 20 m | 7.3 | 9.4 | 72.3 |
+| 30 m | 4.8 | 6.3 | 48.2 |
+| 50 m | 2.9 | 3.8 | 28.9 |
+| 80 m | 1.8 | 2.4 | 18.1 |
 
 | Class | Released t | Run km | Retained t |
 |---|---|---|---|
-| P-100 | 65.000 | 1.2 | 35.000 |
-| P-1000 | 214.790 | 2.5 | 785.210 |
-| P-10000 | 2623.413 | 5.0 | 7376.587 |
+| P-100 | 70.948 | 1.2 | 29.052 |
+| P-1000 | 191.775 | 2.5 | 808.225 |
+| P-10000 | 2945.496 | 5.0 | 7054.504 |
 
 These are tank-release quotients for the accepted 15 km plans, at assumed swaths. No ground deposition or suppression is established.
 <!-- logistics:one-pass:end -->
@@ -153,12 +168,12 @@ A conditional line-length comparison for a P-100 at the median leg:
 <!-- logistics:daily:start -->
 | Coverage level | Geometric line km per 24 h | Stored simplified perimeters no longer than that line |
 |---|---|---|
-| CL 2 | 225.5 km | 95.3% |
-| CL 4 | 112.8 km | 85.5% |
-| CL 6 | 75.2 km | 73.5% |
-| CL 8 | 56.4 km | 64.9% |
+| CL 2 | 186.0 km | 93.8% |
+| CL 4 | 93.0 km | 80.0% |
+| CL 6 | 62.0 km | 67.6% |
+| CL 8 | 46.5 km | 56.7% |
 
-At the 4.71 km median leg the accepted rapid plan releases 50.000 t and retains 50.000 t per cycle. Its rate is 229.7 t/h, with 2.021 MWh supplied per 13.058 minute cycle. Repeating it for 24 hours gives 5,514 t released and requires 222.9 MWh of supplied effort. Stand-downs across the fire-leg dataset: 0.
+At the 4.71 km median shore-proxy distance the accepted rapid plan releases 65.000 t and retains 35.000 t per cycle. Its rate is 189.5 t/h, with 3.933 MWh supplied per 20.584 minute cycle. Repeating it for 24 hours gives 4,547 t released and requires 275.1 MWh of supplied effort. Stand-downs across the fire-leg dataset: 277.
 
 The table compares line length at an assumed 30 m swath with stored simplified final perimeter lengths. Those outlines are lower bounds on a convoluted edge. It establishes neither deposition nor coverage of an actual fire, continuous operation or supply, suppression, or a changed fire outcome.
 <!-- logistics:daily:end -->

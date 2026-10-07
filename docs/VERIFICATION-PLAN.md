@@ -37,8 +37,8 @@ closure sizes balance the conditional equipment bill and do not validate a drawn
 | Metlen 2013, frame with a real membrane | ≈0.94 kg/m³ equivalent | passes the lift wall; fails the closure wall by 8.1% |
 | Akhmeteli & Gavrilin 2021, sandwich sphere | 1.16 kg/m³ | fails both; 33.4% above the closure wall |
 
-The 0.508 kg/m³ floor closes at 516,771 m³, a 146 m ship, shorter than
-the Hindenburg; 0.75 needs 7.32× the baseline volume. At 0.90 it never closes.
+The 0.508 kg/m³ floor closes at 510,406 m³, a 146 m ship, shorter than
+the Hindenburg; 0.75 needs 7.23× the baseline volume. At 0.90 it never closes.
 
 Two things also matter:
 
@@ -63,16 +63,24 @@ The sealed-cell density and packing fraction have neither been chosen nor measur
 | — | Is the published throughput representative? | **Conservative by 1.9×** — but see the vertical-profile caveat below. | `water-availability.md` |
 | 0, 4 | Can we delete the cryogenic plant? | **Open for the current architecture.** The first-generation sealed-cell hull could not admit air as ballast; its retraction is retained. The current raft-and-membrane layout has no record settling the emergency-ballast choice. | `air-ballast.md` |
 <!-- editorial:nitrogen-register:start -->
-Generated from the owning record during the combined regeneration.
+| # | Question | Answer | Record |
+|---|---|---|---|
+| — | Is nitrogen needed in the normal cycle? | Prescribed balanced, 15 km, record-basis controls: the budget's net routine-make fraction is **8.4% / 4.4% / 1.1%** for the configured classes. Its reference anchor/hold diagnostic is **11.3×**. P-100: prescribedCloses=false; P-1000: prescribedCloses=false; P-10000: prescribedCloses=false. The prescribed cycles do not close. This compares priced effort on the prescribed records; it does not establish that nitrogen can be omitted in operation. | `mass-budget.json`, `editorial-controls.json` |
 <!-- editorial:nitrogen-register:end -->
 <!-- editorial:descent-register:start -->
-Generated from the owning record during the combined regeneration.
+| # | Question | Answer | Record |
+|---|---|---|---|
+| 3, 14, 15 | What does the letdown cost? | Prescribed balanced, 15 km, record-basis controls: the current descent ledger already prices **2.052 MWh / 10.978 MWh / 102.086 MWh**. The record-basis bag-credit diagnostics are **6.9% / 5.1% / 9.1%** of cycle effort. The prescribed cycles do not close. These are diagnostic effort comparisons, not operational savings. | `descent.json` |
 <!-- editorial:descent-register:end -->
 <!-- editorial:disc-register:start -->
-Generated from the owning record during the combined regeneration.
+| # | Question | Answer | Record |
+|---|---|---|---|
+| 8 | Is `diskM2` inert? | **No.** On the same prescribed controls, doubling the reference disc changes diagnostic supplied cycle effort by **27.7%**. The prescribed reference cycle does not close. this is not a saving in operation. | `editorial-controls.json` |
 <!-- editorial:disc-register:end -->
 <!-- editorial:release-register:start -->
-Generated from the owning record during the combined regeneration.
+| # | Question | Answer | Record |
+|---|---|---|---|
+| 12 | What does the release illustration represent? | Ideal-disc estimates at the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. | `release-states.json`, `delivery.json` |
 <!-- editorial:release-register:end -->
 | # | question | answer | where |
 |---|---|---|---|
@@ -137,7 +145,7 @@ none is a choice:
   sunken boundary frame shortens every boundary-adjacent member by its own ends'
   displacements, which is where the extra saw settings come from — with
   <!-- editorial:joint-bill:start -->
-  **modelled printed joints** (computed geometry bill)
+  **51 modelled printed joints** (0.715 kg, computed from geometry at the manifest's assumed print density)
   <!-- editorial:joint-bill:end -->
   . Assembles into a **709 mm Kelvin
   cell, 178 litres**. Of the 216 members, 166 are CLOSING members that drop between two
@@ -248,13 +256,13 @@ be fatal:
 2. **Stored energy at breach.** ~22 GJ on a P-100. The cellular architecture is the mitigation
    and it is untested (E4).
 <!-- solar:daily:start -->
-3. **The energy supply chain.** 222.9 MWh of supplied effort per P-100 per day at the accepted median-leg rate,
+3. **The energy supply chain.** 275.1 MWh of supplied effort per P-100 per day at the accepted median-leg rate,
    against 4.96 MWh/day of assumed solar. The tender fleet is named in the README and deliberately never
    modelled. **Every 24-hour figure in this folder is a claim about the aircraft, not about a
    system shown to supply it.**
 <!-- solar:daily:end -->
 <!-- editorial:certification:start -->
-Generated from the owning record during the combined regeneration.
+4. **Certification and airspace.** No airworthiness basis is established for the configured 110 m reference hull, with an assumed dry allowance of 100 t and requested water load of 100 t. These are model allowances, not a built aircraft's weighed mass. Canadian certification and airspace requirements remain an open work item.
 <!-- editorial:certification:end -->
 5. **Competing with the existing fleet for the same lakes.** CL-415s scoop the water this
    vehicle drafts from, and a hull holding station takes a lake out of their rotation.
@@ -272,22 +280,22 @@ Generated from the owning record during the combined regeneration.
 the class the geography suits. The floor budget's closure wall includes shell sundries; Jenett's published shell clears it with a margin before packing losses.
 
 <!-- editorial:nitrogen-conclusion:start -->
-Generated from the owning record during the combined regeneration.
+On the prescribed balanced, 15 km, record-basis controls, the reference net nitrogen-make fraction is **8.4%** of supplied cycle effort. The prescribed reference cycle does not close. The comparison is diagnostic and does not establish a routine nitrogen saving in operation.
 <!-- editorial:nitrogen-conclusion:end -->
 The first-generation sealed-cell study addressed the shape penalty by separating cell
 geometry from the hull's outer shape. The current film-and-truss drawing needs its own structural case.
 
 <!-- logistics:line-comparison:start -->
-At the accepted median-leg rate, the conditional CL 4 line-length quotient is 112.8 km per day, longer than 85.5% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
+At the accepted median-leg rate, the conditional CL 4 line-length quotient is 93.0 km per day, longer than 80.0% of the stored simplified final perimeters; this is a geometric comparison, with no fire-outcome inference.
 <!-- logistics:line-comparison:end -->
 
 <!-- editorial:descent-conclusion:start -->
-Generated from the owning record during the combined regeneration.
+**Current letdown ledger.** Prescribed balanced, 15 km, record-basis controls: **2.052 MWh / 10.978 MWh / 102.086 MWh** for the configured classes, already included in `descent.json`. The prescribed cycles do not close. These are prescribed diagnostics; the earlier underpriced letdown calculation is superseded by this force-owner ledger.
 <!-- editorial:descent-conclusion:end -->
 
 
 <!-- editorial:release-conclusion:start -->
-Generated from the owning record during the combined regeneration.
+**Release basis.** The illustration follows the accepted 15 km balanced reference plan (record basis), releasing 70.948 t and retaining 29.052 t. The endpoint ideal-disc air-flow estimate is **36,212 kg/s**, **72.4 times** the nominal **500 kg/s** water-rate benchmark from configured intake capacity. The accepted plan's mean tank release rate is 498.9 kg/s. Neither quantity measures outlet flow, a wake, drift or where water lands. The release-height assumption and ground deposition remain open; no fire outcome is inferred.
 <!-- editorial:release-conclusion:end -->
 The first-generation sealed-cell budget retains the cryogenic plant. Ducting, coolant loops and bay ventilation for the current ambient-pressure machinery
 layout remain unpriced. The thermal analysis exists; the cooling installation's mass is still open.
@@ -304,5 +312,5 @@ stale — the exact failure `tools/check_figures_fresh.py` was written to kill, 
 directory over. `tools/check_analysis.py` now gates them and runs in `make check`.
 
 <!-- solar:budget-reference:start -->
-The generated comparison preserves the preceding power-input publication beside the current integrated diagnostic. The existing P-100 0.508 kg/m³ sizing routine now returns 516,771 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
+The generated comparison preserves the preceding power-input publication beside the current integrated diagnostic. The existing P-100 0.508 kg/m³ sizing routine now returns 510,406 m³, against the earlier 457,324 m³, on the current model after the projected solar-area correction. Other integrated model corrections can also contribute. This is a diagnostic comparison, not validation of the closure condition. See the [generated before/after budget comparison](../research/analysis/mass-budget.md#solar-input-sensitivity-of-the-existing-budget-diagnostic).
 <!-- solar:budget-reference:end -->

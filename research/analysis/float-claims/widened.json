@@ -15,6 +15,7 @@
   "3d/tests/browser.html",
   "3d/tests/control.test.mjs",
   "3d/tests/hud-demo.html",
+  "3d/tests/operations-comparison.test.mjs",
   "3d/tests/state.test.mjs",
   "GOALS.md",
   "app/cockpit/panels.js",
@@ -24,6 +25,7 @@
   "cell/levels.js",
   "engineering/engineering.js",
   "model-lab/index.html",
+  "research/analysis/energy-feasible.md",
   "research/notes/derveni-2024-multi-defect-shell-buckling.md",
   "research/validation/constant-study.md",
   "ship/catalog.js",
@@ -195,7 +197,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 226
+   "line": 228
   },
   {
    "file": "3d/model/config.js",
@@ -209,7 +211,7 @@
    "reason": "Display text is computed from the named model field or function; test-node exercises the script model. The template is not a typed float result.",
    "function": "finenessRatio",
    "gate": "test-node",
-   "line": 579
+   "line": 590
   },
   {
    "file": "3d/model/metadata.js",
@@ -217,7 +219,15 @@
    "class": "method",
    "context": [],
    "reason": "Describes an unbuilt research requirement or proposed layout; the text explicitly says the evacuated-cell structure does not exist.",
-   "line": 338
+   "line": 339
+  },
+  {
+   "file": "3d/model/metadata.js",
+   "key": "dfb7ebced535cfc4",
+   "line": 224,
+   "class": "deferred",
+   "owner": "energy-model",
+   "reason": "The pickup illustration assumes a load transfer and explicitly leaves clearance, bag load path and strength unqualified. No physical handling or structural float evidence is established."
   },
   {
    "file": "3d/model/metadata.js",
@@ -365,6 +375,13 @@
    "line": 25
   },
   {
+   "file": "3d/tests/operations-comparison.test.mjs",
+   "key": "9e4291d93fd0d2a7",
+   "line": 8,
+   "class": "method",
+   "reason": "This exact string is only the heading delimiter in the executed operations text regression. It is neither a simulated result nor a claim of flight."
+  },
+  {
    "file": "3d/tests/state.test.mjs",
    "key": "39e82e56d6815f9d",
    "class": "method",
@@ -456,7 +473,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 362
+   "line": 358
   },
   {
    "file": "app/cockpit/panels.js",
@@ -464,7 +481,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 207
+   "line": 202
   },
   {
    "file": "app/cockpit/panels.js",
@@ -480,7 +497,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 297
+   "line": 296
   },
   {
    "file": "app/cockpit/shipviz.js",
@@ -488,7 +505,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 308
+   "line": 307
   },
   {
    "file": "app/cockpit/shipviz.js",
@@ -496,7 +513,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 308
+   "line": 307
   },
   {
    "file": "app/cockpit/shipviz.js",
@@ -504,7 +521,7 @@
    "class": "method",
    "context": [],
    "reason": "Explicit simulation or unproven structural-float qualification; no claimed hull-size boundary or measured flight result.",
-   "line": 322
+   "line": 321
   },
   {
    "file": "app/cockpit/tables.js",
@@ -587,6 +604,20 @@
    "line": 64
   },
   {
+   "file": "research/analysis/energy-feasible.md",
+   "key": "6ec14366bd6a0608",
+   "line": 16,
+   "class": "generated",
+   "generator": "research/analysis/energy-tables.mjs",
+   "gate": "energydoccheck",
+   "verifier": "tools/check_energy_docs.py",
+   "region": {
+    "start": "<!-- profile-tables:start -->",
+    "end": "<!-- profile-tables:end -->"
+   },
+   "reason": "The exact generated profile region states its assumed buoyant flight hull and explicitly denies structural float proof; the table and scope are checked together by their producer."
+  },
+  {
    "file": "research/notes/derveni-2024-multi-defect-shell-buckling.md",
    "key": "af28abef1f0910dd",
    "class": "literature",
@@ -600,11 +631,51 @@
   },
   {
    "file": "research/validation/constant-study.md",
-   "key": "ea3d8828ac7f735f",
-   "line": 10,
+   "key": "3d827d1b56d0bccc",
+   "line": 154,
    "class": "deferred",
    "owner": "hand-arithmetic",
-   "reason": "Regenerated two-copy dry-air-constant counterfactual includes corrected shell sundries; model comparisons are not current drawn-hull float evidence."
+   "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "4ebb95a5b106a3e1",
+   "line": 165,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "54462323e18913c5",
+   "line": 16,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "96a831481b04e29d",
+   "line": 61,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "b91db2cb1c4e4fbe",
+   "line": 20,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "The full dry-air-constant leaf table is replaced by a computed per-output magnitude summary; the complete leaf record remains in JSON. Its deferred disposition is retained."
+  },
+  {
+   "file": "research/validation/constant-study.md",
+   "key": "f422b260a941128c",
+   "line": 35,
+   "class": "deferred",
+   "owner": "hand-arithmetic",
+   "reason": "New dry-air-constant summary block reports recorded effects or their limits; the old table had no separate block for it. It retains the same deferred class, without asserting current drawn-hull float evidence."
   },
   {
    "file": "ship/catalog.js",
@@ -676,7 +747,7 @@
    "class": "method",
    "context": [],
    "reason": "Signed-force bookkeeping definition for the simulator, including unheld force; it is not evidence of structural float.",
-   "line": 35
+   "line": 36
   },
   {
    "file": "sim/config.js",
@@ -744,7 +815,7 @@
    "class": "method",
    "context": [],
    "reason": "Names a model label, check, requirement or computation, without claiming a measured drawn vehicle result.",
-   "line": 182
+   "line": 195
   },
   {
    "file": "sim/selftest.js",
