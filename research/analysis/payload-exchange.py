@@ -17,7 +17,8 @@ Constants are copied from sim/config.js (classes L260-292, CFG L52-62, altitudes
 Phase durations and channel energies of the earlier tree (read-only run, 2026-10-02) and the
 baseline's worst-instant records (baseline/first-principles.json, letdown[]) are embedded as DATA, not code.
 """
-import json, math, os
+import json, math, os, sys
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -484,6 +485,11 @@ def reproduce_baseline():
 
 # ---------------------------------------------------------------- main
 def main():
+    args = sys.argv[1:]
+    if args not in ([], ['--check']):
+        print('Usage: python3 research/analysis/payload-exchange.py [--check]', file=sys.stderr)
+        return 2
+    check = args == ['--check']
     out = dict(meta=dict(label='ANALYSIS, NOT DESIGN', date='2026-10-02', script='research/analysis/payload-exchange.py',
                          note='Nothing here says the ship flies, and nothing says it cannot be made to.'),
                constants=dict(PROP_ETA=PROP_ETA, ETAS=ETAS, CD_ZERO_LIFT=CD_ZERO_LIFT, VERTICAL_CD=VERTICAL_CD, VERTICAL_CD_RANGE=VERTICAL_CD_RANGE,
@@ -550,11 +556,11 @@ def main():
         dict(rank=6, route='f', name='cryogenic ballast', why='the energy and plant mass to make the ballast inside the cycle exceed the bus and the dry mass on every class with a gap'),
     ]
     out['nextAnalysis'] = 'route d: the half-load hull with two-way rotors, opened on its failure case (routes.*.d.failureCase) before anything else'
-    json.dump(out, open(os.path.join(HERE, 'payload-exchange.json'), 'w'), indent=1, default=lambda x: r(x))
+    outputs = {Path(HERE)/'payload-exchange.json':
+               json.dumps(out, indent=1, default=lambda x: r(x))}
     # The corrected geometry sentence is generated from the same calculation.
     docpath = os.path.join(HERE, 'payload-exchange.md')
     if os.path.exists(docpath):
-        from pathlib import Path
         import re
         volumes = [f"{out['classes'][name]['problem']['hull']['config']['capsuleVolumeM3']:,.0f}" for name in ['P100', 'P1000', 'P10000']]
         sentence = 'The configured hull is a capsule, with a cylinder and hemispherical ends.\n'
@@ -562,9 +568,25 @@ def main():
         sentence += '[`*.problem.hull.config.capsuleVolumeM3`].'
         text = Path(docpath).read_text()
         text = re.sub(r'(?<=<!-- payload-capsule:start -->)\n.*?\n(?=<!-- payload-capsule:end -->)', '\n'+sentence+'\n', text, flags=re.S)
-        Path(docpath).write_text(text)
+        outputs[Path(docpath)] = text
+    elif check:
+        outputs[Path(docpath)] = None
 
+    if check:
+        bad = []
+        for path, text in outputs.items():
+            file = path.relative_to(Path(HERE).parents[1]).as_posix()
+            if not path.exists():
+                bad.append(file+': missing generated output')
+            elif path.read_bytes() != text.encode():
+                bad.append(file+': stale generated output')
+        for message in bad:
+            print(message, file=sys.stderr)
+        return 1 if bad else 0
+    for path, text in outputs.items():
+        path.write_text(text)
     print(f"\nwrote {os.path.join(HERE, 'payload-exchange.json')}")
+    return 0
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

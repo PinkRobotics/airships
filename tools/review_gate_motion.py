@@ -5,6 +5,7 @@ This script writes review decisions only. Run tools/update_float_records.py twic
 for the deterministic record migration and idempotence check.
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -98,7 +99,14 @@ REVIEWED = [
 
 
 def main():
+    args = sys.argv[1:]
+    if args not in ([], ['--check']):
+        print('Usage: python3 tools/review_gate_motion.py [--check]', file=sys.stderr)
+        return 2
     path = ROOT / 'tools/float_dispositions.json'
+    if args and not path.exists():
+        print('tools/float_dispositions.json: missing generated output', file=sys.stderr)
+        return 1
     doc = json.loads(path.read_text())
     reviewed = {(e['file'], e['key']): e for e in REVIEWED}
     found = set()
@@ -109,10 +117,15 @@ def main():
             found.add(key)
     doc['entries'].extend(e for e in REVIEWED if (e['file'], e['key']) not in found)
     text = json.dumps(doc, ensure_ascii=False, indent=1) + '\n'
-    if path.read_text() != text:
+    if args:
+        if path.read_bytes() != text.encode():
+            print('tools/float_dispositions.json: stale generated output', file=sys.stderr)
+            return 1
+    elif path.read_text() != text:
         path.write_text(text)
     print(f'Motion review: {len(REVIEWED)} explicit per-block decisions')
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
