@@ -211,6 +211,8 @@ thing that bites as the hull grows.
 
 ### 6.2 Three ways out, costed
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 1. **Retain water as ballast.** Directly reduces delivery, which is the metric.
 2. **Make ballast from air.** Liquefy nitrogen on the return leg. The plant is in the model and it is
    sized for something else (§7.2): at cycle rate it makes 21.12 t<!--f:P10000.energy.ln2MakeT-->
@@ -222,6 +224,8 @@ thing that bites as the hull grows.
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 6.3 What was actually chosen: borrow the lake
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 Lower a cable with a collapsible bag, fill it, winch it clear of the surface. Water hanging on a
 line is downward force at the cost of the lift needed to break the surface — 15 m of it.
@@ -301,6 +305,8 @@ buys the mechanism.
 ## 7. The energy ledger
 
 ### 7.1 The budget
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 P-10000, 15 km<!--f:worked.oneWayKm--> one way, balanced, still air. Printed from the model, not
 transcribed:
@@ -386,6 +392,8 @@ confused with a cycle that takes an hour.
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 7.3 Generation, and the deficit
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
@@ -474,6 +482,8 @@ the literature this project itself cites.** Everything in §§5–7 is condition
 
 ### 8.2 The solar skin needed 76% conversion efficiency — FIXED 2026-08-09
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 `state.js` credited 200 W/m² of *electrical output*, continuously, in **five separate files**.
 NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across eight BC interior
 fire-belt towns — 264 W/m² incident, day-averaged. 200 out of 264 is **76% conversion**, three and
@@ -528,6 +538,8 @@ Averaged sunlight is credited to instantaneous bus power before rotor allocation
 
 ### 8.3 `rtLN2` returned more work than the nitrogen contains — FIXED 2026-08-09
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 `rtLN2 = 0.50` against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg recovered **225 kWh per
 tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K ambient is
 **173.4 kWh/t** (Arnaiz-del-Pozo et al. 2020; corroborated at 205–214 kWh/t under more favourable
@@ -561,6 +573,8 @@ counts tonnes. This project's headline metric is tonnes per hour.
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 8.5 The other nine, in one line each
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 | # | Defect | Cost |
 |---|---|---|

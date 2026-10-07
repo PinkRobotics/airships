@@ -37,6 +37,8 @@ Where nothing is known, the section says so rather than estimating.
 
 ## 1. The thesis in one page
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 Conventional helicopters, water-scooping aircraft and base-refilled airtankers have distinct
 refill circuits. The proposal studies a buoyant hull's requested load and repeating
 water-source-to-target cycle; local water refill already exists in conventional aviation.
@@ -123,6 +125,8 @@ The [member census](../../docs/MEMBER-CENSUS.md) records 20 disagreements betwee
 
 ### 2.2 The cycle is timed, not asserted
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 | Phase | P-100, min | What happens |
 |---|---:|---|
 | Source approach | 2.00<!--f:P100.cycle.durations.SOURCE_APPROACH--> | dead stop, lower anchor and pumps |
@@ -141,6 +145,8 @@ fire is not near water.** How often that is true is item 13 of `docs/OPEN-QUESTI
 <!--tex:fig charts/render-release.png | Mid-release, rendered from the model. Ten thousand tonnes leaves along the length of the keel in one pass; the hull rises off the line as it goes, which is why the escape climb costs no propulsion.-->
 
 ### 2.3 Throughput, if the vehicle exists
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
@@ -167,6 +173,8 @@ to grow and not a reason to start there.
 ## 3. The one genuine invention, and its exposure
 
 ### 3.1 What it is
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
 
@@ -305,6 +313,8 @@ from a builder of lattice structures. This is the project's single point of fail
 
 ### 4.2 The solar skin required 76% conversion efficiency — CORRECTED 2026-08-09
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 The model credited the skin a flat **200 W/m² of electrical output**, continuously, in five
 separate source files. NRCan's dataset gives 6.34 kWh/m²/day mean July horizontal insolation across
 eight BC interior fire-belt towns: **264 W/m² incident**, day-averaged. 200 out of 264 is 76%
@@ -349,6 +359,8 @@ Averaged sunlight is credited to instantaneous bus power before rotor allocation
 <!-- energy:model-qualification:end -->
 
 ### 4.3 The nitrogen recovery was thermodynamically impossible — CORRECTED 2026-08-09
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 `rtLN2 = 0.50` against `eLN2 = 0.45`<!--f:assumptions.eLN2--> kWh/kg recovered **225 kWh per
 tonne** of liquid nitrogen. The physical exergy of LN2 at 1 bar against a 288 K ambient is
@@ -427,6 +439,8 @@ not obviously keep the never-lands property.
 
 ### 5.1 The ledger
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 P-100, 15 km<!--f:worked.oneWayKm--> each way, printed from the model:
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
@@ -461,6 +475,8 @@ These energy figures come from the earlier flight model, which understates the f
 
 ### 5.2 The fleet is a battery being spent
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 Every class runs a deficit every cycle. This is the project's central public conclusion and it is
 stated on the site rather than hidden:
 
@@ -489,6 +505,8 @@ import chain, and that chain is the business.
 These energy figures come from the earlier flight model, which understates the force needed to hold an empty hull down. Corrected figures will be higher, and some cycles may not be flyable as drawn.
 
 ### 5.3 Grid implications — the number that should govern the conversation
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 **The model publishes no cost, and nothing below is a model output.** These are derived from model
 energy figures and the published BC Hydro Transmission Service Rate Schedule 1830 (effective

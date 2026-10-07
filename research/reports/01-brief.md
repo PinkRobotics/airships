@@ -33,6 +33,8 @@ where the fires and the lakes are usually within tens of kilometres of each othe
 
 ## What the model says a fleet would do
 
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
+
 <!--tex:fig charts/throughput.pdf | Sustained delivery, and the cycle that produces it. Nothing here lands: on every class the longest phases are moving water, not flying.-->
 
 **The reference ship is the smallest one.** The P-100 carries
@@ -67,6 +69,8 @@ which is why the model is published and why the last third of this page is the f
 would have to be true.
 
 ### And then the question of how much bigger
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 > **2026-10-02 correction: record basis, INFEASIBLE.** Arrows preserve the dated value on the left and give the current model on the right. Energy and battery hours describe supplied effort on an unsupported profile, not achieved flight.
 
@@ -113,6 +117,8 @@ more of. The question stopped being *is this impossible* and became *how light c
 which is an engineering question, and those get answered.
 
 ## What stops you getting bigger: borrowing the lake
+
+Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.
 
 The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
 

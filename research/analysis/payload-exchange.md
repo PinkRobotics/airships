@@ -47,7 +47,7 @@ This study's simplified sketch remains labelled analysis and retains its earlier
 
 ## 2. The routes, priced from first principles
 
-All rotor figures use momentum theory with Glauert's inflow and one efficiency on the ideal induced power,
+All rotor figures use momentum theory with Glauert's inflow and a constant hover merit times drive efficiency on ideal power. There is no separate blade profile power or specified blade, rotor-speed or pitch policy. These figures are conditional on that scope; a separated model can move them in either direction. The study uses efficiency
 0.70, printed beside 0.55 as an efficiency range [`constants.ETAS`]. Every force and power term uses the local standard-atmosphere density.
 The bus is the battery plus the generator rating: 38, 190 and 1,550 MW [`*.problem.busMW`].
 

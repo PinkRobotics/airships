@@ -85,6 +85,8 @@ function anchorAt(cls, plan, g, id, prog) {
  * recirculating states between them. This model implements neither the windmill-brake branch
  * nor a model for those intermediate states: climb against hold-down thrust (axialV below zero)
  * is priced as level flight, with no conservative error bound. No regenerative power is credited.
+ * A constant hover merit times drive efficiency divides ideal power at every thrust and speed;
+ * no separate blade profile power or blade, rotor-speed or pitch policy is implemented.
  * At V = 0 and v_c = 0 this returns diskMW exactly.
  */
 export function inducedMW(cls, thrustN, airV = 0, axialV = 0, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {

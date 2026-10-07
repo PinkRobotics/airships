@@ -57,6 +57,7 @@ def main():
     checks += [['node','research/analysis/energy-motion.mjs','--check']]
     checks += [['node','research/analysis/energy-rotor-area.mjs','--check'],['node','tests/energy/rotor-area.mjs']]
     checks += [['node','research/analysis/energy-rotor-regime.mjs','--check'],['node','tests/energy/rotor-regime.mjs']]
+    checks += [['node','research/analysis/energy-rotor-power.mjs','--check'],['node','tests/energy/rotor-power.mjs']]
     checks += [['node','tools/gen_energy_pages.mjs','--check']]
     checks += [['python3','tests/energy/hover-floor.py','--check'],['node','tests/energy/replay.mjs']]
     for command in checks:
