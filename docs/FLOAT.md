@@ -629,7 +629,7 @@ Absolute tolerances on a 1.6× part are *relatively tighter*, which is the easy 
 **Recompute from the model:**
 
     --demand-n 3372 -> 6717        (octet axial at span 1.0; 6451 at 0.98)
-    --res 112 -> ~160              (holds the 0.883 mm voxel at the bigger window; §6)
+    --res 112 -> ~160              (holds the 0.883 mm voxel at the bigger window; see A7)
 
 **Change the argparse DEFAULTS, do not pass flags.** Two of these parameters live in two
 files. `check_assembly.load_params()` reads `manifest.paramsMm` — what was actually cut —
@@ -644,7 +644,7 @@ is no gate that compares them.
 `check_assembly.py` re-derives all 432 member-ends from the SDF, so it needs no edit — but
 **the frozen contract is invalidated the moment the parameters move**. Order:
 
-1. `make nodes` (≈9 min at res 179, MEASURED — see §6)
+1. `make nodes` (≈9 min at res 179, MEASURED — see A7)
 2. `make assemblycheck` and read the failures **before** freezing anything
 3. compare against the five standing failures (P5, P11, P13, P14, P16). New failures are
    real; do not sweep them into `KNOWN` to get a green build
