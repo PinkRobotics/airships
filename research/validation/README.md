@@ -50,8 +50,12 @@ For the unlanded constant counterfactual, run:
 
     python3 -B research/validation/constant_study.py --out "$TMPDIR/constant-study.json"
 
-This takes two disposable copies of HEAD, regenerates the published figures, six analyses,
-skin outputs and the original validation report, and lists every changed field. Only those
+This takes two disposable copies of the current working files, regenerates the published figures, six analyses,
+skin outputs and the original validation report, and records every changed field in JSON. The adjacent Markdown is a summary computed
+from that JSON: counts, output maxima and medians, decade bands and selected full rows
+with signed relative effects. It stays below 40 KB and explicitly counts omitted rows;
+all leaves remain in `constant-study.json`, `changed_fields`. Normalize an existing study
+without re-running the model with `constant_study.py --normalize --out <recorded-json>`. Only those
 copies unify dry-air R to the 1976 prose constant divided by the dry-air molar mass. Existing
 density dials and gas-specific constants stay unchanged. Its output includes any baseline
 regeneration drift, so pre-existing cache differences cannot be mistaken for constant effects.
