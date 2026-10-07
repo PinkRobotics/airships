@@ -20,3 +20,10 @@ Unchanged fields are omitted. `tools/claims.py` owns `compact_carry_run(run)`,
 which reads either form and returns those exact changed-field pairs.
 `tools/convert_records.py --part carry` converts every former run, including a
 history containing both forms, and proves preservation before writing.
+
+The claims register and served-inertia record retain their complete JSON values.
+Their writers put each top-level entry or analysis row on its own line without
+indentation inside rows. Existing JSON readers continue to parse them directly.
+The shared energy writer and the claims JSON writer compare bytes before writing.
+`tools/convert_records.py --part register` reformats an existing register with a
+canonical equality proof. The served-inertia producer owns its row format.

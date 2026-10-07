@@ -63,8 +63,19 @@ def read_json(path):
     return json.loads(path.read_text())
 
 
+def register_text(value):
+    encode = lambda obj: json.dumps(obj, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+    fields = []
+    for key, obj in value.items():
+        text = '[\n' + ',\n'.join(encode(row) for row in obj) + '\n]' if key == 'entries' else encode(obj)
+        fields.append(encode(key) + ':' + text)
+    return '{\n' + ',\n'.join(fields) + '\n}\n'
+
+
 def write_json(path, value):
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    text = register_text(value) if path.name == 'register.json' else json.dumps(value, ensure_ascii=False, indent=2) + '\n'
+    if not path.exists() or path.read_text() != text:
+        path.write_text(text)
 
 
 def normal(text):

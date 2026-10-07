@@ -106,5 +106,36 @@ class CarryProducer(ClaimsFixture, unittest.TestCase):
                  for p in (self.root/'research/claims').iterdir() if p.is_file()})
 
 
+
+class FormatWriters(unittest.TestCase):
+    def test_register_rows_and_unchanged_write(self):
+        import claims
+        value = dict(version=1, delegations={}, entries=[{'text': 'é', 'value': 1.25}, {'value': None}])
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / 'register.json'
+            claims.write_json(path, value)
+            first = path.read_bytes(), path.stat().st_mtime_ns
+            self.assertEqual(json.loads(first[0]), value)
+            self.assertEqual(len(first[0].splitlines()), 8)
+            claims.write_json(path, value)
+            self.assertEqual(first, (path.read_bytes(), path.stat().st_mtime_ns))
+
+    def test_energy_rows_and_unchanged_write(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / 'out.json'
+            helper = (TOOLS.parent / 'research/analysis/energy-output.mjs').as_uri()
+            script = ('import {jsonRows,writeGenerated} from ' + json.dumps(helper) + ';'
+                      'const value={reason:"kept",rows:[{a:1.25},{b:null}]};'
+                      'writeGenerated(' + json.dumps(str(path)) + ',jsonRows(value));')
+            run = subprocess.run(['node', '--input-type=module', '-e', script], capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            first = path.read_bytes(), path.stat().st_mtime_ns
+            self.assertEqual(json.loads(first[0]), {'reason': 'kept', 'rows': [{'a': 1.25}, {'b': None}]})
+            run = subprocess.run(['node', '--input-type=module', '-e', script], capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertEqual(first, (path.read_bytes(), path.stat().st_mtime_ns))
+
+
 if __name__ == '__main__':
     unittest.main()

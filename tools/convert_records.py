@@ -39,12 +39,30 @@ def convert_carry(args):
     write_carry_history(path, old)
 
 
+
+def convert_register(args):
+    from claims import write_json
+    path = args.root / 'research/claims/register.json'
+    old = json.loads(path.read_text())
+    baseline = json.loads(args.baseline.read_text()) if args.baseline else old
+    assert canonical(old) == canonical(baseline), 'register content differs before conversion'
+    write_json(path, old)
+    new = json.loads(path.read_text())
+    assert canonical(baseline) == canonical(new), 'register content changed'
+    print('register old sha256:', hashlib.sha256(canonical(baseline)).hexdigest())
+    print('register new sha256:', hashlib.sha256(canonical(new)).hexdigest())
+    print(f'{path.relative_to(args.root)}: {path.stat().st_size} bytes; json.load values equal')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--part', choices=['solar', 'carry'], required=True)
+    ap.add_argument('--part', choices=['solar', 'carry', 'register'], required=True)
     ap.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     ap.add_argument('--baseline', type=Path)
     args = ap.parse_args()
+    if args.part == 'register':
+        convert_register(args)
+        return
     if args.part == 'carry':
         convert_carry(args)
         return
