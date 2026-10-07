@@ -5,9 +5,12 @@ import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,selectServedPlan} fr
 import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=816a54f9';
 import {omittedInertia,ADDED_MASS_VALUES,GAP_CUTOFF_T,AUTHORITY_METHOD,WITHDRAWN_METHOD} from './energy-motion.mjs';
 import {writeGenerated} from './energy-output.mjs';
+import {validateFleetDistanceRecord} from './fleet-distance-set.mjs';
 const read=f=>JSON.parse(fs.readFileSync(f,'utf8'));
 const printed=[...read('research/analysis/energy-profiles.json').rows,...read('research/analysis/energy-feasible.json').rows];
-const fleet=read('research/analysis/energy-fleet-distances.json').rows,routes=read('tests/energy/served-route-distances.json').routes;
+const fleetRecord=read('research/analysis/energy-fleet-distances.json');
+validateFleetDistanceRecord(fleetRecord);
+const fleet=fleetRecord.rows,routes=read('tests/energy/served-route-distances.json').routes;
 const rows=[];
 for(const [cid,candidates] of Object.entries(SERVED_CANDIDATES)){
  const distances=new Set(printed.filter(r=>r.class===cid).map(r=>r.km));

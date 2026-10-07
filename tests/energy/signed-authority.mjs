@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import {CLASSES,MODES,planCycle,drawAt,cycleGeometry} from '../../sim/index.js?v=816a54f9';
 import {accelerationAt,rotorAuthoritiesT,signedRotorDemand,ADDED_MASS_VALUES} from '../../research/analysis/energy-motion.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
-const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;
+// Frozen mathematical counterexamples; changing dispatch cannot retire these failures.
+const captures=JSON.parse(fs.readFileSync('tests/energy/diagnostic-fixtures.json')).missions;
 function instant(mission,phase,progress){
  const r=captures.find(r=>r.capture==='exercise'&&r.mission===mission);
  assert.ok(r,'captured fixture exists');

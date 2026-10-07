@@ -9,11 +9,13 @@ import { S } from './store.js?v=816a54f9';
 import { renderWorked } from './worked.js?v=816a54f9';
 
 /* The fleet is FIXED: ten P-100s, five P-1000s, one P-10000 — sixteen hulls for the whole
-   province, allocated largest-first to the fires that fit them best (priority, class fit,
-   and water logistics). Everything that doesn't win a hull waits, visibly. */
+   province, allocated largest-first within the existing size bands (priority and water
+   logistics), one hull per fire. A hull with no fitting unassigned route stands by at base.
+   Everything that doesn't win a hull waits, visibly. See research/analysis/fleet-envelope.md. */
 export const FLEET = [["P10000", 1], ["P1000", 5], ["P100", 10]];
 
 export async function rebuildMissions() {
+  S.standby = [];
   for (const f of S.fires) { f.mission = null; f.heldOut = null; }
   // A record-only day builds no mission objects at all (R1): nothing of the fleet exists
   // on those views — no ships, no tracks, no figures — and deciding that here, before any
@@ -50,12 +52,11 @@ export async function rebuildMissions() {
     return (srcMemo[key] = { src, relaxed, rankKm });
   };
   const fit = (f, clsId) => {
+    // Promote the former score penalties to dispatch eligibility; overlap permits help.
+    if (!inBand(f, clsId)) return -Infinity;
     const so = srcFor(f, clsId);
     if (!so) return -Infinity;
     let v = pri(f) - so.rankKm / 40;
-    if (clsId === "P10000" && f.sizeHa < 3000) v -= 3;
-    if (clsId === "P1000" && f.sizeHa < 300) v -= 2;
-    if (clsId === "P100" && f.sizeHa > 5000) v -= 1.5;
     return v;
   };
   // Refuse the whole route, including release ends, all cycle jitter and the actual bows.
@@ -63,17 +64,26 @@ export async function rebuildMissions() {
   let open = cand.slice();
   const heldOut = new Set();
   S.missions = [];
+  const standBy = (clsId, hullNo) => {
+    const fitting = cand.filter(f => inBand(f, clsId));
+    const reason = !fitting.length ? 'no eligible fire in this class’s size band' :
+      fitting.every(f => f.mission) ? 'all fitting fires already have a hull' :
+      fitting.every(f => f.mission || heldOut.has(f.id)) ? 'remaining fitting routes were refused' :
+      'no qualifying mapped water source for an unassigned fitting fire';
+    const name = (HULL_NAMES[clsId] || [])[hullNo - 1] || CLASSES[clsId].name + ' #' + hullNo;
+    S.standby.push({name,shipId:name,class:clsId,hullNo,location:'base',reason});
+  };
   const rankOf = new Map(cand.slice().sort((a, b) => pri(b) - pri(a)).map((f, i) => [f.id, i + 1]));
   for (const [clsId, count] of FLEET) {
     for (let k = 1; k <= count; k++) {
-      if (!open.length) open = cand.filter(f => !heldOut.has(f.id));  // more hulls than fires: double up
-      if (!open.length) break;
+      // The plan already repeats its delivery cycle. No required simultaneous delivery
+      // rate is modelled, so a second hull is not justified: leave it ready at base.
       let bi = -1, bs = -Infinity;
       for (let i = 0; i < open.length; i++) {
         const v = fit(open[i], clsId);
         if (v > bs) { bs = v; bi = i; }
       }
-      if (bi < 0 || bs === -Infinity) continue;
+      if (bi < 0 || bs === -Infinity) { standBy(clsId, k); continue; }
       const f = open.splice(bi, 1)[0];
       const so = srcFor(f, clsId);
       // Passing S.heat here is currently INERT, and deliberately kept: buildMission does
@@ -121,6 +131,12 @@ export async function rebuildMissions() {
     if (b) { m.battE = b.e; m.dead = b.dead; m.deadAt = b.deadAt; }
   }
   return planFleet();
+}
+
+function inBand(f, clsId) {
+  if (!Number.isFinite(f.sizeHa) || f.sizeHa < 0) return false;
+  return clsId === 'P10000' ? f.sizeHa >= 3000 :
+    clsId === 'P1000' ? f.sizeHa >= 300 : f.sizeHa <= 5000;
 }
 
 let planningGeneration = 0;

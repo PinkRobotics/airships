@@ -132,7 +132,13 @@ class Context:
         if occ['file']=='research/analysis/energy-motion.md' and region=='energy:motion':
             return dict(kind='generated',generator='research/analysis/energy-motion.mjs',
                         region=region,source='research/analysis/energy-motion.json'), 'energydoccheck'
+        if occ['file']=='research/analysis/fleet-envelope.md' and region=='fleet-envelope:summary':
+            return dict(kind='generated',generator='tools/gen_operations_records.py',region=region), 'servedenergycheck'
         checked_regions = {
+            ('research/analysis/air-ballast.md','anchor-budget:nitrogen-table'):'tools/gen_anchor_budget_notes.mjs',
+            ('research/analysis/air-ballast.md','anchor-budget:nitrogen-current'):'tools/gen_anchor_budget_notes.mjs',
+            ('docs/OPEN-QUESTIONS.md','anchor-budget:question'):'tools/gen_anchor_budget_notes.mjs',
+            ('research/analysis/water-availability.md','water-stations'):'tools/gen_water_station_note.py',
             ('research/reports/02-paper.md','battery:ratios'):'research/analysis/battery-ratios.mjs',
             ('research/analysis/water-availability.md','logistics:rates'):'tools/gen_logistics_prose.py',
             ('research/analysis/water-availability.md','logistics:drawdown'):'tools/gen_logistics_prose.py',

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import {CLASSES,selectServedPlan} from '../sim/index.js';
 const file='tests/energy/served-route-distances.json';
 const original=fs.readFileSync(file,'utf8'),data=JSON.parse(original);
-data.source='Local captured route inputs from the shipped exercise, dated replays and sample; current controls replayed through the served selector. No emergency feed fetched.';
+data.source='Local captured route inputs from the shipped exercise and dated replay; current controls replayed through the served selector. No emergency feed fetched.';
 let changed=0;
 for(const m of data.missions){
  const s=selectServedPlan(CLASSES[m.class],m.km,null,m.mode);

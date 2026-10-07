@@ -15,6 +15,9 @@ for path in paths:
 print('PASS served cycle consumer inventory: '+str(len(owned))+' owned consumers')
 node_args=['--mutation',sys.argv[sys.argv.index('--mutation')+1]] if '--mutation' in sys.argv else []
 COMMANDS=[['node','tools/gen_served_candidates.mjs','--check'],['node','tests/node/served-energy.mjs',*node_args]]
+if not node_args:
+ COMMANDS += [[sys.executable,'tests/energy/fleet-envelope.py'],
+              [sys.executable,'tools/gen_operations_records.py','--check']]
 # The producer owns the exact served sentence regions and the separately measured check count.
 COMMANDS[1:1]=[['node','tools/gen_energy_page_checks.mjs','--check'],['node','tools/gen_energy_pages.mjs','--check']]
 COMMANDS.append([sys.executable,'tools/gen_fallback.py','--check'])

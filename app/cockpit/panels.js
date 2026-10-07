@@ -182,7 +182,8 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· ${S.daySource === "live" ? "live data" : "the record as published"}; all else simulated</span></p>` : "") + `</div>
       <div><h4>Attack route · simulated</h4>` + kvRows([
         ["water source", esc(srcName(m)) + " <small>" + fmt(m.water[2]) + " ha</small>", "sim"],
-        ["planned leg", m.legKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) + " hose stations", "sim"],
+        ["planned leg", m.legKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) +
+          " hose station" + ((m.stations ? m.stations.length : 1) === 1 ? "" : "s"), "sim"],
         ["release", m.targets.length + " planned lines" + (m.heat ? " on satellite heat" : "") +
           (m.refusedTargets?.length ? "; " + m.refusedTargets.length + " geometric targets refused: no tested line fits inside the modelled fire" : ""), "sim"],
         ["priority", m.whyT && m.order ? esc(m.whyT[m.order[0]]) : "—", "sim"],

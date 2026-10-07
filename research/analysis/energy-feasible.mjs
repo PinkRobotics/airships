@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
 import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js?v=816a54f9';
 import {profileDetails} from './energy-profile-details.mjs';
+import {validateFleetDistanceRecord} from './fleet-distance-set.mjs';
+import {writeGenerated} from './energy-output.mjs';
 if(!isMainThread){
   const {kind,class:id,km,basis}=workerData,c=CLASSES[id];
   if(kind==='requirement')parentPort.postMessage(closureRequirements(c,MODES.balanced,km,basis));
@@ -13,6 +15,7 @@ if(!isMainThread){
   }
 }else{
   const fleet=JSON.parse(fs.readFileSync('research/analysis/energy-fleet-distances.json'));
+  validateFleetDistanceRecord(fleet);
   const distances=[fleet.min,fleet.median,fleet.max].map(x=>+x.toFixed(6));
   const jobs=[];
   for(const id of Object.keys(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable'])jobs.push({kind:'requirement',class:id,km,basis});
@@ -24,10 +27,10 @@ if(!isMainThread){
   await Promise.all(Array.from({length:4},run));
   const requirements=results.filter((_,i)=>jobs[i].kind==='requirement');
   const profiles=results.filter((_,i)=>jobs[i].kind==='profile');
-  fs.writeFileSync('research/analysis/energy-requirements.json',JSON.stringify({rows:requirements},null,2)+'\n');
-  fs.writeFileSync('research/analysis/energy-profiles.json',JSON.stringify({space:PROFILE_SEARCH,rows:profiles.filter(r=>[15,60].includes(r.km))},null,2)+'\n');
+  writeGenerated('research/analysis/energy-requirements.json',JSON.stringify({rows:requirements},null,2)+'\n');
+  writeGenerated('research/analysis/energy-profiles.json',JSON.stringify({space:PROFILE_SEARCH,rows:profiles.filter(r=>[15,60].includes(r.km))},null,2)+'\n');
   const table={defaultBasis:'record',otherBasis:'favourable',distances,
-    distanceSelection:{source:fleet.source,min:fleet.min,median:fleet.median,max:fleet.max,reason:'Minimum, median and maximum flown leg distances represent both ends and the centre of the golden allocation. Rounded to six decimal kilometres and replayed; no interpolation is claimed.'},
+    distanceSelection:{source:fleet.source,capture:fleet.capture,min:fleet.min,median:fleet.median,max:fleet.max,reason:'Minimum, median and maximum flown legs of the bundled invented exercise, view=exercise and seed=7. The fixed exercise is a route sample, not a service envelope or an incident-day distribution. Rounded to six decimal kilometres and replayed; no interpolation is claimed.'},
     space:PROFILE_SEARCH,rows:profiles.filter(r=>distances.includes(r.km))};
-  fs.writeFileSync('research/analysis/energy-feasible.json',JSON.stringify(table,null,2)+'\n');
+  writeGenerated('research/analysis/energy-feasible.json',JSON.stringify(table,null,2)+'\n');
 }

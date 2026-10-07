@@ -14,15 +14,21 @@ test('refusal-first dispatch retains the same hull slot for an eligible route', 
   assert.equal(S.fires.filter(f=>f.heldOut).length,1);
   assert.equal(S.fires[0].mission,null);
   assert.match(S.fires[0].heldOut,/Invented exclusion/);
-  assert.equal(S.missions.length,16);
-  assert.equal(S.missions.filter(m=>!m.idle).length,16);
-  assert.equal(S.uncovered,5);
+  assert.equal(S.missions.length,6);
+  assert.equal(S.missions.filter(m=>!m.idle).length,6);
+  assert.equal(S.uncovered,15);
   assert.equal(S.missions[0].hullNo,1);
-  assert.equal(new Set(S.missions.map(m=>m.name)).size,16);
+  assert.equal(new Set(S.missions.map(m=>m.name)).size,6);
   assert.ok(S.missions.every(m=>!SIM.missionBlocked(S.regions,m)));
+  assert.ok(S.missions.every(m=>m.cls.id!=='P100'),'every fixture fire exceeds the P100 upper band');
+  assert.equal(S.standby.length,10);
+  assert.ok(S.standby.every(m=>m.class==='P100'&&/size band/.test(m.reason)));
+  assert.equal(new Set(S.missions.map(m=>m.fire.id)).size,6);
 });
-test('dispatch without an exclusion still fills the same fixed pool', async () => {
+test('dispatch without an exclusion holds small hulls for fitting fires', async () => {
   reset([]);await rebuildMissions();
-  assert.equal(S.missions.length,16);assert.equal(S.uncovered,5);
+  assert.equal(S.missions.length,6);assert.equal(S.uncovered,15);
   assert.equal(S.fires.filter(f=>f.heldOut).length,0);
+  assert.equal(S.standby.length,10);
+  assert.ok(S.standby.every(m=>m.class==='P100'&&m.location==='base'&&m.reason));
 });

@@ -1,8 +1,16 @@
 /* Replay the exact decimal requirements and profiles that the document generator prints. */
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
+import {validateFleetDistanceRecord} from '../../research/analysis/fleet-distance-set.mjs';
 import {CLASSES,MODES,planCycle,energySummary,REQUIREMENT_UNIT} from '../../sim/index.js?v=816a54f9';
 let checked=0;
+const fleet=JSON.parse(fs.readFileSync('research/analysis/energy-fleet-distances.json'));
+validateFleetDistanceRecord(fleet);
+const feasible=JSON.parse(fs.readFileSync('research/analysis/energy-feasible.json'));
+assert.deepEqual(feasible.distances,[fleet.min,fleet.median,fleet.max].map(km=>+km.toFixed(6)),
+ 'printed search distances must come from the current pinned record');
+assert.deepEqual(feasible.distanceSelection.capture,fleet.capture,'printed search capture must match');
+for(const key of ['source','min','median','max'])assert.equal(feasible.distanceSelection[key],fleet[key]);
 function sameSummary(c,p,row){
  for(const [key,value] of Object.entries(energySummary(c,p)))assert.deepEqual(row[key],value,`stale printed energy field ${key}`);
 }

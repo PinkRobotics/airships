@@ -209,7 +209,12 @@ export function renderRoster() {
       `<td class="r-name">${esc(m.name || m.shipId || "?")}${diagnosticNotes(m.cls,m.legKm,m.selection,m.wind??null).map(note=>"<small style=\"display:block\">"+esc(note)+"</small>").join("")}</td>` +
       `<td>${esc(m.fire.name || m.fire.geo || m.fire.id)}</td>` +
       `<td class="ph" title="${m.served && m.planState !== "ready" ? esc(inactiveText(m)) : ""}">${m.served && m.planState !== "ready" ? m.planState === "stand-down" ? "stands down" : "plan " + m.planState : "…"}</td></tr>`).join("");
-    return head + rows;
+    const standby = (S.standby || []).filter(m => m.class === clsId).map(m =>
+      `<tr data-standby-hull="${esc(m.name)}" title="${esc(m.reason)}">` +
+      `<td class="r-name">${esc(m.name)}</td>` +
+      `<td>at base<small style="display:block;white-space:normal">${esc(m.reason)}</small></td>` +
+      `<td class="ph">standing by</td></tr>`).join('');
+    return head + rows + standby;
   }).join("");
   el.innerHTML = `<table class="fleettab" role="grid" ` +
     `aria-label="Fleet roster, grouped by class: hull, the fire it serves, and its current phase">` +

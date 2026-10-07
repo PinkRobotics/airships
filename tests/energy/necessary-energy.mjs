@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=816a54f9';
 import {necessaryEnergy} from '../../research/analysis/energy-necessary.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
-const captures=JSON.parse(fs.readFileSync('tests/energy/served-route-distances.json')).missions;
+// Frozen mathematical counterexamples; changing dispatch cannot retire these failures.
+const captures=JSON.parse(fs.readFileSync('tests/energy/diagnostic-fixtures.json')).missions;
 const fixture=n=>{
  const r=captures.find(q=>q.capture==='exercise'&&q.mission===n),c=CLASSES[r.class],m=MODES[r.mode];
  const p=planCycle(c,m,r.km,null,{...r.options,basis:'record'});
