@@ -51,5 +51,60 @@ class SolarRecord(unittest.TestCase):
             solar.compact_solar_record({'unknown': []})
 
 
+
+class CarryRecord(unittest.TestCase):
+    def test_changed_fields_only_and_idempotence(self):
+        import claims
+        before = dict(id='a', text='kept', gate='old', owner={'kind': 'old'}, placement=[1])
+        after = dict(before, gate='new', owner={'kind': 'new'})
+        run = dict(files={'a': {'then': 1, 'now': 1}}, headlines={}, retired=[], added=['b'],
+                   revalidated=[dict(id='a', before=before, after=after)], defect_changes={'a': {'before': 'x', 'after': None}})
+        compact = claims.compact_carry_run(run)
+        self.assertEqual(compact['revalidated'], [dict(id='a', changed={'gate': ['old', 'new'],
+                                                                     'owner': [{'kind': 'old'}, {'kind': 'new'}]})])
+        for key in ('files', 'headlines', 'retired', 'added', 'defect_changes'):
+            self.assertEqual(run[key], compact[key])
+        self.assertEqual(claims.compact_carry_run(compact), compact)
+        typed = dict(run, revalidated=[dict(id='a', before=dict(id='a', flag=False, precision=1, sign=0.0),
+            after=dict(id='a', flag=0, precision=1.0, sign=-0.0))])
+        self.assertEqual(set(claims.compact_carry_run(typed)['revalidated'][0]['changed']),
+                         {'flag', 'precision', 'sign'})
+
+    def test_invalid_form_refused(self):
+        import claims
+        with self.assertRaises(ValueError):
+            claims.compact_carry_run({'revalidated': []})
+
+
+
+from test_claims import ClaimsFixture
+
+
+class CarryProducer(ClaimsFixture, unittest.TestCase):
+    def test_carry_writes_compact_entries_and_skips_unchanged(self):
+        import claims
+        import contextlib
+        import io
+        self.known()
+        self.check(True)
+        register_path = self.root/'research/claims/register.json'
+        register = claims.read_json(register_path)
+        register['entries'][0]['gate'] = 'former-gate'
+        claims.write_json(register_path, register)
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(claims.carry(self.root, self.root/'dist.manifest',
+                self.root/'research/figures.json', self.root/'research/claims/register.json'), 0)
+        path = self.root/'research/claims/carry-history.json'
+        row = claims.read_json(path)['runs'][-1]['revalidated'][0]
+        self.assertEqual(set(row), {'id', 'changed'})
+        first = {p.name: (p.read_bytes(), p.stat().st_mtime_ns)
+                 for p in (self.root/'research/claims').iterdir() if p.is_file()}
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(claims.carry(self.root, self.root/'dist.manifest',
+                self.root/'research/figures.json', self.root/'research/claims/register.json'), 0)
+        self.assertEqual(first, {p.name: (p.read_bytes(), p.stat().st_mtime_ns)
+                 for p in (self.root/'research/claims').iterdir() if p.is_file()})
+
+
 if __name__ == '__main__':
     unittest.main()

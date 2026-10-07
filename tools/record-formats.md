@@ -12,3 +12,11 @@ The existing percent encoding stays in those expanded paths; decode it once to
 recover source keys. `tools/convert_records.py --part solar` converts a former
 record, proves canonical equality before writing and leaves identical bytes
 untouched. `--baseline` compares with a separately saved original record.
+
+The claims carry history keeps `files`, `headlines`, `retired`, `added` and
+`defect_changes` unchanged. A revalidated row now stores `id` and `changed`,
+whose keys name changed fields and whose pairs give exact old and new values.
+Unchanged fields are omitted. `tools/claims.py` owns `compact_carry_run(run)`,
+which reads either form and returns those exact changed-field pairs.
+`tools/convert_records.py --part carry` converts every former run, including a
+history containing both forms, and proves preservation before writing.

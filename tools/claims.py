@@ -905,6 +905,52 @@ def seed_owner(occ):
     return _SEED.choose(occ)
 
 
+CARRY_KEYS = {'files', 'headlines', 'retired', 'added', 'revalidated', 'defect_changes'}
+
+
+def compact_carry_run(run):
+    """Keep exact changed fields; other run fields retain their full contents."""
+    if set(run) != CARRY_KEYS:
+        raise ValueError('unrecognised carry run keys')
+    rows = []
+    for item in run['revalidated']:
+        if set(item) == {'id', 'changed'}:
+            if not isinstance(item['changed'], dict) or any(
+                    not isinstance(pair, list) or len(pair) != 2 for pair in item['changed'].values()):
+                raise ValueError('invalid compact carry changes')
+            rows.append(item)
+        elif set(item) == {'id', 'before', 'after'}:
+            before, after = item['before'], item['after']
+            if set(before) != set(after) or before.get('id') != item['id'] or after.get('id') != item['id']:
+                raise ValueError('unrecognised carry entry schema or identity')
+            rows.append(dict(id=item['id'], changed={k: [before[k], after[k]]
+                for k in sorted(before) if canonical(before[k]) != canonical(after[k])}))
+        else:
+            raise ValueError('unrecognised revalidated item')
+    return dict(run, revalidated=rows)
+
+
+def carry_history_text(history):
+    """Plain JSON; each changed entry is a row, with deterministic key order."""
+    if set(history) != {'version', 'runs'} or history['version'] != 1:
+        raise ValueError('unrecognised carry history')
+    encode = lambda value: json.dumps(value, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+    runs = []
+    for run in history['runs']:
+        fields = []
+        for key, value in compact_carry_run(run).items():
+            body = '[\n' + ',\n'.join(encode(row) for row in value) + '\n]' if key == 'revalidated' else encode(value)
+            fields.append(encode(key) + ':' + body)
+        runs.append('{\n' + ',\n'.join(fields) + '\n}')
+    return '{"version":1,"runs":[\n' + ',\n'.join(runs) + '\n]}\n'
+
+
+def write_carry_history(path, history):
+    text = carry_history_text(history)
+    if not path.exists() or path.read_text() != text:
+        path.write_text(text)
+
+
 def carry(root, manifest, figures, register_path):
     """Apply the same rules to every occurrence, preserving append-only acceptance history."""
     extracted = extract(root, manifest)
@@ -993,7 +1039,7 @@ def carry(root, manifest, figures, register_path):
             retired=sorted(old_entries.keys()-current.keys()), added=sorted(current.keys()-old_entries.keys()),
             revalidated=[dict(id=e['id'], before=old_entries[e['id']], after=e) for e in entries if e['id'] in old_entries and old_entries[e['id']] != e],
             defect_changes=changes))
-        write_json(path, history)
+        write_carry_history(path, history)
     for name, content in audit_outputs(root, register_path, new_reg, new_def, rules).items():
         path = out / name
         if not path.exists() or path.read_text() != content:
