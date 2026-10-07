@@ -87,7 +87,7 @@ CI_OUTSIDE_CHECK := floatplantshard
 # ledgercheck still drives a browser when regenerating the float ledger.
 quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity reposizecheck energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -287,6 +287,12 @@ analysis:  ## Regenerate the concept analyses in research/analysis/
 	    research/analysis/$$a.js research/analysis/$$a.json 20; \
 	  done' _ '{base}'
 
+
+.PHONY: reposizecheck
+reposizecheck:  ## Bound every tracked file and report the ten largest
+	$(PY) tools/check_repo_size.py
+	$(PY) -B -m unittest discover -s tools/tests -p 'test_repo_size.py'
+	$(PY) -B -m unittest discover -s tools/tests -p 'test_compact_records.py'
 
 clean:  ## Delete generated output: rasterised figures and __pycache__
 	rm -f 3d/assets/raster/*.png 3d/assets/raster/*.webp
