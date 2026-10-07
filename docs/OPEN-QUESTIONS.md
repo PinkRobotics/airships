@@ -767,9 +767,9 @@ power in the viewer. Both now use the published nominal frontal area. **The orig
 1.520891× / 1.525382×** for P-100 / P-1000 / P-10000, at equal speed and density. Those ratios
 are now 1. `make mutationcheck` runs `tests/parity/mutations.mjs` using the stamp in
 `sim/version.json`. It mutates declarations, missing partners, tables, formulas, defaults and
-required field validation, requires each mutation to fail with its expected diagnostic, then
-restores the files and checks the parity and required-spec suites again. It prints the caught
-mutation count and exits nonzero if any mutation escapes.
+required field validation, requires each mutation to fail with its expected diagnostic in a
+disposable copy, then checks the parity and required-spec suites again on the real tree. It
+prints the caught mutation count and exits nonzero if any mutation escapes.
 
 **Decided 2026-10-01 — the model counts stations.** The model declares 4 / 6 / 14 rotors; the
 viewer draws that many stations with two rotors each, or 8 / 12 / 28. The drawing's aggregate disc
