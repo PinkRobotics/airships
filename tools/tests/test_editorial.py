@@ -1,6 +1,7 @@
 """Counterexamples for editorial record bindings; no feeds or physical tests."""
 import json
 import os
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -103,6 +104,124 @@ class AcceptedRelease(unittest.TestCase):
         s=editorial.sections()['release-illustration']
         self.assertIn('Local density',s);self.assertIn('retaining',s);self.assertIn('ideal-disc',s)
         self.assertIn('Neither quantity measures outlet flow',s)
+
+
+# These contracts cover the corrected passages, not the retained historical
+# registration or the primary sources. They are wording checks, not flight,
+# suppression, weather or material validation. Missing qualifications fail too.
+def plain(text):
+    return re.sub(r'\s+', ' ', re.sub(r'[*`]', '', text)).strip()
+
+
+def passage(text, heading):
+    match = re.search(heading + r'\n(.*?)(?=\n## |\Z)', text, re.S | re.M)
+    return plain(match[1]) if match else ''
+
+
+def inverse_errors(text):
+    text = passage(text, r'^## Erratum[^\n]*historical A/B rule[^\n]*')
+    # Read the actual variable, inequality, exact threshold and decision. Case
+    # distinguishes retained strength k from inverse knockdown K.
+    relation = r'(>=|<=|>|<|≥|≤|greater than|less than|above|below|at least|at most)'
+    rules = re.findall(r'\b([Kk])\s*' + relation +
+                       r'\s*(1/2\.9|1/1\.7|2\.9|1\.7)\s*'
+                       r'(?:\([^)]*\)\s*)?(retires?|funds?)\b', text)
+    ops = {'≥':'>=', '≤':'<=', 'greater than':'>', 'less than':'<',
+           'above':'>', 'below':'<', 'at least':'>=', 'at most':'<='}
+    observed = [(v, ops.get(op, op), n, action.rstrip('s'))
+                for v, op, n, action in rules]
+    expected = {('K','>','2.9','retire'), ('K','<=','1.7','fund'),
+                ('k','<','1/2.9','retire'), ('k','>=','1/1.7','fund')}
+    requirements = (r'K\s*=\s*1/k', r'between is undecided',
+                    r'exact reciprocals at the boundaries',
+                    r'no current authority to fund a floating')
+    if set(observed) != expected or len(observed) != 4 or any(
+            not re.search(p, text) for p in requirements):
+        return ['OBJ-050: inverse-knockdown decisions or historical limits changed: '+text]
+    return []
+
+
+def night_errors(text):
+    text = passage(text, r'^## Night[^\n]*')
+    requirements = (r'some nights do not', r'overnight burning', r'drought',
+                    r'describes night firefighting',
+                    r'night airspace (?:cannot be assumed|must not be presumed) empty',
+                    r'suitable weather and visibility', r'outside active columns',
+                    r'cleared and deconflicted airspace',
+                    r'coordination with incident command and ground crews',
+                    r'has not computed a night advantage')
+    forbidden = (r'(?:everything|all conditions) (?:here )?improves?',
+                 r'(?:night )?airspace (?:is|remains|will be) (?:empty|clear)',
+                 r'(?:nothing else|no other aircraft) (?:is |are )?flying',
+                 r'columns (?:always )?collapse')
+    if any(not re.search(p, text, re.I) for p in requirements) or any(
+            re.search(p, text, re.I) for p in forbidden):
+        return ['OBJ-055: conditional night operations or airspace limits changed: '+text]
+    return []
+
+
+def jettison_errors(text, catalogue=False):
+    text = plain(text)
+    requirements = [r'training[- ]jettison', r'designated areas',
+                    r'long[- ]term retardant', r'not a measur(?:ed|ement)']
+    if not catalogue:
+        requirements += [r'(?:not|never) operational firefighting drop heights',
+                         r'not a measured arrival fraction',
+                         r'deposition.*require.*tests']
+    else:
+        requirements += [r'directional warning', r'context']
+    forbidden = (r'(?:these|they) are operational firefighting drop heights',
+                 r'(?:these|they) (?:give|establish) operational (?:firefighting )?drop heights',
+                 r'(?:is|as|a) direct contradiction of (?:ALT\.drop|the (?:ships|water))',
+                 r'water (?:disappears|cannot reach the ground)')
+    if any(not re.search(p, text, re.I) for p in requirements) or any(
+            re.search(p, text, re.I) for p in forbidden):
+        return ['OBJ-056: training-jettison context or water-transfer limits changed: '+text]
+    return []
+
+
+class SettledWording(unittest.TestCase):
+    def test_inverse_knockdown_erratum(self):
+        file = 'research/notes/hierarchy-manufacturing.md'
+        self.assertEqual(inverse_errors((editorial.ROOT/file).read_text()), [], file)
+
+    def test_conditional_night_operations(self):
+        file = 'research/analysis/delivery.md'
+        self.assertEqual(night_errors((editorial.ROOT/file).read_text()), [], file)
+
+    def test_training_jettison_note_and_catalogue(self):
+        file = 'research/notes/usfs-2022-retardant-airtanker-bases.md'
+        self.assertEqual(jettison_errors((editorial.ROOT/file).read_text()), [], file)
+        sources = json.loads((editorial.ROOT/'research/sources.json').read_text())['sources']
+        entry = next(s for s in sources if s['id']=='usfs-2022-retardant-airtanker-bases')
+        self.assertEqual(entry['load'], 'context')
+        self.assertEqual(jettison_errors(entry['whatItEstablishes']+' '+
+                                        entry['whatWeTakeFromIt'], True), [], 'research/sources.json')
+
+    def test_reworded_wrong_claims_and_removed_qualifications(self):
+        inverse = (editorial.ROOT/'research/notes/hierarchy-manufacturing.md').read_text()
+        night = (editorial.ROOT/'research/analysis/delivery.md').read_text()
+        note = (editorial.ROOT/'research/notes/usfs-2022-retardant-airtanker-bases.md').read_text()
+        for replacement in ('k above 2.9 retires; k at most 1.7 funds',
+                            'K < 2.9 retires; K ≥ 1.7 funds', ''):
+            self.assertTrue(inverse_errors(inverse.replace('K > 2.9 retires; K ≤ 1.7 funds', replacement)))
+        for replacement in ('night airspace remains clear', 'no other aircraft are flying', ''):
+            self.assertTrue(night_errors(night.replace('night airspace cannot be assumed empty', replacement)))
+        for replacement in ('They establish operational drop heights',
+                            'These are operational firefighting drop heights', ''):
+            self.assertTrue(jettison_errors(note.replace('These are not operational firefighting drop heights', replacement)))
+        # Contradictions fail even when all corrected qualifications remain.
+        self.assertTrue(night_errors(night.replace('so it has not computed',
+                              'Night airspace is empty. Everything improves after dark; so it has not computed')))
+        self.assertTrue(jettison_errors(note+'\nWater cannot reach the ground.'))
+
+    def test_plain_valid_rewordings(self):
+        inverse = (editorial.ROOT/'research/notes/hierarchy-manufacturing.md').read_text()
+        self.assertEqual(inverse_errors(inverse.replace('K > 2.9 retires; K ≤ 1.7 funds',
+                        'K above 2.9 retires; K at most 1.7 funds')), [])
+        night = (editorial.ROOT/'research/analysis/delivery.md').read_text()
+        self.assertEqual(night_errors(night.replace('cannot be assumed empty',
+                                                   'must not be presumed empty')), [])
 
 class DropRegister(unittest.TestCase):
     def test_row_follows_delivery_record(self):
