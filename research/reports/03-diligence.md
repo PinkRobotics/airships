@@ -168,6 +168,8 @@ to grow and not a reason to start there.
 
 ### 3.1 What it is
 
+The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
+
 The buoyancy that guarantees float-up must be overcome to descend, and it is worst at the bottom,
 over the water, where the air is densest.
 
@@ -226,6 +228,8 @@ does not need, costs 34% more energy per cycle. This is a dated report reading; 
 comparator and the current unsupported replay are separated in the generated note above.
 
 ### 3.2 Its exposure
+
+The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
 
 | Risk | Status |
 |---|---|

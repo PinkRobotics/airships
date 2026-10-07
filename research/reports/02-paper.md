@@ -78,6 +78,8 @@ downstream inherits that assumption.
 
 ## 3. The vehicle
 
+The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
+
 Three classes, geometrically similar, sized by a single safety requirement (§4). **The P-100 is
 the reference vehicle and everything below is worked through on it unless it says otherwise.** It
 is the smallest of the three and the only one smaller than something that has already flown: 110 m
@@ -176,6 +178,8 @@ term scales with distance and none of these scale with payload.
 ## 6. What limits the size: the descent, and the lake as its solution
 
 ### 6.1 The problem
+
+The configured disk area prices independent actuator disks. The drawing sums both blade disks of each coaxial pair, approximately matching that budget; a pair shares a stream, so its aerodynamic area is nearer a projected footprint. These conventions differ. The generated rotor-area sensitivity in `docs/PHYSICS.md` (“Rotor area convention”) compares them at fixed controls.
 
 Buoyancy that guarantees the ship rises when loaded must be overcome when it is empty, and it is
 worst at the bottom of the letdown where the air is 16% denser than the air the hull was sized in.

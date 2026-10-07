@@ -524,9 +524,10 @@ export function resolveClass(id, overrides = {}) {
   // which is why the big ships read as finer-grained rather than as enlargements.
   c.approxCellCount = Math.round(c.volumeM3 / Math.pow(c.cellSizeM, 3));
 
-  // Total primary disc area. Rotor diameter is chosen so this lands on the disc area the
-  // /airships page already publishes for the class, because that number drives its descent-power
-  // arithmetic — the 3D model must not quietly disagree with the page it illustrates.
+  // Summed blade-disc area of every station, counting both rotors of each coaxial pair;
+  // concept diameters approximate the diskM2 priced as independent disks. A pair shares one
+  // stream, so its aerodynamic area is nearer one projected footprint, not this blade sum.
+  // See the generated rotor-area convention and fixed-control sensitivity in docs/PHYSICS.md.
   c.totalDiscAreaM2 = c.primaryRotorStations * c.rotorsPerStation *
     Math.PI * Math.pow(c.primaryRotorDiameterM / 2, 2);
   c.sectionLengthM = c.lengthM / c.structuralSections;

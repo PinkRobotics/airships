@@ -1,0 +1,63 @@
+{
+  "scope": "Dated pre-review reference controls, not current selected controls or a new design. Source: the rotor pre-review record supplied for the objection repairs, dated 2026-10-06. These fixed cases reproduce the labelled oracle values in the tests.",
+  "cases": [
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "kind": "best",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 35
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P100",
+      "km": 15,
+      "basis": "record",
+      "kind": "fullDeliveryBest",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 0.5,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 0
+        },
+        "ballastT": 0
+      }
+    },
+    {
+      "dataset": "energy-profiles",
+      "class": "P10000",
+      "km": 60,
+      "basis": "record",
+      "kind": "best",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 6993.521
+      }
+    },
+    {
+      "class": "P10000",
+      "km": 4.71,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.25,
+        "ballastT": 7389.486,
+        "basis": "record"
+      },
+      "dataset": "served-reference-median",
+      "kind": "served"
+    }
+  ]
+}
