@@ -115,7 +115,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
     const sd = $("sysDials");
     sd.innerHTML = "";
     // Row 1: motion. Row 2: mass aboard. Row 3: what is over the side — the two lines the ship
-    // lowers into a lake, in metres — and what storage remains. The generation-against-
+    // lowers into a lake, as deployment indicators — and what storage remains. The generation-against-
     // consumption face that used to sit here said nothing the bars beneath it do not say
     // better, while the anchor and the hose had no instrument at all.
     gGs = makeGauge(sd, "ground speed", Math.max(60, Math.round(m.cls.cruiseKph * 1.9)),
@@ -144,16 +144,10 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       m.plan.dragMW + hotelMW,
       m.cls.cryoMW * CFG.cryoMul * m.mode.cryoShare + m.plan.dragMW + hotelMW,
       m.plan.downMW + m.plan.dragMW + hotelMW);
-    /* WHAT IS HANGING UNDER THE SHIP, in metres, on one face.
-     *
-     * This was generation against consumption — a dial whose whole content is repeated
-     * immediately below it as bars, with the gap between the needles saying "deficit" and the
-     * bars saying it better. The two lines the ship lowers into a lake had no instrument at all,
-     * which for a vehicle that gets down by putting a bucket in the water is the wrong way
-     * round. Both against the longer of the two, so the cable and the hose read at one scale
-     * and the reader can see the anchor go out long before the pumps do. */
-    gGen = makeDualGauge(sd, "anchor cable", "intake hose",
-      Math.max(1, m.cls.anchorM || 0, m.cls.hoseM), v => fmt(v), "m");
+    // Deployment indicators: the model does not carry measured winch payout length.
+    // The hose also has a phase indicator, so both needles use the same percentage scale.
+    gGen = makeDualGauge(sd, "anchor deployment", "hose deployment",
+      100, v => fmt(v) + "%");
     gStore = makeGauge(sd, "storage", m.cls.battMWh, v => fmt(v, v < 10 ? 1 : 0) + " MWh");
     const barRow = ([lab, id, col]) =>
       `<div class="b-row"><span class="b-lab">${lab}</span>` +
@@ -297,13 +291,13 @@ export function updateCockpit() {
   const sol = g.solar || 0, rgn = g.regen || 0;
   if (gWater) gWater.set(st.water, m.cls.payloadT);
   if (gLN2) gLN2.set(st.ln2, Math.max(1, m.cls.ln2CapT));
-  // Metres of line out: the anchor's from the model, the hose's from the phase the monitor's
-  // own six-phase cycle pays it out over (adapter/fable.js does the same sum for the 3D).
+  // Deployment only: the anchor is a model flag; the hose is a phase indicator.
+  // Neither channel establishes metres paid out or a measured winch speed.
   if (gGen) {
     const hoseOut = st.phase === "SOURCE_APPROACH" ? st.prog
       : st.phase === "WATER_FILL" ? 1
         : st.phase === "OUTBOUND_TRANSIT" ? Math.max(0, 1 - st.prog / 0.18) : 0;
-    gGen.set((st.anchorCableOut || 0) * (m.cls.anchorM || 0), hoseOut * m.cls.hoseM);
+    gGen.set((st.anchorCableOut || 0) * 100, hoseOut * 100);
   }
   if (gStore) gStore.set(m.battE === undefined ? m.cls.battMWh : m.battE, m.cls.battMWh);
   if (gGs) gGs.set(st.gs || 0);
@@ -351,9 +345,9 @@ export function updateCockpit() {
     const anchorMN = (st.anchorN || 0) / 1e6;
     put("fvK", st.anchorT > 0.5
       ? fmt(st.anchorT) + " t <small>pulling " + anchorMN.toFixed(0) + " MN on "
-        + fmt(Math.round((st.anchorCableOut || 0) * m.cls.anchorM)) + " m of cable</small>"
-      : (m.cls.anchorM ? "stowed <small>" + fmt(m.cls.anchorBagT) + " t bag · "
-        + fmt(m.cls.anchorM) + " m cable</small>" : "not fitted"));
+        + fmt(m.cls.anchorM) + " m installed cable</small>"
+      : (m.cls.anchorM ? (st.anchorCableOut ? "deployed" : "stowed") + " <small>" + fmt(m.cls.anchorBagT) + " t bag · "
+        + fmt(m.cls.anchorM) + " m installed cable</small>" : "not fitted"));
     const nEl = $("fvN");
     if (nEl) {
       // The caption names WHAT is holding it down, because since the anchor exists that is no
