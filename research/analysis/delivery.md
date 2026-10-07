@@ -11,18 +11,26 @@ what happens between the tank and the fuel.
 
 ## First, the mission this vehicle is actually for
 
-**The primary use is not attacking a burning fire.** It is putting water on ground *before* it
-burns — soaking fuel ahead of a front, wetting a containment corridor in advance, raising fuel
-and atmospheric moisture over a landscape during a heat event. Direct attack on an active fire
-is the **hardest and most extreme case**. It is retained to expose delivery limits, not as
-evidence that the vehicle can survive them.
+**Remote pre-wetting** means wetting ground well before any fire is near: a containment
+corridor prepared in advance or a proposed moisture treatment during a heat event. There is
+no nearby fire driving a plume in that mission, so timing can be chosen for suitable ambient
+weather. Low, slow release still needs a demonstrated aircraft and release envelope; neither
+flight nor useful wetting has been established.
 
-That distinction decides most of this page, because every hard number below comes from the fire
-itself — the convection column, the fire-generated turbulence, the urgency that forces a
-release from an unsafe height. **Pre-treatment has none of them.** There is no column over
-unburned fuel. There is no reason not to fly low and slow. There is no reason not to wait for
-the calm hour. The physics that makes direct attack marginal is the physics of the fire, and in
-the primary mission the fire is not there yet.
+**Work ahead of an active front is a separate mission.** Unburned fuel does not put a release
+outside fire-generated airflow or a bent-over plume. [Lareau and Clements](https://doi.org/10.1175/JAMC-D-16-0384.1)
+observe convergence and a disturbance extending beyond the plume base in their velocity-field
+section and plume-velocity figure. That observed reach is not an operating standoff.
+
+To establish a release outside the fire's disturbed air would require local, time-resolved wind
+profiles and vertical velocity observations across the hull, release line and fall path, plus
+plume location and motion observations, compared with nearby undisturbed air. Scanning Doppler
+lidar or radar, in-situ wind measurements and plume imagery are candidate observations; smoke
+imagery alone cannot exclude disturbed clear air. Their spatial coverage, uncertainty and
+changes during the pass must support exclusion from the plume and its inflow under an
+independently demonstrated operating envelope. This model supplies neither those observations
+nor a universal distance. Direct attack remains an extreme delivery screen, with no established
+survival or changed fire outcome.
 
 Read what follows as the extreme case, with a limit on free-drop delivery at any release
 height: a drop cannot descend where air at and below the release rises faster than it falls.
