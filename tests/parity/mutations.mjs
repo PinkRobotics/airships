@@ -43,6 +43,7 @@ let count = 0;
 async function run(args, expected, name) {
   const r = spawnSync(process.execPath,args,{cwd:copy,encoding:'utf8'});
   interrupted(r);
+  await yieldToLoop();
   const output = r.stdout + r.stderr;
   if (r.error || r.status !== 1 || !output.includes(expected)) {
     throw new Error(`${name}: expected exit 1 containing ${expected}; got ${r.status}\n${output}`);
@@ -89,6 +90,7 @@ cleanup();
 for (const args of [parity,required]) {
   const r = spawnSync(process.execPath,args,{cwd:root,encoding:'utf8'});
   interrupted(r);
+  await yieldToLoop();
   if (r.status !== 0) throw new Error(`restored tree is not green\n${r.stdout}${r.stderr}`);
 }
 console.log(`RESTORED: ${count}/${count} mutations caught; parity and required-spec suites green`);
