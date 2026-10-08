@@ -306,3 +306,17 @@
 | Order | sha256 `586504b472ccbb91…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 24 — Wait for settled fleet planning before reading wind readiness
+
+| field | value |
+|---|---|
+| Landed | 2026-10-08 08:48:16 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `1e14170cb3c495adf4ae052e35d72535b440ae63` → `ce805de46653924764112051c87e871064729be2`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `ce805de46653924764112051c87e871064729be2`, tree `9662f3b8beb16431557385c048576bc373e76dc2`, from `pr/c25-waits` in `/home/tyler/data/t/pr-c25-waits`, parent `f970bb389a61c20693630861796ce7e9976b877e`, governance `gov-5e847ce86004` preserved. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py ce805de46…` → rc=0, HONOURED-XO ce805de46653924764112051c87e871064729be2 — the last record for this sha (store line 981) is XO-SIGNED. (store `/home/tyler/data/helm/tmp/fo-verdicts.tsv`) |
+| Governance records | `f970bb389` ← `gov-9e8ef4440a3c` (its trailer); `ce805de46` ← `gov-5e847ce86004` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `/usr/bin/env PATH=/home/tyler/.local/node/bin:/snap/bin:/usr/local/bin:/usr/bin:/bin TMPDIR=/home/tyler/data/pinkrobotics/tmp/boyce-land-c25-1008 FLOAT_PLANT_WORKERS=8 make ciparity energycheck energydoccheck servedenergycheck figfresh ledgercheck floatplantcheck floatpagecheck floatverdictcheck noticecheck linkcheck cellparity explorercheck levelscheck shipcheck bandcheck` rc=0 (gate timeout 1800 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `7ad33759f7af8e0b…` from `/home/tyler/dev/helm` (informational) |
+| Order | sha256 `86d776ffaf29dda4…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
