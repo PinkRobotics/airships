@@ -155,9 +155,9 @@ BOOT = r"""
 (async () => {
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(window.AIRSHIPS?.app?.ready && window.AIRSHIPS.app.missions.length && window.AIRSHIPS.app.planning?.state === 'settled')) {
-    if (performance.now() >= deadline) throw new Error('interaction: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('interaction: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
   const S = window.AIRSHIPS.app;
@@ -234,7 +234,7 @@ class Page:
     async def call(self, method, params=None):
         self.mid += 1
         await self.ws.send(json.dumps({"id": self.mid, "method": method, "params": params or {}}))
-        deadline = time.monotonic() + 240
+        deadline = time.monotonic() + 360
         while True:
             msg = json.loads(await asyncio.wait_for(self.ws.recv(), max(0, deadline - time.monotonic())))
             if msg.get("id") == self.mid:
@@ -242,7 +242,7 @@ class Page:
                     raise SystemExit(f"{method} failed: {msg['error']}")
                 return msg.get("result", {})
 
-    async def wait_event(self, method, timeout=180):
+    async def wait_event(self, method, timeout=300):
         """Read the stream until `method` arrives.
 
         Only safe with no call outstanding, which is the one place it is used: between

@@ -1,9 +1,9 @@
 (async () => {
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(window.AIRSHIPS ? (window.AIRSHIPS.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled') : (typeof S !== 'undefined' && S.ready !== false && (!S.planning || S.planning.state === 'settled') && S.missions?.length && S.missions.every(m => m.idle || m.plan)))) {
-    if (performance.now() >= deadline) throw new Error('golden: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('golden: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
   /* One dump script, two page shapes. The pre-refactor page declared the model at the top

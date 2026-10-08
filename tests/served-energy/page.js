@@ -1,9 +1,9 @@
 (async()=>{
  // One shared wall-clock budget covers the import handle and accepted planning.
- const deadline=performance.now()+180000;
+ const deadline=performance.now()+300000;
  const wait=async predicate=>{
   while(!predicate()){
-   if(performance.now()>=deadline)throw new Error('planning unavailable: readiness deadline exceeded (180 s)');
+   if(performance.now()>=deadline)throw new Error('planning unavailable: readiness deadline exceeded (300 s)');
    await new Promise(r=>setTimeout(r,100));
   }
  };

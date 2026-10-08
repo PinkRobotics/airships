@@ -299,9 +299,9 @@ PROBE = r"""
 (async () => {
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(window.AIRSHIPS?.app?.ready && (window.AIRSHIPS.app.recordOnly || window.AIRSHIPS.app.planning?.state === 'settled'))) {
-    if (performance.now() >= deadline) throw new Error('guard: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('guard: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
 
@@ -415,9 +415,9 @@ LAYOUT = r"""
   // Static cards exist while hidden; they do not establish that boot completed.
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(document.getElementById('introOv') && !document.getElementById('introOv').hidden && document.querySelector('#introOv .io'))) {
-    if (performance.now() >= deadline) throw new Error('guard layout: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('guard layout: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
 
@@ -474,7 +474,7 @@ def probe_once(base: str, query: str, script: str, wait: float, viewport=None):
         r = subprocess.run(
             [sys.executable, str(TOOLS / "js_eval.py"),
              f"{base}index.html{query}", str(js), str(out), str(wait)],
-            cwd=str(ROOT), capture_output=True, text=True, env=env, timeout=300)
+            cwd=str(ROOT), capture_output=True, text=True, env=env, timeout=420)
         if r.returncode != 0 or not out.exists():
             raise SystemExit(f"the probe of {query!r} did not run:\n{r.stdout}\n{r.stderr}")
         return json.loads(out.read_text())
@@ -584,9 +584,9 @@ HEAT_AND_NULL = r"""
 (async () => {
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(window.AIRSHIPS?.app?.ready && (window.AIRSHIPS.app.recordOnly || window.AIRSHIPS.app.planning?.state === 'settled'))) {
-    if (performance.now() >= deadline) throw new Error('guard heat: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('guard heat: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
 

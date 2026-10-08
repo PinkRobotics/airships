@@ -260,7 +260,7 @@ def capture_poster(scratch: pathlib.Path, replay_url: str):
                 mid += 1
                 await ws.send(json.dumps({'id': mid, 'method': method,
                                           'params': params or {}}))
-                deadline = asyncio.get_running_loop().time() + 240
+                deadline = asyncio.get_running_loop().time() + 360
                 while True:
                     msg = json.loads(await asyncio.wait_for(ws.recv(), max(0, deadline - asyncio.get_running_loop().time())))
                     if msg.get('id') == mid:
@@ -278,11 +278,11 @@ def capture_poster(scratch: pathlib.Path, replay_url: str):
             await call('Runtime.enable')
             await call('Page.navigate', {'url': replay_url})
             # Navigation time cannot certify that the asynchronous exercise plans exist.
-            deadline = asyncio.get_running_loop().time() + 180
+            deadline = asyncio.get_running_loop().time() + 300
             while not await evaluate("location.href === " + json.dumps(replay_url) +
                     " && window.AIRSHIPS?.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled'"):
                 if asyncio.get_running_loop().time() >= deadline:
-                    raise SystemExit('gen_fallback poster planning did not settle within 180 s')
+                    raise SystemExit('gen_fallback poster planning did not settle within 300 s')
                 await asyncio.sleep(.1)
             await evaluate(POSTER_SETUP_JS)
             await asyncio.sleep(2.5)

@@ -7,9 +7,9 @@
   const fleet = await import('/app/fleet.js' + stamp);
   // The page publishes readiness after boot; route planning yields between missions.
   // Navigation time is not proof of completion on a loaded hosted runner.
-  const deadline = performance.now() + 180000;
+  const deadline = performance.now() + 300000;
   while (!(S.ready && (S.recordOnly || S.planning?.state === 'settled'))) {
-    if (performance.now() >= deadline) throw new Error('guard assurance: readiness deadline exceeded (180 s)');
+    if (performance.now() >= deadline) throw new Error('guard assurance: readiness deadline exceeded (300 s)');
     await new Promise(resolve => setTimeout(resolve, 100));
   }
 

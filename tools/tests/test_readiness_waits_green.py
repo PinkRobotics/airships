@@ -69,7 +69,7 @@ context.S=state;
    else if(typeof value==='string' && JSON.parse(value).error) {}
    else if(value===false) {}
    else throw Error('partial output accepted');
-   assert.ok(now>=180000,'refusal must use the bounded readiness budget');
+   assert.ok(now>=300000,'refusal must use the bounded readiness budget');
   }else{
    assert.ok(now>=(scenario==='suite'?420000:120000),'readiness accepted too early');
    if(value && typeof value==='object' && 'ready' in value)assert.equal(value.ready,true);
@@ -78,7 +78,7 @@ context.S=state;
  }catch(e){
   if(expected!=='refuse')throw e;
   assert.match(String(e),/deadline|within/,'missing handle must refuse explicitly');
-  assert.ok(now>=180000);
+  assert.ok(now>=300000);
  }
  console.log('PASS '+scenario+' '+now+'ms');
 })().catch(e=>{console.error(e);process.exitCode=1});

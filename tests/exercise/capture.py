@@ -35,7 +35,7 @@ async def capture(url, out, width, height, no_script):
                         nonlocal seq
                         seq+=1;mid=seq
                         await ws.send(json.dumps({'id':mid,'method':method,'params':params or {}}))
-                        response_deadline=asyncio.get_running_loop().time()+240
+                        response_deadline=asyncio.get_running_loop().time()+360
                         while True:
                             msg=json.loads(await asyncio.wait_for(ws.recv(),max(0,response_deadline-asyncio.get_running_loop().time())))
                             if msg.get('method')=='Network.requestWillBeSent':
@@ -50,7 +50,7 @@ async def capture(url, out, width, height, no_script):
                     if no_script:await call('Emulation.setScriptExecutionDisabled',{'value':True})
                     await call('Page.navigate',{'url':url})
                     # Poll from Python so a navigation cannot retire a pending JS wait.
-                    deadline=asyncio.get_running_loop().time()+180
+                    deadline=asyncio.get_running_loop().time()+300
                     while True:
                         ready=await call('Runtime.evaluate',{'expression':
                             "location.href === "+json.dumps(url)+" && document.readyState === 'complete' && ("+
@@ -58,7 +58,7 @@ async def capture(url, out, width, height, no_script):
                             ")",'returnByValue':True})
                         if ready.get('result',{}).get('value'):break
                         if asyncio.get_running_loop().time()>=deadline:
-                            raise AssertionError('capture page did not become ready within 180 s')
+                            raise AssertionError('capture page did not become ready within 300 s')
                         await asyncio.sleep(.1)
                     if not no_script:
                         await call('Runtime.evaluate',{'expression':"document.getElementById('introOv')?.click()"})

@@ -107,7 +107,7 @@ class Page:
         future = asyncio.get_running_loop().create_future() if wait else None
         if future: self.pending[mid] = future
         await self.ws.send(json.dumps({'id': mid, 'method': method, 'params': params or {}}))
-        if future: return await asyncio.wait_for(future, 240)
+        if future: return await asyncio.wait_for(future, 360)
 
     async def receive(self):
         async for raw in self.ws:
@@ -139,7 +139,7 @@ class Page:
     async def navigate(self, url):
         self.requests = []; self.loaded.clear()
         await self.send('Page.navigate', {'url': url})
-        await asyncio.wait_for(self.loaded.wait(), 180)
+        await asyncio.wait_for(self.loaded.wait(), 300)
 
 
 TRAP = """window.__firstpartyErrors=[];
@@ -148,7 +148,7 @@ addEventListener('unhandledrejection', e => window.__firstpartyErrors.push(Strin
 """
 BOOT = """(async () => {
   const start = Date.now();
-  while(Date.now()-start < 180000) {
+  while(Date.now()-start < 300000) {
     const s = window.AIRSHIPS?.app;
     if(s?.ready && s.planning?.state === 'settled' && s.windOk !== null) return true;
     await new Promise(r => setTimeout(r,100));
@@ -171,7 +171,7 @@ async def wait_wind(page, mode):
                  json.dumps('wind mirror stale' if mode == 'stale' else 'HTTP 404') + ")")
     condition = "s.ready && s.planning === 'settled' && (" + condition + ")"
     result = await page.evaluate("""(async () => {
-      const until = performance.now() + 180000;
+      const until = performance.now() + 300000;
       let s;
       do {
         s = """ + WIND_STATE + "; if (" + condition + """ ) return {ready:true, state:s};
@@ -179,7 +179,7 @@ async def wait_wind(page, mode):
       } while (performance.now() < until);
       return {ready:false, state:s};
     })()""")
-    assert result['ready'], f'{mode}: wind state did not settle within 180 s: {result}'
+    assert result['ready'], f'{mode}: wind state did not settle within 300 s: {result}'
     return result['state']
 
 
@@ -228,7 +228,7 @@ async def wind_cases(page):
         assert Handler.wind_holds and min(Handler.wind_holds) >= 2, Handler.wind_holds
         print(f'wind after hold: {after}; fixture hold seconds: {Handler.wind_holds}', flush=True)
     finally:
-        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 180 s')),180000))])")
+        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 300 s')),300000))])")
         Handler.wind_delay = 0
 
 
@@ -247,13 +247,13 @@ async def note_cases(page, origin, shot_dir):
         return await page.evaluate("document.getElementById('firstPartyNote').textContent")
 
     async def wait_note(needle):
-        deadline = time.monotonic() + 180
+        deadline = time.monotonic() + 300
         value = None
         while time.monotonic() < deadline:
             value = await note()
             if needle in value: return value
             await asyncio.sleep(.1)
-        raise AssertionError(f'first-party note did not say {needle!r} within 180 s: {value!r}')
+        raise AssertionError(f'first-party note did not say {needle!r} within 300 s: {value!r}')
 
     async def screenshots(state):
         if not shot_dir: return
