@@ -297,13 +297,16 @@ def serve(missing=()):
 # comes back in one record; nothing is asserted inside the browser.
 PROBE = r"""
 (async () => {
-  // js_eval's wait is a wall-clock sleep from navigation: on a loaded machine the page's
-  // own boot can outrun it. Wait for the read handle here (up to 40 s), not in the shell.
-  for (let i = 0; i < 160 && !(window.AIRSHIPS && window.AIRSHIPS.app); i++)
-    await new Promise(r => setTimeout(r, 250));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS?.app?.ready && (window.AIRSHIPS.app.recordOnly || window.AIRSHIPS.app.planning?.state === 'settled'))) {
+    if (performance.now() >= deadline) throw new Error('guard: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   const S = window.AIRSHIPS.app, sim = window.AIRSHIPS.sim, stateAt = window.AIRSHIPS.stateAt;
   const ov = document.getElementById('introOv'); if (ov && !ov.hidden) ov.click();
-  for (let i = 0; i < 120 && !S.ready; i++) await new Promise(r => setTimeout(r, 250));
   await new Promise(r => setTimeout(r, 1200));
   S.paused = true;
   const txt = id => { const e = document.getElementById(id); return e ? e.textContent.replace(/\s+/g,' ').trim() : null; };
@@ -410,8 +413,14 @@ LAYOUT = r"""
 (async () => {
   // Wait for the real first-visit screen after asynchronous data and plan acceptance.
   // Static cards exist while hidden; they do not establish that boot completed.
-  for (let i = 0; i < 200 && (document.getElementById('introOv')?.hidden || !document.querySelector('#introOv .io')); i++)
-    await new Promise(r => setTimeout(r, 100));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(document.getElementById('introOv') && !document.getElementById('introOv').hidden && document.querySelector('#introOv .io'))) {
+    if (performance.now() >= deadline) throw new Error('guard layout: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   const ov = document.getElementById('introOv');
   const visible = !!(ov && !ov.hidden);
   const cards = visible ? [...document.querySelectorAll('#introOv .io')].map(e => {
@@ -484,7 +493,7 @@ def load_views(base: str):
     # wide enough for the call-outs. 834 and 390: under the phone breakpoint the call-outs
     # are hidden and only the tap prompt shows — the layout test measures what is visible.
     for w, h in ((1440, 900), (1100, 900), (834, 1000), (390, 844)):
-        VIEWS[f"layout-{w}"] = probe_once(base, "?seed=7", LAYOUT, 9, f"{w}x{h}")
+        VIEWS[f"layout-{w}"] = probe_once(base, "?seed=7", LAYOUT, 0, f"{w}x{h}")
 
 
 PAGE_LOADED = []
@@ -573,8 +582,14 @@ def effect_scan_refuses_claims_but_accepts_specific_denials():
 
 HEAT_AND_NULL = r"""
 (async () => {
-  for (let i=0; i<160 && !(window.AIRSHIPS && AIRSHIPS.app.ready); i++)
-    await new Promise(r=>setTimeout(r,250));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS?.app?.ready && (window.AIRSHIPS.app.recordOnly || window.AIRSHIPS.app.planning?.state === 'settled'))) {
+    if (performance.now() >= deadline) throw new Error('guard heat: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   document.getElementById('introOv').click();
   const S=AIRSHIPS.app, sim=AIRSHIPS.sim;
   S.paused=true;

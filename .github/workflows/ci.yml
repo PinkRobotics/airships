@@ -15,7 +15,8 @@ concurrency:
 jobs:
   checks:
     runs-on: ubuntu-24.04
-    timeout-minutes: 300
+    # The last measured run took 286 minutes; retain 74 minutes of headroom.
+    timeout-minutes: 360
     env:
       A3D_TEST_TIMEOUT: '1800'
       FLOAT_PLANT_TIMEOUT: '1800'

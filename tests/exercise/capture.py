@@ -35,8 +35,9 @@ async def capture(url, out, width, height, no_script):
                         nonlocal seq
                         seq+=1;mid=seq
                         await ws.send(json.dumps({'id':mid,'method':method,'params':params or {}}))
+                        response_deadline=asyncio.get_running_loop().time()+240
                         while True:
-                            msg=json.loads(await ws.recv())
+                            msg=json.loads(await asyncio.wait_for(ws.recv(),max(0,response_deadline-asyncio.get_running_loop().time())))
                             if msg.get('method')=='Network.requestWillBeSent':
                                 u=msg['params']['request']['url'];host=urllib.parse.urlsplit(u).netloc
                                 if host and host!=own:foreign.append(u)
@@ -47,7 +48,18 @@ async def capture(url, out, width, height, no_script):
                     await call('Page.enable');await call('Runtime.enable');await call('Network.enable')
                     await call('Emulation.setDeviceMetricsOverride',{'width':width,'height':height,'deviceScaleFactor':1,'mobile':False})
                     if no_script:await call('Emulation.setScriptExecutionDisabled',{'value':True})
-                    await call('Page.navigate',{'url':url});await asyncio.sleep(5)
+                    await call('Page.navigate',{'url':url})
+                    # Poll from Python so a navigation cannot retire a pending JS wait.
+                    deadline=asyncio.get_running_loop().time()+180
+                    while True:
+                        ready=await call('Runtime.evaluate',{'expression':
+                            "location.href === "+json.dumps(url)+" && document.readyState === 'complete' && ("+
+                            ("true" if no_script else "!document.querySelector('script[src*=\"app/main.js\"]') || (window.AIRSHIPS?.app?.ready && (window.AIRSHIPS.app.recordOnly || window.AIRSHIPS.app.planning?.state === 'settled'))")+
+                            ")",'returnByValue':True})
+                        if ready.get('result',{}).get('value'):break
+                        if asyncio.get_running_loop().time()>=deadline:
+                            raise AssertionError('capture page did not become ready within 180 s')
+                        await asyncio.sleep(.1)
                     if not no_script:
                         await call('Runtime.evaluate',{'expression':"document.getElementById('introOv')?.click()"})
                     dims=await call('Page.getLayoutMetrics');size=dims['cssContentSize']

@@ -153,14 +153,14 @@ PROBE = r"""
 # click that follows. Dismissing it is itself the first interaction the page expects.
 BOOT = r"""
 (async () => {
-  const t0 = Date.now();
-  while (Date.now() - t0 < 90000) {
-    const S = window.AIRSHIPS && window.AIRSHIPS.app;
-    if (S && S.ready && S.missions.length) break;
-    await new Promise((r) => setTimeout(r, 250));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS?.app?.ready && window.AIRSHIPS.app.missions.length && window.AIRSHIPS.app.planning?.state === 'settled')) {
+    if (performance.now() >= deadline) throw new Error('interaction: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
   }
-  const S = window.AIRSHIPS && window.AIRSHIPS.app;
-  if (!S || !S.ready) return { ready: false, errs: window.__ierr || [] };
+  const S = window.AIRSHIPS.app;
   const ov = document.getElementById('introOv');
   if (ov && !ov.hidden) ov.click();
   await new Promise((r) => setTimeout(r, 400));
@@ -234,14 +234,15 @@ class Page:
     async def call(self, method, params=None):
         self.mid += 1
         await self.ws.send(json.dumps({"id": self.mid, "method": method, "params": params or {}}))
+        deadline = time.monotonic() + 240
         while True:
-            msg = json.loads(await self.ws.recv())
+            msg = json.loads(await asyncio.wait_for(self.ws.recv(), max(0, deadline - time.monotonic())))
             if msg.get("id") == self.mid:
                 if "error" in msg:
                     raise SystemExit(f"{method} failed: {msg['error']}")
                 return msg.get("result", {})
 
-    async def wait_event(self, method, timeout=60):
+    async def wait_event(self, method, timeout=180):
         """Read the stream until `method` arrives.
 
         Only safe with no call outstanding, which is the one place it is used: between

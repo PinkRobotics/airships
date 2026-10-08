@@ -107,7 +107,7 @@ class Page:
         future = asyncio.get_running_loop().create_future() if wait else None
         if future: self.pending[mid] = future
         await self.ws.send(json.dumps({'id': mid, 'method': method, 'params': params or {}}))
-        if future: return await asyncio.wait_for(future, 100)
+        if future: return await asyncio.wait_for(future, 240)
 
     async def receive(self):
         async for raw in self.ws:
@@ -139,7 +139,7 @@ class Page:
     async def navigate(self, url):
         self.requests = []; self.loaded.clear()
         await self.send('Page.navigate', {'url': url})
-        await asyncio.wait_for(self.loaded.wait(), 90)
+        await asyncio.wait_for(self.loaded.wait(), 180)
 
 
 TRAP = """window.__firstpartyErrors=[];
@@ -148,9 +148,9 @@ addEventListener('unhandledrejection', e => window.__firstpartyErrors.push(Strin
 """
 BOOT = """(async () => {
   const start = Date.now();
-  while(Date.now()-start < 80000) {
+  while(Date.now()-start < 180000) {
     const s = window.AIRSHIPS?.app;
-    if(s?.ready && s.windOk !== null) return true;
+    if(s?.ready && s.planning?.state === 'settled' && s.windOk !== null) return true;
     await new Promise(r => setTimeout(r,100));
   }
   return false;
@@ -158,18 +158,20 @@ BOOT = """(async () => {
 
 
 WIND_STATE = """(() => {
-  const s = AIRSHIPS.app;
-  return {ok:s.windOk, winds:s.missions.filter(m=>!m.idle&&m.wind).length,
+  const s = window.AIRSHIPS?.app;
+  if (!s) return {ready:false, planning:null, ok:null, winds:0, note:""};
+  return {ready:s.ready, planning:s.planning?.state, ok:s.windOk, winds:s.missions.filter(m=>!m.idle&&m.wind).length,
           note:document.getElementById('windNote').textContent};
 })()"""
 
 
 async def wait_wind(page, mode):
-    condition = ("s.ok && AIRSHIPS.app.planning?.state === 'settled' && s.note.startsWith('850 hPa wind · site mirror · fetched ')" if mode == 'fresh' else
+    condition = ("s.ok && s.note.startsWith('850 hPa wind · site mirror · fetched ')" if mode == 'fresh' else
                  "!s.ok && s.winds === 0 && s.note.includes('Still air') && s.note.includes(" +
                  json.dumps('wind mirror stale' if mode == 'stale' else 'HTTP 404') + ")")
+    condition = "s.ready && s.planning === 'settled' && (" + condition + ")"
     result = await page.evaluate("""(async () => {
-      const until = performance.now() + 10000;
+      const until = performance.now() + 180000;
       let s;
       do {
         s = """ + WIND_STATE + "; if (" + condition + """ ) return {ready:true, state:s};
@@ -177,7 +179,7 @@ async def wait_wind(page, mode):
       } while (performance.now() < until);
       return {ready:false, state:s};
     })()""")
-    assert result['ready'], f'{mode}: wind state did not settle within 10 s: {result}'
+    assert result['ready'], f'{mode}: wind state did not settle within 180 s: {result}'
     return result['state']
 
 
@@ -226,7 +228,7 @@ async def wind_cases(page):
         assert Handler.wind_holds and min(Handler.wind_holds) >= 2, Handler.wind_holds
         print(f'wind after hold: {after}; fixture hold seconds: {Handler.wind_holds}', flush=True)
     finally:
-        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 10 s')),10000))])")
+        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 180 s')),180000))])")
         Handler.wind_delay = 0
 
 
@@ -245,11 +247,13 @@ async def note_cases(page, origin, shot_dir):
         return await page.evaluate("document.getElementById('firstPartyNote').textContent")
 
     async def wait_note(needle):
-        for _ in range(100):
+        deadline = time.monotonic() + 180
+        value = None
+        while time.monotonic() < deadline:
             value = await note()
             if needle in value: return value
             await asyncio.sleep(.1)
-        raise AssertionError(f'first-party note did not say {needle!r}: {value!r}')
+        raise AssertionError(f'first-party note did not say {needle!r} within 180 s: {value!r}')
 
     async def screenshots(state):
         if not shot_dir: return

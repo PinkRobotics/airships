@@ -4,8 +4,14 @@
  * that the panels, tables, instruments and map still render the same thing. Text is
  * compared exactly; the map must remain visible, nonzero and drawn with varied pixels. */
 (async () => {
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS ? (window.AIRSHIPS.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled') : (typeof S !== 'undefined' && S.ready !== false && (!S.planning || S.planning.state === 'settled') && S.missions?.length && S.missions.every(m => m.idle || m.plan)))) {
+    if (performance.now() >= deadline) throw new Error('golden: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
   const ov = document.getElementById('introOv'); if (ov) ov.click();
-  await new Promise(r => setTimeout(r, 4000));
 
   /* PIN THE CLOCK before reading anything. The simulation advances in real time from the
      moment the page loads, so a dump taken "four seconds in" is really a dump of whatever
@@ -34,10 +40,12 @@
   {
     const el = document.getElementById('map');
     let last = -1, stable = 0;
-    for (let i = 0; i < 40 && stable < 3; i++) {
+    const layoutDeadline = performance.now() + 180000;
+    while (stable < 3) {
+      if (performance.now() >= layoutDeadline) throw new Error('golden UI layout did not settle within 180 s');
       await new Promise(r => setTimeout(r, 150));
       const h = el ? el.clientHeight : 0;
-      stable = h === last ? stable + 1 : 0;
+      stable = h > 0 && h === last ? stable + 1 : 0;
       last = h;
     }
   }

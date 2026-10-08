@@ -28,8 +28,14 @@ def verify_fleet_source(root=ROOT,pins=FLEET_INPUT_PINS):
         if hashlib.sha256((root/rel).read_bytes()).hexdigest()!=expected:
             raise ValueError('FLEET_DISTANCE_SOURCE_CHANGED: pinned input differs: '+rel)
 READY="""async function readyApp() {
-  for(let i=0;i<1000 && (!window.AIRSHIPS?.app.ready || window.AIRSHIPS.app.planning?.state!=='settled');i++)
-    await new Promise(r=>setTimeout(r,50));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS?.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled')) {
+    if (performance.now() >= deadline) throw new Error('fleet planning: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   const A=window.AIRSHIPS;
   if(!A?.app.ready || A.app.planning?.state!=='settled') throw new Error('planning did not settle');
   if(A.app.missions.some(m=>m.planState!=='ready')) throw new Error('captured mission has no accepted plan');

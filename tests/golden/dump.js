@@ -1,4 +1,11 @@
 (async () => {
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS ? (window.AIRSHIPS.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled') : (typeof S !== 'undefined' && S.ready !== false && (!S.planning || S.planning.state === 'settled') && S.missions?.length && S.missions.every(m => m.idle || m.plan)))) {
+    if (performance.now() >= deadline) throw new Error('golden: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
   /* One dump script, two page shapes. The pre-refactor page declared the model at the top
      level of a classic script, so the identifiers resolve bare. The refactored page is an
      ES module and publishes the model at window.AIRSHIPS.sim. Reading both through `Q`
@@ -12,7 +19,6 @@
   };
   const APPSTATE = modular ? window.AIRSHIPS.app : S;
   const ov = document.getElementById('introOv'); if (ov) ov.click();
-  await new Promise(r => setTimeout(r, 3000));
   const R = (x, n = 6) => (typeof x === 'number' && isFinite(x) ? +x.toFixed(n) : x);
   const RO = (o, n = 6) => { const q = {}; for (const k of Object.keys(o || {}).sort()) q[k] = R(o[k], n); return q; };
 

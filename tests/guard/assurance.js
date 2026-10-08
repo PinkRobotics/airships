@@ -5,9 +5,14 @@
   const {S} = await import('/app/store.js' + stamp);
   const feeds = await import('/app/feeds.js' + stamp);
   const fleet = await import('/app/fleet.js' + stamp);
-  for (let i=0;i<1800 && (!S.ready || (!S.recordOnly && S.planning?.state!=='settled'));i++)
-    await new Promise(r=>setTimeout(r,100));
-  if (!S.ready) throw Error('page did not become ready');
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(S.ready && (S.recordOnly || S.planning?.state === 'settled'))) {
+    if (performance.now() >= deadline) throw new Error('guard assurance: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   S.paused = true;
   const plain = () => ({defaultKeepOutKm:25,noFleet:[],fires:[],places:[]});
   const rect=(x,y,dx,dy)=>[[x-dx,y-dy],[x+dx,y-dy],[x+dx,y+dy],[x-dx,y+dy],[x-dx,y-dy]];

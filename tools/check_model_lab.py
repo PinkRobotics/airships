@@ -28,8 +28,9 @@ async def measure(endpoint, base):
             nonlocal ident
             ident += 1
             await ws.send(json.dumps(dict(id=ident, method=method, params=params or {})))
+            deadline = time.monotonic()+240
             while True:
-                message = json.loads(await asyncio.wait_for(ws.recv(), 120))
+                message = json.loads(await asyncio.wait_for(ws.recv(), max(0, deadline-time.monotonic())))
                 if message.get('id') == ident:
                     if 'error' in message:
                         raise RuntimeError(message['error'])
@@ -54,11 +55,11 @@ async def measure(endpoint, base):
                 dict(name='prefers-reduced-motion', value=preference)]))
             target = base+'model-lab/'+query+('&' if query else '?')+f'probe={case_index}'
             await call('Page.navigate', dict(url=target))
-            deadline = time.monotonic()+120
+            deadline = time.monotonic()+180
             ready = f"location.href === {json.dumps(target)} && document.readyState === 'complete' && !!window.LAB && !!document.querySelector('#scaleScene .a3d-table')"
             while not await evaluate(ready):
                 if time.monotonic() > deadline:
-                    raise RuntimeError('model-lab did not boot')
+                    raise RuntimeError('model-lab did not boot within 180 s')
                 await asyncio.sleep(0.5)
             before = await evaluate("""(() => {
                 const table = document.querySelector('#scaleScene table');

@@ -13,8 +13,14 @@ sys.path.insert(0, str(ROOT / 'tools'))
 from serve import serve_tree
 
 PROBE = """(async () => {
-  for(let i=0;i<1000 && (!window.AIRSHIPS?.app.ready || window.AIRSHIPS.app.planning?.state!=='settled');i++)
-    await new Promise(r=>setTimeout(r,50));
+  // The page publishes readiness after boot; route planning yields between missions.
+  // Navigation time is not proof of completion on a loaded hosted runner.
+  const deadline = performance.now() + 180000;
+  while (!(window.AIRSHIPS?.app?.ready && window.AIRSHIPS.app.planning?.state === 'settled')) {
+    if (performance.now() >= deadline) throw new Error('fleet planning: readiness deadline exceeded (180 s)');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   const S=window.AIRSHIPS?.app, checks=[];
   if(!S?.ready || S.planning?.state!=='settled') throw new Error('planning not settled');
   S.paused=true;

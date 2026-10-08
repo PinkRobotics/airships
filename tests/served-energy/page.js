@@ -1,9 +1,15 @@
 (async()=>{
- for(let i=0;i<600&&!window.AIRSHIPS;i++)await new Promise(r=>setTimeout(r,50));
+ // One shared wall-clock budget covers the import handle and accepted planning.
+ const deadline=performance.now()+180000;
+ const wait=async predicate=>{
+  while(!predicate()){
+   if(performance.now()>=deadline)throw new Error('planning unavailable: readiness deadline exceeded (180 s)');
+   await new Promise(r=>setTimeout(r,100));
+  }
+ };
+ await wait(()=>!!window.AIRSHIPS);
  const A=window.AIRSHIPS;
- if(!A)throw new Error('simulation import unavailable');
  const S=A.app||A.concept, SIM=A.sim, rows=[];
- const wait=async predicate=>{for(let i=0;i<1000;i++){if(predicate())return;await new Promise(r=>setTimeout(r,50));}throw new Error('planning unavailable: deadline reached');};
  const add=(page,element,quantity,value,m,basis='record')=>rows.push({page,element,quantity,value,plan:{class:m.cls.id,km:m.legKm,basis,mode:m.selection.mode,model:SIM.modelIdentity(),windState:m.selection.windState,wind:m.wind??null},feasible:true,hull:m.name||'worked example'});
  if(A.app){
   await wait(()=>S.ready&&S.planning?.state==='settled');

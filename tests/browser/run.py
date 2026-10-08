@@ -41,8 +41,13 @@ from test_inventory import check_files, check_record, shared_record
 # imports take. The page sets window.__tests once, at the end of the run.
 GRAB = r"""
 (async () => {
-  for (let i = 0; i < 300 && !window.__tests; i++) await new Promise(r => setTimeout(r, 100));
-  if (!window.__tests) return JSON.stringify({ error: 'the suite never finished', title: document.title });
+  // The hosted suite takes about four minutes, including synchronous model tests.
+  const deadline = performance.now() + 600000;
+  while (!window.__tests) {
+    if (performance.now() >= deadline)
+      return JSON.stringify({ error: 'the suite never finished within 600 s', title: document.title });
+    await new Promise(r => setTimeout(r, 100));
+  }
   const record = window.__tests;
   record.files = performance.getEntriesByType('resource').map(e => new URL(e.name).pathname.slice(1))
     .filter(p => /^tests\/cases\/[^/]+\.cases\.js$/.test(p));
