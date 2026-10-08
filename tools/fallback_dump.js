@@ -1,6 +1,15 @@
 /* Static reference scene: the invented exercise, with its own deterministic seed.
  * Only settled allocation output belongs here, never wall-clock phase or feed age. */
-(() => {
+(async () => {
+  // Navigation time does not prove the asynchronous route plans have settled.
+  // Keep the wait bounded inside the producer's existing 120-second region cap.
+  const deadline = performance.now() + 60000;
+  while (!(window.AIRSHIPS?.app?.ready &&
+           window.AIRSHIPS.app.planning?.state === 'settled')) {
+    if (performance.now() >= deadline)
+      throw new Error('fallback cycle figures unavailable: readiness deadline exceeded');
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
   const A = window.AIRSHIPS, S = A.app, SIM = A.sim;
   const { CLASSES, CLASS_ORDER, HULL_NAMES, REFERENCE_CLASS, srcName, missionReady, auditServedPlan } = SIM;
   if (S.planning?.state !== 'settled') throw new Error('fallback cycle figures unavailable: planning has not settled');
