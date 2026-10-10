@@ -1,0 +1,622 @@
+{
+  "schema": "p45.measurement-crosswalk/1",
+  "status": "METHOD_ONLY; no physical observations or qualification",
+  "source_revision": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+  "toy_and_material_stipulations_verbatim": {
+    "chi_star": 0.94,
+    "chi_basis": "Stipulated chi_star=0.94 only; not a measured value, witness or established feasible case",
+    "cord_tangent_E_Pa": 70000000000,
+    "cord_density_kg_m3": 970,
+    "material_basis": "Inherited unqualified source assumptions; actual material/ratings UNKNOWN",
+    "area": "A_e=A_e0/chi_star; actual A_e and L_e UNKNOWN",
+    "D0": "diag(L_e/(E_e*A_e0)), positive, compatible work-conjugate coordinates",
+    "end1_allowance_relative_to_D0": 0.02,
+    "end2_allowance_relative_to_D0": 0.02,
+    "assembled_anchor_allowance_relative_to_D0": 0.02,
+    "allowance_basis": "Illustrative equal allocation of (1-chi_star)D0. Bounds are assumptions, not actual compliances. Anchor allowance covers the assembled S^T C_ports S including both endpoint sites, all cross terms and support effects once. It is not 0.02 at each of two sites.",
+    "cross_site_basis": "No measured decoupling assumed. Any offsite term must fit the SAME assembled anchor allowance; otherwise this stipulated condition is unestablished.",
+    "state": "Common registered tangent pretension/contact/environment/history state required; actual registration UNKNOWN"
+  },
+  "reference_graph_counts_verbatim": {
+    "cords": 19440,
+    "ends": 38880,
+    "degree9_sites": 4320,
+    "installed_counts": "UNKNOWN"
+  },
+  "actual_source_fields_verbatim": {
+    "cord_E_Pa": null,
+    "cord_areas_m2": null,
+    "cord_lengths_m": null,
+    "end_compliances_m_N": null,
+    "anchor_matrix_m_N": null,
+    "global_matrix": null,
+    "chi": null,
+    "hardware_masses_t": null,
+    "population_confidence": "UNKNOWN",
+    "physical_applicability": "UNKNOWN",
+    "global_lower_operator_comparison": "UNKNOWN",
+    "budget_fit": "UNKNOWN"
+  },
+  "mass_pool_verbatim": "ONE stipulated symbolic C-U/chi pool, all34 rows and duty map unchanged; no separate anchor, fixture, support or reinforcement pool",
+  "source_contract_actual_matrices": null,
+  "source_contract_actual_chi": null,
+  "rows": [
+    {
+      "contract_id": "C01",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/0"
+      },
+      "subject": "Graph identity, common datum and force/displacement order",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/model_counts"
+        }
+      ],
+      "prospective_observation": "Register installed cord, end and site identities against the reference graph; survey attachment locations, outward directions and datum. Keep missing or ambiguous matches unresolved.",
+      "quantity_units": "m; N; dimensionless identities/counts",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/0/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Missing, duplicate or nonmatching identities, uncertain datum/sign order or an unaccounted installed member prevent using the reference graph counts for hardware.",
+      "comparison_unavailable_without_evidence": "Graph counts and model assembly correspondence",
+      "prospective_owner_role": "Metrology and as-built configuration custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C02",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/1"
+      },
+      "subject": "Generalized ordering, units, rotations and work-preserving transformations",
+      "stipulated_inputs": [],
+      "prospective_observation": "Calibrate the full displacement/wrench channels, orientation, moment arms and datum translations. Register work-preserving transformations and any rotation scaling before projecting response.",
+      "quantity_units": "m; rad; N; N*m",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/1/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Unregistered mixed units, non-work-conjugate transformations or missing moment arms invalidate matrix comparisons even if a scalar trace looks consistent.",
+      "comparison_unavailable_without_evidence": "Common-basis local and global operator comparisons",
+      "prospective_owner_role": "Multiaxis metrology custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C03",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/2"
+      },
+      "subject": "Cord constitution, lengths/areas, construction, lot and environment",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/cord_tangent_E_Pa"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/cord_density_kg_m3"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/material_basis"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/area"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/D0"
+        }
+      ],
+      "prospective_observation": "Use matched cord force/strain measurements and active-span/loadbearing-area metrology at registered tangent load, history and environment. Determine mass/volume density on the same traceable material/construction/lot; retain strength, creep, fatigue and temperature evidence separately.",
+      "quantity_units": "Pa; m2; m; kg/m3; m/N",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/cord_E_Pa",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/cord_areas_m2",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/cord_lengths_m",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/2/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "A traceable modulus or density envelope inconsistent with the stipulated properties falsifies their material applicability; missing geometry, ratings, lot/state or uncertainty leaves it unknown. A tangent modulus does not establish a strength rating.",
+      "comparison_unavailable_without_evidence": "D0 and proposed-area cord compliance; material and mass applicability",
+      "prospective_owner_role": "Cord materials and geometry custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C04",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/3"
+      },
+      "subject": "Both end compliances and nonaxial joint effects",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/end1_allowance_relative_to_D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/end2_allowance_relative_to_D0"
+        }
+      ],
+      "prospective_observation": "Track cord strain separately from relative slip at each installed termination under registered incremental force. Record seating, hysteresis, creep and nonaxial translation/rotation; preserve each termination datum and shared-anchor boundary.",
+      "quantity_units": "m; N; m/N; rad",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/end_compliances_m_N",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/3/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "An uncertainty upper envelope outside its allocated operator allowance rejects that allowance; demonstrated coupling or changing state prevents replacing the response by independent series scalars. An unidentified end leaves the comparison inapplicable.",
+      "comparison_unavailable_without_evidence": "Each end allowance and independent-series specialization",
+      "prospective_owner_role": "Connection metrology custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C05",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/4"
+      },
+      "subject": "Full nine-direction anchor compliance, including cross terms",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/assembled_anchor_allowance_relative_to_D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/allowance_basis"
+        }
+      ],
+      "prospective_observation": "Apply independent incremental load directions spanning the registered port space and observe every port response. Retain offdiagonal terms, support response and uncertainty. Test reciprocity/passivity at the registered state before using symmetry.",
+      "quantity_units": "N; m; m/N; wrench and displacement units as C02",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/anchor_matrix_m_N",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/4/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Incomplete excitation/response rank, unregistered supports, unresolved offdiagonals or failure of reciprocal/passive response invalidates the assumed operator identification or its symmetry reduction. Local identification alone cannot establish global retention.",
+      "comparison_unavailable_without_evidence": "Full projected local anchor operator; assembled allowance needs C06",
+      "prospective_owner_role": "Shared-anchor and frame metrology custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C06",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/5"
+      },
+      "subject": "Coupled load transfer and complete assembly boundary",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/cross_site_basis"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/allowance_basis"
+        }
+      ],
+      "prospective_observation": "Register compatible edge/port/frame coordinates, constraints, internal coordinates and incidence maps. Observe coupled site/frame load paths, including crosssite responses; account for each support once and document any proposed decomposition.",
+      "quantity_units": "m; N; compatible operator units registered by C02",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/global_matrix",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/5/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Observed crosssite coupling outside the same assembled allowance, unsupported decomposition, omitted boundaries or double-counted support invalidates the connection sum. No global identification count follows solely from the local port count.",
+      "comparison_unavailable_without_evidence": "Assembled connection allowance and global transfer applicability",
+      "prospective_owner_role": "Assembly/load-path evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C07",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/6"
+      },
+      "subject": "Pretension, tautness, contact, slack and tangent state",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/state"
+        }
+      ],
+      "prospective_observation": "Register pretension, contact, tautness, seating, load/environment/time and history for each intended state; observe tangent changes and applicable material limits across the declared envelope.",
+      "quantity_units": "N; m; rad; time/environment units registered in evidence",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/6/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Slack, contact changes, hysteretic/nonlinear response or a state outside the demonstrated envelope prevents transferring a single tangent operator or axial constitutive law to that state.",
+      "comparison_unavailable_without_evidence": "Any tangent stiffness, retention or strength comparison",
+      "prospective_owner_role": "State and material applicability custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C08",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/7"
+      },
+      "subject": "Local sufficient condition and area/compliance coupling",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/chi_star"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/chi_basis"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/area"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/end1_allowance_relative_to_D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/end2_allowance_relative_to_D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/assembled_anchor_allowance_relative_to_D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/allowance_basis"
+        }
+      ],
+      "prospective_observation": "Combine registered cord/end/assembled-anchor uncertainty envelopes in the same basis and state. Compare with the existing symbolic sufficient condition using the measured geometry and proposed area; do not treat area and connection compliance as independent knobs.",
+      "quantity_units": "dimensionless retention; m/N in a compatible basis",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/chi",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/7/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "An upper envelope that cannot satisfy the existing connection bound rejects that sufficient-condition claim. Missing passive symmetric response, positive cord compliance, compatible basis or area/state evidence makes it inapplicable. The scalar specialization additionally needs its stated positive denominator and independent-series assumptions.",
+      "comparison_unavailable_without_evidence": "Conditional local axial-network sufficiency, without global qualification",
+      "prospective_owner_role": "Registered operator comparison custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C09",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/8"
+      },
+      "subject": "Global constrained sufficient condition and nullspaces",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/chi_star"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/chi_basis"
+        }
+      ],
+      "prospective_observation": "Register the frozen target and retained members, constraints, nullspace quotient, condensation, prestress and support state. Establish a uniform uncertainty-aware assembled lower-operator comparison over all admitted states and modes; include added-mechanism/stability evidence.",
+      "quantity_units": "Registered work-conjugate stiffness/energy units; dimensionless retention",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/global_matrix",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/global_lower_operator_comparison",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/chi",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/8/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "A deficient admitted mode, changed nullspace/constraint/state or unsupported prestress/stability/application premise invalidates the target comparison. A local pass does not populate global chi; absent uniform evidence leaves the result unknown.",
+      "comparison_unavailable_without_evidence": "Global retained-stiffness interpretation and reference applicability",
+      "prospective_owner_role": "Global reference and applicability custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C10",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/9"
+      },
+      "subject": "Conditional4320-site applicability and confidence",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/model_counts"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/state"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/stipulated/material_basis"
+        }
+      ],
+      "prospective_observation": "Build a traceable coverage map by construction, lot, geometry, termination, support, state and environment. Define the intended population and confidence target before a scientifically justified variability/sampling rationale; identify every nonequivalent configuration or demonstrate a uniform envelope.",
+      "quantity_units": "Population/class identifiers; confidence specification UNKNOWN",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/population_confidence",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/physical_applicability",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/9/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "An uncovered nonequivalent configuration or unsupported uniform/statistical premise prevents extrapolation. Operator identification at one state is not population confidence; specimen counts and confidence remain unknown.",
+      "comparison_unavailable_without_evidence": "Full installed-assembly applicability and statistical inference",
+      "prospective_owner_role": "Population and uncertainty-method custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C11",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/10"
+      },
+      "subject": "One34-row additions pool and nonoverlapping mass ownership",
+      "stipulated_inputs": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/mass_pool"
+        }
+      ],
+      "prospective_observation": "Register itemized measured masses and duty/architecture ownership for ends, anchors, frame, supports, fixtures and other carried additions. Match replacement evidence before credits and classify laboratory-only equipment through an explicit duty decision.",
+      "quantity_units": "t; item/duty/architecture identifiers",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/hardware_masses_t",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/budget_fit",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/10/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "An omitted carried item, overlapping allocation, unsupported replacement saving or second additions pool invalidates reconciliation. Budget fit cannot be determined without complete measured inventory and the unchanged common-pool basis.",
+      "comparison_unavailable_without_evidence": "One-pool actual-mass reconciliation and budget applicability",
+      "prospective_owner_role": "Mass inventory and architecture custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    },
+    {
+      "contract_id": "C12",
+      "contract_source": {
+        "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "pointer": "/rows/11"
+      },
+      "subject": "Evidence registration, identification counts and applicability decision",
+      "stipulated_inputs": [],
+      "prospective_observation": "Register prospective evidence IDs, provenance, calibration, uncertainty and coverage against the common reference. Name the intended applicability/confidence target and architecture, then assign evidence owners before any physical campaign.",
+      "quantity_units": "Evidence/owner identifiers; target specification UNKNOWN",
+      "fills_existing_fields": [
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/population_confidence",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+          "pointer": "/actual/physical_applicability",
+          "write_now": false
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/11/actual",
+          "write_now": false
+        }
+      ],
+      "falsification_or_inapplicability": "Untraceable evidence, unassigned owners, unspecified applicability/confidence or missing architecture choices prevent a qualification decision; instrument classes and a paper protocol are not measured evidence.",
+      "comparison_unavailable_without_evidence": "Evidence completeness and applicability decision",
+      "prospective_owner_role": "Evidence registration and applicability custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "uncertainty_evidence": null,
+      "status": "PROSPECTIVE_ONLY; actual evidence UNKNOWN"
+    }
+  ],
+  "limitations_crosswalk": [
+    {
+      "source": {
+        "path": "research/p45/assumed-stiffness/inherited/LIMITATIONS.json",
+        "pointer": "/actual_matrices"
+      },
+      "supported_by_contract_rows": [
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C09"
+      ],
+      "actual_value": null
+    },
+    {
+      "source": {
+        "path": "research/p45/assumed-stiffness/inherited/LIMITATIONS.json",
+        "pointer": "/actual_chi"
+      },
+      "supported_by_contract_rows": [
+        "C08",
+        "C09"
+      ],
+      "actual_value": null
+    },
+    {
+      "source": {
+        "path": "research/p45/assumed-stiffness/inherited/LIMITATIONS.json",
+        "pointer": "/actual_masses"
+      },
+      "supported_by_contract_rows": [
+        "C11"
+      ],
+      "actual_value": null
+    },
+    {
+      "source": {
+        "path": "research/p45/assumed-stiffness/inherited/LIMITATIONS.json",
+        "pointer": "/scientific_confidence"
+      },
+      "supported_by_contract_rows": [
+        "C10",
+        "C12"
+      ],
+      "actual_value": "UNKNOWN"
+    },
+    {
+      "source": {
+        "path": "research/p45/assumed-stiffness/inherited/LIMITATIONS.json",
+        "pointer": "/physical_applicability"
+      },
+      "supported_by_contract_rows": [
+        "C01",
+        "C07",
+        "C09",
+        "C10",
+        "C12"
+      ],
+      "actual_value": "UNKNOWN"
+    }
+  ],
+  "acceptance_thresholds": "Only inherited symbolic conditions; new numeric thresholds, specimen counts, confidence and applicability are UNKNOWN",
+  "performed_tests": [],
+  "assigned_evidence_owners": [],
+  "new_numeric_results": [],
+  "private_outcomes": "None imported or restated"
+}
