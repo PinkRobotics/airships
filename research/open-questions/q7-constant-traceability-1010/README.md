@@ -1,0 +1,21 @@
+# Assumed constants and prospective evidence ownership
+
+This paper traces the [published constant question](../../../docs/OPEN-QUESTIONS.md#7-thirty-two-unjustified-constants-and-only-fifteen-of-them-are-dialled), its [existing issue](https://github.com/PinkRobotics/airships/issues/6), the cited [evidence map](../../evidence-map.md) and the [verification plan](../../../docs/VERIFICATION-PLAN.md). It changes no constant, model, hypothesis or historical failure. Actual measurements and qualification remain UNKNOWN; prospective roles are not appointed owners.
+
+[TRACEABILITY.json](TRACEABILITY.json) retains the relevant audit rows verbatim and maps their named input groups to source locations, current consumption, missing evidence and a prospective custodian. [PROVENANCE.json](PROVENANCE.json) pins every local source read. Locations are source evidence, not a fresh sensitivity experiment; an identical numeric literal in another expression does not prove the old consumer remains active.
+
+The published category totals count dated audit rows, including mixed and derived quantities. They must not be reinterpreted as a count of independent current coefficients or forced to equal this grouped inventory. The original audit, its model-output comparisons and its failures remain historical evidence. This paper supplies no new output comparison and does not reset those counts.
+
+| Input family | Missing evidence | Prospective role, still UNASSIGNED |
+|---|---|---|
+| Drag, propulsion and force-owner inputs | Matched geometry, flow, thrust, attitude, shaft/electrical power and complete installation evidence | Aerodynamics, rotor and control custodians |
+| Bag, cable, pump and release assumptions | Actual geometry, usable flow, carried mass, hoist/pickup dynamics, pressure losses and ground deposition | Water-handling, connection and hydraulic custodians |
+| Storage, cryogenic and systems allowances | Usable storage, installed mass, thermal/startup duty, recovery flow and electrical loads | Process and electrical-storage custodians |
+| Reference heights, profile and timing choices | Route datum/clearance, matched trajectory/acceleration/loads and observed deployment/overlap | Geospatial and flight-profile custodians |
+| Solar input and collecting area | Route/time irradiance, projected geometry, conversion losses, uncertainty and operating duty | Solar and operations custodians |
+| Dry allowance, displacement and reference shape | Complete weighed installation and pressure/sealing/geometry applicability | Mass inventory and structures custodians |
+| Model flags, modes, fleet and source screening | Explicit semantics, architecture/mission requirements and usable water/dispatch evidence | Model semantics and operations custodians |
+
+Current source trace differs from the dated audit in material ways: integrated phase power replaces the earlier return/other drag multipliers and fixed letdown window; the air-density input retained as legacy is unused by current force/power laws; the solar input is now day-averaged and uses projected collecting area. Current release duration takes the maximum of its drop-length/speed expression and the delivered-water/fill-rate duration, so the configured fill rate still supplies both fill timing and the release floor. Bag capacity remains an intention distinct from achieved model inventory and paid hoist. The current rope correction names assumed strength and safety-factor coefficients that price the bottom-up cable mass; the flight ledger still does not integrate that equipment bill. The JSON locations document these changes without treating later code as hardware evidence or recalculating earlier sensitivities.
+
+For every group, the missing record must identify configuration, units, load/environment/history, uncertainty and the intended application before comparison. The current_source_files_absent field records missing source files; removed_historical_consumers separately records retired expressions with their replacement-source evidence. A retained unrelated literal or label does not reinstate an old consumer. An observed mismatch may reject an assumption; absent data leaves it unresolved. No numerical test tolerance, confidence level, specimen count, optimum, retuned coefficient or new physical campaign is supplied here.

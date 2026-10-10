@@ -1,0 +1,2377 @@
+{
+  "schema": "q7.constant-traceability/1",
+  "status": "PAPER_TRACE_ONLY; no model retuning or fresh sensitivity",
+  "source_revision": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+  "question_source": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "7-thirty-two-unjustified-constants-and-only-fifteen-of-them-are-dialled"
+  },
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/6",
+  "historical_audit_date": "2026-08-09",
+  "count_interpretation": "The published32ARBITRARY/15ASSUMED counts are touching-category audit rows, not counts of independent current constants. Mixed/derived rows overlap. This inventory groups named inputs; it does not recompute or reset the historical counts.",
+  "historical_audit_rows": [
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 49
+      },
+      "figure": "terrain reference `TERRAIN_MSL`",
+      "historical_value_text": "1 000 m MSL",
+      "historical_consumer_text": "`sim/config.js`",
+      "historical_provenance_text": "**ASSUMED** — one figure for the whole interior plateau",
+      "historical_assessment_text": "Deliberately coarse and says so. Moving it moves every density in the model. A recovery onto a valley floor at 350 m is stated to be outside the design, which is the honest version.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 50
+      },
+      "figure": "working altitude `WORK_ALT_MSL`",
+      "historical_value_text": "2 500 m MSL (1 500 m AGL)",
+      "historical_consumer_text": "`sim/config.js`",
+      "historical_provenance_text": "**ASSUMED**, constrained by a terrain envelope",
+      "historical_assessment_text": "The envelope claim — interior fuel belt from 300–500 m valley floors to ~2 100 m treeline, Big White ~2 320 m — is asserted in prose with no source. It is checkable and probably right, but it is uncited, and it is the justification for the single most expensive number in the model.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 52
+      },
+      "figure": "dry mass allowance",
+      "historical_value_text": "m_dry = m_payload",
+      "historical_consumer_text": "`ledger()`, `dryT: cls.payloadT`",
+      "historical_provenance_text": "**ASSUMED** — \"the ledger's bet\", stated as such",
+      "historical_assessment_text": "The single load-bearing assumption in the project. Nothing constrains it; it was chosen. Everything below inherits from it. See §1.1.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 53
+      },
+      "figure": "displacement",
+      "historical_value_text": "2 200 m³ per tonne of payload → 220 000 / 2.2×10⁶ / 2.2×10⁷ m³",
+      "historical_consumer_text": "`CLASSES[*].dispM3`",
+      "historical_provenance_text": "**ASSUMED** — solves float-up at 5% margin, then rounded up",
+      "historical_assessment_text": "2 194.7 m³/t gives exactly 5.00%; 2 200 is the round number above it. Verified by sweep: 2 000 → −4.31%, 2 100 → +0.47%, 2 200 → +5.25%.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 54
+      },
+      "figure": "float-up margin",
+      "historical_value_text": "**+5.25%**, identical on all three classes",
+      "historical_consumer_text": "`figures.json` `floatUpMarginPct`",
+      "historical_provenance_text": "**CIRCULAR**",
+      "historical_assessment_text": "Presented as a result (\"the margin is +5.25% on all three classes\") when it is an input: a 5% requirement divided by a rounding. It is identical across classes only because m_dry = m_pay is identical across classes, so the \"no class needed an exception\" line is a restatement of the assumption, not a check on it. The arithmetic is right; the framing is not.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 58
+      },
+      "figure": "hull dimensions",
+      "historical_value_text": "190×47, 404×102, 876×219 m; fineness 4",
+      "historical_consumer_text": "`CLASSES[*].lenM/diaM`",
+      "historical_provenance_text": "**PHYSICS** (spheroid volume) on an **ASSUMED** fineness ratio",
+      "historical_assessment_text": "Volume matches a prolate spheroid to better than 0.2%, which is checkable and checks out. Fineness 4 is a choice; it sets frontal area and therefore drag.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 68
+      },
+      "figure": "`ln2CapT`",
+      "historical_value_text": "155 / 1 550 / 15 500 t",
+      "historical_consumer_text": "`CLASSES[*].ln2CapT`",
+      "historical_provenance_text": "**PHYSICS** (the row above) + **ARBITRARY** margin",
+      "historical_assessment_text": "The requirement is real and independently motivated. The 7.2% headroom over it is not derived, and the round-number-per-payload result (1.55 payloads exactly) suggests it was chosen for tidiness. `selftest.js` asserts `ln2CapT ≥ needT` — a tautology, since one was set from the other. It can only fail if someone edits one and not the other, which is a useful regression guard and not evidence.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 70
+      },
+      "figure": "`eLN2`",
+      "historical_value_text": "0.45 kWh/kg",
+      "historical_consumer_text": "`DEFAULTS.eLN2`",
+      "historical_provenance_text": "**ASSUMED**, dial 0.30–0.80",
+      "historical_assessment_text": "Labelled \"demonstration assumption, not a plant spec\". Industrial nitrogen liquefaction is in this band, but no source is given and none is in the repository.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 72
+      },
+      "figure": "unpowered recovery, solar only",
+      "historical_value_text": "**2.6 / 5.7 / 12.9 days**",
+      "historical_consumer_text": "`docs/OPEN-QUESTIONS.md` §0",
+      "historical_provenance_text": "**PHYSICS** on an **ARBITRARY** solar figure",
+      "historical_assessment_text": "The arithmetic reproduces (6 505 MWh ÷ (24 − 3) MW = 310 h). It rests entirely on 200 W/m² applied twenty-four hours a day. The document says so — \"a real recovery is several times longer again\" — but publishes the optimistic number as the headline. See §1.5.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 73
+      },
+      "figure": "unpowered recovery, rated plant",
+      "historical_value_text": "0.45 / 0.90 / 2.7 days",
+      "historical_consumer_text": "same",
+      "historical_provenance_text": "**PHYSICS** on **ARBITRARY** `cryoMW`",
+      "historical_assessment_text": "Arithmetic solid; `cryoMW` = 6/30/100 MW has no derivation anywhere.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 74
+      },
+      "figure": "`rtLN2`",
+      "historical_value_text": "0.50",
+      "historical_consumer_text": "`DEFAULTS.rtLN2`",
+      "historical_provenance_text": "**ASSUMED**, dial 0.35–0.60",
+      "historical_assessment_text": "Only constraint is `selftest` requiring it < 1. Moves the P-10000's cycle by ±2.2% and the two smaller classes by nothing at all, because their recovery is discarded (see the energy section).",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 80
+      },
+      "figure": "`rotorMaxT`",
+      "historical_value_text": "160 / 791 / 7 600 t",
+      "historical_consumer_text": "`plan.js`, inverted `diskMW`",
+      "historical_provenance_text": "**PHYSICS** (momentum theory) on **ASSUMED** inputs",
+      "historical_assessment_text": "The inversion is exact and round-trips in `tests/cases/sim-physics.cases.js`. Its inputs are `battMW`, `genMW`, `diskM2`, `propEta`, `rhoAir` — four assumptions and one arbitrary constant.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 81
+      },
+      "figure": "the aero-trim share",
+      "historical_value_text": "rotors carry 1/0.6 of their thrust budget",
+      "historical_consumer_text": "`rotorCapT = rotorMaxT / 0.6`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Nothing anywhere states why 60%. It is the difference between the descent closing and not closing, and it appears again in `state.js` as the upper end of a hand-drawn `share` schedule.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 82
+      },
+      "figure": "`diskM2`",
+      "historical_value_text": "2 500 / 12 000 / 160 000 m²",
+      "historical_consumer_text": "`CLASSES[*].diskM2`",
+      "historical_provenance_text": "**CIRCULAR**",
+      "historical_assessment_text": "See §1 and the closing note. Chosen so a force balance closed at the ceiling; the balance now happens at the source, where it does not close (12 666 t of capacity against 13 723 t of hold). The comment asserting it still closes is live in `sim/config.js:230`. Sensitivity today: ±20% moves cycle energy by ∓0.4%. A number reverse-engineered from a result it no longer produces, controlling nothing.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 83
+      },
+      "figure": "`battMW`",
+      "historical_value_text": "30 / 150 / 1 400 MW",
+      "historical_consumer_text": "`CLASSES[*].battMW`",
+      "historical_provenance_text": "**CIRCULAR**",
+      "historical_assessment_text": "Same origin, same problem, and measurably worse: ±20% moves *every* published figure by 0.0%.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 85
+      },
+      "figure": "`anchorBagT`",
+      "historical_value_text": "125 / 1 250 / 12 400 t",
+      "historical_consumer_text": "`CLASSES[*].anchorBagT`",
+      "historical_provenance_text": "**CIRCULAR** (and the 90% is **ARBITRARY**)",
+      "historical_assessment_text": "The bag is 90.4 / 91.5 / 92.2% of the hold it is then shown to solve. Measured: the bag needed for `retainedT = 0` is 55 t on a P-1000 and **1 099 t** on a P-10000 — 8% of the surplus, not 90%. The other 82% is bought purely to shrink the letdown term. Nothing states a stopping rule, and the choice halves the headline energy. See §1.3.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 87
+      },
+      "figure": "`anchorM`",
+      "historical_value_text": "350 / 600 / 850 m",
+      "historical_consumer_text": "`CLASSES[*].anchorM`",
+      "historical_provenance_text": "**ASSUMED**, loosely derived",
+      "historical_assessment_text": "Justified against `anchorFromAglM` (below) \"with margin\". The margin is not stated. Sets the winch time floor on `SOURCE_APPROACH`, which does not bind on any class.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 90
+      },
+      "figure": "the cable",
+      "historical_value_text": "440 mm UHMWPE, 125 t",
+      "historical_consumer_text": "`sim/config.js`, README",
+      "historical_provenance_text": "**ASSUMED**",
+      "historical_assessment_text": "440 mm at 850 m and ~970 kg/m³ does give 125 t, so the two numbers are consistent. 122 MN over that section is ~800 MPa, which is inside what UHMWPE rope achieves but implies a safety factor around 2 that is never stated. **The 125 t is explicitly not charged as dry mass anywhere** — the project says so, which is the right thing to do with a known omission.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 91
+      },
+      "figure": "`E.anchor`",
+      "historical_value_text": "0.006 / 0.060 / **0.596 MWh**",
+      "historical_consumer_text": "`anchorT·g·15/0.85`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Both constants are unjustified. The 15 m is a fixed lift height applied to bags whose diameters are 6.2 m and 28.7 m — 2.4× the small bag's diameter and 0.52× the large one's — so it cannot be the \"lift needed to break the surface\" it is described as. The 0.85 winch efficiency has no source. The term is small (1.4% of the P-10000's cycle) but it is the number that makes the whole mechanism look free, quoted as \"fifty-eight to one\" against the rotor work it removes.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 106
+      },
+      "figure": "`propEta`",
+      "historical_value_text": "0.70",
+      "historical_consumer_text": "`DEFAULTS.propEta`",
+      "historical_provenance_text": "**ASSUMED**",
+      "historical_assessment_text": "Applied to drag *and* disc power, which are different machines. Largest single tunable effect on energy: −20% → +14.2% on the P-10000.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 107
+      },
+      "figure": "`Cd`",
+      "historical_value_text": "0.05 on frontal area",
+      "historical_consumer_text": "`DEFAULTS.Cd`",
+      "historical_provenance_text": "**ASSUMED**, with a real cross-check",
+      "historical_assessment_text": "The best-defended assumption in the file: C_dv = 0.024, and a Reynolds/flat-plate estimate puts skin friction at 37% of the assumed total, which is a sane split for a fineness-4 hull. The document then says plainly that it is a *bare hull* figure charging nothing for 14 rotor installations, fins or the hose pod.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 108
+      },
+      "figure": "`rhoAir`",
+      "historical_value_text": "**1.10 kg/m³** for drag and every rotor calculation",
+      "historical_consumer_text": "`DEFAULTS.rhoAir`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Described as \"a fixed working-band density\". There is no such band: the hulls are sized at 0.9569 and fill at 1.0793. `config.js:24`, `PHYSICS.md` §11 and `OPEN-QUESTIONS.md` §1 all state it is \"ISA at about 990 m\"; it is ISA at **1 107 m** (`altitudeForDensity(1.10)` — run it). The stated consequences, drag overstated 15% and induced power understated 7%, are correct. Measured effect on the P-10000's cycle energy: ±20% → ±10.4%, eight times what `PHYSICS.md` §10 reports.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 110
+      },
+      "figure": "`downMW`",
+      "historical_value_text": "0.3 / 5.0 / 52.3 MW",
+      "historical_consumer_text": "`diskMW(resid·g·0.6)`",
+      "historical_provenance_text": "**PHYSICS** on **ARBITRARY** inputs (the 0.6, the bag fraction)",
+      "historical_assessment_text": "The exponent is the whole story and it is real: thrust^1.5 means the last 10% of the hold costs 3.2% of the full rotor power. That is a genuine and well-explained piece of physics. What the rotors are asked to hold is chosen, not derived.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 118
+      },
+      "figure": "`pumpEta`",
+      "historical_value_text": "0.75, all-in",
+      "historical_consumer_text": "`DEFAULTS.pumpEta`",
+      "historical_provenance_text": "**ASSUMED**",
+      "historical_assessment_text": "Lumps pump, motor, drive, hose friction and residual kinetic energy. `PHYSICS.md` §5 states the omission that matters: a 1.78 m bore at 15 m³/s, and a 250 m standing column of that bore weighing 625 t that the mass ledger never carries.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 119
+      },
+      "figure": "`hoseM`",
+      "historical_value_text": "300 m on every class",
+      "historical_consumer_text": "`CLASSES[*].hoseM`",
+      "historical_provenance_text": "**ASSUMED**",
+      "historical_assessment_text": "Good design decision: hose length *is* the fill altitude *is* the pumping head, one number, so they cannot disagree. They previously did.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 120
+      },
+      "figure": "`fillM3s`",
+      "historical_value_text": "0.5 / 3 / **15 m³/s**",
+      "historical_consumer_text": "`CLASSES[*].fillM3s`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "No justification anywhere for any of the three. It sets `WATER_FILL` and, since the single-pass change, `WATER_RELEASE` as well — 22.2 of the P-10000's 45.5 cycle minutes, 49% of the cycle. See §1.4.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 127
+      },
+      "figure": "`SOURCE_APPROACH`",
+      "historical_value_text": "2 / 3 / 5 min",
+      "historical_consumer_text": "`max(1.5·fixed, hoseDeployMin·0.5·hose)`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "`hoseDeployMin` = 4/6/10 and the 0.5 and 1.5 are all unjustified.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 129
+      },
+      "figure": "transit legs",
+      "historical_value_text": "11.76 / 9.63 / 8.14 min",
+      "historical_consumer_text": "`oneWayKm/gs·60·(1/0.85)`",
+      "historical_provenance_text": "**PHYSICS** on **ARBITRARY** 15% ramp",
+      "historical_assessment_text": "The trapezoid correction is right in principle — a leg is not a step — but 15% accelerating and 15% braking is chosen. It inflates every transit leg by 17.6%.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 130
+      },
+      "figure": "`cruiseKph`",
+      "historical_value_text": "90 / 110 / 130",
+      "historical_consumer_text": "`CLASSES[*]`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Nothing derives them. −20% costs the P-10000 8.2% of throughput and saves 17.8% of energy; +20% buys 6.3% of throughput for 26.5% more energy.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 131
+      },
+      "figure": "`WATER_RELEASE`",
+      "historical_value_text": "3.33 / 5.56 / 11.11 min",
+      "historical_consumer_text": "`max(dropKm/(0.45·v)·60, delivered/fill/60)`",
+      "historical_provenance_text": "**PHYSICS** on `fillM3s`; the 0.45 is **ARBITRARY** and **currently inactive**",
+      "historical_assessment_text": "Verified: the drop-line term gives 1.78 / 3.03 / 5.13 min against fill-limited 3.33 / 5.56 / 11.11, so the metering rate binds on every class. `dropKm` therefore changes no published figure at all today — ±20% moves energy and throughput by 0.0%, against the ±2.1% / ±6.6% in `PHYSICS.md` §10.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 132
+      },
+      "figure": "`BUOYANCY_ESCAPE`",
+      "historical_value_text": "2 min",
+      "historical_consumer_text": "`2 × mode.fixed`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "A round number.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 133
+      },
+      "figure": "`passes`",
+      "historical_value_text": "1",
+      "historical_consumer_text": "literal in `plan.js`",
+      "historical_provenance_text": "**ASSUMED**, honestly",
+      "historical_assessment_text": "A literal, correctly described as one. The reasoning for going from three passes to one — an 876 m hull should not reverse over the fire it is dropping on, and the water lands on the same line either way — is sound.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 134
+      },
+      "figure": "`dropKm`",
+      "historical_value_text": "1.2 / 2.5 / 5 km",
+      "historical_consumer_text": "`CLASSES[*]`",
+      "historical_provenance_text": "**ARBITRARY**, currently inert",
+      "historical_assessment_text": "Bounded above by `dropSeg()` shrinking the line to fit the fire, which is a real constraint; the values themselves are chosen.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 135
+      },
+      "figure": "`VZ_MAX`, `altTop`, the 0.30 climb factor",
+      "historical_value_text": "6 m/s; `min(1500, 300 + 108·t_short)`",
+      "historical_consumer_text": "`config.js`, `state.js`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "The *shape* is right — a ship does not climb to 1 500 m on a two-minute hop — and the fix it replaced (a P-1000 diving at 44 m/s) was real. The constants are picked.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 137
+      },
+      "figure": "`mode` multipliers",
+      "historical_value_text": "speed 1.15/1.0/0.8, hose, climb, cryoShare, fixed",
+      "historical_consumer_text": "`MODES`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Twelve unjustified numbers. A test in `sim-plan.cases.js` says outright that \"the mode ordering has flipped five times and is not load-bearing\", which is the honest way to carry them.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 146
+      },
+      "figure": "`bottleneck`",
+      "historical_value_text": "\"transit distance\" on all three at 15 km",
+      "historical_consumer_text": "`planCycle()`",
+      "historical_provenance_text": "computed, on **ARBITRARY** thresholds",
+      "historical_assessment_text": "The 0.25-payload retention threshold and the 0.92-of-bus `battLimited` threshold are unjustified. Two of the five bottleneck strings (`descent authority`, `descent ballast`) are unreachable on shipped numbers; `cryogenic production rate` fires in endurance mode on a flag that is true in all 135 grid cases and therefore carries no information.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 147
+      },
+      "figure": "fleet allocation rules",
+      "historical_value_text": "tiers at 1 000 / 10 000 ha; `minSourceHa` 10/100/1 000; `searchKm` 25/100/600",
+      "historical_consumer_text": "`assign.js`, `CLASSES`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Six thresholds, no derivation. Monotonicity is tested; the values are not defended.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 148
+      },
+      "figure": "source score",
+      "historical_value_text": "`d / min(12, (area/minHa)^0.35)`",
+      "historical_consumer_text": "`water.js`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "The exponent, the cap and the discount shape are all chosen. The *principle* — a fleet drawing full payloads from a pond beside a lake is the wrong picture — is sound.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 156
+      },
+      "figure": "`E.WATER_FILL`",
+      "historical_value_text": "**6.149 MWh** (14.3%)",
+      "historical_consumer_text": "`max(0, P_pump·t_fill/60 − E_back)`",
+      "historical_provenance_text": "**PHYSICS** with an **ARBITRARY** clamp",
+      "historical_assessment_text": "The `max(0, …)` silently destroys energy on the two smaller classes: **0.303 MWh discarded on a P-100 whose entire cycle is 1.308 MWh, and 0.594 MWh on a P-1000**. On those classes the published pumping bill is *zero* — the least contentious number in the model does not appear in their headline energy at all. This is a defect and it is not on the list of six.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 158
+      },
+      "figure": "`E.RETURN_TRANSIT`",
+      "historical_value_text": "**14.705 MWh** (34.2%)",
+      "historical_consumer_text": "`P_drag × 0.55 × t_ret/60 + E_cryo`",
+      "historical_provenance_text": "**ARBITRARY** (the 0.55) + **PHYSICS** (E_cryo)",
+      "historical_assessment_text": "Drag on a streamlined body does not depend on how much water is inside it. The comment \"lighter ship, cheaper leg\" is not a mechanism at this level of model. The 0.55 removes 4.26 MWh from the P-10000's cycle.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 160
+      },
+      "figure": "`E.letdown`",
+      "historical_value_text": "**1.420 MWh** (3.3%)",
+      "historical_consumer_text": "`downMW · min(6, t_ret × 0.2)/60`",
+      "historical_provenance_text": "**ARBITRARY** — the project's own named defect",
+      "historical_assessment_text": "Correctly identified, correctly quantified, and now defused rather than fixed: it was 45% of the cycle before the bag. The cap is inactive below ~55 km one-way, so in practice the term is a bare 0.2 fraction. The `battLimited` interaction still runs backwards (a \"longer, shallower letdown\" *raises* the energy), and is now unreachable, which is worse than broken.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 161
+      },
+      "figure": "`E.anchor`",
+      "historical_value_text": "0.596 MWh (1.4%)",
+      "historical_consumer_text": "`m_bag·g·15/0.85`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "See the anchor row.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 162
+      },
+      "figure": "`E.other`",
+      "historical_value_text": "**10.689 MWh** (24.8%)",
+      "historical_consumer_text": "`P_hotel·t_cycle/60 + P_drag × 0.4 × (approach+escape+release)/60`",
+      "historical_provenance_text": "**ARBITRARY** ×2",
+      "historical_assessment_text": "Hotel load is 2% of `genMW` — 2.276 MWh, 5.3% of the cycle, no derivation. The 0.4 drag multiplier removes a further 12.62 MWh.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 163
+      },
+      "figure": "**the two drag multipliers together**",
+      "historical_value_text": "0.55 and 0.4",
+      "historical_consumer_text": "`plan.js`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Charging drag at full rate on every phase gives **59.90 MWh instead of 43.02** (+39.2%), and **5.99 kWh/t instead of 4.30**. On the P-1000 it is +23.3%, on the P-100 +13.2%. Two unexplained numbers set 39% of the flagship energy claim. See §1.2.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 172
+      },
+      "figure": "solar irradiance",
+      "historical_value_text": "**200 W/m², day and night**",
+      "historical_consumer_text": "hard-coded in `sim/state.js:351`, `selftest.js:108`, `app/cockpit/panels.js:107`, `3d/model/metadata.js:61`, `3d/physics/energy.js:73`, `3d/adapter/fable.js:201`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "No derivation, no source, no dial, six copies, and — checked — **not in `sim/config.js`**, which the README's table calls the home of \"every assumption, in one file\". It is a peak-ish figure (≈20% efficiency at 1 000 W/m² insolation) applied continuously. `OPEN-QUESTIONS.md` §0 admits \"a real recovery is several times longer again\" and then publishes the optimistic figure anyway.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 173
+      },
+      "figure": "`solarM2`",
+      "historical_value_text": "6 000 / 28 000 / 120 000 m²",
+      "historical_consumer_text": "`CLASSES[*]`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "Computed against hull geometry: 85.5% / 86.5% / 79.6% of *planform* area. Near-total upper-surface coverage, chosen.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 176
+      },
+      "figure": "`genMW`",
+      "historical_value_text": "8 / 40 / 150 MW",
+      "historical_consumer_text": "`CLASSES[*]`",
+      "historical_provenance_text": "**ARBITRARY**, and inconsistently applied",
+      "historical_assessment_text": "Defect 6, correctly identified as the most consequential item. Measured: removing `genMW` from `rotorMaxT` cuts rotor capacity by 14.6% / 14.6% / 6.6%. Crediting it as energy at full output gives 4.6 / 23.6 / **113.8 MWh** per cycle against spends of 1.31 / 6.98 / 43.02. The generators would cover every cycle on every class.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 178
+      },
+      "figure": "`battMWh`",
+      "historical_value_text": "20 / 120 / 2 000 MWh",
+      "historical_consumer_text": "`CLASSES[*]`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "`PHYSICS.md` §3 does the damaging arithmetic itself: at 250 Wh/kg the battery is 80% of the P-10000's entire dry allowance, and the 3D library's own mass split implies 1 430 Wh/kg. The two halves of the project do not agree and the document says so.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    },
+    {
+      "source": {
+        "path": "research/evidence-map.md",
+        "line": 179
+      },
+      "figure": "fleet composition",
+      "historical_value_text": "**16 hulls: 10 / 5 / 1**",
+      "historical_consumer_text": "`app/fleet.js` `FLEET`",
+      "historical_provenance_text": "**ARBITRARY**",
+      "historical_assessment_text": "No sizing argument of any kind. It is a stage set.",
+      "interpretation": "Dated audit row, not a fresh sensitivity measurement or necessarily an independent constant"
+    }
+  ],
+  "named_input_groups": [
+    {
+      "id": "drag-return-and-other",
+      "named_inputs": "Dated 0.55 return-drag and 0.4 other-phase drag fractions",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 215,
+          "source_text": "const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 331,
+          "source_text": "const zeroLiftDragN = qPa * CFG.Cd * Math.PI * (cls.diaM / 2) ** 2;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 332,
+          "source_text": "const draw = { hotel: cls.genMW * HOTEL_FRAC, prop: zeroLiftDragN * V / CFG.propEta / 1e6 };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 382,
+          "source_text": "zeroLiftDragN, inducedDragN, qPa, aeroGeometry: geometry,"
+        }
+      ],
+      "consumption_and_history": "Historical E.RETURN_TRANSIT/E.other multiplier expressions are absent from the current integrator path; identical numeric literals elsewhere do not reinstate them.",
+      "evidence_needed": "Matched phase/airspeed/geometry/state drag and installed propulsion-power observations, including appendages; a phase label is not a drag-reduction mechanism.",
+      "prospective_owner_role": "Aerodynamics and propulsion evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "P_drag * 0.55 * t_ret/60",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 215,
+              "source_text": "const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 331,
+              "source_text": "const zeroLiftDragN = qPa * CFG.Cd * Math.PI * (cls.diaM / 2) ** 2;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 332,
+              "source_text": "const draw = { hotel: cls.genMW * HOTEL_FRAC, prop: zeroLiftDragN * V / CFG.propEta / 1e6 };"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 382,
+              "source_text": "zeroLiftDragN, inducedDragN, qPa, aeroGeometry: geometry,"
+            }
+          ],
+          "interpretation": "Historical E.RETURN_TRANSIT/E.other multiplier expressions are absent from the current integrator path; identical numeric literals elsewhere do not reinstate them."
+        },
+        {
+          "historical_expression": "P_drag * 0.4 * (approach+escape+release)/60",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 215,
+              "source_text": "const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 331,
+              "source_text": "const zeroLiftDragN = qPa * CFG.Cd * Math.PI * (cls.diaM / 2) ** 2;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 332,
+              "source_text": "const draw = { hotel: cls.genMW * HOTEL_FRAC, prop: zeroLiftDragN * V / CFG.propEta / 1e6 };"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 382,
+              "source_text": "zeroLiftDragN, inducedDragN, qPa, aeroGeometry: geometry,"
+            }
+          ],
+          "interpretation": "Historical E.RETURN_TRANSIT/E.other multiplier expressions are absent from the current integrator path; identical numeric literals elsewhere do not reinstate them."
+        }
+      ]
+    },
+    {
+      "id": "anchor-bag",
+      "named_inputs": "Dated intention: bag at about90% of source hold; configured anchorBagT class capacities",
+      "published_provenance": "CIRCULAR/ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 269,
+          "source_text": "anchorM: 350, anchorBagT: 125,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 277,
+          "source_text": "anchorM: 600, anchorBagT: 1250,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 285,
+          "source_text": "anchorM: 850, anchorBagT: 12400,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 117,
+          "source_text": "let anchorT = Math.min(cls.anchorBagT || 0, holdT);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 62,
+          "source_text": "function anchorAt(cls, plan, g, id, prog) {"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 325,
+          "source_text": "const bagT = opts.anchorCredit === false ? 0 : anchor.tonnes, hoistMW = anchor.hoistMW;"
+        }
+      ],
+      "consumption_and_history": "Current capacity remains a sizing intention; paid hoist, nominal-keel cable reach and drawAt().anchor.tonnes control actual model credit.",
+      "evidence_needed": "Bag/rigging mass and geometry, actual pickup/hoist/retention history and dynamic load/control evidence; no observed stopping rule or optimum supplied.",
+      "prospective_owner_role": "Water-handling and flight-dynamics evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "fill-rate",
+      "named_inputs": "fillM3s class values named in question",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 268,
+          "source_text": "cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 276,
+          "source_text": "cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 284,
+          "source_text": "cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 43,
+          "source_text": "const fill = Math.max(0.01, cls.fillM3s * CFG.fillMul);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 70,
+          "source_text": "dur.WATER_FILL = cls.payloadT / fill / 60;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 77,
+          "source_text": "dur.WATER_RELEASE = Math.max(0.8, cls.dropKm / (kph * 0.45) * 60);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 127,
+          "source_text": "dur.WATER_FILL = deliveredT / fill / 60;          // only the delivered water needs replacing"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 146,
+          "source_text": "dur.WATER_RELEASE = Math.max(dur.WATER_RELEASE, deliveredT / fill / 60);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 155,
+          "source_text": "const releaseRiseFraction = Math.min(1, Math.max(0.15, 30 / (dur.WATER_RELEASE * 60)));"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 219,
+          "source_text": "const handling = dur.SOURCE_APPROACH + dur.WATER_FILL;"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 11,
+          "source_text": "return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * sourceAltM(cls) / CFG.pumpEta / 1e6;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 130,
+          "source_text": "* The dump is metered like the fill: sprayers lay water along a line, they do not blow the"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 131,
+          "source_text": "* tanks. That takes `deliveredT / fill` however it is flown, and the question is only whether"
+        }
+      ],
+      "consumption_and_history": "Current fill duration consumes the configured rate. WATER_RELEASE is at least both its drop-length/speed duration and deliveredT/fill/60: the same fillM3s rate still sets the release-duration floor. Actual retained/delivered inventory can change that floor. The historical sensitivity numbers are retained as dated results, not recalculated here.",
+      "evidence_needed": "Matched pump/head/hose/intake/pressure-loss and metered outlet-flow evidence; distinguish pickup from deposition/ground effectiveness.",
+      "prospective_owner_role": "Hydraulic and release-system evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "terrain-altitudes",
+      "named_inputs": "TERRAIN_MSL, WORK_ALT_MSL and ALT reference heights",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 94,
+          "source_text": "export const ALT = { cruise: 1500, drop: 450 };"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 142,
+          "source_text": "export const TERRAIN_MSL = 1000;                       // m, interior plateau reference"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 143,
+          "source_text": "export const WORK_ALT_MSL = TERRAIN_MSL + ALT.cruise;  // m, 2,500 — where the hulls are sized"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 40,
+          "source_text": "const rho = airDensityKgM3 ?? pressurePa / (ISA.R * temperatureK);"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 58,
+          "source_text": "const rho = airDensity(altMslM, CFG.rhoSL);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 63,
+          "source_text": "const srcAltM = sourceAltM(cls);"
+        }
+      ],
+      "consumption_and_history": "Reference terrain and source/working heights are model inputs, not measured route clearance.",
+      "evidence_needed": "Route-specific terrain, canopy, source-surface height, datum and operational clearance evidence.",
+      "prospective_owner_role": "Geospatial and operating-envelope evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "dry-allowance",
+      "named_inputs": "dryT=payloadT",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/physics.js",
+          "line": 62,
+          "source_text": "const dryT = cls.payloadT;                       // structure allowance = payload (the ledger's bet)"
+        }
+      ],
+      "consumption_and_history": "Current ledger retains the dry-equals-payload allowance; no weighed aircraft follows.",
+      "evidence_needed": "Complete matched structure/equipment/installation inventory and carried-item masses.",
+      "prospective_owner_role": "Mass inventory evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "displacement-and-shape",
+      "named_inputs": "dispM3, lenM/diaM and inherited sizing margin/fineness",
+      "published_provenance": "ASSUMED/CIRCULAR",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 267,
+          "source_text": "id: \"P100\", name: \"P-100\", payloadT: 100, dispM3: 220000, lenM: 110, diaM: 55,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 275,
+          "source_text": "id: \"P1000\", name: \"P-1000\", payloadT: 1000, dispM3: 2.2e6, lenM: 238, diaM: 119,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 283,
+          "source_text": "id: \"P10000\", name: \"P-10000\", payloadT: 10000, dispM3: 2.2e7, lenM: 512, diaM: 256,"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 59,
+          "source_text": "const liftT = grossLiftKg(cls.dispM3, {"
+        }
+      ],
+      "consumption_and_history": "Configuration is a design assumption; derived lift or margin does not independently validate the input.",
+      "evidence_needed": "As-built volume/geometry, sealing/pressure boundary and complete installed mass evidence; reconcile the chosen geometry with reference applicability.",
+      "prospective_owner_role": "Structures and geometry evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "nitrogen-capacity",
+      "named_inputs": "ln2CapT margin",
+      "published_provenance": "ARBITRARY margin on historical requirement",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 270,
+          "source_text": "genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarSheetM2: 6000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 2500, rotors: 4, ln2CapT: 155,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 278,
+          "source_text": "genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarSheetM2: 28000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 12000, rotors: 6, ln2CapT: 1550,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 291,
+          "source_text": "genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarSheetM2: 120000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 160000, rotors: 14, ln2CapT: 15500,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 85,
+          "source_text": "const ln2NeedT = Math.min(ledLow.surplusT * 0.8, cls.ln2CapT);"
+        }
+      ],
+      "consumption_and_history": "Configured storage limit still caps the target; historical rounded headroom is not a tank specification.",
+      "evidence_needed": "Tank usable mass/volume, insulation, boiloff, installed tank/plant mass and complete operating envelope.",
+      "prospective_owner_role": "Cryogenic storage evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "nitrogen-process",
+      "named_inputs": "eLN2 and rtLN2",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 18,
+          "source_text": "eLN2: 0.45,      // kWh per kg to liquefy nitrogen from air (demonstration assumption)"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 24,
+          "source_text": "rtLN2: 0.20,     // electrical round-trip efficiency of the nitrogen store"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 86,
+          "source_text": "let ln2MakeT = Math.min(ln2NeedT, cryoCapMW * (dur.RETURN_TRANSIT / 60) * 1000 / CFG.eLN2 / 1000);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 162,
+          "source_text": "ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 179,
+          "source_text": "ln2MakeT = Math.min(ln2NeedT, cryoCapMW * dur.RETURN_TRANSIT / 60 / CFG.eLN2);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 189,
+          "source_text": "ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 136,
+          "source_text": "return Math.min(cls.genMW, flowTph * CFG.eLN2 * CFG.rtLN2,"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 150,
+          "source_text": "const capT = cryoCapMW * (plan.dur.RETURN_TRANSIT / 60) / CFG.eLN2;   // t the leg could make"
+        }
+      ],
+      "consumption_and_history": "Current rtLN2 differs from the dated audit; process/recovery assumptions remain distinct from actual airborne equipment.",
+      "evidence_needed": "Matched feed/product, startup/transient/thermal and electrical input/recovery records at declared throughput, environment and installed mass.",
+      "prospective_owner_role": "Cryogenic process and bus evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "rotor-area-and-peak",
+      "named_inputs": "diskM2 and battMW",
+      "published_provenance": "CIRCULAR in dated audit",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 270,
+          "source_text": "genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarSheetM2: 6000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 2500, rotors: 4, ln2CapT: 155,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 278,
+          "source_text": "genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarSheetM2: 28000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 12000, rotors: 6, ln2CapT: 1550,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 291,
+          "source_text": "genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarSheetM2: 120000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 160000, rotors: 14, ln2CapT: 15500,"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 22,
+          "source_text": "return Math.pow(thrustN, 1.5) / Math.sqrt(2 * rho * cls.diskM2) / eta / 1e6;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 96,
+          "source_text": "const vh2 = thrustN / (2 * rho * cls.diskM2);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 112,
+          "source_text": "Math.sqrt(2 * rho * cls.diskM2), 2 / 3) / G / 1000;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 143,
+          "source_text": "return cls.battMW + regenMW(cls, plan, \"SOURCE_APPROACH\");"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 283,
+          "source_text": "export function rotorThrustLimitT(cls, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) { return rotorMaxTonnes(cls, cls.battMW + cls.genMW, rho, eta); }"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 330,
+          "source_text": "const busMW = (plan.requiredBatteryMW ?? cls.battMW) + gen.solar + regen;"
+        }
+      ],
+      "consumption_and_history": "Current force/power path consumes these configured inputs; dated zero-sensitivity/closure claims are not current measured hardware results.",
+      "evidence_needed": "Rotor thrust/power at matched inflow/state and battery sustained/peak delivery, storage and installed mass evidence.",
+      "prospective_owner_role": "Rotor and electrical-storage evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "aero-trim-share",
+      "named_inputs": "Dated 0.6 rotor/aero share and state schedule",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 108,
+          "source_text": "const rotorCapT = rotorMaxT;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 300,
+          "source_text": "const aeroT = (lo + hi) / 2, rotorT = heldT - aeroT;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 319,
+          "source_text": "const aeroLimitT = basis === 'favourable' ? clMax * qPa * geometry.areaM2 / 9810 : 0;"
+        }
+      ],
+      "consumption_and_history": "A historical scalar share cannot substitute for the current force-owner path; no current qualified aerodynamic share is supplied here.",
+      "evidence_needed": "Matched attitude, flow, force/moment, control-authority and support-load observations; distinguish rotor from aerodynamic forces.",
+      "prospective_owner_role": "Force-owner and flight-control evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "rotorCapT = rotorMaxT / 0.6",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 108,
+              "source_text": "const rotorCapT = rotorMaxT;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 300,
+              "source_text": "const aeroT = (lo + hi) / 2, rotorT = heldT - aeroT;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 319,
+              "source_text": "const aeroLimitT = basis === 'favourable' ? clMax * qPa * geometry.areaM2 / 9810 : 0;"
+            }
+          ],
+          "interpretation": "A historical scalar share cannot substitute for the current force-owner path; no current qualified aerodynamic share is supplied here."
+        }
+      ]
+    },
+    {
+      "id": "anchor-reach-and-cable",
+      "named_inputs": "anchorM and historical cable diameter/mass assumption",
+      "published_provenance": "ASSUMED; historical omission corrected",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 111,
+          "source_text": "export function anchorGeometry(cableM, diameterM) {"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 213,
+          "source_text": "* Contact follows the hull-centre datum and nominal keel attachment defined by anchorGeometry."
+        },
+        {
+          "path": "sim/config.js",
+          "line": 269,
+          "source_text": "anchorM: 350, anchorBagT: 125,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 277,
+          "source_text": "anchorM: 600, anchorBagT: 1250,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 285,
+          "source_text": "anchorM: 850, anchorBagT: 12400,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 93,
+          "source_text": "const anchorMin = (cls.anchorM || 0) / WINCH_MPS / 60;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 94,
+          "source_text": "dur.SOURCE_APPROACH = Math.max(dur.SOURCE_APPROACH, anchorMin);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 7,
+          "source_text": "import { anchorGeometry } from './config.js?v=01e992e3';"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 50,
+          "source_text": "const reach = anchorGeometry(cls.anchorM || 0, cls.diaM).contactAltitudeM;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 498,
+          "source_text": "const reachAlt = anchorGeometry(cable, cls.diaM).contactAltitudeM;"
+        }
+      ],
+      "consumption_and_history": "Current nominal-keel reach is geometric; dated cable diameter/omission narrative is explicitly withdrawn by the cited audit rope correction. Budget policy is not rope qualification.",
+      "evidence_needed": "Installed termination/rope mass, loadbearing geometry, pickup dynamics, strength/creep/fatigue/wear and bag duty evidence.",
+      "prospective_owner_role": "Cable and pickup-load evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "propulsion-efficiency",
+      "named_inputs": "propEta",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 46,
+          "source_text": "propEta: 0.70,   // propulsive efficiency applied to drag and disk power"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 17,
+          "source_text": "return 0.5 * rho * CFG.Cd * A * v ** 3 / CFG.propEta / 1e6;"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 20,
+          "source_text": "export function diskMW(cls, thrustN, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 92,
+          "source_text": "export function inducedMW(cls, thrustN, airV = 0, axialV = 0, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 110,
+          "source_text": "export function rotorMaxTonnes(cls, busMW, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) {"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 283,
+          "source_text": "export function rotorThrustLimitT(cls, rho = ledger(cls, WORK_ALT_MSL).rho, eta = CFG.propEta) { return rotorMaxTonnes(cls, cls.battMW + cls.genMW, rho, eta); }"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 316,
+          "source_text": "const rho = led.rho, eta = plan.rotorEfficiency ?? CFG.propEta;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 320,
+          "source_text": "const k = qPa > 0 ? 9810 ** 2 / (qPa * Math.PI * geometry.spanM ** 2 * geometry.efficiency) * V / CFG.propEta / 1e6 : 0;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 332,
+          "source_text": "const draw = { hotel: cls.genMW * HOTEL_FRAC, prop: zeroLiftDragN * V / CFG.propEta / 1e6 };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 359,
+          "source_text": "draw.prop += inducedDragN * V / CFG.propEta / 1e6;"
+        }
+      ],
+      "consumption_and_history": "Configured efficiency is consumed by drag/rotor power; not an installed performance observation.",
+      "evidence_needed": "Matched propulsive/rotor shaft/electrical power and thrust data over flow/load/environment/state.",
+      "prospective_owner_role": "Propulsion evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "drag-coefficient",
+      "named_inputs": "Cd on frontal area",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 47,
+          "source_text": "Cd: 0.05,        // hull drag coefficient (streamlined body of revolution)"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 17,
+          "source_text": "return 0.5 * rho * CFG.Cd * A * v ** 3 / CFG.propEta / 1e6;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 331,
+          "source_text": "const zeroLiftDragN = qPa * CFG.Cd * Math.PI * (cls.diaM / 2) ** 2;"
+        }
+      ],
+      "consumption_and_history": "Current bare-hull coefficient is consumed; installation drag and actual hull shape require evidence.",
+      "evidence_needed": "Registered reference area, Reynolds/flow state, bare and installed drag observations with uncertainty.",
+      "prospective_owner_role": "Aerodynamics evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "legacy-air-density",
+      "named_inputs": "rhoAir fixed value",
+      "published_provenance": "ARBITRARY historically",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 49,
+          "source_text": "rhoAir: 1.10,    // kg/m3, retained legacy input; unused by the current force and power laws"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 58,
+          "source_text": "const rho = airDensity(altMslM, CFG.rhoSL);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 316,
+          "source_text": "const rho = led.rho, eta = plan.rotorEfficiency ?? CFG.propEta;"
+        }
+      ],
+      "consumption_and_history": "Current config explicitly marks rhoAir unused by force/power laws; local ISA density supplies those paths. Do not read a retained legacy dial as a current consumer.",
+      "evidence_needed": "Matched pressure, temperature, humidity/altitude datum and applicability of the atmosphere relation.",
+      "prospective_owner_role": "Atmosphere evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "pump-and-hose",
+      "named_inputs": "pumpEta, hoseM and hoseMul",
+      "published_provenance": "ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 44,
+          "source_text": "hoseMul: 1,      // scales every class's hose; the LENGTH is per class, see CLASSES[*].hoseM"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 45,
+          "source_text": "pumpEta: 0.75,   // pump + hose + electrical efficiency, all-in"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 103,
+          "source_text": "return cls.hoseM * CFG.hoseMul;"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 268,
+          "source_text": "cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 276,
+          "source_text": "cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 284,
+          "source_text": "cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 11,
+          "source_text": "return 1000 * 9.81 * (cls.fillM3s * CFG.fillMul) * sourceAltM(cls) / CFG.pumpEta / 1e6;"
+        }
+      ],
+      "consumption_and_history": "Hose length ties source altitude and pumping head within the model; efficiency remains an all-in assumption.",
+      "evidence_needed": "Installed head, water/flow conditions, friction/NPSH, motor/drive and carried hose/water-column evidence.",
+      "prospective_owner_role": "Hydraulic and installation evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "approach-and-handling-time",
+      "named_inputs": "hoseDeployMin/hoseRetractMin, source-approach0.5 and1.5, escape2 and timing floors",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 268,
+          "source_text": "cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 276,
+          "source_text": "cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 284,
+          "source_text": "cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 69,
+          "source_text": "dur.SOURCE_APPROACH = Math.max(1.5 * mode.fixed, cls.hoseDeployMin * 0.5 * mode.hose);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 76,
+          "source_text": "cls.hoseRetractMin * 0.4 * mode.hose + 0.8);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 78,
+          "source_text": "dur.BUOYANCY_ESCAPE = 2 * mode.fixed;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 79,
+          "source_text": "dur.RETURN_TRANSIT = Math.max(1.2, oneWayKm / gsRet * 60 * rampF);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 94,
+          "source_text": "dur.SOURCE_APPROACH = Math.max(dur.SOURCE_APPROACH, anchorMin);"
+        }
+      ],
+      "consumption_and_history": "Current timing expressions are configured overlaps/floors, not observed hardware deployment or manoeuvre durations.",
+      "evidence_needed": "Matched deployment/retraction, settling, pickup and overlap records with boundary/load/control state.",
+      "prospective_owner_role": "Handling and flight-profile evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "transit-ramp",
+      "named_inputs": "Transit ramp fraction0.15",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 74,
+          "source_text": "const rampF = 1 / (1 - 0.15);"
+        },
+        {
+          "path": "sim/state.js",
+          "line": 184,
+          "source_text": "const aE = 0.15;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 221,
+          "source_text": "const aE2 = 0.15;"
+        }
+      ],
+      "consumption_and_history": "Ramp timing/geometry consumes the stipulated fractions; no measured acceleration or safety envelope follows.",
+      "evidence_needed": "Matched air/ground velocity, acceleration, trajectory, loads and actuator/control evidence.",
+      "prospective_owner_role": "Flight-profile evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "cruise-speed",
+      "named_inputs": "cruiseKph",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 268,
+          "source_text": "cruiseKph: 90, fillM3s: 0.5, hoseDeployMin: 4, hoseRetractMin: 3, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 276,
+          "source_text": "cruiseKph: 110, fillM3s: 3, hoseDeployMin: 6, hoseRetractMin: 5, hoseM: 300,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 284,
+          "source_text": "cruiseKph: 130, fillM3s: 15, hoseDeployMin: 10, hoseRetractMin: 8, hoseM: 300,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 28,
+          "source_text": "const kph = cls.cruiseKph * mode.speed * speedMultiplier;"
+        }
+      ],
+      "consumption_and_history": "Configured speed consumes class/mode/dial values; no observed optimum supplied.",
+      "evidence_needed": "Matched thrust/power, track, loads and route wind observations over admissible speeds.",
+      "prospective_owner_role": "Flight-performance evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "release-line",
+      "named_inputs": "dropKm, 0.45 release-speed fraction and passes literal",
+      "published_provenance": "ARBITRARY/ASSUMED",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 271,
+          "source_text": "minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: \"Initial attack and small incidents close to water\","
+        },
+        {
+          "path": "sim/config.js",
+          "line": 279,
+          "source_text": "minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: \"Sustained delivery on project fires and fires of note\","
+        },
+        {
+          "path": "sim/config.js",
+          "line": 292,
+          "source_text": "minSourceHa: 1000, searchKm: 600, dropKm: 5, use: \"Campaign fires, long hauls, and moving water between regions\","
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 77,
+          "source_text": "dur.WATER_RELEASE = Math.max(0.8, cls.dropKm / (kph * 0.45) * 60);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 145,
+          "source_text": "const passes = 1;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 146,
+          "source_text": "dur.WATER_RELEASE = Math.max(dur.WATER_RELEASE, deliveredT / fill / 60);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 155,
+          "source_text": "const releaseRiseFraction = Math.min(1, Math.max(0.15, 30 / (dur.WATER_RELEASE * 60)));"
+        }
+      ],
+      "consumption_and_history": "Current line/speed/passes are planning inputs; delivery arithmetic does not establish deposition or fire effectiveness.",
+      "evidence_needed": "Metered release, wake/drift, ground deposition and matched vehicle/control geometry evidence.",
+      "prospective_owner_role": "Release and deposition evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "vertical-profile",
+      "named_inputs": "VZ_MAX, altTop and0.30 climb factor",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 151,
+          "source_text": "export const VZ_MAX = 6;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 167,
+          "source_text": "const altTop = Math.min(ALT.cruise, srcAlt +"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 168,
+          "source_text": "VZ_MAX * 0.30 * 60 * Math.min(plan.dur.OUTBOUND_TRANSIT, plan.dur.RETURN_TRANSIT));"
+        }
+      ],
+      "consumption_and_history": "Current profile geometry consumes those constants; acceleration/loads and actual manoeuvre feasibility remain separate.",
+      "evidence_needed": "Matched vertical trajectory, acceleration, force/power/control and terrain-clearance records.",
+      "prospective_owner_role": "Flight-profile evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "wind-clamps",
+      "named_inputs": "Historical simulator wind clamps0.35..1.8",
+      "published_provenance": "ARBITRARY dated; current wind row maintained",
+      "current_source_locations": [
+        {
+          "path": "sim/wind.js",
+          "line": 3,
+          "source_text": "export function trackWind(selectedAirKph, wind = null) {"
+        },
+        {
+          "path": "sim/wind.js",
+          "line": 25,
+          "source_text": "return {selectedAirKph, alongAirKph, gsOut, gsRet, tailOut, crossOut, windUsed, trackPossible: trackReason === null, trackReason};"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 29,
+          "source_text": "const track = trackWind(kph, wind);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 34,
+          "source_text": "track.trackPossible = false;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 37,
+          "source_text": "if (!track.trackPossible) return {"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 252,
+          "source_text": "gsOut, gsRet, tailOut, crossOut, alongAirKph: track.alongAirKph, selectedAirKph: kph, windUsed: track.windUsed, windBasis: windBasis(track), trackPossible: true, trackReason: null,"
+        }
+      ],
+      "consumption_and_history": "The cited map now specifies a straight-track wind triangle/refusal. Historical clamp values are not treated as current wind law or measured gust/shear handling.",
+      "evidence_needed": "Route-bearing resolved wind vector, air/ground motion and gust/shear/control applicability evidence.",
+      "prospective_owner_role": "Weather and track evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "Historical simulator wind clamps0.35..1.8",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/wind.js",
+              "line": 3,
+              "source_text": "export function trackWind(selectedAirKph, wind = null) {"
+            },
+            {
+              "path": "sim/wind.js",
+              "line": 25,
+              "source_text": "return {selectedAirKph, alongAirKph, gsOut, gsRet, tailOut, crossOut, windUsed, trackPossible: trackReason === null, trackReason};"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 29,
+              "source_text": "const track = trackWind(kph, wind);"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 34,
+              "source_text": "track.trackPossible = false;"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 37,
+              "source_text": "if (!track.trackPossible) return {"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 252,
+              "source_text": "gsOut, gsRet, tailOut, crossOut, alongAirKph: track.alongAirKph, selectedAirKph: kph, windUsed: track.windUsed, windBasis: windBasis(track), trackPossible: true, trackReason: null,"
+            }
+          ],
+          "interpretation": "The cited map now specifies a straight-track wind triangle/refusal. Historical clamp values are not treated as current wind law or measured gust/shear handling."
+        }
+      ]
+    },
+    {
+      "id": "mode-multipliers",
+      "named_inputs": "MODES speed/hose/climb/cryoShare/fixed values",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 310,
+          "source_text": "rapid:     { id: \"rapid\", label: \"Rapid response\", speed: 1.15, hose: 0.85, climb: 1.4, cryoShare: 0.4, fixed: 0.8 },"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 311,
+          "source_text": "balanced:  { id: \"balanced\", label: \"Balanced\", speed: 1.0, hose: 1.0, climb: 1.0, cryoShare: 0.7, fixed: 1.0 },"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 312,
+          "source_text": "endurance: { id: \"endurance\", label: \"Endurance\", speed: 0.8, hose: 1.15, climb: 0.7, cryoShare: 1.0, fixed: 1.2 },"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 28,
+          "source_text": "const kph = cls.cruiseKph * mode.speed * speedMultiplier;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 69,
+          "source_text": "dur.SOURCE_APPROACH = Math.max(1.5 * mode.fixed, cls.hoseDeployMin * 0.5 * mode.hose);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 76,
+          "source_text": "cls.hoseRetractMin * 0.4 * mode.hose + 0.8);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 78,
+          "source_text": "dur.BUOYANCY_ESCAPE = 2 * mode.fixed;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 84,
+          "source_text": "const cryoCapMW = cls.cryoMW * CFG.cryoMul * mode.cryoShare;"
+        }
+      ],
+      "consumption_and_history": "Configured modes remain choices; the dated audit count is not a validated set of operating modes.",
+      "evidence_needed": "Matched phase/duty/state observations and an explicit architecture/mode rationale.",
+      "prospective_owner_role": "Operations and subsystem evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "bottleneck-flags",
+      "named_inputs": "retainedT threshold0.25 and historical bus0.92/authority1.12 flags",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 216,
+          "source_text": "const battLimited = I.battLimited;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 224,
+          "source_text": "if (battLimited) bottleneck = \"descent authority\";"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 225,
+          "source_text": "if (retainedT > cls.payloadT * 0.25) bottleneck = \"descent ballast — cryogenic capacity\";"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 249,
+          "source_text": "// Whole-cycle rotor clipping; battLimited covers every running channel and phase."
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 253,
+          "source_text": "ln2MakeT, cryoLimited, battLimited, descentShort,"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 414,
+          "source_text": "let battLimited = false, feasible = true, worst = { unheldT: 0, phase: null, progress: 0, limits: [] };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 435,
+          "source_text": "battLimited ||= s.busLimited; feasible &&= s.feasible;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 474,
+          "source_text": "return { downMW, downMWPhase, peakBatteryMW, peakRotorT, rotorClipMin, letdownClipMin, battLimited, feasible,"
+        }
+      ],
+      "consumption_and_history": "Current retention threshold is a label rule. Current battLimited comes from integrated limits; legacy numeric thresholds are not silently transplanted.",
+      "evidence_needed": "Explicit label semantics and traceable force/bus/storage/control limit evidence; a bottleneck string is not qualification.",
+      "prospective_owner_role": "Model semantics and limit-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "Historical0.92-of-bus battLimited threshold",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 216,
+              "source_text": "const battLimited = I.battLimited;"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 224,
+              "source_text": "if (battLimited) bottleneck = \"descent authority\";"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 225,
+              "source_text": "if (retainedT > cls.payloadT * 0.25) bottleneck = \"descent ballast — cryogenic capacity\";"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 249,
+              "source_text": "// Whole-cycle rotor clipping; battLimited covers every running channel and phase."
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 253,
+              "source_text": "ln2MakeT, cryoLimited, battLimited, descentShort,"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 414,
+              "source_text": "let battLimited = false, feasible = true, worst = { unheldT: 0, phase: null, progress: 0, limits: [] };"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 435,
+              "source_text": "battLimited ||= s.busLimited; feasible &&= s.feasible;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 474,
+              "source_text": "return { downMW, downMWPhase, peakBatteryMW, peakRotorT, rotorClipMin, letdownClipMin, battLimited, feasible,"
+            }
+          ],
+          "interpretation": "Current retention threshold is a label rule. Current battLimited comes from integrated limits; legacy numeric thresholds are not silently transplanted."
+        },
+        {
+          "historical_expression": "Historical1.12 authority stretch",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 216,
+              "source_text": "const battLimited = I.battLimited;"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 224,
+              "source_text": "if (battLimited) bottleneck = \"descent authority\";"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 225,
+              "source_text": "if (retainedT > cls.payloadT * 0.25) bottleneck = \"descent ballast — cryogenic capacity\";"
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 249,
+              "source_text": "// Whole-cycle rotor clipping; battLimited covers every running channel and phase."
+            },
+            {
+              "path": "sim/plan.js",
+              "line": 253,
+              "source_text": "ln2MakeT, cryoLimited, battLimited, descentShort,"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 414,
+              "source_text": "let battLimited = false, feasible = true, worst = { unheldT: 0, phase: null, progress: 0, limits: [] };"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 435,
+              "source_text": "battLimited ||= s.busLimited; feasible &&= s.feasible;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 474,
+              "source_text": "return { downMW, downMWPhase, peakBatteryMW, peakRotorT, rotorClipMin, letdownClipMin, battLimited, feasible,"
+            }
+          ],
+          "interpretation": "Current retention threshold is a label rule. Current battLimited comes from integrated limits; legacy numeric thresholds are not silently transplanted."
+        }
+      ]
+    },
+    {
+      "id": "hotel-and-anchor-work",
+      "named_inputs": "HOTEL_FRAC0.02, HOIST_M15, WINCH_ETA0.85",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/power.js",
+          "line": 28,
+          "source_text": "export const HOTEL_FRAC = 0.02;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 34,
+          "source_text": "export const HOIST_M = 15;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 35,
+          "source_text": "export const WINCH_ETA = 0.85;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 69,
+          "source_text": "if (id === 'WATER_FILL') return { ...anchorPotential(cls, plan.anchorT, id, prog, g.srcAlt, 0, achieved), hoistMW: 0 };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 70,
+          "source_text": "if (id !== 'SOURCE_APPROACH') return { cableP: 0, fillF: 0, tonnes: 0, hoistMW: 0 };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 76,
+          "source_text": "hoistMW: liftingT * 9810 * WINCH_MPS / WINCH_ETA / 1e6 };"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 332,
+          "source_text": "const draw = { hotel: cls.genMW * HOTEL_FRAC, prop: zeroLiftDragN * V / CFG.propEta / 1e6 };"
+        }
+      ],
+      "consumption_and_history": "Current integrated power still consumes these named assumptions; they do not measure installed systems or pickup dynamics.",
+      "evidence_needed": "Systems duty and electrical load ledger; measured hoist path/force/electrical work at admitted load/history/state.",
+      "prospective_owner_role": "Systems and winch evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "legacy-letdown-window",
+      "named_inputs": "Historical min(6,t_ret*0.2)",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 248,
+          "source_text": "letdownMWh: I.letdownMWh, anchorHoistMWh: I.anchorHoistMWh,"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 400,
+          "source_text": "if (s.letdown) letdown += s.draw.rotors * dt;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 407,
+          "source_text": "letdownMWh: letdown, anchorHoistMWh: hoist, rotorClipMWh: clipMWh,"
+        }
+      ],
+      "consumption_and_history": "Historical fixed letdown window is absent from the current integration path; current letdown accounting is not a physical observation.",
+      "evidence_needed": "Matched descent trajectory, force-owner/power time series and applicability evidence; no retuned window.",
+      "prospective_owner_role": "Descent evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "downMW * min(6,t_ret*0.2)/60",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 248,
+              "source_text": "letdownMWh: I.letdownMWh, anchorHoistMWh: I.anchorHoistMWh,"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 400,
+              "source_text": "if (s.letdown) letdown += s.draw.rotors * dt;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 407,
+              "source_text": "letdownMWh: letdown, anchorHoistMWh: hoist, rotorClipMWh: clipMWh,"
+            }
+          ],
+          "interpretation": "Historical fixed letdown window is absent from the current integration path; current letdown accounting is not a physical observation."
+        }
+      ]
+    },
+    {
+      "id": "nitrogen-target",
+      "named_inputs": "Nitrogen target fraction0.8",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 85,
+          "source_text": "const ln2NeedT = Math.min(ledLow.surplusT * 0.8, cls.ln2CapT);"
+        }
+      ],
+      "consumption_and_history": "Current target remains bounded by the configured tank; fraction is not measured recovery necessity.",
+      "evidence_needed": "Architecture/state, usable storage, transient recovery and matched descent force/energy evidence.",
+      "prospective_owner_role": "Cryogenic and force-owner evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "solar-generation",
+      "named_inputs": "Historical continuous200W/m2 and named solarM2 class areas",
+      "published_provenance": "ARBITRARY in dated audit",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 43,
+          "source_text": "solarWPerM2: 45, // W/m2 of ELECTRICAL output per m2 of projected skin, 24 h averaged"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 257,
+          "source_text": "export const SOLAR_PROJECTED_FRACTION = 0.85;"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 270,
+          "source_text": "genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarSheetM2: 6000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 2500, rotors: 4, ln2CapT: 155,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 278,
+          "source_text": "genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarSheetM2: 28000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 12000, rotors: 6, ln2CapT: 1550,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 291,
+          "source_text": "genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarSheetM2: 120000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 160000, rotors: 14, ln2CapT: 15500,"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 328,
+          "source_text": "const gen = { solar: cls.solarM2 * CFG.solarWPerM2 / 1e6 };"
+        }
+      ],
+      "consumption_and_history": "Current public config uses a day-averaged electrical assumption and projected area, while retaining old sheet areas as source values. No new irradiance/product/coverage validation performed.",
+      "evidence_needed": "Route/time irradiance, module electrical efficiency, geometry/projection, temperature/soiling and uncertainty/duty/storage evidence.",
+      "prospective_owner_role": "Solar and operating-duty evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "generator-and-energy-storage",
+      "named_inputs": "genMW, cryoMW and battMWh class ratings",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "sim/config.js",
+          "line": 270,
+          "source_text": "genMW: 8, battMWh: 20, battMW: 30, cryoMW: 6, solarSheetM2: 6000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 2500, rotors: 4, ln2CapT: 155,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 278,
+          "source_text": "genMW: 40, battMWh: 120, battMW: 150, cryoMW: 30, solarSheetM2: 28000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 12000, rotors: 6, ln2CapT: 1550,"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 291,
+          "source_text": "genMW: 150, battMWh: 2000, battMW: 1400, cryoMW: 100, solarSheetM2: 120000, get solarM2() { return SOLAR_PROJECTED_FRACTION * capsuleFootprintM2(this); }, diskM2: 160000, rotors: 14, ln2CapT: 15500,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 84,
+          "source_text": "const cryoCapMW = cls.cryoMW * CFG.cryoMul * mode.cryoShare;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 86,
+          "source_text": "let ln2MakeT = Math.min(ln2NeedT, cryoCapMW * (dur.RETURN_TRANSIT / 60) * 1000 / CFG.eLN2 / 1000);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 162,
+          "source_text": "ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 179,
+          "source_text": "ln2MakeT = Math.min(ln2NeedT, cryoCapMW * dur.RETURN_TRANSIT / 60 / CFG.eLN2);"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 189,
+          "source_text": "ln2MakeT=Math.min(ln2NeedT,cryoCapMW*dur.RETURN_TRANSIT/60/CFG.eLN2);"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 136,
+          "source_text": "return Math.min(cls.genMW, flowTph * CFG.eLN2 * CFG.rtLN2,"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 149,
+          "source_text": "const cryoCapMW = cls.cryoMW * CFG.cryoMul * mode.cryoShare;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 150,
+          "source_text": "const capT = cryoCapMW * (plan.dur.RETURN_TRANSIT / 60) / CFG.eLN2;   // t the leg could make"
+        }
+      ],
+      "consumption_and_history": "Configured ratings and energy allowances are not built hardware. Current nitrogen recovery is capped by process/storage evidence choices, not free generator power.",
+      "evidence_needed": "Installed generator/expander/plant/storage ratings, usable energy and mass/thermal/state/transient evidence.",
+      "prospective_owner_role": "Electrical-storage and cryogenic evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "fleet-allocation",
+      "named_inputs": "Historical fleet composition, tier thresholds/minSourceHa/searchKm and source-score exponent/cap",
+      "published_provenance": "ARBITRARY",
+      "current_source_locations": [
+        {
+          "path": "app/fleet.js",
+          "line": 15,
+          "source_text": "export const FLEET = [[\"P10000\", 1], [\"P1000\", 5], [\"P100\", 10]];"
+        },
+        {
+          "path": "app/fleet.js",
+          "line": 43,
+          "source_text": "const small = findSource(f.ll, cls, S.water, cls.minSourceHa / 3, src.km / 3);"
+        },
+        {
+          "path": "app/fleet.js",
+          "line": 77,
+          "source_text": "for (const [clsId, count] of FLEET) {"
+        },
+        {
+          "path": "sim/assign.js",
+          "line": 49,
+          "source_text": "const small = findSource(fire.ll, pick.cls, water, pick.cls.minSourceHa / 3, pick.src.km / 3);"
+        },
+        {
+          "path": "sim/assign.js",
+          "line": 65,
+          "source_text": "`but no generated station on water meeting its ${CLASSES[CLASS_ORDER[startTier]].minSourceHa} ha intake rule lies within ` +"
+        },
+        {
+          "path": "sim/assign.js",
+          "line": 66,
+          "source_text": "`${CLASSES[CLASS_ORDER[startTier]].searchKm} km — the larger class reaches ${pick.src.km.toFixed(1)} km.`;"
+        },
+        {
+          "path": "sim/water.js",
+          "line": 18,
+          "source_text": "const minHa = minHaOv || cls.minSourceHa, maxKm = maxKmOv || cls.searchKm;"
+        },
+        {
+          "path": "sim/water.js",
+          "line": 27,
+          "source_text": "const score = km / Math.min(12, Math.pow(w[2] / minHa, 0.35));"
+        },
+        {
+          "path": "sim/config.js",
+          "line": 271,
+          "source_text": "minSourceHa: 10, searchKm: 25, dropKm: 1.2, use: \"Initial attack and small incidents close to water\","
+        },
+        {
+          "path": "sim/config.js",
+          "line": 279,
+          "source_text": "minSourceHa: 100, searchKm: 100, dropKm: 2.5, use: \"Sustained delivery on project fires and fires of note\","
+        },
+        {
+          "path": "sim/config.js",
+          "line": 292,
+          "source_text": "minSourceHa: 1000, searchKm: 600, dropKm: 5, use: \"Campaign fires, long hauls, and moving water between regions\","
+        }
+      ],
+      "consumption_and_history": "Dated allocation rules are choices about a model fleet and source screen; no current operational coverage or water-access entitlement follows.",
+      "evidence_needed": "Explicit mission/architecture requirements and matched source depth/access/permission/availability and dispatch observations.",
+      "prospective_owner_role": "Operations and water-source evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": []
+    },
+    {
+      "id": "historical-fill-recovery-clamp",
+      "named_inputs": "Historical max(0, pump work minus nitrogen recovery)",
+      "published_provenance": "ARBITRARY dated accounting clamp",
+      "current_source_locations": [
+        {
+          "path": "sim/plan.js",
+          "line": 215,
+          "source_text": "const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 399,
+          "source_text": "eBack += (s.gen.regen || 0) * dt; hoist += s.hoistMW * dt;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 405,
+          "source_text": "E.recovery = -eBack;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 406,
+          "source_text": "return { E, chan, eBack, eCycleMWh: Object.values(E).reduce((a,b)=>a+b,0),"
+        }
+      ],
+      "consumption_and_history": "The dated WATER_FILL zero clamp is not the current accounting consumer: integrated channels retain recovery separately as a negative energy term. Existing historical discarded-energy failures are preserved; this is a source trace, not proof of recovery hardware.",
+      "evidence_needed": "Registered bus/storage boundary, phase-resolved electrical draw/recovery and usable nitrogen-state observations; conservation accounting and actual recovery efficiency remain separate.",
+      "prospective_owner_role": "Energy accounting and recovery evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN",
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [
+        {
+          "historical_expression": "max(0,P_pump*t_fill/60-E_back)",
+          "status": "REMOVED_OR_REPLACED_IN_CURRENT_CONSUMER",
+          "evidence": [
+            {
+              "path": "sim/plan.js",
+              "line": 215,
+              "source_text": "const E = I.E, eBack = I.eBack, eCycle = I.eCycleMWh, downMW = I.downMW;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 399,
+              "source_text": "eBack += (s.gen.regen || 0) * dt; hoist += s.hoistMW * dt;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 405,
+              "source_text": "E.recovery = -eBack;"
+            },
+            {
+              "path": "sim/power.js",
+              "line": 406,
+              "source_text": "return { E, chan, eBack, eCycleMWh: Object.values(E).reduce((a,b)=>a+b,0),"
+            }
+          ],
+          "interpretation": "The dated WATER_FILL zero clamp is not the current accounting consumer: integrated channels retain recovery separately as a negative energy term. Existing historical discarded-energy failures are preserved; this is a source trace, not proof of recovery hardware."
+        }
+      ]
+    },
+    {
+      "id": "current-rope-strength-policy",
+      "named_inputs": "Current correction: rope_safety_factor floor/credible/demonstrated3/5/7 and rope_n_per_kg_per_m2.0/1.5/1.4 MN per kg/m",
+      "published_provenance": "ASSUMED current rope correction, not qualified material/product evidence",
+      "current_source_locations": [
+        {
+          "path": "research/evidence-map.md",
+          "line": 98,
+          "source_text": "Illustration: the dry-mass budget sizes an assumed UHMWPE cable by minimum break strength, not by diameter. Design load including pickup is bag-water weight under the quasi-static pickup assumption; dynamic snatch, cable self-weight and bag/rigging dry weight are omitted. Required minimum break strength is that load times the safety factor. Assumption: credible safety factor 5; assumption: floor safety factor 3; assumption: demonstrated safety factor 7. Assumption: credible minimum-strength-per-linear-density coefficient 1.5 MN per kg/m; assumption: floor coefficient 2.0 MN per kg/m; assumption: demonstrated coefficient 1.4 MN per kg/m. Those columns do not qualify a rope product. The bottom-up dry-mass budget charges the installed cable, bag and winch. The flight model still assumes dry mass equals payload; it does not integrate that equipment bill. Terminations, wear, creep, cyclic pickup and the bag load path remain unqualified. See `research/analysis/mass-budget.py` and its generated records."
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 160,
+          "source_text": "# budget cases, not proof that an anchor cable has been demonstrated."
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 161,
+          "source_text": "\"rope_n_per_kg_per_m\": {"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 162,
+          "source_text": "\"floor\": (2.0e6, \"Assumed minimum-strength coefficient; optimistic rope realisation.\"),"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 163,
+          "source_text": "\"credible\": (1.5e6, \"Assumed minimum-strength coefficient, not a selected rope product.\"),"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 164,
+          "source_text": "\"demonstrated\": (1.4e6, \"Assumed lower coefficient; no anchor rope has been qualified.\"),"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 165,
+          "source_text": "},"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 166,
+          "source_text": "\"rope_safety_factor\": {\"floor\": (3.0, \"Assumed minimum-strength/load ratio\"),"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 167,
+          "source_text": "\"credible\": (5.0, \"Assumed minimum-strength/load ratio\"),"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 168,
+          "source_text": "\"demonstrated\": (7.0, \"Assumed minimum-strength/load ratio\")},"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 169,
+          "source_text": "\"hose_kg_per_m_per_m_bore\": {"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 371,
+          "source_text": "# Dynamic snatch, cable/bag dry weight and termination/wear/creep allowances are absent."
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 372,
+          "source_text": "# Minimum break strength = this design load times the assumed safety factor."
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 373,
+          "source_text": "# Bag wetted area and the winch's assumed lift speed price separate mass lines."
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 374,
+          "source_text": "pull_n = spec[\"anchorBagT\"] * 1000.0 * 9.81"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 375,
+          "source_text": "lin = pull_n * ev(\"rope_safety_factor\", case) / ev(\"rope_n_per_kg_per_m\", case)"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 376,
+          "source_text": "add(\"Anchor cable\", lin * spec[\"anchorCableM\"] / 1000.0,"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 377,
+          "source_text": "f\"{pull_n / 1e6:.1f} MN quasi-static pickup load at SF {ev('rope_safety_factor', case):.0f}\","
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 378,
+          "source_text": "\"Assumed minimum break strength = design load x safety factor; cable self-weight, \""
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 379,
+          "source_text": "\"dynamic snatch and terminations omitted. No rope product or diameter qualified.\")"
+        },
+        {
+          "path": "research/analysis/mass-budget.py",
+          "line": 380,
+          "source_text": "bag_area = 4.84 * (spec[\"anchorBagT\"]) ** (2.0 / 3.0)"
+        }
+      ],
+      "current_source_files_absent": [],
+      "removed_historical_consumers": [],
+      "consumption_and_history": "The current bottom-up dry-mass budget uses quasi-static pickup load times rope_safety_factor, divided by rope_n_per_kg_per_m, times configured cable length. These coefficients price an assumed cable mass. Cable self-weight, dynamic snatch and bag/rigging dry weight are excluded from pickup design load; terminations, wear, creep and cyclic pickup remain unqualified. The flight ledger still assumes dryT=payloadT and does not integrate this equipment bill.",
+      "evidence_needed": "Selected installed rope/construction/lot and loadbearing geometry; measured strength per linear density, terminations, dynamic pickup including carried/self weights, service/environment/creep/wear/fatigue evidence and explicit application-specific margin-policy justification. A safety-factor label alone does not qualify the cable.",
+      "prospective_owner_role": "Cable materials, pickup-load and margin-policy evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "qualification": "UNKNOWN"
+    }
+  ],
+  "not_independent_input_rows": "Published output/sensitivity rows in the audit are retained as historical provenance references, not newly measured constants. Literal occurrence alone does not prove a live consumer.",
+  "verification_plan_scope": "Experiment/expert/data requirements are prospective; no evidence ownership assignment or physical release.",
+  "additional_inputs_invented": [],
+  "new_measurements": [],
+  "new_numeric_results": []
+}
