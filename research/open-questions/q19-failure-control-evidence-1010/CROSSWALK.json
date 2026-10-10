@@ -1,0 +1,400 @@
+{
+  "schema": "q19.prospective-evidence-map/1",
+  "status": "DOCUMENT_ONLY; operational capability and physical qualification UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "question": 19,
+  "question_source": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "19-six-of-the-model-labs-failure-buttons-change-only-the-drawing"
+  },
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/17",
+  "historical_source_excerpts": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 916,
+      "last_line": 929,
+      "text": "## 19. Six of the model lab's failure buttons change only the drawing\n\nTracking issue: [#17](https://github.com/PinkRobotics/airships/issues/17).\n\n**Reproduced 2026-10-01. Open.** The model lab offers a failure button for each of up to six rotor\nstations, then for an HVDC bus, a generator, a pump pod, a vacuum cell, a sensor cluster and a tail\nsurface. Failing a rotor makes the allocator re-solve the wrench, and the page says so. The other\nsix reach no physics module: the drawing code reads them (`3d/anim/driver.js`) and nothing else\ndoes. With any of them failed, the allocation is identical to the allocation with nothing failed.\n\nThe page does not claim otherwise, and it does not say so either. Wire each to the model, or label\nthe six as drawing-only where the buttons are.\n\n---"
+    },
+    {
+      "path": "model-lab/index.html",
+      "line": 285,
+      "text": "function buildFailureButtons() {",
+      "needle": "function buildFailureButtons()"
+    },
+    {
+      "path": "model-lab/index.html",
+      "line": 385,
+      "text": "  vs.failedComponents = [...new Set([...(r && r.failed ? r.failed : []), ...S.failed])];",
+      "needle": "vs.failedComponents ="
+    },
+    {
+      "path": "model-lab/index.html",
+      "line": 437,
+      "text": "    for (const a of acts) a.enabled = !vs.failedComponents.includes(a.id);",
+      "needle": "a.enabled = !vs.failedComponents"
+    },
+    {
+      "path": "3d/scenes/viewer.js",
+      "line": 349,
+      "text": "      failed: state.visualState.failedComponents,",
+      "needle": "failed: state.visualState.failedComponents"
+    },
+    {
+      "path": "3d/scenes/viewer.js",
+      "line": 390,
+      "text": "      for (const a of actuators) a.enabled = !(state.visualState.failedComponents || []).includes(a.id);",
+      "needle": "a.enabled = !(state.visualState.failedComponents"
+    },
+    {
+      "path": "3d/scenes/viewer.js",
+      "line": 581,
+      "text": "          a.enabled = !(state.visualState.failedComponents || []).includes(a.id);",
+      "needle": "a.enabled = !(state.visualState.failedComponents"
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "line": 162,
+      "text": "  const failed = new Set(state.failedComponents || []);",
+      "needle": "const failed = new Set"
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "line": 713,
+      "text": "      const podFailed = failed.has(h.id) || failed.has(pod ? pod.id : '');",
+      "needle": "const podFailed ="
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "line": 721,
+      "text": "        release: podFailed,",
+      "needle": "release: podFailed"
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "line": 658,
+      "text": "      t.hinge.deflect = damp(t.hinge.deflect, failed.has(t.id) ? 0 : want, 3.5, dt);",
+      "needle": "t.hinge.deflect ="
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "line": 848,
+      "text": "      walk(b.root, (n) => { n.failed = failed.has(n.id); return true; });",
+      "needle": "n.failed = failed.has"
+    },
+    {
+      "path": "3d/control/allocator.js",
+      "line": 216,
+      "text": "  const live = actuators.filter((a) => a.enabled);",
+      "needle": "const live = actuators.filter"
+    },
+    {
+      "path": "3d/control/actuators.js",
+      "line": 74,
+      "text": "  for (const st of layout.rotorStations) {",
+      "needle": "for (const st of layout.rotorStations)"
+    },
+    {
+      "path": "3d/control/actuators.js",
+      "line": 109,
+      "text": "  for (const t of layout.mediumThrusters) {",
+      "needle": "for (const t of layout.mediumThrusters)"
+    },
+    {
+      "path": "3d/control/actuators.js",
+      "line": 127,
+      "text": "  for (const f of layout.trimFans) {",
+      "needle": "for (const f of layout.trimFans)"
+    },
+    {
+      "path": "3d/physics/energy.js",
+      "line": 37,
+      "text": "export function derivePower(cls, s, a = ASSUMPTIONS) {",
+      "needle": "export function derivePower"
+    },
+    {
+      "path": "3d/physics/energy.js",
+      "line": 49,
+      "text": "export function energyFlows(cls, s, a = ASSUMPTIONS) {",
+      "needle": "export function energyFlows"
+    },
+    {
+      "path": "3d/physics/mass.js",
+      "line": 25,
+      "text": "export function massState(cls, s, layout) {",
+      "needle": "export function massState"
+    },
+    {
+      "path": "3d/physics/mass.js",
+      "line": 127,
+      "text": "export function aeroForce(cls, s, assumptions = ASSUMPTIONS) {",
+      "needle": "export function aeroForce"
+    },
+    {
+      "path": "3d/anim/hose.js",
+      "line": 76,
+      "text": "  if (cmd.release) h.released = true;",
+      "needle": "if (cmd.release) h.released = true"
+    },
+    {
+      "path": "3d/physics/state.js",
+      "line": 211,
+      "text": "export function describeState(s, cls) {",
+      "needle": "export function describeState"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "rotor-allocator",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "model-lab/index.html#renderState",
+        "3d/scenes/viewer.js#frame",
+        "3d/scenes/viewer.js#tick",
+        "3d/control/actuators.js#buildActuators",
+        "3d/control/allocator.js#allocate",
+        "3d/anim/driver.js#updateDriver"
+      ],
+      "existing_boundary": "Rotor-station IDs name primary actuators. Failed-component membership sets matching actuators enabled=false before allocation; allocate filters the live set. Driver also changes rotor presentation. This is visualization/systems explanation, not a flight controller or demonstrated stability.",
+      "prospective_observations": [
+        "Matched source/configuration, demanded wrench, failed IDs, enabled actuator list and declared state; prospective before/after desired/achieved/residual wrench, saturation and solution records; distinguish allocator output from rendering and mission energy"
+      ],
+      "observation_units": [
+        "N",
+        "Nm",
+        "configuration and actuator identifiers",
+        "declared state/output fields"
+      ],
+      "prospective_custodian_role": "Allocator source and causal-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A changed rotor picture does not establish reallocation; a reallocation record would not establish aircraft dynamics, stability or physical failure containment.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "HVDCBus_00",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/physics/energy.js#energyFlows",
+        "3d/control/actuators.js#buildActuators"
+      ],
+      "existing_boundary": "Generic failure-node/instance marking and failure render styling; the flag is forwarded in failedComponents. The readout/energy source consumes supplied electrical fields, not a bus-connectivity failure model.",
+      "prospective_observations": [
+        "Before/after declared bus connectivity and supplied/available/demand power fields, affected actuator limits and their causal source; mission-energy availability flag kept explicit"
+      ],
+      "observation_units": [
+        "W",
+        "configuration identifiers"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "HVDC bus 0",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    },
+    {
+      "id": "Generator_00",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/physics/energy.js#derivePower",
+        "3d/control/actuators.js#buildActuators"
+      ],
+      "existing_boundary": "Generic visual failure marking and flag forwarding. Actuator sizing uses class generator rating, not this generator-component failure ID; energyFlows reads supplied power fields.",
+      "prospective_observations": [
+        "Before/after actual supplied generator electrical fields and declared availability/derating, competing sources/loads and linked actuator authority with matched state"
+      ],
+      "observation_units": [
+        "W",
+        "configuration identifiers"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "Generator 0",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    },
+    {
+      "id": "PumpPod_00",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/anim/hose.js#updateHose",
+        "3d/physics/mass.js#massState",
+        "3d/physics/energy.js#energyFlows"
+      ],
+      "existing_boundary": "Driver tests pump/hose failure and passes release=true to updateHose, which latches a released pod and advances animation-local motion. This exceeds a tint change; it is not a model of lost pump throughput or changed aircraft water/energy inventory.",
+      "prospective_observations": [
+        "Before/after declared release flag and pod/hose visual state kept separate from prospective pump flow, delivered water inventory and electrical fields with a traceable causal consumer"
+      ],
+      "observation_units": [
+        "m",
+        "s",
+        "m3/s",
+        "kg",
+        "W"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "Pump pod 0",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    },
+    {
+      "id": "VacuumCellModule_03",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/physics/mass.js#massState"
+      ],
+      "existing_boundary": "Generic failure-node/instance marking. massState computes displaced lift from configured displacement and density; this failure ID does not supply a cell-leak or pressure-state input there.",
+      "prospective_observations": [
+        "Before/after declared cell pressure/leak/state and affected displacement/buoyancy/mass fields with causal consumer and application boundary"
+      ],
+      "observation_units": [
+        "Pa",
+        "kg/s",
+        "m3",
+        "N",
+        "kg"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "Vacuum cell 3",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    },
+    {
+      "id": "SensorCluster_PortQtr",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/control/allocator.js#allocate",
+        "3d/physics/state.js#describeState"
+      ],
+      "existing_boundary": "Generic failure marking and state-list/readout forwarding. The source allocator accepts an already-demanded wrench; this ID is not a represented estimator/sensor-observability failure.",
+      "prospective_observations": [
+        "Before/after declared sensor validity, source observation fields and estimator/controller applicability; distinguish missing telemetry from a physically simulated sensor failure"
+      ],
+      "observation_units": [
+        "declared sensor units",
+        "s",
+        "configuration identifiers"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "Port sensor",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    },
+    {
+      "id": "TailSurface_00",
+      "source": [
+        "model-lab/index.html#buildFailureButtons",
+        "model-lab/index.html#apply",
+        "3d/scenes/viewer.js#sceneDesc",
+        "3d/anim/driver.js#updateDriver",
+        "3d/render/views.js",
+        "3d/physics/state.js#describeState",
+        "3d/control/actuators.js#buildActuators",
+        "3d/physics/mass.js#aeroForce"
+      ],
+      "existing_boundary": "Driver damps the failed tail hinge deflection toward zero and tints the tail. Tail hinges are absent from the primary/medium/fan actuator set; changing the rendered hinge is not an aerodynamic tail-failure wrench model.",
+      "prospective_observations": [
+        "Before/after declared hinge/visual state separated from prospective aerodynamic force/moment and linked causal output state"
+      ],
+      "observation_units": [
+        "rad with convention",
+        "N",
+        "Nm"
+      ],
+      "prospective_custodian_role": "Failure-control source and equipment-evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A failed-ID list, colour, animation or unchanged/unknown readout cannot establish a causal equipment simulation, physical performance or safe containment.",
+      "qualification": "UNKNOWN",
+      "button_label": "Tail surface 0",
+      "reported_scope": "One of the six non-rotor controls in the dated open question; historical omission retained"
+    }
+  ],
+  "evidence_boundaries": [
+    "The dated reproduced omission is retained verbatim, not retired by this static map.",
+    "Current generic list forwarding, rendering, animation and state-description readers are consumers; they do not by themselves establish the physical equipment-failure effect.",
+    "No button, model, allocator or runtime is executed; current numerical before/after equality is not newly measured.",
+    "Allocator evidence is distinct from mission-energy availability and from qualified physical dynamics/safety. Q14 suspended-load dynamics remains separate."
+  ],
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "selected_hardware": null,
+  "selected_station": null,
+  "selected_control_policy": null,
+  "qualification_conclusion": null,
+  "physical_action": null,
+  "remote_issue_action": null
+}
