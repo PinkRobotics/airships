@@ -1,0 +1,83 @@
+{
+  "schema": "question16.evidence-provenance/1",
+  "question": 16,
+  "existing_issue": 15,
+  "public_source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "public_source_tree": "e5b7551ee5e4c69ebb25942090a0810715433cc5",
+  "public_sources": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "research/program/OPEN-QUESTION-ISSUES.md",
+      "bytes": 6508,
+      "sha256": "6c7405322a0efe8491214511a2b6023194784853e954db0f53d9a7054989a73f"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "sim/spec.js",
+      "exists": false,
+      "meaning": "Assigned sim/spec.js is absent from the observed main tree. Published question and parity imports name sim/config.js; its existing code is pinned as read-only dependency trace. Missing path not repaired or restored."
+    },
+    {
+      "path": "3d/model/config.js",
+      "bytes": 27265,
+      "sha256": "332a71c237f8f10b71181db933740660e4ade1c9765ae3300214c54fe0332373"
+    },
+    {
+      "path": "sim/config.js",
+      "bytes": 21885,
+      "sha256": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e"
+    },
+    {
+      "path": "tools/check_boundaries.py",
+      "bytes": 28858,
+      "sha256": "24e81219b3e530a95484cde41ec4b78f4d07f092291a88c6b7fd50d890d45637"
+    },
+    {
+      "path": "tests/cases/spec-parity.cases.js",
+      "bytes": 16350,
+      "sha256": "cf1abe1fda5c4451d7316d3121b5a0e84605462295cbee07001dca6bc01020b6"
+    },
+    {
+      "path": "3d/physics/state.js",
+      "bytes": 10210,
+      "sha256": "a4f36e3e14081e0d184bf6c971eb98fd8edb60063d93074182176042d18a90b2"
+    },
+    {
+      "path": "3d/physics/energy.js",
+      "bytes": 5627,
+      "sha256": "d4140fb153521092ee8454bc548f1ed0446da66261e1fbf702681a18fdc6e707"
+    },
+    {
+      "path": "3d/anim/mission.js",
+      "bytes": 17520,
+      "sha256": "9d2e0b1e8e2197b92c05440c674b9fcf8ab8b2147bddf2bb319c3ab6ef3f528e"
+    },
+    {
+      "path": "3d/anim/driver.js",
+      "bytes": 53012,
+      "sha256": "df556b1a3611dfed66ff45eaa87fcb21158f71d9baba573d92496aab37285e3c"
+    },
+    {
+      "path": "3d/adapter/fable.js",
+      "bytes": 15452,
+      "sha256": "1fee5edfcf863c8371696d6c4d28ae1c13f85696905dbd6d93bbd69479484d66"
+    }
+  ],
+  "source_section": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+    "bytes": 3869,
+    "sha256": "cd03f7d702a89b30619074a658aac1c0f00ac580578858fdfb609b76b815b5a1"
+  },
+  "assigned_model_source": "sim/spec.js ABSENT; no restore/creation. Existing sim/config.js read via published question and parity-import dependency trace.",
+  "history_policy": "Published PARTLY FIXED/corrections/exemptions/mission and hose/spray limits retained as source history, not recomputed or promoted to physical evidence. Current code contracts traced without importing or evaluating modules.",
+  "issue_basis": "Local filing record only; remote issue unchanged."
+}

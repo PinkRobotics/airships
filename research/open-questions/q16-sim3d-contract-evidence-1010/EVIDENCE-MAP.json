@@ -1,0 +1,559 @@
+{
+  "schema": "question16.model-viewer-contract-evidence-map/1",
+  "question": 16,
+  "existing_issue": 15,
+  "existing_issue_url": "https://github.com/PinkRobotics/airships/issues/15",
+  "status": "METHOD_ONLY; PUBLISHED PARTLY FIXED PRESERVED; PHYSICAL OBSERVATIONS UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_scope_discrepancy": {
+    "path": "sim/spec.js",
+    "exists": false,
+    "meaning": "Assigned sim/spec.js is absent from the observed main tree. Published question and parity imports name sim/config.js; its existing code is pinned as read-only dependency trace. Missing path not repaired or restored."
+  },
+  "historical_published_section": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+    "sha256": "cd03f7d702a89b30619074a658aac1c0f00ac580578858fdfb609b76b815b5a1",
+    "text": "## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong \u2014 PARTLY FIXED 2026-10-01\n\nTracking issue: [#15](https://github.com/PinkRobotics/airships/issues/15).\n\n**PARTLY FIXED \u2014 2026-10-01.** The model remains authoritative. The import rule in\n`tools/check_boundaries.py` keeps `3d/` standalone, so its model constants live in\n`3d/model/config.js` as declared, checked copies; the animation and physics import that file.\n`spec-parity.cases.js` now enumerates numeric keys on **both** sides, including numeric tables,\nand requires a partner or a one-sentence exemption for each. It also compares evaluated drag,\npump power, cruise, hose timing, release altitude and working-density lift. Missing required\nclass fields throw, and the node suite rejects numeric defaults on spec reads throughout `3d/`.\n\n**What changed.** Drop altitude was 250 m against the model's 450 m; it now starts at 450 m\nand finishes at 580 m, where escape begins. Missing cruise speeds made every standalone class\nfly at 90 km/h; they are now 90 / 110 / 130. Missing hose timings made every class deploy/retract\nin 4 / 3 minutes; they are now 4 / 3, 6 / 5 and 10 / 8. Fill rates and every mode-table entry\nare checked, and standalone airspeed now applies the selected mode multiplier as its timeline\nalready did. The rotor helpers also read the shared air density instead of literal 1.10.\nSource altitude, pump head, hose geometry, camera framing and pump-pod metadata\nnow read each class's 300 m hose, removing the remaining 250 m defaults. Liquid densities have\none declaration inside `3d/`. Working density is derived from checked ISA inputs rather than\nrounded to 0.95686, and the resolved class lift ledger uses that density too.\n\nThe identical `Cd` used to multiply frontal area in the model and volume to the two-thirds\npower in the viewer. Both now use the published nominal frontal area. **The original audit's\n2.08\u00d7 claim is not reproduced on this tree:** executing both formulas gives **1.533910\u00d7 /\n1.520891\u00d7 / 1.525382\u00d7** for P-100 / P-1000 / P-10000, at equal speed and density. Those ratios\nare now 1. `make mutationcheck` runs `tests/parity/mutations.mjs` using the stamp in\n`sim/version.json`. It mutates declarations, missing partners, tables, formulas, defaults and\nrequired field validation, requires each mutation to fail with its expected diagnostic in a\ndisposable copy, then checks the parity and required-spec suites again on the real tree. It\nprints the caught mutation count and exits nonzero if any mutation escapes.\n\n**Decided 2026-10-01 \u2014 the model counts stations.** The model declares 4 / 6 / 14 rotors; the\nviewer draws that many stations with two rotors each, or 8 / 12 / 28. The drawing's aggregate disc\nareas remain 2,513 / 12,215 / 158,886 m\u00b2 against the model's 2,500 / 12,000 / 160,000 m\u00b2, within\nthe existing 10% illustration allowance, and the model's power reads the disc area, never the\ncount. The two do not disagree on physics: the model's count means vectoring stations, each drawn\nas a pair. No mesh is halved and no rotor resized; the exemption and the station and pair counts\nstay tested. **Still open:** public copy that prints the count still says rotors. It is to say\nrotor stations, two rotors each, and that wording lands with the README.\n\nThe standalone eleven-phase cycle and its illustrative power shares still differ from the\nhost's six-phase mission; sharing constants does not make those two simulations identical.\nHost-supplied mission state continues to take precedence. Raising the release does not deploy\nor lengthen a hose or anchor: both are stowed at 250 and 450 m in the driver checks. The drawn\nspray remains a short hull-relative curtain (30.4 / 65.4 / 140.9 m), without a ground plane\nor a simulation of water reaching the ground; it has not been stretched to disguise the height.\n\n---\n\n",
+    "kind": "ALREADY_PUBLISHED_DATED_SOURCE_CONTEXT; not a new comparison or reproduced test result"
+  },
+  "source_contract_blocks": [
+    {
+      "source": "tests/cases/spec-parity.cases.js",
+      "name": "CLASS_PAIRS",
+      "line": 15,
+      "text": "export const CLASS_PAIRS = {\n  payloadT: 'payloadTonnes', dispM3: 'displacementM3', lenM: 'lengthM',\n  diaM: 'nominalDiameterM', diskM2: 'publishedDiscAreaM2', genMW: 'generatorContinuousPowerMW',\n  battMWh: 'batteryEnergyMWh', battMW: 'batteryPeakPowerMW', cryoMW: 'cryogenicPowerMW',\n  ln2CapT: 'ln2TankCapacityTonnes', hoseM: 'hoseLengthM', anchorM: 'anchorCableM',\n  anchorBagT: 'anchorBagTonnes', solarM2: 'solarAreaM2', solarSheetM2: 'solarSheetAreaM2', cruiseKph: 'cruiseKph',\n  fillM3s: 'fillRateM3s', hoseDeployMin: 'hoseDeployMin', hoseRetractMin: 'hoseRetractMin',\n};",
+      "sha256": "43e350fb9b0ce86b40603e9ee18c6283b8df3bc7c67543a94b196cd4c3760b3d",
+      "kind": "READ_ONLY_SOURCE_CONTRACT; NOT_EVALUATED"
+    },
+    {
+      "source": "tests/cases/spec-parity.cases.js",
+      "name": "CLASS_EXEMPTIONS",
+      "line": 25,
+      "text": "export const CLASS_EXEMPTIONS = {\n  sim: {\n    rotors: 'The model counts 4/6/14 rotors while the drawing uses paired rotors at that many stations; reconciling the drawing needs a design decision (#16).',\n    minSourceHa: 'Source eligibility belongs to the mission planner, not the standalone drawing.',\n    searchKm: 'Water-source search radius belongs to the mission planner, not the standalone drawing.',\n    dropKm: 'The host supplies its drop route while the standalone viewer has no geographic route planner.',\n  },\n  viz: {\n    primaryRotorStations: 'The drawing has 4/6/14 stations, each paired, pending the rotor-layout decision in #16.',\n    rotorsPerStation: 'Two coaxial rotors per drawn station remain a conceptual layout pending the rotor-count decision in #16.',\n    primaryRotorDiameterM: 'Drawn rotor diameter is a layout choice, with its aggregate area separately checked within the existing ten-percent allowance.',\n    mediumThrusters: 'Auxiliary thruster count describes the conceptual drawing and has no mission-model field.',\n    mediumThrusterDiameterM: 'Auxiliary thruster diameter describes the conceptual drawing and has no mission-model field.',\n    localTrimFans: 'Trim fan count describes the conceptual drawing and has no mission-model field.',\n    tailSurfaces: 'Tail surface count describes the conceptual drawing and has no mission-model field.',\n    waterTanks: 'Water tank count partitions the shared payload for the conceptual drawing.',\n    waterTankRings: 'Water tank rings arrange the conceptual drawing without changing payload.',\n    dropOutlets: 'Outlet count partitions the discharge in the conceptual drawing.',\n    pumpPods: 'Pod count distributes the shared class fill rate among drawn pumps.',\n    hoseReels: 'Reel count distributes the drawn hoses without changing their shared length.',\n    cryoTrains: 'Train count partitions the shared cryogenic capacity into drawn modules.',\n    ln2Tanks: 'Tank count partitions the shared nitrogen capacity into drawn modules.',\n    generators: 'Generator count partitions the shared continuous power into drawn modules.',\n    batteryModules: 'Module count partitions the shared battery capacity into drawn modules.',\n    hvdcBuses: 'Bus count is an illustrative electrical layout without a mission-model field.',\n    macroFrameCount: 'Frame count belongs to the conceptual structure drawing.',\n    longerons: 'Longeron count belongs to the conceptual structure drawing.',\n    structuralSections: 'Section count belongs to the conceptual structure drawing.',\n    cellSizeM: 'Representative cell pitch belongs to the conceptual structure drawing.',\n    structuralDensity: 'The structure renderer uses this sampling density, not a physical material density.',\n    structuralSeed: 'The structure renderer uses this deterministic drawing seed, not a mission input.',\n    maintenanceCorridors: 'Corridor count belongs to the conceptual layout.',\n    maxPitchRateDegS: 'The renderer caps attitude interpolation without asserting a mission-model pitch limit.',\n    maxYawRateDegS: 'The renderer caps attitude interpolation without asserting a mission-model yaw limit.',\n    maxRollRateDegS: 'The renderer caps attitude interpolation without asserting a mission-model roll limit.',\n    'visualDetail.closeCellModules': 'Close-view module count is a rendering budget.',\n    'visualDetail.mediumCellModules': 'Medium-view module count is a rendering budget.',\n    'visualDetail.mapTrianglesTarget': 'Map triangle count is a rendering budget.',\n    'hull.xMax': 'The resolved hull carries its conceptual drawing profile, not a mission field.',\n    'hull.capFrac': 'The resolved hull carries its conceptual drawing profile, not a mission field.',\n    'hull.stub': 'The resolved hull carries its numeric pole guard, not a mission field.',\n    'hull.topFlat': 'The resolved hull carries its conceptual drawing profile, not a mission field.',\n    'hull.bottomFlat': 'The resolved hull carries its conceptual drawing profile, not a mission field.',\n    maxRadiusM: 'The drawing solves its radius to conserve volume rather than rounding to the nominal model diameter.',\n    diameterM: 'The solved drawing diameter differs slightly from the nominal diameter used for shared drag.',\n    finenessRatio: 'The drawing derives fineness from its solved geometry rather than a mission input.',\n    volumeM3: 'Numerically integrated hull volume has roundoff and is checked against displacement in the model tests.',\n    centroidXFromNoseM: 'The drawing computes its origin from its integrated hull volume.',\n    xNose: 'The drawing places the nose relative to its computed origin.',\n    xTail: 'The drawing places the tail relative to its computed origin.',\n    displacedAirTonnes: 'This derived lift is compared with the evaluated model ledger below, not an independently declared class input.',\n    structureAllowanceTonnes: 'This derived dry allowance is compared with the evaluated model ledger below.',\n    surplusTonnes: 'This derived empty surplus is compared with the evaluated model ledger below.',\n    reserveTonnes: 'This derived laden reserve is compared with the evaluated model ledger below.',\n    payloadVolumeM3: 'The drawing converts the shared water payload into volume using one tonne per cubic metre.',\n    payloadCubeEdgeM: 'The scale illustration derives its cube edge from the shared payload volume.',\n    approxCellCount: 'The structure renderer estimates a cell count from its conceptual pitch.',\n    totalDiscAreaM2: 'The drawing derives this from paired rotor geometry and is checked within the existing ten-percent illustration allowance.',\n    sectionLengthM: 'The drawing divides the hull into its conceptual structural sections.',\n\n  },\n};",
+      "sha256": "6cbbbf75cd3a69e55c022ea1e5d8d29c1d8dae05f1882bec868e8b4f350507f9",
+      "kind": "READ_ONLY_SOURCE_CONTRACT; NOT_EVALUATED"
+    },
+    {
+      "source": "tests/cases/spec-parity.cases.js",
+      "name": "CONSTANT_EXEMPTIONS",
+      "line": 88,
+      "text": "export const CONSTANT_EXEMPTIONS = {\n  sim: {\n    'DEFAULTS.hoseMul': 'The host applies its hose multiplier before passing state; standalone specs use nominal hose length.',\n    'DEFAULTS.speedMul': 'The host applies its speed dial before passing state; standalone specs use nominal speed.',\n    'DEFAULTS.fillMul': 'The host applies its fill dial before passing state; standalone specs use nominal flow.',\n    'DEFAULTS.cryoMul': 'The host applies its cryogenic dial before passing state; standalone specs use nominal capacity.',\n    'DEFAULTS.exampleKm': 'The standalone timeline accepts distance as an argument rather than owning the host distance dial.',\n    VZ_MAX: 'The eleven-phase standalone illustration has its own vertical choreography; host flight limits arrive in host state.',\n    'ISA.P0': 'The viewer needs a density ratio anchored to rhoSL, not absolute ISA pressure.',\n    'ISA.TROPOPAUSE': 'The viewer derives density only at its declared work altitude, not at arbitrary ISA altitudes.',\n    'ISA.FLOOR': 'The viewer derives density only at its declared work altitude, not at arbitrary ISA altitudes.',\n  },\n  viz: {\n    'ASSUMPTIONS.eLN2Range.0': 'The lower exploratory slider bound is viewer UI, not a model assumption.',\n    'ASSUMPTIONS.eLN2Range.1': 'The upper exploratory slider bound is viewer UI, not a model assumption.',\n    'ASSUMPTIONS.rtLN2Range.0': 'The lower exploratory slider bound is viewer UI, not a model assumption.',\n    'ASSUMPTIONS.rtLN2Range.1': 'The upper exploratory slider bound is viewer UI, not a model assumption.',\n    G: 'The sim uses literal 9.81 in its force and pump equations, checked here through evaluated pump power.',\n    RHO_LN2: 'The sim accounts for nitrogen in tonnes, while only the viewer packages its liquid volume.',\n    RHO_WATER: 'The sim uses literal 1000 in its pump equation, checked here through evaluated pump power.',\n    'PACKAGING.generatorMWPerM3': 'Generator packaging density sizes conceptual boxes, not mission performance.',\n    'PACKAGING.batteryKWhPerM3': 'Battery packaging density sizes conceptual boxes, not mission performance.',\n    'PACKAGING.cryoMWPerM3': 'Cryogenic packaging density sizes conceptual boxes, not mission performance.',\n    'HULL_DEFAULT.xMax': 'This is a hull drawing profile parameter, not a mission assumption.',\n    'HULL_DEFAULT.capFrac': 'This is a hull drawing profile parameter, not a mission assumption.',\n    'HULL_DEFAULT.stub': 'This keeps drawn pole geometry finite without altering nominal model dimensions.',\n    'HULL_DEFAULT.topFlat': 'This is a hull drawing profile parameter, not a mission assumption.',\n    'HULL_DEFAULT.bottomFlat': 'This is a hull drawing profile parameter, not a mission assumption.',\n    TRIM_FAN_DEPTH_RATIO: 'Duct depth is a conceptual drawing proportion.',\n    DUCT_SEAL_OF_DIAMETER: 'Duct seal depth is a conceptual drawing proportion.',\n    HULL_BAND_LIFT: 'Band offset prevents overlapping drawn surfaces.',\n    ANCHOR_MAX_DIP_MPS: 'The bag motion safety gate is viewer choreography, separately covered by anchor parity tests.',\n  },\n};",
+      "sha256": "27ca490b6d5a290890698a8ed110f0ee47b46a171989a2c946d2e600d27da714",
+      "kind": "READ_ONLY_SOURCE_CONTRACT; NOT_EVALUATED"
+    },
+    {
+      "source": "tests/cases/spec-parity.cases.js",
+      "name": "constantPairs",
+      "line": 163,
+      "text": "const constantPairs = [\n  ...['eLN2','rtLN2','pumpEta','propEta','Cd','rhoAir','rhoSL','solarWPerM2']\n    .map(k => [`DEFAULTS.${k}`, `ASSUMPTIONS.${k}`]),\n  ['DEFAULTS.rhoSL','RHO_SL'], ['DEFAULTS.rhoAir','RHO_AIR'],\n  ...['ALT','ALT_DROP_TOP','TERRAIN_MSL','WORK_ALT_MSL','MODES','RHO_WORK','SOLAR_PROJECTED_FRACTION'].map(k => [k,k]),\n  ...['T0','LAPSE','G0','R'].map(k => [`ISA.${k}`,`ISA.${k}`]),\n];",
+      "sha256": "0194e95669290d0d27cc025234083aee9c12a2ee85353924703240092ec88a1c",
+      "kind": "READ_ONLY_SOURCE_CONTRACT; NOT_EVALUATED"
+    }
+  ],
+  "consumer_provenance": [
+    {
+      "role": "model",
+      "path": "sim/config.js",
+      "locators": [
+        {
+          "line": 319,
+          "text": "export const PHASES = ["
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "viewer",
+      "path": "3d/model/config.js",
+      "locators": [
+        {
+          "line": 76,
+          "text": "export function setAssumptions(patch) {"
+        },
+        {
+          "line": 472,
+          "text": "export function specNumber(cls, key) {"
+        },
+        {
+          "line": 497,
+          "text": "export function resolveClass(id, overrides = {}) {"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "boundary",
+      "path": "tools/check_boundaries.py",
+      "locators": [
+        {
+          "line": 4,
+          "text": "RULE 1 \u2014 the dependency direction."
+        },
+        {
+          "line": 399,
+          "text": "        # RULE 1 \u2014 the dependency direction."
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "parity",
+      "path": "tests/cases/spec-parity.cases.js",
+      "locators": [
+        {
+          "line": 133,
+          "text": "export function parityErrors(a, b, pairs, exemptions) {"
+        },
+        {
+          "line": 183,
+          "text": "describe('derived results and actual consumers agree', () => {"
+        },
+        {
+          "line": 231,
+          "text": "    it(`${id}: unresolved paired-rotor drawing keeps its stated counts and area allowance`, () => {"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "state",
+      "path": "3d/physics/state.js",
+      "locators": [
+        {
+          "line": 20,
+          "text": "export const MISSION_PHASES = ["
+        },
+        {
+          "line": 50,
+          "text": "export function defaultState(patch = {}) {"
+        },
+        {
+          "line": 123,
+          "text": "export function sanitizeState(s) {"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "mission",
+      "path": "3d/anim/mission.js",
+      "locators": [
+        {
+          "line": 40,
+          "text": "export function phaseDurations(cls, mode = MODES.balanced, oneWayKm = 15) {"
+        },
+        {
+          "line": 129,
+          "text": "export function phaseShape(cls, phase, prog, opts = {}) {"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "adapter",
+      "path": "3d/adapter/fable.js",
+      "locators": [
+        {
+          "line": 36,
+          "text": "export function adoptAssumptions(hostCfg) {"
+        },
+        {
+          "line": 57,
+          "text": "export function fromMonitorState(hostState, hostClass, cls, opts = {}) {"
+        },
+        {
+          "line": 161,
+          "text": "    altitudeM: hostState.alt === undefined ? shape.altitudeM : hostState.alt,"
+        },
+        {
+          "line": 162,
+          "text": "    airspeedMps: Number.isFinite(hostState.gs) ? hostState.gs / 3.6 : (shape.airspeedMps || 0),"
+        },
+        {
+          "line": 202,
+          "text": "  if (hostState.electrical) Object.assign(s, hostState.electrical);"
+        },
+        {
+          "line": 218,
+          "text": "export function adaptMission(hostMission, hostState, opts = {}) {"
+        },
+        {
+          "line": 236,
+          "text": "export function describeMapping() {"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "driver",
+      "path": "3d/anim/driver.js",
+      "locators": [
+        {
+          "line": 135,
+          "text": "export function verticalDuty(cls, state, layout) {"
+        },
+        {
+          "line": 342,
+          "text": "    const rel = state.waterReleaseProgress || 0;"
+        },
+        {
+          "line": 707,
+          "text": "    const out = state.hoseProgress || 0;"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    },
+    {
+      "role": "energy",
+      "path": "3d/physics/energy.js",
+      "locators": [
+        {
+          "line": 37,
+          "text": "export function derivePower(cls, s, a = ASSUMPTIONS) {"
+        },
+        {
+          "line": 41,
+          "text": "  const record = s.electrical || s;"
+        },
+        {
+          "line": 49,
+          "text": "export function energyFlows(cls, s, a = ASSUMPTIONS) {"
+        },
+        {
+          "line": 52,
+          "text": "  if (Object.values(p).some(v=>v===null)) return { edges, power:p, available:false, supplyMW:null, demandMW:null, balanceMW:null };"
+        }
+      ],
+      "executed": false,
+      "physical_observation": null,
+      "physical_status": "UNKNOWN"
+    }
+  ],
+  "declared_phase_scopes": [
+    {
+      "role": "model",
+      "path": "sim/config.js",
+      "line": 319,
+      "source_text": "export const PHASES = [\n  [\"SOURCE_APPROACH\", \"final approach \u2014 hose paying out\"],\n  [\"WATER_FILL\", \"pump water aboard\"],\n  [\"OUTBOUND_TRANSIT\", \"climb out, hose up \u2014 transit to the fire\"],\n  [\"WATER_RELEASE\", \"drop run along the fire\"],\n  [\"BUOYANCY_ESCAPE\", \"escape climb on surplus buoyancy\"],\n  [\"RETURN_TRANSIT\", \"return \u2014 make ballast, descend to hose range\"],\n];",
+      "kind": "DECLARED_PHASE_LIST; NOT_RUN"
+    },
+    {
+      "role": "state",
+      "path": "3d/physics/state.js",
+      "line": 20,
+      "source_text": "export const MISSION_PHASES = [\n  'SOURCE_APPROACH', 'HOSE_DEPLOY', 'WATER_FILL', 'HOSE_RETRACT', 'DEPARTURE_CLIMB',\n  'OUTBOUND_TRANSIT', 'FIRE_APPROACH', 'WATER_RELEASE', 'BUOYANCY_ESCAPE', 'RETURN_TRANSIT',\n  'CONTROLLED_DESCENT',\n];",
+      "kind": "DECLARED_PHASE_LIST; NOT_RUN"
+    }
+  ],
+  "rows": [
+    {
+      "id": "declared-source",
+      "requirement": "Bind the authoritative model and declared viewer copy",
+      "quantity": "revision, code identity and assigned-path provenance",
+      "units": "identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Record the absent assigned sim/spec.js path and the existing sim/config.js identified by the published question/parity imports; bind the standalone viewer copy without creating, restoring or repairing sources.",
+      "rejection_condition": "A missing assigned path silently fabricated, a dependency trace mistaken for source repair, or a different revision credited to this paper.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../sim/config.js",
+        "../../../3d/model/config.js",
+        "../../../tests/cases/spec-parity.cases.js"
+      ]
+    },
+    {
+      "id": "import-boundary",
+      "requirement": "Retain the standalone dependency boundary",
+      "quantity": "model/viewer isolation and permitted checked-copy seam",
+      "units": "module identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Trace the declared boundary rule and checked-copy tests as source contracts, not an observed execution result.",
+      "rejection_condition": "A code import boundary changed, sharing a file assumed to make two missions identical, or a source assertion reported as a newly run test.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../tools/check_boundaries.py",
+        "../../../tests/cases/spec-parity.cases.js"
+      ]
+    },
+    {
+      "id": "paired-coverage",
+      "requirement": "Trace numeric partners and explicit exemptions",
+      "quantity": "class/constant/table coverage and documented exemptions",
+      "units": "key and contract identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the declared pairing and exemption blocks with their original reasons; distinguish exact shared inputs, evaluated-consumer checks and illustration-only fields.",
+      "rejection_condition": "An exempt field claimed exact parity, omitted partner silently defaulted, or finite declared input treated as measured performance.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../tests/cases/spec-parity.cases.js",
+        "../../../sim/config.js",
+        "../../../3d/model/config.js"
+      ]
+    },
+    {
+      "id": "corrected-history",
+      "requirement": "Preserve the published corrected discrepancies",
+      "quantity": "dated correction, non-reproduced original claim and current scope",
+      "units": "historical source context",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Keep the published PARTLY FIXED section as immutable dated context including corrections and rejection of the original drag-ratio claim; do not rerun, extrapolate or promote its history to physical evidence.",
+      "rejection_condition": "Old wrong values restored, rejected claim revived, corrected history called complete qualification or any numeric comparison recomputed here.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../tests/cases/spec-parity.cases.js",
+        "../../../sim/config.js",
+        "../../../3d/model/config.js"
+      ]
+    },
+    {
+      "id": "station-pair",
+      "requirement": "Keep stations, paired rotors and illustrated area distinct",
+      "quantity": "count semantics, drawing geometry and priced disc-area basis",
+      "units": "count and area convention identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the published station/pair decision and existing illustration allowance with the code exemption wording as separately identified source history; no count, mesh or rotor change or new physical capacity inference.",
+      "rejection_condition": "Drawing pair count substituted for model station count, illustrative aggregate-disc-area allowance called physical actuator qualification, or discrepant source wording silently repaired.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../tests/cases/spec-parity.cases.js",
+        "../../../3d/model/config.js",
+        "../../../sim/config.js"
+      ]
+    },
+    {
+      "id": "host-precedence",
+      "requirement": "Trace host-state precedence and unit mapping",
+      "quantity": "host mission fields, tonnes/fractions, MW and speed/altitude channels",
+      "units": "t; fractions; MW; m; km/h; m/s; state identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Trace adapter adoption and supplied altitude/speed/duty/force/electrical fields versus local shape/fallback channels; retain source field mapping and provenance without running the adapter.",
+      "rejection_condition": "Standalone shape overrides a supplied host channel in the paper, a fraction confused with mass, or model-state translation credited as physical telemetry.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../3d/adapter/fable.js",
+        "../../../3d/physics/state.js",
+        "../../../3d/anim/driver.js",
+        "../../../3d/model/config.js"
+      ]
+    },
+    {
+      "id": "mission-scope",
+      "requirement": "Preserve distinct host and standalone cycles",
+      "quantity": "phase names, ordering, timing and overlap contracts",
+      "units": "phase identifiers; s; min",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the host phase list and standalone superset as source text; adapter hose overlap belongs to the host seam while standalone hose phases remain separate. Shared constants cannot establish mission equivalence.",
+      "rejection_condition": "Different phase accounting or simultaneous work silently treated as equal total cycle time, or a new timing/capacity estimate supplied.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../sim/config.js",
+        "../../../3d/physics/state.js",
+        "../../../3d/anim/mission.js",
+        "../../../3d/adapter/fable.js"
+      ]
+    },
+    {
+      "id": "power-scope",
+      "requirement": "Distinguish dated power-share scope from current channel availability",
+      "quantity": "supplied electrical channels, unknown telemetry and graph availability",
+      "units": "MW; channel and source identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Preserve the published historical power-share statement while tracing current derivePower finite-value/null behavior and energyFlows unavailable return when channels are missing. Record adapter fallback behavior separately; no power-share or performance calculation.",
+      "rejection_condition": "Dated illustration promoted to current telemetry, absent channel assigned measured zero, finite model data called physical observation or a nameplate called generation.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../3d/physics/energy.js",
+        "../../../3d/adapter/fable.js",
+        "../../../3d/physics/state.js"
+      ]
+    },
+    {
+      "id": "hose-anchor",
+      "requirement": "Keep release height separate from hose/anchor deployment",
+      "quantity": "height, supplied progress, source reach and stowed release context",
+      "units": "m; progress and state identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the published stowed-hose/anchor checks as history and trace the current state-driven deployment contract; changed release height does not supply physical reach, immersion or pickup evidence.",
+      "rejection_condition": "An altitude change assumed to lengthen/deploy a hose or anchor, choreography called observed pickup, or deployment recomputed here.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../3d/anim/mission.js",
+        "../../../3d/adapter/fable.js",
+        "../../../3d/anim/driver.js"
+      ]
+    },
+    {
+      "id": "spray-illustration",
+      "requirement": "Keep the drawn spray separate from ground delivery",
+      "quantity": "hull-relative curtain and state-driven release illustration",
+      "units": "m; release progress; scope identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the published no-ground-plane/no-ground-water-simulation limit and trace the driver curtain as illustration only; no trajectory, deposition or fire-outcome inference.",
+      "rejection_condition": "Curtain length treated as ground-reaching water, illustration stretched to hide altitude or a drawing credited as measured delivery.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../3d/anim/driver.js",
+        "../../../3d/physics/state.js"
+      ]
+    },
+    {
+      "id": "physical-applicability",
+      "requirement": "Specify missing physical applicability records",
+      "quantity": "calibrated observations, configuration, environment and uncertainty",
+      "units": "record identifiers; quantity-specific units",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Identify prospective measurements for the applicable consumer claim with raw custody, conditions and uncertainty; all observations and adopted physical acceptance decisions remain unavailable.",
+      "rejection_condition": "Checked copies or a green repository gate establish a buildable system, physical observation, installed actuator capacity, delivery or accepted operating envelope.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../sim/config.js",
+        "../../../3d/model/config.js",
+        "../../../3d/physics/state.js"
+      ]
+    },
+    {
+      "id": "acceptance-custody",
+      "requirement": "Separate source contracts, repository checks and physical acceptance",
+      "quantity": "source history, adopted applicability owner and decision records",
+      "units": "status and owner identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain PARTLY FIXED and illustration/mission limits; an applicable verification owner must separately adopt a criterion and supply evidence. Named assignee, adoption and physical evidence are UNKNOWN.",
+      "rejection_condition": "Officer landing signature or source assertions silently close physical criteria, UNKNOWN promoted to PASS or another question duplicated as a new repair.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; checked-copy and illustration rules are source contracts, not adopted physical criteria",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "prospective_owner_role": "Applicable model/viewer contract and physical verification owner",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../tests/cases/spec-parity.cases.js",
+        "../../../3d/adapter/fable.js",
+        "../../../3d/physics/energy.js"
+      ]
+    }
+  ],
+  "current_power_trace": "derivePower returns finite supplied electrical/state channels or null; energyFlows returns unavailable with null totals when any required channel is unknown. Adapter source has its own explicit fallback values; this paper does not interpret them as physical zero. No evaluation performed.",
+  "station_wording_trace": "Published question records the station/pair decision and still-open wording. Parity exemptions/test labels retain older pending/unresolved wording; copied separately as source history, neither silently harmonized nor promoted to physical qualification.",
+  "missing_semantics": "Missing assigned path retains absent status; missing observation/evidence/adopted physical criterion/assigned owner is null/UNKNOWN. Source text is historical/declared context only.",
+  "scope": "No recomputation, mutation/parity experiment, simulator/animation, generator, constants/defaults/code repair, new prediction, physical action or remote issue mutation. Q18 atmosphere and Q19 failure-button work not repeated."
+}
