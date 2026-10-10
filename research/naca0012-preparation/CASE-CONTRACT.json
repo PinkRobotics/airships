@@ -1,0 +1,73 @@
+{
+  "schema": "naca0012.preparation-case-contract/1",
+  "status": "PREPARATION_ONLY; no solver result supplied",
+  "case": {
+    "geometry": "NACA0012, sharp trailing-edge reference geometry required",
+    "Re": 6000000,
+    "alpha_deg": 0,
+    "mesh": "n449, fixed eight-rank decomposition",
+    "ranks": 8,
+    "solver": "OpenFOAM14 foamRun, incompressibleFluid",
+    "closure": "SpalartAllmaras, fully turbulent",
+    "farfield_U_m_s": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "kinematic_viscosity_m2_s": 1.6666666666666668e-07,
+    "force_normalization": {
+      "rhoInf_kg_m3": 1,
+      "magUInf_m_s": 1,
+      "lRef_m": 1,
+      "Aref_m2": 0.01
+    },
+    "inlet_turbulence": "Record the frozen0/nuTilda and0/nut inputs; no retuning"
+  },
+  "hypothesis": {
+    "only_change": "U equation matrix relaxation",
+    "baseline_U": 0.7,
+    "candidate_U": 0.5,
+    "p": 0.3,
+    "nuTilda": 0.7,
+    "interpretation": "An iteration-control hypothesis, not a cause diagnosis or convergence prediction",
+    "fixed": "Same geometry, mesh, model, references, numerical schemes, time controls and all other settings",
+    "baseline_fvSolution_sha256": "87c281cfdbc6774f777c8fe41f9d8a79751fe45329b2f078a44b6073af637b83",
+    "candidate_fvSolution_sha256": "aec28a9b974cc79dbefc6df3673a9263d572b7c02553300be0d8e1741d8787ba"
+  },
+  "references": {
+    "primary_force": {
+      "data": "CLCD_Ladson_expdata.dat",
+      "sha256": "78cd2f6aa4968e80f44cbf6c96f699bd9c6e45681d958ec528a10cf72ed23357",
+      "selection": "80-grit, Mach0.15 tripped Ladson forces, bracketing alpha interpolation at0deg;120/180-grit spread sensitivity with the same frozen bands",
+      "bands_are": "Project screening tolerances, not experimental uncertainty"
+    },
+    "pressure": {
+      "data": "CP_Gregory_expdata.dat",
+      "reference_Re": 2880000,
+      "current_Re6M_use": "DIAGNOSTIC ONLY; no experimental pressure agreement",
+      "matching_requirement": "A pressure comparison needs a separately matching Re2.88M case and disclosed trip/model applicability"
+    }
+  },
+  "evaluation": {
+    "force_series": "Require a complete finite4001-row, six-column series for iterations0..4000; reject missing/invalid/nonfinite rows or zero normalization",
+    "final_window": "Iterations3801..4000 inclusive,200 rows",
+    "both_force_metrics": "Each strict<0.005, as defined in TOLERANCES.json; neither alone suffices",
+    "primary_force_agreement": "Inclusive absolute CL error<=0.05 and CD error<=0.002 against selected force reference",
+    "controlled_pair": "A claim about relaxation improvement also requires a compatible matched baseline; a reference comparison alone is not a controlled baseline pair",
+    "complete_applicability": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+  },
+  "actual_outputs": {
+    "force_series": null,
+    "force_metrics": null,
+    "experimental_force_errors": null,
+    "matched_baseline_series": null,
+    "three_mesh_comparison": null,
+    "geometry_qualification": null,
+    "mass_flux": null,
+    "minimum_cell_volume": null,
+    "matching_pressure_error": null,
+    "overall_validation": "UNKNOWN",
+    "airship_hull_transfer": "UNKNOWN"
+  },
+  "limits": "No solver run, new mesh, fitted tolerance or airship-hull qualification reported in this preparation."
+}

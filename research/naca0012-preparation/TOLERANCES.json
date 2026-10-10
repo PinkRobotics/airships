@@ -1,0 +1,64 @@
+{
+  "schema": "naca0012.preparation-tolerances/1",
+  "force_convergence": {
+    "normal_native_exit_required": true,
+    "final_iteration": 4000,
+    "complete_window": [
+      3801,
+      4000
+    ],
+    "rows": 200,
+    "relative_vector_range_lt": 0.005,
+    "relative_max_deviation_lt": 0.005,
+    "formula": "norm(ptp([CL,CD],axis=0))/norm(mean), max(norm(q-mean))/norm(mean)",
+    "invalid_missing_nan_zero_denominator": "STOP/INVALID; never PASS"
+  },
+  "other_gates": {
+    "minimum_cell_volume_positive": true,
+    "force_last200_vector_drift_relative": 0.005,
+    "last_two_mesh_force_vector_relative": 0.02,
+    "last_two_mesh_CD_relative": 0.02,
+    "CL_mesh_nearzero_abs": 0.001,
+    "CL_mesh_nonzero_relative": 0.02,
+    "mass_flux_imbalance_relative": 0.001,
+    "CL_abs_exp": 0.05,
+    "CD_abs_exp": 0.002,
+    "Cp_upper_RMS_abs_exp": 0.1
+  },
+  "NASA_case_selection": [
+    {
+      "id": "naca0012-forces",
+      "type": "experimental comparison",
+      "data": "references/CLCD_Ladson_expdata.dat",
+      "Re": 6000000,
+      "angles_deg": [
+        0,
+        10
+      ],
+      "reference_selection": "80-grit Ladson M=.15 tripped forces primary; interpolate bracketing alpha rows at0/10. Report120/180-grit spread as sensitivity; all use same frozen bands.",
+      "CL_abs_tolerance": 0.05,
+      "CD_abs_tolerance": 0.002,
+      "requirements": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+    },
+    {
+      "id": "naca0012-pressure",
+      "type": "experimental comparison",
+      "data": "references/CP_Gregory_expdata.dat",
+      "Re": 2880000,
+      "angles_deg": [
+        0,
+        10
+      ],
+      "Cp_abs_RMS_tolerance": 0.1,
+      "requirements": "Separate Re2.88M runs at alpha0/10; upper-surface only. Tabulated x/c outside[0,1] is a digitisation-domain exclusion recorded before the solve (one row at alpha0); retain data. Trip/model mismatch disclosed, not silently equated. No Re6M-to-Re2.88M PASS."
+    }
+  ],
+  "current_case": {
+    "Re": 6000000,
+    "alpha_deg": 0,
+    "mesh": "n449 controlled fixed8rank",
+    "Cp_Re6M": "DIAGNOSTIC ONLY"
+  },
+  "required_normal_collected_exit": true,
+  "meaning": "Frozen project comparison bands; these are not experimental uncertainty or a measured agreement. No tuning performed."
+}
