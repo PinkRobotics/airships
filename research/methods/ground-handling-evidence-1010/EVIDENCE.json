@@ -1,0 +1,123 @@
+{
+  "schema": "robotics.ground-evidence-thread/1",
+  "unit": "robotics-ground-handling-evidence-thread-1010",
+  "date": "2026-10-10",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "bytes": 18871,
+      "sha256": "138195a325fde17a89f30ef75bf2a1ace32337f3324c321b974afa9e6627e4a0"
+    }
+  ],
+  "entries": [
+    {
+      "id": "article-state",
+      "requirement_or_owner": "Current parked article and evacuated/buoyant state",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md What is still missing entirely; docs/MEMBER-CENSUS.md Both directions",
+      "units": "configuration identity; pressure Pa; displacement m3; orientation rad; timestamp",
+      "method": "Request a matched article/drawing/version identity, pressure and buoyant state, geometry, orientation and parked interval, with calibration and uncertainty.",
+      "missing_comparison_or_applicability": "A historical evacuated article is not the current build configuration or a demonstrated stationary state. Drawing/bill disagreements remain unresolved.",
+      "prospective_evidence_id": "GROUND:article-state",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "restraint-path",
+      "requirement_or_owner": "Mooring, supports and complete ground load path",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md What is still missing entirely; docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin",
+      "units": "restraint/component identity; geometry m; signed force N; moment N m; time s",
+      "method": "Request as-installed restraint, support/contact and attachment identities, geometry, coordinate/sign conventions and synchronized force/moment observations along the complete path to ground; retain missing interfaces.",
+      "missing_comparison_or_applicability": "No mooring/support configuration or ground attachment is selected. Named aerial cables or structural anchors do not demonstrate ground restraint; missing interfaces remain UNKNOWN.",
+      "prospective_evidence_id": "GROUND:restraint-path",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "inventory",
+      "requirement_or_owner": "Matched parked mass and changing inventories",
+      "existing_model_reference": "docs/MEMBER-CENSUS.md Film, close-up fittings and outfit; docs/VERIFICATION-PLAN.md What is still missing entirely",
+      "units": "kg; inventory/component identity; time s",
+      "method": "Request itemized dry/outfit/ground equipment, payload, water and nitrogen inventories and transfer histories matched to the same parked state, with measured uncertainty and explicit missing items.",
+      "missing_comparison_or_applicability": "Outfit and installation mass are unknown, never zero. Historical downward snow or upward buoyancy quantities are not a complete current inventory or observed net ground load.",
+      "prospective_evidence_id": "GROUND:inventory",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "environment",
+      "requirement_or_owner": "Seasonal wind, snow, icing and local conditions",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md What is still missing entirely",
+      "units": "wind vector m/s; direction rad; pressure Pa; temperature K; deposited mass kg; thickness m; time s",
+      "method": "Request calibrated time-resolved ambient conditions, local coordinate/exposure description, accumulation/icing state and coverage/missing intervals for the matched article and restraint interval.",
+      "missing_comparison_or_applicability": "Published wind/snow quantities and off-season assumptions are historical context, not a forecast, measured environment or operating envelope. No site, weather case or operating limit is selected.",
+      "prospective_evidence_id": "GROUND:environment",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "stationary-response",
+      "requirement_or_owner": "Observed stationary behaviour and changing restraint/contact state",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md What is still missing entirely",
+      "units": "position m; orientation rad; velocity m/s; signed reaction N; time s",
+      "method": "Request synchronized position/orientation, motion, reaction and contact/restraint-state histories, including inventory/environment changes, transients, losses of restraint and missing intervals, with calibration and uncertainty.",
+      "missing_comparison_or_applicability": "The source explicitly lacks a demonstrated state in which the aircraft sits still. A drawing or assumed load does not establish stationary behaviour, failure tolerance or a safe parked state.",
+      "prospective_evidence_id": "GROUND:stationary-response",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "equipment-provenance",
+      "requirement_or_owner": "Complete installed ground-equipment and interface provenance",
+      "existing_model_reference": "docs/MEMBER-CENSUS.md outfit; docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin",
+      "units": "component/record identity; count; geometry m; kg; calibration identity",
+      "method": "Request a complete installed equipment manifest, drawings, support/attachment interfaces, inspection/configuration history and raw calibrated observations tied to each parked article; keep unallocated items explicit.",
+      "missing_comparison_or_applicability": "Named outfit and schematic pulleys/lines are not a weighed, installed or qualified ground-handling system. This paper does not duplicate the material/strength or installation crosswalk.",
+      "prospective_evidence_id": "GROUND:equipment-provenance",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "evidence-disposition",
+      "requirement_or_owner": "Matched raw records, uncertainty and separate physical criteria",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md What is still missing entirely; docs/MEMBER-CENSUS.md Recorded disagreements",
+      "units": "record identity; synchronization error s; uncertainty units per quantity",
+      "method": "Request raw records, instrument/calibration provenance, shared clock/coordinate transformations, processing versions, uncertainty components/correlations and invalidating conditions; record any later acceptance decision separately.",
+      "missing_comparison_or_applicability": "Observations, measured uncertainty, allowable movement/load and all physical acceptance criteria are missing. Retain failures and unfavourable or incomplete records; do not invent pass thresholds.",
+      "prospective_evidence_id": "GROUND:evidence-disposition",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    }
+  ]
+}
