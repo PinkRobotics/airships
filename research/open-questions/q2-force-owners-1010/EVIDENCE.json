@@ -1,0 +1,139 @@
+{
+  "schema": "robotics.question-evidence-thread/1",
+  "unit": "robotics-q2-force-owner-evidence-thread-1010",
+  "date": "2026-10-10",
+  "question": 2,
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/2",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "docs/ENERGY-CLOSURE-2026-10.md",
+      "bytes": 239793,
+      "sha256": "e614c3e6f5e455de340bc4b16834cf202abb6d14c8930f71348b3aa2284da388"
+    },
+    {
+      "path": "sim/power.js",
+      "bytes": 29270,
+      "sha256": "a149fe9466bdab4f14373a2deb54f8cc9867f92a7963ecc62498298b61c40a4d"
+    },
+    {
+      "path": "sim/physics.js",
+      "bytes": 3553,
+      "sha256": "b03760ee25367aa2780aae63bb351552ad8c77ab2dc54fcc2c6bf164a7136931"
+    },
+    {
+      "path": "sim/config.js",
+      "bytes": 21885,
+      "sha256": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e"
+    },
+    {
+      "path": "research/analysis/energy-motion.json",
+      "bytes": 358445,
+      "sha256": "6699c398b00c030d11344587215a15ff1647b71e96c34a7936dea41e34aadc63"
+    }
+  ],
+  "entries": [
+    {
+      "id": "bagT",
+      "requirement_or_owner": "Cable-carried water downward owner",
+      "existing_model_reference": "sim/power.js drawAt/anchorAt, owners.bagT",
+      "units": "N; kg water; m; s",
+      "method": "Request synchronized cable tension, supported water inventory, reach/geometry, paid hoist work and attachment state across pickup and release; distinguish carried water from free water.",
+      "missing_comparison_or_applicability": "Configured reachable bag inventory is credited quasi-statically; cable/load/controller dynamics and sample-specific measured support remain unvalidated.",
+      "prospective_evidence_id": "Q2:bagT",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "rotorT",
+      "requirement_or_owner": "Downward rotor owner",
+      "existing_model_reference": "sim/power.js drawAt/rotorThrustLimitT/inducedMW, owners.rotorT",
+      "units": "N; W; m2; m/s; kg/m3",
+      "method": "Request matched rotor thrust and electrical-input observations by disk area, speed, axial flow and local density, with blade/rotor-speed/pitch policy and thermal/bus state.",
+      "missing_comparison_or_applicability": "Installed cap is an unverified hover surrogate; downward-only authority and constant merit-times-drive-efficiency assumptions do not establish buildable thrust or flight performance.",
+      "prospective_evidence_id": "Q2:rotorT",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "aeroT",
+      "requirement_or_owner": "Permitted aerodynamic downforce owner",
+      "existing_model_reference": "sim/power.js drawAt/splitForce, owners.aeroT",
+      "units": "N; m/s; kg/m3; Pa; m2; angle rad",
+      "method": "Request force-versus-state evidence for matched hull geometry, airspeed, density and attitude; distinguish downforce from induced drag and charge propulsion consistently.",
+      "missing_comparison_or_applicability": "Record basis credits no aerodynamic hold-down; favourable basis uses a capped coefficient. Neither basis supplies an attainable measured force envelope.",
+      "prospective_evidence_id": "Q2:aeroT",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "verticalDragT",
+      "requirement_or_owner": "Signed vertical drag owner",
+      "existing_model_reference": "sim/power.js drawAt, owners.verticalDragT",
+      "units": "N; m/s signed; kg/m3; m2",
+      "method": "Request signed broadside force and vertical-velocity observations with registered orientation, area, density and uncertainty across both vertical directions.",
+      "missing_comparison_or_applicability": "Broadside coefficient is unverified; upward-positive velocity fixes sign convention, and applying a positive-only magnitude loses the required signed owner.",
+      "prospective_evidence_id": "Q2:verticalDragT",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "surplusT",
+      "requirement_or_owner": "Buoyancy minus onboard weight: ledger foundation, not another hold-down owner",
+      "existing_model_reference": "sim/physics.js ledger; sim/power.js drawAt surplusT/massT",
+      "units": "N; kg; m3; kg/m3; m MSL",
+      "method": "Request actual displaced volume, complete dry/water/nitrogen inventory and pressure/temperature/altitude basis; compare on the same article and inclusion list.",
+      "missing_comparison_or_applicability": "Local-atmosphere and dry-allowance assumptions do not establish a physical hull. Buoyancy is already in surplus and must not be counted twice.",
+      "prospective_evidence_id": "Q2:surplusT",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "horizontal-drag",
+      "requirement_or_owner": "Horizontal force and propulsion price: outside the vertical owner sum",
+      "existing_model_reference": "sim/power.js drawAt zeroLiftDragN/inducedDragN/draw.prop",
+      "units": "N; W; m/s; kg/m3",
+      "method": "Request matched frontal and induced drag with propulsive electrical input, geometry and airspeed/density/attitude records; include the same aerodynamic downforce state.",
+      "missing_comparison_or_applicability": "Hull drag and propulsion efficiency remain assumed; drag electrical load consumes bus headroom but is not an additional vertical support credit.",
+      "prospective_evidence_id": "Q2:horizontal-drag",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    }
+  ],
+  "existing_computational_rules": [
+    {
+      "source": "sim/power.js",
+      "constant": "FORCE_TOL",
+      "value": "1e-6",
+      "expression": "Math.abs(unheldT) <= FORCE_TOL * Math.max(1, Math.abs(surplusT))",
+      "scope": "Existing model residual rule only; not physical acceptance"
+    },
+    {
+      "source": "sim/power.js",
+      "expression": "drawMW <= busMW + 1e-9",
+      "scope": "Existing numerical bus closure rule in MW; not physical acceptance"
+    }
+  ]
+}
