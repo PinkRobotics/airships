@@ -1,0 +1,125 @@
+{
+  "schema": "robotics.question-evidence-thread/1",
+  "unit": "robotics-q0-sizing-evidence-thread-1010",
+  "date": "2026-10-10",
+  "question": 0,
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/1",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "research/program/OPEN-QUESTION-ISSUES.md",
+      "bytes": 6508,
+      "sha256": "6c7405322a0efe8491214511a2b6023194784853e954db0f53d9a7054989a73f"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "sim/config.js",
+      "bytes": 21885,
+      "sha256": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e"
+    },
+    {
+      "path": "sim/physics.js",
+      "bytes": 3553,
+      "sha256": "b03760ee25367aa2780aae63bb351552ad8c77ab2dc54fcc2c6bf164a7136931"
+    },
+    {
+      "path": "research/analysis/loaded-atmosphere.json",
+      "bytes": 1808,
+      "sha256": "d312ca1fa3bb967405b488574b60761bb3cc9b03d2d152d4a1b324bd873bc0f0"
+    },
+    {
+      "path": "research/analysis/mass-budget.json",
+      "bytes": 101295,
+      "sha256": "e0e9bfbe06fbabc5056c39fdb0a801d58272faa12b1b69ed9802d4eff2b63c66"
+    }
+  ],
+  "entries": [
+    {
+      "id": "loaded-recovery",
+      "requirement_or_owner": "Rise with full payload without rotor or battery authority",
+      "existing_model_reference": "CLASSES.payloadT/dispM3; ledger local density and dry allowance; loaded-atmosphere classes",
+      "units": "kg; m3; kg/m3; Pa; K; altitude m MSL",
+      "method": "Trace actual article mass/displacement and a pressure-temperature-altitude envelope with calibration; compare to the existing loaded-atmosphere record at its named reference, without treating reference offsets as weather.",
+      "missing_comparison_or_applicability": "Actual dry allowance, displacement and weather envelope are unmeasured; historical resize and model capacity tests are not aircraft evidence.",
+      "prospective_evidence_id": "Q0:loaded-recovery",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "solar-recharge",
+      "requirement_or_owner": "Recharge on solar alone after complete rotor failure and a flat battery",
+      "existing_model_reference": "CFG.solarWPerM2; CLASSES.solarM2/battMWh; current recovery question #9",
+      "units": "W/m2; m2 projected; W; Wh; s",
+      "method": "Request time-resolved projected-area output and hotel/cold-maintenance load records, battery charge acceptance and usable stored-energy state over the proposed day/night interval.",
+      "missing_comparison_or_applicability": "Day-average and lossless energy quotients cannot establish instantaneous plant operation or a worst-case recovery time.",
+      "prospective_evidence_id": "Q0:solar-recharge",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "nitrogen-production",
+      "requirement_or_owner": "Accumulate sufficient nitrogen with no rotor authority",
+      "existing_model_reference": "CFG.eLN2; CLASSES.cryoMW; recovery question #10; question #6 machinery duty limits",
+      "units": "kg; kg/s; Wh/kg; W; K; Pa; s",
+      "method": "Request matched plant startup/cold-readiness, flow and energy records with heat-exchanger/support requirements and synchronized bus availability.",
+      "missing_comparison_or_applicability": "Plant ratings and ideal specific energy omit startup, losses and operating compatibility; no production observation supplied.",
+      "prospective_evidence_id": "Q0:nitrogen-production",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "retention",
+      "requirement_or_owner": "Retain accumulated ballast throughout the recovery interval",
+      "existing_model_reference": "CLASSES.ln2CapT; question #9 storage-loss discussion; question #0 distinction between capacity and production",
+      "units": "kg; kg/s; K; Pa; s",
+      "method": "Request calibrated tank inventory, thermal/pressure history and loss accounting over the same production interval, including cold readiness and containment state.",
+      "missing_comparison_or_applicability": "Tank geometric capacity does not establish accumulation or retention; no loss criterion or retention trajectory supplied here.",
+      "prospective_evidence_id": "Q0:retention",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "ground-landing",
+      "requirement_or_owner": "Descend empty and land on ballast alone",
+      "existing_model_reference": "TERRAIN_MSL; WORK_ALT_MSL; CLASSES.ln2CapT; ledger surplus; historical #0 corrected sizing",
+      "units": "m MSL; kg/m3; kg; m3",
+      "method": "Request the actual landing elevation and atmosphere, complete empty mass and retained-ballast records along descent; retain ground versus ceiling basis separately.",
+      "missing_comparison_or_applicability": "A ballast record that starts descent at working altitude does not settle arrival at denser ground air; terrain outside the configured reference changes applicability.",
+      "prospective_evidence_id": "Q0:ground-landing",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "architecture-mass",
+      "requirement_or_owner": "Resolve the buildable structural and equipment basis used by sizing",
+      "existing_model_reference": "Verification plan critical path and E1; mass-budget evidence; current raft/membrane qualification",
+      "units": "kg; m3 enclosed; packing fraction 1; kg/m3",
+      "method": "Request an itemized article mass with skin, joints, seals, support and plant inclusions; document architecture and enclosed-volume/packing basis before applying an older sealed-cell budget.",
+      "missing_comparison_or_applicability": "Published literature comparisons and assumed dry allowance have different inclusions; neither validates a drawn hull or current architecture.",
+      "prospective_evidence_id": "Q0:architecture-mass",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    }
+  ]
+}
