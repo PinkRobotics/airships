@@ -9,7 +9,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "57e95da3aed68c74",
-      "line": 53,
+      "line": 88,
       "class": "history",
       "date": "2026-10-01",
       "reason": "Dated account of earlier analysis and test changes; current energy records supersede its performance claims."
@@ -17,7 +17,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "02902362ee1e3903",
-      "line": 94,
+      "line": 129,
       "class": "history",
       "date": "2026-10-03",
       "reason": "Dated account of corrected defects and test changes; tools/gen_test_status.py generates the current marker count. Historical flight claims remain superseded by the force-ledger records."
@@ -25,7 +25,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "19e97d488d9325dd",
-      "line": 143,
+      "line": 180,
       "class": "history",
       "reason": "The August recovery requirement explains the nitrogen capacity assumption for the resized simulation.",
       "text": "That fourth step is the demanding one, because it sizes the cryogenic plant and the nitrogen tankage: the LN₂ aboard must be able to exceed the *empty* hull's surplus buoyancy at altitude. With the hull already grown for fail-safe float-up when full, that is roughly a payload's worth of nitrogen.",
@@ -34,7 +34,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "972278da6fb5b399",
-      "line": 150,
+      "line": 187,
       "class": "history",
       "reason": "Explicit DONE 2026-08-09 introduction preserves the originally planned recovery basis.",
       "text": "**DONE 2026-08-09.** Built, with one correction to the sizing table below. What was planned, at ρ = 0.96 kg/m³ (about 2,500 m MSL: 1,500 m over a 1,000 m plateau), a 5% float-up margin when fully loaded, and the model's own `eLN2` = 0.45 kWh/kg:",
@@ -43,7 +43,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "227479dce08dd83b",
-      "line": 160,
+      "line": 197,
       "class": "history",
       "reason": "The August correction retains the abandoned ceiling-ballast requirement and the ground-altitude replacement.",
       "text": "**The correction: that ballast column sizes the wrong end of the descent.** 110 t is the empty hull's surplus buoyancy *at 2,500 m*, which is enough to make a dead ship start sinking and not enough to land it. The air thickens as it falls. A P-100 carrying 110 t of nitrogen reaches neutral buoyancy again at about 2,065 m MSL and hangs there for ever. The binding altitude is the BOTTOM of the descent, where the hull is most buoyant: at `TERRAIN_MSL` = 1,000 m the air is 1.1116 kg/m³, 16% denser than at the ceiling, and the empty surplus is 144.6 t per 100 t of payload — 31% more ballast than the table asks for. Step 4 of the requirement says \"land\", so the tanks are sized to land.",
@@ -52,7 +52,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "82944a2b1bf47932",
-      "line": 178,
+      "line": 215,
       "class": "history",
       "reason": "The dated resize account retains its old spheroid dimensions and allowance-based margin.",
       "text": "Lengths and diameters follow: 177 × 44 → **190 × 47 m**, 380 × 95 → **404 × 102 m**, 820 × 205 → **876 × 219 m**, all at fineness 4. The float-up margin is 5.25% and is identical for all three classes, because dry mass is set equal to payload for all three. No class needed the rotor-lift exception #1 allows, and none was granted one.",
@@ -61,7 +61,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "aa10352273c0be0b",
-      "line": 214,
+      "line": 251,
       "class": "history",
       "reason": "The dated altitude-fix account describes simulated force samples under dry mass equal to payload.",
       "text": "The hulls are resized to satisfy fail-safe float-up: see the table in #0. Every class is 5.25% buoyant fully loaded at 2,500 m, and the loaded break-even moved from 1,005 m MSL — below the drop run — to 3,000 m MSL, 500 m above the ceiling. Sampling a whole cycle at seed 7, the minimum net force on the three classes is +10.5 t, +105.1 t and +1,231.1 t: the sign never reverses, so the page's claim that the rotors only ever push down is now true as computed rather than true as asserted.",
@@ -70,7 +70,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "5bb006f890c3aa94",
-      "line": 241,
+      "line": 278,
       "class": "history",
       "reason": "The dated altitude-fix account records a drag-density issue explicitly deferred to the power-model question.",
       "text": "**What did not move, and should have.** `CFG.rhoAir` is still a flat 1.10 kg/m³ for drag and every rotor calculation — ISA at about 1,107 m, against a working altitude of 2,500 m. Drag is therefore overstated by 15% and induced power understated by 7%. That is deliberately left to #2, whose whole subject is the power model, because fixing it here would have confounded a ledger change with a power change; it is pinned by a test so it cannot be forgotten. The page copy in `app/worked.js` called the printed ledger a \"sea-level ledger\" while printing the 2,500 m figures under it; it now names the altitude it actually used.",
@@ -79,7 +79,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "9be770f50ee9cb26",
-      "line": 255,
+      "line": 292,
       "class": "history",
       "reason": "This is the explicitly unedited original write-up below the August altitude-fix record.",
       "text": "`ledger()` in `sim/physics.js` computes displacement lift at `rhoSL` = 1.225 kg/m³. The ships cruise at `ALT.cruise` = 1500 m above ground, over an interior plateau that is itself around 1000 m, and every aerodynamic term in the same file already uses `rhoAir` = 1.10.",
@@ -88,7 +88,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "325223e6ccecbc6d",
-      "line": 259,
+      "line": 296,
       "class": "history",
       "reason": "The original write-up preserves the pre-fix dry allowance and its adverse altitude comparison.",
       "text": "Structure allowance equals payload for all three classes, so a loaded ship weighs exactly twice its payload, and break-even air density is **1.1111 kg/m³ for every class** — ISA density at about 1,005 m. The model's own `rhoAir` is below that. At their working altitude the classes are **2 t, 20 t and 200 t heavy**, not buoyant.",
@@ -97,7 +97,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "38735379fcc2096b",
-      "line": 264,
+      "line": 301,
       "class": "history",
       "reason": "The original write-up preserves the pre-fix force reversal that motivated altitude-aware lift.",
       "text": "This matters more than a 1% error, because the sign is load-bearing elsewhere. The page states, and the 3D model animates, that the hull is buoyant at every point in the cycle and that the rotors therefore only ever push down. Computed honestly, a full P-10000 is +406 t over the lake, −860 t on the drop run, and −2,209 t at the ceiling it climbs to: the net force reverses **inside a single cycle**.",
@@ -106,7 +106,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "10ed4082bb6887e8",
-      "line": 272,
+      "line": 309,
       "class": "history",
       "reason": "The historical options table belongs to the explicitly unedited August altitude decision.",
       "text": "| | Effect | |---|---| | a. Make `ledger` altitude-aware and accept the consequences | Honest, and cheap to implement — one ISA function and one argument. The ships become heavy at altitude, the \"rotors only push down\" story inverts, and the energy budget worsens because rotors must now hold weight up during cruise. | | b. Grow the hull | Displacement +12.4% restores buoyancy at 2,180 m MSL — the ceiling a 15 km P-10000 mission actually reaches over a 1,000 m plateau. (+5.0% would do it at 1,500 m MSL, +16.1% at the nominal 1,500 m AGL.) Every published size grows; the P-10000 goes from 820 m to about 853 m; the vacuum-shell areal density target gets harder, which is already the hardest number in the project. | | c. Cut the structure allowance | The dry allowance is a bet, not a measurement. Reducing it makes the vehicle buoyant on paper by making the hardest unsolved problem harder. | | d. Fly lower | Does not work, and the arithmetic says so plainly: loaded break-even is 1,005 m MSL, so over a 1,000 m plateau the hull is buoyant only below about 5 m above ground. At 900 m AGL it is 1,700 t heavy. There is no cruise altitude that rescues this option. |",
@@ -115,7 +115,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "109fff290356d157",
-      "line": 282,
+      "line": 319,
       "class": "history",
       "reason": "The original August decision states a fail-safe requirement, not evidence that a physical hull meets it.",
       "text": "The requirement is FAIL-SAFE FLOAT-UP: the hull must be positively buoyant at its working altitude *while fully loaded with water and unable to drop it*. A ship that cannot shed its payload must still rise, not sink. That is a safety property, not a performance one, and it sets the displacement.",
@@ -124,7 +124,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "e3f9a97ecfcf7e1e",
-      "line": 293,
+      "line": 330,
       "class": "history",
       "reason": "The original decision lists the rotor-lift and lower-cruise reliefs considered for the simulated fleet.",
       "text": "* the P-10000 may rely on continual rotor lift, if the hull that would satisfy fail-safe float-up is not credible. If so, say plainly on the page that the largest class is the one that does not float when full, and what happens to it if the bus fails; * cruise may be lowered. It must still clear terrain: the Okanagan floor is already near 350 m and the fires that matter are in mountains above that, so the constraint is terrain clearance over the fire belt, not a round number of metres above ground. State the assumed terrain envelope and check the chosen cruise against it.",
@@ -133,7 +133,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "049588058926bfc0",
-      "line": 301,
+      "line": 338,
       "class": "history",
       "reason": "Explicitly superseded recommendation retained beside the August decision that replaced it.",
       "text": "**Recommendation, superseded by the decision above: (a) plus (b).** (d) is not available at all. Compute density honestly at the altitude flown, then size the hull so it is buoyant there, and publish the larger displacement. Anything else leaves the site claiming a sign the arithmetic does not support. (a) alone is defensible and honest but turns the vehicle into something that needs continuous rotor lift, which is a different machine from the one described.",
@@ -142,7 +142,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "451c1bbcffc340c7",
-      "line": 689,
+      "line": 750,
       "class": "method",
       "context": [],
       "reason": "Describes the calculation or its validation limits without claiming a measured floating design."
@@ -150,14 +150,14 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "d4d29ca48b0214e1",
-      "line": 705,
+      "line": 768,
       "class": "question",
       "reason": "Asks what evidence justifies a different hull and its loss of the assumed fail-safe behavior."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "50c2679ffc34b570",
-      "line": 582,
+      "line": 637,
       "class": "question",
       "reason": "Question 11 challenges the dry-mass-equals-payload premise; its quoted density is the fleet allowance.",
       "text": "`dryT = payloadT` is the assumption the whole ledger stands on: 10,000 t of everything-that-is-not- water inside 22 million m³, or **0.455 kg/m³** of hull-average density. Two sources contradict it independently, and neither was cited when the assumption was made:",
@@ -177,7 +177,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "6511f53819f93c35",
-      "line": 831,
+      "line": 898,
       "class": "history",
       "reason": "Explicit Reproduced 2026-10-01 atmosphere comparison retains the predeclared tolerance and observed misses.",
       "text": "**Reproduced 2026-10-01. Open.** Run `make labelledcheck` and read the density rows at 1,000 m in `research/validation/report.md`. `sim/atmosphere.js` returns 1.111642738880746 kg/m³; `research/analysis/vacuum-cell.py` and `research/analysis/helium.py` both return 1.111652281952491 kg/m³; Table I of the 1976 standard prints 1.1116. With the tolerance written before the first run (0.00005 kg/m³) the browser model agrees, and the two Python copies MISS by about 0.0000023 kg/m³ beyond it.",
@@ -186,7 +186,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "8809f572007736b2",
-      "line": 862,
+      "line": 931,
       "class": "question",
       "reason": "The heading identifies the unresolved scale claim examined in question 20.",
       "text": "## 20. \"Scale is the lever\" is not what the model says across ship sizes"
@@ -194,7 +194,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "ac6e0f0ae29829ac",
-      "line": 864,
+      "line": 935,
       "class": "bound",
       "reason": "The scale question compares the nominal bench density with the two as-drawn 52 m hull bases, without claiming a floating design.",
       "text": "**Reproduced 2026-10-01. Open: what does scale buy, and where does it stop?** The bench article carries 15.1 kg of structure per cubic metre enclosed. The 52 m hull carries 2.190 on the record basis and 1.245 on the favourable basis; neither is a floating design. The [float ledger](FLOAT-LEDGER.md) separates those objects and their load cases.",
@@ -230,7 +230,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "50f7e22f7a372801",
-      "line": 874,
+      "line": 945,
       "class": "question",
       "reason": "Question 20 names the adverse sampled size trend; the following table binds the actual ratios.",
       "text": "Across sampled ship sizes the record-basis lift-to-mass ratio falls as diameter grows. Each table cell gives sea level / 2,500 m for the same hull and mass, sized by `ship0()`:"
@@ -238,7 +238,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "273f803aca799468",
-      "line": 877,
+      "line": 948,
       "class": "bound",
       "reason": "Each cell pairs sea-level and working-altitude ratios for one sampled hull; the record curve falls as diameter increases.",
       "text": "| Lift-to-mass ratio: sea level / 2,500 m | 40 m | 44 m | 48 m | 52 m | 56 m | 60 m | 68 m | 80 m | |---|---:|---:|---:|---:|---:|---:|---:|---:| | record | 0.585 / 0.457 | 0.582 / 0.454 | 0.577 / 0.451 | 0.558 / 0.436 | 0.543 / 0.424 | 0.532 / 0.416 | 0.508 / 0.397 | 0.455 / 0.356 | | favourable | 0.956 / 0.747 | 0.987 / 0.771 | 0.953 / 0.744 | 0.981 / 0.766 | 0.969 / 0.757 | 0.969 / 0.757 | 0.957 / 0.748 | 0.916 / 0.715 |",
@@ -419,7 +419,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "dc5dc9d77501a043",
-      "line": 882,
+      "line": 953,
       "class": "bound",
       "reason": "The cap-range paragraph retains both disagreement directions and the negative result across all five readings at both altitudes.",
       "text": "No sampled hull floats as drawn on either basis at either altitude. For the 52 m hull, the bill and drawing disagree in the end caps in both directions. Across five readings, favourable lift-to-mass ratios span 0.751 to 0.998 at sea level and 0.586 to 0.780 at 2,500 m. No reading reaches 1; none is a checked design.",
@@ -468,7 +468,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "908cf9ea0288cb51",
-      "line": 887,
+      "line": 958,
       "class": "bound",
       "reason": "The census count measures recorded disagreements, not the number of accepted structural details.",
       "text": "The [member census](MEMBER-CENSUS.md) records 20 drawing/bill disagreements behind these float comparisons.",
@@ -484,7 +484,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "3b6ef536acbf4412",
-      "line": 889,
+      "line": 960,
       "class": "question",
       "reason": "Question 20 asks that the engineering copy distinguish bench-to-ship improvement from the adverse size trend.",
       "text": "The page keeps its sentence until the float ledger generates this table from the model. The rewrite then says what scale buys, which is the step from a bench cell to a ship, and where it stops."
@@ -492,7 +492,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "1a079f3dbac6840b",
-      "line": 920,
+      "line": 991,
       "class": "question",
       "reason": "The laminate question quotes the recorded conditional modulus sensitivity, not measured tube properties.",
       "text": "What measured axial, hoop and shear properties, layup, coupling terms and compression allowables should describe the discrete tubes? The code’s co-critical effective-modulus factor is 0.569876764239; the stated fibre-only 75/25 fixed-tube idealisation gives 0.433012701892. Their local-capacity ratio is 1.316074013. The executed sensitivity also uses consistent axial and global moduli under that same idealisation. **This is conditional arithmetic, not measured laminate data or a corrected prediction.**",
@@ -517,7 +517,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "2b37d5e17763acd8",
-      "line": 926,
+      "line": 997,
       "class": "question",
       "reason": "The table supports the laminate question with original hull cases and explicitly conditional sensitivities on both altitude bases.",
       "text": "| Basis | Original mass t | Conditional mass t | Original sea-level / 2,500 m ratios | Conditional sea-level / 2,500 m ratios | | --- | ---: | ---: | --- | --- | | record | 403.101266 | 504.389381 | 0.558 / 0.436 | 0.446 / 0.348 | | favourable | 229.161609 | 266.800490 | 0.981 / 0.766 | 0.843 / 0.658 |",
@@ -591,7 +591,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "0cf1108de6da1d28",
-      "line": 953,
+      "line": 1024,
       "class": "question",
       "reason": "The breach question explicitly identifies two hand figures without a generator and asks for their load case and derivation.",
       "text": "What calculation, load case and material basis support the physics note’s 0.162 kg/m³ tension and 3.59 kg/m³ compression figures? They are hand figures without a generator. What would make that breach comparison reproducible and applicable to the proposed cellular architecture?"
@@ -599,7 +599,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "d44099141ec8ad7e",
-      "line": 959,
+      "line": 1030,
       "class": "question",
       "reason": "The no-sag sensitivity asks how membrane geometry changes the lift basis; both altitude results come from the cap-reading generator.",
       "bindings": [
@@ -620,7 +620,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "6d8128a737fea19e",
-      "line": 971,
+      "line": 1042,
       "class": "question",
       "reason": "The retired-skin question names the removed mass and both residual deficits from the generated sensitivity; it changes no baseline bill.",
       "bindings": [
@@ -648,7 +648,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "59e21a0736612fe0",
-      "line": 976,
+      "line": 1047,
       "class": "question",
       "reason": "The reserve question names the area-step inputs of shipSkeleton solve and asks for station-aware checks; these are solver settings, not demonstrated optimal sections.",
       "text": "What station-aware stiffness and connection checks should replace the reserve solver’s greedy area steps of 0.0004, 0.00004, 0.0002 and 0.0000002 m² before their mass enters a float comparison?",
@@ -663,7 +663,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "bb6cc827b1deb10a",
-      "line": 980,
+      "line": 1051,
       "class": "question",
       "reason": "The outfit question quotes counted drawing pieces and asks for measured mass; geometry counts do not establish equipment weight.",
       "text": "What measured mass belongs to the outfit’s 622 solar pieces, 6 pods and 12 module pieces, and to the remaining equipment named in the census but absent from the bare-hull float comparison?",
@@ -688,7 +688,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "be687b5d36b9c728",
-      "line": 1103,
+      "line": 1174,
       "class": "history",
       "reason": "Archived README passage retains the dated altitude fix and the old spheroid resize.",
       "text": "**1. Sea-level lift, 1,500 m cruise — FIXED 2026-08-09.** `ledger()` in `sim/physics.js` computed displacement lift at `CFG.rhoSL` = 1.225 kg/m³ and used it at every altitude, while the ships cruise 1,500 m above a plateau that is itself around 1,000 m up. Loaded break-even was 1.111 kg/m³, ISA at 1,005 m, so a full P-10000 was 860 t heavy on its drop run and 2,209 t heavy at its ceiling — the sign of the net force reversed inside one cycle, against a page that says the rotors only ever push down. `sim/atmosphere.js` now computes ISA density against altitude; `ledger()` takes an altitude in metres MSL and throws without one; and the hulls were resized to a stricter requirement than the defect asked for — FAIL-SAFE FLOAT-UP, buoyant at the working altitude while fully loaded with water it cannot drop. Displacement grew 22.2% to 220,000 / 2.2M / 22M m³, the P-10000 from 820 to 876 m, and the margin is +5.25% on all three classes. Cruise drag rose 14%.",
@@ -697,7 +697,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "19fc84d28edb2be6",
-      "line": 1114,
+      "line": 1185,
       "class": "deferred",
       "reason": "The archived correction states a ten-percent delivered-payload penalty.",
       "owner": "energy-model"
@@ -705,7 +705,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "7b9e6533e4e8bc2f",
-      "line": 1121,
+      "line": 1192,
       "class": "deferred",
       "reason": "The archived anchor narrative asserts descent closure and a water-lift energy cost.",
       "owner": "energy-model"
@@ -713,7 +713,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "026488ef569a0383",
-      "line": 1145,
+      "line": 1216,
       "class": "history",
       "reason": "Archived README passage records the abandoned long-hose concept and the uncharged cable mass.",
       "text": "An earlier attempt gave the big hulls 1,350 m hoses so they could fill from altitude and never meet the dense air; that worked, and cost 29 MWh a cycle in pump work against a 2 m bore and 140 bar at the pod. A cable is a much better thing to hang than a pipe: 12,400 t is 122 MN, which is about 440 mm of UHMWPE massing 125 t — and that rope is **not** charged as dry mass anywhere yet.",
@@ -722,7 +722,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "c6cf4e54ada4c531",
-      "line": 1172,
+      "line": 1243,
       "class": "deferred",
       "reason": "The archived list combines retained-payload closure, nitrogen recovery and missing generator energy.",
       "owner": "energy-model"
@@ -730,7 +730,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "ea87166379a0f9d0",
-      "line": 1192,
+      "line": 1263,
       "class": "history",
       "reason": "Archived README decision summary retains its historical implementation status.",
       "text": "All six are decided and none is implemented yet. The decisions matter as much as the defects, because two of them are choices about what the vehicle is rather than corrections to arithmetic — the hull is to be sized for fail-safe float-up when fully loaded, and the nitrogen plant, the ballast doctrine and the generators all stay and must be made to bind. The reasoning, the options that were rejected and the order the fixes have to happen in are in [docs/OPEN-QUESTIONS.md](OPEN-QUESTIONS.md).",
@@ -739,7 +739,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "c7192195428cb65a",
-      "line": 1205,
+      "line": 1276,
       "class": "deferred",
       "reason": "The archived falsification list mixes mass assumptions with energy and delivery results; its one inventory block cannot be split by class.",
       "owner": "energy-model"
@@ -747,35 +747,35 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "60631bfe38aa0824",
-      "line": 1242,
+      "line": 1313,
       "class": "question",
       "reason": "The energy-model item requires reconciled cycle outputs before the performance claims receive new dispositions."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "b740c3ed3bd8a5c7",
-      "line": 1244,
+      "line": 1315,
       "class": "question",
       "reason": "The statistics command and generated list expose the current owner counts and reasons without a hand-maintained total."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "2a3ddccc9ef6d50c",
-      "line": 1249,
+      "line": 1320,
       "class": "question",
       "reason": "The mixed-block item asks how to separate current results, historical claims and external designs without erasing their record."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "6daf49c6675a2e7e",
-      "line": 1256,
+      "line": 1327,
       "class": "question",
       "reason": "The hand-arithmetic item requires named generated calculations and freshness checks for probe-only comparisons."
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "5bb9cb6ae47a8081",
-      "line": 1263,
+      "line": 1334,
       "class": "question",
       "reason": "The source-needed item requires quantitative sources and reference states for outside aircraft and material figures."
     },
@@ -960,7 +960,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "dd021e7abaca30e6",
-      "line": 699,
+      "line": 760,
       "class": "method",
       "reason": "Defines day-average input and dry-mass accounting conventions; gives no computed floating-design result.",
       "context": [],
@@ -972,7 +972,7 @@
       "class": "method",
       "context": [],
       "reason": "Requires an altitude-specific mass bill and displacement allowance; the instruction does not assert that a hull already meets it.",
-      "line": 287
+      "line": 324
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -980,7 +980,7 @@
       "class": "deferred",
       "reason": "ISA and altitude-dependent simulated lift are flight-model arithmetic, without an exact generated-region binding for this paragraph.",
       "owner": "energy-model",
-      "line": 205
+      "line": 242
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -988,7 +988,7 @@
       "class": "deferred",
       "reason": "Resize and cycle comparisons concern the simulated energy model; this paragraph has no exact generated-region binding.",
       "owner": "energy-model",
-      "line": 229
+      "line": 266
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
@@ -1033,12 +1033,12 @@
         "end": "<!-- battery:ratios:end -->"
       },
       "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
-      "line": 602
+      "line": 657
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "51a85d6713eb374a",
-      "line": 677,
+      "line": 738,
       "class": "generated",
       "reason": "Reviewed replacement of this exact live text for Order 11f; Exact energy region is freshly regenerated and compared by energydoccheck, which make check runs; no structural float endorsement.",
       "region": {
@@ -1061,7 +1061,7 @@
         "end": "<!-- battery:ratios:end -->"
       },
       "reason": "Reviewed Order 11f: exact generated comparison from named current records; no structural float endorsement.",
-      "line": 597
+      "line": 652
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -1075,7 +1075,7 @@
         "end": "<!-- atmosphere:recovery:end -->"
       },
       "reason": "Reviewed Order 11f: exact qualified reference-atmosphere region and per-class neutral boundary are freshly recomputed by analysischeck; no structural float endorsement.",
-      "line": 130
+      "line": 167
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
@@ -1126,7 +1126,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "6703c993f518f323",
-      "line": 46,
+      "line": 81,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "Corrected complete equipment-bill closure, checked by analysischeck with shell sundries; energy-dependent inputs and constant shell density are conditional, not structural evidence."
@@ -1134,7 +1134,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "89ba023da8b1d632",
-      "line": 234,
+      "line": 271,
       "class": "deferred",
       "reason": "The cycle pointer now names its dated record; the original energy and force deferral remains. The historical correction states delivered tonnage and cycle energy from the earlier flight model.",
       "owner": "energy-model"
@@ -1151,7 +1151,7 @@
         "end": "<!-- solar:budget-reference:end -->"
       },
       "reason": "Reviewed fresh bytes from the same Order 11f producer/region; Reviewed fresh bytes from the same Order 11f producer/region; Reviewed replacement of this exact live text for Order 11f; Reviewed Order 11f: exact generated comparison from name",
-      "line": 1267
+      "line": 1338
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
@@ -1165,12 +1165,12 @@
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
       "verifier": "tools/check_energy_docs.py",
-      "line": 715
+      "line": 778
     },
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "ce6d849a4dcd8316",
-      "line": 20,
+      "line": 55,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "The water answer is scoped to geometric stations; the existing mixed energy block remains deferred. Reviewed replacement of this exact live text for Order 11f; Dated analysis summary now includes the current conditional battery-sized volume"
@@ -1178,7 +1178,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "ceba0f28a00cd2ac",
-      "line": 586,
+      "line": 641,
       "class": "question",
       "reason": "The equipment omission correction keeps the original unanswered complete-system question. Reviewed replacement of this exact live text for Order 11f; Reviewed replacement of this exact live text for Order 11f; Question 11 contrasts the assu",
       "source": "Jenett et al. 2019 Table 2; Metlen and Palazotto 2013; NASA X-57 pack"
@@ -1186,7 +1186,7 @@
     {
       "file": "docs/OPEN-QUESTIONS.md",
       "key": "e02c6d07c4a843d3",
-      "line": 403,
+      "line": 450,
       "class": "deferred",
       "owner": "energy-model",
       "reason": "The current anchor correction identifies earlier sizing and rejects achieved inventory, current closure and handling validation. Retain the unresolved physical and energy basis."
@@ -1203,7 +1203,7 @@
       "generator": "research/analysis/energy-documents.mjs",
       "gate": "energydoccheck",
       "verifier": "tools/check_energy_docs.py",
-      "line": 446
+      "line": 495
     },
     {
       "file": "docs/VERIFICATION-PLAN.md",
@@ -1298,6 +1298,40 @@
       "class": "deferred",
       "reason": "The flight-phase table asserts release rates, throughput sensitivity and cycle timing from the dated model.",
       "owner": "energy-model"
+    },
+    {
+      "file": "docs/OPEN-QUESTIONS.md",
+      "line": 9,
+      "key": "8a03d4aadc3288eb",
+      "class": "question",
+      "reason": "Current numbered question register: entry/issue numbers and dates identify tracked open questions and historical fixes; the table explicitly leaves physical validation unresolved.",
+      "context": [
+        "0",
+        "01",
+        "08",
+        "09",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "2026",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     }
   ]
 }
