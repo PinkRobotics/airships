@@ -516,3 +516,17 @@
 | Order | sha256 `275d42ae3f736387…` (informational) |
 | Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 39 — Six evidence pieces: Q15, Q4, Q10, Q13, Q18 and Q3
+
+| field | value |
+|---|---|
+| Landed | 2026-10-10 16:36:29 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `682c4b375f7d67484891df7a551d0da03cedcf11` → `24336c4673df10957b110ee822bdda7e8acb00d5`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `24336c4673df10957b110ee822bdda7e8acb00d5`, tree `956c4e53098f544e479e0cf45403e9366a049c77`, from branch `worker/nextstack-accepted38-1010`, parent `258b7442840d17213500d36993cb439dc6379ee6`, governance `gov-e8c179b6eb1c` preserved. Unit `robotics-airships-next-stack-six-1010`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 24336c467…` → rc=0, HONOURED-XO 24336c4673df10957b110ee822bdda7e8acb00d5 — the last record for this sha (store line 1193) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `111e55095` ← `gov-3df558384f65` (its trailer); `861d39d7f` ← `gov-2dc7cf864b8e` (its trailer); `cfab410ac` ← `gov-0f47cd813f7b` (its trailer); `66147f62e` ← `gov-5b2efca57fdf` (its trailer); `ebe82e879` ← `gov-9e109eafe89e` (its trailer); `258b74428` ← `gov-6d17c7fac23f` (its trailer); `24336c467` ← `gov-e8c179b6eb1c` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck ledgercheck linkcheck buildercheck readmecheck evaccheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `ac1f87866ab3a24c…` from helm (informational) |
+| Order | sha256 `c65ce5feaac6888f…` (informational) |
+| Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
