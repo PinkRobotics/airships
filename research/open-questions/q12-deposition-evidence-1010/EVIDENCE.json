@@ -1,0 +1,131 @@
+{
+  "schema": "robotics.question-evidence-thread/1",
+  "unit": "robotics-q12-water-deposition-evidence-thread-1010",
+  "date": "2026-10-10",
+  "question": 12,
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/11",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "research/program/OPEN-QUESTION-ISSUES.md",
+      "bytes": 6508,
+      "sha256": "6c7405322a0efe8491214511a2b6023194784853e954db0f53d9a7054989a73f"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "sim/config.js",
+      "bytes": 21885,
+      "sha256": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e"
+    },
+    {
+      "path": "sim/plan.js",
+      "bytes": 17722,
+      "sha256": "546dbce77d524a7f6d8f5202d1b3ff8dae135997490aad0e7e8bc09f10b7da4d"
+    },
+    {
+      "path": "research/analysis/delivery.json",
+      "bytes": 30072,
+      "sha256": "b6bc47fc8d3145250d5dc3975b52d8574d2eb79bcdfdafea1d4ce5b57f92eea9"
+    },
+    {
+      "path": "research/analysis/release-states.json",
+      "bytes": 6316,
+      "sha256": "e8162408fc77e96b83df1af6bf0bdde9b9c1faa8cf6c2337afac2de7806a2100"
+    }
+  ],
+  "entries": [
+    {
+      "id": "tank-release",
+      "requirement_or_owner": "Modelled tank delivery versus measured inventory removal",
+      "existing_model_reference": "sim/plan.js deliveredT/retainedT/dur.WATER_RELEASE; delivery.json classes",
+      "units": "kg; kg/s; s; K; Pa",
+      "method": "Request calibrated tank inventory and flow histories over a matched release interval, recording retained water, leaks and other transfers and synchronization error.",
+      "missing_comparison_or_applicability": "The model deliveredT field records tank bookkeeping, not target deposition. A different mass boundary, unsynchronized interval or uncounted transfer invalidates comparison.",
+      "prospective_evidence_id": "Q12:tank-release",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "outlet-spray",
+      "requirement_or_owner": "Actual outlet flow and droplet/source distribution",
+      "existing_model_reference": "delivery.json classes.releaseRateM3s; release-states.json acceptedMeanWaterReleaseKgS/benchmarkBasis",
+      "units": "kg/s; m3/s; drop diameter m; m/s; geometry m; s",
+      "method": "Request matched outlet discharge, droplet-size/velocity distribution, nozzle/outlet geometry and tank state with calibration and uncertainty; identify any concurrent rotor/wake observations.",
+      "missing_comparison_or_applicability": "Configured intake-capacity benchmark and tank mean are not measured outlet flow. Ideal-disc air-flow comparison does not establish a spray distribution or wake.",
+      "prospective_evidence_id": "Q12:outlet-spray",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "transport-conditions",
+      "requirement_or_owner": "Release geometry and atmospheric transport context",
+      "existing_model_reference": "ALT.drop/ALT_DROP_TOP; delivery.json atmosphere/fall/references; release-states.json dropComparison",
+      "units": "m AGL; m MSL; m/s vector; kg/m3; K; Pa; humidity fraction; s",
+      "method": "Request release position/height, terrain and vegetation reference, trajectory/time, vertical and horizontal winds, atmosphere and heat/updraft context on a registered coordinate basis.",
+      "missing_comparison_or_applicability": "Fixed-diameter, no-updraft sensitivities and stipulated uniform wind are not a deposition model. A mismatched AGL reference, varying wind, evaporation, fragmentation or plume prevents direct transfer.",
+      "prospective_evidence_id": "Q12:transport-conditions",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "target-deposition",
+      "requirement_or_owner": "Water reaching the target and its spatial pattern",
+      "existing_model_reference": "delivery.json classes.coverageLevelBySwath/lineKmAtCL; sim/plan.js geometric line predicate",
+      "units": "kg/m2; m2; position m; timestamp; s",
+      "method": "Request georeferenced calibrated collector/deposition records with target geometry, interval, sampling completeness and uncertainty; tie each sample to the same release and distinguish water elsewhere or lost in transport.",
+      "missing_comparison_or_applicability": "Geometric swath/coverage quotients and an in-perimeter line do not observe ground deposition. Incomplete sampling or a different release/target basis prevents inference from tank tonnage.",
+      "prospective_evidence_id": "Q12:target-deposition",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "fire-effect",
+      "requirement_or_owner": "Measured fire effect and ground-engagement context",
+      "existing_model_reference": "docs/OPEN-QUESTIONS.md Question 12 AFUE discussion; docs/VERIFICATION-PLAN.md operations-evaluator question",
+      "units": "declared outcome units UNKNOWN; observation interval s; location; categorical context",
+      "method": "Request a separately defined fire-effect metric, evaluation interval, fire/weather/fuel state, concurrent ground engagement and outcome provenance; retain comparison design and uncertainty without selecting a threshold.",
+      "missing_comparison_or_applicability": "Tank tonnage or deposition alone does not establish fire effect. Published literature association is not this vehicle evidence or a causal estimate; unequal fire/ground conditions invalidate transfer.",
+      "prospective_evidence_id": "Q12:fire-effect",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "provenance",
+      "requirement_or_owner": "Aligned record identities, uncertainty and complete evidence boundary",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md register/release illustration; delivery.json generated/references",
+      "units": "record identity; calibration identity; timestamp; interval s; uncertainty units per measured quantity",
+      "method": "Request article/component identities, raw records, instrument calibration, coordinate/time transformations, sampling and missing-data flags, uncertainty derivation and an explicit chain linking tank, outlet, pattern and effect.",
+      "missing_comparison_or_applicability": "A summary value without matched calibration, identities, raw data or shared time/space basis cannot bridge model bookkeeping, target delivery and operational effect.",
+      "prospective_evidence_id": "Q12:provenance",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    }
+  ]
+}
