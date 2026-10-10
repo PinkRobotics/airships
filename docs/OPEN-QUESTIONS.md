@@ -2,6 +2,41 @@
 
 Pink Robotics is developed and maintained by the PinkAI infrastructure, a crew of AI models that build, check and land the work, directed by Tyler Dwyer. See the [work log](https://pinkrobotics.ca/log/). The work log names the model behind each change it records, from 1 October 2026; earlier work predates that record.
 
+## Current numbered register — 2026-10-09
+
+The numbered register contains eighteen open or partly open entries and three closed entries. These states follow the current entry text and existing repository records; they are not new calculations or physical validation. A fixed implementation defect can leave a different physical question open under the same number. The unnumbered structures, endurance and dynamics questions below remain separate from this numbered inventory.
+
+| Entry | Current state | What remains or was closed | Tracking issue |
+|---|---|---|---|
+| [#0](#0-the-sizing-requirement-that-ties-1-4-and-6-together) | PARTLY SPECIFIED | Recovery capacity and lossless accounting are specified; production and retention remain open. | [#1](https://github.com/PinkRobotics/airships/issues/1) |
+| [#1](#1-lift-is-bought-at-sea-level-and-spent-at-altitude--fixed-2026-08-09) | CLOSED | Altitude-aware lift and the historical resize are recorded as fixed; this does not validate a vehicle. | — |
+| [#2](#2-which-measurements-would-validate-the-force-owners) | OPEN | Force-owner and rotor-thrust inputs still require validation. | [#2](https://github.com/PinkRobotics/airships/issues/2) |
+| [#3](#3-what-vertical-profile-remains-feasible-with-acceleration-included) | OPEN | Quasi-static profiles do not establish acceleration, load control or mission completion. | [#3](https://github.com/PinkRobotics/airships/issues/3) |
+| [#4](#4-how-much-delivery-can-be-retained-while-holding-the-hull) | OPEN | Retained-water requirements and operating reserve remain physical questions. | [#4](https://github.com/PinkRobotics/airships/issues/4) |
+| [#5](#5-esri-basemap-tiles--fixed-2026-10-01) | CLOSED | The Esri layer was removed in favour of bundled first-party hillshade. | — |
+| [#6](#6-what-power-can-nitrogen-recovery-actually-supply) | OPEN | Actual nitrogen-expander mass, losses, heat exchangers and transient bus limits remain unestablished. | [#5](https://github.com/PinkRobotics/airships/issues/5) |
+| [#7](#7-thirty-two-unjustified-constants-and-only-fifteen-of-them-are-dialled) | OPEN | Unjustified constants still need a source, derivation or explicit assumption; earlier audit effects are historical. | [#6](https://github.com/PinkRobotics/airships/issues/6) |
+| [#8](#8-what-rotor-area-thrust-and-storage-mass-can-be-built) | OPEN | Buildable rotor area, thrust and storage mass remain unestablished. | [#7](https://github.com/PinkRobotics/airships/issues/7) |
+| [#9](#9-how-long-can-recovery-take-through-a-real-day-and-night) | OPEN | Day-average solar quotients do not establish charging, production or storage retention. | [#8](https://github.com/PinkRobotics/airships/issues/8) |
+| [#10](#10-what-nitrogen-recovery-fraction-is-demonstrable) | OPEN | The airborne recovery fraction, plant/tank mass and duty cycle remain unestablished. | [#9](https://github.com/PinkRobotics/airships/issues/9) |
+| [#11](#11-the-dry-mass-budget-fails-twice-against-two-independent-sources) | OPEN | The dry allowance and conditional equipment budget do not establish a complete buildable hull. | [#10](https://github.com/PinkRobotics/airships/issues/10) |
+| [#12](#12-the-drop-may-not-reach-the-ground-and-tonnes-may-be-the-wrong-metric) | OPEN | Water deposition and fire effectiveness remain distinct from modelled tank delivery. | [#11](https://github.com/PinkRobotics/airships/issues/11) |
+| [#13](#13-water-geometry-is-measured-operational-availability-remains-open) | OPEN | Mapped water geometry does not establish depth, access, permission or usable drafting availability. | [#12](https://github.com/PinkRobotics/airships/issues/12) |
+| [#14](#14-can-the-bag-be-picked-up-and-released-at-this-scale) | OPEN | Pickup loads, cable/winch dynamics, pendulum control and station-keeping remain unpriced or unverified. | [#13](https://github.com/PinkRobotics/airships/issues/13) |
+| [#15](#15-which-empty-hull-strategy-survives-its-failure-case) | OPEN | The empty-hull alternatives remain conditional analyses with unresolved failure-case support. | [#14](https://github.com/PinkRobotics/airships/issues/14) |
+| [#16](#16-nine-constants-cross-the-sim3d-boundary-unchecked-and-two-are-already-wrong--partly-fixed-2026-10-01) | PARTLY FIXED | Checked constants and station-count semantics are recorded; public count wording and standalone/host scope distinctions remain. | [#15](https://github.com/PinkRobotics/airships/issues/15) |
+| [#17](#17-windused-requires-a-route-bearing) | CLOSED | The route-bearing wind flag correction and ordinary test are recorded as closed. | — |
+| [#18](#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit) | OPEN | The declared atmosphere constant and altitude-contract disagreement remains in the recorded comparison. | [#16](https://github.com/PinkRobotics/airships/issues/16) |
+| [#19](#19-six-of-the-model-labs-failure-buttons-change-only-the-drawing) | OPEN | The six non-rotor failure controls still have a drawing-versus-physics scope question. | [#17](https://github.com/PinkRobotics/airships/issues/17) |
+| [#20](#20-scale-is-the-lever-is-not-what-the-model-says-across-ship-sizes) | OPEN | Scale comparisons and drawing/bill disagreements do not establish a floating design. | [#18](https://github.com/PinkRobotics/airships/issues/18) |
+
+The old “seventeen things”, “two already fixed” and “#5 is still open” framing below is retained as historical text, not the current register. In particular, #5 is closed and #17 is closed; #0 is only partly specified, and #2, #3 and #6 now ask physical questions beyond their earlier arithmetic fixes. Generated sections and their numerical operands are preserved.
+
+The [issue-preparation record](../research/program/OPEN-QUESTION-ISSUES.md) distinguishes this local inventory from remote issue status. Engineering’s filing receipt records the eighteen existing `physics` issues linked above. The earlier zero-issue/default-label inventory was a pre-filing snapshot. This documentation worker created no issues or labels and does not file the same questions again. The links track unresolved questions; filing is not evidence that a question is resolved.
+
+
+## Dated corrections and historical introduction
+
 > **Energy correction, 2026-10-02.** Current force, energy and delivery questions below use generated records.
 > The [closure document](ENERGY-CLOSURE-2026-10.md) retains earlier figures beside both current bases.
 > Arithmetic corrections do not certify flight. The profile search states its finite limits and prints cycle minutes.
@@ -119,6 +154,8 @@ At the accepted median-leg rate, the conditional CL 4 line-length quotient is 93
 <!-- logistics:line-summary:end -->
 
 ## 0. The sizing requirement that ties #1, #4 and #6 together
+
+Tracking issue: [#1](https://github.com/PinkRobotics/airships/issues/1).
 
 **DECIDED 2026-08-09.** Added before the individual defects because it constrains three of
 them at once, and because it is the requirement that makes ballast a structural part of the
@@ -307,6 +344,8 @@ different machine from the one described.
 
 ---
 
+Tracking issue for [#2](#2-which-measurements-would-validate-the-force-owners): [#2](https://github.com/PinkRobotics/airships/issues/2).
+
 <!-- energy:question-2:start -->
 ## 2. Which measurements would validate the force owners?
 
@@ -318,6 +357,8 @@ Can an aerospace engineer establish attainable hull downforce and drag across th
 | P1000 | 785.857 | 156.061 |
 | P10000 | 7551.654 | 1411.659 |
 <!-- energy:question-2:end -->
+
+Tracking issue for [#3](#3-what-vertical-profile-remains-feasible-with-acceleration-included): [#3](https://github.com/PinkRobotics/airships/issues/3).
 
 <!-- energy:question-3:start -->
 ## 3. What vertical profile remains feasible with acceleration included?
@@ -331,6 +372,8 @@ No full-payload profile meets the control reserve target in this stated search.
 | Class | km | Basis | Full-payload mode | Delivered t | Minutes | MWh | kWh/t | Profile note |
 |---|---|---|---|---|---|---|---|---|
 <!-- energy:question-3:end -->
+
+Tracking issue for [#4](#4-how-much-delivery-can-be-retained-while-holding-the-hull): [#4](https://github.com/PinkRobotics/airships/issues/4).
 
 <!-- energy:question-4:start -->
 ## 4. How much delivery can be retained while holding the hull?
@@ -380,6 +423,8 @@ missing agency mirrors fall back only to the dated files in this repository.
 
 ---
 
+Tracking issue for [#6](#6-what-power-can-nitrogen-recovery-actually-supply): [#5](https://github.com/PinkRobotics/airships/issues/5).
+
 <!-- energy:question-6:start -->
 ## 6. What power can nitrogen recovery actually supply?
 
@@ -399,6 +444,8 @@ Can the nitrogen expander supply the modelled phase output after its mass, heat 
 <!-- energy:question-6:end -->
 
 ## 7. Thirty-two unjustified constants, and only fifteen of them are dialled
+
+Tracking issue: [#6](https://github.com/PinkRobotics/airships/issues/6).
 
 **Current anchor correction:** the audit measurements below use an earlier sizing model.
 They do not establish achieved inventory or current cycle closure. The present bag sizes
@@ -431,6 +478,8 @@ a stated reason, or a derivation, or an admission that it is a guess — and `re
 is the list to work through.
 
 ---
+
+Tracking issue for [#8](#8-what-rotor-area-thrust-and-storage-mass-can-be-built): [#7](https://github.com/PinkRobotics/airships/issues/7).
 
 <!-- energy:question-8:start -->
 ## 8. What rotor area, thrust and storage mass can be built?
@@ -532,6 +581,8 @@ Rotor energy and power figures are conditional on a constant hover merit times d
 | P10000 | 60 | favourable | 0.7 | 7254.655 to 7551.654 | 6250.297 | does not close |  |
 <!-- energy:question-8:end -->
 
+Tracking issue for [#9](#9-how-long-can-recovery-take-through-a-real-day-and-night): [#8](https://github.com/PinkRobotics/airships/issues/8).
+
 <!-- energy:question-9:start -->
 ## 9. How long can recovery take through a real day and night?
 
@@ -569,6 +620,8 @@ Ground TMS tank comparator: 0.900%/day; [published source](https://files.chartin
 | P10000 | Ground DAGT tank comparator | 0.240 | 41.496 | 348.374 | 15500.000 | 242.239 |
 <!-- energy:question-9:end -->
 
+Tracking issue for [#10](#10-what-nitrogen-recovery-fraction-is-demonstrable): [#9](https://github.com/PinkRobotics/airships/issues/9).
+
 <!-- energy:question-10:start -->
 ## 10. What nitrogen recovery fraction is demonstrable?
 
@@ -578,6 +631,8 @@ Which plant and tank masses belong in the dry ledger, and what duty cycle can th
 <!-- energy:question-10:end -->
 
 ## 11. The dry-mass budget fails twice, against two independent sources
+
+Tracking issue: [#10](https://github.com/PinkRobotics/airships/issues/10).
 
 `dryT = payloadT` is the assumption the whole ledger stands on: 10,000 t of everything-that-is-not-
 water inside 22 million m³, or **0.455 kg/m³** of hull-average density. Two sources contradict it
@@ -620,6 +675,8 @@ conditional on a structural technology that has been demonstrated at the scale o
 
 ## 12. The drop may not reach the ground, and tonnes may be the wrong metric
 
+Tracking issue: [#11](https://github.com/PinkRobotics/airships/issues/11).
+
 Two findings from the wildfire-aviation literature, both aimed at the top of the funnel:
 
 - The **US Forest Service's 2022 assessment** states that a drop released 1,000 ft above
@@ -639,6 +696,8 @@ reader from the fire community will raise them in the first five minutes. They b
 ---
 
 ## 13. Water geometry is measured; operational availability remains open
+
+Tracking issue: [#12](https://github.com/PinkRobotics/airships/issues/12).
 
 The whole concept is a duty cycle between a fire and a lake. `sim/plan.js` takes the one-way
 distance as an input and `sim/water.js` applies a size-weighted choice among reachable generated drafting stations, but **no figure anywhere
@@ -662,6 +721,8 @@ are not established by that spatial join.
 
 
 ---
+
+Tracking issue for [#14](#14-can-the-bag-be-picked-up-and-released-at-this-scale): [#13](https://github.com/PinkRobotics/airships/issues/13).
 
 <!-- energy:question-14:start -->
 ## 14. Can the bag be picked up and released at this scale?
@@ -698,6 +759,8 @@ The bag is a moving pendulum; its ideal small-angle period is shown, but swing, 
 
 Solar is credited at its day average at every instant, including night. Dry mass is a target equal to payload, not an assembled mass ledger; see [the float analysis](../float/).
 <!-- energy:question-14:end -->
+
+Tracking issue for [#15](#15-which-empty-hull-strategy-survives-its-failure-case): [#14](https://github.com/PinkRobotics/airships/issues/14).
 
 <!-- energy:question-15:start -->
 ## 15. Which empty-hull strategy survives its failure case?
@@ -767,6 +830,8 @@ The cheapest feasible profiles found in the stated space, including their minute
 
 ## 16. Nine constants cross the sim/3d boundary unchecked, and two are already wrong — PARTLY FIXED 2026-10-01
 
+Tracking issue: [#15](https://github.com/PinkRobotics/airships/issues/15).
+
 **PARTLY FIXED — 2026-10-01.** The model remains authoritative. The import rule in
 `tools/check_boundaries.py` keeps `3d/` standalone, so its model constants live in
 `3d/model/config.js` as declared, checked copies; the animation and physics import that file.
@@ -828,6 +893,8 @@ The test failed on that implementation and passes after the flag correction.
 
 ## 18. Three atmosphere implementations that do not agree to the last digit
 
+Tracking issue: [#16](https://github.com/PinkRobotics/airships/issues/16).
+
 **Reproduced 2026-10-01. Open.** Run `make labelledcheck` and read the density rows at 1,000 m in
 `research/validation/report.md`. `sim/atmosphere.js` returns 1.111642738880746 kg/m³;
 `research/analysis/vacuum-cell.py` and `research/analysis/helium.py` both return
@@ -848,6 +915,8 @@ moves, old and new, then move the row.
 
 ## 19. Six of the model lab's failure buttons change only the drawing
 
+Tracking issue: [#17](https://github.com/PinkRobotics/airships/issues/17).
+
 **Reproduced 2026-10-01. Open.** The model lab offers a failure button for each of up to six rotor
 stations, then for an HVDC bus, a generator, a pump pod, a vacuum cell, a sensor cluster and a tail
 surface. Failing a rotor makes the allocator re-solve the wrench, and the page says so. The other
@@ -860,6 +929,8 @@ the six as drawing-only where the buttons are.
 ---
 
 ## 20. "Scale is the lever" is not what the model says across ship sizes
+
+Tracking issue: [#18](https://github.com/PinkRobotics/airships/issues/18).
 
 **Reproduced 2026-10-01. Open: what does scale buy, and where does it stop?**
 The bench article carries 15.1 kg of structure per cubic metre enclosed.
