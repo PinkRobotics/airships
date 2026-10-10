@@ -1,0 +1,20 @@
+--- historical/output-diagnostics.py
++++ future/output-diagnostics-wiring-fixed.py
+@@ -54,7 +54,7 @@
+  assert Path('/proc',str(os.getppid()),'cgroup').read_text().strip().split('::',1)[1]==membership
+  from lifecycle_guard import install
+  from owned_write import measure
+- from mission_monitor import snapshot
++ import mission_monitor
+  binding=release['frontend_bindings'];contract=release['owned_write_contract']
+  install(binding['path'],binding['sha256'],contract['path'],contract['sha256'])
+  tmp=R/'case/tmp';assert not tmp.exists();tmp.mkdir()
+@@ -63,7 +63,7 @@
+   now=time.monotonic()
+   if now-started>=118:raise ControlStop('Internal wall deadline; total service cap120s, no rerun')
+   if force or now-last[0]>=1:
+-   try:point=snapshot(parent,job,binding['path'],binding['sha256'],expected_native_pid=None,own_cpu_mask={0})
++   try:point=mission_monitor.snapshot(parent,job,binding['path'],binding['sha256'],expected_native_pid=None,own_cpu_mask={0})
+    except Exception as error:raise ControlStop('Lifecycle/control guard: '+str(error)) from error
+    if not (value(job,'cpu.max')=='100000 100000' and value(job,'memory.max')=='2147483648' and value(job,'pids.max')=='256' and value(job,'memory.swap.max')==value(job,'memory.swap.current')=='0'):raise ControlStop('Own unit cap or swap drift')
+    samples.append(point);last[0]=now
