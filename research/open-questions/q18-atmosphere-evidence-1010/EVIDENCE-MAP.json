@@ -1,0 +1,2055 @@
+{
+  "schema": "question18.atmosphere-contract-evidence-map/1",
+  "question": 18,
+  "existing_issue": 16,
+  "existing_issue_url": "https://github.com/PinkRobotics/airships/issues/16",
+  "status": "METHOD_ONLY; HISTORICAL MISS RETAINED; PROSPECTIVE OBSERVATIONS AND ADOPTION UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_section_sha256": "87dbe3345a43a228273bd3b82d631dcf1dd5777a117cabbcba6b261ae7e2edad",
+  "implementations": [
+    {
+      "path": "sim/atmosphere.js",
+      "functions": [
+        "isaTemperatureK",
+        "isaPressurePa",
+        "airDensity",
+        "altitudeForDensity"
+      ],
+      "definition_locators": [
+        {
+          "line": 52,
+          "text": "export function isaTemperatureK(hM) {"
+        },
+        {
+          "line": 58,
+          "text": "export function isaPressurePa(hM) {"
+        },
+        {
+          "line": 81,
+          "text": "export function airDensity(hM, rho0 = RHO_SL_ISA) {"
+        },
+        {
+          "line": 92,
+          "text": "export function altitudeForDensity(rhoKgM3, rho0 = RHO_SL_ISA) {"
+        }
+      ],
+      "existing_dry_air_constant": {
+        "value": 287.0528,
+        "unit": "J/(kg K)",
+        "source_lines": [
+          {
+            "line": 27,
+            "text": "  R: 287.0528,       // J/(kg K), specific gas constant of dry air = 8314.32 / 28.9644."
+          }
+        ],
+        "kind": "HISTORICAL_SOURCE_VALUE; unchanged, not selected by this map"
+      },
+      "altitude_contract_as_recorded": "Interface describes metres MSL; forward and inverse formulas apply geopotential lapse directly, without geometric conversion.",
+      "new_contract": null,
+      "new_contract_status": "UNKNOWN"
+    },
+    {
+      "path": "research/analysis/vacuum-cell.py",
+      "functions": [
+        "isa_temperature",
+        "isa_pressure",
+        "rho_air"
+      ],
+      "definition_locators": [
+        {
+          "line": 179,
+          "text": "def isa_temperature(alt_m: float) -> float:"
+        },
+        {
+          "line": 183,
+          "text": "def isa_pressure(alt_m: float) -> float:"
+        },
+        {
+          "line": 187,
+          "text": "def rho_air(alt_m: float) -> float:"
+        }
+      ],
+      "existing_dry_air_constant": {
+        "value": 287.05,
+        "unit": "J/(kg K)",
+        "source_lines": [
+          {
+            "line": 184,
+            "text": "    return 101325.0 * (isa_temperature(alt_m) / 288.15) ** (9.80665 / (287.05 * 0.0065))"
+          },
+          {
+            "line": 189,
+            "text": "    return (101325.0 / (287.05 * 288.15)) * \\"
+          },
+          {
+            "line": 190,
+            "text": "        (isa_temperature(alt_m) / 288.15) ** (9.80665 / (287.05 * 0.0065) - 1.0)"
+          }
+        ],
+        "kind": "HISTORICAL_SOURCE_VALUE; unchanged, not selected by this map"
+      },
+      "altitude_contract_as_recorded": "alt_m is applied directly to the geopotential lapse formula; no geometric conversion.",
+      "new_contract": null,
+      "new_contract_status": "UNKNOWN"
+    },
+    {
+      "path": "research/analysis/helium.py",
+      "functions": [
+        "isa"
+      ],
+      "definition_locators": [
+        {
+          "line": 57,
+          "text": "def isa(alt_m: float) -> tuple[float, float, float]:"
+        }
+      ],
+      "existing_dry_air_constant": {
+        "value": 287.05,
+        "unit": "J/(kg K)",
+        "source_lines": [
+          {
+            "line": 32,
+            "text": "R_AIR, R_HE, R_H2 = 287.05, 2077.1, 4124.2"
+          }
+        ],
+        "kind": "HISTORICAL_SOURCE_VALUE; unchanged, not selected by this map"
+      },
+      "altitude_contract_as_recorded": "alt_m is applied directly to the geopotential lapse formula; no geometric conversion.",
+      "new_contract": null,
+      "new_contract_status": "UNKNOWN"
+    }
+  ],
+  "historical_comparison": {
+    "kind": "ALREADY_PUBLISHED_SOURCE_RECORDS; copied without computation",
+    "source": "../../validation/report.json#/checks/0",
+    "embedded_reference_base": "research/validation; copied row reference pointers retain their original report-directory context",
+    "aggregate_verdict": "MISS",
+    "model_functions": [
+      {
+        "file": "sim/atmosphere.js",
+        "line": 52,
+        "name": "isaTemperatureK"
+      },
+      {
+        "file": "sim/atmosphere.js",
+        "line": 58,
+        "name": "isaPressurePa"
+      },
+      {
+        "file": "sim/atmosphere.js",
+        "line": 81,
+        "name": "airDensity"
+      },
+      {
+        "file": "research/analysis/vacuum-cell.py",
+        "line": 179,
+        "name": "isa_temperature"
+      },
+      {
+        "file": "research/analysis/vacuum-cell.py",
+        "line": 183,
+        "name": "isa_pressure"
+      },
+      {
+        "file": "research/analysis/vacuum-cell.py",
+        "line": 187,
+        "name": "rho_air"
+      },
+      {
+        "file": "research/analysis/helium.py",
+        "line": 57,
+        "name": "isa"
+      }
+    ],
+    "matched_inputs": {
+      "geopotential_heights_m": [
+        0.0,
+        1000.0,
+        2000.0,
+        2500.0,
+        3000.0
+      ],
+      "density_anchor": "each function's default"
+    },
+    "comparison_rows": [
+      {
+        "label": "sim, H=0 m, temperature_K",
+        "model_value": 288.15,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "T_K",
+          "printed_value": "288.150",
+          "value": 288.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=0 m, pressure_Pa",
+        "model_value": 101325,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "P",
+          "printed_value": "1.01325 \u00d7 10^3",
+          "value": 101325.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.0,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=0 m, density_kg_m3",
+        "model_value": 1.2250003168498231,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "rho",
+          "printed_value": "1.2250 \u00d7 10^0",
+          "value": 1.225,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 3.1684982304547304e-07,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=0 m, temperature_K",
+        "model_value": 288.15,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "T_K",
+          "printed_value": "288.150",
+          "value": 288.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=0 m, pressure_Pa",
+        "model_value": 101325.0,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "P",
+          "printed_value": "1.01325 \u00d7 10^3",
+          "value": 101325.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.0,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=0 m, density_kg_m3",
+        "model_value": 1.2250122659906946,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "rho",
+          "printed_value": "1.2250 \u00d7 10^0",
+          "value": 1.225,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 1.2265990694482198e-05,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=0 m, temperature_K",
+        "model_value": 288.15,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "T_K",
+          "printed_value": "288.150",
+          "value": 288.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=0 m, pressure_Pa",
+        "model_value": 101325.0,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "P",
+          "printed_value": "1.01325 \u00d7 10^3",
+          "value": 101325.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.0,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=0 m, density_kg_m3",
+        "model_value": 1.2250122659906946,
+        "reference": {
+          "record": "sources.json#/records/0",
+          "field": "rho",
+          "printed_value": "1.2250 \u00d7 10^0",
+          "value": 1.225,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration, and United States Air Force",
+            "year": 1976,
+            "report_numbers": [
+              "NOAA-S/T 76-1562",
+              "NASA-TM-X-74335"
+            ]
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 1.2265990694482198e-05,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=1000 m, temperature_K",
+        "model_value": 281.65,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "T_K",
+          "printed_value": "281.650",
+          "value": 281.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=1000 m, pressure_Pa",
+        "model_value": 89874.56028802077,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "P",
+          "printed_value": "8.9874 \u00d7 10^2 mb",
+          "value": 89873.99999999999,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.5602880207879934,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=1000 m, density_kg_m3",
+        "model_value": 1.1116427388807464,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "rho",
+          "printed_value": "1.1116 \u00d7 10^0 kg/m^3",
+          "value": 1.1116,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 4.273888074646237e-05,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=1000 m, temperature_K",
+        "model_value": 281.65,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "T_K",
+          "printed_value": "281.650",
+          "value": 281.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=1000 m, pressure_Pa",
+        "model_value": 89874.45515908135,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "P",
+          "printed_value": "8.9874 \u00d7 10^2 mb",
+          "value": 89873.99999999999,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.45515908136439975,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=1000 m, density_kg_m3",
+        "model_value": 1.1116522819524908,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "rho",
+          "printed_value": "1.1116 \u00d7 10^0 kg/m^3",
+          "value": 1.1116,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 5.2281952490851324e-05,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "MISS"
+      },
+      {
+        "label": "helium, H=1000 m, temperature_K",
+        "model_value": 281.65,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "T_K",
+          "printed_value": "281.650",
+          "value": 281.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=1000 m, pressure_Pa",
+        "model_value": 89874.45515908135,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "P",
+          "printed_value": "8.9874 \u00d7 10^2 mb",
+          "value": 89873.99999999999,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.45515908136439975,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=1000 m, density_kg_m3",
+        "model_value": 1.1116522819524908,
+        "reference": {
+          "record": "sources.json#/records/1",
+          "field": "rho",
+          "printed_value": "1.1116 \u00d7 10^0 kg/m^3",
+          "value": 1.1116,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 5.2281952490851324e-05,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "MISS"
+      },
+      {
+        "label": "sim, H=2000 m, temperature_K",
+        "model_value": 275.15,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "T_K",
+          "printed_value": "275.150",
+          "value": 275.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=2000 m, pressure_Pa",
+        "model_value": 79495.19723041938,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "P",
+          "printed_value": "7.9495 \u00d7 10^2 mb",
+          "value": 79495.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.19723041937686503,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=2000 m, density_kg_m3",
+        "model_value": 1.0064902833500653,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "rho",
+          "printed_value": "1.0065 \u00d7 10^0 kg/m^3",
+          "value": 1.0065,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": -9.716649934654598e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2000 m, temperature_K",
+        "model_value": 275.15,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "T_K",
+          "printed_value": "275.150",
+          "value": 275.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2000 m, pressure_Pa",
+        "model_value": 79495.00908350243,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "P",
+          "printed_value": "7.9495 \u00d7 10^2 mb",
+          "value": 79495.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.00908350243116729,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2000 m, density_kg_m3",
+        "model_value": 1.0064977189019437,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "rho",
+          "printed_value": "1.0065 \u00d7 10^0 kg/m^3",
+          "value": 1.0065,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": -2.2810980562226746e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2000 m, temperature_K",
+        "model_value": 275.15,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "T_K",
+          "printed_value": "275.150",
+          "value": 275.15,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2000 m, pressure_Pa",
+        "model_value": 79495.00908350243,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "P",
+          "printed_value": "7.9495 \u00d7 10^2 mb",
+          "value": 79495.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.00908350243116729,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2000 m, density_kg_m3",
+        "model_value": 1.0064977189019437,
+        "reference": {
+          "record": "sources.json#/records/2",
+          "field": "rho",
+          "printed_value": "1.0065 \u00d7 10^0 kg/m^3",
+          "value": 1.0065,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": -2.2810980562226746e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=2500 m, temperature_K",
+        "model_value": 271.9,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "T_K",
+          "printed_value": "271.900",
+          "value": 271.9,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=2500 m, pressure_Pa",
+        "model_value": 74682.51206786814,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "P",
+          "printed_value": "7.4682 \u00d7 10^2 mb",
+          "value": 74682.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.5120678681414574,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=2500 m, density_kg_m3",
+        "model_value": 0.9568589483811855,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "rho",
+          "printed_value": "9.5686 \u00d7 10^-1 kg/m^3",
+          "value": 0.95686,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": -1.0516188145848204e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2500 m, temperature_K",
+        "model_value": 271.9,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "T_K",
+          "printed_value": "271.900",
+          "value": 271.9,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2500 m, pressure_Pa",
+        "model_value": 74682.28981736007,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "P",
+          "printed_value": "7.4682 \u00d7 10^2 mb",
+          "value": 74682.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.28981736006971914,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=2500 m, density_kg_m3",
+        "model_value": 0.9568654343839215,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "rho",
+          "printed_value": "9.5686 \u00d7 10^-1 kg/m^3",
+          "value": 0.95686,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 5.434383921421038e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2500 m, temperature_K",
+        "model_value": 271.9,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "T_K",
+          "printed_value": "271.900",
+          "value": 271.9,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2500 m, pressure_Pa",
+        "model_value": 74682.28981736007,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "P",
+          "printed_value": "7.4682 \u00d7 10^2 mb",
+          "value": 74682.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.28981736006971914,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=2500 m, density_kg_m3",
+        "model_value": 0.9568654343839215,
+        "reference": {
+          "record": "sources.json#/records/3",
+          "field": "rho",
+          "printed_value": "9.5686 \u00d7 10^-1 kg/m^3",
+          "value": 0.95686,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, geopotential, document page 52, row H = 2500",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 5.434383921421038e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=3000 m, temperature_K",
+        "model_value": 268.65,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "T_K",
+          "printed_value": "268.650",
+          "value": 268.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=3000 m, pressure_Pa",
+        "model_value": 70108.52019961378,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "P",
+          "printed_value": "7.0108 \u00d7 10^2 mb",
+          "value": 70108.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.52019961377664,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "sim, H=3000 m, density_kg_m3",
+        "model_value": 0.9091220012642905,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "rho",
+          "printed_value": "9.0912 \u00d7 10^-1 kg/m^3",
+          "value": 0.9091200000000002,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 2.0012642903965983e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=3000 m, temperature_K",
+        "model_value": 268.65,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "T_K",
+          "printed_value": "268.650",
+          "value": 268.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=3000 m, pressure_Pa",
+        "model_value": 70108.26833969312,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "P",
+          "printed_value": "7.0108 \u00d7 10^2 mb",
+          "value": 70108.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.2683396931242896,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "vacuum-cell, H=3000 m, density_kg_m3",
+        "model_value": 0.9091276032136807,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "rho",
+          "printed_value": "9.0912 \u00d7 10^-1 kg/m^3",
+          "value": 0.9091200000000002,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 7.603213680540399e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=3000 m, temperature_K",
+        "model_value": 268.65,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "T_K",
+          "printed_value": "268.650",
+          "value": 268.65,
+          "unit": "K",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "K",
+        "difference": 0.0,
+        "tolerance": 1e-06,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=3000 m, pressure_Pa",
+        "model_value": 70108.26833969312,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "P",
+          "printed_value": "7.0108 \u00d7 10^2 mb",
+          "value": 70108.0,
+          "unit": "Pa",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "Pa",
+        "difference": 0.2683396931242896,
+        "tolerance": 1.0,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      },
+      {
+        "label": "helium, H=3000 m, density_kg_m3",
+        "model_value": 0.9091276032136805,
+        "reference": {
+          "record": "sources.json#/records/4",
+          "field": "rho",
+          "printed_value": "9.0912 \u00d7 10^-1 kg/m^3",
+          "value": 0.9091200000000002,
+          "unit": "kg/m3",
+          "document": {
+            "title": "U.S. Standard Atmosphere, 1976",
+            "authors": "NOAA, NASA, and United States Air Force",
+            "year": 1976
+          },
+          "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+          "url": "https://ntrs.nasa.gov/citations/19770009539",
+          "confidence": "high",
+          "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085.",
+          "catalogue": "research/sources.json#noaa-1976-us-standard-atmosphere",
+          "local_document": "research/papers/noaa-1976-us-standard-atmosphere.pdf",
+          "provenance": "research/papers/noaa-1976-us-standard-atmosphere.pdf.prov.json"
+        },
+        "unit": "kg/m3",
+        "difference": 7.603213680318355e-06,
+        "tolerance": 5e-05,
+        "tolerance_reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+        "verdict": "agrees"
+      }
+    ],
+    "mutual_implementation_comparison": [
+      {
+        "H_m": 0.0,
+        "implementations": {
+          "sim": {
+            "temperature_K": 288.15,
+            "pressure_Pa": 101325,
+            "density_kg_m3": 1.2250003168498231
+          },
+          "vacuum-cell": {
+            "temperature_K": 288.15,
+            "pressure_Pa": 101325.0,
+            "density_kg_m3": 1.2250122659906946
+          },
+          "helium": {
+            "temperature_K": 288.15,
+            "pressure_Pa": 101325.0,
+            "density_kg_m3": 1.2250122659906946
+          }
+        },
+        "max_minus_min": {
+          "temperature_K": 0.0,
+          "pressure_Pa": 0,
+          "density_kg_m3": 1.1949140871436725e-05
+        },
+        "agree_to_roundoff": false
+      },
+      {
+        "H_m": 1000.0,
+        "implementations": {
+          "sim": {
+            "temperature_K": 281.65,
+            "pressure_Pa": 89874.56028802077,
+            "density_kg_m3": 1.1116427388807464
+          },
+          "vacuum-cell": {
+            "temperature_K": 281.65,
+            "pressure_Pa": 89874.45515908135,
+            "density_kg_m3": 1.1116522819524908
+          },
+          "helium": {
+            "temperature_K": 281.65,
+            "pressure_Pa": 89874.45515908135,
+            "density_kg_m3": 1.1116522819524908
+          }
+        },
+        "max_minus_min": {
+          "temperature_K": 0.0,
+          "pressure_Pa": 0.10512893942359369,
+          "density_kg_m3": 9.543071744388953e-06
+        },
+        "agree_to_roundoff": false
+      },
+      {
+        "H_m": 2000.0,
+        "implementations": {
+          "sim": {
+            "temperature_K": 275.15,
+            "pressure_Pa": 79495.19723041938,
+            "density_kg_m3": 1.0064902833500653
+          },
+          "vacuum-cell": {
+            "temperature_K": 275.15,
+            "pressure_Pa": 79495.00908350243,
+            "density_kg_m3": 1.0064977189019437
+          },
+          "helium": {
+            "temperature_K": 275.15,
+            "pressure_Pa": 79495.00908350243,
+            "density_kg_m3": 1.0064977189019437
+          }
+        },
+        "max_minus_min": {
+          "temperature_K": 0.0,
+          "pressure_Pa": 0.18814691694569774,
+          "density_kg_m3": 7.435551878431923e-06
+        },
+        "agree_to_roundoff": false
+      },
+      {
+        "H_m": 2500.0,
+        "implementations": {
+          "sim": {
+            "temperature_K": 271.9,
+            "pressure_Pa": 74682.51206786814,
+            "density_kg_m3": 0.9568589483811855
+          },
+          "vacuum-cell": {
+            "temperature_K": 271.9,
+            "pressure_Pa": 74682.28981736007,
+            "density_kg_m3": 0.9568654343839215
+          },
+          "helium": {
+            "temperature_K": 271.9,
+            "pressure_Pa": 74682.28981736007,
+            "density_kg_m3": 0.9568654343839215
+          }
+        },
+        "max_minus_min": {
+          "temperature_K": 0.0,
+          "pressure_Pa": 0.2222505080717383,
+          "density_kg_m3": 6.486002736005858e-06
+        },
+        "agree_to_roundoff": false
+      },
+      {
+        "H_m": 3000.0,
+        "implementations": {
+          "sim": {
+            "temperature_K": 268.65,
+            "pressure_Pa": 70108.52019961378,
+            "density_kg_m3": 0.9091220012642905
+          },
+          "vacuum-cell": {
+            "temperature_K": 268.65,
+            "pressure_Pa": 70108.26833969312,
+            "density_kg_m3": 0.9091276032136807
+          },
+          "helium": {
+            "temperature_K": 268.65,
+            "pressure_Pa": 70108.26833969312,
+            "density_kg_m3": 0.9091276032136805
+          }
+        },
+        "max_minus_min": {
+          "temperature_K": 0.0,
+          "pressure_Pa": 0.2518599206523504,
+          "density_kg_m3": 5.601949390143801e-06
+        },
+        "agree_to_roundoff": false
+      }
+    ],
+    "limits": [
+      "A stipulated atmosphere, not weather observations.",
+      "All three formulas apply lapse directly to the argument: it is effectively geopotential height. The JS interface says metres MSL and does not convert geometric height.",
+      "At geometric 2500 m the source gives H=2499 m and T=271.906 K. Passing 2500 directly yields the geopotential temperature; geometric use slightly understates temperature, pressure and density. The rounded Z column is not a conversion algorithm."
+    ],
+    "interpretation": "All three project ISA implementations are evaluated at the five Table I geopotential heights. Their independent agreement with the printed table is distinct from their mutual agreement: the table below retains all three values. The JS constant R=287.0528 differs from the Python value 287.05. None converts geometric height.",
+    "source_table_records": [
+      {
+        "source": "../../validation/sources.json#/records/0",
+        "quantity": "sea-level temperature, pressure and density at geopotential altitude 0 m",
+        "printed_value": {
+          "H_m": "0",
+          "Z_m": "0",
+          "T_K": "288.150",
+          "t_C": "15.000",
+          "T_M_K": "288.150",
+          "P": "1.01325 \u00d7 10^3",
+          "P_unit_as_printed": "mb",
+          "P_over_P0": "1.00000 \u00d7 10^0",
+          "rho": "1.2250 \u00d7 10^0",
+          "rho_unit": "kg/m^3",
+          "rho_over_rho0": "1.0000 \u00d7 10^0"
+        },
+        "unit": "K, mb, kg/m^3",
+        "conditions": "U.S. Standard Atmosphere, 1976, Table I, geopotential altitude, metric units. Argument is geopotential height H, not geometric height Z. Pressure is a five-digit mantissa times a power of ten, in millibar. The same row's P0 in the constants section is 1.013250 \u00d7 10^5 Pa, so 1 mb = 100 Pa in this document.",
+        "locator": "Table I, Geopotential Altitude, Metric Units, document page 52. In the NTRS scan, document page = PDF page minus 16 (PDF page 67).",
+        "limits": "This is the defining model atmosphere, not a measured profile. A density function is checked against these printed digits. Four significant figures of density at this row are 1.225 kg/m^3."
+      },
+      {
+        "source": "../../validation/sources.json#/records/1",
+        "quantity": "temperature, pressure and density at geopotential altitude 1000 m",
+        "printed_value": {
+          "H_m": "1000",
+          "Z_m": "1000",
+          "T_K": "281.650",
+          "t_C": "8.500",
+          "P": "8.9874 \u00d7 10^2 mb",
+          "P_over_P0": "8.8699 \u00d7 10^-1",
+          "rho": "1.1116 \u00d7 10^0 kg/m^3",
+          "rho_over_rho0": "9.0746 \u00d7 10^-1"
+        },
+        "unit": "K, mb, kg/m^3",
+        "conditions": "Same table and column definitions as the sea-level row. Z is printed as 1000 m.",
+        "locator": "Table I, geopotential, document page 52",
+        "limits": "Publish the printed mantissa. Four significant figures of density are 1.112 kg/m^3. Do not replace the table with the recomputed last pressure digit."
+      },
+      {
+        "source": "../../validation/sources.json#/records/2",
+        "quantity": "temperature, pressure and density at geopotential altitude 2000 m",
+        "printed_value": {
+          "H_m": "2000",
+          "Z_m": "2001",
+          "T_K": "275.150",
+          "t_C": "2.000",
+          "P": "7.9495 \u00d7 10^2 mb",
+          "P_over_P0": "7.8455 \u00d7 10^-1",
+          "rho": "1.0065 \u00d7 10^0 kg/m^3",
+          "rho_over_rho0": "8.2162 \u00d7 10^-1"
+        },
+        "unit": "K, mb, kg/m^3",
+        "conditions": "Same geopotential table. Geometric height on this row is 2001 m, not 2000 m.",
+        "locator": "Table I, geopotential, document page 52",
+        "limits": "Four significant figures of density are 1.006 or 1.007 depending on rounding of 1.0065; the printed value is 1.0065. Use H, not Z, as the argument."
+      },
+      {
+        "source": "../../validation/sources.json#/records/3",
+        "quantity": "temperature, pressure and density at geopotential altitude 2500 m",
+        "printed_value": {
+          "H_m": "2500",
+          "Z_m": "2501",
+          "T_K": "271.900",
+          "t_C": "-1.250",
+          "P": "7.4682 \u00d7 10^2 mb",
+          "P_torr": "5.6016 \u00d7 10^2",
+          "P_over_P0": "7.3705 \u00d7 10^-1",
+          "rho": "9.5686 \u00d7 10^-1 kg/m^3",
+          "rho_over_rho0": "7.8111 \u00d7 10^-1"
+        },
+        "unit": "K, mb, kg/m^3",
+        "conditions": "Same geopotential table, document page 52. This is not the geometric-altitude row on document page 53, where Z = 2500 m has H = 2499 m, T = 271.906 K and a different pressure.",
+        "locator": "Table I, geopotential, document page 52, row H = 2500",
+        "limits": "Do not take the page-53 geometric row. Four significant figures of density are 0.9569 kg/m^3."
+      },
+      {
+        "source": "../../validation/sources.json#/records/4",
+        "quantity": "temperature, pressure and density at geopotential altitude 3000 m",
+        "printed_value": {
+          "H_m": "3000",
+          "Z_m": "3001",
+          "T_K": "268.650",
+          "t_C": "-4.500",
+          "P": "7.0108 \u00d7 10^2 mb",
+          "P_torr": "5.2585 \u00d7 10^2",
+          "P_over_P0": "6.9191 \u00d7 10^-1",
+          "rho": "9.0912 \u00d7 10^-1 kg/m^3",
+          "rho_over_rho0": "7.4214 \u00d7 10^-1"
+        },
+        "unit": "K, mb, kg/m^3",
+        "conditions": "Continuation of the geopotential table. Document page 54, not page 53.",
+        "locator": "Table I, Geopotential Altitude, Metric Units, document page 54 (NTRS PDF page 69)",
+        "limits": "Four significant figures of density are 0.9091 kg/m^3. The printed pressure mantissa is 7.0108, the truncation of 701.085."
+      },
+      {
+        "source": "../../validation/sources.json#/records/5",
+        "quantity": "universal gas constant R-star, prose value",
+        "printed_value": "8.31432 \u00d7 10^3",
+        "unit": "N\u00b7m/(kmol\u00b7K)",
+        "conditions": "Adopted constant of the 1976 standard. The prose says this value is consistent with the carbon-12 scale and is the value used in the 1962 Standard, and is not exactly consistent with the cited k and N_A.",
+        "locator": "Document page 3, section Defining Constants and Equations, symbol R*",
+        "limits": "Table 2 on document page 2 prints R* as 8.31432 \u00d7 10^-3 in the same unit. That exponent is a typesetting error. Use the page-3 prose."
+      },
+      {
+        "source": "../../validation/sources.json#/records/6",
+        "quantity": "Table 2 printed R-star (do not use)",
+        "printed_value": "8.31432 \u00d7 10^-3",
+        "unit": "N\u00b7m/(kmol\u00b7K) as printed",
+        "conditions": "Table 2, Category I, as printed. Disagrees with the page-3 prose by a factor of 10^6.",
+        "locator": "Table 2, Adopted constants, document page 2",
+        "limits": "Recorded so it is not silently corrected. A model that uses this printed exponent will miss the Table I densities by orders of magnitude. The adopted value is the page-3 prose."
+      },
+      {
+        "source": "../../validation/sources.json#/records/7",
+        "quantity": "sea-level pressure P0, sea-level temperature T0, and g0",
+        "printed_value": {
+          "P0": "1.013250 \u00d7 10^5 Pa",
+          "T0": "288.15 K",
+          "g0": "9.80665 m/s^2",
+          "g0_prime": "9.80665 m^2/(s^2\u00b7m')"
+        },
+        "unit": "Pa, K, m/s^2",
+        "conditions": "Adopted constants. g0 is the sea-level standard acceleration of gravity. g0' is defined so that one standard geopotential metre corresponds numerically to lifting one kilogram through one metre at 9.80665 J.",
+        "locator": "P0 and g0 prose, document page 3; T0 and g0' also in Table 2, document page 2, and T0 is the H = 0 temperature in Table I",
+        "limits": "Table 2 also prints r0 as 6.356766 \u00d7 10^6 km and sigma as 3.65 \u00d7 10^-1 m. Those two units or exponents are inconsistent with a terrestrial radius and a molecular diameter. They are not needed to check density against Table I. Sutherland's S = 110 K is printed in Table 2 and is a viscosity constant, not a density constant."
+      },
+      {
+        "source": "../../validation/sources.json#/records/8",
+        "quantity": "tropospheric temperature gradient",
+        "printed_value": {
+          "b": "0",
+          "H_b_km_prime": "0",
+          "L_M_b_K_per_km_prime": "-6.5",
+          "form": "Linear",
+          "next_break_km_prime": "11"
+        },
+        "unit": "K/km'",
+        "conditions": "Lowest layer of the defined temperature-height profile, from the surface to 11 geopotential kilometres. Temperature in this layer is linear in geopotential height.",
+        "locator": "Table 4, document page 3, row b = 0, and the following row b = 1 at 11 km'",
+        "limits": "The gradient is per standard geopotential kilometre. It does not apply above 11 km'."
+      },
+      {
+        "source": "../../validation/sources.json#/records/9",
+        "quantity": "molecular weights of helium and hydrogen as constituents of dry air, and the geopotential definition",
+        "printed_value": {
+          "He_kg_per_kmol": "4.0026",
+          "He_fractional_volume": "0.00000524",
+          "H2_kg_per_kmol": "2.01594",
+          "H2_fractional_volume": "0.0000005"
+        },
+        "unit": "kg/kmol",
+        "conditions": "Table 3 is the composition of sea-level dry air, not the molar mass of a pure lifting gas. The fractional volumes are trace abundances.",
+        "locator": "Table 3, document page 3. Equation (18), relating geopotential H to geometric Z, was read on its page image: H = (g0/g0') \u00b7 (r0\u00b7Z)/(r0+Z).",
+        "limits": "Do not use the helium fractional volume as a purity. The dry-air mean molar mass that recovers the sea-level density from P0, T0 and the prose R* is 28.9644 kg/kmol. That sentence was not re-opened on a page image in the final pass, so it is not given a page quote here. Table I, not a recomputed molar mass, is the check."
+      }
+    ],
+    "frozen_tolerances": {
+      "temperature_K": 1e-06,
+      "pressure_Pa": 1.0,
+      "density_kg_m3": 5e-05,
+      "reason": "Temperature must equal the printed kelvin value apart from floating point. Pressure allows one printed last place (1 Pa), including truncation. Density allows half the coarsest printed last place (0.0001 kg/m3); this avoids the four-significant-figure tie at 1.0065 without hiding a digit.",
+      "implementation_parity": {
+        "temperature_K": 1e-09,
+        "pressure_Pa": 1e-07,
+        "density_kg_m3": 1e-10
+      },
+      "parity_reason": "Numerical roundoff only, independently of agreement with the coarser external table."
+    },
+    "tolerances_source": "../../validation/tolerances.json#/atmosphere",
+    "set_before_first_model_run": true,
+    "tolerance_policy": "Written before evaluating the project functions. Bounds and incompatible models never acquire an agreement verdict from a numerical tolerance. A MISS is published, not a gate failure.",
+    "physical_observation": null,
+    "physical_observation_status": "UNKNOWN",
+    "recomputed": false
+  },
+  "rows": [
+    {
+      "id": "implementation-identity",
+      "requirement": "Bind all three implementation identities",
+      "quantity": "source revision, function and unchanged input/default identities",
+      "units": "identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Trace the JS functions, vacuum-cell functions and helium ISA function to the pinned code and recorded calls; keep their independently declared constants and density anchors explicit.",
+      "rejection_condition": "A different function/revision/default credited to the retained comparison or agreement inferred from a shared name.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "constant-provenance",
+      "requirement": "Resolve the constant decision with the altitude contract",
+      "quantity": "dry-air constant and complete defining state provenance",
+      "units": "J/(kg K); K; Pa; m/s^2; K/m",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Preserve existing differing dry-air constants and the standard source exclusions; a future adopted decision needs source, applicability, owner and published old/new consequences together.",
+      "rejection_condition": "A rounded constant quietly replaced, a known excluded exponent used, or a constant chosen here to erase the MISS.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "altitude-contract",
+      "requirement": "Resolve geometric versus geopotential altitude",
+      "quantity": "argument meaning, vertical datum and any adopted conversion contract",
+      "units": "m; datum and contract identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Document H versus Z, caller and inverse-interface semantics and the matched reference column; any future conversion must have an explicitly adopted source and applicability.",
+      "rejection_condition": "MSL label assumed to settle H versus Z, rounded table Z used as a conversion algorithm, or one numeric height compared under incompatible meanings.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "reference-state",
+      "requirement": "Match the frozen reference state",
+      "quantity": "height convention, dry-air state, density anchor and reference layer",
+      "units": "m; K; Pa; kg/m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Trace the recorded Table I geopotential rows, default anchors and first-layer scope without evaluating functions; separate standard dry-air comparison from a user density dial or weather state.",
+      "rejection_condition": "Geometric row substituted, altered anchor treated as default ISA, outside-layer use silently accepted or humidity/weather assumptions hidden.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "printed-reference",
+      "requirement": "Preserve the reference and printed precision",
+      "quantity": "printed digits, units, locator and source exclusions",
+      "units": "K; mb; Pa; kg/m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain exact source-record pointers, recorded unit interpretation, precision/truncation limits and excluded source errors; do not replace printed reference digits with recalculation.",
+      "rejection_condition": "A recomputed last digit substituted for the printed table, pressure units confused, or a known source limitation silently removed.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "external-comparison",
+      "requirement": "Preserve historical comparison with the standard",
+      "quantity": "existing model/reference/difference/tolerance/verdict records",
+      "units": "K; Pa; kg/m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Read the existing labelled rows and their frozen limits with matched states; retain the aggregate MISS and each historical failed or agreeing row as source history.",
+      "rejection_condition": "A gate pass promotes the historical MISS to agreement, a row is moved, tolerance relaxed or historical comparison presented as physical observation.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "implementation-parity",
+      "requirement": "Keep mutual parity separate from reference agreement",
+      "quantity": "existing pairwise spread and roundoff-only comparison",
+      "units": "K; Pa; kg/m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain every recorded mutual comparison and its separate roundoff-only tolerance; a printed-table agreement cannot establish parity between implementations.",
+      "rejection_condition": "External table precision used as parity slack, failed parity omitted or two equal Python copies treated as agreement of all implementations.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "requirement": "Separate precision and numerical tolerances from measurement uncertainty",
+      "quantity": "source precision, calibration, sampling and prospective uncertainty",
+      "units": "record identifiers; K; Pa; kg/m^3; m",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "The defining atmosphere is stipulated, not measured weather. Future physical comparison needs calibrated raw state/height observations, uncertainty and matching time/location; observation and uncertainty remain unavailable here.",
+      "rejection_condition": "Printed-digit or roundoff tolerance called measurement uncertainty, assumed weather credited as observed, or an uncertainty band invented to make agreement.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "physical-state",
+      "requirement": "Specify prospective matched physical records",
+      "quantity": "pressure, temperature, composition, humidity, altitude datum and raw observation custody",
+      "units": "Pa; K; composition units; m; time/location identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Identify a separately authorized observation protocol and immutable synchronized state records before comparing a physical atmosphere with the reference model.",
+      "rejection_condition": "Density-only observation credited as a complete reference state, location/time/datum missing, or a dry standard treated as an observed weather envelope.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "acceptance-owner",
+      "requirement": "Keep decisions and acceptance ownership explicit",
+      "quantity": "adopted contract, criterion, assignee and decision record",
+      "units": "decision and owner identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Prospective atmosphere-contract owner must jointly decide the constant/altitude policy and record applicable scientific acceptance separately from repository gate and officer landing dispositions; named assignee and adoption are UNKNOWN.",
+      "rejection_condition": "A paper author or green repository gate silently adopts a constant, conversion or scientific acceptance criterion.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "downstream-custody",
+      "requirement": "Document consequences before any separately authorized change",
+      "quantity": "cell parity mirror, generated analysis figures and caller/inverse contracts",
+      "units": "artifact and consumer identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Use the published question to identify downstream surfaces; future authorized work must preserve old/new identity and scope before row movement. This map neither edits nor regenerates them and supplies no calculated magnitude.",
+      "rejection_condition": "Constant/altitude change made quietly, old failures erased, old/new numerical consequences invented here or derived figures/parity regenerated under this paper scope.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    },
+    {
+      "id": "complete-disposition",
+      "requirement": "Keep incompatible contracts and missing observations unresolved",
+      "quantity": "separate history, adoption, physical evidence and applicability dispositions",
+      "units": "status and evidence identifiers",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain historical MISS and false mutual parity alongside null prospective observations and decisions; close only the applicable separately authorized evidence requirement when its owner supplies a record.",
+      "rejection_condition": "Historical agreement or officer signature closes physical applicability, UNKNOWN promoted to PASS, or missing evidence assigned zero.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; existing numerical comparison limits retained only as historical frozen context",
+      "prospective_owner_role": "Atmosphere implementation/contract and verification owner",
+      "assigned_owner": null,
+      "owner_status": "UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit",
+        "../../validation/report.md#air-density-with-altitude",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09"
+      ]
+    }
+  ],
+  "missing_semantics": "Prospective observation, evidence, assigned owner and unadopted criterion/contract are null/UNKNOWN; retained historical values are source context, never newly measured or recomputed outcomes.",
+  "scope": "No atmosphere evaluation, new constant/tolerance/conversion selection, source or row change, parity/figure regeneration, solver/campaign, physical observation or remote issue action."
+}
