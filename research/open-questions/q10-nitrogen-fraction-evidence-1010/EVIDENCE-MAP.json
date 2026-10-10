@@ -1,0 +1,327 @@
+{
+  "schema": "question10.nitrogen-recovery-evidence-map/1",
+  "question": 10,
+  "existing_issue": 9,
+  "existing_issue_url": "https://github.com/PinkRobotics/airships/issues/9",
+  "status": "METHOD_ONLY; SYSTEM OBSERVATIONS UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_section_sha256": "a11f33b548a9b6651f5a79c5c76aa7d579acb792640fd02423d8fb0ff81a5327",
+  "already_public_assumptions": [
+    {
+      "id": "source-liquefaction-cost",
+      "source": "docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+      "kind": "ALREADY_PUBLIC_MODEL_ASSUMPTION",
+      "source_value": 0.45,
+      "units": "MWh/t",
+      "physical_observation": null,
+      "status": "UNKNOWN",
+      "prospective_evidence_rows": [
+        "fraction-definition",
+        "liquefaction-input",
+        "nitrogen-inventory",
+        "measurement-quality"
+      ]
+    },
+    {
+      "id": "source-recovery-return",
+      "source": "docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+      "kind": "ALREADY_PUBLIC_MODEL_ASSUMPTION",
+      "source_value": 0.2,
+      "units": "fraction of liquefaction investment",
+      "physical_observation": null,
+      "status": "UNKNOWN",
+      "prospective_evidence_rows": [
+        "fraction-definition",
+        "recovery-output",
+        "thermal-boundary",
+        "loss-accounting",
+        "duty-cycle",
+        "system-comparison"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "fraction-definition",
+      "requirement": "Define the recovery fraction boundary",
+      "quantity": "declared numerator, denominator, net/gross and batch basis",
+      "units": "definition identifiers; J; kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify useful recovered energy and liquefaction investment on the same nitrogen inventory, conditioning and system boundary before comparison.",
+      "rejection_condition": "A bookkeeping fraction treated as observation, unmatched inventories/boundaries or an undefined useful-energy denominator.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "liquefaction-input",
+      "requirement": "Observe complete liquefaction investment",
+      "quantity": "all electrical/thermal inputs and auxiliary energy for the matched inventory",
+      "units": "J; W; kg; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective calibrated input records include preparation, conditioning, liquefaction and auxiliaries; retain source and raw time histories.",
+      "rejection_condition": "Assumed unit cost used as measured investment, omitted preparation/auxiliary demand or external input excluded from the boundary.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "recovery-output",
+      "requirement": "Observe useful recovered output",
+      "quantity": "gross output, internal/auxiliary use and net useful output",
+      "units": "J; W; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective synchronized observations separate recovered shaft/bus energy from internal process/control/pump demand and distribution losses.",
+      "rejection_condition": "Gross ideal expansion energy credited as net useful output, storage discharge mislabelled recovery or auxiliary loss omitted.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "nitrogen-inventory",
+      "requirement": "Match the nitrogen inventory",
+      "quantity": "loaded, processed, retained, vented and lost nitrogen",
+      "units": "kg; kg/s; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify calibrated inventory/flow observations and tank tare with matched start/end states and accounting for vent/leak/retained material.",
+      "rejection_condition": "Liquid/gas inventories or tank contents counted twice, loss silently zero or output matched to a different nitrogen batch.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "process-state",
+      "requirement": "Document process states and applicability",
+      "quantity": "pressure, temperature, phase and conditioning history",
+      "units": "Pa; K; state identifiers; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective state observations identify each process boundary and conditioning state alongside input/output records.",
+      "rejection_condition": "Assumed ideal state credited as observed process performance or unmatched phase/pressure/temperature.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "thermal-boundary",
+      "requirement": "Disclose heat sources and heat rejection",
+      "quantity": "all heat transfers, ambient state and external heat contribution",
+      "units": "J; W; K; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify calibrated heat-source/rejection records and the declared airborne boundary; retain any environmental or external contribution separately.",
+      "rejection_condition": "An external heat source omitted while claiming reproduction without one, ideal heat exchange assumed or unmatched thermal start/end states.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "loss-accounting",
+      "requirement": "Separate ideal bookkeeping from process losses",
+      "quantity": "thermal, mechanical, electrical and distribution losses",
+      "units": "J; W; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective complete input/output/state records identify loss terms and unresolved balance residuals rather than crediting a lossless identity as system evidence.",
+      "rejection_condition": "Lossless accounting identity declared observed fraction, losses omitted or unexplained residual assigned useful recovery.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "plant-bill",
+      "requirement": "Identify the complete plant mass boundary",
+      "quantity": "complete installed process equipment bill and allocated mass",
+      "units": "part/configuration identifiers; kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Record the actual configured plant, auxiliaries, heat exchangers, controls, plumbing, wiring, supports and shared-component allocations before weighing.",
+      "rejection_condition": "Selected core machine or catalogue mass substituted for a complete installed plant, omitted auxiliaries or duplicated shared hardware.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "tank-bill",
+      "requirement": "Identify the complete tank mass boundary",
+      "quantity": "tank, insulation, supports, fittings and dry/wet inventory boundary",
+      "units": "part/configuration identifiers; kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective configured tank record separates dry vessel/insulation/support hardware from operating fluid inventory and connections.",
+      "rejection_condition": "Nominal empty vessel mass treated as full installed system, fluid counted as dry mass or insulation/attachments omitted.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "weighed-mass",
+      "requirement": "Observe plant/tank mass and reconcile the dry ledger",
+      "quantity": "calibrated component and installed-assembly mass",
+      "units": "kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify conditioned weighing and complete configuration evidence; link each included/excluded/shared item to the existing dry-ledger definition.",
+      "rejection_condition": "Calculated/catalogue mass treated as weighed, incomplete bill credited as complete dry mass or plant/tank contribution counted twice.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "duty-cycle",
+      "requirement": "Observe a complete repeatable duty cycle",
+      "quantity": "startup, operating, transient, shutdown and turnaround histories",
+      "units": "s; W; J; kg/s; K",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective synchronized process records specify an operating episode and repeat-cycle thermal/inventory/energy conditions, including preparation and turnaround.",
+      "rejection_condition": "One steady state extrapolated to a sustainable duty cycle, omitted startup/cooldown/turnaround or mismatched initial/final storage/thermal state.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "airborne-integration",
+      "requirement": "Establish airborne system applicability",
+      "quantity": "complete installation, ambient/load context and bus interfaces",
+      "units": "configuration identifiers; Pa; K; W; kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective integration record identifies the same complete airborne plant/tank configuration and operating context used for fraction, mass and duty observations.",
+      "rejection_condition": "Bench-only/core-component or external-heat evidence credited as complete airborne system performance; selected hardware or operating capability inferred here.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "measurement-quality",
+      "requirement": "Retain raw observations and uncertainty",
+      "quantity": "calibration, time alignment, uncertainty and immutable source identity",
+      "units": "record identifiers; applicable units",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Attach calibrated raw observations and uncertainty for every input/output/inventory/mass/state/duty comparison, with an applicable separately adopted acceptance basis.",
+      "rejection_condition": "Uncalibrated/missing observation promoted to agreement, invented confidence/band or source assumption treated as a measurement.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    },
+    {
+      "id": "system-comparison",
+      "requirement": "Keep fraction, mass and duty-cycle acceptance distinct",
+      "quantity": "matched fraction evidence, complete mass and sustained duty records",
+      "units": "dimensionless; kg; s; status records",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Require separately applicable observations for fraction, complete plant/tank mass and duty cycle; retain UNKNOWN for missing evidence even if another comparison succeeds.",
+      "rejection_condition": "A source-assumed fraction establishes a buildable plant, a component result substitutes for complete system evidence or UNKNOWN is promoted to PASS.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; source assumptions are comparison context, not observed system acceptance",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "prospective_owner": "Process/plant/tank measurement owner; assignee UNKNOWN",
+      "source_refs": [
+        "../../../docs/OPEN-QUESTIONS.md#10-what-nitrogen-recovery-fraction-is-demonstrable",
+        "../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09",
+        "../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely"
+      ]
+    }
+  ],
+  "missing_semantics": "Null means unavailable physical observation or adopted acceptance criterion; never zero, measured agreement or completed qualification.",
+  "scope": "No new fraction, production, plant/tank mass or sustainable duty prediction; no selected hardware, process calculation, physical/native action, source modification or remote issue mutation."
+}
