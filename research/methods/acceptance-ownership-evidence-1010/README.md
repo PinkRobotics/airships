@@ -1,0 +1,15 @@
+# Verification acceptance ownership and decision provenance
+
+This paper indexes existing statements in [the verification plan](../../../docs/VERIFICATION-PLAN.md) and the scope of [the published question register](../../../docs/OPEN-QUESTIONS.md#current-numbered-register--2026-10-09). The [local issue-filing record](../../program/OPEN-QUESTION-ISSUES.md#filed-issues--2026-10-09) records question-to-issue routing, not scientific acceptance or assigned verification authority. No current remote issue state is checked.
+
+[EVIDENCE-MAP.json](EVIDENCE-MAP.json) gives each existing statement an exact source path, section anchor, line, verbatim paragraph and hash. It records the statement's scope alongside missing applicability evidence, acceptance owner, assignee, adoption decision, calibration provenance and decision record. [PROVENANCE.json](PROVENANCE.json) pins the unchanged source documents. The index does not supply measurements or select a criterion.
+
+Local code contracts, bounded model conditions and physical qualification have different scopes. A declared code repair can leave a physical question open. Conditional equipment closure does not validate a drawn hull or a built aircraft. A computed design bill is not conditioned weighing, and non-implosion is not the source's measured mass-and-leak-rate success definition. These distinctions follow the existing statements; the index adds no test or engineering requirement.
+
+The existing experiments specify article, sealing, release, breach, hierarchical-member and barrier evidence. Their source wording remains intact. Where the source proposes a vacuum-degradation allowance and explicitly says it has not been chosen, this index retains an unadopted proposal; it neither selects nor applies it. Service-life, transient, matched comparison, packing and architecture limits retain their own scope and missing evidence.
+
+The [external-evaluator section](../../../docs/VERIFICATION-PLAN.md#what-we-would-ask-external-evaluators) names requested disciplines and roles. The role index preserves those names as requests, without inferring that a person was assigned or authorized to adopt a scientific acceptance decision. Missing assigned people remain null/UNASSIGNED. Missing scientific acceptance owner, decision, applicability and calibration provenance remain null/UNKNOWN; they are never silently inherited from an author, repository gate or officer signature.
+
+This is a decision-provenance index, with source pointers rather than new per-question measurement tables. It does not repeat the model/viewer consumer contract or atmosphere-comparison papers. Historical failures and source operands remain in their unchanged documents; no private result is used or published.
+
+No new requirement, threshold, acceptance conclusion or decision adoption is supplied. This paper performs no test, numerical or physical execution, contact, remote mutation, or law/certification interpretation. Repository checks and officer landing remain separate from the unresolved scientific and physical decisions.
