@@ -27,7 +27,7 @@
       "id": "mapped-proximity",
       "source": [
         "research/analysis/water-availability.md",
-        "sim/water.js#findSource"
+        "research/analysis/water-availability.js#nearestAdequate"
       ],
       "existing_boundary": "Published shoreline proximity is a simplified-outline closest-vertex/centroid proxy. Freshwater Atlas area is not depth; straight-line geometric distance is not a flown route or usable-source observation.",
       "prospective_observations": [
@@ -48,7 +48,8 @@
       "physical_acceptance_criterion": null,
       "criterion_status": "UNKNOWN; no new numeric threshold selected",
       "disconfirming_or_insufficient_evidence": "Nearby mapped water, area or a proxy vertex does not establish usable depth, access or operational supply.",
-      "qualification": "UNKNOWN"
+      "qualification": "UNKNOWN",
+      "source_locator": "nearestAdequate at research/analysis/water-availability.js:45-47 preserves closest mapped outline-vertex/centroid measure. sim/water.js#findSource belongs to generated-station selection in the next requirement."
     },
     {
       "id": "generated-station",
