@@ -1,0 +1,19 @@
+# Dry-mass source bases and missing installation evidence
+
+This paper reconciles the source definitions behind [the dry-mass question](../../../docs/OPEN-QUESTIONS.md#11-the-dry-mass-budget-fails-twice-against-two-independent-sources) and [existing issue](https://github.com/PinkRobotics/airships/issues/10), using the [verification plan](../../../docs/VERIFICATION-PLAN.md), the existing [Jenett note](../../notes/jenett-2019-lattice-vacuum-airship.md) and [Metlen note](../../notes/metlen-2013-vacuum-lta-vehicle.md). The published failure remains. Nothing here estimates a new mass, closes the budget or selects a design lever.
+
+| Basis | What the quantity includes | What prevents complete-aircraft comparison |
+|---|---|---|
+| Jenett lattice mass per enclosed spherical volume | Bare lattice shell in its reference sphere | Unmassed skin, joints, valves, plant and aircraft installations; complete global buckling and capsule applicability remain unestablished |
+| Metlen structure weight divided by displaced-air weight | Reference spherical frame plus the real membrane in that case | Dimensionless normalization requires its displaced-air state; propulsion, storage, plant and other aircraft equipment are omitted |
+| Model dry allowance | Configured dry-equals-payload allowance for the non-water aircraft | No weighed structure/equipment inventory supports the allowance |
+| Existing complete floor budget | Separate shell, barrier, equipment and installation-policy lines | Favourable mixed assumptions are not one realized aircraft; the published total still exceeds the allowance |
+| Existing reference battery comparison | Configured energy scaled by a cited pack-specific energy | Pack-only comparison differs from the complete floor budget and does not establish a buildable airship pack |
+
+[CROSSWALK.json](CROSSWALK.json) preserves the existing source values and generated totals with their original boundaries. It identifies every item in the existing floor budget, prospective evidence and an unassigned custodian role; actual installed masses and measurement evidence remain UNKNOWN. [PROVENANCE.json](PROVENANCE.json) pins the local sources. Published numbers are copied evidence, not recalculated results.
+
+Metlen's native quantity is dimensionless. The verification plan separately quotes a mass-per-volume equivalent; that comparison must keep its own source state and derivation. To normalize a weight-to-buoyancy ratio, the same-state displaced-air density is needed. Comparing the two shell sources further requires matched enclosed geometry and inclusion boundaries. Comparing either with a complete dry allowance needs all installations. This paper performs no normalization calculation and does not equate a native ratio with a density simply because displayed values look alike.
+
+The Jenett lattice is not a sealed installed cell. Metlen's real-membrane case includes a structural membrane, while the budget's separate barrier floor leaves load carrying to the lattice. These are different boundaries. Hypothetical membranes, later joint allowances and geometry/packing assumptions remain distinct from actual hardware evidence. The source studies and model columns do not qualify the current capsule or a complete aircraft.
+
+The verification plan's sealed-cell evidence would need the closed, skinned, sealed article with joints and its share of inter-cell structure, declared enclosed volume, pressure/load state, leak and outgassing history. A complete dry inventory must also record tanks separately from contents, usable storage and installed propulsion, hydraulic, cryogenic, cable and control hardware. Component ratings, a ground plant matched by input power, or a membrane coupon cannot fill those aircraft boundaries. Prospective roles remain UNASSIGNED; no owner appointment, test execution, numerical tolerance, new physical campaign or certification conclusion is made.

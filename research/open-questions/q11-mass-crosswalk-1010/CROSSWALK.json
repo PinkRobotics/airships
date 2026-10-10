@@ -1,0 +1,350 @@
+{
+  "schema": "q11.dry-mass-source-crosswalk/1",
+  "status": "DOCUMENT_ONLY; published dry-mass failure retained",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "question_source": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "11-the-dry-mass-budget-fails-twice-against-two-independent-sources"
+  },
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/10",
+  "comparators": [
+    {
+      "id": "jenett-bare-lattice",
+      "local_source": "research/notes/jenett-2019-lattice-vacuum-airship.md",
+      "source_locator": "What this project takes / Where it does not support us; original Table2",
+      "quantity_definition": "Bare lattice shell mass per enclosed spherical volume, inferred in the existing note from displaced-air and net-lift accounting.",
+      "unit": "kg/m3 enclosed volume",
+      "published_value": {
+        "value": 0.508,
+        "source": "Jenett et al. 2019 Table 2 — 2,126 t shell on a 4.19e6 m3 lattice sphere. Bare lattice: no skin, joints, valves or plant."
+      },
+      "included": [
+        "lattice shell of the reference sphere"
+      ],
+      "excluded": [
+        "sealing skin panels counted but not massed",
+        "joints and installation attachments",
+        "valves and vacuum plant",
+        "aircraft equipment and payload"
+      ],
+      "geometry_and_state": "Reference sphere at sea level; planar quarter-section beam analysis. Complete3D shell buckling is later work.",
+      "not_equal_to": [
+        "whole aircraft dry mass",
+        "installed sealed cell or capsule mass",
+        "pack/equipment allowance",
+        "global pressure or flight qualification"
+      ],
+      "missing_evidence": [
+        "weighed sealed article and complete joints/attachments/valves bill",
+        "full geometry, pressure boundary, load and environmental applicability",
+        "global stability and actual service-state evidence"
+      ],
+      "prospective_owner_role": "Structures, sealing and mass inventory custodians",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "assigned_owner": "UNASSIGNED",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "metlen-frame-and-real-membrane",
+      "local_source": "research/notes/metlen-2013-vacuum-lta-vehicle.md",
+      "source_locator": "What it establishes / Where it cuts against us; original thesis methodology/results",
+      "quantity_definition": "W/B: structure weight divided by displaced-air weight. Dimensionless; equal gravitational acceleration cancels in the same-state mass ratio.",
+      "unit": "dimensionless W/B",
+      "published_values": {
+        "frame_only": 0.57,
+        "real_membrane_increment": 0.37,
+        "frame_plus_real_membrane": 0.94
+      },
+      "included": [
+        "geodesic UHM carbon-epoxy frame",
+        "Zylon-reinforced Mylar membrane in the real-membrane case"
+      ],
+      "excluded": [
+        "propulsion rotors and drives",
+        "battery pack",
+        "nitrogen tank and cryogenic plant",
+        "pumps, hoses and anchor installation",
+        "other aircraft equipment and payload"
+      ],
+      "geometry_and_state": "Optimized spherical reference; declared displaced-air/pressure state belongs to the source case, not automatically to a route/capsule.",
+      "not_equal_to": [
+        "0.94 kg/m3",
+        "whole aircraft dry mass or buildable inventory",
+        "graphene hypothetical membrane case",
+        "hardware qualification"
+      ],
+      "missing_evidence": [
+        "source-state air density and enclosed volume before any dimensional normalization",
+        "complete weighed sealed structure plus omitted installations",
+        "matched non-spherical geometry and load/stability applicability"
+      ],
+      "prospective_owner_role": "Structures, membrane and source-basis custodians",
+      "actual_measurement": null,
+      "evidence_id": null,
+      "assigned_owner": "UNASSIGNED",
+      "qualification": "UNKNOWN"
+    }
+  ],
+  "normalization_rule": "To compare W/B to shell mass per enclosed volume, first declare the same reference displaced-air density, geometry/volume and inclusion boundary. W/B times that density has kg/m3 dimensions; this paper performs no conversion or fresh estimate. Whole aircraft closure additionally needs the complete installed inventory, carried-state accounting and application-specific lift/pressure assumptions.",
+  "verification_plan_distinction": "The verification plan separately quotes an approximate kg/m3 equivalent. That is a quoted equivalence claim in that document, not the native dimensionless Metlen ratio; its normalization state and derivation require traceable source evidence before reuse. Retain both source contexts without silently identifying their numerical values or adopting either as a measured capsule density.",
+  "dry_allowance_definition": {
+    "existing_source": "sim/physics.js",
+    "expression": "const dryT = cls.payloadT",
+    "interpretation": "Configured whole non-water dry allowance; a model assumption, not a measured aircraft mass. Nitrogen inventory and carried water require their own state/boundaries; dry equipment and tankage are distinct from contents.",
+    "actual_complete_dry_mass": null
+  },
+  "existing_complete_budget": {
+    "source": "research/analysis/mass-budget.json",
+    "method": "Read existing generated fields only; no budget generator rerun or new estimate. floor/credible/demonstrated are source-policy columns with mixed evidence classes; demonstrated is not a flown aircraft.",
+    "published_summary": {
+      "P100": {
+        "allowanceT": 100,
+        "floor_totalT": 216.1,
+        "floor_overBy": 2.16
+      },
+      "P1000": {
+        "allowanceT": 1000,
+        "floor_totalT": 1803.6,
+        "floor_overBy": 1.8
+      },
+      "P10000": {
+        "allowanceT": 10000,
+        "floor_totalT": 19524.2,
+        "floor_overBy": 1.95
+      }
+    },
+    "installation_evidence_gaps": [
+      {
+        "item": "Vacuum shell (lattice)",
+        "existing_field": "/classes/P100/cases/floor/lines/0",
+        "published_driver": "220,000 m3 enclosed",
+        "published_note": "Volume basis, which is the favourable one. On a surface basis Jenett's own sphere is 16.9 kg/m2 and this line triples.",
+        "missing_measurement": "Matched sealed geometry, joints, global pressure stability and shape/packing applicability; avoid treating bare-sphere lattice as a complete hull.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Gas barrier skin",
+        "existing_field": "/classes/P100/cases/floor/lines/1",
+        "published_driver": "19,007 m2 hull surface",
+        "published_note": "",
+        "missing_measurement": "Actual barrier, seams, adhesive, repairs, leak/outgassing history and installed interfaces; the structural membrane reference has a different load boundary.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Solar skin",
+        "existing_field": "/classes/P100/cases/floor/lines/2",
+        "published_driver": "6,000 m2 gross PV sheet (independent material-area assumption)",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Battery pack",
+        "existing_field": "/classes/P100/cases/floor/lines/3",
+        "published_driver": "20.00 MWh",
+        "published_note": "Nominal or mission-sized capacity for this case; not demonstrated endurance.",
+        "missing_measurement": "Usable energy/delivery, pack thermal/protection/installation and mission duty at matched state; reference-pack scaling is not a built pack.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Propulsion motors",
+        "existing_field": "/classes/P100/cases/floor/lines/4",
+        "published_driver": "30 MW peak bus",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Drives, cabling, thermal",
+        "existing_field": "/classes/P100/cases/floor/lines/5",
+        "published_driver": "fraction of motor mass",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Rotors and hubs",
+        "existing_field": "/classes/P100/cases/floor/lines/6",
+        "published_driver": "2,500 m2 disc area",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Cryogenic plant",
+        "existing_field": "/classes/P100/cases/floor/lines/7",
+        "published_driver": "6 MW rated",
+        "published_note": "NO PUBLISHED SOURCE EXISTS FOR THIS LINE, and it cannot be deleted: the sealed-cell hull has no way to ballast with air. It is the emergency ballast source.",
+        "missing_measurement": "Matched liquid output, startup/transient/thermal duty and complete installed plant/cooling mass; input-power matching or a ground/surface comparator is insufficient.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "LN2 tankage",
+        "existing_field": "/classes/P100/cases/floor/lines/8",
+        "published_driver": "155 t capacity",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Water tanks and plumbing",
+        "existing_field": "/classes/P100/cases/floor/lines/9",
+        "published_driver": "100 m3 payload",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Pump",
+        "existing_field": "/classes/P100/cases/floor/lines/10",
+        "published_driver": "1.96 MW hydraulic set",
+        "published_note": "Twice the motor mass, for the wet end.",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Hose",
+        "existing_field": "/classes/P100/cases/floor/lines/11",
+        "published_driver": "300 m x 357 mm bore",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Anchor cable",
+        "existing_field": "/classes/P100/cases/floor/lines/12",
+        "published_driver": "1.2 MN quasi-static pickup load at SF 3",
+        "published_note": "Assumed minimum break strength = design load x safety factor; cable self-weight, dynamic snatch and terminations omitted. No rope product or diameter qualified.",
+        "missing_measurement": "Actual product and terminations/self-weight/dynamic pickup/wear/creep evidence; existing budget is quasi-static and assumed, not qualified.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Anchor bag",
+        "existing_field": "/classes/P100/cases/floor/lines/13",
+        "published_driver": "125 m3 bag",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Winch",
+        "existing_field": "/classes/P100/cases/floor/lines/14",
+        "published_driver": "haul at 5 m/s",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      },
+      {
+        "item": "Sundries and margin",
+        "existing_field": "/classes/P100/cases/floor/lines/15",
+        "published_driver": "avionics, control, mooring, fasteners",
+        "published_note": "",
+        "missing_measurement": "Weighed installed item, boundaries, configuration, uncertainty and duty/load applicability; distinguish component evidence from complete installation.",
+        "prospective_owner_role": "Complete-aircraft mass inventory custodian",
+        "assigned_owner": "UNASSIGNED",
+        "actual_installed_mass": null,
+        "evidence_id": null
+      }
+    ],
+    "result": "Published FAIL/not-as-specified preserved; no lever closes the gap here."
+  },
+  "battery_boundary_crosscheck": {
+    "source": "research/analysis/battery-ratios.json",
+    "reference": {
+      "whKg": 149,
+      "floorWhKg": 500,
+      "source": "Chin et al. 2021, printed p. 2; mass-budget.json evidence/battery_wh_per_kg/demonstrated/value"
+    },
+    "basis": "Configured energy capacity and simulated dry allowance; reference-pack mass is a scaling comparison, not a pack design.",
+    "published_classes": {
+      "P100": {
+        "name": "P-100",
+        "batteryMWh": 20,
+        "dryAllowanceT": 100,
+        "mwhPerDryT": 0.2,
+        "referencePackT": 134.2281879194631,
+        "referencePackPctOfDry": 134.2281879194631,
+        "minimumPackWhKgForBatteryAlone": 200,
+        "floorPackPctOfDry": 40,
+        "completeFloorT": 216.1,
+        "completeFloorOverBy": 2.16
+      },
+      "P1000": {
+        "name": "P-1000",
+        "batteryMWh": 120,
+        "dryAllowanceT": 1000,
+        "mwhPerDryT": 0.12,
+        "referencePackT": 805.3691275167786,
+        "referencePackPctOfDry": 80.53691275167786,
+        "minimumPackWhKgForBatteryAlone": 120,
+        "floorPackPctOfDry": 24,
+        "completeFloorT": 1803.6,
+        "completeFloorOverBy": 1.8
+      },
+      "P10000": {
+        "name": "P-10000",
+        "batteryMWh": 2000,
+        "dryAllowanceT": 10000,
+        "mwhPerDryT": 0.2,
+        "referencePackT": 13422.818791946309,
+        "referencePackPctOfDry": 134.22818791946307,
+        "minimumPackWhKgForBatteryAlone": 200,
+        "floorPackPctOfDry": 40,
+        "completeFloorT": 19524.2,
+        "completeFloorOverBy": 1.95
+      }
+    },
+    "interpretation": "Reference-pack-only scaling differs from complete floor budget. The source reference pack is built; the cited aircraft did not fly. Neither column is a qualified airship pack or complete dry-mass measurement."
+  },
+  "verification_plan_E1": "Weighed closed, skinned, sealed cell including its joints and share of inter-cell structure; declared enclosed volume, pressure/load state, leak/outgassing and geometry/packing applicability. Existing StageA design and StageB test are prospective; this paper authorizes no physical action and selects no acceptance tolerance.",
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "new_mass_estimate": null,
+  "closure_recommendation": null
+}
