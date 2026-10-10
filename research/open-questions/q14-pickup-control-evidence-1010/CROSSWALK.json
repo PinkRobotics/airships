@@ -102,7 +102,13 @@
       "physical_acceptance_criterion": null,
       "criterion_status": "UNKNOWN; no new numeric threshold selected",
       "disconfirming_or_insufficient_evidence": "A prescribed trajectory or model closure does not establish a controller, observed dynamics, safe transients or fail-safe operation.",
-      "qualification": "UNKNOWN"
+      "qualification": "UNKNOWN",
+      "existing_failure_record": {
+        "path": "docs/VERIFICATION-PLAN.md",
+        "line": 73,
+        "text": "| 3, 14, 15 | What does the letdown cost? | Prescribed balanced, 15 km, record-basis controls: the current descent ledger already prices **2.052 MWh / 10.978 MWh / 102.086 MWh**. The record-basis bag-credit diagnostics are **6.9% / 5.1% / 9.1%** of cycle effort. The prescribed cycles do not close. These are diagnostic effort comparisons, not operational savings. | `descent.json` |",
+        "interpretation": "Existing prescribed balanced, record-basis cycles fail quasi-static closure. The source descent and bag-credit comparisons are diagnostics, not observed dynamics or operational savings. This paper preserves the reported failure without recalculation."
+      }
     },
     {
       "id": "beam-wind-station-keeping",
