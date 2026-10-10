@@ -140,6 +140,12 @@
       "line": 211,
       "text": "export function describeState(s, cls) {",
       "needle": "export function describeState"
+    },
+    {
+      "path": "3d/model/build.js",
+      "first_line": 893,
+      "last_line": 900,
+      "text": "    const busSegs = [], busW = [];\n    for (const b of layout.hvdcBuses) {\n      for (const s of pathSegs(b.path)) { busSegs.push(s); busW.push(0.8); }\n    }\n    child(power, {\n      id: 'HVDCBuses', category: 'power', geom: lines(busSegs, busW), material: 'bus', lod: 2,\n      selectable: false,\n    });"
     }
   ],
   "requirements": [
@@ -186,9 +192,10 @@
         "3d/render/views.js",
         "3d/physics/state.js#describeState",
         "3d/physics/energy.js#energyFlows",
-        "3d/control/actuators.js#buildActuators"
+        "3d/control/actuators.js#buildActuators",
+        "3d/model/build.js"
       ],
-      "existing_boundary": "Generic failure-node/instance marking and failure render styling; the flag is forwarded in failedComponents. The readout/energy source consumes supplied electrical fields, not a bus-connectivity failure model.",
+      "existing_boundary": "The flag is forwarded in failedComponents and reaches generic failure readers, but the rendered buses are merged under HVDCBuses. HVDCBus_00 has no matching node or instance, so this flag cannot mark or style that bus geometry. The readout/energy source consumes supplied electrical fields, not a bus-connectivity failure model.",
       "prospective_observations": [
         "Before/after declared bus connectivity and supplied/available/demand power fields, affected actuator limits and their causal source; mission-energy availability flag kept explicit"
       ],
