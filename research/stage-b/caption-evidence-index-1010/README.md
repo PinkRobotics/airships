@@ -2,7 +2,7 @@
 
 This paper index specifies what a case-linked caption would need to say and what would invalidate its interpretation. It supplies no new plot, solve, physical result or numerical outcome. Private case identities, counts and results remain in the retained private index; every public result, evidence, caption and figure slot is null/UNKNOWN.
 
-[EVIDENCE-MAP.json](EVIDENCE-MAP.json) lists the prospective caption requirements, units, missing evidence and rejection conditions. [PROVENANCE.json](PROVENANCE.json) pins already-public sources. The [programme plan](../../program/PLAN.md), [next stages](../../program/NEXT-STAGES.md), [cell analysis](../../analysis/vacuum-cell.md) and [verification plan](../../../docs/VERIFICATION-PLAN.md) supply the public method and measurement context.
+[EVIDENCE-MAP.json](EVIDENCE-MAP.json) lists the prospective caption requirements, units, missing evidence and rejection conditions. Its locally defined `requirement_definitions` resolve every requirement ID; each row names specific public source sections, so no unlanded candidate is needed to interpret the mapping. [PROVENANCE.json](PROVENANCE.json) pins already-public sources. The [programme plan](../../program/PLAN.md), [next stages](../../program/NEXT-STAGES.md), [cell analysis](../../analysis/vacuum-cell.md) and [verification plan](../../../docs/VERIFICATION-PLAN.md) supply the public method and measurement context.
 
 | Evidence row | Caption scope | Current status |
 |---|---|---|
@@ -17,6 +17,7 @@ This paper index specifies what a case-linked caption would need to say and what
 | shell-film-gap | Shell, film and wall applicability gap | UNKNOWN |
 | manufacturing | Actual material and manufacturing qualification | UNKNOWN |
 | history-custody | Predecessor and control evidence custody | UNKNOWN |
+| pressure-history | Pressure, leakage and outgassing | UNKNOWN |
 
 Case completion, numerical qualification and engineering disposition belong in separate fields. A normal native exit does not settle equilibrium, target completion, convergence, mesh independence or physical applicability. Historical numerical FAIL stays a failure; incomplete or single-mesh evidence retains its limited scope. Neither an incomplete path nor nonconvergence establishes physical collapse.
 
@@ -25,3 +26,5 @@ Beam quantities need declared sections, local frames, loads and ideal fixtures. 
 Geometry illustrations must identify the article, actual stock/end pose, complete hardware and tool access. A primitive connection, closed surface flag or median wall cannot establish installed clearance, printability, retention or strength. Calculated component mass is distinct from actual conditioned weighing. Manufacturing qualification needs actual material/joint observations and applicable uncertainty, conditioning and duration evidence.
 
 The sealed narrative and case ledger can identify retained cases and their stated method boundaries. They do not provide exact figure captions or figure identities here. Those slots remain UNKNOWN; no caption-to-raw-figure verification or regenerated figure is claimed. The preceding decision-map candidate is used privately when absent from main, without importing its files or waiting for landing. This public derivative cites only sources present on its own observed base.
+
+Pressure-history captions need the same conditioned sealed article, calibrated pressure/temperature/time records and a protocol separating outgassing from leakage. Pressure rise alone does not establish leak rate. The proposed vacuum-degradation allowance remains unadopted and UNKNOWN; this paper supplies no acceptance number.
