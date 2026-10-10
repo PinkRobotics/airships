@@ -1,0 +1,145 @@
+{
+  "schema": "robotics.question-evidence-thread/1",
+  "unit": "robotics-q15-empty-hull-failure-evidence-thread-1010",
+  "date": "2026-10-10",
+  "question": 15,
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/14",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "research/program/OPEN-QUESTION-ISSUES.md",
+      "bytes": 6508,
+      "sha256": "6c7405322a0efe8491214511a2b6023194784853e954db0f53d9a7054989a73f"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "research/analysis/payload-exchange.md",
+      "bytes": 28898,
+      "sha256": "da564465fcc643d522084a595b2dd94c89a7f15425f1353eef35ca40e7d57fc7"
+    },
+    {
+      "path": "research/analysis/payload-exchange.json",
+      "bytes": 134733,
+      "sha256": "ec6b50e3efb6ec2b53bba5775035d8b290cf366718e465c910a9593181ebb1db"
+    },
+    {
+      "path": "research/analysis/energy-unheld.json",
+      "bytes": 21784,
+      "sha256": "f55ba307821df7734fae97fa8495254c7a8e0b3312e52a13459312e809c1a6ad"
+    },
+    {
+      "path": "research/analysis/air-ballast.md",
+      "bytes": 7029,
+      "sha256": "b97547ec75d788a69f1ed60ff2cd3dd45707d53b02ed73d149c5db59e8dfeeda"
+    }
+  ],
+  "entries": [
+    {
+      "id": "float-up",
+      "requirement_or_owner": "Stipulated fail-safe float-up configuration and failure boundary",
+      "existing_model_reference": "payload-exchange.json classes.*.problem.balance/dryMassTargetT; Question 15 baseline strategy",
+      "units": "kg; m3; kg/m3; m MSL; N; s",
+      "method": "Request complete matched loaded/empty article mass and displacement, atmosphere and inventory records with a defined loss of rotor/electrical authority; record actual response history and uncertainty.",
+      "missing_comparison_or_applicability": "Assumed dry target and standard-atmosphere sketch are not a built hull. Unmatched weather, architecture, equipment inclusions or residual authority prevents transfer of the stipulated float-up property.",
+      "prospective_evidence_id": "Q15:float-up",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "half-load",
+      "requirement_or_owner": "Half-load hull with two-way rotors and loaded loss of authority",
+      "existing_model_reference": "payload-exchange.json classes.*.routes.d.failureCase/ifRotorsNotReversible/byEta",
+      "units": "N signed; W; kg; m3; m/s; s",
+      "method": "Request identified bidirectional actuator/installation evidence, complete loaded state and failure event, observed control/rotor response and any water-release response tied to shared time and bus boundaries.",
+      "missing_comparison_or_applicability": "Reverse factor and article configuration are assumptions; drawn rotors are declared non-reversible. A different article or commanded shedding rate does not establish a loaded failure response or retain fail-safe float-up.",
+      "prospective_evidence_id": "Q15:half-load",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "bag-transfer",
+      "requirement_or_owner": "Airspeed-to-bag load hand-over and transient cable support",
+      "existing_model_reference": "payload-exchange.json classes.*.routes.c.handOver; Question 15 bag transfer question",
+      "units": "N; kg; m; m/s; angle rad; W; s",
+      "method": "Request synchronized airspeed, attitude, cable geometry/tension, bag inventory/motion and pickup/release state with rotor/control/bus response and attachment identity through the transition.",
+      "missing_comparison_or_applicability": "A moving-leg downforce result cannot fill a stopped transfer interval. Ground-tethered precedent, quasi-static bag credit or unmatched bag motion does not establish this hull transition.",
+      "prospective_evidence_id": "Q15:bag-transfer",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "variable-displacement",
+      "requirement_or_owner": "Variable displacement versus permanently sealed-cell architecture",
+      "existing_model_reference": "payload-exchange.json classes.*.routes.e.closedBy/fullExchange/toRotorCap; air-ballast.md retraction",
+      "units": "m3; Pa; kg; W; Wh; s",
+      "method": "Request explicit matching architecture and authorized design-decision provenance before any future displacement/pressure/actuation record; retain cell integrity, complete installation and response evidence on the same article.",
+      "missing_comparison_or_applicability": "The existing route is closed by the sealed-cell decision. A gas-compression analogue or ideal work sketch does not demonstrate sealed vacuum-cell volume change; no decision is reopened here.",
+      "prospective_evidence_id": "Q15:variable-displacement",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "cryo-production",
+      "requirement_or_owner": "Cryogenic ballast production within the available phase and installation",
+      "existing_model_reference": "payload-exchange.json classes.*.routes.f.byKm/tonnesPerHourAtDrawnPlant; Question 15 cryogenic question",
+      "units": "kg; kg/s; W; Wh/kg; K; Pa; s",
+      "method": "Request matched plant/tank/support mass, feed/product states, startup/cold readiness, measured net throughput, retention and power histories over the same named phase/window, including failed starts and outages.",
+      "missing_comparison_or_applicability": "Historical specific energies, plant ratings and sketch windows do not establish airborne production. Missing cooling, standby, retention or installation inclusions invalidates direct transfer; no required power or mass is recalculated.",
+      "prospective_evidence_id": "Q15:cryo-production",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "signed-phase",
+      "requirement_or_owner": "Published signed-unheld failure requirements and actual motion evidence",
+      "existing_model_reference": "energy-unheld.json meaning/rows; Question 15 signed-unheld table",
+      "units": "N signed; coordinate identity; m/s; m/s2; kg; timestamp; s",
+      "method": "Request matched configuration, basis, atmosphere, phase/seam timing, simultaneous force-owner observations and actual motion/controller history with raw provenance and uncertainty.",
+      "missing_comparison_or_applicability": "Model residual sign identifies required authority on prescribed controls. It is not measured acceleration or proof of strategy outcome; different sign convention, phase or controls prevents comparison.",
+      "prospective_evidence_id": "Q15:signed-phase",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    },
+    {
+      "id": "installed-boundary",
+      "requirement_or_owner": "Complete strategy-specific installation and evidence boundary",
+      "existing_model_reference": "payload-exchange.md What this study leaves out; docs/VERIFICATION-PLAN.md critical path",
+      "units": "kg; inclusion list; component identity; calibration identity; time basis",
+      "method": "Request itemized structure, actuator, cable/bag, tank, plant, battery, thermal/support and control inclusions with component identities and the source/measurement chain for each proposed configuration.",
+      "missing_comparison_or_applicability": "Unpriced inertia, cable/bag dynamics or mismatched mass/power boundaries cannot be filled by a sketch closure. No installation estimate or physical criterion is invented.",
+      "prospective_evidence_id": "Q15:installed-boundary",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "measured_uncertainty": null
+    }
+  ]
+}
