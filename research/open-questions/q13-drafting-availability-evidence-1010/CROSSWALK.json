@@ -1,0 +1,206 @@
+{
+  "schema": "q13.prospective-evidence-map/1",
+  "status": "DOCUMENT_ONLY; operational capability and physical qualification UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "question": 13,
+  "question_source": {
+    "path": "docs/OPEN-QUESTIONS.md",
+    "anchor": "13-water-geometry-is-measured-operational-availability-remains-open"
+  },
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/12",
+  "historical_source_excerpts": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 698,
+      "last_line": 723,
+      "text": "## 13. Water geometry is measured; operational availability remains open\n\nTracking issue: [#12](https://github.com/PinkRobotics/airships/issues/12).\n\nThe whole concept is a duty cycle between a fire and a lake. `sim/plan.js` takes the one-way\ndistance as an input and `sim/water.js` applies a size-weighted choice among reachable generated drafting stations, but **no figure anywhere\nin this project says what fraction of real fires have an adequate source within range.**\n\nAdequate means more than nearby. A P-10000 draws 10,000 t a cycle at\n13,183 t/h and hovers over the surface while it does it, so the body has to be large enough and\ndeep enough to stand repeated full-payload draws, and open enough to hold station over. A pond at\n4 km is not a source.\n\nThis matters more than most entries on this list because it bounds the market rather than the\nvehicle. If the answer is \"most fires in the interior\", the concept has a customer. If it is \"a\nquarter of them\", the fleet is a niche tool and the P-100 is the interesting class rather than the\nP-10000.\n\n**Partial answer: geographic measures.** The water-availability study joins the dated\npoints and mapped water already in `data/`, and reports mapped shore proximity separately\nfrom generated drafting stations. Planned legs are reported for the invented exercise alone.\nOperational availability remains open: station depth, access, permission and sustainable draw\nare not established by that spatial join.\n\n\n---"
+    },
+    {
+      "path": "research/analysis/water-availability.md",
+      "first_line": 1,
+      "last_line": 187,
+      "text": "# Does the mission exist?\n\n`docs/OPEN-QUESTIONS.md` #13: the whole concept is a shuttle between a fire and a lake, and no\nfigure anywhere in this project said what fraction of real fires have a lake worth shuttling\nto. It bounds the market rather than the vehicle, and it had never been asked.\n\nThe stored twenty-season record measures mapped shore proximity. Drafting-station geometry\nand invented exercise legs are reported separately. None establishes usable depth, access,\npermission or a dispatch of a recorded fire; accepted-plan quotients and stand-down counts\nat the stated proxy distances are reported below.\n\n## Method\n\n`pipeline/firehistory.py` pulls BC's historical fire perimeters — **3,286 fires of 10 ha or\nmore, 2006 through 2025, 10.93 million hectares burned** — and reduces each to the shoelace\ncentroid of its largest ring, keeping the simplified ring itself for the 615 fires of 1,000 ha\nor more. `research/analysis/water-availability.js` joins that against the 13,646-body\nFreshwater Atlas extract the monitor already uses, inside a real browser against the live\nmodel. The rate tables are accepted-plan quotients at shore-proxy distances, not a dispatch\nof any recorded fire or a demonstration of flight.\n\n**Mapped shore proximity** means distance to the closest vertex of the simplified outline,\nor the centroid where no outline exists. It is neither an exact shoreline distance nor a\nflown leg. The separate station measure uses `sim/water.js`'s generated drafting points.\nSelection keeps the size-weighted heuristic, using the nearest qualifying station on each\nsource; all stations offered to its mission fall within the class's search radius from the\nincident point. The cycle planner chooses among those stations for the drop lines. Its mean\nplanned leg is published separately because a station-to-line route differs from a distance\nto the incident point.\n\n## Mapped shore proximity\n\nNearest mapped body meeting each class's area threshold, measured at its shore proxy:\n\n| | threshold | qualifying bodies | median, by fire | p90 | median, by hectare burned | shore proxy within the class search radius |\n|---|---|---|---|---|---|---|\n| P-100 | 10 ha | 13,646 | **4.71 km** | 12.92 km | 5.38 km | **98.97%** of fires, 99.21% of hectares |\n| P-1000 | 100 ha | 1,623 | 11.04 km | 32.19 km | 13.68 km | **100%** |\n| P-10000 | 1,000 ha | 202 | 23.95 km | 68.30 km | 33.84 km | **100%** |\n\nEvery fire in the record has qualifying water within 300 km at every threshold tested, up to\n5,000 ha — where only 56 bodies in the province qualify and the median distance is still\n48.65 km. These are distances from recorded points to mapped water, not proof that a source\ncan supply an aircraft or that a mission exists.\n\n## Rates from accepted plans\n\n<!-- logistics:rates:start -->\nThe flight model assumes a buoyant fleet for these logistics quotients; this does not establish that a drawn hull floats.\n\n| Class | 15 km worked example t/h | Median leg t/h | Mean accepted fire legs t/h | Mean accepted legs, hectare-weighted t/h |\n|---|---|---|---|---|\n| P-100 | 106.1 | 189.5 | 176.9 | 175.9 |\n| P-1000 | 451.5 | 509.3 | 535.9 | 497.4 |\n| P-10000 | 7,357.0 | 5,741.1 | 6,103.6 | 4,984.8 |\n\n15 km worked example:\n\n| Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |\n|---|---|---|---|---|---|\n| P-100 | 15.00 | ready / balanced | 70.948 | 29.052 | 6.622 |\n| P-1000 | 15.00 | ready / endurance | 191.775 | 808.225 | 24.472 |\n| P-10000 | 15.00 | ready / rapid | 2945.496 | 7054.504 | 202.102 |\n\nMedian leg:\n\n| Class | Leg km | State / mode | Released t | Retained t | Supplied MWh/cycle |\n|---|---|---|---|---|---|\n| P-100 | 4.71 | ready / rapid | 65.000 | 35.000 | 3.933 |\n| P-1000 | 11.04 | ready / endurance | 179.806 | 820.194 | 20.646 |\n| P-10000 | 23.95 | ready / rapid | 2945.496 | 7054.504 | 241.048 |\n\n| Class | Accepted fire legs | Not served | Stand-downs | Unavailable |\n|---|---|---|---|---|\n| P-100 | 3009 | 277 | 277 | 0 |\n| P-1000 | 3286 | 0 | 0 | 0 |\n| P-10000 | 3286 | 0 | 0 | 0 |\n\nThe selector is `selectServedPlan`, requested balanced, record energy basis, still air. It chooses among the served pages' bounded controls at each exact leg; this is not a global optimum. Stand-down or unavailable legs supply no rate and are excluded from both means. Geometric water access above is a separate count.\n<!-- logistics:rates:end -->\n\n## Mapped shore proximity around the recorded perimeter\n\nFor the 615 fires of 1,000 ha or more, sampling twelve points around the perimeter and taking\nthe **worst-served** one:\n\n| threshold | median worst edge | p90 worst edge |\n|---|---|---|\n| 10 ha | 7.51 km | 17.72 km |\n| 100 ha | 15.61 km | 38.42 km |\n| 1,000 ha | 36.90 km | 86.81 km |\n\nAt the reference area threshold the sampled perimeter's median worst shore-proxy distance\nis 7.5 km. Its p90 shore proxy is within the class's 25 km radius; station coverage of those\nperimeter samples is not measured here.\n\n## Generated drafting stations and planned exercise legs\n\nThe size preference remains an explicitly unvalidated area heuristic. Keeping it avoids\nchanging the model's source-size preference while repairing its distance basis. It does not\nestablish sustainable repeated draw. The table compares the nearest generated station with\nthe size-weighted selection and checks that selection offers no station outside its radius.\nThe historical-point rows are geometry only. The flown-leg rows belong to the separately\nlabelled invented exercise: no fire shown there happened and no aircraft flew.\n\n<!-- water-stations:start -->\n| Class | Points with an in-radius station | No selected source | Nearest station median / p90, km | Selected station median / p90, km | Selections offering an out-of-radius station |\n|---|---:|---:|---:|---:|---:|\n| P-100 | 3251 | 35 | 4.98 / 13.14 | 7.07 / 19.17 | 0 |\n| P-1000 | 3286 | 0 | 12.14 / 33.29 | 15.62 / 57.08 | 0 |\n| P-10000 | 3286 | 0 | 25.90 / 70.05 | 28.10 / 93.98 | 0 |\n\n| Class | Selection farther than nearest station, % | p90 station detour, km |\n|---|---:|---:|\n| P-100 | 47.31 | 9.50 |\n| P-1000 | 45.01 | 25.97 |\n| P-10000 | 32.65 | 30.37 |\n\nInvented exercise geometry (empty when this study is run on another view):\n\n| Hull | Invented incident | Class | Nearest station, km | Mean planned leg, km | Plan state |\n|---|---|---|---:|---:|---|\n| Condor | EX090 | P10000 | 61.21 | 47.39 | ready |\n| Osprey | EX034 | P1000 | 19.19 | 15.64 | ready |\n| Pelican | EX094 | P1000 | 15.20 | 14.30 | ready |\n| Heron | EX044 | P1000 | 30.22 | 28.87 | ready |\n| Albatross | EX057 | P1000 | 33.47 | 32.63 | ready |\n| Skimmer | EX039 | P1000 | 28.45 | 27.25 | ready |\n| Kingfisher | EX074 | P100 | 20.17 | 19.30 | ready |\n| Tern | EX116 | P100 | 20.17 | 20.05 | ready |\n| Merganser | EX049 | P100 | 6.10 | 5.73 | ready |\n| Dipper | EX045 | P100 | 7.45 | 7.33 | ready |\n| Grebe | EX097 | P100 | 14.41 | 13.98 | ready |\n| Loon | EX058 | P100 | 10.11 | 9.78 | ready |\n| Swift | EX013 | P100 | 5.53 | 5.54 | ready |\n| Petrel | EX072 | P100 | 9.44 | 9.47 | ready |\n| Kestrel | EX078 | P100 | 5.26 | 5.20 | ready |\n| Auklet | EX075 | P100 | 4.94 | 4.94 | ready |\n<!-- water-stations:end -->\n\n## Source-area and depth limits\n\n**2026-10-02 correction:** the station-disc calculation now uses the capsule-era fleet lengths.\nThe [regeneration audit](../../docs/audit/26-10-02-analysis-regeneration.md) retains the former figures.\n\n**The adequacy thresholds are far more conservative than the ship's own geometry.** A hull\nholding station needs a disc it fits inside — 0.95 ha for a P-100, 20.59 ha for a P-10000.\nThe shipped thresholds are 10.5× and 48.6× that. Loosening the P-10000 to 500 ha would roughly\ndouble its qualifying bodies and cut its median mapped shore-proxy distance from 23.95 to 19.01 km.\n\n<!-- logistics:drawdown:start -->\nA P-100 repeating the accepted 15 km plan for twelve hours releases 1,274 t, a geometric drawdown of 1.3 cm on a minimum-size body. Continuous supply and lake access are assumed.\n<!-- logistics:drawdown:end -->\n\n## What this analysis cannot answer, and it is the important one\n\n**The Freshwater Atlas carries area. It does not carry depth.** The anchor bag has to submerge\nto fill:\n\n| | bag | diameter as a filled cylinder | water depth needed |\n|---|---|---|---|\n| P-100 | 125 t | 5.42 m | **8.1 m** |\n| P-1000 | 1,250 t | 11.68 m | 17.5 m |\n| P-10000 | 12,400 t | 25.09 m | **37.6 m** |\n\nNothing in this dataset says how many of those 13,646 bodies are 8 m deep where a ship would\nhover, let alone 38 m. Small interior lakes are routinely shallower than that, and shallow is\nexactly what a 10 ha lake tends to be. Depth remains an unresolved requirement alongside\nstation geometry, access and permission.\n\nIt is also answerable. BC holds bathymetry for a substantial subset of its lakes, and the\nquestion is a join away for anyone with access to it.\n\n## Honest limits\n\n- **BC only.** The concept generalises; this dataset does not.\n- **Fires below 10 ha are excluded.** BCWS records thousands of small starts a year that are\n  out before anything flies. Including them would shorten every distance, because small fires\n  are everywhere; excluding them keeps the analysis on fires that get an aviation response.\n- **Straight-line distance.** No terrain, no airspace, no wind. The ship flies over ridges the\n  distance ignores.\n- **Surface area only.** Beyond depth: access, shoreline, ice, seasonal drawdown, fish habitat\n  and any legal right to draft water are all absent from the Atlas and from this analysis. A\n  lake that qualifies geometrically may be closed to a fleet for reasons that have nothing to\n  do with hydrology.\n- **Perimeters are the final footprint**, not an operational target or an incident-time\n  dispatch request. This study measures distances and makes no counterfactual fire claim.\n"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "mapped-proximity",
+      "source": [
+        "research/analysis/water-availability.md",
+        "sim/water.js#findSource"
+      ],
+      "existing_boundary": "Published shoreline proximity is a simplified-outline closest-vertex/centroid proxy. Freshwater Atlas area is not depth; straight-line geometric distance is not a flown route or usable-source observation.",
+      "prospective_observations": [
+        "Source identity, outline version, coordinate datum and applicable date; actual draft-site location and accessible approach evidence kept separate from outline geometry"
+      ],
+      "observation_units": [
+        "coordinate datum",
+        "m",
+        "time/date",
+        "source identifiers"
+      ],
+      "prospective_custodian_role": "Geospatial and source-applicability evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "Nearby mapped water, area or a proxy vertex does not establish usable depth, access or operational supply.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "generated-station",
+      "source": [
+        "sim/water.js#intakePoint",
+        "sim/water.js#sourceStations",
+        "research/analysis/water-availability.md"
+      ],
+      "existing_boundary": "Generated intake/alternate points use geometric inset/chord/centroid heuristics, filtered by class radius and area-weighted selection. Generated exercise stations are not surveyed stations or a depth/permission/sustainability check.",
+      "prospective_observations": [
+        "An identified surveyed location and geometry/configuration record; open-water/shore obstacles, intake accessibility and independent operational applicability evidence"
+      ],
+      "observation_units": [
+        "coordinate datum",
+        "m",
+        "source identifiers",
+        "configuration identifiers"
+      ],
+      "prospective_custodian_role": "Draft-site geometry and access evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A polygon-interior point, width heuristic, exercise route or accepted model plan does not establish a usable intake.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "depth-and-clearance",
+      "source": [
+        "docs/OPEN-QUESTIONS.md#13-water-geometry-is-measured-operational-availability-remains-open",
+        "research/analysis/water-availability.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "Published bag-depth requirements follow assumed filled-bag geometry. They are not surveyed lake depths; the source dataset carries area, not bathymetry.",
+      "prospective_observations": [
+        "Station bathymetry/bed, water level and seasonal/time basis; matched bag/intake/hose geometry, immersion and clearances with uncertainty"
+      ],
+      "observation_units": [
+        "m",
+        "time/date",
+        "configuration identifiers"
+      ],
+      "prospective_custodian_role": "Bathymetry and intake-geometry evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "Lake area or historical assumed bag depth cannot establish adequate station depth/clearance at the relevant level and time.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "access-and-permission",
+      "source": [
+        "docs/OPEN-QUESTIONS.md#13-water-geometry-is-measured-operational-availability-remains-open",
+        "research/analysis/water-availability.md"
+      ],
+      "existing_boundary": "Legal right, site access, habitat/season restrictions, ice and actual availability are missing operational evidence. This map makes no current legal ruling or grant.",
+      "prospective_observations": [
+        "Responsible permission/authorization record, spatial and activity scope, validity period, restrictions, access constraints and revocation/update source"
+      ],
+      "observation_units": [
+        "time/date",
+        "source identifiers",
+        "spatial extent",
+        "authorization record identifiers"
+      ],
+      "prospective_custodian_role": "Access and permissions evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A public polygon, old exercise, or absent restriction field cannot establish permission or continuing access.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "sustainable-draw",
+      "source": [
+        "research/analysis/water-availability.md",
+        "docs/OPEN-QUESTIONS.md#13-water-geometry-is-measured-operational-availability-remains-open"
+      ],
+      "existing_boundary": "Historical geometric coverage and hypothetical drawdown are not sustainable-source yield. Area is not stored usable volume or a guarantee of replenishment.",
+      "prospective_observations": [
+        "Matched withdrawal history, available water/level observations, refill/recharge and applicable environmental/operating constraints, uncertainty and evidence period"
+      ],
+      "observation_units": [
+        "m",
+        "m3/s or kg/s with declared conversion basis",
+        "time/date"
+      ],
+      "prospective_custodian_role": "Water-supply and environmental evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "Area-weighted selection or an assumed continuous-supply calculation cannot establish sustained draw, operational availability or a usable-water fraction.",
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "station-keeping",
+      "source": [
+        "docs/OPEN-QUESTIONS.md#13-water-geometry-is-measured-operational-availability-remains-open",
+        "docs/OPEN-QUESTIONS.md#14-can-the-bag-be-picked-up-and-released-at-this-scale",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "Geometry and still-air model records do not establish station keeping with suspended pickup. Horizontal actuator power, control response and load transients remain unestablished.",
+      "prospective_observations": [
+        "Matched local wind/waves/flow, hull/bag/cable motion and load transfer, actuator force/moment/power and control history at the proposed source state"
+      ],
+      "observation_units": [
+        "m/s",
+        "m",
+        "s",
+        "N",
+        "Nm",
+        "W"
+      ],
+      "prospective_custodian_role": "Station-keeping and suspended-load evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; no new numeric threshold selected",
+      "disconfirming_or_insufficient_evidence": "A geometric station or quasi-static hold cannot establish physical source occupation, dynamic control or available horizontal power.",
+      "qualification": "UNKNOWN"
+    }
+  ],
+  "evidence_boundaries": [
+    "Historical mapped proximity, selected geometric/exercise stations and operationally usable sources are different evidence classes.",
+    "Historical geometric tables and accepted-plan diagnostics retain their original date, controls, denominator and refusals; no fresh spatial join, route or coverage estimate occurs.",
+    "The exercise incidents are generated, not actual flights. Existing BC/fire-size/perimeter and still-air scope restrictions remain.",
+    "No station is selected and no physical, legal or field action is authorized."
+  ],
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "selected_hardware": null,
+  "selected_station": null,
+  "selected_control_policy": null,
+  "qualification_conclusion": null,
+  "physical_action": null,
+  "remote_issue_action": null
+}
