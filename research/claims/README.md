@@ -17,6 +17,38 @@ The scope includes manifest-served HTML, `README.md`, `GOALS.md`, reports, then 
 
 Each static identity is the relative file, normalized sentence/cell digest and ordinal, including repeated identical sentences. Placement binds the surface, block and table context, generated region and figure marker. Accessibility text, controls, metadata, SVG text, inline templates and written-out numbers are included. A model span has a symbolic identity that includes its attribute, key and formatting; its computed value may change without changing that identity. Every `data-n` and `data-cat` span is inventoried. Unknown page contexts or keys are defects. Digests use original text; public excerpts scrub local paths, addresses and domains.
 
+## Local records and exact restoration
+
+The register, carry history, rule changes and acceptance receipts are local outputs,
+ignored by Git. A fresh clone runs `make claimsrestore` before using them; the same
+missing-file restore is a prerequisite of `make claimscheck`. This materializes
+exact bytes from the Git commit and hashes in `restore-source.json`, including the
+original acceptance and carry history. It does not accept new defects, rerun science
+or reset the ratchet. Existing local files are never overwritten, even if modified.
+Keep these files when landing cleanup changes (`preserve_paths` in the landing order).
+
+```sh
+make claimsrestore
+python3 -B tools/claims.py check
+# After reviewed source changes, update local outputs under the existing rules:
+python3 -B tools/claims.py carry
+make claimscheck
+```
+
+`tools/claims.py carry` generates the current register and appends carry/acceptance
+transitions; it is not a replacement for historical receipts. `rule-changes.json`
+is a historical report restored from its pinned source, not a current verdict.
+Do not run `seed.py` as a cleanup shortcut: it cannot reproduce accepted history.
+Tracked verdicts, known defects, TSV projections, baselines and mutation evidence
+remain versioned. Direct `check` remains read-only and fails if required inputs
+are absent or changed; it never restores them or silently grants an acceptance.
+
+Restoration needs the pinned commit in local Git history. For a shallow clone,
+fetch that commit from the repository's existing origin first. Source archives
+without Git history must use a Git clone; no network fetch is implicit in the tool.
+`make claimsrestore` fails clearly if a source object or hash is unavailable.
+This reduces the current tracked tree, not past Git history or clone history size.
+
 ## Ownership rules
 
 - Blocks detected by the ledger come from `check_float_ledger.source_blocks` and `inspect_block`, then `float_claims.apply` and `key_of`. An exact record key owns every contained occurrence only when its disposition passes. Allowance reasons travel with owners. A deferred block remains a defect carrying its own deferral reason, including inside a checked generated region. Ledger ownership does not establish flight or suppression. Records are read-only inputs to this gate.

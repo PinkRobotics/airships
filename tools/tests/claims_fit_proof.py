@@ -27,6 +27,10 @@ def run(tree, argv, expected=0):
 def main():
     files = subprocess.check_output(['git', 'ls-files', '--cached', '--others',
                                     '--exclude-standard', '-z'], cwd=ROOT).decode().split('\0')
+    # Ignored gate inputs are required in disposable mutation trees too.
+    files_extra = ['research/claims/' + name for name in
+                   ('register.json', 'carry-history.json', 'rule-changes.json', 'accepted-defects.json')]
+    files.extend(files_extra)
     with tempfile.TemporaryDirectory(prefix='claims-fit-proof-', dir=os.environ['TMPDIR']) as tmp:
         tree = Path(tmp)
         for rel in files:

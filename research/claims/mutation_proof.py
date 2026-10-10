@@ -24,6 +24,10 @@ def main():
         # Copy the complete local dependency tree: model contexts, generated-region
         # producers, records and captures. No network and no agency requests.
         names = subprocess.check_output(['git','ls-files','-c','-o','--exclude-standard','-z'],cwd=ROOT,text=True).split('\0')
+        # Ignored gate inputs are required in disposable mutation trees too.
+        files_extra = ['research/claims/' + name for name in
+                       ('register.json', 'carry-history.json', 'rule-changes.json', 'accepted-defects.json')]
+        names.extend(files_extra)
         files = sorted({name for name in names if name and not name.startswith(('series/','inputs/')) and name != 'HANDUP.md'})
         for name in files:
             rel=Path(name)

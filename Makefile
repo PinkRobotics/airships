@@ -452,7 +452,11 @@ servedenergycheck:  ## Accept every served cycle at its own inputs; regenerate p
 
 .PHONY: servedenergycheck
 
-.PHONY: claimscheck
-claimscheck:  ## Inventory every tier 1 number and enforce ownership and the defect ratchet
+.PHONY: claimsrestore claimscheck
+claimsrestore:  ## Restore missing local claims records from pinned Git history; never overwrite
+	$(PY) -B tools/restore_claims.py
+
+claimscheck: claimsrestore  ## Inventory every tier 1 number and enforce ownership and the defect ratchet
 	$(PY) tools/claims.py check
 	$(PY) -B -m unittest discover -s tools/tests -p test_claims.py
+	$(PY) -B -m unittest discover -s tools/tests -p test_restore_claims.py
