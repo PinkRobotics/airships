@@ -1,0 +1,42 @@
+{
+  "schema": "p45.assumed-stiffness/1",
+  "status": "ASSUMED_PAPER_ONLY; physical qualification UNKNOWN",
+  "reference": "Stipulated proposed-area model; symbolic interface requirements apply",
+  "model_counts": {
+    "cords": 19440,
+    "ends": 38880,
+    "degree9_sites": 4320,
+    "installed_counts": "UNKNOWN"
+  },
+  "stipulated": {
+    "chi_star": 0.94,
+    "chi_basis": "Stipulated chi_star=0.94 only; not a measured value, witness or established feasible case",
+    "cord_tangent_E_Pa": 70000000000,
+    "cord_density_kg_m3": 970,
+    "material_basis": "Inherited unqualified source assumptions; actual material/ratings UNKNOWN",
+    "area": "A_e=A_e0/chi_star; actual A_e and L_e UNKNOWN",
+    "D0": "diag(L_e/(E_e*A_e0)), positive, compatible work-conjugate coordinates",
+    "end1_allowance_relative_to_D0": 0.02,
+    "end2_allowance_relative_to_D0": 0.02,
+    "assembled_anchor_allowance_relative_to_D0": 0.02,
+    "allowance_basis": "Illustrative equal allocation of (1-chi_star)D0. Bounds are assumptions, not actual compliances. Anchor allowance covers the assembled S^T C_ports S including both endpoint sites, all cross terms and support effects once. It is not 0.02 at each of two sites.",
+    "cross_site_basis": "No measured decoupling assumed. Any offsite term must fit the SAME assembled anchor allowance; otherwise this stipulated condition is unestablished.",
+    "state": "Common registered tangent pretension/contact/environment/history state required; actual registration UNKNOWN"
+  },
+  "actual": {
+    "cord_E_Pa": null,
+    "cord_areas_m2": null,
+    "cord_lengths_m": null,
+    "end_compliances_m_N": null,
+    "anchor_matrix_m_N": null,
+    "global_matrix": null,
+    "chi": null,
+    "hardware_masses_t": null,
+    "population_confidence": "UNKNOWN",
+    "physical_applicability": "UNKNOWN",
+    "global_lower_operator_comparison": "UNKNOWN",
+    "budget_fit": "UNKNOWN"
+  },
+  "mass_pool": "ONE stipulated symbolic C-U/chi pool, all34 rows and duty map unchanged; no separate anchor, fixture, support or reinforcement pool",
+  "scientific_claim": "Conditional interpretation of inherited algebra; no measured result or physical qualification"
+}

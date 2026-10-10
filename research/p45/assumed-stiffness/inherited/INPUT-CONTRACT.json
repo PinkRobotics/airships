@@ -1,0 +1,96 @@
+{
+  "stage": "P4.5",
+  "status": "SYMBOLIC_INPUT_CONTRACT; actual inputs UNKNOWN",
+  "interface": "one SYMBOLIC degree9 shared-anchor; applicability to all4320 sites is conditional",
+  "actual_matrices": null,
+  "actual_chi": null,
+  "actual_hardware_masses": null,
+  "physical_applicability": "UNKNOWN",
+  "scientific_confidence": "UNKNOWN",
+  "rows": [
+    {
+      "id": "C01",
+      "subject": "Graph identity, common datum and force/displacement order",
+      "required": "Assign each of nine ports j=1..9 to a retained graph edge ID, site/plane/family, each cord's two distinct ends and their force signs. Order t=(t1,..,t9) in N and q=(q1,..,q9) in m with positive t tensile and positive q work-conjugate elongation. Register right-handed common anchor/frame datum, attachments r_j in m, outward cord directions n_j and load application points. Preserve19440 active cords,38880 ends,4320degree9sites under the reference graph; none of these is a measured installed count.",
+      "evidence": "Registered as-built identities/coordinates/orientation and traceability to the reference graph; uncertain/missing assignments remain unknown.",
+      "actual": null
+    },
+    {
+      "id": "C02",
+      "subject": "Generalized ordering, units, rotations and work-preserving transformations",
+      "required": "At each port order y_j=(ux,uy,uz,thetax,thetay,thetaz), translation m and rotation rad; conjugate wrench f_j=(Fx,Fy,Fz,Mx,My,Mz), N and N*m. Stack ports in j order. w_j=(n_j,r_j cross n_j) maps axial tension into the reference wrench. Define y'=G y with rotational AND datum-translation blocks; f'=G^(-T)f, H'=G H G^T, K'=G^(-T)K G^(-1). Record displacement scaling if lengths normalize rotations; verify f^T y is unchanged. Never compare mixed-unit matrices before compatible work-conjugate scaling/projection.",
+      "evidence": "Datum/rotation/sign records and registered six-component displacement/wrench calibration, including moment arms and uncertainty.",
+      "actual": null
+    },
+    {
+      "id": "C03",
+      "subject": "Cord constitution, lengths/areas, construction, lot and environment",
+      "required": "For each active family/plane or a justified equivalence class supply actual loadbearing area A, active length L, tangent axial E at the admitted load/history/environment, density, construction and lot. Cord compliance D_e=L_e/(E_e*A_e), m/N. Stipulate A_e(chi)=A_e0/chi as a SYMBOLIC redesign relation, not actual area. Inherited E70GPa/rho970 and source1050MPa/SF1.2 are model assumptions, not actual material qualification.",
+      "evidence": "Matched traceable geometry/strain/force data, lot/environment/history records, metrology uncertainty, applicable strength/creep/fatigue/temperature ratings; none inferred from a nominal model.",
+      "actual": null
+    },
+    {
+      "id": "C04",
+      "subject": "Both end compliances and nonaxial joint effects",
+      "required": "For every included cord identify BOTH terminations and their installed states. Measure/identify tangent slip and any shear/rotation coupling relative to their respective attachment datums; project work-conjugately only after nonaxial modes are accounted for. Independent linear end compliances contribute c_e1+c_e2 in m/N only when the series/no-coupling assumptions are demonstrated. Do not replace the nine-port shared anchor by eighteen independent scalar end limits.",
+      "evidence": "Separated cord strain and each-end relative motion under known incremental forces; hysteresis, seating, creep and connection-state envelopes; exact end/anchor boundary crosswalk.",
+      "actual": null
+    },
+    {
+      "id": "C05",
+      "subject": "Full nine-direction anchor compliance, including cross terms",
+      "required": "Define full projected C_s=W_s^T H_s W_s in m/N; t_s=(t1,..,t9), q_s=C_s t_s. Retain all81 positions, including every offdiagonal. Symmetry reduces independent entries to45 ONLY if reciprocity/conservative linear response is verified. H_s includes the admitted attachment/frame support response OR those coordinates remain explicit in global assembly, never both. Nine independent incremental load directions and all nine responses identify this projected linear operator at one state only.",
+      "evidence": "Rank9 load excitation in the registered nine-port span, all-port response measurements, support/attachment boundary records, uncertainty/cross-term residuals and reciprocal/passive-state checks.",
+      "actual": null
+    },
+    {
+      "id": "C06",
+      "subject": "Coupled load transfer and complete assembly boundary",
+      "required": "Define compatible edge elongations q=B x and global force transfer f=B^T t, with complete cord/site/frame/ring/plane/cap/polar DOF order and units. State internal coordinates and constraints Q, and ports' incidence maps S_s; full connection C_conn=diag(c_e1+c_e2)+S^T C_ports S. Offsite frame interactions require the full C_ports, not block-diagonal site assumptions. General transfer matrix T requires full columnwise response to all admitted input directions; 81 entries applies only to a declared9input/9output map. No universal global identification count follows from nine local ports.",
+      "evidence": "Registered coupled response/loadpath evidence, all supports/boundaries and compatibility constraints; physical justification for repeated-site symmetry and any decoupled-mode assumption.",
+      "actual": null
+    },
+    {
+      "id": "C07",
+      "subject": "Pretension, tautness, contact, slack and tangent state",
+      "required": "Define admissible perturbation/load/environment/time states, strictly positive tension in all loadcarrying cords, contact set, joint seating/slip, max tension and geometric stiffness contributions. Identify tangent operators about EACH admitted state with history effects bounded. A slack/contact change changes B and/or constitutive law; small-strain axial stiffness alone cannot establish global retention or strength.",
+      "evidence": "Measured pretension/contact/slack history and independently applicable strength/creep/fatigue/temperature limits; states outside demonstrated envelope remain UNKNOWN.",
+      "actual": null
+    },
+    {
+      "id": "C08",
+      "subject": "Local sufficient condition and area/compliance coupling",
+      "required": "For positive D and a passive symmetric connection operator, C_conn <= (1/chi_star-1)D in Loewner order implies (D+C_conn)^(-1) >= chi_star D^(-1). A site-only C_s condition is sufficient locally only with a demonstrated global decomposition and allocated per-edge compliance allowance, including both sites/ends and all crosssite terms. Scalar independent-edge example: c_total <= (1/chi_star-1)L/(E*A); at A=A0/chi_star this becomes c_total <= (1-chi_star)L/(E*A0). With fixed c_total, baseline EA0/L requires A>=A0/(1-E*A0*c_total/L), with denominator>0. These are symbolic conditions, not qualifications.",
+      "evidence": "Complete compatible operator uncertainty upper envelope and area/state records; local diagonal limits alone fail to bound the full operator.",
+      "actual": null
+    },
+    {
+      "id": "C09",
+      "subject": "Global constrained sufficient condition and nullspaces",
+      "required": "On the same registered constraints, nullspace quotient, compatible internal coordinates and state, establish condensed K_actual >= condensed K_target(chi_star), with K_target=K_retained+chi_star*K_cord_ideal for the frozen proposed area. Prove this uniformly for all admitted sites/states and load modes with measurement uncertainty. A full-assembly energy comparison before compatible condensation is sufficient. Reference positive definiteness on the quotient, no added unsupported mechanisms, correct prestress/stability and unchanged fixedGM/gamma applicability are necessary for this claim. Local cord retention without global transfer/support/compatibility evidence is insufficient.",
+      "evidence": "Assembled lower operator envelope, reference model registration, constrained/condensed energy proof and state/material/geometry uncertainty; actual chi_star remains NULL.",
+      "actual": null
+    },
+    {
+      "id": "C10",
+      "subject": "Conditional4320-site applicability and confidence",
+      "required": "Define equivalence classes by construction, area/length, end/anchor/frame attachment, load/pretension/contact, lot/environment and boundary. One symbolic degree9 contract licenses no physical extrapolation. Either identify each non-equivalent configuration and its uncertainty or demonstrate a scientifically valid uniform envelope covering all4320sites. One specimen/configuration and rank9 anchor loads give conditional operator-identification coverage only; statistically justified specimen/lot/environment/variability counts are UNKNOWN until confidence, population and variability assumptions/evidence are supplied.",
+      "evidence": "Coverage map plus qualified uncertainty/statistical rationale under an explicit confidence/applicability target; unsupported confidence and sampling sufficiency remain UNKNOWN.",
+      "actual": null
+    },
+    {
+      "id": "C11",
+      "subject": "One34-row additions pool and nonoverlapping mass ownership",
+      "required": "Preserve all34 historical canonical ledger rows and JSON types. Every actual_mass_t remains NULL. Debit cord ends/anchor interfaces/frame reinforcement/supports/routing/protection/pretension/shear connections/seals/plant/power/gas/lost lift/payload/reserve once against the SAME C-U/chi pool; no second fixture/support/anchor budget. Laboratory-only equipment is excluded from flight mass only under an explicit architecture/duty decision, not as free flight hardware. Reconcile any source-member/joint replacement delta with matched evidence before credit; no assumed negative saving. MASS-INVENTORY.json retains the scientific row values and types and duty ownership map.",
+      "evidence": "Itemized actual inventory/mass and architecture/overlap crosswalk, with flight-versus-ground and end-versus-site ownership decided before totals.",
+      "actual": null
+    },
+    {
+      "id": "C12",
+      "subject": "Evidence registration, identification counts and applicability decision",
+      "required": "Register evidence, uncertainty and coverage in the common reference model. State the intended confidence/applicability target and architecture before extrapolating to the full assembly. Future material/connection/metrology evidence owners remain UNASSIGNED. Identify data requirements and instrument classes only; no measured evidence is supplied here. The decision brief ends with <=10 plain-language minimum-measurement lines, distinguishing operator identification from population confidence.",
+      "evidence": "Evidence-owner records, explicit applicability/confidence targets and architecture choices; no measurements are reported in this paper.",
+      "actual": null
+    }
+  ]
+}
