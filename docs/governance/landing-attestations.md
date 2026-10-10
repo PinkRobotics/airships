@@ -502,3 +502,17 @@
 | Order | sha256 `dd148ab32dc7651d…` (informational) |
 | Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 38 — Twelve research papers, with the confidence key renamed so evaccheck passes
+
+| field | value |
+|---|---|
+| Landed | 2026-10-10 13:31:56 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `94db332d3dc437708d3ed0dfeb6b619c70d9da25` → `faa02d718cc69f5c70b1807f3357db8ca71a6f4f`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `faa02d718cc69f5c70b1807f3357db8ca71a6f4f`, tree `d92075577f613599920fac4b43e27cd370d5892b`, from branch `worker/ci-evac-fix-1010`, parent `2ca19e37af261dd84063a650a7aebc6530f4a238`, governance `gov-58c220b7a83d` preserved. Unit `robotics-airships-ci-red-evac-1010`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py faa02d718…` → rc=0, HONOURED-XO faa02d718cc69f5c70b1807f3357db8ca71a6f4f — the last record for this sha (store line 1159) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `1f2a2f0c6` ← `gov-a919aea5842e` (its trailer); `e5618cf8a` ← `gov-4a0fe1c575e3` (its trailer); `b6a4c60b6` ← `gov-a79b4f32638e` (its trailer); `55dce5ffa` ← `gov-ba01a5af87d1` (its trailer); `191bd2da2` ← `gov-64a7703f4566` (its trailer); `7bf95ee75` ← `gov-6c18cf1b05d5` (its trailer); `d392a778b` ← `gov-b1ebc9bcbc26` (its trailer); `ca3fa99a2` ← `gov-c4f20766d6f0` (its trailer); `6c19a96d8` ← `gov-388276e71c98` (its trailer); `c84f9134b` ← `gov-e05e5f416036` (its trailer); `707a7c9ad` ← `gov-4b2d2505547c` (its trailer); `73ef64a13` ← `gov-5847caa4498d` (its trailer); `2d4309c71` ← `gov-d725f088d22b` (its trailer); `e905fef9a` ← `gov-2c9e0cadd6ba` (its trailer); `7ab8a26b7` ← `gov-600a7c97126e` (its trailer); `2ca19e37a` ← `gov-67a74de27dc8` (its trailer); `faa02d718` ← `gov-58c220b7a83d` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck ledgercheck linkcheck buildercheck readmecheck evaccheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `ac1f87866ab3a24c…` from helm (informational) |
+| Order | sha256 `275d42ae3f736387…` (informational) |
+| Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
