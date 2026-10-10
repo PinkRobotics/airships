@@ -4,9 +4,9 @@ Pink Robotics asks whether a vacuum-lift airship could carry and deliver water u
 
 [![CI](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml/badge.svg)](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml)
 
-![Side silhouette of the conceptual P-100 airship](3d/assets/static/p100-side-silhouette.svg)
+![Side silhouette of the conceptual airship](3d/assets/static/p100-side-silhouette.svg)
 
-Existing conceptual model illustration, © Pink Robotics, [CC BY 4.0](LICENSE-CONTENT). It depicts an assumed reference vehicle, not built or validated hardware. A green CI badge reports repository checks, not aircraft feasibility.
+Existing conceptual model illustration, © Pink Robotics, [Creative Commons Attribution](LICENSE-CONTENT). It depicts an assumed reference vehicle, not built or validated hardware. A green CI badge reports repository checks, not aircraft feasibility.
 
 Start with the [documentation index](docs/README.md), [current programme and limits](research/program/PROGRAM.md), or [ranked next work](research/program/NEXT-STAGES.md).
 
