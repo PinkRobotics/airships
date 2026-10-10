@@ -348,3 +348,17 @@
 | Order | sha256 `959e358e921f002c…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 27 — Exclude citation metadata from the site build and bind the README claims records to their lines
+
+| field | value |
+|---|---|
+| Landed | 2026-10-10 00:01:10 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `ae244c455512ffe8d7383315e49ea66597dd7b39` → `2e8bb831195afcda0a0a8268bb9a25f9e2b041b8`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `2e8bb831195afcda0a0a8268bb9a25f9e2b041b8`, tree `67ae57b2c426c8c2a26673a3f6c8a0cc07d7b24a`, from branch `worker/citation-rootclaims-neutral-first-1009`, parent `2275403acfc586c0c367c47cd5f2fff9c695d480`, governance `gov-658200c5c140` preserved. Unit `robotics-citation-manifest-first-1009`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 2e8bb8311…` → rc=0, HONOURED-XO 2e8bb831195afcda0a0a8268bb9a25f9e2b041b8 — the last record for this sha (store line 1073) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `2275403ac` ← `gov-e6f1dd18d082` (its trailer); `2e8bb8311` ← `gov-658200c5c140` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck linkcheck buildercheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `d74e14c13dcf0e27…` from helm (informational) |
+| Order | sha256 `dd37b8d65f98e7ae…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
