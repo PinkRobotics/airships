@@ -446,3 +446,17 @@
 | Order | sha256 `0c5a204662ea4375…` (informational) |
 | Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 34 — Add reviewed public-face record with dated mirror history
+
+| field | value |
+|---|---|
+| Landed | 2026-10-10 06:19:05 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `df13ab897260bf22afa5b1df374866321d8b1858` → `493066da962b7ec9e59d03b02dd27179ce43d61b`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `493066da962b7ec9e59d03b02dd27179ce43d61b`, tree `eef407b864141e2567dded3aa58247c296b51bb4`, from branch `public-face-science-actual33-minimal-1010`, parent `df13ab897260bf22afa5b1df374866321d8b1858`, governance `gov-f5bd2d849529` preserved. Unit `robotics-charter-1009`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 493066da9…` → rc=0, HONOURED-XO 493066da962b7ec9e59d03b02dd27179ce43d61b — the last record for this sha (store line 1096) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `493066da9` ← `gov-f5bd2d849529` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck linkcheck buildercheck readmecheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `ac1f87866ab3a24c…` from helm (informational) |
+| Order | sha256 `a28949a7e4f9019a…` (informational) |
+| Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
