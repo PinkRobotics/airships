@@ -1,0 +1,42 @@
+# P1.6 assumed-value port paper
+
+Status: paper preparation under the standing programme, 2026-10-09. Actual geometry, hardware, materials, metrology, clearance and capacity remain UNKNOWN. No site, part, price, physical activity or measured value is selected. This paper uses an unpublished private contract solely as a collection of stipulated model hypotheses; no inherited bound or accepted source result is established here. Paper preparation can continue without measurements.
+
+## Stipulated model contract
+
+Keep the two sites `n00.l0` and `n10.l0` and both `bondedboss` and `reinforcedclampedflange` concepts separate, with eight categories per site/concept: registered aperture/stack; attachment and intentional contact; operation/disconnect/gauge/vent; insertion/removal/preparation/backing by state; film/seams/deformation; independent support and common-datum loads; geometric/mesh/error/margin; calibrated metrology/acquisition. The complete projection retains all 32 row IDs, 36 explicit model/requirement hypotheses, eight neutral unavailable-source bookkeeping requirements, 132 UNKNOWN physical entries with null values, eight existing stipulations and the measurement-request list. No UNKNOWN becomes zero.
+
+Bonding retains film → reinforcement → bond/adherend → verified structure, with independent valve/hose support and its residual wrench. Clamping retains film → reinforcement → gasket/contact/rings → backing → verified structure, with its own support and residual wrench. Equal toy envelopes do not equate attachment, process, access or capacity. Preserve all installed socket branches and the state-specific tube-presence requirement; do not change build order or claim endpoint poses prove a continuous route.
+
+## Explicit assumed scenario
+
+For a dimensional example only, stipulate a perfectly coaxial rigid normal-axis body of radius 10 mm and length 10 mm, with the centre of its near axial end face moving from 20 to 30 mm outside the datum and the body extending 10 mm along the outward normal, giving a stipulated axis-segment interval [20,40] mm and `s_min=20` mm. This reference point is the near end face, not the body centroid. Stipulate a 1 mm margin and 1 mm numerical error. For a separate annular bounding example, stipulate a 60 mm inner radius; this is a different toy envelope from the radius-10 body, not a simultaneous part specification. Every corresponding actual input remains UNKNOWN, including registration and deformation uncertainty; the 1 mm numerical error is not an acquired bound or mesh provenance.
+
+Stipulate an ideal halfspace/whole-node cover with radius 51 mm and a separate conditional recipe inflation of 2.60715 mm, giving 53.60715 mm. These are toy/model hypotheses, not inherited established bounds, accepted proofs or qualified mesh-generation results. The cover formulas, recipe/grid constants and NODE_CAPSULE premise are assumed for this paper. The stipulated local inequalities are:
+
+- NODE_CAPSULE: `rho + m < s_min`.
+- Conditional MESH: `rho + m + 2.60715 + epsilon_num < s_min`.
+- Ideal ANNULAR: `r_in > 51 + m`.
+- Conditional ANNULAR: `r_in > 53.60715 + epsilon_num + m`.
+
+These scalar examples are not checks of an actual aperture, stack, film, global obstacle set, complete hardware/tool sweep or intended contact. The mesh recipe and the stipulated error do not qualify an actual mesh. A failed conservative sufficient inequality is INCONCLUSIVE about actual collision; a passing toy inequality establishes no physical clearance or capacity.
+
+A separate dimensional load example stipulates pressure 100,000 Pa over 0.0001 m², force `(0,0,10)` N, offset `(10,0,0)` mm and zero local moment. Translate the moment at the common datum with `M_datum = M_local + (r_mm / 1000) × F`; apply a stipulated model factor of 1.5 once, not to an already factored wrench. These are toy values, not actual pressure/load or allowables. Keep each concept's free body, support path, balancing reactions and residual wrench separate. No capacity comparison is possible without matched physical limits.
+
+## Sensitivity and missing evidence
+
+Increasing body radius, safety margin or numerical error consumes the same amount of the local scalar gap; increasing `s_min` increases it. This is algebra within the stipulated model, not permission to move actual hardware or select a larger opening. Registration, film deformation, intermediate poses, process state, flexible appendages, nonincident members and simultaneous tools need their own enclosing bounds. An omitted unknown debit cannot be treated as zero.
+
+The measurement list remains required for physical applicability: complete registered contour and stack; concept-specific material/process/contact records; complete supported gas hardware and all operational/service sweeps; film/seam/formation states; independent support/common-datum signed loads; complete mesh provenance and error; calibrated matched acquisition; inventory and dated quotes. Original private source objects and statuses remain archived. This public projection asserts no original proof success/failure, mesh defect count or observed card disposition. Eight outcome-bearing bookkeeping payloads and their outcome identifiers are removed from the public projection. Their rows contain only neutral prospective source-evidence requirements with null values. These eight unavailable-source nulls are separate from the 132 UNKNOWN physical entries. The former requirement for another stage GO is superseded for this bounded paper; money and physical action remain reserved.
+
+## Disposition
+
+The exact scalar arithmetic is checked separately. The result of the P1.6 physical applicability and capacity question remains UNKNOWN/HOLD for every contract row. A toy algebra result does not register actual geometry or capacity, accept hardware, establish proof outcomes or authorize a native/physical rerun. Continue ranked work and carry the measurement requests without treating them as a paper blockade.
+
+## Check record and source limits
+
+The [input projection](p1-6-assumed-port-inputs.json) retains the full 32-row contract and fifteen acquisition requests. The [scalar result](p1-6-scalar-result.json) records exact rational arithmetic for the declared toy scenario: capsule gap 9 mm; conditional mesh gap 5.39285 mm; ideal annular gap 8 mm; conditional annular gap 4.39285 mm. Adding 6 mm to the toy radius makes the conditional mesh gap −0.60715 mm, which demonstrates loss of that sufficient bound, not an actual collision. The toy pressure resultant is 10 N and its datum moment is −0.1 N m about the local y axis; applying 1.5 once gives 15 N and −0.15 N m. No other geometry, load, capacity or continuous-route computation was run.
+
+The scalar helper used exact rational arithmetic, checked the [20,40] mm stipulated interval and all 32 unique contract rows, and verified that all 132 UNKNOWN physical entries remain null. This is an arithmetic check, not a scientific PASS. The execution evidence retains the helper and command record. Historical P1.5 execution sources have not been published here: their hashes are retained in the projection, and independent public reproduction of those sources is UNKNOWN. The original private source is unchanged. This public derivative deliberately changes status/scope semantics: 36 source entries remain explicit assumptions with complete value payloads and types preserved. The eight private outcome-bearing entries are explicit exceptions to public payload preservation: their values and outcome identifiers are withheld, while every original private value, type and status remains immutable. The public exception changes no other model value, toy operand or scalar-result payload. It is not byte-identical to the original projection. All 132 UNKNOWN physical entries remain null, all eight existing stipulations remain, and every physical row retains UNKNOWN/HOLD. The unpublished ideal/recipe bounds and 2.60715/51/53.60715 constants are hypotheses only. This paper and its input/result projection are submitted as a separate governed research candidate; actual main landing is pending.
+
+Publication disposition: physical applicability and capacity remain UNKNOWN. The standing charter permits this bounded assumed-model paper and exact toy arithmetic; it establishes no new physical or live scientific outcome. The derivative needs its own exact governance and publication signature. No prior signature applies.
