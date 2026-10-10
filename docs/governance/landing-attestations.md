@@ -362,3 +362,17 @@
 | Order | sha256 `dd37b8d65f98e7ae…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 28 — Record exact programme and navigation dispositions for public float plants
+
+| field | value |
+|---|---|
+| Landed | 2026-10-10 01:07:32 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `7f31c959126d90e5a8f965b897f9f8ee9fc30ed7` → `a628457a14709e5a0a1c8fe33f5c69487c3e33cc`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `a628457a14709e5a0a1c8fe33f5c69487c3e33cc`, tree `5ee5c13ee29aca5f7e9f53975f64366a1cf1ae3f`, from branch `worker/public-floatplants-four-dispositions-1010`, parent `7f31c959126d90e5a8f965b897f9f8ee9fc30ed7`, governance `gov-8f8a80d109c9` preserved. Unit `robotics-public-ci-floatplants-1010`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py a628457a1…` → rc=0, HONOURED-XO a628457a14709e5a0a1c8fe33f5c69487c3e33cc — the last record for this sha (store line 1085) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `a628457a1` ← `gov-8f8a80d109c9` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck linkcheck buildercheck readmecheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `d74e14c13dcf0e27…` from helm (informational) |
+| Order | sha256 `e06942b85c867ef3…` (informational) |
+| Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
