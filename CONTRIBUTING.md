@@ -190,3 +190,16 @@ Open an issue. A defect in the model, a data source we have mis-attributed, or a
 that the code does not support are all worth an issue on their own. Security reports go the way
 [SECURITY.md](SECURITY.md) describes. Conduct is covered by
 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+
+## Name the builder
+
+Every change commit must include a Git trailer naming its builder, whether a person or a model. For example, a model-built change can end its commit message with:
+
+```text
+Builder: gpt-6.1-sol
+```
+
+For a human-built change, use `Builder: Your Name` with your actual name. Keep the trailer on its own line after a blank line. Run `make buildercheck` after committing; it checks recorded commits, so running it before the commit cannot verify the new message. The sole path exemption is a commit changing only `docs/governance/landing-attestations.md`; an ordinary documentation change still needs a builder.
+
+Record which checks you ran and what they establish in the pull request. For a documentation-only change, `make readmecheck linkcheck buildercheck` checks generated README figures, tracked local links and anchors, and the builder history. It does not qualify a physical design or fetch external links. See the [programme plan](research/program/PLAN.md) for recording PASS, FAIL, UNKNOWN and control stops.

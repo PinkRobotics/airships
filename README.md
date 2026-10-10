@@ -1,6 +1,14 @@
 # Airships: a checkable study
 
-We study vacuum lift and water transport with published assumptions and a simulated fleet that has never flown. The fires are real; the labelled exercise uses invented fires. No different outcome for any real fire is established.
+Pink Robotics asks whether a vacuum-lift airship could carry and deliver water under checkable physical assumptions; the public study is at [pinkrobotics.ca](https://pinkrobotics.ca/). No aircraft has been built or flown.
+
+[![CI](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml/badge.svg)](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml)
+
+![Side silhouette of the conceptual P-100 airship](3d/assets/static/p100-side-silhouette.svg)
+
+Existing conceptual model illustration, © Pink Robotics, [CC BY 4.0](LICENSE-CONTENT). It depicts an assumed reference vehicle, not built or validated hardware. A green CI badge reports repository checks, not aircraft feasibility.
+
+Start with the [documentation index](docs/README.md), [current programme and limits](research/program/PROGRAM.md), or [ranked next work](research/program/NEXT-STAGES.md).
 
 Four steps start at the repository root:
 
@@ -181,3 +189,8 @@ The study's purpose and acceptance target are in [GOALS.md](GOALS.md). [CONTRIBU
 The code is licensed under the Apache License 2.0 ([LICENSE](LICENSE)). Our own written content and figures, the prose of the pages, the three [reports](research/reports/README.md) and the figures generated from the simulation, are licensed under Creative Commons Attribution 4.0 International, CC BY 4.0 ([LICENSE-CONTENT](LICENSE-CONTENT)). Attribute them as: Pink Robotics, pinkrobotics.ca.
 
 A file with its own record in [NOTICE](NOTICE) keeps the terms recorded there, our own data files under Apache-2.0 included. Third-party papers, datasets and assets keep their own terms, as [NOTICE](NOTICE) and [DATA-SOURCES.md](DATA-SOURCES.md) record them; nothing there is relicensed. The Pink Robotics and PinkAI names and marks are not licensed.
+
+
+## How to cite
+
+Cite **Pink Robotics, Airships: a checkable study**, the [repository](https://github.com/PinkRobotics/airships), and the full commit SHA you used. [CITATION.cff](CITATION.cff) supplies the project citation metadata; also name the particular document or generated record, its dated basis and any assumptions relevant to the number you quote. A citation to this study does not establish flight, physical validation or an outcome for a real fire.
