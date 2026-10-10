@@ -1,0 +1,1216 @@
+{
+  "schema": "mission.timebase-evidence-map/1",
+  "status": "DOCUMENT_ONLY; comparison applicability and physical qualification UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "requirements": [
+    {
+      "id": "source-and-plan-identity",
+      "sources": [
+        "sim/mission.js#buildMission",
+        "sim/plan.js#planCycle",
+        "sim/served-plan.js#servedKey",
+        "sim/served-plan.js#auditServedPlan"
+      ],
+      "existing_contract": "Mission construction selects source/stations/targets and planned leg geometry. planCycle returns a deterministic prescribed quasi-static plan at its inputs. The served selector keys source hashes/import stamp, class, distance, wind, requested mode, CFG and candidate set; selected record-basis options and proof are retained, with favourable output separately labelled. Its audit compares inputs, basis, mode, config/model and replay outputs. These predicates are model checks, not physical qualification.",
+      "prospective_record_requirements": [
+        "Exact source revision and hashes/import identity, route/source/target geometry, class/mode/options, all configuration and wind-input provenance, plan state/reason, record or favourable basis, selected proof and output record; each consumer identified"
+      ],
+      "units_or_conventions": [
+        "revision/hash",
+        "configuration identifiers",
+        "km",
+        "declared wind conventions",
+        "basis labels"
+      ],
+      "insufficient_or_disconfirming_evidence": "A matching class name or drawn scene cannot establish matching inputs, selected controls, basis or physical completion. A standby/unavailable selection cannot be silently compared as a ready cycle.",
+      "prospective_custodian_role": "Source and mission-record provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "host-elapsed-clock",
+      "sources": [
+        "app/store.js",
+        "app/loop.js#frame",
+        "app/main.js#step",
+        "sim/state.js#stateAt"
+      ],
+      "existing_contract": "The host stores simTime, pause/speed and lastFrame. Frame timestamp differences are divided to seconds and capped before speed multiplication; pause holds model time. UI phase stepping changes simTime. Dead battery state freezes the stateAt input at deadAt. Model T+ is not UTC, uninterrupted wall time or a measured flight clock.",
+      "prospective_record_requirements": [
+        "Raw clock type, epoch/origin, units, timestamps and acquisition metadata; pause/speed/clamp and phase-step events, deadAt/frozen-state flags and actual model-time record; separate raw-clock-to-model-time alignment and calibration record"
+      ],
+      "units_or_conventions": [
+        "raw clock units/epoch declared",
+        "model elapsed s",
+        "dimensionless speed multiplier",
+        "event identifiers"
+      ],
+      "insufficient_or_disconfirming_evidence": "A screenshot or common elapsed label cannot identify the clock, origin, paused/jumped interval or freeze. No raw-clock alignment can be inferred from displayed T+.",
+      "prospective_custodian_role": "Timebase and acquisition provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "cycle-and-phase-address",
+      "sources": [
+        "sim/mission.js#buildMission",
+        "sim/served-plan.js#bindServedMission",
+        "sim/state.js#stateAt",
+        "research/analysis/energy-unheld.mjs#unheldRows"
+      ],
+      "existing_contract": "Plan durations and cycleMin use minutes; mission cycleSec and cumulative phaseEnds use seconds. stateAt adds the mission offset, wraps the input and chooses the first end strictly above wrapped time, then local progress. Cycle number also addresses rotating targets/stations. Served binding rebuilds these bounds or clears them when unavailable. The analysis generator accumulates phase durations from the source-cycle origin, without the host mission offset.",
+      "prospective_record_requirements": [
+        "Model time origin and raw input, offset, cycle number, selected station/target and phase ID/order, phase bounds/progress, secondsIntoPhase/cycleMinute and exact plan identity; state transition and inactive flags"
+      ],
+      "units_or_conventions": [
+        "min",
+        "s",
+        "dimensionless progress and offset",
+        "phase/target/station identifiers"
+      ],
+      "insufficient_or_disconfirming_evidence": "Same phase name or cycle-minute value across records cannot establish same cycle, offset, target, station or phase duration. Analysis-cycle time is not automatically the host display clock.",
+      "prospective_custodian_role": "Phase-address and mission-record custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "seam-side-and-summary-scope",
+      "sources": [
+        "sim/power.js#cycleLimits",
+        "research/analysis/energy-unheld.mjs#unheldRows",
+        "research/analysis/energy-unheld.json"
+      ],
+      "existing_contract": "cycleLimits includes verdict-mesh points, extrema refinement and explicit one-sided seam samples; the printed phase generator refines a phase peak and retains its signed value, progress, local seconds, cycle minute and limits. JSON rows are summaries of failing phases on prescribed inputs, not a chronological observed trajectory. A phase with no printed failing peak is not evidence of physical completion.",
+      "prospective_record_requirements": [
+        "Exact phase and seam identifier, left/right/interior/endpoint convention, ordered sample timestamps, sampling/refinement provenance and original unrounded result; raw observed series kept distinct from model extrema and summary records"
+      ],
+      "units_or_conventions": [
+        "s",
+        "min",
+        "dimensionless progress",
+        "seam-side labels"
+      ],
+      "insufficient_or_disconfirming_evidence": "Matching rounded time or a phase peak does not establish identical seam side, chronological response, neighbouring state or observational coverage. Do not reconstruct a trajectory from phase maxima.",
+      "prospective_custodian_role": "Chronology and seam-provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "signed-quantity-and-units",
+      "sources": [
+        "research/analysis/energy-unheld.json",
+        "sim/power.js#drawAt",
+        "sim/state.js#stateAt",
+        "3d/adapter/fable.js#fromMonitorState"
+      ],
+      "existing_contract": "Signed unheldT is an authority residual: positive unsupported surplus lift, negative unavailable upward authority. Its owners include bag, rotor, aerodynamic and vertical-drag terms. stateAt netN omits those actuator/aerodynamic/drag owners and is a different quantity; it must not be relabelled unheld force. Host inventory tonnes, power MW and ground speed km/h are mapped into visual fractions and speed m/s. Adapter airspeed and groundSpeed currently both read host gs, while verticalSpeed uses phaseShape; channel names do not establish measured air-relative speed or observed vertical motion.",
+      "prospective_record_requirements": [
+        "Quantity definition and owner boundary, sign/direction, original unit and conversion source, supplied/fallback/default status, actual input fields and calibration/uncertainty; retain each original residual/limit and no new conversion"
+      ],
+      "units_or_conventions": [
+        "signed t",
+        "N",
+        "MW",
+        "km/h",
+        "m/s",
+        "inventory t versus fill fraction"
+      ],
+      "insufficient_or_disconfirming_evidence": "Absolute magnitude, netN, visual speed labels or silently defaulted values cannot replace signed residuals, original units or an observed channel. Missing telemetry is not zero.",
+      "prospective_custodian_role": "Quantity and instrumentation provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "coordinate-and-height-datum",
+      "sources": [
+        "sim/geo.js#trackBearing",
+        "sim/config.js#ANCHOR_DATUM",
+        "sim/config.js#TERRAIN_MSL",
+        "3d/core/math.js",
+        "docs/OPEN-QUESTIONS.md#18-three-atmosphere-implementations-that-do-not-agree-to-the-last-digit"
+      ],
+      "existing_contract": "trackBearing declares degrees from north for the route; stateAt instead uses bezBearing/atan2 radians for the drawn geographic heading. Positive model vertical speed follows increasing prescribed altitude. Local model vectors use nose-forward x, port-positive y and up-positive z, with origin at hull centre of buoyancy. Heights in config use hull-centre relative to source water/reference ground; the terrain reference bridges the atmosphere ledger. The published geometric/MSL versus geopotential-height disagreement and constant mismatch remain an open MISS, not reconciled by this map.",
+      "prospective_record_requirements": [
+        "Geographic datum and lon/lat order, bearing units/reference, local/body/world frame and origin, transform provenance, reference water/terrain height and geometric/geopotential definition, sensor calibration and uncertainty"
+      ],
+      "units_or_conventions": [
+        "declared lon/lat datum",
+        "route degrees versus state heading radians from north",
+        "positive vertical speed increases altitude",
+        "local x/y/z convention",
+        "m with named height datum"
+      ],
+      "insufficient_or_disconfirming_evidence": "An altitudeM label, common numeric height, phaseShape visual attitude or shared constants cannot establish compatible frames, altitude datums or atmospheric inputs. Preserve conflicting source contracts until explicitly resolved.",
+      "prospective_custodian_role": "Coordinate, height-datum and calibration provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "consumer-state-and-missing-fields",
+      "sources": [
+        "sim/state.js#stateAt",
+        "3d/physics/state.js",
+        "3d/anim/mission.js#phaseTimeline",
+        "3d/adapter/fable.js#fromMonitorState",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_contract": "Host six-phase state and standalone eleven-phase demonstration remain distinct. The adapter passes recognised phases, maps absent/unknown off-cycle phases to WEATHER_HOLD, overlaps hose progress and converts inventory to fill fractions; host alt takes precedence but phaseShape supplies other channels. Shared constants do not make the timelines or illustrative power shares identical. Visual defaults and supplied/fallback fields are not measurements.",
+      "prospective_record_requirements": [
+        "Consumer/module and host-versus-standalone identity, original phase and transformed phase, field-by-field supplied/fallback/null/default provenance, original host state and view state, mapping revision, declaration of inactive/off-cycle status and applicable record scope"
+      ],
+      "units_or_conventions": [
+        "phase IDs",
+        "dimensionless progress/fractions",
+        "declared channel units",
+        "source/consumer identifiers"
+      ],
+      "insufficient_or_disconfirming_evidence": "An equivalent drawing or matching phase label cannot demonstrate same prescribed state, output history or physical observation. Off-cycle fallback must not hide the original state/reason.",
+      "prospective_custodian_role": "Consumer-contract and record-applicability custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    },
+    {
+      "id": "prospective-measured-clock-alignment",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "app/loop.js",
+        "research/analysis/energy-unheld.json"
+      ],
+      "existing_contract": "No raw measured time series, clock calibration, synchronization or acquisition uncertainty is supplied by this paper. Prescribed values and source extrema remain existing model records. Alignment of future instruments to each other and to an event reference is separate from any mapping to prescribed model elapsed time.",
+      "prospective_record_requirements": [
+        "Unaltered raw acquisition timestamps and declared clock/epoch/unit, responsible calibration/synchronization evidence, event marker definitions, drift/latency and uncertainty provenance, explicit alignment transformation/version and data gaps; separately justified comparison applicability, matched inputs, frame and phase/seam address"
+      ],
+      "units_or_conventions": [
+        "clock units and epoch declared",
+        "s only where source declares seconds",
+        "calibration/evidence identifiers",
+        "uncertainty with units"
+      ],
+      "insufficient_or_disconfirming_evidence": "Uncalibrated timestamp coincidence, resampled curves, guessed epoch or a model duration cannot supply missing measured-clock evidence or a new physical acceptance rule. No threshold or alignment calculation is selected.",
+      "prospective_custodian_role": "Acquisition-clock and evidence-comparison custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "clock_alignment": null,
+      "clock_calibration": null,
+      "matched_configuration": null,
+      "uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "qualification": "UNKNOWN"
+    }
+  ],
+  "source_contract_excerpts": [
+    {
+      "path": "sim/mission.js",
+      "first_line": 84,
+      "last_line": 89,
+      "text": "  m.cycleSec = m.plan.cycleMin * 60;\n  m.phaseEnds = [];\n  let acc = 0;\n  for (const [id] of PHASES) { acc += m.plan.dur[id] * 60; m.phaseEnds.push(acc); }\n  const stationKm = Math.min(...m.stations.map(st => havKm(st, fire.ll)));\n  m.srcWhy = `${w[4] || \"An unnamed \" + (w[3] ? \"reservoir\" : \"lake\")} selected: ` +"
+    },
+    {
+      "path": "sim/state.js",
+      "first_line": 23,
+      "last_line": 37,
+      "text": "export function stateAt(m, tRaw) {\n  if (m.served && m.planState !== \"ready\") return {phase: \"STAND_DOWN\", label: m.planState === \"pending\" ? \"plan pending\" : m.planState === \"stand-down\" ? \"stands down\" : \"plan unavailable\", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1, inactive: true};\n  if (m.idle) return { phase: \"NO_SUITABLE_SOURCE\", label: \"idle — no suitable mapped source\", ll: m.fire.ll, water: 0, ln2: 0, prog: 0, alt: 0, bearing: 0, idx: -1 };\n  // A hull whose storage reached zero is frozen at the moment the bus died: the picture\n  // (position, phase, tanks) holds, but nothing draws power and nothing moves.\n  const stopped = !!(m.dead && tRaw >= m.deadAt);\n  if (stopped) tRaw = m.deadAt;\n  const t = ((tRaw + m.offset * m.cycleSec) % m.cycleSec + m.cycleSec) % m.cycleSec;\n  let idx = m.phaseEnds.findIndex(e => t < e);\n  if (idx < 0) idx = PHASES.length - 1;\n  const start = idx ? m.phaseEnds[idx - 1] : 0;\n  const dur = Math.max(1e-6, m.phaseEnds[idx] - start);\n  const prog = (t - start) / dur;\n  const id = PHASES[idx][0];\n  const cls = m.cls, plan = m.plan;"
+    },
+    {
+      "path": "app/store.js",
+      "first_line": 28,
+      "last_line": 28,
+      "text": "  speed: 5, paused: false, simTime: 0, lastFrame: null,"
+    },
+    {
+      "path": "app/loop.js",
+      "first_line": 10,
+      "last_line": 15,
+      "text": "export function frame(ts) {\n  if (S.lastFrame === null) S.lastFrame = ts;\n  const dt = Math.min(0.25, (ts - S.lastFrame) / 1000);\n  S.lastFrame = ts; S.frameDt = dt;\n  if (!S.paused) S.simTime += dt * S.speed;\n  // The energy ledger, integrated in sim time for every hull: generation is solar plus"
+    },
+    {
+      "path": "app/loop.js",
+      "first_line": 29,
+      "last_line": 29,
+      "text": "        if (mm.battE <= 0) { mm.battE = 0; mm.dead = true; mm.deadAt = S.simTime; }"
+    },
+    {
+      "path": "app/main.js",
+      "first_line": 171,
+      "last_line": 179,
+      "text": "  step(dir) {\n    if (!S.sel || !S.sel.m || S.sel.m.idle) return;\n    const m = S.sel.m;\n    const st = stateAt(m, S.simTime);\n    const target = (st.idx + dir + PHASES.length) % PHASES.length;\n    const startOfTarget = target ? m.phaseEnds[target - 1] : 0;\n    const cur = ((S.simTime + m.offset * m.cycleSec) % m.cycleSec + m.cycleSec) % m.cycleSec;\n    S.simTime += (startOfTarget - cur + 1) + (dir > 0 && target === 0 ? m.cycleSec : 0);\n    renderDrawer();"
+    },
+    {
+      "path": "sim/served-plan.js",
+      "first_line": 10,
+      "last_line": 10,
+      "text": "export const modelIdentity=()=>({sources:MODEL_SOURCE_HASHES,importStamp:import.meta.url.split('?v=')[1]||'unstamped-node'});"
+    },
+    {
+      "path": "sim/served-plan.js",
+      "first_line": 17,
+      "last_line": 20,
+      "text": "export function servedKey(cls,km,wind,requestedMode,candidates){\n return JSON.stringify(stable({model:modelIdentity(),cls,km,wind:windInput(wind),requestedMode,config:{...CFG},candidates}));\n}\nconst deepFreeze=o=>{if(o&&typeof o==='object'&&!Object.isFrozen(o)){Object.values(o).forEach(deepFreeze);Object.freeze(o);}return o;};"
+    },
+    {
+      "path": "sim/served-plan.js",
+      "first_line": 36,
+      "last_line": 37,
+      "text": "   const exactOptions={...options,basis:'record'};\n   const plan=planCycle(cls,MODES[mode],km,wind,exactOptions);"
+    },
+    {
+      "path": "sim/served-plan.js",
+      "first_line": 61,
+      "last_line": 71,
+      "text": "export function bindServedMission(m,requestedMode=m.mode.id){\n m.served=true;m.requestedMode=requestedMode;\n const result=selectServedPlan(m.cls,m.legKm,m.wind??null,requestedMode);\n m.selection=result;m.planState=result.state;m.planReason=result.reason||'';m.plan=result.plan;\n if(result.state==='ready'){\n  m.mode=MODES[result.mode];m.cycleSec=m.plan.cycleMin*60;\n  let acc=0;m.phaseEnds=PHASES.map(([id])=>(acc+=m.plan.dur[id]*60));\n }else{m.cycleSec=0;m.phaseEnds=[];}\n return result;\n}\nexport const missionReady=m=>!!(m&&!m.idle&&m.plan?.feasible&&(!m.served||m.planState==='ready'));"
+    },
+    {
+      "path": "sim/served-plan.js",
+      "first_line": 76,
+      "last_line": 86,
+      "text": " const proof=selection.proof;\n if(proof.class!==cls.id||proof.km!==km||JSON.stringify(stable(proof.wind))!==JSON.stringify(stable(windInput(wind))))throw new Error('plan inputs differ from this route');\n if(selection.plan.basis!==proof.options.basis)throw new Error('plan basis differs from its proof');\n if(proof.mode!==shownMode||selection.mode!==shownMode)throw new Error('mode label differs from planned mode');\n if(JSON.stringify(stable(proof.config))!==JSON.stringify(stable(CFG))||JSON.stringify(stable(proof.model))!==JSON.stringify(stable(modelIdentity())))throw new Error('plan configuration or model identity changed');\n const replay=planCycle(cls,MODES[proof.mode],km,wind,proof.options);\n if(!hasOperatingMargin(replay)||!hasOperatingMargin(selection.plan))throw new Error('served profile lacks physical closure or operating reserve');\n if(JSON.stringify(stable(selection.plan.operatingMargins))!==JSON.stringify(stable(replay.operatingMargins)))throw new Error('served reserve differs from exact-input replay');\n for(const k of ['cycleMin','eCycleMWh','kwhPerTonne','tph','deliveredT','retainedT','dropsPerHour','gsOut','gsRet'])\n  if(!Number.isFinite(selection.plan[k])||Math.abs(selection.plan[k]-replay[k])>1e-9)throw new Error('served figure differs from exact-input replay: '+k);\n return true;"
+    },
+    {
+      "path": "sim/power.js",
+      "first_line": 360,
+      "last_line": 372,
+      "text": "  const owners = { bagT, rotorT, aeroT, verticalDragT };\n  const unheldT = surplusT - Object.values(owners).reduce((a, b) => a + b, 0);\n  const limits = [];\n  if (busLimited) limits.push('bus power');\n  if (needT > thrustLimitT + aeroLimitT + FORCE_TOL) limits.push('rotor thrust');\n  if (Math.abs(unheldT) > FORCE_TOL * Math.max(1, Math.abs(surplusT))) {\n    if (basis === 'favourable' && ask.aeroT >= aeroLimitT - FORCE_TOL) limits.push('aerodynamic coefficient');\n    if (unheldT < 0) limits.push(cls.reversibleThrust ? 'upward thrust not modelled' : 'upward authority unavailable');\n    if (bagT === 0 && (id === 'SOURCE_APPROACH' || id === 'WATER_FILL')) limits.push('anchor cable reach');\n    if (!limits.length) limits.push('vertical force');\n  }\n  const drawMW = Object.values(draw).reduce((a, b) => a + b, 0);\n  const feasible = Math.abs(unheldT) <= FORCE_TOL * Math.max(1, Math.abs(surplusT)) && drawMW <= busMW + 1e-9;"
+    },
+    {
+      "path": "sim/power.js",
+      "first_line": 424,
+      "last_line": 426,
+      "text": "    const seams = [...points];\n    for (let i = 0; i <= LIMIT_STEPS; i++) points.add(i / LIMIT_STEPS);\n    const xs = [...points].filter(x=>x>=0&&x<=1).sort((a,b)=>a-b);"
+    },
+    {
+      "path": "sim/power.js",
+      "first_line": 441,
+      "last_line": 447,
+      "text": "    // Some owners change at a seam. Include each side, rather than replacing the\n    // endpoint value with a limit from the neighbouring interval.\n    for (const x of seams) for (const side of [-1, 1]) {\n      const z = x + side * 1e-12;\n      if (z > 0 && z < 1) note(at(z), z);\n    }\n    let prev = at(xs[0]), prevprev = null; note(prev, xs[0]);"
+    },
+    {
+      "path": "research/analysis/energy-unheld.mjs",
+      "first_line": 10,
+      "last_line": 31,
+      "text": "  const p=planCycle(c,MODES.balanced,km,null,{basis}),phases=[];let elapsedMin=0;\n  for(const [phase] of PHASES){\n   // Refine the printed phase peak locally beyond the verdict mesh. The reach\n   // seam can leave a few microtonnes between that mesh's finite refinement\n   // and the phase table's independently checked maximum; do not round it away.\n   const seed=p.phasePeaks[phase], magnitude=x=>Math.abs(drawAt(c,MODES.balanced,p,phase,x).unheldT);\n   let lo=Math.max(0,seed.progress-1/LIMIT_STEPS),hi=Math.min(1,seed.progress+1/LIMIT_STEPS);\n   for(let i=0;i<90;i++){\n    const a=lo+(hi-lo)/3,b=hi-(hi-lo)/3;\n    if(magnitude(a)<magnitude(b))lo=a;else hi=b;\n   }\n   const refined=(lo+hi)/2,progress=magnitude(refined)>Math.abs(seed.unheldT)?refined:seed.progress;\n   const sample=drawAt(c,MODES.balanced,p,phase,progress);\n   const peak={unheldT:sample.unheldT,phase,progress,limits:sample.limits};\n   const s=drawAt(c,MODES.balanced,p,phase,progress);\n   if(Math.abs(s.unheldT)>FORCE_TOL*Math.max(1,Math.abs(s.surplusT)))\n     phases.push({...peak,secondsIntoPhase:progress*p.dur[phase]*60,cycleMinute:elapsedMin+progress*p.dur[phase],airspeedMps:s.airV,verticalSpeedMps:s.vz});\n   elapsedMin+=p.dur[phase];\n  }\n  rows.push({class:c.id,km,basis,profile:'as drawn',mode:'balanced',feasible:p.feasible,cycleMin:p.cycleMin,phases});\n }\n return {meaning:'Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits, with additional local refinement for the printed phase peak. Positive is unsupported surplus lift; negative requires unavailable upward authority.',samplesPerPhase:LIMIT_STEPS+1,rows};"
+    },
+    {
+      "path": "sim/config.js",
+      "first_line": 106,
+      "last_line": 110,
+      "text": "/** Altitudes are hull-centre heights above the source water (or reference ground).\n * The nominal vertical cable attaches at the keel, half the published diameter below\n * that centre. This is reach geometry, not a bag-immersion or pickup-load model.\n * The standalone 3D configuration carries a parity-checked copy of this declaration. */\nexport const ANCHOR_DATUM = 'hull-centre';"
+    },
+    {
+      "path": "sim/config.js",
+      "first_line": 124,
+      "last_line": 143,
+      "text": " * TERRAIN_MSL — one reference elevation for the ground the fleet works over. An assumption,\n * and a deliberately coarse one: the southern interior plateau runs about 900–1,400 m, and\n * the model carries a single figure for the lake and the fire alike rather than pretending\n * to know the ground under each. A ship recovering onto a valley floor is lower and needs\n * more ballast to reach it; that limit is stated with the nitrogen tankage below.\n *\n * WORK_ALT_MSL — the ceiling of ALT.cruise over that plateau. It is the WORST case in the\n * cycle: every other point a ship reaches is lower, in denser air, with more lift. Sizing\n * here therefore sizes for everywhere.\n *\n * THE TERRAIN ENVELOPE, because \"1,500 m above ground\" is a profile, not a clearance claim.\n * The fires that matter in the interior burn between the valley floors — Okanagan and\n * Thompson, 300–500 m — and treeline, about 2,100 m in the southern interior. Local summits\n * inside that fuel belt reach roughly 2,320 m at Big White. A 2,500 m MSL ceiling clears the\n * fuel everywhere in the belt and the highest ground in it by about 180 m. Flying lower was\n * permitted as relief from the hull growth below and is not taken: it buys a smaller\n * envelope by putting the largest aircraft ever proposed under the ridgelines it is working.\n */\nexport const TERRAIN_MSL = 1000;                       // m, interior plateau reference\nexport const WORK_ALT_MSL = TERRAIN_MSL + ALT.cruise;  // m, 2,500 — where the hulls are sized"
+    },
+    {
+      "path": "sim/geo.js",
+      "first_line": 55,
+      "last_line": 59,
+      "text": "export function trackBearing(a, b) {          // initial great-circle bearing a->b, degrees from north\n  const f1 = a[1] * Math.PI / 180, f2 = b[1] * Math.PI / 180, dl = (b[0] - a[0]) * Math.PI / 180;\n  const y = Math.sin(dl) * Math.cos(f2);\n  const x = Math.cos(f1) * Math.sin(f2) - Math.sin(f1) * Math.cos(f2) * Math.cos(dl);\n  return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;"
+    },
+    {
+      "path": "sim/geo.js",
+      "first_line": 25,
+      "last_line": 29,
+      "text": "export function bezBearing(p0, p1, p2, t, lat) {\n  const u = 1 - t;\n  const dx = 2 * u * (p1[0] - p0[0]) + 2 * t * (p2[0] - p1[0]);\n  const dy = 2 * u * (p1[1] - p0[1]) + 2 * t * (p2[1] - p1[1]);\n  return Math.atan2(dx * Math.cos(lat * Math.PI / 180), dy);"
+    },
+    {
+      "path": "sim/state.js",
+      "first_line": 57,
+      "last_line": 58,
+      "text": "  let ll, bearing = 0, sub = \"\";\n  const B = (p0, c, p2, tt) => { ll = bez(p0, c, p2, tt); bearing = bezBearing(p0, c, p2, tt, ll[1]); };"
+    },
+    {
+      "path": "sim/power.js",
+      "first_line": 311,
+      "last_line": 313,
+      "text": "  const p0 = Math.max(0, prog - FD), p1 = Math.min(1, prog + FD);\n  const vz = (altAt(g, plan, id, p1) - altAt(g, plan, id, p0)) / Math.max(1e-9, (p1 - p0) * durS);\n  const led = ledger(cls, TERRAIN_MSL + alt), massT = led.dryT + water + ln2;"
+    },
+    {
+      "path": "3d/core/math.js",
+      "first_line": 6,
+      "last_line": 10,
+      "text": " * Frame convention, shared by every module here and chosen to match the RideRC wire car:\n *   +x forward (toward the nose)   +y to port (left)   +z up\n * The model origin is the hull's centre of buoyancy, so force and torque arrows are drawn about\n * the point they are actually taken about.\n */"
+    },
+    {
+      "path": "3d/physics/state.js",
+      "first_line": 20,
+      "last_line": 29,
+      "text": "export const MISSION_PHASES = [\n  'SOURCE_APPROACH', 'HOSE_DEPLOY', 'WATER_FILL', 'HOSE_RETRACT', 'DEPARTURE_CLIMB',\n  'OUTBOUND_TRANSIT', 'FIRE_APPROACH', 'WATER_RELEASE', 'BUOYANCY_ESCAPE', 'RETURN_TRANSIT',\n  'CONTROLLED_DESCENT',\n];\n\n/** Off-cycle states. These are not part of the loop and must not be interpolated into it. */\nexport const OFF_CYCLE_PHASES = ['WEATHER_HOLD', 'SAFE_DRIFT', 'TOTAL_POWER_LOSS', 'TANKER_REFUEL'];\n\nexport const ALL_PHASES = [...MISSION_PHASES, ...OFF_CYCLE_PHASES];"
+    },
+    {
+      "path": "3d/physics/state.js",
+      "first_line": 70,
+      "last_line": 72,
+      "text": "    // null means \"the host did not supply this\", which is NOT the same as zero. A dead bus really\n    // is zero, and `derivePower` must not helpfully substitute a cruise figure for it.\n    solarPowerMW: null,"
+    },
+    {
+      "path": "3d/anim/mission.js",
+      "first_line": 59,
+      "last_line": 68,
+      "text": "export function phaseTimeline(cls, mode, oneWayKm) {\n  const d = phaseDurations(cls, mode, oneWayKm);\n  const total = MISSION_PHASES.reduce((a, p) => a + d[p], 0);\n  let acc = 0;\n  const bounds = MISSION_PHASES.map((p) => {\n    const start = acc / total;\n    acc += d[p];\n    return { id: p, label: PHASE_LABELS[p], start, end: acc / total, minutes: d[p] };\n  });\n  return { bounds, totalMinutes: total, durations: d };"
+    },
+    {
+      "path": "3d/anim/mission.js",
+      "first_line": 72,
+      "last_line": 79,
+      "text": "export function phaseAt(timeline, u) {\n  const t = ((u % 1) + 1) % 1;\n  for (const b of timeline.bounds) {\n    if (t < b.end || b === timeline.bounds[timeline.bounds.length - 1]) {\n      return { phase: b.id, progress: clamp01((t - b.start) / Math.max(1e-9, b.end - b.start)), bound: b };\n    }\n  }\n  return { phase: MISSION_PHASES[0], progress: 0, bound: timeline.bounds[0] };"
+    },
+    {
+      "path": "3d/adapter/fable.js",
+      "first_line": 62,
+      "last_line": 64,
+      "text": "  const rawPhase = hostState.phase === 'NO_SUITABLE_SOURCE' ? 'WEATHER_HOLD' : hostState.phase;\n  const phase = ALL_PHASES.includes(rawPhase) ? rawPhase : 'WEATHER_HOLD';\n  const prog = clamp01(hostState.prog === undefined ? 0 : hostState.prog);"
+    },
+    {
+      "path": "3d/adapter/fable.js",
+      "first_line": 86,
+      "last_line": 89,
+      "text": "  const payloadT = (hostClass && hostClass.payloadT) || cls.payloadTonnes;\n  const ln2CapT = opts.ln2CapacityT || cls.ln2TankCapacityTonnes;\n  const waterFraction = clamp01((hostState.water || 0) / Math.max(1e-6, payloadT));\n  const ln2Fraction = clamp01((hostState.ln2 || 0) / Math.max(1e-6, ln2CapT));"
+    },
+    {
+      "path": "3d/adapter/fable.js",
+      "first_line": 161,
+      "last_line": 164,
+      "text": "    altitudeM: hostState.alt === undefined ? shape.altitudeM : hostState.alt,\n    airspeedMps: Number.isFinite(hostState.gs) ? hostState.gs / 3.6 : (shape.airspeedMps || 0),\n    groundSpeedMps: Number.isFinite(hostState.gs) ? hostState.gs / 3.6 : (shape.airspeedMps || 0),\n    verticalSpeedMps: shape.verticalSpeedMps || 0,"
+    },
+    {
+      "path": "3d/adapter/fable.js",
+      "first_line": 168,
+      "last_line": 171,
+      "text": "    // The monitor's own vertical-duty number (<= 0, rotors hold the hull DOWN). Passing it\n    // rather than recomputing keeps the model, the schematic avatar and the power bars in\n    // agreement about which way the rotors are pushing at any instant.\n    verticalDuty: Number.isFinite(hostState.vert) ? hostState.vert : undefined,"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 873,
+      "last_line": 880,
+      "text": "The standalone eleven-phase cycle and its illustrative power shares still differ from the\nhost's six-phase mission; sharing constants does not make those two simulations identical.\nHost-supplied mission state continues to take precedence. Raising the release does not deploy\nor lengthen a hose or anchor: both are stowed at 250 and 450 m in the driver checks. The drawn\nspray remains a short hull-relative curtain (30.4 / 65.4 / 140.9 m), without a ground plane\nor a simulation of water reaching the ground; it has not been stretched to disguise the height.\n\n---"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 894,
+      "last_line": 914,
+      "text": "## 18. Three atmosphere implementations that do not agree to the last digit\n\nTracking issue: [#16](https://github.com/PinkRobotics/airships/issues/16).\n\n**Reproduced 2026-10-01. Open.** Run `make labelledcheck` and read the density rows at 1,000 m in\n`research/validation/report.md`. `sim/atmosphere.js` returns 1.111642738880746 kg/m³;\n`research/analysis/vacuum-cell.py` and `research/analysis/helium.py` both return\n1.111652281952491 kg/m³; Table I of the 1976 standard prints 1.1116. With the tolerance written\nbefore the first run (0.00005 kg/m³) the browser model agrees, and the two Python copies MISS by\nabout 0.0000023 kg/m³ beyond it.\n\nThe cause is the gas constant for dry air: `sim/atmosphere.js` uses 287.0528 J/(kg·K) and the two\nPython files use 287.05. All three also treat their argument as geopotential height, although the\nJavaScript interface describes it as height above mean sea level: at a geometric 2,500 m the\nstandard's temperature is 271.906 K against the functions' 271.900 K.\n\nIt stays a MISS. The constant feeds the cell parity mirror and the generated analysis figures, so\nit is not changed quietly. Decide the altitude contract and the constant together, publish what\nmoves, old and new, then move the row.\n\n---"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "first_line": 70,
+      "last_line": 74,
+      "text": "<!-- editorial:descent-register:start -->\n| # | Question | Answer | Record |\n|---|---|---|---|\n| 3, 14, 15 | What does the letdown cost? | Prescribed balanced, 15 km, record-basis controls: the current descent ledger already prices **2.052 MWh / 10.978 MWh / 102.086 MWh**. The record-basis bag-credit diagnostics are **6.9% / 5.1% / 9.1%** of cycle effort. The prescribed cycles do not close. These are diagnostic effort comparisons, not operational savings. | `descent.json` |\n<!-- editorial:descent-register:end -->"
+    }
+  ],
+  "historical_signed_unheld_record": {
+    "path": "research/analysis/energy-unheld.json",
+    "raw_text": "{\n  \"meaning\": \"Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits, with additional local refinement for the printed phase peak. Positive is unsupported surplus lift; negative requires unavailable upward authority.\",\n  \"samplesPerPhase\": 1025,\n  \"rows\": [\n    {\n      \"class\": \"P100\",\n      \"km\": 15,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 34.196078431372555,\n      \"phases\": [\n        {\n          \"unheldT\": 2.334404490952494,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6048782275186997,\n          \"limits\": [\n            \"bus power\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 72.58538730224396,\n          \"cycleMinute\": 1.2097564550373994,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -2.282839650280501\n        },\n        {\n          \"unheldT\": -5.714220829993373,\n          \"phase\": \"OUTBOUND_TRANSIT\",\n          \"progress\": 0.22283235516091282,\n          \"limits\": [\n            \"upward authority unavailable\"\n          ],\n          \"secondsIntoPhase\": 157.29342717240905,\n          \"cycleMinute\": 7.954890452873485,\n          \"airspeedMps\": 25,\n          \"verticalSpeedMps\": 9.7454898886749\n        },\n        {\n          \"unheldT\": 34.75934174369816,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.8107155369134547,\n          \"limits\": [\n            \"bus power\"\n          ],\n          \"secondsIntoPhase\": 572.2697907624387,\n          \"cycleMinute\": 31.969202395060254,\n          \"airspeedMps\": 25,\n          \"verticalSpeedMps\": -8.820686858033753\n        }\n      ]\n    },\n    {\n      \"class\": \"P100\",\n      \"km\": 15,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 34.196078431372555,\n      \"phases\": [\n        {\n          \"unheldT\": 2.334404490952494,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6048782275186997,\n          \"limits\": [\n            \"bus power\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 72.58538730224396,\n          \"cycleMinute\": 1.2097564550373994,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -2.282839650280501\n        },\n        {\n          \"unheldT\": -5.714220829993373,\n          \"phase\": \"OUTBOUND_TRANSIT\",\n          \"progress\": 0.22283235516091282,\n          \"limits\": [\n            \"upward authority unavailable\"\n          ],\n          \"secondsIntoPhase\": 157.29342717240905,\n          \"cycleMinute\": 7.954890452873485,\n          \"airspeedMps\": 25,\n          \"verticalSpeedMps\": 9.7454898886749\n        }\n      ]\n    },\n    {\n      \"class\": \"P100\",\n      \"km\": 60,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": true,\n      \"cycleMin\": 104.78431372549021,\n      \"phases\": []\n    },\n    {\n      \"class\": \"P100\",\n      \"km\": 60,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": true,\n      \"cycleMin\": 104.78431372549021,\n      \"phases\": []\n    },\n    {\n      \"class\": \"P1000\",\n      \"km\": 15,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 35.362448009506835,\n      \"phases\": [\n        {\n          \"unheldT\": 800.6810065585806,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6291166316878696,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 113.24099370381653,\n          \"cycleMinute\": 1.8873498950636087,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -7.829149081870108\n        },\n        {\n          \"unheldT\": 418.98255238425895,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 99.99999999999999,\n          \"cycleMinute\": 4.666666666666666,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 643.7132362811001,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 333.3333333333333,\n          \"cycleMinute\": 23.736779560308975,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.051768888888886935\n        },\n        {\n          \"unheldT\": 643.7167091577924,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 23.736779560308975,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.010609900623611187\n        },\n        {\n          \"unheldT\": 588.7118297794735,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.999999999999,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 577.5401069512941,\n          \"cycleMinute\": 35.36244800949721,\n          \"airspeedMps\": 9.166666666809256,\n          \"verticalSpeedMps\": -3.369046231050591e-7\n        }\n      ]\n    },\n    {\n      \"class\": \"P1000\",\n      \"km\": 15,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 35.362448009506835,\n      \"phases\": [\n        {\n          \"unheldT\": 800.6810065585806,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6291166316878696,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 113.24099370381653,\n          \"cycleMinute\": 1.8873498950636087,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -7.829149081870108\n        },\n        {\n          \"unheldT\": 418.98255238425895,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 99.99999999999999,\n          \"cycleMinute\": 4.666666666666666,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 643.7132362811001,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 333.3333333333333,\n          \"cycleMinute\": 23.736779560308975,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.051768888888886935\n        },\n        {\n          \"unheldT\": 643.7167091577924,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 23.736779560308975,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.010609900623611187\n        },\n        {\n          \"unheldT\": 504.1277999375876,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.9999999999999998,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 577.5401069518715,\n          \"cycleMinute\": 35.362448009506835,\n          \"airspeedMps\": 9.166666666666698,\n          \"verticalSpeedMps\": -3.369046234418814e-7\n        }\n      ]\n    },\n    {\n      \"class\": \"P1000\",\n      \"km\": 60,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 93.116458704694,\n      \"phases\": [\n        {\n          \"unheldT\": 750.2349832273591,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6291166316878696,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 113.24099370381653,\n          \"cycleMinute\": 1.8873498950636087,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -7.829149081870108\n        },\n        {\n          \"unheldT\": 362.4901625541012,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 99.99999999999999,\n          \"cycleMinute\": 4.666666666666666,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 643.7132362811001,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 333.3333333333333,\n          \"cycleMinute\": 52.613784907902556,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.051768888888886935\n        },\n        {\n          \"unheldT\": 643.7166106529769,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 52.613784907902556,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.013615916666746369\n        },\n        {\n          \"unheldT\": 566.2519333184207,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.9999999999989055,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 2310.160427804958,\n          \"cycleMinute\": 93.11645870465185,\n          \"airspeedMps\": 9.166666666822728,\n          \"verticalSpeedMps\": -1.1982469206206374e-7\n        }\n      ]\n    },\n    {\n      \"class\": \"P1000\",\n      \"km\": 60,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 93.116458704694,\n      \"phases\": [\n        {\n          \"unheldT\": 750.2349832273591,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.6291166316878696,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 113.24099370381653,\n          \"cycleMinute\": 1.8873498950636087,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -7.829149081870108\n        },\n        {\n          \"unheldT\": 362.4901625541012,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 99.99999999999999,\n          \"cycleMinute\": 4.666666666666666,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 643.7132362811001,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 333.3333333333333,\n          \"cycleMinute\": 52.613784907902556,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.051768888888886935\n        },\n        {\n          \"unheldT\": 643.7166106529769,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 52.613784907902556,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.013615916666746369\n        },\n        {\n          \"unheldT\": 481.6679035211257,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.9999999999999998,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 2310.160427807486,\n          \"cycleMinute\": 93.116458704694,\n          \"airspeedMps\": 9.166666666666698,\n          \"verticalSpeedMps\": -1.198246921931802e-7\n        }\n      ]\n    },\n    {\n      \"class\": \"P10000\",\n      \"km\": 15,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 45.51181498240322,\n      \"phases\": [\n        {\n          \"unheldT\": 6366.279947384605,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.5310628167591855,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 159.31884502775566,\n          \"cycleMinute\": 2.6553140837959277,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -5.749375389478733\n        },\n        {\n          \"unheldT\": 3846.7239152389375,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 199.99999999999997,\n          \"cycleMinute\": 8.333333333333332,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 6096.899695226258,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 666.6666666666666,\n          \"cycleMinute\": 35.367018602312726,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.025884444444443468\n        },\n        {\n          \"unheldT\": 6096.903526620557,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 35.367018602312726,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.007613133861165504\n        },\n        {\n          \"unheldT\": 4994.043550303768,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0,\n          \"limits\": [\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 37.367018602312726,\n          \"airspeedMps\": 30.694444444444443,\n          \"verticalSpeedMps\": 3.093513172374244e-7\n        }\n      ]\n    },\n    {\n      \"class\": \"P10000\",\n      \"km\": 15,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 45.51181498240322,\n      \"phases\": [\n        {\n          \"unheldT\": 6366.279947384605,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.5310628167591855,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 159.31884502775566,\n          \"cycleMinute\": 2.6553140837959277,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -5.749375389478733\n        },\n        {\n          \"unheldT\": 3846.7239152389375,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 199.99999999999997,\n          \"cycleMinute\": 8.333333333333332,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 6096.899695226258,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 666.6666666666666,\n          \"cycleMinute\": 35.367018602312726,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.025884444444443468\n        },\n        {\n          \"unheldT\": 6096.903526620557,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 35.367018602312726,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.007613133861165504\n        },\n        {\n          \"unheldT\": 3959.8495642203543,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.9999999999999998,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 488.68778280542983,\n          \"cycleMinute\": 45.51181498240322,\n          \"airspeedMps\": 10.833333333333371,\n          \"verticalSpeedMps\": 3.1848929682847214e-8\n        }\n      ]\n    },\n    {\n      \"class\": \"P10000\",\n      \"km\": 60,\n      \"basis\": \"record\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 94.3805932629462,\n      \"phases\": [\n        {\n          \"unheldT\": 6250.29691602404,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.5310628167591875,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 159.31884502775628,\n          \"cycleMinute\": 2.655314083795938,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -5.749375389478923\n        },\n        {\n          \"unheldT\": 3742.5758486233262,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 199.99999999999997,\n          \"cycleMinute\": 8.333333333333332,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 6096.899695226258,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 666.6666666666666,\n          \"cycleMinute\": 59.80140774258422,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.025884444444443468\n        },\n        {\n          \"unheldT\": 6096.9027288886955,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 59.80140774258422,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.013615916666746369\n        },\n        {\n          \"unheldT\": 4518.750409903647,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0,\n          \"limits\": [\n            \"rotor thrust\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 61.80140774258422,\n          \"airspeedMps\": 30.694444444444443,\n          \"verticalSpeedMps\": 9.834099151467616e-8\n        }\n      ]\n    },\n    {\n      \"class\": \"P10000\",\n      \"km\": 60,\n      \"basis\": \"favourable\",\n      \"profile\": \"as drawn\",\n      \"mode\": \"balanced\",\n      \"feasible\": false,\n      \"cycleMin\": 94.3805932629462,\n      \"phases\": [\n        {\n          \"unheldT\": 6250.29691602404,\n          \"phase\": \"SOURCE_APPROACH\",\n          \"progress\": 0.5310628167591875,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 159.31884502775628,\n          \"cycleMinute\": 2.655314083795938,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": -5.749375389478923\n        },\n        {\n          \"unheldT\": 3742.5758486233262,\n          \"phase\": \"WATER_FILL\",\n          \"progress\": 0.3,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\",\n            \"anchor cable reach\"\n          ],\n          \"secondsIntoPhase\": 199.99999999999997,\n          \"cycleMinute\": 8.333333333333332,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0\n        },\n        {\n          \"unheldT\": 6096.899695226258,\n          \"phase\": \"WATER_RELEASE\",\n          \"progress\": 1,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 666.6666666666666,\n          \"cycleMinute\": 59.80140774258422,\n          \"airspeedMps\": 4.499999868231309e-8,\n          \"verticalSpeedMps\": 0.025884444444443468\n        },\n        {\n          \"unheldT\": 6096.9027288886955,\n          \"phase\": \"BUOYANCY_ESCAPE\",\n          \"progress\": 0,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 0,\n          \"cycleMinute\": 59.80140774258422,\n          \"airspeedMps\": 0,\n          \"verticalSpeedMps\": 0.013615916666746369\n        },\n        {\n          \"unheldT\": 3896.501163867424,\n          \"phase\": \"RETURN_TRANSIT\",\n          \"progress\": 0.9999999999999998,\n          \"limits\": [\n            \"bus power\",\n            \"rotor thrust\",\n            \"aerodynamic coefficient\"\n          ],\n          \"secondsIntoPhase\": 1954.7511312217193,\n          \"cycleMinute\": 94.3805932629462,\n          \"airspeedMps\": 10.833333333333371,\n          \"verticalSpeedMps\": -7.605030008207218e-8\n        }\n      ]\n    }\n  ]\n}\n",
+    "parsed_source": {
+      "meaning": "Largest absolute signed unheld force in each failing phase, using the verdict mesh, refined extrema and both sides of seams from cycleLimits, with additional local refinement for the printed phase peak. Positive is unsupported surplus lift; negative requires unavailable upward authority.",
+      "samplesPerPhase": 1025,
+      "rows": [
+        {
+          "class": "P100",
+          "km": 15,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 34.196078431372555,
+          "phases": [
+            {
+              "unheldT": 2.334404490952494,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6048782275186997,
+              "limits": [
+                "bus power",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 72.58538730224396,
+              "cycleMinute": 1.2097564550373994,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -2.282839650280501
+            },
+            {
+              "unheldT": -5.714220829993373,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.22283235516091282,
+              "limits": [
+                "upward authority unavailable"
+              ],
+              "secondsIntoPhase": 157.29342717240905,
+              "cycleMinute": 7.954890452873485,
+              "airspeedMps": 25,
+              "verticalSpeedMps": 9.7454898886749
+            },
+            {
+              "unheldT": 34.75934174369816,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.8107155369134547,
+              "limits": [
+                "bus power"
+              ],
+              "secondsIntoPhase": 572.2697907624387,
+              "cycleMinute": 31.969202395060254,
+              "airspeedMps": 25,
+              "verticalSpeedMps": -8.820686858033753
+            }
+          ]
+        },
+        {
+          "class": "P100",
+          "km": 15,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 34.196078431372555,
+          "phases": [
+            {
+              "unheldT": 2.334404490952494,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6048782275186997,
+              "limits": [
+                "bus power",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 72.58538730224396,
+              "cycleMinute": 1.2097564550373994,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -2.282839650280501
+            },
+            {
+              "unheldT": -5.714220829993373,
+              "phase": "OUTBOUND_TRANSIT",
+              "progress": 0.22283235516091282,
+              "limits": [
+                "upward authority unavailable"
+              ],
+              "secondsIntoPhase": 157.29342717240905,
+              "cycleMinute": 7.954890452873485,
+              "airspeedMps": 25,
+              "verticalSpeedMps": 9.7454898886749
+            }
+          ]
+        },
+        {
+          "class": "P100",
+          "km": 60,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": true,
+          "cycleMin": 104.78431372549021,
+          "phases": []
+        },
+        {
+          "class": "P100",
+          "km": 60,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": true,
+          "cycleMin": 104.78431372549021,
+          "phases": []
+        },
+        {
+          "class": "P1000",
+          "km": 15,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 35.362448009506835,
+          "phases": [
+            {
+              "unheldT": 800.6810065585806,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6291166316878696,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 113.24099370381653,
+              "cycleMinute": 1.8873498950636087,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -7.829149081870108
+            },
+            {
+              "unheldT": 418.98255238425895,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 99.99999999999999,
+              "cycleMinute": 4.666666666666666,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 643.7132362811001,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 333.3333333333333,
+              "cycleMinute": 23.736779560308975,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.051768888888886935
+            },
+            {
+              "unheldT": 643.7167091577924,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 23.736779560308975,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.010609900623611187
+            },
+            {
+              "unheldT": 588.7118297794735,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.999999999999,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 577.5401069512941,
+              "cycleMinute": 35.36244800949721,
+              "airspeedMps": 9.166666666809256,
+              "verticalSpeedMps": -3.369046231050591e-07
+            }
+          ]
+        },
+        {
+          "class": "P1000",
+          "km": 15,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 35.362448009506835,
+          "phases": [
+            {
+              "unheldT": 800.6810065585806,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6291166316878696,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 113.24099370381653,
+              "cycleMinute": 1.8873498950636087,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -7.829149081870108
+            },
+            {
+              "unheldT": 418.98255238425895,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 99.99999999999999,
+              "cycleMinute": 4.666666666666666,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 643.7132362811001,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 333.3333333333333,
+              "cycleMinute": 23.736779560308975,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.051768888888886935
+            },
+            {
+              "unheldT": 643.7167091577924,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 23.736779560308975,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.010609900623611187
+            },
+            {
+              "unheldT": 504.1277999375876,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.9999999999999998,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 577.5401069518715,
+              "cycleMinute": 35.362448009506835,
+              "airspeedMps": 9.166666666666698,
+              "verticalSpeedMps": -3.369046234418814e-07
+            }
+          ]
+        },
+        {
+          "class": "P1000",
+          "km": 60,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 93.116458704694,
+          "phases": [
+            {
+              "unheldT": 750.2349832273591,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6291166316878696,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 113.24099370381653,
+              "cycleMinute": 1.8873498950636087,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -7.829149081870108
+            },
+            {
+              "unheldT": 362.4901625541012,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 99.99999999999999,
+              "cycleMinute": 4.666666666666666,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 643.7132362811001,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 333.3333333333333,
+              "cycleMinute": 52.613784907902556,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.051768888888886935
+            },
+            {
+              "unheldT": 643.7166106529769,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 52.613784907902556,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.013615916666746369
+            },
+            {
+              "unheldT": 566.2519333184207,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.9999999999989055,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 2310.160427804958,
+              "cycleMinute": 93.11645870465185,
+              "airspeedMps": 9.166666666822728,
+              "verticalSpeedMps": -1.1982469206206374e-07
+            }
+          ]
+        },
+        {
+          "class": "P1000",
+          "km": 60,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 93.116458704694,
+          "phases": [
+            {
+              "unheldT": 750.2349832273591,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.6291166316878696,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 113.24099370381653,
+              "cycleMinute": 1.8873498950636087,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -7.829149081870108
+            },
+            {
+              "unheldT": 362.4901625541012,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 99.99999999999999,
+              "cycleMinute": 4.666666666666666,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 643.7132362811001,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 333.3333333333333,
+              "cycleMinute": 52.613784907902556,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.051768888888886935
+            },
+            {
+              "unheldT": 643.7166106529769,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 52.613784907902556,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.013615916666746369
+            },
+            {
+              "unheldT": 481.6679035211257,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.9999999999999998,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 2310.160427807486,
+              "cycleMinute": 93.116458704694,
+              "airspeedMps": 9.166666666666698,
+              "verticalSpeedMps": -1.198246921931802e-07
+            }
+          ]
+        },
+        {
+          "class": "P10000",
+          "km": 15,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 45.51181498240322,
+          "phases": [
+            {
+              "unheldT": 6366.279947384605,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.5310628167591855,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 159.31884502775566,
+              "cycleMinute": 2.6553140837959277,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -5.749375389478733
+            },
+            {
+              "unheldT": 3846.7239152389375,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 199.99999999999997,
+              "cycleMinute": 8.333333333333332,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 6096.899695226258,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 666.6666666666666,
+              "cycleMinute": 35.367018602312726,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.025884444444443468
+            },
+            {
+              "unheldT": 6096.903526620557,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 35.367018602312726,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.007613133861165504
+            },
+            {
+              "unheldT": 4994.043550303768,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0,
+              "limits": [
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 37.367018602312726,
+              "airspeedMps": 30.694444444444443,
+              "verticalSpeedMps": 3.093513172374244e-07
+            }
+          ]
+        },
+        {
+          "class": "P10000",
+          "km": 15,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 45.51181498240322,
+          "phases": [
+            {
+              "unheldT": 6366.279947384605,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.5310628167591855,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 159.31884502775566,
+              "cycleMinute": 2.6553140837959277,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -5.749375389478733
+            },
+            {
+              "unheldT": 3846.7239152389375,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 199.99999999999997,
+              "cycleMinute": 8.333333333333332,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 6096.899695226258,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 666.6666666666666,
+              "cycleMinute": 35.367018602312726,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.025884444444443468
+            },
+            {
+              "unheldT": 6096.903526620557,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 35.367018602312726,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.007613133861165504
+            },
+            {
+              "unheldT": 3959.8495642203543,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.9999999999999998,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 488.68778280542983,
+              "cycleMinute": 45.51181498240322,
+              "airspeedMps": 10.833333333333371,
+              "verticalSpeedMps": 3.1848929682847214e-08
+            }
+          ]
+        },
+        {
+          "class": "P10000",
+          "km": 60,
+          "basis": "record",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 94.3805932629462,
+          "phases": [
+            {
+              "unheldT": 6250.29691602404,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.5310628167591875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 159.31884502775628,
+              "cycleMinute": 2.655314083795938,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -5.749375389478923
+            },
+            {
+              "unheldT": 3742.5758486233262,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 199.99999999999997,
+              "cycleMinute": 8.333333333333332,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 6096.899695226258,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 666.6666666666666,
+              "cycleMinute": 59.80140774258422,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.025884444444443468
+            },
+            {
+              "unheldT": 6096.9027288886955,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 59.80140774258422,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.013615916666746369
+            },
+            {
+              "unheldT": 4518.750409903647,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0,
+              "limits": [
+                "rotor thrust"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 61.80140774258422,
+              "airspeedMps": 30.694444444444443,
+              "verticalSpeedMps": 9.834099151467616e-08
+            }
+          ]
+        },
+        {
+          "class": "P10000",
+          "km": 60,
+          "basis": "favourable",
+          "profile": "as drawn",
+          "mode": "balanced",
+          "feasible": false,
+          "cycleMin": 94.3805932629462,
+          "phases": [
+            {
+              "unheldT": 6250.29691602404,
+              "phase": "SOURCE_APPROACH",
+              "progress": 0.5310628167591875,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 159.31884502775628,
+              "cycleMinute": 2.655314083795938,
+              "airspeedMps": 0,
+              "verticalSpeedMps": -5.749375389478923
+            },
+            {
+              "unheldT": 3742.5758486233262,
+              "phase": "WATER_FILL",
+              "progress": 0.3,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient",
+                "anchor cable reach"
+              ],
+              "secondsIntoPhase": 199.99999999999997,
+              "cycleMinute": 8.333333333333332,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0
+            },
+            {
+              "unheldT": 6096.899695226258,
+              "phase": "WATER_RELEASE",
+              "progress": 1,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 666.6666666666666,
+              "cycleMinute": 59.80140774258422,
+              "airspeedMps": 4.499999868231309e-08,
+              "verticalSpeedMps": 0.025884444444443468
+            },
+            {
+              "unheldT": 6096.9027288886955,
+              "phase": "BUOYANCY_ESCAPE",
+              "progress": 0,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 0,
+              "cycleMinute": 59.80140774258422,
+              "airspeedMps": 0,
+              "verticalSpeedMps": 0.013615916666746369
+            },
+            {
+              "unheldT": 3896.501163867424,
+              "phase": "RETURN_TRANSIT",
+              "progress": 0.9999999999999998,
+              "limits": [
+                "bus power",
+                "rotor thrust",
+                "aerodynamic coefficient"
+              ],
+              "secondsIntoPhase": 1954.7511312217193,
+              "cycleMinute": 94.3805932629462,
+              "airspeedMps": 10.833333333333371,
+              "verticalSpeedMps": -7.605030008207218e-08
+            }
+          ]
+        }
+      ]
+    },
+    "qualification": "Existing prescribed source summaries, including every failure row and original operand; copied without execution, rounding, normalization or recomputation."
+  },
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "selected_clock_alignment": null,
+  "selected_threshold": null,
+  "physical_action": null,
+  "remote_action": null,
+  "qualification_conclusion": null
+}
