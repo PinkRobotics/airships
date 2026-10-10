@@ -1,0 +1,21 @@
+# Rotor and storage assumptions versus buildable equipment evidence
+
+This paper maps [the published question](../../../docs/OPEN-QUESTIONS.md#8-what-rotor-area-thrust-and-storage-mass-can-be-built) and [its existing tracking issue](https://github.com/PinkRobotics/airships/issues/7) to missing observations using the [verification plan](../../../docs/VERIFICATION-PLAN.md). The question remains open. No measurement, operational capability or hardware qualification is established.
+
+| Evidence boundary | Existing limitation | Prospective custodian role |
+|---|---|---|
+| installed-geometry | Configured aggregate diskM2 and station-count fields are stipulations, not selected blades or a measured installation. Rotor/station/coaxial counts must use the same configuration boundary. | Rotor geometry and installation evidence custodian |
+| thrust-and-flow | The explicit unverified installed-thrust surrogate inverts hover power at existing battery plus generator rating. Actual bus allocation separately prices non-rotor loads; neither is a blade thrust rating. Downward-only force authority and missing upward authority remain distinct. | Rotor performance and flight-controls evidence custodian |
+| efficiency-and-thermal | Constant hover merit times drive efficiency is used at every thrust/speed, with no separate blade profile power or specified rotor-speed/pitch policy. Separating those terms can change printed figures in either direction. | Propulsion and thermal evidence custodians |
+| storage-delivery | Configured battMWh/battMW and existing specific-energy cases are assumptions/reference evidence. The existing requirement tables retain the class energy-to-peak-power ratio: power alone does not fix storage mass. Quasi-static force/bus closure does not establish sufficient stored energy for mission completion. | Battery-pack and complete-equipment mass evidence custodians |
+| complete-equipment-mass | The battery comparison is pack-specific; the dry target is the whole non-water allowance. Existing mass-budget failures and source qualifications are retained. Requirement rows are not hardware options. | Complete-aircraft inventory evidence custodian |
+
+The published question asks whether installed disk area, directional thrust and storage can be built together within the whole dry allowance. It does not select a rotor or pack. Existing requirement rows are conditional model requirements. Some source records close quasi-statically and many fail; neither outcome establishes a realizable installation. Their rounding and configuration contexts remain in the verbatim question excerpt.
+
+The thrust limit is an explicit power-derived surrogate, while the actual bus split also carries non-rotor loads. A blade rating, a gimbal response and complete installation power are different evidence boundaries. The constant efficiency term does not supply blade geometry, profile power, speed/pitch policy or coupled hull/coaxial flow. Downward authority cannot be repurposed as upward authority.
+
+Storage mass is not fixed by peak power alone. Existing requirements retain the class energy-to-peak-power ratio and refer to the mass-budget source qualifications. A prospective record would distinguish installed pack mass, usable energy, sustained delivery, protection/cooling and declared state-of-charge/reserve limits. Pack evidence is still a subset of the complete non-water aircraft inventory. This paper does not convert a requirement into a hardware option or estimate a new mass.
+
+[CROSSWALK.json](CROSSWALK.json) records source destinations, prospective observations and units, insufficient or disconfirming evidence, and the verbatim published question. Actual observations, evidence identifiers, matched configurations, uncertainty and physical acceptance criteria are NULL/UNKNOWN. Custodian roles are prospective and remain UNASSIGNED. A criterion must be traceable to the matched physical question before any closure decision; no numeric tolerance or owner appointment is made here.
+
+[PROVENANCE.json](PROVENANCE.json) pins every local source to the actual baseline revision. Preexisting source bytes, printed failures and conditional results remain unchanged. This paper does not execute a solver, experiment, campaign, field action or remote issue update.
