@@ -1,0 +1,316 @@
+{
+  "schema": "stageb.decision-evidence-map/1",
+  "unit": "robotics-stageb-cell-joint-decision-map-1010",
+  "status": "METHOD_ONLY; NOT_RUN",
+  "date": "2026-10-10",
+  "source_revision": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+  "physical_execution_authorized": false,
+  "new_public_scientific_result": false,
+  "history_policy": "Preserve existing public failures and sealed private numerical/engineering dispositions; null means unavailable, never zero.",
+  "observations": [
+    {
+      "id": "mass-components",
+      "domain": "cell mass",
+      "quantity": "component mass",
+      "units": "kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Condition and weigh each identified tube, node, film, barrier, seam, adhesive, hardware and allocated support with calibrated uncertainty.",
+      "invalidates_applicability": "Missing components, moisture state or a different bill/boundary; calculated volume-density products are not weighing.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "mass-assembly",
+      "domain": "cell mass",
+      "quantity": "complete article mass",
+      "units": "kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Independently weigh the conditioned sealed article and reconcile component allocations and assembly deltas.",
+      "invalidates_applicability": "Component totals credited as an independent assembled observation, double-counted neighbour structure or omitted hardware.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "sealed-volume",
+      "domain": "cell mass",
+      "quantity": "enclosed volume",
+      "units": "m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Record dimensional observations of the same sealed boundary and article revision; attach raw geometry and uncertainty.",
+      "invalidates_applicability": "Pitch-cube, external envelope or another revision substituted for enclosed volume.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "pressure-history",
+      "domain": "cell mass",
+      "quantity": "pressure and temperature history",
+      "units": "Pa; K; s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "In a separately authorized protocol, record pressure, temperature, duration and conditioning with calibrated instruments.",
+      "invalidates_applicability": "Pressure rise attributed to leakage without separating outgassing or temperature effects; a proposed degradation allowance treated as adopted.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "complete-B-bill",
+      "domain": "Alternative B",
+      "quantity": "complete-node/hardware bill and allocated mass",
+      "units": "part IDs; kg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify all stock ends, split parts, lugs, holes, fasteners, locks and neighbour allocations on one complete revision.",
+      "invalidates_applicability": "Primitive end mass, friction-only retention or nominal fasteners extrapolated to complete installed hardware.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "B-installation-clearance",
+      "domain": "Alternative B",
+      "quantity": "signed swept clearance and final engagement",
+      "units": "mm",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Identify every affected end and fixed-node pose; record assembly sequence and sweep including tools, stock and tolerance envelopes.",
+      "invalidates_applicability": "Only convenient representatives sampled, changed source pose/stock size or tool clearance omitted.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "B-solid-sections",
+      "domain": "Alternative B",
+      "quantity": "minimum sections and solid topology",
+      "units": "mm; topology observations",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Specify local minimum-wall/section inspection and resolution on the complete toleranced solid.",
+      "invalidates_applicability": "Median wall or a closed/non-self-intersecting mesh flag treated as printability or minimum wall.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "B-retention",
+      "domain": "Alternative B",
+      "quantity": "secured assembly state after tool withdrawal",
+      "units": "configuration record",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Describe load-bearing contact and positive locking parts; specify evidence of access, installation and final retention.",
+      "invalidates_applicability": "Ideal contact, assumed friction or hidden fasteners supplying a result; primitive model treated as full node.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "beam-load-contract",
+      "domain": "beam applicability",
+      "quantity": "member identity, section, frame, load line and fixture",
+      "units": "IDs; mm; N; N*m",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Crosswalk each proposed receiving reaction/displacement to applied demand and declared constitutive and fixture assumptions.",
+      "invalidates_applicability": "Station-offset case mixed with true load-line eccentricity, gravity hiding pressure transfer or ideal restraint credited as measured fixity.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "beam-comparison",
+      "domain": "beam applicability",
+      "quantity": "reaction/displacement comparison and numerical completeness",
+      "units": "N; N*m; mm",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Keep native exit, complete target, equilibrium, independent mesh and model controls in separate fields.",
+      "invalidates_applicability": "Incomplete path or solver nonconvergence declared a physical limit load; single mesh or insufficient reference points called converged.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "shell-film-transfer",
+      "domain": "shell and film applicability",
+      "quantity": "tube-wall, film, contact and joint applicability",
+      "units": "scope record",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Name each required surface/constitutive/load-transfer representation and the evidence needed before importing a beam conclusion.",
+      "invalidates_applicability": "Beam/eigen result treated as wall, membrane, printed-node or installed capacity; prescribed edge load treated as equilibrated skin.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "material-directional",
+      "domain": "actual material",
+      "quantity": "directional constitutive observations",
+      "units": "Pa; strain; kg/m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Record stock batch or print/laminate orientation, conditioning and separately applicable tensile/compressive/shear observations and uncertainty.",
+      "invalidates_applicability": "Fibre/catalogue/tensile proxy used as measured laminate, compressive or bearing allowable; unidentified conditioning/batch.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "member-imperfections",
+      "domain": "actual material",
+      "quantity": "initial imperfection and section profile",
+      "units": "mm",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Record curvature, wall/section dimensions, batch and local frames with uncertainty on the intended member.",
+      "invalidates_applicability": "Synthetic imperfection amplitudes or nominal stock geometry substituted for measured article.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "joint-response",
+      "domain": "actual joint",
+      "quantity": "translation, rotation and load centroid response",
+      "units": "N; mm; N*m; rad",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective joint coupon record identifies contact/bondline, loading direction, calibration, force/displacement and moment/rotation.",
+      "invalidates_applicability": "Ideal PP/CC bound or prescribed eccentricity substituted for installed stiffness/load centroid.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "joint-strength",
+      "domain": "actual joint",
+      "quantity": "bearing, bond-shear and pull-out observations",
+      "units": "N; Pa; mm",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Separately authorized coupons would retain raw response, failure mode, bondline, geometry, batch, conditioning and uncertainty.",
+      "invalidates_applicability": "Material-coupon stress or elastic diagnostic declared installed capacity; no applicable acceptance basis.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "time-dependent",
+      "domain": "actual material and joint",
+      "quantity": "creep and sealing/barrier response",
+      "units": "s; mm; Pa; Pa/s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "prospective_method": "Prospective authorized protocol declares duration, temperature, humidity, preload and leak/outgassing separation before observation.",
+      "invalidates_applicability": "Short-term response extrapolated to service duration or sealing results credited to untested structure.",
+      "acceptance_criterion": null,
+      "criterion_status": "UNKNOWN; use only an explicitly adopted applicable source criterion",
+      "prospective_owner_role": "Article/material/joint evidence owner; exact assignee UNKNOWN",
+      "execution_state": "NOT_RUN; separate physical authorization required",
+      "public_source_paths": [
+        "research/analysis/vacuum-cell.md",
+        "docs/VERIFICATION-PLAN.md"
+      ]
+    }
+  ]
+}
