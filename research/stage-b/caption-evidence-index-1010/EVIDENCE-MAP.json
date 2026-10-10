@@ -1,0 +1,269 @@
+{
+  "schema": "stageb.caption-evidence-requirements/1",
+  "status": "METHOD_ONLY; prospective captions UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "rows": [
+    {
+      "id": "cell-load-transfer",
+      "method": "Reduced cell load transfer",
+      "decision_requirements": [
+        "beam-load-contract",
+        "beam-comparison"
+      ],
+      "caption_quantities_and_units": "N; N*m; mm",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Identify member/junction revision, pressure versus gravity and buoyancy allocations, receiving reactions, equilibrium and declared supports.",
+      "reject_caption_if": "Supported fixture credited as free-floating equilibrium; self-weight hiding absent pressure transfer; reaction result detached from its load contract.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "beam-path",
+      "method": "Imperfect beam response",
+      "decision_requirements": [
+        "beam-comparison",
+        "member-imperfections"
+      ],
+      "caption_quantities_and_units": "N; mm; Pa",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Caption member identity, span, section/frame, imperfection, demand basis, full target/path and native/equilibrium/mesh evidence separately.",
+      "reject_caption_if": "Incomplete path or nonconvergence called collapse; synthetic stress treated as material allowable; imposed bow treated as measured imperfection.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "eigen-diagnostic",
+      "method": "Perfect-beam eigen diagnostic",
+      "decision_requirements": [
+        "beam-comparison",
+        "shell-film-transfer"
+      ],
+      "caption_quantities_and_units": "N; mode identifiers",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Name the ideal straight beam, eigenproblem, boundary conditions and independent mesh/model checks; preserve diagnostic scope.",
+      "reject_caption_if": "Eigenvalue treated as measured installed capacity, nonlinear stability or shell/film/printed-node qualification.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "eccentricity",
+      "method": "Load-line eccentricity and fixture bounds",
+      "decision_requirements": [
+        "beam-load-contract",
+        "joint-response"
+      ],
+      "caption_quantities_and_units": "N; N*m; mm; rad",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Distinguish displaced station from true imposed end couples; identify PP/CC ideal fixtures, applied load line and receiving torque convention.",
+      "reject_caption_if": "Station offset presented as true load-line eccentricity; ideal fixity presented as measured joint stiffness; missing couple response or comparison controls.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "rim-edge",
+      "method": "Rim edge-load sensitivity",
+      "decision_requirements": [
+        "beam-load-contract",
+        "shell-film-transfer"
+      ],
+      "caption_quantities_and_units": "N/m; N; mm",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Identify standalone beam, combined axial/edge demand and prescribed dead-load scope; retain transfer and equilibrium requirements.",
+      "reject_caption_if": "Prescribed edge demand called equilibrated membrane transfer or whole-cell shell/film capacity.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "reference-benchmark",
+      "method": "Independent benchmark applicability",
+      "decision_requirements": [
+        "beam-comparison",
+        "shell-film-transfer"
+      ],
+      "caption_quantities_and_units": "dimensionless; reference state",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Caption geometry/domain, solver/closure, normal completion, convergence, mesh and matching force/pressure reference states as separate evidence.",
+      "reject_caption_if": "Native exit or force agreement erases numerical FAIL; mismatched pressure state credited as experimental agreement; benchmark credited as hull qualification.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "mass-boundary",
+      "method": "Cell mass and geometry illustration",
+      "decision_requirements": [
+        "mass-components",
+        "mass-assembly",
+        "sealed-volume"
+      ],
+      "caption_quantities_and_units": "kg; m; m^3",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Label calculated component allocations separately from missing independent conditioned weighing and enclosed-volume observations.",
+      "reject_caption_if": "Calculated mass described as physically weighed; omitted hardware/seams/supports or a geometry illustration declared buoyancy closure.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "installation",
+      "method": "Connection installation illustration",
+      "decision_requirements": [
+        "complete-B-bill",
+        "B-installation-clearance",
+        "B-solid-sections",
+        "B-retention"
+      ],
+      "caption_quantities_and_units": "mm; part identifiers; kg",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Identify actual end/stock/pose and the complete hardware/tool sweep; distinguish primitive illustration, solid topology and local minimum section from complete installed evidence.",
+      "reject_caption_if": "Representative primitive or median wall called complete clearance, true minimum wall, printability, retention or installed strength.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "shell-film-gap",
+      "method": "Shell, film and wall applicability gap",
+      "decision_requirements": [
+        "shell-film-transfer"
+      ],
+      "caption_quantities_and_units": "scope record",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "State the missing wall/membrane/contact/constitutive/load-transfer model and comparison evidence beside any proposed caption.",
+      "reject_caption_if": "Beam model or imposed edge load substituted for unsupported shell/film/wall representation.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "method": "Actual material and manufacturing qualification",
+      "decision_requirements": [
+        "material-directional",
+        "joint-response",
+        "joint-strength",
+        "time-dependent"
+      ],
+      "caption_quantities_and_units": "Pa; N; mm; rad; s",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Identify actual batch/orientation/conditioning, coupon or installed article, calibration, uncertainty, joint/bond/contact state and duration-specific evidence.",
+      "reject_caption_if": "Synthetic constitutive assumptions or numerical success credited as actual manufacturing, bearing, pull-out, creep or sealing qualification.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    },
+    {
+      "id": "history-custody",
+      "method": "Predecessor and control evidence custody",
+      "decision_requirements": [
+        "beam-comparison",
+        "complete-B-bill",
+        "shell-film-transfer"
+      ],
+      "caption_quantities_and_units": "identifiers; status records",
+      "result_value": null,
+      "evidence_id": null,
+      "caption_text": null,
+      "figure_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_caption_requirement": "Retain prior-link, executed-control, superseded and unrun roles with exact immutable source references; inspect the linked scope before treating a predecessor as direct support.",
+      "reject_caption_if": "Unrun declaration credited as executed evidence, preserved invalid variant erased, prior acceptance enlarged beyond its source or a missing linked ledger treated as verified.",
+      "public_source_refs": [
+        "../../program/PLAN.md",
+        "../../program/NEXT-STAGES.md",
+        "../../analysis/vacuum-cell.md",
+        "../../../docs/VERIFICATION-PLAN.md"
+      ]
+    }
+  ],
+  "missing_semantics": "Null evidence/figure/caption/result fields are unavailable, not zero or completed evidence.",
+  "historical_policy": "Keep numerical FAIL, incomplete single-mesh evidence, unrun declarations and manufacturing UNKNOWN distinct in the source record. Nonconvergence is not physical collapse. No historical case outcomes republished here.",
+  "execution_authorized": false,
+  "private_source_policy": "Private outcome values, identities, counts and curves excluded. This derivative does not assert that any proposed caption is supported."
+}
