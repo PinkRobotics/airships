@@ -1,0 +1,1695 @@
+{
+  "schema": "naca0012.validation-evidence-map/1",
+  "status": "METHOD_ONLY; ALL OUTPUTS UNKNOWN",
+  "source_revision": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+  "threshold_policy": "Frozen values copied exactly for traceability; comparison bands are not observations or experimental uncertainty. No new threshold, branch cutoff or tuning.",
+  "missing_semantics": "null is missing, never zero or PASS",
+  "rows": [
+    {
+      "id": "geometry-domain",
+      "decision": "Geometry and domain applicability",
+      "quantity": "geometry identity; chord; boundary distance; equivalence evidence",
+      "units": "m; dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Record the sharp trailing-edge reference geometry, coordinate convention, domain and frozen-input identity; retain findings and independently justified farfield equivalence.",
+      "rejection_condition": "Wrong geometry, omitted farfield evidence or a force match substituted for geometry/domain evidence.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/geometry",
+          "frozen_value": "NACA0012, sharp trailing-edge reference geometry required"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/geometry_qualification"
+      ]
+    },
+    {
+      "id": "frozen-mesh",
+      "decision": "Frozen mesh identity",
+      "quantity": "input digests; decomposition; positive volume",
+      "units": "identifiers; m^3",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Bind the declared mesh, decomposition and input manifest to the intended case; prospective volume record covers every cell.",
+      "rejection_condition": "Changed mesh/decomposition, missing volume evidence or non-positive cell volume.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/mesh",
+          "frozen_value": "n449, fixed eight-rank decomposition"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/ranks",
+          "frozen_value": 8
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/minimum_cell_volume_positive",
+          "frozen_value": true
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/current_case/mesh",
+          "frozen_value": "n449 controlled fixed8rank"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/minimum_cell_volume"
+      ]
+    },
+    {
+      "id": "solver-model",
+      "decision": "Solver and turbulence applicability",
+      "quantity": "solver/closure; inlet turbulence inputs",
+      "units": "identifiers; m^2/s",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the declared solver/closure and frozen inlet turbulence inputs and disclose fully turbulent versus tripped reference applicability.",
+      "rejection_condition": "Unidentified closure/turbulence, silent trip/model equivalence or retuned settings.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/solver",
+          "frozen_value": "OpenFOAM14 foamRun, incompressibleFluid"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/closure",
+          "frozen_value": "SpalartAllmaras, fully turbulent"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/inlet_turbulence",
+          "frozen_value": "Record the frozen0/nuTilda and0/nut inputs; no retuning"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "normalization",
+      "decision": "Reference-state and force normalization",
+      "quantity": "Re; alpha; freestream; viscosity; density; reference scales",
+      "units": "dimensionless; deg; m/s; m^2/s; kg/m^3; m; m^2",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Attach the declared physical state and every force normalization input to the raw intended comparison.",
+      "rejection_condition": "Different state, undocumented normalization or data from another angle credited to the current case.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/Re",
+          "frozen_value": 6000000
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/alpha_deg",
+          "frozen_value": 0
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/farfield_U_m_s/0",
+          "frozen_value": 1.0
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/farfield_U_m_s/1",
+          "frozen_value": 0.0
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/farfield_U_m_s/2",
+          "frozen_value": 0.0
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/kinematic_viscosity_m2_s",
+          "frozen_value": 1.6666666666666668e-07
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/force_normalization/rhoInf_kg_m3",
+          "frozen_value": 1
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/force_normalization/magUInf_m_s",
+          "frozen_value": 1
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/force_normalization/lRef_m",
+          "frozen_value": 1
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/case/force_normalization/Aref_m2",
+          "frozen_value": 0.01
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/id",
+          "frozen_value": "naca0012-forces"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/type",
+          "frozen_value": "experimental comparison"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/data",
+          "frozen_value": "references/CLCD_Ladson_expdata.dat"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/Re",
+          "frozen_value": 6000000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/angles_deg/0",
+          "frozen_value": 0
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/angles_deg/1",
+          "frozen_value": 10
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/CL_abs_tolerance",
+          "frozen_value": 0.05
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/CD_abs_tolerance",
+          "frozen_value": 0.002
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/current_case/Re",
+          "frozen_value": 6000000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/current_case/alpha_deg",
+          "frozen_value": 0
+        }
+      ]
+    },
+    {
+      "id": "controlled-pair",
+      "decision": "Controlled hypothesis comparison",
+      "quantity": "baseline and candidate identity; compatible series",
+      "units": "digests; dimensionless coefficients",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Compare a compatible matched baseline/candidate with only the declared relaxation change and retained settings/input identities.",
+      "rejection_condition": "Reference agreement alone called improvement, missing baseline or an additional setting/model/geometry change.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/only_change",
+          "frozen_value": "U equation matrix relaxation"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/baseline_U",
+          "frozen_value": 0.7
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/candidate_U",
+          "frozen_value": 0.5
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/p",
+          "frozen_value": 0.3
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/nuTilda",
+          "frozen_value": 0.7
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/interpretation",
+          "frozen_value": "An iteration-control hypothesis, not a cause diagnosis or convergence prediction"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/fixed",
+          "frozen_value": "Same geometry, mesh, model, references, numerical schemes, time controls and all other settings"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/baseline_fvSolution_sha256",
+          "frozen_value": "87c281cfdbc6774f777c8fe41f9d8a79751fe45329b2f078a44b6073af637b83"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/hypothesis/candidate_fvSolution_sha256",
+          "frozen_value": "aec28a9b974cc79dbefc6df3673a9263d572b7c02553300be0d8e1741d8787ba"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/controlled_pair",
+          "frozen_value": "A claim about relaxation improvement also requires a compatible matched baseline; a reference comparison alone is not a controlled baseline pair"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/matched_baseline_series"
+      ]
+    },
+    {
+      "id": "normal-exit",
+      "decision": "Normal terminal collection",
+      "quantity": "native exit; terminal output custody",
+      "units": "exit and collection records",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain normal collected native exit separately from finite force metrics.",
+      "rejection_condition": "Missing/abnormal exit or incomplete collection, even if a finite trace exists.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/force_series",
+          "frozen_value": "Require a complete finite4001-row, six-column series for iterations0..4000; reject missing/invalid/nonfinite rows or zero normalization"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/normal_native_exit_required",
+          "frozen_value": true
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/required_normal_collected_exit",
+          "frozen_value": true
+        }
+      ]
+    },
+    {
+      "id": "force-series",
+      "decision": "Force-series completeness",
+      "quantity": "iteration identifiers; six-column finite force series",
+      "units": "iterations; dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Require the exact inclusive iteration range, row/column shape and finite raw series declared in the contract.",
+      "rejection_condition": "Missing/duplicate/out-of-range/invalid/nonfinite rows, wrong shape or zero metric denominator.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/force_series",
+          "frozen_value": "Require a complete finite4001-row, six-column series for iterations0..4000; reject missing/invalid/nonfinite rows or zero normalization"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/final_iteration",
+          "frozen_value": 4000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/formula",
+          "frozen_value": "norm(ptp([CL,CD],axis=0))/norm(mean), max(norm(q-mean))/norm(mean)"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/invalid_missing_nan_zero_denominator",
+          "frozen_value": "STOP/INVALID; never PASS"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/force_series"
+      ]
+    },
+    {
+      "id": "force-window",
+      "decision": "Final-window selection",
+      "quantity": "complete declared final window",
+      "units": "iterations; dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Select the exact inclusive final window with its declared row count from a complete force series.",
+      "rejection_condition": "Shortened, shifted, sparse or selectively chosen window.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/final_window",
+          "frozen_value": "Iterations3801..4000 inclusive,200 rows"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/complete_window/0",
+          "frozen_value": 3801
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/complete_window/1",
+          "frozen_value": 4000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/rows",
+          "frozen_value": 200
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "force-range",
+      "decision": "Relative vector range",
+      "quantity": "norm of componentwise range divided by mean-vector norm",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Apply the frozen formula and strict band to both force components in the declared final window.",
+      "rejection_condition": "Zero normalization, invalid data, wrong formula or a metric at or above its strict band.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/both_force_metrics",
+          "frozen_value": "Each strict<0.005, as defined in TOLERANCES.json; neither alone suffices"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/relative_vector_range_lt",
+          "frozen_value": 0.005
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/formula",
+          "frozen_value": "norm(ptp([CL,CD],axis=0))/norm(mean), max(norm(q-mean))/norm(mean)"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/invalid_missing_nan_zero_denominator",
+          "frozen_value": "STOP/INVALID; never PASS"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/force_last200_vector_drift_relative",
+          "frozen_value": 0.005
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/force_metrics"
+      ]
+    },
+    {
+      "id": "force-deviation",
+      "decision": "Maximum vector deviation",
+      "quantity": "maximum distance from mean divided by mean-vector norm",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Apply the second frozen metric independently on the same window; both metrics must meet their own strict band.",
+      "rejection_condition": "One metric substituted for both, invalid denominator or a metric at or above its strict band.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/both_force_metrics",
+          "frozen_value": "Each strict<0.005, as defined in TOLERANCES.json; neither alone suffices"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/relative_max_deviation_lt",
+          "frozen_value": 0.005
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/formula",
+          "frozen_value": "norm(ptp([CL,CD],axis=0))/norm(mean), max(norm(q-mean))/norm(mean)"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/force_convergence/invalid_missing_nan_zero_denominator",
+          "frozen_value": "STOP/INVALID; never PASS"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/force_last200_vector_drift_relative",
+          "frozen_value": 0.005
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "force-reference",
+      "decision": "Primary force agreement",
+      "quantity": "absolute CL and CD errors at matching reference state",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Use the selected tripped grit/Mach data, reference digest and declared bracketing angle interpolation; apply both inclusive frozen absolute-error bands.",
+      "rejection_condition": "Wrong reference state/selection, unbracketed interpolation, either error above its band or project bands described as experimental uncertainty.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/primary_force/data",
+          "frozen_value": "CLCD_Ladson_expdata.dat"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/primary_force/sha256",
+          "frozen_value": "78cd2f6aa4968e80f44cbf6c96f699bd9c6e45681d958ec528a10cf72ed23357"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/primary_force/selection",
+          "frozen_value": "80-grit, Mach0.15 tripped Ladson forces, bracketing alpha interpolation at0deg;120/180-grit spread sensitivity with the same frozen bands"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/primary_force/bands_are",
+          "frozen_value": "Project screening tolerances, not experimental uncertainty"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/primary_force_agreement",
+          "frozen_value": "Inclusive absolute CL error<=0.05 and CD error<=0.002 against selected force reference"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/CL_abs_exp",
+          "frozen_value": 0.05
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/CD_abs_exp",
+          "frozen_value": 0.002
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/id",
+          "frozen_value": "naca0012-forces"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/type",
+          "frozen_value": "experimental comparison"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/data",
+          "frozen_value": "references/CLCD_Ladson_expdata.dat"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/Re",
+          "frozen_value": 6000000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/angles_deg/0",
+          "frozen_value": 0
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/angles_deg/1",
+          "frozen_value": 10
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/reference_selection",
+          "frozen_value": "80-grit Ladson M=.15 tripped forces primary; interpolate bracketing alpha rows at0/10. Report120/180-grit spread as sensitivity; all use same frozen bands."
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/CL_abs_tolerance",
+          "frozen_value": 0.05
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/CD_abs_tolerance",
+          "frozen_value": 0.002
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/experimental_force_errors"
+      ]
+    },
+    {
+      "id": "trip-sensitivity",
+      "decision": "Trip sensitivity",
+      "quantity": "alternate grit spread and applicability",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Report the declared alternate-grit spread separately using the same frozen comparison bands, retaining trip/model disclosure.",
+      "rejection_condition": "Sensitivity omitted, primary reference silently changed or bands fitted to the computed result.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/primary_force/selection",
+          "frozen_value": "80-grit, Mach0.15 tripped Ladson forces, bracketing alpha interpolation at0deg;120/180-grit spread sensitivity with the same frozen bands"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/reference_selection",
+          "frozen_value": "80-grit Ladson M=.15 tripped forces primary; interpolate bracketing alpha rows at0/10. Report120/180-grit spread as sensitivity; all use same frozen bands."
+        }
+      ]
+    },
+    {
+      "id": "mesh-family",
+      "decision": "Three-mesh evidence",
+      "quantity": "identified mesh family and matched states",
+      "units": "identifiers; dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the required distinct meshes, their state/domain compatibility and force summaries; evaluate last-two differences separately.",
+      "rejection_condition": "One mesh counted as a family, unmatched settings/state or missing mesh-level evidence.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/three_mesh_comparison"
+      ]
+    },
+    {
+      "id": "mesh-vector",
+      "decision": "Last-two force vector criterion",
+      "quantity": "relative vector difference",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Use the frozen last-two-mesh vector criterion and retain both raw vectors and normalization.",
+      "rejection_condition": "Missing/zero normalization, incomplete mesh family or criterion not satisfied.",
+      "frozen_conditions": [
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/last_two_mesh_force_vector_relative",
+          "frozen_value": 0.02
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "mesh-drag",
+      "decision": "Last-two drag criterion",
+      "quantity": "relative CD difference",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Apply the separately frozen drag criterion to the last two meshes; retain both drag values.",
+      "rejection_condition": "Vector agreement substituted for drag agreement, invalid normalization or criterion not satisfied.",
+      "frozen_conditions": [
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/last_two_mesh_CD_relative",
+          "frozen_value": 0.02
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "mesh-lift",
+      "decision": "Near-zero and nonzero lift criteria",
+      "quantity": "absolute or relative CL mesh difference",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain the distinct near-zero absolute and nonzero relative branches; record the applicable branch and source basis.",
+      "rejection_condition": "Wrong branch, invented branch cutoff, missing applicability basis or criterion not satisfied.",
+      "frozen_conditions": [
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/CL_mesh_nearzero_abs",
+          "frozen_value": 0.001
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/CL_mesh_nonzero_relative",
+          "frozen_value": 0.02
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/0/requirements",
+          "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "mass-flux",
+      "decision": "Mass-flux balance",
+      "quantity": "relative boundary mass-flux imbalance",
+      "units": "dimensionless; mass/time",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Retain boundary fluxes, normalizing flux and the frozen imbalance criterion independently of force convergence.",
+      "rejection_condition": "Missing fluxes, invalid normalization or criterion not satisfied.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/mass_flux_imbalance_relative",
+          "frozen_value": 0.001
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/mass_flux"
+      ]
+    },
+    {
+      "id": "pressure-state",
+      "decision": "Pressure-reference state mismatch",
+      "quantity": "matching pressure state and trip/model applicability",
+      "units": "dimensionless; deg",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Keep current-case pressure diagnostic only; experimental pressure agreement requires the separately matching reference Reynolds number and declared angles.",
+      "rejection_condition": "Current higher-Re diagnostic credited as experimental agreement, missing matching case or silent trip/model equivalence.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/pressure/data",
+          "frozen_value": "CP_Gregory_expdata.dat"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/pressure/reference_Re",
+          "frozen_value": 2880000
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/pressure/current_Re6M_use",
+          "frozen_value": "DIAGNOSTIC ONLY; no experimental pressure agreement"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/references/pressure/matching_requirement",
+          "frozen_value": "A pressure comparison needs a separately matching Re2.88M case and disclosed trip/model applicability"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/id",
+          "frozen_value": "naca0012-pressure"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/type",
+          "frozen_value": "experimental comparison"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/data",
+          "frozen_value": "references/CP_Gregory_expdata.dat"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/Re",
+          "frozen_value": 2880000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/angles_deg/0",
+          "frozen_value": 0
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/angles_deg/1",
+          "frozen_value": 10
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/requirements",
+          "frozen_value": "Separate Re2.88M runs at alpha0/10; upper-surface only. Tabulated x/c outside[0,1] is a digitisation-domain exclusion recorded before the solve (one row at alpha0); retain data. Trip/model mismatch disclosed, not silently equated. No Re6M-to-Re2.88M PASS."
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/current_case/Cp_Re6M",
+          "frozen_value": "DIAGNOSTIC ONLY"
+        }
+      ]
+    },
+    {
+      "id": "pressure-domain",
+      "decision": "Pressure-reference domain",
+      "quantity": "retained upper-surface reference samples and exclusions",
+      "units": "x/c; dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Use upper-surface pressure samples; retain original data and the predeclared digitisation-domain exclusion before any solve.",
+      "rejection_condition": "Lower-surface mixing, changed/post-output exclusions, removed reference rows or matching pressure evidence absent.",
+      "frozen_conditions": [
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/id",
+          "frozen_value": "naca0012-pressure"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/type",
+          "frozen_value": "experimental comparison"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/data",
+          "frozen_value": "references/CP_Gregory_expdata.dat"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/Re",
+          "frozen_value": 2880000
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/angles_deg/0",
+          "frozen_value": 0
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/angles_deg/1",
+          "frozen_value": 10
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/requirements",
+          "frozen_value": "Separate Re2.88M runs at alpha0/10; upper-surface only. Tabulated x/c outside[0,1] is a digitisation-domain exclusion recorded before the solve (one row at alpha0); retain data. Trip/model mismatch disclosed, not silently equated. No Re6M-to-Re2.88M PASS."
+        }
+      ]
+    },
+    {
+      "id": "pressure-rms",
+      "decision": "Pressure RMS agreement",
+      "quantity": "upper-surface Cp RMS absolute error",
+      "units": "dimensionless",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "On an applicable matching pressure case, compute the declared upper-surface RMS error and apply its unchanged frozen band.",
+      "rejection_condition": "State/domain mismatch, missing raw matching samples or RMS criterion not satisfied.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/other_gates/Cp_upper_RMS_abs_exp",
+          "frozen_value": 0.1
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/Cp_abs_RMS_tolerance",
+          "frozen_value": 0.1
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/NASA_case_selection/1/requirements",
+          "frozen_value": "Separate Re2.88M runs at alpha0/10; upper-surface only. Tabulated x/c outside[0,1] is a digitisation-domain exclusion recorded before the solve (one row at alpha0); retain data. Trip/model mismatch disclosed, not silently equated. No Re6M-to-Re2.88M PASS."
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/matching_pressure_error"
+      ]
+    },
+    {
+      "id": "overall",
+      "decision": "Complete validation conjunction",
+      "quantity": "separately evidenced gates and applicability",
+      "units": "status record",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Keep force convergence, reference agreement, geometry/domain, volume, flux, native collection, mesh and applicable pressure gates separate; require all applicable evidence.",
+      "rejection_condition": "Any missing/invalid/failed required condition, UNKNOWN promoted to PASS or partial evidence called complete validation.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/evaluation/complete_applicability",
+          "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required"
+        },
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/limits",
+          "frozen_value": "No solver run, new mesh, fitted tolerance or airship-hull qualification reported in this preparation."
+        },
+        {
+          "source": "../TOLERANCES.json",
+          "pointer": "/meaning",
+          "frozen_value": "Frozen project comparison bands; these are not experimental uncertainty or a measured agreement. No tuning performed."
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/overall_validation"
+      ]
+    },
+    {
+      "id": "hull-transfer",
+      "decision": "Airship-hull applicability",
+      "quantity": "separately justified transfer scope",
+      "units": "scope record",
+      "value": null,
+      "evidence_id": null,
+      "status": "UNKNOWN",
+      "execution_state": "NOT_RUN",
+      "prospective_method": "Keep benchmark validation distinct from an airship-hull applicability argument and its missing evidence.",
+      "rejection_condition": "Airfoil benchmark or method preparation credited as hull qualification.",
+      "frozen_conditions": [
+        {
+          "source": "../CASE-CONTRACT.json",
+          "pointer": "/limits",
+          "frozen_value": "No solver run, new mesh, fitted tolerance or airship-hull qualification reported in this preparation."
+        }
+      ],
+      "existing_output_fields": [
+        "../CASE-CONTRACT.json#/actual_outputs/airship_hull_transfer"
+      ]
+    }
+  ],
+  "condition_coverage": [
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/geometry",
+      "frozen_value": "NACA0012, sharp trailing-edge reference geometry required",
+      "evidence_rows": [
+        "geometry-domain"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/Re",
+      "frozen_value": 6000000,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/alpha_deg",
+      "frozen_value": 0,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/mesh",
+      "frozen_value": "n449, fixed eight-rank decomposition",
+      "evidence_rows": [
+        "frozen-mesh"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/ranks",
+      "frozen_value": 8,
+      "evidence_rows": [
+        "frozen-mesh"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/solver",
+      "frozen_value": "OpenFOAM14 foamRun, incompressibleFluid",
+      "evidence_rows": [
+        "solver-model"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/closure",
+      "frozen_value": "SpalartAllmaras, fully turbulent",
+      "evidence_rows": [
+        "solver-model"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/farfield_U_m_s/0",
+      "frozen_value": 1.0,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/farfield_U_m_s/1",
+      "frozen_value": 0.0,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/farfield_U_m_s/2",
+      "frozen_value": 0.0,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/kinematic_viscosity_m2_s",
+      "frozen_value": 1.6666666666666668e-07,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/force_normalization/rhoInf_kg_m3",
+      "frozen_value": 1,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/force_normalization/magUInf_m_s",
+      "frozen_value": 1,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/force_normalization/lRef_m",
+      "frozen_value": 1,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/force_normalization/Aref_m2",
+      "frozen_value": 0.01,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/case/inlet_turbulence",
+      "frozen_value": "Record the frozen0/nuTilda and0/nut inputs; no retuning",
+      "evidence_rows": [
+        "solver-model"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/only_change",
+      "frozen_value": "U equation matrix relaxation",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/baseline_U",
+      "frozen_value": 0.7,
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/candidate_U",
+      "frozen_value": 0.5,
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/p",
+      "frozen_value": 0.3,
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/nuTilda",
+      "frozen_value": 0.7,
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/interpretation",
+      "frozen_value": "An iteration-control hypothesis, not a cause diagnosis or convergence prediction",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/fixed",
+      "frozen_value": "Same geometry, mesh, model, references, numerical schemes, time controls and all other settings",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/baseline_fvSolution_sha256",
+      "frozen_value": "87c281cfdbc6774f777c8fe41f9d8a79751fe45329b2f078a44b6073af637b83",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/hypothesis/candidate_fvSolution_sha256",
+      "frozen_value": "aec28a9b974cc79dbefc6df3673a9263d572b7c02553300be0d8e1741d8787ba",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/primary_force/data",
+      "frozen_value": "CLCD_Ladson_expdata.dat",
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/primary_force/sha256",
+      "frozen_value": "78cd2f6aa4968e80f44cbf6c96f699bd9c6e45681d958ec528a10cf72ed23357",
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/primary_force/selection",
+      "frozen_value": "80-grit, Mach0.15 tripped Ladson forces, bracketing alpha interpolation at0deg;120/180-grit spread sensitivity with the same frozen bands",
+      "evidence_rows": [
+        "force-reference",
+        "trip-sensitivity"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/primary_force/bands_are",
+      "frozen_value": "Project screening tolerances, not experimental uncertainty",
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/pressure/data",
+      "frozen_value": "CP_Gregory_expdata.dat",
+      "evidence_rows": [
+        "pressure-state"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/pressure/reference_Re",
+      "frozen_value": 2880000,
+      "evidence_rows": [
+        "pressure-state"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/pressure/current_Re6M_use",
+      "frozen_value": "DIAGNOSTIC ONLY; no experimental pressure agreement",
+      "evidence_rows": [
+        "pressure-state"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/references/pressure/matching_requirement",
+      "frozen_value": "A pressure comparison needs a separately matching Re2.88M case and disclosed trip/model applicability",
+      "evidence_rows": [
+        "pressure-state"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/force_series",
+      "frozen_value": "Require a complete finite4001-row, six-column series for iterations0..4000; reject missing/invalid/nonfinite rows or zero normalization",
+      "evidence_rows": [
+        "normal-exit",
+        "force-series"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/final_window",
+      "frozen_value": "Iterations3801..4000 inclusive,200 rows",
+      "evidence_rows": [
+        "force-window"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/both_force_metrics",
+      "frozen_value": "Each strict<0.005, as defined in TOLERANCES.json; neither alone suffices",
+      "evidence_rows": [
+        "force-range",
+        "force-deviation"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/primary_force_agreement",
+      "frozen_value": "Inclusive absolute CL error<=0.05 and CD error<=0.002 against selected force reference",
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/controlled_pair",
+      "frozen_value": "A claim about relaxation improvement also requires a compatible matched baseline; a reference comparison alone is not a controlled baseline pair",
+      "evidence_rows": [
+        "controlled-pair"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/evaluation/complete_applicability",
+      "frozen_value": "Force convergence and reference agreement alone do not establish complete validation; geometry, positive volume, mass flux, normal collection, three-mesh evidence and applicable pressure checks remain separately required",
+      "evidence_rows": [
+        "overall",
+        "geometry-domain",
+        "frozen-mesh",
+        "mass-flux",
+        "normal-exit",
+        "mesh-family",
+        "pressure-rms"
+      ]
+    },
+    {
+      "source": "../CASE-CONTRACT.json",
+      "pointer": "/limits",
+      "frozen_value": "No solver run, new mesh, fitted tolerance or airship-hull qualification reported in this preparation.",
+      "evidence_rows": [
+        "overall",
+        "hull-transfer"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/normal_native_exit_required",
+      "frozen_value": true,
+      "evidence_rows": [
+        "normal-exit"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/final_iteration",
+      "frozen_value": 4000,
+      "evidence_rows": [
+        "force-series"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/complete_window/0",
+      "frozen_value": 3801,
+      "evidence_rows": [
+        "force-window"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/complete_window/1",
+      "frozen_value": 4000,
+      "evidence_rows": [
+        "force-window"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/rows",
+      "frozen_value": 200,
+      "evidence_rows": [
+        "force-window"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/relative_vector_range_lt",
+      "frozen_value": 0.005,
+      "evidence_rows": [
+        "force-range"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/relative_max_deviation_lt",
+      "frozen_value": 0.005,
+      "evidence_rows": [
+        "force-deviation"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/formula",
+      "frozen_value": "norm(ptp([CL,CD],axis=0))/norm(mean), max(norm(q-mean))/norm(mean)",
+      "evidence_rows": [
+        "force-range",
+        "force-deviation",
+        "force-series"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/force_convergence/invalid_missing_nan_zero_denominator",
+      "frozen_value": "STOP/INVALID; never PASS",
+      "evidence_rows": [
+        "force-range",
+        "force-deviation",
+        "force-series"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/minimum_cell_volume_positive",
+      "frozen_value": true,
+      "evidence_rows": [
+        "frozen-mesh"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/force_last200_vector_drift_relative",
+      "frozen_value": 0.005,
+      "evidence_rows": [
+        "force-range",
+        "force-deviation"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/last_two_mesh_force_vector_relative",
+      "frozen_value": 0.02,
+      "evidence_rows": [
+        "mesh-vector"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/last_two_mesh_CD_relative",
+      "frozen_value": 0.02,
+      "evidence_rows": [
+        "mesh-drag"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/CL_mesh_nearzero_abs",
+      "frozen_value": 0.001,
+      "evidence_rows": [
+        "mesh-lift"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/CL_mesh_nonzero_relative",
+      "frozen_value": 0.02,
+      "evidence_rows": [
+        "mesh-lift"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/mass_flux_imbalance_relative",
+      "frozen_value": 0.001,
+      "evidence_rows": [
+        "mass-flux"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/CL_abs_exp",
+      "frozen_value": 0.05,
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/CD_abs_exp",
+      "frozen_value": 0.002,
+      "evidence_rows": [
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/other_gates/Cp_upper_RMS_abs_exp",
+      "frozen_value": 0.1,
+      "evidence_rows": [
+        "pressure-rms"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/id",
+      "frozen_value": "naca0012-forces",
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/type",
+      "frozen_value": "experimental comparison",
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/data",
+      "frozen_value": "references/CLCD_Ladson_expdata.dat",
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/Re",
+      "frozen_value": 6000000,
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/angles_deg/0",
+      "frozen_value": 0,
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/angles_deg/1",
+      "frozen_value": 10,
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/reference_selection",
+      "frozen_value": "80-grit Ladson M=.15 tripped forces primary; interpolate bracketing alpha rows at0/10. Report120/180-grit spread as sensitivity; all use same frozen bands.",
+      "evidence_rows": [
+        "force-reference",
+        "trip-sensitivity"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/CL_abs_tolerance",
+      "frozen_value": 0.05,
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/CD_abs_tolerance",
+      "frozen_value": 0.002,
+      "evidence_rows": [
+        "force-reference",
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/0/requirements",
+      "frozen_value": "NASA sharp-TE geometry, fully turbulent, record inlet turbulence and chosen closure; farfield ~500 chords or verified equivalent; three meshes; force drift <.5% over final 200 iterations and mesh change <2%; tolerances are project comparison bands, not experimental uncertainty",
+      "evidence_rows": [
+        "geometry-domain",
+        "solver-model",
+        "mesh-family",
+        "force-window",
+        "force-range",
+        "force-deviation",
+        "mesh-vector",
+        "mesh-drag",
+        "mesh-lift",
+        "force-reference"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/id",
+      "frozen_value": "naca0012-pressure",
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/type",
+      "frozen_value": "experimental comparison",
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/data",
+      "frozen_value": "references/CP_Gregory_expdata.dat",
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/Re",
+      "frozen_value": 2880000,
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/angles_deg/0",
+      "frozen_value": 0,
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/angles_deg/1",
+      "frozen_value": 10,
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/Cp_abs_RMS_tolerance",
+      "frozen_value": 0.1,
+      "evidence_rows": [
+        "pressure-rms"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/NASA_case_selection/1/requirements",
+      "frozen_value": "Separate Re2.88M runs at alpha0/10; upper-surface only. Tabulated x/c outside[0,1] is a digitisation-domain exclusion recorded before the solve (one row at alpha0); retain data. Trip/model mismatch disclosed, not silently equated. No Re6M-to-Re2.88M PASS.",
+      "evidence_rows": [
+        "pressure-state",
+        "pressure-domain",
+        "pressure-rms"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/current_case/Re",
+      "frozen_value": 6000000,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/current_case/alpha_deg",
+      "frozen_value": 0,
+      "evidence_rows": [
+        "normalization"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/current_case/mesh",
+      "frozen_value": "n449 controlled fixed8rank",
+      "evidence_rows": [
+        "frozen-mesh"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/current_case/Cp_Re6M",
+      "frozen_value": "DIAGNOSTIC ONLY",
+      "evidence_rows": [
+        "pressure-state"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/required_normal_collected_exit",
+      "frozen_value": true,
+      "evidence_rows": [
+        "normal-exit"
+      ]
+    },
+    {
+      "source": "../TOLERANCES.json",
+      "pointer": "/meaning",
+      "frozen_value": "Frozen project comparison bands; these are not experimental uncertainty or a measured agreement. No tuning performed.",
+      "evidence_rows": [
+        "overall"
+      ]
+    }
+  ],
+  "original_actual_outputs": {
+    "force_series": null,
+    "force_metrics": null,
+    "experimental_force_errors": null,
+    "matched_baseline_series": null,
+    "three_mesh_comparison": null,
+    "geometry_qualification": null,
+    "mass_flux": null,
+    "minimum_cell_volume": null,
+    "matching_pressure_error": null,
+    "overall_validation": "UNKNOWN",
+    "airship_hull_transfer": "UNKNOWN"
+  },
+  "force_metrics_conjunction": [
+    "force-range",
+    "force-deviation"
+  ],
+  "physical_and_solver_execution_authorized": false
+}
