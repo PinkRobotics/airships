@@ -1,0 +1,125 @@
+{
+  "schema": "robotics.question-evidence-thread/1",
+  "unit": "robotics-q6-nitrogen-power-evidence-thread-1010",
+  "date": "2026-10-10",
+  "question": 6,
+  "existing_issue": "https://github.com/PinkRobotics/airships/issues/5",
+  "scope": "Prospective evidence contract only; sources unchanged, no computation, test, new physical/scientific result or remote issue action.",
+  "source_pins": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "research/program/OPEN-QUESTION-ISSUES.md",
+      "bytes": 6508,
+      "sha256": "6c7405322a0efe8491214511a2b6023194784853e954db0f53d9a7054989a73f"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "sim/config.js",
+      "bytes": 21885,
+      "sha256": "dff79609259cb775f1c3845c7a2cbb77099c089dceb481ceb5d041c47882c96e"
+    },
+    {
+      "path": "sim/power.js",
+      "bytes": 29270,
+      "sha256": "a149fe9466bdab4f14373a2deb54f8cc9867f92a7963ecc62498298b61c40a4d"
+    },
+    {
+      "path": "docs/ENERGY-CLOSURE-2026-10.md",
+      "bytes": 239793,
+      "sha256": "e614c3e6f5e455de340bc4b16834cf202abb6d14c8930f71348b3aa2284da388"
+    },
+    {
+      "path": "research/analysis/mass-budget.json",
+      "bytes": 101295,
+      "sha256": "e0e9bfbe06fbabc5056c39fdb0a801d58272faa12b1b69ed9802d4eff2b63c66"
+    }
+  ],
+  "entries": [
+    {
+      "id": "phase-flow",
+      "requirement_or_owner": "Liquid inventory and phase-dependent nitrogen outflow",
+      "existing_model_reference": "sim/power.js ventTph/loadAt; plan.ln2MakeT/dur; VENT_APPROACH",
+      "units": "kg; kg/s; s; Pa; K",
+      "method": "Request synchronized tank inventory, outflow, inlet/outlet state and valve schedule for each named approach/fill phase with calibration and mass balance.",
+      "missing_comparison_or_applicability": "The phase schedule is an assumed inventory exchange, not a measured expander flow. A different phase duration or thermodynamic state invalidates direct transfer.",
+      "prospective_evidence_id": "Q6:phase-flow",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "electric-output",
+      "requirement_or_owner": "Net electrical recovery after losses and auxiliaries",
+      "existing_model_reference": "sim/power.js regenMW; CFG.eLN2/rtLN2; cls.genMW",
+      "units": "W; Wh; kg; kWh/kg; fraction 1",
+      "method": "Request matched mass throughput, net terminal electrical power, integrated energy and every auxiliary/standby/startup draw on the same time base; record the complete input and output boundary.",
+      "missing_comparison_or_applicability": "Requested round-trip fraction and generator rating are assumptions. Gross shaft power, nameplate rating or isolated efficiency cannot establish net phase output.",
+      "prospective_evidence_id": "Q6:electric-output",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "state-comparator",
+      "requirement_or_owner": "Applicability of the existing process-specific recovery ceiling",
+      "existing_model_reference": "sim/power.js LN2_RECOVERY_KWH_PER_T and its local source comment",
+      "units": "kWh/t; Pa; K; mol fraction; kg/s",
+      "method": "Record actual feed/product composition, pressure and temperature, referenced thermodynamic states and the energy boundary; compare applicability with the existing comment-cited process, without recalculating its ceiling.",
+      "missing_comparison_or_applicability": "The declared process comparator is a model ceiling, not a universal recoverable value or measured airborne expander. A mismatched state or uncounted heat source leaves applicability UNKNOWN.",
+      "prospective_evidence_id": "Q6:state-comparator",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "thermal-system",
+      "requirement_or_owner": "Heat exchanger, cooling and ambient interfaces",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md cryogenic evaluator questions and ambient-pressure cooling question",
+      "units": "W heat; K; Pa; kg/s; kg; m2",
+      "method": "Request matched heat duties, thermal approaches, pressure drops, fluid/ambient states, exchanger and duct/coolant/support inclusions across startup, steady and transient use.",
+      "missing_comparison_or_applicability": "Ground-plant mass or power comparators with supplied cooling omit part of the airborne installation; no exchanger or heat-source design is selected here.",
+      "prospective_evidence_id": "Q6:thermal-system",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "installed-mass",
+      "requirement_or_owner": "Complete expander and supporting equipment mass",
+      "existing_model_reference": "research/analysis/mass-budget.json evidence; docs/VERIFICATION-PLAN.md evaluator scope",
+      "units": "kg; identity; inclusion list",
+      "method": "Request itemized actual expander, heat exchanger, plumbing, controls, insulation, support and conditioning records with component lots and explicit inclusion/exclusion boundaries.",
+      "missing_comparison_or_applicability": "The published mass-budget comparators are not a complete matched expander installation. Missing auxiliaries/support or a different plant/output basis prevents a direct mass comparison.",
+      "prospective_evidence_id": "Q6:installed-mass",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "transient-bus",
+      "requirement_or_owner": "Bus constraints during nitrogen recovery",
+      "existing_model_reference": "sim/power.js drawAt busMW/gen.regen/electrical; descentBusMW",
+      "units": "V; A; W; s; Hz; K",
+      "method": "Request synchronized terminal voltage/current/power, recovery ramp, converter limits, battery acceptance, rotor/other loads and trips at the same phase and atmosphere; retain response and uncertainty records.",
+      "missing_comparison_or_applicability": "Static phase power caps and averaged bus inputs do not establish transient regulation or simultaneity. Missing actual bus criteria remain UNKNOWN and cannot be replaced by numerical closure tolerances.",
+      "prospective_evidence_id": "Q6:transient-bus",
+      "observation": null,
+      "evidence_record": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    }
+  ]
+}
