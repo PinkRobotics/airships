@@ -125,9 +125,15 @@
         {
           "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
           "pointer": "/stipulated/D0"
+        },
+        {
+          "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+          "pointer": "/rows/2/required",
+          "quoted_assumption": "source1050MPa/SF1.2",
+          "interpretation": "Inherited source strength and safety-factor assumptions, not an installed rating or newly selected threshold."
         }
       ],
-      "prospective_observation": "Use matched cord force/strain measurements and active-span/loadbearing-area metrology at registered tangent load, history and environment. Determine mass/volume density on the same traceable material/construction/lot; retain strength, creep, fatigue and temperature evidence separately.",
+      "prospective_observation": "Use matched cord force/strain measurements and active-span/loadbearing-area metrology at registered tangent load, history and environment. Determine mass/volume density on the same traceable material/construction/lot; retain strength, creep, fatigue and temperature evidence separately. Match traceable strength/rupture and service-degradation evidence to the inherited source1050MPa/SF1.2 basis, using the registered construction, lot, effective area, terminations, load/history and environment; keep measured strength separate from tangent modulus and record the proposed margin policy explicitly.",
       "quantity_units": "Pa; m2; m; kg/m3; m/N",
       "fills_existing_fields": [
         {
@@ -151,7 +157,7 @@
           "write_now": false
         }
       ],
-      "falsification_or_inapplicability": "A traceable modulus or density envelope inconsistent with the stipulated properties falsifies their material applicability; missing geometry, ratings, lot/state or uncertainty leaves it unknown. A tangent modulus does not establish a strength rating.",
+      "falsification_or_inapplicability": "A traceable modulus or density envelope inconsistent with the stipulated properties falsifies their material applicability; missing geometry, ratings, lot/state or uncertainty leaves it unknown. A tangent modulus does not establish a strength rating. A matched applicable strength lower envelope below the inherited source rating contradicts that rating; inability to support the inherited safety-factor policy at the admitted load/state makes that use inapplicable. Missing strength, service-limit or margin evidence leaves strength applicability UNKNOWN.",
       "comparison_unavailable_without_evidence": "D0 and proposed-area cord compliance; material and mass applicability",
       "prospective_owner_role": "Cord materials and geometry custodian",
       "assigned_owner": "UNASSIGNED",
@@ -356,17 +362,12 @@
       "quantity_units": "dimensionless retention; m/N in a compatible basis",
       "fills_existing_fields": [
         {
-          "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
-          "pointer": "/actual/chi",
-          "write_now": false
-        },
-        {
           "path": "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
           "pointer": "/rows/7/actual",
           "write_now": false
         }
       ],
-      "falsification_or_inapplicability": "An upper envelope that cannot satisfy the existing connection bound rejects that sufficient-condition claim. Missing passive symmetric response, positive cord compliance, compatible basis or area/state evidence makes it inapplicable. The scalar specialization additionally needs its stated positive denominator and independent-series assumptions.",
+      "falsification_or_inapplicability": "An upper envelope that cannot satisfy the existing connection bound rejects that sufficient-condition claim. Missing passive symmetric response, positive cord compliance, compatible basis or area/state evidence makes it inapplicable. The scalar specialization additionally needs its stated positive denominator and independent-series assumptions. Local sufficiency evidence stays in its contract-row placeholder and cannot populate global /actual/chi; the C09 registered global comparison is required.",
       "comparison_unavailable_without_evidence": "Conditional local axial-network sufficiency, without global qualification",
       "prospective_owner_role": "Registered operator comparison custodian",
       "assigned_owner": "UNASSIGNED",
