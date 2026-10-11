@@ -1,0 +1,398 @@
+{
+  "schema": "numeric-comparator-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computational and physical custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/data_compare.py",
+      "line": 12,
+      "character_start": 1,
+      "character_end_exclusive": 38,
+      "fragment": "def numeric_equal(a, b, *, tolerance=",
+      "fragment_sha256": "2d494212914416df0ba7befca618538d1f38ed5a77b5a63df85f157ef77b37fd"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 13,
+      "character_start": 8,
+      "character_end_exclusive": 75,
+      "fragment": "Use the larger of an existing absolute tolerance and the data rule.",
+      "fragment_sha256": "2f2985255ad70e91b514971445e5c4b7ebddfdfca7374c3be74e5ba2f4674b5a"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/data_compare.py",
+      "identity": "own input names and keyword default presence",
+      "line_start": 12,
+      "line_end_inclusive": 12,
+      "context_sha256": "00e569eb649cae8fd5aed56143a023e1bbc956347a668e979ce42810d99862e4",
+      "context_bytes": 40,
+      "limit": "Hash only; default literal, absolute-relative factors/formula, type/finite/branch/operator/return/comparison/tolerance algorithms not copied, reconstructed or evaluated."
+    },
+    {
+      "path": "tools/data_compare.py",
+      "identity": "attributed computational data-rule intent",
+      "line_start": 13,
+      "line_end_inclusive": 13,
+      "context_sha256": "cb384b93282bdffd4e6cf25eef908ab2e279bee31b0f637a39e5ea0d176595f8",
+      "context_bytes": 77,
+      "limit": "Hash only; default literal, absolute-relative factors/formula, type/finite/branch/operator/return/comparison/tolerance algorithms not copied, reconstructed or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "own comparator input namespaces",
+      "source_role": "numeric_equal owns a/b and keyword tolerance source parameters.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 12,
+          "character_start": 1,
+          "character_end_exclusive": 38,
+          "fragment": "def numeric_equal(a, b, *, tolerance=",
+          "fragment_sha256": "2d494212914416df0ba7befca618538d1f38ed5a77b5a63df85f157ef77b37fd"
+        }
+      ],
+      "limit": "Own lexical names only; no acquired compared pair, same-spelling identity assumption or exhaustive caller/schema/key inventory.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "source default existence",
+      "source_role": "The selected keyword tolerance parameter has a source default.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 12,
+          "character_start": 1,
+          "character_end_exclusive": 38,
+          "fragment": "def numeric_equal(a, b, *, tolerance=",
+          "fragment_sha256": "2d494212914416df0ba7befca618538d1f38ed5a77b5a63df85f157ef77b37fd"
+        }
+      ],
+      "limit": "Default existence only; default literal omitted, actual default use/configuration UNKNOWN; no tolerance or criterion selected.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "attributed data-rule intent",
+      "source_role": "The helper docstring describes existing absolute-tolerance and data-rule intent.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 13,
+          "character_start": 8,
+          "character_end_exclusive": 75,
+          "fragment": "Use the larger of an existing absolute tolerance and the data rule.",
+          "fragment_sha256": "2f2985255ad70e91b514971445e5c4b7ebddfdfca7374c3be74e5ba2f4674b5a"
+        }
+      ],
+      "limit": "Attributed computational intent only; no formula/algorithm, adopted physical acceptance, validated uncertainty, acquired pair or successful equality.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "computational versus physical boundary",
+      "source_role": "The unchanged root source says no aircraft has been built or flown.",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Comparator source names/hashes/software gates cannot establish actual paired-input/raw custody or physical part/installation/metrology acceptance.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-version-and-argument-configuration",
+      "prospective_record_requirements": [
+        "Original actual invocation/version/argument configuration and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Static signature names do not identify actual execution or independently verified configuration.",
+      "proposed_custodian_role": "invocation-version-and-argument-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "default-use-and-input-pair-digests",
+      "prospective_record_requirements": [
+        "Original actual default-use record and compared-pair digests."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source default existence cannot identify actual argument use or acquired pair.",
+      "proposed_custodian_role": "default-use-and-input-pair-digests record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "source-correspondence-comparison-output-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original source correspondence/comparison output and unmodified raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Data-rule docstring intent cannot supply successful equality, adopted criterion or actual comparison output.",
+      "proposed_custodian_role": "source-correspondence-comparison-output-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "article-parts-material-process-and-installations",
+      "prospective_record_requirements": [
+        "Matched actual article/parts/material/lot/process/installed configuration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computational pair names cannot establish physical part identity or acceptance.",
+      "proposed_custodian_role": "article-parts-material-process-and-installations record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "referenceframe-metrology-timebase-and-calibration",
+      "prospective_record_requirements": [
+        "Original referenceframe/metrology/timebase/calibration/uncertainty and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Existing absolute-tolerance source wording is not validated physical uncertainty or adopted measurement criterion.",
+      "proposed_custodian_role": "referenceframe-metrology-timebase-and-calibration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual accountable owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no comparator policy/criterion/tolerance/design/registry or production/operating/test procedure selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argument_configuration": null,
+      "default_use": null,
+      "input_pair_digests": null,
+      "source_correspondence": null,
+      "comparison_output": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-difference-helper-input-custody-provenance-evidence-thread-1010",
+      "candidate": "27643f004109dca8f581f5a5a56510dda94c7d68",
+      "output_dir": "research/methods/difference-helper-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-recorded-report-reader-input-custody-provenance-evidence-thread-1010",
+      "candidate": "d42a114011c40121880243439f0e21477a16704e",
+      "output_dir": "research/methods/assembly-recorded-report-reader-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-report-comparison-source-custody-provenance-evidence-thread-1010",
+      "candidate": "7be988cbb2a82295f8898d1d953a14b7ba88fa4d",
+      "output_dir": "research/methods/assembly-report-comparison-source-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-report-output-custody-provenance-evidence-thread-1010",
+      "candidate": "26341a42857881cb8be173b473d52cf6e3c5363b",
+      "output_dir": "research/methods/assembly-prover-report-output-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-manifest-reader-input-custody-provenance-evidence-thread-1010",
+      "candidate": "c116ecc756e8fef93065a6bd0545c5e56270c9ff",
+      "output_dir": "research/methods/assembly-prover-manifest-reader-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-json-parser-input-custody-provenance-evidence-thread-1010",
+      "candidate": "58209aad1e8dda2eae0e9488050081bddab72456",
+      "output_dir": "research/methods/assembly-json-parser-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-generated-skin-literal-input-custody-provenance-evidence-thread-1010",
+      "candidate": "4b68c21b6081b33b4a82ce990241a83a4622e9af",
+      "output_dir": "research/methods/generated-skin-literal-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    }
+  ],
+  "selected_criterion_design_registry_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
