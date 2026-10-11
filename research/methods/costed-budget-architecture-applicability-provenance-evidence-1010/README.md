@@ -1,0 +1,16 @@
+# Costed-budget architecture applicability provenance
+
+Date: 2026-10-10. Status: prospective evidence, OPEN. The [verification plan](../../../docs/VERIFICATION-PLAN.md) dates its architecture caveat 2026-10-05: the published budget prices a first-generation hull of permanently sealed vacuum cells and explicitly has not been repriced for current film, hoop rings and truss. That date is source metadata only. This paper preserves the budget unchanged and records the caveat without copying cost, currency, quantity, mass or economic values.
+
+The [evidence contract](EVIDENCE.json) pins exact nonnumeric caveat words and reserves actual budget revision/configuration/article/supplier record/installed inventory/custody/applicability/responsible owner/adoption as null/UNKNOWN. [Member census](../../../docs/MEMBER-CENSUS.md) keeps sections and connections unresolved and film schematic. [README](../../../README.md) states that no aircraft has been built or flown.
+
+| Requirement | Published source | Observation units | Missing applicability |
+|---|---|---|---|
+| Published historical budget architecture | `docs/VERIFICATION-PLAN.md dated first-generation sealed-cell caveat` | source/budget-revision/architecture identity | The published budget belongs to a named historical architecture; no current-estate applicability is inferred. |
+| Explicit current architecture repricing gap | `docs/VERIFICATION-PLAN.md current film/hoop/truss caveat` | configuration/caveat/revision identity | Explicitly unrevised pricing is a coverage caveat, not an updated estimate or adopted architecture. |
+| Article and installed inventory custody | `docs/MEMBER-CENSUS.md schematic sections and unresolved connections` | article/installed-inventory/record identity | Schematic member and film identities are not a complete installed inventory or a bill inclusion decision. |
+| Supplier record and custody provenance | `docs/VERIFICATION-PLAN.md historical budget caveat; README.md public model scope` | supplier-record/custody/revision identity | No supplier is selected, no quote is obtained and no current price is asserted. |
+| Historical-to-current applicability | `docs/MEMBER-CENSUS.md unresolved sections; README.md no built aircraft` | configuration/applicability/evidence identity | Historical budget words and source date cannot validate current costs, manufacture or physical buildability. |
+| Responsible owner and adoption decision | `docs/VERIFICATION-PLAN.md caveat; README.md model limits` | owner/adoption/criterion identity | No financial or scientific acceptance, architecture choice, procurement action or criterion is adopted. |
+
+Q11 mass, Q2 material price, Q20 scale, current outfit/fitting and seam threads remain separate; their tables and model calculations are not repeated. The caveat is no new cost validation. No repricing, reconciliation, cost update or numeric economic/manufacturing/scaling calculation is performed. No vendor/market/current-price lookup, procurement or engineering recommendation occurs. This paper selects no architecture, material, hardware, process or bill inclusion and designs no build/test procedure or campaign. Physical criteria and financial/scientific acceptance remain UNKNOWN; source records remain unchanged.
