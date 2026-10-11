@@ -1,0 +1,380 @@
+{
+  "schema": "smeared-discrete.homogenization-provenance.crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual correspondence/applicability UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 3,
+      "character_start": 1,
+      "character_end_exclusive": 35,
+      "fragment": "The drawing and the bill disagree."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 17,
+      "character_start": 1,
+      "character_end_exclusive": 51,
+      "fragment": "Rendering segments are not physical member counts."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 921,
+      "character_start": 9,
+      "character_end_exclusive": 25,
+      "fragment": "bay = SHIP0.bayM"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1097,
+      "character_start": 3,
+      "character_end_exclusive": 61,
+      "fragment": "const gi = (aISmeared, aTheta, aOExtra, aSpoke, knockdown)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1081,
+      "character_start": 3,
+      "character_end_exclusive": 46,
+      "fragment": "const aO0 = wall.ring.A / SHIP0.ringPitchM;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1098,
+      "character_start": 5,
+      "character_end_exclusive": 30,
+      "fragment": "const aO = aO0 + aOExtra;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1099,
+      "character_start": 5,
+      "character_end_exclusive": 52,
+      "fragment": "const abar = aO * aISmeared / (aO + aISmeared);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1100,
+      "character_start": 5,
+      "character_end_exclusive": 39,
+      "fragment": "const iEff = abar * depth * depth;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1142,
+      "character_start": 5,
+      "character_end_exclusive": 54,
+      "fragment": "let rec = gi(aI / bay, aTh, aOe, aSp, knockdown);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1174,
+      "character_start": 19,
+      "character_end_exclusive": 74,
+      "fragment": "gi(aI1 / bay, aTh1, aOe1, aSp1, SHIP0.giKnockdownFrame)"
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "census equivalent-area limitation",
+      "source_role": "Source explicitly uses smeared areas at full radius.",
+      "source_locators": [
+        {
+          "path": "docs/MEMBER-CENSUS.md",
+          "line": 4,
+          "character_start": 1,
+          "character_end_exclusive": 105,
+          "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+        }
+      ],
+      "limit": "This published limitation is not a matched discrete reference-cell or assembled-system validation record.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "declared bay convention",
+      "source_role": "Local bay identifier comes from the source SHIP0.bayM configuration.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 921,
+          "character_start": 9,
+          "character_end_exclusive": 25,
+          "fragment": "bay = SHIP0.bayM"
+        }
+      ],
+      "limit": "Declared model spacing convention is separate from actual measured member spacing, reference-cell geometry and matched boundary records; no spacing value copied.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "aISmeared input conversion",
+      "source_role": "The source supplies aI divided by bay to gi as aISmeared.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1097,
+          "character_start": 3,
+          "character_end_exclusive": 61,
+          "fragment": "const gi = (aISmeared, aTheta, aOExtra, aSpoke, knockdown)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1142,
+          "character_start": 5,
+          "character_end_exclusive": 54,
+          "fragment": "let rec = gi(aI / bay, aTh, aOe, aSp, knockdown);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1174,
+          "character_start": 19,
+          "character_end_exclusive": 74,
+          "fragment": "gi(aI1 / bay, aTh1, aOe1, aSp1, SHIP0.giKnockdownFrame)"
+        }
+      ],
+      "limit": "Source area-per-bay convention, including baseline-state call, is only an equivalent input identity. Area per spacing is not a measured discrete-cell stiffness.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "outer smeared-area identity",
+      "source_role": "aO0 derives from wall.ring.A and ringPitchM; aO combines it with aOExtra.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1081,
+          "character_start": 3,
+          "character_end_exclusive": 46,
+          "fragment": "const aO0 = wall.ring.A / SHIP0.ringPitchM;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1098,
+          "character_start": 5,
+          "character_end_exclusive": 30,
+          "fragment": "const aO = aO0 + aOExtra;"
+        }
+      ],
+      "limit": "Declared area-per-spacing and combined-area conventions do not independently establish actual member arrangement, stations, sections or connections.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "abar equivalent-section identity",
+      "source_role": "The source combines outer and inner smeared-area identities as abar.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1099,
+          "character_start": 5,
+          "character_end_exclusive": 52,
+          "fragment": "const abar = aO * aISmeared / (aO + aISmeared);"
+        }
+      ],
+      "limit": "Exact symbolic identity recorded without evaluation or independent derivation; no original homogenization derivation or validation is supplied by the formula itself.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "iEff equivalent-section identity",
+      "source_role": "The source forms iEff from abar and declared depth.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1100,
+          "character_start": 5,
+          "character_end_exclusive": 39,
+          "fragment": "const iEff = abar * depth * depth;"
+        }
+      ],
+      "limit": "An equivalent-section inertia identity is not observed effective stiffness, discrete connection response or licensed transfer to an assembled system. No inertia/stiffness/capacity value calculated.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-domain-and-units-convention",
+      "existing_boundary": "Published full-radius smearing limitation and source inputs remain model assumptions.",
+      "prospective_record_requirements": [
+        "Original source/configuration/revision/domain and area-per-spacing/equivalent-section unit conventions, including inclusion/exclusion."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source formula identities cannot supply measured response or cancel the station/section/connection limitation.",
+      "proposed_custodian_role": "source-domain-and-units-convention provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-reference-cell-and-member-spacing",
+      "existing_boundary": "Actual matched discrete reference cell and member spacing are unsupplied.",
+      "prospective_record_requirements": [
+        "Original reference-cell/configuration/member-spacing records with matched source domain and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Declared bay/pitch/radius/depth conventions do not establish actual geometry or a representative assembled cell.",
+      "proposed_custodian_role": "matched-reference-cell-and-member-spacing provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "boundary-and-connection-response",
+      "existing_boundary": "Actual matched boundary and discrete connection response remain unknown.",
+      "prospective_record_requirements": [
+        "Applicable boundary/connection configuration and response records, source custody and domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Equivalent-area input is not proof of discrete load transfer, effective stiffness, connection behavior or assembled-system response.",
+      "proposed_custodian_role": "boundary-and-connection-response provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "original-homogenization-derivation-and-validation",
+      "existing_boundary": "Source contains symbolic equivalent-section identities, not a supplied original validation record.",
+      "prospective_record_requirements": [
+        "Original derivation identity/revision/assumptions and matched validation records if supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "A formula alone is not an independent derivation, homogenization calibration, sensitivity experiment or physical validation.",
+      "proposed_custodian_role": "original-homogenization-derivation-and-validation provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "raw-custody-calibration-and-uncertainty",
+      "existing_boundary": "No actual matched observation/raw custody accompanies the identities.",
+      "prospective_record_requirements": [
+        "Unmodified original raw records, acquisition context, responsible custody and applicable calibration/uncertainty."
+      ],
+      "insufficient_or_disconfirming_evidence": "Repository gate PASS cannot replace measured effective stiffness or unknown validation; no new numerical uncertainty estimate.",
+      "proposed_custodian_role": "raw-custody-calibration-and-uncertainty provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "applicability-and-responsible-adoption",
+      "existing_boundary": "Continuum-equivalent versus discrete assembly transfer is unlicensed by this paper.",
+      "prospective_record_requirements": [
+        "Matched reference/domain/applicability records, actual responsible owner and adoption source/version/criterion only when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Proposed custodian roles are unassigned; no geometry/member/section/connection/material/criterion/check/procedure or design chosen.",
+      "proposed_custodian_role": "applicability-and-responsible-adoption provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "installed_configuration": null,
+      "reference_cell": null,
+      "member_spacing": null,
+      "boundary_connection_response": null,
+      "original_derivation": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    }
+  ],
+  "actual_physical_manifest": null,
+  "selected_geometry_member_section_connection_material_criterion_check_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
