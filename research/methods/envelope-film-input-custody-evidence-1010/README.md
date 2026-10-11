@@ -1,0 +1,16 @@
+# Envelope-film source input names and acquired film-envelope custody
+
+Date: 2026-10-10. Status: prospective evidence, OPEN. [Model source](../../../ship/model.js) declares `envelopeFilmKgPerM3` with its own parameter names `spanM` and `datm`. These lexical names establish no acquired film construction, envelope geometry, pressure state, material, metrology or installed mass. The [member census](../../../docs/MEMBER-CENSUS.md) leaves station lengths, sections and connections unresolved and calls the film mesh schematic; [README](../../../README.md) states that no aircraft has been built or flown.
+
+The [evidence contract](EVIDENCE.json) pins the two exact nonnumeric parameter-name fragments and whole-source bytes. Numeric-bearing function context remains solely a byte count, line boundary and hash. Actual invocation/version/configuration/correspondence/input and output digests/raw custody/article/material-lot/process/installations/state/reference frame/metrology/timebase/calibration/uncertainty/applicability/owner/criterion/adoption remain null/UNKNOWN.
+
+| Requirement | Published source | Observation units | Missing applicability |
+|---|---|---|---|
+| Own span input-name identity | `ship/model.js envelopeFilmKgPerM3 own spanM parameter` | declaration/input/configuration identity | The source identifier establishes no acquired envelope geometry or selected span. |
+| Own pressure input-name identity | `ship/model.js envelopeFilmKgPerM3 own datm parameter` | input/digest/state identity | The source identifier establishes no acquired pressure state or adopted datum. |
+| Invocation and output correspondence | `ship/model.js hash-only bounded declaration context` | invocation/input/output correspondence identity | No actual output or installed mass is looked up, read, parsed, matched, refreshed or regenerated. |
+| Film-envelope article and installation custody | `docs/MEMBER-CENSUS.md unresolved sections/connections` | article/material/installation/state identity | A source label establishes no acquired film construction, material or installed configuration. |
+| Raw observation and metrology custody | `docs/MEMBER-CENSUS.md schematic film` | metrology/reference-frame/timebase identity | No metrology record or observed physical state is acquired or accepted. |
+| Applicability and responsible adoption | `README.md unbuilt aircraft` | applicability/owner/criterion/adoption identity | Separate maps provide no binding, criterion, result or status transfer. |
+
+Pressure-state, sealed-retraction, rim, flange, skin, geometry, seam, material, comparator and acceptance-owner maps remain separate; no binding, evidence, result, criterion or status transfers. Numeric defaults, callee/return binding inventory, area/volume/envelope constants, operators, formulas, scaling and comments are omitted. No numerical value is copied, evaluated or selected. No actual artifact is looked up, read, parsed, matched, refreshed, regenerated or frozen. No acquired configuration, design, operating, production, measurement or test procedure is selected or developed. No source, model, fixture, native, physical or external execution occurs. Public sources and historical conclusions remain unchanged; physical custody and acceptance remain UNKNOWN.
