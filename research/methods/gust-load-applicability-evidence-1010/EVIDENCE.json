@@ -1,0 +1,115 @@
+{
+  "schema": "robotics.method-evidence-thread/1",
+  "unit": "robotics-gust-load-applicability-evidence-thread-1010",
+  "date": "2026-10-10",
+  "scope": "Prospective evidence only; immutable source context, no computation, physical procedure, scientific acceptance or remote action.",
+  "source_pins": [
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "bytes": 18871,
+      "sha256": "138195a325fde17a89f30ef75bf2a1ace32337f3324c321b974afa9e6627e4a0"
+    },
+    {
+      "path": "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+      "bytes": 2175,
+      "sha256": "610fde180cc07b0e9644ac9c0fe13b96864cc2c2bdd72de30034508c16e0888d"
+    }
+  ],
+  "entries": [
+    {
+      "id": "configuration",
+      "requirement_or_owner": "Matched article, support and configuration applicability",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md missing gust-loading topic; docs/MEMBER-CENSUS.md conceptual member definitions",
+      "units": "configuration/support/evidence identity",
+      "method": "Request records identifying the same installed article, assembly/support state and observation interval, with configuration provenance and uncertainty.",
+      "missing_comparison_or_applicability": "Conceptual geometry and schematic member definitions do not identify an installed dynamic-flight configuration; applicability remains UNKNOWN.",
+      "prospective_evidence_id": "GUST:configuration",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    },
+    {
+      "id": "incident-flow",
+      "requirement_or_owner": "Incident-flow and environmental state histories",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md missing gust-loading topic",
+      "units": "velocity m/s; temperature K; pressure Pa; timestamp s",
+      "method": "Request raw incident-flow/state histories with sensor locations, calibration, clock provenance, uncertainty, missing intervals and configuration identity.",
+      "missing_comparison_or_applicability": "A named gust topic or parked-weather observation is not a matched incident-flow record for an installed dynamic response. No spectrum or operating limit is selected.",
+      "prospective_evidence_id": "GUST:incident-flow",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    },
+    {
+      "id": "response",
+      "requirement_or_owner": "Matched installed dynamic-response histories",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md missing gust-loading topic; research/p45/assumed-stiffness/ASSUMPTIONS.json",
+      "units": "displacement m; acceleration m/s2; recorded quantity units; timestamp s",
+      "method": "Request raw installed-response records and channel definitions matched to configuration and incident-flow histories, with calibration, uncertainty, failures and missing coverage.",
+      "missing_comparison_or_applicability": "P45 stipulated static stiffness is not an observed dynamic response or a load transfer coefficient; no force, moment, stress or structural qualification follows.",
+      "prospective_evidence_id": "GUST:response",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    },
+    {
+      "id": "bandwidth",
+      "requirement_or_owner": "Bandwidth, sampling and calibration provenance",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md missing gust-loading topic",
+      "units": "frequency Hz; sample interval s; calibration/uncertainty units per channel",
+      "method": "Request documented channel bandwidth, sampling/filtering, calibration and drift, processing versions and uncertainty with retained raw records and gaps.",
+      "missing_comparison_or_applicability": "Missing bandwidth or sampling/calibration provenance leaves dynamic coverage unresolved; no spectrum, bandwidth threshold or physical procedure is prescribed.",
+      "prospective_evidence_id": "GUST:bandwidth",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    },
+    {
+      "id": "registration",
+      "requirement_or_owner": "Coordinates, signs, support state and time alignment",
+      "existing_model_reference": "docs/MEMBER-CENSUS.md conceptual configuration; research/p45/assumed-stiffness/ASSUMPTIONS.json actual state UNKNOWN",
+      "units": "coordinate/sign/support identity; time offset s; uncertainty units per channel",
+      "method": "Request coordinate/sign registration, support-state provenance and time-alignment uncertainty for matched flow and response channels and the same installed article.",
+      "missing_comparison_or_applicability": "An assumed static paper state and a parked support condition cannot silently become a flight dynamic boundary; shared timebase evidence remains separately owned.",
+      "prospective_evidence_id": "GUST:registration",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    },
+    {
+      "id": "ownership",
+      "requirement_or_owner": "Criterion ownership and unresolved applicability",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md missing gust-loading topic; research/p45/assumed-stiffness/ASSUMPTIONS.json physical applicability UNKNOWN",
+      "units": "owner/decision/evidence identity; uncertainty units per quantity",
+      "method": "Request separately recorded criterion ownership and adoption disposition with matched raw evidence, failure cases, uncertainty and explicit missing applicability.",
+      "missing_comparison_or_applicability": "Actual owner, observations, measured uncertainty and physical acceptance remain null/UNKNOWN. No criterion, extrapolation, scenario, test procedure or wind operating limit is adopted.",
+      "prospective_evidence_id": "GUST:ownership",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN",
+      "owner": null
+    }
+  ]
+}
