@@ -1,0 +1,800 @@
+{
+  "schema": "computed-printability.output-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computational/physical print custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 702,
+      "character_start": 1,
+      "character_end_exclusive": 29,
+      "fragment": "def overhang_fraction(v, t):",
+      "fragment_sha256": "a78018134119b8a7f037746e9b53499ae5c2fc33fcfe2fa9ccdb270b56e5d121"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 705,
+      "character_start": 5,
+      "character_end_exclusive": 93,
+      "fragment": "KEPT, BUT IT IS NOT THE PRINTABILITY FIGURE and must never be read as one: it is an area",
+      "fragment_sha256": "ddf9dd5bfbca1989fe48f777781aef6384ffcda0b0904fb8ac8685657a059a3a"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 706,
+      "character_start": 5,
+      "character_end_exclusive": 90,
+      "fragment": "fraction over the WHOLE mesh, so it is diluted by every square millimetre of the part",
+      "fragment_sha256": "9317b3bbfa7252d07d4cc0b1860937fd7847ef79cacb1b4fbc66a541246c1eab"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 707,
+      "character_start": 5,
+      "character_end_exclusive": 54,
+      "fragment": "that is fine, and it cannot see an island at all.",
+      "fragment_sha256": "cd41625811ad9b4574bea7f1b2a74cd6fd88042b4bb0f5d9c9153cff040f417c"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 778,
+      "character_start": 1,
+      "character_end_exclusive": 24,
+      "fragment": "def bed_support(F3, h):",
+      "fragment_sha256": "2c4ccc55904bea9a5f662823b886e959162f1083ab70f7399671f834189edcbc"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 779,
+      "character_start": 8,
+      "character_end_exclusive": 84,
+      "fragment": "What the printer has to hold up, measured on the field the mesh came out of.",
+      "fragment_sha256": "a94436ac00b43c44a5b8eb33ea00dd943cfe88f2a13e5cb93e7606ed0ab3bb7f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 804,
+      "character_start": 5,
+      "character_end_exclusive": 91,
+      "fragment": "cantilever printed sideways off a supported root counts as reached even though it will",
+      "fragment_sha256": "49525d56e75ab36c9a251e9590230fad1142d27886e3b301c114d7b658b87d1f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 805,
+      "character_start": 5,
+      "character_end_exclusive": 92,
+      "fragment": "droop; that is what supportAreaMm2 is beside it for, and it is why the two are reported",
+      "fragment_sha256": "5b30e5c8aed14723aa7851b8d63d2f87d7b2adec104f8ef75060515535f70a25"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 894,
+      "character_start": 1,
+      "character_end_exclusive": 91,
+      "fragment": "def print_frame(lands, dirs=None, prm=None, base=None, stubs=None, bores=None, kinds=None,",
+      "fragment_sha256": "56d61a082693e7953a299f50d1d51073669e30ffcae2f30cf53216ca83f3efdd"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 895,
+      "character_start": 17,
+      "character_end_exclusive": 34,
+      "fragment": "search_out=None):",
+      "fragment_sha256": "1b7677d050272b1447e76d8ea144cdd5d1c768b574684a526caa614af5fed819"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 933,
+      "character_start": 5,
+      "character_end_exclusive": 91,
+      "fragment": "Pass a list as `search_out` and every candidate it measured is appended to it, ranked.",
+      "fragment_sha256": "cf577353673a71cad7a2923828324e402082d143a34ea095aa894d9eb8d6cfe2"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 976,
+      "character_start": 11,
+      "character_end_exclusive": 93,
+      "fragment": "Every figure in here is measured on the SEARCH grid, which is coarser than the one",
+      "fragment_sha256": "b7d2082c5afa6de7c9fa6cf99b600022dc5f6043527b475a661a47acfa3d52b6"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 977,
+      "character_start": 11,
+      "character_end_exclusive": 89,
+      "fragment": "the STL comes off; it ranks, it does not publish. The per-node islandVolumeMm3",
+      "fragment_sha256": "50fdac182fea7b36962afa80c3bf735dacda42ccb08da34e5670863291e14e74"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 978,
+      "character_start": 11,
+      "character_end_exclusive": 72,
+      "fragment": "beside it in the manifest is the extraction-grid measurement.",
+      "fragment_sha256": "8dfb9c573c239e0533f9cff5f0e8b0ea6bd8e0eae798ef84b8fe7e1c0e67c083"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 963,
+      "character_start": 9,
+      "character_end_exclusive": 34,
+      "fragment": "sup = bed_support(F3, hh)",
+      "fragment_sha256": "ea5e988fd76470352139bcbba091d9e4d9fa3377ab3e33e9646c1f1c1c1b4ec7"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1187,
+      "character_start": 9,
+      "character_end_exclusive": 74,
+      "fragment": "R = print_frame([], dirs, prm, base, stubs, bores, kinds, search)",
+      "fragment_sha256": "b9e74b11f8678ffcd5154e3fc240ac7d104f7cc9afa899d8b4d23774431c8497"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1205,
+      "character_start": 9,
+      "character_end_exclusive": 33,
+      "fragment": "sup = bed_support(F3, h)",
+      "fragment_sha256": "33b56600020915aab9646a233eb35eb46c65ff7e68fc76ce6cc5f2153ca47dda"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1203,
+      "character_start": 11,
+      "character_end_exclusive": 68,
+      "fragment": "PRINTABILITY, MEASURED ON THE FIELD THIS MESH CAME OUT OF",
+      "fragment_sha256": "430c59b779f06d36124f8e64efa2ac64fb7ab007b9813d51a9e4dead67a4ade8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1204,
+      "character_start": 11,
+      "character_end_exclusive": 83,
+      "fragment": "print_frame ranked orientations with, and not as a fraction of anything.",
+      "fragment_sha256": "aaf92d61869ee548e911e20e1ca1165a73df842dd1475117fc190b3a15f25db5"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1217,
+      "character_start": 9,
+      "character_end_exclusive": 35,
+      "fragment": "manifest[\"nodes\"].append({",
+      "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1243,
+      "character_start": 13,
+      "character_end_exclusive": 35,
+      "fragment": "\"frameSearch\": search,",
+      "fragment_sha256": "58720826479ba91b0da9adb3a92e27eb6a2efb3902c97c85dbdb9ccb805730b9"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1225,
+      "character_start": 41,
+      "character_end_exclusive": 60,
+      "fragment": "\"overhangAreaFrac\":",
+      "fragment_sha256": "92e175eafd92fc98e1db98a7d95d9315f4c64a5788bdcc5374b982a14956370e"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1236,
+      "character_start": 13,
+      "character_end_exclusive": 32,
+      "fragment": "\"bedNormalArticle\":",
+      "fragment_sha256": "8663c237319b2a520a350361a91a28d152c31e2eb0cb6b0c9c79c13a2326bbc7"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1237,
+      "character_start": 13,
+      "character_end_exclusive": 56,
+      "fragment": "\"bedContactMm2\": round(sup[\"bedContactMm2\"]",
+      "fragment_sha256": "4999eddaa5b56a54c8673f57b410bf22e720e1ffa485ea00e7b83a712adb8936"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1238,
+      "character_start": 13,
+      "character_end_exclusive": 58,
+      "fragment": "\"supportAreaMm2\": round(sup[\"supportAreaMm2\"]",
+      "fragment_sha256": "374db5f19c9cb7339b1e8e53b199f63271b198c1dfe0af88c99e648de39ac9a2"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1239,
+      "character_start": 13,
+      "character_end_exclusive": 60,
+      "fragment": "\"islandVolumeMm3\": round(sup[\"islandVolumeMm3\"]",
+      "fragment_sha256": "70900684896660fc9b4b348d5359197b4641186194bcb8b8e65ef8019489f055"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1274,
+      "character_start": 5,
+      "character_end_exclusive": 33,
+      "fragment": "manifest[\"printability\"] = {",
+      "fragment_sha256": "28968a599f4aaa0c776d67f2260f77621bc9798f46af08355f9bfe5600999557"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1273,
+      "character_start": 5,
+      "character_end_exclusive": 29,
+      "fragment": "rows = manifest[\"nodes\"]",
+      "fragment_sha256": "916158535e72b034563e47d96676da9749dd2a342108e15795e86faa62342e72"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1285,
+      "character_start": 18,
+      "character_end_exclusive": 91,
+      "fragment": "layer \u2014 measured here on the extraction grid, not on the coarser grid the",
+      "fragment_sha256": "b65c105af7201100b6834c7dcf2fea83b012aedb15ab0b54ee1015b98724336f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1286,
+      "character_start": 18,
+      "character_end_exclusive": 36,
+      "fragment": "search ranks with.",
+      "fragment_sha256": "c4dcb4cf15bf188a2ea53247cc5be7cdb5cd5f266b2f4631f08ea5749c6a52e0"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 169,
+      "character_start": 13,
+      "character_end_exclusive": 59,
+      "fragment": "What it measures: print yield and tolerance at",
+      "fragment_sha256": "1e3ce0f531eadc6a92b33a0470863a5dff2fedb951220713850563b1db63eb16"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "overhang_fraction and its declared limitation",
+      "source_role": "Source helper takes mesh vertices/triangles; the docstring says its whole-mesh area fraction is diluted and cannot see islands.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 702,
+          "character_start": 1,
+          "character_end_exclusive": 29,
+          "fragment": "def overhang_fraction(v, t):",
+          "fragment_sha256": "a78018134119b8a7f037746e9b53499ae5c2fc33fcfe2fa9ccdb270b56e5d121"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 705,
+          "character_start": 5,
+          "character_end_exclusive": 93,
+          "fragment": "KEPT, BUT IT IS NOT THE PRINTABILITY FIGURE and must never be read as one: it is an area",
+          "fragment_sha256": "ddf9dd5bfbca1989fe48f777781aef6384ffcda0b0904fb8ac8685657a059a3a"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 706,
+          "character_start": 5,
+          "character_end_exclusive": 90,
+          "fragment": "fraction over the WHOLE mesh, so it is diluted by every square millimetre of the part",
+          "fragment_sha256": "9317b3bbfa7252d07d4cc0b1860937fd7847ef79cacb1b4fbc66a541246c1eab"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 707,
+          "character_start": 5,
+          "character_end_exclusive": 54,
+          "fragment": "that is fine, and it cannot see an island at all.",
+          "fragment_sha256": "cd41625811ad9b4574bea7f1b2a74cd6fd88042b4bb0f5d9c9153cff040f417c"
+        }
+      ],
+      "limit": "This retained limitation is not replaced by a manufacturing success or source-check correctness claim; no angle or threshold copied.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "bed_support computational field measurement",
+      "source_role": "Source helper takes its own F3 and h parameters and describes field-derived computational measures. The documented in-layer reachability blind spot permits a sideways cantilever to count as reached even though it may droop.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 778,
+          "character_start": 1,
+          "character_end_exclusive": 24,
+          "fragment": "def bed_support(F3, h):",
+          "fragment_sha256": "2c4ccc55904bea9a5f662823b886e959162f1083ab70f7399671f834189edcbc"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 779,
+          "character_start": 8,
+          "character_end_exclusive": 84,
+          "fragment": "What the printer has to hold up, measured on the field the mesh came out of.",
+          "fragment_sha256": "a94436ac00b43c44a5b8eb33ea00dd943cfe88f2a13e5cb93e7606ed0ab3bb7f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 804,
+          "character_start": 5,
+          "character_end_exclusive": 91,
+          "fragment": "cantilever printed sideways off a supported root counts as reached even though it will",
+          "fragment_sha256": "49525d56e75ab36c9a251e9590230fad1142d27886e3b301c114d7b658b87d1f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 805,
+          "character_start": 5,
+          "character_end_exclusive": 92,
+          "fragment": "droop; that is what supportAreaMm2 is beside it for, and it is why the two are reported",
+          "fragment_sha256": "5b30e5c8aed14723aa7851b8d63d2f87d7b2adec104f8ef75060515535f70a25"
+        }
+      ],
+      "limit": "Reachability is not a qualified physical support/print result; no support algorithm, threshold or grid formula is reconstructed.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "print_frame search context",
+      "source_role": "Source print_frame takes its own parameters and optional search_out; ranked alternatives are described as search-grid computations. The search uses bed_support(F3, hh).",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 894,
+          "character_start": 1,
+          "character_end_exclusive": 91,
+          "fragment": "def print_frame(lands, dirs=None, prm=None, base=None, stubs=None, bores=None, kinds=None,",
+          "fragment_sha256": "56d61a082693e7953a299f50d1d51073669e30ffcae2f30cf53216ca83f3efdd"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 895,
+          "character_start": 17,
+          "character_end_exclusive": 34,
+          "fragment": "search_out=None):",
+          "fragment_sha256": "1b7677d050272b1447e76d8ea144cdd5d1c768b574684a526caa614af5fed819"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 933,
+          "character_start": 5,
+          "character_end_exclusive": 91,
+          "fragment": "Pass a list as `search_out` and every candidate it measured is appended to it, ranked.",
+          "fragment_sha256": "cf577353673a71cad7a2923828324e402082d143a34ea095aa894d9eb8d6cfe2"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 963,
+          "character_start": 9,
+          "character_end_exclusive": 34,
+          "fragment": "sup = bed_support(F3, hh)",
+          "fragment_sha256": "ea5e988fd76470352139bcbba091d9e4d9fa3377ab3e33e9646c1f1c1c1b4ec7"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 976,
+          "character_start": 11,
+          "character_end_exclusive": 93,
+          "fragment": "Every figure in here is measured on the SEARCH grid, which is coarser than the one",
+          "fragment_sha256": "b7d2082c5afa6de7c9fa6cf99b600022dc5f6043527b475a661a47acfa3d52b6"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 977,
+          "character_start": 11,
+          "character_end_exclusive": 89,
+          "fragment": "the STL comes off; it ranks, it does not publish. The per-node islandVolumeMm3",
+          "fragment_sha256": "50fdac182fea7b36962afa80c3bf735dacda42ccb08da34e5670863291e14e74"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 978,
+          "character_start": 11,
+          "character_end_exclusive": 72,
+          "fragment": "beside it in the manifest is the extraction-grid measurement.",
+          "fragment_sha256": "8dfb9c573c239e0533f9cff5f0e8b0ea6bd8e0eae798ef84b8fe7e1c0e67c083"
+        }
+      ],
+      "limit": "Orientation ranking and reported extraction-grid quantities are distinct contexts. No ranking procedure, objective or orientation is selected or recomputed.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "main extraction-grid caller context",
+      "source_role": "Within main, print_frame supplies R and search; the later extraction field goes to bed_support(F3, h). The comments explicitly distinguish that field from the search-ranking grid.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1187,
+          "character_start": 9,
+          "character_end_exclusive": 74,
+          "fragment": "R = print_frame([], dirs, prm, base, stubs, bores, kinds, search)",
+          "fragment_sha256": "b9e74b11f8678ffcd5154e3fc240ac7d104f7cc9afa899d8b4d23774431c8497"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1205,
+          "character_start": 9,
+          "character_end_exclusive": 33,
+          "fragment": "sup = bed_support(F3, h)",
+          "fragment_sha256": "33b56600020915aab9646a233eb35eb46c65ff7e68fc76ce6cc5f2153ca47dda"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1203,
+          "character_start": 11,
+          "character_end_exclusive": 68,
+          "fragment": "PRINTABILITY, MEASURED ON THE FIELD THIS MESH CAME OUT OF",
+          "fragment_sha256": "430c59b779f06d36124f8e64efa2ac64fb7ab007b9813d51a9e4dead67a4ade8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1204,
+          "character_start": 11,
+          "character_end_exclusive": 83,
+          "fragment": "print_frame ranked orientations with, and not as a fraction of anything.",
+          "fragment_sha256": "aaf92d61869ee548e911e20e1ca1165a73df842dd1475117fc190b3a15f25db5"
+        }
+      ],
+      "limit": "F3/h in main and F3/hh in print_frame belong to different local caller contexts; computational measured wording is not calibrated observation of printed hardware.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "per-node output namespaces",
+      "source_role": "main records nodes, frameSearch, overhangAreaFrac, bedNormalArticle, bedContactMm2, supportAreaMm2 and islandVolumeMm3 identifiers.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1217,
+          "character_start": 9,
+          "character_end_exclusive": 35,
+          "fragment": "manifest[\"nodes\"].append({",
+          "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1243,
+          "character_start": 13,
+          "character_end_exclusive": 35,
+          "fragment": "\"frameSearch\": search,",
+          "fragment_sha256": "58720826479ba91b0da9adb3a92e27eb6a2efb3902c97c85dbdb9ccb805730b9"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1225,
+          "character_start": 41,
+          "character_end_exclusive": 60,
+          "fragment": "\"overhangAreaFrac\":",
+          "fragment_sha256": "92e175eafd92fc98e1db98a7d95d9315f4c64a5788bdcc5374b982a14956370e"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1236,
+          "character_start": 13,
+          "character_end_exclusive": 32,
+          "fragment": "\"bedNormalArticle\":",
+          "fragment_sha256": "8663c237319b2a520a350361a91a28d152c31e2eb0cb6b0c9c79c13a2326bbc7"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1237,
+          "character_start": 13,
+          "character_end_exclusive": 56,
+          "fragment": "\"bedContactMm2\": round(sup[\"bedContactMm2\"]",
+          "fragment_sha256": "4999eddaa5b56a54c8673f57b410bf22e720e1ffa485ea00e7b83a712adb8936"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1238,
+          "character_start": 13,
+          "character_end_exclusive": 58,
+          "fragment": "\"supportAreaMm2\": round(sup[\"supportAreaMm2\"]",
+          "fragment_sha256": "374db5f19c9cb7339b1e8e53b199f63271b198c1dfe0af88c99e648de39ac9a2"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1239,
+          "character_start": 13,
+          "character_end_exclusive": 60,
+          "fragment": "\"islandVolumeMm3\": round(sup[\"islandVolumeMm3\"]",
+          "fragment_sha256": "70900684896660fc9b4b348d5359197b4641186194bcb8b8e65ef8019489f055"
+        }
+      ],
+      "limit": "frameSearch retains search context; adjacent per-node support fields report extraction context. Same identifier spelling across namespaces does not equate context, measurements, custody or physical applicability.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "aggregate printability output context",
+      "source_role": "main draws rows from nodes and builds manifest printability; the source rule attributes reported measurements to extraction grid rather than the coarser ranking grid.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1273,
+          "character_start": 5,
+          "character_end_exclusive": 29,
+          "fragment": "rows = manifest[\"nodes\"]",
+          "fragment_sha256": "916158535e72b034563e47d96676da9749dd2a342108e15795e86faa62342e72"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1274,
+          "character_start": 5,
+          "character_end_exclusive": 33,
+          "fragment": "manifest[\"printability\"] = {",
+          "fragment_sha256": "28968a599f4aaa0c776d67f2260f77621bc9798f46af08355f9bfe5600999557"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1285,
+          "character_start": 18,
+          "character_end_exclusive": 91,
+          "fragment": "layer \u2014 measured here on the extraction grid, not on the coarser grid the",
+          "fragment_sha256": "b65c105af7201100b6834c7dcf2fea83b012aedb15ab0b54ee1015b98724336f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1286,
+          "character_start": 18,
+          "character_end_exclusive": 36,
+          "fragment": "search ranks with.",
+          "fragment_sha256": "c4dcb4cf15bf188a2ea53247cc5be7cdb5cd5f266b2f4631f08ea5749c6a52e0"
+        }
+      ],
+      "limit": "Source output identity only; no manifest looked up, matched, regenerated or assumed current, and no manufacturing acceptance or numerical output reproduced.",
+      "actual_computational_run_or_manifest": null,
+      "actual_physical_print_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "computational-invocation-and-version",
+      "prospective_record_requirements": [
+        "Original exact computational invocation/version/parameters/orientation and source correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Static helper names and output labels cannot supply a current computational run or matched output.",
+      "proposed_custodian_role": "computational-invocation-and-version record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "manifest-custody-and-context",
+      "prospective_record_requirements": [
+        "Original unmodified manifest/raw custody with search-ranking versus extraction-report context."
+      ],
+      "insufficient_or_disconfirming_evidence": "Same field spelling is not context equality; no fresh manifest match or extraction run is supplied.",
+      "proposed_custodian_role": "manifest-custody-and-context record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-part-printer-material-process",
+      "prospective_record_requirements": [
+        "Actual part/printer/material/process/state/orientation/support records with responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "A selected computational frame is not a physically observed or qualified print.",
+      "proposed_custodian_role": "physical-part-printer-material-process record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-observations-and-rejections",
+      "prospective_record_requirements": [
+        "Original physical observations/rejections and applicable acquisition context."
+      ],
+      "insufficient_or_disconfirming_evidence": "Reachability and overhang area source measures cannot replace physical outcomes or cancel documented blind spots.",
+      "proposed_custodian_role": "physical-observations-and-rejections record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Original applicable calibration/uncertainty/custody/domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No new uncertainty, computational-to-print validation, correctness proof or manufacturing success follows from software checks.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "responsible-owner-and-criterion",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adoption source/version/domain/criterion when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodian roles are proposals UNASSIGNED; no orientation/support/printer/material/process/procedure/criterion/design or physical campaign selected.",
+      "proposed_custodian_role": "responsible-owner-and-criterion record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_correspondence": null,
+      "parameters": null,
+      "computational_orientation": null,
+      "manifest_custody": null,
+      "part": null,
+      "printer": null,
+      "material": null,
+      "process": null,
+      "physical_orientation": null,
+      "support_record": null,
+      "observations": null,
+      "rejections": null,
+      "calibration": null,
+      "uncertainty": null,
+      "custody_record": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate original provenance custody; no outcomes, physical qualification or landing inferred."
+    },
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate original provenance custody; no outcomes, physical qualification or landing inferred."
+    }
+  ],
+  "separate_printyield_plan_boundary": {
+    "source_locator": {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 169,
+      "character_start": 13,
+      "character_end_exclusive": 59,
+      "fragment": "What it measures: print yield and tolerance at",
+      "fragment_sha256": "1e3ce0f531eadc6a92b33a0470863a5dff2fedb951220713850563b1db63eb16"
+    },
+    "limit": "Existing prospective plan only; no test completion, campaign, tolerance or procedure adopted."
+  },
+  "selected_orientation_support_printer_material_process_procedure_criterion_design_or_campaign": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
