@@ -191,6 +191,27 @@
       "character_start": 186,
       "character_end_exclusive": 222,
       "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 737,
+      "character_start": 6,
+      "character_end_exclusive": 43,
+      "fragment": "Node mass is MEASURED by gen_nodes.py"
+    },
+    {
+      "path": "README.md",
+      "line": 93,
+      "character_start": 1,
+      "character_end_exclusive": 82,
+      "fragment": "Higher factored loads buy heavier members, joint allowance and stability reserve."
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 169,
+      "character_start": 13,
+      "character_end_exclusive": 59,
+      "fragment": "What it measures: print yield and tolerance at"
     }
   ],
   "source_identity_mappings": [
@@ -228,8 +249,15 @@
     },
     {
       "source_identity": "browser mirror and parity source claim",
-      "source_role": "The header says the browser carries a constant and parity holds it to the manifest read by Python. stockBuild consumes NODE_MASS_COMPUTED_KG as its local nodesKg.",
+      "source_role": "The header says the browser carries a constant and parity holds it to the manifest read by Python. stockBuild consumes NODE_MASS_COMPUTED_KG as its local nodesKg. The stockBuild-side MEASURED-by-gen_nodes wording is also explicitly attributed to computation, not physical weighing or calibrated density.",
       "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 737,
+          "character_start": 6,
+          "character_end_exclusive": 43,
+          "fragment": "Node mass is MEASURED by gen_nodes.py"
+        },
         {
           "path": "ship/model.js",
           "line": 43,
@@ -610,10 +638,45 @@
       "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
       "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
       "relation": "Separate recorded provenance status; no numerical outcome, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-q11-dry-mass-source-crosswalk-1010",
+      "candidate": "50fa2016b9145035b0ccdc5c0d11429abd7c4315",
+      "output_dir": "research/open-questions/q11-mass-crosswalk-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Q11 dry-mass reconciliation provenance remains separate; numerical outcomes and physical qualification not imported."
     }
   ],
   "selected_density_material_geometry_inventory_criterion_design_or_procedure": null,
   "new_numeric_results": [],
   "new_measurements": [],
-  "models_equations_or_generators_executed": false
+  "models_equations_or_generators_executed": false,
+  "separate_source_boundaries": [
+    {
+      "identity": "joint allowance inclusion",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 93,
+          "character_start": 1,
+          "character_end_exclusive": 82,
+          "fragment": "Higher factored loads buy heavier members, joint allowance and stability reserve."
+        }
+      ],
+      "limit": "Existing source accounting statement only; not repeated mass reconciliation or adopted physical allowance."
+    },
+    {
+      "identity": "print yield and tolerance",
+      "source_locators": [
+        {
+          "path": "docs/VERIFICATION-PLAN.md",
+          "line": 169,
+          "character_start": 13,
+          "character_end_exclusive": 59,
+          "fragment": "What it measures: print yield and tolerance at"
+        }
+      ],
+      "limit": "Existing verification-plan boundary only, not completed print-yield evidence, tolerance adoption, campaign or procedure development."
+    }
+  ]
 }
