@@ -1,0 +1,466 @@
+{
+  "schema": "assembly-report-comparison-source.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual report-pair/comparison and physical custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1978,
+      "character_start": 1,
+      "character_end_exclusive": 31,
+      "fragment": "def comparable_report(report):",
+      "fragment_sha256": "0b6dcbe0f163331ff1f96c8df3e1641c1492212d9a8c4327cf7b25c4567009af"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1979,
+      "character_start": 8,
+      "character_end_exclusive": 84,
+      "fragment": "Compare every physical result; omit only the two host-duration measurements.",
+      "fragment_sha256": "049fcd8be9797a98c8041599f6e9cf59a90df729c50b880b9bc380f0ade11196"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1980,
+      "character_start": 5,
+      "character_end_exclusive": 12,
+      "fragment": "clean =",
+      "fragment_sha256": "2082877738c06ee887d2045e91c71fc69906a36fec4f1fcd1a0fccc206fa310c"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1981,
+      "character_start": 17,
+      "character_end_exclusive": 27,
+      "fragment": "'runtimeS'",
+      "fragment_sha256": "f5b7b0be1cbc51ec0d6330955e6656d13198aa1dcb0ba3f6bb3b8be9cfe4cfac"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1981,
+      "character_start": 29,
+      "character_end_exclusive": 37,
+      "fragment": "'fieldS'",
+      "fragment_sha256": "1ea587e89b53871b5d4fda6a48d905ce297f9bae32c76bab687f7701dca634e7"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1982,
+      "character_start": 19,
+      "character_end_exclusive": 28,
+      "fragment": "'verdict'",
+      "fragment_sha256": "b5cfc9c6e7a8a9cb5995ecf9eceed0a7b87dd392813a2cf8cc3497c683398a33"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1983,
+      "character_start": 5,
+      "character_end_exclusive": 17,
+      "fragment": "return clean",
+      "fragment_sha256": "7bfafa2b76a4efc5f75d7210c594da28b7af8deb33c4590e9003d099d4a48f98"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "comparable_report own source namespace",
+      "line_start": 1978,
+      "line_end_inclusive": 1983,
+      "context_sha256": "36a324f76bacfb0e2baed432c271122e7b74385318e505109b16dca94507e1f5",
+      "context_bytes": 250,
+      "limit": "Hash only; comparison/deletion/serialization/branch/dictionary contents not reconstructed or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "own report input namespace",
+      "source_role": "comparable_report has its own report parameter.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1978,
+          "character_start": 1,
+          "character_end_exclusive": 31,
+          "fragment": "def comparable_report(report):",
+          "fragment_sha256": "0b6dcbe0f163331ff1f96c8df3e1641c1492212d9a8c4327cf7b25c4567009af"
+        }
+      ],
+      "limit": "Source namespace only, not actual input reports, produced-report identity, exhaustive validated comparison or current correctness.",
+      "actual_report_pair_and_comparison_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "own clean local and returned namespace",
+      "source_role": "The source has a selected clean assignment and returns clean.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1980,
+          "character_start": 5,
+          "character_end_exclusive": 12,
+          "fragment": "clean =",
+          "fragment_sha256": "2082877738c06ee887d2045e91c71fc69906a36fec4f1fcd1a0fccc206fa310c"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1983,
+          "character_start": 5,
+          "character_end_exclusive": 17,
+          "fragment": "return clean",
+          "fragment_sha256": "7bfafa2b76a4efc5f75d7210c594da28b7af8deb33c4590e9003d099d4a48f98"
+        }
+      ],
+      "limit": "Bare assignment locates a name only; no dictionary/comparison/deletion/serialization/branch algorithm reconstructed or evaluated, normalized output acquired or comparison executed.",
+      "actual_report_pair_and_comparison_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected source key namespace",
+      "source_role": "Selected source text names runtimeS, fieldS and verdict.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1981,
+          "character_start": 17,
+          "character_end_exclusive": 27,
+          "fragment": "'runtimeS'",
+          "fragment_sha256": "f5b7b0be1cbc51ec0d6330955e6656d13198aa1dcb0ba3f6bb3b8be9cfe4cfac"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1981,
+          "character_start": 29,
+          "character_end_exclusive": 37,
+          "fragment": "'fieldS'",
+          "fragment_sha256": "1ea587e89b53871b5d4fda6a48d905ce297f9bae32c76bab687f7701dca634e7"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1982,
+          "character_start": 19,
+          "character_end_exclusive": 28,
+          "fragment": "'verdict'",
+          "fragment_sha256": "b5cfc9c6e7a8a9cb5995ecf9eceed0a7b87dd392813a2cf8cc3497c683398a33"
+        }
+      ],
+      "limit": "Selected key names only, not complete report-key inventory, float-tolerance analysis, elapsed values, physical timebase, verified comparison scope or matched report pair.",
+      "actual_report_pair_and_comparison_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "attributed comparison intent",
+      "source_role": "The docstring describes comparison of physical results with host-duration omissions.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1979,
+          "character_start": 8,
+          "character_end_exclusive": 84,
+          "fragment": "Compare every physical result; omit only the two host-duration measurements.",
+          "fragment_sha256": "049fcd8be9797a98c8041599f6e9cf59a90df729c50b880b9bc380f0ade11196"
+        }
+      ],
+      "limit": "Attributed computational source intent only; not independently acquired physical measurements, current comparison correctness, equality of produced reports or scientific/physical acceptance.",
+      "actual_report_pair_and_comparison_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "computational versus physical boundary",
+      "source_role": "The unchanged project source says no aircraft has been built or flown.",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Source names and software gates cannot supply actual parts/material/installation/metrology/timebase records or adopted physical applicability/criterion.",
+      "actual_report_pair_and_comparison_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-source-version-and-configuration",
+      "prospective_record_requirements": [
+        "Original actual invocation/source-version/configuration and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Selected function/input/key names are not an executed comparison or selected configuration.",
+      "proposed_custodian_role": "invocation-source-version-and-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "input-report-pair-digests-and-correspondence",
+      "prospective_record_requirements": [
+        "Original input report-pair digests and source-to-report correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source hashes/keys cannot identify produced report pairs or establish their matched configuration/identity.",
+      "proposed_custodian_role": "input-report-pair-digests-and-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "comparison-result-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original comparison result and unmodified raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Docstring comparison intent is not an actual equality result, validated exhaustive comparison or accepted artifact.",
+      "proposed_custodian_role": "comparison-result-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "article-parts-material-process-and-installation",
+      "prospective_record_requirements": [
+        "Matched actual article/parts/material/lot/process/installed configuration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computational physical-result wording is not manufactured part identity, registry or physical acceptance.",
+      "proposed_custodian_role": "article-parts-material-process-and-installation record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "referenceframe-metrology-timebase-calibration-and-uncertainty",
+      "prospective_record_requirements": [
+        "Original referenceframe/metrology/timebase/calibration/uncertainty and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Duration key names cannot supply physical timebase/measurement or validated comparison uncertainty.",
+      "proposed_custodian_role": "referenceframe-metrology-timebase-calibration-and-uncertainty record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no criterion/design/registry or production/operating/test/campaign procedure selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_report_pair_digests": null,
+      "configuration": null,
+      "source_to_report_correspondence": null,
+      "comparison_result": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-assembly-prover-parameter-input-custody-provenance-evidence-thread-1010",
+      "candidate": "34d18e4d773cf71df8cefda1333479a04c4a9cf8",
+      "output_dir": "research/methods/assembly-prover-parameter-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-generator-manifest-parameter-custody-provenance-evidence-thread-1010",
+      "candidate": "5ade02cc5eb257f98aeeb2b96681faf47ea93a3c",
+      "output_dir": "research/methods/generator-manifest-parameter-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-generated-node-file-identity-provenance-evidence-thread-1010",
+      "candidate": "d626b1e9420cbc14463320b0724c3d01ad582de2",
+      "output_dir": "research/methods/generated-node-file-identity-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-computed-mesh-closure-provenance-evidence-thread-1010",
+      "candidate": "c23772d8f16c6628b0f24b0c236195a44d3aa0f4",
+      "output_dir": "research/methods/computed-mesh-closure-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-mesh-extraction-grid-input-custody-provenance-evidence-thread-1010",
+      "candidate": "a3e390f743dc535744b72a97bfb868a6a63c9d77",
+      "output_dir": "research/methods/mesh-extraction-grid-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-report-output-custody-provenance-evidence-thread-1010",
+      "candidate": "26341a42857881cb8be173b473d52cf6e3c5363b",
+      "output_dir": "research/methods/assembly-prover-report-output-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, criterion, status, signature/landing or physical applicability transferred."
+    }
+  ],
+  "selected_criterion_design_registry_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
