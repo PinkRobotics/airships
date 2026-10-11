@@ -1,0 +1,637 @@
+{
+  "schema": "node-manifest-consumer-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual checker input/output and physical article custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/check_nodes.py",
+      "line": 22,
+      "character_start": 1,
+      "character_end_exclusive": 70,
+      "fragment": "MANIFEST = ROOT / \"research\" / \"geometry\" / \"nodes\" / \"manifest.json\"",
+      "fragment_sha256": "fc50a09dda7c044224abb3417a389d676705680faf9ff24e2688fdc9f28f2964"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 25,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 26,
+      "character_start": 12,
+      "character_end_exclusive": 29,
+      "fragment": "MANIFEST.exists()",
+      "fragment_sha256": "d10dc68ac47588d8d18ac957335f443d58e83004ef79e7a05f36cd20f6900184"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 28,
+      "character_start": 5,
+      "character_end_exclusive": 41,
+      "fragment": "m = json.loads(MANIFEST.read_text())",
+      "fragment_sha256": "fe9aac86a36fafed9558a636447f5d6948c40db48d8f5fcac0d38b4885d1363e"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 30,
+      "character_start": 5,
+      "character_end_exclusive": 23,
+      "fragment": "nodes = m[\"nodes\"]",
+      "fragment_sha256": "284fbde898453bf091ce3d20ee92c657961035c2b8f8f2b35a9bed90c439ba1c"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 33,
+      "character_start": 5,
+      "character_end_exclusive": 15,
+      "fragment": "roles = {}",
+      "fragment_sha256": "2661f9c0e6c75ccd7012c81728069557c8ee09d49673a941f8fdef9144534745"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 34,
+      "character_start": 5,
+      "character_end_exclusive": 20,
+      "fragment": "for r in nodes:",
+      "fragment_sha256": "f0051b19b10c14ea61cb5d2986d15e0e6418523be1e58e052cd3c7f209d8e48a"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 35,
+      "character_start": 15,
+      "character_end_exclusive": 24,
+      "fragment": "r[\"role\"]",
+      "fragment_sha256": "d33b8693a0401affca23fdf3f206736d451466a4efb094628aa5ded5d3ddeaa0"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 36,
+      "character_start": 16,
+      "character_end_exclusive": 27,
+      "fragment": "r[\"closed\"]",
+      "fragment_sha256": "b2dcd21275e7b4070265abf090f0c995a772a0f23d84e401ae934429b66d075c"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 38,
+      "character_start": 35,
+      "character_end_exclusive": 44,
+      "fragment": "r[\"file\"]",
+      "fragment_sha256": "185a74525dad42bbdfe76cae07b24ee95b2bbb2de5755dd798d85223be1785c3"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 2,
+      "character_start": 4,
+      "character_end_exclusive": 84,
+      "fragment": "The computed-node manifest must be present, closed, and match the article graph.",
+      "fragment_sha256": "a749a779375c2212151ab2126494a0730e1645501b3b8d6ea95e1fb91abab597"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 7,
+      "character_start": 1,
+      "character_end_exclusive": 30,
+      "fragment": "This gate does NOT regenerate",
+      "fragment_sha256": "7f7484e5debe1a4cc55065261e55fdfe10beb5503dc7f65289ab2bbec2cc9fce"
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "line": 8,
+      "character_start": 1,
+      "character_end_exclusive": 56,
+      "fragment": "is self-consistent with the counting the analysis uses:",
+      "fragment_sha256": "75b3f11d267574efe6705c0a839e802eebcf5efe9fd4c48fd11a56cc376b90b2"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1217,
+      "character_start": 9,
+      "character_end_exclusive": 35,
+      "fragment": "manifest[\"nodes\"].append({",
+      "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1218,
+      "character_start": 13,
+      "character_end_exclusive": 25,
+      "fragment": "\"file\": name",
+      "fragment_sha256": "2c759d23d1ae1e7a0f801834d0612a8d1a992bca856ea7ed98c36cddc722e563"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1218,
+      "character_start": 41,
+      "character_end_exclusive": 53,
+      "fragment": "\"role\": role",
+      "fragment_sha256": "b444d5292883a3f77f1289db91f0fa6689e8edc2506521ba0bbb2914850d4472"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1219,
+      "character_start": 60,
+      "character_end_exclusive": 76,
+      "fragment": "\"closed\": closed",
+      "fragment_sha256": "7c790e445c1e7e963fe80def1074a3e6b25c4fac5704f08d708ac2b86e65c2bb"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/check_nodes.py",
+      "identity": "checker manifest path and selected main reader",
+      "line_start": 22,
+      "line_end_inclusive": 30,
+      "context_sha256": "a46a5482a72bbba8a548d81c792c5198f618e2383127dacaa4468f672b62dd8c",
+      "context_bytes": 271,
+      "limit": "Hash only; counting/check/threshold/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "identity": "checker selected row namespace",
+      "line_start": 33,
+      "line_end_inclusive": 38,
+      "context_sha256": "f610a480e3e962d8e10f5ea18d9520cc125b991645c5c6d7f853195cb733e718",
+      "context_bytes": 228,
+      "limit": "Hash only; counting/check/threshold/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/check_nodes.py",
+      "identity": "checker source framing",
+      "line_start": 2,
+      "line_end_inclusive": 10,
+      "context_sha256": "bddaf75461cee06174e96bcf0352fcf1ec4366dad005a0b023fe7a4a99b2ba9a",
+      "context_bytes": 557,
+      "limit": "Hash only; counting/check/threshold/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "generator selected row namespace",
+      "line_start": 1217,
+      "line_end_inclusive": 1219,
+      "context_sha256": "975c97d820a00b5a09c1d1a076e368c5ab7f451a1b1e6bd388dfd4088bbda33f",
+      "context_bytes": 184,
+      "limit": "Hash only; counting/check/threshold/numeric contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "own manifest path and selected main reader",
+      "source_role": "check_nodes owns its MANIFEST source path; selected main names the exists/read_text/json.loads reader and m.",
+      "source_locators": [
+        {
+          "path": "tools/check_nodes.py",
+          "line": 22,
+          "character_start": 1,
+          "character_end_exclusive": 70,
+          "fragment": "MANIFEST = ROOT / \"research\" / \"geometry\" / \"nodes\" / \"manifest.json\"",
+          "fragment_sha256": "fc50a09dda7c044224abb3417a389d676705680faf9ff24e2688fdc9f28f2964"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 25,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 26,
+          "character_start": 12,
+          "character_end_exclusive": 29,
+          "fragment": "MANIFEST.exists()",
+          "fragment_sha256": "d10dc68ac47588d8d18ac957335f443d58e83004ef79e7a05f36cd20f6900184"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 28,
+          "character_start": 5,
+          "character_end_exclusive": 41,
+          "fragment": "m = json.loads(MANIFEST.read_text())",
+          "fragment_sha256": "fe9aac86a36fafed9558a636447f5d6948c40db48d8f5fcac0d38b4885d1363e"
+        }
+      ],
+      "limit": "Source input-path/reader identity only; no manifest looked up, input digest acquired, invocation executed or input presence/result asserted.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected m/nodes container",
+      "source_role": "The selected main nodes namespace references m[\"nodes\"].",
+      "source_locators": [
+        {
+          "path": "tools/check_nodes.py",
+          "line": 30,
+          "character_start": 5,
+          "character_end_exclusive": 23,
+          "fragment": "nodes = m[\"nodes\"]",
+          "fragment_sha256": "284fbde898453bf091ce3d20ee92c657961035c2b8f8f2b35a9bed90c439ba1c"
+        }
+      ],
+      "limit": "Source container identity only; no original input rows acquired, actual printed inventory/counts, graph comparison or check outcome supplied.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected row role namespace",
+      "source_role": "The selected main row loop uses r from nodes and a roles container with a role field reference.",
+      "source_locators": [
+        {
+          "path": "tools/check_nodes.py",
+          "line": 33,
+          "character_start": 5,
+          "character_end_exclusive": 15,
+          "fragment": "roles = {}",
+          "fragment_sha256": "2661f9c0e6c75ccd7012c81728069557c8ee09d49673a941f8fdef9144534745"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 34,
+          "character_start": 5,
+          "character_end_exclusive": 20,
+          "fragment": "for r in nodes:",
+          "fragment_sha256": "f0051b19b10c14ea61cb5d2986d15e0e6418523be1e58e052cd3c7f209d8e48a"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 35,
+          "character_start": 15,
+          "character_end_exclusive": 24,
+          "fragment": "r[\"role\"]",
+          "fragment_sha256": "d33b8693a0401affca23fdf3f206736d451466a4efb094628aa5ded5d3ddeaa0"
+        }
+      ],
+      "limit": "Selected namespace only, not a comprehensive use inventory, counted/validated role tally or assigned physical article registry/role.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected row file and closed namespace",
+      "source_role": "The selected row context references closed and file fields.",
+      "source_locators": [
+        {
+          "path": "tools/check_nodes.py",
+          "line": 36,
+          "character_start": 16,
+          "character_end_exclusive": 27,
+          "fragment": "r[\"closed\"]",
+          "fragment_sha256": "b2dcd21275e7b4070265abf090f0c995a772a0f23d84e401ae934429b66d075c"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 38,
+          "character_start": 35,
+          "character_end_exclusive": 44,
+          "fragment": "r[\"file\"]",
+          "fragment_sha256": "185a74525dad42bbdfe76cae07b24ee95b2bbb2de5755dd798d85223be1785c3"
+        }
+      ],
+      "limit": "Source field/use identity only, no generated file/mesh lookup, fresh hash/output matching, current checker correctness, fabricated fit/closure/seal or physical acceptance.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "self-consistency and no-regeneration source framing",
+      "source_role": "The source frames itself as a computed-manifest self-consistency gate that does not regenerate.",
+      "source_locators": [
+        {
+          "path": "tools/check_nodes.py",
+          "line": 2,
+          "character_start": 4,
+          "character_end_exclusive": 84,
+          "fragment": "The computed-node manifest must be present, closed, and match the article graph.",
+          "fragment_sha256": "a749a779375c2212151ab2126494a0730e1645501b3b8d6ea95e1fb91abab597"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 7,
+          "character_start": 1,
+          "character_end_exclusive": 30,
+          "fragment": "This gate does NOT regenerate",
+          "fragment_sha256": "7f7484e5debe1a4cc55065261e55fdfe10beb5503dc7f65289ab2bbec2cc9fce"
+        },
+        {
+          "path": "tools/check_nodes.py",
+          "line": 8,
+          "character_start": 1,
+          "character_end_exclusive": 56,
+          "fragment": "is self-consistent with the counting the analysis uses:",
+          "fragment_sha256": "75b3f11d267574efe6705c0a839e802eebcf5efe9fd4c48fd11a56cc376b90b2"
+        }
+      ],
+      "limit": "Attributed computational source wording only, not an actually checked file/result, independently validated counting rule, manufactured inventory or scientific/physical qualification.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "separate generator field context",
+      "source_role": "The generator has selected nodes row/file/role/closed source identities pinned separately.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1217,
+          "character_start": 9,
+          "character_end_exclusive": 35,
+          "fragment": "manifest[\"nodes\"].append({",
+          "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1218,
+          "character_start": 13,
+          "character_end_exclusive": 25,
+          "fragment": "\"file\": name",
+          "fragment_sha256": "2c759d23d1ae1e7a0f801834d0612a8d1a992bca856ea7ed98c36cddc722e563"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1218,
+          "character_start": 41,
+          "character_end_exclusive": 53,
+          "fragment": "\"role\": role",
+          "fragment_sha256": "b444d5292883a3f77f1289db91f0fa6689e8edc2506521ba0bbb2914850d4472"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1219,
+          "character_start": 60,
+          "character_end_exclusive": 76,
+          "fragment": "\"closed\": closed",
+          "fragment_sha256": "7c790e445c1e7e963fe80def1074a3e6b25c4fac5704f08d708ac2b86e65c2bb"
+        },
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Namespace correspondence only, not acquired generator output, verified source-to-input correspondence or repeated generator/mesh/graph/mass/printability algorithm.",
+      "actual_checker_invocation_input_output_custody": null,
+      "actual_manufactured_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "checker-invocation-and-source-version",
+      "prospective_record_requirements": [
+        "Original actual checker invocation/source-version and responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source reader/call context supplies no actual checker invocation or current check correctness.",
+      "proposed_custodian_role": "checker-invocation-and-source-version record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "input-manifest-digest-and-correspondence",
+      "prospective_record_requirements": [
+        "Original input manifest digest/source-to-input correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source path and field names are not acquired input bytes/digest or a freshly matched generated artifact.",
+      "proposed_custodian_role": "input-manifest-digest-and-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "recorded-check-output-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original recorded check output and preserved raw custody tied to that run."
+      ],
+      "insufficient_or_disconfirming_evidence": "Attributed self-consistency wording and software gates do not provide an actual checked artifact/result.",
+      "proposed_custodian_role": "recorded-check-output-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "manufactured-part-serial-and-installation",
+      "prospective_record_requirements": [
+        "Matched manufactured part/article/serial/material/lot/process/configuration/installation records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Role/file/closed fields cannot identify printed inventory, installed registry or fabricated fit/seal acceptance.",
+      "proposed_custodian_role": "manufactured-part-serial-and-installation record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "metrology-calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Original metrology/calibration/uncertainty and source-to-article applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical inspection, counts/mass/tolerance/threshold comparison, qualified check or campaign supplied.",
+      "proposed_custodian_role": "metrology-calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no design/allowable/criterion/serial-registry assignment or production/operating/test/campaign procedure developed.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "checker_invocation": null,
+      "source_version_record": null,
+      "input_manifest_digest": null,
+      "source_to_input_correspondence": null,
+      "recorded_check_output": null,
+      "raw_custody": null,
+      "manufactured_part": null,
+      "article": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "configuration": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-generator-manifest-parameter-custody-provenance-evidence-thread-1010",
+      "candidate": "5ade02cc5eb257f98aeeb2b96681faf47ea93a3c",
+      "output_dir": "research/methods/generator-manifest-parameter-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-generated-node-file-identity-provenance-evidence-thread-1010",
+      "candidate": "d626b1e9420cbc14463320b0724c3d01ad582de2",
+      "output_dir": "research/methods/generated-node-file-identity-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-mesh-closure-provenance-evidence-thread-1010",
+      "candidate": "c23772d8f16c6628b0f24b0c236195a44d3aa0f4",
+      "output_dir": "research/methods/computed-mesh-closure-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-assembly-prover-parameter-input-custody-provenance-evidence-thread-1010",
+      "candidate": "34d18e4d773cf71df8cefda1333479a04c4a9cf8",
+      "output_dir": "research/methods/assembly-prover-parameter-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    }
+  ],
+  "selected_design_allowable_criterion_serial_registry_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
